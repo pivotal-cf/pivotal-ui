@@ -1,0 +1,24 @@
+/* line 2, /Users/pivotal/workspace/console/app/assets/stylesheets/print.css.scss */
+h1#billing_statement:before {
+  content: "Pivotal Web Services ";
+}
+
+/* line 7, /Users/pivotal/workspace/console/app/assets/stylesheets/print.css.scss */
+.btn, .headers, .no-print {
+  display: none !important;
+}
+
+/* line 12, /Users/pivotal/workspace/console/app/assets/stylesheets/print.css.scss */
+.print-only {
+  display: block;
+}
+
+/* line 17, /Users/pivotal/workspace/console/app/assets/stylesheets/print.css.scss */
+.panel-collapse.collapse {
+  display: block !important;
+}
+
+/* line 22, /Users/pivotal/workspace/console/app/assets/stylesheets/print.css.scss */
+.table tr, .table th, .table td {
+  border: none !important;
+}
