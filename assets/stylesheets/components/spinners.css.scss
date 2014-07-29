@@ -1,0 +1,38 @@
+/*doc
+---
+title: Spinners
+name: spinners
+parent: iconography
+---
+
+Spin it
+
+```haml_example
+.spinner-lg.bkg-default-5.out
+  %i.fa.fa-spin.fa-cog.mtxl
+
+.spinner-sm.bkg-default-5.out
+  %i.fa.fa-spin.fa-cog.mtxl
+```
+
+*/
+
+.spinner-lg {
+  margin-top: 64px;
+  text-align: center;
+  .fa-spin {
+    font-size: 48px;
+    opacity: 0.5;
+  }
+}
+
+.spinner-sm {
+  text-align: center;
+  min-height: 320px;
+  .fa-spin {
+    font-size: 28px;
+  }
+  &.out {
+    opacity: 0.2;
+  }
+}

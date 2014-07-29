@@ -1,0 +1,22 @@
+/*doc
+---
+title: Dividers
+name: divider
+categories:
+  - All
+  - CSS
+---
+
+Dividers draw horizontal lines between different content groupings.
+
+
+```haml_example
+%hr.divider-lowlight
+```
+
+*/
+
+
+.divider-lowlight {
+  border-top: $divider-lowlight-border;
+}

@@ -1,0 +1,129 @@
+html, body {
+  background-color: #243640;
+  height: 100%;
+}
+
+.container-dev-console {
+  min-height: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  position: relative;
+}
+
+@media all and (min-width: $screen-sm) {
+  .container-dev-console {
+    margin-right: 52px;
+  }
+}
+
+.constrain-width-lg {
+  max-width: $constrain-width-lg;
+}
+
+.constrain-width-xl {
+  max-width: $constrain-width-xl;
+}
+
+.main-wrapper {
+  position: absolute;
+  left: $navbar-width;
+  right: 0;
+  min-height: 100%;
+  padding:0 0 50px 0;
+  background-color: $gray-6;
+  @include clearfix-overflow;
+}
+
+@media all and (max-width: $screen-sm) {
+  .main-wrapper {
+    left: 0px; // full width at nav collapse breakpoint
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 8px 0px 4px 4px;
+  background-color:$blue-1;
+
+  .logo {
+    display: block;
+    float: left;
+    opacity:.5;
+  }
+
+  .legal-text {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    margin-left: 5px;
+
+    a{
+      color:$type-primary-4;
+      padding-left:5px;
+    }
+    a:hover{
+      color:$type-primary-5;
+    }
+  }
+}
+
+.header {
+  color: white;
+  background-color: #243640;
+
+  .account-dropdown {
+
+    .user-email {
+      display: inline-block;
+      line-height: 1.2;
+      max-width: 200px;
+      @include ellipsis;
+    }
+
+    .fa-chevron-up {
+      display: none;
+      vertical-align: text-top;
+    }
+
+    .fa-chevron-down {
+      display: inline-block;
+      vertical-align: text-top;
+    }
+
+    &.open {
+      .fa-chevron-up {
+        display: inline-block;
+      }
+
+      .fa-chevron-down {
+        display: none;
+      }
+    }
+
+    a {
+      color: $navbar-default-link-color;
+      text-decoration: none;
+    }
+
+    ul.dropdown-menu {
+      width: 100%;
+      text-align: left;
+      background-color: $gray-8;
+      border-radius: 0;
+
+      a {
+        padding-left: 16px;
+        font-size: 16px;
+        font-weight: 600;
+        color: $gray-2;
+        &:hover {
+          background-color: $shadow-3;
+        }
+      }
+    }
+  }
+}

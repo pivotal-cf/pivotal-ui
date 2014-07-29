@@ -1,0 +1,116 @@
+
+/*doc
+---
+title: No JavaScript
+name: no-js
+categories:
+  - All
+  - JavaScript
+---
+### Javascript
+
+Try disabling js and rendering this page.
+
+```haml_example
+%h3.invisible-no-js Won't show if browser doesn't support JS.
+```
+
+*/
+
+.no-js .invisible-no-js {
+  visibility: hidden;
+}
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/*doc
+---
+title: Print
+name: print
+categories:
+  - All
+  - CSS
+---
+
+### Printing
+Try printing this page to see these styles in action.
+
+```haml_example
+%h3.print-only This will only show when printed
+%h3.no-print This will not show when printed
+```
+
+*/
+.print-only {
+  display: none;
+}
+
+/*doc
+---
+title: Aligner
+name: aligner
+parent: grids-main
+---
+
+Based on a [component by Philip Walton](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss),
+this component will allow us to vertically align portions of our app.
+
+NB: DON'T use the DEMO class when using this component in the wild.
+
+Annoyingly, this component needs to have it's height/min-height set explicitly...
+That makes it not so reusable.
+Currently set to 230px as required by the space cards.
+
+```haml_example
+.Demo.aligner
+  .Demo.aligner-item.aligner-item-top
+    %h2 top
+  .Demo.aligner-item
+    %h2 centered
+  .Demo.aligner-item.aligner-item-bottom
+    %h2 bottom
+```
+
+*/
+.aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // height is needed for IE10-11 for this bug
+  // http://bit.ly/16b1Xhx
+  height: 200px; // TODO: this is super annoying, and means it can only work as a one-off since the height needs to be fixed. Blarg. Maybe set the height inline for each usage? Ew.
+  // other browsers use min-height
+  @supports not(-ms-flex: 1) {
+    height: auto;
+    min-height: 200px;
+  }
+
+
+  .aligner-item {
+    max-width: 50%;
+
+  }
+
+  .aligner-item-top {
+    align-self: flex-start;
+  }
+
+  .aligner-item-bottom {
+    align-self: flex-end;
+  }
+}
+
+.Demo { // TODO: move this to the styleguide.css file
+  width: 100%;
+  padding: .8em 1em 0;
+  margin-bottom: 1em;
+  background: rgba(147,128,108,.1);
+  border-radius: 3px;
+}
+
+

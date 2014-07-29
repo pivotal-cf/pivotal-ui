@@ -1,0 +1,159 @@
+/*doc
+---
+title: Gravatar
+name: gravatar
+categories:
+  - All
+  - CSS
+---
+
+*/
+
+.gravatar {
+  display: inline-block;
+  position: relative;
+  img {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  i {
+    text-align: center;
+    z-index: 1;
+  }
+  i.overlay {
+    background-color: transparent;
+    z-index: 3;
+    position: absolute;
+  }
+}
+
+/*doc
+---
+title: Small Gravatar
+name: small_gravatar
+parent: gravatar
+---
+
+Allows you to show a gravatar with the proper default 'image' (icon).
+
+To use in a view, simply call
+
+`= render 'shared/gravatar_small', email: 'some@email.com'`
+
+```haml_example
+.gravatar.gravatar-sm
+  %img{src:"https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&d=blank"}
+  %i.fa.fa-user
+.gravatar.gravatar-sm
+  %img{src:"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=20&d=blank"}
+  %i.fa.fa-user
+```
+
+*/
+
+/*doc
+---
+title: Small Gravatar With Envelope
+name: small_gravatar_with_envelope
+parent: gravatar
+---
+
+Allows you to show a gravatar with an icon overlay.
+
+To use in a view, simply call
+
+`= render 'shared/gravatar_small', email: 'some@email.com'`
+
+```haml_example
+.gravatar.gravatar-sm
+  %img{src:"https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&d=blank"}
+  %i.fa.fa-user
+  %i.overlay.fa.fa-envelope
+
+.gravatar.gravatar-sm.mlxl
+  %img{src:"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=20&d=blank"}
+  %i.fa.fa-user
+  %i.overlay.fa.fa-envelope
+
+.gravatar.gravatar-sm.mlxl
+  %img{src:"https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&d=blank"}
+  %i.fa.fa-user.highlight
+  %i.overlay.fa.fa-check
+
+.gravatar.gravatar-sm.mlxl
+  %img{src:"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=20&d=blank"}
+  %i.fa.fa-user
+  %i.overlay.fa.fa-check
+```
+*/
+
+
+.gravatar-sm {
+  i {
+    color: $gray-4;
+    font-size: 20px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  i.highlight {
+    color: $teal-5;
+  }
+
+  i.overlay {
+    font-size: 10px;
+    color: #fff;
+    right: -30%;
+    bottom: -25%;
+  }
+  .fa-envelope {
+    text-shadow: 1px 0px 1px $gray-4, -1px 0px 1px $gray-4, 0px 1px 1px $gray-4, 0px 0px 1px $gray-4;
+  }
+  .fa-check {
+    text-shadow: 1px 0px 0px $teal-5, -1px 0px 0px $teal-5, 0px 1px 0px $teal-5, 0px 0px 0px $teal-5;
+  }
+}
+
+/*doc
+---
+title: Large Gravatar
+name: large_gravatar
+parent: gravatar
+---
+
+Allows you to show a gravatar with the proper default 'image' (icon).
+
+Large gravatar has a white background so it can be used on the edit profile form.
+
+To use in a view, simply call
+
+`= render 'shared/gravatar_large', email: 'some@email.com'`
+
+```haml_example
+.gravatar.gravatar-lg
+  %img{src:"https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=80&d=blank"}
+  %i.fa.fa-user
+.gravatar.gravatar-lg
+  %img{src:"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=80&d=blank"}
+  %i.fa.fa-user
+```
+
+*/
+
+.gravatar-lg {
+  border: 3px solid $gray-8;
+  i {
+    background-color: #fff;
+    color: $gray-8;
+    font-size: 62px;
+    line-height: 80px;
+    width: 80px;
+    height: 80px;
+  }
+}
+

@@ -1,0 +1,584 @@
+/*doc
+---
+title: Panels
+name: panel
+categories:
+  - All
+  - CSS
+---
+
+Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
+
+Panels are typically a combination of contours, backgrounds, and content including headers and footers.
+
+Panels                  | Modifier Class
+----------------------- | -----------------
+panel-simple            | `panel panel-simple`
+panel-tile              | `panel panel-tile`
+panel-heading-simple    | `panel-heading panel-heading-simple`
+panel-heading-basic     | `panel-heading panel-heading-basic`
+
+
+*/
+
+.panel { // resets bootstrap default
+  box-shadow: none;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  //background-color: transparent; // Bootstrap Override
+}
+
+/*doc
+---
+title: Square Panel
+name: panel-square
+parent: panel
+---
+
+Square panels take advantage of a CSS box-model oddity (see [Fluid Squares](http://dinosaurswithlaserz.com/2011/07/18/fluid-squares-v2/) ).
+They will be as tall as their containing element is wide.  Their content flows/overflows strangely though, so watch out. It is also extremely
+tricky to center content inside of them -- see the application dashboard for an example.
+
+```haml_example
+.row
+  .col-sm-6
+    .panel.panel-simple.panel-square
+      .panel-heading.panel-heading-simple
+        Square Panel
+      .panel-body
+        Square Panel
+
+```
+*/
+
+.panel-square {
+  padding-bottom: 100%;
+  height: 0;
+}
+
+/*doc
+---
+title: Simple Panel
+name: panel-simple
+parent: panel
+---
+
+```haml_example
+.panel.panel-simple
+  .panel-body
+    Simple Panel
+```
+*/
+
+.panel-simple {
+  border: $panel-simple-border;
+}
+
+/*doc
+---
+title: Basic Panel
+name: panel-basic
+parent: panel
+---
+
+Basic Panels are the new Simple Panels for G-Major
+
+```haml_example
+.sg-gray-4.pam
+  .panel.panel-basic
+    .panel-body
+      Basic Panel
+```
+*/
+
+.panel-basic {
+  border-radius: 5px;
+  @include background-clip-fix;
+  border-bottom: 2px solid $shadow-3;
+}
+
+/*doc
+---
+title: Flex Panel
+name: panel-flex
+parent: panel
+---
+
+Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don't
+support flexbox, the footer will appear where it would naturally, likely right below the panel-body content
+
+```haml_example
+.sg-gray-4.pam
+  .panel.panel-basic.panel-flex{style: 'height: 200px'}
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
+```
+*/
+
+.panel-flex {
+  display: flex;
+  flex-direction: column;
+
+  .panel-body {
+    flex: 1 0 auto;
+    align-self: auto;
+  }
+
+  .panel-footer {
+    flex: 0 0 auto;
+    align-self: auto;
+  }
+
+
+
+}
+
+/*doc
+---
+title: Tile
+name: panel_tile
+parent: panel
+---
+
+```haml_example
+%a.panel.panel-tile{href: 'http://google.com'}
+  .panel-body
+    Tile
+  .panel-footer
+    This is the footer
+```
+*/
+
+.panel-tile {
+  float: left;
+  width: 435px;
+  border: $panel-tile-border;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 120px;
+  overflow: hidden;
+  color: $text-color;
+  -webkit-transition: border 300ms ease-out;
+  -moz-transition: border 300ms ease-out;
+  transition: border 300ms ease-out;
+
+  .panel-body {
+    -ms-flex: 1 0 auto;
+    flex: 1;
+    -webkit-flex: 1;
+    padding: 25px 20px 0 20px;
+    -webkit-transition: padding-top 300ms ease-out;
+    -moz-transition: padding-top 300ms ease-out;
+    transition: padding-top 300ms ease-out;
+  }
+
+  .panel-footer {
+    color: #fff;
+    opacity: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $panel-tile-font-size;
+    border-top: none; // bootstrap override
+    padding: 4px 15px 2px 15px; // padding bottom is 2px less because of the teal border on the panel-tile
+    background: transparent;
+    @include transition;
+  }
+
+  &:hover {
+    @include transition;
+    border-color: $panel-tile-hover-border-color;
+    background-color: $panel-tile-hover-bg-color;
+    color: $text-color;
+
+    .panel-body {
+      padding-top: 15px;
+    }
+    .panel-footer {
+      opacity: 1;
+      background: $panel-tile-hover-border-color;
+      color: $panel-footer-tile-text;
+    }
+  }
+}
+
+@media all and (max-width: $screen-lg) {
+  .panel-tile {
+    width: 100%;
+  }
+}
+
+
+/*doc
+---
+title: Tile Simple
+name: panel_tile_simple
+parent: panel
+---
+
+```haml_example
+.panel.panel-tile-simple
+  .panel-body
+    Tile
+```
+*/
+
+.panel-tile-simple {
+  background-color: #bcc4c6;
+  border: $panel-tile-border;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  height: 120px;
+  overflow: hidden;
+  color: $text-color;
+
+  .panel-body {
+    -ms-flex: 1 0 auto;
+    flex: 1;
+    -webkit-flex: 1;
+    padding: 25px 20px 0 20px;
+  }
+}
+
+/*doc
+---
+title: Scrollable
+name: panel_scrollable
+parent: panel
+---
+
+```haml_example
+.panel.panel-scrollable
+  .panel-body
+    Scrollable
+    %table.table.table-key-value
+      %tbody
+        %tr
+          %th.col-md-8 Email
+          %td.col-md-16 joe@example.com
+        %tr
+          %th.col-md-8 Current Password
+          %td.col-md-16 *******
+        %tr
+          %th.col-md-8 First Name
+          %td.col-md-16 Joe
+        %tr
+          %th.col-md-8 Last Name
+          %td.col-md-16 Bobs
+        %tr
+          %th.col-md-8 Phone
+          %td.col-md-16 415-555-0000
+        %tr
+          %th.col-md-8 First Name
+          %td.col-md-16 Joe
+        %tr
+          %th.col-md-8 Last Name
+          %td.col-md-16 Bobs
+        %tr
+          %th.col-md-8 Phone
+          %td.col-md-16 415-555-0000
+        %tr
+          %th.col-md-8 Email
+          %td.col-md-16 joe@example.com
+        %tr
+          %th.col-md-8 Current Password
+          %td.col-md-16 *******
+        %tr
+          %th.col-md-8 First Name
+          %td.col-md-16 Joe
+```
+*/
+
+.panel-scrollable {
+  max-height: 183px;
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+/*doc
+---
+title: Simple Highlight
+name: panel-simple-highlight
+parent: panel
+---
+
+```haml_example
+.panel.panel-simple-highlight
+  .panel-body
+    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
+
+.panel.panel-simple-highlight-hoverable
+  .panel-body
+    Hoverable (use when a click on the panel triggers an action)
+```
+*/
+
+.panel-simple-highlight {
+  background-color: $gray-8;
+  border-radius: 10px;
+  box-shadow: 0 4px 0 0 $shadow-3;
+
+  &.title-panel h1{
+    overflow: hidden;
+    @include ellipsis;
+  }
+}
+
+.panel-simple-highlight-hoverable {
+  @extend .panel-simple-highlight;
+  &:hover {
+    @include transition;
+    background-color: white;
+    box-shadow: 0 4px 0 0 $shadow-2;
+  }
+}
+
+/*doc
+---
+title: Space
+name: panel-space
+parent: panel
+---
+
+Space panels can be in a default, stopped, or crashed state. Add the class `.panel-card` to give the panel space a minimum height.
+
+```haml_example
+.sg-gray-4.pam
+  .panel.panel-space.panel-card.panel-hoverable
+    .panel-body
+      Clickable Space Panel
+      Sometimes you'll want to adapt the way text looks in your clickable panel. There are a few helper classes for that.
+      %p.hover-target-1
+        hover-target-1 - default text color => link color
+      %p.hover-target-2
+        hover-target-2 - light gray => default text color
+
+  .panel.panel-space.panel-card.panel-crashed.panel-hoverable
+    .panel-body
+      Clickable Crashed Space Panel
+
+  .panel.panel-space.panel-card.panel-stopped.panel-hoverable
+    .panel-body
+      Stopped Space Panel
+
+  .panel.panel-space.panel-card.panel-empty
+    .panel-body
+      Clickable Empty Space Panel
+
+  .panel.panel-space.panel-card.panel-editing
+    .panel-body
+      Editing Space Panel
+```
+*/
+
+.panel-space {
+  width: 284px;
+  float: left;
+
+  // while creating a new space (form inside)
+  &.panel-editing {
+    background-color: $gray-7;
+  }
+
+  // add a space box
+  &.panel-empty {
+    background-color: $shadow-3;
+
+    &:hover {
+      @include transition;
+      background-color: $gray-7;
+      border-bottom: 4px solid $shadow-2;
+    }
+  }
+
+  .aligner {
+    min-height: 190px;
+  }
+
+  .panel-basic {
+    min-height: 88px;
+  }
+
+  // top right corner tabs
+
+  &%panel-state {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      width: 0px;
+      height: 0px;
+      border-left: 25px solid transparent;
+    }
+
+  }
+
+  &.panel-crashed, &.panel-stopped {
+    @extend %panel-state;
+  }
+
+  &.panel-crashed:before {
+    border-top: 25px solid $red-3;
+  }
+
+  &.panel-stopped:before {
+    border-top: 25px solid $gray-3;
+  }
+}
+
+@media all and (max-width: $screen-xs) {
+  .panel-space {
+    width:100%;
+  }
+}
+
+
+/*doc
+---
+title: Shadow
+name: panel-shadow
+parent: panel
+---
+
+Shadow panels add a bottom shadow to the panel.
+
+```haml_example
+.sg-gray-4.pam
+  .panel.panel-shadow
+    .panel-body
+      Shadow Panel
+```
+*/
+
+.panel-shadow {
+  border: none; //Bootstrap override
+  border-bottom: 4px solid $shadow-3;
+
+  @include background-clip-fix;
+}
+
+/*doc
+---
+title: Card Panel
+name: panel-card
+parent: panel
+---
+
+The `.panel-card` makes any `.panel-body` have a minimum "card" height when applied to the `.panel`.
+
+```haml_example
+.panel.panel-space.panel-card
+  .panel-body
+    Card Panel
+```
+
+*/
+.panel-card {
+  min-height: 196px;
+}
+
+.panel-hoverable {
+  background-color: $gray-7;
+  cursor: pointer;
+
+  .hover-target-2 {
+    color: $gray-4;
+  }
+
+  .hover-target-3 {
+    background-color: $gray-8;
+  }
+
+  &:hover{
+    @include transition;
+    background-color: $gray-8;
+
+    .hover-target-1 { // default text color => link color
+      color: $link-color;
+    }
+    .hover-target-2 { // light gray => default text color
+      color: $text-color;
+    }
+    .hover-target-3{
+      background-color: white;
+    }
+  }
+}
+
+/*doc
+---
+title: Panel Headings
+name: panel-heading
+parent: panel
+---
+
+Panel headings may be applied to any panel. They are completely interchangeable.
+*/
+
+.panel-heading {
+}
+
+/*doc
+---
+title: Basic
+name: panel-heading-basic
+parent: panel
+---
+
+The basic heading is frequently used with the `.bkg-default-5` background color, as it is below, however it can be used with any box.
+
+```haml_example
+.panel.bkg-default-5
+  .panel-heading.panel-heading-basic
+    %h6 panel-heading-basic
+  .panel-body
+    Panel Content
+```
+*/
+
+.panel-heading-basic {
+  background-color: $panel-heading-basic-bg;
+  &, h1, h2, h3, h4, h5, h6 {
+    color: $panel-heading-basic-text;
+    font-size: $panel-heading-basic-font-size;
+  }
+}
+
+/*doc
+---
+title: Simple
+name: panel-heading-Simple
+parent: panel
+---
+
+```haml_example
+.panel.panel-simple
+  .panel-heading.panel-heading-simple
+    %h6 panel-heading-simple
+  .panel-body
+    Panel Content
+```
+*/
+
+.panel-heading-simple {
+  text-align: $panel-heading-simple-text-align;
+  &, h1, h2, h3, h4, h5, h6 {
+    color: $panel-heading-simple-text;
+    font-weight: $panel-heading-simple-font-weight;
+    font-size: $panel-heading-simple-font-size;
+    text-transform: $panel-heading-simple-text-transform;
+  }
+}
+
+

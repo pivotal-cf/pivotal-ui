@@ -1,0 +1,76 @@
+/*doc
+---
+title: Links
+name: link
+categories:
+  - All
+  - CSS
+---
+
+There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.
+
+```haml_example
+%a{href: "http://google.com"}
+  %i.fa.fa-plus
+  link with an icon
+```
+
+Link                                                                             | Class              | Description
+-------------------------------------------------------------------------------- | ------------------ | -----------
+<a href="http://google.com">default link</a>                                     |                    | This is what buttons look like, this is the go to button style.
+<a class="link-highlight" href="http://google.com">highlight link</a>            | `link-highlight`   | Use this button as the primary call to action
+<a class="link-lowlight" href="http://google.com">lowlight link</a>              | `link-lowlight`    | I'm afraid I can't let you do that, yet.
+<span class="phs pvs" style="background-color: #000"><a class="link-inverse" href="http://google.com">inverse link</a></span> | `link-inverse`    | I go on a non-white background
+<a href="http://google.com"><i class="fa fa-plus"></i> link with an icon </a>     |                    | This button is for delete actions, these actions should also have a confirmation dialog
+*/
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link-highlight {
+  color: $link-highlight-color;
+  &:hover {
+    color: $link-highlight-hover-color;
+  }
+}
+
+.link-lowlight {
+  font-size: 12px;
+  font-weight: 900;
+  color: $link-lowlight-color;
+  &:hover {
+    color: $link-lowlight-hover-color;
+  }
+}
+
+.link-inverse {
+  color: $type-inverse;
+
+  &:hover {
+    color: $teal-6;
+  }
+}
+
+/*doc
+---
+title: Gentle Scroll Links
+name: gentle-scroll
+parent: link
+---
+
+If you want to gently scroll from one part of the page to another, you'll need to add
+a `data-behavior: GentleScroll` to the trigger element as well as an `href` for the
+id of the target it will scroll to.
+
+```haml_example
+%a.btn.btn-default{"data-behavior" => "GentleScroll", :href => "#scroll-target"} Scroll Trigger
+```
+It can scroll to anything, in this case, we'll use a text input.
+
+```haml_example
+%input#scroll-target.form-control{:type => "text", :placeholder => "Scroll target"}
+```
+*/
+

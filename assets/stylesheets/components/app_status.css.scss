@@ -1,0 +1,247 @@
+/*doc
+---
+title: App Status
+name: app_status
+categories:
+  - All
+  - CSS
+---
+
+```haml_example
+#app_status.started.mtxl
+  .circle
+    .content
+      .name
+        %h5.mbn
+          %strong.type-primary-4 APP
+        %h1.mtn App Name
+      .started-controls
+        %button.btn.btn-highlight
+          %i.fa.fa-square.icon-control
+        %button.btn.btn-highlight.mll
+          %i.fa.fa-repeat.icon-control
+      .stopped-controls
+        %button.btn.btn-highlight
+          %i.fa.fa-play.icon-control
+```
+*/
+@-webkit-keyframes loadingPulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@-moz-keyframes loadingPulse {
+  0% { opacity: 0;}
+  50% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+@keyframes loadingPulse {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0;}
+}
+
+#app_status {
+  position: relative;
+  $circle-circumference: 1070;
+
+  #svg {
+    border-radius: 50%;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, .08);
+    background-color: $gray-8;
+
+    circle {
+      fill: $gray-8;
+      stroke: $gray-8;
+      stroke-dashoffset: 0;
+      @include transition(stroke-dashoffset, 1s, cubic-bezier(0.55, 0.085, 0.68, 0.53));
+      stroke-width: 10px;
+    }
+  }
+
+  .content {
+    position: absolute;
+    top: 116px;
+    left: 13px;
+    width: 325px;
+
+    .name {
+      text-align: center;
+    }
+
+    .started-controls {
+      margin-top: 20px;
+      width: 150px;
+      position: absolute;
+      left: 87px;
+      opacity: 1;
+      visibility: visible;
+      @include transition(opacity, 0.5s, ease-out);
+    }
+    .stopped-controls {
+      margin-top: 20px;
+      width: 58px;
+      opacity: 1;
+      visibility: visible;
+      position: absolute;
+      left: 134px;
+      @include transition(opacity, 0.5s, ease-out);
+    }
+    .stopping-message, .starting-message, .scaling-message {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      left: 120px;
+      margin-top: 20px;
+    }
+    .just-stopped-message, .just-started-message {
+      position: absolute;
+      opacity: 0;
+      visibility: hidden;
+      left: 130px;
+      margin-top: -5px;
+      color: $gray-4;
+    }
+  }
+
+  &.stopped {
+    .started-controls {
+      opacity: 0;
+      visibility: hidden;
+    }
+    #svg circle {
+      stroke: $gray-4;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &.started {
+    .stopped-controls {
+      opacity: 0;
+      visibility: hidden;
+    }
+    #svg circle {
+      stroke: $teal-5;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &.crashing {
+    .stopped-controls {
+      opacity: 0;
+      visibility: hidden;
+    }
+    #svg circle {
+      stroke: $red-3;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  &.transitioning {
+    .started-controls, .stopped-controls {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  &.begin-transitioning {
+    #svg circle {
+      stroke-dashoffset: -$circle-circumference;
+    }
+  }
+
+  &.starting {
+    .starting-message {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.begin-transitioning {
+      .starting-message {
+        -webkit-transition: opacity 1000ms ease-out 600ms;
+        -moz-transition: opacity 1000ms ease-out 600ms;
+        transition: opacity 1000ms ease-out 600ms;
+        @include animation(loadingPulse 1.4s ease-in-out 600ms infinite);
+      }
+    }
+  }
+
+  &.stopping {
+    .stopping-message {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.begin-transitioning {
+      .stopping-message {
+        -webkit-transition: opacity 1000ms ease-out 600ms;
+        -moz-transition: opacity 1000ms ease-out 600ms;
+        transition: opacity 1000ms ease-out 600ms;
+        @include animation(loadingPulse 1.4s ease-in-out 600ms infinite);
+      }
+    }
+  }
+
+  &.restarting {
+    .starting-message {
+      opacity: 1;
+      visibility: visible;
+    }
+    &.begin-transitioning {
+      .starting-message {
+        -webkit-transition: opacity 1000ms ease-out 600ms;
+        -moz-transition: opacity 1000ms ease-out 600ms;
+        transition: opacity 1000ms ease-out 600ms;
+        @include animation(loadingPulse 1.4s ease-in-out 600ms infinite);
+      }
+    }
+  }
+
+  &.scaling {
+    .scaling-message {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &.scaling-with-restage{
+      &.begin-transitioning {
+        .scaling-message {
+          -webkit-transition: opacity 1000ms ease-out 600ms;
+          -moz-transition: opacity 1000ms ease-out 600ms;
+          transition: opacity 1000ms ease-out 600ms;
+          @include animation(loadingPulse 1.4s ease-in-out 600ms infinite);
+        }
+      }
+    }
+
+    &.scaling-without-restage{
+      .scaling-message {
+        -webkit-transition: opacity 1000ms ease-out 600ms;
+        -moz-transition: opacity 1000ms ease-out 600ms;
+        transition: opacity 1000ms ease-out 600ms;
+        @include animation(loadingPulse 1.4s ease-in-out 600ms infinite);
+      }
+
+      #svg circle {
+        stroke-dashoffset: 0;
+      }
+    }
+
+  }
+
+  &.just-started {
+    .just-started-message {
+      @include transition(opacity, 0.5s, ease-out);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &.just-stopped {
+    .just-stopped-message {
+      @include transition(opacity, 0.5s, ease-out);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

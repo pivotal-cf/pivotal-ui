@@ -1,0 +1,421 @@
+/*doc
+---
+title: Colors
+name: colors
+categories:
+  - All
+  - CSS
+---
+
+Our color pallet is composed of several different colors. At any given point in captures the current
+evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
+colors rather than adding new ones.
+
+
+*/
+
+/*doc
+---
+title: Sass Colors
+name: sass_colors
+parent: colors
+---
+
+<div class="alert alert-warning alert-dismissable">
+  These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+  directly when building components, because it makes
+  it very hard to change the values later if you can't tell how they might have been used.
+   You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+</div>
+
+This example shows proper use of Sass variables.
+
+```
+$tabs-active-bg-color: $gray-1;
+```
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-1"></div>
+      <div class="chip-color-name">$gray-1</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-2"></div>
+      <div class="chip-color-name">$gray-2</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-3"></div>
+      <div class="chip-color-name">$gray-3</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-4"></div>
+      <div class="chip-color-name">$gray-4</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-5"></div>
+      <div class="chip-color-name">$gray-5</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-6"></div>
+      <div class="chip-color-name">$gray-6</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-7"></div>
+      <div class="chip-color-name">$gray-7</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-gray-8"></div>
+      <div class="chip-color-name">$gray-8</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-1"></div>
+      <div class="chip-color-name">$teal-1</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-2"></div>
+      <div class="chip-color-name">$teal-2</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-3"></div>
+      <div class="chip-color-name">$teal-3</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-4"></div>
+      <div class="chip-color-name">$teal-4</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-5"></div>
+      <div class="chip-color-name">$teal-5</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-6"></div>
+      <div class="chip-color-name">$teal-6</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-7"></div>
+      <div class="chip-color-name">$teal-7</div>
+    </div>
+  </div>
+</div>
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-1"></div>
+      <div class="chip-color-name">$blue-1</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-2"></div>
+      <div class="chip-color-name">$blue-2</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-3"></div>
+      <div class="chip-color-name">$blue-3</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-4"></div>
+      <div class="chip-color-name">$blue-4</div>
+    </div>
+  </div>
+   <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-5"></div>
+      <div class="chip-color-name">$blue-5</div>
+    </div>
+  </div>
+   <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-6"></div>
+      <div class="chip-color-name">$blue-6</div>
+    </div>
+  </div>
+</div>
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-1"></div>
+      <div class="chip-color-name">$red-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-2"></div>
+      <div class="chip-color-name">$red-2</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-3"></div>
+      <div class="chip-color-name">$red-3</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-4"></div>
+      <div class="chip-color-name">$red-4</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-orange-1"></div>
+      <div class="chip-color-name">$orange-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-orange-2"></div>
+      <div class="chip-color-name">$orange-2</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-yellow-1"></div>
+      <div class="chip-color-name">$yellow-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-yellow-2"></div>
+      <div class="chip-color-name">$yellow-2</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-green-1"></div>
+      <div class="chip-color-name">$green-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-green-2"></div>
+      <div class="chip-color-name">$green-2</div>
+    </div>
+  </div>
+</div>
+
+*/
+
+
+
+.styleguide-only-gray-1 {
+  background-color: $gray-1;
+}
+.styleguide-only-gray-2 {
+  background-color: $gray-2;
+}
+.styleguide-only-gray-3 {
+  background-color: $gray-3;
+}
+.styleguide-only-gray-4 {
+  background-color: $gray-4;
+}
+.styleguide-only-gray-5 {
+  background-color: $gray-5;
+}
+.styleguide-only-gray-6 {
+  background-color: $gray-6;
+}
+.styleguide-only-gray-7 {
+  background-color: $gray-7;
+}
+.styleguide-only-gray-8 {
+  background-color: $gray-8;
+}
+
+// Teals
+.styleguide-only-teal-1{
+  background-color: $teal-1;
+}
+
+.styleguide-only-teal-2{
+  background-color: $teal-2;
+}
+
+.styleguide-only-teal-3{
+  background-color: $teal-3;
+}
+
+.styleguide-only-teal-4{
+  background-color: $teal-4;
+}
+
+.styleguide-only-teal-5{
+  background-color: $teal-5;
+}
+
+.styleguide-only-teal-6 {
+  background-color: $teal-6;
+}
+
+.styleguide-only-teal-7{
+  background-color: $teal-7;
+}
+// Blues
+
+.styleguide-only-blue-1{
+  background-color: $blue-1;
+}
+
+.styleguide-only-blue-2{
+  background-color: $blue-2;
+}
+
+.styleguide-only-blue-3{
+  background-color: $blue-3;
+}
+
+.styleguide-only-blue-4{
+  background-color: $blue-4;
+}
+
+.styleguide-only-blue-5{
+  background-color: $blue-5;
+}
+
+.styleguide-only-blue-6{
+  background-color: $blue-6;
+}
+
+// Reds
+.styleguide-only-red-1{
+  background-color: $red-1;
+}
+
+.styleguide-only-red-2{
+  background-color: $red-2;
+}
+
+.styleguide-only-red-3{
+  background-color: $red-3;
+}
+
+.styleguide-only-red-4{
+  background-color: $red-4;
+}
+
+// Yellows
+.styleguide-only-yellow-1{
+  background-color: $yellow-1;
+}
+
+.styleguide-only-yellow-2{
+  background-color: $yellow-2;
+}
+// Oranges
+.styleguide-only-orange-1{
+  background-color: $orange-1;
+}
+
+.styleguide-only-orange-2{
+  background-color: $orange-2;
+}
+// Greens
+.styleguide-only-green-1{
+  background-color: $green-1;
+}
+
+.styleguide-only-green-2{
+  background-color: $green-2;
+}
+/*doc
+---
+title: Shadows & Glows
+name: shadows
+parent: colors
+---
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-1"></div>
+      <div class="chip-color-name">$shadow-1</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-2"></div>
+      <div class="chip-color-name">$shadow-2</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-3"></div>
+      <div class="chip-color-name">$shadow-3</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-glow"></div>
+      <div class="chip-color-name">$glow-1</div>
+    </div>
+  </div>
+</div>
+*/
+
+
+// These classes are for the style guide only
+
+.styleguide-only-glow {
+  background-color: $glow-1;
+}
+
+.styleguide-only-shadow-1{
+  background-color: $shadow-1;
+}
+
+.styleguide-only-shadow-2{
+  background-color: $shadow-2;
+}
+
+.styleguide-only-shadow-3{
+  background-color: $shadow-3;
+}
+
+
+

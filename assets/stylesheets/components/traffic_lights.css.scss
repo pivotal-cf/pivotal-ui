@@ -1,0 +1,111 @@
+/*doc
+---
+title: Traffic Lights
+name: traffic-lights
+parent: health_indicators
+---
+
+```haml_example
+Traffic lights can be:
+.row
+  .col-md-6
+    on
+    %ul.traffic-lights.list-unstyled.mvm
+      %li.green-light
+        %i.fa.fa-circle
+        5
+      %li.gray-light
+        %i.fa.fa-circle
+        1
+      %li.red-light
+        %i.fa.fa-circle
+        8
+  .col-md-6
+    or off
+    %ul.traffic-lights.list-unstyled.mvm
+      %li.green-light.off
+        %i.fa.fa-circle
+      %li.gray-light.off
+        %i.fa.fa-circle
+      %li.red-light.off
+        %i.fa.fa-circle
+  .col-md-6
+    or loading
+    %ul.traffic-lights.list-unstyled.mvm
+      %li.green-light.off.loading-green
+        %i.fa.fa-circle
+      %li.gray-light.off.loading-gray
+        %i.fa.fa-circle
+      %li.red-light.off.loading-red
+        %i.fa.fa-circle
+
+```
+*/
+
+@-webkit-keyframes loadingFade {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+@-moz-keyframes loadingFade {
+  0% { opacity: 0.2;}
+  50% { opacity: 1; }
+  100% { opacity: 0.2;}
+}
+
+@keyframes loadingFade {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2;}
+}
+
+.traffic-lights {
+  margin: 0;
+
+  i {
+   @extend .mrm;
+  }
+
+  .fa {
+    font-size: 12px;
+  }
+
+  .off i {
+    opacity: 0.4;
+  }
+
+  .green-light {
+    i {
+      transition: opacity 1500ms ease-out;
+      color: $traffic-light-running-color;
+    }
+  }
+
+  .gray-light {
+    i {
+      transition: opacity 1500ms ease-out;
+      color: $traffic-light-stopped-color;
+    }
+  }
+
+  .red-light {
+    i {
+      transition: opacity 1500ms ease-out;
+      color: $traffic-light-crashed-color;
+    }
+  }
+
+  .loading-red {
+    @include animation(loadingFade 2s ease-in-out infinite);
+  }
+
+  .loading-green {
+    @include animation(loadingFade 2s ease-in-out infinite);
+  }
+
+  .loading-gray {
+    @include animation(loadingFade 2s ease-in-out 1s infinite);
+  }
+}
+

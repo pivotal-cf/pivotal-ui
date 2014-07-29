@@ -1,0 +1,928 @@
+/*doc
+---
+title: Inputs & Labels
+name: input
+categories:
+ - All
+ - Forms
+---
+
+An input with the label top aligned (this is the default layout).
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .form-group
+    %label{:for => "exampleInputEmail1"}
+      %abbr{:title => "required"} *
+      Email address
+    %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+```
+
+Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal
+layout by adding `.form-horizontal` to the form. Doing so changes `.form-groups` to behave as grid rows, so no need for `.row`.
+
+An input with the label left aligned
+
+```haml_example
+%form.styleguide-form.form-horizontal{:role => "form"}
+  .form-group
+    .col-md-6
+      %label.control-label{:for => "exampleInputEmail1"}
+        %abbr{:title => "required"} *
+        Email address
+    .col-md-18
+      %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+```
+
+An input with the label right aligned (N.B., control-label class provides the right alignment):
+
+```haml_example
+%form.styleguide-form.form-horizontal{:role => "form"}
+  .form-group
+    %label.col-md-6.control-label{:for => "exampleInputEmail1"}
+      %abbr{:title => "required"} *
+      Email address
+    .col-md-18
+      %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+```
+
+An unstyled inputs that doesn't have any of the default input styles
+
+```haml_example
+%form{:role => "form"}
+  %input.unstyled{"placeholder" => "This is a text input"}
+```
+*/
+
+.form-group {
+  abbr {
+    float: right;
+    margin-left: 5px;
+    border-bottom: 0;
+  }
+  [class*="col"].control-label {
+    abbr {
+      float: none;
+      margin-right: 2px;
+    }
+  }
+}
+
+.unstyled {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+label {
+  font-weight: 400; //override bootstrap
+}
+
+// do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
+::-webkit-input-placeholder {
+  font-weight: 200;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-weight: 200;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-weight: 200;
+}
+
+:-ms-input-placeholder {
+  font-weight: 200;
+}
+
+/*doc
+---
+title: Fancy Select
+name: fancy-select
+categories:
+ - All
+ - Forms
+---
+
+This is a fancy select!
+
+```haml_example
+%form.styleguide-form{:role => "form", 'style' => 'width: 200px'}
+  %label{:for => "fancy-select"} Description
+  .select-fancy
+    %select.form-control
+      %option Fancy Option 1
+      %option Fancy Option 2
+```
+
+*/
+
+.fancy-form-element {
+  box-shadow: 0 3px 0 $gray-5;
+  background-color: white;
+  @include transition;
+  border-radius: 4px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 3px 0 $gray-4;
+    cursor: pointer;
+  }
+
+  .form-control {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    @include transition(all, 150ms);
+    font-size: 16px;
+    font-weight: 900;
+    &.has-error {
+      border-radius: 3px;
+      border: 1px solid $red-3;
+    }
+  }
+}
+
+.fancy-form-element-disabled {
+  font-size: 16px;
+  font-weight: 900;
+  height: 30px;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.select-fancy {
+  @extend .fancy-form-element;
+
+  &:after {
+   z-index: 2;
+   content: "\f107";
+   font-family: FontAwesome;
+   position: absolute;
+   right: 10px;
+   top: 4px;
+   font-size: 22px;
+   color: $blue-5;
+   @include transition(all, 150ms);
+  }
+
+  &:hover {
+    &:after, select {
+      color: $blue-3;
+    }
+  }
+
+  select {
+    -moz-appearance:window;
+    position: relative;
+    z-index: 3;
+    padding: 5px 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+  select:focus {
+    outline: none;
+  }
+  input {
+    $input-margin: 5px;
+    height: $input-height-base - 2*$input-margin;
+    margin: $input-margin;
+    width: 75%;
+    padding: 0 5px;
+    display: inline;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $gray-7;
+    }
+  }
+}
+
+/*doc
+---
+title: Fancy Number Input
+name: fancy-number
+categories:
+ - All
+ - Forms
+---
+
+This is a fancy number input!
+
+```haml_example
+%form.styleguide-form{:role => "form", 'ng-controller' => 'FancyNumberExampleCtrl', 'ng-cloak' => true, 'style' => 'width: 200px'}
+  %label{:for => "#instances"} Instances
+  .number-fancy{'fancy-number' => true, 'ng-model' => 'exampleModel.instances', 'ng-change' => ''}
+    %input#instances.form-control
+    %ul.list-unstyled.buttons
+      %li.btn-plus
+        %i.fa.fa-plus
+      %li.btn-minus
+        %i.fa.fa-minus
+
+```
+
+*/
+
+.number-fancy {
+  @extend .fancy-form-element;
+  @include user-select(none);
+  $button-width: 30px;
+  padding-right: $button-width + 6px;
+
+  .buttons {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    li {
+      @include transition(all, 150ms);
+      font-size: 12px;
+      background-color: white;
+      border: none;
+      width: $button-width;
+      height: 50%;
+      color: $blue-5;
+      text-align: center;
+      line-height: 20px;
+      &:hover {
+        color: $blue-3;
+        background-color: $gray-7;
+        cursor: pointer;
+      }
+
+      &.btn-minus {
+        border-bottom-right-radius: 4px;
+      }
+
+      &.btn-plus {
+        border-top-right-radius: 4px;
+      }
+    }
+  }
+
+  input {
+    $input-margin: 5px;
+    height: $input-height-base - 2*$input-margin;
+    margin: $input-margin;
+    padding: 0 5px;
+    display: inline;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $gray-7;
+    }
+  }
+}
+
+
+
+/*doc
+---
+title: Text Area
+name: textarea
+categories:
+ - All
+ - Forms
+---
+
+Text areas are used for larger amounts of input.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .form-group
+    %label{:for => "exampleTextAreaId"} Description
+    %textarea#exampleTextAreaId.form-control{:rows => "3"}
+```
+
+*/
+
+/*doc
+---
+title: Checkboxes & Radios
+name: checkboxes
+categories:
+ - All
+ - Forms
+---
+Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
+
+### Default (stacked)
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .checkbox
+    %label
+      %input{:type => "checkbox", :value => ""}
+        Option one is this and that&mdash;be sure to include why it's great
+  .radio
+    %label
+      %input#optionsRadios1{:checked => "", :name => "optionsRadios", :type => "radio", :value => "option1"}
+        Option one is this and that&mdash;be sure to include why it's great
+  .radio
+    %label
+      %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}
+        Option two can be something else and selecting it will deselect option one
+```
+
+### Inline checkboxes
+
+Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or radios for controls appear on the same line.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .form-group
+    %label.checkbox-inline
+      %input#inlineCheckbox1{:type => "checkbox", :value => "option1"}
+        1
+    %label.checkbox-inline
+      %input#inlineCheckbox2{:type => "checkbox", :value => "option2"}
+        2
+    %label.checkbox-inline
+      %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+        3
+
+  .form-group
+    %label.radio-inline
+      %input#inlineradio1{:type => "radio", :value => "option1"}
+        1
+    %label.radio-inline
+      %input#inlineradio2{:type => "radio", :value => "option2"}
+        2
+    %label.radio-inline
+      %input#inlineradio3{:type => "radio", :value => "option3"}
+        3
+```
+
+*/
+input[type="radio"] {
+  margin-top: 2px; // bootstrap override: make radios line up with our small font.
+}
+
+/*doc
+---
+title: Inline Forms
+name: inline_forms
+categories:
+ - All
+ - Forms
+---
+
+Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
+
+
+<div class="alert alert-warning">
+<h2 class="mtn">Requires custom widths</h2>
+Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.
+</div>
+
+<div class="alert alert-warning">
+<h2 class="mtn">Always add labels</h2>
+Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the <code class="sg-code">.sr-only</code> class.
+</div>
+
+
+```haml_example
+%form.styleguide-form.form-inline{:role => "form"}
+  .form-group
+    %label.sr-only{:for => "exampleInputEmail2"} Email address
+    %input#exampleInputEmail2.form-control{:placeholder => "Enter email", :type => "email"}
+  .form-group
+    %label.sr-only{:for => "exampleInputPassword2"} Password
+    %input#exampleInputPassword2.form-control{:placeholder => "Password", :type => "password"}
+  .checkbox
+    %label
+      %input{:type => "checkbox"}
+      Remember me
+  %button.btn.btn-primary{:type => "submit"} Sign in
+```
+*/
+
+/*doc
+---
+title: Inline Forms with Labels
+name: inline_forms_with_labels
+categories:
+ - All
+ - Forms
+---
+
+Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
+
+
+```haml_example
+%form.styleguide-form.form-inline.inline-labels{:role => "form"}
+  .form-group
+    %label{:for => "exampleInputEmail2"} Write a thing
+    %input#exampleInputEmail2.form-control{:placeholder => "Write a thing", :type => "email"}
+  .form-group
+    %label{:for => "exampleSelect"} Choose a thing
+    %select#exampleSelect.form-control
+      %option thing
+  .checkbox
+    %label
+      %input{:type => "checkbox"}
+      Remember me
+  %button.btn.btn-primary{:type => "submit"} Sign in
+```
+*/
+
+.form-inline.inline-labels {
+  .form-group {
+    input, select {
+      width: auto !important;
+    }
+  }
+}
+
+/*doc
+---
+title: HTML5 controls
+name: html5_controls
+categories:
+ - All
+ - Forms
+---
+
+Examples of standard form controls supported in an example form layout.
+
+Inputs
+Most common form control, text-based input fields. Includes support for
+all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
+`date`, `month`, `time`, `week`, `number`, `email`, `url`, `search`,
+`tel`, and `color`.
+
+<div class="alert alert-warning">
+  <h2 class="mtn">Type declaration required</h2>
+  Inputs will only be fully styled if their type is properly declared.
+</div>
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Text input", :type => "text"}
+```
+
+Password field
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Password", :type => "password"}
+```
+
+Date
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Date", :type => "date"}
+```
+
+Number
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Number", :type => "number"}
+```
+
+With a min/max and default starting value
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Number", :type => "number", min: 0, max: 2, value: 1}
+```
+
+With a different increment value
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Number", :type => "number", step: 5}
+```
+
+Email
+
+Use this with fields that require email addresses to pop up the correct keyboard on mobile
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Email", :type => "email"}
+```
+
+URL
+
+Use this with fields that require urls to pop up the correct keyboard on mobile
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "URL", :type => "url"}
+```
+
+Telephone
+
+Use this with fields that require telephone numbers to pop up the dialpad on mobile
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:placeholder => "Telephone", :type => "tel"}
+```
+*/
+
+/*doc
+---
+title: Validation
+name: validation
+categories:
+ - All
+ - Forms
+---
+
+### Validation
+
+Bootstrap includes validation styles for error and success states on form controls. To use, add `.has-error` or `.has-success` to the parent element. Any `.control-label`, `.form-control`, and `.help-block` within that element will receive the validation styles.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .form-group.has-success
+    %label.control-label{:for => "inputSuccess"} Input with success
+    %input#inputSuccess.form-control{:type => "text"}
+
+  .form-group.has-error
+    %label.control-label{:for => "inputError"} Input with error
+    %input#inputError.form-control{:type => "text"}
+    %span.help-block.has-error Error help text
+
+  .form-group.has-error
+    .checkbox
+      %label.control-label
+        %input{:type => "checkbox", :value => ""}
+          Checkbox which needs to be checked
+      %span.help-block.has-error Error help text
+```
+*/
+
+/* overrides bootstrap colors */
+@mixin validation-label-color() {
+  .control-label {
+    color: $type-primary-4;
+  }
+}
+
+.has-success {
+  position: relative;
+  &:before {
+    content: "\f00c";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: $input-height-base;
+    width: $input-height-base;
+    line-height: $input-height-base;
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    background-color: $teal-5;
+    color: $gray-8;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    text-align: center;
+  }
+  @include validation-label-color()
+}
+
+.has-error {
+  .help-block, .help-inline {
+    font-size: $font-size-small;
+  }
+
+  @include validation-label-color()
+}
+
+// hooking up angular validity to bootstrap classes
+input.ng-invalid.ng-dirty {
+  outline: 1px solid $red-3;
+}
+
+
+/*
+---
+title: Disabled Inputs
+name: disabled
+parent: validation
+---
+### Disabled Inputs
+
+Inputs will occasionally need to be disabled. You can do that by adding the `disabled` attribute. Selects, checkboxes, fieldsets, buttons, and other form controls can all be disabled.
+
+```haml_example
+%input#disabledInput.form-control{:disabled => "", :placeholder => "Disabled input here...", :type => "text"}
+%input#readonlyInput.form-control{:readonly => "", :placeholder => "Readonly input here...", :type => "text"}
+```
+
+*/
+
+.form-control:focus {
+  box-shadow: none; // override bootstrap
+}
+
+.form-control[readonly] {
+  background-color: transparent; //override bootstrap
+}
+
+/*doc
+---
+title: Selects
+name: selects
+categories:
+ - All
+ - Forms
+---
+Selects are excellent to use because they will automatically
+behave as expected cross browser on different devices. Prefer
+them over a custom dropdown whenever possible. Their size can
+be changed via the [control sizing options](#control_sizing).
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %select.form-control
+    %option default option
+    %option an option
+    %option another option
+```
+*/
+
+/*doc
+---
+title: Sizing
+name: sizing
+categories:
+ - All
+ - Forms
+---
+Set heights using classes like `.input-lg`, and set widths using grid column classes like `.col-lg-*`.
+
+### Height sizing
+
+Create larger or smaller form controls that match button sizes.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control.input-lg{:placeholder => ".input-lg", :type => "text"}
+  %input.form-control{:placeholder => "Default input", :type => "text"}
+  %input.form-control.input-sm{:placeholder => ".input-sm", :type => "text"}
+  %select.form-control.input-lg
+    %option .input-lg
+    %option an option
+    %option another option
+  %select.form-control
+    %option default select
+    %option an option
+    %option another option
+  %select.form-control.input-sm
+    %option .input-sm
+    %option an option
+    %option another option
+```
+
+### Column sizing
+
+Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .row
+    .col-md-4
+      %input.form-control{:placeholder => ".col-xs-2", :type => "text"}
+    .col-md-6
+      %input.form-control{:placeholder => ".col-xs-3", :type => "text"}
+    .col-md-8
+      %input.form-control{:placeholder => ".col-xs-4", :type => "text"}
+```
+
+*/
+
+/*doc
+---
+title: Help Text
+name: help_text
+categories:
+ - All
+ - Forms
+---
+Help text
+Block level help text for form controls.
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  %input.form-control{:type => "text"}
+  %span.help-block A block of help text that breaks onto a new line and may extend beyond one line.
+```
+
+*/
+
+/*doc
+---
+title: Static Control
+name: static_control
+categories:
+ - All
+ - Forms
+---
+When you need to place plain text next to a form label within a horizontal form, use the `.form-control-static` class on a `<p>`.
+
+```haml_example
+%form.form-horizontal.styleguide-form{:role => "form"}
+  .form-group
+    %label.col-md-4.control-label Email
+    .col-sm-10
+      %p.form-control-static email@example.com
+  .form-group
+    %label.col-md-4.control-label{:for => "inputPassword"} Password
+    .col-sm-10
+      %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}
+```
+
+*/
+
+/*doc
+---
+title: Vertical static controls
+name: static_controll
+categories:
+ - All
+ - Forms
+---
+
+```haml_example
+%form.styleguide-form{:role => "form"}
+  .form-group
+    %label.control-label Email
+    %p.form-control-static someguy@test.com
+  .form-group
+    %label.control-label{:for => "name"} Name
+    %input#name.form-control{:placeholder => "name"}
+```
+
+*/
+// login pages css
+//.form-control {
+//  border-width: $input-border-width;
+//}
+
+.help-inline {
+  display: block;
+  text-align: left;
+  color: $state-danger-bg;
+  padding: 5px 0 0 16px;
+  text-transform: capitalize;
+}
+
+// Form control sizing
+
+@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+
+@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
+
+.control-label{
+  color: $type-primary-4
+}
+p.form-control-static {
+  color: $type-primary-2;
+}
+
+/*doc
+---
+title: Autoselect Text Input
+name: autoselect_text_input
+categories:
+ - All
+ - Forms
+---
+
+This form is used to show information that a user may wish to copy and paste somewhere.
+
+```haml_example
+%input.auto-select.form-control{:value => "This should auto highlight", 'data-behavior' => 'AutoSelect', readonly: 'readonly'}
+```
+*/
+
+.form-control.auto-select {
+  cursor: pointer;
+}
+
+
+/*doc
+---
+title: Focus Input
+name: focus-input
+categories:
+  - All
+  - JavaScript
+---
+
+Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
+
+```haml_example
+%a{"ng-click" => "focus_input1=true; focus_input2=false;"} Focus input 1
+%br
+%a{"ng-click" => "focus_input2=true; focus_input1=false;"} Focus input 2
+%br
+%input{"focus-input" => "focus_input1"}
+%input{"focus-input" => "focus_input2"}
+```
+
+*/
+
+/*doc
+---
+title: ContentEditable
+name: contenteditable
+categories:
+  - All
+  - JavaScript
+---
+
+This form looks and behaves mostly like a contenteditable field
+
+```haml_example
+%form.form-contenteditable{'name' => 'newEditableForm',
+                                 "ng-controller" => "FormContentEditableController",
+                                 "ng-submit" => 'editText.save()',
+                                 "ng-class"=>'{"saving": editText.saving, "editing": editText.editing}'}
+  %label.txt-c
+    .form-group.mbn
+      %span.form-contenteditable-hint.link-lowlight Hover text
+      %h5.type-primary-4.showing-text Default text
+      .saving-text Updating Text...
+      %input.form-control{"name" => "name",
+                          "type" => "text",
+                          "ng-model" => "editText.newModel.name",
+                          "tabIndex" => "-1",
+                          :required => "required",
+                          "ng-focus" => 'editText.enterEditMode()',
+                          "ng-blur" => 'editText.save()'}
+```
+*/
+
+.form-contenteditable {
+
+  position: relative;
+
+  .form-contenteditable-hint {
+    display: none;
+  }
+  label {
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  input.form-control {
+    background-color: transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    @extend .h1;
+    margin: 0;
+    padding: 0px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1.2;
+    height: auto; //bootstrap override of fixed height
+  }
+  .showing-text {
+    margin: 0;
+  }
+  .saving-text {
+    display: none;
+  }
+
+  &.editing .form-contenteditable-hint {
+    display: none;
+  }
+
+  &:hover .form-contenteditable-hint {
+    display: block;
+  }
+
+  &.saving:hover .form-contenteditable-hint {
+    display: none;
+  }
+
+  &:hover .showing-text {
+    display: none;
+  }
+
+  &.saving {
+    .saving-text {
+      display: block;
+    }
+    .showing-text {
+      display: none;
+    }
+  }
+}

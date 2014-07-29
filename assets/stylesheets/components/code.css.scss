@@ -1,0 +1,78 @@
+/*doc
+---
+title: Code
+name: code
+categories:
+  - All
+  - CSS
+---
+
+Show some code
+
+```haml_example
+%pre
+  %code
+    :preserve
+      class Foo
+        def bar
+          puts 'hi'
+        end
+      end
+```
+
+Make it scrollable
+
+```haml_example
+
+%pre.pre-scrollable
+  %code
+    :preserve
+      class Foo
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+
+        def bar
+          puts 'hi'
+        end
+      end
+```
+
+Scrollable with too little content:
+
+```haml_example
+
+%pre.pre-scrollable
+  %code
+    :preserve
+      class Foo
+        def bar
+          puts 'hi'
+        end
+      end
+```
+*/
+
+.pre-scrollable {
+  overflow-y: auto;
+}

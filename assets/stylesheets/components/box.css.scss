@@ -1,0 +1,44 @@
+// Login specific styles
+
+// Alternate box backgrounds
+// --------------------------------------------------
+
+.boxBgBasic {
+  background-color: #eee;
+}
+
+// Alternate box borders
+// --------------------------------------------------
+
+.boxDefault {
+  box-shadow: 0 0 4px rgba(0,0,0, .2);
+  border: none;
+}
+
+// Alternate box headers
+// --------------------------------------------------
+
+.box {
+  .boxHeadBranded {
+    background: #64AEA8 ;
+    text-transform: uppercase;
+    font-family: "freight-sans-pro", sans-serif;
+    font-weight: 300;
+    font-size: 24px;
+    color: #eee;
+    padding: 21px 0 10px 87px;
+    position: relative;
+
+    &:before {
+      content: "";
+      display: block;
+      background: #00776D image-url("p-logo.png") no-repeat center center;
+      height: 100%;
+      min-width: 65px;
+      position: absolute;
+      top:0;
+      left:0;
+    }
+  }
+}
+

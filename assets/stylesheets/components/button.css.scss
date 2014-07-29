@@ -1,0 +1,182 @@
+/*doc
+---
+title: Buttons
+name: button
+categories:
+  - All
+  - CSS
+---
+
+Button styles can be applied to any element. Typically you'll want to
+use either a `<button>` or an `<a>` element:
+
+```haml_example
+%button.btn.btn-primary Button
+%a.btn.btn-primary{href: "http://trulia.com"} Link
+```
+
+If your button is actually a link to another page, please use the
+`<a>` element, while if your button performs an action, such as submitting
+a form or triggering some javascript event, then use a `<button>` element.
+
+*/
+
+/*doc
+---
+title: Button Helpers
+name: button_helpers
+parent: button
+---
+
+There are helper methods which can make creating our most-used combinations of buttons easier:
+
+The `button_link_to` is the button you should use by default unless the designer specified another button type in the mockup.
+
+```haml_example
+= button_link_to "Edit", "#"
+```
+*/
+
+/*doc
+---
+title: Button Sizes
+name: button_sizes
+parent: button
+---
+
+There are three 3 sizes for buttons: Extra Large, Large (default)
+and small. Simply apply the size modifier class for the desired size.
+There is also an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.
+
+Button                                                             | Modifier Class
+------------------------------------------------------------------ | -----------------
+<button class="btn btn-primary btn-xl">Extra Large</button>        | `btn btn-primary btn-xl`
+<button class="btn btn-primary btn-lg">Large</button>              | `btn btn-primary btn-lg`
+<button class="btn btn-primary">Default</button>                   | `btn btn-primary`
+*/
+
+
+
+/*doc
+---
+title: Full width Buttons
+name: full_width_button
+parent: button
+---
+
+Create block level buttons—those that span the full width of a parent— by adding `.btn-block`.
+
+```haml_example
+%button.btn.btn-primary.btn-block Full width button
+```
+
+*/
+
+.btn {
+  font-size: 14px;
+  font-weight: 900;
+  padding: 5px 15px;
+}
+
+.btn-xl {
+  @include button-size(0, 0, $font-size-extra-large, $line-height-extra-large, $border-radius-large);
+  min-width: 306px;
+}
+
+/*doc
+---
+title: Button Styles
+name: buttonSkins
+parent: button
+---
+
+Button                                                     | Disabled                                                     | Class               | Description
+---------------------------------------------------------- | ----------------------------------------------------------   | ------------------  | -----------
+<button class="btn btn-default">Default</button>           |<button class="btn btn-default" disabled>Default</button>     | `btn btn-default`   | This is what buttons look like, this is the go to button style.
+<button class="btn btn-primary">Primary</button>           |<button class="btn btn-primary" disabled>Primary</button>     | `btn btn-primary`   | Use this button as the primary call to action
+<button class="btn btn-lowlight">Lowlight</button>         |<button class="btn btn-lowlight" disabled>Lowlight</button>   | `btn btn-lowlight`  | Use this button for other actions, like cancel/dismiss
+<button class="btn btn-danger">Delete</button>             |<button class="btn btn-danger" disabled>Delete</button>       | `btn btn-danger`    | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-highlight"><i class="fa fa-play icon-control"></i></button> | <button class="btn btn-highlight" disabled><i class="fa fa-play icon-control"></i></button> | `btn btn-highlight` | Use this button for other important actions, e.g. restarting apps
+*/
+
+
+
+.btn-default {
+  @include button-skin($btn-default-color, $btn-default-bg, $btn-default-bg-hover);
+  font-size: 13px;
+  @include transition;
+}
+
+.btn-primary {
+  @include button-skin($btn-primary-color, $btn-primary-bg, $btn-primary-bg-hover);
+  box-shadow: 0 3px 0 $shadow-3;
+  line-height: 1.0;
+  padding: 8px 20px;
+  @include transition;
+  &:hover {
+    box-shadow: 0 3px 0 $shadow-2;
+  }
+}
+
+.btn-highlight {
+  @include button-skin($btn-highlight-color, $btn-highlight-bg, $btn-highlight-bg-hover);
+  box-shadow: 0 3px 0 $shadow-3;
+  line-height: 1.0;
+  padding: 8px 20px;
+  @include transition;
+  &:hover {
+    box-shadow: 0 3px 0 $shadow-2;
+  }
+}
+
+.btn-lowlight {
+  @include button-skin($btn-lowlight-color, $btn-lowlight-bg, $btn-lowlight-bg-hover);
+  @include transition;
+}
+
+// Danger and error appear as red
+.btn-danger {
+  @include button-skin($btn-danger-color, $btn-danger-bg, $btn-danger-bg-hover);
+  box-shadow: 0 3px 0 $shadow-3;
+  @include transition;
+  &:hover {
+    box-shadow: 0 3px 0 $shadow-2;
+  }
+}
+
+
+// Login page specific skins
+
+/*doc
+---
+title: Login Button
+name: button_login
+parent: button
+---
+
+There is a specific button style for the login pages:
+
+```haml_example
+  %button.btn.btn-alternate.btn-lg Alternate Button
+```
+
+Do not use this button on normal application pages.
+
+*/
+
+.btn-alternate {
+  @include button-skin-alternate($btn-alternate-color, $btn-alternate-bg, $btn-alternate-border);
+  background: #2281bc;
+  box-shadow: 0 2px 0 #196084;
+  border: 0 0 2px 0;
+  color: white;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.btn-lg {
+  // line-height: ensure even-numbered height of button next to large input
+  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
+}

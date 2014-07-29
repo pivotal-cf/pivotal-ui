@@ -1,0 +1,380 @@
+/*doc
+---
+title: Typography
+name: type
+categories:
+  - All
+  - CSS
+---
+
+*/
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+/*doc
+---
+title: Headings
+name: headings
+categories:
+  - All
+  - CSS
+parent: type
+---
+
+Headings can be used to define the applications typographical hierarchy.
+
+```haml_example
+%h1 h1.heading level 1
+%h2 h2.heading level 2
+%h3 h3.heading level 3
+%h4 h4.heading level 4
+%h5 h5.heading level 5
+%h6 h6.heading level 6
+%p This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+### Separating code and visual semantics
+
+Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):
+
+```haml_example
+  %h2.h1 h2.heading level 1 class applied
+```
+
+If it's not a heading but you need similar visual treatment you can add just the class to any element
+  (Use headings when possible since they add semantic value).
+
+```haml_example
+  %div.h2 div.heading level 2
+```
+
+*/
+
+// Override the bootstrap margins to use our margin classes so we can align
+// things. This is necessary because we have to keep the whitespace margins in sync with this
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: $whitespace-xl;
+  margin-bottom: $whitespace-l;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  margin-top: $whitespace-l;
+  margin-bottom: $whitespace-l;
+}
+
+@media all and (max-width: $screen-sm) {
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: $whitespace-screen-sm-xl;
+    margin-bottom: $whitespace-screen-sm-l;
+  }
+
+  h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: $whitespace-screen-sm-l;
+    margin-bottom: $whitespace-screen-sm-l;
+  }
+}
+
+// We handle font-weight here, bootstrap handles font-size and color
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+  text-transform: none;
+}
+
+h1, .h1 {
+  font-weight: $font-weight-h1;
+  color: $font-color-h1;
+}
+
+h2, .h2 {
+  font-weight: $font-weight-h2;
+  text-transform: uppercase;
+}
+
+h3, .h3 {
+  font-weight: $font-weight-h3;
+}
+
+h4, .h4 {
+  font-weight: $font-weight-h4;
+  text-transform: uppercase;
+}
+
+h5, .h5 {
+  font-weight: $font-weight-h5;
+  text-transform: uppercase;
+}
+
+h6, .h6 {
+  font-weight: $font-weight-h6;
+}
+
+/*doc
+---
+title: Emphasis
+name: emphasis
+parent: type
+---
+
+## Emphasize //TODO: make into a table
+
+Classes exist to let you decorate and emphasize text. Feel free to combine.
+
+
+```haml_example
+%small De-emphasize text with the small element
+%strong rendered as bold text
+%em rendered as italicized text
+%p.type-em-1 type-em-1 text
+%p.type-em-2 type-em-2 text
+%p.type-em-3 type-em-3 text
+%p.type-em-4 type-em-4 This is generally used for numbers 456
+```
+
+*/
+.type-em-1 {
+  text-transform: uppercase !important;
+}
+
+.type-em-2 {
+  color: $type-primary-3;
+  font-weight: 600;
+}
+
+.type-em-3 {
+  font-size: 52px !important;
+  font-weight: 600 !important;
+}
+
+.type-em-4 {
+  font-size: 28px !important;
+  font-weight: 900 !important;
+  line-height: 1.2;
+}
+
+.type-em-5{
+  line-height:1em;
+}
+
+
+/*doc
+---
+title: Type Colors
+name: type-colors
+parent: colors
+---
+
+```haml_example
+%p.type-accent-2 Dark Teal text
+%p.type-accent-3 Teal text
+%p.type-accent-4 Another shade of teal text
+%p.type-accent-5 Even lighter shade of teal text
+%p.type-primary-2 Gray text
+%p.type-primary-4 Another shade of gray
+%p.type-primary-5 Even lighter gray
+%p.type-inverse{style:'background-color: #000'} type-inverse text
+```
+
+*/
+
+.type-accent-2 {
+  color: $type-accent-2 !important;
+}
+
+.type-accent-3 {
+  color: $type-accent-3 !important;
+}
+
+.type-accent-4 {
+  color: $type-accent-4 !important;
+}
+
+.type-accent-5 {
+  color: $type-accent-5 !important;
+}
+
+.type-inverse {
+  color: $type-inverse !important;
+}
+a:hover.type-inverse {
+  color: $type-inverse-hover !important;
+}
+
+.type-primary-2 {
+  color: $type-primary-2 !important;
+}
+
+.type-primary-3 {
+  color: $type-primary-3 !important;
+}
+
+.type-primary-4 {
+  color: $type-primary-4 !important;
+}
+
+.type-primary-5 {
+  color: $type-primary-5 !important;
+}
+
+.error-color {
+  color: $error-color !important;
+}
+
+/*doc
+---
+title: Deemphasize
+name: deemphasize
+parent: type
+---
+
+```haml_example
+%h4.type-deemphasis h4 with type-deemphasis causes lightest font-weight
+
+%h4.type-deemphasis-3 h4 with type-deemphasis causes normal font-weight
+
+%p.type-deemphasis-2 h1 with type-deemphasis-2 causes sentence case text
+
+.type-terms This text is legal text, often important to include, but we don't want to distract users from the task at hand.
+```
+
+*/
+
+
+
+// Start login styles
+.type-deemphasis {
+  font-weight: 200 !important;
+}
+
+.type-deemphasis-2 {
+  text-transform: none !important;
+}
+
+.type-deemphasis-3 {
+  font-weight: 400 !important;
+}
+
+.type-terms {
+  font-size: $font-size-small;
+}
+
+/*doc
+---
+title: Ellipsis
+name: ellipsis
+parent: type
+---
+
+```haml_example
+%p.type-ellipsis-2-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%p.type-ellipsis-3-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+*/
+.type-ellipsis-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.type-ellipsis-3-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/*doc
+---
+title: Single line Ellipsis
+name: ellipsis_1_line
+parent: ellipsis
+---
+
+The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
+
+```haml_example
+%p.type-ellipsis-1-line Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+*/
+
+.type-ellipsis-1-line {
+  @include ellipsis;
+}
+
+
+/*doc
+---
+title: Alignment
+name: alignment
+parent: type
+---
+
+Alignment classes can be used to align text top, bottom, middle or left, right, center.
+
+Class                 | Description
+--------------------- | -----------------
+`.txt-l`              | Aligns text to the left
+`.txt-r`              | Aligns text to the right
+`.txt-c`              | Centers text horizontally
+`.txt-t`              | Aligns text to the top
+`.txt-b`              | Aligns text to the bottom
+`.txt-m`              | Centers text vertically
+
+*/
+
+.txt-c {
+  text-align: center;
+}
+
+.txt-l {
+  text-align: left;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.txt-t {
+  vertical-align: top;
+}
+
+.txt-b {
+  vertical-align: bottom;
+}
+
+.txt-m {
+  vertical-align: middle;
+}
+
+/*doc
+---
+title: Login Server Lookalikes
+name: login
+parent: type
+---
+
+Special styles used to make the password reset page look the same as the login server.
+
+```haml_example
+%h1.h1-login Slightly larger H1 without all caps.
+```
+```haml_example
+%h2.h2-login Slightly larger gray h2.
+```
+*/
+
+.h1-login {
+  color: $teal-4;
+  font-size: 23px;
+  font-weight: 400;
+  text-transform: none;
+}
+
+.h2-login {
+  color: $gray-4;
+  font-weight: normal;
+  font-size: 18px;
+  text-transform: none;
+}

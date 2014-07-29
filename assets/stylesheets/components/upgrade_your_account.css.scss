@@ -1,0 +1,131 @@
+/*doc
+---
+title: Upgrade Your Account Widget
+name: upgrade_your_account
+categories:
+  - All
+  - CSS
+---
+
+```haml_example
+.panel.panel-simple#upgrade_your_account.mtxl
+  .panel-body
+    .row.mvxl.ptxl
+      .col-md-8.txt-c
+        %h3.type-em-1.type-primary-4 More Memory
+      .col-md-8.txt-c
+        %h3.type-em-1.type-primary-4 Pay As You Go
+      .col-md-8.txt-c
+        %h3.type-em-1.type-primary-4 Premium Service Plans
+    .row
+      .col-md-8.txt-c
+        .circle
+          .text.type-accent-3 10GB
+      .col-md-8.txt-c
+        .row
+          .col-md-16.col-md-offset-4
+            .panel.panel-highlight.mtl
+              .panel-body.pas
+                .cost $0.03
+                per gb per hour
+      .col-md-8.txt-c
+        .premium-services
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+          .tiny-circle>
+```
+
+*/
+
+#upgrade_your_account {
+  .circle {
+    display: inline-block;
+    border-radius: 50%;
+    width: 152px;
+    height: 152px;
+    .text {
+      text-align: center;
+      line-height: 107px;
+      font-size: 36px;
+      font-weight: 600;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .panel-highlight {
+    background-color: $teal-3;
+    border-radius: 5px;
+    color: $type-inverse;
+    text-transform: uppercase;
+    font-size: 18px;
+  }
+
+  .cost {
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 600;
+  }
+
+  .premium-services {
+    margin-top: 2px;
+    display: inline-block;
+    width: 216px;
+    height: 152px;
+    .tiny-circle {
+      background-color: $gray-4;
+      border-radius: 50%;
+      margin-right: 2px;
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+/*doc
+---
+title: Iconography
+name: iconography
+categories:
+  - All
+  - CSS
+---
+
+We use Font Awesome for scalable vector icons that can be customized — size, color, drop shadow,
+and anything that can be done with CSS. These icons will always match the font color.
+
+
+Button                                             | Class                  | Description
+-------------------------------------------------- | ---------------------- | -----------
+<i class="fa fa-plus"></i>                         | `.fa.fa-plus`          | Renders our plus icon
+<i class="fa fa-user"></i>                         | `.fa.fa-user`          | Renders our person icon
+<i class="fa fa-sort-down"></i>                    | `.fa.fa-sort-down`     | Renders our triangle icon
+<i class="fa fa-cog"></i>                          | `.fa.fa-cog`           | Renders our gear icon
+<i class="fa fa-times"></i>                        | `.fa.fa-times`         | Renders our 'x' icon
+<i class="fa fa-check"></i>                        | `.fa.fa-check`         | Renders our check icon
+<i class="fa fa-chevron-right"></i>                | `.fa.fa-chevron-right` | Renders our right chevron icon
+<i class="fa fa-chevron-up"></i>                   | `.fa.fa-chevron-up`    | Renders our down chevron icon
+<i class="fa fa-chevron-down"></i>                 | `.fa.fa-chevron-down`  | Renders our down chevron icon
+<i class="fa fa-windows"></i>                      | `.fa.fa-windows`       | Renders our Windows icon
+<i class="fa fa-apple"></i>                        | `.fa.fa-apple`         | Renders our Apple icon
+<i class="fa fa-linux"></i>                        | `.fa.fa-linux`         | Renders our Linux icon
+<i class="fa fa-pencil"></i>                       | `.fa.fa-pencil`        | Renders our edit icon
+<i class="fa fa-plus-circle"></i>                  | `.fa.fa-plus-circle`   | Renders our second add icon
+<i class="fa fa-trash-o"></i>                      | `.fa.fa-trash-o`       | Renders our delete icon
+<i class="fa fa-square"></i>                       | `.fa.fa-square`        | Renders our square icon
+<i class="fa fa-repeat"></i>                       | `.fa.fa-repeat`        | Renders our refresh/restart icon
+<i class="fa fa-play"></i>                         | `.fa.fa-play`          | Renders our start icon
+
+*/
+
+.icon-control {
+  font-size: 22px;
+}

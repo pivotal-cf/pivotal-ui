@@ -1,0 +1,71 @@
+/*doc
+---
+title: Hoverable
+name: hoverable
+categories:
+  - All
+  - JavaScript
+---
+
+This component is for showing hidden actions on hover.
+If you put this on an element then hovering on that parent element will show the hidden element.
+
+List example:
+
+This can be used with any kind of list but the list group style seems to fit this use case best.
+
+```haml_example
+%ul.list-group{"hoverable-group" => "true"}
+  %li.list-group-item{"hoverable"=>"true"}
+    List Item 1
+    %a.hovered{href: '#'} Edit
+  %li.list-group-item{"hoverable"=>"true"}
+    List Item 2
+    %a.hovered{href: '#'} Edit
+  %li.list-group-item{"hoverable"=>"true"}
+    List Item 3
+    %a.hovered{href: '#'} Edit
+  %li.list-group-item
+    Not hoverable
+
+
+```
+
+Table example:
+
+``` haml_example
+%table{"hoverable-group" => "true"}
+  %tr
+    %th Name
+  %tr{"hoverable"=>"true"}
+    %td
+      Row 1
+      %a.hovered{href: '#'} Delete
+  %tr{hoverable: true}
+    %td
+      Row 2
+      %a.hovered{href: '#'} Delete
+  %tr{hoverable: 'true'}
+    %td
+      Row 3
+      %a.hovered{href: '#'} Delete
+  %tr
+    %td
+      Not hoverable
+```
+*/
+
+[hoverable]:hover, [hoverable].clicked {
+  background-color: $gray-7;
+
+  .hovered {
+    visibility: visible;
+  }
+}
+
+[hoverable] {
+  .hovered {
+    visibility: hidden;
+    float: right;
+  }
+}

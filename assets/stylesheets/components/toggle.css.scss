@@ -1,0 +1,105 @@
+/*doc
+---
+title: Toggle
+name: toggle
+categories:
+  - All
+  - JavaScript
+---
+
+Use this class for sections that can switch into an 'edit' mode.
+
+```haml_example
+.toggle{data: {behavior: 'Toggle'}}
+  .panel.toggle-show
+    I'm viewing...
+    %a.btn.btn-default{data: {toggle: 'toggle', target: 'edit'}} Edit
+  .panel.toggle-edit
+    I'm editing...
+    %a.btn.btn-default{data: {toggle: 'toggle', target: 'show'}} Cancel
+```
+
+*/
+
+/*doc
+---
+title: Data Behavior Toggle
+name: data_behavior_toggle
+parent: toggle
+---
+
+Use this class for sections that can switch into an 'edit' mode.
+
+```haml_example
+.toggle{data: {behavior: 'Toggle'}}
+  .panel.toggle-show
+    I'm viewing...
+    %a.btn.btn-default{data: {toggle: 'toggle', target: 'edit'}} Edit
+  .panel.toggle-edit
+    I'm editing...
+    %a.btn.btn-default{data: {toggle: 'toggle', target: 'show'}} Cancel
+```
+
+*/
+
+.toggle {
+  .toggle-show {
+    display: block;
+  }
+
+  .toggle-edit {
+    display: none;
+  }
+
+  &.edit {
+    .toggle-show {
+      display: none;
+    }
+
+    .toggle-edit {
+      display: block;
+    }
+  }
+}
+
+
+/*doc
+---
+title: Angular Toggle
+name: angular toggle
+parent: toggle
+---
+
+Use this class for sections that have two different viewable states.
+
+```haml_example
+.state-toggle{"ng-controller" => "StyleguideToggleCtrl", 'ng-class' => '{"state-secondary": subject.secondaryState}'}
+  .state-content-default
+    This is the default content
+    %a.btn.btn-default{'ng-click' => 'toggleState()'} Toggle State
+  .state-content-secondary
+    This is the secondary content
+    %a.btn.btn-default{'ng-click' => 'toggleState()'} Toggle State
+```
+
+*/
+
+.state-toggle {
+  .state-content-default {
+    display: block;
+  }
+
+  .state-content-secondary {
+    display: none;
+  }
+
+  &.state-secondary {
+    .state-content-default {
+      display: none;
+    }
+
+    .state-content-secondary {
+      display: block;
+    }
+  }
+}

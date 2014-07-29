@@ -1,0 +1,89 @@
+/*doc
+---
+title: Collapse Toggle
+name: collapse
+categories:
+  - All
+  - JavaScript
+---
+
+Also see the select tabs for a toggle triggered by a select group.
+This is frequently used in combination with our panel components.
+NOTE: The 'alligators' (the > in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+ and the images jump around by a few pixels when they're toggled.
+
+Simple Example:
+
+```haml_example
+%a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
+  .when-collapsed
+    Expand me
+  .when-expanded
+    Collapse me
+#simple-collapse-example.collapse
+  Look at this content.
+```
+
+Panel Example
+
+```haml_example
+#accordion-1.panel
+  .panel-heading.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-1'}, href: '#myCollapse-1'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-plus-square.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-minus-square.collapse-icon>
+        %h3.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-1.panel-collapse.collapse
+    .panel-body
+      This content should hide and show when the trigger is clicked.
+```
+
+*/
+[data-toggle=collapse] {
+  .when-collapsed {
+    display: none;
+  }
+  .when-expanded {
+    display: block;
+  }
+  .when-collapsed-inline {
+    display: none;
+  }
+  .when-expanded-inline {
+    display: inline;
+  }
+
+  &.collapsed {
+    .when-collapsed {
+      display: block;
+    }
+    .when-expanded {
+      display: none;
+    }
+    .when-collapsed-inline {
+      display: inline;
+    }
+    .when-expanded-inline {
+      display: none;
+    }
+  }
+}
+
+
+.collapse-trigger {
+  cursor: pointer;
+
+  .collapse-title {
+    display: inline-block;
+    @extend .mlm;
+  }
+
+  .collapse-icon {
+    display: inline;
+  }
+}

@@ -1,0 +1,212 @@
+/*doc
+---
+title: Tabs
+name: tabs
+categories:
+  - All
+  - JavaScript
+---
+
+You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` on an element.
+
+*/
+/*doc
+---
+title: Highlight Tabs
+name: tab_highlight
+parent: tabs
+---
+
+```haml_example
+.tab-highlight
+  .row
+    .col-md-8
+      %h1 Service Plans
+      %ul.nav.nav-stacked
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#home"}
+            .row
+              .col-md-10.tab-title
+                Spark
+              .col-md-14
+                Free
+        %li
+          %a{"data-toggle" => "tab", :href => "#profile"}
+            .row
+              .col-md-10.tab-title
+                Boost
+              .col-md-14
+                $10/month
+        %li
+          %a{"data-toggle" => "tab", :href => "#messages"}
+            .row
+              .col-md-10.tab-title
+                Amp
+              .col-md-14
+                $50/month
+        %li
+          %a{"data-toggle" => "tab", :href => "#settings"}
+            .row
+              .col-md-10.tab-title
+                Shockingly long plan name is important to test
+              .col-md-14
+                $1000/month
+
+    .col-md-16
+      %h1 Plan Features
+      .tab-content
+        #home.tab-pane.fade.in.active Content 1
+        #profile.tab-pane.fade Content 2
+        #messages.tab-pane.fade Content 3
+        #settings.tab-pane.fade Content 4
+```
+
+*/
+
+.tab-highlight {
+  .nav {
+    > li {
+      position: relative;
+      overflow: hidden;
+
+      + li {
+        margin-top: -$tab-highlight-border-width; // overriding bootstrap defaults
+      }
+
+      > a {
+        padding: 15px;
+        color: $tab-highlight-tab-color;
+        background-color:$tab-highlight-bg-color;
+        transition: background-color 150ms ease-out;
+      }
+
+      > a:hover {
+        z-index: 100;
+        background-color: $tab-highlight-hover-bg-color;
+      }
+    }
+
+    > li.active {
+      a {
+        z-index: 50;
+      }
+
+      > a,
+      > a:hover {
+        color: $tab-highlight-tab-active-color;
+        background-color: $tab-highlight-tab-hover-bg-color;
+        border-width: 0;
+        cursor: default;
+      }
+    }
+
+    .tab-title {
+      font-size: $nav-tabs-title-font-size;
+    }
+  }
+
+
+  //content area of tabs
+  .tab-content {
+    border-top: $tab-highlight-border-width solid $tab-highlight-border-color;
+    padding: 0;
+    margin-left: -20px;
+  }
+}
+
+
+/*doc
+---
+title: Simple Tabs
+name: tab_simple
+parent: tabs
+---
+
+```haml_example
+.tab-simple
+  .tabs-action.txt-r
+    %a Some Action
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#spaces"}Spaces
+    %li
+      %a{"data-toggle" => "tab", :href => "#domains"}Domains
+    %li
+      %a{"data-toggle" => "tab", :href => "#members"}Members
+
+
+  .tab-content
+    #spaces.tab-pane.fade.in.active Spaces Content
+    #domains.tab-pane.fade Domains Content
+    #members.tab-pane.fade Members Content
+
+```
+*/
+
+$tab-border-size: 3px;
+.tab-simple {
+  background-color: $tab-simple-tab-active-bg-color;
+  position: relative;
+  .nav {
+    &.nav-tabs {
+      border-bottom: $tab-border-size solid $tab-simple-shadow-border-color;
+      border-top: 1px solid $tab-simple-tab-border-color;
+      background-color: $tab-simple-bg-color;
+      @include background-clip-fix;
+    }
+
+    > li {
+      border-right: 1px solid $tab-simple-tab-border-color;
+      > a {
+        margin-right: 0; // bootstrap override
+        border: 0; //bootstrap override
+        border-radius: 0; //bootstrap override
+        padding: 10px 19px 13px 19px;
+        color: $tab-simple-link-color;
+        font-weight: $tab-simple-link-font-weight;
+        font-size: 16px;
+      }
+
+      > a:hover {
+        border: 0;
+      }
+    }
+
+    > li:hover {
+      cursor: pointer;
+      @include transition;
+
+      > a {
+        background-color: $tab-simple-tab-hover-bg-color;
+      }
+    }
+
+    > li.active {
+      margin-bottom: -$tab-border-size; //Don't show the border on the active tab
+      border-top: $tab-border-size solid $tab-simple-shadow-border-color;
+      background-color: $tab-simple-tab-active-bg-color;
+      cursor: default;
+      border-right: 0;
+      @include no-transition;
+
+      > a {
+        margin: -$tab-border-size 0 $tab-border-size 0; //shift text up to offset top border
+        color: $tab-simple-link-active-color;
+        background-color: transparent;
+      }
+    }
+  }
+
+
+
+  .tabs-action {
+    padding: 14px 16px;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.tab-content {
+  padding: 20px;
+}
+

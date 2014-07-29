@@ -1,0 +1,21 @@
+/*doc
+---
+title: Tooltip
+name: tooltip
+categories:
+  - All
+  - JavaScript
+---
+
+Tooltip styles can be applied to any element. We often apply them to disabled
+buttons which require a wrapper div as the hover event will not fire.
+
+```haml_example
+.with-tooltip{data: {title: "This is your tooltip"}}
+  %button.btn.btn-primary{disabled: true} Button
+```
+*/
+
+.with-tooltip {
+  display: inline-block;
+}

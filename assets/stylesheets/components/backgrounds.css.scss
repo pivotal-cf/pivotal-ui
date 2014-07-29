@@ -1,0 +1,160 @@
+/*doc
+---
+title: Backgrounds
+name: background
+parent: colors
+categories:
+  - All
+  - CSS
+---
+
+Background color classes can be applied to any element.
+
+
+*/
+
+/*doc
+---
+title: Grays
+name: gray
+parent: background
+---
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-default-4"></div>
+      <div class="chip-color-name">.bkg-default-4</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-default-5"></div>
+      <div class="chip-color-name">.bkg-default-5</div>
+    </div>
+  </div>
+</div>
+*/
+.bkg-default-3{
+  background-color: $bkg-default-3-color;
+}
+
+.bkg-default-4 {
+  background-color: $bkg-default-4-color;
+}
+.bkg-default-5 {
+  background-color: $bkg-default-5-color;
+}
+
+/*doc
+---
+title: Primary
+name: primary_colors
+parent: background
+---
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-primary-2"></div>
+      <div class="chip-color-name">.bkg-primary-2</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-primary-3"></div>
+      <div class="chip-color-name">.bkg-primary-3</div>
+    </div>
+  </div>
+</div>
+*/
+
+.bkg-primary-2 {
+  background-color: $teal-2;
+}
+
+.bkg-primary-3 {
+  background-color: $blue-5;
+}
+
+
+
+/*doc
+---
+title: Images
+name: images
+parent: background
+---
+
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-highlight-1"></div>
+      <div class="chip-color-name">bkg-highlight-1</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-highlight-2"></div>
+      <div class="chip-color-name">bkg-highlight-2</div>
+    </div>
+  </div>
+</div>
+
+*/
+
+.bkg-highlight-1 {
+  background-image: -webkit-gradient(
+      linear,
+      left bottom,
+      right top,
+      color-stop(1, rgb(99,173,167)),
+      color-stop(0, rgb(0, 119, 109))
+  );
+}
+
+.bkg-highlight-2 {
+  background: $bkg-default-5-color image-url('gray-cloud.png') no-repeat 50% 150px;
+}
+
+.bkg-highlight-3 {
+}
+
+
+/*doc
+---
+title: Overlay
+name: bkg_overlay
+parent: background
+---
+
+The background overlay style is partially transparent.
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-overlay"></div>
+      <div class="chip-color-name">bkg-overlay</div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-overlay-1"></div>
+      <div class="chip-color-name">bkg-overlay-1</div>
+    </div>
+  </div>
+</div>
+*/
+
+.bkg-overlay {
+  background-color: rgba(154, 202,198, .4);
+}
+.bkg-overlay-1 {
+  background-color: rgba(0, 0, 0, .3);
+}
+
+
+
+
+

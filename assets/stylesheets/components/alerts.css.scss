@@ -1,0 +1,111 @@
+/*doc
+---
+title: Alerts
+name: alert
+categories:
+  - All
+  - CSS
+---
+
+Alerts are used to display flash messages to the user.
+
+```haml_example
+.alert.alert-success
+  %p Success.
+```
+
+You can also make them dismissable:
+
+```haml_example
+.alert.alert-success.alert-dismissable
+  %button.close{data: {dismiss: "alert"}}
+    %i.fa.fa-times
+  %p Everything is wonderful.
+
+.alert.alert-info.alert-dismissable
+  %button.close{data: {dismiss: "alert"}}
+    %i.fa.fa-times
+  %p Some info message
+
+.alert.alert-error.alert-dismissable
+  %button.close{data: {dismiss: "alert"}}
+    %i.fa.fa-times
+  %p Something has gone horribly awry
+
+.alert.alert-warning.alert-dismissable
+  %button.close{data: {dismiss: "alert"}}
+    %i.fa.fa-times
+  %p Warning: There is no parking on the dancefloor.
+
+.alert.alert-error.alert-dismissable
+  %button.close{data: {dismiss: "alert"}}
+    %i.fa.fa-times
+  %p
+    Error
+    %a{href: "#"} Link to resolve Error
+```
+
+
+
+*/
+
+.alert {
+  border: none;
+  margin-bottom: 0px;
+  font-weight: 600;
+
+  p {
+    &:before {
+      font-family: FontAwesome;
+      padding-right: 5px;
+      font-size: 16px;
+    }
+  }
+
+  &.alert-error {
+    p {
+      &:before {
+        content: '\f071';
+      }
+    }
+  }
+
+  &.alert-success {
+    p {
+      &:before {
+        content: '\f058';
+      }
+    }
+  }
+
+  &.alert-warning {
+    p {
+      &:before {
+        content: '\f071';
+      }
+    }
+  }
+
+  &.alert-info {
+    p {
+      &:before {
+        content: '\f05a';
+      }
+    }
+  }
+}
+
+
+.alert {
+  margin: $baseSpacing 0;
+  .close {
+    text-decoration: none;
+    line-height: .7;
+    text-shadow: none;
+  }
+}
+
+// bootstrap includes alert-danger, but our html expects "alert-error" class
+.alert-error {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}

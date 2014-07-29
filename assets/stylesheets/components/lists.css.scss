@@ -1,0 +1,651 @@
+/*doc
+---
+title: Lists
+name: lists
+categories:
+  - All
+  - CSS
+---
+*/
+
+
+/*doc
+---
+title: Inline List
+name: list-inline
+parent: lists
+---
+
+An inline list is one of the three methods for laying out content (including grids and the media block).
+
+```haml_example
+%ul.list-inline
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+.list-inline {
+  font-size: 0;
+  > li {
+    font-size: $font-size-base;
+  }
+}
+
+/*doc
+---
+title: Ordered List
+name: list-ordered
+parent: lists
+---
+
+
+```haml_example
+%ol
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+/*doc
+---
+title: Unordered List
+name: list-unordered
+parent: lists
+---
+
+This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
+
+```haml_example
+%ul
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+/*doc
+---
+title: Unordered List 2
+name: list-unordered-2
+parent: lists
+---
+
+This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
+
+```haml_example
+%ul.list-unordered
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+.list-unordered {
+  padding-left: 0;
+  > li {
+    margin-left: 17px;
+  }
+}
+
+/*doc
+---
+title: Unstyled List
+name: list-unstyled
+parent: lists
+---
+
+Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-unstyled` class can be applied to either a `<ul>` or and `<ol>`.
+
+```haml_example
+%ul.list-unstyled
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+/*doc
+---
+title: Inline Divider List
+name: list-inline-divider
+parent: lists
+---
+
+Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider` also adds a simple gray border.
+
+```haml_example
+%ul.list-inline-divider
+  %li
+    %a.type-em-1{href: "http://google.com"}
+      Edit
+  %li
+    %a.type-em-1{href: "http://google.com"}
+      Invite
+```
+*/
+
+.list-inline-divider {
+
+  @extend .list-inline;
+  > li {
+    border-left: $list-inline-divider-border;
+    &:first-child {
+      border: none;
+    }
+  }
+}
+
+/*doc
+---
+title: Breadcrumb List
+name: list-breadcrumb
+parent: lists
+---
+
+The `.list-breadcrumb` can be used to provide additional page navigation.
+
+Breadcrumbs use their own monospace font-family.
+
+```haml_example
+%ul.list-breadcrumb
+  %li
+    %a{href: "http://google.com"}
+      Parent
+  %li
+    %a{href: "http://google.com"}
+      Child
+  %li.current
+    %span
+      Current Page
+```
+*/
+
+.list-breadcrumb {
+  @extend .list-inline;
+  margin-bottom: 0;
+
+  font-family: "Consolas", "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
+
+  > li {
+    font-size: 0; // TODO: remove all font-size hacks from this file when we start minifying our HTML
+    a, &.current span {
+      font-size: 14px;
+      display: inline-block;
+      max-width: 200px;
+      @include ellipsis;
+      vertical-align: middle;
+    }
+
+    &.current span {
+      color: $navbar-default-link-color;
+    }
+
+    padding-left: 0;
+    padding-right: 0;
+    &:before {
+      font-size: $font-size-base;
+      color: $navbar-default-link-color;
+      content: ">";
+      vertical-align: middle;
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+    &:first-child:before {
+      content: "";
+    }
+  }
+}
+
+/*doc
+---
+title: List Group
+name: list-group
+parent: lists
+---
+
+Use this list when you need simple gray borders between items
+
+```haml_example
+%ul.list-group
+  %li.list-group-item
+    item 1
+  %li.list-group-item
+    item 2
+  %li.list-group-item
+    item 3
+```
+
+New elements fade in
+
+```haml_example
+%ul.list-group#list-group-adding-demo
+  %li.list-group-item
+    item 1
+  %li.list-group-item
+    item 2
+  %li.list-group-item
+    item 3
+
+```
+
+<a data-add-item-to="#list-group-adding-demo">Add an item</a>
+
+*/
+
+.list-group {
+  &, > li {
+    border-width: 1px 0;
+  }
+}
+
+.list-group-item {
+  padding-right: 5px; //bootstrap override
+
+  &.new {
+    -webkit-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
+    -moz-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
+  }
+}
+
+@-webkit-keyframes new-list-group-item-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes new-list-group-item-grow {
+  0% {
+    max-height: 0;
+    padding: 0px 15px;
+  }
+  100% {
+    max-height: 100px;
+    padding: 10px 15px;
+  }
+}
+
+@keyframes new-list-group-item-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes new-list-group-item-grow {
+  from {
+    max-height: 0;
+    padding: 0px 15px;
+  }
+  to {
+    max-height: 100px;
+    padding: 10px 15px;
+  }
+}
+
+.list-notitle{
+  li:first-child{
+    border-top:0;
+  }
+  li:last-child{
+    border-bottom:0;
+  }
+}
+
+/*doc
+---
+title: Event List
+name: event-list
+parent: lists
+---
+
+This is a special list-group, with styles per-event for colors and icons
+
+```haml_example
+%ul.list-group.event-list
+  %li.list-group-item.started
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title started app
+  %li.list-group-item.stopped
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title stopped app
+  %li.list-group-item.updated
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title updated app
+  %li.list-group-item.scaled-instances
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title scaled app instances
+  %li.list-group-item.scaled-memory
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title scaled app memory
+  %li.list-group-item.scaled-disk
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title scaled app disk
+  %li.list-group-item.scaled
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title scaled app
+  %li.list-group-item.crashed
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title app crashed
+  %li.list-group-item.created
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title created app
+  %li.list-group-item.renamed
+    .media
+      .pull-left
+        .event-icon
+      .media-body
+        .event-title renamed app
+```
+*/
+
+.event-list {
+  .event-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .event-user {
+    color: $gray-4;
+  }
+
+  .event-icon {
+    font-family: 'FontAwesome';
+    font-size: 17px;
+    width: 17px;
+  }
+
+  .started {
+    .event-title {
+      color: $teal-5;
+    }
+    .event-icon:after {
+      color: $teal-5;
+      content: '\f04b';
+    }
+  }
+  .stopped {
+    .event-title {
+      color: $gray-4;
+
+    }
+    .event-icon:after {
+      color: $gray-4;
+      content: '\f04d';
+
+    }
+  }
+  .updated {
+    .event-title {
+      color: $teal-5;
+
+    }
+    .event-icon:after {
+      color: $teal-5;
+      content: '\f01b';
+    }
+  }
+  .scaled {
+    .event-title {
+      color: $teal-5;
+
+    }
+    .event-icon:after {
+      color: $teal-5;
+      content: '\f0e4';
+
+    }
+  }
+  .crashed {
+    .event-title {
+      color: $red-3;
+
+    }
+    .event-icon:after {
+      color: $red-3;
+      content: '\f06a';
+
+    }
+  }
+  .created {
+    .event-title {
+      color: $teal-5;
+
+    }
+    .event-icon:after {
+      color: $teal-5;
+      content: '\f135';
+
+    }
+  }
+  .renamed {
+    .event-title {
+      color: $teal-5;
+
+    }
+    .event-icon:after {
+      color: $teal-5;
+      content: '\f040';
+
+    }
+  }
+}
+
+/*doc
+---
+title: Vertical Divider List
+name: list-vertical-divider
+parent: lists
+---
+
+Use this list when you need larger gray borders between
+items. It should be used in concert with grid column
+sizes when you want the items to take a particular width.
+
+We achieve equal height columns using the padding/margin hack,
+so we need an additional `.height-enforcer` element to get the
+right min-height.
+
+```haml_example
+%ul.list-vertical-divider
+  %li.col-md-8
+    .height-enforcer
+      item 1
+  %li.col-md-8
+    .height-enforcer
+      item 2
+  %li.col-md-8
+    .height-enforcer{style: 'height: 200px'}
+      item 3, which is taller
+```
+
+```haml_example
+%ul.list-vertical-divider-2
+  %li.col-md-8
+    .height-enforcer
+      item 1
+  %li.col-md-8
+    .height-enforcer
+      item 2
+  %li.col-md-8
+    .height-enforcer{style: 'height: 200px'}
+      item 3, which is taller
+```
+*/
+
+.list-vertical-divider {
+  @extend .list-inline-divider;
+  @include clearfix-me(micro);
+
+  overflow: hidden;
+
+  > li {
+    border-left: $list-vertical-divider-border;
+    padding-bottom: 9000px;
+    margin-bottom: -9000px;
+
+    .height-enforcer {
+      min-height: 130px;
+    }
+  }
+}
+
+.list-vertical-divider-2 {
+  @extend .list-vertical-divider;
+  margin-bottom: 40px;
+  > li {
+    border-left: $divider-lowlight-border;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  >li:first-child {
+    padding-left: 30px;
+  }
+}
+
+/*doc
+---
+title: Steps List
+name: list-steps
+parent: lists
+---
+
+Use this list when you need to show the steps in a flow.
+
+```haml_example
+%ol.list-steps
+  %li
+    Sign up Account
+  %li.current
+    Create Organization
+  %li
+    Do other things
+  %li
+    And more things
+
+```
+*/
+
+.list-steps {
+  @extend .list-inline;
+  > li {
+    font-size: 14px;
+    text-transform:uppercase;
+    color: $list-steps-color;
+    margin-right: 45px;
+    padding-left: 0; // overrides .list-inline styles
+    margin-bottom: 5px;
+    counter-increment: list-steps;
+    font-weight:600;
+    &:before {
+      content: counter(list-steps);
+
+      display: block;
+      padding: 0px 7px;
+      margin-right:4px;
+      text-align: center;
+      color: $list-steps-color;
+      display: inline-block;
+      border: 2px solid $list-steps-color;
+      border-radius: 30px; // set to be higher than required so that it will work with larger fonts/paddings.
+    }
+    &.current {
+      color: $list-steps-color-current;
+      font-weight:900;
+      &:before {
+        color: $list-steps-color-current;
+        border-color: $list-steps-color-current;
+      }
+    }
+  }
+}
+
+
+
+
+/*doc
+---
+title: Checked List
+name: list-checked
+parent: lists
+---
+
+Replaces the default bullet image with the font awesome checkmark.
+
+```haml_example
+%ul.list-checked
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+*/
+
+.list-checked {
+  list-style: none;
+  padding-left: 20px;
+
+  li:before {
+    font-family: 'FontAwesome';
+    // Font Awesome unicode for fa-check
+    content: '\f00c';
+    margin: 0 5px 0 -15px;
+    color: $teal-3;
+  }
+}
+
+
+
+@include ooListWhitespace();

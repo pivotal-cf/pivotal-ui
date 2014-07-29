@@ -1,0 +1,135 @@
+/*doc
+---
+title: Progress Bars
+name: progress_bar
+categories:
+  - All
+  - CSS
+---
+*/
+
+/*doc
+---
+title: Simple
+name: simple_progress_bar
+parent: progress_bar
+---
+
+```haml_example
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "0", :role => "progressbar", :style => "width: 0%;"}
+    .label
+      0%
+%p
+  0 MB of 100 MB Used
+
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "3", :role => "progressbar", :style => "width: 3%;"}
+    .label
+      3%
+%p
+  3 MB of 100 MB Used
+
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "9", :role => "progressbar", :style => "width: 9%;"}
+    .label
+      9%
+%p
+  9 MB of 100 MB Used
+
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 60%;"}
+    .label
+      60%
+%p
+  60 MB of 100 MB Used
+
+.progress
+  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar", :style => "width: 90%;"}
+    .label
+      90%
+%p
+  90 MB of 100 MB Used
+```
+
+
+*/
+
+.progress {
+  margin-bottom: 0; // Bootstrap override
+  border-radius: 0;
+  background-color: $shadow-3;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+}
+
+.progress-bar {
+  background: $gray-4;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  text-align: left;
+  .label {
+    margin-left: 7px;
+    font-size: 14px;
+    font-weight: 900;
+  }
+}
+
+.progress-bar[aria-valuenow="1"],
+.progress-bar[aria-valuenow="2"] {
+  min-width: 3%;
+}
+
+.progress-bar[aria-valuenow="0"] {
+  color: $text-color;
+  min-width: 3%;
+  background: transparent;
+  box-shadow: none;
+}
+
+.progress-bar[aria-valuenow^="9"]:not([aria-valuenow="9"]), .progress-bar[aria-valuenow="100"] {
+  background: $red-3;
+}
+
+/*doc
+---
+title: Animated
+name: animated_progress_bar
+parent: progress_bar
+---
+
+Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
+In the haml, the width should be set to match the `aria-valuenow` if the progress bar isn't animated. If it is, it should be set to 0% initially.
+
+```haml_example
+.progress
+  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "0", :role => "progressbar", "data-behavior" => "ProgressBar"}
+    .label
+      0%
+%p
+  0 MB of 100 MB Used
+
+.progress
+  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", "data-behavior" => "ProgressBar"}
+    .label
+      60%
+%p
+  60 MB of 100 MB Used
+
+.progress
+  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "93", :role => "progressbar", "data-behavior" => "ProgressBar"}
+    .label
+      93%
+%p
+  93 MB of 100 MB Used
+```
+*/
+
+.progress-bar-animated {
+  -webkit-transition: width 1s ease-in-out;
+  -moz-transition: width 1s ease-in-out;
+  -o-transition: width 1s ease-in-out;
+  transition: width 2s ease-in-out;
+}

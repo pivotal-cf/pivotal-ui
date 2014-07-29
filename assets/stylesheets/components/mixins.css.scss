@@ -1,0 +1,93 @@
+/* Button Mixins */
+
+@mixin button-skin($color, $background, $background-hover) {
+  color: $color;
+  background-color: $background;
+  border: none;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $color;
+    background-color: $background-hover;
+  }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: $background-hover;
+  } }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $btn-disabled-bg;
+      color: $btn-disabled-color;
+    }
+  }
+}
+
+@mixin button-skin-alternate($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    color: $color;
+    background-color: darken($background, 9%);
+  }
+  .open & { &.dropdown-toggle {
+    color: $color;
+    background-color: darken($background, 8%);
+  } }
+  &:active,
+  &.active {
+    background-image: none;
+  }
+  .open & { &.dropdown-toggle {
+    background-image: none;
+  } }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: $background;
+    }
+  }
+}
+
+//Used for translucent borders
+@mixin background-clip-fix() {
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+/* Transition mixins */
+
+@mixin transition($type:all, $speed:300ms, $ease: ease-out){
+  -webkit-transition: $type $speed $ease;
+  -moz-transition: $type $speed $ease;
+  transition: $type $speed $ease;
+}
+
+@mixin no-transition(){ //TODO: is there a transition: none?
+  -webkit-transition: all 0ms ease-out;
+  -moz-transition: all 0ms ease-out;
+  transition: all 0ms ease-out;
+}
