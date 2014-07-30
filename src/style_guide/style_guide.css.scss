@@ -1,0 +1,255 @@
+// Styles specific to the styleguide, otherwise, not used
+@import 'compass';
+
+.style_guides .navlinks-global {
+  display: none;
+}
+
+nav.styleguide-nav:hover {
+  overflow-y: auto;
+}
+
+@media (max-width: 720px) {
+  nav.styleguide-nav {display: none;}
+}
+
+nav.styleguide-nav {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  padding-top: 90px;
+  padding-bottom: 50px;
+  width: 190px;
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  > ul {
+    li {
+      margin-left: 20px;
+    }
+
+    > li {
+      margin-left: 0;
+    }
+  }
+  li {
+    ul {
+      display: none;
+    }
+
+    > a {
+      border-left: 3px solid transparent;
+      color: #B3B3B3;
+      padding: 3px 3px;
+    }
+  }
+  li.active {
+    ul{
+      display: block;
+    }
+
+    > a {
+      border-left: 2px solid #49A8D5;
+      color: #49A8D5;
+      padding: 3px 3px;
+    }
+  }
+}
+
+.chip {
+
+  margin-top: 10px;
+
+  .chip-color {
+    min-height: 100px;
+  }
+  .chip-color-name {
+    color: #777;
+    padding-top: 5px;
+    font-size: 11px;
+    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  }
+}
+
+.marquee {
+  min-height: 400px;
+}
+.marquee-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 11px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size:16px;
+  margin: 10px 0;
+  padding: 5px;
+
+}
+
+.sg-code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+div.codeExample, div.jsExample {
+  border-radius: 5px;
+  @include background-clip();
+//  @include background-clip-fix;
+  border-bottom: 2px solid rgba(40,40,40,0.08);
+  background-color: #ECEFEF;
+}
+
+div.jsExample {
+  border-top: 0px;
+}
+
+div.codeExample:before, div.jsExample:before {
+  font-family: "OpenSans", sans-serif;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  position: relative;
+  padding: 2px;
+  display: block;
+}
+
+div.codeExample:before {
+  content: " Example ";
+  background-color: #f9f9f9;
+  width: 60px;
+  top: -1px;
+  left: -1px;
+}
+
+div.jsExample:before {
+  content: "JS Example";
+  background-color: #fff;
+  width: 80px;
+  top: -11px;
+  left: -11px;
+}
+
+div.codeBlock, div.exampleOutput {
+  padding: 10px;
+}
+
+div.codeBlock {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.docSwatch {
+  min-height: 218.21px;
+  border: 1px solid #ccc;
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.codeExample .line > div:after {
+  content: attr(class);
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  background-color: #EEE;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+// make the grid visible
+
+.grid-show {
+  outline: 1px solid #34928A;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  [class*=col] {
+    background-color: #72B5AD;
+    padding: 10px;
+    outline: 1px solid #34928A;
+  }
+}
+
+// form hacks
+
+.styleguide-form {
+  padding: 25px;
+}
+
+// banner hack
+
+.banner-styleguide-wrapper {
+  position: relative;
+  border: 2px solid #EDEDED;
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  .banner {
+    position: absolute;
+  }
+}
+
+pre {
+  background-color: transparent; //bootstrap override
+  border: none; //bootstrap override
+}
+
+
+//make modal visible in the example.
+.exampleOutput .modal {
+position: relative;
+top: auto;
+right: auto;
+left: auto;
+bottom: auto;
+z-index: 1;
+display: block;
+//make it modal.fade.in
+opacity: 1;
+&.fade .modal-dialog {
+  @include translate(0, 0);
+}
+}
+
+//make background image visible in styleguide chip
+.bkg-highlight-2 {
+background-position: 0 50%;
+}
+
+// toggle code visibility
+
+.code-hide-haml .codeBlock.haml {
+  display: none;
+}
+
+.code-hide-html .codeBlock.html {
+  display: none;
+}
+

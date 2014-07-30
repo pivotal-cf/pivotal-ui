@@ -2,7 +2,7 @@
 # All paths should be relative to there
 
 # The directory containing the source files to parse recursively
-source: ./assets/stylesheets
+source: ./src
 
 # The directory that hologram will build to
 destination: ./styleguide
@@ -16,8 +16,9 @@ documentation_assets: ./doc_assets
 # folder. Typically this will include the css that you are trying to
 # document. May also include additional folders as needed.
 dependencies:
-  - ./build
-  - ./assets/style_guide
+  - ./build/pivotal-ui
+  - ./src/font-awesome
+  - ./src/source-sans-pro
 
 # Mark which category should be the index page
 # Alternatively, you may have an index.md in the documentation assets

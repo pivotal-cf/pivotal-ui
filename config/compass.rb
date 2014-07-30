@@ -2,9 +2,9 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "build"
-sass_dir = "assets/stylesheets"
-images_dir = "images"
+css_dir = "build/pivotal-ui"
+sass_dir = "src/pivotal-ui"
+images_dir = "src/assets/images"
 javascripts_dir = "javascripts"
 
 # You can select your preferred output style here (can be overridden via the command line):
