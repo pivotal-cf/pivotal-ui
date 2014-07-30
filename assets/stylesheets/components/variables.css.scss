@@ -177,7 +177,7 @@ $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
 $font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          13px !default;
+$font-size-base:          16px !default;
 $font-size-extra-large:   ceil($font-size-base * 1.5) !default; // ~21px
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-medium:        ceil($font-size-base * 1.14) !default; // ~16px

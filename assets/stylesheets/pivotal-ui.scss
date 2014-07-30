@@ -1,5 +1,7 @@
 @import "compass";
 
+@import "components/mixins.css.scss";
+//try again
 @import "components/fonts.css.scss";
 @import "components/variables.css.scss";
 
@@ -7,7 +9,7 @@
 @import "frameworks/oocss.css.scss";
 
 @import "components/utils.css.scss";
-@import "components/mixins.css.scss";
+
 @import "components/colors.css.scss";
 @import "components/backgrounds.css.scss";
 @import "components/whitespace.css.scss";

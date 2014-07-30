@@ -91,3 +91,18 @@
   -moz-transition: all 0ms ease-out;
   transition: all 0ms ease-out;
 }
+
+// Source sans pro mixin
+
+@mixin font($name, $weight, $style) {
+  @font-face {
+    font-family: 'SourceSansPro';
+    src: url("../fonts/#{$name}.eot");
+    src: url("../fonts/#{$name}.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/#{$name}.woff") format("woff"),
+    url("../fonts/#{$name}.ttf") format("truetype"),
+    url("../fonts/#{$name}.svg##{$name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
