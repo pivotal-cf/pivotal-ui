@@ -5,7 +5,7 @@
 source: ./assets/stylesheets
 
 # The directory that hologram will build to
-destination: ./docs
+destination: ./styleguide
 
 # The assets needed to build the docs (includes header.html,
 # footer.html, etc)
