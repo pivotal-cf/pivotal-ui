@@ -23,22 +23,6 @@ a form or triggering some javascript event, then use a `<button>` element.
 
 /*doc
 ---
-title: Button Helpers
-name: button_helpers
-parent: button
----
-
-There are helper methods which can make creating our most-used combinations of buttons easier:
-
-The `button_link_to` is the button you should use by default unless the designer specified another button type in the mockup.
-
-```haml_example
-= button_link_to "Edit", "#"
-```
-*/
-
-/*doc
----
 title: Button Sizes
 name: button_sizes
 parent: button

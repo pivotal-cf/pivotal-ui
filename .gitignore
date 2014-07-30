@@ -9,6 +9,7 @@
 /test/version_tmp/
 /tmp/
 .ruby-version
+.sass-cache/
 
 ## Specific to RubyMotion:
 .dat*
