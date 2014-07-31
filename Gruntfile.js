@@ -38,6 +38,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    watch: {
+      scripts: {
+        files: 'src/**/*.scss',
+        tasks: ['default']
+      }
+    },
     clean: ["build", "styleguide"]
   });
 
@@ -46,6 +52,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-hologram');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('default', ['clean','concat','compass','hologram']);
 };
