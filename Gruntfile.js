@@ -37,13 +37,15 @@ module.exports = function(grunt) {
           config: 'hologram_config.yml'
         }
       }
-    }
+    },
+    clean: ["build", "styleguide"]
   });
 
 
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-hologram');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['concat','compass','hologram']);
+  grunt.registerTask('default', ['clean','concat','compass','hologram']);
 };
