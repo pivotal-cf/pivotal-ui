@@ -28,23 +28,36 @@ For the javascript components you will need to include `application.js` from `st
 
 ## Developer Notes
 
-If you intend to push code for pivotal ui itself, there are a few things you'll need to know.
+If you intend to push code for pivotal ui itself, there are a few things you'll need to do.
 
-### Tools you'll need
+### Install Tools
 
-1. node and npm `brew install node`
-1. grunt-cli `npm install grunt-cli --global`
-1. Add dependencies by running `npm install` from the project root
+1. node and npm
 
-### Building the project
 
-At the project root:
+    $ brew install node
+    
+2. grunt-cli 
+
+
+    $ npm install grunt-cli --global
+
+3. Add dependencies by running the following from the project root
+
+
+    $ npm install
+
+### Build the project
+
+As soon as you have your tools installed, and then again each time you make changes you want to see reflected in the styleguide, you'll need to run grunt _at the project root_:
 
     $ grunt
 
 ### Pushing the styleguide to cfapps.io
 
-After building, in the project root directory, run `cf push -f manifest.yml`.
+After building, in the project root directory, run 
+
+    $ cf push -f manifest.yml
 
 
 
