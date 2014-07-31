@@ -1,0 +1,30 @@
+/*doc
+---
+title: Blockquotes
+name: blockquote
+category: Objects
+---
+
+```html_example
+<blockquote class="blockquote"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p></blockquote>
+```
+*/
+.blockquote {
+  font-family: "Oswald", sans-serif;
+  font-size: 31px;
+  line-height: 40px;
+  padding: 30px 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  font-weight: 100;
+  color: #000;
+}
+.blockquote a {
+  color: #ff008f;
+}
+.blockquote a:hover {
+  color: #2da8d5;
+}
+.blockquote p {
+  margin-bottom: 0 !important;
+}

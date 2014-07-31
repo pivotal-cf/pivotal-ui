@@ -32,18 +32,15 @@ If you intend to push code for pivotal ui itself, there are a few things you'll 
 
 ### Tools you'll need
 
-* Compass
-* Sass
-* Grunt
-* Hologram
+1. node and npm `brew install node`
+1. grunt-cli `npm install grunt-cli --global`
+1. Add dependencies by running `npm install` from the project root
 
 ### Building the project
 
-It's a bit complicated right now, but we're moving to simpler grunt tasks.
+At the project root:
 
-1. Compile the CSS with Compass `compass compile src/pivotal-ui/pivotal-ui.scss`
-1. Use grunt to concatenate the JavaScripts `grunt concat`
-1. Run Hologram to build the styleguide `hologram`
+    $ grunt
 
 ### Pushing the styleguide to cfapps.io
 

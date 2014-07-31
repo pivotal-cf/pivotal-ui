@@ -22,8 +22,28 @@ module.exports = function(grunt) {
         ],
         dest: 'build/pivotal-ui/pivotal-ui.js'
       }
+    },
+    compass: {
+      dist: {
+        options: {
+          config: 'config/compass.rb',
+          specify: 'src/pivotal-ui/pivotal-ui.scss'
+        }
+      }
+    },
+    hologram: {
+      generate: {
+        options: {
+          config: 'hologram_config.yml'
+        }
+      }
     }
   });
 
+
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-hologram');
   grunt.loadNpmTasks('grunt-contrib-concat');
+
+  grunt.registerTask('default', ['concat','compass','hologram']);
 };
