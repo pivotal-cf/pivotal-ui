@@ -1,0 +1,4 @@
+applications:
+- name: styleguide
+  path: /Users/pivotal/workspace/pivotal-ui/styleguide
+  buildpack: https://github.com/cloudfoundry-community/nginx-buildpack.git
