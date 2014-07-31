@@ -30,20 +30,17 @@ For the javascript components you will need to include `application.js` from `st
 
 If you intend to push code for pivotal ui itself, there are a few things you'll need to do.
 
-### Install Tools
+### Install Tools (in order)
 
-1. node and npm
-
+node and npm
 
     $ brew install node
     
-2. grunt-cli 
-
+grunt-cli 
 
     $ npm install grunt-cli --global
 
-3. Add dependencies by running the following from the project root
-
+Add dependencies by running the following from the project root
 
     $ npm install
 
