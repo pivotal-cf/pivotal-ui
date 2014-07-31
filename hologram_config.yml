@@ -2,7 +2,7 @@
 # All paths should be relative to there
 
 # The directory containing the source files to parse recursively
-source: ./src
+source: ./src/pivotal-ui
 
 # The directory that hologram will build to
 destination: ./styleguide
