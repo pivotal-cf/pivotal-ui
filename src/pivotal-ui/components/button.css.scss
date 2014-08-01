@@ -64,6 +64,25 @@ categories: marketing-site
 
 /*doc
 ---
+title: Delete Button
+name: delete_button
+parent: button
+categories: marketing-site
+---
+
+```haml_example
+%button.btn.btn-delete Delete
+```
+*/
+
+.btn-delete {
+  @include button-skin($btn-delete-color, $btn-delete-bg, $btn-delete-bg-hover);
+  @include transition;
+  box-shadow: 0 3px 0 $shadow-3;
+}
+
+/*doc
+---
 title: Button Sizes
 name: button_sizes
 parent: button

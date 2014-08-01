@@ -11533,6 +11533,52 @@ categories: marketing-site
 
 /*doc
 ---
+title: Delete Button
+name: delete_button
+parent: button
+categories: marketing-site
+---
+
+```haml_example
+%button.btn.btn-delete Delete
+```
+*/
+/* line 78, ../../src/pivotal-ui/components/button.css.scss */
+.btn-delete {
+  color: #f8f8f8;
+  background-color: #ff434c;
+  border: none;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+}
+/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-delete:hover, .btn-delete:focus, .btn-delete:active, .btn-delete.active {
+  color: #f8f8f8;
+  background-color: #eb3d46;
+}
+/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-delete.dropdown-toggle {
+  color: #f8f8f8;
+  background-color: #eb3d46;
+}
+/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-delete:active, .btn-delete.active {
+  background-image: none;
+}
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-delete.dropdown-toggle {
+  background-image: none;
+}
+/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-delete.disabled, .btn-delete.disabled:hover, .btn-delete.disabled:focus, .btn-delete.disabled:active, .btn-delete.disabled.active, .btn-delete[disabled], .btn-delete[disabled]:hover, .btn-delete[disabled]:focus, .btn-delete[disabled]:active, .btn-delete[disabled].active, fieldset[disabled] .btn-delete, fieldset[disabled] .btn-delete:hover, fieldset[disabled] .btn-delete:focus, fieldset[disabled] .btn-delete:active, fieldset[disabled] .btn-delete.active {
+  background-color: #ecefef;
+  color: #d4d9da;
+}
+
+/*doc
+---
 title: Button Sizes
 name: button_sizes
 parent: button
@@ -11564,14 +11610,14 @@ Create block level buttons—those that span the full width of a parent— by ad
 ```
 
 */
-/* line 102, ../../src/pivotal-ui/components/button.css.scss */
+/* line 121, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
   font-size: 14px;
   font-weight: 900;
   padding: 5px 15px;
 }
 
-/* line 108, ../../src/pivotal-ui/components/button.css.scss */
+/* line 127, ../../src/pivotal-ui/components/button.css.scss */
 .btn-xl {
   padding: 0 0;
   font-size: 24px;
@@ -11595,7 +11641,7 @@ Button                                                     | Disabled           
 <button class="btn btn-danger">Delete</button>             |<button class="btn btn-danger" disabled>Delete</button>       | `btn btn-danger`    | This button is for delete actions, these actions should also have a confirmation dialog
 <button class="btn btn-highlight"><i class="fa fa-play icon-control"></i></button> | <button class="btn btn-highlight" disabled><i class="fa fa-play icon-control"></i></button> | `btn btn-highlight` | Use this button for other important actions, e.g. restarting apps
 */
-/* line 131, ../../src/pivotal-ui/components/button.css.scss */
+/* line 150, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
@@ -11629,7 +11675,7 @@ Button                                                     | Disabled           
   color: #d4d9da;
 }
 
-/* line 137, ../../src/pivotal-ui/components/button.css.scss */
+/* line 156, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
@@ -11664,12 +11710,12 @@ Button                                                     | Disabled           
   background-color: #ecefef;
   color: #d4d9da;
 }
-/* line 143, ../../src/pivotal-ui/components/button.css.scss */
+/* line 162, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary:hover {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 148, ../../src/pivotal-ui/components/button.css.scss */
+/* line 167, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #f8f8f8;
   background-color: #2185c5;
@@ -11704,12 +11750,12 @@ Button                                                     | Disabled           
   background-color: #ecefef;
   color: #d4d9da;
 }
-/* line 154, ../../src/pivotal-ui/components/button.css.scss */
+/* line 173, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight:hover {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 159, ../../src/pivotal-ui/components/button.css.scss */
+/* line 178, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #2185c5;
   background-color: transparent;
@@ -11742,7 +11788,7 @@ Button                                                     | Disabled           
   color: #d4d9da;
 }
 
-/* line 165, ../../src/pivotal-ui/components/button.css.scss */
+/* line 184, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #f8f8f8;
   background-color: #ff434c;
@@ -11775,7 +11821,7 @@ Button                                                     | Disabled           
   background-color: #ecefef;
   color: #d4d9da;
 }
-/* line 169, ../../src/pivotal-ui/components/button.css.scss */
+/* line 188, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger:hover {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11796,7 +11842,7 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-/* line 194, ../../src/pivotal-ui/components/button.css.scss */
+/* line 213, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
   color: #eeeeee;
   background-color: #1b92cb;
@@ -11830,7 +11876,7 @@ Do not use this button on normal application pages.
   background-color: #1b92cb;
 }
 
-/* line 204, ../../src/pivotal-ui/components/button.css.scss */
+/* line 223, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 19px;

@@ -317,6 +317,10 @@ $btn-offwhite-color:             $link-color;
 $btn-offwhite-bg:                $gray-5;
 $btn-offwhite-bg-hover:          white;
 
+$btn-delete-color:               $type-inverse !default;
+$btn-delete-bg:                  $red-3 !default;
+$btn-delete-bg-hover:            #eb3d46 !default;
+$btn-delete-border:              $brand-danger !default;
 
 // alternate is only used on login pages
 $btn-alternate-color:            #eee !default;
