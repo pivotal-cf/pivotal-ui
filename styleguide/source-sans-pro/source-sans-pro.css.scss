@@ -1,0 +1,20 @@
+@mixin font-helper($name, $weight, $style) {
+  @font-face {
+    font-family: 'SourceSansPro';
+    src: url("../source-sans-pro/#{$name}.eot");
+    src: url("../source-sans-pro/#{$name}.eot?#iefix") format("embedded-opentype"),
+    url("../source-sans-pro/#{$name}.woff") format("woff"),
+    url("../source-sans-pro/#{$name}.ttf") format("truetype"),
+    url("../source-sans-pro/#{$name}.svg##{$name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@include font-helper('sourcesanspro-black-webfont', 800, normal);
+@include font-helper('sourcesanspro-bold-webfont', 800, normal);
+@include font-helper('sourcesanspro-extralight-webfont', 800, normal);
+@include font-helper('sourcesanspro-it-webfont', 800, normal);
+@include font-helper('sourcesanspro-light-webfont', 800, normal);
+@include font-helper('sourcesanspro-regular-webfont', 800, normal);
+@include font-helper('sourcesanspro-semibold-webfont', 800, normal);
