@@ -43,7 +43,27 @@ categories: marketing-site
 }
 
 /*doc
+---
+title: Off white Button
+name: offwhite_button
+parent: button
+categories: marketing-site
+---
 
+```haml_example
+%button.btn.btn-offwhite Default
+```
+*/
+
+.btn-offwhite {
+  @include button-skin($btn-offwhite-color, $btn-offwhite-bg, $btn-offwhite-bg-hover);
+  @include transition;
+  box-shadow: 0 3px 0 $shadow-3;
+}
+
+
+/*doc
+---
 title: Button Sizes
 name: button_sizes
 parent: button
