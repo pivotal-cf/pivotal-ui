@@ -58,5 +58,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['clean','concat','compass','hologram']);
+  grunt.registerTask('default', ['concat','compass','hologram']);
 };
