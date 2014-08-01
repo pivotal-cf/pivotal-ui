@@ -23,6 +23,27 @@ a form or triggering some javascript event, then use a `<button>` element.
 
 /*doc
 ---
+title: Teal Button
+name: teal_button
+parent: button
+categories: marketing-site
+---
+
+```haml_example
+%button.btn.btn-xl.btn-teal Sign up for free
+```
+*/
+
+.btn-teal {
+  @include button-skin($btn-teal-color, $btn-teal-bg, $btn-teal-bg-hover);
+  @include transition;
+  text-transform: uppercase;
+  font-weight: $btn-font-weight !important;
+  box-shadow: 0 3px 0 $shadow-3;
+}
+
+/*doc
+
 title: Button Sizes
 name: button_sizes
 parent: button
