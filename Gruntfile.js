@@ -20,14 +20,14 @@ module.exports = function(grunt) {
           'src/bootstrap/javascript/tab.js',
           'src/bootstrap/javascript/transition.js'
         ],
-        dest: 'build/pivotal-ui/pivotal-ui.js'
+        dest: 'dist/pivotal-ui/pivotal-ui.js'
       }
     },
     compass: {
       dist: {
         options: {
           config: 'config/compass.rb',
-          specify: 'src/pivotal-ui/pivotal-ui.scss'
+          specify: ['src/pivotal-ui/pivotal-ui.scss', 'src/style_guide/style_guide.css.scss']
         }
       }
     },
@@ -45,10 +45,10 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: { livereload: true },
-        files: ['styleguide/**/*']
+        files: ['dist/**/*']
       }
     },
-    clean: ["build", "styleguide"]
+    clean: ["build", "dist"]
   });
 
 

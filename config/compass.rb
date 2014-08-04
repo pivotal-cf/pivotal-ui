@@ -2,8 +2,8 @@
 
 # Set this to the root of your project when deployed:
 http_path = "/"
-css_dir = "build/pivotal-ui"
-sass_dir = "src/pivotal-ui"
+css_dir = "dist"
+sass_dir = "src"
 images_dir = "src/assets/images"
 javascripts_dir = "javascripts"
 
