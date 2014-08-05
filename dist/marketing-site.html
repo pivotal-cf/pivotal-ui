@@ -40,6 +40,12 @@
         
           <li><a href="#colors">Colors</a></li>
         
+          <li><a href="#background">Backgrounds</a></li>
+        
+          <li><a href="#bkg_overlay">Overlay</a></li>
+        
+          <li><a href="#images">Images</a></li>
+        
           <li><a href="#sass_colors">Sass Colors</a></li>
         
           <li><a href="#shadows">Shadows & Glows</a></li>
@@ -150,6 +156,47 @@ size and style modifiers.</p>
 <p>Our color pallet is composed of several different colors. At any given point in captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.</p>
+
+<h2 id="background">Backgrounds</h2>
+
+<p>Background color classes can be applied to any element.</p>
+
+<h3 id="bkg_overlay">Overlay</h3>
+
+<p>The background overlay style is partially transparent.</p>
+
+<div class="row">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-overlay"></div>
+      <div class="chip-color-name">bkg-overlay</div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-overlay-1"></div>
+      <div class="chip-color-name">bkg-overlay-1</div>
+    </div>
+  </div>
+</div>
+
+<h3 id="images">Images</h3>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-highlight-1"></div>
+      <div class="chip-color-name">bkg-highlight-1</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bkg-highlight-2"></div>
+      <div class="chip-color-name">bkg-highlight-2</div>
+    </div>
+  </div>
+</div>
 
 <h2 id="sass_colors">Sass Colors</h2>
 
@@ -479,14 +526,26 @@ colors rather than adding new ones.</p>
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-1"></div>
-      <div class="chip-color-name">$orange-1</div>
+      <div class="chip-color bg-warn-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-1</li>
+          <li>.bg-warn-1</li>
+          <li>.txt-warn-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-2"></div>
-      <div class="chip-color-name">$orange-2</div>
+      <div class="chip-color bg-warn-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-2</li>
+          <li>.bg-warn-2</li>
+          <li>.txt-warn-2</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -494,28 +553,13 @@ colors rather than adding new ones.</p>
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-yellow-1"></div>
-      <div class="chip-color-name">$yellow-1</div>
-    </div>
-  </div>
-   <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-yellow-2"></div>
-      <div class="chip-color-name">$yellow-2</div>
-    </div>
-  </div>
-</div>
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-green-1"></div>
+      <div class="chip-color bg-success-1"></div>
       <div class="chip-color-name">$green-1</div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-green-2"></div>
+      <div class="chip-color bg-success-2"></div>
       <div class="chip-color-name">$green-2</div>
     </div>
   </div>
@@ -523,32 +567,55 @@ colors rather than adding new ones.</p>
 
 <h2 id="shadows">Shadows & Glows</h2>
 
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-1"></div>
-      <div class="chip-color-name">$shadow-1</div>
+<div class="row">
+<div class="contrast-bar">
+  <div class="row mvxl">
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-1"></div>
+        <div class="chip-color-name">$shadow-1</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-2"></div>
-      <div class="chip-color-name">$shadow-2</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-2"></div>
+        <div class="chip-color-name">$shadow-2</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-3"></div>
-      <div class="chip-color-name">$shadow-3</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-3"></div>
+        <div class="chip-color-name">$shadow-3</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-glow"></div>
-      <div class="chip-color-name">$glow-1</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-1"></div>
+        <div class="chip-color-name">$glow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-2"></div>
+        <div class="chip-color-name">$glow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-3"></div>
+        <div class="chip-color-name">$glow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-4"></div>
+        <div class="chip-color-name">$glow-4</div>
+      </div>
     </div>
   </div>
 </div>
+
+<p></div></p>
 
 <h2 id="type-colors">Type Colors</h2>
 <div class="codeExample"><div class="exampleOutput"><p class='type-accent-2'>Dark Teal text</p>

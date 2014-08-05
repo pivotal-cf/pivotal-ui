@@ -197,6 +197,19 @@ nav.styleguide-nav {
   }
 }
 
+.contrast-bar {
+  padding: 0 20px;
+  background-color: $navy-1;
+  min-height: 80px;
+  .row {
+    float: left;
+    width: 100%;
+    .chip-color {
+      min-height: 93px;
+    }
+  }
+}
+
 .chip {
 
   margin-top: 10px;

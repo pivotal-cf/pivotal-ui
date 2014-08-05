@@ -349,14 +349,26 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-1"></div>
-      <div class="chip-color-name">$orange-1</div>
+      <div class="chip-color bg-warn-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-1</li>
+          <li>.bg-warn-1</li>
+          <li>.txt-warn-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-2"></div>
-      <div class="chip-color-name">$orange-2</div>
+      <div class="chip-color bg-warn-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-2</li>
+          <li>.bg-warn-2</li>
+          <li>.txt-warn-2</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -364,28 +376,13 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-yellow-1"></div>
-      <div class="chip-color-name">$yellow-1</div>
-    </div>
-  </div>
-   <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-yellow-2"></div>
-      <div class="chip-color-name">$yellow-2</div>
-    </div>
-  </div>
-</div>
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-green-1"></div>
+      <div class="chip-color bg-success-1"></div>
       <div class="chip-color-name">$green-1</div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-green-2"></div>
+      <div class="chip-color bg-success-2"></div>
       <div class="chip-color-name">$green-2</div>
     </div>
   </div>
@@ -451,79 +448,72 @@ $tabs-active-bg-color: $gray-2;
 // Blues
 
 .bg-accent-1{
-  background-color: $blue-1;
+  background-color: $accent-1;
 }
 
 .bg-accent-2{
-  background-color: $blue-2;
+  background-color: $accent-2;
 }
 
 .bg-accent-3{
-  background-color: $blue-3;
+  background-color: $accent-3;
 }
 
 .bg-accent-4{
-  background-color: $blue-4;
+  background-color: $accent-4;
 }
 
 .bg-accent-5{
-  background-color: $blue-5;
+  background-color: $accent-5;
 }
 
 // Navies
 
 .bg-dark-1{
-  background-color: $navy-1;
+  background-color: $dark-1;
 }
 
 .bg-dark-2{
-  background-color: $navy-2;
+  background-color: $dark-2;
 }
 
 .bg-dark-3{
-  background-color: $navy-3;
+  background-color: $dark-3;
 }
 
 // Reds
 .bg-error-1{
-  background-color: $red-1;
+  background-color: $error-1;
 }
 
 .bg-error-2{
-  background-color: $red-2;
+  background-color: $error-2;
 }
 
 .bg-error-3{
-  background-color: $red-3;
+  background-color: $error-3;
 }
 
 .bg-error-4{
-  background-color: $red-4;
+  background-color: $error-4;
 }
 
 // Yellows
-.styleguide-only-yellow-1{
-  background-color: $yellow-1;
+.bg-warn-1{
+  background-color: $warn-1;
 }
 
-.styleguide-only-yellow-2{
-  background-color: $yellow-2;
-}
-// Oranges
-.styleguide-only-orange-1{
-  background-color: $orange-1;
+.bg-warn-2{
+  background-color: $warn-2;
 }
 
-.styleguide-only-orange-2{
-  background-color: $orange-2;
-}
 // Greens
-.styleguide-only-green-1{
-  background-color: $green-1;
+.bg-success-1{
+  background-color: $success-1;
 }
 
-.styleguide-only-green-2{
-  background-color: $green-2;
+.bg-success-2{
+  background-color: $success-2;
 }
 /*doc
 ---
@@ -531,51 +521,84 @@ title: Shadows & Glows
 name: shadows
 parent: colors
 ---
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-1"></div>
-      <div class="chip-color-name">$shadow-1</div>
+<div class="row">
+<div class="contrast-bar">
+  <div class="row mvxl">
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-1"></div>
+        <div class="chip-color-name">$shadow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-2"></div>
+        <div class="chip-color-name">$shadow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-3"></div>
+        <div class="chip-color-name">$shadow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-1"></div>
+        <div class="chip-color-name">$glow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-2"></div>
+        <div class="chip-color-name">$glow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-3"></div>
+        <div class="chip-color-name">$glow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-4"></div>
+        <div class="chip-color-name">$glow-4</div>
+      </div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-2"></div>
-      <div class="chip-color-name">$shadow-2</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-3"></div>
-      <div class="chip-color-name">$shadow-3</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-glow"></div>
-      <div class="chip-color-name">$glow-1</div>
-    </div>
-  </div>
+</div>
 </div>
 */
 
 
 // These classes are for the style guide only
 
-.styleguide-only-glow {
+.bg-glow-1 {
   background-color: $glow-1;
 }
 
-.styleguide-only-shadow-1{
+.bg-glow-2 {
+  background-color: $glow-2;
+}
+
+.bg-glow-3 {
+  background-color: $glow-3;
+}
+
+.bg-glow-4 {
+  background-color: $glow-4;
+}
+
+.bg-shadow-1{
   background-color: $shadow-1;
 }
 
-.styleguide-only-shadow-2{
+.bg-shadow-2{
   background-color: $shadow-2;
 }
 
-.styleguide-only-shadow-3{
+.bg-shadow-3{
   background-color: $shadow-3;
 }
 

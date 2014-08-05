@@ -2980,11 +2980,11 @@ cite {
 
 /* line 44, ../../src/bootstrap/_type.scss */
 .text-warning {
-  color: #c2760a;
+  color: #f1c148;
 }
 /* line 46, ../../src/bootstrap/_type.scss */
 .text-warning:hover {
-  color: #925908;
+  color: #edb119;
 }
 
 /* line 50, ../../src/bootstrap/_type.scss */
@@ -5486,13 +5486,13 @@ table th[class*="col-"] {
 .table > tfoot > tr > th.warning,
 .table > tfoot > tr.warning > td,
 .table > tfoot > tr.warning > th {
-  background-color: #fbf7d5;
+  background-color: #f8e1b1;
 }
 
 /* line 452, ../../src/bootstrap/_mixins.scss */
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover, .table-hover > tbody > tr.warning:hover > td, .table-hover > tbody > tr.warning:hover > th {
-  background-color: #f9f3be;
+  background-color: #f6d89a;
 }
 
 @media (max-width: 767px) {
@@ -5808,25 +5808,25 @@ textarea.input-lg {
 .has-warning .checkbox,
 .has-warning .radio-inline,
 .has-warning .checkbox-inline {
-  color: #c2760a;
+  color: #f1c148;
 }
 /* line 801, ../../src/bootstrap/_mixins.scss */
 .has-warning .form-control {
-  border-color: #c2760a;
+  border-color: #f1c148;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 /* line 804, ../../src/bootstrap/_mixins.scss */
 .has-warning .form-control:focus {
-  border-color: #925908;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f5a93d;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f5a93d;
+  border-color: #edb119;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f8e1a7;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #f8e1a7;
 }
 /* line 811, ../../src/bootstrap/_mixins.scss */
 .has-warning .input-group-addon {
-  color: #c2760a;
-  border-color: #c2760a;
-  background-color: #fbf7d5;
+  color: #f1c148;
+  border-color: #f1c148;
+  background-color: #f8e1b1;
 }
 
 /* line 797, ../../src/bootstrap/_mixins.scss */
@@ -7352,17 +7352,17 @@ input[type="button"].btn-block {
 
 /* line 62, ../../src/bootstrap/_alerts.scss */
 .alert-warning {
-  background-color: #fbf7d5;
-  border-color: #c2760a;
-  color: #c2760a;
+  background-color: #f8e1b1;
+  border-color: #f1c148;
+  color: #f1c148;
 }
 /* line 422, ../../src/bootstrap/_mixins.scss */
 .alert-warning hr {
-  border-top-color: #aa6709;
+  border-top-color: #efb930;
 }
 /* line 425, ../../src/bootstrap/_mixins.scss */
 .alert-warning .alert-link {
-  color: #925908;
+  color: #edb119;
 }
 
 /* line 65, ../../src/bootstrap/_alerts.scss */
@@ -7876,25 +7876,25 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 
 /* line 164, ../../src/bootstrap/_panels.scss */
 .panel-warning {
-  border-color: #c2760a;
+  border-color: #f1c148;
 }
 /* line 396, ../../src/bootstrap/_mixins.scss */
 .panel-warning > .panel-heading {
-  color: #c2760a;
-  background-color: #fbf7d5;
-  border-color: #c2760a;
+  color: #f1c148;
+  background-color: #f8e1b1;
+  border-color: #f1c148;
 }
 /* line 401, ../../src/bootstrap/_mixins.scss */
 .panel-warning > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #c2760a;
+  border-top-color: #f1c148;
 }
 /* line 404, ../../src/bootstrap/_mixins.scss */
 .panel-warning > .panel-heading > .dropdown .caret {
-  border-color: #c2760a transparent;
+  border-color: #f1c148 transparent;
 }
 /* line 409, ../../src/bootstrap/_mixins.scss */
 .panel-warning > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #c2760a;
+  border-bottom-color: #f1c148;
 }
 
 /* line 167, ../../src/bootstrap/_panels.scss */
@@ -9321,14 +9321,26 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-1"></div>
-      <div class="chip-color-name">$orange-1</div>
+      <div class="chip-color bg-warn-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-1</li>
+          <li>.bg-warn-1</li>
+          <li>.txt-warn-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-orange-2"></div>
-      <div class="chip-color-name">$orange-2</div>
+      <div class="chip-color bg-warn-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-2</li>
+          <li>.bg-warn-2</li>
+          <li>.txt-warn-2</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -9336,191 +9348,176 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-yellow-1"></div>
-      <div class="chip-color-name">$yellow-1</div>
-    </div>
-  </div>
-   <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-yellow-2"></div>
-      <div class="chip-color-name">$yellow-2</div>
-    </div>
-  </div>
-</div>
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-green-1"></div>
+      <div class="chip-color bg-success-1"></div>
       <div class="chip-color-name">$green-1</div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-green-2"></div>
+      <div class="chip-color bg-success-2"></div>
       <div class="chip-color-name">$green-2</div>
     </div>
   </div>
 </div>
 
 */
-/* line 396, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 393, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-1 {
   background-color: #282828;
 }
 
-/* line 399, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 396, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-2 {
   background-color: #424242;
 }
 
-/* line 402, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 399, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-3 {
   background-color: #686868;
 }
 
-/* line 405, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 402, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-4 {
   background-color: #8d8e8e;
 }
 
-/* line 408, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 405, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-5 {
   background-color: #b4b4b4;
 }
 
-/* line 411, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 408, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-6 {
   background-color: #c3c5c7;
 }
 
-/* line 414, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 411, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-7 {
   background-color: #d4d9d9;
 }
 
-/* line 417, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 414, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-8 {
   background-color: #e0e4e5;
 }
 
-/* line 420, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 417, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-9 {
   background-color: #ecefef;
 }
 
-/* line 423, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 420, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-10 {
   background-color: #f8f8f8;
 }
 
-/* line 426, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 423, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-11 {
   background-color: white;
 }
 
-/* line 431, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 428, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-1 {
   background-color: #025a53;
 }
 
-/* line 435, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 432, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-2 {
   background-color: #00776d;
 }
 
-/* line 439, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 436, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-3 {
   background-color: #00a79d;
 }
 
-/* line 443, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 440, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-4 {
   background-color: #92d0c0;
 }
 
-/* line 447, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 444, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-5 {
   background-color: #71ffda;
 }
 
-/* line 453, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 450, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-1 {
   background-color: #1a739e;
 }
 
-/* line 457, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 454, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-2 {
   background-color: #2185c5;
 }
 
-/* line 461, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 458, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-3 {
   background-color: #49a8d5;
 }
 
-/* line 465, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 462, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-4 {
   background-color: #a7c9e0;
 }
 
-/* line 469, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 466, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-5 {
   background-color: #c3f4ff;
 }
 
-/* line 475, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 472, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-1 {
   background-color: #243640;
 }
 
-/* line 479, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 476, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-2 {
   background-color: #3f484f;
 }
 
-/* line 483, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 480, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-3 {
   background-color: #525c63;
 }
 
-/* line 488, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 485, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-1 {
   background-color: #b31612;
 }
 
-/* line 492, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 489, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-2 {
   background-color: #eb3d46;
 }
 
-/* line 496, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 493, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-3 {
   background-color: #ff434c;
 }
 
-/* line 500, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 497, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-4 {
   background-color: #febfc1;
 }
 
-/* line 505, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-yellow-1 {
-  background-color: #c2760a;
+/* line 502, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-warn-1 {
+  background-color: #f1c148;
 }
 
-/* line 509, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-yellow-2 {
-  background-color: #fbf7d5;
+/* line 506, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-warn-2 {
+  background-color: #f8e1b1;
 }
 
-/* line 521, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-green-1 {
+/* line 511, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-success-1 {
   background-color: #165450;
 }
 
-/* line 525, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-green-2 {
+/* line 515, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-success-2 {
   background-color: #afd79b;
 }
 
@@ -9530,51 +9527,87 @@ title: Shadows & Glows
 name: shadows
 parent: colors
 ---
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-1"></div>
-      <div class="chip-color-name">$shadow-1</div>
+<div class="row">
+<div class="contrast-bar">
+  <div class="row mvxl">
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-1"></div>
+        <div class="chip-color-name">$shadow-1</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-2"></div>
-      <div class="chip-color-name">$shadow-2</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-2"></div>
+        <div class="chip-color-name">$shadow-2</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-shadow-3"></div>
-      <div class="chip-color-name">$shadow-3</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-3"></div>
+        <div class="chip-color-name">$shadow-3</div>
+      </div>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color styleguide-only-glow"></div>
-      <div class="chip-color-name">$glow-1</div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-1"></div>
+        <div class="chip-color-name">$glow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-2"></div>
+        <div class="chip-color-name">$glow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-3"></div>
+        <div class="chip-color-name">$glow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-4"></div>
+        <div class="chip-color-name">$glow-4</div>
+      </div>
     </div>
   </div>
 </div>
+</div>
 */
-/* line 566, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-glow {
+/* line 577, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-glow-1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 570, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-shadow-1 {
+/* line 581, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-glow-2 {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* line 585, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-glow-3 {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* line 589, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-glow-4 {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* line 593, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-shadow-1 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 574, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-shadow-2 {
+/* line 597, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 578, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-shadow-3 {
+/* line 601, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
 
@@ -9586,6 +9619,7 @@ parent: colors
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 Background color classes can be applied to any element.
@@ -9616,12 +9650,12 @@ parent: background
 </div>
 
 */
-/* line 41, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 42, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-highlight-1 {
   background-image: -webkit-gradient(linear, left bottom, right top, color-stop(1, #63ada7), color-stop(0, #00776d));
 }
 
-/* line 51, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 52, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-highlight-2 {
   background: #f8f8f8 url('/src/assets/images/gray-cloud.png?1406663635') no-repeat 50% 150px;
 }
@@ -9651,12 +9685,12 @@ The background overlay style is partially transparent.
   </div>
 </div>
 */
-/* line 85, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 83, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-overlay {
   background-color: rgba(154, 202, 198, 0.4);
 }
 
-/* line 88, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 86, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-overlay-1, .navbar-fixed-left .navbar-collapse .navbar-topper {
   background-color: rgba(0, 0, 0, 0.3);
 }

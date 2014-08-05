@@ -74,8 +74,8 @@ $green-2: #AFD79B;
 
 // Yellow
 // -------------------------
-$yellow-1: #C2760A;
-$yellow-2: #FBF7D5;
+$yellow-1: #f1c148;
+$yellow-2: #f8e1b1;
 
 // Orange
 // -------------------------
@@ -129,6 +129,36 @@ $brand-success:         #5cb85c !default;
 $brand-warning:         #f0ad4e !default;
 $brand-danger:          #CA7070 !default;
 $brand-info:            #5bc0de !default;
+
+// Accents
+// -------------------------
+
+$accent-1: $blue-1;
+$accent-2: $blue-2;
+$accent-3: $blue-3;
+$accent-4: $blue-4;
+$accent-5: $blue-5;
+
+// Errors
+// -------------------------
+
+$error-1: $red-1;
+$error-2: $red-2;
+$error-3: $red-3;
+$error-4: $red-4;
+
+// Warnings
+// -------------------------
+
+$warn-1: $yellow-1;
+$warn-2: $yellow-2;
+
+// Success
+// -------------------------
+
+$success-1: $green-1;
+$success-2: $green-2;
+
 
 // login page colors
 // --------------------------
