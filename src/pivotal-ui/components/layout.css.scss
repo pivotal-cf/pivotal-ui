@@ -31,7 +31,7 @@ html, body {
   right: 0;
   min-height: 100%;
   padding:0 0 50px 0;
-  background-color: $gray-6;
+  background-color: $gray-8;
   @include clearfix-overflow;
 }
 
@@ -112,14 +112,14 @@ html, body {
     ul.dropdown-menu {
       width: 100%;
       text-align: left;
-      background-color: $gray-8;
+      background-color: $gray-10;
       border-radius: 0;
 
       a {
         padding-left: 16px;
         font-size: 16px;
         font-weight: 600;
-        color: $gray-2;
+        color: $gray-3;
         &:hover {
           background-color: $shadow-3;
         }

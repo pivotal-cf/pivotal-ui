@@ -2998,11 +2998,11 @@ cite {
 
 /* line 56, ../../src/bootstrap/_type.scss */
 .text-success {
-  color: #d4d9da;
+  color: #d4d9d9;
 }
 /* line 58, ../../src/bootstrap/_type.scss */
 .text-success:hover {
-  color: #b9c1c2;
+  color: #b9c1c1;
 }
 
 /* line 62, ../../src/bootstrap/_type.scss */
@@ -5636,19 +5636,19 @@ output {
 
 /* line 57, ../../src/bootstrap/_mixins.scss */
 .form-control:-moz-placeholder {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 58, ../../src/bootstrap/_mixins.scss */
 .form-control::-moz-placeholder {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 59, ../../src/bootstrap/_mixins.scss */
 .form-control:-ms-input-placeholder {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 60, ../../src/bootstrap/_mixins.scss */
 .form-control::-webkit-input-placeholder {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 126, ../../src/bootstrap/_forms.scss */
@@ -5864,24 +5864,24 @@ textarea.input-lg {
 .has-success .checkbox,
 .has-success .radio-inline,
 .has-success .checkbox-inline {
-  color: #d4d9da;
+  color: #d4d9d9;
 }
 /* line 801, ../../src/bootstrap/_mixins.scss */
 .has-success .form-control {
-  border-color: #d4d9da;
+  border-color: #d4d9d9;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 /* line 804, ../../src/bootstrap/_mixins.scss */
 .has-success .form-control:focus {
-  border-color: #b9c1c2;
+  border-color: #b9c1c1;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px white;
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px white;
 }
 /* line 811, ../../src/bootstrap/_mixins.scss */
 .has-success .input-group-addon {
-  color: #d4d9da;
-  border-color: #d4d9da;
+  color: #d4d9d9;
+  border-color: #d4d9d9;
   background-color: #686868;
 }
 
@@ -7181,7 +7181,7 @@ input[type="button"].btn-block {
 }
 /* line 500, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-brand {
-  color: #f8f8f8;
+  color: #e0e4e5;
 }
 /* line 503, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
@@ -7190,7 +7190,7 @@ input[type="button"].btn-block {
 }
 /* line 509, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-text {
-  color: #f8f8f8;
+  color: #e0e4e5;
 }
 /* line 514, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-nav > li > a {
@@ -7203,7 +7203,7 @@ input[type="button"].btn-block {
 }
 /* line 526, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #34928a;
 }
 /* line 534, ../../src/bootstrap/_navbar.scss */
@@ -7221,7 +7221,7 @@ input[type="button"].btn-block {
 }
 /* line 548, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #f8f8f8;
+  background-color: #e0e4e5;
 }
 /* line 554, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-collapse,
@@ -7231,7 +7231,7 @@ input[type="button"].btn-block {
 /* line 563, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   background-color: #34928a;
-  color: #f8f8f8;
+  color: #e0e4e5;
 }
 /* line 568, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-nav > .dropdown > a:hover .caret {
@@ -7245,8 +7245,8 @@ input[type="button"].btn-block {
 }
 /* line 580, ../../src/bootstrap/_navbar.scss */
 .navbar-inverse .navbar-nav > .open > a .caret, .navbar-inverse .navbar-nav > .open > a:hover .caret, .navbar-inverse .navbar-nav > .open > a:focus .caret {
-  border-top-color: #f8f8f8;
-  border-bottom-color: #f8f8f8;
+  border-top-color: #e0e4e5;
+  border-bottom-color: #e0e4e5;
 }
 @media (max-width: 767px) {
   /* line 590, ../../src/bootstrap/_navbar.scss */
@@ -7264,7 +7264,7 @@ input[type="button"].btn-block {
   }
   /* line 604, ../../src/bootstrap/_navbar.scss */
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
-    color: #f8f8f8;
+    color: #e0e4e5;
     background-color: #34928a;
   }
   /* line 612, ../../src/bootstrap/_navbar.scss */
@@ -7853,25 +7853,25 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 
 /* line 161, ../../src/bootstrap/_panels.scss */
 .panel-success {
-  border-color: #d4d9da;
+  border-color: #d4d9d9;
 }
 /* line 396, ../../src/bootstrap/_mixins.scss */
 .panel-success > .panel-heading {
-  color: #d4d9da;
+  color: #d4d9d9;
   background-color: #686868;
-  border-color: #d4d9da;
+  border-color: #d4d9d9;
 }
 /* line 401, ../../src/bootstrap/_mixins.scss */
 .panel-success > .panel-heading + .panel-collapse .panel-body {
-  border-top-color: #d4d9da;
+  border-top-color: #d4d9d9;
 }
 /* line 404, ../../src/bootstrap/_mixins.scss */
 .panel-success > .panel-heading > .dropdown .caret {
-  border-color: #d4d9da transparent;
+  border-color: #d4d9d9 transparent;
 }
 /* line 409, ../../src/bootstrap/_mixins.scss */
 .panel-success > .panel-footer + .panel-collapse .panel-body {
-  border-bottom-color: #d4d9da;
+  border-bottom-color: #d4d9d9;
 }
 
 /* line 164, ../../src/bootstrap/_panels.scss */
@@ -8978,6 +8978,7 @@ name: colors
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 Our color pallet is composed of several different colors. At any given point in captures the current
@@ -9003,56 +9004,75 @@ parent: colors
 This example shows proper use of Sass variables.
 
 ```
-$tabs-active-bg-color: $gray-1;
+$tabs-active-bg-color: $gray-2;
 ```
 
-<div class="row mvxl">
-  <div class="col-md-3">
+<div class="row row-gutter-sm mvxl">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-1"></div>
+      <div class="chip-color bg-neutral-1"></div>
       <div class="chip-color-name">$gray-1</div>
     </div>
   </div>
-  <div class="col-md-3">
+
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-2"></div>
+      <div class="chip-color bg-neutral-2"></div>
       <div class="chip-color-name">$gray-2</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-3"></div>
+      <div class="chip-color bg-neutral-3"></div>
       <div class="chip-color-name">$gray-3</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-4"></div>
+      <div class="chip-color bg-neutral-4"></div>
       <div class="chip-color-name">$gray-4</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-5"></div>
+      <div class="chip-color bg-neutral-5"></div>
       <div class="chip-color-name">$gray-5</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-6"></div>
+      <div class="chip-color bg-neutral-6"></div>
       <div class="chip-color-name">$gray-6</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-7"></div>
+      <div class="chip-color bg-neutral-7"></div>
       <div class="chip-color-name">$gray-7</div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-8"></div>
+      <div class="chip-color bg-neutral-8"></div>
       <div class="chip-color-name">$gray-8</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-9"></div>
+      <div class="chip-color-name">$gray-9</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-10"></div>
+      <div class="chip-color-name">$gray-10</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-11"></div>
+      <div class="chip-color-name">$gray-11</div>
     </div>
   </div>
 </div>
@@ -9212,157 +9232,162 @@ $tabs-active-bg-color: $gray-1;
 </div>
 
 */
-/* line 246, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-1 {
+/* line 266, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-1 {
+  background-color: #282828;
+}
+
+/* line 269, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-2 {
   background-color: #424242;
 }
 
-/* line 249, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-2 {
+/* line 272, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-3 {
   background-color: #686868;
 }
 
-/* line 252, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-3 {
-  background-color: #8d8d8d;
+/* line 275, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-4 {
+  background-color: #8d8e8e;
 }
 
-/* line 255, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-4 {
-  background-color: #9faaad;
+/* line 278, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-5 {
+  background-color: #b4b4b4;
 }
 
-/* line 258, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-5 {
-  background-color: #d4d9da;
+/* line 281, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-6 {
+  background-color: #c3c5c7;
 }
 
-/* line 261, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-6 {
+/* line 284, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-7 {
+  background-color: #d4d9d9;
+}
+
+/* line 287, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-8 {
   background-color: #e0e4e5;
 }
 
-/* line 264, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-7 {
+/* line 290, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-9 {
   background-color: #ecefef;
 }
 
-/* line 267, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-gray-8 {
+/* line 293, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-10 {
   background-color: #f8f8f8;
 }
 
-/* line 272, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 296, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-neutral-11 {
+  background-color: white;
+}
+
+/* line 301, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-1 {
   background-color: #003731;
 }
 
-/* line 276, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 305, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-2 {
   background-color: #015952;
 }
 
-/* line 280, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 309, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-3 {
   background-color: #02786e;
 }
 
-/* line 284, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 313, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-4 {
   background-color: #34928a;
 }
 
-/* line 288, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 317, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-5 {
-  background-color: #00a79d;
+  background-color: #71ffda;
 }
 
-/* line 292, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 321, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-6 {
   background-color: #72b5ad;
 }
 
-/* line 296, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 325, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-teal-7 {
   background-color: #71ffda;
 }
 
-/* line 301, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 330, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-1 {
   background-color: #243640;
 }
 
-/* line 305, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 334, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-2 {
   background-color: #0e6c82;
 }
 
-/* line 309, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 338, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-3 {
   background-color: #2185c5;
 }
 
-/* line 313, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 342, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-4 {
   background-color: #49a8d5;
 }
 
-/* line 317, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 346, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-5 {
   background-color: #a7cae1;
 }
 
-/* line 321, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 350, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-blue-6 {
   background-color: #c3f4ff;
 }
 
-/* line 326, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 355, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-1 {
   background-color: #ab2a2a;
 }
 
-/* line 330, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 359, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-2 {
   background-color: #b31612;
 }
 
-/* line 334, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 363, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-3 {
   background-color: #ff434c;
 }
 
-/* line 338, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 367, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-4 {
   background-color: #febfc1;
 }
 
-/* line 343, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 372, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-1 {
   background-color: #c2760a;
 }
 
-/* line 347, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 376, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-2 {
   background-color: #fbf7d5;
 }
 
-/* line 351, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-orange-1 {
-  background-color: #f47b53;
-}
-
-/* line 355, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-orange-2 {
-  background-color: #f7987f;
-}
-
-/* line 359, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 388, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-1 {
   background-color: #165450;
 }
 
-/* line 363, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 392, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-2 {
   background-color: #afd79b;
 }
@@ -9401,22 +9426,22 @@ parent: colors
   </div>
 </div>
 */
-/* line 404, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 433, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-glow {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 408, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 437, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-1 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 412, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 441, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 416, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 445, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
@@ -11173,7 +11198,7 @@ parent: colors
 
 /* line 198, ../../src/pivotal-ui/components/typography.css.scss */
 .type-inverse {
-  color: #f8f8f8 !important;
+  color: #e0e4e5 !important;
 }
 
 /* line 201, ../../src/pivotal-ui/components/typography.css.scss */
@@ -11193,7 +11218,7 @@ a:hover.type-inverse {
 
 /* line 213, ../../src/pivotal-ui/components/typography.css.scss */
 .type-primary-4 {
-  color: #9faaad !important;
+  color: #b4b4b4 !important;
 }
 
 /* line 217, ../../src/pivotal-ui/components/typography.css.scss */
@@ -11369,7 +11394,7 @@ Special styles used to make the password reset page look the same as the login s
 
 /* line 375, ../../src/pivotal-ui/components/typography.css.scss */
 .h2-login {
-  color: #9faaad;
+  color: #b4b4b4;
   font-weight: normal;
   font-size: 18px;
   text-transform: none;
@@ -11534,7 +11559,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 100, ../../src/pivotal-ui/components/button.css.scss */
@@ -11570,7 +11595,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt.disabled, .btn-default-alt.disabled:hover, .btn-default-alt.disabled:focus, .btn-default-alt.disabled:active, .btn-default-alt.disabled.active, .btn-default-alt[disabled], .btn-default-alt[disabled]:hover, .btn-default-alt[disabled]:focus, .btn-default-alt[disabled]:active, .btn-default-alt[disabled].active, fieldset[disabled] .btn-default-alt, fieldset[disabled] .btn-default-alt:hover, fieldset[disabled] .btn-default-alt:focus, fieldset[disabled] .btn-default-alt:active, fieldset[disabled] .btn-default-alt.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 104, ../../src/pivotal-ui/components/button.css.scss */
@@ -11606,12 +11631,12 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 108, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #2185c5;
   border: none;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
@@ -11621,14 +11646,14 @@ Button                                                             | Disabled   
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #1a739e;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
 /* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #1a739e;
 }
 /* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
@@ -11642,7 +11667,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight.disabled, .btn-highlight.disabled:hover, .btn-highlight.disabled:focus, .btn-highlight.disabled:active, .btn-highlight.disabled.active, .btn-highlight[disabled], .btn-highlight[disabled]:hover, .btn-highlight[disabled]:focus, .btn-highlight[disabled]:active, .btn-highlight[disabled].active, fieldset[disabled] .btn-highlight, fieldset[disabled] .btn-highlight:hover, fieldset[disabled] .btn-highlight:focus, fieldset[disabled] .btn-highlight:active, fieldset[disabled] .btn-highlight.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 112, ../../src/pivotal-ui/components/button.css.scss */
@@ -11658,14 +11683,14 @@ Button                                                             | Disabled   
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
   color: white;
-  background-color: #00a79d;
+  background-color: #71ffda;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
 /* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight-alt.dropdown-toggle {
   color: white;
-  background-color: #00a79d;
+  background-color: #71ffda;
 }
 /* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:active, .btn-highlight-alt.active {
@@ -11678,7 +11703,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt.disabled, .btn-highlight-alt.disabled:hover, .btn-highlight-alt.disabled:focus, .btn-highlight-alt.disabled:active, .btn-highlight-alt.disabled.active, .btn-highlight-alt[disabled], .btn-highlight-alt[disabled]:hover, .btn-highlight-alt[disabled]:focus, .btn-highlight-alt[disabled]:active, .btn-highlight-alt[disabled].active, fieldset[disabled] .btn-highlight-alt, fieldset[disabled] .btn-highlight-alt:hover, fieldset[disabled] .btn-highlight-alt:focus, fieldset[disabled] .btn-highlight-alt:active, fieldset[disabled] .btn-highlight-alt.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 116, ../../src/pivotal-ui/components/button.css.scss */
@@ -11715,7 +11740,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 123, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active, .btn-lowlight[disabled], .btn-lowlight.disabled {
@@ -11724,7 +11749,7 @@ Button                                                             | Disabled   
 
 /* line 129, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #ff434c;
   border: none;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
@@ -11734,14 +11759,14 @@ Button                                                             | Disabled   
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #eb3d46;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
 /* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
-  color: #f8f8f8;
+  color: #e0e4e5;
   background-color: #eb3d46;
 }
 /* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
@@ -11755,7 +11780,7 @@ Button                                                             | Disabled   
 /* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
   background-color: #ecefef;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /*doc
@@ -11869,7 +11894,7 @@ a:hover {
 
 /* line 48, ../../src/pivotal-ui/components/links.css.scss */
 .link-inverse {
-  color: #f8f8f8;
+  color: #e0e4e5;
 }
 /* line 51, ../../src/pivotal-ui/components/links.css.scss */
 .link-inverse:hover {
@@ -12707,13 +12732,13 @@ This is a table used to display many rows of data (it is pretty much the default
 }
 /* line 92, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr, .table-data tbody .tr, .table-data thead tr, .table-data thead .tr, .table-data .tbody tr, .table-data .tbody .tr, .table-data .thead tr, .table-data .thead .tr {
-  border-bottom: 1px solid #d4d9da;
+  border-bottom: 1px solid #d4d9d9;
 }
 /* line 94, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr th, .table-data tbody tr .th, .table-data tbody .tr th, .table-data tbody .tr .th, .table-data thead tr th, .table-data thead tr .th, .table-data thead .tr th, .table-data thead .tr .th, .table-data .tbody tr th, .table-data .tbody tr .th, .table-data .tbody .tr th, .table-data .tbody .tr .th, .table-data .thead tr th, .table-data .thead tr .th, .table-data .thead .tr th, .table-data .thead .tr .th {
   border-bottom: none;
-  border-color: #d4d9da;
-  border-right: 1px solid #d4d9da;
+  border-color: #d4d9d9;
+  border-right: 1px solid #d4d9d9;
   padding: 15px 10px;
   font-size: 13px;
   font-weight: 900;
@@ -12884,7 +12909,7 @@ specify column widths for the th/tds.
   text-transform: uppercase;
   font-weight: 800;
   text-align: left;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 279, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr td {
@@ -13106,7 +13131,7 @@ USE:
 /* line 529, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-none:after {
   content: "\f0dc";
-  color: #d4d9da;
+  color: #d4d9d9;
   visibility: hidden;
 }
 /* line 536, ../../src/pivotal-ui/components/table.css.scss */
@@ -13245,7 +13270,7 @@ parent: table-js
 }
 /* line 669, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .fa-check-success {
-  color: #00a79d;
+  color: #71ffda;
   font-size: 12px;
   margin-right: 5px;
   -webkit-transition: opacity 300ms ease-out;
@@ -13266,7 +13291,7 @@ parent: table-js
 .table-addable .deleteRequested {
   -webkit-transition: all ease-out .2s;
   transition: all ease-out .2s;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 696, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .ng-leave {
@@ -13876,7 +13901,7 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
 }
 /* line 435, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-space.panel-stopped:before {
-  border-top: 25px solid #8d8d8d;
+  border-top: 25px solid #8d8e8e;
 }
 
 @media all and (max-width: 480px) {
@@ -13941,7 +13966,7 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
 }
 /* line 495, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-hoverable .hover-target-2 {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 499, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-hoverable .hover-target-3 {
@@ -14024,7 +14049,7 @@ parent: panel
 }
 /* line 576, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-heading-simple, .panel-heading-simple h1, .panel-heading-simple h2, .panel-heading-simple h3, .panel-heading-simple h4, .panel-heading-simple h5, .panel-heading-simple h6 {
-  color: #9faaad;
+  color: #b4b4b4;
   font-weight: 600;
   font-size: 14px;
   text-transform: uppercase;
@@ -14333,7 +14358,7 @@ Places all list items on a single line with `display: inline-block;` and some li
 */
 /* line 148, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline-divider > li, .list-vertical-divider > li, .list-vertical-divider-2 > li {
-  border-left: 1px solid #9faaad;
+  border-left: 1px solid #b4b4b4;
 }
 /* line 150, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline-divider > li:first-child, .list-vertical-divider > li:first-child, .list-vertical-divider-2 > li:first-child {
@@ -14597,7 +14622,7 @@ This is a special list-group, with styles per-event for colors and icons
 }
 /* line 398, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .event-user {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 402, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .event-icon {
@@ -14607,38 +14632,38 @@ This is a special list-group, with styles per-event for colors and icons
 }
 /* line 409, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .started .event-title {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 412, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .started .event-icon:after {
-  color: #00a79d;
+  color: #71ffda;
   content: '\f04b';
 }
 /* line 418, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .stopped .event-title {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 422, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .stopped .event-icon:after {
-  color: #9faaad;
+  color: #b4b4b4;
   content: '\f04d';
 }
 /* line 429, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .updated .event-title {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 433, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .updated .event-icon:after {
-  color: #00a79d;
+  color: #71ffda;
   content: '\f01b';
 }
 /* line 439, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .scaled .event-title {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 443, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .scaled .event-icon:after {
-  color: #00a79d;
+  color: #71ffda;
   content: '\f0e4';
 }
 /* line 450, ../../src/pivotal-ui/components/lists.css.scss */
@@ -14652,20 +14677,20 @@ This is a special list-group, with styles per-event for colors and icons
 }
 /* line 461, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .created .event-title {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 465, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .created .event-icon:after {
-  color: #00a79d;
+  color: #71ffda;
   content: '\f135';
 }
 /* line 472, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .renamed .event-title {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 476, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .renamed .event-icon:after {
-  color: #00a79d;
+  color: #71ffda;
   content: '\f040';
 }
 
@@ -14776,7 +14801,7 @@ Use this list when you need to show the steps in a flow.
 .list-steps > li {
   font-size: 14px;
   text-transform: uppercase;
-  color: #9faaad;
+  color: #b4b4b4;
   margin-right: 45px;
   padding-left: 0;
   margin-bottom: 5px;
@@ -14790,9 +14815,9 @@ Use this list when you need to show the steps in a flow.
   padding: 0px 7px;
   margin-right: 4px;
   text-align: center;
-  color: #9faaad;
+  color: #b4b4b4;
   display: inline-block;
-  border: 2px solid #9faaad;
+  border: 2px solid #b4b4b4;
   border-radius: 30px;
 }
 /* line 602, ../../src/pivotal-ui/components/lists.css.scss */
@@ -14990,7 +15015,7 @@ Replaces the default bullet image with the font awesome checkmark.
 /* line 81, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .navbar-collapse .navbar-topper .dropdown a.current-org {
   width: 80%;
-  color: #9faaad;
+  color: #b4b4b4;
   float: left;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -15008,7 +15033,7 @@ Replaces the default bullet image with the font awesome checkmark.
   display: inline-block;
   padding: 12px;
   float: right;
-  color: #9faaad;
+  color: #b4b4b4;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
@@ -15060,7 +15085,7 @@ Replaces the default bullet image with the font awesome checkmark.
 }
 /* line 136, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .navbar-collapse .navbar-topper .dropdown .dropdown-menu .active-org a {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 140, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .navbar-collapse .navbar-topper .dropdown .dropdown-menu a {
@@ -15080,7 +15105,7 @@ Replaces the default bullet image with the font awesome checkmark.
 /* line 161, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .navlinks-global a {
   font-weight: 400;
-  color: #9faaad;
+  color: #b4b4b4;
   display: block;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -15562,7 +15587,7 @@ This is a fancy select!
 */
 /* line 120, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element, .select-fancy, .number-fancy {
-  box-shadow: 0 3px 0 #d4d9da;
+  box-shadow: 0 3px 0 #d4d9d9;
   background-color: white;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
@@ -15572,7 +15597,7 @@ This is a fancy select!
 }
 /* line 127, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element:hover, .select-fancy:hover, .number-fancy:hover {
-  box-shadow: 0 3px 0 #9faaad;
+  box-shadow: 0 3px 0 #b4b4b4;
   cursor: pointer;
 }
 /* line 132, ../../src/pivotal-ui/components/forms.css.scss */
@@ -16021,7 +16046,7 @@ Bootstrap includes validation styles for error and success states on form contro
   line-height: 40px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background-color: #00a79d;
+  background-color: #71ffda;
   color: #f8f8f8;
   font-family: FontAwesome;
   font-weight: normal;
@@ -16031,7 +16056,7 @@ Bootstrap includes validation styles for error and success states on form contro
 }
 /* line 565, ../../src/pivotal-ui/components/forms.css.scss */
 .has-success .control-label {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 595, ../../src/pivotal-ui/components/forms.css.scss */
@@ -16040,7 +16065,7 @@ Bootstrap includes validation styles for error and success states on form contro
 }
 /* line 565, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .control-label {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 603, ../../src/pivotal-ui/components/forms.css.scss */
@@ -16256,7 +16281,7 @@ textarea.input-lg {
 
 /* line 787, ../../src/pivotal-ui/components/forms.css.scss */
 .control-label {
-  color: #9faaad;
+  color: #b4b4b4;
 }
 
 /* line 790, ../../src/pivotal-ui/components/forms.css.scss */
@@ -16862,7 +16887,7 @@ parameter is the application affected by the actions of the application health i
   width: 100%;
   position: absolute;
   border-radius: 300px;
-  border: 7px solid #d4d9da;
+  border: 7px solid #d4d9d9;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
@@ -16873,11 +16898,11 @@ parameter is the application affected by the actions of the application health i
 }
 /* line 329, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
 .health.running form:before {
-  border-color: #00a79d;
+  border-color: #71ffda;
 }
 /* line 335, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
 .health.stopped form:before {
-  border-color: #d4d9da;
+  border-color: #d4d9d9;
 }
 /* line 339, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
 .health.stopped.editable:hover:before {
@@ -16902,7 +16927,7 @@ parameter is the application affected by the actions of the application health i
 }
 /* line 368, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
 .health.warning_75 form:before {
-  border-color: #b31612 #b31612 #b31612 #d4d9da;
+  border-color: #b31612 #b31612 #b31612 #d4d9d9;
 }
 /* line 373, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
 .health.editable:hover .value {
@@ -17037,7 +17062,7 @@ To use in a view, simply call
 */
 /* line 96, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i {
-  color: #9faaad;
+  color: #b4b4b4;
   font-size: 20px;
   line-height: 20px;
   width: 20px;
@@ -17045,7 +17070,7 @@ To use in a view, simply call
 }
 /* line 104, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i.highlight {
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 108, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i.overlay {
@@ -17056,11 +17081,11 @@ To use in a view, simply call
 }
 /* line 114, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm .fa-envelope {
-  text-shadow: 1px 0px 1px #9faaad, -1px 0px 1px #9faaad, 0px 1px 1px #9faaad, 0px 0px 1px #9faaad;
+  text-shadow: 1px 0px 1px #b4b4b4, -1px 0px 1px #b4b4b4, 0px 1px 1px #b4b4b4, 0px 0px 1px #b4b4b4;
 }
 /* line 117, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm .fa-check {
-  text-shadow: 1px 0px 0px #00a79d, -1px 0px 0px #00a79d, 0px 1px 0px #00a79d, 0px 0px 0px #00a79d;
+  text-shadow: 1px 0px 0px #71ffda, -1px 0px 0px #71ffda, 0px 1px 0px #71ffda, 0px 0px 0px #71ffda;
 }
 
 /*doc
@@ -17351,7 +17376,7 @@ categories:
 #upgrade_your_account .panel-highlight {
   background-color: #02786e;
   border-radius: 5px;
-  color: #f8f8f8;
+  color: #e0e4e5;
   text-transform: uppercase;
   font-size: 18px;
 }
@@ -17370,7 +17395,7 @@ categories:
 }
 /* line 122, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
 #upgrade_your_account .premium-services .tiny-circle {
-  background-color: #9faaad;
+  background-color: #b4b4b4;
   border-radius: 50%;
   margin-right: 2px;
   display: inline-block;
@@ -17510,7 +17535,7 @@ parent: progress_bar
 
 /* line 67, ../../src/pivotal-ui/components/progress_bar.css.scss */
 .progress-bar {
-  background: #9faaad;
+  background: #b4b4b4;
   box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -17692,12 +17717,12 @@ Traffic lights can be:
 /* line 79, ../../src/pivotal-ui/components/traffic_lights.css.scss */
 .traffic-lights .green-light i {
   transition: opacity 1500ms ease-out;
-  color: #00a79d;
+  color: #71ffda;
 }
 /* line 86, ../../src/pivotal-ui/components/traffic_lights.css.scss */
 .traffic-lights .gray-light i {
   transition: opacity 1500ms ease-out;
-  color: #8d8d8d;
+  color: #8d8e8e;
 }
 /* line 93, ../../src/pivotal-ui/components/traffic_lights.css.scss */
 .traffic-lights .red-light i {
@@ -17939,7 +17964,7 @@ categories:
   visibility: hidden;
   left: 130px;
   margin-top: -5px;
-  color: #9faaad;
+  color: #b4b4b4;
 }
 /* line 110, ../../src/pivotal-ui/components/app_status.css.scss */
 #app_status.stopped .started-controls {
@@ -17948,7 +17973,7 @@ categories:
 }
 /* line 114, ../../src/pivotal-ui/components/app_status.css.scss */
 #app_status.stopped #svg circle {
-  stroke: #9faaad;
+  stroke: #b4b4b4;
   stroke-dashoffset: 0;
 }
 /* line 121, ../../src/pivotal-ui/components/app_status.css.scss */
@@ -17958,7 +17983,7 @@ categories:
 }
 /* line 125, ../../src/pivotal-ui/components/app_status.css.scss */
 #app_status.started #svg circle {
-  stroke: #00a79d;
+  stroke: #71ffda;
   stroke-dashoffset: 0;
 }
 /* line 132, ../../src/pivotal-ui/components/app_status.css.scss */

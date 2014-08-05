@@ -323,7 +323,7 @@ parent: panel
 */
 
 .panel-simple-highlight {
-  background-color: $gray-8;
+  background-color: $gray-10;
   border-radius: 10px;
   box-shadow: 0 4px 0 0 $shadow-3;
 
@@ -386,7 +386,7 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
 
   // while creating a new space (form inside)
   &.panel-editing {
-    background-color: $gray-7;
+    background-color: $gray-9;
   }
 
   // add a space box
@@ -395,7 +395,7 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
 
     &:hover {
       @include transition;
-      background-color: $gray-7;
+      background-color: $gray-9;
       border-bottom: 4px solid $shadow-2;
     }
   }
@@ -433,7 +433,7 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
   }
 
   &.panel-stopped:before {
-    border-top: 25px solid $gray-3;
+    border-top: 25px solid $gray-4;
   }
 }
 
@@ -489,20 +489,20 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
 }
 
 .panel-hoverable {
-  background-color: $gray-7;
+  background-color: $gray-9;
   cursor: pointer;
 
   .hover-target-2 {
-    color: $gray-4;
+    color: $gray-5;
   }
 
   .hover-target-3 {
-    background-color: $gray-8;
+    background-color: $gray-10;
   }
 
   &:hover{
     @include transition;
-    background-color: $gray-8;
+    background-color: $gray-10;
 
     .hover-target-1 { // default text color => link color
       color: $link-color;

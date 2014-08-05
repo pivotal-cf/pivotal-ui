@@ -10,29 +10,35 @@
 // Accent colors - teal for now
 // -------------------------
 
-$teal-1: #003731;
-$teal-2: #015952;
+$teal-1: #003731; // not used
+$teal-2: #015952; // not used
 $teal-3: #02786E;
 $teal-4: #34928A;
 $teal-5 : #00a79d;
 $teal-6: #72B5AD;
 $teal-7 : #71ffda;
 
+$teal-1: #003731;
+$teal-2: #015952;
+$teal-3: #02786E;
+$teal-4: #34928A;
+$teal-5 : #71ffda;
 
 
 // Grays - use these rather than the bootstrap grays
 // -------------------------
 
-$gray-1: #424242;
-$gray-2: #686868;
-$gray-3: #8d8d8d;
-$gray-4: #9faaad;
-$gray-5: #d4d9da;
-$gray-6: #e0e4e5;
-$gray-7: #ecefef;
-$gray-8: #F8F8F8;
-
-
+$gray-1: #282828;
+$gray-2: #424242;
+$gray-3: #686868;
+$gray-4: #8d8e8e;
+$gray-5: #b4b4b4;
+$gray-6: #c3c5c7;
+$gray-7: #d4d9d9;
+$gray-8: #e0e4e5;
+$gray-9: #ecefef;
+$gray-10:#F8F8F8;
+$gray-11: white;
 
 // Shadows
 // -------------------------
@@ -74,16 +80,16 @@ $yellow-2: #FBF7D5;
 
 // Orange
 // -------------------------
-$orange-1: #F47B53;
-$orange-2: #F7987F;
+$orange-1: null;
+$orange-2: null;
 
 
 // Background Colors
 // -------------------------
 
 $bkg-default-3-color: $blue-1;
-$bkg-default-4-color: $gray-7;
-$bkg-default-5-color: $gray-8;
+$bkg-default-4-color: $gray-9;
+$bkg-default-5-color: $gray-10;
 
 // Grays (Bootstrap only, don't use directly) TODO: can we eliminate these entirely without modifying bootstrap base files?
 // -------------------------
@@ -111,7 +117,7 @@ $almost_white:          #ededed;
 // Typography Colors
 // ------------------------
 
-$type-muted:                  $gray-7 !important !default;
+$type-muted:                  $gray-9 !important !default;
 $text-muted:                  $type-muted; // unused, keep for bootstrap, use $type-muted instead
 $type-inverse:                $gray-8;
 $type-inverse-hover:          $teal-2;
@@ -121,14 +127,14 @@ $type-accent-4:               $teal-4;
 $type-accent-3:               $teal-3;
 $type-accent-2:               $teal-2;
 
-$type-primary-2:              $gray-2;
-$type-primary-3:              $gray-2;
-$type-primary-4:              $gray-4;
-$type-primary-5:              $gray-7;
+$type-primary-2:              $gray-3;
+$type-primary-3:              $gray-3;
+$type-primary-4:              $gray-5;
+$type-primary-5:              $gray-9;
 
-$type-gray-2:              $gray-2; //FIXME: what to name this that isn't color specific?
-$type-gray-3:              $gray-4;
-$type-gray-4:              $gray-7;
+$type-gray-2:              $gray-3; //FIXME: what to name this that isn't color specific?
+$type-gray-3:              $gray-5;
+$type-gray-4:              $gray-9;
 
 $abbr-border-color:           $gray-light !default;
 $headings-small-color:        $gray-light !default;
@@ -156,7 +162,7 @@ $navbar-width:              210px;
 
 $html-bg:               white;
 $body-bg:               transparent;
-$text-color:            $gray-2 !default;
+$text-color:            $gray-3 !default;
 
 // Links
 // -------------------------
@@ -188,7 +194,7 @@ $font-size-extra-small:   11px;
 $headings-font-family:    $font-family-base;
 $headings-font-weight:    400 !default;
 $headings-line-height:    1.5 !default;
-$headings-color:          $gray-2;
+$headings-color:          $gray-3;
 
 //TODO: create a mixin that will determine multiplers based on px-size
 $font-size-h1:            30px;
@@ -275,14 +281,14 @@ $table-cell-padding:                 8px 14px !default;
 $table-condensed-cell-padding:       5px !default;
 
 $table-bg:                           transparent !default; // overall background-color
-$table-bg-accent:                    $gray-8; // for striping
+$table-bg-accent:                    $gray-10; // for striping
 $table-bg-hover:                     null;
 $table-bg-active:                    $table-bg-hover !default;
 
 $table-border-color:                 #ddd !default; // table and cell border
 
-$table-standard-header-bg:           $gray-2;
-$table-standard-border-color:        $gray-7;
+$table-standard-header-bg:           $gray-3;
+$table-standard-border-color:        $gray-9;
 
 
 // Buttons
@@ -298,15 +304,15 @@ $btn-default-border-hover:       transparent;
 $btn-default-bg-hover:           white;
 
 $btn-default-alt-color:          $link-color;
-$btn-default-alt-bg:             $gray-8;
-$btn-default-alt-bg-hover:       $gray-7;
+$btn-default-alt-bg:             $gray-10;
+$btn-default-alt-bg-hover:       $gray-9;
 
 $btn-primary-color:              $blue-3;
 $btn-primary-bg:                 white;
 $btn-primary-bg-hover:           white;
 $btn-primary-border:             #49A8D5 !default;
 
-$btn-lowlight-color:             $gray-2;
+$btn-lowlight-color:             $gray-3;
 $btn-lowlight-bg:                transparent;
 $btn-lowlight-bg-hover:          $glow-4;
 
@@ -345,8 +351,8 @@ $btn-info-bg:                    null !default;
 $btn-info-bg-hover:              null !default;
 $btn-info-border:                null !default;
 
-$btn-disabled-bg:                $gray-7;
-$btn-disabled-color:             $gray-4;
+$btn-disabled-bg:                $gray-9;
+$btn-disabled-color:             $gray-5;
 
 $btn-link-disabled-color:        $gray-light !default;
 
@@ -363,7 +369,7 @@ $input-border-radius:            $border-radius-small !default;
 $input-border-focus:             $blue-4 !default;
 $input-border-width:             1px !default;
 
-$input-color-placeholder:        $gray-4 !default;
+$input-color-placeholder:        $gray-5 !default;
 
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
@@ -488,12 +494,12 @@ $navbar-default-bg:                transparent !default;
 $navbar-default-border:            none !default;
 
 // Subnav
-$navbar-subnav-bg:                 $gray-7;
+$navbar-subnav-bg:                 $gray-9;
 $navbar-subnav-border-radius:      5px;
 
 // Navbar links
 $navbar-default-link-color:                #9faaad !default;
-$navbar-default-link-hover-color:          $gray-7 !default;
+$navbar-default-link-hover-color:          $gray-9 !default;
 $navbar-default-link-hover-bg:             $glow-1 !default;
 $navbar-default-link-active-color:         #fff !default;
 $navbar-default-link-active-bg:            $glow-1 !default;
@@ -560,7 +566,7 @@ $nav-tabs-border-color:                     #ddd !default;
 
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
-$nav-tabs-active-link-hover-bg:             $gray-7 !default;
+$nav-tabs-active-link-hover-bg:             $gray-9 !default;
 $nav-tabs-active-link-hover-color:          $teal-4 !default;
 $nav-tabs-active-link-hover-border-color:   $teal-4 !default;
 
@@ -572,21 +578,21 @@ $nav-tabs-title-font-size:                  16px;
 // Highlighted tabs (used on the service offering page)
 $tab-highlight-beak-width:                  14px;
 $tab-highlight-beak-height:                 55px;
-$tab-highlight-beak-color:                  $gray-7;
+$tab-highlight-beak-color:                  $gray-9;
 $tab-highlight-tab-color:                   $blue-3;
-$tab-highlight-tab-active-color:            $gray-2;
-$tab-highlight-tab-hover-bg-color:          $gray-7;
-$tab-highlight-border-color:                $gray-7;
+$tab-highlight-tab-active-color:            $gray-3;
+$tab-highlight-tab-hover-bg-color:          $gray-9;
+$tab-highlight-border-color:                $gray-9;
 $tab-highlight-border-width:                2px;
-$tab-highlight-bg-color:                    $gray-6;
-$tab-highlight-hover-bg-color:              $gray-7;
+$tab-highlight-bg-color:                    $gray-8;
+$tab-highlight-hover-bg-color:              $gray-9;
 
 // Simple tabs
-$tab-simple-bg-color:                       $gray-7;
-$tab-simple-tab-hover-bg-color:             $gray-8;
-$tab-simple-tab-active-bg-color:            $gray-6;
+$tab-simple-bg-color:                       $gray-9;
+$tab-simple-tab-hover-bg-color:             $gray-10;
+$tab-simple-tab-active-bg-color:            $gray-8;
 $tab-simple-shadow-border-color:            $shadow-3;
-$tab-simple-tab-border-color:               $gray-6;
+$tab-simple-tab-border-color:               $gray-8;
 $tab-simple-link-active-color:              $blue-1;
 $tab-simple-link-color:                     $blue-3;
 $tab-simple-link-font-weight:                600;
@@ -599,12 +605,6 @@ $nav-pills-active-link-hover-color:         null;
 
 // Nav list
 $nav-list-divider-border-color:             $teal-6;
-
-// Organization Dropdown
-$dropdown-nav-bg:                  $teal-3;
-$dropdown-nav-caret-color:         $teal-6;
-$dropdown-nav-bg-hover:            $teal-2;
-$dropdown-nav-divider-color:       $teal-2;
 
 // Logo / Branding
 // -------------------------
@@ -646,7 +646,7 @@ $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
 // Health Indicator
 // -------------------------
 $health-indicator-running-color: $teal-5;
-$health-indicator-stopped-color: $gray-5;
+$health-indicator-stopped-color: $gray-7;
 $health-indicator-warn-color: $red-2;
 $health-indicator-size: 40px;
 $health-indicator-font-size: 10px;
@@ -656,15 +656,15 @@ $health-indicator-large-size: 64px;
 // Traffic Lights
 // -------------------------
 $traffic-light-running-color:   $teal-5;
-$traffic-light-stopped-color:   $gray-3;
+$traffic-light-stopped-color:   $gray-4;
 $traffic-light-crashed-color:   $red-3;
 
 // Form states
 // -------------------------
 
-$state-success-text:             $gray-5; // bootstrap uses this for both border and text color
-$state-success-bg:               $gray-2;
-$state-success-border:           $gray-5;
+$state-success-text:             $gray-7; // bootstrap uses this for both border and text color
+$state-success-bg:               $gray-3;
+$state-success-border:           $gray-7;
 
 $state-info-text:                #8e8837; // bootstrap uses this for both border and text color
 $state-info-bg:                  #e2df80;
@@ -682,8 +682,8 @@ $state-danger-border:            $red-3;
 // Tooltips
 // -------------------------
 $tooltip-max-width:           200px !default;
-$tooltip-color:               $gray-7 !default;
-$tooltip-bg:                  $gray-1 !default;
+$tooltip-color:               $gray-9 !default;
+$tooltip-bg:                  $gray-2 !default;
 
 $tooltip-arrow-width:         5px !default;
 $tooltip-arrow-color:         $tooltip-bg !default;
@@ -727,21 +727,21 @@ $modal-inner-padding:         30px !default;
 $modal-title-padding:         15px !default;
 $modal-title-line-height:     $line-height-base !default;
 
-$modal-content-bg:                             $gray-7 !default;
+$modal-content-bg:                             $gray-9 !default;
 $modal-content-border-color:                   $teal-4 !default;
 $modal-content-fallback-border-color:          #999 !default;
 
 $modal-backdrop-bg:           $blue-1 !default;
 $modal-backdrop-opacity:      .80;
-$modal-header-border-color:   $gray-6 !default;
+$modal-header-border-color:   $gray-8 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
 
 // Modal basic
 $modal-basic-title-color:             $text-color;
 $modal-basic-content-border-radius:   $border-radius-none;
 $modal-basic-content-border-width:    2px;
-$modal-basic-header-bg:               $gray-7;
-$modal-basic-footer-bg:               $gray-7;
+$modal-basic-header-bg:               $gray-9;
+$modal-basic-footer-bg:               $gray-9;
 
 // Alerts
 // -------------------------
@@ -781,15 +781,15 @@ $progress-bar-info-bg:        $brand-info !default;
 
 // Dividers
 // -------------------------
-$divider-lowlight-border:     1px solid $gray-6;
+$divider-lowlight-border:     1px solid $gray-8;
 
 // Lists
 // -------------------------
-$list-inline-divider-border:  1px solid $gray-4;
-$list-vertical-divider-border:  2px solid $gray-7;
+$list-inline-divider-border:  1px solid $gray-5;
+$list-vertical-divider-border:  2px solid $gray-9;
 
-$list-steps-color:            $gray-4;
-$list-steps-color-current:    $gray-8;
+$list-steps-color:            $gray-5;
+$list-steps-color-current:    $gray-10;
 
 // List group
 // -------------------------
@@ -821,11 +821,11 @@ $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;
 $panel-primary-heading-bg:    $brand-primary !default;
 
-$panel-simple-border:         1px solid $gray-7;
+$panel-simple-border:         1px solid $gray-9;
 
-$panel-tile-border:             2px solid $gray-7;
+$panel-tile-border:             2px solid $gray-9;
 $panel-tile-hover-border-color: $blue-3;
-$panel-tile-hover-bg-color:     $gray-8;
+$panel-tile-hover-bg-color:     $gray-10;
 
 $panel-success-text:          $state-success-text !default;
 $panel-success-border:        $state-success-border !default;
@@ -845,11 +845,11 @@ $panel-info-heading-bg:       $state-info-bg !default;
 
 // Panel Headings
 // -------------------------
-$panel-heading-basic-bg:             $gray-7;
-$panel-heading-basic-text:           $gray-2;
+$panel-heading-basic-bg:             $gray-9;
+$panel-heading-basic-text:           $gray-3;
 $panel-heading-basic-font-size:      22px; //TODO: once typography is solidified this should use heading vars
 
-$panel-heading-simple-text:            $gray-4;
+$panel-heading-simple-text:            $gray-5;
 $panel-heading-simple-text-align:      center;
 $panel-heading-simple-font-weight:     600;
 $panel-heading-simple-font-size:       14px;
@@ -857,7 +857,7 @@ $panel-heading-simple-text-transform:  uppercase;
 
 // Panel Footers
 // -------------------------
-$panel-footer-tile-text:               $gray-8;
+$panel-footer-tile-text:               $gray-10;
 $panel-tile-font-size:                 12px;
 
 

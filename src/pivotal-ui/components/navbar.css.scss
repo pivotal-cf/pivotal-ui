@@ -80,12 +80,12 @@
 
         a.current-org {
           width: 80%;
-          color: $gray-4;
+          color: $gray-5;
           float: left;
           @include transition;
           &:hover {
             background-color: $glow-2;
-            color: $gray-6;
+            color: $gray-8;
           }
         }
 
@@ -95,13 +95,13 @@
           display: inline-block;
           padding: 12px;
           float: right;
-          color: $gray-4;
+          color: $gray-5;
           @include transition;
           &:hover {
             cursor: pointer;
             background-color: $glow-2;
             @include background-clip-fix;
-            color: $gray-6;
+            color: $gray-8;
           }
 
           &.fa-chevron-up {
@@ -111,7 +111,7 @@
 
         &.open {
           .dropdown-caret {
-            background-color: $gray-8;
+            background-color: $gray-10;
             @include background-clip-fix;
           }
           .fa-chevron-up {
@@ -123,25 +123,25 @@
           }
 
           a.current-org {
-            color: $gray-2;
+            color: $gray-3;
           }
         }
 
         .dropdown-menu {
-          background-color: $gray-8;
+          background-color: $gray-10;
           width: 100%;
           border-radius: 0;
           border: 0;
 
           .active-org a {
-            color: $gray-4;
+            color: $gray-5;
           }
 
           a {
             padding-left: 16px;
             font-size: 16px;
             font-weight: 600;
-            color: $gray-2;
+            color: $gray-3;
             &:hover {
               background-color: $shadow-3;
             }
@@ -160,7 +160,7 @@
   .navlinks-global {
     a {
       font-weight: 400;
-      color: $gray-4;
+      color: $gray-5;
       display: block;
       @include transition;
       padding: 8px;
@@ -170,7 +170,7 @@
       cursor: pointer;
       a {
         background-color: $glow-1;
-        color: $gray-6;
+        color: $gray-8;
       }
     }
   }

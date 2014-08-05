@@ -38,6 +38,14 @@
         
           <li><a href="#full_width_button">Full width Buttons</a></li>
         
+          <li><a href="#colors">Colors</a></li>
+        
+          <li><a href="#sass_colors">Sass Colors</a></li>
+        
+          <li><a href="#shadows">Shadows & Glows</a></li>
+        
+          <li><a href="#type-colors">Type Colors</a></li>
+        
         </ul>
 <h1 id="button">Buttons</h1>
 
@@ -136,6 +144,297 @@ size and style modifiers.</p>
 <p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
 <div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
+</pre></div></div></div>
+<h1 id="colors">Colors</h1>
+
+<p>Our color pallet is composed of several different colors. At any given point in captures the current
+evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
+colors rather than adding new ones.</p>
+
+<h2 id="sass_colors">Sass Colors</h2>
+
+<div class="alert alert-warning alert-dismissable">
+  These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+  directly when building components, because it makes
+  it very hard to change the values later if you can't tell how they might have been used.
+   You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+</div>
+
+<p>This example shows proper use of Sass variables.</p>
+<div class="codeBlock"><div class="highlight"><pre>$tabs-active-bg-color: $gray-2;
+</pre></div></div>
+<div class="row row-gutter-sm mvxl">
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-1"></div>
+      <div class="chip-color-name">$gray-1</div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-2"></div>
+      <div class="chip-color-name">$gray-2</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-3"></div>
+      <div class="chip-color-name">$gray-3</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-4"></div>
+      <div class="chip-color-name">$gray-4</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-5"></div>
+      <div class="chip-color-name">$gray-5</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-6"></div>
+      <div class="chip-color-name">$gray-6</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-7"></div>
+      <div class="chip-color-name">$gray-7</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-8"></div>
+      <div class="chip-color-name">$gray-8</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-9"></div>
+      <div class="chip-color-name">$gray-9</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-10"></div>
+      <div class="chip-color-name">$gray-10</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-11"></div>
+      <div class="chip-color-name">$gray-11</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-1"></div>
+      <div class="chip-color-name">$teal-1</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-2"></div>
+      <div class="chip-color-name">$teal-2</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-3"></div>
+      <div class="chip-color-name">$teal-3</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-4"></div>
+      <div class="chip-color-name">$teal-4</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-5"></div>
+      <div class="chip-color-name">$teal-5</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-6"></div>
+      <div class="chip-color-name">$teal-6</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-teal-7"></div>
+      <div class="chip-color-name">$teal-7</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-1"></div>
+      <div class="chip-color-name">$blue-1</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-2"></div>
+      <div class="chip-color-name">$blue-2</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-3"></div>
+      <div class="chip-color-name">$blue-3</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-4"></div>
+      <div class="chip-color-name">$blue-4</div>
+    </div>
+  </div>
+   <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-5"></div>
+      <div class="chip-color-name">$blue-5</div>
+    </div>
+  </div>
+   <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color styleguide-only-blue-6"></div>
+      <div class="chip-color-name">$blue-6</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-1"></div>
+      <div class="chip-color-name">$red-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-2"></div>
+      <div class="chip-color-name">$red-2</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-3"></div>
+      <div class="chip-color-name">$red-3</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-red-4"></div>
+      <div class="chip-color-name">$red-4</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-orange-1"></div>
+      <div class="chip-color-name">$orange-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-orange-2"></div>
+      <div class="chip-color-name">$orange-2</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-yellow-1"></div>
+      <div class="chip-color-name">$yellow-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-yellow-2"></div>
+      <div class="chip-color-name">$yellow-2</div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-green-1"></div>
+      <div class="chip-color-name">$green-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-green-2"></div>
+      <div class="chip-color-name">$green-2</div>
+    </div>
+  </div>
+</div>
+
+<h2 id="shadows">Shadows & Glows</h2>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-1"></div>
+      <div class="chip-color-name">$shadow-1</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-2"></div>
+      <div class="chip-color-name">$shadow-2</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-shadow-3"></div>
+      <div class="chip-color-name">$shadow-3</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color styleguide-only-glow"></div>
+      <div class="chip-color-name">$glow-1</div>
+    </div>
+  </div>
+</div>
+
+<h2 id="type-colors">Type Colors</h2>
+<div class="codeExample"><div class="exampleOutput"><p class='type-accent-2'>Dark Teal text</p>
+<p class='type-accent-3'>Teal text</p>
+<p class='type-accent-4'>Another shade of teal text</p>
+<p class='type-accent-5'>Even lighter shade of teal text</p>
+<p class='type-primary-2'>Gray text</p>
+<p class='type-primary-4'>Another shade of gray</p>
+<p class='type-primary-5'>Even lighter gray</p>
+<p class='type-inverse' style='background-color: #000'>type-inverse text</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%p</span><span class="nc">.type-accent-2</span> Dark Teal text
+<span class="nt">%p</span><span class="nc">.type-accent-3</span> Teal text
+<span class="nt">%p</span><span class="nc">.type-accent-4</span> Another shade of teal text
+<span class="nt">%p</span><span class="nc">.type-accent-5</span> Even lighter shade of teal text
+<span class="nt">%p</span><span class="nc">.type-primary-2</span> Gray text
+<span class="nt">%p</span><span class="nc">.type-primary-4</span> Another shade of gray
+<span class="nt">%p</span><span class="nc">.type-primary-5</span> Even lighter gray
+<span class="nt">%p</span><span class="nc">.type-inverse</span><span class="p">{</span><span class="n">style</span><span class="p">:</span><span class="s1">'background-color: #000'</span><span class="p">}</span> type-inverse text
 </pre></div></div></div>      </section>
       <footer>
         <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>

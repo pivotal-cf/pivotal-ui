@@ -94,7 +94,7 @@ To use in a view, simply call
 
 .gravatar-sm {
   i {
-    color: $gray-4;
+    color: $gray-5;
     font-size: 20px;
     line-height: 20px;
     width: 20px;
@@ -112,7 +112,7 @@ To use in a view, simply call
     bottom: -25%;
   }
   .fa-envelope {
-    text-shadow: 1px 0px 1px $gray-4, -1px 0px 1px $gray-4, 0px 1px 1px $gray-4, 0px 0px 1px $gray-4;
+    text-shadow: 1px 0px 1px $gray-5, -1px 0px 1px $gray-5, 0px 1px 1px $gray-5, 0px 0px 1px $gray-5;
   }
   .fa-check {
     text-shadow: 1px 0px 0px $teal-5, -1px 0px 0px $teal-5, 0px 1px 0px $teal-5, 0px 0px 0px $teal-5;
@@ -146,10 +146,10 @@ To use in a view, simply call
 */
 
 .gravatar-lg {
-  border: 3px solid $gray-8;
+  border: 3px solid $gray-10;
   i {
     background-color: #fff;
-    color: $gray-8;
+    color: $gray-10;
     font-size: 62px;
     line-height: 80px;
     width: 80px;

@@ -396,7 +396,7 @@ This is a special list-group, with styles per-event for colors and icons
   }
 
   .event-user {
-    color: $gray-4;
+    color: $gray-5;
   }
 
   .event-icon {
@@ -416,11 +416,11 @@ This is a special list-group, with styles per-event for colors and icons
   }
   .stopped {
     .event-title {
-      color: $gray-4;
+      color: $gray-5;
 
     }
     .event-icon:after {
-      color: $gray-4;
+      color: $gray-5;
       content: '\f04d';
 
     }

@@ -3,7 +3,7 @@
 @import '../pivotal-ui/components/variables.css.scss';
 
 html {
-  background-color: $gray-6;
+  background-color: $gray-8;
 }
 
 .container {
@@ -202,7 +202,7 @@ nav.styleguide-nav {
   margin-top: 10px;
 
   .chip-color {
-    min-height: 100px;
+    min-height: 53px;
   }
   .chip-color-name {
     color: #777;

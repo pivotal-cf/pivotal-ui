@@ -5,6 +5,7 @@ name: colors
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 Our color pallet is composed of several different colors. At any given point in captures the current
@@ -31,56 +32,75 @@ parent: colors
 This example shows proper use of Sass variables.
 
 ```
-$tabs-active-bg-color: $gray-1;
+$tabs-active-bg-color: $gray-2;
 ```
 
-<div class="row mvxl">
-  <div class="col-md-3">
+<div class="row row-gutter-sm mvxl">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-1"></div>
+      <div class="chip-color bg-neutral-1"></div>
       <div class="chip-color-name">$gray-1</div>
     </div>
   </div>
-  <div class="col-md-3">
+
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-2"></div>
+      <div class="chip-color bg-neutral-2"></div>
       <div class="chip-color-name">$gray-2</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-3"></div>
+      <div class="chip-color bg-neutral-3"></div>
       <div class="chip-color-name">$gray-3</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-4"></div>
+      <div class="chip-color bg-neutral-4"></div>
       <div class="chip-color-name">$gray-4</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-5"></div>
+      <div class="chip-color bg-neutral-5"></div>
       <div class="chip-color-name">$gray-5</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-6"></div>
+      <div class="chip-color bg-neutral-6"></div>
       <div class="chip-color-name">$gray-6</div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-7"></div>
+      <div class="chip-color bg-neutral-7"></div>
       <div class="chip-color-name">$gray-7</div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-gray-8"></div>
+      <div class="chip-color bg-neutral-8"></div>
       <div class="chip-color-name">$gray-8</div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-9"></div>
+      <div class="chip-color-name">$gray-9</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-10"></div>
+      <div class="chip-color-name">$gray-10</div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-11"></div>
+      <div class="chip-color-name">$gray-11</div>
     </div>
   </div>
 </div>
@@ -243,29 +263,38 @@ $tabs-active-bg-color: $gray-1;
 
 
 
-.styleguide-only-gray-1 {
+.bg-neutral-1 {
   background-color: $gray-1;
 }
-.styleguide-only-gray-2 {
+.bg-neutral-2 {
   background-color: $gray-2;
 }
-.styleguide-only-gray-3 {
+.bg-neutral-3 {
   background-color: $gray-3;
 }
-.styleguide-only-gray-4 {
+.bg-neutral-4 {
   background-color: $gray-4;
 }
-.styleguide-only-gray-5 {
+.bg-neutral-5 {
   background-color: $gray-5;
 }
-.styleguide-only-gray-6 {
+.bg-neutral-6 {
   background-color: $gray-6;
 }
-.styleguide-only-gray-7 {
+.bg-neutral-7 {
   background-color: $gray-7;
 }
-.styleguide-only-gray-8 {
+.bg-neutral-8 {
   background-color: $gray-8;
+}
+.bg-neutral-9 {
+  background-color: $gray-9;
+}
+.bg-neutral-10 {
+  background-color: $gray-10;
+}
+.bg-neutral-11 {
+  background-color: $gray-11;
 }
 
 // Teals

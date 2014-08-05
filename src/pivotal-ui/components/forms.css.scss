@@ -118,14 +118,14 @@ This is a fancy select!
 */
 
 .fancy-form-element {
-  box-shadow: 0 3px 0 $gray-5;
+  box-shadow: 0 3px 0 $gray-7;
   background-color: white;
   @include transition;
   border-radius: 4px;
   position: relative;
 
   &:hover {
-    box-shadow: 0 3px 0 $gray-4;
+    box-shadow: 0 3px 0 $gray-5;
     cursor: pointer;
   }
 
@@ -195,7 +195,7 @@ This is a fancy select!
     border-radius: 4px;
 
     &:hover {
-      background-color: $gray-7;
+      background-color: $gray-9;
     }
   }
 }
@@ -249,7 +249,7 @@ This is a fancy number input!
       line-height: 20px;
       &:hover {
         color: $blue-3;
-        background-color: $gray-7;
+        background-color: $gray-9;
         cursor: pointer;
       }
 
@@ -272,7 +272,7 @@ This is a fancy number input!
     border-radius: 4px;
 
     &:hover {
-      background-color: $gray-7;
+      background-color: $gray-9;
     }
   }
 }
@@ -581,7 +581,7 @@ Bootstrap includes validation styles for error and success states on form contro
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
     background-color: $teal-5;
-    color: $gray-8;
+    color: $gray-10;
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;

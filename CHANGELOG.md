@@ -2,6 +2,19 @@
 
 ### Latest Changes
 
+```
+* New!            $gray-1
+* $gray-1 is now  $gray-2
+* $gray-2 is now  $gray-3
+* $gray-3 is now  $gray-4
+* $gray-4 is now  $gray-5, and the color has changed to #b4b4b4
+* New!            $gray-6
+* $gray-5 is now  $gray-7
+* $gray-6 is now  $gray-8
+* $gray-7 is now  $gray-9
+* $gray-8 is now  $gray-10
+```
+
 * `styleguide/` and `build/` have now been replaced by `dist/`, refer to all assets there.
 * Deprecated: the button alternate style
 * Added: button highlight alternate

@@ -34,7 +34,7 @@ categories:
   }
   &.editing {
     h2, .h4 {
-      color: $gray-1;
+      color: $gray-2;
     }
 
     .content {
@@ -48,7 +48,7 @@ categories:
   }
   &.showing {
     .content {
-      background-color: $gray-8;
+      background-color: $gray-10;
     }
     .modal-backdrop {
       display: none;
@@ -56,7 +56,7 @@ categories:
   }
   &.saving {
     .content {
-      background-color: $gray-8;
+      background-color: $gray-10;
     }
     .modal-backdrop {
       display: none;

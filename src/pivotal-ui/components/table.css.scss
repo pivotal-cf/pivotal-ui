@@ -90,11 +90,11 @@ This is a table used to display many rows of data (it is pretty much the default
   border: none;
   tbody, thead, .tbody, .thead {
     tr, .tr {
-      border-bottom: 1px solid $gray-5;
+      border-bottom: 1px solid $gray-7;
       th, .th {
         border-bottom: none;
-        border-color: $gray-5;
-        border-right: 1px solid $gray-5;
+        border-color: $gray-7;
+        border-right: 1px solid $gray-7;
         padding: 15px 10px;
         font-size: 13px;
         font-weight: 900;
@@ -105,7 +105,7 @@ This is a table used to display many rows of data (it is pretty much the default
         &:last-child {
           border: none;
         }
-        background-color: $gray-7;
+        background-color: $gray-9;
       }
       td, .td {
         padding: 10px 10px;
@@ -116,12 +116,12 @@ This is a table used to display many rows of data (it is pretty much the default
 
   tbody, .tbody {
     tr, .tr {
-      background-color: $gray-7;
+      background-color: $gray-9;
       &:hover {
         -webkit-transition: background-color 300ms ease-out;
         -moz-transition: background-color 300ms ease-out;
         transition: background-color 300ms ease-out;
-        background-color: $gray-8;
+        background-color: $gray-10;
       }
       &:last-child {
         border-bottom: 2px solid $shadow-3;
@@ -135,16 +135,16 @@ This is a table used to display many rows of data (it is pretty much the default
     &:last-child {
     }
     > th, > .th {
-      color: $gray-2;
+      color: $gray-3;
     }
   }
 
   &.table-light {
     tbody, thead, .tbody, .thead {
       tr, .tr {
-        background-color: $gray-8;
+        background-color: $gray-10;
         th, .th, td, .td {
-          background-color: $gray-8;
+          background-color: $gray-10;
         }
         td, .td {
           border: none; // overwriting bootstrap default values which are too specific
@@ -274,7 +274,7 @@ specify column widths for the th/tds.
         text-transform: uppercase;
         font-weight: 800;
         text-align: left;
-        color: $gray-4;
+        color: $gray-5;
       }
       td {
         text-align: left;
@@ -339,7 +339,7 @@ This is the table used on the billing page.
         font-weight: 400;
         text-align: left;
         width: 33%;
-        color: $gray-2;
+        color: $gray-3;
       }
       td {
         text-align: right;
@@ -528,7 +528,7 @@ USE:
     }
     &:after {
       content: "\f0dc";
-      color: $gray-5;
+      color: $gray-7;
       visibility: hidden;
     }
   }
@@ -690,7 +690,7 @@ parent: table-js
   .deleteRequested {
     -webkit-transition: all ease-out .2s;
     transition: all ease-out .2s;
-    color: $gray-4;
+    color: $gray-5;
   }
 
   .ng-leave {
@@ -699,7 +699,7 @@ parent: table-js
   }
 
   .ng-leave.ng-leave-active {
-    color: $gray-7;
+    color: $gray-9;
   }
 
   .saved {
@@ -835,7 +835,7 @@ Table with borders where the contents of the table scroll but the header does no
 */
 
 .table-scrollable {
-  border: 1px solid $gray-6;
+  border: 1px solid $gray-8;
 
   .panel {
     border: none;
@@ -843,11 +843,11 @@ Table with borders where the contents of the table scroll but the header does no
 
   .panel-scrollable-header {
     @include user-select(none);
-    border-bottom: 2px solid $gray-6;
+    border-bottom: 2px solid $gray-8;
   }
 
   .panel-scrollable {
-    border-top: 3px solid $gray-7;
+    border-top: 3px solid $gray-9;
   }
 
   table {
@@ -862,7 +862,7 @@ Table with borders where the contents of the table scroll but the header does no
 }
 
 table.table-border{
-  border: 1px solid $gray-6;
+  border: 1px solid $gray-8;
 
   thead tr th, tbody tr td {
     border-right: none;

@@ -50,11 +50,11 @@ categories:
   #svg {
     border-radius: 50%;
     box-shadow: 0px 4px 0px rgba(0, 0, 0, .08);
-    background-color: $gray-8;
+    background-color: $gray-10;
 
     circle {
-      fill: $gray-8;
-      stroke: $gray-8;
+      fill: $gray-10;
+      stroke: $gray-10;
       stroke-dashoffset: 0;
       @include transition(stroke-dashoffset, 1s, cubic-bezier(0.55, 0.085, 0.68, 0.53));
       stroke-width: 10px;
@@ -102,7 +102,7 @@ categories:
       visibility: hidden;
       left: 130px;
       margin-top: -5px;
-      color: $gray-4;
+      color: $gray-5;
     }
   }
 
@@ -112,7 +112,7 @@ categories:
       visibility: hidden;
     }
     #svg circle {
-      stroke: $gray-4;
+      stroke: $gray-5;
       stroke-dashoffset: 0;
     }
   }
