@@ -43,6 +43,7 @@ $shadow-3 : rgba(0, 0, 0, 0.07);
 $glow-1 : rgba(255,255,255,0.1);
 $glow-2 : rgba(255,255,255,0.2);
 $glow-3 : rgba(255,255,255,0.4);
+$glow-4 : rgba(255,255,255,0.6);
 
 // Blue
 // -------------------------
@@ -296,31 +297,28 @@ $btn-default-border:             transparent !default; // not currently used, bu
 $btn-default-border-hover:       transparent;
 $btn-default-bg-hover:           white;
 
+$btn-default-alt-color:          $link-color;
+$btn-default-alt-bg:             $gray-8;
+$btn-default-alt-bg-hover:       $gray-7;
+
 $btn-primary-color:              $blue-3;
 $btn-primary-bg:                 white;
 $btn-primary-bg-hover:           white;
 $btn-primary-border:             #49A8D5 !default;
 
-$btn-lowlight-color:             $blue-3;
+$btn-lowlight-color:             $gray-2;
 $btn-lowlight-bg:                transparent;
-$btn-lowlight-bg-hover:          $glow-3;
+$btn-lowlight-bg-hover:          $glow-4;
 
 $btn-highlight-color:             $type-inverse;
 $btn-highlight-bg:                $blue-3;
-$btn-highlight-bg-hover:          $blue-3;
+$btn-highlight-bg-hover:          #1a739e;
 
-$btn-teal-color:                  white;
-$btn-teal-bg:                     $teal-4;
-$btn-teal-bg-hover:               $teal-5;
+$btn-highlight-alt-color:                  white;
+$btn-highlight-alt-bg:                     $teal-4;
+$btn-highlight-alt-bg-hover:               $teal-5;
 
-$btn-offwhite-color:             $link-color;
-$btn-offwhite-bg:                $gray-5;
-$btn-offwhite-bg-hover:          white;
 
-$btn-delete-color:               $type-inverse !default;
-$btn-delete-bg:                  $red-3 !default;
-$btn-delete-bg-hover:            #eb3d46 !default;
-$btn-delete-border:              $brand-danger !default;
 
 // alternate is only used on login pages
 $btn-alternate-color:            #eee !default;
@@ -339,7 +337,7 @@ $btn-warning-border:             $brand-warning !default;
 
 $btn-danger-color:               $type-inverse !default;
 $btn-danger-bg:                  $red-3 !default;
-$btn-danger-bg-hover:            $red-3 !default;
+$btn-danger-bg-hover:            #eb3d46 !default;
 $btn-danger-border:              $brand-danger !default;
 
 $btn-info-color:                 #fff !default;

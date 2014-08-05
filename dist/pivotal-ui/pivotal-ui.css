@@ -11440,162 +11440,17 @@ a form or triggering some javascript event, then use a `<button>` element.
 */
 /*doc
 ---
-title: Teal Buttons
-name: teal_button
-parent: button
-categories:
-  - All
-  - marketing-site
----
-
-```haml_example
-%button.btn.btn-xl.btn-teal Sign up for free
-```
-*/
-/* line 40, ../../src/pivotal-ui/components/button.css.scss */
-.btn-teal {
-  color: white;
-  background-color: #34928a;
-  border: none;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  text-transform: uppercase;
-  font-weight: 600 !important;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-}
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-teal:hover, .btn-teal:focus, .btn-teal:active, .btn-teal.active {
-  color: white;
-  background-color: #00a79d;
-}
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-teal.dropdown-toggle {
-  color: white;
-  background-color: #00a79d;
-}
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-teal:active, .btn-teal.active {
-  background-image: none;
-}
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-teal.dropdown-toggle {
-  background-image: none;
-}
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-teal.disabled, .btn-teal.disabled:hover, .btn-teal.disabled:focus, .btn-teal.disabled:active, .btn-teal.disabled.active, .btn-teal[disabled], .btn-teal[disabled]:hover, .btn-teal[disabled]:focus, .btn-teal[disabled]:active, .btn-teal[disabled].active, fieldset[disabled] .btn-teal, fieldset[disabled] .btn-teal:hover, fieldset[disabled] .btn-teal:focus, fieldset[disabled] .btn-teal:active, fieldset[disabled] .btn-teal.active {
-  background-color: #ecefef;
-  color: #d4d9da;
-}
-
-/*doc
----
-title: Off white Button
-name: offwhite_button
-parent: button
-categories: marketing-site
----
-
-```haml_example
-%button.btn.btn-offwhite Default
-```
-*/
-/* line 61, ../../src/pivotal-ui/components/button.css.scss */
-.btn-offwhite {
-  color: #2185c5;
-  background-color: #d4d9da;
-  border: none;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-}
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-offwhite:hover, .btn-offwhite:focus, .btn-offwhite:active, .btn-offwhite.active {
-  color: #2185c5;
-  background-color: white;
-}
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-offwhite.dropdown-toggle {
-  color: #2185c5;
-  background-color: white;
-}
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-offwhite:active, .btn-offwhite.active {
-  background-image: none;
-}
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-offwhite.dropdown-toggle {
-  background-image: none;
-}
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-offwhite.disabled, .btn-offwhite.disabled:hover, .btn-offwhite.disabled:focus, .btn-offwhite.disabled:active, .btn-offwhite.disabled.active, .btn-offwhite[disabled], .btn-offwhite[disabled]:hover, .btn-offwhite[disabled]:focus, .btn-offwhite[disabled]:active, .btn-offwhite[disabled].active, fieldset[disabled] .btn-offwhite, fieldset[disabled] .btn-offwhite:hover, fieldset[disabled] .btn-offwhite:focus, fieldset[disabled] .btn-offwhite:active, fieldset[disabled] .btn-offwhite.active {
-  background-color: #ecefef;
-  color: #d4d9da;
-}
-
-/*doc
----
-title: Delete Button
-name: delete_button
-parent: button
-categories: marketing-site
----
-
-```haml_example
-%button.btn.btn-delete Delete
-```
-*/
-/* line 81, ../../src/pivotal-ui/components/button.css.scss */
-.btn-delete {
-  color: #f8f8f8;
-  background-color: #ff434c;
-  border: none;
-  -webkit-transition: all 300ms ease-out;
-  -moz-transition: all 300ms ease-out;
-  transition: all 300ms ease-out;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-}
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-delete:hover, .btn-delete:focus, .btn-delete:active, .btn-delete.active {
-  color: #f8f8f8;
-  background-color: #eb3d46;
-}
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-delete.dropdown-toggle {
-  color: #f8f8f8;
-  background-color: #eb3d46;
-}
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-delete:active, .btn-delete.active {
-  background-image: none;
-}
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-delete.dropdown-toggle {
-  background-image: none;
-}
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-delete.disabled, .btn-delete.disabled:hover, .btn-delete.disabled:focus, .btn-delete.disabled:active, .btn-delete.disabled.active, .btn-delete[disabled], .btn-delete[disabled]:hover, .btn-delete[disabled]:focus, .btn-delete[disabled]:active, .btn-delete[disabled].active, fieldset[disabled] .btn-delete, fieldset[disabled] .btn-delete:hover, fieldset[disabled] .btn-delete:focus, fieldset[disabled] .btn-delete:active, fieldset[disabled] .btn-delete.active {
-  background-color: #ecefef;
-  color: #d4d9da;
-}
-
-/*doc
----
 title: Button Sizes
 name: button_sizes
 parent: button
 ---
 
-There are three 3 sizes for buttons: Extra Large, Large (default)
-and small. Simply apply the size modifier class for the desired size.
-There is also an additional modifier that will make the button take the
-full width of the container. It may be used with the any of the button
-size and style modifiers.
+There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.
+
 
 Button                                                             | Modifier Class
 ------------------------------------------------------------------ | -----------------
-<button class="btn btn-primary btn-xl">Extra Large</button>        | `btn btn-primary btn-xl`
 <button class="btn btn-primary btn-lg">Large</button>              | `btn btn-primary btn-lg`
 <button class="btn btn-primary">Default</button>                   | `btn btn-primary`
 */
@@ -11606,6 +11461,10 @@ name: full_width_button
 parent: button
 ---
 
+There is an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.
+
 Create block level buttons—those that span the full width of a parent— by adding `.btn-block`.
 
 ```haml_example
@@ -11613,20 +11472,11 @@ Create block level buttons—those that span the full width of a parent— by ad
 ```
 
 */
-/* line 124, ../../src/pivotal-ui/components/button.css.scss */
+/* line 64, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
   padding: 5px 15px;
-}
-
-/* line 130, ../../src/pivotal-ui/components/button.css.scss */
-.btn-xl {
-  padding: 0 0;
-  font-size: 24px;
-  line-height: 2.48;
-  border-radius: 6px;
-  min-width: 306px;
 }
 
 /*doc
@@ -11636,162 +11486,232 @@ name: buttonSkins
 parent: button
 ---
 
-Button                                                     | Disabled                                                     | Class               | Description
----------------------------------------------------------- | ----------------------------------------------------------   | ------------------  | -----------
-<button class="btn btn-default">Default</button>           |<button class="btn btn-default" disabled>Default</button>     | `btn btn-default`   | This is what buttons look like, this is the go to button style.
-<button class="btn btn-primary">Primary</button>           |<button class="btn btn-primary" disabled>Primary</button>     | `btn btn-primary`   | Use this button as the primary call to action
-<button class="btn btn-lowlight">Lowlight</button>         |<button class="btn btn-lowlight" disabled>Lowlight</button>   | `btn btn-lowlight`  | Use this button for other actions, like cancel/dismiss
-<button class="btn btn-danger">Delete</button>             |<button class="btn btn-danger" disabled>Delete</button>       | `btn btn-danger`    | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn btn-highlight"><i class="fa fa-play icon-control"></i></button> | <button class="btn btn-highlight" disabled><i class="fa fa-play icon-control"></i></button> | `btn btn-highlight` | Use this button for other important actions, e.g. restarting apps
+Button                                                             | Disabled                                                                    | Class                   | Description
+------------------------------------------------------------------ | --------------------------------------------------------------------------  | ----------------------- | -----------
+<button class="btn btn-default">Default</button>                   |<button class="btn btn-default" disabled>Default</button>                    | `btn btn-default`       | This is what buttons look like, this is the go to button style.
+<button class="btn btn-default-alt">Default alternate</button>     |<button class="btn btn-default-alt" disabled>Default alternate</button>      | `btn btn-default-alt`   | This is what buttons look like, this is the go to button style (on white backgrounds).
+<button class="btn btn-primary">Primary</button>                   |<button class="btn btn-primary" disabled>Primary</button>                    | `btn btn-primary`       | Use this button as the primary call to action
+<button class="btn btn-lowlight">Lowlight</button>                 |<button class="btn btn-lowlight" disabled>Lowlight</button>                  | `btn btn-lowlight`      | Use this button for other actions, like cancel/dismiss
+<button class="btn btn-danger">Delete</button>                     |<button class="btn btn-danger" disabled>Delete</button>                      | `btn btn-danger`        | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
+<button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-/* line 153, ../../src/pivotal-ui/components/button.css.scss */
+/* line 88, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
   border: none;
-  font-size: 13px;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
   color: #2185c5;
   background-color: white;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:active, .btn-default.active {
   background-image: none;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   background-image: none;
 }
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
   background-color: #ecefef;
   color: #d4d9da;
 }
 
-/* line 159, ../../src/pivotal-ui/components/button.css.scss */
+/* line 93, ../../src/pivotal-ui/components/button.css.scss */
+.btn-default-alt {
+  color: #2185c5;
+  background-color: #f8f8f8;
+  border: none;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-default-alt:hover, .btn-default-alt:focus, .btn-default-alt:active, .btn-default-alt.active {
+  color: #2185c5;
+  background-color: #ecefef;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-default-alt.dropdown-toggle {
+  color: #2185c5;
+  background-color: #ecefef;
+}
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-default-alt:active, .btn-default-alt.active {
+  background-image: none;
+}
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-default-alt.dropdown-toggle {
+  background-image: none;
+}
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-default-alt.disabled, .btn-default-alt.disabled:hover, .btn-default-alt.disabled:focus, .btn-default-alt.disabled:active, .btn-default-alt.disabled.active, .btn-default-alt[disabled], .btn-default-alt[disabled]:hover, .btn-default-alt[disabled]:focus, .btn-default-alt[disabled]:active, .btn-default-alt[disabled].active, fieldset[disabled] .btn-default-alt, fieldset[disabled] .btn-default-alt:hover, fieldset[disabled] .btn-default-alt:focus, fieldset[disabled] .btn-default-alt:active, fieldset[disabled] .btn-default-alt.active {
+  background-color: #ecefef;
+  color: #d4d9da;
+}
+
+/* line 97, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
   border: none;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-  line-height: 1.0;
-  padding: 8px 20px;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   color: #2185c5;
   background-color: white;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:active, .btn-primary.active {
   background-image: none;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   background-image: none;
 }
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
   background-color: #ecefef;
   color: #d4d9da;
 }
-/* line 165, ../../src/pivotal-ui/components/button.css.scss */
-.btn-primary:hover {
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
-}
 
-/* line 170, ../../src/pivotal-ui/components/button.css.scss */
+/* line 101, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #f8f8f8;
   background-color: #2185c5;
   border: none;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
-  line-height: 1.0;
-  padding: 8px 20px;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
   color: #f8f8f8;
-  background-color: #2185c5;
+  background-color: #1a739e;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   color: #f8f8f8;
-  background-color: #2185c5;
+  background-color: #1a739e;
 }
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:active, .btn-highlight.active {
   background-image: none;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   background-image: none;
 }
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight.disabled, .btn-highlight.disabled:hover, .btn-highlight.disabled:focus, .btn-highlight.disabled:active, .btn-highlight.disabled.active, .btn-highlight[disabled], .btn-highlight[disabled]:hover, .btn-highlight[disabled]:focus, .btn-highlight[disabled]:active, .btn-highlight[disabled].active, fieldset[disabled] .btn-highlight, fieldset[disabled] .btn-highlight:hover, fieldset[disabled] .btn-highlight:focus, fieldset[disabled] .btn-highlight:active, fieldset[disabled] .btn-highlight.active {
   background-color: #ecefef;
   color: #d4d9da;
 }
-/* line 176, ../../src/pivotal-ui/components/button.css.scss */
-.btn-highlight:hover {
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
-}
 
-/* line 181, ../../src/pivotal-ui/components/button.css.scss */
-.btn-lowlight {
-  color: #2185c5;
-  background-color: transparent;
+/* line 105, ../../src/pivotal-ui/components/button.css.scss */
+.btn-highlight-alt {
+  color: white;
+  background-color: #34928a;
   border: none;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
-  color: #2185c5;
-  background-color: rgba(255, 255, 255, 0.4);
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
+  color: white;
+  background-color: #00a79d;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-lowlight.dropdown-toggle {
-  color: #2185c5;
-  background-color: rgba(255, 255, 255, 0.4);
-}
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-lowlight:active, .btn-lowlight.active {
-  background-image: none;
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-highlight-alt.dropdown-toggle {
+  color: white;
+  background-color: #00a79d;
 }
 /* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-lowlight.dropdown-toggle {
+.btn-highlight-alt:active, .btn-highlight-alt.active {
   background-image: none;
 }
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-highlight-alt.dropdown-toggle {
+  background-image: none;
+}
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-highlight-alt.disabled, .btn-highlight-alt.disabled:hover, .btn-highlight-alt.disabled:focus, .btn-highlight-alt.disabled:active, .btn-highlight-alt.disabled.active, .btn-highlight-alt[disabled], .btn-highlight-alt[disabled]:hover, .btn-highlight-alt[disabled]:focus, .btn-highlight-alt[disabled]:active, .btn-highlight-alt[disabled].active, fieldset[disabled] .btn-highlight-alt, fieldset[disabled] .btn-highlight-alt:hover, fieldset[disabled] .btn-highlight-alt:focus, fieldset[disabled] .btn-highlight-alt:active, fieldset[disabled] .btn-highlight-alt.active {
   background-color: #ecefef;
   color: #d4d9da;
 }
 
-/* line 187, ../../src/pivotal-ui/components/button.css.scss */
+/* line 109, ../../src/pivotal-ui/components/button.css.scss */
+.btn-lowlight {
+  color: #686868;
+  background-color: transparent;
+  border: none;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  box-shadow: none;
+}
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
+  color: #686868;
+  background-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-lowlight.dropdown-toggle {
+  color: #686868;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-lowlight:active, .btn-lowlight.active {
+  background-image: none;
+}
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+.open .btn-lowlight.dropdown-toggle {
+  background-image: none;
+}
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
+  background-color: #ecefef;
+  color: #d4d9da;
+}
+/* line 115, ../../src/pivotal-ui/components/button.css.scss */
+.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
+  box-shadow: none;
+}
+
+/* line 122, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #f8f8f8;
   background-color: #ff434c;
@@ -11801,39 +11721,36 @@ Button                                                     | Disabled           
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 10, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
   color: #f8f8f8;
-  background-color: #ff434c;
+  background-color: #eb3d46;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 14, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   color: #f8f8f8;
-  background-color: #ff434c;
+  background-color: #eb3d46;
 }
-/* line 19, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:active, .btn-danger.active {
   background-image: none;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   background-image: none;
 }
-/* line 32, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
   background-color: #ecefef;
   color: #d4d9da;
-}
-/* line 191, ../../src/pivotal-ui/components/button.css.scss */
-.btn-danger:hover {
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /*doc
 ---
 title: Login Button
 name: button_login
-parent: button
+parent: deprecated
 ---
 
 There is a specific button style for the login pages:
@@ -11845,7 +11762,7 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-/* line 216, ../../src/pivotal-ui/components/button.css.scss */
+/* line 146, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
   color: #eeeeee;
   background-color: #1b92cb;
@@ -11856,30 +11773,30 @@ Do not use this button on normal application pages.
   font-weight: normal;
   text-transform: none;
 }
-/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 49, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:hover, .btn-alternate:focus, .btn-alternate:active, .btn-alternate.active {
   color: #eeeeee;
   background-color: #1675a2;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 53, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   color: #eeeeee;
   background-color: #1678a7;
 }
-/* line 55, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 58, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:active, .btn-alternate.active {
   background-image: none;
 }
-/* line 58, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 61, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   background-image: none;
 }
-/* line 68, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 71, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate.disabled, .btn-alternate.disabled:hover, .btn-alternate.disabled:focus, .btn-alternate.disabled:active, .btn-alternate.disabled.active, .btn-alternate[disabled], .btn-alternate[disabled]:hover, .btn-alternate[disabled]:focus, .btn-alternate[disabled]:active, .btn-alternate[disabled].active, fieldset[disabled] .btn-alternate, fieldset[disabled] .btn-alternate:hover, fieldset[disabled] .btn-alternate:focus, fieldset[disabled] .btn-alternate:active, fieldset[disabled] .btn-alternate.active {
   background-color: #1b92cb;
 }
 
-/* line 226, ../../src/pivotal-ui/components/button.css.scss */
+/* line 156, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 19px;
@@ -18299,3 +18216,19 @@ Scrollable with too little content:
 .pre-scrollable {
   overflow-y: auto;
 }
+
+/*doc
+---
+title: Deprecated
+name: deprecated
+categories:
+  - Deprecated
+  - All
+---
+
+Sometimes components are still used, but we are moving away from them.
+For example, password reset pages use some very old button styles,
+but we won't take the time to update them because those pages are moving
+over to UAA. This is the place where styles are put out to pasture...
+
+*/

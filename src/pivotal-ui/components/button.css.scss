@@ -22,67 +22,6 @@ a form or triggering some javascript event, then use a `<button>` element.
 
 */
 
-/*doc
----
-title: Teal Buttons
-name: teal_button
-parent: button
-categories:
-  - All
-  - marketing-site
----
-
-```haml_example
-%button.btn.btn-xl.btn-teal Sign up for free
-```
-*/
-
-.btn-teal {
-  @include button-skin($btn-teal-color, $btn-teal-bg, $btn-teal-bg-hover);
-  @include transition;
-  text-transform: uppercase;
-  font-weight: $btn-font-weight !important;
-  box-shadow: 0 3px 0 $shadow-3;
-}
-
-/*doc
----
-title: Off white Button
-name: offwhite_button
-parent: button
-categories: marketing-site
----
-
-```haml_example
-%button.btn.btn-offwhite Default
-```
-*/
-
-.btn-offwhite {
-  @include button-skin($btn-offwhite-color, $btn-offwhite-bg, $btn-offwhite-bg-hover);
-  @include transition;
-  box-shadow: 0 3px 0 $shadow-3;
-}
-
-
-/*doc
----
-title: Delete Button
-name: delete_button
-parent: button
-categories: marketing-site
----
-
-```haml_example
-%button.btn.btn-delete Delete
-```
-*/
-
-.btn-delete {
-  @include button-skin($btn-delete-color, $btn-delete-bg, $btn-delete-bg-hover);
-  @include transition;
-  box-shadow: 0 3px 0 $shadow-3;
-}
 
 /*doc
 ---
@@ -91,15 +30,12 @@ name: button_sizes
 parent: button
 ---
 
-There are three 3 sizes for buttons: Extra Large, Large (default)
-and small. Simply apply the size modifier class for the desired size.
-There is also an additional modifier that will make the button take the
-full width of the container. It may be used with the any of the button
-size and style modifiers.
+There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.
+
 
 Button                                                             | Modifier Class
 ------------------------------------------------------------------ | -----------------
-<button class="btn btn-primary btn-xl">Extra Large</button>        | `btn btn-primary btn-xl`
 <button class="btn btn-primary btn-lg">Large</button>              | `btn btn-primary btn-lg`
 <button class="btn btn-primary">Default</button>                   | `btn btn-primary`
 */
@@ -113,6 +49,10 @@ name: full_width_button
 parent: button
 ---
 
+There is an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.
+
 Create block level buttons—those that span the full width of a parent— by adding `.btn-block`.
 
 ```haml_example
@@ -122,14 +62,9 @@ Create block level buttons—those that span the full width of a parent— by ad
 */
 
 .btn {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 900;
   padding: 5px 15px;
-}
-
-.btn-xl {
-  @include button-size(0, 0, $font-size-extra-large, $line-height-extra-large, $border-radius-large);
-  min-width: 306px;
 }
 
 /*doc
@@ -139,58 +74,53 @@ name: buttonSkins
 parent: button
 ---
 
-Button                                                     | Disabled                                                     | Class               | Description
----------------------------------------------------------- | ----------------------------------------------------------   | ------------------  | -----------
-<button class="btn btn-default">Default</button>           |<button class="btn btn-default" disabled>Default</button>     | `btn btn-default`   | This is what buttons look like, this is the go to button style.
-<button class="btn btn-primary">Primary</button>           |<button class="btn btn-primary" disabled>Primary</button>     | `btn btn-primary`   | Use this button as the primary call to action
-<button class="btn btn-lowlight">Lowlight</button>         |<button class="btn btn-lowlight" disabled>Lowlight</button>   | `btn btn-lowlight`  | Use this button for other actions, like cancel/dismiss
-<button class="btn btn-danger">Delete</button>             |<button class="btn btn-danger" disabled>Delete</button>       | `btn btn-danger`    | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn btn-highlight"><i class="fa fa-play icon-control"></i></button> | <button class="btn btn-highlight" disabled><i class="fa fa-play icon-control"></i></button> | `btn btn-highlight` | Use this button for other important actions, e.g. restarting apps
+Button                                                             | Disabled                                                                    | Class                   | Description
+------------------------------------------------------------------ | --------------------------------------------------------------------------  | ----------------------- | -----------
+<button class="btn btn-default">Default</button>                   |<button class="btn btn-default" disabled>Default</button>                    | `btn btn-default`       | This is what buttons look like, this is the go to button style.
+<button class="btn btn-default-alt">Default alternate</button>     |<button class="btn btn-default-alt" disabled>Default alternate</button>      | `btn btn-default-alt`   | This is what buttons look like, this is the go to button style (on white backgrounds).
+<button class="btn btn-primary">Primary</button>                   |<button class="btn btn-primary" disabled>Primary</button>                    | `btn btn-primary`       | Use this button as the primary call to action
+<button class="btn btn-lowlight">Lowlight</button>                 |<button class="btn btn-lowlight" disabled>Lowlight</button>                  | `btn btn-lowlight`      | Use this button for other actions, like cancel/dismiss
+<button class="btn btn-danger">Delete</button>                     |<button class="btn btn-danger" disabled>Delete</button>                      | `btn btn-danger`        | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
+<button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-
-
 
 .btn-default {
   @include button-skin($btn-default-color, $btn-default-bg, $btn-default-bg-hover);
-  font-size: 13px;
-  @include transition;
+
+}
+
+.btn-default-alt {
+  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-bg-hover);
 }
 
 .btn-primary {
   @include button-skin($btn-primary-color, $btn-primary-bg, $btn-primary-bg-hover);
-  box-shadow: 0 3px 0 $shadow-3;
-  line-height: 1.0;
-  padding: 8px 20px;
-  @include transition;
-  &:hover {
-    box-shadow: 0 3px 0 $shadow-2;
-  }
 }
 
 .btn-highlight {
   @include button-skin($btn-highlight-color, $btn-highlight-bg, $btn-highlight-bg-hover);
-  box-shadow: 0 3px 0 $shadow-3;
-  line-height: 1.0;
-  padding: 8px 20px;
-  @include transition;
-  &:hover {
-    box-shadow: 0 3px 0 $shadow-2;
-  }
+}
+
+.btn-highlight-alt {
+  @include button-skin($btn-highlight-alt-color, $btn-highlight-alt-bg, $btn-highlight-alt-bg-hover);
 }
 
 .btn-lowlight {
   @include button-skin($btn-lowlight-color, $btn-lowlight-bg, $btn-lowlight-bg-hover);
-  @include transition;
+  box-shadow: none;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    box-shadow: none;
+
+  }
 }
 
 // Danger and error appear as red
 .btn-danger {
   @include button-skin($btn-danger-color, $btn-danger-bg, $btn-danger-bg-hover);
-  box-shadow: 0 3px 0 $shadow-3;
-  @include transition;
-  &:hover {
-    box-shadow: 0 3px 0 $shadow-2;
-  }
 }
 
 

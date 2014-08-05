@@ -4,12 +4,15 @@
   color: $color;
   background-color: $background;
   border: none;
+  box-shadow: 0 3px 0 $shadow-3;
+  @include transition;
   &:hover,
   &:focus,
   &:active,
   &.active {
     color: $color;
     background-color: $background-hover;
+    box-shadow: 0 3px 0 $shadow-2;
   }
   .open & { &.dropdown-toggle {
     color: $color;

@@ -42,15 +42,11 @@
         
           <li><a href="#button">Buttons</a></li>
         
-          <li><a href="#button_login">Login Button</a></li>
-        
           <li><a href="#button_sizes">Button Sizes</a></li>
         
           <li><a href="#buttonSkins">Button Styles</a></li>
         
           <li><a href="#full_width_button">Full width Buttons</a></li>
-        
-          <li><a href="#teal_button">Teal Buttons</a></li>
         
           <li><a href="#checkboxes">Checkboxes & Radios</a></li>
         
@@ -79,6 +75,8 @@
           <li><a href="#contenteditable">ContentEditable</a></li>
         
           <li><a href="#deprecated">Deprecated</a></li>
+        
+          <li><a href="#button_login">Login Button</a></li>
         
           <li><a href="#divider">Dividers</a></li>
         
@@ -489,21 +487,10 @@ use either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</
 <code>&lt;a&gt;</code> element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a <code>&lt;button&gt;</code> element.</p>
 
-<h2 id="button_login">Login Button</h2>
-
-<p>There is a specific button style for the login pages:</p>
-<div class="codeExample"><div class="exampleOutput"><button class='btn btn-alternate btn-lg'>Alternate Button</button>
-</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%button</span><span class="nc">.btn.btn-alternate.btn-lg</span> Alternate Button
-</pre></div></div></div>
-<p>Do not use this button on normal application pages.</p>
-
 <h2 id="button_sizes">Button Sizes</h2>
 
-<p>There are three 3 sizes for buttons: Extra Large, Large (default)
-and small. Simply apply the size modifier class for the desired size.
-There is also an additional modifier that will make the button take the
-full width of the container. It may be used with the any of the button
-size and style modifiers.</p>
+<p>There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.</p>
 
 <table><thead>
 <tr>
@@ -511,10 +498,6 @@ size and style modifiers.</p>
 <th>Modifier Class</th>
 </tr>
 </thead><tbody>
-<tr>
-<td><button class="btn btn-primary btn-xl">Extra Large</button></td>
-<td><code>btn btn-primary btn-xl</code></td>
-</tr>
 <tr>
 <td><button class="btn btn-primary btn-lg">Large</button></td>
 <td><code>btn btn-primary btn-lg</code></td>
@@ -542,6 +525,12 @@ size and style modifiers.</p>
 <td>This is what buttons look like, this is the go to button style.</td>
 </tr>
 <tr>
+<td><button class="btn btn-default-alt">Default alternate</button></td>
+<td><button class="btn btn-default-alt" disabled>Default alternate</button></td>
+<td><code>btn btn-default-alt</code></td>
+<td>This is what buttons look like, this is the go to button style (on white backgrounds).</td>
+</tr>
+<tr>
 <td><button class="btn btn-primary">Primary</button></td>
 <td><button class="btn btn-primary" disabled>Primary</button></td>
 <td><code>btn btn-primary</code></td>
@@ -560,22 +549,28 @@ size and style modifiers.</p>
 <td>This button is for delete actions, these actions should also have a confirmation dialog</td>
 </tr>
 <tr>
-<td><button class="btn btn-highlight"><i class="fa fa-play icon-control"></i></button></td>
-<td><button class="btn btn-highlight" disabled><i class="fa fa-play icon-control"></i></button></td>
+<td><button class="btn btn-highlight">Highlight</button></td>
+<td><button class="btn btn-highlight" disabled>Highlight</button></td>
 <td><code>btn btn-highlight</code></td>
 <td>Use this button for other important actions, e.g. restarting apps</td>
+</tr>
+<tr>
+<td><button class="btn btn-highlight-alt">Highlight alternate</button></td>
+<td><button class="btn btn-highlight-alt" disabled>Highlight alternate</button></td>
+<td><code>btn btn-highlight-alt</code></td>
+<td>Use this button for other important actions, e.g. marketing call to actions</td>
 </tr>
 </tbody></table>
 
 <h2 id="full_width_button">Full width Buttons</h2>
 
+<p>There is an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.</p>
+
 <p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
 <div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
-</pre></div></div></div>
-<h2 id="teal_button">Teal Buttons</h2>
-<div class="codeExample"><div class="exampleOutput"><button class='btn btn-xl btn-teal'>Sign up for free</button>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-xl.btn-teal</span> Sign up for free
 </pre></div></div></div>
 <h1 id="checkboxes">Checkboxes & Radios</h1>
 
