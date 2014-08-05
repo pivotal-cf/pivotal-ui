@@ -1,106 +1,57 @@
-/* line 4, ../../src/style_guide/style_guide.css.scss */
-.style_guides .navlinks-global {
-  display: none;
+/* ==========================================================================
+  Browser support
+  ========================================================================== */
+/* Typography
+   ========================================================================== */
+/* Grid
+   ========================================================================== */
+/* line 5, ../../src/style_guide/style_guide.css.scss */
+html {
+  background-color: #e0e4e5;
 }
 
-/* line 8, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav:hover {
-  overflow-y: auto;
+/* line 9, ../../src/style_guide/style_guide.css.scss */
+.container {
+  max-width: 1128px;
+  width: auto;
+  margin: 0 auto;
 }
 
-@media (max-width: 720px) {
-  /* line 13, ../../src/style_guide/style_guide.css.scss */
-  nav.styleguide-nav {
-    display: none;
-  }
+/* line 15, ../../src/style_guide/style_guide.css.scss */
+.content {
+  margin-top: 5px;
 }
-/* line 16, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav {
-  position: fixed;
-  top: 0;
-  left: 10px;
-  height: 100%;
-  padding-top: 90px;
-  padding-bottom: 50px;
-  width: 190px;
+
+/* line 20, ../../src/style_guide/style_guide.css.scss */
+.main > h1 {
+  margin-top: 30px;
 }
+
 /* line 24, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav ul {
-  list-style-type: none;
-  padding: 0;
+.main > h1:first-child {
+  margin-top: 0;
 }
-/* line 30, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav > ul li {
-  margin-left: 20px;
+
+/* line 28, ../../src/style_guide/style_guide.css.scss */
+footer {
+  margin-top: 20px;
+  text-align: center;
 }
+
 /* line 34, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav > ul > li {
-  margin-left: 0;
-}
-/* line 39, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav li ul {
-  display: none;
-}
-/* line 43, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav li > a {
-  border-left: 3px solid transparent;
-  color: #B3B3B3;
-  padding: 3px 3px;
-}
-/* line 50, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav li.active ul {
-  display: block;
-}
-/* line 54, ../../src/style_guide/style_guide.css.scss */
-nav.styleguide-nav li.active > a {
-  border-left: 2px solid #49A8D5;
-  color: #49A8D5;
-  padding: 3px 3px;
-}
-
-/* line 62, ../../src/style_guide/style_guide.css.scss */
-.chip {
-  margin-top: 10px;
-}
-/* line 66, ../../src/style_guide/style_guide.css.scss */
-.chip .chip-color {
-  min-height: 100px;
-}
-/* line 69, ../../src/style_guide/style_guide.css.scss */
-.chip .chip-color-name {
-  color: #777;
-  padding-top: 5px;
-  font-size: 11px;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-}
-
-/* line 77, ../../src/style_guide/style_guide.css.scss */
-.marquee {
-  min-height: 400px;
-}
-
-/* line 80, ../../src/style_guide/style_guide.css.scss */
-.marquee-name {
-  color: #777;
-  padding-top: 5px;
-  font-size: 11px;
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
-}
-
-/* line 87, ../../src/style_guide/style_guide.css.scss */
 .componentMenu {
   max-height: 535px;
   width: 175px;
   overflow-y: auto;
 }
 
-/* line 93, ../../src/style_guide/style_guide.css.scss */
+/* line 40, ../../src/style_guide/style_guide.css.scss */
 blockquote:before {
   content: "Design Note:";
   font-weight: bold;
 }
 
-/* line 98, ../../src/style_guide/style_guide.css.scss */
+/* line 45, ../../src/style_guide/style_guide.css.scss */
 blockquote {
   border: 1px solid #eee;
   border-radius: 4px;
@@ -110,8 +61,8 @@ blockquote {
   padding: 5px;
 }
 
-/* line 108, ../../src/style_guide/style_guide.css.scss */
-.sg-code {
+/* line 56, ../../src/style_guide/style_guide.css.scss */
+code {
   padding: 2px 4px;
   color: #d14;
   white-space: nowrap;
@@ -120,22 +71,19 @@ blockquote {
   border-radius: 4px;
 }
 
-/* line 117, ../../src/style_guide/style_guide.css.scss */
+/* line 65, ../../src/style_guide/style_guide.css.scss */
 div.codeExample, div.jsExample {
-  border-radius: 5px;
-  -webkit-background-clip: padding;
-  -moz-background-clip: padding;
-  background-clip: padding-box;
-  border-bottom: 2px solid rgba(40, 40, 40, 0.08);
-  background-color: #ECEFEF;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 10px 0;
 }
 
-/* line 125, ../../src/style_guide/style_guide.css.scss */
+/* line 71, ../../src/style_guide/style_guide.css.scss */
 div.jsExample {
   border-top: 0px;
 }
 
-/* line 129, ../../src/style_guide/style_guide.css.scss */
+/* line 75, ../../src/style_guide/style_guide.css.scss */
 div.codeExample:before, div.jsExample:before {
   font-family: "OpenSans", sans-serif;
   color: #222;
@@ -148,16 +96,16 @@ div.codeExample:before, div.jsExample:before {
   display: block;
 }
 
-/* line 141, ../../src/style_guide/style_guide.css.scss */
+/* line 87, ../../src/style_guide/style_guide.css.scss */
 div.codeExample:before {
-  content: " Example ";
+  content: "Example";
   background-color: #f9f9f9;
   width: 60px;
   top: -1px;
   left: -1px;
 }
 
-/* line 149, ../../src/style_guide/style_guide.css.scss */
+/* line 95, ../../src/style_guide/style_guide.css.scss */
 div.jsExample:before {
   content: "JS Example";
   background-color: #fff;
@@ -166,12 +114,12 @@ div.jsExample:before {
   left: -11px;
 }
 
-/* line 157, ../../src/style_guide/style_guide.css.scss */
+/* line 103, ../../src/style_guide/style_guide.css.scss */
 div.codeBlock, div.exampleOutput {
   padding: 10px;
 }
 
-/* line 161, ../../src/style_guide/style_guide.css.scss */
+/* line 107, ../../src/style_guide/style_guide.css.scss */
 div.codeBlock {
   background-color: #f9f9f9;
   border-top: 1px solid #ccc;
@@ -179,7 +127,7 @@ div.codeBlock {
   border-bottom-right-radius: 4px;
 }
 
-/* line 168, ../../src/style_guide/style_guide.css.scss */
+/* line 114, ../../src/style_guide/style_guide.css.scss */
 .docSwatch {
   min-height: 218.21px;
   border: 1px solid #ccc;
@@ -188,7 +136,7 @@ div.codeBlock {
   margin-bottom: 5px;
 }
 
-/* line 176, ../../src/style_guide/style_guide.css.scss */
+/* line 122, ../../src/style_guide/style_guide.css.scss */
 .codeExample .line > div:after {
   content: attr(class);
   display: block;
@@ -200,25 +148,238 @@ div.codeBlock {
   font-size: 12px;
 }
 
-/* line 189, ../../src/style_guide/style_guide.css.scss */
+/* line 133, ../../src/style_guide/style_guide.css.scss */
+table, table tr, table td, table th {
+  padding: 7px;
+  border: 1px solid #ccc;
+}
+
+/* line 138, ../../src/style_guide/style_guide.css.scss */
+table th {
+  font-weight: bold;
+}
+
+/* line 142, ../../src/style_guide/style_guide.css.scss */
+.style_guides .navlinks-global {
+  display: none;
+}
+
+/* line 146, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav:hover {
+  overflow-y: auto;
+}
+
+@media (max-width: 720px) {
+  /* line 151, ../../src/style_guide/style_guide.css.scss */
+  nav.styleguide-nav {
+    display: none;
+  }
+}
+/* line 154, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  height: 100%;
+  padding-top: 90px;
+  padding-bottom: 50px;
+  width: 190px;
+}
+/* line 162, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+/* line 168, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav > ul li {
+  margin-left: 20px;
+}
+/* line 172, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav > ul > li {
+  margin-left: 0;
+}
+/* line 177, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav li ul {
+  display: none;
+}
+/* line 181, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav li > a {
+  border-left: 3px solid transparent;
+  color: #B3B3B3;
+  padding: 3px 3px;
+}
+/* line 188, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav li.active ul {
+  display: block;
+}
+/* line 192, ../../src/style_guide/style_guide.css.scss */
+nav.styleguide-nav li.active > a {
+  border-left: 2px solid #49A8D5;
+  color: #49A8D5;
+  padding: 3px 3px;
+}
+
+/* line 200, ../../src/style_guide/style_guide.css.scss */
+.chip {
+  margin-top: 10px;
+}
+/* line 204, ../../src/style_guide/style_guide.css.scss */
+.chip .chip-color {
+  min-height: 100px;
+}
+/* line 207, ../../src/style_guide/style_guide.css.scss */
+.chip .chip-color-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 11px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* line 215, ../../src/style_guide/style_guide.css.scss */
+.marquee {
+  min-height: 400px;
+}
+
+/* line 218, ../../src/style_guide/style_guide.css.scss */
+.marquee-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 11px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* line 225, ../../src/style_guide/style_guide.css.scss */
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+/* line 231, ../../src/style_guide/style_guide.css.scss */
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+/* line 236, ../../src/style_guide/style_guide.css.scss */
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* line 246, ../../src/style_guide/style_guide.css.scss */
+.sg-code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* line 255, ../../src/style_guide/style_guide.css.scss */
+div.codeExample, div.jsExample {
+  border-radius: 5px;
+  -webkit-background-clip: padding;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border-bottom: 2px solid rgba(40, 40, 40, 0.08);
+  background-color: #ECEFEF;
+}
+
+/* line 263, ../../src/style_guide/style_guide.css.scss */
+div.jsExample {
+  border-top: 0px;
+}
+
+/* line 267, ../../src/style_guide/style_guide.css.scss */
+div.codeExample:before, div.jsExample:before {
+  font-family: "OpenSans", sans-serif;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 0;
+  position: relative;
+  padding: 2px;
+  display: block;
+}
+
+/* line 279, ../../src/style_guide/style_guide.css.scss */
+div.codeExample:before {
+  content: " Example ";
+  background-color: #f9f9f9;
+  width: 60px;
+  top: -1px;
+  left: -1px;
+}
+
+/* line 287, ../../src/style_guide/style_guide.css.scss */
+div.jsExample:before {
+  content: "JS Example";
+  background-color: #fff;
+  width: 80px;
+  top: -11px;
+  left: -11px;
+}
+
+/* line 295, ../../src/style_guide/style_guide.css.scss */
+div.codeBlock, div.exampleOutput {
+  padding: 10px;
+}
+
+/* line 299, ../../src/style_guide/style_guide.css.scss */
+div.codeBlock {
+  background-color: #f9f9f9;
+  border-top: 1px solid #ccc;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/* line 306, ../../src/style_guide/style_guide.css.scss */
+.docSwatch {
+  min-height: 218.21px;
+  border: 1px solid #ccc;
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* line 314, ../../src/style_guide/style_guide.css.scss */
+.codeExample .line > div:after {
+  content: attr(class);
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  background-color: #EEE;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* line 327, ../../src/style_guide/style_guide.css.scss */
 .grid-show {
   outline: 1px solid #34928A;
   margin-bottom: 10px;
   margin-top: 10px;
 }
-/* line 193, ../../src/style_guide/style_guide.css.scss */
+/* line 331, ../../src/style_guide/style_guide.css.scss */
 .grid-show [class*=col] {
   background-color: #72B5AD;
   padding: 10px;
   outline: 1px solid #34928A;
 }
 
-/* line 202, ../../src/style_guide/style_guide.css.scss */
+/* line 340, ../../src/style_guide/style_guide.css.scss */
 .styleguide-form {
   padding: 25px;
 }
 
-/* line 208, ../../src/style_guide/style_guide.css.scss */
+/* line 346, ../../src/style_guide/style_guide.css.scss */
 .banner-styleguide-wrapper {
   position: relative;
   border: 2px solid #EDEDED;
@@ -226,18 +387,18 @@ div.codeBlock {
   width: 200px;
   overflow: hidden;
 }
-/* line 214, ../../src/style_guide/style_guide.css.scss */
+/* line 352, ../../src/style_guide/style_guide.css.scss */
 .banner-styleguide-wrapper .banner {
   position: absolute;
 }
 
-/* line 219, ../../src/style_guide/style_guide.css.scss */
+/* line 357, ../../src/style_guide/style_guide.css.scss */
 pre {
   background-color: transparent;
   border: none;
 }
 
-/* line 226, ../../src/style_guide/style_guide.css.scss */
+/* line 364, ../../src/style_guide/style_guide.css.scss */
 .exampleOutput .modal {
   position: relative;
   top: auto;
@@ -248,7 +409,7 @@ pre {
   display: block;
   opacity: 1;
 }
-/* line 236, ../../src/style_guide/style_guide.css.scss */
+/* line 374, ../../src/style_guide/style_guide.css.scss */
 .exampleOutput .modal.fade .modal-dialog {
   -webkit-transform: translate(0, 0);
   -moz-transform: translate(0, 0);
@@ -257,17 +418,17 @@ pre {
   transform: translate(0, 0);
 }
 
-/* line 242, ../../src/style_guide/style_guide.css.scss */
+/* line 380, ../../src/style_guide/style_guide.css.scss */
 .bkg-highlight-2 {
   background-position: 0 50%;
 }
 
-/* line 248, ../../src/style_guide/style_guide.css.scss */
+/* line 386, ../../src/style_guide/style_guide.css.scss */
 .code-hide-haml .codeBlock.haml {
   display: none;
 }
 
-/* line 252, ../../src/style_guide/style_guide.css.scss */
+/* line 390, ../../src/style_guide/style_guide.css.scss */
 .code-hide-html .codeBlock.html {
   display: none;
 }
