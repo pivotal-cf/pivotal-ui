@@ -6,9 +6,9 @@ Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwes
 
 ## Getting Started with the CSS Version
 
-Copy the `styleguide/` directory into your project. 
+Copy the `dist/` directory into your project.
 
-To use the styles, link to `styleguide/pivotal-ui.css` in your html. As long as you leave the directory structure intact this is all you need to do. Bravo!
+To use the styles, link to `dist/pivotal-ui/pivotal-ui.css` in your html. As long as you leave the directory structure intact this is all you need to do. Bravo!
 
 
 ## Getting Started with the Sass Version
@@ -22,9 +22,9 @@ If you think you'll want to modify the CSS, you'll need the Sass version of Pivo
 
 ## Including JavaScript components
 
-For the javascript components you will need to include `application.js` from `styleguide/bootstrap/`.
+For the javascript components you will need to include `dist/pivotal-ui/pivotal-ui.js` from `dist/bootstrap/`.
 
-`styleguide/index.html` has the static Style Guide for reference.
+`dist/index.html` has the static Style Guide for reference.
 
 ## Developer Notes
 

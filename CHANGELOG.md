@@ -1,5 +1,14 @@
 ## Pivotal UI Changelog
 
+### Latest Changes
+
+* `styleguide/` and `build/` have now been replaced by `dist/`, refer to all assets there.
+* Deprecated: the button alternate style
+* Added: button highlight alternate
+* Added: button default alternate
+* Added: $glow-4
+
+
 ### v0.0.2
 
 * Removes `lib/` and introduces `build/` as the directory for compiled CSS.
