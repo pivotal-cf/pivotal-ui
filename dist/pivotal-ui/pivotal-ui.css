@@ -2844,7 +2844,7 @@ html {
 /* line 22, ../../src/bootstrap/_scaffolding.scss */
 body {
   font-family: "Source Sans Pro", "SourceSansPro", sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   color: #686868;
   background-color: transparent;
@@ -2916,8 +2916,8 @@ img {
 
 /* line 98, ../../src/bootstrap/_scaffolding.scss */
 hr {
-  margin-top: 24px;
-  margin-bottom: 24px;
+  margin-top: 22px;
+  margin-bottom: 22px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -2936,20 +2936,20 @@ hr {
 
 /* line 9, ../../src/bootstrap/_type.scss */
 p {
-  margin: 0 0 12px;
+  margin: 0 0 11px;
 }
 
 /* line 12, ../../src/bootstrap/_type.scss */
 .lead {
-  margin-bottom: 24px;
-  font-size: 18px;
+  margin-bottom: 22px;
+  font-size: 17px;
   font-weight: 200;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   /* line 12, ../../src/bootstrap/_type.scss */
   .lead {
-    font-size: 24px;
+    font-size: 22.5px;
   }
 }
 
@@ -3064,8 +3064,8 @@ h6 .small,
 h1,
 h2,
 h3 {
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 22px;
+  margin-bottom: 11px;
 }
 /* line 100, ../../src/bootstrap/_type.scss */
 h1 small,
@@ -3081,8 +3081,8 @@ h3 .small {
 h4,
 h5,
 h6 {
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 11px;
+  margin-bottom: 11px;
 }
 /* line 111, ../../src/bootstrap/_type.scss */
 h4 small,
@@ -3126,8 +3126,8 @@ h6, .h6 {
 
 /* line 127, ../../src/bootstrap/_type.scss */
 .page-header {
-  padding-bottom: 11px;
-  margin: 48px 0 24px;
+  padding-bottom: 10px;
+  margin: 44px 0 22px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -3135,7 +3135,7 @@ h6, .h6 {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 12px;
+  margin-bottom: 11px;
 }
 /* line 144, ../../src/bootstrap/_type.scss */
 ul ul,
@@ -3164,7 +3164,7 @@ ol ol {
 
 /* line 173, ../../src/bootstrap/_type.scss */
 dl {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
 /* line 177, ../../src/bootstrap/_type.scss */
@@ -3225,13 +3225,13 @@ abbr.initialism {
 
 /* line 224, ../../src/bootstrap/_type.scss */
 blockquote {
-  padding: 12px 24px;
-  margin: 0 0 24px;
+  padding: 11px 22px;
+  margin: 0 0 22px;
   border-left: 5px solid #eeeeee;
 }
 /* line 228, ../../src/bootstrap/_type.scss */
 blockquote p {
-  font-size: 20px;
+  font-size: 18.75px;
   font-weight: 300;
   line-height: 1.25;
 }
@@ -3281,7 +3281,7 @@ blockquote:after {
 
 /* line 275, ../../src/bootstrap/_type.scss */
 address {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   font-style: normal;
   line-height: 1.5;
 }
@@ -3307,9 +3307,9 @@ code {
 /* line 25, ../../src/bootstrap/_code.scss */
 pre {
   display: block;
-  padding: 11.5px;
-  margin: 0 0 12px;
-  font-size: 15px;
+  padding: 10.5px;
+  margin: 0 0 11px;
+  font-size: 14px;
   line-height: 1.5;
   word-break: break-all;
   word-wrap: break-word;
@@ -5350,7 +5350,7 @@ th {
 /* line 17, ../../src/bootstrap/_tables.scss */
 .table {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 /* line 26, ../../src/bootstrap/_tables.scss */
 .table > thead > tr > th,
@@ -5499,7 +5499,7 @@ table th[class*="col-"] {
   /* line 175, ../../src/bootstrap/_tables.scss */
   .table-responsive {
     width: 100%;
-    margin-bottom: 18px;
+    margin-bottom: 16.5px;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -5561,8 +5561,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 24px;
-  font-size: 24px;
+  margin-bottom: 22px;
+  font-size: 22.5px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -5628,7 +5628,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 output {
   display: block;
   padding-top: 9px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   color: #555555;
   vertical-align: middle;
@@ -5655,9 +5655,9 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 42px;
+  height: 40px;
   padding: 8px 20px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   color: #555555;
   vertical-align: middle;
@@ -5698,7 +5698,7 @@ textarea.form-control {
 .radio,
 .checkbox {
   display: block;
-  min-height: 24px;
+  min-height: 22px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
@@ -5763,17 +5763,17 @@ input[type="checkbox"],
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-sm {
-  height: 27px;
+  height: 25px;
   padding: 2px 10px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-sm {
-  height: 27px;
-  line-height: 27px;
+  height: 25px;
+  line-height: 25px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -5783,17 +5783,17 @@ textarea.input-sm {
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-lg {
-  height: 48px;
+  height: 47px;
   padding: 10px 26px;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.33;
   border-radius: 6px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-lg {
-  height: 48px;
-  line-height: 48px;
+  height: 47px;
+  line-height: 47px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -5976,7 +5976,7 @@ textarea.input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 8px 20px;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.5;
   border-radius: 4px;
   -webkit-user-select: none;
@@ -6045,7 +6045,7 @@ textarea.input-lg {
 /* line 122, ../../src/bootstrap/_buttons.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
-  font-size: 20px;
+  font-size: 19px;
   line-height: 1.33;
   border-radius: 6px;
 }
@@ -6055,7 +6055,7 @@ textarea.input-lg {
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 2px 10px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   border-radius: 3px;
 }
@@ -6151,7 +6151,7 @@ input[type="button"].btn-block {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 16px;
+  font-size: 15px;
   background-color: white;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -6168,7 +6168,7 @@ input[type="button"].btn-block {
 /* line 58, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu .divider {
   height: 1px;
-  margin: 11px 0;
+  margin: 10px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -6225,7 +6225,7 @@ input[type="button"].btn-block {
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   color: #999999;
 }
@@ -6582,7 +6582,7 @@ input[type="button"].btn-block {
 /* line 64, ../../src/bootstrap/_navs.scss */
 .nav .nav-divider {
   height: 1px;
-  margin: 11px 0;
+  margin: 10px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -6890,8 +6890,8 @@ input[type="button"].btn-block {
 .navbar-brand {
   float: left;
   padding: 12px 0;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 19px;
+  line-height: 22px;
 }
 /* line 159, ../../src/bootstrap/_navbar.scss */
 .navbar-brand:hover, .navbar-brand:focus {
@@ -6942,7 +6942,7 @@ input[type="button"].btn-block {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 24px;
+  line-height: 22px;
 }
 @media (max-width: 767px) {
   /* line 219, ../../src/bootstrap/_navbar.scss */
@@ -6962,7 +6962,7 @@ input[type="button"].btn-block {
   }
   /* line 231, ../../src/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 24px;
+    line-height: 22px;
   }
   /* line 234, ../../src/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -6981,8 +6981,8 @@ input[type="button"].btn-block {
   }
   /* line 248, ../../src/bootstrap/_navbar.scss */
   .navbar-nav > li > a {
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 }
 
@@ -7006,8 +7006,8 @@ input[type="button"].btn-block {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: -1px;
-  margin-bottom: -1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 @media (max-width: 767px) {
   /* line 291, ../../src/bootstrap/_navbar.scss */
@@ -7051,15 +7051,15 @@ input[type="button"].btn-block {
 
 /* line 337, ../../src/bootstrap/_navbar.scss */
 .navbar-btn {
-  margin-top: -1px;
-  margin-bottom: -1px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 /* line 346, ../../src/bootstrap/_navbar.scss */
 .navbar-text {
   float: left;
-  margin-top: 8px;
-  margin-bottom: 8px;
+  margin-top: 9px;
+  margin-bottom: 9px;
 }
 @media (min-width: 768px) {
   /* line 346, ../../src/bootstrap/_navbar.scss */
@@ -7285,7 +7285,7 @@ input[type="button"].btn-block {
 /* line 9, ../../src/bootstrap/_alerts.scss */
 .alert {
   padding: 15px;
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 0px;
 }
@@ -7431,8 +7431,8 @@ input[type="button"].btn-block {
 /* line 39, ../../src/bootstrap/_progress-bars.scss */
 .progress {
   overflow: hidden;
-  height: 24px;
-  margin-bottom: 24px;
+  height: 22px;
+  margin-bottom: 22px;
   background-color: whitesmoke;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -7444,8 +7444,8 @@ input[type="button"].btn-block {
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: 13px;
+  line-height: 22px;
   color: white;
   text-align: center;
   background-color: #1b92cb;
@@ -7640,7 +7640,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 
 /* line 7, ../../src/bootstrap/_panels.scss */
 .panel {
-  margin-bottom: 24px;
+  margin-bottom: 22px;
   border: 1px solid transparent;
   border-radius: 0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -7762,7 +7762,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 18px;
+  font-size: 17px;
 }
 /* line 109, ../../src/bootstrap/_panels.scss */
 .panel-title > a {
@@ -7946,7 +7946,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 /* line 6, ../../src/bootstrap/_close.scss */
 .close {
   float: right;
-  font-size: 24px;
+  font-size: 22.5px;
   font-weight: bold;
   line-height: 1;
   color: black;
@@ -8126,7 +8126,7 @@ button.close {
   z-index: 1030;
   display: block;
   visibility: visible;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -11241,7 +11241,7 @@ parent: type
 
 /* line 259, ../../src/pivotal-ui/components/typography.css.scss */
 .type-terms {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 /*doc
@@ -11474,9 +11474,14 @@ Create block level buttons—those that span the full width of a parent— by ad
 */
 /* line 64, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
-  font-size: 16px;
   font-weight: 900;
   padding: 5px 15px;
+}
+/* line 70, ../../src/pivotal-ui/components/button.css.scss */
+.btn.disabled, .btn[disabled], fieldset[disabled] .btn {
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /*doc
@@ -11496,7 +11501,7 @@ Button                                                             | Disabled   
 <button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
 <button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-/* line 88, ../../src/pivotal-ui/components/button.css.scss */
+/* line 95, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
@@ -11511,27 +11516,28 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: white;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:active, .btn-default.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
-/* line 93, ../../src/pivotal-ui/components/button.css.scss */
+/* line 100, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
   background-color: #f8f8f8;
@@ -11546,27 +11552,28 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: #ecefef;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default-alt.dropdown-toggle {
   color: #2185c5;
   background-color: #ecefef;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:active, .btn-default-alt.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt.disabled, .btn-default-alt.disabled:hover, .btn-default-alt.disabled:focus, .btn-default-alt.disabled:active, .btn-default-alt.disabled.active, .btn-default-alt[disabled], .btn-default-alt[disabled]:hover, .btn-default-alt[disabled]:focus, .btn-default-alt[disabled]:active, .btn-default-alt[disabled].active, fieldset[disabled] .btn-default-alt, fieldset[disabled] .btn-default-alt:hover, fieldset[disabled] .btn-default-alt:focus, fieldset[disabled] .btn-default-alt:active, fieldset[disabled] .btn-default-alt.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
-/* line 97, ../../src/pivotal-ui/components/button.css.scss */
+/* line 104, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
@@ -11581,27 +11588,28 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: white;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:active, .btn-primary.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
-/* line 101, ../../src/pivotal-ui/components/button.css.scss */
+/* line 108, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #f8f8f8;
   background-color: #2185c5;
@@ -11616,27 +11624,28 @@ Button                                                             | Disabled   
   color: #f8f8f8;
   background-color: #1a739e;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   color: #f8f8f8;
   background-color: #1a739e;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:active, .btn-highlight.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight.disabled, .btn-highlight.disabled:hover, .btn-highlight.disabled:focus, .btn-highlight.disabled:active, .btn-highlight.disabled.active, .btn-highlight[disabled], .btn-highlight[disabled]:hover, .btn-highlight[disabled]:focus, .btn-highlight[disabled]:active, .btn-highlight[disabled].active, fieldset[disabled] .btn-highlight, fieldset[disabled] .btn-highlight:hover, fieldset[disabled] .btn-highlight:focus, fieldset[disabled] .btn-highlight:active, fieldset[disabled] .btn-highlight.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
-/* line 105, ../../src/pivotal-ui/components/button.css.scss */
+/* line 112, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight-alt {
   color: white;
   background-color: #34928a;
@@ -11651,27 +11660,28 @@ Button                                                             | Disabled   
   color: white;
   background-color: #00a79d;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight-alt.dropdown-toggle {
   color: white;
   background-color: #00a79d;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:active, .btn-highlight-alt.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt.disabled, .btn-highlight-alt.disabled:hover, .btn-highlight-alt.disabled:focus, .btn-highlight-alt.disabled:active, .btn-highlight-alt.disabled.active, .btn-highlight-alt[disabled], .btn-highlight-alt[disabled]:hover, .btn-highlight-alt[disabled]:focus, .btn-highlight-alt[disabled]:active, .btn-highlight-alt[disabled].active, fieldset[disabled] .btn-highlight-alt, fieldset[disabled] .btn-highlight-alt:hover, fieldset[disabled] .btn-highlight-alt:focus, fieldset[disabled] .btn-highlight-alt:active, fieldset[disabled] .btn-highlight-alt.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
-/* line 109, ../../src/pivotal-ui/components/button.css.scss */
+/* line 116, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #686868;
   background-color: transparent;
@@ -11687,31 +11697,32 @@ Button                                                             | Disabled   
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-lowlight.dropdown-toggle {
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight:active, .btn-lowlight.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-lowlight.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
-/* line 115, ../../src/pivotal-ui/components/button.css.scss */
-.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
+/* line 123, ../../src/pivotal-ui/components/button.css.scss */
+.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active, .btn-lowlight[disabled], .btn-lowlight.disabled {
   box-shadow: none;
 }
 
-/* line 122, ../../src/pivotal-ui/components/button.css.scss */
+/* line 129, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #f8f8f8;
   background-color: #ff434c;
@@ -11726,24 +11737,25 @@ Button                                                             | Disabled   
   color: #f8f8f8;
   background-color: #eb3d46;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+  outline: none;
 }
-/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   color: #f8f8f8;
   background-color: #eb3d46;
 }
-/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:active, .btn-danger.active {
   background-image: none;
 }
-/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   background-image: none;
 }
-/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
   background-color: #ecefef;
-  color: #d4d9da;
+  color: #9faaad;
 }
 
 /*doc
@@ -11762,7 +11774,7 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-/* line 146, ../../src/pivotal-ui/components/button.css.scss */
+/* line 153, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
   color: #eeeeee;
   background-color: #1b92cb;
@@ -11773,33 +11785,33 @@ Do not use this button on normal application pages.
   font-weight: normal;
   text-transform: none;
 }
-/* line 49, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:hover, .btn-alternate:focus, .btn-alternate:active, .btn-alternate.active {
   color: #eeeeee;
   background-color: #1675a2;
 }
-/* line 53, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 54, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   color: #eeeeee;
   background-color: #1678a7;
 }
-/* line 58, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:active, .btn-alternate.active {
   background-image: none;
 }
-/* line 61, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   background-image: none;
 }
-/* line 71, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 72, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate.disabled, .btn-alternate.disabled:hover, .btn-alternate.disabled:focus, .btn-alternate.disabled:active, .btn-alternate.disabled.active, .btn-alternate[disabled], .btn-alternate[disabled]:hover, .btn-alternate[disabled]:focus, .btn-alternate[disabled]:active, .btn-alternate[disabled].active, fieldset[disabled] .btn-alternate, fieldset[disabled] .btn-alternate:hover, fieldset[disabled] .btn-alternate:focus, fieldset[disabled] .btn-alternate:active, fieldset[disabled] .btn-alternate.active {
   background-color: #1b92cb;
 }
 
-/* line 156, ../../src/pivotal-ui/components/button.css.scss */
+/* line 163, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.33;
   border-radius: 3px;
 }
@@ -14213,7 +14225,7 @@ An inline list is one of the three methods for laying out content (including gri
 }
 /* line 34, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline > li, .list-inline-divider > li, .list-vertical-divider > li, .list-vertical-divider-2 > li, .list-breadcrumb > li, .list-steps > li {
-  font-size: 16px;
+  font-size: 15px;
 }
 
 /*doc
@@ -14381,7 +14393,7 @@ Breadcrumbs use their own monospace font-family.
 }
 /* line 203, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li:before {
-  font-size: 16px;
+  font-size: 15px;
   color: #9faaad;
   content: ">";
   vertical-align: middle;
@@ -15624,7 +15636,7 @@ This is a fancy select!
 }
 /* line 188, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy input {
-  height: 32px;
+  height: 30px;
   margin: 5px;
   width: 75%;
   padding: 0 5px;
@@ -15707,7 +15719,7 @@ This is a fancy number input!
 }
 /* line 266, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy input {
-  height: 32px;
+  height: 30px;
   margin: 5px;
   padding: 0 5px;
   display: inline;
@@ -16004,9 +16016,9 @@ Bootstrap includes validation styles for error and success states on form contro
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 42px;
-  width: 42px;
-  line-height: 42px;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   background-color: #00a79d;
@@ -16024,7 +16036,7 @@ Bootstrap includes validation styles for error and success states on form contro
 
 /* line 595, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .help-block, .has-error .help-inline {
-  font-size: 14px;
+  font-size: 13px;
 }
 /* line 565, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .control-label {
@@ -16204,17 +16216,17 @@ categories:
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-sm {
-  height: 27px;
+  height: 25px;
   padding: 2px 10px;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-sm {
-  height: 27px;
-  line-height: 27px;
+  height: 25px;
+  line-height: 25px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -16224,17 +16236,17 @@ textarea.input-sm {
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-lg {
-  height: 48px;
+  height: 47px;
   padding: 10px 26px;
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1.33;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-lg {
-  height: 48px;
-  line-height: 48px;
+  height: 47px;
+  line-height: 47px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
