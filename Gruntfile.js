@@ -40,7 +40,7 @@ module.exports = function(grunt) {
     },
     watch: {
       sass: {
-        files: ['src/**/*.scss'],
+        files: ['src/**/*.scss', 'doc_assets/**/*'],
         tasks: ['default']
       },
       livereload: {
