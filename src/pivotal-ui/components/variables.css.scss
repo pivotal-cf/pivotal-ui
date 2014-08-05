@@ -52,8 +52,9 @@ $blue-3: #49a8d5;
 $blue-4: #a7c9e0;
 $blue-5: #c3f4ff;
 
-// Navies
+// Navy
 // -------------------------
+
 $navy-1: #243640;
 $navy-2: #3f484f;
 $navy-3: #525c63;
@@ -84,8 +85,6 @@ $orange-2: null;
 // Background Colors
 // -------------------------
 
-$bkg-default-3-color: $navy-1;
-
 // gray backgrounds
 $neutral-1: $gray-1;
 $neutral-2: $gray-2;
@@ -107,6 +106,13 @@ $gray-dark:              lighten(#000, 20%) !default;   // #333 bootstrap only
 $gray:                   lighten(#000, 33.5%) !default; // #555 bootstrap only
 $gray-light:             lighten(#000, 60%) !default;   // #999 bootstrap only
 $gray-lighter:           lighten(#000, 93.5%) !default; // #eee bootstrap only
+
+// Dark colors
+// -------------------------
+
+$dark-1:                $navy-1;
+$dark-2:                $navy-2;
+$dark-3:                $navy-3;
 
 // Brand colors
 // -------------------------

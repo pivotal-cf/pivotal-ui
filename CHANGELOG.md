@@ -19,12 +19,16 @@ $blue-4              -> $blue-3
 $blue-5              -> $blue-4
 $blue-6              -> $blue-5
 
+$bkg-default-3-color -> removed, use $dark-1 instead
+
 
 #### Class Name Changes
 .bkg-default-4 -> .bg-neutral-9
 .bkg-default-5 -> .bg-neutral-10
 .bkg-primary-2 -> removed, consider .bg-brand-1 as an alternative
 .bkg-primary-3 -> removed, consider .bg-accent-4 as an alternative
+.bkg-default-3 -> removed, consider .bg-dark-1 as an alternative
+
 
 ```
 * New!            $gray-1

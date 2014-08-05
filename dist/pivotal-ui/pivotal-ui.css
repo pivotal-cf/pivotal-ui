@@ -9445,42 +9445,57 @@ $tabs-active-bg-color: $gray-2;
   background-color: #c3f4ff;
 }
 
-/* line 454, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 451, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-dark-1 {
+  background-color: #243640;
+}
+
+/* line 455, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-dark-2 {
+  background-color: #3f484f;
+}
+
+/* line 459, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-dark-3 {
+  background-color: #525c63;
+}
+
+/* line 464, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-1 {
   background-color: #ab2a2a;
 }
 
-/* line 458, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 468, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-2 {
   background-color: #b31612;
 }
 
-/* line 462, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 472, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-3 {
   background-color: #ff434c;
 }
 
-/* line 466, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 476, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-red-4 {
   background-color: #febfc1;
 }
 
-/* line 471, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 481, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-1 {
   background-color: #c2760a;
 }
 
-/* line 475, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 485, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-2 {
   background-color: #fbf7d5;
 }
 
-/* line 487, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 497, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-1 {
   background-color: #165450;
 }
 
-/* line 491, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 501, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-2 {
   background-color: #afd79b;
 }
@@ -9519,22 +9534,22 @@ parent: colors
   </div>
 </div>
 */
-/* line 532, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 542, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-glow {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 536, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 546, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-1 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 540, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 550, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 544, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 554, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
@@ -9553,11 +9568,6 @@ Background color classes can be applied to any element.
 
 
 */
-/* line 16, ../../src/pivotal-ui/components/backgrounds.css.scss */
-.bkg-default-3 {
-  background-color: #243640;
-}
-
 /*doc
 ---
 title: Images
@@ -9582,12 +9592,12 @@ parent: background
 </div>
 
 */
-/* line 45, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 41, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-highlight-1 {
   background-image: -webkit-gradient(linear, left bottom, right top, color-stop(1, #63ada7), color-stop(0, #00776d));
 }
 
-/* line 55, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 51, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-highlight-2 {
   background: #f8f8f8 url('/src/assets/images/gray-cloud.png?1406663635') no-repeat 50% 150px;
 }
@@ -9617,12 +9627,12 @@ The background overlay style is partially transparent.
   </div>
 </div>
 */
-/* line 89, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 85, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-overlay {
   background-color: rgba(154, 202, 198, 0.4);
 }
 
-/* line 92, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 88, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-overlay-1, .navbar-fixed-left .navbar-collapse .navbar-topper {
   background-color: rgba(0, 0, 0, 0.3);
 }
