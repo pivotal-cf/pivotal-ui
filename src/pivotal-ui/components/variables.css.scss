@@ -314,9 +314,9 @@ $btn-highlight-color:             $type-inverse;
 $btn-highlight-bg:                $blue-3;
 $btn-highlight-bg-hover:          #1a739e;
 
-$btn-highlight-alt-color:                  white;
-$btn-highlight-alt-bg:                     $teal-4;
-$btn-highlight-alt-bg-hover:               $teal-5;
+$btn-highlight-alt-color:         white;
+$btn-highlight-alt-bg:            $teal-4;
+$btn-highlight-alt-bg-hover:      $teal-5;
 
 
 
@@ -325,25 +325,25 @@ $btn-alternate-color:            #eee !default;
 $btn-alternate-bg:               $brand-primary !default;
 $btn-alternate-border:           darken($btn-primary-bg, 5%) !default;
 
-$btn-success-color:              #fff !default;
-$btn-success-bg:                 $brand-success !default;
-$btn-success-bg-hover:           $btn-success-bg;
-$btn-success-border:             $brand-success !default;
+$btn-success-color:              null !default;
+$btn-success-bg:                 null !default;
+$btn-success-bg-hover:           null;
+$btn-success-border:             null !default;
 
-$btn-warning-color:              #fff !default;
-$btn-warning-bg:                 $brand-warning !default;
-$btn-warning-bg-hover:           $btn-warning-bg;
-$btn-warning-border:             $brand-warning !default;
+$btn-warning-color:              null !default;
+$btn-warning-bg:                 null !default;
+$btn-warning-bg-hover:           null;
+$btn-warning-border:             null !default;
 
 $btn-danger-color:               $type-inverse !default;
 $btn-danger-bg:                  $red-3 !default;
 $btn-danger-bg-hover:            #eb3d46 !default;
 $btn-danger-border:              $brand-danger !default;
 
-$btn-info-color:                 #fff !default;
-$btn-info-bg:                    $brand-info !default;
-$btn-info-bg-hover:              $btn-info-bg !default;
-$btn-info-border:                $brand-info !default;
+$btn-info-color:                 null !default;
+$btn-info-bg:                    null !default;
+$btn-info-bg-hover:              null !default;
+$btn-info-border:                null !default;
 
 $btn-disabled-bg:                $gray-7;
 $btn-disabled-color:             $gray-5;
