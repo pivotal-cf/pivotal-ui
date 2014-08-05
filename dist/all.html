@@ -21,6 +21,8 @@
         
           <li><a href="javascript.html">JavaScript</a></li>
         
+          <li><a href="deprecated.html">Deprecated</a></li>
+        
         </ul>
       </nav>
 
@@ -75,6 +77,8 @@
           <li><a href="#type-colors">Type Colors</a></li>
         
           <li><a href="#contenteditable">ContentEditable</a></li>
+        
+          <li><a href="#deprecated">Deprecated</a></li>
         
           <li><a href="#divider">Dividers</a></li>
         
@@ -1171,6 +1175,21 @@ colors rather than adding new ones.</p>
                           <span class="s2">"ng-focus"</span> <span class="o">=&gt;</span> <span class="s1">'editText.enterEditMode()'</span><span class="p">,</span>
                           <span class="s2">"ng-blur"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">}</span>
 </pre></div></div></div>
+<h1 id="deprecated">Deprecated</h1>
+
+<p>Sometimes components are still used, but we are moving away from them.
+For example, password reset pages use some very old button styles,
+but we won&#39;t take the time to update them because those pages are moving
+over to UAA. This is the place where styles are put out to pasture...</p>
+
+<h2 id="button_login">Login Button</h2>
+
+<p>There is a specific button style for the login pages:</p>
+<div class="codeExample"><div class="exampleOutput"><button class='btn btn-alternate btn-lg'>Alternate Button</button>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%button</span><span class="nc">.btn.btn-alternate.btn-lg</span> Alternate Button
+</pre></div></div></div>
+<p>Do not use this button on normal application pages.</p>
+
 <h1 id="divider">Dividers</h1>
 
 <p>Dividers draw horizontal lines between different content groupings.</p>
