@@ -7369,7 +7369,7 @@ input[type="button"].btn-block {
 .alert-danger {
   background-color: #febfc1;
   border-color: #febfc1;
-  color: #ab2a2a;
+  color: #b31612;
 }
 /* line 422, ../../src/bootstrap/_mixins.scss */
 .alert-danger hr {
@@ -7377,7 +7377,7 @@ input[type="button"].btn-block {
 }
 /* line 425, ../../src/bootstrap/_mixins.scss */
 .alert-danger .alert-link {
-  color: #822020;
+  color: #85100d;
 }
 
 @-webkit-keyframes progress-bar-stripes {
@@ -9270,26 +9270,50 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-1"></div>
-      <div class="chip-color-name">$red-1</div>
+      <div class="chip-color bg-error-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-1</li>
+          <li>.bg-error-1</li>
+          <li>.txt-error-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-2"></div>
-      <div class="chip-color-name">$red-2</div>
+      <div class="chip-color bg-error-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-2</li>
+          <li>.bg-error-2</li>
+          <li>.txt-error-2</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-3"></div>
-      <div class="chip-color-name">$red-3</div>
+      <div class="chip-color bg-error-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-3</li>
+          <li>.bg-error-3</li>
+          <li>.txt-error-3</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-4"></div>
-      <div class="chip-color-name">$red-4</div>
+      <div class="chip-color bg-error-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-4</li>
+          <li>.bg-error-4</li>
+          <li>.txt-error-4</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -9340,162 +9364,162 @@ $tabs-active-bg-color: $gray-2;
 </div>
 
 */
-/* line 372, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 396, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-1 {
   background-color: #282828;
 }
 
-/* line 375, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 399, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-2 {
   background-color: #424242;
 }
 
-/* line 378, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 402, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-3 {
   background-color: #686868;
 }
 
-/* line 381, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 405, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-4 {
   background-color: #8d8e8e;
 }
 
-/* line 384, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 408, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-5 {
   background-color: #b4b4b4;
 }
 
-/* line 387, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 411, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-6 {
   background-color: #c3c5c7;
 }
 
-/* line 390, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 414, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-7 {
   background-color: #d4d9d9;
 }
 
-/* line 393, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 417, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-8 {
   background-color: #e0e4e5;
 }
 
-/* line 396, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 420, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-9 {
   background-color: #ecefef;
 }
 
-/* line 399, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 423, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-10 {
   background-color: #f8f8f8;
 }
 
-/* line 402, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 426, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-11 {
   background-color: white;
 }
 
-/* line 407, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 431, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-1 {
   background-color: #025a53;
 }
 
-/* line 411, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 435, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-2 {
   background-color: #00776d;
 }
 
-/* line 415, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 439, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-3 {
   background-color: #00a79d;
 }
 
-/* line 419, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 443, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-4 {
   background-color: #92d0c0;
 }
 
-/* line 423, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 447, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-5 {
   background-color: #71ffda;
 }
 
-/* line 429, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 453, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-1 {
   background-color: #1a739e;
 }
 
-/* line 433, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 457, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-2 {
   background-color: #2185c5;
 }
 
-/* line 437, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 461, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-3 {
   background-color: #49a8d5;
 }
 
-/* line 441, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 465, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-4 {
   background-color: #a7c9e0;
 }
 
-/* line 445, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 469, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-5 {
   background-color: #c3f4ff;
 }
 
-/* line 451, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 475, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-1 {
   background-color: #243640;
 }
 
-/* line 455, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 479, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-2 {
   background-color: #3f484f;
 }
 
-/* line 459, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 483, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-3 {
   background-color: #525c63;
 }
 
-/* line 464, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-red-1 {
-  background-color: #ab2a2a;
-}
-
-/* line 468, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-red-2 {
+/* line 488, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-error-1 {
   background-color: #b31612;
 }
 
-/* line 472, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-red-3 {
+/* line 492, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-error-2 {
+  background-color: #eb3d46;
+}
+
+/* line 496, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-error-3 {
   background-color: #ff434c;
 }
 
-/* line 476, ../../src/pivotal-ui/components/colors.css.scss */
-.styleguide-only-red-4 {
+/* line 500, ../../src/pivotal-ui/components/colors.css.scss */
+.bg-error-4 {
   background-color: #febfc1;
 }
 
-/* line 481, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 505, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-1 {
   background-color: #c2760a;
 }
 
-/* line 485, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 509, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-yellow-2 {
   background-color: #fbf7d5;
 }
 
-/* line 497, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 521, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-1 {
   background-color: #165450;
 }
 
-/* line 501, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 525, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-green-2 {
   background-color: #afd79b;
 }
@@ -9534,22 +9558,22 @@ parent: colors
   </div>
 </div>
 */
-/* line 542, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 566, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-glow {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 546, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 570, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-1 {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* line 550, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 574, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 554, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 578, ../../src/pivotal-ui/components/colors.css.scss */
 .styleguide-only-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
@@ -14223,7 +14247,7 @@ You can also make them dismissable:
 .alert-error {
   background-color: #febfc1;
   border-color: #febfc1;
-  color: #ab2a2a;
+  color: #b31612;
 }
 /* line 422, ../../src/bootstrap/_mixins.scss */
 .alert-error hr {
@@ -14231,7 +14255,7 @@ You can also make them dismissable:
 }
 /* line 425, ../../src/bootstrap/_mixins.scss */
 .alert-error .alert-link {
-  color: #822020;
+  color: #85100d;
 }
 
 /*doc

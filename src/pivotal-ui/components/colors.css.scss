@@ -298,26 +298,50 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-1"></div>
-      <div class="chip-color-name">$red-1</div>
+      <div class="chip-color bg-error-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-1</li>
+          <li>.bg-error-1</li>
+          <li>.txt-error-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-2"></div>
-      <div class="chip-color-name">$red-2</div>
+      <div class="chip-color bg-error-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-2</li>
+          <li>.bg-error-2</li>
+          <li>.txt-error-2</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-3"></div>
-      <div class="chip-color-name">$red-3</div>
+      <div class="chip-color bg-error-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-3</li>
+          <li>.bg-error-3</li>
+          <li>.txt-error-3</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color styleguide-only-red-4"></div>
-      <div class="chip-color-name">$red-4</div>
+      <div class="chip-color bg-error-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-4</li>
+          <li>.bg-error-4</li>
+          <li>.txt-error-4</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -461,19 +485,19 @@ $tabs-active-bg-color: $gray-2;
 }
 
 // Reds
-.styleguide-only-red-1{
+.bg-error-1{
   background-color: $red-1;
 }
 
-.styleguide-only-red-2{
+.bg-error-2{
   background-color: $red-2;
 }
 
-.styleguide-only-red-3{
+.bg-error-3{
   background-color: $red-3;
 }
 
-.styleguide-only-red-4{
+.bg-error-4{
   background-color: $red-4;
 }
 

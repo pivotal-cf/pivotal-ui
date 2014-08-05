@@ -21,6 +21,9 @@ $blue-6              -> $blue-5
 
 $bkg-default-3-color -> removed, use $dark-1 instead
 
+$red-2               -> $red-1
+new color #eb3d46    -> $red-2
+
 
 #### Class Name Changes
 .bkg-default-4 -> .bg-neutral-9

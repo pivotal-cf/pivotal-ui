@@ -61,8 +61,9 @@ $navy-3: #525c63;
 
 // Red
 // -------------------------
-$red-1: #AB2A2A;
-$red-2: #b31612;
+
+$red-1: #b31612;
+$red-2: #eb3d46;
 $red-3: #ff434c;
 $red-4: #febfc1;
 
@@ -363,7 +364,7 @@ $btn-warning-border:             null !default;
 
 $btn-danger-color:               $type-inverse !default;
 $btn-danger-bg:                  $red-3 !default;
-$btn-danger-bg-hover:            #eb3d46 !default;
+$btn-danger-bg-hover:            $red-2 !default;
 $btn-danger-border:              $brand-danger !default;
 
 $btn-info-color:                 null !default;
@@ -667,7 +668,7 @@ $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
 // -------------------------
 $health-indicator-running-color: $teal-3;
 $health-indicator-stopped-color: $gray-7;
-$health-indicator-warn-color: $red-2;
+$health-indicator-warn-color: $red-1;
 $health-indicator-size: 40px;
 $health-indicator-font-size: 10px;
 $health-indicator-large-font-size: 14px;
