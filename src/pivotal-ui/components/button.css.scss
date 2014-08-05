@@ -62,9 +62,16 @@ Create block level buttons—those that span the full width of a parent— by ad
 */
 
 .btn {
-  font-size: 16px;
   font-weight: 900;
   padding: 5px 15px;
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    box-shadow: 0 3px 0 $shadow-2;
+  }
 }
 
 /*doc
@@ -112,9 +119,9 @@ Button                                                             | Disabled   
   &:hover,
   &:focus,
   &:active,
-  &.active {
+  &.active,
+  &[disabled], &.disabled {
     box-shadow: none;
-
   }
 }
 
