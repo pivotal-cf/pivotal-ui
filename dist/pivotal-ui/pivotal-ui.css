@@ -11629,7 +11629,6 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
@@ -11638,62 +11637,64 @@ Button                                                             | Disabled   
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
   color: #2185c5;
   background-color: white;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:active, .btn-default.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
 
-/* line 100, ../../src/pivotal-ui/components/button.css.scss */
+/* line 99, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
   background-color: #f8f8f8;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:hover, .btn-default-alt:focus, .btn-default-alt:active, .btn-default-alt.active {
   color: #2185c5;
   background-color: #ecefef;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default-alt.dropdown-toggle {
   color: #2185c5;
   background-color: #ecefef;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:active, .btn-default-alt.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-default-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt.disabled, .btn-default-alt.disabled:hover, .btn-default-alt.disabled:focus, .btn-default-alt.disabled:active, .btn-default-alt.disabled.active, .btn-default-alt[disabled], .btn-default-alt[disabled]:hover, .btn-default-alt[disabled]:focus, .btn-default-alt[disabled]:active, .btn-default-alt[disabled].active, fieldset[disabled] .btn-default-alt, fieldset[disabled] .btn-default-alt:hover, fieldset[disabled] .btn-default-alt:focus, fieldset[disabled] .btn-default-alt:active, fieldset[disabled] .btn-default-alt.active {
   background-color: #ecefef;
   color: #b4b4b4;
+}
+/* line 47, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-default-alt:hover, .btn-default-alt:focus, .btn-default-alt:active, .btn-default-alt.active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /* line 104, ../../src/pivotal-ui/components/button.css.scss */
@@ -11701,184 +11702,189 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: white;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   color: #2185c5;
   background-color: white;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   color: #2185c5;
   background-color: white;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:active, .btn-primary.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-primary.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
+/* line 47, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
 
-/* line 108, ../../src/pivotal-ui/components/button.css.scss */
+/* line 109, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #e0e4e5;
   background-color: #2185c5;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
   color: #e0e4e5;
   background-color: #1a739e;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   color: #e0e4e5;
   background-color: #1a739e;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:active, .btn-highlight.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight.disabled, .btn-highlight.disabled:hover, .btn-highlight.disabled:focus, .btn-highlight.disabled:active, .btn-highlight.disabled.active, .btn-highlight[disabled], .btn-highlight[disabled]:hover, .btn-highlight[disabled]:focus, .btn-highlight[disabled]:active, .btn-highlight[disabled].active, fieldset[disabled] .btn-highlight, fieldset[disabled] .btn-highlight:hover, fieldset[disabled] .btn-highlight:focus, fieldset[disabled] .btn-highlight:active, fieldset[disabled] .btn-highlight.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
+/* line 47, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
 
-/* line 112, ../../src/pivotal-ui/components/button.css.scss */
+/* line 114, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight-alt {
   color: white;
   background-color: #00776d;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
   color: white;
   background-color: #00a79d;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight-alt.dropdown-toggle {
   color: white;
   background-color: #00a79d;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:active, .btn-highlight-alt.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-highlight-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt.disabled, .btn-highlight-alt.disabled:hover, .btn-highlight-alt.disabled:focus, .btn-highlight-alt.disabled:active, .btn-highlight-alt.disabled.active, .btn-highlight-alt[disabled], .btn-highlight-alt[disabled]:hover, .btn-highlight-alt[disabled]:focus, .btn-highlight-alt[disabled]:active, .btn-highlight-alt[disabled].active, fieldset[disabled] .btn-highlight-alt, fieldset[disabled] .btn-highlight-alt:hover, fieldset[disabled] .btn-highlight-alt:focus, fieldset[disabled] .btn-highlight-alt:active, fieldset[disabled] .btn-highlight-alt.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
+/* line 47, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
+}
 
-/* line 116, ../../src/pivotal-ui/components/button.css.scss */
+/* line 119, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #686868;
   background-color: transparent;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
-  box-shadow: none;
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-lowlight.dropdown-toggle {
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight:active, .btn-lowlight.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-lowlight.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 123, ../../src/pivotal-ui/components/button.css.scss */
-.btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active, .btn-lowlight[disabled], .btn-lowlight.disabled {
-  box-shadow: none;
-}
 
-/* line 129, ../../src/pivotal-ui/components/button.css.scss */
+/* line 124, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #e0e4e5;
   background-color: #ff434c;
   border: none;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
 /* line 12, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
   color: #e0e4e5;
   background-color: #eb3d46;
-  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
   outline: none;
 }
-/* line 18, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 17, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   color: #e0e4e5;
   background-color: #eb3d46;
 }
-/* line 23, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 22, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:active, .btn-danger.active {
   background-image: none;
 }
-/* line 26, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 25, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-danger.dropdown-toggle {
   background-image: none;
 }
-/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 35, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
   background-color: #ecefef;
   color: #b4b4b4;
+}
+/* line 47, ../../src/pivotal-ui/components/mixins.css.scss */
+.btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
 /*doc
@@ -11897,7 +11903,7 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-/* line 153, ../../src/pivotal-ui/components/button.css.scss */
+/* line 149, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
   color: #eeeeee;
   background-color: #1b92cb;
@@ -11908,30 +11914,30 @@ Do not use this button on normal application pages.
   font-weight: normal;
   text-transform: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:hover, .btn-alternate:focus, .btn-alternate:active, .btn-alternate.active {
   color: #eeeeee;
   background-color: #1675a2;
 }
-/* line 54, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 63, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   color: #eeeeee;
   background-color: #1678a7;
 }
-/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 68, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:active, .btn-alternate.active {
   background-image: none;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 71, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
   background-image: none;
 }
-/* line 72, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 81, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate.disabled, .btn-alternate.disabled:hover, .btn-alternate.disabled:focus, .btn-alternate.disabled:active, .btn-alternate.disabled.active, .btn-alternate[disabled], .btn-alternate[disabled]:hover, .btn-alternate[disabled]:focus, .btn-alternate[disabled]:active, .btn-alternate[disabled].active, fieldset[disabled] .btn-alternate, fieldset[disabled] .btn-alternate:hover, fieldset[disabled] .btn-alternate:focus, fieldset[disabled] .btn-alternate:active, fieldset[disabled] .btn-alternate.active {
   background-color: #1b92cb;
 }
 
-/* line 163, ../../src/pivotal-ui/components/button.css.scss */
+/* line 159, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 18px;

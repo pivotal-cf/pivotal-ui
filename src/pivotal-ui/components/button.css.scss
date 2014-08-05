@@ -94,40 +94,36 @@ Button                                                             | Disabled   
 
 .btn-default {
   @include button-skin($btn-default-color, $btn-default-bg, $btn-default-bg-hover);
-
 }
 
 .btn-default-alt {
   @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-bg-hover);
+  @include button-shadow;
 }
 
 .btn-primary {
   @include button-skin($btn-primary-color, $btn-primary-bg, $btn-primary-bg-hover);
+  @include button-shadow;
 }
 
 .btn-highlight {
   @include button-skin($btn-highlight-color, $btn-highlight-bg, $btn-highlight-bg-hover);
+  @include button-shadow;
 }
 
 .btn-highlight-alt {
   @include button-skin($btn-highlight-alt-color, $btn-highlight-alt-bg, $btn-highlight-alt-bg-hover);
+  @include button-shadow;
 }
 
 .btn-lowlight {
   @include button-skin($btn-lowlight-color, $btn-lowlight-bg, $btn-lowlight-bg-hover);
-  box-shadow: none;
-  &:hover,
-  &:focus,
-  &:active,
-  &.active,
-  &[disabled], &.disabled {
-    box-shadow: none;
-  }
 }
 
 // Danger and error appear as red
 .btn-danger {
   @include button-skin($btn-danger-color, $btn-danger-bg, $btn-danger-bg-hover);
+  @include button-shadow;
 }
 
 

@@ -4,7 +4,7 @@
   color: $color;
   background-color: $background;
   border: none;
-  box-shadow: 0 3px 0 $shadow-3;
+
   @include transition;
   &:hover,
   &:focus,
@@ -12,7 +12,6 @@
   &.active {
     color: $color;
     background-color: $background-hover;
-    box-shadow: 0 3px 0 $shadow-2;
     outline: none;
   }
   .open & { &.dropdown-toggle {
@@ -37,6 +36,16 @@
       background-color: $btn-disabled-bg;
       color: $btn-disabled-color;
     }
+  }
+}
+
+@mixin button-shadow() {
+  box-shadow: 0 3px 0 $shadow-3;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active {
+    box-shadow: 0 3px 0 $shadow-2;
   }
 }
 
