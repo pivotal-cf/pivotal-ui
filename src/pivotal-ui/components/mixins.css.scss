@@ -13,6 +13,7 @@
     color: $color;
     background-color: $background-hover;
     box-shadow: 0 3px 0 $shadow-2;
+    outline: none;
   }
   .open & { &.dropdown-toggle {
     color: $color;
