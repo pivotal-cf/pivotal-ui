@@ -37,70 +37,136 @@ $tabs-active-bg-color: $gray-2;
 
 <div class="row row-gutter-sm mvxl">
   <div class="col-md-2">
-    <div class="chip">
+    <div class="chip" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
       <div class="chip-color bg-neutral-1"></div>
-      <div class="chip-color-name">$gray-1</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-1</li>
+          <li>.bg-neutral-1</li>
+          <li>.txt-neutral-1</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-2"></div>
-      <div class="chip-color-name">$gray-2</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-2</li>
+          <li>.bg-neutral-2</li>
+          <li>.txt-neutral-2</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-3"></div>
-      <div class="chip-color-name">$gray-3</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-3</li>
+          <li>.bg-neutral-3</li>
+          <li>.txt-neutral-3</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-4"></div>
-      <div class="chip-color-name">$gray-4</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-4</li>
+          <li>.bg-neutral-4</li>
+          <li>.txt-neutral-4</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-5"></div>
-      <div class="chip-color-name">$gray-5</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-5</li>
+          <li>.bg-neutral-5</li>
+          <li>.txt-neutral-5</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-6"></div>
-      <div class="chip-color-name">$gray-6</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-6</li>
+          <li>.bg-neutral-6</li>
+          <li>.txt-neutral-6</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-7"></div>
-      <div class="chip-color-name">$gray-7</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-7</li>
+          <li>.bg-neutral-7</li>
+          <li>.txt-neutral-7</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-neutral-8"></div>
-      <div class="chip-color-name">$gray-8</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-8</li>
+          <li>.bg-neutral-8</li>
+          <li>.txt-neutral-8</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-neutral-9"></div>
-      <div class="chip-color-name">$gray-9</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-9</li>
+          <li>.bg-neutral-9</li>
+          <li>.txt-neutral-9</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-10"></div>
-      <div class="chip-color-name">$gray-10</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-10</li>
+          <li>.bg-neutral-10</li>
+          <li>.txt-neutral-10</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-11"></div>
-      <div class="chip-color-name">$gray-11</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-11</li>
+          <li>.bg-neutral-11</li>
+          <li>.txt-neutral-11</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -261,40 +327,38 @@ $tabs-active-bg-color: $gray-2;
 
 */
 
-
-
 .bg-neutral-1 {
-  background-color: $gray-1;
+  background-color: $neutral-1;
 }
 .bg-neutral-2 {
-  background-color: $gray-2;
+  background-color: $neutral-2;
 }
 .bg-neutral-3 {
-  background-color: $gray-3;
+  background-color: $neutral-3;
 }
 .bg-neutral-4 {
-  background-color: $gray-4;
+  background-color: $neutral-4;
 }
 .bg-neutral-5 {
-  background-color: $gray-5;
+  background-color: $neutral-5;
 }
 .bg-neutral-6 {
-  background-color: $gray-6;
+  background-color: $neutral-6;
 }
 .bg-neutral-7 {
-  background-color: $gray-7;
+  background-color: $neutral-7;
 }
 .bg-neutral-8 {
-  background-color: $gray-8;
+  background-color: $neutral-8;
 }
 .bg-neutral-9 {
-  background-color: $gray-9;
+  background-color: $neutral-9;
 }
 .bg-neutral-10 {
-  background-color: $gray-10;
+  background-color: $neutral-10;
 }
 .bg-neutral-11 {
-  background-color: $gray-11;
+  background-color: $neutral-11;
 }
 
 // Teals

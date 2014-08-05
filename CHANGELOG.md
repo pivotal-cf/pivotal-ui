@@ -2,6 +2,14 @@
 
 ### Latest Changes
 
+#### Sass Var changes
+$bkg-default-4-color -> $bg-neutral-9
+$bkg-default-5-color -> $bg-neutral-10
+
+#### Class Name Changes
+.bkg-default-4 -> .bg-neutral-9
+.bkg-default-5 -> .bg-neutral-10
+
 ```
 * New!            $gray-1
 * $gray-1 is now  $gray-2

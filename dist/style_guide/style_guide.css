@@ -231,7 +231,7 @@ nav.styleguide-nav li.active > a {
 .chip .chip-color-name {
   color: #777;
   padding-top: 5px;
-  font-size: 11px;
+  font-size: 8px;
   font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
 }
 

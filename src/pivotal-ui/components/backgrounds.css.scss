@@ -13,38 +13,11 @@ Background color classes can be applied to any element.
 
 */
 
-/*doc
----
-title: Grays
-name: gray
-parent: background
----
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-default-4"></div>
-      <div class="chip-color-name">.bkg-default-4</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-default-5"></div>
-      <div class="chip-color-name">.bkg-default-5</div>
-    </div>
-  </div>
-</div>
-*/
 .bkg-default-3{
   background-color: $bkg-default-3-color;
 }
 
-.bkg-default-4 {
-  background-color: $bkg-default-4-color;
-}
-.bkg-default-5 {
-  background-color: $bkg-default-5-color;
-}
+
 
 /*doc
 ---
@@ -114,7 +87,7 @@ parent: background
 }
 
 .bkg-highlight-2 {
-  background: $bkg-default-5-color image-url('gray-cloud.png') no-repeat 50% 150px;
+  background: $neutral-10 image-url('gray-cloud.png') no-repeat 50% 150px;
 }
 
 .bkg-highlight-3 {

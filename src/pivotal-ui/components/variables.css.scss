@@ -14,15 +14,15 @@ $teal-1: #003731; // not used
 $teal-2: #015952; // not used
 $teal-3: #02786E;
 $teal-4: #34928A;
-$teal-5 : #00a79d;
+$teal-5: #00a79d;
 $teal-6: #72B5AD;
-$teal-7 : #71ffda;
+$teal-7: #71ffda;
 
 $teal-1: #003731;
 $teal-2: #015952;
 $teal-3: #02786E;
 $teal-4: #34928A;
-$teal-5 : #71ffda;
+$teal-5: #71ffda;
 
 
 // Grays - use these rather than the bootstrap grays
@@ -37,7 +37,7 @@ $gray-6: #c3c5c7;
 $gray-7: #d4d9d9;
 $gray-8: #e0e4e5;
 $gray-9: #ecefef;
-$gray-10:#F8F8F8;
+$gray-10: #F8F8F8;
 $gray-11: white;
 
 // Shadows
@@ -88,8 +88,19 @@ $orange-2: null;
 // -------------------------
 
 $bkg-default-3-color: $blue-1;
-$bkg-default-4-color: $gray-9;
-$bkg-default-5-color: $gray-10;
+
+// gray backgrounds
+$neutral-1: $gray-1;
+$neutral-2: $gray-2;
+$neutral-3: $gray-3;
+$neutral-4: $gray-4;
+$neutral-5: $gray-5;
+$neutral-6: $gray-6;
+$neutral-7: $gray-7;
+$neutral-8: $gray-8;
+$neutral-9: $gray-9;
+$neutral-10: $gray-10;
+$neutral-11: $gray-11;
 
 // Grays (Bootstrap only, don't use directly) TODO: can we eliminate these entirely without modifying bootstrap base files?
 // -------------------------
