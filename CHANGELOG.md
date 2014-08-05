@@ -12,12 +12,19 @@ $teal-5              -> $teal-3
 $teal-6              -> $teal-4
 $teal-7              -> $teal-5
 
+$blue-1              -> $navy-1
+$blue-2              -> $blue-1
+$blue-3              -> $blue-2
+$blue-4              -> $blue-3
+$blue-5              -> $blue-4
+$blue-6              -> $blue-5
+
 
 #### Class Name Changes
 .bkg-default-4 -> .bg-neutral-9
 .bkg-default-5 -> .bg-neutral-10
 .bkg-primary-2 -> removed, consider .bg-brand-1 as an alternative
-
+.bkg-primary-3 -> removed, consider .bg-accent-4 as an alternative
 
 ```
 * New!            $gray-1

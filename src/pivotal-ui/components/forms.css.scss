@@ -164,13 +164,13 @@ This is a fancy select!
    right: 10px;
    top: 4px;
    font-size: 22px;
-   color: $blue-5;
+   color: $blue-4;
    @include transition(all, 150ms);
   }
 
   &:hover {
     &:after, select {
-      color: $blue-3;
+      color: $blue-2;
     }
   }
 
@@ -244,11 +244,11 @@ This is a fancy number input!
       border: none;
       width: $button-width;
       height: 50%;
-      color: $blue-5;
+      color: $blue-4;
       text-align: center;
       line-height: 20px;
       &:hover {
-        color: $blue-3;
+        color: $blue-2;
         background-color: $gray-9;
         cursor: pointer;
       }

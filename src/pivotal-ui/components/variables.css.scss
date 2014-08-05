@@ -53,6 +53,19 @@ $blue-4: #49a8d5;
 $blue-5: #a7cae1;
 $blue-6: #C3F4FF;
 
+$blue-1: #1a739e;
+$blue-2: #2185c5;
+$blue-3: #49a8d5;
+$blue-4: #a7c9e0;
+$blue-5: #c3f4ff;
+
+// Navies
+// -------------------------
+$navy-1: #243640;
+$navy-2: #3f484f;
+$navy-3: #525c63;
+
+
 // Red
 // -------------------------
 $red-1: #AB2A2A;
@@ -79,7 +92,7 @@ $orange-2: null;
 // Background Colors
 // -------------------------
 
-$bkg-default-3-color: $blue-1;
+$bkg-default-3-color: $navy-1;
 
 // gray backgrounds
 $neutral-1: $gray-1;
@@ -176,14 +189,14 @@ $text-color:            $gray-3 !default;
 // Links
 // -------------------------
 
-$link-color:                      $blue-3 !default;
-$link-hover-color:                $blue-4 !default;
+$link-color:                      $blue-2 !default;
+$link-hover-color:                $blue-3 !default;
 
 $link-highlight-color:            $teal-2 !default;
 $link-highlight-hover-color:      darken($link-color, 15%) !default;
 
-$link-lowlight-color:             $blue-5 !default;
-$link-lowlight-hover-color:       $blue-3 !default;
+$link-lowlight-color:             $blue-4 !default;
+$link-lowlight-hover-color:       $blue-2 !default;
 
 // Typography
 // -------------------------
@@ -208,7 +221,7 @@ $headings-color:          $gray-3;
 //TODO: create a mixin that will determine multiplers based on px-size
 $font-size-h1:            30px;
 $font-weight-h1:          900;
-$font-color-h1:           $blue-1;
+$font-color-h1:           $navy-1;
 
 $font-size-h2:            16px;
 $font-weight-h2:          900;
@@ -316,7 +329,7 @@ $btn-default-alt-color:          $link-color;
 $btn-default-alt-bg:             $gray-10;
 $btn-default-alt-bg-hover:       $gray-9;
 
-$btn-primary-color:              $blue-3;
+$btn-primary-color:              $blue-2;
 $btn-primary-bg:                 white;
 $btn-primary-bg-hover:           white;
 $btn-primary-border:             #49A8D5 !default;
@@ -326,7 +339,7 @@ $btn-lowlight-bg:                transparent;
 $btn-lowlight-bg-hover:          $glow-4;
 
 $btn-highlight-color:             $type-inverse;
-$btn-highlight-bg:                $blue-3;
+$btn-highlight-bg:                $blue-2;
 $btn-highlight-bg-hover:          #1a739e;
 
 $btn-highlight-alt-color:         white;
@@ -375,7 +388,7 @@ $input-bg-disabled:              $gray-lighter !default;
 $input-color:                    $gray !default;
 $input-border:                   #ccc !default;
 $input-border-radius:            $border-radius-small !default;
-$input-border-focus:             $blue-4 !default;
+$input-border-focus:             $blue-3 !default;
 $input-border-width:             1px !default;
 
 $input-color-placeholder:        $gray-5 !default;
@@ -588,7 +601,7 @@ $nav-tabs-title-font-size:                  16px;
 $tab-highlight-beak-width:                  14px;
 $tab-highlight-beak-height:                 55px;
 $tab-highlight-beak-color:                  $gray-9;
-$tab-highlight-tab-color:                   $blue-3;
+$tab-highlight-tab-color:                   $blue-2;
 $tab-highlight-tab-active-color:            $gray-3;
 $tab-highlight-tab-hover-bg-color:          $gray-9;
 $tab-highlight-border-color:                $gray-9;
@@ -602,8 +615,8 @@ $tab-simple-tab-hover-bg-color:             $gray-10;
 $tab-simple-tab-active-bg-color:            $gray-8;
 $tab-simple-shadow-border-color:            $shadow-3;
 $tab-simple-tab-border-color:               $gray-8;
-$tab-simple-link-active-color:              $blue-1;
-$tab-simple-link-color:                     $blue-3;
+$tab-simple-link-active-color:              $navy-1;
+$tab-simple-link-color:                     $blue-2;
 $tab-simple-link-font-weight:                600;
 
 // Pills
@@ -740,7 +753,7 @@ $modal-content-bg:                             $gray-9 !default;
 $modal-content-border-color:                   $teal-2 !default;
 $modal-content-fallback-border-color:          #999 !default;
 
-$modal-backdrop-bg:           $blue-1 !default;
+$modal-backdrop-bg:           $navy-1 !default;
 $modal-backdrop-opacity:      .80;
 $modal-header-border-color:   $gray-8 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
@@ -764,8 +777,8 @@ $alert-success-bg:            $green-2;
 $alert-success-text:          $green-1;
 $alert-success-border:        $green-1;
 
-$alert-info-bg:               $blue-6 !default;
-$alert-info-text:             $blue-2;
+$alert-info-bg:               $blue-5 !default;
+$alert-info-text:             $blue-1;
 $alert-info-border:           #8AC0C4 !default;
 
 $alert-warning-bg:            $yellow-2;
@@ -833,7 +846,7 @@ $panel-primary-heading-bg:    $brand-primary !default;
 $panel-simple-border:         1px solid $gray-9;
 
 $panel-tile-border:             2px solid $gray-9;
-$panel-tile-hover-border-color: $blue-3;
+$panel-tile-hover-border-color: $blue-2;
 $panel-tile-hover-bg-color:     $gray-10;
 
 $panel-success-text:          $state-success-text !default;

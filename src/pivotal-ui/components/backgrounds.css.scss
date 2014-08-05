@@ -17,28 +17,6 @@ Background color classes can be applied to any element.
   background-color: $bkg-default-3-color;
 }
 
-
-
-/*doc
----
-title: Primary
-name: primary_colors
-parent: background
----
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-primary-3"></div>
-      <div class="chip-color-name">.bkg-primary-3</div>
-    </div>
-  </div>
-</div>
-*/
-
-.bkg-primary-3 {
-  background-color: $blue-5;
-}
-
 /*doc
 ---
 title: Images

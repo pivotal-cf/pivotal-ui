@@ -499,10 +499,10 @@ USE:
 */
 .table-sortable {
   th.sorted-desc {
-    color: $blue-1;
+    color: $navy-1;
     &:after {
       content: "\f0d7";
-      color: $blue-1;
+      color: $navy-1;
     }
   }
 
@@ -534,10 +534,10 @@ USE:
   }
 
   th.sorted-asc {
-    color: $blue-1;
+    color: $navy-1;
     &:after {
       content: "\f0d8";
-      color: $blue-1;
+      color: $navy-1;
     }
   }
 }
