@@ -1,4 +1,4 @@
 applications:
 - name: styleguide
-  path: ./styleguide
+  path: ./dist
   buildpack: https://github.com/cloudfoundry-community/nginx-buildpack.git
