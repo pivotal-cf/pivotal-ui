@@ -10,18 +10,10 @@
 // Accent colors - teal for now
 // -------------------------
 
-$teal-1: #003731; // not used
-$teal-2: #015952; // not used
-$teal-3: #02786E;
-$teal-4: #34928A;
-$teal-5: #00a79d;
-$teal-6: #72B5AD;
-$teal-7: #71ffda;
-
-$teal-1: #003731;
-$teal-2: #015952;
-$teal-3: #02786E;
-$teal-4: #34928A;
+$teal-1: #025a53;
+$teal-2: #00776d;
+$teal-3: #00a79d;
+$teal-4: #92d0c0;
 $teal-5: #71ffda;
 
 
@@ -114,6 +106,12 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee bootstrap only
 // Brand colors
 // -------------------------
 
+$brand-1:               $teal-1;
+$brand-2:               $teal-2;
+$brand-3:               $teal-3;
+$brand-4:               $teal-4;
+$brand-5:               $teal-5;
+
 $brand-primary:         #1b92cb !default;
 $brand-success:         #5cb85c !default;
 $brand-warning:         #f0ad4e !default;
@@ -131,12 +129,12 @@ $almost_white:          #ededed;
 $type-muted:                  $gray-9 !important !default;
 $text-muted:                  $type-muted; // unused, keep for bootstrap, use $type-muted instead
 $type-inverse:                $gray-8;
-$type-inverse-hover:          $teal-2;
+$type-inverse-hover:          $teal-1;
 
-$type-accent-5:               $teal-6;
-$type-accent-4:               $teal-4;
-$type-accent-3:               $teal-3;
-$type-accent-2:               $teal-2;
+$type-accent-5:               $teal-4;
+$type-accent-4:               $teal-2;
+$type-accent-3:               $teal-2;
+$type-accent-2:               $teal-1;
 
 $type-primary-2:              $gray-3;
 $type-primary-3:              $gray-3;
@@ -163,8 +161,8 @@ $footer-login-bg:           $dark_grey; // login footer
 $footer-login-color:        $almost_white; // login footer
 $footer-login-height:       46px;
 
-$footer-bg:                 $teal-3;
-$footer-divider-color:      $teal-6;
+$footer-bg:                 $teal-2;
+$footer-divider-color:      $teal-4;
 
 $navbar-width:              210px;
 
@@ -181,7 +179,7 @@ $text-color:            $gray-3 !default;
 $link-color:                      $blue-3 !default;
 $link-hover-color:                $blue-4 !default;
 
-$link-highlight-color:            $teal-4 !default;
+$link-highlight-color:            $teal-2 !default;
 $link-highlight-hover-color:      darken($link-color, 15%) !default;
 
 $link-lowlight-color:             $blue-5 !default;
@@ -332,8 +330,8 @@ $btn-highlight-bg:                $blue-3;
 $btn-highlight-bg-hover:          #1a739e;
 
 $btn-highlight-alt-color:         white;
-$btn-highlight-alt-bg:            $teal-4;
-$btn-highlight-alt-bg-hover:      $teal-5;
+$btn-highlight-alt-bg:            $teal-2;
+$btn-highlight-alt-bg-hover:      $teal-3;
 
 
 
@@ -532,11 +530,11 @@ $navbar-default-toggle-border-color:       rgba(255,255,255,0.3) !default;
 //
 // Reset inverted navbar basics
 $navbar-inverse-color:                      $type-inverse;
-$navbar-inverse-bg:                         $teal-4 !default;
+$navbar-inverse-bg:                         $teal-2 !default;
 $navbar-inverse-border:                     transparent;
 
 // Inverted navbar links
-$navbar-inverse-link-color:                 $teal-6 !default;
+$navbar-inverse-link-color:                 $teal-4 !default;
 $navbar-inverse-link-hover-color:           #fff !default;
 $navbar-inverse-link-hover-bg:              transparent !default;
 $navbar-inverse-link-active-color:          $type-inverse !default;
@@ -550,15 +548,15 @@ $navbar-inverse-brand-hover-color:          #fff !default;
 $navbar-inverse-brand-hover-bg:             transparent !default;
 
 // Inverted navbar toggle
-$navbar-inverse-toggle-hover-bg:            $teal-3 !default;
+$navbar-inverse-toggle-hover-bg:            $teal-2 !default;
 $navbar-inverse-toggle-icon-bar-bg:         $type-inverse !default;
-$navbar-inverse-toggle-border-color:        $teal-6 !default;
+$navbar-inverse-toggle-border-color:        $teal-4 !default;
 
 
 // Nav List (top nav)
 // -------------------------
-$nav-list-link-color:                       $teal-6;
-$nav-list-link-hover-color:                 $teal-3;
+$nav-list-link-color:                       $teal-4;
+$nav-list-link-hover-color:                 $teal-2;
 
 // Navs
 // -------------------------
@@ -578,8 +576,8 @@ $nav-tabs-border-color:                     #ddd !default;
 $nav-tabs-link-hover-border-color:          $gray-lighter !default;
 
 $nav-tabs-active-link-hover-bg:             $gray-9 !default;
-$nav-tabs-active-link-hover-color:          $teal-4 !default;
-$nav-tabs-active-link-hover-border-color:   $teal-4 !default;
+$nav-tabs-active-link-hover-color:          $teal-2 !default;
+$nav-tabs-active-link-hover-border-color:   $teal-2 !default;
 
 $nav-tabs-justified-link-border-color:            #ddd !default;
 $nav-tabs-justified-active-link-border-color:     $body-bg !default;
@@ -615,7 +613,7 @@ $nav-pills-active-link-hover-bg:            null;
 $nav-pills-active-link-hover-color:         null;
 
 // Nav list
-$nav-list-divider-border-color:             $teal-6;
+$nav-list-divider-border-color:             $teal-4;
 
 // Logo / Branding
 // -------------------------
@@ -656,7 +654,7 @@ $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
 
 // Health Indicator
 // -------------------------
-$health-indicator-running-color: $teal-5;
+$health-indicator-running-color: $teal-3;
 $health-indicator-stopped-color: $gray-7;
 $health-indicator-warn-color: $red-2;
 $health-indicator-size: 40px;
@@ -666,7 +664,7 @@ $health-indicator-large-size: 64px;
 
 // Traffic Lights
 // -------------------------
-$traffic-light-running-color:   $teal-5;
+$traffic-light-running-color:   $teal-3;
 $traffic-light-stopped-color:   $gray-4;
 $traffic-light-crashed-color:   $red-3;
 
@@ -739,7 +737,7 @@ $modal-title-padding:         15px !default;
 $modal-title-line-height:     $line-height-base !default;
 
 $modal-content-bg:                             $gray-9 !default;
-$modal-content-border-color:                   $teal-4 !default;
+$modal-content-border-color:                   $teal-2 !default;
 $modal-content-fallback-border-color:          #999 !default;
 
 $modal-backdrop-bg:           $blue-1 !default;

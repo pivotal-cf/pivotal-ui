@@ -102,7 +102,7 @@ To use in a view, simply call
   }
 
   i.highlight {
-    color: $teal-5;
+    color: $teal-3;
   }
 
   i.overlay {
@@ -115,7 +115,7 @@ To use in a view, simply call
     text-shadow: 1px 0px 1px $gray-5, -1px 0px 1px $gray-5, 0px 1px 1px $gray-5, 0px 0px 1px $gray-5;
   }
   .fa-check {
-    text-shadow: 1px 0px 0px $teal-5, -1px 0px 0px $teal-5, 0px 1px 0px $teal-5, 0px 0px 0px $teal-5;
+    text-shadow: 1px 0px 0px $teal-3, -1px 0px 0px $teal-3, 0px 1px 0px $teal-3, 0px 0px 0px $teal-3;
   }
 }
 

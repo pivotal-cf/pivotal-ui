@@ -174,44 +174,62 @@ $tabs-active-bg-color: $gray-2;
 <div class="row mvxl">
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-teal-1"></div>
-      <div class="chip-color-name">$teal-1</div>
+      <div class="chip-color bg-brand-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-1</li>
+          <li>.bg-brand-1</li>
+          <li>.txt-brand-1</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-teal-2"></div>
-      <div class="chip-color-name">$teal-2</div>
+      <div class="chip-color bg-brand-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-2</li>
+          <li>.bg-brand-2</li>
+          <li>.txt-brand-2</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-teal-3"></div>
-      <div class="chip-color-name">$teal-3</div>
+      <div class="chip-color bg-brand-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-3</li>
+          <li>.bg-brand-3</li>
+          <li>.txt-brand-3</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-teal-4"></div>
-      <div class="chip-color-name">$teal-4</div>
+      <div class="chip-color bg-brand-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-4</li>
+          <li>.bg-brand-4</li>
+          <li>.txt-brand-4</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="col-md-3">
     <div class="chip">
-      <div class="chip-color styleguide-only-teal-5"></div>
-      <div class="chip-color-name">$teal-5</div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="chip">
-      <div class="chip-color styleguide-only-teal-6"></div>
-      <div class="chip-color-name">$teal-6</div>
-    </div>
-  </div>
-  <div class="col-md-3">
-    <div class="chip">
-      <div class="chip-color styleguide-only-teal-7"></div>
-      <div class="chip-color-name">$teal-7</div>
+      <div class="chip-color bg-brand-5"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-5</li>
+          <li>.bg-brand-5</li>
+          <li>.txt-brand-5</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
@@ -362,33 +380,26 @@ $tabs-active-bg-color: $gray-2;
 }
 
 // Teals
-.styleguide-only-teal-1{
-  background-color: $teal-1;
+.bg-brand-1{
+  background-color: $brand-1;
 }
 
-.styleguide-only-teal-2{
-  background-color: $teal-2;
+.bg-brand-2{
+  background-color: $brand-2;
 }
 
-.styleguide-only-teal-3{
-  background-color: $teal-3;
+.bg-brand-3{
+  background-color: $brand-3;
 }
 
-.styleguide-only-teal-4{
-  background-color: $teal-4;
+.bg-brand-4{
+  background-color: $brand-4;
 }
 
-.styleguide-only-teal-5{
-  background-color: $teal-5;
+.bg-brand-5{
+  background-color: $brand-5;
 }
 
-.styleguide-only-teal-6 {
-  background-color: $teal-6;
-}
-
-.styleguide-only-teal-7{
-  background-color: $teal-7;
-}
 // Blues
 
 .styleguide-only-blue-1{

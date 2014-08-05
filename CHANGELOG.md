@@ -5,10 +5,19 @@
 #### Sass Var changes
 $bkg-default-4-color -> $bg-neutral-9
 $bkg-default-5-color -> $bg-neutral-10
+$teal-1, $teal-2     -> $teal-1
+$teal-3              -> $teal-2
+$teal-4              -> $teal-3
+$teal-5              -> $teal-3
+$teal-6              -> $teal-4
+$teal-7              -> $teal-5
+
 
 #### Class Name Changes
 .bkg-default-4 -> .bg-neutral-9
 .bkg-default-5 -> .bg-neutral-10
+.bkg-primary-2 -> removed, consider .bg-brand-1 as an alternative
+
 
 ```
 * New!            $gray-1

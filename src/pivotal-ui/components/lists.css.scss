@@ -407,10 +407,10 @@ This is a special list-group, with styles per-event for colors and icons
 
   .started {
     .event-title {
-      color: $teal-5;
+      color: $teal-3;
     }
     .event-icon:after {
-      color: $teal-5;
+      color: $teal-3;
       content: '\f04b';
     }
   }
@@ -427,21 +427,21 @@ This is a special list-group, with styles per-event for colors and icons
   }
   .updated {
     .event-title {
-      color: $teal-5;
+      color: $teal-3;
 
     }
     .event-icon:after {
-      color: $teal-5;
+      color: $teal-3;
       content: '\f01b';
     }
   }
   .scaled {
     .event-title {
-      color: $teal-5;
+      color: $teal-3;
 
     }
     .event-icon:after {
-      color: $teal-5;
+      color: $teal-3;
       content: '\f0e4';
 
     }
@@ -459,22 +459,22 @@ This is a special list-group, with styles per-event for colors and icons
   }
   .created {
     .event-title {
-      color: $teal-5;
+      color: $teal-3;
 
     }
     .event-icon:after {
-      color: $teal-5;
+      color: $teal-3;
       content: '\f135';
 
     }
   }
   .renamed {
     .event-title {
-      color: $teal-5;
+      color: $teal-3;
 
     }
     .event-icon:after {
-      color: $teal-5;
+      color: $teal-3;
       content: '\f040';
 
     }
@@ -642,7 +642,7 @@ Replaces the default bullet image with the font awesome checkmark.
     // Font Awesome unicode for fa-check
     content: '\f00c';
     margin: 0 5px 0 -15px;
-    color: $teal-3;
+    color: $teal-2;
   }
 }
 

@@ -28,12 +28,6 @@ parent: background
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
-      <div class="chip-color bkg-primary-2"></div>
-      <div class="chip-color-name">.bkg-primary-2</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="chip">
       <div class="chip-color bkg-primary-3"></div>
       <div class="chip-color-name">.bkg-primary-3</div>
     </div>
@@ -41,15 +35,9 @@ parent: background
 </div>
 */
 
-.bkg-primary-2 {
-  background-color: $teal-2;
-}
-
 .bkg-primary-3 {
   background-color: $blue-5;
 }
-
-
 
 /*doc
 ---
