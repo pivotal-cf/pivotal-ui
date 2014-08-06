@@ -11,10 +11,8 @@
   }
 }
 
-@include font-helper('sourcesanspro-black-webfont', 800, normal);
-@include font-helper('sourcesanspro-bold-webfont', 800, normal);
-@include font-helper('sourcesanspro-extralight-webfont', 800, normal);
-@include font-helper('sourcesanspro-it-webfont', 800, normal);
-@include font-helper('sourcesanspro-light-webfont', 800, normal);
-@include font-helper('sourcesanspro-regular-webfont', 800, normal);
-@include font-helper('sourcesanspro-semibold-webfont', 800, normal);
+@include font-helper('sourcesanspro-light-webfont', 200, normal);
+@include font-helper('sourcesanspro-regular-webfont', 400, normal);
+@include font-helper('sourcesanspro-it-webfont', 400, italic);
+@include font-helper('sourcesanspro-bold-webfont', 600, normal);
+@include font-helper('sourcesanspro-black-webfont', 900, normal);

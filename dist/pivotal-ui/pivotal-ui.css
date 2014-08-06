@@ -3,41 +3,9 @@
 /* Transition mixins */
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-black-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-black-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-black-webfont.svg#sourcesanspro-black-webfont") format("svg");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-bold-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-bold-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-bold-webfont.svg#sourcesanspro-bold-webfont") format("svg");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-extralight-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-extralight-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-extralight-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-extralight-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-extralight-webfont.svg#sourcesanspro-extralight-webfont") format("svg");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-it-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-it-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-it-webfont.svg#sourcesanspro-it-webfont") format("svg");
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SourceSansPro';
   src: url("../source-sans-pro/sourcesanspro-light-webfont.eot");
   src: url("../source-sans-pro/sourcesanspro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-light-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-light-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-light-webfont.svg#sourcesanspro-light-webfont") format("svg");
-  font-weight: 800;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -45,15 +13,31 @@
   font-family: 'SourceSansPro';
   src: url("../source-sans-pro/sourcesanspro-regular-webfont.eot");
   src: url("../source-sans-pro/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-regular-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-regular-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-regular-webfont.svg#sourcesanspro-regular-webfont") format("svg");
-  font-weight: 800;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-semibold-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-semibold-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-semibold-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-semibold-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-semibold-webfont.svg#sourcesanspro-semibold-webfont") format("svg");
-  font-weight: 800;
+  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot");
+  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-it-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-it-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-it-webfont.svg#sourcesanspro-it-webfont") format("svg");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot");
+  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-bold-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-bold-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-bold-webfont.svg#sourcesanspro-bold-webfont") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SourceSansPro';
+  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot");
+  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-black-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-black-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-black-webfont.svg#sourcesanspro-black-webfont") format("svg");
+  font-weight: 900;
   font-style: normal;
 }
 
@@ -2844,7 +2828,7 @@ html {
 /* line 22, ../../src/bootstrap/_scaffolding.scss */
 body {
   font-family: "Source Sans Pro", "SourceSansPro", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: #686868;
   background-color: transparent;
@@ -2916,8 +2900,8 @@ img {
 
 /* line 98, ../../src/bootstrap/_scaffolding.scss */
 hr {
-  margin-top: 22px;
-  margin-bottom: 22px;
+  margin-top: 24px;
+  margin-bottom: 24px;
   border: 0;
   border-top: 1px solid #eeeeee;
 }
@@ -2936,20 +2920,20 @@ hr {
 
 /* line 9, ../../src/bootstrap/_type.scss */
 p {
-  margin: 0 0 11px;
+  margin: 0 0 12px;
 }
 
 /* line 12, ../../src/bootstrap/_type.scss */
 .lead {
-  margin-bottom: 22px;
-  font-size: 17px;
+  margin-bottom: 24px;
+  font-size: 18px;
   font-weight: 200;
   line-height: 1.4;
 }
 @media (min-width: 768px) {
   /* line 12, ../../src/bootstrap/_type.scss */
   .lead {
-    font-size: 22.5px;
+    font-size: 24px;
   }
 }
 
@@ -3064,8 +3048,8 @@ h6 .small,
 h1,
 h2,
 h3 {
-  margin-top: 22px;
-  margin-bottom: 11px;
+  margin-top: 24px;
+  margin-bottom: 12px;
 }
 /* line 100, ../../src/bootstrap/_type.scss */
 h1 small,
@@ -3081,8 +3065,8 @@ h3 .small {
 h4,
 h5,
 h6 {
-  margin-top: 11px;
-  margin-bottom: 11px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 /* line 111, ../../src/bootstrap/_type.scss */
 h4 small,
@@ -3096,38 +3080,33 @@ h6 .small {
 
 /* line 116, ../../src/bootstrap/_type.scss */
 h1, .h1, .form-contenteditable input.form-control {
-  font-size: 30px;
+  font-size: 31px;
 }
 
 /* line 117, ../../src/bootstrap/_type.scss */
 h2, .h2 {
-  font-size: 16px;
+  font-size: 25px;
 }
 
 /* line 118, ../../src/bootstrap/_type.scss */
 h3, .h3 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 /* line 119, ../../src/bootstrap/_type.scss */
 h4, .h4 {
-  font-size: 13px;
+  font-size: 18px;
 }
 
 /* line 120, ../../src/bootstrap/_type.scss */
 h5, .h5 {
-  font-size: 12px;
-}
-
-/* line 121, ../../src/bootstrap/_type.scss */
-h6, .h6 {
   font-size: 16px;
 }
 
 /* line 127, ../../src/bootstrap/_type.scss */
 .page-header {
-  padding-bottom: 10px;
-  margin: 44px 0 22px;
+  padding-bottom: 11px;
+  margin: 48px 0 24px;
   border-bottom: 1px solid #eeeeee;
 }
 
@@ -3135,7 +3114,7 @@ h6, .h6 {
 ul,
 ol {
   margin-top: 0;
-  margin-bottom: 11px;
+  margin-bottom: 12px;
 }
 /* line 144, ../../src/bootstrap/_type.scss */
 ul ul,
@@ -3164,7 +3143,7 @@ ol ol {
 
 /* line 173, ../../src/bootstrap/_type.scss */
 dl {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 /* line 177, ../../src/bootstrap/_type.scss */
@@ -3225,13 +3204,13 @@ abbr.initialism {
 
 /* line 224, ../../src/bootstrap/_type.scss */
 blockquote {
-  padding: 11px 22px;
-  margin: 0 0 22px;
+  padding: 12px 24px;
+  margin: 0 0 24px;
   border-left: 5px solid #eeeeee;
 }
 /* line 228, ../../src/bootstrap/_type.scss */
 blockquote p {
-  font-size: 18.75px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.25;
 }
@@ -3281,7 +3260,7 @@ blockquote:after {
 
 /* line 275, ../../src/bootstrap/_type.scss */
 address {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   font-style: normal;
   line-height: 1.5;
 }
@@ -3291,7 +3270,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+  font-family: Menlo, Consolas, "Courier New", monospace;
 }
 
 /* line 15, ../../src/bootstrap/_code.scss */
@@ -3307,9 +3286,9 @@ code {
 /* line 25, ../../src/bootstrap/_code.scss */
 pre {
   display: block;
-  padding: 10.5px;
-  margin: 0 0 11px;
-  font-size: 14px;
+  padding: 11.5px;
+  margin: 0 0 12px;
+  font-size: 15px;
   line-height: 1.5;
   word-break: break-all;
   word-wrap: break-word;
@@ -5350,7 +5329,7 @@ th {
 /* line 17, ../../src/bootstrap/_tables.scss */
 .table {
   width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 /* line 26, ../../src/bootstrap/_tables.scss */
 .table > thead > tr > th,
@@ -5499,7 +5478,7 @@ table th[class*="col-"] {
   /* line 175, ../../src/bootstrap/_tables.scss */
   .table-responsive {
     width: 100%;
-    margin-bottom: 16.5px;
+    margin-bottom: 18px;
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
@@ -5561,8 +5540,8 @@ legend {
   display: block;
   width: 100%;
   padding: 0;
-  margin-bottom: 22px;
-  font-size: 22.5px;
+  margin-bottom: 24px;
+  font-size: 24px;
   line-height: inherit;
   color: #333333;
   border: 0;
@@ -5628,7 +5607,7 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
 output {
   display: block;
   padding-top: 9px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: #555555;
   vertical-align: middle;
@@ -5655,9 +5634,9 @@ output {
 .form-control {
   display: block;
   width: 100%;
-  height: 40px;
+  height: 42px;
   padding: 8px 20px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   color: #555555;
   vertical-align: middle;
@@ -5698,7 +5677,7 @@ textarea.form-control {
 .radio,
 .checkbox {
   display: block;
-  min-height: 22px;
+  min-height: 24px;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-left: 20px;
@@ -5763,17 +5742,17 @@ input[type="checkbox"],
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-sm {
-  height: 25px;
+  height: 27px;
   padding: 2px 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-sm {
-  height: 25px;
-  line-height: 25px;
+  height: 27px;
+  line-height: 27px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -5783,17 +5762,17 @@ textarea.input-sm {
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-lg {
-  height: 47px;
+  height: 48px;
   padding: 10px 26px;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.33;
   border-radius: 6px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-lg {
-  height: 47px;
-  line-height: 47px;
+  height: 48px;
+  line-height: 48px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -5976,7 +5955,7 @@ textarea.input-lg {
   border: 1px solid transparent;
   white-space: nowrap;
   padding: 8px 20px;
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
   border-radius: 4px;
   -webkit-user-select: none;
@@ -6045,7 +6024,7 @@ textarea.input-lg {
 /* line 122, ../../src/bootstrap/_buttons.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.33;
   border-radius: 6px;
 }
@@ -6055,7 +6034,7 @@ textarea.input-lg {
 .btn-xs,
 .btn-group-xs > .btn {
   padding: 2px 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
@@ -6151,7 +6130,7 @@ input[type="button"].btn-block {
   padding: 5px 0;
   margin: 2px 0 0;
   list-style: none;
-  font-size: 15px;
+  font-size: 16px;
   background-color: white;
   border: 1px solid #cccccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -6168,7 +6147,7 @@ input[type="button"].btn-block {
 /* line 58, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu .divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 11px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -6225,7 +6204,7 @@ input[type="button"].btn-block {
 .dropdown-header {
   display: block;
   padding: 3px 20px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   color: #999999;
 }
@@ -6582,7 +6561,7 @@ input[type="button"].btn-block {
 /* line 64, ../../src/bootstrap/_navs.scss */
 .nav .nav-divider {
   height: 1px;
-  margin: 10px 0;
+  margin: 11px 0;
   overflow: hidden;
   background-color: #e5e5e5;
 }
@@ -6890,8 +6869,8 @@ input[type="button"].btn-block {
 .navbar-brand {
   float: left;
   padding: 12px 0;
-  font-size: 19px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 24px;
 }
 /* line 159, ../../src/bootstrap/_navbar.scss */
 .navbar-brand:hover, .navbar-brand:focus {
@@ -6942,7 +6921,7 @@ input[type="button"].btn-block {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 22px;
+  line-height: 24px;
 }
 @media (max-width: 767px) {
   /* line 219, ../../src/bootstrap/_navbar.scss */
@@ -6962,7 +6941,7 @@ input[type="button"].btn-block {
   }
   /* line 231, ../../src/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 22px;
+    line-height: 24px;
   }
   /* line 234, ../../src/bootstrap/_navbar.scss */
   .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -6981,8 +6960,8 @@ input[type="button"].btn-block {
   }
   /* line 248, ../../src/bootstrap/_navbar.scss */
   .navbar-nav > li > a {
-    padding-top: 9px;
-    padding-bottom: 9px;
+    padding-top: 8px;
+    padding-bottom: 8px;
   }
 }
 
@@ -7006,8 +6985,8 @@ input[type="button"].btn-block {
   border-bottom: 1px solid transparent;
   -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 @media (max-width: 767px) {
   /* line 291, ../../src/bootstrap/_navbar.scss */
@@ -7051,15 +7030,15 @@ input[type="button"].btn-block {
 
 /* line 337, ../../src/bootstrap/_navbar.scss */
 .navbar-btn {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 /* line 346, ../../src/bootstrap/_navbar.scss */
 .navbar-text {
   float: left;
-  margin-top: 9px;
-  margin-bottom: 9px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 @media (min-width: 768px) {
   /* line 346, ../../src/bootstrap/_navbar.scss */
@@ -7285,7 +7264,7 @@ input[type="button"].btn-block {
 /* line 9, ../../src/bootstrap/_alerts.scss */
 .alert {
   padding: 15px;
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   border: 1px solid transparent;
   border-radius: 0px;
 }
@@ -7431,8 +7410,8 @@ input[type="button"].btn-block {
 /* line 39, ../../src/bootstrap/_progress-bars.scss */
 .progress {
   overflow: hidden;
-  height: 22px;
-  margin-bottom: 22px;
+  height: 24px;
+  margin-bottom: 24px;
   background-color: whitesmoke;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -7444,8 +7423,8 @@ input[type="button"].btn-block {
   float: left;
   width: 0%;
   height: 100%;
-  font-size: 13px;
-  line-height: 22px;
+  font-size: 14px;
+  line-height: 24px;
   color: white;
   text-align: center;
   background-color: #1b92cb;
@@ -7640,7 +7619,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 
 /* line 7, ../../src/bootstrap/_panels.scss */
 .panel {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
   border: 1px solid transparent;
   border-radius: 0;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
@@ -7762,7 +7741,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 .panel-title {
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 17px;
+  font-size: 18px;
 }
 /* line 109, ../../src/bootstrap/_panels.scss */
 .panel-title > a {
@@ -7946,7 +7925,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 /* line 6, ../../src/bootstrap/_close.scss */
 .close {
   float: right;
-  font-size: 22.5px;
+  font-size: 24px;
   font-weight: bold;
   line-height: 1;
   color: black;
@@ -8126,7 +8105,7 @@ button.close {
   z-index: 1030;
   display: block;
   visibility: visible;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
   opacity: 0;
   filter: alpha(opacity=0);
@@ -11093,33 +11072,36 @@ name: type
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 */
-/* line 12, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 13, ../../src/pivotal-ui/components/typography.css.scss */
 * {
   -webkit-font-smoothing: antialiased;
 }
 
 /*doc
 ---
-title: Headings
-name: headings
-categories:
-  - All
-  - CSS
+title: Type Sizes
+name: 1_type_sizes
 parent: type
 ---
 
 Headings can be used to define the applications typographical hierarchy.
 
 ```haml_example
+
+%h1.title Even bigger heading for those moments when an h1 is not enough
 %h1 h1.heading level 1
 %h2 h2.heading level 2
 %h3 h3.heading level 3
 %h4 h4.heading level 4
 %h5 h5.heading level 5
-%h6 h6.heading level 6
+%p.type-sm Small text can also be achieved with the small tag, when appropriate
+%p.type-xs Extra small text
+
+
 %p This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ```
 
@@ -11139,120 +11121,113 @@ If it's not a heading but you need similar visual treatment you can add just the
 ```
 
 */
-/* line 58, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 61, ../../src/pivotal-ui/components/typography.css.scss */
 h1, .h1, .form-contenteditable input.form-control, h2, .h2, h3, .h3 {
   margin-top: 20px;
   margin-bottom: 10px;
 }
 
-/* line 63, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 66, ../../src/pivotal-ui/components/typography.css.scss */
 h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
 @media all and (max-width: 768px) {
-  /* line 69, ../../src/pivotal-ui/components/typography.css.scss */
+  /* line 72, ../../src/pivotal-ui/components/typography.css.scss */
   h1, .h1, .form-contenteditable input.form-control, h2, .h2, h3, .h3 {
     margin-top: 15px;
     margin-bottom: 10px;
   }
 
-  /* line 74, ../../src/pivotal-ui/components/typography.css.scss */
+  /* line 77, ../../src/pivotal-ui/components/typography.css.scss */
   h4, .h4, h5, .h5, h6, .h6 {
     margin-top: 10px;
     margin-bottom: 10px;
   }
 }
-/* line 82, ../../src/pivotal-ui/components/typography.css.scss */
-h1, .h1, .form-contenteditable input.form-control, h2, .h2, h3, .h3, h4, .h4 {
-  text-transform: none;
-}
-
-/* line 86, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 85, ../../src/pivotal-ui/components/typography.css.scss */
 h1, .h1, .form-contenteditable input.form-control {
-  font-weight: 900;
+  font-weight: 400;
   color: #243640;
 }
 
-/* line 91, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 90, ../../src/pivotal-ui/components/typography.css.scss */
 h2, .h2 {
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 400;
 }
 
-/* line 96, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 94, ../../src/pivotal-ui/components/typography.css.scss */
 h3, .h3 {
-  font-weight: 600;
+  font-weight: 400;
 }
 
-/* line 100, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 98, ../../src/pivotal-ui/components/typography.css.scss */
 h4, .h4 {
-  font-weight: 900;
-  text-transform: uppercase;
+  font-weight: 400;
 }
 
-/* line 105, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 102, ../../src/pivotal-ui/components/typography.css.scss */
 h5, .h5 {
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* line 107, ../../src/pivotal-ui/components/typography.css.scss */
+small,
+.type-sm {
+  font-size: 14px;
 }
 
 /* line 110, ../../src/pivotal-ui/components/typography.css.scss */
-h6, .h6 {
-  font-weight: 600;
+.type-xs,
+.type-terms {
+  font-size: 12px;
+}
+
+/* line 112, ../../src/pivotal-ui/components/typography.css.scss */
+.title {
+  font-size: 42px;
 }
 
 /*doc
 ---
-title: Emphasis
-name: emphasis
+title: Type Modifiers
+name: type-modifiers
 parent: type
 ---
 
-## Emphasize //TODO: make into a table
-
-Classes exist to let you decorate and emphasize text. Feel free to combine.
-
-
 ```haml_example
-%small De-emphasize text with the small element
-%strong rendered as bold text
-%em rendered as italicized text
-%p.type-em-1 type-em-1 text
-%p.type-em-2 type-em-2 text
-%p.type-em-3 type-em-3 text
-%p.type-em-4 type-em-4 This is generally used for numbers 456
+%h1.em-low Low emphasis
+%h1.em-default Default emphasis
+%h1.em-high High emphasis
+%h1.em-max Maximum emphasis
+%h1.em-alt Emphasis alternate
 ```
 
 */
-/* line 137, ../../src/pivotal-ui/components/typography.css.scss */
-.type-em-1 {
-  text-transform: uppercase !important;
+/* line 133, ../../src/pivotal-ui/components/typography.css.scss */
+.em-low {
+  font-weight: 200;
 }
 
-/* line 141, ../../src/pivotal-ui/components/typography.css.scss */
-.type-em-2 {
-  color: #686868;
+/* line 134, ../../src/pivotal-ui/components/typography.css.scss */
+.em-default {
+  font-weight: 400;
+}
+
+/* line 135, ../../src/pivotal-ui/components/typography.css.scss */
+.em-high {
   font-weight: 600;
 }
 
-/* line 146, ../../src/pivotal-ui/components/typography.css.scss */
-.type-em-3 {
-  font-size: 52px !important;
-  font-weight: 600 !important;
+/* line 136, ../../src/pivotal-ui/components/typography.css.scss */
+.em-max {
+  font-weight: 900;
 }
 
-/* line 151, ../../src/pivotal-ui/components/typography.css.scss */
-.type-em-4 {
-  font-size: 28px !important;
-  font-weight: 900 !important;
-  line-height: 1.2;
-}
-
-/* line 157, ../../src/pivotal-ui/components/typography.css.scss */
-.type-em-5 {
-  line-height: 1em;
+/* line 137, ../../src/pivotal-ui/components/typography.css.scss */
+.em-alt {
+  text-transform: uppercase;
 }
 
 /*doc
@@ -11274,153 +11249,65 @@ parent: colors
 ```
 
 */
-/* line 182, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 160, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-2 {
   color: #025a53 !important;
 }
 
-/* line 186, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 164, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-3 {
   color: #00776d !important;
 }
 
-/* line 190, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 168, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-4 {
   color: #00776d !important;
 }
 
-/* line 194, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 172, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-5 {
   color: #92d0c0 !important;
 }
 
-/* line 198, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 176, ../../src/pivotal-ui/components/typography.css.scss */
 .type-inverse {
   color: #e0e4e5 !important;
 }
 
-/* line 201, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 179, ../../src/pivotal-ui/components/typography.css.scss */
 a:hover.type-inverse {
   color: #025a53 !important;
 }
 
-/* line 205, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 183, ../../src/pivotal-ui/components/typography.css.scss */
 .type-primary-2 {
   color: #686868 !important;
 }
 
-/* line 209, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 187, ../../src/pivotal-ui/components/typography.css.scss */
 .type-primary-3 {
   color: #686868 !important;
 }
 
-/* line 213, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 191, ../../src/pivotal-ui/components/typography.css.scss */
 .type-primary-4 {
   color: #b4b4b4 !important;
 }
 
-/* line 217, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 195, ../../src/pivotal-ui/components/typography.css.scss */
 .type-primary-5 {
   color: #ecefef !important;
 }
 
-/* line 221, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 199, ../../src/pivotal-ui/components/typography.css.scss */
 .error-color {
   color: #ff434c !important;
 }
 
 /*doc
 ---
-title: Deemphasize
-name: deemphasize
-parent: type
----
-
-```haml_example
-%h4.type-deemphasis h4 with type-deemphasis causes lightest font-weight
-
-%h4.type-deemphasis-3 h4 with type-deemphasis causes normal font-weight
-
-%p.type-deemphasis-2 h1 with type-deemphasis-2 causes sentence case text
-
-.type-terms This text is legal text, often important to include, but we don't want to distract users from the task at hand.
-```
-
-*/
-/* line 247, ../../src/pivotal-ui/components/typography.css.scss */
-.type-deemphasis {
-  font-weight: 200 !important;
-}
-
-/* line 251, ../../src/pivotal-ui/components/typography.css.scss */
-.type-deemphasis-2 {
-  text-transform: none !important;
-}
-
-/* line 255, ../../src/pivotal-ui/components/typography.css.scss */
-.type-deemphasis-3 {
-  font-weight: 400 !important;
-}
-
-/* line 259, ../../src/pivotal-ui/components/typography.css.scss */
-.type-terms {
-  font-size: 13px;
-}
-
-/*doc
----
-title: Ellipsis
-name: ellipsis
-parent: type
----
-
-```haml_example
-%p.type-ellipsis-2-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-%p.type-ellipsis-3-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-```
-
-*/
-/* line 276, ../../src/pivotal-ui/components/typography.css.scss */
-.type-ellipsis-2-lines {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-/* line 281, ../../src/pivotal-ui/components/typography.css.scss */
-.type-ellipsis-3-lines {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-/*doc
----
-title: Single line Ellipsis
-name: ellipsis_1_line
-parent: ellipsis
----
-
-The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
-
-```haml_example
-%p.type-ellipsis-1-line Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-```
-
-*/
-/* line 302, ../../src/pivotal-ui/components/typography.css.scss */
-.type-ellipsis-1-line {
-  white-space: nowrap;
-  overflow: hidden;
-  -ms-text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  text-overflow: ellipsis;
-}
-
-/*doc
----
-title: Alignment
-name: alignment
+title: Type Alignment
+name: type_alignment
 parent: type
 ---
 
@@ -11436,66 +11323,34 @@ Class                 | Description
 `.txt-m`              | Centers text vertically
 
 */
-/* line 327, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 225, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-c, table .txt-c, table tr .txt-c, table tr td.txt-c {
   text-align: center;
 }
 
-/* line 331, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 229, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-l, table .txt-l, table tr .txt-l, table tr td.txt-l {
   text-align: left;
 }
 
-/* line 335, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 233, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-r, table .txt-r, table tr .txt-r, table tr td.txt-r {
   text-align: right;
 }
 
-/* line 339, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 237, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-t, table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
   vertical-align: top;
 }
 
-/* line 343, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 241, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-b, table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
   vertical-align: bottom;
 }
 
-/* line 347, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 245, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-m, table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
   vertical-align: middle;
-}
-
-/*doc
----
-title: Login Server Lookalikes
-name: login
-parent: type
----
-
-Special styles used to make the password reset page look the same as the login server.
-
-```haml_example
-%h1.h1-login Slightly larger H1 without all caps.
-```
-```haml_example
-%h2.h2-login Slightly larger gray h2.
-```
-*/
-/* line 368, ../../src/pivotal-ui/components/typography.css.scss */
-.h1-login {
-  color: #00776d;
-  font-size: 23px;
-  font-weight: 400;
-  text-transform: none;
-}
-
-/* line 375, ../../src/pivotal-ui/components/typography.css.scss */
-.h2-login {
-  color: #b4b4b4;
-  font-weight: normal;
-  font-size: 18px;
-  text-transform: none;
 }
 
 /*doc
@@ -11940,7 +11795,7 @@ Do not use this button on normal application pages.
 /* line 159, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.33;
   border-radius: 3px;
 }
@@ -14354,7 +14209,7 @@ An inline list is one of the three methods for laying out content (including gri
 }
 /* line 34, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline > li, .list-inline-divider > li, .list-vertical-divider > li, .list-vertical-divider-2 > li, .list-breadcrumb > li, .list-steps > li {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /*doc
@@ -14522,7 +14377,7 @@ Breadcrumbs use their own monospace font-family.
 }
 /* line 203, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li:before {
-  font-size: 15px;
+  font-size: 16px;
   color: #9faaad;
   content: ">";
   vertical-align: middle;
@@ -15477,6 +15332,57 @@ parent: tabs
 
 /*doc
 ---
+title: Ellipsis
+name: ellipsis
+---
+
+NB: This only works on webkit.
+
+```haml_example
+%p.type-ellipsis-2-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+%p.type-ellipsis-3-lines Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+*/
+/* line 15, ../../src/pivotal-ui/components/ellipsis.css.scss */
+.type-ellipsis-2-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* line 20, ../../src/pivotal-ui/components/ellipsis.css.scss */
+.type-ellipsis-3-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+/*doc
+---
+title: Single line Ellipsis
+name: ellipsis_1_line
+parent: ellipsis
+---
+
+The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
+
+```haml_example
+%p.type-ellipsis-1-line Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+```
+
+*/
+/* line 41, ../../src/pivotal-ui/components/ellipsis.css.scss */
+.type-ellipsis-1-line {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/*doc
+---
 title: Collapse Toggle
 name: collapse
 categories:
@@ -15765,7 +15671,7 @@ This is a fancy select!
 }
 /* line 188, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy input {
-  height: 30px;
+  height: 32px;
   margin: 5px;
   width: 75%;
   padding: 0 5px;
@@ -15848,7 +15754,7 @@ This is a fancy number input!
 }
 /* line 266, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy input {
-  height: 30px;
+  height: 32px;
   margin: 5px;
   padding: 0 5px;
   display: inline;
@@ -16145,9 +16051,9 @@ Bootstrap includes validation styles for error and success states on form contro
   position: absolute;
   bottom: 0;
   right: 0;
-  height: 40px;
-  width: 40px;
-  line-height: 40px;
+  height: 42px;
+  width: 42px;
+  line-height: 42px;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   background-color: #00a79d;
@@ -16165,7 +16071,7 @@ Bootstrap includes validation styles for error and success states on form contro
 
 /* line 595, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .help-block, .has-error .help-inline {
-  font-size: 13px;
+  font-size: 14px;
 }
 /* line 565, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .control-label {
@@ -16345,17 +16251,17 @@ categories:
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-sm {
-  height: 25px;
+  height: 27px;
   padding: 2px 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-sm {
-  height: 25px;
-  line-height: 25px;
+  height: 27px;
+  line-height: 27px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -16365,17 +16271,17 @@ textarea.input-sm {
 
 /* line 848, ../../src/bootstrap/_mixins.scss */
 .input-lg {
-  height: 47px;
+  height: 48px;
   padding: 10px 26px;
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.33;
   border-radius: 3px;
 }
 
 /* line 853, ../../src/bootstrap/_mixins.scss */
 select.input-lg {
-  height: 47px;
-  line-height: 47px;
+  height: 48px;
+  line-height: 48px;
 }
 
 /* line 858, ../../src/bootstrap/_mixins.scss */
@@ -18356,6 +18262,11 @@ Scrollable with too little content:
 /* line 76, ../../src/pivotal-ui/components/code.css.scss */
 .pre-scrollable {
   overflow-y: auto;
+}
+
+/* line 80, ../../src/pivotal-ui/components/code.css.scss */
+code {
+  font-size: 16px;
 }
 
 /*doc

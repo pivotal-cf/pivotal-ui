@@ -2,6 +2,15 @@
 
 ### Latest Changes
 
+
+#### Typography
+
+h6 has been removed
+.type-em-[1-5] have been removed, use classes in the type sizes section instead.
+.type-deemphasis classes have also been removed, use classes in the type weights section instead
+.h1-login or .h2-login have been removed, user regular headings in the type sizes section
+
+
 #### Sass Var changes
 $bkg-default-4-color -> $bg-neutral-9
 $bkg-default-5-color -> $bg-neutral-10

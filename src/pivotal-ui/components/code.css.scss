@@ -74,5 +74,9 @@ Scrollable with too little content:
 */
 
 .pre-scrollable {
-  overflow-y: auto;
+  overflow-y: auto; //bootstrap override
+}
+
+code {
+  font-size: $font-size-code;
 }

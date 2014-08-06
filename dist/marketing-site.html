@@ -52,6 +52,14 @@
         
           <li><a href="#type-colors">Type Colors</a></li>
         
+          <li><a href="#type">Typography</a></li>
+        
+          <li><a href="#1_type_sizes">Type Sizes</a></li>
+        
+          <li><a href="#type-modifiers">Type Modifiers</a></li>
+        
+          <li><a href="#type_alignment">Type Alignment</a></li>
+        
         </ul>
 <h1 id="button">Buttons</h1>
 
@@ -634,7 +642,93 @@ colors rather than adding new ones.</p>
 <span class="nt">%p</span><span class="nc">.type-primary-4</span> Another shade of gray
 <span class="nt">%p</span><span class="nc">.type-primary-5</span> Even lighter gray
 <span class="nt">%p</span><span class="nc">.type-inverse</span><span class="p">{</span><span class="n">style</span><span class="p">:</span><span class="s1">'background-color: #000'</span><span class="p">}</span> type-inverse text
-</pre></div></div></div>      </section>
+</pre></div></div></div>
+<h1 id="type">Typography</h1>
+
+<h2 id="1_type_sizes">Type Sizes</h2>
+
+<p>Headings can be used to define the applications typographical hierarchy.</p>
+<div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
+<h1>h1.heading level 1</h1>
+<h2>h2.heading level 2</h2>
+<h3>h3.heading level 3</h3>
+<h4>h4.heading level 4</h4>
+<h5>h5.heading level 5</h5>
+<p class='type-sm'>Small text can also be achieved with the small tag, when appropriate</p>
+<p class='type-xs'>Extra small text</p>
+<p>This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%h1</span><span class="nc">.title</span> Even bigger heading for those moments when an h1 is not enough
+<span class="nt">%h1</span> h1.heading level 1
+<span class="nt">%h2</span> h2.heading level 2
+<span class="nt">%h3</span> h3.heading level 3
+<span class="nt">%h4</span> h4.heading level 4
+<span class="nt">%h5</span> h5.heading level 5
+<span class="nt">%p</span><span class="nc">.type-sm</span> Small text can also be achieved with the small tag, when appropriate
+<span class="nt">%p</span><span class="nc">.type-xs</span> Extra small text
+
+
+<span class="nt">%p</span> This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</pre></div></div></div>
+<h3>Separating code and visual semantics</h3>
+
+<p>Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p>
+<div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%h2</span><span class="nc">.h1</span> h2.heading level 1 class applied
+</pre></div></div></div>
+<p>If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
+  (Use headings when possible since they add semantic value).</p>
+<div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
+</pre></div></div></div>
+<h2 id="type-modifiers">Type Modifiers</h2>
+<div class="codeExample"><div class="exampleOutput"><h1 class='em-low'>Low emphasis</h1>
+<h1 class='em-default'>Default emphasis</h1>
+<h1 class='em-high'>High emphasis</h1>
+<h1 class='em-max'>Maximum emphasis</h1>
+<h1 class='em-alt'>Emphasis alternate</h1>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h1</span><span class="nc">.em-low</span> Low emphasis
+<span class="nt">%h1</span><span class="nc">.em-default</span> Default emphasis
+<span class="nt">%h1</span><span class="nc">.em-high</span> High emphasis
+<span class="nt">%h1</span><span class="nc">.em-max</span> Maximum emphasis
+<span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
+</pre></div></div></div>
+<h2 id="type_alignment">Type Alignment</h2>
+
+<p>Alignment classes can be used to align text top, bottom, middle or left, right, center.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.txt-l</code></td>
+<td>Aligns text to the left</td>
+</tr>
+<tr>
+<td><code>.txt-r</code></td>
+<td>Aligns text to the right</td>
+</tr>
+<tr>
+<td><code>.txt-c</code></td>
+<td>Centers text horizontally</td>
+</tr>
+<tr>
+<td><code>.txt-t</code></td>
+<td>Aligns text to the top</td>
+</tr>
+<tr>
+<td><code>.txt-b</code></td>
+<td>Aligns text to the bottom</td>
+</tr>
+<tr>
+<td><code>.txt-m</code></td>
+<td>Centers text vertically</td>
+</tr>
+</tbody></table>
+      </section>
       <footer>
         <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
       </footer>

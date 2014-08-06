@@ -248,19 +248,11 @@
         
           <li><a href="#type">Typography</a></li>
         
-          <li><a href="#alignment">Alignment</a></li>
+          <li><a href="#1_type_sizes">Type Sizes</a></li>
         
-          <li><a href="#deemphasize">Deemphasize</a></li>
+          <li><a href="#type-modifiers">Type Modifiers</a></li>
         
-          <li><a href="#ellipsis">Ellipsis</a></li>
-        
-          <li><a href="#ellipsis_1_line">Single line Ellipsis</a></li>
-        
-          <li><a href="#emphasis">Emphasis</a></li>
-        
-          <li><a href="#headings">Headings</a></li>
-        
-          <li><a href="#login">Login Server Lookalikes</a></li>
+          <li><a href="#type_alignment">Type Alignment</a></li>
         
           <li><a href="#upgrade_your_account">Upgrade Your Account Widget</a></li>
         
@@ -4834,7 +4826,55 @@ buttons which require a wrapper div as the hover event will not fire.</p>
 </pre></div></div></div>
 <h1 id="type">Typography</h1>
 
-<h2 id="alignment">Alignment</h2>
+<h2 id="1_type_sizes">Type Sizes</h2>
+
+<p>Headings can be used to define the applications typographical hierarchy.</p>
+<div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
+<h1>h1.heading level 1</h1>
+<h2>h2.heading level 2</h2>
+<h3>h3.heading level 3</h3>
+<h4>h4.heading level 4</h4>
+<h5>h5.heading level 5</h5>
+<p class='type-sm'>Small text can also be achieved with the small tag, when appropriate</p>
+<p class='type-xs'>Extra small text</p>
+<p>This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%h1</span><span class="nc">.title</span> Even bigger heading for those moments when an h1 is not enough
+<span class="nt">%h1</span> h1.heading level 1
+<span class="nt">%h2</span> h2.heading level 2
+<span class="nt">%h3</span> h3.heading level 3
+<span class="nt">%h4</span> h4.heading level 4
+<span class="nt">%h5</span> h5.heading level 5
+<span class="nt">%p</span><span class="nc">.type-sm</span> Small text can also be achieved with the small tag, when appropriate
+<span class="nt">%p</span><span class="nc">.type-xs</span> Extra small text
+
+
+<span class="nt">%p</span> This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</pre></div></div></div>
+<h3>Separating code and visual semantics</h3>
+
+<p>Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p>
+<div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%h2</span><span class="nc">.h1</span> h2.heading level 1 class applied
+</pre></div></div></div>
+<p>If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
+  (Use headings when possible since they add semantic value).</p>
+<div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
+</pre></div></div></div>
+<h2 id="type-modifiers">Type Modifiers</h2>
+<div class="codeExample"><div class="exampleOutput"><h1 class='em-low'>Low emphasis</h1>
+<h1 class='em-default'>Default emphasis</h1>
+<h1 class='em-high'>High emphasis</h1>
+<h1 class='em-max'>Maximum emphasis</h1>
+<h1 class='em-alt'>Emphasis alternate</h1>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h1</span><span class="nc">.em-low</span> Low emphasis
+<span class="nt">%h1</span><span class="nc">.em-default</span> Default emphasis
+<span class="nt">%h1</span><span class="nc">.em-high</span> High emphasis
+<span class="nt">%h1</span><span class="nc">.em-max</span> Maximum emphasis
+<span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
+</pre></div></div></div>
+<h2 id="type_alignment">Type Alignment</h2>
 
 <p>Alignment classes can be used to align text top, bottom, middle or left, right, center.</p>
 
@@ -4870,88 +4910,6 @@ buttons which require a wrapper div as the hover event will not fire.</p>
 </tr>
 </tbody></table>
 
-<h2 id="deemphasize">Deemphasize</h2>
-<div class="codeExample"><div class="exampleOutput"><h4 class='type-deemphasis'>h4 with type-deemphasis causes lightest font-weight</h4>
-<h4 class='type-deemphasis-3'>h4 with type-deemphasis causes normal font-weight</h4>
-<p class='type-deemphasis-2'>h1 with type-deemphasis-2 causes sentence case text</p>
-<div class='type-terms'>This text is legal text, often important to include, but we don't want to distract users from the task at hand.</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h4</span><span class="nc">.type-deemphasis</span> h4 with type-deemphasis causes lightest font-weight
-
-<span class="nt">%h4</span><span class="nc">.type-deemphasis-3</span> h4 with type-deemphasis causes normal font-weight
-
-<span class="nt">%p</span><span class="nc">.type-deemphasis-2</span> h1 with type-deemphasis-2 causes sentence case text
-
-<span class="nc">.type-terms</span> This text is legal text, often important to include, but we don't want to distract users from the task at hand.
-</pre></div></div></div>
-<h2 id="ellipsis">Ellipsis</h2>
-<div class="codeExample"><div class="exampleOutput"><p class='type-ellipsis-2-lines'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-<p class='type-ellipsis-3-lines'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%p</span><span class="nc">.type-ellipsis-2-lines</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-<span class="nt">%p</span><span class="nc">.type-ellipsis-3-lines</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</pre></div></div></div>
-<h3 id="ellipsis_1_line">Single line Ellipsis</h3>
-
-<p>The type <code>.type-ellipsis-1-line</code> adds ellipsis to text when there is too much. Combine it with <code>.col-md-*</code> classes to get the width you want.</p>
-<div class="codeExample"><div class="exampleOutput"><p class='type-ellipsis-1-line'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%p</span><span class="nc">.type-ellipsis-1-line</span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</pre></div></div></div>
-<h2 id="emphasis">Emphasis</h2>
-
-<h2>Emphasize //TODO: make into a table</h2>
-
-<p>Classes exist to let you decorate and emphasize text. Feel free to combine.</p>
-<div class="codeExample"><div class="exampleOutput"><small>De-emphasize text with the small element</small>
-<strong>rendered as bold text</strong>
-<em>rendered as italicized text</em>
-<p class='type-em-1'>type-em-1 text</p>
-<p class='type-em-2'>type-em-2 text</p>
-<p class='type-em-3'>type-em-3 text</p>
-<p class='type-em-4'>type-em-4 This is generally used for numbers 456</p>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%small</span> De-emphasize text with the small element
-<span class="nt">%strong</span> rendered as bold text
-<span class="nt">%em</span> rendered as italicized text
-<span class="nt">%p</span><span class="nc">.type-em-1</span> type-em-1 text
-<span class="nt">%p</span><span class="nc">.type-em-2</span> type-em-2 text
-<span class="nt">%p</span><span class="nc">.type-em-3</span> type-em-3 text
-<span class="nt">%p</span><span class="nc">.type-em-4</span> type-em-4 This is generally used for numbers 456
-</pre></div></div></div>
-<h2 id="headings">Headings</h2>
-
-<p>Headings can be used to define the applications typographical hierarchy.</p>
-<div class="codeExample"><div class="exampleOutput"><h1>h1.heading level 1</h1>
-<h2>h2.heading level 2</h2>
-<h3>h3.heading level 3</h3>
-<h4>h4.heading level 4</h4>
-<h5>h5.heading level 5</h5>
-<h6>h6.heading level 6</h6>
-<p>This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h1</span> h1.heading level 1
-<span class="nt">%h2</span> h2.heading level 2
-<span class="nt">%h3</span> h3.heading level 3
-<span class="nt">%h4</span> h4.heading level 4
-<span class="nt">%h5</span> h5.heading level 5
-<span class="nt">%h6</span> h6.heading level 6
-<span class="nt">%p</span> This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-</pre></div></div></div>
-<h3>Separating code and visual semantics</h3>
-
-<p>Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p>
-<div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
-</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%h2</span><span class="nc">.h1</span> h2.heading level 1 class applied
-</pre></div></div></div>
-<p>If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
-  (Use headings when possible since they add semantic value).</p>
-<div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
-</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
-</pre></div></div></div>
-<h2 id="login">Login Server Lookalikes</h2>
-
-<p>Special styles used to make the password reset page look the same as the login server.</p>
-<div class="codeExample"><div class="exampleOutput"><h1 class='h1-login'>Slightly larger H1 without all caps.</h1>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h1</span><span class="nc">.h1-login</span> Slightly larger H1 without all caps.
-</pre></div></div></div><div class="codeExample"><div class="exampleOutput"><h2 class='h2-login'>Slightly larger gray h2.</h2>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h2</span><span class="nc">.h2-login</span> Slightly larger gray h2.
-</pre></div></div></div>
 <h1 id="upgrade_your_account">Upgrade Your Account Widget</h1>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple mtxl' id='upgrade_your_account'>
   <div class='panel-body'>

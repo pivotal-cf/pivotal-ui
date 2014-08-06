@@ -232,15 +232,22 @@ $link-lowlight-hover-color:       $blue-2 !default;
 
 $font-family-sans-serif:  'Source Sans Pro', 'SourceSansPro', sans-serif !default;
 $font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
-$font-family-monospace:   Monaco, Menlo, Consolas, "Courier New", monospace !default;
+$font-family-monospace:   Menlo, Consolas, "Courier New", monospace !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-$font-size-base:          15px !default;
+$font-size-base:          16px !default;
 $font-size-extra-large:   ceil($font-size-base * 1.5) !default; // ~21px
 $font-size-large:         ceil($font-size-base * 1.25) !default; // ~18px
 $font-size-medium:        ceil($font-size-base * 1.14) !default; // ~16px
-$font-size-small:         ceil($font-size-base * 0.85) !default; // ~12px
-$font-size-extra-small:   11px;
+$font-size-small:         14px;
+$font-size-extra-small:   12px;
+
+
+$font-weight-em-low:      200;
+$font-weight-em-default:  400;
+$font-weight-em-high:     600;
+$font-weight-em-max:      900;
+
 
 $headings-font-family:    $font-family-base;
 $headings-font-weight:    400 !default;
@@ -248,28 +255,29 @@ $headings-line-height:    1.5 !default;
 $headings-color:          $gray-3;
 
 //TODO: create a mixin that will determine multiplers based on px-size
-$font-size-h1:            30px;
-$font-weight-h1:          900;
+$font-size-h1:            31px;
+$font-weight-h1:          400;
 $font-color-h1:           $navy-1;
 
-$font-size-h2:            16px;
-$font-weight-h2:          900;
+$font-size-h2:            25px;
+$font-weight-h2:          400;
 
-$font-size-h3:            16px;
-$font-weight-h3:          600;
+$font-size-h3:            20px;
+$font-weight-h3:          400;
 
-$font-size-h4:            13px;
-$font-weight-h4:          900;
+$font-size-h4:            18px;
+$font-weight-h4:          400;
 
-$font-size-h5:            12px;
-$font-weight-h5:          600;
+$font-size-h5:            16px;
+$font-weight-h5:          400;
 
-$font-size-h6:            16px;
-$font-weight-h6:          600;
+$font-size-h6:            null;
 
 $line-height-base:        1.5; //1.428571429 !default; // 20/14
 $line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
 
+$font-size-code:          $font-size-base;
+$font-size-title:         42px;
 
 // Whitespace
 // -------------------------
@@ -977,6 +985,7 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // ------------------------
 $code-color:                  #c7254e !default;
 $code-bg:                     #f9f2f4 !default;
+
 
 $pre-bg:                      #f5f5f5 !default;
 $pre-color:                   $gray-dark !default;
