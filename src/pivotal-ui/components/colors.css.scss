@@ -170,7 +170,44 @@ $tabs-active-bg-color: $gray-2;
     </div>
   </div>
 </div>
-
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-1</li>
+          <li>.bg-dark-1</li>
+          <li>.type-dark-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-2</li>
+          <li>.bg-dark-2</li>
+          <li>.type-dark-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-3</li>
+          <li>.bg-dark-3</li>
+          <li>.type-dark-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row mvxl">
   <div class="col-md-3">
     <div class="chip">
