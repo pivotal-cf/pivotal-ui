@@ -35,7 +35,7 @@ $gray-11: white;
 // Shadows
 // -------------------------
 
-$shadow-1 : rgba(0, 0, 0, 0.8);
+$shadow-1 : rgba(0, 0, 0, 0.3);
 $shadow-2 : rgba(0, 0, 0, 0.14);
 $shadow-3 : rgba(0, 0, 0, 0.07);
 $glow-1 : rgba(255,255,255,0.1);
@@ -970,7 +970,8 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // ------------------------
 $code-color:                  null !default;
 $code-bg:                     $gray-10 !default;
-
+$code-border-radius:          3px;
+$code-chrome-border-radius:   6px;
 
 $pre-bg:                      #f5f5f5 !default;
 $pre-color:                   $gray-dark !default;

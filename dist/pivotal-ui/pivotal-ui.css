@@ -9120,7 +9120,44 @@ $tabs-active-bg-color: $gray-2;
     </div>
   </div>
 </div>
-
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-1</li>
+          <li>.bg-dark-1</li>
+          <li>.type-dark-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-2</li>
+          <li>.bg-dark-2</li>
+          <li>.type-dark-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-3</li>
+          <li>.bg-dark-3</li>
+          <li>.type-dark-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="row mvxl">
   <div class="col-md-3">
     <div class="chip">
@@ -9339,162 +9376,162 @@ $tabs-active-bg-color: $gray-2;
 </div>
 
 */
-/* line 393, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 430, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-1 {
   background-color: #282828;
 }
 
-/* line 396, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 433, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-2 {
   background-color: #424242;
 }
 
-/* line 399, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 436, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-3 {
   background-color: #686868;
 }
 
-/* line 402, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 439, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-4 {
   background-color: #8d8e8e;
 }
 
-/* line 405, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 442, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-5 {
   background-color: #b4b4b4;
 }
 
-/* line 408, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 445, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-6 {
   background-color: #c3c5c7;
 }
 
-/* line 411, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 448, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-7 {
   background-color: #d4d9d9;
 }
 
-/* line 414, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 451, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-8 {
   background-color: #e0e4e5;
 }
 
-/* line 417, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 454, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-9 {
   background-color: #ecefef;
 }
 
-/* line 420, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 457, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-10 {
   background-color: #f8f8f8;
 }
 
-/* line 423, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 460, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-11 {
   background-color: white;
 }
 
-/* line 428, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 465, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-1 {
   background-color: #025a53;
 }
 
-/* line 432, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 469, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-2 {
   background-color: #00776d;
 }
 
-/* line 436, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 473, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-3 {
   background-color: #00a79d;
 }
 
-/* line 440, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 477, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-4 {
   background-color: #92d0c0;
 }
 
-/* line 444, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 481, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-5 {
   background-color: #71ffda;
 }
 
-/* line 450, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 487, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-1 {
   background-color: #1a739e;
 }
 
-/* line 454, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 491, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-2 {
   background-color: #2185c5;
 }
 
-/* line 458, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 495, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-3 {
   background-color: #49a8d5;
 }
 
-/* line 462, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 499, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-4 {
   background-color: #a7c9e0;
 }
 
-/* line 466, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 503, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-5 {
   background-color: #c3f4ff;
 }
 
-/* line 472, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 509, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-1 {
   background-color: #243640;
 }
 
-/* line 476, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 513, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-2 {
   background-color: #3f484f;
 }
 
-/* line 480, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 517, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-3 {
   background-color: #525c63;
 }
 
-/* line 485, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 522, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-1 {
   background-color: #b31612;
 }
 
-/* line 489, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 526, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-2 {
   background-color: #eb3d46;
 }
 
-/* line 493, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 530, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-3 {
   background-color: #ff434c;
 }
 
-/* line 497, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 534, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-4 {
   background-color: #febfc1;
 }
 
-/* line 502, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 539, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-warn-1 {
   background-color: #f1c148;
 }
 
-/* line 506, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 543, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-warn-2 {
   background-color: #f8e1b1;
 }
 
-/* line 511, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 548, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-success-1 {
   background-color: #165450;
 }
 
-/* line 515, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 552, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-success-2 {
   background-color: #afd79b;
 }
@@ -9554,37 +9591,37 @@ parent: colors
 </div>
 </div>
 */
-/* line 577, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 614, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 581, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 618, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-2 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* line 585, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 622, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-3 {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* line 589, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 626, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-4 {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* line 593, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 630, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-1 {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 597, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 634, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 601, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 638, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
@@ -18405,6 +18442,50 @@ parent: code
 ```
 
 */
+/*doc
+---
+title: Terminal Window
+name: terminal_window
+parent: code
+---
+
+<label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label>
+
+```haml_example
+.terminal
+  %pre
+    %code.language-ruby
+      :preserve
+        class Foo
+          def bar
+            puts 'hi'
+          end
+        end
+```
+
+*/
+/* line 136, ../../src/pivotal-ui/components/code.css.scss */
+.terminal {
+  background-color: #d4d9d9;
+  padding: 6px 10px 12px 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
+}
+/* line 142, ../../src/pivotal-ui/components/code.css.scss */
+.terminal::before {
+  content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
+  color: #8d8e8e;
+  font-size: 13px;
+  font-family: FontAwesome;
+}
+/* line 149, ../../src/pivotal-ui/components/code.css.scss */
+.terminal pre[class*="language-"] {
+  margin: 2px 0 0 0;
+  border-radius: 3px;
+  min-height: 300px;
+  max-height: 800px;
+}
+
 /*doc
 ---
 title: Images

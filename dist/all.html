@@ -5,9 +5,10 @@
     <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
     <link rel="stylesheet" href="style_guide/style_guide.css">
     <link rel="stylesheet" href="style_guide/github.css">
+    <link rel="stylesheet" disbaled href="syntax-highlighting/prism-default.css">
     <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
-    <script src="style_guide/style_guide.js"></script>
     <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="style_guide/style_guide.js"></script>
     <script src="syntax-highlighting/prism.js"></script>
   </head>
   <body>
@@ -57,6 +58,8 @@
           <li><a href="#code">Code</a></li>
         
           <li><a href="#inline_code">Inline Code</a></li>
+        
+          <li><a href="#terminal_window">Terminal Window</a></li>
         
           <li><a href="#collapse">Collapse Toggle</a></li>
         
@@ -754,6 +757,22 @@ size and style modifiers.</p>
 <div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
 </pre></div></div></div>
+<h2 id="terminal_window">Terminal Window</h2>
+
+<p><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p>
+<div class="codeExample"><div class="exampleOutput"><div class='terminal'>
+  <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.terminal</span>
+  <span class="nt">%pre</span>
+    <span class="nt">%code</span><span class="nc">.language-ruby</span>
+      <span class="nd">:preserve
+</span>        <span class="nd">class Foo</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+</pre></div></div></div>
 <h1 id="collapse">Collapse Toggle</h1>
 
 <p>Also see the select tabs for a toggle triggered by a select group.
@@ -977,6 +996,45 @@ colors rather than adding new ones.</p>
           <li>$gray-11</li>
           <li>.bg-neutral-11</li>
           <li>.type-neutral-11</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-1</li>
+          <li>.bg-dark-1</li>
+          <li>.type-dark-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-2</li>
+          <li>.bg-dark-2</li>
+          <li>.type-dark-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-3</li>
+          <li>.bg-dark-3</li>
+          <li>.type-dark-3</li>
         </ul>
       </div>
     </div>

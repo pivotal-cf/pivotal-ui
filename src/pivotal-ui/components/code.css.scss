@@ -108,3 +108,48 @@ parent: code
 ```
 
 */
+
+
+/*doc
+---
+title: Terminal Window
+name: terminal_window
+parent: code
+---
+
+<label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label>
+
+```haml_example
+.terminal
+  %pre
+    %code.language-ruby
+      :preserve
+        class Foo
+          def bar
+            puts 'hi'
+          end
+        end
+```
+
+*/
+
+.terminal {
+  background-color: $gray-7;
+  padding: 6px 10px 12px 10px;
+  border-radius: $code-chrome-border-radius;
+  box-shadow: 0 2px 0 $shadow-1;
+
+  &::before {
+    content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
+    color: $gray-4;
+    font-size: 13px;
+    font-family: FontAwesome;
+  }
+
+  pre[class*="language-"] {
+    margin: 2px 0 0 0;
+    border-radius: $code-border-radius;
+    min-height: 300px;
+    max-height: 800px;
+  }
+}
