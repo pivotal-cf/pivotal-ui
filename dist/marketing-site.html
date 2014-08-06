@@ -42,6 +42,10 @@
         
           <li><a href="#full_width_button">Full width Buttons</a></li>
         
+          <li><a href="#code">Code</a></li>
+        
+          <li><a href="#inline_code">Inline Code</a></li>
+        
           <li><a href="#colors">Colors</a></li>
         
           <li><a href="#background">Backgrounds</a></li>
@@ -160,6 +164,90 @@ size and style modifiers.</p>
 <p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
 <div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
+</pre></div></div></div>
+<h1 id="code">Code</h1>
+
+<p>In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code>.language-ruby</code>.</p>
+
+<p>There are several languages already available (and others available from the <a href="http://prismjs.com">Prismjs.com</a> website), including:</p>
+
+<ul>
+<li>Markup</li>
+<li>CSS</li>
+<li>C-like</li>
+<li>JavaScript</li>
+<li>Java</li>
+<li>PHP</li>
+<li>PHP</li>
+<li>CoffeeScript</li>
+<li>Sass</li>
+<li>Bash</li>
+<li>Python</li>
+<li>HTTP</li>
+<li>Ruby</li>
+<li>Go</li>
+</ul>
+<div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%pre</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<p>Make it scrollable</p>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<p>Scrollable with too little content:</p>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<h2 id="inline_code">Inline Code</h2>
+<div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
 </pre></div></div></div>
 <h1 id="colors">Colors</h1>
 

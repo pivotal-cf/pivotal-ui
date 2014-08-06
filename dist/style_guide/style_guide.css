@@ -61,15 +61,6 @@ blockquote {
   padding: 5px;
 }
 
-/* line 56, ../../src/style_guide/style_guide.css.scss */
-code {
-  padding: 2px 4px;
-  color: #d14;
-  white-space: nowrap;
-  background-color: #f9f9f9;
-  border-radius: 4px;
-}
-
 /* line 64, ../../src/style_guide/style_guide.css.scss */
 div.codeExample, div.jsExample {
   border: 1px solid #ccc;

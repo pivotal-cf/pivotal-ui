@@ -3277,8 +3277,7 @@ samp {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  color: #c7254e;
-  background-color: #f9f2f4;
+  background-color: #f8f8f8;
   white-space: nowrap;
   border-radius: 4px;
 }
@@ -18303,9 +18302,28 @@ name: code
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
-Show some code
+In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
+
+There are several languages already available (and others available from the [Prismjs.com](http://prismjs.com
+) website), including:
+
+* Markup
+* CSS
+* C-like
+* JavaScript
+* Java
+* PHP
+* PHP
+* CoffeeScript
+* Sass
+* Bash
+* Python
+* HTTP
+* Ruby
+* Go
 
 ```haml_example
 %pre
@@ -18370,16 +18388,23 @@ Scrollable with too little content:
       end
 ```
 */
-/* line 76, ../../src/pivotal-ui/components/code.css.scss */
+/* line 95, ../../src/pivotal-ui/components/code.css.scss */
 .pre-scrollable {
   overflow-y: auto;
 }
 
-/* line 80, ../../src/pivotal-ui/components/code.css.scss */
-code {
-  font-size: 16px;
-}
+/*doc
+---
+title: Inline Code
+name: inline_code
+parent: code
+---
 
+```html_example
+<p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
+```
+
+*/
 /*doc
 ---
 title: Images

@@ -5,9 +5,28 @@ name: code
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
-Show some code
+In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
+
+There are several languages already available (and others available from the [Prismjs.com](http://prismjs.com
+) website), including:
+
+* Markup
+* CSS
+* C-like
+* JavaScript
+* Java
+* PHP
+* PHP
+* CoffeeScript
+* Sass
+* Bash
+* Python
+* HTTP
+* Ruby
+* Go
 
 ```haml_example
 %pre
@@ -77,6 +96,15 @@ Scrollable with too little content:
   overflow-y: auto; //bootstrap override
 }
 
-code {
-  font-size: $font-size-code;
-}
+/*doc
+---
+title: Inline Code
+name: inline_code
+parent: code
+---
+
+```html_example
+<p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
+```
+
+*/
