@@ -72,8 +72,8 @@
       @include background-clip-fix;
       border-top: 5px solid rgba(0,0,0,0.4);
       padding-bottom: 8px;
-      @extend .bkg-overlay-1;
-
+      background-color: rgba(0, 0, 0, .3);
+      
       .dropdown {
         height:40px;
 

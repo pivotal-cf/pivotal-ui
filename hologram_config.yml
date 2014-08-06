@@ -18,6 +18,7 @@ documentation_assets: ./doc_assets
 dependencies:
   - ./src/font-awesome
   - ./src/source-sans-pro
+  - ./src/images
 
 # Mark which category should be the index page
 # Alternatively, you may have an index.md in the documentation assets

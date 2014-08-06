@@ -2,6 +2,10 @@
 
 ### Latest Changes
 
+#### Backgrounds
+.bkg-overlay-n have been removed
+.bkg-highlight-1 has been deprecated
+.bkg-highlight-2 -> .bg-cloud
 
 #### Typography
 

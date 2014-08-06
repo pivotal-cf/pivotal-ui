@@ -11,16 +11,37 @@ categories:
 
 Background color classes can be applied to any element.
 
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-cloud"></div>
+      <div class="chip-color-name">.bg-cloud</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-glow"></div>
+      <div class="chip-color-name">.bg-glow</div>
+    </div>
+  </div>
+</div>
 
 */
 
+.bg-cloud {
+  background: $neutral-10 url('../images/gray-cloud.png') no-repeat 50% 50%;
+}
+
+.bg-glow {
+  background: radial-gradient(at bottom center, #4b6475 0%, #243640 60%);
+}
+
 /*doc
 ---
-title: Images
-name: images
-parent: background
+title: Deprecated Backgrounds
+name: deprecated_background
+parent: deprecated
 ---
-
 
 <div class="row mvxl">
   <div class="col-md-4">
@@ -29,16 +50,9 @@ parent: background
       <div class="chip-color-name">bkg-highlight-1</div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-highlight-2"></div>
-      <div class="chip-color-name">bkg-highlight-2</div>
-    </div>
-  </div>
 </div>
 
 */
-
 .bkg-highlight-1 {
   background-image: -webkit-gradient(
       linear,
@@ -48,46 +62,6 @@ parent: background
       color-stop(0, rgb(0, 119, 109))
   );
 }
-
-.bkg-highlight-2 {
-  background: $neutral-10 image-url('gray-cloud.png') no-repeat 50% 150px;
-}
-
-
-/*doc
----
-title: Overlay
-name: bkg_overlay
-parent: background
----
-
-The background overlay style is partially transparent.
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-overlay"></div>
-      <div class="chip-color-name">bkg-overlay</div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-overlay-1"></div>
-      <div class="chip-color-name">bkg-overlay-1</div>
-    </div>
-  </div>
-</div>
-*/
-
-.bkg-overlay {
-  background-color: rgba(154, 202,198, .4);
-}
-.bkg-overlay-1 {
-  background-color: rgba(0, 0, 0, .3);
-}
-
-
 
 
 

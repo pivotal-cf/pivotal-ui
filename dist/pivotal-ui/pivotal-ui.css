@@ -9603,15 +9603,38 @@ categories:
 
 Background color classes can be applied to any element.
 
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-cloud"></div>
+      <div class="chip-color-name">.bg-cloud</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-glow"></div>
+      <div class="chip-color-name">.bg-glow</div>
+    </div>
+  </div>
+</div>
 
 */
+/* line 31, ../../src/pivotal-ui/components/backgrounds.css.scss */
+.bg-cloud {
+  background: #f8f8f8 url("../images/gray-cloud.png") no-repeat 50% 50%;
+}
+
+/* line 35, ../../src/pivotal-ui/components/backgrounds.css.scss */
+.bg-glow {
+  background: radial-gradient(at bottom center, #4b6475 0%, #243640 60%);
+}
+
 /*doc
 ---
-title: Images
-name: images
-parent: background
+title: Deprecated Backgrounds
+name: deprecated_background
+parent: deprecated
 ---
-
 
 <div class="row mvxl">
   <div class="col-md-4">
@@ -9620,58 +9643,12 @@ parent: background
       <div class="chip-color-name">bkg-highlight-1</div>
     </div>
   </div>
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-highlight-2"></div>
-      <div class="chip-color-name">bkg-highlight-2</div>
-    </div>
-  </div>
 </div>
 
 */
-/* line 42, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 56, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bkg-highlight-1 {
   background-image: -webkit-gradient(linear, left bottom, right top, color-stop(1, #63ada7), color-stop(0, #00776d));
-}
-
-/* line 52, ../../src/pivotal-ui/components/backgrounds.css.scss */
-.bkg-highlight-2 {
-  background: #f8f8f8 url('/src/assets/images/gray-cloud.png?1406663635') no-repeat 50% 150px;
-}
-
-/*doc
----
-title: Overlay
-name: bkg_overlay
-parent: background
----
-
-The background overlay style is partially transparent.
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-overlay"></div>
-      <div class="chip-color-name">bkg-overlay</div>
-    </div>
-  </div>
-
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-overlay-1"></div>
-      <div class="chip-color-name">bkg-overlay-1</div>
-    </div>
-  </div>
-</div>
-*/
-/* line 83, ../../src/pivotal-ui/components/backgrounds.css.scss */
-.bkg-overlay {
-  background-color: rgba(154, 202, 198, 0.4);
-}
-
-/* line 86, ../../src/pivotal-ui/components/backgrounds.css.scss */
-.bkg-overlay-1, .navbar-fixed-left .navbar-collapse .navbar-topper {
-  background-color: rgba(0, 0, 0, 0.3);
 }
 
 /*doc
@@ -14173,7 +14150,7 @@ parent: panel
 .box .boxHeadBranded:before {
   content: "";
   display: block;
-  background: #00776d url('/src/assets/images/p-logo.png?1406663380') no-repeat center center;
+  background: #00776d url('/src/assets/images/p-logo.png') no-repeat center center;
   height: 100%;
   min-width: 65px;
   position: absolute;
@@ -15031,11 +15008,11 @@ Replaces the default bullet image with the font awesome checkmark.
   display: block;
   background-position: top left;
   background-repeat: no-repeat;
-  background-image: url('/src/assets/images/logo-pws.png?1406663635');
+  background-image: url('/src/assets/images/logo-pws.png');
 }
 /* line 24, ../../src/pivotal-ui/components/navbar.css.scss */
 .on_premise .navbar-fixed-left .navbar-header .navbar-brand .image-logo {
-  background-image: url('/src/assets/images/logo-pcf.png?1406663635');
+  background-image: url('/src/assets/images/logo-pcf.png');
 }
 /* line 31, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .nav {
@@ -15099,6 +15076,7 @@ Replaces the default bullet image with the font awesome checkmark.
   /* Firefox 4, Safari 5, Opera 10, IE 9 */
   border-top: 5px solid rgba(0, 0, 0, 0.4);
   padding-bottom: 8px;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 /* line 77, ../../src/pivotal-ui/components/navbar.css.scss */
 .navbar-fixed-left .navbar-collapse .navbar-topper .dropdown {
