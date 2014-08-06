@@ -24,6 +24,8 @@ $type-primary-n -> removed
 
 #### Sass Var changes
 
+$shadow-1            -> rgba(0, 0, 0, 0.3);
+
 $bkg-default-4-color -> $bg-neutral-9
 $bkg-default-5-color -> $bg-neutral-10
 
