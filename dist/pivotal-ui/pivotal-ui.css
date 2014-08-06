@@ -18309,7 +18309,7 @@ Show some code
 
 ```haml_example
 %pre
-  %code
+  %code.language-ruby
     :preserve
       class Foo
         def bar
@@ -18323,7 +18323,7 @@ Make it scrollable
 ```haml_example
 
 %pre.pre-scrollable
-  %code
+  %code.language-ruby
     :preserve
       class Foo
         def bar
@@ -18361,7 +18361,7 @@ Scrollable with too little content:
 ```haml_example
 
 %pre.pre-scrollable
-  %code
+  %code.language-ruby
     :preserve
       class Foo
         def bar

@@ -4,7 +4,11 @@
     <title>a brand new styleguide: Deprecated</title>
     <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
     <link rel="stylesheet" href="style_guide/style_guide.css">
-    <script src="./pivotal-ui/pivotal-ui.js"></script>
+    <link rel="stylesheet" href="style_guide/github.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <script src="style_guide/style_guide.js"></script>
+    <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="syntax-highlighting/prism.js"></script>
   </head>
   <body>
     <div class="container">
@@ -485,9 +489,9 @@ size and style modifiers.</p>
 <h1 id="code">Code</h1>
 
 <p>Show some code</p>
-<div class="codeExample"><div class="exampleOutput"><pre><code>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+<div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%pre</span>
-  <span class="nt">%code</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
     <span class="nd">:preserve
 </span>      <span class="nd">class Foo</span>
         <span class="nd">def bar</span>
@@ -496,10 +500,10 @@ size and style modifiers.</p>
       <span class="nd">end</span>
 </pre></div></div></div>
 <p>Make it scrollable</p>
-<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre>
 <span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
-  <span class="nt">%code</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
     <span class="nd">:preserve
 </span>      <span class="nd">class Foo</span>
         <span class="nd">def bar</span>
@@ -532,10 +536,10 @@ size and style modifiers.</p>
       <span class="nd">end</span>
 </pre></div></div></div>
 <p>Scrollable with too little content:</p>
-<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre>
 <span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
-  <span class="nt">%code</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
     <span class="nd">:preserve
 </span>      <span class="nd">class Foo</span>
         <span class="nd">def bar</span>

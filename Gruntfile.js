@@ -48,7 +48,21 @@ module.exports = function(grunt) {
         files: ['dist/**/*']
       }
     },
-    clean: ["build", "dist"]
+    clean: ["build", "dist"],
+    copy: {
+      main: {
+        files: [
+          {
+            expand: true, src: ['src/style_guide/*.js','src/style_guide/*.css'],
+            dest: 'dist/style_guide/', filter: 'isFile', flatten: true
+          },
+          {
+            expand: true, src: ['src/syntax-highlighting/*'],
+            dest: 'dist/syntax-highlighting/', filter: 'isFile', flatten: true
+          }
+        ]
+      }
+    }
   });
 
 
@@ -57,6 +71,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['concat','compass','hologram']);
+  grunt.registerTask('default', ['concat','compass','copy','hologram']);
 };
