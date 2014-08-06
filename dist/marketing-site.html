@@ -46,6 +46,8 @@
         
           <li><a href="#shadows">Shadows & Glows</a></li>
         
+          <li><a href="#images">Images</a></li>
+        
           <li><a href="#type">Typography</a></li>
         
           <li><a href="#1_type_sizes">Type Sizes</a></li>
@@ -599,6 +601,30 @@ colors rather than adding new ones.</p>
 
 <p></div></p>
 
+<h1 id="images">Images</h1>
+
+<h2>Responsive Images</h2>
+
+<p>Images can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p>
+<div class="codeExample"><div class="exampleOutput"><div class='row'>
+  <div class='col-md-5'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-7'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-12'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.row</span>
+  <span class="nc">.col-md-5</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-7</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-12</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
+</pre></div></div></div>
 <h1 id="type">Typography</h1>
 
 <h2 id="1_type_sizes">Type Sizes</h2>

@@ -112,6 +112,8 @@
         
           <li><a href="#spinners">Spinners</a></li>
         
+          <li><a href="#images">Images</a></li>
+        
           <li><a href="#inline-modal">Inline Modal</a></li>
         
           <li><a href="#inline_forms">Inline Forms</a></li>
@@ -2263,6 +2265,30 @@ and anything that can be done with CSS. These icons will always match the font c
 
 <span class="nc">.spinner-sm.bkg-default-5.out</span>
   <span class="nt">%i</span><span class="nc">.fa.fa-spin.fa-cog.mtxl</span>
+</pre></div></div></div>
+<h1 id="images">Images</h1>
+
+<h2>Responsive Images</h2>
+
+<p>Images can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p>
+<div class="codeExample"><div class="exampleOutput"><div class='row'>
+  <div class='col-md-5'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-7'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-12'>
+    <img alt='Responsive image' class='img-responsive' src='images/such-awesome.jpg'>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.row</span>
+  <span class="nc">.col-md-5</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-7</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-12</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"images/such-awesome.jpg"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="inline-modal">Inline Modal</h1>
 <div class="codeExample"><div class="exampleOutput"><div class='inline-modal' ng-class='inlineModalExample.state' ng-cloak ng-controller='InlineModalExampleCtrl'>
