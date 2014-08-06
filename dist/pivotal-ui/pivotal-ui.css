@@ -8994,7 +8994,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-1</li>
           <li>.bg-neutral-1</li>
-          <li>.txt-neutral-1</li>
+          <li>.type-neutral-1</li>
         </ul>
       </div>
     </div>
@@ -9007,7 +9007,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-2</li>
           <li>.bg-neutral-2</li>
-          <li>.txt-neutral-2</li>
+          <li>.type-neutral-2</li>
         </ul>
       </div>
     </div>
@@ -9019,7 +9019,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-3</li>
           <li>.bg-neutral-3</li>
-          <li>.txt-neutral-3</li>
+          <li>.type-neutral-3</li>
         </ul>
       </div>
     </div>
@@ -9031,7 +9031,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-4</li>
           <li>.bg-neutral-4</li>
-          <li>.txt-neutral-4</li>
+          <li>.type-neutral-4</li>
         </ul>
       </div>
     </div>
@@ -9043,7 +9043,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-5</li>
           <li>.bg-neutral-5</li>
-          <li>.txt-neutral-5</li>
+          <li>.type-neutral-5</li>
         </ul>
       </div>
     </div>
@@ -9055,7 +9055,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-6</li>
           <li>.bg-neutral-6</li>
-          <li>.txt-neutral-6</li>
+          <li>.type-neutral-6</li>
         </ul>
       </div>
     </div>
@@ -9067,7 +9067,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-7</li>
           <li>.bg-neutral-7</li>
-          <li>.txt-neutral-7</li>
+          <li>.type-neutral-7</li>
         </ul>
       </div>
     </div>
@@ -9079,7 +9079,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-8</li>
           <li>.bg-neutral-8</li>
-          <li>.txt-neutral-8</li>
+          <li>.type-neutral-8</li>
         </ul>
       </div>
     </div>
@@ -9091,7 +9091,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-9</li>
           <li>.bg-neutral-9</li>
-          <li>.txt-neutral-9</li>
+          <li>.type-neutral-9</li>
         </ul>
       </div>
     </div>
@@ -9103,7 +9103,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-10</li>
           <li>.bg-neutral-10</li>
-          <li>.txt-neutral-10</li>
+          <li>.type-neutral-10</li>
         </ul>
       </div>
     </div>
@@ -9115,7 +9115,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$gray-11</li>
           <li>.bg-neutral-11</li>
-          <li>.txt-neutral-11</li>
+          <li>.type-neutral-11</li>
         </ul>
       </div>
     </div>
@@ -9130,7 +9130,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$brand-1</li>
           <li>.bg-brand-1</li>
-          <li>.txt-brand-1</li>
+          <li>.type-brand-1</li>
         </ul>
       </div>
     </div>
@@ -9142,7 +9142,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$brand-2</li>
           <li>.bg-brand-2</li>
-          <li>.txt-brand-2</li>
+          <li>.type-brand-2</li>
         </ul>
       </div>
     </div>
@@ -9154,7 +9154,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$brand-3</li>
           <li>.bg-brand-3</li>
-          <li>.txt-brand-3</li>
+          <li>.type-brand-3</li>
         </ul>
       </div>
     </div>
@@ -9166,7 +9166,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$brand-4</li>
           <li>.bg-brand-4</li>
-          <li>.txt-brand-4</li>
+          <li>.type-brand-4</li>
         </ul>
       </div>
     </div>
@@ -9178,7 +9178,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$brand-5</li>
           <li>.bg-brand-5</li>
-          <li>.txt-brand-5</li>
+          <li>.type-brand-5</li>
         </ul>
       </div>
     </div>
@@ -9192,7 +9192,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$accent-5</li>
           <li>.bg-accent-5</li>
-          <li>.txt-accent-5</li>
+          <li>.type-accent-5</li>
         </ul>
       </div>
     </div>
@@ -9204,7 +9204,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$accent-2</li>
           <li>.bg-accent-2</li>
-          <li>.txt-accent-2</li>
+          <li>.type-accent-2</li>
         </ul>
       </div>
     </div>
@@ -9216,7 +9216,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$accent-3</li>
           <li>.bg-accent-3</li>
-          <li>.txt-accent-3</li>
+          <li>.type-accent-3</li>
         </ul>
       </div>
     </div>
@@ -9228,7 +9228,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$accent-4</li>
           <li>.bg-accent-4</li>
-          <li>.txt-accent-4</li>
+          <li>.type-accent-4</li>
         </ul>
       </div>
     </div>
@@ -9240,7 +9240,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$accent-5</li>
           <li>.bg-accent-5</li>
-          <li>.txt-accent-5</li>
+          <li>.type-accent-5</li>
         </ul>
       </div>
     </div>
@@ -9254,7 +9254,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$error-1</li>
           <li>.bg-error-1</li>
-          <li>.txt-error-1</li>
+          <li>.type-error-1</li>
         </ul>
       </div>
     </div>
@@ -9266,7 +9266,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$error-2</li>
           <li>.bg-error-2</li>
-          <li>.txt-error-2</li>
+          <li>.type-error-2</li>
         </ul>
       </div>
     </div>
@@ -9278,7 +9278,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$error-3</li>
           <li>.bg-error-3</li>
-          <li>.txt-error-3</li>
+          <li>.type-error-3</li>
         </ul>
       </div>
     </div>
@@ -9290,7 +9290,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$error-4</li>
           <li>.bg-error-4</li>
-          <li>.txt-error-4</li>
+          <li>.type-error-4</li>
         </ul>
       </div>
     </div>
@@ -9305,7 +9305,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$warn-1</li>
           <li>.bg-warn-1</li>
-          <li>.txt-warn-1</li>
+          <li>.type-warn-1</li>
         </ul>
       </div>
     </div>
@@ -9317,7 +9317,7 @@ $tabs-active-bg-color: $gray-2;
         <ul class='list-unstyled'>
           <li>$warn-2</li>
           <li>.bg-warn-2</li>
-          <li>.txt-warn-2</li>
+          <li>.type-warn-2</li>
         </ul>
       </div>
     </div>
@@ -11234,72 +11234,205 @@ parent: type
 ---
 title: Type Colors
 name: type-colors
-parent: colors
+parent: type
 ---
 
 ```haml_example
-%p.type-accent-2 Dark Teal text
-%p.type-accent-3 Teal text
-%p.type-accent-4 Another shade of teal text
-%p.type-accent-5 Even lighter shade of teal text
-%p.type-primary-2 Gray text
-%p.type-primary-4 Another shade of gray
-%p.type-primary-5 Even lighter gray
 %p.type-inverse{style:'background-color: #000'} type-inverse text
+
+%p.type-neutral-1 Type neutral 1
+%p.type-neutral-2 Type neutral 2
+%p.type-neutral-3 Type neutral 3
+%p.type-neutral-4 Type neutral 4
+%p.type-neutral-5 Type neutral 5
+%p.type-neutral-6 Type neutral 6
+%p.type-neutral-7 Type neutral 7
+%p.type-neutral-8 Type neutral 8
+%p.type-neutral-9 Type neutral 9
+%p.type-neutral-10 Type neutral 10
+%p.type-neutral-11 Type neutral 11
+
+%p.type-accent-1 Type accent 1
+%p.type-accent-2 Type accent 2
+%p.type-accent-3 Type accent 3
+%p.type-accent-4 Type accent 4
+%p.type-accent-5 Type accent 5
+
+%p.type-brand-1 Type brand 1
+%p.type-brand-2 Type brand 2
+%p.type-brand-3 Type brand 3
+%p.type-brand-4 Type brand 4
+%p.type-brand-5 Type brand 5
+
+%p.type-error-1 Type error 1
+%p.type-error-2 Type error 2
+%p.type-error-3 Type error 3
+%p.type-error-4 Type error 4
+
+%p.type-success-1 Type success 1
+%p.type-success-2 Type success 2
+
+%p.type-warn-1 Type warn 1
+%p.type-warn-2 Type warn 2
 ```
 
 */
-/* line 160, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 189, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-1 {
+  color: #282828;
+}
+
+/* line 190, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-2 {
+  color: #424242;
+}
+
+/* line 191, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-3 {
+  color: #686868;
+}
+
+/* line 192, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-4 {
+  color: #8d8e8e;
+}
+
+/* line 193, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-5 {
+  color: #b4b4b4;
+}
+
+/* line 194, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-6 {
+  color: #c3c5c7;
+}
+
+/* line 195, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-7 {
+  color: #d4d9d9;
+}
+
+/* line 196, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-8 {
+  color: #e0e4e5;
+}
+
+/* line 197, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-9 {
+  color: #ecefef;
+}
+
+/* line 198, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-10 {
+  color: #f8f8f8;
+}
+
+/* line 199, ../../src/pivotal-ui/components/typography.css.scss */
+.type-neutral-11 {
+  color: white;
+}
+
+/* line 203, ../../src/pivotal-ui/components/typography.css.scss */
+.type-brand-1 {
+  color: #025a53;
+}
+
+/* line 204, ../../src/pivotal-ui/components/typography.css.scss */
+.type-brand-2 {
+  color: #00776d;
+}
+
+/* line 205, ../../src/pivotal-ui/components/typography.css.scss */
+.type-brand-3 {
+  color: #00a79d;
+}
+
+/* line 206, ../../src/pivotal-ui/components/typography.css.scss */
+.type-brand-4 {
+  color: #92d0c0;
+}
+
+/* line 207, ../../src/pivotal-ui/components/typography.css.scss */
+.type-brand-5 {
+  color: #71ffda;
+}
+
+/* line 211, ../../src/pivotal-ui/components/typography.css.scss */
+.type-accent-1 {
+  color: #1a739e;
+}
+
+/* line 212, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-2 {
-  color: #025a53 !important;
+  color: #2185c5;
 }
 
-/* line 164, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 213, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-3 {
-  color: #00776d !important;
+  color: #49a8d5;
 }
 
-/* line 168, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 214, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-4 {
-  color: #00776d !important;
+  color: #a7c9e0;
 }
 
-/* line 172, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 215, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-5 {
-  color: #92d0c0 !important;
+  color: #c3f4ff;
 }
 
-/* line 176, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 219, ../../src/pivotal-ui/components/typography.css.scss */
+.type-error-1 {
+  color: #b31612;
+}
+
+/* line 220, ../../src/pivotal-ui/components/typography.css.scss */
+.type-error-2 {
+  color: #eb3d46;
+}
+
+/* line 221, ../../src/pivotal-ui/components/typography.css.scss */
+.type-error-3 {
+  color: #ff434c;
+}
+
+/* line 222, ../../src/pivotal-ui/components/typography.css.scss */
+.type-error-4 {
+  color: #febfc1;
+}
+
+/* line 226, ../../src/pivotal-ui/components/typography.css.scss */
+.type-warn-1 {
+  color: #f1c148;
+}
+
+/* line 227, ../../src/pivotal-ui/components/typography.css.scss */
+.type-warn-2 {
+  color: #f8e1b1;
+}
+
+/* line 231, ../../src/pivotal-ui/components/typography.css.scss */
+.type-success-1 {
+  color: #165450;
+}
+
+/* line 232, ../../src/pivotal-ui/components/typography.css.scss */
+.type-success-2 {
+  color: #afd79b;
+}
+
+/* line 234, ../../src/pivotal-ui/components/typography.css.scss */
 .type-inverse {
   color: #e0e4e5 !important;
 }
 
-/* line 179, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 237, ../../src/pivotal-ui/components/typography.css.scss */
 a:hover.type-inverse {
   color: #025a53 !important;
 }
 
-/* line 183, ../../src/pivotal-ui/components/typography.css.scss */
-.type-primary-2 {
-  color: #686868 !important;
-}
-
-/* line 187, ../../src/pivotal-ui/components/typography.css.scss */
-.type-primary-3 {
-  color: #686868 !important;
-}
-
-/* line 191, ../../src/pivotal-ui/components/typography.css.scss */
-.type-primary-4 {
-  color: #b4b4b4 !important;
-}
-
-/* line 195, ../../src/pivotal-ui/components/typography.css.scss */
-.type-primary-5 {
-  color: #ecefef !important;
-}
-
-/* line 199, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 241, ../../src/pivotal-ui/components/typography.css.scss */
 .error-color {
   color: #ff434c !important;
 }
@@ -11323,32 +11456,32 @@ Class                 | Description
 `.txt-m`              | Centers text vertically
 
 */
-/* line 225, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 265, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-c, table .txt-c, table tr .txt-c, table tr td.txt-c {
   text-align: center;
 }
 
-/* line 229, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 269, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-l, table .txt-l, table tr .txt-l, table tr td.txt-l {
   text-align: left;
 }
 
-/* line 233, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 273, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-r, table .txt-r, table tr .txt-r, table tr td.txt-r {
   text-align: right;
 }
 
-/* line 237, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 277, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-t, table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
   vertical-align: top;
 }
 
-/* line 241, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 281, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-b, table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
   vertical-align: bottom;
 }
 
-/* line 245, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 285, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-m, table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
   vertical-align: middle;
 }

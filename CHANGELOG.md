@@ -6,14 +6,23 @@
 #### Typography
 
 h6 has been removed
-.type-em-[1-5] have been removed, use classes in the type sizes section instead.
+.type-em-n have been removed, use classes in the type sizes section instead.
 .type-deemphasis classes have also been removed, use classes in the type weights section instead
 .h1-login or .h2-login have been removed, user regular headings in the type sizes section
 
+$type-accent-n  -> removed
+$type-gray-n    -> removed
+$type-primary-n -> removed
+
+.type-accent-n  -> now uses accent blue. If you want teal colors, use .type-brand-n
+.type-primary-n -> removed. For gray colored text, use .type-neutral-n
+
 
 #### Sass Var changes
+
 $bkg-default-4-color -> $bg-neutral-9
 $bkg-default-5-color -> $bg-neutral-10
+
 $teal-1, $teal-2     -> $teal-1
 $teal-3              -> $teal-2
 $teal-4              -> $teal-3

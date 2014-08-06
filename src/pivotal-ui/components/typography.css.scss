@@ -136,42 +136,100 @@ parent: type
 .em-max { font-weight: $font-weight-em-max; }
 .em-alt { text-transform: uppercase; }
 
-
 /*doc
 ---
 title: Type Colors
 name: type-colors
-parent: colors
+parent: type
 ---
 
 ```haml_example
-%p.type-accent-2 Dark Teal text
-%p.type-accent-3 Teal text
-%p.type-accent-4 Another shade of teal text
-%p.type-accent-5 Even lighter shade of teal text
-%p.type-primary-2 Gray text
-%p.type-primary-4 Another shade of gray
-%p.type-primary-5 Even lighter gray
 %p.type-inverse{style:'background-color: #000'} type-inverse text
+
+%p.type-neutral-1 Type neutral 1
+%p.type-neutral-2 Type neutral 2
+%p.type-neutral-3 Type neutral 3
+%p.type-neutral-4 Type neutral 4
+%p.type-neutral-5 Type neutral 5
+%p.type-neutral-6 Type neutral 6
+%p.type-neutral-7 Type neutral 7
+%p.type-neutral-8 Type neutral 8
+%p.type-neutral-9 Type neutral 9
+%p.type-neutral-10 Type neutral 10
+%p.type-neutral-11 Type neutral 11
+
+%p.type-accent-1 Type accent 1
+%p.type-accent-2 Type accent 2
+%p.type-accent-3 Type accent 3
+%p.type-accent-4 Type accent 4
+%p.type-accent-5 Type accent 5
+
+%p.type-brand-1 Type brand 1
+%p.type-brand-2 Type brand 2
+%p.type-brand-3 Type brand 3
+%p.type-brand-4 Type brand 4
+%p.type-brand-5 Type brand 5
+
+%p.type-error-1 Type error 1
+%p.type-error-2 Type error 2
+%p.type-error-3 Type error 3
+%p.type-error-4 Type error 4
+
+%p.type-success-1 Type success 1
+%p.type-success-2 Type success 2
+
+%p.type-warn-1 Type warn 1
+%p.type-warn-2 Type warn 2
 ```
 
 */
 
-.type-accent-2 {
-  color: $type-accent-2 !important;
-}
+// gray type
 
-.type-accent-3 {
-  color: $type-accent-3 !important;
-}
+.type-neutral-1 { color: $neutral-1; }
+.type-neutral-2 { color: $neutral-2; }
+.type-neutral-3 { color: $neutral-3; }
+.type-neutral-4 { color: $neutral-4; }
+.type-neutral-5 { color: $neutral-5; }
+.type-neutral-6 { color: $neutral-6; }
+.type-neutral-7 { color: $neutral-7; }
+.type-neutral-8 { color: $neutral-8; }
+.type-neutral-9 { color: $neutral-9; }
+.type-neutral-10 { color: $neutral-10; }
+.type-neutral-11 { color: $neutral-11; }
 
-.type-accent-4 {
-  color: $type-accent-4 !important;
-}
+// teal type
 
-.type-accent-5 {
-  color: $type-accent-5 !important;
-}
+.type-brand-1 { color: $brand-1; }
+.type-brand-2 { color: $brand-2; }
+.type-brand-3 { color: $brand-3; }
+.type-brand-4 { color: $brand-4; }
+.type-brand-5 { color: $brand-5; }
+
+// blue type
+
+.type-accent-1 { color: $accent-1; }
+.type-accent-2 { color: $accent-2; }
+.type-accent-3 { color: $accent-3; }
+.type-accent-4 { color: $accent-4; }
+.type-accent-5 { color: $accent-5; }
+
+// red type
+
+.type-error-1 { color: $error-1; }
+.type-error-2 { color: $error-2; }
+.type-error-3 { color: $error-3; }
+.type-error-4 { color: $error-4; }
+
+// yellow type
+
+.type-warn-1 { color: $warn-1; }
+.type-warn-2 { color: $warn-2; }
+
+// green type
+
+.type-success-1 { color: $success-1; }
+.type-success-2 { color: $success-2; }
 
 .type-inverse {
   color: $type-inverse !important;
@@ -180,27 +238,9 @@ a:hover.type-inverse {
   color: $type-inverse-hover !important;
 }
 
-.type-primary-2 {
-  color: $type-primary-2 !important;
-}
-
-.type-primary-3 {
-  color: $type-primary-3 !important;
-}
-
-.type-primary-4 {
-  color: $type-primary-4 !important;
-}
-
-.type-primary-5 {
-  color: $type-primary-5 !important;
-}
-
 .error-color {
   color: $error-color !important;
 }
-
-
 
 /*doc
 ---

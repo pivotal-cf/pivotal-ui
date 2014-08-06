@@ -563,7 +563,7 @@ Bootstrap includes validation styles for error and success states on form contro
 /* overrides bootstrap colors */
 @mixin validation-label-color() {
   .control-label {
-    color: $type-primary-4;
+    color: $neutral-5;
   }
 }
 
@@ -785,10 +785,10 @@ categories:
 @include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
 
 .control-label{
-  color: $type-primary-4
+  color: $neutral-5;
 }
 p.form-control-static {
-  color: $type-primary-2;
+  color: $neutral-3;
 }
 
 /*doc
