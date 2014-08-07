@@ -67,6 +67,10 @@ module.exports = function(grunt) {
           {
             expand: true, src: ['src/syntax-highlighting/*'],
             dest: 'dist/syntax-highlighting/', filter: 'isFile', flatten: true
+          },
+          {
+            expand: true, src: ['src/style_guide/*.html'],
+            dest: 'dist/', filter: 'isFile', flatten: true
           }
         ]
       }

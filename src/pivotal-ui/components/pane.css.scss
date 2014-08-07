@@ -1,0 +1,27 @@
+/*doc
+---
+title: Pane
+name: Pane
+categories:
+  - All
+  - CSS
+  - marketing-site
+---
+
+Panes are horizontal groupings of content that are usually used to
+span the full browser window width. It's going to look funny here,
+a better way to view it is on the [panes page](/pane.html).
+
+You can combine up to two background classes on the pane component.
+The one on the `.pane` element will span the full browser width. The
+one on the `.container` element will be constrained to the content width.
+
+```html_example
+<div class="pane bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+  </div>
+</div>
+
+```
+*/
