@@ -4,7 +4,7 @@ module.exports = function(grunt) {
       options: {
         separator: ';'
       },
-      dist: {
+      production_js: {
         src: [
           'src/jquery/jquery.js',
           'src/bootstrap/javascript/tooltip.js',
@@ -23,7 +23,7 @@ module.exports = function(grunt) {
         ],
         dest: 'dist/pivotal-ui/pivotal-ui.js'
       },
-      dist: {
+      style_guide_css: {
         src: [
           'src/style_guide/style_guide.css',
           'src/style_guide/github.css'
