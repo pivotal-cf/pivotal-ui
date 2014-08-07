@@ -1,17 +1,22 @@
-pivotal-ui
-==========
+# pivotal-ui
+
+***
 
 Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
 
 
-## Getting Started with the CSS Version
+## Getting started
 
-Copy the `dist/` directory into your project.
+### CSS Version
 
-To use the styles, link to `dist/pivotal-ui/pivotal-ui.css` in your html. As long as you leave the directory structure intact this is all you need to do. Bravo!
+1. Copy the `dist/` directory into your project.
+
+2. Link to `dist/pivotal-ui/pivotal-ui.css` in your html to use the styles. 
+
+As long as you leave the directory structure intact this is all you need to do. Bravo!
 
 
-## Getting Started with the Sass Version
+### Sass Version
 
 If you think you'll want to modify the CSS, you'll need the Sass version of Pivotal-UI.
 
@@ -20,11 +25,40 @@ If you think you'll want to modify the CSS, you'll need the Sass version of Pivo
 2. Compile *only* `src/pivotal-ui/pivotal-ui.scss` using compass 
 3. Make the resulting css file available in your html.
 
-## Including JavaScript components
+### JavaScript components
 
 For the javascript components you will need to include `dist/pivotal-ui/pivotal-ui.js` from `dist/bootstrap/`.
 
 `dist/index.html` has the static Style Guide for reference.
+
+## Syntax Highlighting
+
+There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme, by linking to one of the following stylesheets:
+
+* `dist/syntax-highlighting/prism-default.css` (for the light theme)
+* `dist/syntax-highlighting/prism-okaida.css` (for the dark theme). 
+
+You can only include one of these themes at a time.
+
+See the styleguide for [examples of syntax highlighting in action](http://styleguide.cfapps.io/all.html#code).
+
+### Usage
+
+```
+
+  <pre>
+	<code class='language-ruby'>
+	  class Foo
+	    def bar
+	    end
+	  end
+	</code>
+  </pre>
+
+```
+
+
+
 
 ## Developer Notes
 

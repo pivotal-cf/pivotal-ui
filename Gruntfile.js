@@ -18,9 +18,17 @@ module.exports = function(grunt) {
           'src/bootstrap/javascript/modal.js',
           'src/bootstrap/javascript/scrollspy.js',
           'src/bootstrap/javascript/tab.js',
-          'src/bootstrap/javascript/transition.js'
+          'src/bootstrap/javascript/transition.js',
+          'src/syntax-highlighting/prism.js'
         ],
         dest: 'dist/pivotal-ui/pivotal-ui.js'
+      },
+      dist: {
+        src: [
+          'src/style_guide/style_guide.css',
+          'src/style_guide/github.css'
+        ],
+        dest: 'dist/style_guide/style_guide.css'
       }
     },
     compass: {
@@ -53,7 +61,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {
-            expand: true, src: ['src/style_guide/*.js','src/style_guide/*.css'],
+            expand: true, src: ['src/style_guide/*.js'],
             dest: 'dist/style_guide/', filter: 'isFile', flatten: true
           },
           {
