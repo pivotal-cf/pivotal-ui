@@ -4,8 +4,12 @@
 
 Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
 
+[Visit a live version of the styleguide](http://styleguide.cfapps.io).
+
 
 ## Getting started
+
+[Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases) or follow the [developer notes](#developer-notes) to compile the source yourself.
 
 ### CSS Version
 
@@ -13,8 +17,7 @@ Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwes
 
 2. Link to `dist/pivotal-ui/pivotal-ui.css` in your html to use the styles. 
 
-As long as you leave the directory structure intact this is all you need to do. Bravo!
-
+As long as you leave the directory structure intact this is all you need to do. Bravo!`
 
 ### Sass Version
 
@@ -62,7 +65,7 @@ See the styleguide for [examples of syntax highlighting in action](http://styleg
 
 ## Developer Notes
 
-If you intend to push code for pivotal ui itself, there are a few things you'll need to do.
+If you intend to build pivotal ui itself, there are a few things you'll need to do.
 
 ### Install Tools (in order)
 
@@ -84,11 +87,21 @@ As soon as you have your tools installed, and then again each time you make chan
 
     $ grunt
 
+This will create the `dist/` directory that will house the compiled resources and the styleguide.
+
 ### Pushing the styleguide to cfapps.io
 
 After building, in the project root directory, run 
 
     $ cf push -f manifest.yml
+
+This will deploy to <http://styleguide.cfapps.io>.
+
+### Cleaning up the dist/ directory
+
+You may (rarely!) need to clear out all the compiled files. 
+
+    $ grunt clean
 
 
 
