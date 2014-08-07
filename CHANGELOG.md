@@ -2,6 +2,10 @@
 
 ### Latest Changes
 
+#### Dividers
+
+.divider-lowlight -> removed. Use .divider-n and .divider-alternate-n instead.
+
 #### Backgrounds
 .bkg-overlay-n have been removed
 .bkg-highlight-1 has been deprecated

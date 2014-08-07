@@ -5,18 +5,37 @@ name: divider
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 Dividers draw horizontal lines between different content groupings.
 
-
 ```haml_example
-%hr.divider-lowlight
+
+%hr.divider-alternate-1
+%hr.divider-alternate-2
+
+.contrast-bar
+  %hr.divider-normal-1
+  %hr.divider-normal-2
+
 ```
 
 */
 
 
-.divider-lowlight {
-  border-top: $divider-lowlight-border;
+.divider-alternate-1 {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.divider-alternate-2 {
+  border: 3px solid rgba(0,0,0,0.1);
+}
+
+.divider-1 {
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.divider-2 {
+  border: 3px solid rgba(255,255,255,0.1);
 }
