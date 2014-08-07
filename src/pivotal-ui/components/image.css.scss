@@ -7,20 +7,49 @@ categories:
   - CSS
   - marketing-site
 ---
+*/
 
-## Responsive Images
+/*doc
+---
+title: Responsive Images
+name: responsive_images
+parent: images
+---
 
 Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
 
 ```haml_example
 .row
   .col-md-5
-    %img.img-responsive{:alt => "Responsive image", :src => "images/such-awesome.jpg"}
+    %img.img-responsive{:alt => "Responsive image", :src => "http://i0.kym-cdn.com/photos/images/original/000/581/296/c09.jpg"}
   .col-md-7
-    %img.img-responsive{:alt => "Responsive image", :src => "images/such-awesome.jpg"}
+    %img.img-responsive{:alt => "Responsive image", :src => "http://i0.kym-cdn.com/photos/images/original/000/581/296/c09.jpg"}
   .col-md-12
-    %img.img-responsive{:alt => "Responsive image", :src => "images/such-awesome.jpg"}
+    %img.img-responsive{:alt => "Responsive image", :src => "http://i0.kym-cdn.com/photos/images/original/000/581/296/c09.jpg"}
 ```
 
 
 */
+
+
+/*doc
+---
+title: Avatar Images
+name: avatar_images
+parent: images
+---
+
+Avatar images are expected to by 100px by 100px.
+
+
+```haml_example
+%img{src: "http://placehold.it/100x100", alt: "...", class: "img-circle avatar", height: "100", width: "100"}
+
+```
+
+
+*/
+.avatar {
+  border: $avatar-border;
+  box-sizing: border-box;
+}
