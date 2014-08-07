@@ -10,13 +10,13 @@
 /tmp/
 .ruby-version
 .sass-cache/
-
+/dist/
 node_modules/
+/vendor/
 
 ## Specific to RubyMotion:
 .dat*
 .repl_history
-build/
 
 
 ## Documentation cache and generated files:
