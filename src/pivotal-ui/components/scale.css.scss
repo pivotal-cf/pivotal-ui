@@ -34,7 +34,7 @@ highlighted on page load.
                                                                                                               Instances
       </text>
 
-      <g class="instances-column selected-group" id="instances-1">
+      <g class="instances-column selected-group" id="instances-1" filter="url(#desaturate-filter)">
       <text transform="matrix(1 0 0 1 105.1135 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
       1
       </text>
@@ -42,7 +42,7 @@ highlighted on page load.
       <path fill="#3F4950" d="M80.129 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L80.129 279.625z"/>
       <path fill="#525D64" d="M131.001 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C132.209 278.859 131.726 278.475 131.001 278.331z"/>
       </g>
-      <g class="instances-column" id="instances-4">
+      <g class="instances-column" id="instances-4" filter="url(#desaturate-filter)">
       <text transform="matrix(1 0 0 1 224.4272 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
       4
       </text>
@@ -60,7 +60,7 @@ highlighted on page load.
       <path fill="#525D64" d="M253.853 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 171.278 254.577 170.894 253.853 170.75z"/>
 
       </g>
-      <g class="instances-column" id="instances-6">
+      <g class="instances-column" id="instances-6" filter="url(#desaturate-filter)">
       <text transform="matrix(1 0 0 1 347.2788 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
       6
       </text>
@@ -84,7 +84,7 @@ highlighted on page load.
       <path fill="#3F4950" d="M325.294 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 100.399z"/>
       <path fill="#525D64" d="M376.167 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 99.633 376.891 99.249 376.167 99.105z"/>
       </g>
-      <g class="instances-column another-class" id="instances-8">
+      <g class="instances-column another-class" id="instances-8" filter="url(#desaturate-filter)">
       <text transform="matrix(1 0 0 1 470.1294 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
       8
       </text>
@@ -138,10 +138,6 @@ highlighted on page load.
 </div>
 ```
 */
-
-.instances-column {
-  filter: url(#desaturate-filter);
-}
 
 .instances-column:hover, .selected-group {
   filter: none;
