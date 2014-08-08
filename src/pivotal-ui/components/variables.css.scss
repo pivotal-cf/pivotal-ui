@@ -708,6 +708,11 @@ $traffic-light-running-color:   $teal-3;
 $traffic-light-stopped-color:   $gray-4;
 $traffic-light-crashed-color:   $red-3;
 
+// Instance Scale SVG
+// -------------------------
+$instance-scale-gradient-start: $neutral-9;
+$instance-scale-gradient-end:   rgba(255,255,255,0);
+
 // Form states
 // -------------------------
 
