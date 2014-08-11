@@ -121,8 +121,8 @@ highlighted on page load.
       </filter>
 
       <linearGradient id="bg-gradient" x1="0" x2="1" y1="0" y2="1">
-      <stop class="stop1" offset="0%"/>
-      <stop class="stop2" offset="90%"/>
+      <stop class="instances-gradient-stop-1" offset="0%"/>
+      <stop class="instances-gradient-stop-2" offset="90%"/>
       </linearGradient>
       </svg>
     </div>
@@ -143,5 +143,5 @@ highlighted on page load.
   filter: none;
 }
 
-.stop1 { stop-color: $instance-scale-gradient-start; }
-.stop2 { stop-color: $instance-scale-gradient-end; }
+.instances-gradient-stop-1 { stop-color: $instance-scale-gradient-start; }
+.instances-gradient-stop-2 { stop-color: $instance-scale-gradient-end; }
