@@ -24,4 +24,57 @@ one on the `.container` element will be constrained to the content width.
 </div>
 
 ```
+
+```html_example
+<div class="pane pane-offset bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+    <div class="pane-image">
+      <img class="img-responsive" src="images/console-laptop.png" alt="A laptop showing Pivotal Web Services dashboard." />
+    </div>
+  </div>
+</div>
+<div class="pane bg-cloud">
+  <div class="container">
+    <h1>This is another pane</h1>
+  </div>
+</div>
+
+```
+
 */
+
+.pane-offset{
+  .pane-image {
+    text-align: center;
+    margin-bottom: -$pane-offset-xs;
+    > img {
+      display: inline-block;
+    }
+  }
+  &+ .pane .container {
+    padding-top: $pane-offset-xs;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .pane-offset{
+    .pane-image {
+      margin-bottom: -$pane-offset-sm;
+    }
+    &+ .pane .container {
+      padding-top: $pane-offset-sm;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .pane-offset{
+    .pane-image {
+      margin-bottom: -$pane-offset-md;
+    }
+    &+ .pane .container {
+      padding-top: $pane-offset-md;
+    }
+  }
+}

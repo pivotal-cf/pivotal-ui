@@ -692,6 +692,14 @@ $jumbotron-heading-color:        inherit !default;
 $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
 
 
+// Panes
+// -------------------------
+
+$pane-offset-md: 2 * $whitespace-xxl;
+$pane-offset-sm: 1.5 * $whitespace-xxl;
+$pane-offset-xs: 0.5 * $whitespace-xxl;
+
+
 // Health Indicator
 // -------------------------
 $health-indicator-running-color: $teal-3;
