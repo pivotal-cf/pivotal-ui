@@ -82,7 +82,7 @@
           width: 80%;
           color: $gray-5;
           float: left;
-          @include transition;
+          @include transition(all);
           &:hover {
             background-color: $glow-2;
             color: $gray-8;
@@ -96,7 +96,7 @@
           padding: 12px;
           float: right;
           color: $gray-5;
-          @include transition;
+          @include transition(all);
           &:hover {
             cursor: pointer;
             background-color: $glow-2;
@@ -162,7 +162,7 @@
       font-weight: 400;
       color: $gray-5;
       display: block;
-      @include transition;
+      @include transition(all);
       padding: 8px;
     }
 

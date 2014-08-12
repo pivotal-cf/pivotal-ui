@@ -123,11 +123,11 @@
           box-shadow: $shadow;
 }
 
-//Transitions
-//@mixin transition($transition...) {
-//  -webkit-transition: $transition;
-//          transition: $transition;
-//}
+// Transitions
+@mixin transition($transition...) {
+  -webkit-transition: $transition;
+          transition: $transition;
+}
 @mixin transition-property($transition-property) {
   -webkit-transition-property: $transition-property;
           transition-property: $transition-property;

@@ -5,7 +5,7 @@
   background-color: $background;
   border: none;
 
-  @include transition;
+  @include transition(all);
   &:hover,
   &:focus,
   &:active,

@@ -188,11 +188,11 @@ parent: panel
     border-top: none; // bootstrap override
     padding: 4px 15px 2px 15px; // padding bottom is 2px less because of the teal border on the panel-tile
     background: transparent;
-    @include transition;
+    @include transition(all);
   }
 
   &:hover {
-    @include transition;
+    @include transition(all);
     border-color: $panel-tile-hover-border-color;
     background-color: $panel-tile-hover-bg-color;
     color: $text-color;
@@ -336,7 +336,7 @@ parent: panel
 .panel-simple-highlight-hoverable {
   @extend .panel-simple-highlight;
   &:hover {
-    @include transition;
+    @include transition(all);
     background-color: white;
     box-shadow: 0 4px 0 0 $shadow-2;
   }
@@ -394,7 +394,7 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
     background-color: $shadow-3;
 
     &:hover {
-      @include transition;
+      @include transition(all);
       background-color: $gray-9;
       border-bottom: 4px solid $shadow-2;
     }
@@ -501,7 +501,7 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
   }
 
   &:hover{
-    @include transition;
+    @include transition(all);
     background-color: $gray-10;
 
     .hover-target-1 { // default text color => link color

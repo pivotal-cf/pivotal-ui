@@ -120,7 +120,7 @@ This is a fancy select!
 .fancy-form-element {
   box-shadow: 0 3px 0 $gray-7;
   background-color: white;
-  @include transition;
+  @include transition(all);
   border-radius: 4px;
   position: relative;
 
