@@ -5,6 +5,7 @@ name: tabs
 categories:
   - All
   - JavaScript
+  - marketing-site
 ---
 
 You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` on an element.
@@ -210,3 +211,81 @@ $tab-border-size: 3px;
   padding: 20px;
 }
 
+/*doc
+---
+title: Responsive Tabs
+name: tab_responsive
+parent: tabs
+---
+
+```haml_example
+.tab-responsive
+  .row
+    .col-sm-5
+      %ul.nav.hidden-xs
+        %li.active
+          %a{"data-toggle" => "tab", :href => "#tab-responsive-1"}
+            meep
+        %li
+          %a{"data-toggle" => "tab", :href => "#tab-responsive-2"}
+            foo
+        %li
+          %a{"data-toggle" => "tab", :href => "#tab-responsive-3"}
+            bar
+        %li
+          %a{"data-toggle" => "tab", :href => "#tab-responsive-4"}
+            baz
+
+    .col-sm-19
+      %ul.tab-content
+        %li.active
+          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-1"}
+            meep
+        %li#tab-responsive-1.tab-pane.active.fade.in Content 1
+        %li
+          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-2"}
+            foo
+        %li#tab-responsive-2.tab-pane.fade Content 2
+        %li
+          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-3"}
+            foo
+        %li#tab-responsive-3.tab-pane.fade Content 3
+        %li
+          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-4"}
+            foo
+        %li#tab-responsive-4.tab-pane.fade Content 4
+
+```
+*/
+
+.tab-responsive {
+  .tab-content {
+    @extend .list-unstyled;
+  }
+
+  a[data-toggle="tab"] {
+    padding: 8px 10px;
+    color: $tab-responsive-color;
+    margin: 5px 0;
+    border-radius: $tab-responsive-radius;
+    @include transition(all);
+  }
+
+  .active a[data-toggle="tab"],
+  a[data-toggle="tab"]:hover,
+  a[data-toggle="tab"]:focus {
+    background-color: $tab-responsive-bg;
+    color: $tab-responsive-active-color;
+  }
+
+  @media (max-width: $screen-xs) {
+    a[data-toggle="tab"] {
+      background-color: $tab-responsive-bg;
+      color: $tab-responsive-active-color;
+    }
+
+    .tab-pane {
+      padding: $tab-responsive-pane-padding;
+    }
+  }
+}
