@@ -6,7 +6,7 @@
 * @requires     
 */
 
-$list-whitespace-keys: (l padding, a '', v -top -bottom, h -left -right);
+$list-whitespace-keys: (l margin, a '', v -top -bottom, h -left -right);
 @function list-expand-whitespace-key($k) {
   @each $pair in $list-whitespace-keys {
     $short: nth($pair, 1);
