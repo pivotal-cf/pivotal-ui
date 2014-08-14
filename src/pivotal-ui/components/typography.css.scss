@@ -158,6 +158,10 @@ parent: type
 %p.type-neutral-10 Type neutral 10
 %p.type-neutral-11 Type neutral 11
 
+%p.type-dark-1 Type dark 1
+%p.type-dark-2 Type dark 2
+%p.type-dark-3 Type dark 3
+
 %p.type-accent-1 Type accent 1
 %p.type-accent-2 Type accent 2
 %p.type-accent-3 Type accent 3
@@ -197,6 +201,12 @@ parent: type
 .type-neutral-9 { color: $neutral-9; }
 .type-neutral-10 { color: $neutral-10; }
 .type-neutral-11 { color: $neutral-11; }
+
+// navy type
+
+.type-dark-1 { color: $dark-1; }
+.type-dark-2 { color: $dark-2; }
+.type-dark-3 { color: $dark-3; }
 
 // teal type
 
