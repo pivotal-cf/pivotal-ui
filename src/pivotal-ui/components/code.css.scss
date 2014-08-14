@@ -129,6 +129,24 @@ parent: code
             puts 'hi'
           end
         end
+
+        class Bar
+          def bar
+            puts 'hi'
+          end
+        end
+
+        class Baz
+          def bar
+            puts 'hi'
+          end
+        end
+
+        class Bop
+          def bar
+            puts 'hi'
+          end
+        end
 ```
 
 */
@@ -149,7 +167,7 @@ parent: code
   pre[class*="language-"] {
     margin: 2px 0 0 0;
     border-radius: $code-border-radius;
-    min-height: 300px;
-    max-height: 800px;
+    height: 320px;
+    overflow-y: auto;
   }
 }
