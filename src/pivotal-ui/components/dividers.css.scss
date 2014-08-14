@@ -16,8 +16,8 @@ Dividers draw horizontal lines between different content groupings.
 %hr.divider-alternate-2
 
 .contrast-bar
-  %hr.divider-normal-1
-  %hr.divider-normal-2
+  %hr.divider-1
+  %hr.divider-2
 
 ```
 
@@ -26,16 +26,20 @@ Dividers draw horizontal lines between different content groupings.
 
 .divider-alternate-1 {
   border: 1px solid rgba(0,0,0,0.1);
+  border-width: 1px 0 0 0;
 }
 
 .divider-alternate-2 {
   border: 3px solid rgba(0,0,0,0.1);
+  border-width: 3px 0 0 0;
 }
 
 .divider-1 {
   border: 1px solid rgba(255,255,255,0.1);
+  border-width: 1px 0 0 0;
 }
 
 .divider-2 {
   border: 3px solid rgba(255,255,255,0.1);
+  border-width: 3px 0 0 0;
 }
