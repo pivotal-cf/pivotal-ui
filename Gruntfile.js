@@ -67,6 +67,14 @@ module.exports = function(grunt) {
             dest: 'dist/', filter: 'isFile', flatten: true
           }
         ]
+      },
+      to_pws: {
+        files: [
+          {
+            expand: true, src: ['dist/pivotal-ui/pivotal-ui.css'],
+            dest: '../pws-marketing-2/public/pivotal-ui', filter: 'isFile', flatten: true
+          }
+        ]
       }
     }
   });
@@ -79,5 +87,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['concat','compass','copy','hologram']);
+  grunt.registerTask('default', ['concat','compass','copy:main','hologram', 'copy:to_pws']);
 };
