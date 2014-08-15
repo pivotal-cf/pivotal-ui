@@ -67,4 +67,21 @@ $list-whitespace-keys: (l margin, a '', v -top -bottom, h -left -right);
       }
     }
   }
+  ul[class*="lh"] > li:last-child{
+    margin-right: 0 !important;
+  }
+
+  ul[class*="lh"] > li{
+    margin-left: 0 !important;
+  }
+
+  ul[class*="lv"] > li:last-child{
+    margin-bottom: 0 !important;
+  }
+
+  ul[class*="lv"] > li{
+    margin-top: 0 !important;
+  }
 }
+
+

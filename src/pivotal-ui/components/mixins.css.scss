@@ -1,3 +1,17 @@
+/* Transition mixins */
+
+@mixin transition-pui($type:all, $speed:300ms, $ease: ease-out){
+  -webkit-transition: $type $speed $ease;
+  -moz-transition: $type $speed $ease;
+  transition: $type $speed $ease;
+}
+
+@mixin no-transition(){ //TODO: is there a transition: none?
+  -webkit-transition: all 0ms ease-out;
+  -moz-transition: all 0ms ease-out;
+  transition: all 0ms ease-out;
+}
+
 /* Button Mixins */
 
 @mixin button-skin($color, $background, $background-hover) {
@@ -5,7 +19,8 @@
   background-color: $background;
   border: none;
 
-  @include transition(all);
+  @include transition-pui();
+
   &:hover,
   &:focus,
   &:active,
@@ -89,20 +104,6 @@
   -moz-background-clip: padding;     /* Firefox 3.6 */
   -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-}
-
-/* Transition mixins */
-
-@mixin transition($type:all, $speed:300ms, $ease: ease-out){
-  -webkit-transition: $type $speed $ease;
-  -moz-transition: $type $speed $ease;
-  transition: $type $speed $ease;
-}
-
-@mixin no-transition(){ //TODO: is there a transition: none?
-  -webkit-transition: all 0ms ease-out;
-  -moz-transition: all 0ms ease-out;
-  transition: all 0ms ease-out;
 }
 
 // Source sans pro mixin

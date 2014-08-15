@@ -120,7 +120,7 @@ This is a fancy select!
 .fancy-form-element {
   box-shadow: 0 3px 0 $gray-7;
   background-color: white;
-  @include transition(all);
+  @include transition-pui();
   border-radius: 4px;
   position: relative;
 
@@ -135,7 +135,7 @@ This is a fancy select!
     background: transparent;
     background-image: none;
     -webkit-appearance: none;
-    @include transition(all, 150ms);
+    @include transition-pui(all, 150ms);
     font-size: 16px;
     font-weight: 900;
     &.has-error {
@@ -165,7 +165,7 @@ This is a fancy select!
    top: 4px;
    font-size: 22px;
    color: $blue-4;
-   @include transition(all, 150ms);
+   @include transition-pui(all, 150ms);
   }
 
   &:hover {
@@ -238,7 +238,7 @@ This is a fancy number input!
     right: 0px;
     height: 100%;
     li {
-      @include transition(all, 150ms);
+      @include transition-pui(all, 150ms);
       font-size: 12px;
       background-color: white;
       border: none;

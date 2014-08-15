@@ -56,7 +56,7 @@ categories:
       fill: $gray-10;
       stroke: $gray-10;
       stroke-dashoffset: 0;
-      @include transition(stroke-dashoffset, 1s, cubic-bezier(0.55, 0.085, 0.68, 0.53));
+      @include transition-pui(stroke-dashoffset, 1s, cubic-bezier(0.55, 0.085, 0.68, 0.53));
       stroke-width: 10px;
     }
   }
@@ -78,7 +78,7 @@ categories:
       left: 87px;
       opacity: 1;
       visibility: visible;
-      @include transition(opacity, 0.5s, ease-out);
+      @include transition-pui(opacity, 0.5s, ease-out);
     }
     .stopped-controls {
       margin-top: 20px;
@@ -87,7 +87,7 @@ categories:
       visibility: visible;
       position: absolute;
       left: 134px;
-      @include transition(opacity, 0.5s, ease-out);
+      @include transition-pui(opacity, 0.5s, ease-out);
     }
     .stopping-message, .starting-message, .scaling-message {
       position: absolute;
@@ -231,7 +231,7 @@ categories:
 
   &.just-started {
     .just-started-message {
-      @include transition(opacity, 0.5s, ease-out);
+      @include transition-pui(opacity, 0.5s, ease-out);
       opacity: 1;
       visibility: visible;
     }
@@ -239,7 +239,7 @@ categories:
 
   &.just-stopped {
     .just-stopped-message {
-      @include transition(opacity, 0.5s, ease-out);
+      @include transition-pui(opacity, 0.5s, ease-out);
       opacity: 1;
       visibility: visible;
     }

@@ -175,7 +175,7 @@ $tab-border-size: 3px;
 
     > li:hover {
       cursor: pointer;
-      @include transition(all);
+      @include transition-pui();
 
       > a {
         background-color: $tab-simple-tab-hover-bg-color;
@@ -268,7 +268,7 @@ parent: tabs
     color: $tab-responsive-color;
     margin: 5px 0;
     border-radius: $tab-responsive-radius;
-    @include transition(all);
+    @include transition-pui();
   }
 
   .active a[data-toggle="tab"],

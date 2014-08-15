@@ -161,6 +161,19 @@ The classes are constructed by specifying `<type><location><size>`.
     meep
 ```
 
+
+##### Extra Large
+
+```haml_example
+%ul.lvxl
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+
 #### Horizontal Spacing Options
 
 ##### None
@@ -203,6 +216,18 @@ The classes are constructed by specifying `<type><location><size>`.
 
 ```haml_example
 %ul.list-inline.lhl
+  %li
+    feep
+  %li
+    fop
+  %li
+    meep
+```
+
+##### Extra Large
+
+```haml_example
+%ul.list-inline.lhxl
   %li
     feep
   %li

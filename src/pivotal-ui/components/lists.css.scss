@@ -668,4 +668,4 @@ Replaces the default bullet image with the font awesome checkmark.
 
 
 
-@include ooListWhitespace();
+@include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
