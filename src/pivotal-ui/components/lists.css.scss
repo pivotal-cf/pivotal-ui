@@ -127,30 +127,50 @@ Places all list items on a single line with `display: inline-block;` and some li
 title: Inline Divider List
 name: list-inline-divider
 parent: lists
+category: marketing-site
 ---
 
-Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider` also adds a simple gray border.
+Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
+also adds a simple gray border (add `.list-inline-divider-light` to make the border white).
 
 ```haml_example
 %ul.list-inline-divider
   %li
-    %a.type-em-1{href: "http://google.com"}
+    %a.type-em-1{href: "http://google.com"}<
       Edit
   %li
-    %a.type-em-1{href: "http://google.com"}
+    %a.type-em-1{href: "http://google.com"}<
       Invite
+
+.contrast-bar
+  %ul.list-inline-divider.list-inline-divider-light
+    %li
+      %a.type-em-1{href: "http://google.com"}
+        Edit
+    %li
+      %a.type-em-1{href: "http://google.com"}
+        Invite
+
+
 ```
 */
 
-.list-inline-divider {
-
-  @extend .list-inline;
+@mixin list-inline-divider($color: $neutral-5) {
   > li {
-    border-left: $list-inline-divider-border;
-    &:first-child {
-      border: none;
+
+    &:not(:first-child) {
+      border-left: 1px solid $color;
     }
   }
+}
+
+.list-inline-divider {
+  @extend .list-inline;
+  @include list-inline-divider();
+}
+
+.list-inline-divider-light {
+  @include list-inline-divider($list-inline-divider-light-color);
 }
 
 /*doc
