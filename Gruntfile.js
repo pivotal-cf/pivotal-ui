@@ -65,6 +65,10 @@ module.exports = function(grunt) {
           {
             expand: true, src: ['src/style_guide/*.html'],
             dest: 'dist/', filter: 'isFile', flatten: true
+          },
+          {
+            expand: true, src: ['src/style_guide/nginx.conf'],
+            dest: 'dist/', filter: 'isFile', flatten: true
           }
         ]
       },
