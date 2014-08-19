@@ -55,7 +55,7 @@ module.exports = function(grunt) {
       main: {
         files: [
           {
-            expand: true, src: ['src/style_guide/*.js', 'src/style_guide/github.css'],
+            expand: true, src: ['src/style_guide/*.js', 'src/style_guide/github.css', 'src/style_guide/*.html'],
             dest: 'dist/style_guide/', filter: 'isFile', flatten: true
           },
           {
@@ -63,20 +63,24 @@ module.exports = function(grunt) {
             dest: 'dist/syntax-highlighting/', filter: 'isFile', flatten: true
           },
           {
-            expand: true, src: ['src/style_guide/*.html'],
+            expand: true, src: ['src/style_guide/nginx.conf'],
             dest: 'dist/', filter: 'isFile', flatten: true
           },
           {
-            expand: true, src: ['src/style_guide/nginx.conf'],
-            dest: 'dist/', filter: 'isFile', flatten: true
+            expand: true, src: ['font-awesome/**/*', 'source-sans-pro/**/*', 'images/**/*'], cwd: 'src/',
+            dest: 'dist/', filter: 'isFile', flatten: false
           }
         ]
       },
       to_pws: {
         files: [
           {
-            expand: true, src: ['dist/pivotal-ui/pivotal-ui.css'],
-            dest: '../pws-marketing-2/public/pivotal-ui', filter: 'isFile', flatten: true
+            expand: true,
+            cwd: 'dist/',
+            src: ['**'],
+            dest: '../pws-marketing-2/public/vendor',
+            filter: 'isFile',
+            flatten: false
           }
         ]
       }

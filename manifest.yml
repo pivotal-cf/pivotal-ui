@@ -1,4 +1,4 @@
 applications:
 - name: styleguide
-  path: ./dist
+  path: ./dist/style_guide
   buildpack: https://github.com/cloudfoundry-community/staticfile-buildpack
