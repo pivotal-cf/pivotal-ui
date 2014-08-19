@@ -44,10 +44,18 @@ one on the `.container` element will be constrained to the content width.
 
 */
 
+.pane {
+  > .container {
+    padding-top: $pane-offset-xs;
+    padding-bottom: $pane-offset-xs;
+  }
+}
+
 .pane-offset{
   .pane-image {
+
     text-align: center;
-    margin-bottom: -$pane-offset-xs;
+    margin-bottom: -2*$pane-offset-xs;
     > img {
       display: inline-block;
     }
@@ -58,23 +66,35 @@ one on the `.container` element will be constrained to the content width.
 }
 
 @media (min-width: $screen-sm-min) {
+  .pane {
+    > .container {
+      padding-top: $pane-offset-sm;
+      padding-bottom: $pane-offset-sm;
+    }
+  }
   .pane-offset{
     .pane-image {
-      margin-bottom: -$pane-offset-sm;
+      margin-bottom: -2*$pane-offset-sm;
     }
     &+ .pane .container {
-      padding-top: 1.5 * $pane-offset-sm;
+      padding-top: 2 * $pane-offset-sm;
     }
   }
 }
 
 @media (min-width: $screen-md-min) {
+  .pane {
+    > .container {
+      padding-top: $pane-offset-md;
+      padding-bottom: $pane-offset-md;
+    }
+  }
   .pane-offset{
     .pane-image {
-      margin-bottom: -$pane-offset-md;
+      margin-bottom: -2*$pane-offset-md;
     }
     &+ .pane .container {
-      padding-top: 1.5 * $pane-offset-md;
+      padding-top: 2 * $pane-offset-md;
     }
   }
 }

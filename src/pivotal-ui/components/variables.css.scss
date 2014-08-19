@@ -703,9 +703,9 @@ $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
 // Panes
 // -------------------------
 
-$pane-offset-md: 2 * $whitespace-xxl;
-$pane-offset-sm: 1.5 * $whitespace-xxl;
-$pane-offset-xs: 0.5 * $whitespace-xxl;
+$pane-offset-xs: 35px;
+$pane-offset-sm: 45px;
+$pane-offset-md: 60px;
 
 
 // Health Indicator
