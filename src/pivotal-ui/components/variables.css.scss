@@ -235,15 +235,14 @@ $font-weight-em-high:     600;
 $font-weight-em-max:      900;
 
 
-$headings-font-family:    $font-family-base;
+$headings-font-family:    null;
 $headings-font-weight:    400 !default;
 $headings-line-height:    1.5 !default;
-$headings-color:          $gray-3;
+$headings-color:          null;
 
 //TODO: create a mixin that will determine multiplers based on px-size
 $font-size-h1:            31px;
 $font-weight-h1:          400;
-$font-color-h1:           $navy-1;
 
 $font-size-h2:            25px;
 $font-weight-h2:          400;
