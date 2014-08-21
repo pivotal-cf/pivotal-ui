@@ -81,7 +81,7 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'dist/',
-            src: ['**'],
+            src: ['**', '!nginx.conf', '!Staticfile'],
             dest: '../pws-marketing-2/public/vendor',
             filter: 'isFile',
             flatten: false
