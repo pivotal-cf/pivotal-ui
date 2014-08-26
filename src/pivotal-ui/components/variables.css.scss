@@ -204,14 +204,17 @@ $text-color:            $gray-3 !default;
 // Links
 // -------------------------
 
-$link-color:                      $blue-2 !default;
-$link-hover-color:                $blue-3 !default;
+$link-color:                              $blue-2;
+$link-hover-color:                        $blue-3;
 
-$link-highlight-color:            $teal-2 !default;
-$link-highlight-hover-color:      darken($link-color, 15%) !default;
+$link-lowlight-color:                     $blue-4;
+$link-lowlight-hover-color:               $blue-2;
 
-$link-lowlight-color:             $blue-4 !default;
-$link-lowlight-hover-color:       $blue-2 !default;
+$link-inverse-color:                      $blue-3;
+$link-inverse-hover-color:                $blue-4;
+
+$link-lowlight-inverse-color:             $gray-4;
+$link-lowlight-inverse-hover-color:       $gray-6;
 
 // Typography
 // -------------------------

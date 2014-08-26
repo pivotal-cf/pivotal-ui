@@ -5,6 +5,7 @@ name: link
 categories:
   - All
   - CSS
+  - marketing-site
 ---
 
 There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.
@@ -15,13 +16,13 @@ There are five different kinds of links you can use to connect related content. 
   link with an icon
 ```
 
-Link                                                                             | Class              | Description
--------------------------------------------------------------------------------- | ------------------ | -----------
-<a href="http://google.com">default link</a>                                     |                    | This is what buttons look like, this is the go to button style.
-<a class="link-highlight" href="http://google.com">highlight link</a>            | `link-highlight`   | Use this button as the primary call to action
-<a class="link-lowlight" href="http://google.com">lowlight link</a>              | `link-lowlight`    | I'm afraid I can't let you do that, yet.
-<span class="phs pvs" style="background-color: #000"><a class="link-inverse" href="http://google.com">inverse link</a></span> | `link-inverse`    | I go on a non-white background
-<a href="http://google.com"><i class="fa fa-plus"></i> link with an icon </a>     |                    | This button is for delete actions, these actions should also have a confirmation dialog
+Link                                                                                            | Class                    | Description
+--------------------------------------------------------------------------------                | ------------------       | -----------
+<a href="http://google.com">default link</a>                                                    |                          | This is what buttons look like, this is the go to button style.
+<a class="link-lowlight" href="http://google.com">lowlight link</a>                             | `link-lowlight`          | I'm afraid I can't let you do that, yet.
+<a class="link-lowlight-inverse bg-dark-1" href="http://google.com">lowlight inverse link</a>   | `link-lowlight-inverse`  | Less important links on an inverted background
+<a class="link-inverse bg-dark-1" href="http://google.com">inverse link</a>                     | `link-inverse`           | I go on a non-white background
+<a href="http://google.com"><i class="fa fa-plus"></i> link with an icon </a>                   |                          | This button is for delete actions, these actions should also have a confirmation dialog
 */
 
 a:hover {
@@ -29,12 +30,6 @@ a:hover {
   cursor: pointer;
 }
 
-.link-highlight {
-  color: $link-highlight-color;
-  &:hover {
-    color: $link-highlight-hover-color;
-  }
-}
 
 .link-lowlight {
   font-size: 12px;
@@ -45,11 +40,18 @@ a:hover {
   }
 }
 
+.link-lowlight-inverse {
+  color: $link-lowlight-inverse-color;
+  &:hover {
+    color: $link-lowlight-inverse-hover-color;
+  }
+}
+
 .link-inverse {
-  color: $type-inverse;
+  color: $link-inverse-color;
 
   &:hover {
-    color: $teal-4;
+    color: $link-inverse-hover-color;
   }
 }
 
