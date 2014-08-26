@@ -81,10 +81,19 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: 'dist/',
-            src: ['**', '!nginx.conf', '!Staticfile'],
+            src: ['**', '!nginx.conf', '!variables.css.scss', '!Staticfile'],
             dest: '../pws-marketing-2/public/vendor',
             filter: 'isFile',
             flatten: false
+          },
+          {
+            expand: true,
+            cwd: 'src/pivotal-ui/components/',
+            src: ['variables.css.scss'],
+            dest: '../pws-marketing-2/_sass/',
+            filter: 'isFile',
+            rename: function(dest, src) {
+              return dest + '_pui_variables.scss';            }
           }
         ]
       }
