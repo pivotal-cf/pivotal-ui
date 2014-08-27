@@ -32,20 +32,16 @@ larger than the container
     %p
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 ```
-*/
-
-/*
 
 You can also make the media block stack with grid columns
 
 ```haml_example
-                                                     .media.media-stackable-md
-                                                     %a.pull-left{:href => "#"}
-%img.media-object{:alt => "...", :src => "http://placehold.it/200x200"}
-.media-body
-%h4.media-heading Media heading
-%p
-Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+.media.media-stackable-md
+  %a.pull-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/200x200"}
+  .media-body
+    %h4.media-heading Media heading
+    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 ```
 */
 
