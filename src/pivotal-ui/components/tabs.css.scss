@@ -115,7 +115,6 @@ parent: tabs
   }
 }
 
-
 /*doc
 ---
 title: Simple Tabs
@@ -287,5 +286,69 @@ parent: tabs
     .tab-pane {
       padding: $tab-responsive-pane-padding;
     }
+  }
+}
+
+
+
+/*doc
+---
+title: Image Tabs
+name: image_tabs
+parent: tabs
+---
+
+Images for the tabs should be the full color version. When the tab is inactive, it will be grayscale.
+
+```haml_example
+.tabs-images
+  %ul.list-inline.nav-tabs-images
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#agility"}
+        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'agility'}
+    %li
+      %a{"data-toggle" => "tab", :href => "#choice"}
+        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'choice'}
+    %li
+      %a{"data-toggle" => "tab", :href => "#open-source"}
+        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'open source'}
+
+  .tab-content
+    #agility.tab-pane.fade.in.active Agility Content
+    #choice.tab-pane.fade Choice Content
+    #open-source.tab-pane.fade Open Source
+
+```
+*/
+
+.tabs-images {
+  .nav-tabs-images li {
+    margin: 0 3vw;
+
+    a[data-toggle=tab] {
+      display: inline-block;
+      max-width: 15vw;
+    }
+  }
+
+  .nav-tabs-images, .tab-content {
+    text-align: center;
+  }
+
+  .nav-tabs-images img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+  }
+
+  .nav-tabs-images .active img,
+  .nav-tabs-images img:hover,
+  .nav-tabs-images img:focus {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
   }
 }
