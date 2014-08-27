@@ -82,7 +82,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'dist/',
             src: ['**', '!nginx.conf', '!variables.css.scss', '!Staticfile'],
-            dest: '../pws-marketing-2/public/vendor',
+            dest: '../pws-marketing-2/vendor',
             filter: 'isFile',
             flatten: false
           },
