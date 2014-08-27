@@ -36,6 +36,47 @@ Background color classes can be applied to any element.
   background: radial-gradient(at bottom center, #4b6475 0%, #243640 60%);
 }
 
+
+/*doc
+---
+title: Full Bleed Background
+name: background_full_bleed
+parent: background
+---
+
+This example uses an about us hero image by default, but you can change it to any image you would like.
+Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.
+
+```html_example
+<div class='pane bg-full-bleed'>
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+  ```
+To modify this component to use a custom image, use an inline `background-image` style like so:
+
+```html_example
+<div class='pane bg-full-bleed' style="background-image: url(images/such-awesome.jpg)">
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+```
+*/
+
+.bg-full-bleed {
+  background-image: url(../images/aboutus-hero.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 /*doc
 ---
 title: Deprecated Backgrounds
