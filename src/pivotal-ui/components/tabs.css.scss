@@ -303,15 +303,15 @@ Images for the tabs should be the full color version. When the tab is inactive, 
 ```haml_example
 .tabs-images
   %ul.list-inline.nav-tabs-images
-    %li.active
+    %li.agility.active
       %a{"data-toggle" => "tab", :href => "#agility"}
-        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'agility'}
-    %li
+        %span.sr-only Agility
+    %li.choice
       %a{"data-toggle" => "tab", :href => "#choice"}
-        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'choice'}
-    %li
+        %span.sr-only Choice
+    %li.open-source
       %a{"data-toggle" => "tab", :href => "#open-source"}
-        %img.img-responsive{src: 'images/open-source-icon.png', alt: 'open source'}
+        %span.sr-only Open Source
 
   .tab-content
     #agility.tab-pane.fade.in.active Agility Content
@@ -323,32 +323,61 @@ Images for the tabs should be the full color version. When the tab is inactive, 
 
 .tabs-images {
   .nav-tabs-images li {
-    margin: 0 3vw;
-
     a[data-toggle=tab] {
       display: inline-block;
-      max-width: 15vw;
+      position: relative;
+      text-indent: -9999px;
+      width: 130px;
+      height: 132px;
+      background: url('../images/we-care-sprites.png') no-repeat;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+        background: url('../images/we-care-sprites.png') no-repeat;
+        opacity: 0;
+        -webkit-transition: opacity 300ms;
+        -moz-transition: opacity 300ms;
+        -ms-transition: opacity 300ms;
+        -o-transition: opacity 300ms;
+        transition: opacity 300ms;
+      }
+    }
+    a:hover::after,
+    &.active a::after {
+      opacity: 1;
+    }
+    &.agility {
+      a, a::after {
+        background-position: -10px -8px;
+      }
+
+      a:hover::after,
+      &.active a::after {
+        background-position: -10px -157px;
+      }
+    }
+    &.choice {
+      a, a::after {
+        background-position: -160px -8px;
+      }
+      a:hover::after,
+      &.active a::after {
+        background-position: -160px -157px;
+      }
+    }
+    &.open-source {
+      a, a::after {
+        background-position: -310px -8px;
+      }
+      a:hover::after,
+      &.active a::after {
+        background-position: -310px -157px;
+      }
     }
   }
-
   .nav-tabs-images, .tab-content {
     text-align: center;
-  }
-
-  .nav-tabs-images img {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-    -webkit-transition: all 300ms;
-    -moz-transition: all 300ms;
-    -ms-transition: all 300ms;
-    -o-transition: all 300ms;
-    transition: all 300ms;
-  }
-
-  .nav-tabs-images .active img,
-  .nav-tabs-images img:hover,
-  .nav-tabs-images img:focus {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
   }
 }
