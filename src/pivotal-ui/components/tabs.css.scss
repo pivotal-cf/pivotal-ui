@@ -330,6 +330,7 @@ Images for the tabs should be the full color version. When the tab is inactive, 
       width: 130px;
       height: 132px;
       background: url('../images/we-care-sprites.png') no-repeat;
+      margin: 0 30px;
 
       &::after {
         content: "";
