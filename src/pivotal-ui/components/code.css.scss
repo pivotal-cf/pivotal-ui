@@ -94,6 +94,7 @@ Scrollable with too little content:
 
 .pre-scrollable {
   overflow-y: auto; //bootstrap override
+  height: 295px; //bootstrap override
 }
 
 /*doc
