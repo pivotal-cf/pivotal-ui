@@ -68,12 +68,11 @@ To modify this component to use a custom image, use an inline `background-image`
 .bg-full-bleed {
   background-image: url(../images/aboutus-hero.png);
   background-repeat: no-repeat;
-  background-position: center -350px;
+  background-position: center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-attachment: fixed;
 }
 
 
