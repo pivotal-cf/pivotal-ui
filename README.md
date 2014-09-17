@@ -2,7 +2,24 @@
 
 ***
 
-Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
+Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
+
+## What's included
+
+#### JavaScript
+- jQuery v2.1.1
+- modernizr v2.8.3
+- Bootstrap v3.0.2
+- Prism.js
+
+#### CSS
+- Bootstrap v3.0.2
+- Font Awesome v4.10
+- Normalize CSS v1.0.2
+- OOCSS
+
+#### Fonts
+- Source Sans Pro
 
 [Visit a live version of the styleguide](http://styleguide.cfapps.io).
 
@@ -11,39 +28,39 @@ Pivotal UI will include Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwes
 
 [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases) or follow the [developer notes](#developer-notes) to compile the source yourself.
 
-### CSS Version
+### Compiled version (Recommended)
 
-1. Copy the `dist/` directory into your project.
+1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases)
+1. Unzip the release archive and move the release directory into your project
+1. Add `<link rel="stylesheet" href="/path/to/release/pivotal-ui/pivotal-ui.css">` to your html template to include the styles.
+1. Add `<script src="/path/to/release/pivotal-ui/pivotal-ui.js"></script>` to your html template to use the javascript.
 
-2. Link to `dist/pivotal-ui/pivotal-ui.css` in your html to use the styles. 
+#### Styleguide
 
-As long as you leave the directory structure intact this is all you need to do. Bravo!`
+Host `pivotal-ui/styleguide/` with a web server to view the available components.
 
-### Sass Version
+#### Editing components
 
-If you think you'll want to modify the CSS, you'll need the Sass version of Pivotal-UI.
+Do not edit compiled assets directly. If you need a component and you cannot find it in the styleguide, write your own styles and javascript separately. Doing so will make it easier to update to newer versions.
+
+
+### Compiling from source
 
 1. Copy `src/` into your project
 2. Add Compass and Sass to your project
 2. Compile *only* `src/pivotal-ui/pivotal-ui.scss` using compass 
 3. Make the resulting css file available in your html.
 
-### JavaScript components
-
-For the javascript components you will need to include `dist/pivotal-ui/pivotal-ui.js` from `dist/bootstrap/`.
-
-`dist/index.html` has the static Style Guide for reference.
-
 ## Syntax Highlighting
 
 There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme, by linking to one of the following stylesheets:
 
-* `dist/syntax-highlighting/prism-default.css` (for the light theme)
-* `dist/syntax-highlighting/prism-okaida.css` (for the dark theme). 
+* `pivotal-ui/syntax-highlighting/prism-default.css` (for the light theme)
+* `pivotal-ui/syntax-highlighting/prism-okaida.css` (for the dark theme). 
 
 You can only include one of these themes at a time.
 
-See the styleguide for [examples of syntax highlighting in action](http://styleguide.cfapps.io/all.html#code).
+See the latest styleguide for [examples of syntax highlighting in action](http://styleguide.cfapps.io/all.html#code).
 
 ### Usage
 
