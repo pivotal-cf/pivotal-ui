@@ -6,6 +6,7 @@ module.exports = function(grunt) {
       },
       production_js: {
         src: [
+          'src/modernizr/modernizr.min.js',
           'src/jquery/jquery.js',
           'src/bootstrap/javascript/tooltip.js',
           'src/bootstrap/javascript/popover.js',
