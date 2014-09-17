@@ -1,0 +1,2071 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: marketing-site</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
+    <link rel="stylesheet" href="style_guide/style_guide.css">
+    <link rel="stylesheet" href="style_guide/github.css">
+    <link rel="stylesheet" disabled href="syntax-highlighting/prism-default.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="style_guide/style_guide.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+        
+          <li><a href="all.html">All</a></li>
+        
+          <li><a href="css.html">CSS</a></li>
+        
+          <li><a href="forms.html">Forms</a></li>
+        
+          <li><a href="marketing-site.html">marketing-site</a></li>
+        
+          <li><a href="javascript.html">JavaScript</a></li>
+        
+          <li><a href="deprecated.html">Deprecated</a></li>
+        
+        </ul>
+      </nav>
+
+      <h1>a brand new style guide, it's super effective</h1>
+      <section class="content">
+        <ul>
+        
+          <li><a href="#button">Buttons</a></li>
+        
+          <li><a href="#button_sizes">Button Sizes</a></li>
+        
+          <li><a href="#buttonSkins">Button Styles</a></li>
+        
+          <li><a href="#full_width_button">Full width Buttons</a></li>
+        
+          <li><a href="#code">Code</a></li>
+        
+          <li><a href="#inline_code">Inline Code</a></li>
+        
+          <li><a href="#terminal_window">Terminal Window</a></li>
+        
+          <li><a href="#colors">Colors</a></li>
+        
+          <li><a href="#background">Backgrounds</a></li>
+        
+          <li><a href="#background_full_bleed">Full Bleed Background</a></li>
+        
+          <li><a href="#sass_colors">Sass Colors</a></li>
+        
+          <li><a href="#shadows">Shadows & Glows</a></li>
+        
+          <li><a href="#divider">Dividers</a></li>
+        
+          <li><a href="#images">Images</a></li>
+        
+          <li><a href="#avatar_images">Avatar Images</a></li>
+        
+          <li><a href="#responsive_images">Responsive Images</a></li>
+        
+          <li><a href="#responsive_svg">Responsive SVG</a></li>
+        
+          <li><a href="#instance scale">Instance Scale</a></li>
+        
+          <li><a href="#link">Links</a></li>
+        
+          <li><a href="#gentle-scroll">Gentle Scroll Links</a></li>
+        
+          <li><a href="#list-inline-divider">Inline Divider List</a></li>
+        
+          <li><a href="#map">Map</a></li>
+        
+          <li><a href="#Pane">Pane</a></li>
+        
+          <li><a href="#tabs">Tabs</a></li>
+        
+          <li><a href="#image_tabs">Image Tabs</a></li>
+        
+          <li><a href="#tab_highlight">Highlight Tabs</a></li>
+        
+          <li><a href="#tab_responsive">Responsive Tabs</a></li>
+        
+          <li><a href="#tab_simple">Simple Tabs</a></li>
+        
+          <li><a href="#type">Typography</a></li>
+        
+          <li><a href="#1_type_sizes">Type Sizes</a></li>
+        
+          <li><a href="#type-colors">Type Colors</a></li>
+        
+          <li><a href="#type-modifiers">Type Modifiers</a></li>
+        
+          <li><a href="#type_alignment">Type Alignment</a></li>
+        
+        </ul>
+<h1 id="button">Buttons</h1>
+
+<p>Button styles can be applied to any element. Typically you&#39;ll want to
+use either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
+<div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary'>Button</button>
+<a class='btn btn-primary' href='http://trulia.com'>Link</a>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary</span> Button
+<span class="nt">%a</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://trulia.com"</span><span class="p">}</span> Link
+</pre></div></div></div>
+<p>If your button is actually a link to another page, please use the
+<code>&lt;a&gt;</code> element, while if your button performs an action, such as submitting
+a form or triggering some javascript event, then use a <code>&lt;button&gt;</code> element.</p>
+
+<h2 id="button_sizes">Button Sizes</h2>
+
+<p>There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.</p>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Modifier Class</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="btn btn-primary btn-lg">Large</button></td>
+<td><code>btn btn-primary btn-lg</code></td>
+</tr>
+<tr>
+<td><button class="btn btn-primary">Default</button></td>
+<td><code>btn btn-primary</code></td>
+</tr>
+</tbody></table>
+
+<h2 id="buttonSkins">Button Styles</h2>
+
+<table><thead>
+<tr>
+<th>Button</th>
+<th>Disabled</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><button class="btn btn-default">Default</button></td>
+<td><button class="btn btn-default" disabled>Default</button></td>
+<td><code>btn btn-default</code></td>
+<td>This is what buttons look like, this is the go to button style.</td>
+</tr>
+<tr>
+<td><button class="btn btn-default-alt">Default alternate</button></td>
+<td><button class="btn btn-default-alt" disabled>Default alternate</button></td>
+<td><code>btn btn-default-alt</code></td>
+<td>This is what buttons look like, this is the go to button style (on white backgrounds).</td>
+</tr>
+<tr>
+<td><button class="btn btn-primary">Primary</button></td>
+<td><button class="btn btn-primary" disabled>Primary</button></td>
+<td><code>btn btn-primary</code></td>
+<td>Use this button as the primary call to action</td>
+</tr>
+<tr>
+<td><button class="btn btn-lowlight">Lowlight</button></td>
+<td><button class="btn btn-lowlight" disabled>Lowlight</button></td>
+<td><code>btn btn-lowlight</code></td>
+<td>Use this button for other actions, like cancel/dismiss</td>
+</tr>
+<tr>
+<td><button class="btn btn-danger">Delete</button></td>
+<td><button class="btn btn-danger" disabled>Delete</button></td>
+<td><code>btn btn-danger</code></td>
+<td>This button is for delete actions, these actions should also have a confirmation dialog</td>
+</tr>
+<tr>
+<td><button class="btn btn-highlight">Highlight</button></td>
+<td><button class="btn btn-highlight" disabled>Highlight</button></td>
+<td><code>btn btn-highlight</code></td>
+<td>Use this button for other important actions, e.g. restarting apps</td>
+</tr>
+<tr>
+<td><button class="btn btn-highlight-alt">Highlight alternate</button></td>
+<td><button class="btn btn-highlight-alt" disabled>Highlight alternate</button></td>
+<td><code>btn btn-highlight-alt</code></td>
+<td>Use this button for other important actions, e.g. marketing call to actions</td>
+</tr>
+</tbody></table>
+
+<h2 id="full_width_button">Full width Buttons</h2>
+
+<p>There is an additional modifier that will make the button take the
+full width of the container. It may be used with the any of the button
+size and style modifiers.</p>
+
+<p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
+<div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
+</pre></div></div></div>
+<h1 id="code">Code</h1>
+
+<p>In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code>.language-ruby</code>.</p>
+
+<p>There are several languages already available (and others available from the <a href="http://prismjs.com">Prismjs.com</a> website), including:</p>
+
+<ul>
+<li>Markup</li>
+<li>CSS</li>
+<li>C-like</li>
+<li>JavaScript</li>
+<li>Java</li>
+<li>PHP</li>
+<li>PHP</li>
+<li>CoffeeScript</li>
+<li>Sass</li>
+<li>Bash</li>
+<li>Python</li>
+<li>HTTP</li>
+<li>Ruby</li>
+<li>Go</li>
+</ul>
+<div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%pre</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<p>Make it scrollable</p>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<p>Scrollable with too little content:</p>
+<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<h2 id="inline_code">Inline Code</h2>
+<div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div>
+<h2 id="terminal_window">Terminal Window</h2>
+
+<p><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p>
+<div class="codeExample"><div class="exampleOutput"><div class='terminal'>
+  <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bar&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Baz&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bop&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.terminal</span>
+  <span class="nt">%pre</span>
+    <span class="nt">%code</span><span class="nc">.language-ruby</span>
+      <span class="nd">:preserve
+</span>        <span class="nd">class Foo</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Bar</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Baz</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Bop</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+</pre></div></div></div>
+<h1 id="colors">Colors</h1>
+
+<p>Our color pallet is composed of several different colors. At any given point in captures the current
+evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
+colors rather than adding new ones.</p>
+
+<h2 id="background">Backgrounds</h2>
+
+<p>Background color classes can be applied to any element.</p>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-cloud"></div>
+      <div class="chip-color-name">.bg-cloud</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-glow"></div>
+      <div class="chip-color-name">.bg-glow</div>
+    </div>
+  </div>
+</div>
+
+<h3 id="background_full_bleed">Full Bleed Background</h3>
+
+<p>This example uses an about us hero image by default, but you can change it to any image you would like.
+Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.</p>
+<div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed'>
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane bg-full-bleed'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'type-neutral-11 txt-c'</span><span class="nt">&gt;</span>Full bleed background image<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<p>To modify this component to use a custom image, use an inline <code>background-image</code> style like so:</p>
+<div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed' style="background-image: url(images/such-awesome.jpg)">
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane bg-full-bleed'</span> <span class="na">style=</span><span class="s">"background-image: url(images/such-awesome.jpg)"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'type-neutral-11 txt-c'</span><span class="nt">&gt;</span>Full bleed background image<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="sass_colors">Sass Colors</h2>
+
+<div class="alert alert-warning alert-dismissable">
+  These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+  directly when building components, because it makes
+  it very hard to change the values later if you can't tell how they might have been used.
+   You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+</div>
+
+<p>This example shows proper use of Sass variables.</p>
+<div class="codeBlock"><div class="highlight"><pre>$tabs-active-bg-color: $gray-2;
+</pre></div></div>
+<div class="row row-gutter-sm mvxl">
+  <div class="col-md-2">
+    <div class="chip" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+      <div class="chip-color bg-neutral-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-1</li>
+          <li>.bg-neutral-1</li>
+          <li>.type-neutral-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-2</li>
+          <li>.bg-neutral-2</li>
+          <li>.type-neutral-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-3</li>
+          <li>.bg-neutral-3</li>
+          <li>.type-neutral-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-4</li>
+          <li>.bg-neutral-4</li>
+          <li>.type-neutral-4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-5"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-5</li>
+          <li>.bg-neutral-5</li>
+          <li>.type-neutral-5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-6"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-6</li>
+          <li>.bg-neutral-6</li>
+          <li>.type-neutral-6</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-7"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-7</li>
+          <li>.bg-neutral-7</li>
+          <li>.type-neutral-7</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-8"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-8</li>
+          <li>.bg-neutral-8</li>
+          <li>.type-neutral-8</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-neutral-9"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-9</li>
+          <li>.bg-neutral-9</li>
+          <li>.type-neutral-9</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-10"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-10</li>
+          <li>.bg-neutral-10</li>
+          <li>.type-neutral-10</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="chip">
+      <div class="chip-color bg-neutral-11"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$gray-11</li>
+          <li>.bg-neutral-11</li>
+          <li>.type-neutral-11</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-1</li>
+          <li>.bg-dark-1</li>
+          <li>.type-dark-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-2</li>
+          <li>.bg-dark-2</li>
+          <li>.type-dark-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-dark-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$dark-3</li>
+          <li>.bg-dark-3</li>
+          <li>.type-dark-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-brand-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-1</li>
+          <li>.bg-brand-1</li>
+          <li>.type-brand-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-brand-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-2</li>
+          <li>.bg-brand-2</li>
+          <li>.type-brand-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-brand-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-3</li>
+          <li>.bg-brand-3</li>
+          <li>.type-brand-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-brand-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-4</li>
+          <li>.bg-brand-4</li>
+          <li>.type-brand-4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-brand-5"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$brand-5</li>
+          <li>.bg-brand-5</li>
+          <li>.type-brand-5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-accent-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$accent-5</li>
+          <li>.bg-accent-5</li>
+          <li>.type-accent-5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-accent-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$accent-2</li>
+          <li>.bg-accent-2</li>
+          <li>.type-accent-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-accent-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$accent-3</li>
+          <li>.bg-accent-3</li>
+          <li>.type-accent-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-accent-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$accent-4</li>
+          <li>.bg-accent-4</li>
+          <li>.type-accent-4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <div class="col-md-3">
+    <div class="chip">
+      <div class="chip-color bg-accent-5"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$accent-5</li>
+          <li>.bg-accent-5</li>
+          <li>.type-accent-5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-error-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-1</li>
+          <li>.bg-error-1</li>
+          <li>.type-error-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-error-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-2</li>
+          <li>.bg-error-2</li>
+          <li>.type-error-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-error-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-3</li>
+          <li>.bg-error-3</li>
+          <li>.type-error-3</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-error-4"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$error-4</li>
+          <li>.bg-error-4</li>
+          <li>.type-error-4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-warn-1"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-1</li>
+          <li>.bg-warn-1</li>
+          <li>.type-warn-1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-warn-2"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-2</li>
+          <li>.bg-warn-2</li>
+          <li>.type-warn-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mvxl">
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-success-1"></div>
+      <div class="chip-color-name">$green-1</div>
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-success-2"></div>
+      <div class="chip-color-name">$green-2</div>
+    </div>
+  </div>
+</div>
+
+<h2 id="shadows">Shadows & Glows</h2>
+
+<div class="row">
+<div class="contrast-bar">
+  <div class="row mvxl">
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-1"></div>
+        <div class="chip-color-name">$shadow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-2"></div>
+        <div class="chip-color-name">$shadow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-shadow-3"></div>
+        <div class="chip-color-name">$shadow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-1"></div>
+        <div class="chip-color-name">$glow-1</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-2"></div>
+        <div class="chip-color-name">$glow-2</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-3"></div>
+        <div class="chip-color-name">$glow-3</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
+        <div class="chip-color bg-glow-4"></div>
+        <div class="chip-color-name">$glow-4</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p></div></p>
+
+<h1 id="divider">Dividers</h1>
+
+<p>Dividers draw horizontal lines between different content groupings.</p>
+<div class="codeExample"><div class="exampleOutput"><hr class='divider-alternate-1'>
+<hr class='divider-alternate-2'>
+<div class='contrast-bar'>
+  <hr class='divider-1'>
+  <hr class='divider-2'>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%hr</span><span class="nc">.divider-alternate-1</span>
+<span class="nt">%hr</span><span class="nc">.divider-alternate-2</span>
+
+<span class="nc">.contrast-bar</span>
+  <span class="nt">%hr</span><span class="nc">.divider-1</span>
+  <span class="nt">%hr</span><span class="nc">.divider-2</span>
+
+</pre></div></div></div>
+<h1 id="images">Images</h1>
+
+<h2 id="avatar_images">Avatar Images</h2>
+
+<p>Avatar images are expected to by 100px by 100px.</p>
+<div class="codeExample"><div class="exampleOutput"><img alt='...' class='img-circle avatar' height='100' src='http://placehold.it/100x100' width='100'>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%img</span><span class="p">{</span><span class="ss">src: </span><span class="s2">"http://placehold.it/100x100"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"..."</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"img-circle avatar"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"100"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"100"</span><span class="p">}</span>
+
+</pre></div></div></div>
+<h2 id="responsive_images">Responsive Images</h2>
+
+<p>Images can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p>
+<div class="codeExample"><div class="exampleOutput"><div class='row'>
+  <div class='col-md-5'>
+    <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-7'>
+    <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
+  </div>
+  <div class='col-md-12'>
+    <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.row</span>
+  <span class="nc">.col-md-5</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-7</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
+  <span class="nc">.col-md-12</span>
+    <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
+</pre></div></div></div>
+<h2 id="responsive_svg">Responsive SVG</h2>
+
+<p>SVG can be made responsive-friendly via the addition of the <code>.svg-responsive</code> class on a
+wrapper div and the <code>.svg-content</code> class on the svg itself. You&#39;ll also need to to define
+the height to width ratio as an inline padding bottom style on the <code>.svg-responsive</code> element like so:</p>
+<div class="codeBlock"><div class="highlight"><pre>&lt;div class="svg-responsive" style="padding-bottom: 78.31%"&gt;
+  &lt;svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet"&gt;
+    ...
+  &lt;/svg&gt;
+&lt;/div&gt;
+</pre></div></div>
+<p>The <code>padding-bottom</code> should equal the <strong>height divided by the width</strong> of your specific svg.</p>
+
+<p>For more information about setting up your svg, read this article about <a href="http://sarasoueidan.com/blog/svg-coordinate-systems/">svg coordinates systems by Sara Soueidan</a>.</p>
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="svg-responsive" style="padding-bottom: 78.31%">
+      <!-- You need to set the padding bottom equal to the height/width of the svg element. -->
+      <svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet">
+        <style>
+            #wing{fill:#81CCAA;}
+            #body{fill:#B8E4C2;}
+            #pupil{fill:#1F2600;}
+            #beak{fill:#F69C0D;}
+            .eye-ball{fill:#F6FDC4;}
+        </style>
+        <g id="bird">
+            <g id="body">
+                <path d="M48.42,78.11c0-17.45,14.14-31.58,31.59-31.58s31.59,14.14,31.59,31.58c0,17.44-14.14,31.59-31.59,31.59
+                S48.42,95.56,48.42,78.11"/>
+                <path d="M109.19,69.88c0,0-8.5-27.33-42.51-18.53c-34.02,8.81-20.65,91.11,45.25,84.73
+                c40.39-3.65,48.59-24.6,48.59-24.6S124.68,106.02,109.19,69.88"/>
+                <path id="wing" d="M105.78,75.09c4.56,0,8.84,1.13,12.62,3.11c0,0,0.01-0.01,0.01-0.01l36.23,12.38c0,0-13.78,30.81-41.96,38.09
+                c-1.51,0.39-2.82,0.59-3.99,0.62c-0.96,0.1-1.92,0.16-2.9,0.16c-15.01,0-27.17-12.17-27.17-27.17
+                C78.61,87.26,90.78,75.09,105.78,75.09"/>
+            </g>
+            <g id="head">
+                <path id="beak" d="M50.43,68.52c0,0-8.81,2.58-10.93,4.86l9.12,9.87C48.61,83.24,48.76,74.28,50.43,68.52"/>
+                <path class="eye-ball" d="M60.53,71.68c0-6.33,5.13-11.46,11.46-11.46c6.33,0,11.46,5.13,11.46,11.46c0,6.33-5.13,11.46-11.46,11.46
+                    C65.66,83.14,60.53,78.01,60.53,71.68"/>
+                <path id="pupil" d="M64.45,71.68c0-4.16,3.38-7.53,7.54-7.53c4.16,0,7.53,3.37,7.53,7.53c0,4.16-3.37,7.53-7.53,7.53
+                    C67.82,79.22,64.45,75.84,64.45,71.68"/>
+                <path class="eye-ball" d="M72.39,74.39c0-2.73,2.22-4.95,4.95-4.95c2.73,0,4.95,2.21,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95
+                    C74.6,79.34,72.39,77.13,72.39,74.39"/>
+            </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <div class="svg-responsive" style="padding-bottom: 78.31%">
+      <!-- You need to set the padding bottom equal to the height/width of the svg element. -->
+      <svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet">
+        <style>
+            #wing{fill:#81CCAA;}
+            #body{fill:#B8E4C2;}
+            #pupil{fill:#1F2600;}
+            #beak{fill:#F69C0D;}
+            .eye-ball{fill:#F6FDC4;}
+        </style>
+        <g id="bird">
+            <g id="body">
+                <path d="M48.42,78.11c0-17.45,14.14-31.58,31.59-31.58s31.59,14.14,31.59,31.58c0,17.44-14.14,31.59-31.59,31.59
+                S48.42,95.56,48.42,78.11"/>
+                <path d="M109.19,69.88c0,0-8.5-27.33-42.51-18.53c-34.02,8.81-20.65,91.11,45.25,84.73
+                c40.39-3.65,48.59-24.6,48.59-24.6S124.68,106.02,109.19,69.88"/>
+                <path id="wing" d="M105.78,75.09c4.56,0,8.84,1.13,12.62,3.11c0,0,0.01-0.01,0.01-0.01l36.23,12.38c0,0-13.78,30.81-41.96,38.09
+                c-1.51,0.39-2.82,0.59-3.99,0.62c-0.96,0.1-1.92,0.16-2.9,0.16c-15.01,0-27.17-12.17-27.17-27.17
+                C78.61,87.26,90.78,75.09,105.78,75.09"/>
+            </g>
+            <g id="head">
+                <path id="beak" d="M50.43,68.52c0,0-8.81,2.58-10.93,4.86l9.12,9.87C48.61,83.24,48.76,74.28,50.43,68.52"/>
+                <path class="eye-ball" d="M60.53,71.68c0-6.33,5.13-11.46,11.46-11.46c6.33,0,11.46,5.13,11.46,11.46c0,6.33-5.13,11.46-11.46,11.46
+                    C65.66,83.14,60.53,78.01,60.53,71.68"/>
+                <path id="pupil" d="M64.45,71.68c0-4.16,3.38-7.53,7.54-7.53c4.16,0,7.53,3.37,7.53,7.53c0,4.16-3.37,7.53-7.53,7.53
+                    C67.82,79.22,64.45,75.84,64.45,71.68"/>
+                <path class="eye-ball" d="M72.39,74.39c0-2.73,2.22-4.95,4.95-4.95c2.73,0,4.95,2.21,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95
+                    C74.6,79.34,72.39,77.13,72.39,74.39"/>
+            </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="svg-responsive" style="padding-bottom: 78.31%">
+      <!-- You need to set the padding bottom equal to the height/width of the svg element. -->
+      <svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet">
+        <style>
+            #wing{fill:#81CCAA;}
+            #body{fill:#B8E4C2;}
+            #pupil{fill:#1F2600;}
+            #beak{fill:#F69C0D;}
+            .eye-ball{fill:#F6FDC4;}
+        </style>
+        <g id="bird">
+            <g id="body">
+                <path d="M48.42,78.11c0-17.45,14.14-31.58,31.59-31.58s31.59,14.14,31.59,31.58c0,17.44-14.14,31.59-31.59,31.59
+                S48.42,95.56,48.42,78.11"/>
+                <path d="M109.19,69.88c0,0-8.5-27.33-42.51-18.53c-34.02,8.81-20.65,91.11,45.25,84.73
+                c40.39-3.65,48.59-24.6,48.59-24.6S124.68,106.02,109.19,69.88"/>
+                <path id="wing" d="M105.78,75.09c4.56,0,8.84,1.13,12.62,3.11c0,0,0.01-0.01,0.01-0.01l36.23,12.38c0,0-13.78,30.81-41.96,38.09
+                c-1.51,0.39-2.82,0.59-3.99,0.62c-0.96,0.1-1.92,0.16-2.9,0.16c-15.01,0-27.17-12.17-27.17-27.17
+                C78.61,87.26,90.78,75.09,105.78,75.09"/>
+            </g>
+            <g id="head">
+                <path id="beak" d="M50.43,68.52c0,0-8.81,2.58-10.93,4.86l9.12,9.87C48.61,83.24,48.76,74.28,50.43,68.52"/>
+                <path class="eye-ball" d="M60.53,71.68c0-6.33,5.13-11.46,11.46-11.46c6.33,0,11.46,5.13,11.46,11.46c0,6.33-5.13,11.46-11.46,11.46
+                    C65.66,83.14,60.53,78.01,60.53,71.68"/>
+                <path id="pupil" d="M64.45,71.68c0-4.16,3.38-7.53,7.54-7.53c4.16,0,7.53,3.37,7.53,7.53c0,4.16-3.37,7.53-7.53,7.53
+                    C67.82,79.22,64.45,75.84,64.45,71.68"/>
+                <path class="eye-ball" d="M72.39,74.39c0-2.73,2.22-4.95,4.95-4.95c2.73,0,4.95,2.21,4.95,4.95c0,2.74-2.22,4.95-4.95,4.95
+                    C74.6,79.34,72.39,77.13,72.39,74.39"/>
+            </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<h1 id="instance scale">Instance Scale</h1>
+
+<p>The instance scale widget is an svg and an associated code block. Include the SVG
+and code in your page and the javascript and css will handle all of the behaviors.
+Add the class <code>.selected-group</code> to the <code>.instance-column</code> you would like to be
+highlighted on page load.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="panel bg-neutral-11">
+  <div class="row">
+    <div class="col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0">
+      <svg class="scale-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 531.415 353.659" preserveAspectRatio="xMinYMin meet" enable-background="new 0 0 531.415 353.659" xml:space="preserve">
+      <polygon fill="url(#bg-gradient)" points="8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  527.396, 299.979  8.33,299.979"/>
+      <polyline fill="none" stroke="#D4D9DA" stroke-width="4.0103" stroke-miterlimit="10" points="8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  "/>
+      <ellipse fill="#D4D9DA" cx="8.33" cy="299.979" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="69.568" cy="247.981" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="142.987" cy="234.989" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="186.935" cy="180.42" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="240.633" cy="149.178" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="289.064" cy="110.116" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="351.213" cy="84.598" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="432.796" cy="74.253" rx="4.019" ry="4.039"/>
+      <circle fill="#D4D9DA" cx="527.396" cy="4.019" r="4.019"/>
+
+      <text transform="matrix(1 0 0 1 0 347.8439)" fill="#8E8F8E" font-family="'SourceSansPro'" font-size="18">
+                                                                                                              Instances
+      </text>
+      <g class="instances-column selected-group" id="instances-1" filter="url(#desaturate-filter)">
+        <rect x="40" y="0" height="530" width="130" opacity="0" />
+        <text transform="matrix(1 0 0 1 105.1135 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+          1
+        </text>
+        <path fill="#00A69E" d="M105.96 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L105.96 291.558z"/>
+        <path fill="#3F4950" d="M80.129 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L80.129 279.625z"/>
+        <path fill="#525D64" d="M131.001 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C132.209 278.859 131.726 278.475 131.001 278.331z"/>
+      </g>
+
+      <g class="instances-column" id="instances-4" filter="url(#desaturate-filter)">
+        <rect x="170" y="0" height="530" width="120" opacity="0" />
+        <text transform="matrix(1 0 0 1 224.4272 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        4
+        </text>
+        <path fill="#00A69E" d="M228.811 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 291.558z"/>
+        <path fill="#3F4950" d="M202.98 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 279.625z"/>
+        <path fill="#525D64" d="M253.853 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 278.859 254.577 278.475 253.853 278.331z"/>
+        <path fill="#00A69E" d="M228.811 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 255.697z"/>
+        <path fill="#3F4950" d="M202.98 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 243.765z"/>
+        <path fill="#525D64" d="M253.853 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 242.999 254.577 242.615 253.853 242.47z"/>
+        <path fill="#00A69E" d="M228.811 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 219.837z"/>
+        <path fill="#3F4950" d="M202.98 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 207.905z"/>
+        <path fill="#525D64" d="M253.853 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 207.138 254.577 206.755 253.853 206.61z"/>
+        <path fill="#00A69E" d="M228.811 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 183.977z"/>
+        <path fill="#3F4950" d="M202.98 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 172.044z"/>
+        <path fill="#525D64" d="M253.853 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 171.278 254.577 170.894 253.853 170.75z"/>
+
+      </g>
+      <g class="instances-column" id="instances-6" filter="url(#desaturate-filter)">
+        <rect x="290" y="0" height="530" width="130" opacity="0" />
+        <text transform="matrix(1 0 0 1 347.2788 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        6
+        </text>
+        <path fill="#00A69E" d="M351.125 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 291.558z"/>
+        <path fill="#3F4950" d="M325.294 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 279.625z"/>
+        <path fill="#525D64" d="M376.167 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 278.859 376.891 278.475 376.167 278.331z"/>
+        <path fill="#00A69E" d="M351.125 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 255.697z"/>
+        <path fill="#3F4950" d="M325.294 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 243.765z"/>
+        <path fill="#525D64" d="M376.167 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 242.999 376.891 242.615 376.167 242.47z"/>
+        <path fill="#00A69E" d="M351.125 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 219.837z"/>
+        <path fill="#3F4950" d="M325.294 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 207.905z"/>
+        <path fill="#525D64" d="M376.167 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 207.138 376.891 206.755 376.167 206.61z"/>
+        <path fill="#00A69E" d="M351.125 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 183.977z"/>
+        <path fill="#3F4950" d="M325.294 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 172.044z"/>
+        <path fill="#525D64" d="M376.167 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 171.278 376.891 170.894 376.167 170.75z"/>
+        <path fill="#00A69E" d="M351.125 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 148.116z"/>
+        <path fill="#3F4950" d="M325.294 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 136.184z"/>
+        <path fill="#525D64" d="M376.167 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 135.417 376.891 135.034 376.167 134.889z"/>
+        <path fill="#00A69E" d="M351.125 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 112.332z"/>
+        <path fill="#3F4950" d="M325.294 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 100.399z"/>
+        <path fill="#525D64" d="M376.167 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 99.633 376.891 99.249 376.167 99.105z"/>
+      </g>
+      <g class="instances-column another-class" id="instances-8" filter="url(#desaturate-filter)">
+        <rect x="420" y="0" height="530" width="130" opacity="0" />
+
+        <text transform="matrix(1 0 0 1 470.1294 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        8
+        </text>
+        <path fill="#00A69E" d="M474.514 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 291.558z"/>
+        <path fill="#3F4950" d="M448.683 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 279.625z"/>
+        <path fill="#525D64" d="M499.555 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 278.859 500.28 278.475 499.555 278.331z"/>
+        <path fill="#00A69E" d="M474.514 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 255.697z"/>
+        <path fill="#3F4950" d="M448.683 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 243.765z"/>
+        <path fill="#525D64" d="M499.555 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 242.999 500.28 242.615 499.555 242.47z"/>
+        <path fill="#00A69E" d="M474.514 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 219.837z"/>
+        <path fill="#3F4950" d="M448.683 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 207.905z"/>
+        <path fill="#525D64" d="M499.555 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 207.138 500.28 206.755 499.555 206.61z"/>
+        <path fill="#00A69E" d="M474.514 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 183.977z"/>
+        <path fill="#3F4950" d="M448.683 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 172.044z"/>
+        <path fill="#525D64" d="M499.555 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 171.278 500.28 170.894 499.555 170.75z"/>
+        <path fill="#00A69E" d="M474.514 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 148.116z"/>
+        <path fill="#3F4950" d="M448.683 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 136.184z"/>
+        <path fill="#525D64" d="M499.555 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 135.417 500.28 135.034 499.555 134.889z"/>
+        <path fill="#00A69E" d="M474.514 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 112.332z"/>
+        <path fill="#3F4950" d="M448.683 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 100.399z"/>
+        <path fill="#525D64" d="M499.555 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 99.633 500.28 99.249 499.555 99.105z"/>
+        <path fill="#00A69E" d="M474.514 76.395l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V71.196L474.514 76.395z"/>
+        <path fill="#3F4950" d="M448.683 64.463v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 64.463z"/>
+        <path fill="#525D64" d="M499.555 63.168l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 63.696 500.28 63.313 499.555 63.168z"/>
+        <path fill="#00A69E" d="M474.514 40.535l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V35.336L474.514 40.535z"/>
+        <path fill="#3F4950" d="M448.683 28.603v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 28.603z"/>
+        <path fill="#525D64" d="M499.555 27.308l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 27.836 500.28 27.453 499.555 27.308z"/>
+      </g>
+
+      <filter id="desaturate-filter" >
+      <feColorMatrix in="SourceGraphic"
+      type="saturate"
+      values="0" />
+      </filter>
+
+      <linearGradient id="bg-gradient" x1="0" x2="1" y1="0" y2="1">
+      <stop class="instances-gradient-stop-1" offset="0%"/>
+      <stop class="instances-gradient-stop-2" offset="90%"/>
+      </linearGradient>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div>
+<pre class="language-bash scale-code">
+<code>
+ $ cf scale my_app -i <span class="instance-count">1</span>
+</code>
+</pre>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"scale-svg"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">xmlns:xlink=</span><span class="s">"http://www.w3.org/1999/xlink"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">id=</span><span class="s">"Layer_1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">viewBox=</span><span class="s">"0 0 531.415 353.659"</span> <span class="na">preserveAspectRatio=</span><span class="s">"xMinYMin meet"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 531.415 353.659"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;polygon</span> <span class="na">fill=</span><span class="s">"url(#bg-gradient)"</span> <span class="na">points=</span><span class="s">"8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  527.396, 299.979  8.33,299.979"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;polyline</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke=</span><span class="s">"#D4D9DA"</span> <span class="na">stroke-width=</span><span class="s">"4.0103"</span> <span class="na">stroke-miterlimit=</span><span class="s">"10"</span> <span class="na">points=</span><span class="s">"8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  "</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"8.33"</span> <span class="na">cy=</span><span class="s">"299.979"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"69.568"</span> <span class="na">cy=</span><span class="s">"247.981"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"142.987"</span> <span class="na">cy=</span><span class="s">"234.989"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"186.935"</span> <span class="na">cy=</span><span class="s">"180.42"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"240.633"</span> <span class="na">cy=</span><span class="s">"149.178"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"289.064"</span> <span class="na">cy=</span><span class="s">"110.116"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"351.213"</span> <span class="na">cy=</span><span class="s">"84.598"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"432.796"</span> <span class="na">cy=</span><span class="s">"74.253"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;circle</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"527.396"</span> <span class="na">cy=</span><span class="s">"4.019"</span> <span class="na">r=</span><span class="s">"4.019"</span><span class="nt">/&gt;</span>
+
+      <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 0 347.8439)"</span> <span class="na">fill=</span><span class="s">"#8E8F8E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+                                                                                                              Instances
+      <span class="nt">&lt;/text&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column selected-group"</span> <span class="na">id=</span><span class="s">"instances-1"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"40"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 105.1135 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+          1
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M105.96 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L105.96 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M80.129 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L80.129 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M131.001 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C132.209 278.859 131.726 278.475 131.001 278.331z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column"</span> <span class="na">id=</span><span class="s">"instances-4"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"170"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"120"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 224.4272 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        4
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 278.859 254.577 278.475 253.853 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 242.999 254.577 242.615 253.853 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 207.138 254.577 206.755 253.853 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 171.278 254.577 170.894 253.853 170.75z"</span><span class="nt">/&gt;</span>
+
+      <span class="nt">&lt;/g&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column"</span> <span class="na">id=</span><span class="s">"instances-6"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"290"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 347.2788 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        6
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 278.859 376.891 278.475 376.167 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 242.999 376.891 242.615 376.167 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 207.138 376.891 206.755 376.167 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 171.278 376.891 170.894 376.167 170.75z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 148.116z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 136.184z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 135.417 376.891 135.034 376.167 134.889z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 112.332z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 100.399z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 99.633 376.891 99.249 376.167 99.105z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column another-class"</span> <span class="na">id=</span><span class="s">"instances-8"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"420"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 470.1294 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        8
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 278.859 500.28 278.475 499.555 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 242.999 500.28 242.615 499.555 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 207.138 500.28 206.755 499.555 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 171.278 500.28 170.894 499.555 170.75z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 148.116z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 136.184z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 135.417 500.28 135.034 499.555 134.889z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 112.332z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 100.399z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 99.633 500.28 99.249 499.555 99.105z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 76.395l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V71.196L474.514 76.395z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 64.463v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 64.463z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 63.168l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 63.696 500.28 63.313 499.555 63.168z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 40.535l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V35.336L474.514 40.535z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 28.603v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 28.603z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 27.308l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 27.836 500.28 27.453 499.555 27.308z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+
+      <span class="nt">&lt;filter</span> <span class="na">id=</span><span class="s">"desaturate-filter"</span> <span class="nt">&gt;</span>
+      <span class="nt">&lt;feColorMatrix</span> <span class="na">in=</span><span class="s">"SourceGraphic"</span>
+      <span class="na">type=</span><span class="s">"saturate"</span>
+      <span class="na">values=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/filter&gt;</span>
+
+      <span class="nt">&lt;linearGradient</span> <span class="na">id=</span><span class="s">"bg-gradient"</span> <span class="na">x1=</span><span class="s">"0"</span> <span class="na">x2=</span><span class="s">"1"</span> <span class="na">y1=</span><span class="s">"0"</span> <span class="na">y2=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">class=</span><span class="s">"instances-gradient-stop-1"</span> <span class="na">offset=</span><span class="s">"0%"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">class=</span><span class="s">"instances-gradient-stop-2"</span> <span class="na">offset=</span><span class="s">"90%"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/linearGradient&gt;</span>
+      <span class="nt">&lt;/svg&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;pre</span> <span class="na">class=</span><span class="s">"language-bash scale-code"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;code&gt;</span>
+ $ cf scale my_app -i <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"instance-count"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;/pre&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="link">Links</h1>
+
+<p>There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p>
+<div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
+  <i class='fa fa-plus'></i>
+  link with an icon
+</a>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span>
+  <span class="nt">%i</span><span class="nc">.fa.fa-plus</span>
+  link with an icon
+</pre></div></div></div>
+<table><thead>
+<tr>
+<th>Link</th>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="http://google.com">default link</a></td>
+<td></td>
+<td>This is what buttons look like, this is the go to button style.</td>
+</tr>
+<tr>
+<td><a class="link-lowlight" href="http://google.com">lowlight link</a></td>
+<td><code>link-lowlight</code></td>
+<td>I&#39;m afraid I can&#39;t let you do that, yet.</td>
+</tr>
+<tr>
+<td><a class="link-lowlight-inverse bg-dark-1" href="http://google.com">lowlight inverse link</a></td>
+<td><code>link-lowlight-inverse</code></td>
+<td>Less important links on an inverted background</td>
+</tr>
+<tr>
+<td><a class="link-inverse bg-dark-1" href="http://google.com">inverse link</a></td>
+<td><code>link-inverse</code></td>
+<td>I go on a non-white background</td>
+</tr>
+<tr>
+<td><a href="http://google.com"><i class="fa fa-plus"></i> link with an icon </a></td>
+<td></td>
+<td>This button is for delete actions, these actions should also have a confirmation dialog</td>
+</tr>
+</tbody></table>
+
+<h2 id="gentle-scroll">Gentle Scroll Links</h2>
+
+<p>If you want to gently scroll from one part of the page to another, you&#39;ll need to add
+a <code>data-behavior: GentleScroll</code> to the trigger element as well as an <code>href</code> for the
+id of the target it will scroll to.</p>
+<div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"GentleScroll"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#scroll-target"</span><span class="p">}</span> Scroll Trigger
+</pre></div></div></div>
+<p>It can scroll to anything, in this case, we&#39;ll use a text input.</p>
+<div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nf">#scroll-target</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span> <span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Scroll target"</span><span class="p">}</span>
+</pre></div></div></div>
+<h2 id="list-inline-divider">Inline Divider List</h2>
+
+<p>Places all list items on a single line with <code>display: inline-block;</code> and some light padding. The <code>.list-inline-divider</code>
+also adds a simple gray border (add <code>.list-inline-divider-light</code> to make the border white).</p>
+<div class="codeExample"><div class="exampleOutput"><ul class='list-inline-divider'>
+  <li>
+    <a class='type-em-1' href='http://google.com'>Edit</a>
+  </li>
+  <li>
+    <a class='type-em-1' href='http://google.com'>Invite</a>
+  </li>
+</ul>
+<div class='contrast-bar'>
+  <ul class='list-inline-divider list-inline-divider-light'>
+    <li>
+      <a class='type-em-1' href='http://google.com'>
+        Edit
+      </a>
+    </li>
+    <li>
+      <a class='type-em-1' href='http://google.com'>
+        Invite
+      </a>
+    </li>
+  </ul>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.list-inline-divider</span>
+  <span class="nt">%li</span>
+    <span class="nt">%a</span><span class="nc">.type-em-1</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span><span class="err">&lt;</span>
+      Edit
+  <span class="nt">%li</span>
+    <span class="nt">%a</span><span class="nc">.type-em-1</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span><span class="err">&lt;</span>
+      Invite
+
+<span class="nc">.contrast-bar</span>
+  <span class="nt">%ul</span><span class="nc">.list-inline-divider.list-inline-divider-light</span>
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="nc">.type-em-1</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span>
+        Edit
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="nc">.type-em-1</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span>
+        Invite
+
+
+</pre></div></div></div>
+<h1 id="map">Map</h1>
+
+<p>Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p>
+<div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+<div class='pane pane-map'>
+  <div class='container pan'>
+    <div class='row'>
+      <div class='col-sm-6 col-md-8 col-sm-offset-1'>
+        <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
+          <h3>Location</h3>
+          <address class='h4 pvl'>Pivotal Software Inc.<br>
+          875 Howard Street<br>
+          San Francisco, CA 94103
+          </address>
+          <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
+          <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id='labs-map'></div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h3&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
+          875 Howard Street<span class="nt">&lt;br&gt;</span>
+          San Francisco, CA 94103
+          <span class="nt">&lt;/address&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>var maps = (function() {
+  var self = this;
+  var map;
+
+  var mapOptions = {
+    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
+    center: new google.maps.LatLng(37.781787,-122.403911),
+    mapElementId: 'labs-map',
+    zoom: 18
+  };
+
+  var initialize = function() {
+    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
+      center: mapOptions.center,
+      zoom: mapOptions.zoom,
+      disableDefaultUI: true
+    });
+
+    var request = {
+      placeId: mapOptions.placeId
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, createMarker);
+  };
+
+  var createMarker = function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+  };
+
+  self.initialize = initialize;
+  return self;
+})();
+
+google.maps.event.addDomListener(window, 'load', maps.initialize);
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
+    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
+    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
+    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
+      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
+        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
+</pre></div></div>
+<h1 id="Pane">Pane</h1>
+
+<p>Panes are horizontal groupings of content that are usually used to
+span the full browser window width. It&#39;s going to look funny here,
+a better way to view it is on the <a href="/pane.html">panes page</a>.</p>
+
+<p>You can combine up to two background classes on the pane component.
+The one on the <code>.pane</code> element will span the full browser width. The
+one on the <code>.container</code> element will be constrained to the content width.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="pane bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+  </div>
+</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane bg-dark-1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container bg-glow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"type-neutral-11"</span><span class="nt">&gt;</span>This is a pane<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div><div class="codeExample"><div class="exampleOutput"><div class="pane pane-offset bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+    <div class="pane-image">
+      <img class="img-responsive" src="../images/console-laptop.png" alt="A laptop showing Pivotal Web Services dashboard." />
+    </div>
+  </div>
+</div>
+<div class="pane bg-cloud">
+  <div class="container">
+    <h1>This is another pane</h1>
+  </div>
+</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane pane-offset bg-dark-1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container bg-glow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"type-neutral-11"</span><span class="nt">&gt;</span>This is a pane<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane-image"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"img-responsive"</span> <span class="na">src=</span><span class="s">"../images/console-laptop.png"</span> <span class="na">alt=</span><span class="s">"A laptop showing Pivotal Web Services dashboard."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane bg-cloud"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>This is another pane<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div>
+<h1 id="tabs">Tabs</h1>
+
+<p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-toggle=&quot;tab&quot;</code> on an element.</p>
+
+<h2 id="image_tabs">Image Tabs</h2>
+
+<p>You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code>icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p>
+<div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
+  <ul class="list-inline nav-tabs-images">
+    <li class="active">
+      <a data-toggle="tab" href="#agility">
+        <span class="sr-only">Agility</span>
+        <svg class="icon-svg" x="0px" y="0px" height="130" width="130" enable-background="new 0 0 130 130" >
+          <g>
+            <path class="icon" d="M97.283,83.157H86.452c-2.555,3.305-5.781,6.066-9.478,8.067h20.31l4.489-3.945L97.283,83.157z"/>
+            <path class="icon" d="M62.788,38.586c-14.513,0-26.319,11.807-26.319,26.319c0,5.429,1.66,10.473,4.489,14.667h11.012
+              c-4.499-3.327-7.434-8.654-7.434-14.667c0-10.064,8.188-18.252,18.252-18.252S81.04,54.84,81.04,64.905
+              c0,6.013-2.935,11.34-7.434,14.667c-3.032,2.242-6.766,3.585-10.818,3.585H43.853h-4.729H28.292l4.482,4.122l-4.482,3.945h20.311
+              h14.185c7.43,0,14.145-3.099,18.935-8.067c1.066-1.106,2.033-2.308,2.895-3.585c2.83-4.194,4.489-9.238,4.489-14.667
+              C89.107,50.393,77.301,38.586,62.788,38.586z"/>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#choice">
+        <span class="sr-only">Choice</span>
+        <svg class="icon-svg" version="1.1" x="0px" y="0px"
+             viewBox="0 0 130 130" enable-background="new 0 0 130 130" xml:space="preserve">
+          <g>
+            <g>
+              <path class="icon" d="M59.642,57.905c0,1.65-1.35,3-3,3h-18c-1.65,0-3-1.35-3-3v-18c0-1.65,1.35-3,3-3h18c1.65,0,3,1.35,3,3V57.905z"/>
+            </g>
+            <g>
+              <path class="icon" d="M78.381,60.905c-1.65,0-3.675-1.169-4.5-2.598l-3.928-6.804c-0.825-1.429-0.825-3.767,0-5.196l3.928-6.804
+                c0.825-1.429,2.85-2.598,4.5-2.598h7.856c1.65,0,3.675,1.169,4.5,2.598l3.928,6.804c0.825,1.429,0.825,3.767,0,5.196l-3.928,6.804
+                c-0.825,1.429-2.85,2.598-4.5,2.598H78.381z"/>
+            </g>
+            <circle class="icon" cx="82.309" cy="79.905" r="12"/>
+            <g>
+              <path class="icon" d="M46.202,70.399c0.792-1.372,2.088-1.372,2.88,0l3.77,6.531c0.792,1.372,2.088,3.616,2.88,4.988l3.77,6.531
+                c0.792,1.372,0.144,2.494-1.44,2.494h-7.541c-1.584,0-4.175,0-5.759,0h-7.541c-1.584,0-2.232-1.122-1.44-2.494l3.77-6.531
+                c0.792-1.372,2.088-3.616,2.88-4.988L46.202,70.399z"/>
+            </g>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#open-source">
+        <span class="sr-only">Open Source</span>
+        <svg class="icon-svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 130 130" enable-background="new 0 0 130 130">
+          <path class="icon" d="M95.22,65.454c0-16.583-13.441-30.025-30.024-30.025c-16.583,0-30.026,13.442-30.026,30.025
+            c0,12.68,7.861,23.525,18.973,27.926l7.596-19.192c-3.477-1.377-5.937-4.767-5.937-8.734c0-5.188,4.207-9.393,9.394-9.393
+            c5.188,0,9.395,4.206,9.395,9.393c0,3.966-2.463,7.357-5.937,8.734l7.594,19.192C87.362,88.979,95.22,78.134,95.22,65.454z"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content txt-c">
+    <div class="tab-pane fade in active" id="agility">Agility Content</div>
+    <div class="tab-pane fade" id="choice">Choice Content</div>
+    <div class="tab-pane fade" id="open-source">Open Source</div>
+  </div>
+</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs-images"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline nav-tabs-images"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#agility"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Agility<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">height=</span><span class="s">"130"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span> <span class="nt">&gt;</span>
+          <span class="nt">&lt;g&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M97.283,83.157H86.452c-2.555,3.305-5.781,6.066-9.478,8.067h20.31l4.489-3.945L97.283,83.157z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M62.788,38.586c-14.513,0-26.319,11.807-26.319,26.319c0,5.429,1.66,10.473,4.489,14.667h11.012
+              c-4.499-3.327-7.434-8.654-7.434-14.667c0-10.064,8.188-18.252,18.252-18.252S81.04,54.84,81.04,64.905
+              c0,6.013-2.935,11.34-7.434,14.667c-3.032,2.242-6.766,3.585-10.818,3.585H43.853h-4.729H28.292l4.482,4.122l-4.482,3.945h20.311
+              h14.185c7.43,0,14.145-3.099,18.935-8.067c1.066-1.106,2.033-2.308,2.895-3.585c2.83-4.194,4.489-9.238,4.489-14.667
+              C89.107,50.393,77.301,38.586,62.788,38.586z"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/g&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#choice"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Choice<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span>
+             <span class="na">viewBox=</span><span class="s">"0 0 130 130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;g&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M59.642,57.905c0,1.65-1.35,3-3,3h-18c-1.65,0-3-1.35-3-3v-18c0-1.65,1.35-3,3-3h18c1.65,0,3,1.35,3,3V57.905z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M78.381,60.905c-1.65,0-3.675-1.169-4.5-2.598l-3.928-6.804c-0.825-1.429-0.825-3.767,0-5.196l3.928-6.804
+                c0.825-1.429,2.85-2.598,4.5-2.598h7.856c1.65,0,3.675,1.169,4.5,2.598l3.928,6.804c0.825,1.429,0.825,3.767,0,5.196l-3.928,6.804
+                c-0.825,1.429-2.85,2.598-4.5,2.598H78.381z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+            <span class="nt">&lt;circle</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">cx=</span><span class="s">"82.309"</span> <span class="na">cy=</span><span class="s">"79.905"</span> <span class="na">r=</span><span class="s">"12"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M46.202,70.399c0.792-1.372,2.088-1.372,2.88,0l3.77,6.531c0.792,1.372,2.088,3.616,2.88,4.988l3.77,6.531
+                c0.792,1.372,0.144,2.494-1.44,2.494h-7.541c-1.584,0-4.175,0-5.759,0h-7.541c-1.584,0-2.232-1.122-1.44-2.494l3.77-6.531
+                c0.792-1.372,2.088-3.616,2.88-4.988L46.202,70.399z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+          <span class="nt">&lt;/g&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#open-source"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Open Source<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">id=</span><span class="s">"Layer_1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">viewBox=</span><span class="s">"0 0 130 130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M95.22,65.454c0-16.583-13.441-30.025-30.024-30.025c-16.583,0-30.026,13.442-30.026,30.025
+            c0,12.68,7.861,23.525,18.973,27.926l7.596-19.192c-3.477-1.377-5.937-4.767-5.937-8.734c0-5.188,4.207-9.393,9.394-9.393
+            c5.188,0,9.395,4.206,9.395,9.393c0,3.966-2.463,7.357-5.937,8.734l7.594,19.192C87.362,88.979,95.22,78.134,95.22,65.454z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content txt-c"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade in active"</span> <span class="na">id=</span><span class="s">"agility"</span><span class="nt">&gt;</span>Agility Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"choice"</span><span class="nt">&gt;</span>Choice Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"open-source"</span><span class="nt">&gt;</span>Open Source<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div>
+<h2 id="tab_highlight">Highlight Tabs</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-highlight'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h1>Service Plans</h1>
+      <ul class='nav nav-stacked'>
+        <li class='active'>
+          <a data-toggle='tab' href='#home'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Spark
+              </div>
+              <div class='col-md-14'>
+                Free
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#profile'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Boost
+              </div>
+              <div class='col-md-14'>
+                $10/month
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#messages'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Amp
+              </div>
+              <div class='col-md-14'>
+                $50/month
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#settings'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Shockingly long plan name is important to test
+              </div>
+              <div class='col-md-14'>
+                $1000/month
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class='col-md-16'>
+      <h1>Plan Features</h1>
+      <div class='tab-content'>
+        <div class='tab-pane fade in active' id='home'>Content 1</div>
+        <div class='tab-pane fade' id='profile'>Content 2</div>
+        <div class='tab-pane fade' id='messages'>Content 3</div>
+        <div class='tab-pane fade' id='settings'>Content 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-highlight</span>
+  <span class="nc">.row</span>
+    <span class="nc">.col-md-8</span>
+      <span class="nt">%h1</span> Service Plans
+      <span class="nt">%ul</span><span class="nc">.nav.nav-stacked</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#home"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Spark
+              <span class="nc">.col-md-14</span>
+                Free
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#profile"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Boost
+              <span class="nc">.col-md-14</span>
+                $10/month
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#messages"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Amp
+              <span class="nc">.col-md-14</span>
+                $50/month
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#settings"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Shockingly long plan name is important to test
+              <span class="nc">.col-md-14</span>
+                $1000/month
+
+    <span class="nc">.col-md-16</span>
+      <span class="nt">%h1</span> Plan Features
+      <span class="nc">.tab-content</span>
+        <span class="nf">#home</span><span class="nc">.tab-pane.fade.in.active</span> Content 1
+        <span class="nf">#profile</span><span class="nc">.tab-pane.fade</span> Content 2
+        <span class="nf">#messages</span><span class="nc">.tab-pane.fade</span> Content 3
+        <span class="nf">#settings</span><span class="nc">.tab-pane.fade</span> Content 4
+</pre></div></div></div>
+<h2 id="tab_responsive">Responsive Tabs</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-responsive'>
+  <div class='row'>
+    <div class='col-sm-5'>
+      <ul class='nav hidden-xs'>
+        <li class='active'>
+          <a data-toggle='tab' href='#tab-responsive-1'>
+            meep
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-2'>
+            foo
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-3'>
+            bar
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-4'>
+            baz
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class='col-sm-19'>
+      <ul class='tab-content'>
+        <li class='active'>
+          <a class='visible-xs' data-toggle='tab' href='#tab-responsive-1'>
+            meep
+          </a>
+        </li>
+        <li class='tab-pane active fade in' id='tab-responsive-1'>Content 1</li>
+        <li>
+          <a class='visible-xs' data-toggle='tab' href='#tab-responsive-2'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-2'>Content 2</li>
+        <li>
+          <a class='visible-xs' data-toggle='tab' href='#tab-responsive-3'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-3'>Content 3</li>
+        <li>
+          <a class='visible-xs' data-toggle='tab' href='#tab-responsive-4'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-4'>Content 4</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-responsive</span>
+  <span class="nc">.row</span>
+    <span class="nc">.col-sm-5</span>
+      <span class="nt">%ul</span><span class="nc">.nav.hidden-xs</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-1"</span><span class="p">}</span>
+            meep
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-2"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-3"</span><span class="p">}</span>
+            bar
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-4"</span><span class="p">}</span>
+            baz
+
+    <span class="nc">.col-sm-19</span>
+      <span class="nt">%ul</span><span class="nc">.tab-content</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-1"</span><span class="p">}</span>
+            meep
+        <span class="nt">%li</span><span class="nf">#tab-responsive-1</span><span class="nc">.tab-pane.active.fade.in</span> Content 1
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-2"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-2</span><span class="nc">.tab-pane.fade</span> Content 2
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-3"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-3</span><span class="nc">.tab-pane.fade</span> Content 3
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-4"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-4</span><span class="nc">.tab-pane.fade</span> Content 4
+
+</pre></div></div></div>
+<h2 id="tab_simple">Simple Tabs</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-simple'>
+  <div class='tabs-action txt-r'>
+    <a>Some Action</a>
+  </div>
+  <ul class='nav nav-tabs'>
+    <li class='active'>
+      <a data-toggle='tab' href='#spaces'>Spaces</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#domains'>Domains</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#members'>Members</a>
+    </li>
+  </ul>
+  <div class='tab-content'>
+    <div class='tab-pane fade in active' id='spaces'>Spaces Content</div>
+    <div class='tab-pane fade' id='domains'>Domains Content</div>
+    <div class='tab-pane fade' id='members'>Members Content</div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-simple</span>
+  <span class="nc">.tabs-action.txt-r</span>
+    <span class="nt">%a</span> Some Action
+  <span class="nt">%ul</span><span class="nc">.nav.nav-tabs</span>
+    <span class="nt">%li</span><span class="nc">.active</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#spaces"</span><span class="p">}</span>Spaces
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#domains"</span><span class="p">}</span>Domains
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#members"</span><span class="p">}</span>Members
+
+
+  <span class="nc">.tab-content</span>
+    <span class="nf">#spaces</span><span class="nc">.tab-pane.fade.in.active</span> Spaces Content
+    <span class="nf">#domains</span><span class="nc">.tab-pane.fade</span> Domains Content
+    <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
+
+</pre></div></div></div>
+<h1 id="type">Typography</h1>
+
+<h2 id="1_type_sizes">Type Sizes</h2>
+
+<p>Headings can be used to define the applications typographical hierarchy.</p>
+<div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
+<h1>h1.heading level 1</h1>
+<h2>h2.heading level 2</h2>
+<h3>h3.heading level 3</h3>
+<h4>h4.heading level 4</h4>
+<h5>h5.heading level 5</h5>
+<p class='type-sm'>Small text can also be achieved with the small tag, when appropriate</p>
+<p class='type-xs'>Extra small text</p>
+<p>This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%h1</span><span class="nc">.title</span> Even bigger heading for those moments when an h1 is not enough
+<span class="nt">%h1</span> h1.heading level 1
+<span class="nt">%h2</span> h2.heading level 2
+<span class="nt">%h3</span> h3.heading level 3
+<span class="nt">%h4</span> h4.heading level 4
+<span class="nt">%h5</span> h5.heading level 5
+<span class="nt">%p</span><span class="nc">.type-sm</span> Small text can also be achieved with the small tag, when appropriate
+<span class="nt">%p</span><span class="nc">.type-xs</span> Extra small text
+
+
+<span class="nt">%p</span> This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</pre></div></div></div>
+<h3>Separating code and visual semantics</h3>
+
+<p>Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p>
+<div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%h2</span><span class="nc">.h1</span> h2.heading level 1 class applied
+</pre></div></div></div>
+<p>If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
+  (Use headings when possible since they add semantic value).</p>
+<div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
+</div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
+</pre></div></div></div>
+<h2 id="type-colors">Type Colors</h2>
+<div class="codeExample"><div class="exampleOutput"><p class='type-inverse' style='background-color: #000'>type-inverse text</p>
+<p class='type-neutral-1'>Type neutral 1</p>
+<p class='type-neutral-2'>Type neutral 2</p>
+<p class='type-neutral-3'>Type neutral 3</p>
+<p class='type-neutral-4'>Type neutral 4</p>
+<p class='type-neutral-5'>Type neutral 5</p>
+<p class='type-neutral-6'>Type neutral 6</p>
+<p class='type-neutral-7'>Type neutral 7</p>
+<p class='type-neutral-8'>Type neutral 8</p>
+<p class='type-neutral-9'>Type neutral 9</p>
+<p class='type-neutral-10'>Type neutral 10</p>
+<p class='type-neutral-11'>Type neutral 11</p>
+<p class='type-dark-1'>Type dark 1</p>
+<p class='type-dark-2'>Type dark 2</p>
+<p class='type-dark-3'>Type dark 3</p>
+<p class='type-accent-1'>Type accent 1</p>
+<p class='type-accent-2'>Type accent 2</p>
+<p class='type-accent-3'>Type accent 3</p>
+<p class='type-accent-4'>Type accent 4</p>
+<p class='type-accent-5'>Type accent 5</p>
+<p class='type-brand-1'>Type brand 1</p>
+<p class='type-brand-2'>Type brand 2</p>
+<p class='type-brand-3'>Type brand 3</p>
+<p class='type-brand-4'>Type brand 4</p>
+<p class='type-brand-5'>Type brand 5</p>
+<p class='type-error-1'>Type error 1</p>
+<p class='type-error-2'>Type error 2</p>
+<p class='type-error-3'>Type error 3</p>
+<p class='type-error-4'>Type error 4</p>
+<p class='type-success-1'>Type success 1</p>
+<p class='type-success-2'>Type success 2</p>
+<p class='type-warn-1'>Type warn 1</p>
+<p class='type-warn-2'>Type warn 2</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%p</span><span class="nc">.type-inverse</span><span class="p">{</span><span class="n">style</span><span class="p">:</span><span class="s1">'background-color: #000'</span><span class="p">}</span> type-inverse text
+
+<span class="nt">%p</span><span class="nc">.type-neutral-1</span> Type neutral 1
+<span class="nt">%p</span><span class="nc">.type-neutral-2</span> Type neutral 2
+<span class="nt">%p</span><span class="nc">.type-neutral-3</span> Type neutral 3
+<span class="nt">%p</span><span class="nc">.type-neutral-4</span> Type neutral 4
+<span class="nt">%p</span><span class="nc">.type-neutral-5</span> Type neutral 5
+<span class="nt">%p</span><span class="nc">.type-neutral-6</span> Type neutral 6
+<span class="nt">%p</span><span class="nc">.type-neutral-7</span> Type neutral 7
+<span class="nt">%p</span><span class="nc">.type-neutral-8</span> Type neutral 8
+<span class="nt">%p</span><span class="nc">.type-neutral-9</span> Type neutral 9
+<span class="nt">%p</span><span class="nc">.type-neutral-10</span> Type neutral 10
+<span class="nt">%p</span><span class="nc">.type-neutral-11</span> Type neutral 11
+
+<span class="nt">%p</span><span class="nc">.type-dark-1</span> Type dark 1
+<span class="nt">%p</span><span class="nc">.type-dark-2</span> Type dark 2
+<span class="nt">%p</span><span class="nc">.type-dark-3</span> Type dark 3
+
+<span class="nt">%p</span><span class="nc">.type-accent-1</span> Type accent 1
+<span class="nt">%p</span><span class="nc">.type-accent-2</span> Type accent 2
+<span class="nt">%p</span><span class="nc">.type-accent-3</span> Type accent 3
+<span class="nt">%p</span><span class="nc">.type-accent-4</span> Type accent 4
+<span class="nt">%p</span><span class="nc">.type-accent-5</span> Type accent 5
+
+<span class="nt">%p</span><span class="nc">.type-brand-1</span> Type brand 1
+<span class="nt">%p</span><span class="nc">.type-brand-2</span> Type brand 2
+<span class="nt">%p</span><span class="nc">.type-brand-3</span> Type brand 3
+<span class="nt">%p</span><span class="nc">.type-brand-4</span> Type brand 4
+<span class="nt">%p</span><span class="nc">.type-brand-5</span> Type brand 5
+
+<span class="nt">%p</span><span class="nc">.type-error-1</span> Type error 1
+<span class="nt">%p</span><span class="nc">.type-error-2</span> Type error 2
+<span class="nt">%p</span><span class="nc">.type-error-3</span> Type error 3
+<span class="nt">%p</span><span class="nc">.type-error-4</span> Type error 4
+
+<span class="nt">%p</span><span class="nc">.type-success-1</span> Type success 1
+<span class="nt">%p</span><span class="nc">.type-success-2</span> Type success 2
+
+<span class="nt">%p</span><span class="nc">.type-warn-1</span> Type warn 1
+<span class="nt">%p</span><span class="nc">.type-warn-2</span> Type warn 2
+</pre></div></div></div>
+<h2 id="type-modifiers">Type Modifiers</h2>
+<div class="codeExample"><div class="exampleOutput"><h1 class='em-low'>Low emphasis</h1>
+<h1 class='em-default'>Default emphasis</h1>
+<h1 class='em-high'>High emphasis</h1>
+<h1 class='em-max'>Maximum emphasis</h1>
+<h1 class='em-alt'>Emphasis alternate</h1>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h1</span><span class="nc">.em-low</span> Low emphasis
+<span class="nt">%h1</span><span class="nc">.em-default</span> Default emphasis
+<span class="nt">%h1</span><span class="nc">.em-high</span> High emphasis
+<span class="nt">%h1</span><span class="nc">.em-max</span> Maximum emphasis
+<span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
+</pre></div></div></div>
+<h2 id="type_alignment">Type Alignment</h2>
+
+<p>Alignment classes can be used to align text top, bottom, middle or left, right, center.</p>
+
+<table><thead>
+<tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>.txt-l</code></td>
+<td>Aligns text to the left</td>
+</tr>
+<tr>
+<td><code>.txt-r</code></td>
+<td>Aligns text to the right</td>
+</tr>
+<tr>
+<td><code>.txt-c</code></td>
+<td>Centers text horizontally</td>
+</tr>
+<tr>
+<td><code>.txt-t</code></td>
+<td>Aligns text to the top</td>
+</tr>
+<tr>
+<td><code>.txt-b</code></td>
+<td>Aligns text to the bottom</td>
+</tr>
+<tr>
+<td><code>.txt-m</code></td>
+<td>Centers text vertically</td>
+</tr>
+</tbody></table>
+      </section>
+      <footer>
+        <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+      </footer>
+    </div>
+  </body>
+</html>
