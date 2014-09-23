@@ -1,7 +1,29 @@
 {
   "name": "pivotal-ui",
   "private": true,
+  "browser": {
+    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
+    "prism": "./src/syntax-highlighting/prism.js",
+    "modernizr": "./src/modernizr/modernizr.min.js"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim"
+    ]
+  },
+  "browserify-shim": {
+    "bootstrap": {
+      "depends": [
+        "jquery:jQuery"
+      ]
+    },
+    "prism": "prism",
+    "modernizr": "modernizr"
+  },
   "devDependencies": {
+    "browserify": "^5.12.0",
+    "browserify-shim": "^3.7.0",
+    "grunt-browserify": "^3.0.1",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-compass": "^0.9.0",
     "grunt-contrib-copy": "^0.5.0",

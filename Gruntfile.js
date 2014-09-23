@@ -26,6 +26,14 @@ module.exports = function(grunt) {
       }
     },
     clean: ["build", "dist"],
+    browserify: {
+      dist: {
+        src: [
+          'src/pivotal-ui/javascripts/index.js'
+        ],
+        dest: 'dist/pivotal-ui/pivotal-ui.js'
+      }
+    },
     copy: {
       main: {
         files: [
@@ -76,11 +84,12 @@ module.exports = function(grunt) {
   });
 
 
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-compass');
   grunt.loadNpmTasks('grunt-hologram');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('default', ['concat','compass','copy:main','hologram', 'copy:to_pws']);
+  grunt.registerTask('default', ['browserify:dist','compass','copy:main','hologram', 'copy:to_pws']);
 };
