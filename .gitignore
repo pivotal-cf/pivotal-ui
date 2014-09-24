@@ -13,6 +13,7 @@
 node_modules/
 /vendor/
 .idea/
+.tmp/
 
 ## Specific to RubyMotion:
 .dat*
