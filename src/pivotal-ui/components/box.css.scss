@@ -32,7 +32,7 @@
     &:before {
       content: "";
       display: block;
-      background: #00776D image-url("p-logo.png") no-repeat center center;
+      background: #00776D url("../images/p-logo.png") no-repeat center center;
       height: 100%;
       min-width: 65px;
       position: absolute;

@@ -13703,7 +13703,7 @@ parent: panel
 .box .boxHeadBranded:before {
   content: "";
   display: block;
-  background: #00776d url('/src/assets/images/p-logo.png') no-repeat center center;
+  background: #00776d url('/dist/images/p-logo.png?1411508409') no-repeat center center;
   height: 100%;
   min-width: 65px;
   position: absolute;
