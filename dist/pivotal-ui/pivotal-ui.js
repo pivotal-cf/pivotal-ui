@@ -1,5 +1,15 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global){
+global.$ = global.jQuery = require('jquery');
+require('bootstrap');
+require('modernizr');
+require('prism');
+
+require('./scale')();
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"./scale":5,"bootstrap":2,"jquery":3,"modernizr":4,"prism":6}],2:[function(require,module,exports){
+(function (global){
 
 ; jQuery = global.jQuery = require("jquery");
 ;__browserify_shim_require__=require;(function browserifyShim(module, define, require) {
@@ -2121,7 +2131,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 }).call(global, module, undefined, undefined);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"jquery":2}],2:[function(require,module,exports){
+},{"jquery":3}],3:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.1.1
  * http://jquery.com/
@@ -11313,7 +11323,7 @@ return jQuery;
 
 }));
 
-},{}],3:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 (function (global){
 ;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /* Modernizr 2.8.3 (Custom Build) | MIT & BSD
@@ -11325,17 +11335,7 @@ return jQuery;
 }).call(global, undefined, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],4:[function(require,module,exports){
-(function (global){
-global.$ = global.jQuery = require('jquery');
-require('bootstrap');
-require('modernizr');
-require('prism');
-
-require('./scale')();
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./scale":5,"bootstrap":1,"jquery":2,"modernizr":3,"prism":6}],5:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 var $ = require('jquery');
 
 module.exports = function() {
@@ -11350,7 +11350,7 @@ module.exports = function() {
     });
   });
 };
-},{"jquery":2}],6:[function(require,module,exports){
+},{"jquery":3}],6:[function(require,module,exports){
 (function (global){
 ;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+css-extras+clike+javascript+java+php+php-extras+coffeescript+scss+bash+python+http+ruby+go&plugins=line-highlight+line-numbers */
@@ -11378,4 +11378,4 @@ Prism.hooks.add("after-highlight",function(e){var n=e.element.parentNode;if(n&&/
 }).call(global, undefined, undefined, undefined, undefined, function defineExport(ex) { module.exports = ex; });
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}]},{},[4]);
+},{}]},{},[1]);
