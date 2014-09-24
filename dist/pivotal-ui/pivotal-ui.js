@@ -13,7 +13,6 @@ require('./scale')();
 
 ; jQuery = global.jQuery = require("jquery");
 ;__browserify_shim_require__=require;(function browserifyShim(module, define, require) {
-
 /*!
  * Bootstrap v3.2.0 (http://getbootstrap.com)
  * Copyright 2011-2014 Twitter, Inc.
@@ -2128,6 +2127,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   })
 
 }(jQuery);
+
 }).call(global, module, undefined, undefined);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
