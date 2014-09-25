@@ -40,10 +40,9 @@ gulp.task('images', ['clean'], function() {
 
 gulp.task('fonts', ['clean'], function() {
   gulp.src([
-      'src/font-awesome/**/*',
-      '!src/font-awesome/font-awesome.css.scss',
+      'node_modules/font-awesome/fonts/*',
     ])
-    .pipe(gulp.dest('./dist/font-awesome/'));
+    .pipe(gulp.dest('./dist/fonts/'));
 
   gulp.src([
       'src/source-sans-pro/**/*',
