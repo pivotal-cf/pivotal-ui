@@ -5,7 +5,6 @@ var compass = require('gulp-compass');
 var browserify = require('browserify');
 var hologram = require('gulp-hologram');
 var shell = require('gulp-shell');
-var concat = require('gulp-concat');
 
 
 gulp.task('clean', function(done) {
@@ -17,20 +16,12 @@ gulp.task('styles', ['clean'], function() {
   gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/style_guide/style_guide.scss'])
     .pipe(compass({
       config_file: './config/compass.rb',
-      css: '.tmp/',
+      css: 'dist',
       sass: 'src'
     }));
 
   gulp.src(['src/syntax-highlighting/*.css'])
     .pipe(gulp.dest('./dist/syntax-highlighting/'));
-
-  gulp.src(['.tmp/pivotal-ui/pivotal-ui.css', '.tmp/bundle.css'])
-    .pipe(concat('pivotal-ui.css'))
-    .pipe(gulp.dest('./dist/pivotal-ui/'));
-
-  gulp.src('.tmp/style_guide/style_guide.css')
-    .pipe(gulp.dest('dist/style_guide/'));
-
 });
 
 
