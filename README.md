@@ -124,5 +124,22 @@ You may (rarely!) need to clear out all the compiled files.
 
     $ grunt clean
 
+### Testing
+
+(for the moment, this section is aspirational)
+
+We use CSSCritic for front-end regression testing. Currently, we are only testing a few components, with plans to expand. To test:
+
+#### Set a baseline to test against (before making any changes!!)
+1. Run `gulp test`. This will open up Firefox and show all rendered test files in a "yellow" state.
+2. Click "Accept the rendered page" for *each* component. Yes, this will get more painful as we add more tests. If it is slowing you down, please let us know so we can prioritize automating this step.
+
+#### Rerun the test suite for regressions (before you commit/make a pull request)
+1. Run `gulp test`. This will open up Firefox.
+2. If there are no regressions, all components will be green.
+3. If you added any components, you'll have to click "Accept the rendered page" for that component.
+4. If a component is red, this means either:
+    1. You broke something. Fix it!
+    2. You want to change the baseline. You should talk to the core Pivotal UI team first, especially the designers.
 
 
