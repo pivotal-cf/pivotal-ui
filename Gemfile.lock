@@ -25,4 +25,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  compass
+  compass (~> 1.0.1)
