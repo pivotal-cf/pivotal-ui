@@ -159,3 +159,8 @@ We use CSSCritic for front-end regression testing. Currently, we are only testin
 1. If a component is red, this means either:
     1. You broke something. Fix it!
     2. You want to change the baseline. You should talk to the core Pivotal UI team first, especially the designers.
+
+
+### Commit messages
+
+We follow the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md) commit message format. Your message should include information about whether it includes major, minor or patch level changes.
