@@ -35,7 +35,7 @@
     "vinyl-source-stream": "^1.0.0"
   },
   "description": "***",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "Gruntfile.js",
   "dependencies": {
     "bootstrap": "^3.2.0",
