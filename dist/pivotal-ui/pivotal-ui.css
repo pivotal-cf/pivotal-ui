@@ -10,44 +10,39 @@
 /* Button Mixins */
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-light-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-light-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-light-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-light-webfont.svg#sourcesanspro-light-webfont") format("svg");
+  src: url("../fonts/sourcesanspro-light-webfont.eot");
+  src: url("../fonts/sourcesanspro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-light-webfont.woff") format("woff"), url("../fonts/sourcesanspro-light-webfont.ttf") format("truetype"), url("../fonts/sourcesanspro-light-webfont.svg#sourcesanspro-light-webfont") format("svg");
   font-weight: 200;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-regular-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-regular-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-regular-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-regular-webfont.svg#sourcesanspro-regular-webfont") format("svg");
+  src: url("../fonts/sourcesanspro-regular-webfont.eot");
+  src: url("../fonts/sourcesanspro-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-regular-webfont.woff") format("woff"), url("../fonts/sourcesanspro-regular-webfont.ttf") format("truetype"), url("../fonts/sourcesanspro-regular-webfont.svg#sourcesanspro-regular-webfont") format("svg");
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-it-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-it-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-it-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-it-webfont.svg#sourcesanspro-it-webfont") format("svg");
+  src: url("../fonts/sourcesanspro-it-webfont.eot");
+  src: url("../fonts/sourcesanspro-it-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-it-webfont.woff") format("woff"), url("../fonts/sourcesanspro-it-webfont.ttf") format("truetype"), url("../fonts/sourcesanspro-it-webfont.svg#sourcesanspro-it-webfont") format("svg");
   font-weight: 400;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-bold-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-bold-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-bold-webfont.svg#sourcesanspro-bold-webfont") format("svg");
+  src: url("../fonts/sourcesanspro-bold-webfont.eot");
+  src: url("../fonts/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff"), url("../fonts/sourcesanspro-bold-webfont.ttf") format("truetype"), url("../fonts/sourcesanspro-bold-webfont.svg#sourcesanspro-bold-webfont") format("svg");
   font-weight: 600;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'SourceSansPro';
-  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot");
-  src: url("../source-sans-pro/sourcesanspro-black-webfont.eot?#iefix") format("embedded-opentype"), url("../source-sans-pro/sourcesanspro-black-webfont.woff") format("woff"), url("../source-sans-pro/sourcesanspro-black-webfont.ttf") format("truetype"), url("../source-sans-pro/sourcesanspro-black-webfont.svg#sourcesanspro-black-webfont") format("svg");
+  src: url("../fonts/sourcesanspro-black-webfont.eot");
+  src: url("../fonts/sourcesanspro-black-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-black-webfont.woff") format("woff"), url("../fonts/sourcesanspro-black-webfont.ttf") format("truetype"), url("../fonts/sourcesanspro-black-webfont.svg#sourcesanspro-black-webfont") format("svg");
   font-weight: 900;
   font-style: normal;
 }
-
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -61,7 +56,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 4, ../../node_modules/font-awesome/scss/_core.scss */
 .fa {
   display: inline-block;
@@ -133,7 +127,7 @@
 /* line 4, ../../node_modules/font-awesome/scss/_bordered-pulled.scss */
 .fa-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
+  border: solid 0.08em #eee;
   border-radius: .1em;
 }
 
@@ -163,33 +157,25 @@
 }
 
 @-webkit-keyframes fa-spin {
-  /* line 10, ../../node_modules/font-awesome/scss/_spinning.scss */
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
-  /* line 14, ../../node_modules/font-awesome/scss/_spinning.scss */
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
-
 @keyframes fa-spin {
-  /* line 21, ../../node_modules/font-awesome/scss/_spinning.scss */
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
   }
-
-  /* line 25, ../../node_modules/font-awesome/scss/_spinning.scss */
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg);
   }
 }
-
 /* line 4, ../../node_modules/font-awesome/scss/_rotated-flipped.scss */
 .fa-rotate-90 {
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
@@ -230,7 +216,7 @@
   transform: scale(1, -1);
 }
 
-/* line 18, ../../node_modules/font-awesome/scss/_rotated-flipped.scss */
+/* line 14, ../../node_modules/font-awesome/scss/_rotated-flipped.scss */
 :root .fa-rotate-90,
 :root .fa-rotate-180,
 :root .fa-rotate-270,
@@ -269,2478 +255,2478 @@
 
 /* line 20, ../../node_modules/font-awesome/scss/_stacked.scss */
 .fa-inverse {
-  color: white;
+  color: #fff;
 }
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 /* line 4, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-glass:before {
-  content: "\f000";
+  content: "";
 }
 
 /* line 5, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-music:before {
-  content: "\f001";
+  content: "";
 }
 
 /* line 6, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-search:before {
-  content: "\f002";
+  content: "";
 }
 
 /* line 7, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-envelope-o:before {
-  content: "\f003";
+  content: "";
 }
 
 /* line 8, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-heart:before {
-  content: "\f004";
+  content: "";
 }
 
 /* line 9, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-star:before {
-  content: "\f005";
+  content: "";
 }
 
 /* line 10, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-star-o:before {
-  content: "\f006";
+  content: "";
 }
 
 /* line 11, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-user:before {
-  content: "\f007";
+  content: "";
 }
 
 /* line 12, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-film:before {
-  content: "\f008";
+  content: "";
 }
 
 /* line 13, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-th-large:before {
-  content: "\f009";
+  content: "";
 }
 
 /* line 14, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-th:before {
-  content: "\f00a";
+  content: "";
 }
 
 /* line 15, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-th-list:before {
-  content: "\f00b";
+  content: "";
 }
 
 /* line 16, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-check:before {
-  content: "\f00c";
+  content: "";
 }
 
-/* line 19, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 17, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-remove:before,
 .fa-close:before,
 .fa-times:before {
-  content: "\f00d";
+  content: "";
 }
 
 /* line 20, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-search-plus:before {
-  content: "\f00e";
+  content: "";
 }
 
 /* line 21, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-search-minus:before {
-  content: "\f010";
+  content: "";
 }
 
 /* line 22, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-power-off:before {
-  content: "\f011";
+  content: "";
 }
 
 /* line 23, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-signal:before {
-  content: "\f012";
+  content: "";
 }
 
-/* line 25, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 24, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gear:before,
 .fa-cog:before {
-  content: "\f013";
+  content: "";
 }
 
 /* line 26, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-trash-o:before {
-  content: "\f014";
+  content: "";
 }
 
 /* line 27, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-home:before {
-  content: "\f015";
+  content: "";
 }
 
 /* line 28, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-o:before {
-  content: "\f016";
+  content: "";
 }
 
 /* line 29, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-clock-o:before {
-  content: "\f017";
+  content: "";
 }
 
 /* line 30, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-road:before {
-  content: "\f018";
+  content: "";
 }
 
 /* line 31, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-download:before {
-  content: "\f019";
+  content: "";
 }
 
 /* line 32, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-o-down:before {
-  content: "\f01a";
+  content: "";
 }
 
 /* line 33, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-o-up:before {
-  content: "\f01b";
+  content: "";
 }
 
 /* line 34, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-inbox:before {
-  content: "\f01c";
+  content: "";
 }
 
 /* line 35, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-play-circle-o:before {
-  content: "\f01d";
+  content: "";
 }
 
-/* line 37, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 36, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rotate-right:before,
 .fa-repeat:before {
-  content: "\f01e";
+  content: "";
 }
 
 /* line 38, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-refresh:before {
-  content: "\f021";
+  content: "";
 }
 
 /* line 39, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-list-alt:before {
-  content: "\f022";
+  content: "";
 }
 
 /* line 40, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-lock:before {
-  content: "\f023";
+  content: "";
 }
 
 /* line 41, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flag:before {
-  content: "\f024";
+  content: "";
 }
 
 /* line 42, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-headphones:before {
-  content: "\f025";
+  content: "";
 }
 
 /* line 43, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-volume-off:before {
-  content: "\f026";
+  content: "";
 }
 
 /* line 44, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-volume-down:before {
-  content: "\f027";
+  content: "";
 }
 
 /* line 45, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-volume-up:before {
-  content: "\f028";
+  content: "";
 }
 
 /* line 46, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-qrcode:before {
-  content: "\f029";
+  content: "";
 }
 
 /* line 47, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-barcode:before {
-  content: "\f02a";
+  content: "";
 }
 
 /* line 48, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tag:before {
-  content: "\f02b";
+  content: "";
 }
 
 /* line 49, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tags:before {
-  content: "\f02c";
+  content: "";
 }
 
 /* line 50, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-book:before {
-  content: "\f02d";
+  content: "";
 }
 
 /* line 51, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bookmark:before {
-  content: "\f02e";
+  content: "";
 }
 
 /* line 52, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-print:before {
-  content: "\f02f";
+  content: "";
 }
 
 /* line 53, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-camera:before {
-  content: "\f030";
+  content: "";
 }
 
 /* line 54, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-font:before {
-  content: "\f031";
+  content: "";
 }
 
 /* line 55, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bold:before {
-  content: "\f032";
+  content: "";
 }
 
 /* line 56, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-italic:before {
-  content: "\f033";
+  content: "";
 }
 
 /* line 57, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-text-height:before {
-  content: "\f034";
+  content: "";
 }
 
 /* line 58, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-text-width:before {
-  content: "\f035";
+  content: "";
 }
 
 /* line 59, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-align-left:before {
-  content: "\f036";
+  content: "";
 }
 
 /* line 60, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-align-center:before {
-  content: "\f037";
+  content: "";
 }
 
 /* line 61, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-align-right:before {
-  content: "\f038";
+  content: "";
 }
 
 /* line 62, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-align-justify:before {
-  content: "\f039";
+  content: "";
 }
 
 /* line 63, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-list:before {
-  content: "\f03a";
+  content: "";
 }
 
-/* line 65, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 64, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dedent:before,
 .fa-outdent:before {
-  content: "\f03b";
+  content: "";
 }
 
 /* line 66, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-indent:before {
-  content: "\f03c";
+  content: "";
 }
 
 /* line 67, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-video-camera:before {
-  content: "\f03d";
+  content: "";
 }
 
-/* line 70, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 68, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-photo:before,
 .fa-image:before,
 .fa-picture-o:before {
-  content: "\f03e";
+  content: "";
 }
 
 /* line 71, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pencil:before {
-  content: "\f040";
+  content: "";
 }
 
 /* line 72, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-map-marker:before {
-  content: "\f041";
+  content: "";
 }
 
 /* line 73, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-adjust:before {
-  content: "\f042";
+  content: "";
 }
 
 /* line 74, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tint:before {
-  content: "\f043";
+  content: "";
 }
 
-/* line 76, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 75, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-edit:before,
 .fa-pencil-square-o:before {
-  content: "\f044";
+  content: "";
 }
 
 /* line 77, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-share-square-o:before {
-  content: "\f045";
+  content: "";
 }
 
 /* line 78, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-check-square-o:before {
-  content: "\f046";
+  content: "";
 }
 
 /* line 79, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrows:before {
-  content: "\f047";
+  content: "";
 }
 
 /* line 80, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-step-backward:before {
-  content: "\f048";
+  content: "";
 }
 
 /* line 81, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fast-backward:before {
-  content: "\f049";
+  content: "";
 }
 
 /* line 82, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-backward:before {
-  content: "\f04a";
+  content: "";
 }
 
 /* line 83, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-play:before {
-  content: "\f04b";
+  content: "";
 }
 
 /* line 84, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pause:before {
-  content: "\f04c";
+  content: "";
 }
 
 /* line 85, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stop:before {
-  content: "\f04d";
+  content: "";
 }
 
 /* line 86, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-forward:before {
-  content: "\f04e";
+  content: "";
 }
 
 /* line 87, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fast-forward:before {
-  content: "\f050";
+  content: "";
 }
 
 /* line 88, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-step-forward:before {
-  content: "\f051";
+  content: "";
 }
 
 /* line 89, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-eject:before {
-  content: "\f052";
+  content: "";
 }
 
 /* line 90, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-left:before {
-  content: "\f053";
+  content: "";
 }
 
 /* line 91, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-right:before {
-  content: "\f054";
+  content: "";
 }
 
 /* line 92, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plus-circle:before {
-  content: "\f055";
+  content: "";
 }
 
 /* line 93, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-minus-circle:before {
-  content: "\f056";
+  content: "";
 }
 
 /* line 94, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-times-circle:before {
-  content: "\f057";
+  content: "";
 }
 
 /* line 95, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-check-circle:before {
-  content: "\f058";
+  content: "";
 }
 
 /* line 96, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-question-circle:before {
-  content: "\f059";
+  content: "";
 }
 
 /* line 97, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-info-circle:before {
-  content: "\f05a";
+  content: "";
 }
 
 /* line 98, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-crosshairs:before {
-  content: "\f05b";
+  content: "";
 }
 
 /* line 99, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-times-circle-o:before {
-  content: "\f05c";
+  content: "";
 }
 
 /* line 100, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-check-circle-o:before {
-  content: "\f05d";
+  content: "";
 }
 
 /* line 101, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ban:before {
-  content: "\f05e";
+  content: "";
 }
 
 /* line 102, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-left:before {
-  content: "\f060";
+  content: "";
 }
 
 /* line 103, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-right:before {
-  content: "\f061";
+  content: "";
 }
 
 /* line 104, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-up:before {
-  content: "\f062";
+  content: "";
 }
 
 /* line 105, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-down:before {
-  content: "\f063";
+  content: "";
 }
 
-/* line 107, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 106, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-mail-forward:before,
 .fa-share:before {
-  content: "\f064";
+  content: "";
 }
 
 /* line 108, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-expand:before {
-  content: "\f065";
+  content: "";
 }
 
 /* line 109, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-compress:before {
-  content: "\f066";
+  content: "";
 }
 
 /* line 110, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plus:before {
-  content: "\f067";
+  content: "";
 }
 
 /* line 111, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-minus:before {
-  content: "\f068";
+  content: "";
 }
 
 /* line 112, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-asterisk:before {
-  content: "\f069";
+  content: "";
 }
 
 /* line 113, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-exclamation-circle:before {
-  content: "\f06a";
+  content: "";
 }
 
 /* line 114, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gift:before {
-  content: "\f06b";
+  content: "";
 }
 
 /* line 115, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-leaf:before {
-  content: "\f06c";
+  content: "";
 }
 
 /* line 116, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fire:before {
-  content: "\f06d";
+  content: "";
 }
 
 /* line 117, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-eye:before {
-  content: "\f06e";
+  content: "";
 }
 
 /* line 118, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-eye-slash:before {
-  content: "\f070";
+  content: "";
 }
 
-/* line 120, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 119, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-warning:before,
 .fa-exclamation-triangle:before {
-  content: "\f071";
+  content: "";
 }
 
 /* line 121, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plane:before {
-  content: "\f072";
+  content: "";
 }
 
 /* line 122, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-calendar:before {
-  content: "\f073";
+  content: "";
 }
 
 /* line 123, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-random:before {
-  content: "\f074";
+  content: "";
 }
 
 /* line 124, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-comment:before {
-  content: "\f075";
+  content: "";
 }
 
 /* line 125, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-magnet:before {
-  content: "\f076";
+  content: "";
 }
 
 /* line 126, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-up:before {
-  content: "\f077";
+  content: "";
 }
 
 /* line 127, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-down:before {
-  content: "\f078";
+  content: "";
 }
 
 /* line 128, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-retweet:before {
-  content: "\f079";
+  content: "";
 }
 
 /* line 129, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-shopping-cart:before {
-  content: "\f07a";
+  content: "";
 }
 
 /* line 130, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-folder:before {
-  content: "\f07b";
+  content: "";
 }
 
 /* line 131, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-folder-open:before {
-  content: "\f07c";
+  content: "";
 }
 
 /* line 132, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrows-v:before {
-  content: "\f07d";
+  content: "";
 }
 
 /* line 133, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrows-h:before {
-  content: "\f07e";
+  content: "";
 }
 
-/* line 135, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 134, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bar-chart-o:before,
 .fa-bar-chart:before {
-  content: "\f080";
+  content: "";
 }
 
 /* line 136, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-twitter-square:before {
-  content: "\f081";
+  content: "";
 }
 
 /* line 137, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-facebook-square:before {
-  content: "\f082";
+  content: "";
 }
 
 /* line 138, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-camera-retro:before {
-  content: "\f083";
+  content: "";
 }
 
 /* line 139, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-key:before {
-  content: "\f084";
+  content: "";
 }
 
-/* line 141, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 140, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gears:before,
 .fa-cogs:before {
-  content: "\f085";
+  content: "";
 }
 
 /* line 142, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-comments:before {
-  content: "\f086";
+  content: "";
 }
 
 /* line 143, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-thumbs-o-up:before {
-  content: "\f087";
+  content: "";
 }
 
 /* line 144, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-thumbs-o-down:before {
-  content: "\f088";
+  content: "";
 }
 
 /* line 145, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-star-half:before {
-  content: "\f089";
+  content: "";
 }
 
 /* line 146, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-heart-o:before {
-  content: "\f08a";
+  content: "";
 }
 
 /* line 147, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sign-out:before {
-  content: "\f08b";
+  content: "";
 }
 
 /* line 148, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-linkedin-square:before {
-  content: "\f08c";
+  content: "";
 }
 
 /* line 149, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-thumb-tack:before {
-  content: "\f08d";
+  content: "";
 }
 
 /* line 150, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-external-link:before {
-  content: "\f08e";
+  content: "";
 }
 
 /* line 151, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sign-in:before {
-  content: "\f090";
+  content: "";
 }
 
 /* line 152, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-trophy:before {
-  content: "\f091";
+  content: "";
 }
 
 /* line 153, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-github-square:before {
-  content: "\f092";
+  content: "";
 }
 
 /* line 154, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-upload:before {
-  content: "\f093";
+  content: "";
 }
 
 /* line 155, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-lemon-o:before {
-  content: "\f094";
+  content: "";
 }
 
 /* line 156, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-phone:before {
-  content: "\f095";
+  content: "";
 }
 
 /* line 157, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-square-o:before {
-  content: "\f096";
+  content: "";
 }
 
 /* line 158, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bookmark-o:before {
-  content: "\f097";
+  content: "";
 }
 
 /* line 159, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-phone-square:before {
-  content: "\f098";
+  content: "";
 }
 
 /* line 160, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-twitter:before {
-  content: "\f099";
+  content: "";
 }
 
 /* line 161, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-facebook:before {
-  content: "\f09a";
+  content: "";
 }
 
 /* line 162, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-github:before {
-  content: "\f09b";
+  content: "";
 }
 
 /* line 163, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-unlock:before {
-  content: "\f09c";
+  content: "";
 }
 
 /* line 164, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-credit-card:before {
-  content: "\f09d";
+  content: "";
 }
 
 /* line 165, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rss:before {
-  content: "\f09e";
+  content: "";
 }
 
 /* line 166, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hdd-o:before {
-  content: "\f0a0";
+  content: "";
 }
 
 /* line 167, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bullhorn:before {
-  content: "\f0a1";
+  content: "";
 }
 
 /* line 168, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bell:before {
-  content: "\f0f3";
+  content: "";
 }
 
 /* line 169, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-certificate:before {
-  content: "\f0a3";
+  content: "";
 }
 
 /* line 170, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hand-o-right:before {
-  content: "\f0a4";
+  content: "";
 }
 
 /* line 171, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hand-o-left:before {
-  content: "\f0a5";
+  content: "";
 }
 
 /* line 172, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hand-o-up:before {
-  content: "\f0a6";
+  content: "";
 }
 
 /* line 173, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hand-o-down:before {
-  content: "\f0a7";
+  content: "";
 }
 
 /* line 174, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-left:before {
-  content: "\f0a8";
+  content: "";
 }
 
 /* line 175, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-right:before {
-  content: "\f0a9";
+  content: "";
 }
 
 /* line 176, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-up:before {
-  content: "\f0aa";
+  content: "";
 }
 
 /* line 177, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-down:before {
-  content: "\f0ab";
+  content: "";
 }
 
 /* line 178, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-globe:before {
-  content: "\f0ac";
+  content: "";
 }
 
 /* line 179, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-wrench:before {
-  content: "\f0ad";
+  content: "";
 }
 
 /* line 180, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tasks:before {
-  content: "\f0ae";
+  content: "";
 }
 
 /* line 181, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-filter:before {
-  content: "\f0b0";
+  content: "";
 }
 
 /* line 182, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-briefcase:before {
-  content: "\f0b1";
+  content: "";
 }
 
 /* line 183, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrows-alt:before {
-  content: "\f0b2";
+  content: "";
 }
 
-/* line 185, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 184, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-group:before,
 .fa-users:before {
-  content: "\f0c0";
+  content: "";
 }
 
-/* line 187, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 186, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chain:before,
 .fa-link:before {
-  content: "\f0c1";
+  content: "";
 }
 
 /* line 188, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cloud:before {
-  content: "\f0c2";
+  content: "";
 }
 
 /* line 189, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flask:before {
-  content: "\f0c3";
+  content: "";
 }
 
-/* line 191, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 190, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cut:before,
 .fa-scissors:before {
-  content: "\f0c4";
+  content: "";
 }
 
-/* line 193, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 192, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-copy:before,
 .fa-files-o:before {
-  content: "\f0c5";
+  content: "";
 }
 
 /* line 194, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paperclip:before {
-  content: "\f0c6";
+  content: "";
 }
 
-/* line 196, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 195, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-save:before,
 .fa-floppy-o:before {
-  content: "\f0c7";
+  content: "";
 }
 
 /* line 197, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-square:before {
-  content: "\f0c8";
+  content: "";
 }
 
-/* line 200, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 198, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-navicon:before,
 .fa-reorder:before,
 .fa-bars:before {
-  content: "\f0c9";
+  content: "";
 }
 
 /* line 201, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-list-ul:before {
-  content: "\f0ca";
+  content: "";
 }
 
 /* line 202, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-list-ol:before {
-  content: "\f0cb";
+  content: "";
 }
 
 /* line 203, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-strikethrough:before {
-  content: "\f0cc";
+  content: "";
 }
 
 /* line 204, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-underline:before {
-  content: "\f0cd";
+  content: "";
 }
 
 /* line 205, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-table:before {
-  content: "\f0ce";
+  content: "";
 }
 
 /* line 206, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-magic:before {
-  content: "\f0d0";
+  content: "";
 }
 
 /* line 207, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-truck:before {
-  content: "\f0d1";
+  content: "";
 }
 
 /* line 208, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pinterest:before {
-  content: "\f0d2";
+  content: "";
 }
 
 /* line 209, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pinterest-square:before {
-  content: "\f0d3";
+  content: "";
 }
 
 /* line 210, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-google-plus-square:before {
-  content: "\f0d4";
+  content: "";
 }
 
 /* line 211, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-google-plus:before {
-  content: "\f0d5";
+  content: "";
 }
 
 /* line 212, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-money:before {
-  content: "\f0d6";
+  content: "";
 }
 
 /* line 213, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-caret-down:before {
-  content: "\f0d7";
+  content: "";
 }
 
 /* line 214, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-caret-up:before {
-  content: "\f0d8";
+  content: "";
 }
 
 /* line 215, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-caret-left:before {
-  content: "\f0d9";
+  content: "";
 }
 
 /* line 216, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-caret-right:before {
-  content: "\f0da";
+  content: "";
 }
 
 /* line 217, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-columns:before {
-  content: "\f0db";
+  content: "";
 }
 
-/* line 219, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 218, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-unsorted:before,
 .fa-sort:before {
-  content: "\f0dc";
+  content: "";
 }
 
-/* line 221, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 220, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-down:before,
 .fa-sort-desc:before {
-  content: "\f0dd";
+  content: "";
 }
 
-/* line 223, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 222, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-up:before,
 .fa-sort-asc:before {
-  content: "\f0de";
+  content: "";
 }
 
 /* line 224, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-envelope:before {
-  content: "\f0e0";
+  content: "";
 }
 
 /* line 225, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-linkedin:before {
-  content: "\f0e1";
+  content: "";
 }
 
-/* line 227, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 226, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rotate-left:before,
 .fa-undo:before {
-  content: "\f0e2";
+  content: "";
 }
 
-/* line 229, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 228, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-legal:before,
 .fa-gavel:before {
-  content: "\f0e3";
+  content: "";
 }
 
-/* line 231, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 230, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dashboard:before,
 .fa-tachometer:before {
-  content: "\f0e4";
+  content: "";
 }
 
 /* line 232, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-comment-o:before {
-  content: "\f0e5";
+  content: "";
 }
 
 /* line 233, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-comments-o:before {
-  content: "\f0e6";
+  content: "";
 }
 
-/* line 235, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 234, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flash:before,
 .fa-bolt:before {
-  content: "\f0e7";
+  content: "";
 }
 
 /* line 236, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sitemap:before {
-  content: "\f0e8";
+  content: "";
 }
 
 /* line 237, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-umbrella:before {
-  content: "\f0e9";
+  content: "";
 }
 
-/* line 239, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 238, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paste:before,
 .fa-clipboard:before {
-  content: "\f0ea";
+  content: "";
 }
 
 /* line 240, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-lightbulb-o:before {
-  content: "\f0eb";
+  content: "";
 }
 
 /* line 241, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-exchange:before {
-  content: "\f0ec";
+  content: "";
 }
 
 /* line 242, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cloud-download:before {
-  content: "\f0ed";
+  content: "";
 }
 
 /* line 243, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cloud-upload:before {
-  content: "\f0ee";
+  content: "";
 }
 
 /* line 244, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-user-md:before {
-  content: "\f0f0";
+  content: "";
 }
 
 /* line 245, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stethoscope:before {
-  content: "\f0f1";
+  content: "";
 }
 
 /* line 246, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-suitcase:before {
-  content: "\f0f2";
+  content: "";
 }
 
 /* line 247, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bell-o:before {
-  content: "\f0a2";
+  content: "";
 }
 
 /* line 248, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-coffee:before {
-  content: "\f0f4";
+  content: "";
 }
 
 /* line 249, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cutlery:before {
-  content: "\f0f5";
+  content: "";
 }
 
 /* line 250, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-text-o:before {
-  content: "\f0f6";
+  content: "";
 }
 
 /* line 251, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-building-o:before {
-  content: "\f0f7";
+  content: "";
 }
 
 /* line 252, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hospital-o:before {
-  content: "\f0f8";
+  content: "";
 }
 
 /* line 253, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ambulance:before {
-  content: "\f0f9";
+  content: "";
 }
 
 /* line 254, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-medkit:before {
-  content: "\f0fa";
+  content: "";
 }
 
 /* line 255, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fighter-jet:before {
-  content: "\f0fb";
+  content: "";
 }
 
 /* line 256, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-beer:before {
-  content: "\f0fc";
+  content: "";
 }
 
 /* line 257, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-h-square:before {
-  content: "\f0fd";
+  content: "";
 }
 
 /* line 258, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plus-square:before {
-  content: "\f0fe";
+  content: "";
 }
 
 /* line 259, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-double-left:before {
-  content: "\f100";
+  content: "";
 }
 
 /* line 260, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-double-right:before {
-  content: "\f101";
+  content: "";
 }
 
 /* line 261, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-double-up:before {
-  content: "\f102";
+  content: "";
 }
 
 /* line 262, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-double-down:before {
-  content: "\f103";
+  content: "";
 }
 
 /* line 263, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-left:before {
-  content: "\f104";
+  content: "";
 }
 
 /* line 264, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-right:before {
-  content: "\f105";
+  content: "";
 }
 
 /* line 265, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-up:before {
-  content: "\f106";
+  content: "";
 }
 
 /* line 266, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angle-down:before {
-  content: "\f107";
+  content: "";
 }
 
 /* line 267, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-desktop:before {
-  content: "\f108";
+  content: "";
 }
 
 /* line 268, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-laptop:before {
-  content: "\f109";
+  content: "";
 }
 
 /* line 269, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tablet:before {
-  content: "\f10a";
+  content: "";
 }
 
-/* line 271, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 270, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-mobile-phone:before,
 .fa-mobile:before {
-  content: "\f10b";
+  content: "";
 }
 
 /* line 272, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-circle-o:before {
-  content: "\f10c";
+  content: "";
 }
 
 /* line 273, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-quote-left:before {
-  content: "\f10d";
+  content: "";
 }
 
 /* line 274, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-quote-right:before {
-  content: "\f10e";
+  content: "";
 }
 
 /* line 275, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-spinner:before {
-  content: "\f110";
+  content: "";
 }
 
 /* line 276, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-circle:before {
-  content: "\f111";
+  content: "";
 }
 
-/* line 278, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 277, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-mail-reply:before,
 .fa-reply:before {
-  content: "\f112";
+  content: "";
 }
 
 /* line 279, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-github-alt:before {
-  content: "\f113";
+  content: "";
 }
 
 /* line 280, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-folder-o:before {
-  content: "\f114";
+  content: "";
 }
 
 /* line 281, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-folder-open-o:before {
-  content: "\f115";
+  content: "";
 }
 
 /* line 282, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-smile-o:before {
-  content: "\f118";
+  content: "";
 }
 
 /* line 283, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-frown-o:before {
-  content: "\f119";
+  content: "";
 }
 
 /* line 284, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-meh-o:before {
-  content: "\f11a";
+  content: "";
 }
 
 /* line 285, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gamepad:before {
-  content: "\f11b";
+  content: "";
 }
 
 /* line 286, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-keyboard-o:before {
-  content: "\f11c";
+  content: "";
 }
 
 /* line 287, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flag-o:before {
-  content: "\f11d";
+  content: "";
 }
 
 /* line 288, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flag-checkered:before {
-  content: "\f11e";
+  content: "";
 }
 
 /* line 289, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-terminal:before {
-  content: "\f120";
+  content: "";
 }
 
 /* line 290, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-code:before {
-  content: "\f121";
+  content: "";
 }
 
-/* line 292, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 291, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-mail-reply-all:before,
 .fa-reply-all:before {
-  content: "\f122";
+  content: "";
 }
 
-/* line 295, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 293, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-star-half-empty:before,
 .fa-star-half-full:before,
 .fa-star-half-o:before {
-  content: "\f123";
+  content: "";
 }
 
 /* line 296, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-location-arrow:before {
-  content: "\f124";
+  content: "";
 }
 
 /* line 297, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-crop:before {
-  content: "\f125";
+  content: "";
 }
 
 /* line 298, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-code-fork:before {
-  content: "\f126";
+  content: "";
 }
 
-/* line 300, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 299, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-unlink:before,
 .fa-chain-broken:before {
-  content: "\f127";
+  content: "";
 }
 
 /* line 301, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-question:before {
-  content: "\f128";
+  content: "";
 }
 
 /* line 302, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-info:before {
-  content: "\f129";
+  content: "";
 }
 
 /* line 303, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-exclamation:before {
-  content: "\f12a";
+  content: "";
 }
 
 /* line 304, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-superscript:before {
-  content: "\f12b";
+  content: "";
 }
 
 /* line 305, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-subscript:before {
-  content: "\f12c";
+  content: "";
 }
 
 /* line 306, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-eraser:before {
-  content: "\f12d";
+  content: "";
 }
 
 /* line 307, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-puzzle-piece:before {
-  content: "\f12e";
+  content: "";
 }
 
 /* line 308, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-microphone:before {
-  content: "\f130";
+  content: "";
 }
 
 /* line 309, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-microphone-slash:before {
-  content: "\f131";
+  content: "";
 }
 
 /* line 310, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-shield:before {
-  content: "\f132";
+  content: "";
 }
 
 /* line 311, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-calendar-o:before {
-  content: "\f133";
+  content: "";
 }
 
 /* line 312, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fire-extinguisher:before {
-  content: "\f134";
+  content: "";
 }
 
 /* line 313, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rocket:before {
-  content: "\f135";
+  content: "";
 }
 
 /* line 314, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-maxcdn:before {
-  content: "\f136";
+  content: "";
 }
 
 /* line 315, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-circle-left:before {
-  content: "\f137";
+  content: "";
 }
 
 /* line 316, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-circle-right:before {
-  content: "\f138";
+  content: "";
 }
 
 /* line 317, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-circle-up:before {
-  content: "\f139";
+  content: "";
 }
 
 /* line 318, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-chevron-circle-down:before {
-  content: "\f13a";
+  content: "";
 }
 
 /* line 319, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-html5:before {
-  content: "\f13b";
+  content: "";
 }
 
 /* line 320, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-css3:before {
-  content: "\f13c";
+  content: "";
 }
 
 /* line 321, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-anchor:before {
-  content: "\f13d";
+  content: "";
 }
 
 /* line 322, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-unlock-alt:before {
-  content: "\f13e";
+  content: "";
 }
 
 /* line 323, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bullseye:before {
-  content: "\f140";
+  content: "";
 }
 
 /* line 324, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ellipsis-h:before {
-  content: "\f141";
+  content: "";
 }
 
 /* line 325, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ellipsis-v:before {
-  content: "\f142";
+  content: "";
 }
 
 /* line 326, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rss-square:before {
-  content: "\f143";
+  content: "";
 }
 
 /* line 327, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-play-circle:before {
-  content: "\f144";
+  content: "";
 }
 
 /* line 328, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ticket:before {
-  content: "\f145";
+  content: "";
 }
 
 /* line 329, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-minus-square:before {
-  content: "\f146";
+  content: "";
 }
 
 /* line 330, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-minus-square-o:before {
-  content: "\f147";
+  content: "";
 }
 
 /* line 331, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-level-up:before {
-  content: "\f148";
+  content: "";
 }
 
 /* line 332, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-level-down:before {
-  content: "\f149";
+  content: "";
 }
 
 /* line 333, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-check-square:before {
-  content: "\f14a";
+  content: "";
 }
 
 /* line 334, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pencil-square:before {
-  content: "\f14b";
+  content: "";
 }
 
 /* line 335, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-external-link-square:before {
-  content: "\f14c";
+  content: "";
 }
 
 /* line 336, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-share-square:before {
-  content: "\f14d";
+  content: "";
 }
 
 /* line 337, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-compass:before {
-  content: "\f14e";
+  content: "";
 }
 
-/* line 339, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 338, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-down:before,
 .fa-caret-square-o-down:before {
-  content: "\f150";
+  content: "";
 }
 
-/* line 341, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 340, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-up:before,
 .fa-caret-square-o-up:before {
-  content: "\f151";
+  content: "";
 }
 
-/* line 343, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 342, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-right:before,
 .fa-caret-square-o-right:before {
-  content: "\f152";
+  content: "";
 }
 
-/* line 345, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 344, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-euro:before,
 .fa-eur:before {
-  content: "\f153";
+  content: "";
 }
 
 /* line 346, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gbp:before {
-  content: "\f154";
+  content: "";
 }
 
-/* line 348, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 347, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dollar:before,
 .fa-usd:before {
-  content: "\f155";
+  content: "";
 }
 
-/* line 350, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 349, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-rupee:before,
 .fa-inr:before {
-  content: "\f156";
+  content: "";
 }
 
-/* line 354, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 351, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cny:before,
 .fa-rmb:before,
 .fa-yen:before,
 .fa-jpy:before {
-  content: "\f157";
+  content: "";
 }
 
-/* line 357, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 355, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ruble:before,
 .fa-rouble:before,
 .fa-rub:before {
-  content: "\f158";
+  content: "";
 }
 
-/* line 359, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 358, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-won:before,
 .fa-krw:before {
-  content: "\f159";
+  content: "";
 }
 
-/* line 361, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 360, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bitcoin:before,
 .fa-btc:before {
-  content: "\f15a";
+  content: "";
 }
 
 /* line 362, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file:before {
-  content: "\f15b";
+  content: "";
 }
 
 /* line 363, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-text:before {
-  content: "\f15c";
+  content: "";
 }
 
 /* line 364, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-alpha-asc:before {
-  content: "\f15d";
+  content: "";
 }
 
 /* line 365, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-alpha-desc:before {
-  content: "\f15e";
+  content: "";
 }
 
 /* line 366, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-amount-asc:before {
-  content: "\f160";
+  content: "";
 }
 
 /* line 367, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-amount-desc:before {
-  content: "\f161";
+  content: "";
 }
 
 /* line 368, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-numeric-asc:before {
-  content: "\f162";
+  content: "";
 }
 
 /* line 369, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sort-numeric-desc:before {
-  content: "\f163";
+  content: "";
 }
 
 /* line 370, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-thumbs-up:before {
-  content: "\f164";
+  content: "";
 }
 
 /* line 371, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-thumbs-down:before {
-  content: "\f165";
+  content: "";
 }
 
 /* line 372, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-youtube-square:before {
-  content: "\f166";
+  content: "";
 }
 
 /* line 373, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-youtube:before {
-  content: "\f167";
+  content: "";
 }
 
 /* line 374, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-xing:before {
-  content: "\f168";
+  content: "";
 }
 
 /* line 375, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-xing-square:before {
-  content: "\f169";
+  content: "";
 }
 
 /* line 376, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-youtube-play:before {
-  content: "\f16a";
+  content: "";
 }
 
 /* line 377, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dropbox:before {
-  content: "\f16b";
+  content: "";
 }
 
 /* line 378, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stack-overflow:before {
-  content: "\f16c";
+  content: "";
 }
 
 /* line 379, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-instagram:before {
-  content: "\f16d";
+  content: "";
 }
 
 /* line 380, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-flickr:before {
-  content: "\f16e";
+  content: "";
 }
 
 /* line 381, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-adn:before {
-  content: "\f170";
+  content: "";
 }
 
 /* line 382, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bitbucket:before {
-  content: "\f171";
+  content: "";
 }
 
 /* line 383, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bitbucket-square:before {
-  content: "\f172";
+  content: "";
 }
 
 /* line 384, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tumblr:before {
-  content: "\f173";
+  content: "";
 }
 
 /* line 385, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tumblr-square:before {
-  content: "\f174";
+  content: "";
 }
 
 /* line 386, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-long-arrow-down:before {
-  content: "\f175";
+  content: "";
 }
 
 /* line 387, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-long-arrow-up:before {
-  content: "\f176";
+  content: "";
 }
 
 /* line 388, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-long-arrow-left:before {
-  content: "\f177";
+  content: "";
 }
 
 /* line 389, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-long-arrow-right:before {
-  content: "\f178";
+  content: "";
 }
 
 /* line 390, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-apple:before {
-  content: "\f179";
+  content: "";
 }
 
 /* line 391, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-windows:before {
-  content: "\f17a";
+  content: "";
 }
 
 /* line 392, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-android:before {
-  content: "\f17b";
+  content: "";
 }
 
 /* line 393, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-linux:before {
-  content: "\f17c";
+  content: "";
 }
 
 /* line 394, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dribbble:before {
-  content: "\f17d";
+  content: "";
 }
 
 /* line 395, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-skype:before {
-  content: "\f17e";
+  content: "";
 }
 
 /* line 396, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-foursquare:before {
-  content: "\f180";
+  content: "";
 }
 
 /* line 397, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-trello:before {
-  content: "\f181";
+  content: "";
 }
 
 /* line 398, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-female:before {
-  content: "\f182";
+  content: "";
 }
 
 /* line 399, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-male:before {
-  content: "\f183";
+  content: "";
 }
 
 /* line 400, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-gittip:before {
-  content: "\f184";
+  content: "";
 }
 
 /* line 401, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sun-o:before {
-  content: "\f185";
+  content: "";
 }
 
 /* line 402, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-moon-o:before {
-  content: "\f186";
+  content: "";
 }
 
 /* line 403, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-archive:before {
-  content: "\f187";
+  content: "";
 }
 
 /* line 404, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bug:before {
-  content: "\f188";
+  content: "";
 }
 
 /* line 405, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-vk:before {
-  content: "\f189";
+  content: "";
 }
 
 /* line 406, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-weibo:before {
-  content: "\f18a";
+  content: "";
 }
 
 /* line 407, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-renren:before {
-  content: "\f18b";
+  content: "";
 }
 
 /* line 408, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pagelines:before {
-  content: "\f18c";
+  content: "";
 }
 
 /* line 409, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stack-exchange:before {
-  content: "\f18d";
+  content: "";
 }
 
 /* line 410, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-o-right:before {
-  content: "\f18e";
+  content: "";
 }
 
 /* line 411, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-arrow-circle-o-left:before {
-  content: "\f190";
+  content: "";
 }
 
-/* line 413, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 412, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-left:before,
 .fa-caret-square-o-left:before {
-  content: "\f191";
+  content: "";
 }
 
 /* line 414, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-dot-circle-o:before {
-  content: "\f192";
+  content: "";
 }
 
 /* line 415, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-wheelchair:before {
-  content: "\f193";
+  content: "";
 }
 
 /* line 416, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-vimeo-square:before {
-  content: "\f194";
+  content: "";
 }
 
-/* line 418, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 417, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-turkish-lira:before,
 .fa-try:before {
-  content: "\f195";
+  content: "";
 }
 
 /* line 419, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plus-square-o:before {
-  content: "\f196";
+  content: "";
 }
 
 /* line 420, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-space-shuttle:before {
-  content: "\f197";
+  content: "";
 }
 
 /* line 421, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-slack:before {
-  content: "\f198";
+  content: "";
 }
 
 /* line 422, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-envelope-square:before {
-  content: "\f199";
+  content: "";
 }
 
 /* line 423, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-wordpress:before {
-  content: "\f19a";
+  content: "";
 }
 
 /* line 424, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-openid:before {
-  content: "\f19b";
+  content: "";
 }
 
-/* line 427, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 425, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-institution:before,
 .fa-bank:before,
 .fa-university:before {
-  content: "\f19c";
+  content: "";
 }
 
-/* line 429, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 428, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-mortar-board:before,
 .fa-graduation-cap:before {
-  content: "\f19d";
+  content: "";
 }
 
 /* line 430, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-yahoo:before {
-  content: "\f19e";
+  content: "";
 }
 
 /* line 431, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-google:before {
-  content: "\f1a0";
+  content: "";
 }
 
 /* line 432, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-reddit:before {
-  content: "\f1a1";
+  content: "";
 }
 
 /* line 433, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-reddit-square:before {
-  content: "\f1a2";
+  content: "";
 }
 
 /* line 434, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stumbleupon-circle:before {
-  content: "\f1a3";
+  content: "";
 }
 
 /* line 435, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-stumbleupon:before {
-  content: "\f1a4";
+  content: "";
 }
 
 /* line 436, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-delicious:before {
-  content: "\f1a5";
+  content: "";
 }
 
 /* line 437, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-digg:before {
-  content: "\f1a6";
+  content: "";
 }
 
 /* line 438, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pied-piper:before {
-  content: "\f1a7";
+  content: "";
 }
 
 /* line 439, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pied-piper-alt:before {
-  content: "\f1a8";
+  content: "";
 }
 
 /* line 440, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-drupal:before {
-  content: "\f1a9";
+  content: "";
 }
 
 /* line 441, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-joomla:before {
-  content: "\f1aa";
+  content: "";
 }
 
 /* line 442, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-language:before {
-  content: "\f1ab";
+  content: "";
 }
 
 /* line 443, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-fax:before {
-  content: "\f1ac";
+  content: "";
 }
 
 /* line 444, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-building:before {
-  content: "\f1ad";
+  content: "";
 }
 
 /* line 445, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-child:before {
-  content: "\f1ae";
+  content: "";
 }
 
 /* line 446, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paw:before {
-  content: "\f1b0";
+  content: "";
 }
 
 /* line 447, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-spoon:before {
-  content: "\f1b1";
+  content: "";
 }
 
 /* line 448, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cube:before {
-  content: "\f1b2";
+  content: "";
 }
 
 /* line 449, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cubes:before {
-  content: "\f1b3";
+  content: "";
 }
 
 /* line 450, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-behance:before {
-  content: "\f1b4";
+  content: "";
 }
 
 /* line 451, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-behance-square:before {
-  content: "\f1b5";
+  content: "";
 }
 
 /* line 452, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-steam:before {
-  content: "\f1b6";
+  content: "";
 }
 
 /* line 453, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-steam-square:before {
-  content: "\f1b7";
+  content: "";
 }
 
 /* line 454, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-recycle:before {
-  content: "\f1b8";
+  content: "";
 }
 
-/* line 456, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 455, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-automobile:before,
 .fa-car:before {
-  content: "\f1b9";
+  content: "";
 }
 
-/* line 458, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 457, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cab:before,
 .fa-taxi:before {
-  content: "\f1ba";
+  content: "";
 }
 
 /* line 459, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tree:before {
-  content: "\f1bb";
+  content: "";
 }
 
 /* line 460, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-spotify:before {
-  content: "\f1bc";
+  content: "";
 }
 
 /* line 461, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-deviantart:before {
-  content: "\f1bd";
+  content: "";
 }
 
 /* line 462, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-soundcloud:before {
-  content: "\f1be";
+  content: "";
 }
 
 /* line 463, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-database:before {
-  content: "\f1c0";
+  content: "";
 }
 
 /* line 464, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-pdf-o:before {
-  content: "\f1c1";
+  content: "";
 }
 
 /* line 465, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-word-o:before {
-  content: "\f1c2";
+  content: "";
 }
 
 /* line 466, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-excel-o:before {
-  content: "\f1c3";
+  content: "";
 }
 
 /* line 467, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-powerpoint-o:before {
-  content: "\f1c4";
+  content: "";
 }
 
-/* line 470, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 468, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-photo-o:before,
 .fa-file-picture-o:before,
 .fa-file-image-o:before {
-  content: "\f1c5";
+  content: "";
 }
 
-/* line 472, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 471, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-zip-o:before,
 .fa-file-archive-o:before {
-  content: "\f1c6";
+  content: "";
 }
 
-/* line 474, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 473, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-sound-o:before,
 .fa-file-audio-o:before {
-  content: "\f1c7";
+  content: "";
 }
 
-/* line 476, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 475, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-movie-o:before,
 .fa-file-video-o:before {
-  content: "\f1c8";
+  content: "";
 }
 
 /* line 477, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-file-code-o:before {
-  content: "\f1c9";
+  content: "";
 }
 
 /* line 478, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-vine:before {
-  content: "\f1ca";
+  content: "";
 }
 
 /* line 479, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-codepen:before {
-  content: "\f1cb";
+  content: "";
 }
 
 /* line 480, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-jsfiddle:before {
-  content: "\f1cc";
+  content: "";
 }
 
-/* line 485, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 481, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-life-bouy:before,
 .fa-life-buoy:before,
 .fa-life-saver:before,
 .fa-support:before,
 .fa-life-ring:before {
-  content: "\f1cd";
+  content: "";
 }
 
 /* line 486, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-circle-o-notch:before {
-  content: "\f1ce";
+  content: "";
 }
 
-/* line 488, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 487, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ra:before,
 .fa-rebel:before {
-  content: "\f1d0";
+  content: "";
 }
 
-/* line 490, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 489, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ge:before,
 .fa-empire:before {
-  content: "\f1d1";
+  content: "";
 }
 
 /* line 491, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-git-square:before {
-  content: "\f1d2";
+  content: "";
 }
 
 /* line 492, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-git:before {
-  content: "\f1d3";
+  content: "";
 }
 
 /* line 493, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-hacker-news:before {
-  content: "\f1d4";
+  content: "";
 }
 
 /* line 494, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tencent-weibo:before {
-  content: "\f1d5";
+  content: "";
 }
 
 /* line 495, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-qq:before {
-  content: "\f1d6";
+  content: "";
 }
 
-/* line 497, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 496, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-wechat:before,
 .fa-weixin:before {
-  content: "\f1d7";
+  content: "";
 }
 
-/* line 499, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 498, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-send:before,
 .fa-paper-plane:before {
-  content: "\f1d8";
+  content: "";
 }
 
-/* line 501, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 500, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-send-o:before,
 .fa-paper-plane-o:before {
-  content: "\f1d9";
+  content: "";
 }
 
 /* line 502, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-history:before {
-  content: "\f1da";
+  content: "";
 }
 
 /* line 503, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-circle-thin:before {
-  content: "\f1db";
+  content: "";
 }
 
 /* line 504, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-header:before {
-  content: "\f1dc";
+  content: "";
 }
 
 /* line 505, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paragraph:before {
-  content: "\f1dd";
+  content: "";
 }
 
 /* line 506, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-sliders:before {
-  content: "\f1de";
+  content: "";
 }
 
 /* line 507, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-share-alt:before {
-  content: "\f1e0";
+  content: "";
 }
 
 /* line 508, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-share-alt-square:before {
-  content: "\f1e1";
+  content: "";
 }
 
 /* line 509, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bomb:before {
-  content: "\f1e2";
+  content: "";
 }
 
-/* line 511, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 510, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-soccer-ball-o:before,
 .fa-futbol-o:before {
-  content: "\f1e3";
+  content: "";
 }
 
 /* line 512, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-tty:before {
-  content: "\f1e4";
+  content: "";
 }
 
 /* line 513, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-binoculars:before {
-  content: "\f1e5";
+  content: "";
 }
 
 /* line 514, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-plug:before {
-  content: "\f1e6";
+  content: "";
 }
 
 /* line 515, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-slideshare:before {
-  content: "\f1e7";
+  content: "";
 }
 
 /* line 516, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-twitch:before {
-  content: "\f1e8";
+  content: "";
 }
 
 /* line 517, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-yelp:before {
-  content: "\f1e9";
+  content: "";
 }
 
 /* line 518, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-newspaper-o:before {
-  content: "\f1ea";
+  content: "";
 }
 
 /* line 519, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-wifi:before {
-  content: "\f1eb";
+  content: "";
 }
 
 /* line 520, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-calculator:before {
-  content: "\f1ec";
+  content: "";
 }
 
 /* line 521, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paypal:before {
-  content: "\f1ed";
+  content: "";
 }
 
 /* line 522, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-google-wallet:before {
-  content: "\f1ee";
+  content: "";
 }
 
 /* line 523, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-visa:before {
-  content: "\f1f0";
+  content: "";
 }
 
 /* line 524, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-mastercard:before {
-  content: "\f1f1";
+  content: "";
 }
 
 /* line 525, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-discover:before {
-  content: "\f1f2";
+  content: "";
 }
 
 /* line 526, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-amex:before {
-  content: "\f1f3";
+  content: "";
 }
 
 /* line 527, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-paypal:before {
-  content: "\f1f4";
+  content: "";
 }
 
 /* line 528, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc-stripe:before {
-  content: "\f1f5";
+  content: "";
 }
 
 /* line 529, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bell-slash:before {
-  content: "\f1f6";
+  content: "";
 }
 
 /* line 530, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bell-slash-o:before {
-  content: "\f1f7";
+  content: "";
 }
 
 /* line 531, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-trash:before {
-  content: "\f1f8";
+  content: "";
 }
 
 /* line 532, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-copyright:before {
-  content: "\f1f9";
+  content: "";
 }
 
 /* line 533, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-at:before {
-  content: "\f1fa";
+  content: "";
 }
 
 /* line 534, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-eyedropper:before {
-  content: "\f1fb";
+  content: "";
 }
 
 /* line 535, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-paint-brush:before {
-  content: "\f1fc";
+  content: "";
 }
 
 /* line 536, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-birthday-cake:before {
-  content: "\f1fd";
+  content: "";
 }
 
 /* line 537, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-area-chart:before {
-  content: "\f1fe";
+  content: "";
 }
 
 /* line 538, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-pie-chart:before {
-  content: "\f200";
+  content: "";
 }
 
 /* line 539, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-line-chart:before {
-  content: "\f201";
+  content: "";
 }
 
 /* line 540, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-lastfm:before {
-  content: "\f202";
+  content: "";
 }
 
 /* line 541, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-lastfm-square:before {
-  content: "\f203";
+  content: "";
 }
 
 /* line 542, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-off:before {
-  content: "\f204";
+  content: "";
 }
 
 /* line 543, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-toggle-on:before {
-  content: "\f205";
+  content: "";
 }
 
 /* line 544, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bicycle:before {
-  content: "\f206";
+  content: "";
 }
 
 /* line 545, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-bus:before {
-  content: "\f207";
+  content: "";
 }
 
 /* line 546, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-ioxhost:before {
-  content: "\f208";
+  content: "";
 }
 
 /* line 547, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-angellist:before {
-  content: "\f209";
+  content: "";
 }
 
 /* line 548, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-cc:before {
-  content: "\f20a";
+  content: "";
 }
 
-/* line 551, ../../node_modules/font-awesome/scss/_icons.scss */
+/* line 549, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-shekel:before,
 .fa-sheqel:before,
 .fa-ils:before {
-  content: "\f20b";
+  content: "";
 }
 
 /* line 552, ../../node_modules/font-awesome/scss/_icons.scss */
 .fa-meanpath:before {
-  content: "\f20c";
+  content: "";
 }
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
-/* line 22, ../../src/bootstrap/_normalize.scss */
+/* line 11, ../../src/bootstrap/_normalize.scss */
 article,
 aside,
 details,
@@ -2756,7 +2742,7 @@ summary {
   display: block;
 }
 
-/* line 32, ../../src/bootstrap/_normalize.scss */
+/* line 30, ../../src/bootstrap/_normalize.scss */
 audio,
 canvas,
 video {
@@ -2769,7 +2755,7 @@ audio:not([controls]) {
   height: 0;
 }
 
-/* line 52, ../../src/bootstrap/_normalize.scss */
+/* line 51, ../../src/bootstrap/_normalize.scss */
 [hidden],
 template {
   display: none;
@@ -2797,7 +2783,7 @@ a:focus {
   outline: thin dotted;
 }
 
-/* line 105, ../../src/bootstrap/_normalize.scss */
+/* line 104, ../../src/bootstrap/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -2814,7 +2800,7 @@ abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 136, ../../src/bootstrap/_normalize.scss */
+/* line 135, ../../src/bootstrap/_normalize.scss */
 b,
 strong {
   font-weight: bold;
@@ -2838,7 +2824,7 @@ mark {
   color: #000;
 }
 
-/* line 174, ../../src/bootstrap/_normalize.scss */
+/* line 171, ../../src/bootstrap/_normalize.scss */
 code,
 kbd,
 pre,
@@ -2862,7 +2848,7 @@ small {
   font-size: 80%;
 }
 
-/* line 208, ../../src/bootstrap/_normalize.scss */
+/* line 207, ../../src/bootstrap/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -2909,7 +2895,7 @@ legend {
   padding: 0;
 }
 
-/* line 288, ../../src/bootstrap/_normalize.scss */
+/* line 285, ../../src/bootstrap/_normalize.scss */
 button,
 input,
 select,
@@ -2919,19 +2905,19 @@ textarea {
   margin: 0;
 }
 
-/* line 300, ../../src/bootstrap/_normalize.scss */
+/* line 299, ../../src/bootstrap/_normalize.scss */
 button,
 input {
   line-height: normal;
 }
 
-/* line 312, ../../src/bootstrap/_normalize.scss */
+/* line 311, ../../src/bootstrap/_normalize.scss */
 button,
 select {
   text-transform: none;
 }
 
-/* line 327, ../../src/bootstrap/_normalize.scss */
+/* line 324, ../../src/bootstrap/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -2940,13 +2926,13 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-/* line 337, ../../src/bootstrap/_normalize.scss */
+/* line 336, ../../src/bootstrap/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
 }
 
-/* line 347, ../../src/bootstrap/_normalize.scss */
+/* line 346, ../../src/bootstrap/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -2961,13 +2947,13 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 371, ../../src/bootstrap/_normalize.scss */
+/* line 370, ../../src/bootstrap/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 380, ../../src/bootstrap/_normalize.scss */
+/* line 379, ../../src/bootstrap/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -2986,7 +2972,7 @@ table {
   border-spacing: 0;
 }
 
-/* line 10, ../../src/bootstrap/_scaffolding.scss */
+/* line 8, ../../src/bootstrap/_scaffolding.scss */
 *,
 *:before,
 *:after {
@@ -2998,7 +2984,7 @@ table {
 /* line 17, ../../src/bootstrap/_scaffolding.scss */
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* line 22, ../../src/bootstrap/_scaffolding.scss */
@@ -3010,7 +2996,7 @@ body {
   background-color: transparent;
 }
 
-/* line 34, ../../src/bootstrap/_scaffolding.scss */
+/* line 31, ../../src/bootstrap/_scaffolding.scss */
 input,
 button,
 select,
@@ -3025,7 +3011,7 @@ a {
   color: #2185c5;
   text-decoration: none;
 }
-/* line 48, ../../src/bootstrap/_scaffolding.scss */
+/* line 47, ../../src/bootstrap/_scaffolding.scss */
 a:hover, a:focus {
   color: #49a8d5;
   text-decoration: underline;
@@ -3059,7 +3045,7 @@ img {
   padding: 4px;
   line-height: 1.5;
   background-color: transparent;
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   border-radius: 4px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -3112,7 +3098,7 @@ p {
   }
 }
 
-/* line 29, ../../src/bootstrap/_type.scss */
+/* line 28, ../../src/bootstrap/_type.scss */
 small,
 .small {
   font-size: 85%;
@@ -3188,14 +3174,14 @@ cite {
   text-align: center;
 }
 
-/* line 79, ../../src/bootstrap/_type.scss */
+/* line 78, ../../src/bootstrap/_type.scss */
 h1, h2, h3, h4, h5, h6,
 .h1,
 .form-contenteditable input.form-control, .h2, .h3, .h4, .h5, .h6 {
   font-weight: 400;
   line-height: 1.5;
 }
-/* line 86, ../../src/bootstrap/_type.scss */
+/* line 85, ../../src/bootstrap/_type.scss */
 h1 small,
 h1 .small, h2 small,
 h2 .small, h3 small,
@@ -3217,14 +3203,14 @@ h6 .small,
   color: #999999;
 }
 
-/* line 95, ../../src/bootstrap/_type.scss */
+/* line 93, ../../src/bootstrap/_type.scss */
 h1,
 h2,
 h3 {
   margin-top: 24px;
   margin-bottom: 12px;
 }
-/* line 100, ../../src/bootstrap/_type.scss */
+/* line 99, ../../src/bootstrap/_type.scss */
 h1 small,
 h1 .small,
 h2 small,
@@ -3234,14 +3220,14 @@ h3 .small {
   font-size: 65%;
 }
 
-/* line 106, ../../src/bootstrap/_type.scss */
+/* line 104, ../../src/bootstrap/_type.scss */
 h4,
 h5,
 h6 {
   margin-top: 12px;
   margin-bottom: 12px;
 }
-/* line 111, ../../src/bootstrap/_type.scss */
+/* line 110, ../../src/bootstrap/_type.scss */
 h4 small,
 h4 .small,
 h5 small,
@@ -3283,13 +3269,13 @@ h5, .h5 {
   border-bottom: 1px solid #eeeeee;
 }
 
-/* line 140, ../../src/bootstrap/_type.scss */
+/* line 139, ../../src/bootstrap/_type.scss */
 ul,
 ol {
   margin-top: 0;
   margin-bottom: 12px;
 }
-/* line 144, ../../src/bootstrap/_type.scss */
+/* line 143, ../../src/bootstrap/_type.scss */
 ul ul,
 ul ol,
 ol ul,
@@ -3319,7 +3305,7 @@ dl {
   margin-bottom: 24px;
 }
 
-/* line 177, ../../src/bootstrap/_type.scss */
+/* line 176, ../../src/bootstrap/_type.scss */
 dt,
 dd {
   line-height: 1.5;
@@ -3350,7 +3336,7 @@ dd {
   .dl-horizontal dd {
     margin-left: 180px;
   }
-  /* line 21, ../../src/bootstrap/_mixins.scss */
+  /* line 20, ../../src/bootstrap/_mixins.scss */
   .dl-horizontal dd:before, .dl-horizontal dd:after {
     content: " ";
     /* 1 */
@@ -3362,7 +3348,7 @@ dd {
     clear: both;
   }
 }
-/* line 214, ../../src/bootstrap/_type.scss */
+/* line 212, ../../src/bootstrap/_type.scss */
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
@@ -3408,7 +3394,7 @@ blockquote.pull-right {
   border-right: 5px solid #eeeeee;
   border-left: 0;
 }
-/* line 253, ../../src/bootstrap/_type.scss */
+/* line 251, ../../src/bootstrap/_type.scss */
 blockquote.pull-right p,
 blockquote.pull-right small,
 blockquote.pull-right .small {
@@ -3425,7 +3411,7 @@ blockquote.pull-right .small:after {
   content: '\00A0 \2014';
 }
 
-/* line 270, ../../src/bootstrap/_type.scss */
+/* line 269, ../../src/bootstrap/_type.scss */
 blockquote:before,
 blockquote:after {
   content: "";
@@ -3438,7 +3424,7 @@ address {
   line-height: 1.5;
 }
 
-/* line 10, ../../src/bootstrap/_code.scss */
+/* line 7, ../../src/bootstrap/_code.scss */
 code,
 kbd,
 pre,
@@ -3450,7 +3436,7 @@ samp {
 code {
   padding: 2px 4px;
   font-size: 90%;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   white-space: nowrap;
   border-radius: 4px;
 }
@@ -3465,8 +3451,8 @@ pre {
   word-break: break-all;
   word-wrap: break-word;
   color: #333333;
-  background-color: whitesmoke;
-  border: 1px solid #cccccc;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
   border-radius: 4px;
 }
 /* line 39, ../../src/bootstrap/_code.scss */
@@ -3492,7 +3478,7 @@ pre code {
   padding-left: 10px;
   padding-right: 10px;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .container:before, .container:after {
   content: " ";
   /* 1 */
@@ -3509,7 +3495,7 @@ pre code {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .row:before, .table-key-value tbody tr:before, .table-scrollable table tr:before, .table-scrollable table .tr:before, .row:after, .table-key-value tbody tr:after, .table-scrollable table tr:after, .table-scrollable table .tr:after {
   content: " ";
   /* 1 */
@@ -5503,7 +5489,7 @@ th {
   width: 100%;
   margin-bottom: 24px;
 }
-/* line 26, ../../src/bootstrap/_tables.scss */
+/* line 25, ../../src/bootstrap/_tables.scss */
 .table > thead > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > th,
@@ -5513,14 +5499,14 @@ th {
   padding: 8px 14px;
   line-height: 1.5;
   vertical-align: top;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
 }
 /* line 35, ../../src/bootstrap/_tables.scss */
 .table > thead > tr > th {
   vertical-align: bottom;
-  border-bottom: 2px solid #dddddd;
+  border-bottom: 2px solid #ddd;
 }
-/* line 45, ../../src/bootstrap/_tables.scss */
+/* line 44, ../../src/bootstrap/_tables.scss */
 .table > caption + thead > tr:first-child > th,
 .table > caption + thead > tr:first-child > td,
 .table > colgroup + thead > tr:first-child > th,
@@ -5531,14 +5517,14 @@ th {
 }
 /* line 51, ../../src/bootstrap/_tables.scss */
 .table > tbody + tbody {
-  border-top: 2px solid #dddddd;
+  border-top: 2px solid #ddd;
 }
 /* line 56, ../../src/bootstrap/_tables.scss */
 .table .table {
   background-color: transparent;
 }
 
-/* line 70, ../../src/bootstrap/_tables.scss */
+/* line 69, ../../src/bootstrap/_tables.scss */
 .table-condensed > thead > tr > th,
 .table-condensed > thead > tr > td,
 .table-condensed > tbody > tr > th,
@@ -5550,27 +5536,27 @@ th {
 
 /* line 82, ../../src/bootstrap/_tables.scss */
 .table-bordered {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
 }
-/* line 89, ../../src/bootstrap/_tables.scss */
+/* line 88, ../../src/bootstrap/_tables.scss */
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td,
 .table-bordered > tbody > tr > th,
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > th,
 .table-bordered > tfoot > tr > td {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
 }
-/* line 96, ../../src/bootstrap/_tables.scss */
+/* line 95, ../../src/bootstrap/_tables.scss */
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {
   border-bottom-width: 2px;
 }
 
-/* line 109, ../../src/bootstrap/_tables.scss */
+/* line 108, ../../src/bootstrap/_tables.scss */
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 
 /* line 131, ../../src/bootstrap/_tables.scss */
@@ -5586,7 +5572,7 @@ table th[class*="col-"] {
   display: table-cell;
 }
 
-/* line 441, ../../src/bootstrap/_mixins.scss */
+/* line 438, ../../src/bootstrap/_mixins.scss */
 .table > thead > tr > td.success,
 .table > thead > tr > th.success, .table > thead > tr.success > td, .table > thead > tr.success > th,
 .table > tbody > tr > td.success,
@@ -5600,13 +5586,13 @@ table th[class*="col-"] {
   background-color: #686868;
 }
 
-/* line 452, ../../src/bootstrap/_mixins.scss */
+/* line 449, ../../src/bootstrap/_mixins.scss */
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover, .table-hover > tbody > tr.success:hover > td, .table-hover > tbody > tr.success:hover > th {
   background-color: #5b5b5b;
 }
 
-/* line 441, ../../src/bootstrap/_mixins.scss */
+/* line 438, ../../src/bootstrap/_mixins.scss */
 .table > thead > tr > td.danger,
 .table > thead > tr > th.danger, .table > thead > tr.danger > td, .table > thead > tr.danger > th,
 .table > tbody > tr > td.danger,
@@ -5620,13 +5606,13 @@ table th[class*="col-"] {
   background-color: #febfc1;
 }
 
-/* line 452, ../../src/bootstrap/_mixins.scss */
+/* line 449, ../../src/bootstrap/_mixins.scss */
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover, .table-hover > tbody > tr.danger:hover > td, .table-hover > tbody > tr.danger:hover > th {
   background-color: #fea6a9;
 }
 
-/* line 441, ../../src/bootstrap/_mixins.scss */
+/* line 438, ../../src/bootstrap/_mixins.scss */
 .table > thead > tr > td.warning,
 .table > thead > tr > th.warning, .table > thead > tr.warning > td, .table > thead > tr.warning > th,
 .table > tbody > tr > td.warning,
@@ -5640,7 +5626,7 @@ table th[class*="col-"] {
   background-color: #f8e1b1;
 }
 
-/* line 452, ../../src/bootstrap/_mixins.scss */
+/* line 449, ../../src/bootstrap/_mixins.scss */
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover, .table-hover > tbody > tr.warning:hover > td, .table-hover > tbody > tr.warning:hover > th {
   background-color: #f6d89a;
@@ -5654,14 +5640,14 @@ table th[class*="col-"] {
     overflow-y: hidden;
     overflow-x: scroll;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-    border: 1px solid #dddddd;
+    border: 1px solid #ddd;
     -webkit-overflow-scrolling: touch;
   }
   /* line 185, ../../src/bootstrap/_tables.scss */
   .table-responsive > .table {
     margin-bottom: 0;
   }
-  /* line 194, ../../src/bootstrap/_tables.scss */
+  /* line 193, ../../src/bootstrap/_tables.scss */
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > thead > tr > td,
   .table-responsive > .table > tbody > tr > th,
@@ -5674,7 +5660,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered {
     border: 0;
   }
-  /* line 211, ../../src/bootstrap/_tables.scss */
+  /* line 210, ../../src/bootstrap/_tables.scss */
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > thead > tr > td:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
@@ -5683,7 +5669,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr > td:first-child {
     border-left: 0;
   }
-  /* line 215, ../../src/bootstrap/_tables.scss */
+  /* line 214, ../../src/bootstrap/_tables.scss */
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > thead > tr > td:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
@@ -5692,7 +5678,7 @@ table th[class*="col-"] {
   .table-responsive > .table-bordered > tfoot > tr > td:last-child {
     border-right: 0;
   }
-  /* line 228, ../../src/bootstrap/_tables.scss */
+  /* line 227, ../../src/bootstrap/_tables.scss */
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
@@ -5734,7 +5720,7 @@ input[type="search"] {
   box-sizing: border-box;
 }
 
-/* line 44, ../../src/bootstrap/_forms.scss */
+/* line 43, ../../src/bootstrap/_forms.scss */
 input[type="radio"],
 input[type="checkbox"] {
   margin: 4px 0 0;
@@ -5748,7 +5734,7 @@ input[type="file"] {
   display: block;
 }
 
-/* line 57, ../../src/bootstrap/_forms.scss */
+/* line 56, ../../src/bootstrap/_forms.scss */
 select[multiple],
 select[size] {
   height: auto;
@@ -5761,7 +5747,7 @@ select optgroup {
   font-family: inherit;
 }
 
-/* line 71, ../../src/bootstrap/_forms.scss */
+/* line 69, ../../src/bootstrap/_forms.scss */
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
@@ -5770,7 +5756,7 @@ input[type="checkbox"]:focus {
   outline-offset: -2px;
 }
 
-/* line 80, ../../src/bootstrap/_forms.scss */
+/* line 79, ../../src/bootstrap/_forms.scss */
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
   height: auto;
 }
@@ -5812,9 +5798,9 @@ output {
   line-height: 1.5;
   color: #555555;
   vertical-align: middle;
-  background-color: white;
+  background-color: #fff;
   background-image: none;
-  border: 1px solid #cccccc;
+  border: 1px solid #ccc;
   border-radius: 3px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
@@ -5828,7 +5814,7 @@ output {
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(73, 168, 213, 0.6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(73, 168, 213, 0.6);
 }
-/* line 151, ../../src/bootstrap/_forms.scss */
+/* line 149, ../../src/bootstrap/_forms.scss */
 .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
   cursor: not-allowed;
   background-color: #eeeeee;
@@ -5844,7 +5830,7 @@ textarea.form-control {
   margin-bottom: 15px;
 }
 
-/* line 180, ../../src/bootstrap/_forms.scss */
+/* line 179, ../../src/bootstrap/_forms.scss */
 .radio,
 .checkbox {
   display: block;
@@ -5863,7 +5849,7 @@ textarea.form-control {
   cursor: pointer;
 }
 
-/* line 197, ../../src/bootstrap/_forms.scss */
+/* line 194, ../../src/bootstrap/_forms.scss */
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -5872,13 +5858,13 @@ textarea.form-control {
   margin-left: -20px;
 }
 
-/* line 202, ../../src/bootstrap/_forms.scss */
+/* line 201, ../../src/bootstrap/_forms.scss */
 .radio + .radio,
 .checkbox + .checkbox {
   margin-top: -5px;
 }
 
-/* line 208, ../../src/bootstrap/_forms.scss */
+/* line 207, ../../src/bootstrap/_forms.scss */
 .radio-inline,
 .checkbox-inline {
   display: inline-block;
@@ -5889,14 +5875,14 @@ textarea.form-control {
   cursor: pointer;
 }
 
-/* line 217, ../../src/bootstrap/_forms.scss */
+/* line 216, ../../src/bootstrap/_forms.scss */
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
   margin-top: 0;
   margin-left: 10px;
 }
 
-/* line 232, ../../src/bootstrap/_forms.scss */
+/* line 231, ../../src/bootstrap/_forms.scss */
 input[type="radio"][disabled], fieldset[disabled] input[type="radio"],
 input[type="checkbox"][disabled], fieldset[disabled]
 input[type="checkbox"],
@@ -5951,7 +5937,7 @@ textarea.input-lg {
   height: auto;
 }
 
-/* line 797, ../../src/bootstrap/_mixins.scss */
+/* line 792, ../../src/bootstrap/_mixins.scss */
 .has-warning .help-block,
 .has-warning .control-label,
 .has-warning .radio,
@@ -5979,7 +5965,7 @@ textarea.input-lg {
   background-color: #f8e1b1;
 }
 
-/* line 797, ../../src/bootstrap/_mixins.scss */
+/* line 792, ../../src/bootstrap/_mixins.scss */
 .has-error .help-block,
 .has-error .control-label,
 .has-error .radio,
@@ -6007,7 +5993,7 @@ textarea.input-lg {
   background-color: #febfc1;
 }
 
-/* line 797, ../../src/bootstrap/_mixins.scss */
+/* line 792, ../../src/bootstrap/_mixins.scss */
 .has-success .help-block,
 .has-success .control-label,
 .has-success .radio,
@@ -6059,7 +6045,7 @@ textarea.input-lg {
   .form-inline .form-control {
     display: inline-block;
   }
-  /* line 317, ../../src/bootstrap/_forms.scss */
+  /* line 316, ../../src/bootstrap/_forms.scss */
   .form-inline .radio,
   .form-inline .checkbox {
     display: inline-block;
@@ -6067,7 +6053,7 @@ textarea.input-lg {
     margin-bottom: 0;
     padding-left: 0;
   }
-  /* line 324, ../../src/bootstrap/_forms.scss */
+  /* line 323, ../../src/bootstrap/_forms.scss */
   .form-inline .radio input[type="radio"],
   .form-inline .checkbox input[type="checkbox"] {
     float: none;
@@ -6075,7 +6061,7 @@ textarea.input-lg {
   }
 }
 
-/* line 344, ../../src/bootstrap/_forms.scss */
+/* line 340, ../../src/bootstrap/_forms.scss */
 .form-horizontal .control-label,
 .form-horizontal .radio,
 .form-horizontal .checkbox,
@@ -6090,7 +6076,7 @@ textarea.input-lg {
   margin-left: -10px;
   margin-right: -10px;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .form-horizontal .form-group:before, .form-horizontal .form-group:after {
   content: " ";
   /* 1 */
@@ -6139,19 +6125,19 @@ textarea.input-lg {
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
-/* line 28, ../../src/bootstrap/_buttons.scss */
+/* line 27, ../../src/bootstrap/_buttons.scss */
 .btn:hover, .btn:focus {
   color: #2185c5;
   text-decoration: none;
 }
-/* line 34, ../../src/bootstrap/_buttons.scss */
+/* line 33, ../../src/bootstrap/_buttons.scss */
 .btn:active, .btn.active {
   outline: 0;
   background-image: none;
   -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
 }
-/* line 42, ../../src/bootstrap/_buttons.scss */
+/* line 40, ../../src/bootstrap/_buttons.scss */
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
@@ -6168,23 +6154,23 @@ textarea.input-lg {
   cursor: pointer;
   border-radius: 0;
 }
-/* line 92, ../../src/bootstrap/_buttons.scss */
+/* line 89, ../../src/bootstrap/_buttons.scss */
 .btn-link, .btn-link:active, .btn-link[disabled], fieldset[disabled] .btn-link {
   background-color: transparent;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-/* line 99, ../../src/bootstrap/_buttons.scss */
+/* line 96, ../../src/bootstrap/_buttons.scss */
 .btn-link, .btn-link:hover, .btn-link:focus, .btn-link:active {
   border-color: transparent;
 }
-/* line 103, ../../src/bootstrap/_buttons.scss */
+/* line 102, ../../src/bootstrap/_buttons.scss */
 .btn-link:hover, .btn-link:focus {
   color: #49a8d5;
   text-decoration: underline;
   background-color: transparent;
 }
-/* line 111, ../../src/bootstrap/_buttons.scss */
+/* line 110, ../../src/bootstrap/_buttons.scss */
 .btn-link[disabled]:hover, .btn-link[disabled]:focus, fieldset[disabled] .btn-link:hover, fieldset[disabled] .btn-link:focus {
   color: #999999;
   text-decoration: none;
@@ -6198,7 +6184,7 @@ textarea.input-lg {
   border-radius: 6px;
 }
 
-/* line 127, ../../src/bootstrap/_buttons.scss */
+/* line 126, ../../src/bootstrap/_buttons.scss */
 .btn-sm, .btn-group-sm > .btn,
 .btn-xs,
 .btn-group-xs > .btn {
@@ -6269,7 +6255,7 @@ input[type="button"].btn-block {
   height: 0;
   margin-left: 2px;
   vertical-align: middle;
-  border-top: 4px solid black;
+  border-top: 4px solid #000;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
   border-bottom: 0 dotted;
@@ -6298,8 +6284,8 @@ input[type="button"].btn-block {
   margin: 2px 0 0;
   list-style: none;
   font-size: 16px;
-  background-color: white;
-  border: 1px solid #cccccc;
+  background-color: #fff;
+  border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
@@ -6329,27 +6315,27 @@ input[type="button"].btn-block {
   white-space: nowrap;
 }
 
-/* line 77, ../../src/bootstrap/_dropdowns.scss */
+/* line 76, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
   text-decoration: none;
   color: #262626;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
 
-/* line 88, ../../src/bootstrap/_dropdowns.scss */
+/* line 86, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover, .dropdown-menu > .active > a:focus {
-  color: white;
+  color: #fff;
   text-decoration: none;
   outline: 0;
   background-color: #1b92cb;
 }
 
-/* line 103, ../../src/bootstrap/_dropdowns.scss */
+/* line 101, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   color: #999999;
 }
 
-/* line 110, ../../src/bootstrap/_dropdowns.scss */
+/* line 109, ../../src/bootstrap/_dropdowns.scss */
 .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   text-decoration: none;
   background-color: transparent;
@@ -6396,7 +6382,7 @@ input[type="button"].btn-block {
 .dropup .caret,
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0 dotted;
-  border-bottom: 4px solid black;
+  border-bottom: 4px solid #000;
   content: "";
 }
 /* line 173, ../../src/bootstrap/_dropdowns.scss */
@@ -6418,7 +6404,7 @@ input[type="button"].btn-block {
 .btn-default .caret {
   border-top-color: #2185c5;
 }
-/* line 17, ../../src/bootstrap/_button-groups.scss */
+/* line 13, ../../src/bootstrap/_button-groups.scss */
 .btn-primary .caret, .btn-success .caret, .btn-warning .caret, .btn-danger .caret, .btn-info .caret {
   border-top-color: #fff;
 }
@@ -6436,7 +6422,7 @@ input[type="button"].btn-block {
   border-bottom-color: #fff;
 }
 
-/* line 38, ../../src/bootstrap/_button-groups.scss */
+/* line 37, ../../src/bootstrap/_button-groups.scss */
 .btn-group,
 .btn-group-vertical {
   position: relative;
@@ -6449,7 +6435,7 @@ input[type="button"].btn-block {
   position: relative;
   float: left;
 }
-/* line 49, ../../src/bootstrap/_button-groups.scss */
+/* line 46, ../../src/bootstrap/_button-groups.scss */
 .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active,
 .btn-group-vertical > .btn:hover,
 .btn-group-vertical > .btn:focus,
@@ -6463,7 +6449,7 @@ input[type="button"].btn-block {
   outline: none;
 }
 
-/* line 64, ../../src/bootstrap/_button-groups.scss */
+/* line 61, ../../src/bootstrap/_button-groups.scss */
 .btn-group .btn + .btn,
 .btn-group .btn + .btn-group,
 .btn-group .btn-group + .btn,
@@ -6471,7 +6457,7 @@ input[type="button"].btn-block {
   margin-left: -1px;
 }
 
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .btn-toolbar:before, .btn-toolbar:after {
   content: " ";
   /* 1 */
@@ -6486,7 +6472,7 @@ input[type="button"].btn-block {
 .btn-toolbar .btn-group {
   float: left;
 }
-/* line 80, ../../src/bootstrap/_button-groups.scss */
+/* line 79, ../../src/bootstrap/_button-groups.scss */
 .btn-toolbar > .btn + .btn,
 .btn-toolbar > .btn + .btn-group,
 .btn-toolbar > .btn-group + .btn,
@@ -6509,7 +6495,7 @@ input[type="button"].btn-block {
   border-top-right-radius: 0;
 }
 
-/* line 99, ../../src/bootstrap/_button-groups.scss */
+/* line 98, ../../src/bootstrap/_button-groups.scss */
 .btn-group > .btn:last-child:not(:first-child),
 .btn-group > .dropdown-toggle:not(:first-child) {
   border-bottom-left-radius: 0;
@@ -6526,7 +6512,7 @@ input[type="button"].btn-block {
   border-radius: 0;
 }
 
-/* line 112, ../../src/bootstrap/_button-groups.scss */
+/* line 111, ../../src/bootstrap/_button-groups.scss */
 .btn-group > .btn-group:first-child > .btn:last-child,
 .btn-group > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
@@ -6539,7 +6525,7 @@ input[type="button"].btn-block {
   border-top-left-radius: 0;
 }
 
-/* line 122, ../../src/bootstrap/_button-groups.scss */
+/* line 121, ../../src/bootstrap/_button-groups.scss */
 .btn-group .dropdown-toggle:active,
 .btn-group.open .dropdown-toggle {
   outline: 0;
@@ -6584,7 +6570,7 @@ input[type="button"].btn-block {
   border-width: 0 5px 5px;
 }
 
-/* line 181, ../../src/bootstrap/_button-groups.scss */
+/* line 180, ../../src/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn,
 .btn-group-vertical > .btn-group {
   display: block;
@@ -6592,7 +6578,7 @@ input[type="button"].btn-block {
   width: 100%;
   max-width: 100%;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after {
   content: " ";
   /* 1 */
@@ -6607,7 +6593,7 @@ input[type="button"].btn-block {
 .btn-group-vertical > .btn-group > .btn {
   float: none;
 }
-/* line 199, ../../src/bootstrap/_button-groups.scss */
+/* line 196, ../../src/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn + .btn,
 .btn-group-vertical > .btn + .btn-group,
 .btn-group-vertical > .btn-group + .btn,
@@ -6638,7 +6624,7 @@ input[type="button"].btn-block {
   border-radius: 0;
 }
 
-/* line 223, ../../src/bootstrap/_button-groups.scss */
+/* line 222, ../../src/bootstrap/_button-groups.scss */
 .btn-group-vertical > .btn-group:first-child > .btn:last-child,
 .btn-group-vertical > .btn-group:first-child > .dropdown-toggle {
   border-bottom-right-radius: 0;
@@ -6665,7 +6651,7 @@ input[type="button"].btn-block {
   width: 1%;
 }
 
-/* line 251, ../../src/bootstrap/_button-groups.scss */
+/* line 250, ../../src/bootstrap/_button-groups.scss */
 [data-toggle="buttons"] > .btn > input[type="radio"],
 [data-toggle="buttons"] > .btn > input[type="checkbox"] {
   display: none;
@@ -6677,7 +6663,7 @@ input[type="button"].btn-block {
   padding-left: 0;
   list-style: none;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .nav:before, .nav:after {
   content: " ";
   /* 1 */
@@ -6699,7 +6685,7 @@ input[type="button"].btn-block {
   display: block;
   padding: 5px 10px;
 }
-/* line 24, ../../src/bootstrap/_navs.scss */
+/* line 23, ../../src/bootstrap/_navs.scss */
 .nav > li > a:hover, .nav > li > a:focus {
   text-decoration: none;
   background-color: transparent;
@@ -6708,14 +6694,14 @@ input[type="button"].btn-block {
 .nav > li.disabled > a {
   color: #999999;
 }
-/* line 35, ../../src/bootstrap/_navs.scss */
+/* line 34, ../../src/bootstrap/_navs.scss */
 .nav > li.disabled > a:hover, .nav > li.disabled > a:focus {
   color: #999999;
   text-decoration: none;
   background-color: transparent;
   cursor: not-allowed;
 }
-/* line 48, ../../src/bootstrap/_navs.scss */
+/* line 46, ../../src/bootstrap/_navs.scss */
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus {
   background-color: transparent;
   border-color: #2185c5;
@@ -6739,7 +6725,7 @@ input[type="button"].btn-block {
 
 /* line 81, ../../src/bootstrap/_navs.scss */
 .nav-tabs {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #ddd;
 }
 /* line 83, ../../src/bootstrap/_navs.scss */
 .nav-tabs > li {
@@ -6755,9 +6741,9 @@ input[type="button"].btn-block {
 }
 /* line 94, ../../src/bootstrap/_navs.scss */
 .nav-tabs > li > a:hover {
-  border-color: #eeeeee #eeeeee #dddddd;
+  border-color: #eeeeee #eeeeee #ddd;
 }
-/* line 103, ../../src/bootstrap/_navs.scss */
+/* line 101, ../../src/bootstrap/_navs.scss */
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   color: #00776d;
   background-color: #ecefef;
@@ -6824,21 +6810,21 @@ input[type="button"].btn-block {
   margin-right: 0;
   border-radius: 4px;
 }
-/* line 211, ../../src/bootstrap/_navs.scss */
+/* line 209, ../../src/bootstrap/_navs.scss */
 .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
 .nav-tabs-justified > .active > a:hover,
 .nav-tabs.nav-justified > .active > a:hover,
 .nav-tabs-justified > .active > a:focus,
 .nav-tabs.nav-justified > .active > a:focus {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
 }
 @media (min-width: 768px) {
   /* line 216, ../../src/bootstrap/_navs.scss */
   .nav-tabs-justified > li > a, .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #dddddd;
+    border-bottom: 1px solid #ddd;
     border-radius: 4px 4px 0 0;
   }
-  /* line 222, ../../src/bootstrap/_navs.scss */
+  /* line 220, ../../src/bootstrap/_navs.scss */
   .nav-tabs-justified > .active > a, .nav-tabs.nav-justified > .active > a,
   .nav-tabs-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:hover,
@@ -6892,7 +6878,7 @@ input[type="button"].btn-block {
 .alert .alert-link {
   font-weight: bold;
 }
-/* line 28, ../../src/bootstrap/_alerts.scss */
+/* line 27, ../../src/bootstrap/_alerts.scss */
 .alert > p,
 .alert > ul {
   margin-bottom: 0;
@@ -6916,7 +6902,7 @@ input[type="button"].btn-block {
 
 /* line 56, ../../src/bootstrap/_alerts.scss */
 .alert-success {
-  background-color: #afd79b;
+  background-color: #AFD79B;
   border-color: #165450;
   color: #165450;
 }
@@ -6932,7 +6918,7 @@ input[type="button"].btn-block {
 /* line 59, ../../src/bootstrap/_alerts.scss */
 .alert-info {
   background-color: #c3f4ff;
-  border-color: #8ac0c4;
+  border-color: #8AC0C4;
   color: #1a739e;
 }
 /* line 422, ../../src/bootstrap/_mixins.scss */
@@ -6975,59 +6961,43 @@ input[type="button"].btn-block {
 }
 
 @-webkit-keyframes progress-bar-stripes {
-  /* line 11, ../../src/bootstrap/_progress-bars.scss */
   from {
     background-position: 40px 0;
   }
-
-  /* line 12, ../../src/bootstrap/_progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
-
 @-moz-keyframes progress-bar-stripes {
-  /* line 17, ../../src/bootstrap/_progress-bars.scss */
   from {
     background-position: 40px 0;
   }
-
-  /* line 18, ../../src/bootstrap/_progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
-
 @-o-keyframes progress-bar-stripes {
-  /* line 23, ../../src/bootstrap/_progress-bars.scss */
   from {
     background-position: 0 0;
   }
-
-  /* line 24, ../../src/bootstrap/_progress-bars.scss */
   to {
     background-position: 40px 0;
   }
 }
-
 @keyframes progress-bar-stripes {
-  /* line 29, ../../src/bootstrap/_progress-bars.scss */
   from {
     background-position: 40px 0;
   }
-
-  /* line 30, ../../src/bootstrap/_progress-bars.scss */
   to {
     background-position: 0 0;
   }
 }
-
 /* line 39, ../../src/bootstrap/_progress-bars.scss */
 .progress {
   overflow: hidden;
   height: 24px;
   margin-bottom: 24px;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
@@ -7040,7 +7010,7 @@ input[type="button"].btn-block {
   height: 100%;
   font-size: 14px;
   line-height: 24px;
-  color: white;
+  color: #fff;
   text-align: center;
   background-color: #1b92cb;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
@@ -7054,7 +7024,7 @@ input[type="button"].btn-block {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
   background-size: 40px 40px;
 }
 
@@ -7073,7 +7043,7 @@ input[type="button"].btn-block {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
 }
 
 /* line 82, ../../src/bootstrap/_progress-bars.scss */
@@ -7085,7 +7055,7 @@ input[type="button"].btn-block {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
 }
 
 /* line 86, ../../src/bootstrap/_progress-bars.scss */
@@ -7097,29 +7067,29 @@ input[type="button"].btn-block {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
 }
 
 /* line 90, ../../src/bootstrap/_progress-bars.scss */
 .progress-bar-danger {
-  background-color: #ca7070;
+  background-color: #CA7070;
 }
 /* line 559, ../../src/bootstrap/_mixins.scss */
 .progress-striped .progress-bar-danger {
   background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
   background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
-  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 0));
 }
 
-/* line 11, ../../src/bootstrap/_media.scss */
+/* line 10, ../../src/bootstrap/_media.scss */
 .media,
 .media-body {
   overflow: hidden;
   zoom: 1;
 }
 
-/* line 18, ../../src/bootstrap/_media.scss */
+/* line 17, ../../src/bootstrap/_media.scss */
 .media,
 .media .media {
   margin-top: 15px;
@@ -7167,8 +7137,8 @@ input[type="button"].btn-block {
   display: block;
   padding: 10px 15px;
   margin-bottom: -1px;
-  background-color: white;
-  border: 1px solid #dddddd;
+  background-color: #fff;
+  border: 1px solid #ddd;
 }
 /* line 27, ../../src/bootstrap/_list-group.scss */
 .list-group-item:first-child {
@@ -7192,21 +7162,21 @@ input[type="button"].btn-block {
 
 /* line 45, ../../src/bootstrap/_list-group.scss */
 a.list-group-item {
-  color: #555555;
+  color: #555;
 }
 /* line 48, ../../src/bootstrap/_list-group.scss */
 a.list-group-item .list-group-item-heading {
-  color: #333333;
+  color: #333;
 }
-/* line 54, ../../src/bootstrap/_list-group.scss */
+/* line 53, ../../src/bootstrap/_list-group.scss */
 a.list-group-item:hover, a.list-group-item:focus {
   text-decoration: none;
-  background-color: whitesmoke;
+  background-color: #f5f5f5;
 }
-/* line 62, ../../src/bootstrap/_list-group.scss */
+/* line 60, ../../src/bootstrap/_list-group.scss */
 a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
   z-index: 2;
-  color: white;
+  color: #fff;
   background-color: #1b92cb;
   border-color: #1b92cb;
 }
@@ -7244,7 +7214,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 .panel-body {
   padding: 15px;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .panel-body:before, .panel-body:after {
   content: " ";
   /* 1 */
@@ -7279,22 +7249,22 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
   border-top-width: 0;
 }
 
-/* line 60, ../../src/bootstrap/_panels.scss */
+/* line 59, ../../src/bootstrap/_panels.scss */
 .panel > .table,
 .panel > .table-responsive {
   margin-bottom: 0;
 }
-/* line 64, ../../src/bootstrap/_panels.scss */
+/* line 63, ../../src/bootstrap/_panels.scss */
 .panel > .panel-body + .table,
 .panel > .panel-body + .table-responsive {
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid #ddd;
 }
-/* line 68, ../../src/bootstrap/_panels.scss */
+/* line 67, ../../src/bootstrap/_panels.scss */
 .panel > .table-bordered,
 .panel > .table-responsive > .table-bordered {
   border: 0;
 }
-/* line 75, ../../src/bootstrap/_panels.scss */
+/* line 74, ../../src/bootstrap/_panels.scss */
 .panel > .table-bordered > thead > tr > th:first-child,
 .panel > .table-bordered > thead > tr > td:first-child,
 .panel > .table-bordered > tbody > tr > th:first-child,
@@ -7309,7 +7279,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:first-child {
   border-left: 0;
 }
-/* line 79, ../../src/bootstrap/_panels.scss */
+/* line 78, ../../src/bootstrap/_panels.scss */
 .panel > .table-bordered > thead > tr > th:last-child,
 .panel > .table-bordered > thead > tr > td:last-child,
 .panel > .table-bordered > tbody > tr > th:last-child,
@@ -7324,7 +7294,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 .panel > .table-responsive > .table-bordered > tfoot > tr > td:last-child {
   border-right: 0;
 }
-/* line 84, ../../src/bootstrap/_panels.scss */
+/* line 83, ../../src/bootstrap/_panels.scss */
 .panel > .table-bordered > thead > tr:last-child > th, .panel > .table-bordered > thead > tr:last-child > td,
 .panel > .table-bordered > tbody > tr:last-child > th,
 .panel > .table-bordered > tbody > tr:last-child > td,
@@ -7427,7 +7397,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 }
 /* line 396, ../../src/bootstrap/_mixins.scss */
 .panel-primary > .panel-heading {
-  color: white;
+  color: #fff;
   background-color: #1b92cb;
   border-color: #1b92cb;
 }
@@ -7437,7 +7407,7 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
 }
 /* line 404, ../../src/bootstrap/_mixins.scss */
 .panel-primary > .panel-heading > .dropdown .caret {
-  border-color: white transparent;
+  border-color: #fff transparent;
 }
 /* line 409, ../../src/bootstrap/_mixins.scss */
 .panel-primary > .panel-footer + .panel-collapse .panel-body {
@@ -7542,14 +7512,14 @@ a.list-group-item.active .list-group-item-text, a.list-group-item.active:hover .
   font-size: 24px;
   font-weight: bold;
   line-height: 1;
-  color: black;
-  text-shadow: 0 1px 0 white;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
   opacity: 0.2;
   filter: alpha(opacity=20);
 }
-/* line 16, ../../src/bootstrap/_close.scss */
+/* line 15, ../../src/bootstrap/_close.scss */
 .close:hover, .close:focus {
-  color: black;
+  color: #000;
   text-decoration: none;
   cursor: pointer;
   opacity: 0.5;
@@ -7613,7 +7583,7 @@ button.close {
 .modal-content {
   position: relative;
   background-color: #ecefef;
-  border: 1px solid #999999;
+  border: 1px solid #999;
   border: 1px solid #00776d;
   border-radius: 6px;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
@@ -7674,7 +7644,7 @@ button.close {
   text-align: right;
   border-top: 1px solid #e0e4e5;
 }
-/* line 21, ../../src/bootstrap/_mixins.scss */
+/* line 20, ../../src/bootstrap/_mixins.scss */
 .modal-footer:before, .modal-footer:after {
   content: " ";
   /* 1 */
@@ -7834,8 +7804,7 @@ button.close {
 @-ms-viewport {
   width: device-width;
 }
-
-/* line 580, ../../src/bootstrap/_mixins.scss */
+/* line 577, ../../src/bootstrap/_mixins.scss */
 .visible-xs,
 tr.visible-xs,
 th.visible-xs,
@@ -7854,7 +7823,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-xs,
   td.visible-xs {
     display: table-cell !important;
@@ -7871,7 +7840,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-xs.visible-sm,
   td.visible-xs.visible-sm {
     display: table-cell !important;
@@ -7888,7 +7857,7 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-xs.visible-md,
   td.visible-xs.visible-md {
     display: table-cell !important;
@@ -7905,13 +7874,13 @@ td.visible-xs {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-xs.visible-lg,
   td.visible-xs.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 580, ../../src/bootstrap/_mixins.scss */
+/* line 577, ../../src/bootstrap/_mixins.scss */
 .visible-sm,
 tr.visible-sm,
 th.visible-sm,
@@ -7930,7 +7899,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-sm.visible-xs,
   td.visible-sm.visible-xs {
     display: table-cell !important;
@@ -7947,7 +7916,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-sm,
   td.visible-sm {
     display: table-cell !important;
@@ -7964,7 +7933,7 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-sm.visible-md,
   td.visible-sm.visible-md {
     display: table-cell !important;
@@ -7981,13 +7950,13 @@ td.visible-sm {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-sm.visible-lg,
   td.visible-sm.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 580, ../../src/bootstrap/_mixins.scss */
+/* line 577, ../../src/bootstrap/_mixins.scss */
 .visible-md,
 tr.visible-md,
 th.visible-md,
@@ -8006,7 +7975,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-md.visible-xs,
   td.visible-md.visible-xs {
     display: table-cell !important;
@@ -8023,7 +7992,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-md.visible-sm,
   td.visible-md.visible-sm {
     display: table-cell !important;
@@ -8040,7 +8009,7 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-md,
   td.visible-md {
     display: table-cell !important;
@@ -8057,13 +8026,13 @@ td.visible-md {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-md.visible-lg,
   td.visible-md.visible-lg {
     display: table-cell !important;
   }
 }
-/* line 580, ../../src/bootstrap/_mixins.scss */
+/* line 577, ../../src/bootstrap/_mixins.scss */
 .visible-lg,
 tr.visible-lg,
 th.visible-lg,
@@ -8082,7 +8051,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-lg.visible-xs,
   td.visible-lg.visible-xs {
     display: table-cell !important;
@@ -8099,7 +8068,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-lg.visible-sm,
   td.visible-lg.visible-sm {
     display: table-cell !important;
@@ -8116,7 +8085,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-lg.visible-md,
   td.visible-lg.visible-md {
     display: table-cell !important;
@@ -8133,7 +8102,7 @@ td.visible-lg {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-lg,
   td.visible-lg {
     display: table-cell !important;
@@ -8149,14 +8118,14 @@ tr.hidden-xs {
   display: table-row !important;
 }
 
-/* line 572, ../../src/bootstrap/_mixins.scss */
+/* line 571, ../../src/bootstrap/_mixins.scss */
 th.hidden-xs,
 td.hidden-xs {
   display: table-cell !important;
 }
 
 @media (max-width: 767px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-xs,
   tr.hidden-xs,
   th.hidden-xs,
@@ -8165,7 +8134,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-xs.hidden-sm,
   tr.hidden-xs.hidden-sm,
   th.hidden-xs.hidden-sm,
@@ -8174,7 +8143,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-xs.hidden-md,
   tr.hidden-xs.hidden-md,
   th.hidden-xs.hidden-md,
@@ -8183,7 +8152,7 @@ td.hidden-xs {
   }
 }
 @media (min-width: 1200px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-xs.hidden-lg,
   tr.hidden-xs.hidden-lg,
   th.hidden-xs.hidden-lg,
@@ -8201,14 +8170,14 @@ tr.hidden-sm {
   display: table-row !important;
 }
 
-/* line 572, ../../src/bootstrap/_mixins.scss */
+/* line 571, ../../src/bootstrap/_mixins.scss */
 th.hidden-sm,
 td.hidden-sm {
   display: table-cell !important;
 }
 
 @media (max-width: 767px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-sm.hidden-xs,
   tr.hidden-sm.hidden-xs,
   th.hidden-sm.hidden-xs,
@@ -8217,7 +8186,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-sm,
   tr.hidden-sm,
   th.hidden-sm,
@@ -8226,7 +8195,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-sm.hidden-md,
   tr.hidden-sm.hidden-md,
   th.hidden-sm.hidden-md,
@@ -8235,7 +8204,7 @@ td.hidden-sm {
   }
 }
 @media (min-width: 1200px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-sm.hidden-lg,
   tr.hidden-sm.hidden-lg,
   th.hidden-sm.hidden-lg,
@@ -8253,14 +8222,14 @@ tr.hidden-md {
   display: table-row !important;
 }
 
-/* line 572, ../../src/bootstrap/_mixins.scss */
+/* line 571, ../../src/bootstrap/_mixins.scss */
 th.hidden-md,
 td.hidden-md {
   display: table-cell !important;
 }
 
 @media (max-width: 767px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-md.hidden-xs,
   tr.hidden-md.hidden-xs,
   th.hidden-md.hidden-xs,
@@ -8269,7 +8238,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-md.hidden-sm,
   tr.hidden-md.hidden-sm,
   th.hidden-md.hidden-sm,
@@ -8278,7 +8247,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-md,
   tr.hidden-md,
   th.hidden-md,
@@ -8287,7 +8256,7 @@ td.hidden-md {
   }
 }
 @media (min-width: 1200px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-md.hidden-lg,
   tr.hidden-md.hidden-lg,
   th.hidden-md.hidden-lg,
@@ -8305,14 +8274,14 @@ tr.hidden-lg {
   display: table-row !important;
 }
 
-/* line 572, ../../src/bootstrap/_mixins.scss */
+/* line 571, ../../src/bootstrap/_mixins.scss */
 th.hidden-lg,
 td.hidden-lg {
   display: table-cell !important;
 }
 
 @media (max-width: 767px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-lg.hidden-xs,
   tr.hidden-lg.hidden-xs,
   th.hidden-lg.hidden-xs,
@@ -8321,7 +8290,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-lg.hidden-sm,
   tr.hidden-lg.hidden-sm,
   th.hidden-lg.hidden-sm,
@@ -8330,7 +8299,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-lg.hidden-md,
   tr.hidden-lg.hidden-md,
   th.hidden-lg.hidden-md,
@@ -8339,7 +8308,7 @@ td.hidden-lg {
   }
 }
 @media (min-width: 1200px) {
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-lg,
   tr.hidden-lg,
   th.hidden-lg,
@@ -8347,7 +8316,7 @@ td.hidden-lg {
     display: none !important;
   }
 }
-/* line 580, ../../src/bootstrap/_mixins.scss */
+/* line 577, ../../src/bootstrap/_mixins.scss */
 .visible-print,
 tr.visible-print,
 th.visible-print,
@@ -8366,13 +8335,13 @@ td.visible-print {
     display: table-row !important;
   }
 
-  /* line 572, ../../src/bootstrap/_mixins.scss */
+  /* line 571, ../../src/bootstrap/_mixins.scss */
   th.visible-print,
   td.visible-print {
     display: table-cell !important;
   }
 
-  /* line 580, ../../src/bootstrap/_mixins.scss */
+  /* line 577, ../../src/bootstrap/_mixins.scss */
   .hidden-print,
   tr.hidden-print,
   th.hidden-print,
@@ -9029,7 +8998,7 @@ $tabs-active-bg-color: $gray-2;
 
 /* line 457, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-10 {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 
 /* line 460, ../../src/pivotal-ui/components/colors.css.scss */
@@ -9139,7 +9108,7 @@ $tabs-active-bg-color: $gray-2;
 
 /* line 552, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-success-2 {
-  background-color: #afd79b;
+  background-color: #AFD79B;
 }
 
 /*doc
@@ -9263,12 +9232,12 @@ Background color classes can be applied to any element.
 */
 /* line 31, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bg-cloud {
-  background: #f8f8f8 url("../images/gray-cloud.png") no-repeat 50% 50%;
+  background: #F8F8F8 url("../images/gray-cloud.png") no-repeat 50% 50%;
 }
 
 /* line 35, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bg-glow {
-  background: radial-gradient(at bottom center, #4b6475 0%, #243640 60%);
+  background: radial-gradient(at bottom center at bottom center, #4b6475 0%, #243640 60%);
 }
 
 /*doc
@@ -10853,13 +10822,13 @@ h5, .h5 {
   font-weight: 400;
 }
 
-/* line 106, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 105, ../../src/pivotal-ui/components/typography.css.scss */
 small,
 .type-sm {
   font-size: 14px;
 }
 
-/* line 109, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 108, ../../src/pivotal-ui/components/typography.css.scss */
 .type-xs,
 .type-terms {
   font-size: 12px;
@@ -11009,7 +10978,7 @@ parent: type
 
 /* line 201, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-10 {
-  color: #f8f8f8;
+  color: #F8F8F8;
 }
 
 /* line 202, ../../src/pivotal-ui/components/typography.css.scss */
@@ -11119,7 +11088,7 @@ parent: type
 
 /* line 241, ../../src/pivotal-ui/components/typography.css.scss */
 .type-success-2 {
-  color: #afd79b;
+  color: #AFD79B;
 }
 
 /* line 243, ../../src/pivotal-ui/components/typography.css.scss */
@@ -11288,7 +11257,7 @@ Create block level buttons—those that span the full width of a parent— by ad
   font-weight: 900;
   padding: 5px 15px;
 }
-/* line 70, ../../src/pivotal-ui/components/button.css.scss */
+/* line 68, ../../src/pivotal-ui/components/button.css.scss */
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
@@ -11321,7 +11290,7 @@ Button                                                             | Disabled   
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active {
   color: #2185c5;
   background-color: white;
@@ -11332,7 +11301,7 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: white;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default:active, .btn-default.active {
   background-image: none;
 }
@@ -11340,7 +11309,7 @@ Button                                                             | Disabled   
 .open .btn-default.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default.disabled, .btn-default.disabled:hover, .btn-default.disabled:focus, .btn-default.disabled:active, .btn-default.disabled.active, .btn-default[disabled], .btn-default[disabled]:hover, .btn-default[disabled]:focus, .btn-default[disabled]:active, .btn-default[disabled].active, fieldset[disabled] .btn-default, fieldset[disabled] .btn-default:hover, fieldset[disabled] .btn-default:focus, fieldset[disabled] .btn-default:active, fieldset[disabled] .btn-default.active {
   background-color: #ecefef;
   color: #b4b4b4;
@@ -11349,14 +11318,14 @@ Button                                                             | Disabled   
 /* line 99, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   border: none;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:hover, .btn-default-alt:focus, .btn-default-alt:active, .btn-default-alt.active {
   color: #2185c5;
   background-color: #ecefef;
@@ -11367,7 +11336,7 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: #ecefef;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:active, .btn-default-alt.active {
   background-image: none;
 }
@@ -11375,12 +11344,12 @@ Button                                                             | Disabled   
 .open .btn-default-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt.disabled, .btn-default-alt.disabled:hover, .btn-default-alt.disabled:focus, .btn-default-alt.disabled:active, .btn-default-alt.disabled.active, .btn-default-alt[disabled], .btn-default-alt[disabled]:hover, .btn-default-alt[disabled]:focus, .btn-default-alt[disabled]:active, .btn-default-alt[disabled].active, fieldset[disabled] .btn-default-alt, fieldset[disabled] .btn-default-alt:hover, fieldset[disabled] .btn-default-alt:focus, fieldset[disabled] .btn-default-alt:active, fieldset[disabled] .btn-default-alt.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-default-alt:hover, .btn-default-alt:focus, .btn-default-alt:active, .btn-default-alt.active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11395,7 +11364,7 @@ Button                                                             | Disabled   
   transition: all 300ms ease-out;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   color: #2185c5;
   background-color: white;
@@ -11406,7 +11375,7 @@ Button                                                             | Disabled   
   color: #2185c5;
   background-color: white;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:active, .btn-primary.active {
   background-image: none;
 }
@@ -11414,12 +11383,12 @@ Button                                                             | Disabled   
 .open .btn-primary.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary.disabled, .btn-primary.disabled:hover, .btn-primary.disabled:focus, .btn-primary.disabled:active, .btn-primary.disabled.active, .btn-primary[disabled], .btn-primary[disabled]:hover, .btn-primary[disabled]:focus, .btn-primary[disabled]:active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary:hover, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11434,7 +11403,7 @@ Button                                                             | Disabled   
   transition: all 300ms ease-out;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
   color: #e0e4e5;
   background-color: #1a739e;
@@ -11445,7 +11414,7 @@ Button                                                             | Disabled   
   color: #e0e4e5;
   background-color: #1a739e;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:active, .btn-highlight.active {
   background-image: none;
 }
@@ -11453,12 +11422,12 @@ Button                                                             | Disabled   
 .open .btn-highlight.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight.disabled, .btn-highlight.disabled:hover, .btn-highlight.disabled:focus, .btn-highlight.disabled:active, .btn-highlight.disabled.active, .btn-highlight[disabled], .btn-highlight[disabled]:hover, .btn-highlight[disabled]:focus, .btn-highlight[disabled]:active, .btn-highlight[disabled].active, fieldset[disabled] .btn-highlight, fieldset[disabled] .btn-highlight:hover, fieldset[disabled] .btn-highlight:focus, fieldset[disabled] .btn-highlight:active, fieldset[disabled] .btn-highlight.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight:hover, .btn-highlight:focus, .btn-highlight:active, .btn-highlight.active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11473,7 +11442,7 @@ Button                                                             | Disabled   
   transition: all 300ms ease-out;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
   color: white;
   background-color: #00776d;
@@ -11484,7 +11453,7 @@ Button                                                             | Disabled   
   color: white;
   background-color: #00776d;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:active, .btn-highlight-alt.active {
   background-image: none;
 }
@@ -11492,12 +11461,12 @@ Button                                                             | Disabled   
 .open .btn-highlight-alt.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt.disabled, .btn-highlight-alt.disabled:hover, .btn-highlight-alt.disabled:focus, .btn-highlight-alt.disabled:active, .btn-highlight-alt.disabled.active, .btn-highlight-alt[disabled], .btn-highlight-alt[disabled]:hover, .btn-highlight-alt[disabled]:focus, .btn-highlight-alt[disabled]:active, .btn-highlight-alt[disabled].active, fieldset[disabled] .btn-highlight-alt, fieldset[disabled] .btn-highlight-alt:hover, fieldset[disabled] .btn-highlight-alt:focus, fieldset[disabled] .btn-highlight-alt:active, fieldset[disabled] .btn-highlight-alt.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-highlight-alt:hover, .btn-highlight-alt:focus, .btn-highlight-alt:active, .btn-highlight-alt.active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11511,7 +11480,7 @@ Button                                                             | Disabled   
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight:hover, .btn-lowlight:focus, .btn-lowlight:active, .btn-lowlight.active {
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
@@ -11522,7 +11491,7 @@ Button                                                             | Disabled   
   color: #686868;
   background-color: rgba(255, 255, 255, 0.6);
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight:active, .btn-lowlight.active {
   background-image: none;
 }
@@ -11530,7 +11499,7 @@ Button                                                             | Disabled   
 .open .btn-lowlight.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-lowlight.disabled, .btn-lowlight.disabled:hover, .btn-lowlight.disabled:focus, .btn-lowlight.disabled:active, .btn-lowlight.disabled.active, .btn-lowlight[disabled], .btn-lowlight[disabled]:hover, .btn-lowlight[disabled]:focus, .btn-lowlight[disabled]:active, .btn-lowlight[disabled].active, fieldset[disabled] .btn-lowlight, fieldset[disabled] .btn-lowlight:hover, fieldset[disabled] .btn-lowlight:focus, fieldset[disabled] .btn-lowlight:active, fieldset[disabled] .btn-lowlight.active {
   background-color: #ecefef;
   color: #b4b4b4;
@@ -11546,7 +11515,7 @@ Button                                                             | Disabled   
   transition: all 300ms ease-out;
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.07);
 }
-/* line 27, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 24, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
   color: #e0e4e5;
   background-color: #eb3d46;
@@ -11557,7 +11526,7 @@ Button                                                             | Disabled   
   color: #e0e4e5;
   background-color: #eb3d46;
 }
-/* line 37, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 36, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:active, .btn-danger.active {
   background-image: none;
 }
@@ -11565,12 +11534,12 @@ Button                                                             | Disabled   
 .open .btn-danger.dropdown-toggle {
   background-image: none;
 }
-/* line 50, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 46, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger.disabled, .btn-danger.disabled:hover, .btn-danger.disabled:focus, .btn-danger.disabled:active, .btn-danger.disabled.active, .btn-danger[disabled], .btn-danger[disabled]:hover, .btn-danger[disabled]:focus, .btn-danger[disabled]:active, .btn-danger[disabled].active, fieldset[disabled] .btn-danger, fieldset[disabled] .btn-danger:hover, fieldset[disabled] .btn-danger:focus, fieldset[disabled] .btn-danger:active, fieldset[disabled] .btn-danger.active {
   background-color: #ecefef;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active, .btn-danger.active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -11593,7 +11562,7 @@ Do not use this button on normal application pages.
 */
 /* line 149, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
-  color: #eeeeee;
+  color: #eee;
   background-color: #1b92cb;
   background: #2281bc;
   box-shadow: 0 2px 0 #196084;
@@ -11602,17 +11571,17 @@ Do not use this button on normal application pages.
   font-weight: normal;
   text-transform: none;
 }
-/* line 74, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 71, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:hover, .btn-alternate:focus, .btn-alternate:active, .btn-alternate.active {
-  color: #eeeeee;
+  color: #eee;
   background-color: #1675a2;
 }
 /* line 78, ../../src/pivotal-ui/components/mixins.css.scss */
 .open .btn-alternate.dropdown-toggle {
-  color: #eeeeee;
+  color: #eee;
   background-color: #1678a7;
 }
-/* line 83, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 82, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate:active, .btn-alternate.active {
   background-image: none;
 }
@@ -11620,7 +11589,7 @@ Do not use this button on normal application pages.
 .open .btn-alternate.dropdown-toggle {
   background-image: none;
 }
-/* line 96, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 92, ../../src/pivotal-ui/components/mixins.css.scss */
 .btn-alternate.disabled, .btn-alternate.disabled:hover, .btn-alternate.disabled:focus, .btn-alternate.disabled:active, .btn-alternate.disabled.active, .btn-alternate[disabled], .btn-alternate[disabled]:hover, .btn-alternate[disabled]:focus, .btn-alternate[disabled]:active, .btn-alternate[disabled].active, fieldset[disabled] .btn-alternate, fieldset[disabled] .btn-alternate:hover, fieldset[disabled] .btn-alternate:focus, fieldset[disabled] .btn-alternate:active, fieldset[disabled] .btn-alternate.active {
   background-color: #1b92cb;
 }
@@ -12557,7 +12526,7 @@ This is a table used to display many rows of data (it is pretty much the default
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 126, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr:last-child, .table-data tbody .tr:last-child, .table-data .tbody tr:last-child, .table-data .tbody .tr:last-child {
@@ -12573,11 +12542,11 @@ This is a table used to display many rows of data (it is pretty much the default
 }
 /* line 144, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr, .table-data.table-light tbody .tr, .table-data.table-light thead tr, .table-data.table-light thead .tr, .table-data.table-light .tbody tr, .table-data.table-light .tbody .tr, .table-data.table-light .thead tr, .table-data.table-light .thead .tr {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 146, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr th, .table-data.table-light tbody tr .th, .table-data.table-light tbody tr td, .table-data.table-light tbody tr .td, .table-data.table-light tbody .tr th, .table-data.table-light tbody .tr .th, .table-data.table-light tbody .tr td, .table-data.table-light tbody .tr .td, .table-data.table-light thead tr th, .table-data.table-light thead tr .th, .table-data.table-light thead tr td, .table-data.table-light thead tr .td, .table-data.table-light thead .tr th, .table-data.table-light thead .tr .th, .table-data.table-light thead .tr td, .table-data.table-light thead .tr .td, .table-data.table-light .tbody tr th, .table-data.table-light .tbody tr .th, .table-data.table-light .tbody tr td, .table-data.table-light .tbody tr .td, .table-data.table-light .tbody .tr th, .table-data.table-light .tbody .tr .th, .table-data.table-light .tbody .tr td, .table-data.table-light .tbody .tr .td, .table-data.table-light .thead tr th, .table-data.table-light .thead tr .th, .table-data.table-light .thead tr td, .table-data.table-light .thead tr .td, .table-data.table-light .thead .tr th, .table-data.table-light .thead .tr .th, .table-data.table-light .thead .tr td, .table-data.table-light .thead .tr .td {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 149, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr td, .table-data.table-light tbody tr .td, .table-data.table-light tbody .tr td, .table-data.table-light tbody .tr .td, .table-data.table-light thead tr td, .table-data.table-light thead tr .td, .table-data.table-light thead .tr td, .table-data.table-light thead .tr .td, .table-data.table-light .tbody tr td, .table-data.table-light .tbody tr .td, .table-data.table-light .tbody .tr td, .table-data.table-light .tbody .tr .td, .table-data.table-light .thead tr td, .table-data.table-light .thead tr .td, .table-data.table-light .thead .tr td, .table-data.table-light .thead .tr .td {
@@ -13012,7 +12981,7 @@ parent: table-js
 .editing .state-adding-trigger {
   visibility: hidden;
 }
-/* line 626, ../../src/pivotal-ui/components/table.css.scss */
+/* line 625, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable .thead-state-viewing,
 .editing .table-addable .td-state-viewing {
   display: none;
@@ -13454,7 +13423,7 @@ parent: panel
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
   border-color: #2185c5;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   color: #686868;
 }
 /* line 200, ../../src/pivotal-ui/components/panel.css.scss */
@@ -13465,7 +13434,7 @@ parent: panel
 .panel-tile:hover .panel-footer {
   opacity: 1;
   background: #2185c5;
-  color: #f8f8f8;
+  color: #F8F8F8;
 }
 
 @media all and (max-width: 1200px) {
@@ -13582,7 +13551,7 @@ parent: panel
 */
 /* line 325, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-simple-highlight, .panel-simple-highlight-hoverable {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
   border-radius: 10px;
   box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.07);
 }
@@ -13760,14 +13729,14 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
 }
 /* line 499, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-hoverable .hover-target-3 {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 503, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-hoverable:hover {
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 507, ../../src/pivotal-ui/components/panel.css.scss */
 .panel-hoverable:hover .hover-target-1 {
@@ -13858,7 +13827,7 @@ parent: panel
 
 /* line 22, ../../src/pivotal-ui/components/box.css.scss */
 .box .boxHeadBranded {
-  background: #64aea8;
+  background: #64AEA8;
   text-transform: uppercase;
   font-family: "freight-sans-pro", sans-serif;
   font-weight: 300;
@@ -13871,7 +13840,7 @@ parent: panel
 .box .boxHeadBranded:before {
   content: "";
   display: block;
-  background: #00776d url("../images/p-logo.png") no-repeat center center;
+  background: #00776D url("../images/p-logo.png") no-repeat center center;
   height: 100%;
   min-width: 65px;
   position: absolute;
@@ -14032,7 +14001,7 @@ Dividers draw horizontal lines between different content groupings.
   border-width: 3px 0 0 0;
 }
 
-/* line 48, ../../src/pivotal-ui/components/dividers.css.scss */
+/* line 47, ../../src/pivotal-ui/components/dividers.css.scss */
 .divider-alternate-2,
 .divider-2 {
   margin: 4vw 0;
@@ -14317,57 +14286,41 @@ New elements fade in
 }
 
 @-webkit-keyframes new-list-group-item-fade {
-  /* line 289, ../../src/pivotal-ui/components/lists.css.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 292, ../../src/pivotal-ui/components/lists.css.scss */
   100% {
     opacity: 1;
   }
 }
-
 @-webkit-keyframes new-list-group-item-grow {
-  /* line 298, ../../src/pivotal-ui/components/lists.css.scss */
   0% {
     max-height: 0;
     padding: 0px 15px;
   }
-
-  /* line 302, ../../src/pivotal-ui/components/lists.css.scss */
   100% {
     max-height: 100px;
     padding: 10px 15px;
   }
 }
-
 @keyframes new-list-group-item-fade {
-  /* line 309, ../../src/pivotal-ui/components/lists.css.scss */
   from {
     opacity: 0;
   }
-
-  /* line 312, ../../src/pivotal-ui/components/lists.css.scss */
   to {
     opacity: 1;
   }
 }
-
 @keyframes new-list-group-item-grow {
-  /* line 318, ../../src/pivotal-ui/components/lists.css.scss */
   from {
     max-height: 0;
     padding: 0px 15px;
   }
-
-  /* line 322, ../../src/pivotal-ui/components/lists.css.scss */
   to {
     max-height: 100px;
     padding: 10px 15px;
   }
 }
-
 /* line 329, ../../src/pivotal-ui/components/lists.css.scss */
 .list-notitle li:first-child {
   border-top: 0;
@@ -14576,7 +14529,7 @@ right min-height.
   zoom: 1;
   overflow: hidden;
 }
-/* line 35, ../../src/oocss/utils/_clearfix-me.scss */
+/* line 34, ../../src/oocss/utils/_clearfix-me.scss */
 .list-vertical-divider:before, .list-vertical-divider-2:before, .list-vertical-divider:after, .list-vertical-divider-2:after {
   content: " ";
   display: table;
@@ -14658,13 +14611,13 @@ Use this list when you need to show the steps in a flow.
 }
 /* line 622, ../../src/pivotal-ui/components/lists.css.scss */
 .list-steps > li.current {
-  color: #f8f8f8;
+  color: #F8F8F8;
   font-weight: 900;
 }
 /* line 625, ../../src/pivotal-ui/components/lists.css.scss */
 .list-steps > li.current:before {
-  color: #f8f8f8;
-  border-color: #f8f8f8;
+  color: #F8F8F8;
+  border-color: #F8F8F8;
 }
 
 /*doc
@@ -14870,7 +14823,7 @@ parent: tabs
 .tab-highlight .nav > li.active a {
   z-index: 50;
 }
-/* line 96, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 95, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li.active > a,
 .tab-highlight .nav > li.active > a:hover {
   color: #686868;
@@ -14960,7 +14913,7 @@ parent: tabs
 }
 /* line 179, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li:hover > a {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 184, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li.active {
@@ -15047,7 +15000,7 @@ parent: tabs
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 275, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 273, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive .active a[data-toggle="tab"],
 .tab-responsive a[data-toggle="tab"]:hover,
 .tab-responsive a[data-toggle="tab"]:focus {
@@ -15153,7 +15106,7 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
   transition: all 300ms ease;
   color: #b4b4b4;
 }
-/* line 62, ../../src/pivotal-ui/components/mixins.css.scss */
+/* line 59, ../../src/pivotal-ui/components/mixins.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab]:hover, .tabs-images .nav-tabs-images li a[data-toggle=tab]:focus, .tabs-images .nav-tabs-images li a[data-toggle=tab]:active, .tabs-images .nav-tabs-images li a[data-toggle=tab].active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
@@ -15161,7 +15114,7 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 .tabs-images .nav-tabs-images li a[data-toggle=tab] .icon-svg .icon {
   fill: currentColor;
 }
-/* line 394, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 391, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li.active a, .tabs-images .nav-tabs-images li:hover a, .tabs-images .nav-tabs-images li:focus a, .tabs-images .nav-tabs-images li:active a {
   background-color: #00a79d;
   color: white;
@@ -15894,7 +15847,7 @@ Bootstrap includes validation styles for error and success states on form contro
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   background-color: #00a79d;
-  color: #f8f8f8;
+  color: #F8F8F8;
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
@@ -16962,12 +16915,12 @@ To use in a view, simply call
 */
 /* line 148, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-lg {
-  border: 3px solid #f8f8f8;
+  border: 3px solid #F8F8F8;
 }
 /* line 150, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-lg i {
   background-color: #fff;
-  color: #f8f8f8;
+  color: #F8F8F8;
   font-size: 62px;
   line-height: 80px;
   width: 80px;
@@ -17395,7 +17348,7 @@ parent: progress_bar
   font-weight: 900;
 }
 
-/* line 81, ../../src/pivotal-ui/components/progress_bar.css.scss */
+/* line 80, ../../src/pivotal-ui/components/progress_bar.css.scss */
 .progress-bar[aria-valuenow="1"],
 .progress-bar[aria-valuenow="2"] {
   min-width: 3%;
@@ -17499,56 +17452,38 @@ Traffic lights can be:
 ```
 */
 @-webkit-keyframes loadingFade {
-  /* line 46, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   0% {
     opacity: 0.2;
   }
-
-  /* line 47, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 48, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   100% {
     opacity: 0.2;
   }
 }
-
 @-moz-keyframes loadingFade {
-  /* line 52, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   0% {
     opacity: 0.2;
   }
-
-  /* line 53, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 54, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   100% {
     opacity: 0.2;
   }
 }
-
 @keyframes loadingFade {
-  /* line 58, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   0% {
     opacity: 0.2;
   }
-
-  /* line 59, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 60, ../../src/pivotal-ui/components/traffic_lights.css.scss */
   100% {
     opacity: 0.2;
   }
 }
-
 /* line 63, ../../src/pivotal-ui/components/traffic_lights.css.scss */
 .traffic-lights {
   margin: 0;
@@ -17691,56 +17626,38 @@ categories:
 ```
 */
 @-webkit-keyframes loadingPulse {
-  /* line 29, ../../src/pivotal-ui/components/app_status.css.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 30, ../../src/pivotal-ui/components/app_status.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 31, ../../src/pivotal-ui/components/app_status.css.scss */
   100% {
     opacity: 0;
   }
 }
-
 @-moz-keyframes loadingPulse {
-  /* line 35, ../../src/pivotal-ui/components/app_status.css.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 36, ../../src/pivotal-ui/components/app_status.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 37, ../../src/pivotal-ui/components/app_status.css.scss */
   100% {
     opacity: 0;
   }
 }
-
 @keyframes loadingPulse {
-  /* line 41, ../../src/pivotal-ui/components/app_status.css.scss */
   0% {
     opacity: 0;
   }
-
-  /* line 42, ../../src/pivotal-ui/components/app_status.css.scss */
   50% {
     opacity: 1;
   }
-
-  /* line 43, ../../src/pivotal-ui/components/app_status.css.scss */
   100% {
     opacity: 0;
   }
 }
-
 /* line 46, ../../src/pivotal-ui/components/app_status.css.scss */
 #app_status {
   position: relative;
@@ -17749,12 +17666,12 @@ categories:
 #app_status #svg {
   border-radius: 50%;
   box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.08);
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 55, ../../src/pivotal-ui/components/app_status.css.scss */
 #app_status #svg circle {
-  fill: #f8f8f8;
-  stroke: #f8f8f8;
+  fill: #F8F8F8;
+  stroke: #F8F8F8;
   stroke-dashoffset: 0;
   -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
   -moz-transition: stroke-dashoffset 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
@@ -17984,7 +17901,7 @@ categories:
 }
 /* line 50, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal.showing .content {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 53, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal.showing .modal-backdrop {
@@ -17992,7 +17909,7 @@ categories:
 }
 /* line 58, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal.saving .content {
-  background-color: #f8f8f8;
+  background-color: #F8F8F8;
 }
 /* line 61, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal.saving .modal-backdrop {
@@ -18006,12 +17923,12 @@ categories:
 .inline-modal .animate-show {
   opacity: .8;
 }
-/* line 75, ../../src/pivotal-ui/components/inline_modal.css.scss */
+/* line 74, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal .animate-show.ng-hide-add,
 .inline-modal .animate-show.ng-hide-remove {
   display: block !important;
 }
-/* line 80, ../../src/pivotal-ui/components/inline_modal.css.scss */
+/* line 79, ../../src/pivotal-ui/components/inline_modal.css.scss */
 .inline-modal .animate-show.ng-hide-add.ng-hide-add-active,
 .inline-modal .animate-show.ng-hide-remove.ng-hide-remove-active {
   -webkit-transition: all ease-out 0.1s;
@@ -18639,7 +18556,7 @@ highlighted on page load.
 </div>
 ```
 */
-/* line 147, ../../src/pivotal-ui/components/scale.css.scss */
+/* line 146, ../../src/pivotal-ui/components/scale.css.scss */
 .scale-svg .instances-column:hover,
 .scale-svg .selected-group {
   filter: none;

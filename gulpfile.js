@@ -48,7 +48,7 @@ gulp.task('fonts', ['clean'], function() {
       'src/source-sans-pro/**/*',
       '!src/source-sans-pro/source-sans-pro.css.scss'
     ])
-    .pipe(gulp.dest('./dist/source-sans-pro'));
+    .pipe(gulp.dest('./dist/fonts/'));
 });
 
 
