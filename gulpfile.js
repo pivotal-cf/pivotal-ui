@@ -5,6 +5,7 @@ var compass = require('gulp-compass');
 var browserify = require('browserify');
 var hologram = require('gulp-hologram');
 var shell = require('gulp-shell');
+var open = require("gulp-open");
 
 
 gulp.task('clean', function(done) {
@@ -65,6 +66,16 @@ gulp.task('styleguide', ['clean'], function() {
     'src/style_guide/pane.html'
   ])
     .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('test', function() {
+  gulp.src([
+    'dist/**/*',
+  ])
+    .pipe(gulp.dest('./test/dist/'));
+
+  gulp.src("./test/regressionRunner.html")
+    .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
 
 
