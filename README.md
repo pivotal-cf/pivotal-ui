@@ -33,6 +33,7 @@ Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome 
 1. Unzip the release archive and move the resulting directory into your project.
 1. Link to the css file in your html template to include the styles.
 1. Add a script tag to your html template to use the javascript.
+1. Use the css classes (reference the [styleguide](https://github.com/pivotal-cf/pivotal-ui#styleguide) for examples and usage)
 
 ```html
 <html>
@@ -55,9 +56,19 @@ If you are building CSS using Sass, you can get pivotal-ui variables by copying 
 
     $ cp /path/to/release/src/pivotal-ui/components/variables.scss /path/to/your-project/
 
+Import the file and use the variables:
+
+```scss
+@import '/path/to/variables.scss';
+
+.bg-special {
+  background-color: $brand-1;
+}
+```
+
 ### Styleguide
 
-Host the styleguide files with a web server to view the available components. For example: 
+Visit <http://styleguide.cfapps.io> of host the styleguide files with a web server to view the available components.
 
     $ cd /path/to/release/pivotal-ui/styleguide/ && python -m SimpleHTTPServer 8000
     
