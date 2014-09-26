@@ -36,3 +36,4 @@ DEPENDENCIES
   compass (~> 1.0.1)
   haml
   hologram
+  sass

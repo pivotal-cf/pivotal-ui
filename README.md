@@ -86,7 +86,7 @@ If you intend to build pivotal ui itself, there are a few things you'll need to 
 
 ### Install Tools (in order)
 
-compass
+compass, haml, sass, and hologram
 
     $ bundle install
 
