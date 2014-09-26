@@ -7,6 +7,7 @@
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
+/test/dist/
 /tmp/
 .ruby-version
 .sass-cache/
