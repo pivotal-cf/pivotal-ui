@@ -4,7 +4,7 @@ var del = require('del');
 var compass = require('gulp-compass');
 var browserify = require('browserify');
 var hologram = require('gulp-hologram');
-var shell = require('gulp-shell');
+var connect = require('gulp-connect');
 var open = require("gulp-open");
 
 
@@ -91,9 +91,13 @@ gulp.task('watch', function() {
   gulp.watch("src/**/*", ['assets']);
 });
 
-gulp.task('serve', shell.task([
-  'python -m SimpleHTTPServer 8000'
-], {cwd: 'dist/' }));
+gulp.task('serve', function() {
+  connect.server({
+    root: ['dist'],
+    port: 8000,
+    livereload: true
+  });
+});
 
 gulp.task('default', [
   'assets'
