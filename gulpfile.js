@@ -100,5 +100,5 @@ gulp.task('serve', function() {
 });
 
 gulp.task('default', [
-  'assets'
+  'watch', 'serve'
 ]);
