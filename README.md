@@ -122,15 +122,11 @@ Install dependencies by running the following from the project root
 
 ### Build the project
 
-As soon as you have your tools installed, and then again each time you make changes you want to see reflected in the styleguide, you'll need to run gulp _at the project root_:
+As soon as you have your tools installed, run gulp _at the project root_:
 
     $ gulp
-
-This will create the `dist/` directory that will house the compiled resources and the styleguide.
-
-### Development styleguide
-
-    $ gulp serve
+    
+This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
 
 ### Deploying the styleguide
 
