@@ -1,4 +1,6 @@
 require 'hologram'
+require 'haml'
+require_relative './block_code_renderer'
 
 include ERB::Util
 
@@ -12,6 +14,10 @@ class PivotalUiRenderer < Hologram::MarkdownRenderer
   # list_item(text, list_type)
   # table_row(content)
   # table_cell(content, alignment)
+
+  def block_code(code, language)
+    BlockCodeRenderer.new(code, language).render
+  end
 
   def list(contents, list_type)
     case list_type
@@ -29,12 +35,6 @@ class PivotalUiRenderer < Hologram::MarkdownRenderer
   def table(header, body)
     "<table class=\"#{css_class_name}\"> #{header} #{body} </table>"
   end
-
-  # def table_cell(content, alignment)
-    # puts "*"*50 + " OMG CONTENT!"
-    # puts content
-    # puts "*"*50
-  # end
 
   ## Span items using the default Redcarpet implementation
   # autolink(link, link_type)

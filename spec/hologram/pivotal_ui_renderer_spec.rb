@@ -4,10 +4,9 @@ require 'haml'
 
 describe PivotalUiRenderer do
   describe '#block_code' do
-    def code_example(rendered_code: '', formatted_code: '', inline: false)
-      code_example_class = inline ? 'codeExample inlineCodeExample' : 'codeExample'
+    def code_example(rendered_code: '', formatted_code: '')
       [
-        "<div class=\"#{code_example_class}\">",
+        "<div class=\"codeExample\">",
           "<div class=\"exampleOutput\">",
             "#{rendered_code}",
           "</div>",
@@ -52,7 +51,6 @@ describe PivotalUiRenderer do
           it { is_expected.to eq code_example(
             rendered_code: '<h1></h1>',
             formatted_code: 'formatted h1',
-            inline: false
           ) }
         end
       end
@@ -67,7 +65,6 @@ describe PivotalUiRenderer do
           it { is_expected.to eq code_example(
             rendered_code: '<h2></h2>',
             formatted_code: 'formatted h2',
-            inline: false
           ) }
         end
       end
