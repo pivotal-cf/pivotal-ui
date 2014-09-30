@@ -104,111 +104,87 @@
         
         </ul>
 <h1 id="button">Buttons</h1>
-
-<p>Button styles can be applied to any element. Typically you&#39;ll want to
-use either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
-<div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary'>Button</button>
+<p class="styleguide">Button styles can be applied to any element. Typically you&#39;ll want to
+use either a <code class="styleguide">&lt;button&gt;</code> or an <code class="styleguide">&lt;a&gt;</code> element:</p><div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary'>Button</button>
 <a class='btn btn-primary' href='http://trulia.com'>Link</a>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary</span> Button
 <span class="nt">%a</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://trulia.com"</span><span class="p">}</span> Link
-</pre></div></div></div>
-<p>If your button is actually a link to another page, please use the
-<code>&lt;a&gt;</code> element, while if your button performs an action, such as submitting
-a form or triggering some javascript event, then use a <code>&lt;button&gt;</code> element.</p>
-
+</pre></div></div></div><p class="styleguide">If your button is actually a link to another page, please use the
+<code class="styleguide">&lt;a&gt;</code> element, while if your button performs an action, such as submitting
+a form or triggering some javascript event, then use a <code class="styleguide">&lt;button&gt;</code> element.</p>
 <h2 id="button_sizes">Button Sizes</h2>
-
-<p>There are two sizes for buttons: Large and default. Simply apply the
-size modifier class for the desired size.</p>
-
-<table><thead>
-<tr>
+<p class="styleguide">There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.</p><table class="styleguide"> <tr>
 <th>Button</th>
 <th>Modifier Class</th>
 </tr>
-</thead><tbody>
-<tr>
+ <tr>
 <td><button class="btn btn-primary btn-lg">Large</button></td>
-<td><code>btn btn-primary btn-lg</code></td>
+<td><code class="styleguide">btn btn-primary btn-lg</code></td>
 </tr>
 <tr>
 <td><button class="btn btn-primary">Default</button></td>
-<td><code>btn btn-primary</code></td>
+<td><code class="styleguide">btn btn-primary</code></td>
 </tr>
-</tbody></table>
-
+ </table>
 <h2 id="buttonSkins">Button Styles</h2>
-
-<table><thead>
-<tr>
+<table class="styleguide"> <tr>
 <th>Button</th>
 <th>Disabled</th>
 <th>Class</th>
 <th>Description</th>
 </tr>
-</thead><tbody>
-<tr>
+ <tr>
 <td><button class="btn btn-default">Default</button></td>
 <td><button class="btn btn-default" disabled>Default</button></td>
-<td><code>btn btn-default</code></td>
+<td><code class="styleguide">btn btn-default</code></td>
 <td>This is what buttons look like, this is the go to button style.</td>
 </tr>
 <tr>
 <td><button class="btn btn-default-alt">Default alternate</button></td>
 <td><button class="btn btn-default-alt" disabled>Default alternate</button></td>
-<td><code>btn btn-default-alt</code></td>
+<td><code class="styleguide">btn btn-default-alt</code></td>
 <td>This is what buttons look like, this is the go to button style (on white backgrounds).</td>
 </tr>
 <tr>
 <td><button class="btn btn-primary">Primary</button></td>
 <td><button class="btn btn-primary" disabled>Primary</button></td>
-<td><code>btn btn-primary</code></td>
+<td><code class="styleguide">btn btn-primary</code></td>
 <td>Use this button as the primary call to action</td>
 </tr>
 <tr>
 <td><button class="btn btn-lowlight">Lowlight</button></td>
 <td><button class="btn btn-lowlight" disabled>Lowlight</button></td>
-<td><code>btn btn-lowlight</code></td>
+<td><code class="styleguide">btn btn-lowlight</code></td>
 <td>Use this button for other actions, like cancel/dismiss</td>
 </tr>
 <tr>
 <td><button class="btn btn-danger">Delete</button></td>
 <td><button class="btn btn-danger" disabled>Delete</button></td>
-<td><code>btn btn-danger</code></td>
+<td><code class="styleguide">btn btn-danger</code></td>
 <td>This button is for delete actions, these actions should also have a confirmation dialog</td>
 </tr>
 <tr>
 <td><button class="btn btn-highlight">Highlight</button></td>
 <td><button class="btn btn-highlight" disabled>Highlight</button></td>
-<td><code>btn btn-highlight</code></td>
+<td><code class="styleguide">btn btn-highlight</code></td>
 <td>Use this button for other important actions, e.g. restarting apps</td>
 </tr>
 <tr>
 <td><button class="btn btn-highlight-alt">Highlight alternate</button></td>
 <td><button class="btn btn-highlight-alt" disabled>Highlight alternate</button></td>
-<td><code>btn btn-highlight-alt</code></td>
+<td><code class="styleguide">btn btn-highlight-alt</code></td>
 <td>Use this button for other important actions, e.g. marketing call to actions</td>
 </tr>
-</tbody></table>
-
+ </table>
 <h2 id="full_width_button">Full width Buttons</h2>
-
-<p>There is an additional modifier that will make the button take the
+<p class="styleguide">There is an additional modifier that will make the button take the
 full width of the container. It may be used with the any of the button
-size and style modifiers.</p>
-
-<p>Create block level buttons—those that span the full width of a parent— by adding <code>.btn-block</code>.</p>
-<div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
+size and style modifiers.</p><p class="styleguide">Create block level buttons—those that span the full width of a parent— by adding <code class="styleguide">.btn-block</code>.</p><div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
 </pre></div></div></div>
 <h1 id="code">Code</h1>
-
-<p>In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code>.language-ruby</code>.</p>
-
-<p>There are several languages already available (and others available from the <a href="http://prismjs.com">Prismjs.com</a> website), including:</p>
-
-<ul>
-<li>Markup</li>
+<p class="styleguide">In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code class="styleguide">.language-ruby</code>.</p><p class="styleguide">There are several languages already available (and others available from the <a class="styleguide" href="http://prismjs.com" title="http://prismjs.com">Prismjs.com</a> website), including:</p><ul class="styleguide"><li>Markup</li>
 <li>CSS</li>
 <li>C-like</li>
 <li>JavaScript</li>
@@ -222,8 +198,7 @@ size and style modifiers.</p>
 <li>HTTP</li>
 <li>Ruby</li>
 <li>Go</li>
-</ul>
-<div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</ul><div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%pre</span>
   <span class="nt">%code</span><span class="nc">.language-ruby</span>
     <span class="nd">:preserve
@@ -232,9 +207,7 @@ size and style modifiers.</p>
           <span class="nd">puts 'hi'</span>
         <span class="nd">end</span>
       <span class="nd">end</span>
-</pre></div></div></div>
-<p>Make it scrollable</p>
-<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</pre></div></div></div><p class="styleguide">Make it scrollable</p><div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre>
 <span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
   <span class="nt">%code</span><span class="nc">.language-ruby</span>
@@ -268,9 +241,7 @@ size and style modifiers.</p>
           <span class="nd">puts 'hi'</span>
         <span class="nd">end</span>
       <span class="nd">end</span>
-</pre></div></div></div>
-<p>Scrollable with too little content:</p>
-<div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</pre></div></div></div><p class="styleguide">Scrollable with too little content:</p><div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div><div class="codeBlock"><div class="highlight"><pre>
 <span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
   <span class="nt">%code</span><span class="nc">.language-ruby</span>
@@ -286,9 +257,7 @@ size and style modifiers.</p>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
 </pre></div></div></div>
 <h2 id="terminal_window">Terminal Window</h2>
-
-<p><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p>
-<div class="codeExample"><div class="exampleOutput"><div class='terminal'>
+<p class="styleguide"><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p><div class="codeExample"><div class="exampleOutput"><div class='terminal'>
   <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bar&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Baz&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bop&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.terminal</span>
@@ -320,15 +289,11 @@ size and style modifiers.</p>
         <span class="nd">end</span>
 </pre></div></div></div>
 <h1 id="colors">Colors</h1>
-
-<p>Our color pallet is composed of several different colors. At any given point in captures the current
+<p class="styleguide">Our color pallet is composed of several different colors. At any given point in captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.</p>
-
 <h2 id="background">Backgrounds</h2>
-
-<p>Background color classes can be applied to any element.</p>
-
+<p class="styleguide">Background color classes can be applied to any element.</p>
 <div class="row mvxl">
   <div class="col-md-4">
     <div class="chip">
@@ -345,10 +310,8 @@ colors rather than adding new ones.</p>
 </div>
 
 <h3 id="background_full_bleed">Full Bleed Background</h3>
-
-<p>This example uses an about us hero image by default, but you can change it to any image you would like.
-Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.</p>
-<div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed'>
+<p class="styleguide">This example uses an about us hero image by default, but you can change it to any image you would like.
+Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.</p><div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed'>
   <div class='container'>
     <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
   </div>
@@ -358,9 +321,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
     <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">'type-neutral-11 txt-c'</span><span class="nt">&gt;</span>Full bleed background image<span class="nt">&lt;/h1&gt;</span>
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
-</pre></div></div></div>
-<p>To modify this component to use a custom image, use an inline <code>background-image</code> style like so:</p>
-<div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed' style="background-image: url(images/such-awesome.jpg)">
+</pre></div></div></div><p class="styleguide">To modify this component to use a custom image, use an inline <code class="styleguide">background-image</code> style like so:</p><div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed' style="background-image: url(images/such-awesome.jpg)">
   <div class='container'>
     <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
   </div>
@@ -379,9 +340,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   it very hard to change the values later if you can't tell how they might have been used.
    You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
 </div>
-
-<p>This example shows proper use of Sass variables.</p>
-<div class="codeBlock"><div class="highlight"><pre>$tabs-active-bg-color: $gray-2;
+<p class="styleguide">This example shows proper use of Sass variables.</p><div class="codeBlock"><div class="highlight"><pre>$tabs-active-bg-color: $gray-2;
 </pre></div></div>
 <div class="row row-gutter-sm mvxl">
   <div class="col-md-2">
@@ -826,13 +785,9 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
     </div>
   </div>
 </div>
-
-<p></div></p>
-
+<p class="styleguide"></div></p>
 <h1 id="divider">Dividers</h1>
-
-<p>Dividers draw horizontal lines between different content groupings.</p>
-<div class="codeExample"><div class="exampleOutput"><hr class='divider-alternate-1'>
+<p class="styleguide">Dividers draw horizontal lines between different content groupings.</p><div class="codeExample"><div class="exampleOutput"><hr class='divider-alternate-1'>
 <hr class='divider-alternate-2'>
 <div class='contrast-bar'>
   <hr class='divider-1'>
@@ -850,16 +805,12 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
 <h1 id="images">Images</h1>
 
 <h2 id="avatar_images">Avatar Images</h2>
-
-<p>Avatar images are expected to by 100px by 100px.</p>
-<div class="codeExample"><div class="exampleOutput"><img alt='...' class='img-circle avatar' height='100' src='http://placehold.it/100x100' width='100'>
+<p class="styleguide">Avatar images are expected to by 100px by 100px.</p><div class="codeExample"><div class="exampleOutput"><img alt='...' class='img-circle avatar' height='100' src='http://placehold.it/100x100' width='100'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%img</span><span class="p">{</span><span class="ss">src: </span><span class="s2">"http://placehold.it/100x100"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"..."</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"img-circle avatar"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"100"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"100"</span><span class="p">}</span>
 
 </pre></div></div></div>
 <h2 id="responsive_images">Responsive Images</h2>
-
-<p>Images can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p>
-<div class="codeExample"><div class="exampleOutput"><div class='row'>
+<p class="styleguide">Images can be made responsive-friendly via the addition of the <code class="styleguide">.img-responsive</code> class. This applies <code class="styleguide">max-width: 100%;</code> and <code class="styleguide">height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p><div class="codeExample"><div class="exampleOutput"><div class='row'>
   <div class='col-md-5'>
     <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
   </div>
@@ -879,20 +830,14 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
     <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
 </pre></div></div></div>
 <h2 id="responsive_svg">Responsive SVG</h2>
-
-<p>SVG can be made responsive-friendly via the addition of the <code>.svg-responsive</code> class on a
-wrapper div and the <code>.svg-content</code> class on the svg itself. You&#39;ll also need to to define
-the height to width ratio as an inline padding bottom style on the <code>.svg-responsive</code> element like so:</p>
-<div class="codeBlock"><div class="highlight"><pre>&lt;div class="svg-responsive" style="padding-bottom: 78.31%"&gt;
+<p class="styleguide">SVG can be made responsive-friendly via the addition of the <code class="styleguide">.svg-responsive</code> class on a
+wrapper div and the <code class="styleguide">.svg-content</code> class on the svg itself. You&#39;ll also need to to define
+the height to width ratio as an inline padding bottom style on the <code class="styleguide">.svg-responsive</code> element like so:</p><div class="codeBlock"><div class="highlight"><pre>&lt;div class="svg-responsive" style="padding-bottom: 78.31%"&gt;
   &lt;svg class="svg-content" viewBox="38 45 125 120" preserveAspectRatio="xMinYMin meet"&gt;
     ...
   &lt;/svg&gt;
 &lt;/div&gt;
-</pre></div></div>
-<p>The <code>padding-bottom</code> should equal the <strong>height divided by the width</strong> of your specific svg.</p>
-
-<p>For more information about setting up your svg, read this article about <a href="http://sarasoueidan.com/blog/svg-coordinate-systems/">svg coordinates systems by Sara Soueidan</a>.</p>
-
+</pre></div></div><p class="styleguide">The <code class="styleguide">padding-bottom</code> should equal the <strong>height divided by the width</strong> of your specific svg.</p><p class="styleguide">For more information about setting up your svg, read this article about <a class="styleguide" href="http://sarasoueidan.com/blog/svg-coordinate-systems/" title="http://sarasoueidan.com/blog/svg-coordinate-systems/">svg coordinates systems by Sara Soueidan</a>.</p>
 <div class="row">
   <div class="col-md-5">
     <div class="svg-responsive" style="padding-bottom: 78.31%">
@@ -999,12 +944,10 @@ the height to width ratio as an inline padding bottom style on the <code>.svg-re
 </div>
 
 <h1 id="instance scale">Instance Scale</h1>
-
-<p>The instance scale widget is an svg and an associated code block. Include the SVG
+<p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
 and code in your page and the javascript and css will handle all of the behaviors.
-Add the class <code>.selected-group</code> to the <code>.instance-column</code> you would like to be
-highlighted on page load.</p>
-<div class="codeExample"><div class="exampleOutput"><div class="panel bg-neutral-11">
+Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
+highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"><div class="panel bg-neutral-11">
   <div class="row">
     <div class="col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0">
       <svg class="scale-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 531.415 353.659" preserveAspectRatio="xMinYMin meet" enable-background="new 0 0 531.415 353.659" xml:space="preserve">
@@ -1258,41 +1201,36 @@ highlighted on page load.</p>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
 <h1 id="link">Links</h1>
-
-<p>There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p>
-<div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
+<p class="styleguide">There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p><div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
   <i class='fa fa-plus'></i>
   link with an icon
 </a>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"http://google.com"</span><span class="p">}</span>
   <span class="nt">%i</span><span class="nc">.fa.fa-plus</span>
   link with an icon
-</pre></div></div></div>
-<table><thead>
-<tr>
+</pre></div></div></div><table class="styleguide"> <tr>
 <th>Link</th>
 <th>Class</th>
 <th>Description</th>
 </tr>
-</thead><tbody>
-<tr>
+ <tr>
 <td><a href="http://google.com">default link</a></td>
 <td></td>
 <td>This is what buttons look like, this is the go to button style.</td>
 </tr>
 <tr>
 <td><a class="link-lowlight" href="http://google.com">lowlight link</a></td>
-<td><code>link-lowlight</code></td>
+<td><code class="styleguide">link-lowlight</code></td>
 <td>I&#39;m afraid I can&#39;t let you do that, yet.</td>
 </tr>
 <tr>
 <td><a class="link-lowlight-inverse bg-dark-1" href="http://google.com">lowlight inverse link</a></td>
-<td><code>link-lowlight-inverse</code></td>
+<td><code class="styleguide">link-lowlight-inverse</code></td>
 <td>Less important links on an inverted background</td>
 </tr>
 <tr>
 <td><a class="link-inverse bg-dark-1" href="http://google.com">inverse link</a></td>
-<td><code>link-inverse</code></td>
+<td><code class="styleguide">link-inverse</code></td>
 <td>I go on a non-white background</td>
 </tr>
 <tr>
@@ -1300,25 +1238,18 @@ highlighted on page load.</p>
 <td></td>
 <td>This button is for delete actions, these actions should also have a confirmation dialog</td>
 </tr>
-</tbody></table>
-
+ </table>
 <h2 id="gentle-scroll">Gentle Scroll Links</h2>
-
-<p>If you want to gently scroll from one part of the page to another, you&#39;ll need to add
-a <code>data-behavior: GentleScroll</code> to the trigger element as well as an <code>href</code> for the
-id of the target it will scroll to.</p>
-<div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
+<p class="styleguide">If you want to gently scroll from one part of the page to another, you&#39;ll need to add
+a <code class="styleguide">data-behavior: GentleScroll</code> to the trigger element as well as an <code class="styleguide">href</code> for the
+id of the target it will scroll to.</p><div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"GentleScroll"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#scroll-target"</span><span class="p">}</span> Scroll Trigger
-</pre></div></div></div>
-<p>It can scroll to anything, in this case, we&#39;ll use a text input.</p>
-<div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
+</pre></div></div></div><p class="styleguide">It can scroll to anything, in this case, we&#39;ll use a text input.</p><div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nf">#scroll-target</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span> <span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Scroll target"</span><span class="p">}</span>
 </pre></div></div></div>
 <h2 id="list-inline-divider">Inline Divider List</h2>
-
-<p>Places all list items on a single line with <code>display: inline-block;</code> and some light padding. The <code>.list-inline-divider</code>
-also adds a simple gray border (add <code>.list-inline-divider-light</code> to make the border white).</p>
-<div class="codeExample"><div class="exampleOutput"><ul class='list-inline-divider'>
+<p class="styleguide">Places all list items on a single line with <code class="styleguide">display: inline-block;</code> and some light padding. The <code class="styleguide">.list-inline-divider</code>
+also adds a simple gray border (add <code class="styleguide">.list-inline-divider-light</code> to make the border white).</p><div class="codeExample"><div class="exampleOutput"><ul class='list-inline-divider'>
   <li>
     <a class='type-em-1' href='http://google.com'>Edit</a>
   </li>
@@ -1360,9 +1291,7 @@ also adds a simple gray border (add <code>.list-inline-divider-light</code> to m
 
 </pre></div></div></div>
 <h1 id="map">Map</h1>
-
-<p>Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p>
-<div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class='map-wrapper'>
   <div class='row'>
     <div class='col-sm-6 col-md-8 col-sm-offset-1'>
@@ -1482,15 +1411,11 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
 <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
 </pre></div></div>
 <h1 id="Pane">Pane</h1>
-
-<p>Panes are horizontal groupings of content that are usually used to
+<p class="styleguide">Panes are horizontal groupings of content that are usually used to
 span the full browser window width. It&#39;s going to look funny here,
-a better way to view it is on the <a href="/pane.html">panes page</a>.</p>
-
-<p>You can combine up to two background classes on the pane component.
-The one on the <code>.pane</code> element will span the full browser width. The
-one on the <code>.container</code> element will be constrained to the content width.</p>
-<div class="codeExample"><div class="exampleOutput"><div class="pane bg-dark-1">
+a better way to view it is on the <a class="styleguide" href="/pane.html" title="/pane.html">panes page</a>.</p><p class="styleguide">You can combine up to two background classes on the pane component.
+The one on the <code class="styleguide">.pane</code> element will span the full browser width. The
+one on the <code class="styleguide">.container</code> element will be constrained to the content width.</p><div class="codeExample"><div class="exampleOutput"><div class="pane bg-dark-1">
   <div class="container bg-glow">
     <h1 class="type-neutral-11">This is a pane</h1>
   </div>
@@ -1532,13 +1457,9 @@ one on the <code>.container</code> element will be constrained to the content wi
 
 </pre></div></div></div>
 <h1 id="tabs">Tabs</h1>
-
-<p>You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code>data-toggle=&quot;tab&quot;</code> on an element.</p>
-
+<p class="styleguide">You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="styleguide">data-toggle=&quot;tab&quot;</code> on an element.</p>
 <h2 id="image_tabs">Image Tabs</h2>
-
-<p>You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code>icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p>
-<div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
+<p class="styleguide">You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code class="styleguide">icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p><div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
   <ul class="list-inline nav-tabs-images">
     <li class="active">
       <a data-toggle="tab" href="#agility">
@@ -1903,9 +1824,7 @@ one on the <code>.container</code> element will be constrained to the content wi
 <h1 id="type">Typography</h1>
 
 <h2 id="1_type_sizes">Type Sizes</h2>
-
-<p>Headings can be used to define the applications typographical hierarchy.</p>
-<div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
+<p class="styleguide">Headings can be used to define the applications typographical hierarchy.</p><div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
 <h1>h1.heading level 1</h1>
 <h2>h2.heading level 2</h2>
 <h3>h3.heading level 3</h3>
@@ -1928,14 +1847,10 @@ one on the <code>.container</code> element will be constrained to the content wi
 <span class="nt">%p</span> This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </pre></div></div></div>
 <h3>Separating code and visual semantics</h3>
-
-<p>Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p>
-<div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
+<p class="styleguide">Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):</p><div class="codeExample"><div class="exampleOutput"><h2 class='h1'>h2.heading level 1 class applied</h2>
 </div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%h2</span><span class="nc">.h1</span> h2.heading level 1 class applied
-</pre></div></div></div>
-<p>If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
-  (Use headings when possible since they add semantic value).</p>
-<div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
+</pre></div></div></div><p class="styleguide">If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element
+  (Use headings when possible since they add semantic value).</p><div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
 </div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
 </pre></div></div></div>
 <h2 id="type-colors">Type Colors</h2>
@@ -2026,41 +1941,35 @@ one on the <code>.container</code> element will be constrained to the content wi
 <span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
 </pre></div></div></div>
 <h2 id="type_alignment">Type Alignment</h2>
-
-<p>Alignment classes can be used to align text top, bottom, middle or left, right, center.</p>
-
-<table><thead>
-<tr>
+<p class="styleguide">Alignment classes can be used to align text top, bottom, middle or left, right, center.</p><table class="styleguide"> <tr>
 <th>Class</th>
 <th>Description</th>
 </tr>
-</thead><tbody>
-<tr>
-<td><code>.txt-l</code></td>
+ <tr>
+<td><code class="styleguide">.txt-l</code></td>
 <td>Aligns text to the left</td>
 </tr>
 <tr>
-<td><code>.txt-r</code></td>
+<td><code class="styleguide">.txt-r</code></td>
 <td>Aligns text to the right</td>
 </tr>
 <tr>
-<td><code>.txt-c</code></td>
+<td><code class="styleguide">.txt-c</code></td>
 <td>Centers text horizontally</td>
 </tr>
 <tr>
-<td><code>.txt-t</code></td>
+<td><code class="styleguide">.txt-t</code></td>
 <td>Aligns text to the top</td>
 </tr>
 <tr>
-<td><code>.txt-b</code></td>
+<td><code class="styleguide">.txt-b</code></td>
 <td>Aligns text to the bottom</td>
 </tr>
 <tr>
-<td><code>.txt-m</code></td>
+<td><code class="styleguide">.txt-m</code></td>
 <td>Centers text vertically</td>
 </tr>
-</tbody></table>
-      </section>
+ </table>      </section>
       <footer>
         <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
       </footer>

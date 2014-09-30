@@ -68,15 +68,11 @@
         
         </ul>
 <h1 id="autoselect_text_input">Autoselect Text Input</h1>
-
-<p>This form is used to show information that a user may wish to copy and paste somewhere.</p>
-<div class="codeExample"><div class="exampleOutput"><input class='auto-select form-control' data-behavior='AutoSelect' readonly='readonly' value='This should auto highlight'>
+<p class="styleguide">This form is used to show information that a user may wish to copy and paste somewhere.</p><div class="codeExample"><div class="exampleOutput"><input class='auto-select form-control' data-behavior='AutoSelect' readonly='readonly' value='This should auto highlight'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nc">.auto-select.form-control</span><span class="p">{</span><span class="ss">:value</span> <span class="o">=&gt;</span> <span class="s2">"This should auto highlight"</span><span class="p">,</span> <span class="s1">'data-behavior'</span> <span class="o">=&gt;</span> <span class="s1">'AutoSelect'</span><span class="p">,</span> <span class="ss">readonly: </span><span class="s1">'readonly'</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="checkboxes">Checkboxes & Radios</h1>
-
-<p>Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
-
+<p class="styleguide">Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
 <h3>Default (stacked)</h3>
 <div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='checkbox'>
@@ -116,9 +112,7 @@
         Option two can be something else and selecting it will deselect option one
 </pre></div></div></div>
 <h3>Inline checkboxes</h3>
-
-<p>Use <code>.checkbox-inline</code> or <code>.radio-inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Use <code class="styleguide">.checkbox-inline</code> or <code class="styleguide">.radio-inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label class='checkbox-inline'>
       <input id='inlineCheckbox1' type='checkbox' value='option1'>
@@ -178,9 +172,7 @@
         3
 </pre></div></div></div>
 <h1 id="fancy-number">Fancy Number Input</h1>
-
-<p>This is a fancy number input!</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' ng-cloak ng-controller='FancyNumberExampleCtrl' role='form' style='width: 200px'>
+<p class="styleguide">This is a fancy number input!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' ng-cloak ng-controller='FancyNumberExampleCtrl' role='form' style='width: 200px'>
   <label for='#instances'>Instances</label>
   <div class='number-fancy' fancy-number ng-change='' ng-model='exampleModel.instances'>
     <input class='form-control' id='instances'>
@@ -206,9 +198,7 @@
 
 </pre></div></div></div>
 <h1 id="fancy-select">Fancy Select</h1>
-
-<p>This is a fancy select!</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form' style='width: 200px'>
+<p class="styleguide">This is a fancy select!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form' style='width: 200px'>
   <label for='fancy-select'>Description</label>
   <div class='select-fancy'>
     <select class='form-control'>
@@ -225,10 +215,8 @@
       <span class="nt">%option</span> Fancy Option 2
 </pre></div></div></div>
 <h1 id="help_text">Help Text</h1>
-
-<p>Help text
-Block level help text for form controls.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Help text
+Block level help text for form controls.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' type='text'>
   <span class='help-block'>A block of help text that breaks onto a new line and may extend beyond one line.</span>
 </form>
@@ -237,15 +225,11 @@ Block level help text for form controls.</p>
   <span class="nt">%span</span><span class="nc">.help-block</span> A block of help text that breaks onto a new line and may extend beyond one line.
 </pre></div></div></div>
 <h1 id="html5_controls">HTML5 controls</h1>
-
-<p>Examples of standard form controls supported in an example form layout.</p>
-
-<p>Inputs
+<p class="styleguide">Examples of standard form controls supported in an example form layout.</p><p class="styleguide">Inputs
 Most common form control, text-based input fields. Includes support for
-all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>, <code>datetime-local</code>,
-<code>date</code>, <code>month</code>, <code>time</code>, <code>week</code>, <code>number</code>, <code>email</code>, <code>url</code>, <code>search</code>,
-<code>tel</code>, and <code>color</code>.</p>
-
+all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">password</code>, <code class="styleguide">datetime</code>, <code class="styleguide">datetime-local</code>,
+<code class="styleguide">date</code>, <code class="styleguide">month</code>, <code class="styleguide">time</code>, <code class="styleguide">week</code>, <code class="styleguide">number</code>, <code class="styleguide">email</code>, <code class="styleguide">url</code>, <code class="styleguide">search</code>,
+<code class="styleguide">tel</code>, and <code class="styleguide">color</code>.</p>
 <div class="alert alert-warning">
   <h2 class="mtn">Type declaration required</h2>
   Inputs will only be fully styled if their type is properly declared.
@@ -255,73 +239,49 @@ all HTML5 types: <code>text</code>, <code>password</code>, <code>datetime</code>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Text input"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Password field</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">Password field</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Password' type='password'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Password"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"password"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Date</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">Date</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Date' type='date'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Date"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"date"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Number</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">Number</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Number' type='number'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Number"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"number"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>With a min/max and default starting value</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">With a min/max and default starting value</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' max='2' min='0' placeholder='Number' type='number' value='1'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Number"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"number"</span><span class="p">,</span> <span class="ss">min: </span><span class="mi">0</span><span class="p">,</span> <span class="ss">max: </span><span class="mi">2</span><span class="p">,</span> <span class="ss">value: </span><span class="mi">1</span><span class="p">}</span>
-</pre></div></div></div>
-<p>With a different increment value</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">With a different increment value</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Number' step='5' type='number'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Number"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"number"</span><span class="p">,</span> <span class="ss">step: </span><span class="mi">5</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Email</p>
-
-<p>Use this with fields that require email addresses to pop up the correct keyboard on mobile</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">Email</p><p class="styleguide">Use this with fields that require email addresses to pop up the correct keyboard on mobile</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Email' type='email'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Email"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"email"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>URL</p>
-
-<p>Use this with fields that require urls to pop up the correct keyboard on mobile</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">URL</p><p class="styleguide">Use this with fields that require urls to pop up the correct keyboard on mobile</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='URL' type='url'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"URL"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"url"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Telephone</p>
-
-<p>Use this with fields that require telephone numbers to pop up the dialpad on mobile</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+</pre></div></div></div><p class="styleguide">Telephone</p><p class="styleguide">Use this with fields that require telephone numbers to pop up the dialpad on mobile</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' placeholder='Telephone' type='tel'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Telephone"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"tel"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="inline_forms">Inline Forms</h1>
-
-<p>Add <code>.form-inline</code> to your <code>&lt;form&gt;</code> for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.</p>
-
+<p class="styleguide">Add <code class="styleguide">.form-inline</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.</p>
 <div class="alert alert-warning">
 <h2 class="mtn">Requires custom widths</h2>
 Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.
@@ -362,9 +322,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
 <h1 id="inline_forms_with_labels">Inline Forms with Labels</h1>
-
-<p>Add <code>.form-inline.inline-labels</code> to your <code>&lt;form&gt;</code> for left-aligned and inline-block controls with labels inline with inputs.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-inline inline-labels' role='form'>
+<p class="styleguide">Add <code class="styleguide">.form-inline.inline-labels</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls with labels inline with inputs.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-inline inline-labels' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail2'>Write a thing</label>
     <input class='form-control' id='exampleInputEmail2' placeholder='Write a thing' type='email'>
@@ -398,9 +356,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
 <h1 id="input">Inputs & Labels</h1>
-
-<p>An input with the label top aligned (this is the default layout).</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">An input with the label top aligned (this is the default layout).</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail1'>
       <abbr title='required'>*</abbr>
@@ -415,12 +371,8 @@ Screen readers will have trouble with your forms if you don't include a label fo
       <span class="nt">%abbr</span><span class="p">{</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">}</span> *
       Email address
     <span class="nt">%input</span><span class="nf">#exampleInputEmail1</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Enter email"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"email"</span><span class="p">,</span> <span class="ss">:required</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">,</span> <span class="s1">'aria-required'</span> <span class="o">=&gt;</span> <span class="s2">"true"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>Use Bootstrap&#39;s predefined grid classes to align labels and groups of form controls in a horizontal
-layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-groups</code> to behave as grid rows, so no need for <code>.row</code>.</p>
-
-<p>An input with the label left aligned</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-horizontal' role='form'>
+</pre></div></div></div><p class="styleguide">Use Bootstrap&#39;s predefined grid classes to align labels and groups of form controls in a horizontal
+layout by adding <code class="styleguide">.form-horizontal</code> to the form. Doing so changes <code class="styleguide">.form-groups</code> to behave as grid rows, so no need for <code class="styleguide">.row</code>.</p><p class="styleguide">An input with the label left aligned</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-horizontal' role='form'>
   <div class='form-group'>
     <div class='col-md-6'>
       <label class='control-label' for='exampleInputEmail1'>
@@ -441,9 +393,7 @@ layout by adding <code>.form-horizontal</code> to the form. Doing so changes <co
         Email address
     <span class="nc">.col-md-18</span>
       <span class="nt">%input</span><span class="nf">#exampleInputEmail1</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Enter email"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"email"</span><span class="p">,</span> <span class="ss">:required</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">,</span> <span class="s1">'aria-required'</span> <span class="o">=&gt;</span> <span class="s2">"true"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>An input with the label right aligned (N.B., control-label class provides the right alignment):</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-horizontal' role='form'>
+</pre></div></div></div><p class="styleguide">An input with the label right aligned (N.B., control-label class provides the right alignment):</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-horizontal' role='form'>
   <div class='form-group'>
     <label class='col-md-6 control-label' for='exampleInputEmail1'>
       <abbr title='required'>*</abbr>
@@ -461,21 +411,17 @@ layout by adding <code>.form-horizontal</code> to the form. Doing so changes <co
       Email address
     <span class="nc">.col-md-18</span>
       <span class="nt">%input</span><span class="nf">#exampleInputEmail1</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Enter email"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"email"</span><span class="p">,</span> <span class="ss">:required</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">,</span> <span class="s1">'aria-required'</span> <span class="o">=&gt;</span> <span class="s2">"true"</span><span class="p">}</span>
-</pre></div></div></div>
-<p>An unstyled inputs that doesn&#39;t have any of the default input styles</p>
-<div class="codeExample"><div class="exampleOutput"><form role='form'>
+</pre></div></div></div><p class="styleguide">An unstyled inputs that doesn&#39;t have any of the default input styles</p><div class="codeExample"><div class="exampleOutput"><form role='form'>
   <input class='unstyled' placeholder='This is a text input'>
 </form>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.unstyled</span><span class="p">{</span><span class="s2">"placeholder"</span> <span class="o">=&gt;</span> <span class="s2">"This is a text input"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="selects">Selects</h1>
-
-<p>Selects are excellent to use because they will automatically
+<p class="styleguide">Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
 them over a custom dropdown whenever possible. Their size can
-be changed via the <a href="#control_sizing">control sizing options</a>.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+be changed via the <a class="styleguide" href="#control_sizing" title="#control_sizing">control sizing options</a>.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <select class='form-control'>
     <option>default option</option>
     <option>an option</option>
@@ -489,13 +435,9 @@ be changed via the <a href="#control_sizing">control sizing options</a>.</p>
     <span class="nt">%option</span> another option
 </pre></div></div></div>
 <h1 id="sizing">Sizing</h1>
-
-<p>Set heights using classes like <code>.input-lg</code>, and set widths using grid column classes like <code>.col-lg-*</code>.</p>
-
+<p class="styleguide">Set heights using classes like <code class="styleguide">.input-lg</code>, and set widths using grid column classes like <code class="styleguide">.col-lg-*</code>.</p>
 <h3>Height sizing</h3>
-
-<p>Create larger or smaller form controls that match button sizes.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Create larger or smaller form controls that match button sizes.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control input-lg' placeholder='.input-lg' type='text'>
   <input class='form-control' placeholder='Default input' type='text'>
   <input class='form-control input-sm' placeholder='.input-sm' type='text'>
@@ -533,9 +475,7 @@ be changed via the <a href="#control_sizing">control sizing options</a>.</p>
     <span class="nt">%option</span> another option
 </pre></div></div></div>
 <h3>Column sizing</h3>
-
-<p>Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='row'>
     <div class='col-md-4'>
       <input class='form-control' placeholder='.col-xs-2' type='text'>
@@ -558,9 +498,7 @@ be changed via the <a href="#control_sizing">control sizing options</a>.</p>
       <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">".col-xs-4"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="static_control">Static Control</h1>
-
-<p>When you need to place plain text next to a form label within a horizontal form, use the <code>.form-control-static</code> class on a <code>&lt;p&gt;</code>.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='form-horizontal styleguide-form' role='form'>
+<p class="styleguide">When you need to place plain text next to a form label within a horizontal form, use the <code class="styleguide">.form-control-static</code> class on a <code class="styleguide">&lt;p&gt;</code>.</p><div class="codeExample"><div class="exampleOutput"><form class='form-horizontal styleguide-form' role='form'>
   <div class='form-group'>
     <label class='col-md-4 control-label'>Email</label>
     <div class='col-sm-10'>
@@ -604,9 +542,7 @@ be changed via the <a href="#control_sizing">control sizing options</a>.</p>
     <span class="nt">%input</span><span class="nf">#name</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="textarea">Text Area</h1>
-
-<p>Text areas are used for larger amounts of input.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Text areas are used for larger amounts of input.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleTextAreaId'>Description</label>
     <textarea class='form-control' id='exampleTextAreaId' rows='3'></textarea>
@@ -620,9 +556,7 @@ be changed via the <a href="#control_sizing">control sizing options</a>.</p>
 <h1 id="validation">Validation</h1>
 
 <h3>Validation</h3>
-
-<p>Bootstrap includes validation styles for error and success states on form controls. To use, add <code>.has-error</code> or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
-<div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
+<p class="styleguide">Bootstrap includes validation styles for error and success states on form controls. To use, add <code class="styleguide">.has-error</code> or <code class="styleguide">.has-success</code> to the parent element. Any <code class="styleguide">.control-label</code>, <code class="styleguide">.form-control</code>, and <code class="styleguide">.help-block</code> within that element will receive the validation styles.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group has-success'>
     <label class='control-label' for='inputSuccess'>Input with success</label>
     <input class='form-control' id='inputSuccess' type='text'>
