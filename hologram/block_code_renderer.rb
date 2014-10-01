@@ -1,65 +1,105 @@
 class BlockCodeRenderer < Struct.new(:code, :markdown_language)
   def render
-    if is_html?
-      [
-        "<div class=\"codeExample\">",
-          "<div class=\"exampleOutput\">",
-            code,
+    if is_html? || is_haml?
+      if is_table?
+        [
+          "<div class=\"codeTable\">",
+            "<table>",
+              "<tbody>",
+                code_example_rows,
+              "</tbody>",
+            "</table>",
           "</div>",
-          code_block,
-        "</div>"
-      ].join('')
-
-    elsif is_haml?
-      [
-        "<div class=\"codeExample\">",
-          "<div class=\"exampleOutput\">",
-            haml_engine.render(Object.new, {}),
-          "</div>",
-          code_block,
-        "</div>"
-      ].join('')
+        ].join('')
+      else
+        [
+          "<div class=\"codeExample\">",
+            example_output(code),
+            code_block(code),
+          "</div>"
+        ].join('')
+      end
 
     elsif is_js?
       [
         "<script>#{code}</script> ",
-        code_block(extra_classes: ['jsExample'])
+        code_block(code, extra_classes: ['jsExample'])
       ].join('')
 
     else
-      code_block
+      code_block(code)
     end
   end
 
   private
 
   def is_haml?
-    markdown_language == 'haml_example'
+    markdown_language.include?('haml_example')
   end
 
   def is_html?
-    markdown_language == 'html_example'
+    markdown_language.include?('html_example')
   end
 
   def is_js?
     markdown_language == 'js_example'
   end
 
-  def code_block(extra_classes: [])
+  def is_table?
+    markdown_language.include?('example_table')
+  end
+
+  def example_output(code_snippet)
+    [
+      "<div class=\"exampleOutput\">",
+        rendered_code_snippet(code_snippet),
+      "</div>",
+    ].join('')
+  end
+
+  def rendered_code_snippet(code_snippet)
+    if is_haml?
+      haml_engine(code_snippet).render(Object.new, {})
+    else
+      code_snippet
+    end
+  end
+
+  def code_block(code_snippet, extra_classes: [])
     classes = extra_classes.insert(0, 'codeBlock')
     [
       "<div class=\"#{classes.join(' ')}\">",
         "<div class=\"highlight\">",
           "<pre>",
-            "#{formatter.format(lexer.lex(code))}",
+            "#{formatter.format(lexer.lex(code_snippet))}",
           "</pre>",
         "</div>",
       "</div>",
     ].join('')
   end
 
-  def haml_engine
-    @_haml_engine ||= Haml::Engine.new(code.strip)
+  def code_example_rows
+    rows = code.split("\n\n")
+    rows.inject("") do |res, row|
+      res + code_example_row(row)
+    end
+  end
+
+  def code_example_row(code_snippet)
+    [
+      "<tr>",
+        "<th>",
+          example_output(code_snippet),
+        "</th>",
+        "<td>",
+          code_block(code_snippet),
+        "</td>",
+      "</tr>",
+    ].join('')
+  end
+
+  def haml_engine(code_snippet)
+    Haml::Engine.new(code_snippet.strip)
   end
 
   def lexer

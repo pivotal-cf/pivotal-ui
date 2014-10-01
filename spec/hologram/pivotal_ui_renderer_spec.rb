@@ -27,14 +27,14 @@ describe PivotalUiRenderer do
 
     before do
       allow(Rouge::Formatters::HTML).to receive(:new) { formatter }
-      allow(formatter).to receive(:format).with(lexed_code) { formatted_code }
+      allow(formatter).to receive(:format) { formatted_code }
     end
 
     subject { PivotalUiRenderer.new.block_code(code, markdown_language) }
 
     context 'expected language' do
       before do
-        allow(Rouge::Lexer).to receive(:find).with(language) { lexer }
+        allow(Rouge::Lexer).to receive(:find) { lexer }
       end
 
       context 'haml' do
@@ -42,16 +42,84 @@ describe PivotalUiRenderer do
         let(:code) { '%h1 ' }
         let(:formatted_code) { 'formatted h1' }
 
-        before do
-          allow(Haml::Engine).to receive(:new).with('%h1') { double(render: '<h1></h1>') }
-        end
-
         context 'when the language is a haml_example' do
           let(:markdown_language) { 'haml_example' }
+
+          it 'creates the appropriate lexer' do
+            expect(Rouge::Lexer).to receive(:find).with('haml')
+            subject
+          end
+
           it { is_expected.to eq code_example(
-            rendered_code: '<h1></h1>',
+            rendered_code: "<h1></h1>\n",
             formatted_code: 'formatted h1',
           ) }
+        end
+
+        context 'when the language is a haml_example_table' do
+          let(:markdown_language) { 'haml_example_table' }
+          let(:code) { [
+            ".spinner-lg",
+            "  %i.fa.fa-spin",
+            "",
+            "%h1 Example"
+          ].join("\n") }
+
+          before do
+            allow(lexer).to receive(:lex).with(".spinner-lg\n  %i.fa.fa-spin") { "spinner" }
+            allow(lexer).to receive(:lex).with("%h1 Example") { "h1" }
+            allow(formatter).to receive(:format) do |code|
+              "formatted #{code}"
+            end
+          end
+
+          it 'creates the appropriate lexer' do
+            expect(Rouge::Lexer).to receive(:find).with('haml')
+            subject
+          end
+
+          it { is_expected.to eq [
+            "<div class=\"codeTable\">",
+              "<table>",
+                "<tbody>",
+                  "<tr>",
+                    "<th>",
+                      "<div class=\"exampleOutput\">",
+                        "<div class='spinner-lg'>\n",
+                        "  <i class='fa fa-spin'></i>\n",
+                        "</div>\n",
+                      "</div>",
+                    "</th>",
+                    "<td>",
+                      "<div class=\"codeBlock\">",
+                        "<div class=\"highlight\">",
+                          "<pre>",
+                            "formatted spinner",
+                            "</pre>",
+                        "</div>",
+                      "</div>",
+                    "</td>",
+                  "</tr>",
+                  "<tr>",
+                    "<th>",
+                      "<div class=\"exampleOutput\">",
+                        "<h1>Example</h1>\n",
+                      "</div>",
+                    "</th>",
+                    "<td>",
+                      "<div class=\"codeBlock\">",
+                        "<div class=\"highlight\">",
+                          "<pre>",
+                            "formatted h1",
+                          "</pre>",
+                        "</div>",
+                      "</div>",
+                    "</td>",
+                  "</tr>",
+                "</tbody>",
+              "</table>",
+            "</div>"
+          ].join('') }
         end
       end
 
@@ -62,10 +130,79 @@ describe PivotalUiRenderer do
 
         context 'when the language is html_example' do
           let(:markdown_language) { 'html_example' }
+
+          it 'creates the appropriate lexer' do
+            expect(Rouge::Lexer).to receive(:find).with('html')
+            subject
+          end
+
           it { is_expected.to eq code_example(
             rendered_code: '<h2></h2>',
             formatted_code: 'formatted h2',
           ) }
+        end
+
+        context 'when the language is a html_example_table' do
+          let(:markdown_language) { 'html_example_table' }
+          let(:code) { [
+            "<div class='spinner-lg'></div>",
+            "",
+            "<h1>Example</h1>"
+          ].join("\n") }
+
+          before do
+            allow(lexer).to receive(:lex).with("<div class='spinner-lg'></div>") { "spinner" }
+            allow(lexer).to receive(:lex).with("<h1>Example</h1>") { "h1" }
+            allow(formatter).to receive(:format) do |code|
+              "formatted #{code}"
+            end
+          end
+
+          it 'creates the appropriate lexer' do
+            expect(Rouge::Lexer).to receive(:find).with('html')
+            subject
+          end
+
+          it { is_expected.to eq [
+            "<div class=\"codeTable\">",
+              "<table>",
+                "<tbody>",
+                  "<tr>",
+                    "<th>",
+                      "<div class=\"exampleOutput\">",
+                        "<div class='spinner-lg'></div>",
+                      "</div>",
+                    "</th>",
+                    "<td>",
+                      "<div class=\"codeBlock\">",
+                        "<div class=\"highlight\">",
+                          "<pre>",
+                            "formatted spinner",
+                          "</pre>",
+                        "</div>",
+                      "</div>",
+                    "</td>",
+                  "</tr>",
+                  "<tr>",
+                    "<th>",
+                      "<div class=\"exampleOutput\">",
+                        "<h1>Example</h1>",
+                      "</div>",
+                    "</th>",
+                    "<td>",
+                      "<div class=\"codeBlock\">",
+                        "<div class=\"highlight\">",
+                          "<pre>",
+                            "formatted h1",
+                          "</pre>",
+                        "</div>",
+                      "</div>",
+                    "</td>",
+                  "</tr>",
+                "</tbody>",
+              "</table>",
+            "</div>"
+          ].join('') }
         end
       end
 
@@ -74,6 +211,11 @@ describe PivotalUiRenderer do
         let(:markdown_language) { 'js_example' }
         let(:code) { '$(document).ready(function() {});' }
         let(:formatted_code) { 'formatted document.ready' }
+
+        it 'creates the appropriate lexer' do
+          expect(Rouge::Lexer).to receive(:find).with('js')
+          subject
+        end
 
         it "inserts the code into the docs so that it will run and make the example work" do
           expect(subject).to include [
@@ -101,7 +243,7 @@ describe PivotalUiRenderer do
       let(:formatted_code) { 'formatted fortran' }
 
       before do
-        allow(Rouge::Lexer).to receive(:find_fancy).with('guess', code) { lexer }
+        allow(Rouge::Lexer).to receive(:find_fancy) { lexer }
       end
 
       it { is_expected.to eq [
