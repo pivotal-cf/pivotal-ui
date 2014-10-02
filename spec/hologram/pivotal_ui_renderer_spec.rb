@@ -256,5 +256,25 @@ describe PivotalUiRenderer do
         "</div>",
       ].join('') }
     end
+
+    context 'no language' do
+      let(:markdown_language) { nil }
+      let(:code) { 'unknown code' }
+      let(:formatted_code) { 'formatted unknown code' }
+
+      before do
+        allow(Rouge::Lexer).to receive(:find_fancy) { lexer }
+      end
+
+      it { is_expected.to eq [
+        "<div class=\"codeBlock\">",
+          "<div class=\"highlight\">",
+            "<pre>",
+              "formatted unknown code",
+            "</pre>",
+          "</div>",
+        "</div>",
+      ].join('') }
+    end
   end
 end

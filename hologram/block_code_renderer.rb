@@ -34,19 +34,19 @@ class BlockCodeRenderer < Struct.new(:code, :markdown_language)
   private
 
   def is_haml?
-    markdown_language.include?('haml_example')
+    markdown_language && markdown_language.include?('haml_example')
   end
 
   def is_html?
-    markdown_language.include?('html_example')
+    markdown_language && markdown_language.include?('html_example')
   end
 
   def is_js?
-    markdown_language == 'js_example'
+    markdown_language && markdown_language == 'js_example'
   end
 
   def is_table?
-    markdown_language.include?('example_table')
+    markdown_language && markdown_language.include?('example_table')
   end
 
   def example_output(code_snippet)
