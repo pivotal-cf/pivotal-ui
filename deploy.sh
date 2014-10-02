@@ -1,8 +1,9 @@
 #!/bin/sh
 
+gem install bundle
 bundle install
 npm install
-gulp assets
+node_modules/gulp/bin/gulp.js assets
 
 wget 'https://cli.run.pivotal.io/stable?release=linux64-binary&source=github' -O cf-cli.tgz
 tar -xvf ./cf-cli.tgz
