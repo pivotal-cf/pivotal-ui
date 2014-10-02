@@ -10,19 +10,14 @@ Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome 
 
 # What's included
 
-### JavaScript
 - jQuery v2.1.1
 - modernizr v2.8.3
 - Bootstrap v3.0.2
 - Prism.js
-
-### CSS
 - Bootstrap v3.0.2
 - Font Awesome v4.10
 - Normalize CSS v1.0.2
 - OOCSS
-
-### Fonts
 - Source Sans Pro
 
 ***
@@ -102,67 +97,3 @@ See the latest styleguide for [examples of syntax highlighting in action](http:/
 
 ***
 
-# Developer Notes
-
-If you intend to build pivotal ui itself, there are a few things you'll need to do.
-
-### Install Tools (in order)
-
-compass, haml, sass, and hologram
-
-    $ bundle install
-
-node and npm
-
-    $ brew install node
-
-Install dependencies by running the following from the project root
-
-    $ npm install
-
-Install the Gulp CLI globally
-
-    $ npm install gulp -g
-
-### Build the project
-
-As soon as you have your tools installed, run gulp _at the project root_:
-
-    $ gulp
-    
-This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
-
-### Deploying the styleguide
-
-The styleguide deploys automatically when your changes are merged into master on github and all the tests go green on [Cloudbees](https://pivotal.ci.cloudbees.com/job/pivotal-ui-styleguide/). So, you won't need to do anything here.
-
-Cloudbees will deploy to <http://styleguide.cfapps.io>.
-
-#### If you need to deploy manually (you most likely do not)
-
-    $ cf push -f manifest.yml
-
-### Testing
-
-(for the moment, this section is aspirational)
-
-We use CSSCritic for front-end regression testing. Currently, we are only testing a few components, with plans to expand. To test:
-
-#### Set a baseline to test against (before making any changes!!)
-1. Run `gulp` to build the assets
-1. Run `gulp test`. This will open up Firefox and show all rendered test files in a "yellow" state.
-1. Click "Accept the rendered page" for *each* component. Yes, this will get more painful as we add more tests. If it is slowing you down, please let us know so we can prioritize automating this step.
-
-#### Rerun the test suite for regressions (before you commit/make a pull request)
-1. Run `gulp` to build the latest assets 
-1. Run `gulp test`. This will open up Firefox.
-1. If there are no regressions, all components will be green.
-1. If you added any components, you'll have to click "Accept the rendered page" for that component.
-1. If a component is red, this means either:
-    1. You broke something. Fix it!
-    2. You want to change the baseline. You should talk to the core Pivotal UI team first, especially the designers.
-
-
-### Commit messages
-
-We follow the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md) commit message format. Your message should include information about whether it includes major, minor or patch level changes.
