@@ -120,6 +120,10 @@ Install dependencies by running the following from the project root
 
     $ npm install
 
+Install the Gulp CLI globally
+
+    $ npm install gulp -g
+
 ### Build the project
 
 As soon as you have your tools installed, run gulp _at the project root_:
@@ -130,11 +134,13 @@ This will start up the styleguide development server, and generate the `dist/` d
 
 ### Deploying the styleguide
 
-After building, in the project root directory, run 
+The styleguide deploys automatically when your changes are merged into master on github and all the tests go green on [Cloudbees](https://pivotal.ci.cloudbees.com/job/pivotal-ui-styleguide/). So, you won't need to do anything here.
+
+Cloudbees will deploy to <http://styleguide.cfapps.io>.
+
+#### If you need to deploy manually (you most likely do not)
 
     $ cf push -f manifest.yml
-
-This will deploy to <http://styleguide.cfapps.io>.
 
 ### Testing
 
