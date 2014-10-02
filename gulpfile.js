@@ -55,7 +55,9 @@ gulp.task('fonts', ['clean'], function() {
 
 gulp.task('styleguide', ['clean'], function() {
   gulp.src('hologram_config.yml')
-    .pipe(hologram());
+    .pipe(hologram({
+      bundler: true
+    }));
 
   gulp.src(['src/style_guide/*.js', 'src/style_guide/github.css'])
     .pipe(gulp.dest('./dist/style_guide'));

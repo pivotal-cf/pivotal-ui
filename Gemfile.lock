@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/gpleiss/hologram.git
+  revision: 9040809c2667b1a43726d3bd06c3eb793fd2e4f2
+  specs:
+    hologram (1.2.0)
+      redcarpet (>= 2.2, < 4.0)
+      rouge (>= 1.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -19,9 +27,6 @@ GEM
     ffi (1.9.5)
     haml (4.0.5)
       tilt
-    hologram (1.2.0)
-      redcarpet (>= 2.2, < 4.0)
-      rouge (>= 1.5)
     method_source (0.8.2)
     multi_json (1.10.1)
     pry (0.10.1)
@@ -51,7 +56,7 @@ PLATFORMS
 DEPENDENCIES
   compass (~> 1.0.1)
   haml
-  hologram
+  hologram!
   pry
   rspec
   sass
