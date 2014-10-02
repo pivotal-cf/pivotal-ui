@@ -11208,8 +11208,9 @@ categories:
 Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
-```haml_example
+```haml_example_table
 %button.btn.btn-primary Button
+
 %a.btn.btn-primary{href: "http://trulia.com"} Link
 ```
 
@@ -11228,11 +11229,12 @@ parent: button
 There are two sizes for buttons: Large and default. Simply apply the
 size modifier class for the desired size.
 
+```html_example_table
+<button class="btn btn-primary btn-lg">Large</button>
 
-Button                                                             | Modifier Class
------------------------------------------------------------------- | -----------------
-<button class="btn btn-primary btn-lg">Large</button>              | `btn btn-primary btn-lg`
-<button class="btn btn-primary">Default</button>                   | `btn btn-primary`
+<button class="btn btn-primary">Default</button>
+```
+
 */
 /*doc
 ---
@@ -11252,12 +11254,12 @@ Create block level buttons—those that span the full width of a parent— by ad
 ```
 
 */
-/* line 64, ../../src/pivotal-ui/components/button.css.scss */
+/* line 66, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
   font-weight: 900;
   padding: 5px 15px;
 }
-/* line 68, ../../src/pivotal-ui/components/button.css.scss */
+/* line 70, ../../src/pivotal-ui/components/button.css.scss */
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
@@ -11281,7 +11283,7 @@ Button                                                             | Disabled   
 <button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
 <button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-/* line 95, ../../src/pivotal-ui/components/button.css.scss */
+/* line 97, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
@@ -11315,7 +11317,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 99, ../../src/pivotal-ui/components/button.css.scss */
+/* line 101, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
   background-color: #F8F8F8;
@@ -11354,7 +11356,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 104, ../../src/pivotal-ui/components/button.css.scss */
+/* line 106, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
@@ -11393,7 +11395,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 109, ../../src/pivotal-ui/components/button.css.scss */
+/* line 111, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #e0e4e5;
   background-color: #2185c5;
@@ -11432,7 +11434,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 114, ../../src/pivotal-ui/components/button.css.scss */
+/* line 116, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight-alt {
   color: white;
   background-color: #00a79d;
@@ -11471,7 +11473,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 119, ../../src/pivotal-ui/components/button.css.scss */
+/* line 121, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #686868;
   background-color: transparent;
@@ -11505,7 +11507,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 124, ../../src/pivotal-ui/components/button.css.scss */
+/* line 126, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #e0e4e5;
   background-color: #ff434c;
@@ -11560,7 +11562,7 @@ There is a specific button style for the login pages:
 Do not use this button on normal application pages.
 
 */
-/* line 149, ../../src/pivotal-ui/components/button.css.scss */
+/* line 151, ../../src/pivotal-ui/components/button.css.scss */
 .btn-alternate {
   color: #eee;
   background-color: #1b92cb;
@@ -11594,7 +11596,7 @@ Do not use this button on normal application pages.
   background-color: #1b92cb;
 }
 
-/* line 159, ../../src/pivotal-ui/components/button.css.scss */
+/* line 161, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 19px;

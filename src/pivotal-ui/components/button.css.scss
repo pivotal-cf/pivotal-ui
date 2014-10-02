@@ -11,8 +11,9 @@ categories:
 Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
-```haml_example
+```haml_example_table
 %button.btn.btn-primary Button
+
 %a.btn.btn-primary{href: "http://trulia.com"} Link
 ```
 
@@ -33,11 +34,12 @@ parent: button
 There are two sizes for buttons: Large and default. Simply apply the
 size modifier class for the desired size.
 
+```html_example_table
+<button class="btn btn-primary btn-lg">Large</button>
 
-Button                                                             | Modifier Class
------------------------------------------------------------------- | -----------------
-<button class="btn btn-primary btn-lg">Large</button>              | `btn btn-primary btn-lg`
-<button class="btn btn-primary">Default</button>                   | `btn btn-primary`
+<button class="btn btn-primary">Default</button>
+```
+
 */
 
 
