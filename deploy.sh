@@ -2,8 +2,7 @@
 
 bundle install
 npm install
-grunt clean
-grunt
+gulp assets
 
 wget 'https://cli.run.pivotal.io/stable?release=linux64-binary&source=github' -O cf-cli.tgz
 tar -xvf ./cf-cli.tgz
