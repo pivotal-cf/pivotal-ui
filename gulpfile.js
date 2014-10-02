@@ -89,7 +89,7 @@ gulp.task('assets', [
   'styleguide'
 ]);
 
-gulp.task('watch', function() {
+gulp.task('watch', ['assets'], function() {
   gulp.watch("src/**/*", ['assets']);
 });
 
