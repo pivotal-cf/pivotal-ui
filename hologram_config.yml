@@ -22,4 +22,4 @@ documentation_assets: ./hologram/doc_assets
 # folder instead of specifying this config.
 index: css
 
-custom_markdown: ./hologram/pivotal_ui_renderer.rb
+nav_level: section

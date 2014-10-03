@@ -291,7 +291,7 @@
           <li><a href="#standard">Standard</a></li>
         
         </ul>
-<h1 id="alert">Alerts</h1>
+<h1 id="alert" class="styleguide">Alerts</h1>
 <p class="styleguide">Alerts are used to display flash messages to the user.</p><div class="codeExample"><div class="exampleOutput"><div class='alert alert-success'>
   <p>Success.</p>
 </div>
@@ -357,7 +357,7 @@
     Error
     <span class="nt">%a</span><span class="p">{</span><span class="ss">href: </span><span class="s2">"#"</span><span class="p">}</span> Link to resolve Error
 </pre></div></div></div>
-<h1 id="app_status">App Status</h1>
+<h1 id="app_status" class="styleguide">App Status</h1>
 <div class="codeExample"><div class="exampleOutput"><div class='started mtxl' id='app_status'>
   <div class='circle'>
     <div class='content'>
@@ -399,7 +399,7 @@
         <span class="nt">%button</span><span class="nc">.btn.btn-highlight</span>
           <span class="nt">%i</span><span class="nc">.fa.fa-play.icon-control</span>
 </pre></div></div></div>
-<h1 id="application_dashboard">Application Dashboard</h1>
+<h1 id="application_dashboard" class="styleguide">Application Dashboard</h1>
 <p class="styleguide">This is a hacky one-off to center the panel content + size the text</p><div class="codeExample"><div class="exampleOutput"><div class='row application-dashboard'>
   <div class='col-sm-8'>
     <div class='panel panel-simple panel-square application-health-panel'>
@@ -462,11 +462,11 @@
         128
         <span class="nt">%span</span><span class="nc">.units</span> MB
 </pre></div></div></div>
-<h1 id="autoselect_text_input">Autoselect Text Input</h1>
+<h1 id="autoselect_text_input" class="styleguide">Autoselect Text Input</h1>
 <p class="styleguide">This form is used to show information that a user may wish to copy and paste somewhere.</p><div class="codeExample"><div class="exampleOutput"><input class='auto-select form-control' data-behavior='AutoSelect' readonly='readonly' value='This should auto highlight'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nc">.auto-select.form-control</span><span class="p">{</span><span class="ss">:value</span> <span class="o">=&gt;</span> <span class="s2">"This should auto highlight"</span><span class="p">,</span> <span class="s1">'data-behavior'</span> <span class="o">=&gt;</span> <span class="s1">'AutoSelect'</span><span class="p">,</span> <span class="ss">readonly: </span><span class="s1">'readonly'</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="banner">Banners</h1>
+<h1 id="banner" class="styleguide">Banners</h1>
 <p class="styleguide">You can use a banner to let the team know which environment they&#39;re
 working on. Leave off the <code class="styleguide">.banner-styleguide-wrapper</code> div when using it
 in other contexts.</p><div class="codeExample"><div class="exampleOutput"><div class='banner-styleguide-wrapper'>
@@ -478,7 +478,13 @@ in other contexts.</p><div class="codeExample"><div class="exampleOutput"><div c
   <span class="nc">.banner</span>
     Acceptance
 </pre></div></div></div>
-<h1 id="button">Buttons</h1>
+<h1 id="button" class="styleguide">Buttons</h1>
+
+<ul class="section-nav">
+  <li><a href="#button_sizes">Button Sizes</a></li>
+  <li><a href="#full_width_button">Full width Buttons</a></li>
+  <li><a href="#buttonSkins">Button Styles</a></li>
+</ul>
 <p class="styleguide">Button styles can be applied to any element. Typically you&#39;ll want to
 use either a <code class="styleguide">&lt;button&gt;</code> or an <code class="styleguide">&lt;a&gt;</code> element:</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><button class='btn btn-primary'>Button</button>
 </div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary</span> Button</pre></div></div></td></tr><tr><th><div class="exampleOutput"><a class='btn btn-primary' href='http://trulia.com'>Link</a>
@@ -486,12 +492,12 @@ use either a <code class="styleguide">&lt;button&gt;</code> or an <code class="s
 </pre></div></div></td></tr></tbody></table></div><p class="styleguide">If your button is actually a link to another page, please use the
 <code class="styleguide">&lt;a&gt;</code> element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a <code class="styleguide">&lt;button&gt;</code> element.</p>
-<h2 id="button_sizes">Button Sizes</h2>
+<h2 id="button_sizes" class="styleguide">Button Sizes</h2>
 <p class="styleguide">There are two sizes for buttons: Large and default. Simply apply the
 size modifier class for the desired size.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><button class="btn btn-primary btn-lg">Large</button></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/button&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><button class="btn btn-primary">Default</button>
 </div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
 </pre></div></div></td></tr></tbody></table></div>
-<h2 id="buttonSkins">Button Styles</h2>
+<h2 id="buttonSkins" class="styleguide">Button Styles</h2>
 <table class="styleguide"> <tr>
 <th>Button</th>
 <th>Disabled</th>
@@ -541,13 +547,13 @@ size modifier class for the desired size.</p><div class="codeTable"><table><tbod
 <td>Use this button for other important actions, e.g. marketing call to actions</td>
 </tr>
  </table>
-<h2 id="full_width_button">Full width Buttons</h2>
+<h2 id="full_width_button" class="styleguide">Full width Buttons</h2>
 <p class="styleguide">There is an additional modifier that will make the button take the
 full width of the container. It may be used with the any of the button
 size and style modifiers.</p><p class="styleguide">Create block level buttons—those that span the full width of a parent— by adding <code class="styleguide">.btn-block</code>.</p><div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
 </pre></div></div></div>
-<h1 id="checkboxes">Checkboxes & Radios</h1>
+<h1 id="checkboxes" class="styleguide">Checkboxes & Radios</h1>
 <p class="styleguide">Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
 <h3>Default (stacked)</h3>
 <div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
@@ -647,7 +653,12 @@ size and style modifiers.</p><p class="styleguide">Create block level buttons—
       <span class="nt">%input</span><span class="nf">#inlineradio3</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"radio"</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="s2">"option3"</span><span class="p">}</span>
         3
 </pre></div></div></div>
-<h1 id="code">Code</h1>
+<h1 id="code" class="styleguide">Code</h1>
+
+<ul class="section-nav">
+  <li><a href="#inline_code">Inline Code</a></li>
+  <li><a href="#terminal_window">Terminal Window</a></li>
+</ul>
 <p class="styleguide">In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code class="styleguide">.language-ruby</code>.</p><p class="styleguide">There are several languages already available (and others available from the <a class="styleguide" href="http://prismjs.com" title="http://prismjs.com">Prismjs.com</a> website), including:</p><ul class="styleguide"><li>Markup</li>
 <li>CSS</li>
 <li>C-like</li>
@@ -716,11 +727,11 @@ size and style modifiers.</p><p class="styleguide">Create block level buttons—
         <span class="nd">end</span>
       <span class="nd">end</span>
 </pre></div></div></div>
-<h2 id="inline_code">Inline Code</h2>
+<h2 id="inline_code" class="styleguide">Inline Code</h2>
 <div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
 </pre></div></div></div>
-<h2 id="terminal_window">Terminal Window</h2>
+<h2 id="terminal_window" class="styleguide">Terminal Window</h2>
 <p class="styleguide"><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p><div class="codeExample"><div class="exampleOutput"><div class='terminal'>
   <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bar&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Baz&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bop&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div>
@@ -752,7 +763,7 @@ size and style modifiers.</p><p class="styleguide">Create block level buttons—
           <span class="nd">end</span>
         <span class="nd">end</span>
 </pre></div></div></div>
-<h1 id="collapse">Collapse Toggle</h1>
+<h1 id="collapse" class="styleguide">Collapse Toggle</h1>
 <p class="styleguide">Also see the select tabs for a toggle triggered by a select group.
 This is frequently used in combination with our panel components.
 NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
@@ -802,11 +813,17 @@ without them, the browser renders the whitespace on the anchor tags,
     <span class="nc">.panel-body</span>
       This content should hide and show when the trigger is clicked.
 </pre></div></div></div>
-<h1 id="colors">Colors</h1>
+<h1 id="colors" class="styleguide">Colors</h1>
+
+<ul class="section-nav">
+  <li><a href="#background">Backgrounds</a></li>
+  <li><a href="#sass_colors">Sass Colors</a></li>
+  <li><a href="#shadows">Shadows & Glows</a></li>
+</ul>
 <p class="styleguide">Our color pallet is composed of several different colors. At any given point in captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.</p>
-<h2 id="background">Backgrounds</h2>
+<h2 id="background" class="styleguide">Backgrounds</h2>
 <p class="styleguide">Background color classes can be applied to any element.</p>
 <div class="row mvxl">
   <div class="col-md-4">
@@ -823,7 +840,7 @@ colors rather than adding new ones.</p>
   </div>
 </div>
 
-<h3 id="background_full_bleed">Full Bleed Background</h3>
+<h3 id="background_full_bleed" class="styleguide">Full Bleed Background</h3>
 <p class="styleguide">This example uses an about us hero image by default, but you can change it to any image you would like.
 Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.</p><div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed'>
   <div class='container'>
@@ -846,7 +863,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h2 id="sass_colors">Sass Colors</h2>
+<h2 id="sass_colors" class="styleguide">Sass Colors</h2>
 
 <div class="alert alert-warning alert-dismissable">
   These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
@@ -1250,7 +1267,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   </div>
 </div>
 
-<h2 id="shadows">Shadows & Glows</h2>
+<h2 id="shadows" class="styleguide">Shadows & Glows</h2>
 
 <div class="row">
 <div class="contrast-bar">
@@ -1300,7 +1317,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   </div>
 </div>
 <p class="styleguide"></div></p>
-<h1 id="contenteditable">ContentEditable</h1>
+<h1 id="contenteditable" class="styleguide">ContentEditable</h1>
 <p class="styleguide">This form looks and behaves mostly like a contenteditable field</p><div class="codeExample"><div class="exampleOutput"><form class='form-contenteditable' name='newEditableForm' ng-class='{"saving": editText.saving, "editing": editText.editing}' ng-controller='FormContentEditableController' ng-submit='editText.save()'>
   <label class='txt-c'>
     <div class='form-group mbn'>
@@ -1328,16 +1345,21 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
                           <span class="s2">"ng-focus"</span> <span class="o">=&gt;</span> <span class="s1">'editText.enterEditMode()'</span><span class="p">,</span>
                           <span class="s2">"ng-blur"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="deprecated">Deprecated</h1>
+<h1 id="deprecated" class="styleguide">Deprecated</h1>
+
+<ul class="section-nav">
+  <li><a href="#deprecated_background">Deprecated Backgrounds</a></li>
+  <li><a href="#button_login">Login Button</a></li>
+</ul>
 <p class="styleguide">Sometimes components are still used, but we are moving away from them.
 For example, password reset pages use some very old button styles,
 but we won&#39;t take the time to update them because those pages are moving
 over to UAA. This is the place where styles are put out to pasture...</p>
-<h2 id="button_login">Login Button</h2>
+<h2 id="button_login" class="styleguide">Login Button</h2>
 <p class="styleguide">There is a specific button style for the login pages:</p><div class="codeExample"><div class="exampleOutput"><button class='btn btn-alternate btn-lg'>Alternate Button</button>
 </div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%button</span><span class="nc">.btn.btn-alternate.btn-lg</span> Alternate Button
 </pre></div></div></div><p class="styleguide">Do not use this button on normal application pages.</p>
-<h2 id="deprecated_background">Deprecated Backgrounds</h2>
+<h2 id="deprecated_background" class="styleguide">Deprecated Backgrounds</h2>
 
 <div class="row mvxl">
   <div class="col-md-4">
@@ -1348,7 +1370,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
   </div>
 </div>
 
-<h1 id="divider">Dividers</h1>
+<h1 id="divider" class="styleguide">Dividers</h1>
 <p class="styleguide">Dividers draw horizontal lines between different content groupings.</p><div class="codeExample"><div class="exampleOutput"><hr class='divider-alternate-1'>
 <hr class='divider-alternate-2'>
 <div class='contrast-bar'>
@@ -1364,7 +1386,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
   <span class="nt">%hr</span><span class="nc">.divider-2</span>
 
 </pre></div></div></div>
-<h1 id="fancy-number">Fancy Number Input</h1>
+<h1 id="fancy-number" class="styleguide">Fancy Number Input</h1>
 <p class="styleguide">This is a fancy number input!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' ng-cloak ng-controller='FancyNumberExampleCtrl' role='form' style='width: 200px'>
   <label for='#instances'>Instances</label>
   <div class='number-fancy' fancy-number ng-change='' ng-model='exampleModel.instances'>
@@ -1390,7 +1412,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
         <span class="nt">%i</span><span class="nc">.fa.fa-minus</span>
 
 </pre></div></div></div>
-<h1 id="fancy-select">Fancy Select</h1>
+<h1 id="fancy-select" class="styleguide">Fancy Select</h1>
 <p class="styleguide">This is a fancy select!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form' style='width: 200px'>
   <label for='fancy-select'>Description</label>
   <div class='select-fancy'>
@@ -1407,7 +1429,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
       <span class="nt">%option</span> Fancy Option 1
       <span class="nt">%option</span> Fancy Option 2
 </pre></div></div></div>
-<h1 id="focus-input">Focus Input</h1>
+<h1 id="focus-input" class="styleguide">Focus Input</h1>
 <p class="styleguide">Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.</p><div class="codeExample"><div class="exampleOutput"><a ng-click='focus_input1=true; focus_input2=false;'>Focus input 1</a>
 <br>
 <a ng-click='focus_input2=true; focus_input1=false;'>Focus input 2</a>
@@ -1421,9 +1443,15 @@ over to UAA. This is the place where styles are put out to pasture...</p>
 <span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1"</span><span class="p">}</span>
 <span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="gravatar">Gravatar</h1>
+<h1 id="gravatar" class="styleguide">Gravatar</h1>
 
-<h2 id="large_gravatar">Large Gravatar</h2>
+<ul class="section-nav">
+  <li><a href="#small_gravatar">Small Gravatar</a></li>
+  <li><a href="#small_gravatar_with_envelope">Small Gravatar With Envelope</a></li>
+  <li><a href="#large_gravatar">Large Gravatar</a></li>
+</ul>
+
+<h2 id="large_gravatar" class="styleguide">Large Gravatar</h2>
 <p class="styleguide">Allows you to show a gravatar with the proper default &#39;image&#39; (icon).</p><p class="styleguide">Large gravatar has a white background so it can be used on the edit profile form.</p><p class="styleguide">To use in a view, simply call</p><p class="styleguide"><code class="styleguide">= render &#39;shared/gravatar_large&#39;, email: &#39;some@email.com&#39;</code></p><div class="codeExample"><div class="exampleOutput"><div class='gravatar gravatar-lg'>
   <img src='https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=80&amp;d=blank'>
   <i class='fa fa-user'></i>
@@ -1439,7 +1467,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
   <span class="nt">%img</span><span class="p">{</span><span class="n">src</span><span class="p">:</span><span class="s2">"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=80&amp;d=blank"</span><span class="p">}</span>
   <span class="nt">%i</span><span class="nc">.fa.fa-user</span>
 </pre></div></div></div>
-<h2 id="small_gravatar">Small Gravatar</h2>
+<h2 id="small_gravatar" class="styleguide">Small Gravatar</h2>
 <p class="styleguide">Allows you to show a gravatar with the proper default &#39;image&#39; (icon).</p><p class="styleguide">To use in a view, simply call</p><p class="styleguide"><code class="styleguide">= render &#39;shared/gravatar_small&#39;, email: &#39;some@email.com&#39;</code></p><div class="codeExample"><div class="exampleOutput"><div class='gravatar gravatar-sm'>
   <img src='https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank'>
   <i class='fa fa-user'></i>
@@ -1455,7 +1483,7 @@ over to UAA. This is the place where styles are put out to pasture...</p>
   <span class="nt">%img</span><span class="p">{</span><span class="n">src</span><span class="p">:</span><span class="s2">"https://secure.gravatar.com/avatar/20c2a28872fde9c903c14c5b7e465ff7?s=20&amp;d=blank"</span><span class="p">}</span>
   <span class="nt">%i</span><span class="nc">.fa.fa-user</span>
 </pre></div></div></div>
-<h2 id="small_gravatar_with_envelope">Small Gravatar With Envelope</h2>
+<h2 id="small_gravatar_with_envelope" class="styleguide">Small Gravatar With Envelope</h2>
 <p class="styleguide">Allows you to show a gravatar with an icon overlay.</p><p class="styleguide">To use in a view, simply call</p><p class="styleguide"><code class="styleguide">= render &#39;shared/gravatar_small&#39;, email: &#39;some@email.com&#39;</code></p><div class="codeExample"><div class="exampleOutput"><div class='gravatar gravatar-sm'>
   <img src='https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank'>
   <i class='fa fa-user'></i>
@@ -1496,9 +1524,16 @@ over to UAA. This is the place where styles are put out to pasture...</p>
   <span class="nt">%i</span><span class="nc">.fa.fa-user</span>
   <span class="nt">%i</span><span class="nc">.overlay.fa.fa-check</span>
 </pre></div></div></div>
-<h1 id="grids-main">Grids</h1>
+<h1 id="grids-main" class="styleguide">Grids</h1>
 
-<h2 id="aligner">Aligner</h2>
+<ul class="section-nav">
+  <li><a href="#grids">Grids</a></li>
+  <li><a href="#gutter_sizes">Gutter Sizes</a></li>
+  <li><a href="#grids_responsive">Responsive Grids</a></li>
+  <li><a href="#aligner">Aligner</a></li>
+</ul>
+
+<h2 id="aligner" class="styleguide">Aligner</h2>
 <p class="styleguide">Based on a <a class="styleguide" href="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss" title="https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss">component by Philip Walton</a>,
 this component will allow us to vertically align portions of our app.</p><p class="styleguide">NB: DON&#39;T use the DEMO class when using this component in the wild.</p><p class="styleguide">Annoyingly, this component needs to have it&#39;s height/min-height set explicitly...
 That makes it not so reusable.
@@ -1521,7 +1556,7 @@ Currently set to 230px as required by the space cards.</p><div class="codeExampl
   <span class="nc">.Demo.aligner-item.aligner-item-bottom</span>
     <span class="nt">%h2</span> bottom
 </pre></div></div></div>
-<h2 id="grids">Grids</h2>
+<h2 id="grids" class="styleguide">Grids</h2>
 <p class="styleguide">This library includes a responsive, mobile fluid grid system that appropriately
 scales up to 24 columns as the device or viewport size increases. It is based on the
 <a class="styleguide" href="http://getbootstrap.com/css/#grid" title="http://getbootstrap.com/css/#grid">bootstrap grids system</a>. It&#39;s not terribly well
@@ -1608,9 +1643,9 @@ offsets, or responsiveness.</p><div class="codeExample"><div class="exampleOutpu
   <span class="nc">.col-md-12</span>
     col-md-12
 </pre></div></div></div>
-<h2 id="grids_responsive">Responsive Grids</h2>
+<h2 id="grids_responsive" class="styleguide">Responsive Grids</h2>
 <p class="styleguide">Having trouble debugging grids? You have a couple options. You can checkout the <a class="styleguide" href="http://getbootstrap.com/css/#grid-responsive-resets" title="http://getbootstrap.com/css/#grid-responsive-resets">grids responsive documentation on the bootstrap site</a>. It is more comprehensive than what we have here. You can also set <code class="styleguide">$grids-debug: true</code>. This will allow you to visualize the changes taking place at different device widths.</p>
-<h2 id="gutter_sizes">Gutter Sizes</h2>
+<h2 id="gutter_sizes" class="styleguide">Gutter Sizes</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='row'>
   <div class='col-md-12'>
     <div class='panel panel-simple'>
@@ -1687,9 +1722,14 @@ offsets, or responsiveness.</p><div class="codeExample"><div class="exampleOutpu
       <span class="nc">.panel-body.bkg-default-5</span>
         small gutter grid
 </pre></div></div></div>
-<h1 id="health_indicators">Health Indicators</h1>
+<h1 id="health_indicators" class="styleguide">Health Indicators</h1>
 
-<h2 id="app_health_indicator">App Health Indicator</h2>
+<ul class="section-nav">
+  <li><a href="#app_health_indicator">App Health Indicator</a></li>
+  <li><a href="#traffic-lights">Traffic Lights</a></li>
+</ul>
+
+<h2 id="app_health_indicator" class="styleguide">App Health Indicator</h2>
 <p class="styleguide">This component indicates application health. It has two sizes, many states, and can be editable or not depending on user permissions.</p>
 <h2>States</h2>
 <p class="styleguide">The application health indicator can be <code class="styleguide">.running</code>, <code class="styleguide">.warning_75</code>, <code class="styleguide">.warning_50</code>, <code class="styleguide">.warning_25</code>, <code class="styleguide">.warning_0</code>, <code class="styleguide">.stopped</code>.</p>
@@ -1913,7 +1953,7 @@ helper in your templates. The latter parameter determines the size. The first
 parameter is the application affected by the actions of the application health indicator.</p><div class="codeBlock"><div class="highlight"><pre>=application_state_indicator(application)
 =application_state_indicator(application, {:large_indicator: true})
 </pre></div></div>
-<h2 id="traffic-lights">Traffic Lights</h2>
+<h2 id="traffic-lights" class="styleguide">Traffic Lights</h2>
 <div class="codeExample"><div class="exampleOutput">Traffic lights can be:
 <div class='row'>
   <div class='col-md-6'>
@@ -1996,7 +2036,7 @@ parameter is the application affected by the actions of the application health i
         <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
 
 </pre></div></div></div>
-<h1 id="help_text">Help Text</h1>
+<h1 id="help_text" class="styleguide">Help Text</h1>
 <p class="styleguide">Help text
 Block level help text for form controls.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' type='text'>
@@ -2006,7 +2046,7 @@ Block level help text for form controls.</p><div class="codeExample"><div class=
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
   <span class="nt">%span</span><span class="nc">.help-block</span> A block of help text that breaks onto a new line and may extend beyond one line.
 </pre></div></div></div>
-<h1 id="hoverable">Hoverable</h1>
+<h1 id="hoverable" class="styleguide">Hoverable</h1>
 <p class="styleguide">This component is for showing hidden actions on hover.
 If you put this on an element then hovering on that parent element will show the hidden element.</p><p class="styleguide">List example:</p><p class="styleguide">This can be used with any kind of list but the list group style seems to fit this use case best.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group' hoverable-group='true'>
   <li class='list-group-item' hoverable='true'>
@@ -2086,7 +2126,7 @@ If you put this on an element then hovering on that parent element will show the
     <span class="nt">%td</span>
       Not hoverable
 </pre></div></div></div>
-<h1 id="html5_controls">HTML5 controls</h1>
+<h1 id="html5_controls" class="styleguide">HTML5 controls</h1>
 <p class="styleguide">Examples of standard form controls supported in an example form layout.</p><p class="styleguide">Inputs
 Most common form control, text-based input fields. Includes support for
 all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">password</code>, <code class="styleguide">datetime</code>, <code class="styleguide">datetime-local</code>,
@@ -2142,7 +2182,11 @@ all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Telephone"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"tel"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="iconography">Iconography</h1>
+<h1 id="iconography" class="styleguide">Iconography</h1>
+
+<ul class="section-nav">
+  <li><a href="#spinners">Spinners</a></li>
+</ul>
 <p class="styleguide">We use Font Awesome for scalable vector icons that can be customized — size, color, drop shadow,
 and anything that can be done with CSS. These icons will always match the font color.</p><table class="styleguide"> <tr>
 <th>Button</th>
@@ -2240,7 +2284,7 @@ and anything that can be done with CSS. These icons will always match the font c
 <td>Renders our start icon</td>
 </tr>
  </table>
-<h2 id="spinners">Spinners</h2>
+<h2 id="spinners" class="styleguide">Spinners</h2>
 <p class="styleguide">Spin it</p><div class="codeExample"><div class="exampleOutput"><div class='spinner-lg bkg-default-5 out'>
   <i class='fa fa-spin fa-cog mtxl'></i>
 </div>
@@ -2253,14 +2297,20 @@ and anything that can be done with CSS. These icons will always match the font c
 <span class="nc">.spinner-sm.bkg-default-5.out</span>
   <span class="nt">%i</span><span class="nc">.fa.fa-spin.fa-cog.mtxl</span>
 </pre></div></div></div>
-<h1 id="images">Images</h1>
+<h1 id="images" class="styleguide">Images</h1>
 
-<h2 id="avatar_images">Avatar Images</h2>
+<ul class="section-nav">
+  <li><a href="#responsive_images">Responsive Images</a></li>
+  <li><a href="#responsive_svg">Responsive SVG</a></li>
+  <li><a href="#avatar_images">Avatar Images</a></li>
+</ul>
+
+<h2 id="avatar_images" class="styleguide">Avatar Images</h2>
 <p class="styleguide">Avatar images are expected to by 100px by 100px.</p><div class="codeExample"><div class="exampleOutput"><img alt='...' class='img-circle avatar' height='100' src='http://placehold.it/100x100' width='100'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%img</span><span class="p">{</span><span class="ss">src: </span><span class="s2">"http://placehold.it/100x100"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"..."</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"img-circle avatar"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"100"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"100"</span><span class="p">}</span>
 
 </pre></div></div></div>
-<h2 id="responsive_images">Responsive Images</h2>
+<h2 id="responsive_images" class="styleguide">Responsive Images</h2>
 <p class="styleguide">Images can be made responsive-friendly via the addition of the <code class="styleguide">.img-responsive</code> class. This applies <code class="styleguide">max-width: 100%;</code> and <code class="styleguide">height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p><div class="codeExample"><div class="exampleOutput"><div class='row'>
   <div class='col-md-5'>
     <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
@@ -2280,7 +2330,7 @@ and anything that can be done with CSS. These icons will always match the font c
   <span class="nc">.col-md-12</span>
     <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
 </pre></div></div></div>
-<h2 id="responsive_svg">Responsive SVG</h2>
+<h2 id="responsive_svg" class="styleguide">Responsive SVG</h2>
 <p class="styleguide">SVG can be made responsive-friendly via the addition of the <code class="styleguide">.svg-responsive</code> class on a
 wrapper div and the <code class="styleguide">.svg-content</code> class on the svg itself. You&#39;ll also need to to define
 the height to width ratio as an inline padding bottom style on the <code class="styleguide">.svg-responsive</code> element like so:</p><div class="codeBlock"><div class="highlight"><pre>&lt;div class="svg-responsive" style="padding-bottom: 78.31%"&gt;
@@ -2394,7 +2444,7 @@ the height to width ratio as an inline padding bottom style on the <code class="
   </div>
 </div>
 
-<h1 id="inline-modal">Inline Modal</h1>
+<h1 id="inline-modal" class="styleguide">Inline Modal</h1>
 <div class="codeExample"><div class="exampleOutput"><div class='inline-modal' ng-class='inlineModalExample.state' ng-cloak ng-controller='InlineModalExampleCtrl'>
   <div class='modal-backdrop animate-show'></div>
   <div class='content'>
@@ -2416,7 +2466,7 @@ the height to width ratio as an inline padding bottom style on the <code class="
         <span class="nt">%a</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'activateInlineModal()'</span><span class="p">,</span> <span class="s1">'ng-show'</span> <span class="o">=&gt;</span> <span class="s1">'inlineModalExample.state === "showing"'</span><span class="p">}</span> Click here to inline-modal me.
         <span class="nt">%a</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'deactivateInlineModal()'</span><span class="p">,</span> <span class="s1">'ng-show'</span> <span class="o">=&gt;</span> <span class="s1">'inlineModalExample.state === "editing"'</span><span class="p">}</span> Click here to de-inline-modal me.
 </pre></div></div></div>
-<h1 id="inline_forms">Inline Forms</h1>
+<h1 id="inline_forms" class="styleguide">Inline Forms</h1>
 <p class="styleguide">Add <code class="styleguide">.form-inline</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.</p>
 <div class="alert alert-warning">
 <h2 class="mtn">Requires custom widths</h2>
@@ -2457,7 +2507,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
       Remember me
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
-<h1 id="inline_forms_with_labels">Inline Forms with Labels</h1>
+<h1 id="inline_forms_with_labels" class="styleguide">Inline Forms with Labels</h1>
 <p class="styleguide">Add <code class="styleguide">.form-inline.inline-labels</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls with labels inline with inputs.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-inline inline-labels' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail2'>Write a thing</label>
@@ -2491,7 +2541,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
       Remember me
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
-<h1 id="input">Inputs & Labels</h1>
+<h1 id="input" class="styleguide">Inputs & Labels</h1>
 <p class="styleguide">An input with the label top aligned (this is the default layout).</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail1'>
@@ -2553,7 +2603,7 @@ layout by adding <code class="styleguide">.form-horizontal</code> to the form. D
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.unstyled</span><span class="p">{</span><span class="s2">"placeholder"</span> <span class="o">=&gt;</span> <span class="s2">"This is a text input"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="instance scale">Instance Scale</h1>
+<h1 id="instance scale" class="styleguide">Instance Scale</h1>
 <p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
 and code in your page and the javascript and css will handle all of the behaviors.
 Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
@@ -2810,7 +2860,11 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h1 id="link">Links</h1>
+<h1 id="link" class="styleguide">Links</h1>
+
+<ul class="section-nav">
+  <li><a href="#gentle-scroll">Gentle Scroll Links</a></li>
+</ul>
 <p class="styleguide">There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p><div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
   <i class='fa fa-plus'></i>
   link with an icon
@@ -2849,7 +2903,7 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <td>This button is for delete actions, these actions should also have a confirmation dialog</td>
 </tr>
  </table>
-<h2 id="gentle-scroll">Gentle Scroll Links</h2>
+<h2 id="gentle-scroll" class="styleguide">Gentle Scroll Links</h2>
 <p class="styleguide">If you want to gently scroll from one part of the page to another, you&#39;ll need to add
 a <code class="styleguide">data-behavior: GentleScroll</code> to the trigger element as well as an <code class="styleguide">href</code> for the
 id of the target it will scroll to.</p><div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
@@ -2857,9 +2911,24 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
 </pre></div></div></div><p class="styleguide">It can scroll to anything, in this case, we&#39;ll use a text input.</p><div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nf">#scroll-target</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span> <span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Scroll target"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="lists">Lists</h1>
+<h1 id="lists" class="styleguide">Lists</h1>
 
-<h2 id="event-list">Event List</h2>
+<ul class="section-nav">
+  <li><a href="#list-inline">Inline List</a></li>
+  <li><a href="#list-ordered">Ordered List</a></li>
+  <li><a href="#list-unordered">Unordered List</a></li>
+  <li><a href="#list-unordered-2">Unordered List 2</a></li>
+  <li><a href="#list-unstyled">Unstyled List</a></li>
+  <li><a href="#list-inline-divider">Inline Divider List</a></li>
+  <li><a href="#list-breadcrumb">Breadcrumb List</a></li>
+  <li><a href="#list-group">List Group</a></li>
+  <li><a href="#event-list">Event List</a></li>
+  <li><a href="#list-vertical-divider">Vertical Divider List</a></li>
+  <li><a href="#list-steps">Steps List</a></li>
+  <li><a href="#list-checked">Checked List</a></li>
+</ul>
+
+<h2 id="event-list" class="styleguide">Event List</h2>
 <p class="styleguide">This is a special list-group, with styles per-event for colors and icons</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group event-list'>
   <li class='list-group-item started'>
     <div class='media'>
@@ -3024,7 +3093,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
       <span class="nc">.media-body</span>
         <span class="nc">.event-title</span> renamed app
 </pre></div></div></div>
-<h2 id="list-breadcrumb">Breadcrumb List</h2>
+<h2 id="list-breadcrumb" class="styleguide">Breadcrumb List</h2>
 <p class="styleguide">The <code class="styleguide">.list-breadcrumb</code> can be used to provide additional page navigation.</p><p class="styleguide">Breadcrumbs use their own monospace font-family.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-breadcrumb'>
   <li>
     <a href='http://google.com'>
@@ -3053,7 +3122,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
     <span class="nt">%span</span>
       Current Page
 </pre></div></div></div>
-<h2 id="list-checked">Checked List</h2>
+<h2 id="list-checked" class="styleguide">Checked List</h2>
 <p class="styleguide">Replaces the default bullet image with the font awesome checkmark.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-checked'>
   <li>
     feep
@@ -3073,7 +3142,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-group">List Group</h2>
+<h2 id="list-group" class="styleguide">List Group</h2>
 <p class="styleguide">Use this list when you need simple gray borders between items</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group'>
   <li class='list-group-item'>
     item 1
@@ -3112,7 +3181,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
     item 3
 
 </pre></div></div></div><p class="styleguide"><a data-add-item-to="#list-group-adding-demo">Add an item</a></p>
-<h2 id="list-inline">Inline List</h2>
+<h2 id="list-inline" class="styleguide">Inline List</h2>
 <p class="styleguide">An inline list is one of the three methods for laying out content (including grids and the media block).</p><div class="codeExample"><div class="exampleOutput"><ul class='list-inline'>
   <li>
     feep
@@ -3132,7 +3201,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-ordered">Ordered List</h2>
+<h2 id="list-ordered" class="styleguide">Ordered List</h2>
 <div class="codeExample"><div class="exampleOutput"><ol>
   <li>
     feep
@@ -3152,7 +3221,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-steps">Steps List</h2>
+<h2 id="list-steps" class="styleguide">Steps List</h2>
 <p class="styleguide">Use this list when you need to show the steps in a flow.</p><div class="codeExample"><div class="exampleOutput"><ol class='list-steps'>
   <li>
     Sign up Account
@@ -3178,7 +3247,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
     And more things
 
 </pre></div></div></div>
-<h2 id="list-unordered">Unordered List</h2>
+<h2 id="list-unordered" class="styleguide">Unordered List</h2>
 <p class="styleguide">This is a basic list that depends largely on browser defaults. You may want to use <code class="styleguide">.list-itemized</code> instead.</p><div class="codeExample"><div class="exampleOutput"><ul>
   <li>
     feep
@@ -3198,7 +3267,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-unordered-2">Unordered List 2</h2>
+<h2 id="list-unordered-2" class="styleguide">Unordered List 2</h2>
 <p class="styleguide">This is a basic list that depends largely on browser defaults. You may want to use <code class="styleguide">.list-itemized</code> instead.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-unordered'>
   <li>
     feep
@@ -3218,7 +3287,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-unstyled">Unstyled List</h2>
+<h2 id="list-unstyled" class="styleguide">Unstyled List</h2>
 <p class="styleguide">Places all list items on a single line with <code class="styleguide">display: inline-block;</code> and some light padding. The <code class="styleguide">.list-unstyled</code> class can be applied to either a <code class="styleguide">&lt;ul&gt;</code> or and <code class="styleguide">&lt;ol&gt;</code>.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-unstyled'>
   <li>
     feep
@@ -3238,7 +3307,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="list-vertical-divider">Vertical Divider List</h2>
+<h2 id="list-vertical-divider" class="styleguide">Vertical Divider List</h2>
 <p class="styleguide">Use this list when you need larger gray borders between
 items. It should be used in concert with grid column
 sizes when you want the items to take a particular width.</p><p class="styleguide">We achieve equal height columns using the padding/margin hack,
@@ -3298,7 +3367,7 @@ right min-height.</p><div class="codeExample"><div class="exampleOutput"><ul cla
     <span class="nc">.height-enforcer</span><span class="p">{</span><span class="ss">style: </span><span class="s1">'height: 200px'</span><span class="p">}</span>
       item 3, which is taller
 </pre></div></div></div>
-<h1 id="map">Map</h1>
+<h1 id="map" class="styleguide">Map</h1>
 <p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class='map-wrapper'>
   <div class='pane'>
@@ -3426,7 +3495,7 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
 
 <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
 </pre></div></div>
-<h1 id="media">Media</h1>
+<h1 id="media" class="styleguide">Media</h1>
 <p class="styleguide">The default media allow to float a media object (images, video, audio) to the left or right of a content block.</p><div class="codeExample"><div class="exampleOutput"><div class='media'>
   <a class='pull-left' href='#'>
     <img alt='...' class='media-object' src='http://placehold.it/64x64'>
@@ -3483,7 +3552,7 @@ larger than the container</p><div class="codeExample"><div class="exampleOutput"
     <span class="nt">%h4</span><span class="nc">.media-heading</span> Media heading
     <span class="nt">%p</span> Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 </pre></div></div></div>
-<h1 id="modal">Modals</h1>
+<h1 id="modal" class="styleguide">Modals</h1>
 <p class="styleguide">Modals do something worthwhile....
 ...
 ...</p><div class="codeExample"><div class="exampleOutput"><div class='modal modal-basic fade'>
@@ -3538,13 +3607,13 @@ larger than the container</p><div class="codeExample"><div class="exampleOutput"
   </div>
 </div>
 
-<h1 id="no-js">No JavaScript</h1>
+<h1 id="no-js" class="styleguide">No JavaScript</h1>
 
 <h3>Javascript</h3>
 <p class="styleguide">Try disabling js and rendering this page.</p><div class="codeExample"><div class="exampleOutput"><h3 class='invisible-no-js'>Won't show if browser doesn't support JS.</h3>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h3</span><span class="nc">.invisible-no-js</span> Won't show if browser doesn't support JS.
 </pre></div></div></div>
-<h1 id="Pane">Pane</h1>
+<h1 id="Pane" class="styleguide">Pane</h1>
 <p class="styleguide">Panes are horizontal groupings of content that are usually used to
 span the full browser window width. It&#39;s going to look funny here,
 a better way to view it is on the <a class="styleguide" href="/pane.html" title="/pane.html">panes page</a>.</p><p class="styleguide">You can combine up to two background classes on the pane component.
@@ -3590,7 +3659,24 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <span class="nt">&lt;/div&gt;</span>
 
 </pre></div></div></div>
-<h1 id="panel">Panels</h1>
+<h1 id="panel" class="styleguide">Panels</h1>
+
+<ul class="section-nav">
+  <li><a href="#panel-square">Square Panel</a></li>
+  <li><a href="#panel-simple">Simple Panel</a></li>
+  <li><a href="#panel-basic">Basic Panel</a></li>
+  <li><a href="#panel-flex">Flex Panel</a></li>
+  <li><a href="#panel_tile">Tile</a></li>
+  <li><a href="#panel_tile_simple">Tile Simple</a></li>
+  <li><a href="#panel_scrollable">Scrollable</a></li>
+  <li><a href="#panel-simple-highlight">Simple Highlight</a></li>
+  <li><a href="#panel-space">Space</a></li>
+  <li><a href="#panel-shadow">Shadow</a></li>
+  <li><a href="#panel-card">Card Panel</a></li>
+  <li><a href="#panel-heading">Panel Headings</a></li>
+  <li><a href="#panel-heading-basic">Basic</a></li>
+  <li><a href="#panel-heading-Simple">Simple</a></li>
+</ul>
 <p class="styleguide">Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.</p><p class="styleguide">Panels are typically a combination of contours, backgrounds, and content including headers and footers.</p><table class="styleguide"> <tr>
 <th>Panels</th>
 <th>Modifier Class</th>
@@ -3612,7 +3698,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <td><code class="styleguide">panel-heading panel-heading-basic</code></td>
 </tr>
  </table>
-<h2 id="panel-basic">Basic Panel</h2>
+<h2 id="panel-basic" class="styleguide">Basic Panel</h2>
 <p class="styleguide">Basic Panels are the new Simple Panels for G-Major</p><div class="codeExample"><div class="exampleOutput"><div class='sg-gray-4 pam'>
   <div class='panel panel-basic'>
     <div class='panel-body'>
@@ -3625,7 +3711,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
     <span class="nc">.panel-body</span>
       Basic Panel
 </pre></div></div></div>
-<h2 id="panel-card">Card Panel</h2>
+<h2 id="panel-card" class="styleguide">Card Panel</h2>
 <p class="styleguide">The <code class="styleguide">.panel-card</code> makes any <code class="styleguide">.panel-body</code> have a minimum &quot;card&quot; height when applied to the <code class="styleguide">.panel</code>.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-space panel-card'>
   <div class='panel-body'>
     Card Panel
@@ -3635,7 +3721,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
   <span class="nc">.panel-body</span>
     Card Panel
 </pre></div></div></div>
-<h2 id="panel-flex">Flex Panel</h2>
+<h2 id="panel-flex" class="styleguide">Flex Panel</h2>
 <p class="styleguide">Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don&#39;t
 support flexbox, the footer will appear where it would naturally, likely right below the panel-body content</p><div class="codeExample"><div class="exampleOutput"><div class='sg-gray-4 pam'>
   <div class='panel panel-basic panel-flex' style='height: 200px'>
@@ -3654,9 +3740,9 @@ support flexbox, the footer will appear where it would naturally, likely right b
     <span class="nc">.panel-footer</span>
       Footer Content
 </pre></div></div></div>
-<h2 id="panel-heading">Panel Headings</h2>
+<h2 id="panel-heading" class="styleguide">Panel Headings</h2>
 <p class="styleguide">Panel headings may be applied to any panel. They are completely interchangeable.</p>
-<h2 id="panel-heading-basic">Basic</h2>
+<h2 id="panel-heading-basic" class="styleguide">Basic</h2>
 <p class="styleguide">The basic heading is frequently used with the <code class="styleguide">.bkg-default-5</code> background color, as it is below, however it can be used with any box.</p><div class="codeExample"><div class="exampleOutput"><div class='panel bkg-default-5'>
   <div class='panel-heading panel-heading-basic'>
     <h6>panel-heading-basic</h6>
@@ -3671,7 +3757,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
   <span class="nc">.panel-body</span>
     Panel Content
 </pre></div></div></div>
-<h2 id="panel-heading-Simple">Simple</h2>
+<h2 id="panel-heading-Simple" class="styleguide">Simple</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple'>
   <div class='panel-heading panel-heading-simple'>
     <h6>panel-heading-simple</h6>
@@ -3686,7 +3772,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
   <span class="nc">.panel-body</span>
     Panel Content
 </pre></div></div></div>
-<h2 id="panel-shadow">Shadow</h2>
+<h2 id="panel-shadow" class="styleguide">Shadow</h2>
 <p class="styleguide">Shadow panels add a bottom shadow to the panel.</p><div class="codeExample"><div class="exampleOutput"><div class='sg-gray-4 pam'>
   <div class='panel panel-shadow'>
     <div class='panel-body'>
@@ -3699,7 +3785,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
     <span class="nc">.panel-body</span>
       Shadow Panel
 </pre></div></div></div>
-<h2 id="panel-simple">Simple Panel</h2>
+<h2 id="panel-simple" class="styleguide">Simple Panel</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple'>
   <div class='panel-body'>
     Simple Panel
@@ -3709,7 +3795,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
   <span class="nc">.panel-body</span>
     Simple Panel
 </pre></div></div></div>
-<h2 id="panel-simple-highlight">Simple Highlight</h2>
+<h2 id="panel-simple-highlight" class="styleguide">Simple Highlight</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple-highlight'>
   <div class='panel-body'>
     Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
@@ -3728,7 +3814,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
   <span class="nc">.panel-body</span>
     Hoverable (use when a click on the panel triggers an action)
 </pre></div></div></div>
-<h2 id="panel-space">Space</h2>
+<h2 id="panel-space" class="styleguide">Space</h2>
 <p class="styleguide">Space panels can be in a default, stopped, or crashed state. Add the class <code class="styleguide">.panel-card</code> to give the panel space a minimum height.</p><div class="codeExample"><div class="exampleOutput"><div class='sg-gray-4 pam'>
   <div class='panel panel-space panel-card panel-hoverable'>
     <div class='panel-body'>
@@ -3789,7 +3875,7 @@ support flexbox, the footer will appear where it would naturally, likely right b
     <span class="nc">.panel-body</span>
       Editing Space Panel
 </pre></div></div></div>
-<h2 id="panel-square">Square Panel</h2>
+<h2 id="panel-square" class="styleguide">Square Panel</h2>
 <p class="styleguide">Square panels take advantage of a CSS box-model oddity (see <a class="styleguide" href="http://dinosaurswithlaserz.com/2011/07/18/fluid-squares-v2/" title="http://dinosaurswithlaserz.com/2011/07/18/fluid-squares-v2/">Fluid Squares</a> ).
 They will be as tall as their containing element is wide.  Their content flows/overflows strangely though, so watch out. It is also extremely
 tricky to center content inside of them -- see the application dashboard for an example.</p><div class="codeExample"><div class="exampleOutput"><div class='row'>
@@ -3813,7 +3899,7 @@ tricky to center content inside of them -- see the application dashboard for an 
         Square Panel
 
 </pre></div></div></div>
-<h2 id="panel_scrollable">Scrollable</h2>
+<h2 id="panel_scrollable" class="styleguide">Scrollable</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-scrollable'>
   <div class='panel-body'>
     Scrollable
@@ -3906,7 +3992,7 @@ tricky to center content inside of them -- see the application dashboard for an 
           <span class="nt">%th</span><span class="nc">.col-md-8</span> First Name
           <span class="nt">%td</span><span class="nc">.col-md-16</span> Joe
 </pre></div></div></div>
-<h2 id="panel_tile">Tile</h2>
+<h2 id="panel_tile" class="styleguide">Tile</h2>
 <div class="codeExample"><div class="exampleOutput"><a class='panel panel-tile' href='http://google.com'>
   <div class='panel-body'>
     Tile
@@ -3921,7 +4007,7 @@ tricky to center content inside of them -- see the application dashboard for an 
   <span class="nc">.panel-footer</span>
     This is the footer
 </pre></div></div></div>
-<h2 id="panel_tile_simple">Tile Simple</h2>
+<h2 id="panel_tile_simple" class="styleguide">Tile Simple</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-tile-simple'>
   <div class='panel-body'>
     Tile
@@ -3931,7 +4017,7 @@ tricky to center content inside of them -- see the application dashboard for an 
   <span class="nc">.panel-body</span>
     Tile
 </pre></div></div></div>
-<h1 id="print">Print</h1>
+<h1 id="print" class="styleguide">Print</h1>
 
 <h3>Printing</h3>
 <p class="styleguide">Try printing this page to see these styles in action.</p><div class="codeExample"><div class="exampleOutput"><h3 class='print-only'>This will only show when printed</h3>
@@ -3939,9 +4025,14 @@ tricky to center content inside of them -- see the application dashboard for an 
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h3</span><span class="nc">.print-only</span> This will only show when printed
 <span class="nt">%h3</span><span class="nc">.no-print</span> This will not show when printed
 </pre></div></div></div>
-<h1 id="progress_bar">Progress Bars</h1>
+<h1 id="progress_bar" class="styleguide">Progress Bars</h1>
 
-<h2 id="animated_progress_bar">Animated</h2>
+<ul class="section-nav">
+  <li><a href="#simple_progress_bar">Simple</a></li>
+  <li><a href="#animated_progress_bar">Animated</a></li>
+</ul>
+
+<h2 id="animated_progress_bar" class="styleguide">Animated</h2>
 <p class="styleguide">Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
 In the haml, the width should be set to match the <code class="styleguide">aria-valuenow</code> if the progress bar isn&#39;t animated. If it is, it should be set to 0% initially.</p><div class="codeExample"><div class="exampleOutput"><div class='progress'>
   <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='0' class='progress-bar progress-bar-animated' data-behavior='ProgressBar' role='progressbar'>
@@ -3994,7 +4085,7 @@ In the haml, the width should be set to match the <code class="styleguide">aria-
 <span class="nt">%p</span>
   93 MB of 100 MB Used
 </pre></div></div></div>
-<h2 id="simple_progress_bar">Simple</h2>
+<h2 id="simple_progress_bar" class="styleguide">Simple</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='progress'>
   <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='0' class='progress-bar' role='progressbar' style='width: 0%;'>
     <div class='label'>
@@ -4080,7 +4171,7 @@ In the haml, the width should be set to match the <code class="styleguide">aria-
 <span class="nt">%p</span>
   90 MB of 100 MB Used
 </pre></div></div></div>
-<h1 id="selects">Selects</h1>
+<h1 id="selects" class="styleguide">Selects</h1>
 <p class="styleguide">Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
 them over a custom dropdown whenever possible. Their size can
@@ -4097,7 +4188,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nt">%option</span> an option
     <span class="nt">%option</span> another option
 </pre></div></div></div>
-<h1 id="sizing">Sizing</h1>
+<h1 id="sizing" class="styleguide">Sizing</h1>
 <p class="styleguide">Set heights using classes like <code class="styleguide">.input-lg</code>, and set widths using grid column classes like <code class="styleguide">.col-lg-*</code>.</p>
 <h3>Height sizing</h3>
 <p class="styleguide">Create larger or smaller form controls that match button sizes.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
@@ -4160,7 +4251,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nc">.col-md-8</span>
       <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">".col-xs-4"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="static_control">Static Control</h1>
+<h1 id="static_control" class="styleguide">Static Control</h1>
 <p class="styleguide">When you need to place plain text next to a form label within a horizontal form, use the <code class="styleguide">.form-control-static</code> class on a <code class="styleguide">&lt;p&gt;</code>.</p><div class="codeExample"><div class="exampleOutput"><form class='form-horizontal styleguide-form' role='form'>
   <div class='form-group'>
     <label class='col-md-4 control-label'>Email</label>
@@ -4185,7 +4276,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nc">.col-sm-10</span>
       <span class="nt">%input</span><span class="nf">#inputPassword</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Password"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"password"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="static_controll">Vertical static controls</h1>
+<h1 id="static_controll" class="styleguide">Vertical static controls</h1>
 <div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label class='control-label'>Email</label>
@@ -4204,7 +4295,16 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nt">%label</span><span class="nc">.control-label</span><span class="p">{</span><span class="ss">:for</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">}</span> Name
     <span class="nt">%input</span><span class="nf">#name</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="table">Table</h1>
+<h1 id="table" class="styleguide">Table</h1>
+
+<ul class="section-nav">
+  <li><a href="#table-data">Data</a></li>
+  <li><a href="#table-horizontal">Horizontal</a></li>
+  <li><a href="#table-key-value">Key-Value</a></li>
+  <li><a href="#table-numerical">Numerical</a></li>
+  <li><a href="#table-alignment">Alignment</a></li>
+  <li><a href="#scrollable-table">Scrollable Table</a></li>
+</ul>
 <table class="styleguide"> <tr>
 <th>Class</th>
 <th>Description</th>
@@ -4222,7 +4322,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
 <td>Applies zebra striping to a table.</td>
 </tr>
  </table>
-<h2 id="scrollable-table">Scrollable Table</h2>
+<h2 id="scrollable-table" class="styleguide">Scrollable Table</h2>
 <p class="styleguide">Table with borders where the contents of the table scroll but the header does not.</p><div class="codeExample"><div class="exampleOutput"><div class='table-scrollable'>
   <div class='panel'>
     <table class='table table-data table-light'>
@@ -4322,7 +4422,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
           <span class="nt">%td</span><span class="nc">.col-md-10</span> 4
           <span class="nt">%td</span><span class="nc">.col-md-14</span> Started
 </pre></div></div></div>
-<h2 id="table-alignment">Alignment</h2>
+<h2 id="table-alignment" class="styleguide">Alignment</h2>
 <p class="styleguide">Alignment classes can be used to align text top, bottom, middle or left, right, center. They can be applied to the <code class="styleguide">&lt;table&gt;</code>, <code class="styleguide">&lt;tr&gt;</code>,  <code class="styleguide">&lt;td&gt;</code>, or <code class="styleguide">&lt;th&gt;</code> and will affect all children. The <em>closest</em> class to the content will win in case of conflict.</p><table class="styleguide"> <tr>
 <th>Class</th>
 <th>Description</th>
@@ -4352,7 +4452,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
 <td>Centers text vertically</td>
 </tr>
  </table>
-<h2 id="table-data">Data</h2>
+<h2 id="table-data" class="styleguide">Data</h2>
 <p class="styleguide">This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-data'>
   <thead>
     <tr>
@@ -4454,7 +4554,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
       <span class="nt">%td</span>
         12
 </pre></div></div></div>
-<h2 id="table-horizontal">Horizontal</h2>
+<h2 id="table-horizontal" class="styleguide">Horizontal</h2>
 <p class="styleguide">This is the horizontal table used mainly on the user profile page. Typically it is paired <code class="styleguide">.table-striped</code> and <code class="styleguide">.table-standard</code>. It does not have a header row.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-striped table-horizontal'>
   <tbody>
     <tr>
@@ -4498,7 +4598,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
       <span class="nt">%th</span> Phone
       <span class="nt">%td</span> 415-555-0000
 </pre></div></div></div>
-<h2 id="table-key-value">Key-Value</h2>
+<h2 id="table-key-value" class="styleguide">Key-Value</h2>
 <p class="styleguide">This table is used to align headings and content on the same line. You have to
 specify column widths for the th/tds.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-key-value'>
   <tbody>
@@ -4543,7 +4643,7 @@ specify column widths for the th/tds.</p><div class="codeExample"><div class="ex
       <span class="nt">%th</span><span class="nc">.col-md-8</span> Phone
       <span class="nt">%td</span><span class="nc">.col-md-16</span> 415-555-0000
 </pre></div></div></div>
-<h2 id="table-numerical">Numerical</h2>
+<h2 id="table-numerical" class="styleguide">Numerical</h2>
 <p class="styleguide">This is the table used on the billing page.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-numerical'>
   <tbody>
     <tr>
@@ -4587,9 +4687,16 @@ specify column widths for the th/tds.</p><div class="codeExample"><div class="ex
       <span class="nt">%th</span> Phone
       <span class="nt">%td</span> 415-555-0000
 </pre></div></div></div>
-<h1 id="table-js">JS Tables</h1>
+<h1 id="table-js" class="styleguide">JS Tables</h1>
 
-<h2 id="table-angular-sortable">Angular Sortable Table</h2>
+<ul class="section-nav">
+  <li><a href="#table-clickable">Clickable</a></li>
+  <li><a href="#table-angular-sortable">Angular Sortable Table</a></li>
+  <li><a href="#table-inline-addable">Inline Addable</a></li>
+  <li><a href="#table-kitchen-sink">Kitchen Sink</a></li>
+</ul>
+
+<h2 id="table-angular-sortable" class="styleguide">Angular Sortable Table</h2>
 <p class="styleguide">USE:</p><ol class="styleguide"><li>Add a sorter in your controller scope that has a reference to the collection you want to sort.</li>
 <li>Add &quot;sortable&quot; to any header/element which should trigger a sort (if the sortable directive doesn&#39;t do what you want, write a new one or just use ng-click. Please don&#39;t add more behavior to the current sortable).</li>
 </ol><div class="codeExample"><div class="exampleOutput"><table class='table table-data table-sortable' ng-cloak ng-controller='ExampleSpaceDataTableCtrl'>
@@ -4637,7 +4744,7 @@ specify column widths for the th/tds.</p><div class="codeExample"><div class="ex
       <span class="nt">%td</span> {{tableItem.serviceInstances}}
       <span class="nt">%td</span> {{tableItem.quota}}
 </pre></div></div></div>
-<h2 id="table-clickable">Clickable</h2>
+<h2 id="table-clickable" class="styleguide">Clickable</h2>
 <p class="styleguide">Use this style of table when rows are clickable. It is possible to prevent a user from clicking on a row w/ a message by adding data-prevent-click and data-prevent-click-message to the row. (N.B.: This does not actually add any sort of permissions to the URL in question).
 We are making the assumption here that table-hover will <em>only</em> be used if the table is clickable, because we add a pointer.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-data table-hover' data-behavior='ClickableTable'>
   <thead>
@@ -4717,7 +4824,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
       <span class="nt">%td</span><span class="nc">.txt-m.txt-r</span>
         <span class="nt">%i</span><span class="nc">.fa.fa-chevron-right.type-primary-4</span>
 </pre></div></div></div>
-<h2 id="table-inline-addable">Inline Addable</h2>
+<h2 id="table-inline-addable" class="styleguide">Inline Addable</h2>
 <div class="codeExample"><div class="exampleOutput"><div ng-class='{editing: spaceTable.editing}' ng-cloak='true' ng-controller='StyleguideAddableTableCtrl'>
   <p class='txt-r'>
     <a class='btn btn-default state-adding-trigger' href='javascript:void(0);' ng-click='spaceTable.enterEditMode()' ng-disabled='spaceTable.newModel.saving'>
@@ -4861,7 +4968,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
                   <span class="s1">'data-confirmation-header'</span> <span class="o">=&gt;</span> <span class="s1">'Delete Space'</span><span class="p">,</span>
                   <span class="s1">'data-dangerous-action'</span> <span class="o">=&gt;</span> <span class="s2">"true"</span><span class="p">}</span> Delete
 </pre></div></div></div>
-<h2 id="table-kitchen-sink">Kitchen Sink</h2>
+<h2 id="table-kitchen-sink" class="styleguide">Kitchen Sink</h2>
 <p class="styleguide">Example of composed behaviors that operate on the same table.</p><div class="codeExample"><div class="exampleOutput"><div ng-class='{editing: spaceTable.editing}' ng-cloak='true' ng-controller='StyleguideKitchenSinkTableCtrl'>
   <p class='txt-r'>
     <a class='btn btn-default state-adding-trigger' href='javascript:void(0);' ng-click='spaceTable.enterEditMode()' ng-disabled='spaceTable.newModel.saving'>
@@ -4977,9 +5084,16 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nt">%td</span> {{space.serviceInstances}}
         <span class="nt">%td</span> {{space.quota}}
 </pre></div></div></div>
-<h1 id="tabs">Tabs</h1>
+<h1 id="tabs" class="styleguide">Tabs</h1>
+
+<ul class="section-nav">
+  <li><a href="#tab_highlight">Highlight Tabs</a></li>
+  <li><a href="#tab_simple">Simple Tabs</a></li>
+  <li><a href="#tab_responsive">Responsive Tabs</a></li>
+  <li><a href="#image_tabs">Image Tabs</a></li>
+</ul>
 <p class="styleguide">You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="styleguide">data-toggle=&quot;tab&quot;</code> on an element.</p>
-<h2 id="image_tabs">Image Tabs</h2>
+<h2 id="image_tabs" class="styleguide">Image Tabs</h2>
 <p class="styleguide">You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code class="styleguide">icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p><div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
   <ul class="list-inline nav-tabs-images">
     <li class="active">
@@ -5099,7 +5213,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
 <span class="nt">&lt;/div&gt;</span>
 
 </pre></div></div></div>
-<h2 id="tab_highlight">Highlight Tabs</h2>
+<h2 id="tab_highlight" class="styleguide">Highlight Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-highlight'>
   <div class='row'>
     <div class='col-md-8'>
@@ -5208,7 +5322,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nf">#messages</span><span class="nc">.tab-pane.fade</span> Content 3
         <span class="nf">#settings</span><span class="nc">.tab-pane.fade</span> Content 4
 </pre></div></div></div>
-<h2 id="tab_responsive">Responsive Tabs</h2>
+<h2 id="tab_responsive" class="styleguide">Responsive Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-responsive'>
   <div class='row'>
     <div class='col-sm-5'>
@@ -5302,7 +5416,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nt">%li</span><span class="nf">#tab-responsive-4</span><span class="nc">.tab-pane.fade</span> Content 4
 
 </pre></div></div></div>
-<h2 id="tab_simple">Simple Tabs</h2>
+<h2 id="tab_simple" class="styleguide">Simple Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-simple'>
   <div class='tabs-action txt-r'>
     <a>Some Action</a>
@@ -5342,7 +5456,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
 
 </pre></div></div></div>
-<h1 id="textarea">Text Area</h1>
+<h1 id="textarea" class="styleguide">Text Area</h1>
 <p class="styleguide">Text areas are used for larger amounts of input.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleTextAreaId'>Description</label>
@@ -5354,7 +5468,12 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     <span class="nt">%label</span><span class="p">{</span><span class="ss">:for</span> <span class="o">=&gt;</span> <span class="s2">"exampleTextAreaId"</span><span class="p">}</span> Description
     <span class="nt">%textarea</span><span class="nf">#exampleTextAreaId</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:rows</span> <span class="o">=&gt;</span> <span class="s2">"3"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="toggle">Toggle</h1>
+<h1 id="toggle" class="styleguide">Toggle</h1>
+
+<ul class="section-nav">
+  <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
+  <li><a href="#angular toggle">Angular Toggle</a></li>
+</ul>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>
   <div class='panel toggle-show'>
     I'm viewing...
@@ -5373,7 +5492,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     I'm editing...
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'toggle'</span><span class="p">,</span> <span class="ss">target: </span><span class="s1">'show'</span><span class="p">}</span>} Cancel
 </pre></div></div></div>
-<h2 id="angular toggle">Angular Toggle</h2>
+<h2 id="angular toggle" class="styleguide">Angular Toggle</h2>
 <p class="styleguide">Use this class for sections that have two different viewable states.</p><div class="codeExample"><div class="exampleOutput"><div class='state-toggle' ng-class='{"state-secondary": subject.secondaryState}' ng-controller='StyleguideToggleCtrl'>
   <div class='state-content-default'>
     This is the default content
@@ -5392,7 +5511,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     This is the secondary content
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'toggleState()'</span><span class="p">}</span> Toggle State
 </pre></div></div></div>
-<h2 id="data_behavior_toggle">Data Behavior Toggle</h2>
+<h2 id="data_behavior_toggle" class="styleguide">Data Behavior Toggle</h2>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>
   <div class='panel toggle-show'>
     I'm viewing...
@@ -5411,7 +5530,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     I'm editing...
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'toggle'</span><span class="p">,</span> <span class="ss">target: </span><span class="s1">'show'</span><span class="p">}</span>} Cancel
 </pre></div></div></div>
-<h1 id="tooltip">Tooltip</h1>
+<h1 id="tooltip" class="styleguide">Tooltip</h1>
 <p class="styleguide">Tooltip styles can be applied to any element. We often apply them to disabled
 buttons which require a wrapper div as the hover event will not fire.</p><div class="codeExample"><div class="exampleOutput"><div class='with-tooltip' data-title='This is your tooltip'>
   <button class='btn btn-primary' disabled>Button</button>
@@ -5419,9 +5538,16 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.with-tooltip</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">title: </span><span class="s2">"This is your tooltip"</span><span class="p">}</span>}
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">disabled: </span><span class="kp">true</span><span class="p">}</span> Button
 </pre></div></div></div>
-<h1 id="type">Typography</h1>
+<h1 id="type" class="styleguide">Typography</h1>
 
-<h2 id="1_type_sizes">Type Sizes</h2>
+<ul class="section-nav">
+  <li><a href="#1_type_sizes">Type Sizes</a></li>
+  <li><a href="#type-modifiers">Type Modifiers</a></li>
+  <li><a href="#type-colors">Type Colors</a></li>
+  <li><a href="#type_alignment">Type Alignment</a></li>
+</ul>
+
+<h2 id="1_type_sizes" class="styleguide">Type Sizes</h2>
 <p class="styleguide">Headings can be used to define the applications typographical hierarchy.</p><div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
 <h1>h1.heading level 1</h1>
 <h2>h2.heading level 2</h2>
@@ -5451,7 +5577,7 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
   (Use headings when possible since they add semantic value).</p><div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
 </div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
 </pre></div></div></div>
-<h2 id="type-colors">Type Colors</h2>
+<h2 id="type-colors" class="styleguide">Type Colors</h2>
 <div class="codeExample"><div class="exampleOutput"><p class='type-inverse' style='background-color: #000'>type-inverse text</p>
 <p class='type-neutral-1'>Type neutral 1</p>
 <p class='type-neutral-2'>Type neutral 2</p>
@@ -5526,7 +5652,7 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
 <span class="nt">%p</span><span class="nc">.type-warn-1</span> Type warn 1
 <span class="nt">%p</span><span class="nc">.type-warn-2</span> Type warn 2
 </pre></div></div></div>
-<h2 id="type-modifiers">Type Modifiers</h2>
+<h2 id="type-modifiers" class="styleguide">Type Modifiers</h2>
 <div class="codeExample"><div class="exampleOutput"><h1 class='em-low'>Low emphasis</h1>
 <h1 class='em-default'>Default emphasis</h1>
 <h1 class='em-high'>High emphasis</h1>
@@ -5538,7 +5664,7 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
 <span class="nt">%h1</span><span class="nc">.em-max</span> Maximum emphasis
 <span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
 </pre></div></div></div>
-<h2 id="type_alignment">Type Alignment</h2>
+<h2 id="type_alignment" class="styleguide">Type Alignment</h2>
 <p class="styleguide">Alignment classes can be used to align text top, bottom, middle or left, right, center.</p><table class="styleguide"> <tr>
 <th>Class</th>
 <th>Description</th>
@@ -5568,7 +5694,7 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
 <td>Centers text vertically</td>
 </tr>
  </table>
-<h1 id="upgrade_your_account">Upgrade Your Account Widget</h1>
+<h1 id="upgrade_your_account" class="styleguide">Upgrade Your Account Widget</h1>
 <div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple mtxl' id='upgrade_your_account'>
   <div class='panel-body'>
     <div class='row mvxl ptxl'>
@@ -5679,7 +5805,7 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
           <span class="nc">.tiny-circle</span>&gt;
           <span class="nc">.tiny-circle</span>&gt;
 </pre></div></div></div>
-<h1 id="validation">Validation</h1>
+<h1 id="validation" class="styleguide">Validation</h1>
 
 <h3>Validation</h3>
 <p class="styleguide">Bootstrap includes validation styles for error and success states on form controls. To use, add <code class="styleguide">.has-error</code> or <code class="styleguide">.has-success</code> to the parent element. Any <code class="styleguide">.control-label</code>, <code class="styleguide">.form-control</code>, and <code class="styleguide">.help-block</code> within that element will receive the validation styles.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
@@ -5720,9 +5846,14 @@ buttons which require a wrapper div as the hover event will not fire.</p><div cl
           Checkbox which needs to be checked
       <span class="nt">%span</span><span class="nc">.help-block.has-error</span> Error help text
 </pre></div></div></div>
-<h1 id="whitespace">Whitespace</h1>
+<h1 id="whitespace" class="styleguide">Whitespace</h1>
 
-<h2 id="list-whitespace">List Spacing</h2>
+<ul class="section-nav">
+  <li><a href="#standard">Standard</a></li>
+  <li><a href="#list-whitespace">List Spacing</a></li>
+</ul>
+
+<h2 id="list-whitespace" class="styleguide">List Spacing</h2>
 <p class="styleguide">Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.
 The classes are constructed by specifying <code class="styleguide">&lt;type&gt;&lt;location&gt;&lt;size&gt;</code>.</p>
 <table>
@@ -5990,7 +6121,7 @@ The classes are constructed by specifying <code class="styleguide">&lt;type&gt;&
   <span class="nt">%li</span>
     meep
 </pre></div></div></div>
-<h2 id="standard">Standard</h2>
+<h2 id="standard" class="styleguide">Standard</h2>
 <p class="styleguide">Should be used to modify the default spacing between objects (not between nodes of the same object)
 Please use judiciously. You want to be using defaults most of the time, these are exceptions!
 <code class="styleguide">&lt;type&gt;&lt;location&gt;&lt;size&gt;</code></p><table class="styleguide"> <tr>

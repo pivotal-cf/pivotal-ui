@@ -103,7 +103,13 @@
           <li><a href="#type_alignment">Type Alignment</a></li>
         
         </ul>
-<h1 id="button">Buttons</h1>
+<h1 id="button" class="styleguide">Buttons</h1>
+
+<ul class="section-nav">
+  <li><a href="#button_sizes">Button Sizes</a></li>
+  <li><a href="#full_width_button">Full width Buttons</a></li>
+  <li><a href="#buttonSkins">Button Styles</a></li>
+</ul>
 <p class="styleguide">Button styles can be applied to any element. Typically you&#39;ll want to
 use either a <code class="styleguide">&lt;button&gt;</code> or an <code class="styleguide">&lt;a&gt;</code> element:</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><button class='btn btn-primary'>Button</button>
 </div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary</span> Button</pre></div></div></td></tr><tr><th><div class="exampleOutput"><a class='btn btn-primary' href='http://trulia.com'>Link</a>
@@ -111,12 +117,12 @@ use either a <code class="styleguide">&lt;button&gt;</code> or an <code class="s
 </pre></div></div></td></tr></tbody></table></div><p class="styleguide">If your button is actually a link to another page, please use the
 <code class="styleguide">&lt;a&gt;</code> element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a <code class="styleguide">&lt;button&gt;</code> element.</p>
-<h2 id="button_sizes">Button Sizes</h2>
+<h2 id="button_sizes" class="styleguide">Button Sizes</h2>
 <p class="styleguide">There are two sizes for buttons: Large and default. Simply apply the
 size modifier class for the desired size.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><button class="btn btn-primary btn-lg">Large</button></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary btn-lg"</span><span class="nt">&gt;</span>Large<span class="nt">&lt;/button&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><button class="btn btn-primary">Default</button>
 </div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-primary"</span><span class="nt">&gt;</span>Default<span class="nt">&lt;/button&gt;</span>
 </pre></div></div></td></tr></tbody></table></div>
-<h2 id="buttonSkins">Button Styles</h2>
+<h2 id="buttonSkins" class="styleguide">Button Styles</h2>
 <table class="styleguide"> <tr>
 <th>Button</th>
 <th>Disabled</th>
@@ -166,13 +172,18 @@ size modifier class for the desired size.</p><div class="codeTable"><table><tbod
 <td>Use this button for other important actions, e.g. marketing call to actions</td>
 </tr>
  </table>
-<h2 id="full_width_button">Full width Buttons</h2>
+<h2 id="full_width_button" class="styleguide">Full width Buttons</h2>
 <p class="styleguide">There is an additional modifier that will make the button take the
 full width of the container. It may be used with the any of the button
 size and style modifiers.</p><p class="styleguide">Create block level buttons—those that span the full width of a parent— by adding <code class="styleguide">.btn-block</code>.</p><div class="codeExample"><div class="exampleOutput"><button class='btn btn-primary btn-block'>Full width button</button>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%button</span><span class="nc">.btn.btn-primary.btn-block</span> Full width button
 </pre></div></div></div>
-<h1 id="code">Code</h1>
+<h1 id="code" class="styleguide">Code</h1>
+
+<ul class="section-nav">
+  <li><a href="#inline_code">Inline Code</a></li>
+  <li><a href="#terminal_window">Terminal Window</a></li>
+</ul>
 <p class="styleguide">In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, <code class="styleguide">.language-ruby</code>.</p><p class="styleguide">There are several languages already available (and others available from the <a class="styleguide" href="http://prismjs.com" title="http://prismjs.com">Prismjs.com</a> website), including:</p><ul class="styleguide"><li>Markup</li>
 <li>CSS</li>
 <li>C-like</li>
@@ -241,11 +252,11 @@ size and style modifiers.</p><p class="styleguide">Create block level buttons—
         <span class="nd">end</span>
       <span class="nd">end</span>
 </pre></div></div></div>
-<h2 id="inline_code">Inline Code</h2>
+<h2 id="inline_code" class="styleguide">Inline Code</h2>
 <div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
 </pre></div></div></div>
-<h2 id="terminal_window">Terminal Window</h2>
+<h2 id="terminal_window" class="styleguide">Terminal Window</h2>
 <p class="styleguide"><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p><div class="codeExample"><div class="exampleOutput"><div class='terminal'>
   <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bar&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Baz&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bop&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
 </div>
@@ -277,11 +288,17 @@ size and style modifiers.</p><p class="styleguide">Create block level buttons—
           <span class="nd">end</span>
         <span class="nd">end</span>
 </pre></div></div></div>
-<h1 id="colors">Colors</h1>
+<h1 id="colors" class="styleguide">Colors</h1>
+
+<ul class="section-nav">
+  <li><a href="#background">Backgrounds</a></li>
+  <li><a href="#sass_colors">Sass Colors</a></li>
+  <li><a href="#shadows">Shadows & Glows</a></li>
+</ul>
 <p class="styleguide">Our color pallet is composed of several different colors. At any given point in captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.</p>
-<h2 id="background">Backgrounds</h2>
+<h2 id="background" class="styleguide">Backgrounds</h2>
 <p class="styleguide">Background color classes can be applied to any element.</p>
 <div class="row mvxl">
   <div class="col-md-4">
@@ -298,7 +315,7 @@ colors rather than adding new ones.</p>
   </div>
 </div>
 
-<h3 id="background_full_bleed">Full Bleed Background</h3>
+<h3 id="background_full_bleed" class="styleguide">Full Bleed Background</h3>
 <p class="styleguide">This example uses an about us hero image by default, but you can change it to any image you would like.
 Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.</p><div class="codeExample"><div class="exampleOutput"><div class='pane bg-full-bleed'>
   <div class='container'>
@@ -321,7 +338,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   <span class="nt">&lt;/div&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h2 id="sass_colors">Sass Colors</h2>
+<h2 id="sass_colors" class="styleguide">Sass Colors</h2>
 
 <div class="alert alert-warning alert-dismissable">
   These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
@@ -725,7 +742,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   </div>
 </div>
 
-<h2 id="shadows">Shadows & Glows</h2>
+<h2 id="shadows" class="styleguide">Shadows & Glows</h2>
 
 <div class="row">
 <div class="contrast-bar">
@@ -775,7 +792,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   </div>
 </div>
 <p class="styleguide"></div></p>
-<h1 id="divider">Dividers</h1>
+<h1 id="divider" class="styleguide">Dividers</h1>
 <p class="styleguide">Dividers draw horizontal lines between different content groupings.</p><div class="codeExample"><div class="exampleOutput"><hr class='divider-alternate-1'>
 <hr class='divider-alternate-2'>
 <div class='contrast-bar'>
@@ -791,14 +808,20 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   <span class="nt">%hr</span><span class="nc">.divider-2</span>
 
 </pre></div></div></div>
-<h1 id="images">Images</h1>
+<h1 id="images" class="styleguide">Images</h1>
 
-<h2 id="avatar_images">Avatar Images</h2>
+<ul class="section-nav">
+  <li><a href="#responsive_images">Responsive Images</a></li>
+  <li><a href="#responsive_svg">Responsive SVG</a></li>
+  <li><a href="#avatar_images">Avatar Images</a></li>
+</ul>
+
+<h2 id="avatar_images" class="styleguide">Avatar Images</h2>
 <p class="styleguide">Avatar images are expected to by 100px by 100px.</p><div class="codeExample"><div class="exampleOutput"><img alt='...' class='img-circle avatar' height='100' src='http://placehold.it/100x100' width='100'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%img</span><span class="p">{</span><span class="ss">src: </span><span class="s2">"http://placehold.it/100x100"</span><span class="p">,</span> <span class="ss">alt: </span><span class="s2">"..."</span><span class="p">,</span> <span class="ss">class: </span><span class="s2">"img-circle avatar"</span><span class="p">,</span> <span class="ss">height: </span><span class="s2">"100"</span><span class="p">,</span> <span class="ss">width: </span><span class="s2">"100"</span><span class="p">}</span>
 
 </pre></div></div></div>
-<h2 id="responsive_images">Responsive Images</h2>
+<h2 id="responsive_images" class="styleguide">Responsive Images</h2>
 <p class="styleguide">Images can be made responsive-friendly via the addition of the <code class="styleguide">.img-responsive</code> class. This applies <code class="styleguide">max-width: 100%;</code> and <code class="styleguide">height: auto;</code> to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.</p><div class="codeExample"><div class="exampleOutput"><div class='row'>
   <div class='col-md-5'>
     <img alt='Responsive image' class='img-responsive' src='../images/such-awesome.jpg'>
@@ -818,7 +841,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
   <span class="nc">.col-md-12</span>
     <span class="nt">%img</span><span class="nc">.img-responsive</span><span class="p">{</span><span class="ss">:alt</span> <span class="o">=&gt;</span> <span class="s2">"Responsive image"</span><span class="p">,</span> <span class="ss">:src</span> <span class="o">=&gt;</span> <span class="s2">"../images/such-awesome.jpg"</span><span class="p">}</span>
 </pre></div></div></div>
-<h2 id="responsive_svg">Responsive SVG</h2>
+<h2 id="responsive_svg" class="styleguide">Responsive SVG</h2>
 <p class="styleguide">SVG can be made responsive-friendly via the addition of the <code class="styleguide">.svg-responsive</code> class on a
 wrapper div and the <code class="styleguide">.svg-content</code> class on the svg itself. You&#39;ll also need to to define
 the height to width ratio as an inline padding bottom style on the <code class="styleguide">.svg-responsive</code> element like so:</p><div class="codeBlock"><div class="highlight"><pre>&lt;div class="svg-responsive" style="padding-bottom: 78.31%"&gt;
@@ -932,7 +955,7 @@ the height to width ratio as an inline padding bottom style on the <code class="
   </div>
 </div>
 
-<h1 id="instance scale">Instance Scale</h1>
+<h1 id="instance scale" class="styleguide">Instance Scale</h1>
 <p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
 and code in your page and the javascript and css will handle all of the behaviors.
 Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
@@ -1189,7 +1212,11 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h1 id="link">Links</h1>
+<h1 id="link" class="styleguide">Links</h1>
+
+<ul class="section-nav">
+  <li><a href="#gentle-scroll">Gentle Scroll Links</a></li>
+</ul>
 <p class="styleguide">There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p><div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
   <i class='fa fa-plus'></i>
   link with an icon
@@ -1228,7 +1255,7 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <td>This button is for delete actions, these actions should also have a confirmation dialog</td>
 </tr>
  </table>
-<h2 id="gentle-scroll">Gentle Scroll Links</h2>
+<h2 id="gentle-scroll" class="styleguide">Gentle Scroll Links</h2>
 <p class="styleguide">If you want to gently scroll from one part of the page to another, you&#39;ll need to add
 a <code class="styleguide">data-behavior: GentleScroll</code> to the trigger element as well as an <code class="styleguide">href</code> for the
 id of the target it will scroll to.</p><div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
@@ -1236,7 +1263,7 @@ id of the target it will scroll to.</p><div class="codeExample"><div class="exam
 </pre></div></div></div><p class="styleguide">It can scroll to anything, in this case, we&#39;ll use a text input.</p><div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nf">#scroll-target</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span> <span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Scroll target"</span><span class="p">}</span>
 </pre></div></div></div>
-<h2 id="list-inline-divider">Inline Divider List</h2>
+<h2 id="list-inline-divider" class="styleguide">Inline Divider List</h2>
 <p class="styleguide">Places all list items on a single line with <code class="styleguide">display: inline-block;</code> and some light padding. The <code class="styleguide">.list-inline-divider</code>
 also adds a simple gray border (add <code class="styleguide">.list-inline-divider-light</code> to make the border white).</p><div class="codeExample"><div class="exampleOutput"><ul class='list-inline-divider'>
   <li>
@@ -1279,7 +1306,7 @@ also adds a simple gray border (add <code class="styleguide">.list-inline-divide
 
 
 </pre></div></div></div>
-<h1 id="map">Map</h1>
+<h1 id="map" class="styleguide">Map</h1>
 <p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
 <div class='map-wrapper'>
   <div class='pane'>
@@ -1407,7 +1434,7 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
 
 <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
 </pre></div></div>
-<h1 id="Pane">Pane</h1>
+<h1 id="Pane" class="styleguide">Pane</h1>
 <p class="styleguide">Panes are horizontal groupings of content that are usually used to
 span the full browser window width. It&#39;s going to look funny here,
 a better way to view it is on the <a class="styleguide" href="/pane.html" title="/pane.html">panes page</a>.</p><p class="styleguide">You can combine up to two background classes on the pane component.
@@ -1453,9 +1480,16 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <span class="nt">&lt;/div&gt;</span>
 
 </pre></div></div></div>
-<h1 id="tabs">Tabs</h1>
+<h1 id="tabs" class="styleguide">Tabs</h1>
+
+<ul class="section-nav">
+  <li><a href="#tab_highlight">Highlight Tabs</a></li>
+  <li><a href="#tab_simple">Simple Tabs</a></li>
+  <li><a href="#tab_responsive">Responsive Tabs</a></li>
+  <li><a href="#image_tabs">Image Tabs</a></li>
+</ul>
 <p class="styleguide">You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="styleguide">data-toggle=&quot;tab&quot;</code> on an element.</p>
-<h2 id="image_tabs">Image Tabs</h2>
+<h2 id="image_tabs" class="styleguide">Image Tabs</h2>
 <p class="styleguide">You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code class="styleguide">icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p><div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
   <ul class="list-inline nav-tabs-images">
     <li class="active">
@@ -1575,7 +1609,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <span class="nt">&lt;/div&gt;</span>
 
 </pre></div></div></div>
-<h2 id="tab_highlight">Highlight Tabs</h2>
+<h2 id="tab_highlight" class="styleguide">Highlight Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-highlight'>
   <div class='row'>
     <div class='col-md-8'>
@@ -1684,7 +1718,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
         <span class="nf">#messages</span><span class="nc">.tab-pane.fade</span> Content 3
         <span class="nf">#settings</span><span class="nc">.tab-pane.fade</span> Content 4
 </pre></div></div></div>
-<h2 id="tab_responsive">Responsive Tabs</h2>
+<h2 id="tab_responsive" class="styleguide">Responsive Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-responsive'>
   <div class='row'>
     <div class='col-sm-5'>
@@ -1778,7 +1812,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
         <span class="nt">%li</span><span class="nf">#tab-responsive-4</span><span class="nc">.tab-pane.fade</span> Content 4
 
 </pre></div></div></div>
-<h2 id="tab_simple">Simple Tabs</h2>
+<h2 id="tab_simple" class="styleguide">Simple Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-simple'>
   <div class='tabs-action txt-r'>
     <a>Some Action</a>
@@ -1818,9 +1852,16 @@ one on the <code class="styleguide">.container</code> element will be constraine
     <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
 
 </pre></div></div></div>
-<h1 id="type">Typography</h1>
+<h1 id="type" class="styleguide">Typography</h1>
 
-<h2 id="1_type_sizes">Type Sizes</h2>
+<ul class="section-nav">
+  <li><a href="#1_type_sizes">Type Sizes</a></li>
+  <li><a href="#type-modifiers">Type Modifiers</a></li>
+  <li><a href="#type-colors">Type Colors</a></li>
+  <li><a href="#type_alignment">Type Alignment</a></li>
+</ul>
+
+<h2 id="1_type_sizes" class="styleguide">Type Sizes</h2>
 <p class="styleguide">Headings can be used to define the applications typographical hierarchy.</p><div class="codeExample"><div class="exampleOutput"><h1 class='title'>Even bigger heading for those moments when an h1 is not enough</h1>
 <h1>h1.heading level 1</h1>
 <h2>h2.heading level 2</h2>
@@ -1850,7 +1891,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
   (Use headings when possible since they add semantic value).</p><div class="codeExample"><div class="exampleOutput"><div class='h2'>div.heading level 2</div>
 </div><div class="codeBlock"><div class="highlight"><pre>  <span class="nt">%div</span><span class="nc">.h2</span> div.heading level 2
 </pre></div></div></div>
-<h2 id="type-colors">Type Colors</h2>
+<h2 id="type-colors" class="styleguide">Type Colors</h2>
 <div class="codeExample"><div class="exampleOutput"><p class='type-inverse' style='background-color: #000'>type-inverse text</p>
 <p class='type-neutral-1'>Type neutral 1</p>
 <p class='type-neutral-2'>Type neutral 2</p>
@@ -1925,7 +1966,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <span class="nt">%p</span><span class="nc">.type-warn-1</span> Type warn 1
 <span class="nt">%p</span><span class="nc">.type-warn-2</span> Type warn 2
 </pre></div></div></div>
-<h2 id="type-modifiers">Type Modifiers</h2>
+<h2 id="type-modifiers" class="styleguide">Type Modifiers</h2>
 <div class="codeExample"><div class="exampleOutput"><h1 class='em-low'>Low emphasis</h1>
 <h1 class='em-default'>Default emphasis</h1>
 <h1 class='em-high'>High emphasis</h1>
@@ -1937,7 +1978,7 @@ one on the <code class="styleguide">.container</code> element will be constraine
 <span class="nt">%h1</span><span class="nc">.em-max</span> Maximum emphasis
 <span class="nt">%h1</span><span class="nc">.em-alt</span> Emphasis alternate
 </pre></div></div></div>
-<h2 id="type_alignment">Type Alignment</h2>
+<h2 id="type_alignment" class="styleguide">Type Alignment</h2>
 <p class="styleguide">Alignment classes can be used to align text top, bottom, middle or left, right, center.</p><table class="styleguide"> <tr>
 <th>Class</th>
 <th>Description</th>

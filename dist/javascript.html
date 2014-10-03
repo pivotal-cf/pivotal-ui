@@ -79,7 +79,7 @@
           <li><a href="#tooltip">Tooltip</a></li>
         
         </ul>
-<h1 id="collapse">Collapse Toggle</h1>
+<h1 id="collapse" class="styleguide">Collapse Toggle</h1>
 <p class="styleguide">Also see the select tabs for a toggle triggered by a select group.
 This is frequently used in combination with our panel components.
 NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
@@ -129,7 +129,7 @@ without them, the browser renders the whitespace on the anchor tags,
     <span class="nc">.panel-body</span>
       This content should hide and show when the trigger is clicked.
 </pre></div></div></div>
-<h1 id="contenteditable">ContentEditable</h1>
+<h1 id="contenteditable" class="styleguide">ContentEditable</h1>
 <p class="styleguide">This form looks and behaves mostly like a contenteditable field</p><div class="codeExample"><div class="exampleOutput"><form class='form-contenteditable' name='newEditableForm' ng-class='{"saving": editText.saving, "editing": editText.editing}' ng-controller='FormContentEditableController' ng-submit='editText.save()'>
   <label class='txt-c'>
     <div class='form-group mbn'>
@@ -157,7 +157,7 @@ without them, the browser renders the whitespace on the anchor tags,
                           <span class="s2">"ng-focus"</span> <span class="o">=&gt;</span> <span class="s1">'editText.enterEditMode()'</span><span class="p">,</span>
                           <span class="s2">"ng-blur"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="focus-input">Focus Input</h1>
+<h1 id="focus-input" class="styleguide">Focus Input</h1>
 <p class="styleguide">Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.</p><div class="codeExample"><div class="exampleOutput"><a ng-click='focus_input1=true; focus_input2=false;'>Focus input 1</a>
 <br>
 <a ng-click='focus_input2=true; focus_input1=false;'>Focus input 2</a>
@@ -171,7 +171,7 @@ without them, the browser renders the whitespace on the anchor tags,
 <span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1"</span><span class="p">}</span>
 <span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="hoverable">Hoverable</h1>
+<h1 id="hoverable" class="styleguide">Hoverable</h1>
 <p class="styleguide">This component is for showing hidden actions on hover.
 If you put this on an element then hovering on that parent element will show the hidden element.</p><p class="styleguide">List example:</p><p class="styleguide">This can be used with any kind of list but the list group style seems to fit this use case best.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group' hoverable-group='true'>
   <li class='list-group-item' hoverable='true'>
@@ -251,7 +251,7 @@ If you put this on an element then hovering on that parent element will show the
     <span class="nt">%td</span>
       Not hoverable
 </pre></div></div></div>
-<h1 id="instance scale">Instance Scale</h1>
+<h1 id="instance scale" class="styleguide">Instance Scale</h1>
 <p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
 and code in your page and the javascript and css will handle all of the behaviors.
 Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
@@ -508,7 +508,7 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h1 id="modal">Modals</h1>
+<h1 id="modal" class="styleguide">Modals</h1>
 <p class="styleguide">Modals do something worthwhile....
 ...
 ...</p><div class="codeExample"><div class="exampleOutput"><div class='modal modal-basic fade'>
@@ -563,15 +563,22 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
   </div>
 </div>
 
-<h1 id="no-js">No JavaScript</h1>
+<h1 id="no-js" class="styleguide">No JavaScript</h1>
 
 <h3>Javascript</h3>
 <p class="styleguide">Try disabling js and rendering this page.</p><div class="codeExample"><div class="exampleOutput"><h3 class='invisible-no-js'>Won't show if browser doesn't support JS.</h3>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h3</span><span class="nc">.invisible-no-js</span> Won't show if browser doesn't support JS.
 </pre></div></div></div>
-<h1 id="table-js">JS Tables</h1>
+<h1 id="table-js" class="styleguide">JS Tables</h1>
 
-<h2 id="table-angular-sortable">Angular Sortable Table</h2>
+<ul class="section-nav">
+  <li><a href="#table-clickable">Clickable</a></li>
+  <li><a href="#table-angular-sortable">Angular Sortable Table</a></li>
+  <li><a href="#table-inline-addable">Inline Addable</a></li>
+  <li><a href="#table-kitchen-sink">Kitchen Sink</a></li>
+</ul>
+
+<h2 id="table-angular-sortable" class="styleguide">Angular Sortable Table</h2>
 <p class="styleguide">USE:</p><ol class="styleguide"><li>Add a sorter in your controller scope that has a reference to the collection you want to sort.</li>
 <li>Add &quot;sortable&quot; to any header/element which should trigger a sort (if the sortable directive doesn&#39;t do what you want, write a new one or just use ng-click. Please don&#39;t add more behavior to the current sortable).</li>
 </ol><div class="codeExample"><div class="exampleOutput"><table class='table table-data table-sortable' ng-cloak ng-controller='ExampleSpaceDataTableCtrl'>
@@ -619,7 +626,7 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
       <span class="nt">%td</span> {{tableItem.serviceInstances}}
       <span class="nt">%td</span> {{tableItem.quota}}
 </pre></div></div></div>
-<h2 id="table-clickable">Clickable</h2>
+<h2 id="table-clickable" class="styleguide">Clickable</h2>
 <p class="styleguide">Use this style of table when rows are clickable. It is possible to prevent a user from clicking on a row w/ a message by adding data-prevent-click and data-prevent-click-message to the row. (N.B.: This does not actually add any sort of permissions to the URL in question).
 We are making the assumption here that table-hover will <em>only</em> be used if the table is clickable, because we add a pointer.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-data table-hover' data-behavior='ClickableTable'>
   <thead>
@@ -699,7 +706,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
       <span class="nt">%td</span><span class="nc">.txt-m.txt-r</span>
         <span class="nt">%i</span><span class="nc">.fa.fa-chevron-right.type-primary-4</span>
 </pre></div></div></div>
-<h2 id="table-inline-addable">Inline Addable</h2>
+<h2 id="table-inline-addable" class="styleguide">Inline Addable</h2>
 <div class="codeExample"><div class="exampleOutput"><div ng-class='{editing: spaceTable.editing}' ng-cloak='true' ng-controller='StyleguideAddableTableCtrl'>
   <p class='txt-r'>
     <a class='btn btn-default state-adding-trigger' href='javascript:void(0);' ng-click='spaceTable.enterEditMode()' ng-disabled='spaceTable.newModel.saving'>
@@ -843,7 +850,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
                   <span class="s1">'data-confirmation-header'</span> <span class="o">=&gt;</span> <span class="s1">'Delete Space'</span><span class="p">,</span>
                   <span class="s1">'data-dangerous-action'</span> <span class="o">=&gt;</span> <span class="s2">"true"</span><span class="p">}</span> Delete
 </pre></div></div></div>
-<h2 id="table-kitchen-sink">Kitchen Sink</h2>
+<h2 id="table-kitchen-sink" class="styleguide">Kitchen Sink</h2>
 <p class="styleguide">Example of composed behaviors that operate on the same table.</p><div class="codeExample"><div class="exampleOutput"><div ng-class='{editing: spaceTable.editing}' ng-cloak='true' ng-controller='StyleguideKitchenSinkTableCtrl'>
   <p class='txt-r'>
     <a class='btn btn-default state-adding-trigger' href='javascript:void(0);' ng-click='spaceTable.enterEditMode()' ng-disabled='spaceTable.newModel.saving'>
@@ -959,9 +966,16 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nt">%td</span> {{space.serviceInstances}}
         <span class="nt">%td</span> {{space.quota}}
 </pre></div></div></div>
-<h1 id="tabs">Tabs</h1>
+<h1 id="tabs" class="styleguide">Tabs</h1>
+
+<ul class="section-nav">
+  <li><a href="#tab_highlight">Highlight Tabs</a></li>
+  <li><a href="#tab_simple">Simple Tabs</a></li>
+  <li><a href="#tab_responsive">Responsive Tabs</a></li>
+  <li><a href="#image_tabs">Image Tabs</a></li>
+</ul>
 <p class="styleguide">You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="styleguide">data-toggle=&quot;tab&quot;</code> on an element.</p>
-<h2 id="image_tabs">Image Tabs</h2>
+<h2 id="image_tabs" class="styleguide">Image Tabs</h2>
 <p class="styleguide">You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code class="styleguide">icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p><div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
   <ul class="list-inline nav-tabs-images">
     <li class="active">
@@ -1081,7 +1095,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
 <span class="nt">&lt;/div&gt;</span>
 
 </pre></div></div></div>
-<h2 id="tab_highlight">Highlight Tabs</h2>
+<h2 id="tab_highlight" class="styleguide">Highlight Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-highlight'>
   <div class='row'>
     <div class='col-md-8'>
@@ -1190,7 +1204,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nf">#messages</span><span class="nc">.tab-pane.fade</span> Content 3
         <span class="nf">#settings</span><span class="nc">.tab-pane.fade</span> Content 4
 </pre></div></div></div>
-<h2 id="tab_responsive">Responsive Tabs</h2>
+<h2 id="tab_responsive" class="styleguide">Responsive Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-responsive'>
   <div class='row'>
     <div class='col-sm-5'>
@@ -1284,7 +1298,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
         <span class="nt">%li</span><span class="nf">#tab-responsive-4</span><span class="nc">.tab-pane.fade</span> Content 4
 
 </pre></div></div></div>
-<h2 id="tab_simple">Simple Tabs</h2>
+<h2 id="tab_simple" class="styleguide">Simple Tabs</h2>
 <div class="codeExample"><div class="exampleOutput"><div class='tab-simple'>
   <div class='tabs-action txt-r'>
     <a>Some Action</a>
@@ -1324,7 +1338,12 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
 
 </pre></div></div></div>
-<h1 id="toggle">Toggle</h1>
+<h1 id="toggle" class="styleguide">Toggle</h1>
+
+<ul class="section-nav">
+  <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
+  <li><a href="#angular toggle">Angular Toggle</a></li>
+</ul>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>
   <div class='panel toggle-show'>
     I'm viewing...
@@ -1343,7 +1362,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     I'm editing...
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'toggle'</span><span class="p">,</span> <span class="ss">target: </span><span class="s1">'show'</span><span class="p">}</span>} Cancel
 </pre></div></div></div>
-<h2 id="angular toggle">Angular Toggle</h2>
+<h2 id="angular toggle" class="styleguide">Angular Toggle</h2>
 <p class="styleguide">Use this class for sections that have two different viewable states.</p><div class="codeExample"><div class="exampleOutput"><div class='state-toggle' ng-class='{"state-secondary": subject.secondaryState}' ng-controller='StyleguideToggleCtrl'>
   <div class='state-content-default'>
     This is the default content
@@ -1362,7 +1381,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     This is the secondary content
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'toggleState()'</span><span class="p">}</span> Toggle State
 </pre></div></div></div>
-<h2 id="data_behavior_toggle">Data Behavior Toggle</h2>
+<h2 id="data_behavior_toggle" class="styleguide">Data Behavior Toggle</h2>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>
   <div class='panel toggle-show'>
     I'm viewing...
@@ -1381,7 +1400,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     I'm editing...
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'toggle'</span><span class="p">,</span> <span class="ss">target: </span><span class="s1">'show'</span><span class="p">}</span>} Cancel
 </pre></div></div></div>
-<h1 id="tooltip">Tooltip</h1>
+<h1 id="tooltip" class="styleguide">Tooltip</h1>
 <p class="styleguide">Tooltip styles can be applied to any element. We often apply them to disabled
 buttons which require a wrapper div as the hover event will not fire.</p><div class="codeExample"><div class="exampleOutput"><div class='with-tooltip' data-title='This is your tooltip'>
   <button class='btn btn-primary' disabled>Button</button>
