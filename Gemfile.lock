@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/gpleiss/hologram.git
-  revision: 9040809c2667b1a43726d3bd06c3eb793fd2e4f2
+  revision: 478562108ad1b1397c6c6ed64d7988fdd8ea16d9
   specs:
     hologram (1.2.0)
       redcarpet (>= 2.2, < 4.0)
