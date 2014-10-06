@@ -23,3 +23,6 @@ documentation_assets: ./hologram/doc_assets
 index: intro
 
 nav_level: section
+
+plugins:
+  - ./hologram/css_critic_test_generator.rb

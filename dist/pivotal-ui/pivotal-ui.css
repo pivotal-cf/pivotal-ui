@@ -13758,13 +13758,15 @@ name: alert
 categories:
   - All
   - Objects
+test: true
 ---
 
 Alerts are used to display flash messages to the user.
 
-```haml_example
-.alert.alert-success
-  %p Success.
+```html_example
+<div class="alert alert-success">
+  <p>Success</p>
+</div>
 ```
 
 You can also make them dismissable:
@@ -13801,47 +13803,47 @@ You can also make them dismissable:
 
 
 */
-/* line 52, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 54, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert {
   border: none;
   margin-bottom: 0px;
   font-weight: 600;
 }
-/* line 58, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 60, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert p:before {
   font-family: FontAwesome;
   padding-right: 5px;
   font-size: 16px;
 }
-/* line 67, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 69, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert.alert-error p:before {
   content: '\f071';
 }
-/* line 75, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 77, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert.alert-success p:before {
   content: '\f058';
 }
-/* line 83, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 85, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert.alert-warning p:before {
   content: '\f071';
 }
-/* line 91, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 93, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert.alert-info p:before {
   content: '\f05a';
 }
 
-/* line 99, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 101, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert {
   margin: 1.5 0;
 }
-/* line 101, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 103, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert .close {
   text-decoration: none;
   line-height: .7;
   text-shadow: none;
 }
 
-/* line 109, ../../src/pivotal-ui/components/alerts.css.scss */
+/* line 111, ../../src/pivotal-ui/components/alerts.css.scss */
 .alert-error {
   background-color: #febfc1;
   border-color: #febfc1;

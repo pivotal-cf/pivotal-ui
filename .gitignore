@@ -8,6 +8,7 @@
 /test/tmp/
 /test/version_tmp/
 /test/dist/
+/test/components/
 /tmp/
 .ruby-version
 .sass-cache/

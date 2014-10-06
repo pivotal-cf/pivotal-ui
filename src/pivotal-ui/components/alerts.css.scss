@@ -5,13 +5,15 @@ name: alert
 categories:
   - All
   - Objects
+test: true
 ---
 
 Alerts are used to display flash messages to the user.
 
-```haml_example
-.alert.alert-success
-  %p Success.
+```html_example
+<div class="alert alert-success">
+  <p>Success</p>
+</div>
 ```
 
 You can also make them dismissable:
