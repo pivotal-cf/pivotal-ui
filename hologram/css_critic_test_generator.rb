@@ -21,7 +21,7 @@ class CssCriticTestGenerator < Hologram::Plugin
 
   HTML_FOOTER = "\n\n</body>\n</html>"
 
-  CODE_REGEX = /^\s*```html_example(.*?)\s*```/m
+  CODE_REGEX = /^\s*```html_example(?:_table)?(.*?)\s*```/m
 
   def initialize(config, args)
     @name = 'css-test'

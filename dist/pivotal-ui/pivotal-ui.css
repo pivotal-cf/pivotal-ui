@@ -11192,6 +11192,7 @@ categories:
   - All
   - Elements
   - Intro
+test: true
 ---
 
 Button styles can be applied to any element. Typically you'll want to
@@ -11226,12 +11227,12 @@ Create block level buttons—those that span the full width of a parent— by ad
 ```
 
 */
-/* line 46, ../../src/pivotal-ui/components/button.css.scss */
+/* line 47, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
   font-weight: 900;
   padding: 5px 15px;
 }
-/* line 50, ../../src/pivotal-ui/components/button.css.scss */
+/* line 51, ../../src/pivotal-ui/components/button.css.scss */
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
@@ -11255,7 +11256,7 @@ Button                                                             | Disabled   
 <button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
 <button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-/* line 77, ../../src/pivotal-ui/components/button.css.scss */
+/* line 78, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
@@ -11289,7 +11290,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 81, ../../src/pivotal-ui/components/button.css.scss */
+/* line 82, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
   background-color: #F8F8F8;
@@ -11328,7 +11329,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 86, ../../src/pivotal-ui/components/button.css.scss */
+/* line 87, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
@@ -11367,7 +11368,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 91, ../../src/pivotal-ui/components/button.css.scss */
+/* line 92, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #e0e4e5;
   background-color: #2185c5;
@@ -11406,7 +11407,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 96, ../../src/pivotal-ui/components/button.css.scss */
+/* line 97, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight-alt {
   color: white;
   background-color: #00a79d;
@@ -11445,7 +11446,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 101, ../../src/pivotal-ui/components/button.css.scss */
+/* line 102, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #686868;
   background-color: transparent;
@@ -11479,7 +11480,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 106, ../../src/pivotal-ui/components/button.css.scss */
+/* line 107, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #e0e4e5;
   background-color: #ff434c;
@@ -11523,6 +11524,7 @@ Button                                                             | Disabled   
 title: Button Sizes
 name: button_sizes
 parent: button
+test: true
 ---
 
 There are two sizes for buttons: Large and default. Simply apply the
@@ -11535,7 +11537,7 @@ size modifier class for the desired size.
 ```
 
 */
-/* line 129, ../../src/pivotal-ui/components/button.css.scss */
+/* line 131, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 19px;
