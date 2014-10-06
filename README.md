@@ -4,7 +4,10 @@
 
 Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
 
-[Visit the live styleguide](http://styleguide.cfapps.io) or **[download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases)**
+
+[Visit the live styleguide](http://styleguide.cfapps.io)  
+If you are ready to start using Pivotal UI **[download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases)**.   
+To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 ***
 
@@ -47,7 +50,7 @@ You'll need to maintain the structure in the release directory to have fonts and
 
 ### Including SCSS variables (optional, beta)
 
-If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project: 
+If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project:
 
     $ cp /path/to/release/src/pivotal-ui/components/variables.scss /path/to/your-project/
 
@@ -66,7 +69,7 @@ Import the file and use the variables:
 Visit <http://styleguide.cfapps.io> of host the styleguide files with a web server to view the available components.
 
     $ cd /path/to/release/pivotal-ui/styleguide/ && python -m SimpleHTTPServer 8000
-    
+
 then visit <http://localhost:8000>
 
 ### Syntax Highlighting
@@ -74,7 +77,7 @@ then visit <http://localhost:8000>
 There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme by linking to one of the following stylesheets:
 
 * `pivotal-ui/syntax-highlighting/prism-default.css` (for the light theme)
-* `pivotal-ui/syntax-highlighting/prism-okaida.css` (for the dark theme). 
+* `pivotal-ui/syntax-highlighting/prism-okaida.css` (for the dark theme).
 
 You can only include one of these themes at a time.
 
