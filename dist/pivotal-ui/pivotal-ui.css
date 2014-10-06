@@ -17114,6 +17114,25 @@ categories:
 */
 /*doc
 ---
+title: Inline Code Dark
+name: inline_code_dark
+parent: code
+---
+
+```html_example
+<p>This is an example of a paragraph with <code class="inline-dark">a dark inline code snippet</code> within it.</p>
+```
+
+*/
+/* line 128, ../../src/pivotal-ui/components/code.css.scss */
+.inline-dark {
+  background-color: #243640;
+  border-radius: 3px;
+  color: #f1c148;
+}
+
+/*doc
+---
 title: Terminal Window
 name: terminal_window
 parent: code
@@ -17152,21 +17171,21 @@ parent: code
 ```
 
 */
-/* line 157, ../../src/pivotal-ui/components/code.css.scss */
+/* line 175, ../../src/pivotal-ui/components/code.css.scss */
 .terminal {
   background-color: #d4d9d9;
   padding: 6px 10px 12px 10px;
   border-radius: 6px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 163, ../../src/pivotal-ui/components/code.css.scss */
+/* line 181, ../../src/pivotal-ui/components/code.css.scss */
 .terminal::before {
   content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
   color: #8d8e8e;
   font-size: 13px;
   font-family: FontAwesome;
 }
-/* line 170, ../../src/pivotal-ui/components/code.css.scss */
+/* line 188, ../../src/pivotal-ui/components/code.css.scss */
 .terminal pre[class*="language-"] {
   margin: 2px 0 0 0;
   border-radius: 3px;

@@ -112,6 +112,24 @@ categories:
 
 */
 
+/*doc
+---
+title: Inline Code Dark
+name: inline_code_dark
+parent: code
+---
+
+```html_example
+<p>This is an example of a paragraph with <code class="inline-dark">a dark inline code snippet</code> within it.</p>
+```
+
+*/
+
+.inline-dark {
+  background-color: $code-background-dark;
+  border-radius: $code-border-radius;
+  color: $code-color-dark;
+}
 
 /*doc
 ---
