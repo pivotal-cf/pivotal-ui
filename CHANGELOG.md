@@ -2,6 +2,17 @@
 
 ### Latest Changes
 
+Application dashboard removed
+
+upgrade_your_account widget deprecated
+
+.btn-alternate deprecated
+
+.boxBgBasic .boxDefault .boxHeadBranded deprecated
+
+.bkg-highlight-1 has been removed
+
+
 #### Dividers
 
 .divider-lowlight -> removed. Use .divider-n and .divider-alternate-n instead.

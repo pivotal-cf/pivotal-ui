@@ -19,15 +19,23 @@
         
           <li><a href="all.html">All</a></li>
         
-          <li><a href="css.html">CSS</a></li>
+          <li><a href="objects.html">Objects</a></li>
+        
+          <li><a href="elements.html">Elements</a></li>
+        
+          <li><a href="intro.html">Intro</a></li>
+        
+          <li><a href="utilities.html">Utilities</a></li>
         
           <li><a href="forms.html">Forms</a></li>
         
-          <li><a href="marketing-site.html">marketing-site</a></li>
-        
           <li><a href="javascript.html">JavaScript</a></li>
         
-          <li><a href="deprecated.html">Deprecated</a></li>
+          <li><a href="layout.html">Layout</a></li>
+        
+          <li><a href="console.html">Console</a></li>
+        
+          <li><a href="marketing_site.html">Marketing Site</a></li>
         
         </ul>
       </nav>
@@ -36,13 +44,19 @@
       <section class="content">
         <ul>
         
+          <li><a href="#forms">Forms</a></li>
+        
           <li><a href="#autoselect_text_input">Autoselect Text Input</a></li>
         
           <li><a href="#checkboxes">Checkboxes & Radios</a></li>
         
+          <li><a href="#contenteditable">ContentEditable</a></li>
+        
           <li><a href="#fancy-number">Fancy Number Input</a></li>
         
           <li><a href="#fancy-select">Fancy Select</a></li>
+        
+          <li><a href="#focus-input">Focus Input</a></li>
         
           <li><a href="#help_text">Help Text</a></li>
         
@@ -67,11 +81,32 @@
           <li><a href="#validation">Validation</a></li>
         
         </ul>
-<h1 id="autoselect_text_input" class="styleguide">Autoselect Text Input</h1>
+<h1 id="forms" class="styleguide">Forms</h1>
+
+<ul class="section-nav">
+  <li><a href="#input">Inputs & Labels</a></li>
+  <li><a href="#fancy-select">Fancy Select</a></li>
+  <li><a href="#fancy-number">Fancy Number Input</a></li>
+  <li><a href="#textarea">Text Area</a></li>
+  <li><a href="#checkboxes">Checkboxes & Radios</a></li>
+  <li><a href="#inline_forms">Inline Forms</a></li>
+  <li><a href="#inline_forms_with_labels">Inline Forms with Labels</a></li>
+  <li><a href="#html5_controls">HTML5 controls</a></li>
+  <li><a href="#selects">Selects</a></li>
+  <li><a href="#sizing">Sizing</a></li>
+  <li><a href="#help_text">Help Text</a></li>
+  <li><a href="#static_control">Static Control</a></li>
+  <li><a href="#static_controll">Vertical static controls</a></li>
+  <li><a href="#autoselect_text_input">Autoselect Text Input</a></li>
+  <li><a href="#focus-input">Focus Input</a></li>
+  <li><a href="#contenteditable">ContentEditable</a></li>
+</ul>
+
+<h2 id="autoselect_text_input" class="styleguide">Autoselect Text Input</h2>
 <p class="styleguide">This form is used to show information that a user may wish to copy and paste somewhere.</p><div class="codeExample"><div class="exampleOutput"><input class='auto-select form-control' data-behavior='AutoSelect' readonly='readonly' value='This should auto highlight'>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nc">.auto-select.form-control</span><span class="p">{</span><span class="ss">:value</span> <span class="o">=&gt;</span> <span class="s2">"This should auto highlight"</span><span class="p">,</span> <span class="s1">'data-behavior'</span> <span class="o">=&gt;</span> <span class="s1">'AutoSelect'</span><span class="p">,</span> <span class="ss">readonly: </span><span class="s1">'readonly'</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="checkboxes" class="styleguide">Checkboxes & Radios</h1>
+<h2 id="checkboxes" class="styleguide">Checkboxes & Radios</h2>
 <p class="styleguide">Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
 <h3>Default (stacked)</h3>
 <div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
@@ -171,7 +206,35 @@
       <span class="nt">%input</span><span class="nf">#inlineradio3</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"radio"</span><span class="p">,</span> <span class="ss">:value</span> <span class="o">=&gt;</span> <span class="s2">"option3"</span><span class="p">}</span>
         3
 </pre></div></div></div>
-<h1 id="fancy-number" class="styleguide">Fancy Number Input</h1>
+<h2 id="contenteditable" class="styleguide">ContentEditable</h2>
+<p class="styleguide">This form looks and behaves mostly like a contenteditable field</p><div class="codeExample"><div class="exampleOutput"><form class='form-contenteditable' name='newEditableForm' ng-class='{"saving": editText.saving, "editing": editText.editing}' ng-controller='FormContentEditableController' ng-submit='editText.save()'>
+  <label class='txt-c'>
+    <div class='form-group mbn'>
+      <span class='form-contenteditable-hint link-lowlight'>Hover text</span>
+      <h5 class='type-primary-4 showing-text'>Default text</h5>
+      <div class='saving-text'>Updating Text...</div>
+      <input class='form-control' name='name' ng-blur='editText.save()' ng-focus='editText.enterEditMode()' ng-model='editText.newModel.name' required='required' tabIndex='-1' type='text'>
+    </div>
+  </label>
+</form>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-contenteditable</span><span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'newEditableForm'</span><span class="p">,</span>
+                                 <span class="s2">"ng-controller"</span> <span class="o">=&gt;</span> <span class="s2">"FormContentEditableController"</span><span class="p">,</span>
+                                 <span class="s2">"ng-submit"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">,</span>
+                                 <span class="s2">"ng-class"</span><span class="o">=&gt;</span><span class="err">'</span><span class="p">{</span><span class="s2">"saving"</span><span class="p">:</span> <span class="n">editText</span><span class="p">.</span><span class="nf">saving</span><span class="p">,</span> <span class="s2">"editing"</span><span class="p">:</span> <span class="n">editText</span><span class="p">.</span><span class="nf">editing</span><span class="p">}</span>'}
+  <span class="nt">%label</span><span class="nc">.txt-c</span>
+    <span class="nc">.form-group.mbn</span>
+      <span class="nt">%span</span><span class="nc">.form-contenteditable-hint.link-lowlight</span> Hover text
+      <span class="nt">%h5</span><span class="nc">.type-primary-4.showing-text</span> Default text
+      <span class="nc">.saving-text</span> Updating Text...
+      <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">,</span>
+                          <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span>
+                          <span class="s2">"ng-model"</span> <span class="o">=&gt;</span> <span class="s2">"editText.newModel.name"</span><span class="p">,</span>
+                          <span class="s2">"tabIndex"</span> <span class="o">=&gt;</span> <span class="s2">"-1"</span><span class="p">,</span>
+                          <span class="ss">:required</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">,</span>
+                          <span class="s2">"ng-focus"</span> <span class="o">=&gt;</span> <span class="s1">'editText.enterEditMode()'</span><span class="p">,</span>
+                          <span class="s2">"ng-blur"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">}</span>
+</pre></div></div></div>
+<h2 id="fancy-number" class="styleguide">Fancy Number Input</h2>
 <p class="styleguide">This is a fancy number input!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' ng-cloak ng-controller='FancyNumberExampleCtrl' role='form' style='width: 200px'>
   <label for='#instances'>Instances</label>
   <div class='number-fancy' fancy-number ng-change='' ng-model='exampleModel.instances'>
@@ -197,7 +260,7 @@
         <span class="nt">%i</span><span class="nc">.fa.fa-minus</span>
 
 </pre></div></div></div>
-<h1 id="fancy-select" class="styleguide">Fancy Select</h1>
+<h2 id="fancy-select" class="styleguide">Fancy Select</h2>
 <p class="styleguide">This is a fancy select!</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form' style='width: 200px'>
   <label for='fancy-select'>Description</label>
   <div class='select-fancy'>
@@ -214,7 +277,21 @@
       <span class="nt">%option</span> Fancy Option 1
       <span class="nt">%option</span> Fancy Option 2
 </pre></div></div></div>
-<h1 id="help_text" class="styleguide">Help Text</h1>
+<h2 id="focus-input" class="styleguide">Focus Input</h2>
+<p class="styleguide">Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.</p><div class="codeExample"><div class="exampleOutput"><a ng-click='focus_input1=true; focus_input2=false;'>Focus input 1</a>
+<br>
+<a ng-click='focus_input2=true; focus_input1=false;'>Focus input 2</a>
+<br>
+<input focus-input='focus_input1'>
+<input focus-input='focus_input2'>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="p">{</span><span class="s2">"ng-click"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1=true; focus_input2=false;"</span><span class="p">}</span> Focus input 1
+<span class="nt">%br</span>
+<span class="nt">%a</span><span class="p">{</span><span class="s2">"ng-click"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2=true; focus_input1=false;"</span><span class="p">}</span> Focus input 2
+<span class="nt">%br</span>
+<span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1"</span><span class="p">}</span>
+<span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2"</span><span class="p">}</span>
+</pre></div></div></div>
+<h2 id="help_text" class="styleguide">Help Text</h2>
 <p class="styleguide">Help text
 Block level help text for form controls.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <input class='form-control' type='text'>
@@ -224,7 +301,7 @@ Block level help text for form controls.</p><div class="codeExample"><div class=
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
   <span class="nt">%span</span><span class="nc">.help-block</span> A block of help text that breaks onto a new line and may extend beyond one line.
 </pre></div></div></div>
-<h1 id="html5_controls" class="styleguide">HTML5 controls</h1>
+<h2 id="html5_controls" class="styleguide">HTML5 controls</h2>
 <p class="styleguide">Examples of standard form controls supported in an example form layout.</p><p class="styleguide">Inputs
 Most common form control, text-based input fields. Includes support for
 all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">password</code>, <code class="styleguide">datetime</code>, <code class="styleguide">datetime-local</code>,
@@ -280,7 +357,7 @@ all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.styleguide-form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Telephone"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"tel"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="inline_forms" class="styleguide">Inline Forms</h1>
+<h2 id="inline_forms" class="styleguide">Inline Forms</h2>
 <p class="styleguide">Add <code class="styleguide">.form-inline</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.</p>
 <div class="alert alert-warning">
 <h2 class="mtn">Requires custom widths</h2>
@@ -321,7 +398,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
       Remember me
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
-<h1 id="inline_forms_with_labels" class="styleguide">Inline Forms with Labels</h1>
+<h2 id="inline_forms_with_labels" class="styleguide">Inline Forms with Labels</h2>
 <p class="styleguide">Add <code class="styleguide">.form-inline.inline-labels</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls with labels inline with inputs.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form form-inline inline-labels' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail2'>Write a thing</label>
@@ -355,7 +432,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
       Remember me
   <span class="nt">%button</span><span class="nc">.btn.btn-primary</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"submit"</span><span class="p">}</span> Sign in
 </pre></div></div></div>
-<h1 id="input" class="styleguide">Inputs & Labels</h1>
+<h2 id="input" class="styleguide">Inputs & Labels</h2>
 <p class="styleguide">An input with the label top aligned (this is the default layout).</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleInputEmail1'>
@@ -417,7 +494,7 @@ layout by adding <code class="styleguide">.form-horizontal</code> to the form. D
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="p">{</span><span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"form"</span><span class="p">}</span>
   <span class="nt">%input</span><span class="nc">.unstyled</span><span class="p">{</span><span class="s2">"placeholder"</span> <span class="o">=&gt;</span> <span class="s2">"This is a text input"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="selects" class="styleguide">Selects</h1>
+<h2 id="selects" class="styleguide">Selects</h2>
 <p class="styleguide">Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
 them over a custom dropdown whenever possible. Their size can
@@ -434,7 +511,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nt">%option</span> an option
     <span class="nt">%option</span> another option
 </pre></div></div></div>
-<h1 id="sizing" class="styleguide">Sizing</h1>
+<h2 id="sizing" class="styleguide">Sizing</h2>
 <p class="styleguide">Set heights using classes like <code class="styleguide">.input-lg</code>, and set widths using grid column classes like <code class="styleguide">.col-lg-*</code>.</p>
 <h3>Height sizing</h3>
 <p class="styleguide">Create larger or smaller form controls that match button sizes.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
@@ -497,7 +574,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nc">.col-md-8</span>
       <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">".col-xs-4"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="static_control" class="styleguide">Static Control</h1>
+<h2 id="static_control" class="styleguide">Static Control</h2>
 <p class="styleguide">When you need to place plain text next to a form label within a horizontal form, use the <code class="styleguide">.form-control-static</code> class on a <code class="styleguide">&lt;p&gt;</code>.</p><div class="codeExample"><div class="exampleOutput"><form class='form-horizontal styleguide-form' role='form'>
   <div class='form-group'>
     <label class='col-md-4 control-label'>Email</label>
@@ -522,7 +599,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nc">.col-sm-10</span>
       <span class="nt">%input</span><span class="nf">#inputPassword</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Password"</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"password"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="static_controll" class="styleguide">Vertical static controls</h1>
+<h2 id="static_controll" class="styleguide">Vertical static controls</h2>
 <div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label class='control-label'>Email</label>
@@ -541,7 +618,7 @@ be changed via the <a class="styleguide" href="#control_sizing" title="#control_
     <span class="nt">%label</span><span class="nc">.control-label</span><span class="p">{</span><span class="ss">:for</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">}</span> Name
     <span class="nt">%input</span><span class="nf">#name</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">}</span>
 </pre></div></div></div>
-<h1 id="textarea" class="styleguide">Text Area</h1>
+<h2 id="textarea" class="styleguide">Text Area</h2>
 <p class="styleguide">Text areas are used for larger amounts of input.</p><div class="codeExample"><div class="exampleOutput"><form class='styleguide-form' role='form'>
   <div class='form-group'>
     <label for='exampleTextAreaId'>Description</label>

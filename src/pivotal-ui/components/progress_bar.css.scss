@@ -4,7 +4,7 @@ title: Progress Bars
 name: progress_bar
 categories:
   - All
-  - CSS
+  - Objects
 ---
 */
 
@@ -98,6 +98,10 @@ parent: progress_bar
 title: Animated
 name: animated_progress_bar
 parent: progress_bar
+categories:
+  - All
+  - Objects
+  - JavaScript
 ---
 
 Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).

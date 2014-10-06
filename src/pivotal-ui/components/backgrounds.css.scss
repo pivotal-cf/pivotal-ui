@@ -5,8 +5,7 @@ name: background
 parent: colors
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
 ---
 
 Background color classes can be applied to any element.
@@ -76,32 +75,6 @@ To modify this component to use a custom image, use an inline `background-image`
 }
 
 
-/*doc
----
-title: Deprecated Backgrounds
-name: deprecated_background
-parent: deprecated
----
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-highlight-1"></div>
-      <div class="chip-color-name">bkg-highlight-1</div>
-    </div>
-  </div>
-</div>
-
-*/
-.bkg-highlight-1 {
-  background-image: -webkit-gradient(
-      linear,
-      left bottom,
-      right top,
-      color-stop(1, rgb(99,173,167)),
-      color-stop(0, rgb(0, 119, 109))
-  );
-}
 
 
 

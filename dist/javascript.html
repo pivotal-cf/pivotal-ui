@@ -19,15 +19,23 @@
         
           <li><a href="all.html">All</a></li>
         
-          <li><a href="css.html">CSS</a></li>
+          <li><a href="objects.html">Objects</a></li>
+        
+          <li><a href="elements.html">Elements</a></li>
+        
+          <li><a href="intro.html">Intro</a></li>
+        
+          <li><a href="utilities.html">Utilities</a></li>
         
           <li><a href="forms.html">Forms</a></li>
         
-          <li><a href="marketing-site.html">marketing-site</a></li>
-        
           <li><a href="javascript.html">JavaScript</a></li>
         
-          <li><a href="deprecated.html">Deprecated</a></li>
+          <li><a href="layout.html">Layout</a></li>
+        
+          <li><a href="console.html">Console</a></li>
+        
+          <li><a href="marketing_site.html">Marketing Site</a></li>
         
         </ul>
       </nav>
@@ -36,19 +44,21 @@
       <section class="content">
         <ul>
         
-          <li><a href="#collapse">Collapse Toggle</a></li>
-        
-          <li><a href="#contenteditable">ContentEditable</a></li>
-        
-          <li><a href="#focus-input">Focus Input</a></li>
+          <li><a href="#gentle-scroll">Gentle Scroll Links</a></li>
         
           <li><a href="#hoverable">Hoverable</a></li>
         
           <li><a href="#instance scale">Instance Scale</a></li>
         
+          <li><a href="#list_addable">Addable List</a></li>
+        
+          <li><a href="#map">Map</a></li>
+        
           <li><a href="#modal">Modals</a></li>
         
           <li><a href="#no-js">No JavaScript</a></li>
+        
+          <li><a href="#animated_progress_bar">Animated</a></li>
         
           <li><a href="#table-js">JS Tables</a></li>
         
@@ -74,102 +84,20 @@
         
           <li><a href="#angular toggle">Angular Toggle</a></li>
         
+          <li><a href="#collapse">Collapse Toggle</a></li>
+        
           <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
         
           <li><a href="#tooltip">Tooltip</a></li>
         
         </ul>
-<h1 id="collapse" class="styleguide">Collapse Toggle</h1>
-<p class="styleguide">Also see the select tabs for a toggle triggered by a select group.
-This is frequently used in combination with our panel components.
-NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
- and the images jump around by a few pixels when they&#39;re toggled.</p><p class="styleguide">Simple Example:</p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
-  <div class='when-collapsed'>
-    Expand me
-  </div>
-  <div class='when-expanded'>
-    Collapse me
-  </div>
-</a>
-<div class='collapse' id='simple-collapse-example'>
-  Look at this content.
-</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
-  <span class="nc">.when-collapsed</span>
-    Expand me
-  <span class="nc">.when-expanded</span>
-    Collapse me
-<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
-  Look at this content.
-</pre></div></div></div><p class="styleguide">Panel Example</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
-  <div class='panel-heading collapse-trigger collapsed' data-parent='#accordion-1' data-toggle='collapse' href='#myCollapse-1'>
-    <div class='row'>
-      <div class='col-md-23'>
-        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
-    </div>
-  </div>
-  <div class='panel-collapse collapse' id='myCollapse-1'>
-    <div class='panel-body'>
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
-  <span class="nc">.panel-heading.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-1'</span><span class="p">}</span>, href: '#myCollapse-1'}
-    <span class="nc">.row</span>
-      <span class="nc">.col-md-23</span>
-        <span class="nt">%a</span>
-          <span class="nc">.when-collapsed-inline</span>&gt;
-            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
-          <span class="nc">.when-expanded-inline</span>&gt;
-            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
-        <span class="nt">%h3</span><span class="nc">.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
-  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
-    <span class="nc">.panel-body</span>
-      This content should hide and show when the trigger is clicked.
-</pre></div></div></div>
-<h1 id="contenteditable" class="styleguide">ContentEditable</h1>
-<p class="styleguide">This form looks and behaves mostly like a contenteditable field</p><div class="codeExample"><div class="exampleOutput"><form class='form-contenteditable' name='newEditableForm' ng-class='{"saving": editText.saving, "editing": editText.editing}' ng-controller='FormContentEditableController' ng-submit='editText.save()'>
-  <label class='txt-c'>
-    <div class='form-group mbn'>
-      <span class='form-contenteditable-hint link-lowlight'>Hover text</span>
-      <h5 class='type-primary-4 showing-text'>Default text</h5>
-      <div class='saving-text'>Updating Text...</div>
-      <input class='form-control' name='name' ng-blur='editText.save()' ng-focus='editText.enterEditMode()' ng-model='editText.newModel.name' required='required' tabIndex='-1' type='text'>
-    </div>
-  </label>
-</form>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%form</span><span class="nc">.form-contenteditable</span><span class="p">{</span><span class="s1">'name'</span> <span class="o">=&gt;</span> <span class="s1">'newEditableForm'</span><span class="p">,</span>
-                                 <span class="s2">"ng-controller"</span> <span class="o">=&gt;</span> <span class="s2">"FormContentEditableController"</span><span class="p">,</span>
-                                 <span class="s2">"ng-submit"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">,</span>
-                                 <span class="s2">"ng-class"</span><span class="o">=&gt;</span><span class="err">'</span><span class="p">{</span><span class="s2">"saving"</span><span class="p">:</span> <span class="n">editText</span><span class="p">.</span><span class="nf">saving</span><span class="p">,</span> <span class="s2">"editing"</span><span class="p">:</span> <span class="n">editText</span><span class="p">.</span><span class="nf">editing</span><span class="p">}</span>'}
-  <span class="nt">%label</span><span class="nc">.txt-c</span>
-    <span class="nc">.form-group.mbn</span>
-      <span class="nt">%span</span><span class="nc">.form-contenteditable-hint.link-lowlight</span> Hover text
-      <span class="nt">%h5</span><span class="nc">.type-primary-4.showing-text</span> Default text
-      <span class="nc">.saving-text</span> Updating Text...
-      <span class="nt">%input</span><span class="nc">.form-control</span><span class="p">{</span><span class="s2">"name"</span> <span class="o">=&gt;</span> <span class="s2">"name"</span><span class="p">,</span>
-                          <span class="s2">"type"</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span>
-                          <span class="s2">"ng-model"</span> <span class="o">=&gt;</span> <span class="s2">"editText.newModel.name"</span><span class="p">,</span>
-                          <span class="s2">"tabIndex"</span> <span class="o">=&gt;</span> <span class="s2">"-1"</span><span class="p">,</span>
-                          <span class="ss">:required</span> <span class="o">=&gt;</span> <span class="s2">"required"</span><span class="p">,</span>
-                          <span class="s2">"ng-focus"</span> <span class="o">=&gt;</span> <span class="s1">'editText.enterEditMode()'</span><span class="p">,</span>
-                          <span class="s2">"ng-blur"</span> <span class="o">=&gt;</span> <span class="s1">'editText.save()'</span><span class="p">}</span>
-</pre></div></div></div>
-<h1 id="focus-input" class="styleguide">Focus Input</h1>
-<p class="styleguide">Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.</p><div class="codeExample"><div class="exampleOutput"><a ng-click='focus_input1=true; focus_input2=false;'>Focus input 1</a>
-<br>
-<a ng-click='focus_input2=true; focus_input1=false;'>Focus input 2</a>
-<br>
-<input focus-input='focus_input1'>
-<input focus-input='focus_input2'>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="p">{</span><span class="s2">"ng-click"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1=true; focus_input2=false;"</span><span class="p">}</span> Focus input 1
-<span class="nt">%br</span>
-<span class="nt">%a</span><span class="p">{</span><span class="s2">"ng-click"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2=true; focus_input1=false;"</span><span class="p">}</span> Focus input 2
-<span class="nt">%br</span>
-<span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input1"</span><span class="p">}</span>
-<span class="nt">%input</span><span class="p">{</span><span class="s2">"focus-input"</span> <span class="o">=&gt;</span> <span class="s2">"focus_input2"</span><span class="p">}</span>
+<h1 id="gentle-scroll" class="styleguide">Gentle Scroll Links</h1>
+<p class="styleguide">If you want to gently scroll from one part of the page to another, you&#39;ll need to add
+a <code class="styleguide">data-behavior: GentleScroll</code> to the trigger element as well as an <code class="styleguide">href</code> for the
+id of the target it will scroll to.</p><div class="codeExample"><div class="exampleOutput"><a class='btn btn-default' data-behavior='GentleScroll' href='#scroll-target'>Scroll Trigger</a>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"GentleScroll"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#scroll-target"</span><span class="p">}</span> Scroll Trigger
+</pre></div></div></div><p class="styleguide">It can scroll to anything, in this case, we&#39;ll use a text input.</p><div class="codeExample"><div class="exampleOutput"><input class='form-control' id='scroll-target' placeholder='Scroll target' type='text'>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%input</span><span class="nf">#scroll-target</span><span class="nc">.form-control</span><span class="p">{</span><span class="ss">:type</span> <span class="o">=&gt;</span> <span class="s2">"text"</span><span class="p">,</span> <span class="ss">:placeholder</span> <span class="o">=&gt;</span> <span class="s2">"Scroll target"</span><span class="p">}</span>
 </pre></div></div></div>
 <h1 id="hoverable" class="styleguide">Hoverable</h1>
 <p class="styleguide">This component is for showing hidden actions on hover.
@@ -508,6 +436,155 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
+<h2 id="list_addable" class="styleguide">Addable List</h2>
+<p class="styleguide">New elements fade in</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group' id='list-group-adding-demo'>
+  <li class='list-group-item'>
+    item 1
+  </li>
+  <li class='list-group-item'>
+    item 2
+  </li>
+  <li class='list-group-item'>
+    item 3
+  </li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.list-group</span><span class="nf">#list-group-adding-demo</span>
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 1
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 2
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 3
+
+</pre></div></div></div><p class="styleguide"><a data-add-item-to="#list-group-adding-demo">Add an item</a></p>
+<h1 id="map" class="styleguide">Map</h1>
+<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<div class='map-wrapper'>
+  <div class='pane'>
+    <div class='container pan'>
+      <div class='row'>
+        <div class='col-sm-6 col-md-8 col-sm-offset-1'>
+          <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
+            <h3 class="h2">Location</h3>
+            <address class='h4 pvl'>Pivotal Software Inc.<br>
+              875 Howard Street<br>
+              San Francisco, CA 94103
+            </address>
+            <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
+            <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='pane pane-map'>
+    <div id='labs-map'></div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-wrapper'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
+              875 Howard Street<span class="nt">&lt;br&gt;</span>
+              San Francisco, CA 94103
+            <span class="nt">&lt;/address&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>var maps = (function() {
+  var self = this;
+  var map;
+
+  var mapOptions = {
+    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
+    center: new google.maps.LatLng(37.781787,-122.403911),
+    mapElementId: 'labs-map',
+    zoom: 18
+  };
+
+  var initialize = function() {
+    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
+      center: mapOptions.center,
+      zoom: mapOptions.zoom,
+      disableDefaultUI: true
+    });
+
+    var request = {
+      placeId: mapOptions.placeId
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, createMarker);
+  };
+
+  var createMarker = function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+  };
+
+  self.initialize = initialize;
+  return self;
+})();
+
+google.maps.event.addDomListener(window, 'load', maps.initialize);
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
+    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
+    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
+    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
+      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
+        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
+</pre></div></div>
 <h1 id="modal" class="styleguide">Modals</h1>
 <p class="styleguide">Modals do something worthwhile....
 ...
@@ -568,6 +645,59 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <h3>Javascript</h3>
 <p class="styleguide">Try disabling js and rendering this page.</p><div class="codeExample"><div class="exampleOutput"><h3 class='invisible-no-js'>Won't show if browser doesn't support JS.</h3>
 </div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%h3</span><span class="nc">.invisible-no-js</span> Won't show if browser doesn't support JS.
+</pre></div></div></div>
+<h2 id="animated_progress_bar" class="styleguide">Animated</h2>
+<p class="styleguide">Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
+In the haml, the width should be set to match the <code class="styleguide">aria-valuenow</code> if the progress bar isn&#39;t animated. If it is, it should be set to 0% initially.</p><div class="codeExample"><div class="exampleOutput"><div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='0' class='progress-bar progress-bar-animated' data-behavior='ProgressBar' role='progressbar'>
+    <div class='label'>
+      0%
+    </div>
+  </div>
+</div>
+<p>
+  0 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='60' class='progress-bar progress-bar-animated' data-behavior='ProgressBar' role='progressbar'>
+    <div class='label'>
+      60%
+    </div>
+  </div>
+</div>
+<p>
+  60 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='93' class='progress-bar progress-bar-animated' data-behavior='ProgressBar' role='progressbar'>
+    <div class='label'>
+      93%
+    </div>
+  </div>
+</div>
+<p>
+  93 MB of 100 MB Used
+</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.progress</span>
+  <span class="nc">.progress-bar.progress-bar-animated</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"ProgressBar"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      0%
+<span class="nt">%p</span>
+  0 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar.progress-bar-animated</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"60"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"ProgressBar"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      60%
+<span class="nt">%p</span>
+  60 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar.progress-bar-animated</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"93"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="s2">"data-behavior"</span> <span class="o">=&gt;</span> <span class="s2">"ProgressBar"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      93%
+<span class="nt">%p</span>
+  93 MB of 100 MB Used
 </pre></div></div></div>
 <h1 id="table-js" class="styleguide">JS Tables</h1>
 
@@ -1341,6 +1471,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
 <h1 id="toggle" class="styleguide">Toggle</h1>
 
 <ul class="section-nav">
+  <li><a href="#collapse">Collapse Toggle</a></li>
   <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
   <li><a href="#angular toggle">Angular Toggle</a></li>
 </ul>
@@ -1380,6 +1511,56 @@ We are making the assumption here that table-hover will <em>only</em> be used if
   <span class="nc">.state-content-secondary</span>
     This is the secondary content
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'toggleState()'</span><span class="p">}</span> Toggle State
+</pre></div></div></div>
+<h2 id="collapse" class="styleguide">Collapse Toggle</h2>
+<p class="styleguide">Also see the select tabs for a toggle triggered by a select group.
+This is frequently used in combination with our panel components.
+NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+ and the images jump around by a few pixels when they&#39;re toggled.</p><p class="styleguide">Simple Example:</p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
+  <div class='when-collapsed'>
+    Expand me
+  </div>
+  <div class='when-expanded'>
+    Collapse me
+  </div>
+</a>
+<div class='collapse' id='simple-collapse-example'>
+  Look at this content.
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
+  <span class="nc">.when-collapsed</span>
+    Expand me
+  <span class="nc">.when-expanded</span>
+    Collapse me
+<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
+  Look at this content.
+</pre></div></div></div><p class="styleguide">Panel Example</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
+  <div class='panel-heading collapse-trigger collapsed' data-parent='#accordion-1' data-toggle='collapse' href='#myCollapse-1'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-1'>
+    <div class='panel-body'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-1'</span><span class="p">}</span>, href: '#myCollapse-1'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body</span>
+      This content should hide and show when the trigger is clicked.
 </pre></div></div></div>
 <h2 id="data_behavior_toggle" class="styleguide">Data Behavior Toggle</h2>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>

@@ -1,18 +1,10 @@
 /*doc
 ---
 title: Grids
-name: grids-main
+name: grids
 categories:
   - All
-  - CSS
----
-*/
-
-/*doc
----
-title: Grids
-name: grids
-parent: grids-main
+  - Layout
 ---
 
 This library includes a responsive, mobile fluid grid system that appropriately
@@ -62,7 +54,7 @@ offsets, or responsiveness.
 ---
 title: Gutter Sizes
 name: gutter_sizes
-parent: grids-main
+parent: grids
 ---
 
 ```haml_example
@@ -100,7 +92,7 @@ parent: grids-main
 ---
 title: Responsive Grids
 name: grids_responsive
-parent: grids-main
+parent: grids
 ---
 
 Having trouble debugging grids? You have a couple options. You can checkout the [grids responsive documentation on the bootstrap site](http://getbootstrap.com/css/#grid-responsive-resets). It is more comprehensive than what we have here. You can also set `$grids-debug: true`. This will allow you to visualize the changes taking place at different device widths.

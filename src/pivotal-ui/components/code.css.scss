@@ -4,8 +4,7 @@ title: Code
 name: code
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Objects
 ---
 
 In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
@@ -102,6 +101,9 @@ Scrollable with too little content:
 title: Inline Code
 name: inline_code
 parent: code
+categories:
+  - All
+  - Elements
 ---
 
 ```html_example

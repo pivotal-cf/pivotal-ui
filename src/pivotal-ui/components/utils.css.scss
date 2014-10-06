@@ -6,6 +6,7 @@ name: no-js
 categories:
   - All
   - JavaScript
+  - Utilities
 ---
 ### Javascript
 
@@ -33,7 +34,7 @@ title: Print
 name: print
 categories:
   - All
-  - CSS
+  - Utilities
 ---
 
 ### Printing
@@ -52,8 +53,8 @@ Try printing this page to see these styles in action.
 /*doc
 ---
 title: Aligner
-name: aligner
-parent: grids-main
+name: vertical_aligner
+parent: grids
 ---
 
 Based on a [component by Philip Walton](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss),

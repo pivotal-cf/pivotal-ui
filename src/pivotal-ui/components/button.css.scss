@@ -4,8 +4,8 @@ title: Buttons
 name: button
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
+  - Intro
 ---
 
 Button styles can be applied to any element. Typically you'll want to
@@ -22,26 +22,6 @@ If your button is actually a link to another page, please use the
 a form or triggering some javascript event, then use a `<button>` element.
 
 */
-
-
-/*doc
----
-title: Button Sizes
-name: button_sizes
-parent: button
----
-
-There are two sizes for buttons: Large and default. Simply apply the
-size modifier class for the desired size.
-
-```html_example_table
-<button class="btn btn-primary btn-lg">Large</button>
-
-<button class="btn btn-primary">Default</button>
-```
-
-*/
-
 
 
 /*doc
@@ -79,7 +59,7 @@ Create block level buttons—those that span the full width of a parent— by ad
 /*doc
 ---
 title: Button Styles
-name: buttonSkins
+name: button_styles
 parent: button
 ---
 
@@ -128,35 +108,23 @@ Button                                                             | Disabled   
   @include button-shadow;
 }
 
-
-// Login page specific skins
-
 /*doc
 ---
-title: Login Button
-name: button_login
-parent: deprecated
+title: Button Sizes
+name: button_sizes
+parent: button
 ---
 
-There is a specific button style for the login pages:
+There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.
 
-```haml_example
-  %button.btn.btn-alternate.btn-lg Alternate Button
+```html_example_table
+<button class="btn btn-primary btn-lg">Large</button>
+
+<button class="btn btn-primary">Default</button>
 ```
 
-Do not use this button on normal application pages.
-
 */
-
-.btn-alternate {
-  @include button-skin-alternate($btn-alternate-color, $btn-alternate-bg, $btn-alternate-border);
-  background: #2281bc;
-  box-shadow: 0 2px 0 #196084;
-  border: 0 0 2px 0;
-  color: white;
-  font-weight: normal;
-  text-transform: none;
-}
 
 .btn-lg {
   // line-height: ensure even-numbered height of button next to large input

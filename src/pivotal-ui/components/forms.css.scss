@@ -1,10 +1,18 @@
 /*doc
 ---
-title: Inputs & Labels
-name: input
+title: Forms
+name: forms
 categories:
  - All
  - Forms
+---
+*/
+
+/*doc
+---
+title: Inputs & Labels
+name: input
+parent: forms
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -99,9 +107,7 @@ label {
 ---
 title: Fancy Select
 name: fancy-select
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This is a fancy select!
@@ -204,9 +210,7 @@ This is a fancy select!
 ---
 title: Fancy Number Input
 name: fancy-number
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This is a fancy number input!
@@ -283,9 +287,7 @@ This is a fancy number input!
 ---
 title: Text Area
 name: textarea
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Text areas are used for larger amounts of input.
@@ -303,9 +305,7 @@ Text areas are used for larger amounts of input.
 ---
 title: Checkboxes & Radios
 name: checkboxes
-categories:
- - All
- - Forms
+parent: forms
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -365,9 +365,7 @@ input[type="radio"] {
 ---
 title: Inline Forms
 name: inline_forms
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
@@ -404,9 +402,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
 ---
 title: Inline Forms with Labels
 name: inline_forms_with_labels
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
@@ -441,9 +437,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 ---
 title: HTML5 controls
 name: html5_controls
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Examples of standard form controls supported in an example form layout.
@@ -609,7 +603,7 @@ input.ng-invalid.ng-dirty {
 ---
 title: Disabled Inputs
 name: disabled
-parent: validation
+parent: forms
 ---
 ### Disabled Inputs
 
@@ -634,9 +628,7 @@ Inputs will occasionally need to be disabled. You can do that by adding the `dis
 ---
 title: Selects
 name: selects
-categories:
- - All
- - Forms
+parent: forms
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -656,9 +648,7 @@ be changed via the [control sizing options](#control_sizing).
 ---
 title: Sizing
 name: sizing
-categories:
- - All
- - Forms
+parent: forms
 ---
 Set heights using classes like `.input-lg`, and set widths using grid column classes like `.col-lg-*`.
 
@@ -706,9 +696,7 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 ---
 title: Help Text
 name: help_text
-categories:
- - All
- - Forms
+parent: forms
 ---
 Help text
 Block level help text for form controls.
@@ -725,9 +713,7 @@ Block level help text for form controls.
 ---
 title: Static Control
 name: static_control
-categories:
- - All
- - Forms
+parent: forms
 ---
 When you need to place plain text next to a form label within a horizontal form, use the `.form-control-static` class on a `<p>`.
 
@@ -749,9 +735,7 @@ When you need to place plain text next to a form label within a horizontal form,
 ---
 title: Vertical static controls
 name: static_controll
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 ```haml_example
@@ -795,9 +779,7 @@ p.form-control-static {
 ---
 title: Autoselect Text Input
 name: autoselect_text_input
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
@@ -816,9 +798,7 @@ This form is used to show information that a user may wish to copy and paste som
 ---
 title: Focus Input
 name: focus-input
-categories:
-  - All
-  - JavaScript
+parent: forms
 ---
 
 Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
@@ -838,9 +818,7 @@ Add the focus-input directive to an element that should be focused if the focus-
 ---
 title: ContentEditable
 name: contenteditable
-categories:
-  - All
-  - JavaScript
+parent: forms
 ---
 
 This form looks and behaves mostly like a contenteditable field

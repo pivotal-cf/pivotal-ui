@@ -8418,6 +8418,7 @@ name: no-js
 categories:
   - All
   - JavaScript
+  - Utilities
 ---
 ### Javascript
 
@@ -8428,12 +8429,12 @@ Try disabling js and rendering this page.
 ```
 
 */
-/* line 20, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 21, ../../src/pivotal-ui/components/utils.css.scss */
 .no-js .invisible-no-js {
   visibility: hidden;
 }
 
-/* line 26, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 27, ../../src/pivotal-ui/components/utils.css.scss */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
@@ -8444,7 +8445,7 @@ title: Print
 name: print
 categories:
   - All
-  - CSS
+  - Utilities
 ---
 
 ### Printing
@@ -8456,7 +8457,7 @@ Try printing this page to see these styles in action.
 ```
 
 */
-/* line 48, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 49, ../../src/pivotal-ui/components/utils.css.scss */
 .print-only {
   display: none;
 }
@@ -8464,8 +8465,8 @@ Try printing this page to see these styles in action.
 /*doc
 ---
 title: Aligner
-name: aligner
-parent: grids-main
+name: vertical_aligner
+parent: grids
 ---
 
 Based on a [component by Philip Walton](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss),
@@ -8488,7 +8489,7 @@ Currently set to 230px as required by the space cards.
 ```
 
 */
-/* line 79, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 80, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner {
   display: flex;
   align-items: center;
@@ -8496,26 +8497,26 @@ Currently set to 230px as required by the space cards.
   height: 200px;
 }
 @supports not (-ms-flex: 1) {
-  /* line 79, ../../src/pivotal-ui/components/utils.css.scss */
+  /* line 80, ../../src/pivotal-ui/components/utils.css.scss */
   .aligner {
     height: auto;
     min-height: 200px;
   }
 }
-/* line 94, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 95, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item {
   max-width: 50%;
 }
-/* line 99, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 100, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item-top {
   align-self: flex-start;
 }
-/* line 103, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 104, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item-bottom {
   align-self: flex-end;
 }
 
-/* line 108, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 109, ../../src/pivotal-ui/components/utils.css.scss */
 .Demo {
   width: 100%;
   padding: .8em 1em 0;
@@ -8530,8 +8531,9 @@ title: Colors
 name: colors
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Intro
+  - Elements
+  - Utilities
 ---
 
 Our color pallet is composed of several different colors. At any given point in captures the current
@@ -8539,16 +8541,8 @@ evolution of our design and likely includes old and new colors. Whenever possibl
 colors rather than adding new ones.
 
 
-*/
-/*doc
----
-title: Sass Colors
-name: sass_colors
-parent: colors
----
-
 <div class="alert alert-warning alert-dismissable">
-  These variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+  Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
   directly when building components, because it makes
   it very hard to change the values later if you can't tell how they might have been used.
    You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
@@ -8951,162 +8945,162 @@ $tabs-active-bg-color: $gray-2;
 </div>
 
 */
-/* line 430, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 422, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-1 {
   background-color: #282828;
 }
 
-/* line 433, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 425, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-2 {
   background-color: #424242;
 }
 
-/* line 436, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 428, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-3 {
   background-color: #686868;
 }
 
-/* line 439, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 431, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-4 {
   background-color: #8d8e8e;
 }
 
-/* line 442, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 434, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-5 {
   background-color: #b4b4b4;
 }
 
-/* line 445, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 437, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-6 {
   background-color: #c3c5c7;
 }
 
-/* line 448, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 440, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-7 {
   background-color: #d4d9d9;
 }
 
-/* line 451, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 443, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-8 {
   background-color: #e0e4e5;
 }
 
-/* line 454, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 446, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-9 {
   background-color: #ecefef;
 }
 
-/* line 457, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 449, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-10 {
   background-color: #F8F8F8;
 }
 
-/* line 460, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 452, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-neutral-11 {
   background-color: white;
 }
 
-/* line 465, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 457, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-1 {
   background-color: #025a53;
 }
 
-/* line 469, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 461, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-2 {
   background-color: #00776d;
 }
 
-/* line 473, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 465, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-3 {
   background-color: #00a79d;
 }
 
-/* line 477, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 469, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-4 {
   background-color: #92d0c0;
 }
 
-/* line 481, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 473, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-brand-5 {
   background-color: #71ffda;
 }
 
-/* line 487, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 479, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-1 {
   background-color: #1a739e;
 }
 
-/* line 491, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 483, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-2 {
   background-color: #2185c5;
 }
 
-/* line 495, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 487, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-3 {
   background-color: #49a8d5;
 }
 
-/* line 499, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 491, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-4 {
   background-color: #a7c9e0;
 }
 
-/* line 503, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 495, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-accent-5 {
   background-color: #c3f4ff;
 }
 
-/* line 509, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 501, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-1 {
   background-color: #243640;
 }
 
-/* line 513, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 505, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-2 {
   background-color: #3f484f;
 }
 
-/* line 517, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 509, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-dark-3 {
   background-color: #525c63;
 }
 
-/* line 522, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 514, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-1 {
   background-color: #b31612;
 }
 
-/* line 526, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 518, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-2 {
   background-color: #eb3d46;
 }
 
-/* line 530, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 522, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-3 {
   background-color: #ff434c;
 }
 
-/* line 534, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 526, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-error-4 {
   background-color: #febfc1;
 }
 
-/* line 539, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 531, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-warn-1 {
   background-color: #f1c148;
 }
 
-/* line 543, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 535, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-warn-2 {
   background-color: #f8e1b1;
 }
 
-/* line 548, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 540, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-success-1 {
   background-color: #165450;
 }
 
-/* line 552, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 544, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-success-2 {
   background-color: #AFD79B;
 }
@@ -9166,37 +9160,37 @@ parent: colors
 </div>
 </div>
 */
-/* line 614, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 606, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-1 {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* line 618, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 610, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-2 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* line 622, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 614, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-3 {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* line 626, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 618, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-glow-4 {
   background-color: rgba(255, 255, 255, 0.6);
 }
 
-/* line 630, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 622, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-1 {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* line 634, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 626, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-2 {
   background-color: rgba(0, 0, 0, 0.14);
 }
 
-/* line 638, ../../src/pivotal-ui/components/colors.css.scss */
+/* line 630, ../../src/pivotal-ui/components/colors.css.scss */
 .bg-shadow-3 {
   background-color: rgba(0, 0, 0, 0.07);
 }
@@ -9208,8 +9202,7 @@ name: background
 parent: colors
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
 ---
 
 Background color classes can be applied to any element.
@@ -9230,12 +9223,12 @@ Background color classes can be applied to any element.
 </div>
 
 */
-/* line 31, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 30, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bg-cloud {
   background: #F8F8F8 url("../images/gray-cloud.png") no-repeat 50% 50%;
 }
 
-/* line 35, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 34, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bg-glow {
   background: radial-gradient(at bottom center at bottom center, #4b6475 0%, #243640 60%);
 }
@@ -9267,7 +9260,7 @@ To modify this component to use a custom image, use an inline `background-image`
 </div>
 ```
 */
-/* line 68, ../../src/pivotal-ui/components/backgrounds.css.scss */
+/* line 67, ../../src/pivotal-ui/components/backgrounds.css.scss */
 .bg-full-bleed {
   background-image: url(../images/aboutus-hero.png);
   background-repeat: no-repeat;
@@ -9280,33 +9273,11 @@ To modify this component to use a custom image, use an inline `background-image`
 
 /*doc
 ---
-title: Deprecated Backgrounds
-name: deprecated_background
-parent: deprecated
----
-
-<div class="row mvxl">
-  <div class="col-md-4">
-    <div class="chip">
-      <div class="chip-color bkg-highlight-1"></div>
-      <div class="chip-color-name">bkg-highlight-1</div>
-    </div>
-  </div>
-</div>
-
-*/
-/* line 96, ../../src/pivotal-ui/components/backgrounds.css.scss */
-.bkg-highlight-1 {
-  background-image: -webkit-gradient(linear, left bottom, right top, color-stop(1, #63ada7), color-stop(0, #00776d));
-}
-
-/*doc
----
 title: Whitespace
 name: whitespace
 categories:
   - All
-  - CSS
+  - Utilities
 ---
 */
 /*doc
@@ -10523,7 +10494,10 @@ n, s, m, l, xl, xxl, xxxl, xxxxl | none(0px), small(5px), medium(7px), large(10p
 ---
 title: List Spacing
 name: list-whitespace
-parent: whitespace
+parent: lists
+categories:
+  - All
+  - Utilities
 ---
 
 Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.
@@ -10722,8 +10696,8 @@ title: Typography
 name: type
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
+  - Intro
 ---
 
 */
@@ -10844,6 +10818,11 @@ small,
 title: Type Modifiers
 name: type-modifiers
 parent: type
+categories:
+  - All
+  - Elements
+  - Utilities
+  - Intro
 ---
 
 ```haml_example
@@ -10855,27 +10834,27 @@ parent: type
 ```
 
 */
-/* line 132, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 137, ../../src/pivotal-ui/components/typography.css.scss */
 .em-low {
   font-weight: 200 !important;
 }
 
-/* line 133, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 138, ../../src/pivotal-ui/components/typography.css.scss */
 .em-default {
   font-weight: 400 !important;
 }
 
-/* line 134, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 139, ../../src/pivotal-ui/components/typography.css.scss */
 .em-high {
   font-weight: 600 !important;
 }
 
-/* line 135, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 140, ../../src/pivotal-ui/components/typography.css.scss */
 .em-max {
   font-weight: 900 !important;
 }
 
-/* line 136, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 141, ../../src/pivotal-ui/components/typography.css.scss */
 .em-alt {
   text-transform: uppercase !important;
 }
@@ -10885,6 +10864,11 @@ parent: type
 title: Type Colors
 name: type-colors
 parent: type
+categories:
+  - All
+  - Elements
+  - Utilities
+  - Intro
 ---
 
 ```haml_example
@@ -10931,177 +10915,177 @@ parent: type
 ```
 
 */
-/* line 192, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 202, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-1 {
   color: #282828;
 }
 
-/* line 193, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 203, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-2 {
   color: #424242;
 }
 
-/* line 194, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 204, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-3 {
   color: #686868;
 }
 
-/* line 195, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 205, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-4 {
   color: #8d8e8e;
 }
 
-/* line 196, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 206, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-5 {
   color: #b4b4b4;
 }
 
-/* line 197, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 207, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-6 {
   color: #c3c5c7;
 }
 
-/* line 198, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 208, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-7 {
   color: #d4d9d9;
 }
 
-/* line 199, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 209, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-8 {
   color: #e0e4e5;
 }
 
-/* line 200, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 210, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-9 {
   color: #ecefef;
 }
 
-/* line 201, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 211, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-10 {
   color: #F8F8F8;
 }
 
-/* line 202, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 212, ../../src/pivotal-ui/components/typography.css.scss */
 .type-neutral-11 {
   color: white;
 }
 
-/* line 206, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 216, ../../src/pivotal-ui/components/typography.css.scss */
 .type-dark-1 {
   color: #243640;
 }
 
-/* line 207, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 217, ../../src/pivotal-ui/components/typography.css.scss */
 .type-dark-2 {
   color: #3f484f;
 }
 
-/* line 208, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 218, ../../src/pivotal-ui/components/typography.css.scss */
 .type-dark-3 {
   color: #525c63;
 }
 
-/* line 212, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 222, ../../src/pivotal-ui/components/typography.css.scss */
 .type-brand-1 {
   color: #025a53;
 }
 
-/* line 213, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 223, ../../src/pivotal-ui/components/typography.css.scss */
 .type-brand-2 {
   color: #00776d;
 }
 
-/* line 214, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 224, ../../src/pivotal-ui/components/typography.css.scss */
 .type-brand-3 {
   color: #00a79d;
 }
 
-/* line 215, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 225, ../../src/pivotal-ui/components/typography.css.scss */
 .type-brand-4 {
   color: #92d0c0;
 }
 
-/* line 216, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 226, ../../src/pivotal-ui/components/typography.css.scss */
 .type-brand-5 {
   color: #71ffda;
 }
 
-/* line 220, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 230, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-1 {
   color: #1a739e;
 }
 
-/* line 221, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 231, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-2 {
   color: #2185c5;
 }
 
-/* line 222, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 232, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-3 {
   color: #49a8d5;
 }
 
-/* line 223, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 233, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-4 {
   color: #a7c9e0;
 }
 
-/* line 224, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 234, ../../src/pivotal-ui/components/typography.css.scss */
 .type-accent-5 {
   color: #c3f4ff;
 }
 
-/* line 228, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 238, ../../src/pivotal-ui/components/typography.css.scss */
 .type-error-1 {
   color: #b31612;
 }
 
-/* line 229, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 239, ../../src/pivotal-ui/components/typography.css.scss */
 .type-error-2 {
   color: #eb3d46;
 }
 
-/* line 230, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 240, ../../src/pivotal-ui/components/typography.css.scss */
 .type-error-3 {
   color: #ff434c;
 }
 
-/* line 231, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 241, ../../src/pivotal-ui/components/typography.css.scss */
 .type-error-4 {
   color: #febfc1;
 }
 
-/* line 235, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 245, ../../src/pivotal-ui/components/typography.css.scss */
 .type-warn-1 {
   color: #f1c148;
 }
 
-/* line 236, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 246, ../../src/pivotal-ui/components/typography.css.scss */
 .type-warn-2 {
   color: #f8e1b1;
 }
 
-/* line 240, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 250, ../../src/pivotal-ui/components/typography.css.scss */
 .type-success-1 {
   color: #165450;
 }
 
-/* line 241, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 251, ../../src/pivotal-ui/components/typography.css.scss */
 .type-success-2 {
   color: #AFD79B;
 }
 
-/* line 243, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 253, ../../src/pivotal-ui/components/typography.css.scss */
 .type-inverse {
   color: #e0e4e5 !important;
 }
 
-/* line 246, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 256, ../../src/pivotal-ui/components/typography.css.scss */
 a:hover.type-inverse {
   color: #025a53 !important;
 }
 
-/* line 250, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 260, ../../src/pivotal-ui/components/typography.css.scss */
 .error-color {
   color: #ff434c !important;
 }
@@ -11111,6 +11095,11 @@ a:hover.type-inverse {
 title: Type Alignment
 name: type_alignment
 parent: type
+categories:
+  - All
+  - Elements
+  - Utilities
+  - Intro
 ---
 
 Alignment classes can be used to align text top, bottom, middle or left, right, center.
@@ -11125,32 +11114,32 @@ Class                 | Description
 `.txt-m`              | Centers text vertically
 
 */
-/* line 274, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 289, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-c, table .txt-c, table tr .txt-c, table tr td.txt-c {
   text-align: center;
 }
 
-/* line 278, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 293, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-l, table .txt-l, table tr .txt-l, table tr td.txt-l {
   text-align: left;
 }
 
-/* line 282, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 297, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-r, table .txt-r, table tr .txt-r, table tr td.txt-r {
   text-align: right;
 }
 
-/* line 286, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 301, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-t, table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
   vertical-align: top;
 }
 
-/* line 290, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 305, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-b, table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
   vertical-align: bottom;
 }
 
-/* line 294, ../../src/pivotal-ui/components/typography.css.scss */
+/* line 309, ../../src/pivotal-ui/components/typography.css.scss */
 .txt-m, table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
   vertical-align: middle;
 }
@@ -11161,7 +11150,7 @@ title: Iconography
 name: iconography
 categories:
   - All
-  - CSS
+  - Elements
 ---
 
 We use Font Awesome for scalable vector icons that can be customized — size, color, drop shadow,
@@ -11201,8 +11190,8 @@ title: Buttons
 name: button
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
+  - Intro
 ---
 
 Button styles can be applied to any element. Typically you'll want to
@@ -11217,23 +11206,6 @@ use either a `<button>` or an `<a>` element:
 If your button is actually a link to another page, please use the
 `<a>` element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a `<button>` element.
-
-*/
-/*doc
----
-title: Button Sizes
-name: button_sizes
-parent: button
----
-
-There are two sizes for buttons: Large and default. Simply apply the
-size modifier class for the desired size.
-
-```html_example_table
-<button class="btn btn-primary btn-lg">Large</button>
-
-<button class="btn btn-primary">Default</button>
-```
 
 */
 /*doc
@@ -11254,12 +11226,12 @@ Create block level buttons—those that span the full width of a parent— by ad
 ```
 
 */
-/* line 66, ../../src/pivotal-ui/components/button.css.scss */
+/* line 46, ../../src/pivotal-ui/components/button.css.scss */
 .btn {
   font-weight: 900;
   padding: 5px 15px;
 }
-/* line 70, ../../src/pivotal-ui/components/button.css.scss */
+/* line 50, ../../src/pivotal-ui/components/button.css.scss */
 .btn.disabled, .btn[disabled], fieldset[disabled] .btn {
   cursor: not-allowed;
   pointer-events: none;
@@ -11269,7 +11241,7 @@ Create block level buttons—those that span the full width of a parent— by ad
 /*doc
 ---
 title: Button Styles
-name: buttonSkins
+name: button_styles
 parent: button
 ---
 
@@ -11283,7 +11255,7 @@ Button                                                             | Disabled   
 <button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
 <button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
 */
-/* line 97, ../../src/pivotal-ui/components/button.css.scss */
+/* line 77, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default {
   color: #2185c5;
   background-color: rgba(255, 255, 255, 0.4);
@@ -11317,7 +11289,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 101, ../../src/pivotal-ui/components/button.css.scss */
+/* line 81, ../../src/pivotal-ui/components/button.css.scss */
 .btn-default-alt {
   color: #2185c5;
   background-color: #F8F8F8;
@@ -11356,7 +11328,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 106, ../../src/pivotal-ui/components/button.css.scss */
+/* line 86, ../../src/pivotal-ui/components/button.css.scss */
 .btn-primary {
   color: #2185c5;
   background-color: white;
@@ -11395,7 +11367,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 111, ../../src/pivotal-ui/components/button.css.scss */
+/* line 91, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight {
   color: #e0e4e5;
   background-color: #2185c5;
@@ -11434,7 +11406,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 116, ../../src/pivotal-ui/components/button.css.scss */
+/* line 96, ../../src/pivotal-ui/components/button.css.scss */
 .btn-highlight-alt {
   color: white;
   background-color: #00a79d;
@@ -11473,7 +11445,7 @@ Button                                                             | Disabled   
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* line 121, ../../src/pivotal-ui/components/button.css.scss */
+/* line 101, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lowlight {
   color: #686868;
   background-color: transparent;
@@ -11507,7 +11479,7 @@ Button                                                             | Disabled   
   color: #b4b4b4;
 }
 
-/* line 126, ../../src/pivotal-ui/components/button.css.scss */
+/* line 106, ../../src/pivotal-ui/components/button.css.scss */
 .btn-danger {
   color: #e0e4e5;
   background-color: #ff434c;
@@ -11548,55 +11520,22 @@ Button                                                             | Disabled   
 
 /*doc
 ---
-title: Login Button
-name: button_login
-parent: deprecated
+title: Button Sizes
+name: button_sizes
+parent: button
 ---
 
-There is a specific button style for the login pages:
+There are two sizes for buttons: Large and default. Simply apply the
+size modifier class for the desired size.
 
-```haml_example
-  %button.btn.btn-alternate.btn-lg Alternate Button
+```html_example_table
+<button class="btn btn-primary btn-lg">Large</button>
+
+<button class="btn btn-primary">Default</button>
 ```
 
-Do not use this button on normal application pages.
-
 */
-/* line 151, ../../src/pivotal-ui/components/button.css.scss */
-.btn-alternate {
-  color: #eee;
-  background-color: #1b92cb;
-  background: #2281bc;
-  box-shadow: 0 2px 0 #196084;
-  border: 0 0 2px 0;
-  color: white;
-  font-weight: normal;
-  text-transform: none;
-}
-/* line 71, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-alternate:hover, .btn-alternate:focus, .btn-alternate:active, .btn-alternate.active {
-  color: #eee;
-  background-color: #1675a2;
-}
-/* line 78, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-alternate.dropdown-toggle {
-  color: #eee;
-  background-color: #1678a7;
-}
-/* line 82, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-alternate:active, .btn-alternate.active {
-  background-image: none;
-}
-/* line 86, ../../src/pivotal-ui/components/mixins.css.scss */
-.open .btn-alternate.dropdown-toggle {
-  background-image: none;
-}
-/* line 92, ../../src/pivotal-ui/components/mixins.css.scss */
-.btn-alternate.disabled, .btn-alternate.disabled:hover, .btn-alternate.disabled:focus, .btn-alternate.disabled:active, .btn-alternate.disabled.active, .btn-alternate[disabled], .btn-alternate[disabled]:hover, .btn-alternate[disabled]:focus, .btn-alternate[disabled]:active, .btn-alternate[disabled].active, fieldset[disabled] .btn-alternate, fieldset[disabled] .btn-alternate:hover, fieldset[disabled] .btn-alternate:focus, fieldset[disabled] .btn-alternate:active, fieldset[disabled] .btn-alternate.active {
-  background-color: #1b92cb;
-}
-
-/* line 161, ../../src/pivotal-ui/components/button.css.scss */
+/* line 129, ../../src/pivotal-ui/components/button.css.scss */
 .btn-lg, .btn-group-lg > .btn {
   padding: 10px 26px;
   font-size: 19px;
@@ -11610,8 +11549,8 @@ title: Links
 name: link
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Intro
+  - Elements
 ---
 
 There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.
@@ -11669,7 +11608,10 @@ a:hover {
 ---
 title: Gentle Scroll Links
 name: gentle-scroll
-parent: link
+categories:
+  - All
+  - JavaScript
+  - Utilities
 ---
 
 If you want to gently scroll from one part of the page to another, you'll need to add
@@ -11688,17 +11630,10 @@ It can scroll to anything, in this case, we'll use a text input.
 /*doc
 ---
 title: Grids
-name: grids-main
+name: grids
 categories:
   - All
-  - CSS
----
-*/
-/*doc
----
-title: Grids
-name: grids
-parent: grids-main
+  - Layout
 ---
 
 This library includes a responsive, mobile fluid grid system that appropriately
@@ -11747,7 +11682,7 @@ offsets, or responsiveness.
 ---
 title: Gutter Sizes
 name: gutter_sizes
-parent: grids-main
+parent: grids
 ---
 
 ```haml_example
@@ -11784,36 +11719,36 @@ parent: grids-main
 ---
 title: Responsive Grids
 name: grids_responsive
-parent: grids-main
+parent: grids
 ---
 
 Having trouble debugging grids? You have a couple options. You can checkout the [grids responsive documentation on the bootstrap site](http://getbootstrap.com/css/#grid-responsive-resets). It is more comprehensive than what we have here. You can also set `$grids-debug: true`. This will allow you to visualize the changes taking place at different device widths.
 
 */
-/* line 110, ../../src/pivotal-ui/components/grids.css.scss */
+/* line 102, ../../src/pivotal-ui/components/grids.css.scss */
 .row-gutter-sm {
   margin-left: -2px;
   margin-right: -2px;
 }
-/* line 114, ../../src/pivotal-ui/components/grids.css.scss */
+/* line 106, ../../src/pivotal-ui/components/grids.css.scss */
 .row-gutter-sm > [class^="col"] {
   padding-left: 2px;
   padding-right: 2px;
 }
 
-/* line 120, ../../src/pivotal-ui/components/grids.css.scss */
+/* line 112, ../../src/pivotal-ui/components/grids.css.scss */
 .row-gutter-md {
   margin-left: -5px;
   margin-right: -5px;
 }
-/* line 124, ../../src/pivotal-ui/components/grids.css.scss */
+/* line 116, ../../src/pivotal-ui/components/grids.css.scss */
 .row-gutter-md > [class^="col"] {
   padding-left: 5px;
   padding-right: 5px;
 }
 
 @media (min-width: 1800px) {
-  /* line 139, ../../src/pivotal-ui/components/grids.css.scss */
+  /* line 131, ../../src/pivotal-ui/components/grids.css.scss */
   .container {
     width: 1760px;
   }
@@ -12309,7 +12244,7 @@ title: Media
 name: media
 categories:
   - All
-  - CSS
+  - Layout
 ---
 
 The default media allow to float a media object (images, video, audio) to the left or right of a content block.
@@ -12412,7 +12347,7 @@ title: Table
 name: table
 categories:
   - All
-  - CSS
+  - Objects
 ---
 
 Class                 | Description
@@ -13228,7 +13163,7 @@ title: Panels
 name: panel
 categories:
   - All
-  - CSS
+  - Objects
 ---
 
 Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
@@ -13816,47 +13751,13 @@ parent: panel
   text-transform: uppercase;
 }
 
-/* line 6, ../../src/pivotal-ui/components/box.css.scss */
-.boxBgBasic {
-  background-color: #eee;
-}
-
-/* line 13, ../../src/pivotal-ui/components/box.css.scss */
-.boxDefault {
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-  border: none;
-}
-
-/* line 22, ../../src/pivotal-ui/components/box.css.scss */
-.box .boxHeadBranded {
-  background: #64AEA8;
-  text-transform: uppercase;
-  font-family: "freight-sans-pro", sans-serif;
-  font-weight: 300;
-  font-size: 24px;
-  color: #eee;
-  padding: 21px 0 10px 87px;
-  position: relative;
-}
-/* line 32, ../../src/pivotal-ui/components/box.css.scss */
-.box .boxHeadBranded:before {
-  content: "";
-  display: block;
-  background: #00776D url("../images/p-logo.png") no-repeat center center;
-  height: 100%;
-  min-width: 65px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 /*doc
 ---
 title: Alerts
 name: alert
 categories:
   - All
-  - CSS
+  - Objects
 ---
 
 Alerts are used to display flash messages to the user.
@@ -13961,8 +13862,8 @@ title: Dividers
 name: divider
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
+  - Intro
 ---
 
 Dividers draw horizontal lines between different content groupings.
@@ -14015,7 +13916,7 @@ title: Lists
 name: lists
 categories:
   - All
-  - CSS
+  - Elements
 ---
 */
 /*doc
@@ -14023,6 +13924,10 @@ categories:
 title: Inline List
 name: list-inline
 parent: lists
+categories:
+  - All
+  - Layout
+  - Elements
 ---
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
@@ -14037,11 +13942,11 @@ An inline list is one of the three methods for laying out content (including gri
     meep
 ```
 */
-/* line 32, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 36, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline, .list-inline-divider, .list-vertical-divider, .list-vertical-divider-2, .list-breadcrumb, .list-steps {
   font-size: 0;
 }
-/* line 34, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 38, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline > li, .list-inline-divider > li, .list-vertical-divider > li, .list-vertical-divider-2 > li, .list-breadcrumb > li, .list-steps > li {
   font-size: 16px;
 }
@@ -14071,27 +13976,6 @@ name: list-unordered
 parent: lists
 ---
 
-This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
-
-```haml_example
-%ul
-  %li
-    feep
-  %li
-    fop
-  %li
-    meep
-```
-*/
-/*doc
----
-title: Unordered List 2
-name: list-unordered-2
-parent: lists
----
-
-This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
-
 ```haml_example
 %ul.list-unordered
   %li
@@ -14102,11 +13986,11 @@ This is a basic list that depends largely on browser defaults. You may want to u
     meep
 ```
 */
-/* line 98, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 80, ../../src/pivotal-ui/components/lists.css.scss */
 .list-unordered {
   padding-left: 0;
 }
-/* line 100, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 82, ../../src/pivotal-ui/components/lists.css.scss */
 .list-unordered > li {
   margin-left: 17px;
 }
@@ -14135,7 +14019,6 @@ Places all list items on a single line with `display: inline-block;` and some li
 title: Inline Divider List
 name: list-inline-divider
 parent: lists
-category: marketing-site
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
@@ -14162,12 +14045,12 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 
 ```
 */
-/* line 161, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 142, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline-divider > li:not(:first-child), .list-vertical-divider > li:not(:first-child), .list-vertical-divider-2 > li:not(:first-child) {
   border-left: 1px solid #b4b4b4;
 }
 
-/* line 161, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 142, ../../src/pivotal-ui/components/lists.css.scss */
 .list-inline-divider-light > li:not(:first-child) {
   border-left: 1px solid #c3c5c7;
 }
@@ -14196,18 +14079,18 @@ Breadcrumbs use their own monospace font-family.
       Current Page
 ```
 */
-/* line 201, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 182, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb {
   margin-bottom: 0;
   font-family: "Consolas", "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
 }
-/* line 207, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 188, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li {
   font-size: 0;
   padding-left: 0;
   padding-right: 0;
 }
-/* line 209, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 190, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li a, .list-breadcrumb > li.current span {
   font-size: 14px;
   display: inline-block;
@@ -14219,11 +14102,11 @@ Breadcrumbs use their own monospace font-family.
   text-overflow: ellipsis;
   vertical-align: middle;
 }
-/* line 217, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 198, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li.current span {
   color: #9faaad;
 }
-/* line 223, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 204, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li:before {
   font-size: 16px;
   color: #9faaad;
@@ -14232,7 +14115,7 @@ Breadcrumbs use their own monospace font-family.
   padding-right: 5px;
   padding-left: 5px;
 }
-/* line 231, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 212, ../../src/pivotal-ui/components/lists.css.scss */
 .list-breadcrumb > li:first-child:before {
   content: "";
 }
@@ -14255,6 +14138,16 @@ Use this list when you need simple gray borders between items
   %li.list-group-item
     item 3
 ```
+*/
+/*doc
+---
+title: Addable List
+name: list_addable
+parent: lists
+categories:
+  - All
+  - JavaScript
+---
 
 New elements fade in
 
@@ -14272,16 +14165,16 @@ New elements fade in
 <a data-add-item-to="#list-group-adding-demo">Add an item</a>
 
 */
-/* line 274, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 266, ../../src/pivotal-ui/components/lists.css.scss */
 .list-group, .list-group > li {
   border-width: 1px 0;
 }
 
-/* line 279, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 271, ../../src/pivotal-ui/components/lists.css.scss */
 .list-group-item {
   padding-right: 5px;
 }
-/* line 282, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 274, ../../src/pivotal-ui/components/lists.css.scss */
 .list-group-item.new {
   -webkit-animation: new-list-group-item-grow 0.3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade 0.5s ease-in 0.15s forwards;
   -moz-animation: new-list-group-item-grow 0.3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade 0.5s ease-in 0.15s forwards;
@@ -14323,11 +14216,11 @@ New elements fade in
     padding: 10px 15px;
   }
 }
-/* line 329, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 321, ../../src/pivotal-ui/components/lists.css.scss */
 .list-notitle li:first-child {
   border-top: 0;
 }
-/* line 332, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 324, ../../src/pivotal-ui/components/lists.css.scss */
 .list-notitle li:last-child {
   border-bottom: 0;
 }
@@ -14335,8 +14228,12 @@ New elements fade in
 /*doc
 ---
 title: Event List
-name: event-list
+name: list_event
 parent: lists
+categories:
+  - All
+  - Objects
+  - Elements
 ---
 
 This is a special list-group, with styles per-event for colors and icons
@@ -14405,81 +14302,81 @@ This is a special list-group, with styles per-event for colors and icons
         .event-title renamed app
 ```
 */
-/* line 412, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 408, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .event-title {
   font-weight: bold;
   font-size: 14px;
   margin-bottom: 2px;
 }
-/* line 418, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 414, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .event-user {
   color: #b4b4b4;
 }
-/* line 422, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 418, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .event-icon {
   font-family: 'FontAwesome';
   font-size: 17px;
   width: 17px;
 }
-/* line 429, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 425, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .started .event-title {
   color: #00a79d;
 }
-/* line 432, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 428, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .started .event-icon:after {
   color: #00a79d;
   content: '\f04b';
 }
-/* line 438, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 434, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .stopped .event-title {
   color: #b4b4b4;
 }
-/* line 442, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 438, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .stopped .event-icon:after {
   color: #b4b4b4;
   content: '\f04d';
 }
-/* line 449, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 445, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .updated .event-title {
   color: #00a79d;
 }
-/* line 453, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 449, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .updated .event-icon:after {
   color: #00a79d;
   content: '\f01b';
 }
-/* line 459, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 455, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .scaled .event-title {
   color: #00a79d;
 }
-/* line 463, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 459, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .scaled .event-icon:after {
   color: #00a79d;
   content: '\f0e4';
 }
-/* line 470, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 466, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .crashed .event-title {
   color: #ff434c;
 }
-/* line 474, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 470, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .crashed .event-icon:after {
   color: #ff434c;
   content: '\f06a';
 }
-/* line 481, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 477, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .created .event-title {
   color: #00a79d;
 }
-/* line 485, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 481, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .created .event-icon:after {
   color: #00a79d;
   content: '\f135';
 }
-/* line 492, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 488, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .renamed .event-title {
   color: #00a79d;
 }
-/* line 496, ../../src/pivotal-ui/components/lists.css.scss */
+/* line 492, ../../src/pivotal-ui/components/lists.css.scss */
 .event-list .renamed .event-icon:after {
   color: #00a79d;
   content: '\f040';
@@ -14490,6 +14387,10 @@ This is a special list-group, with styles per-event for colors and icons
 title: Vertical Divider List
 name: list-vertical-divider
 parent: lists
+categories:
+  - All
+  - Layout
+  - Elements
 ---
 
 Use this list when you need larger gray borders between
@@ -14742,7 +14643,6 @@ name: tabs
 categories:
   - All
   - JavaScript
-  - marketing-site
 ---
 
 You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` on an element.
@@ -14800,32 +14700,32 @@ parent: tabs
 ```
 
 */
-/* line 69, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 68, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li {
   position: relative;
   overflow: hidden;
 }
-/* line 73, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 72, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li + li {
   margin-top: -2px;
 }
-/* line 77, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 76, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li > a {
   padding: 15px;
   color: #2185c5;
   background-color: #e0e4e5;
   transition: background-color 150ms ease-out;
 }
-/* line 84, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 83, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li > a:hover {
   z-index: 100;
   background-color: #ecefef;
 }
-/* line 91, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 90, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li.active a {
   z-index: 50;
 }
-/* line 95, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 94, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav > li.active > a,
 .tab-highlight .nav > li.active > a:hover {
   color: #686868;
@@ -14833,11 +14733,11 @@ parent: tabs
   border-width: 0;
   cursor: default;
 }
-/* line 104, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 103, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .nav .tab-title {
   font-size: 16px;
 }
-/* line 111, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 110, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-highlight .tab-content {
   border-top: 2px solid #ecefef;
   padding: 0;
@@ -14871,12 +14771,12 @@ parent: tabs
 
 ```
 */
-/* line 147, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 146, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple {
   background-color: #e0e4e5;
   position: relative;
 }
-/* line 151, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 150, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav.nav-tabs {
   border-bottom: 3px solid rgba(0, 0, 0, 0.07);
   border-top: 1px solid #e0e4e5;
@@ -14888,11 +14788,11 @@ parent: tabs
   background-clip: padding-box;
   /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
-/* line 158, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 157, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li {
   border-right: 1px solid #e0e4e5;
 }
-/* line 160, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 159, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li > a {
   margin-right: 0;
   border: 0;
@@ -14902,22 +14802,22 @@ parent: tabs
   font-weight: 600;
   font-size: 16px;
 }
-/* line 170, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 169, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li > a:hover {
   border: 0;
 }
-/* line 175, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 174, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li:hover {
   cursor: pointer;
   -webkit-transition: all 300ms ease-out;
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 179, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 178, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li:hover > a {
   background-color: #F8F8F8;
 }
-/* line 184, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 183, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li.active {
   margin-bottom: -3px;
   border-top: 3px solid rgba(0, 0, 0, 0.07);
@@ -14928,20 +14828,20 @@ parent: tabs
   -moz-transition: all 0ms ease-out;
   transition: all 0ms ease-out;
 }
-/* line 192, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 191, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .nav > li.active > a {
   margin: -3px 0 3px 0;
   color: #243640;
   background-color: transparent;
 }
-/* line 202, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 201, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple .tabs-action {
   padding: 14px 16px;
   position: absolute;
   right: 0;
 }
 
-/* line 209, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 208, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-content {
   padding: 20px;
 }
@@ -14992,7 +14892,7 @@ parent: tabs
 
 ```
 */
-/* line 265, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 264, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive a[data-toggle="tab"] {
   padding: 8px 10px;
   color: #8d8e8e;
@@ -15002,7 +14902,7 @@ parent: tabs
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 273, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 272, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive .active a[data-toggle="tab"],
 .tab-responsive a[data-toggle="tab"]:hover,
 .tab-responsive a[data-toggle="tab"]:focus {
@@ -15010,12 +14910,12 @@ parent: tabs
   color: #00a79d;
 }
 @media (max-width: 768px) {
-  /* line 281, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 280, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive a[data-toggle="tab"] {
     background-color: #e0e4e5;
     color: #00a79d;
   }
-  /* line 286, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 285, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive .tab-pane {
     padding: 15px;
   }
@@ -15092,11 +14992,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 
 ```
 */
-/* line 367, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 366, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images {
   text-align: center;
 }
-/* line 370, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 369, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] {
   display: inline-block;
   width: 130px;
@@ -15112,11 +15012,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 .tabs-images .nav-tabs-images li a[data-toggle=tab]:hover, .tabs-images .nav-tabs-images li a[data-toggle=tab]:focus, .tabs-images .nav-tabs-images li a[data-toggle=tab]:active, .tabs-images .nav-tabs-images li a[data-toggle=tab].active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 382, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 381, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] .icon-svg .icon {
   fill: currentColor;
 }
-/* line 391, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 390, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li.active a, .tabs-images .nav-tabs-images li:hover a, .tabs-images .nav-tabs-images li:focus a, .tabs-images .nav-tabs-images li:active a {
   background-color: #00a79d;
   color: white;
@@ -15126,6 +15026,9 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 ---
 title: Ellipsis
 name: ellipsis
+categories:
+  - All
+  - Utilities
 ---
 
 NB: This only works on webkit.
@@ -15136,14 +15039,14 @@ NB: This only works on webkit.
 ```
 
 */
-/* line 15, ../../src/pivotal-ui/components/ellipsis.css.scss */
+/* line 18, ../../src/pivotal-ui/components/ellipsis.css.scss */
 .type-ellipsis-2-lines {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 
-/* line 20, ../../src/pivotal-ui/components/ellipsis.css.scss */
+/* line 23, ../../src/pivotal-ui/components/ellipsis.css.scss */
 .type-ellipsis-3-lines {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -15164,7 +15067,7 @@ The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. C
 ```
 
 */
-/* line 41, ../../src/pivotal-ui/components/ellipsis.css.scss */
+/* line 44, ../../src/pivotal-ui/components/ellipsis.css.scss */
 .type-ellipsis-1-line {
   white-space: nowrap;
   overflow: hidden;
@@ -15177,9 +15080,7 @@ The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. C
 ---
 title: Collapse Toggle
 name: collapse
-categories:
-  - All
-  - JavaScript
+parent: toggle
 ---
 
 Also see the select tabs for a toggle triggered by a select group.
@@ -15219,59 +15120,66 @@ Panel Example
 ```
 
 */
-/* line 48, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 46, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-collapsed {
   display: none;
 }
-/* line 51, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 49, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-expanded {
   display: block;
 }
-/* line 54, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 52, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-collapsed-inline {
   display: none;
 }
-/* line 57, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 55, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-expanded-inline {
   display: inline;
 }
-/* line 62, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 60, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-collapsed {
   display: block;
 }
-/* line 65, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 63, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-expanded {
   display: none;
 }
-/* line 68, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 66, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-collapsed-inline {
   display: inline;
 }
-/* line 71, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 69, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-expanded-inline {
   display: none;
 }
 
-/* line 78, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 76, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger {
   cursor: pointer;
 }
-/* line 81, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 79, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger .collapse-title {
   display: inline-block;
 }
-/* line 86, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 84, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger .collapse-icon {
   display: inline;
 }
 
 /*doc
 ---
-title: Inputs & Labels
-name: input
+title: Forms
+name: forms
 categories:
  - All
  - Forms
+---
+*/
+/*doc
+---
+title: Inputs & Labels
+name: input
+parent: forms
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -15320,48 +15228,48 @@ An unstyled inputs that doesn't have any of the default input styles
   %input.unstyled{"placeholder" => "This is a text input"}
 ```
 */
-/* line 58, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 66, ../../src/pivotal-ui/components/forms.css.scss */
 .form-group abbr {
   float: right;
   margin-left: 5px;
   border-bottom: 0;
 }
-/* line 64, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 72, ../../src/pivotal-ui/components/forms.css.scss */
 .form-group [class*="col"].control-label abbr {
   float: none;
   margin-right: 2px;
 }
 
-/* line 71, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 79, ../../src/pivotal-ui/components/forms.css.scss */
 .unstyled {
   background-color: transparent;
   outline: none;
   border: none;
 }
 
-/* line 77, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 85, ../../src/pivotal-ui/components/forms.css.scss */
 label {
   font-weight: 400;
 }
 
-/* line 82, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 90, ../../src/pivotal-ui/components/forms.css.scss */
 ::-webkit-input-placeholder {
   font-weight: 200;
 }
 
-/* line 86, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 94, ../../src/pivotal-ui/components/forms.css.scss */
 :-moz-placeholder {
   /* Firefox 18- */
   font-weight: 200;
 }
 
-/* line 90, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 98, ../../src/pivotal-ui/components/forms.css.scss */
 ::-moz-placeholder {
   /* Firefox 19+ */
   font-weight: 200;
 }
 
-/* line 94, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 102, ../../src/pivotal-ui/components/forms.css.scss */
 :-ms-input-placeholder {
   font-weight: 200;
 }
@@ -15370,9 +15278,7 @@ label {
 ---
 title: Fancy Select
 name: fancy-select
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This is a fancy select!
@@ -15387,7 +15293,7 @@ This is a fancy select!
 ```
 
 */
-/* line 120, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 126, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element, .select-fancy, .number-fancy {
   box-shadow: 0 3px 0 #d4d9d9;
   background-color: white;
@@ -15397,12 +15303,12 @@ This is a fancy select!
   border-radius: 4px;
   position: relative;
 }
-/* line 127, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 133, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element:hover, .select-fancy:hover, .number-fancy:hover {
   box-shadow: 0 3px 0 #b4b4b4;
   cursor: pointer;
 }
-/* line 132, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 138, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element .form-control, .select-fancy .form-control, .number-fancy .form-control {
   border: none;
   box-shadow: none;
@@ -15415,13 +15321,13 @@ This is a fancy select!
   font-size: 16px;
   font-weight: 900;
 }
-/* line 141, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 147, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element .form-control.has-error, .select-fancy .form-control.has-error, .number-fancy .form-control.has-error {
   border-radius: 3px;
   border: 1px solid #ff434c;
 }
 
-/* line 148, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 154, ../../src/pivotal-ui/components/forms.css.scss */
 .fancy-form-element-disabled {
   font-size: 16px;
   font-weight: 900;
@@ -15430,7 +15336,7 @@ This is a fancy select!
   margin-left: 7px;
 }
 
-/* line 159, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 165, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy:after {
   z-index: 2;
   content: "\f107";
@@ -15444,11 +15350,11 @@ This is a fancy select!
   -moz-transition: all 150ms ease-out;
   transition: all 150ms ease-out;
 }
-/* line 172, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 178, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy:hover:after, .select-fancy:hover select {
   color: #2185c5;
 }
-/* line 177, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 183, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy select {
   -moz-appearance: window;
   position: relative;
@@ -15457,11 +15363,11 @@ This is a fancy select!
   width: 100%;
   cursor: pointer;
 }
-/* line 185, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 191, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy select:focus {
   outline: none;
 }
-/* line 188, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 194, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy input {
   height: 32px;
   margin: 5px;
@@ -15470,7 +15376,7 @@ This is a fancy select!
   display: inline;
   border-radius: 4px;
 }
-/* line 197, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 203, ../../src/pivotal-ui/components/forms.css.scss */
 .select-fancy input:hover {
   background-color: #ecefef;
 }
@@ -15479,9 +15385,7 @@ This is a fancy select!
 ---
 title: Fancy Number Input
 name: fancy-number
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This is a fancy number input!
@@ -15500,7 +15404,7 @@ This is a fancy number input!
 ```
 
 */
-/* line 229, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 233, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -15509,14 +15413,14 @@ This is a fancy number input!
   user-select: none;
   padding-right: 36px;
 }
-/* line 235, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 239, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy .buttons {
   position: absolute;
   top: 0px;
   right: 0px;
   height: 100%;
 }
-/* line 240, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 244, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy .buttons li {
   -webkit-transition: all 150ms ease-out;
   -moz-transition: all 150ms ease-out;
@@ -15530,21 +15434,21 @@ This is a fancy number input!
   text-align: center;
   line-height: 20px;
 }
-/* line 250, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 254, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy .buttons li:hover {
   color: #2185c5;
   background-color: #ecefef;
   cursor: pointer;
 }
-/* line 256, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 260, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy .buttons li.btn-minus {
   border-bottom-right-radius: 4px;
 }
-/* line 260, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 264, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy .buttons li.btn-plus {
   border-top-right-radius: 4px;
 }
-/* line 266, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 270, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy input {
   height: 32px;
   margin: 5px;
@@ -15552,7 +15456,7 @@ This is a fancy number input!
   display: inline;
   border-radius: 4px;
 }
-/* line 274, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 278, ../../src/pivotal-ui/components/forms.css.scss */
 .number-fancy input:hover {
   background-color: #ecefef;
 }
@@ -15561,9 +15465,7 @@ This is a fancy number input!
 ---
 title: Text Area
 name: textarea
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Text areas are used for larger amounts of input.
@@ -15580,9 +15482,7 @@ Text areas are used for larger amounts of input.
 ---
 title: Checkboxes & Radios
 name: checkboxes
-categories:
- - All
- - Forms
+parent: forms
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -15643,9 +15543,7 @@ input[type="radio"] {
 ---
 title: Inline Forms
 name: inline_forms
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
@@ -15681,9 +15579,7 @@ Screen readers will have trouble with your forms if you don't include a label fo
 ---
 title: Inline Forms with Labels
 name: inline_forms_with_labels
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
@@ -15705,7 +15601,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
   %button.btn.btn-primary{:type => "submit"} Sign in
 ```
 */
-/* line 434, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 430, ../../src/pivotal-ui/components/forms.css.scss */
 .form-inline.inline-labels .form-group input, .form-inline.inline-labels .form-group select {
   width: auto !important;
 }
@@ -15714,9 +15610,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 ---
 title: HTML5 controls
 name: html5_controls
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 Examples of standard form controls supported in an example form layout.
@@ -15832,11 +15726,11 @@ Bootstrap includes validation styles for error and success states on form contro
 ```
 */
 /* overrides bootstrap colors */
-/* line 570, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 564, ../../src/pivotal-ui/components/forms.css.scss */
 .has-success {
   position: relative;
 }
-/* line 572, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 566, ../../src/pivotal-ui/components/forms.css.scss */
 .has-success:before {
   content: "\f00c";
   display: block;
@@ -15856,21 +15750,21 @@ Bootstrap includes validation styles for error and success states on form contro
   text-decoration: inherit;
   text-align: center;
 }
-/* line 565, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 559, ../../src/pivotal-ui/components/forms.css.scss */
 .has-success .control-label {
   color: #b4b4b4;
 }
 
-/* line 595, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 589, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .help-block, .has-error .help-inline {
   font-size: 14px;
 }
-/* line 565, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 559, ../../src/pivotal-ui/components/forms.css.scss */
 .has-error .control-label {
   color: #b4b4b4;
 }
 
-/* line 603, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 597, ../../src/pivotal-ui/components/forms.css.scss */
 input.ng-invalid.ng-dirty {
   outline: 1px solid #ff434c;
 }
@@ -15879,7 +15773,7 @@ input.ng-invalid.ng-dirty {
 ---
 title: Disabled Inputs
 name: disabled
-parent: validation
+parent: forms
 ---
 ### Disabled Inputs
 
@@ -15891,12 +15785,12 @@ Inputs will occasionally need to be disabled. You can do that by adding the `dis
 ```
 
 */
-/* line 625, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 619, ../../src/pivotal-ui/components/forms.css.scss */
 .form-control:focus {
   box-shadow: none;
 }
 
-/* line 629, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 623, ../../src/pivotal-ui/components/forms.css.scss */
 .form-control[readonly] {
   background-color: transparent;
 }
@@ -15905,9 +15799,7 @@ Inputs will occasionally need to be disabled. You can do that by adding the `dis
 ---
 title: Selects
 name: selects
-categories:
- - All
- - Forms
+parent: forms
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -15926,9 +15818,7 @@ be changed via the [control sizing options](#control_sizing).
 ---
 title: Sizing
 name: sizing
-categories:
- - All
- - Forms
+parent: forms
 ---
 Set heights using classes like `.input-lg`, and set widths using grid column classes like `.col-lg-*`.
 
@@ -15975,9 +15865,7 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 ---
 title: Help Text
 name: help_text
-categories:
- - All
- - Forms
+parent: forms
 ---
 Help text
 Block level help text for form controls.
@@ -15993,9 +15881,7 @@ Block level help text for form controls.
 ---
 title: Static Control
 name: static_control
-categories:
- - All
- - Forms
+parent: forms
 ---
 When you need to place plain text next to a form label within a horizontal form, use the `.form-control-static` class on a `<p>`.
 
@@ -16016,9 +15902,7 @@ When you need to place plain text next to a form label within a horizontal form,
 ---
 title: Vertical static controls
 name: static_controll
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 ```haml_example
@@ -16032,7 +15916,7 @@ categories:
 ```
 
 */
-/* line 773, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 757, ../../src/pivotal-ui/components/forms.css.scss */
 .help-inline {
   display: block;
   text-align: left;
@@ -16081,12 +15965,12 @@ textarea.input-lg {
   height: auto;
 }
 
-/* line 787, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 771, ../../src/pivotal-ui/components/forms.css.scss */
 .control-label {
   color: #b4b4b4;
 }
 
-/* line 790, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 774, ../../src/pivotal-ui/components/forms.css.scss */
 p.form-control-static {
   color: #686868;
 }
@@ -16095,9 +15979,7 @@ p.form-control-static {
 ---
 title: Autoselect Text Input
 name: autoselect_text_input
-categories:
- - All
- - Forms
+parent: forms
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
@@ -16106,7 +15988,7 @@ This form is used to show information that a user may wish to copy and paste som
 %input.auto-select.form-control{:value => "This should auto highlight", 'data-behavior' => 'AutoSelect', readonly: 'readonly'}
 ```
 */
-/* line 810, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 792, ../../src/pivotal-ui/components/forms.css.scss */
 .form-control.auto-select {
   cursor: pointer;
 }
@@ -16115,9 +15997,7 @@ This form is used to show information that a user may wish to copy and paste som
 ---
 title: Focus Input
 name: focus-input
-categories:
-  - All
-  - JavaScript
+parent: forms
 ---
 
 Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
@@ -16136,9 +16016,7 @@ Add the focus-input directive to an element that should be focused if the focus-
 ---
 title: ContentEditable
 name: contenteditable
-categories:
-  - All
-  - JavaScript
+parent: forms
 ---
 
 This form looks and behaves mostly like a contenteditable field
@@ -16162,21 +16040,21 @@ This form looks and behaves mostly like a contenteditable field
                           "ng-blur" => 'editText.save()'}
 ```
 */
-/* line 868, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 846, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable {
   position: relative;
 }
-/* line 872, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 850, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable .form-contenteditable-hint {
   display: none;
 }
-/* line 875, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 853, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable label {
   padding: 5px;
   cursor: pointer;
   margin-bottom: 0;
 }
-/* line 880, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 858, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable input.form-control {
   background-color: transparent;
   outline: none;
@@ -16193,35 +16071,35 @@ This form looks and behaves mostly like a contenteditable field
   line-height: 1.2;
   height: auto;
 }
-/* line 897, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 875, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable .showing-text {
   margin: 0;
 }
-/* line 900, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 878, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable .saving-text {
   display: none;
 }
-/* line 904, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 882, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable.editing .form-contenteditable-hint {
   display: none;
 }
-/* line 908, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 886, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable:hover .form-contenteditable-hint {
   display: block;
 }
-/* line 912, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 890, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable.saving:hover .form-contenteditable-hint {
   display: none;
 }
-/* line 916, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 894, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable:hover .showing-text {
   display: none;
 }
-/* line 921, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 899, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable.saving .saving-text {
   display: block;
 }
-/* line 924, ../../src/pivotal-ui/components/forms.css.scss */
+/* line 902, ../../src/pivotal-ui/components/forms.css.scss */
 .form-contenteditable.saving .showing-text {
   display: none;
 }
@@ -16319,7 +16197,7 @@ title: Banners
 name: banner
 categories:
   - All
-  - CSS
+  - Objects
 ---
 
 You can use a banner to let the team know which environment they're
@@ -16379,411 +16257,18 @@ in other contexts.
 
 /*doc
 ---
-title: App Health Indicator
-name: app_health_indicator
-parent: health_indicators
-categories:
-  - All
-  - CSS
----
-
-This component indicates application health. It has two sizes, many states, and can be editable or not depending on user permissions.
-
-## States
-
-The application health indicator can be `.running`, `.warning_75`, `.warning_50`, `.warning_25`, `.warning_0`, `.stopped`.
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="health running editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health warning_75 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">75%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health warning_50 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">50%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health warning_25 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">25%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health warning_0 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">0%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health stopped editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STARTED">
-        <input class="indicator" data-action="Start" data-confirm="Are you sure you want to start app?" name="commit" title="Start" type="submit" value="">
-        <div class="value">stopped</div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-<div class="row">
-  <div class="col-md-4">
-    <div class="health health-indicator-large running editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health health-indicator-large warning_75 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">75%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health health-indicator-large warning_50 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">50%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health health-indicator-large warning_25 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">25%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health health-indicator-large warning_0 editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">0%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="health health-indicator-large stopped editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-        <input id="application_state" name="application[state]" type="hidden" value="STARTED">
-        <input class="indicator" data-action="Start" data-confirm="Are you sure you want to start app?" name="commit" title="Start" type="submit" value="">
-        <div class="value">stopped</div>
-      </form>
-    </div>
-  </div>
-</div>
-
-## Sizes
-
-The application health indicator can be large or small using the `.health` and `.health health-indicator-large` classes.
-
-<div class="row">
-  <div class="col-md-4">
-    <p>Small</p>
-    <div class="health running editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <p>large</p>
-      <div class="health health-indicator-large running editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-</div>
-
-## Enforcing Permissions
-
-Depending if the user has permission to start and stop applications, the application health indicator will be `.editable` or not.
-
-<div class="row mbl">
-  <div class="col-md-4">
-    <p>Not Editable</p>
-    <div class="health running">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <p>Editable</p>
-    <div class="health running editable">
-      <form accept-charset="UTF-8" action="/organizations/org-id/spaces/space-id/applications/application-id" class="state_form" id="edit_application_application-id" method="post">
-        <input name="utf8" type="hidden" value="✓">
-        <input name="_method" type="hidden" value="put">
-        <input name="authenticity_token" type="hidden" value="token-value">
-
-        <input id="application_state" name="application[state]" type="hidden" value="STOPPED">
-        <input class="indicator" data-action="Stop" data-confirm="Are you sure you want to stop app?" name="commit" title="Stop" type="submit" value="">
-        <div class="value">100%</div>
-      </form>
-    </div>
-  </div>
-</div>
-
-These states are handled automatically when you use the `application_state_indicator()`
-helper in your templates. The latter parameter determines the size. The first
-parameter is the application affected by the actions of the application health indicator.
-
-```haml
-=application_state_indicator(application)
-=application_state_indicator(application, {:large_indicator: true})
-```
-*/
-/* line 250, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health {
-  width: 40px;
-  position: relative;
-}
-/* line 254, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health form {
-  margin: 0;
-}
-/* line 258, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health input:focus {
-  outline: none;
-}
-/* line 262, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health .value {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  line-height: 40px;
-  width: 40px;
-  font-size: 10px;
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  z-index: 2;
-}
-/* line 275, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health .indicator {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  border: none;
-  width: 40px;
-  height: 40px;
-  box-shadow: none;
-  margin: 0;
-  display: inline-block;
-  vertical-align: middle;
-  position: relative;
-  z-index: 1;
-}
-/* line 291, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.editable:hover:before {
-  content: "\f04d";
-  font-family: FontAwesome;
-  color: #2185c5;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  cursor: pointer;
-  z-index: 0;
-  font-size: 12px;
-  margin-top: -8px;
-  margin-left: -5px;
-}
-/* line 306, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health form {
-  position: relative;
-}
-/* line 308, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health form:before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  border-radius: 300px;
-  border: 7px solid #d4d9d9;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* line 322, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.health-indicator-large form:before {
-  border-width: 12px;
-}
-/* line 329, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.running form:before {
-  border-color: #00a79d;
-}
-/* line 335, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.stopped form:before {
-  border-color: #d4d9d9;
-}
-/* line 339, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.stopped.editable:hover:before {
-  content: "\f04b";
-  font-family: FontAwesome;
-  font-size: 15px;
-  margin-top: -11px;
-  margin-left: -4px;
-}
-/* line 349, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.warning_0 form:before {
-  border-color: #b31612;
-}
-/* line 355, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.warning_25 form:before {
-  border-top-color: #b31612;
-}
-/* line 361, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.warning_50 form:before {
-  border-top-color: #b31612;
-  border-right-color: #b31612;
-}
-/* line 368, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.warning_75 form:before {
-  border-color: #b31612 #b31612 #b31612 #d4d9d9;
-}
-/* line 373, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health.editable:hover .value {
-  display: none;
-}
-
-/* line 378, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health-indicator-large {
-  width: 64px;
-  height: 64px;
-  margin: auto;
-  font-size: 14px;
-  width: 64px;
-}
-/* line 386, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health-indicator-large.editable:hover:before {
-  font-size: 20px;
-  margin-top: -14px;
-  margin-left: -8px;
-}
-/* line 392, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health-indicator-large.stopped.editable:hover:before {
-  font-size: 20px;
-  margin-top: -14px;
-  margin-left: -6px;
-}
-/* line 398, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health-indicator-large .value {
-  line-height: 64px;
-  width: 64px;
-  font-size: 14px;
-}
-/* line 404, ../../src/pivotal-ui/components/application_health_indicator.css.scss */
-.health-indicator-large .indicator {
-  width: 64px;
-  height: 64px;
-}
-
-/*doc
----
 title: Gravatar
 name: gravatar
-categories:
-  - All
-  - CSS
+parent: images
 ---
 
 */
-/* line 12, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 10, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar {
   display: inline-block;
   position: relative;
 }
-/* line 15, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 13, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar img {
   z-index: 2;
   position: absolute;
@@ -16792,12 +16277,12 @@ categories:
   right: 0;
   bottom: 0;
 }
-/* line 23, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 21, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar i {
   text-align: center;
   z-index: 1;
 }
-/* line 27, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 25, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar i.overlay {
   background-color: transparent;
   z-index: 3;
@@ -16807,8 +16292,8 @@ categories:
 /*doc
 ---
 title: Small Gravatar
-name: small_gravatar
-parent: gravatar
+name: gravatar_small
+parent: images
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).
@@ -16830,7 +16315,7 @@ To use in a view, simply call
 /*doc
 ---
 title: Small Gravatar With Envelope
-name: small_gravatar_with_envelope
+name: gravatar_small_with_envelope
 parent: gravatar
 ---
 
@@ -16862,7 +16347,7 @@ To use in a view, simply call
   %i.overlay.fa.fa-check
 ```
 */
-/* line 96, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 94, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i {
   color: #b4b4b4;
   font-size: 20px;
@@ -16870,22 +16355,22 @@ To use in a view, simply call
   width: 20px;
   height: 20px;
 }
-/* line 104, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 102, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i.highlight {
   color: #00a79d;
 }
-/* line 108, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 106, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm i.overlay {
   font-size: 10px;
   color: #fff;
   right: -30%;
   bottom: -25%;
 }
-/* line 114, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 112, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm .fa-envelope {
   text-shadow: 1px 0px 1px #b4b4b4, -1px 0px 1px #b4b4b4, 0px 1px 1px #b4b4b4, 0px 0px 1px #b4b4b4;
 }
-/* line 117, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 115, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-sm .fa-check {
   text-shadow: 1px 0px 0px #00a79d, -1px 0px 0px #00a79d, 0px 1px 0px #00a79d, 0px 0px 0px #00a79d;
 }
@@ -16893,8 +16378,8 @@ To use in a view, simply call
 /*doc
 ---
 title: Large Gravatar
-name: large_gravatar
-parent: gravatar
+name: gravatar_large
+parent: images
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).
@@ -16915,11 +16400,11 @@ To use in a view, simply call
 ```
 
 */
-/* line 148, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 146, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-lg {
   border: 3px solid #F8F8F8;
 }
-/* line 150, ../../src/pivotal-ui/components/gravatar.css.scss */
+/* line 148, ../../src/pivotal-ui/components/gravatar.css.scss */
 .gravatar-lg i {
   background-color: #fff;
   color: #F8F8F8;
@@ -16927,54 +16412,6 @@ To use in a view, simply call
   line-height: 80px;
   width: 80px;
   height: 80px;
-}
-
-/*doc
----
-title: Application Dashboard
-name: application_dashboard
-categories:
-  - All
-  - CSS
----
-
-This is a hacky one-off to center the panel content + size the text
-
-
-```haml_example
-.row.application-dashboard
-  .col-sm-8
-    .panel.panel-simple.panel-square.application-health-panel
-      .panel-heading.panel-heading-simple
-        %h6 Status
-      .panel-body
-        .health.stopped.editable.health-indicator-large
-          %form
-            %input.indicator
-            .value Stopped
-  .col-sm-8
-    .panel.panel-simple.panel-square
-      .panel-heading.panel-heading-simple
-        %h6 Instances
-      .panel-body.txt-c
-        1
-  .col-sm-8
-    .panel.panel-simple.panel-square
-      .panel-heading.panel-heading-simple
-        %h6 Memory
-      .panel-body.txt-c
-        128
-        %span.units MB
-```
-
-*/
-/* line 43, ../../src/pivotal-ui/components/application_dashboard.css.scss */
-#application-dashboard #top-section .pull-left {
-  margin-right: 25px;
-}
-/* line 46, ../../src/pivotal-ui/components/application_dashboard.css.scss */
-#application-dashboard #top-section .media-body {
-  min-width: 370px;
 }
 
 /*doc
@@ -17075,138 +16512,6 @@ Use this class for sections that have two different viewable states.
 
 /*doc
 ---
-title: Upgrade Your Account Widget
-name: upgrade_your_account
-categories:
-  - All
-  - CSS
----
-
-```haml_example
-.panel.panel-simple#upgrade_your_account.mtxl
-  .panel-body
-    .row.mvxl.ptxl
-      .col-md-8.txt-c
-        %h3.type-em-1.type-primary-4 More Memory
-      .col-md-8.txt-c
-        %h3.type-em-1.type-primary-4 Pay As You Go
-      .col-md-8.txt-c
-        %h3.type-em-1.type-primary-4 Premium Service Plans
-    .row
-      .col-md-8.txt-c
-        .circle
-          .text.type-accent-3 10GB
-      .col-md-8.txt-c
-        .row
-          .col-md-16.col-md-offset-4
-            .panel.panel-highlight.mtl
-              .panel-body.pas
-                .cost $0.03
-                per gb per hour
-      .col-md-8.txt-c
-        .premium-services
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-          .tiny-circle>
-```
-
-*/
-/* line 88, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .circle {
-  display: inline-block;
-  border-radius: 50%;
-  width: 152px;
-  height: 152px;
-}
-/* line 93, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .circle .text {
-  text-align: center;
-  line-height: 107px;
-  font-size: 36px;
-  font-weight: 600;
-  top: 0;
-  left: 0;
-}
-/* line 103, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .panel-highlight {
-  background-color: #00776d;
-  border-radius: 5px;
-  color: #e0e4e5;
-  text-transform: uppercase;
-  font-size: 18px;
-}
-/* line 111, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .cost {
-  font-size: 36px;
-  line-height: 36px;
-  font-weight: 600;
-}
-/* line 117, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .premium-services {
-  margin-top: 2px;
-  display: inline-block;
-  width: 216px;
-  height: 152px;
-}
-/* line 122, ../../src/pivotal-ui/components/upgrade_your_account.css.scss */
-#upgrade_your_account .premium-services .tiny-circle {
-  background-color: #b4b4b4;
-  border-radius: 50%;
-  margin-right: 2px;
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-}
-
-/*doc
----
 title: Spinners
 name: spinners
 parent: iconography
@@ -17276,7 +16581,7 @@ title: Progress Bars
 name: progress_bar
 categories:
   - All
-  - CSS
+  - Objects
 ---
 */
 /*doc
@@ -17374,6 +16679,10 @@ parent: progress_bar
 title: Animated
 name: animated_progress_bar
 parent: progress_bar
+categories:
+  - All
+  - Objects
+  - JavaScript
 ---
 
 Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
@@ -17402,7 +16711,7 @@ In the haml, the width should be set to match the `aria-valuenow` if the progres
   93 MB of 100 MB Used
 ```
 */
-/* line 130, ../../src/pivotal-ui/components/progress_bar.css.scss */
+/* line 134, ../../src/pivotal-ui/components/progress_bar.css.scss */
 .progress-bar-animated {
   -webkit-transition: width 1s ease-in-out;
   -moz-transition: width 1s ease-in-out;
@@ -17536,6 +16845,7 @@ name: hoverable
 categories:
   - All
   - JavaScript
+  - Utilities
 ---
 
 This component is for showing hidden actions on hover.
@@ -17585,271 +16895,19 @@ Table example:
       Not hoverable
 ```
 */
-/* line 58, ../../src/pivotal-ui/components/hoverable.css.scss */
+/* line 59, ../../src/pivotal-ui/components/hoverable.css.scss */
 [hoverable]:hover, [hoverable].clicked {
   background-color: #ecefef;
 }
-/* line 61, ../../src/pivotal-ui/components/hoverable.css.scss */
+/* line 62, ../../src/pivotal-ui/components/hoverable.css.scss */
 [hoverable]:hover .hovered, [hoverable].clicked .hovered {
   visibility: visible;
 }
 
-/* line 67, ../../src/pivotal-ui/components/hoverable.css.scss */
+/* line 68, ../../src/pivotal-ui/components/hoverable.css.scss */
 [hoverable] .hovered {
   visibility: hidden;
   float: right;
-}
-
-/*doc
----
-title: App Status
-name: app_status
-categories:
-  - All
-  - CSS
----
-
-```haml_example
-#app_status.started.mtxl
-  .circle
-    .content
-      .name
-        %h5.mbn
-          %strong.type-primary-4 APP
-        %h1.mtn App Name
-      .started-controls
-        %button.btn.btn-highlight
-          %i.fa.fa-square.icon-control
-        %button.btn.btn-highlight.mll
-          %i.fa.fa-repeat.icon-control
-      .stopped-controls
-        %button.btn.btn-highlight
-          %i.fa.fa-play.icon-control
-```
-*/
-@-webkit-keyframes loadingPulse {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@-moz-keyframes loadingPulse {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes loadingPulse {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-/* line 46, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status {
-  position: relative;
-}
-/* line 50, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status #svg {
-  border-radius: 50%;
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.08);
-  background-color: #F8F8F8;
-}
-/* line 55, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status #svg circle {
-  fill: #F8F8F8;
-  stroke: #F8F8F8;
-  stroke-dashoffset: 0;
-  -webkit-transition: stroke-dashoffset 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  -moz-transition: stroke-dashoffset 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  transition: stroke-dashoffset 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
-  stroke-width: 10px;
-}
-/* line 64, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content {
-  position: absolute;
-  top: 116px;
-  left: 13px;
-  width: 325px;
-}
-/* line 70, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content .name {
-  text-align: center;
-}
-/* line 74, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content .started-controls {
-  margin-top: 20px;
-  width: 150px;
-  position: absolute;
-  left: 87px;
-  opacity: 1;
-  visibility: visible;
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
-}
-/* line 83, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content .stopped-controls {
-  margin-top: 20px;
-  width: 58px;
-  opacity: 1;
-  visibility: visible;
-  position: absolute;
-  left: 134px;
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
-}
-/* line 92, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content .stopping-message, #app_status .content .starting-message, #app_status .content .scaling-message {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  left: 120px;
-  margin-top: 20px;
-}
-/* line 99, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status .content .just-stopped-message, #app_status .content .just-started-message {
-  position: absolute;
-  opacity: 0;
-  visibility: hidden;
-  left: 130px;
-  margin-top: -5px;
-  color: #b4b4b4;
-}
-/* line 110, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.stopped .started-controls {
-  opacity: 0;
-  visibility: hidden;
-}
-/* line 114, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.stopped #svg circle {
-  stroke: #b4b4b4;
-  stroke-dashoffset: 0;
-}
-/* line 121, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.started .stopped-controls {
-  opacity: 0;
-  visibility: hidden;
-}
-/* line 125, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.started #svg circle {
-  stroke: #00a79d;
-  stroke-dashoffset: 0;
-}
-/* line 132, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.crashing .stopped-controls {
-  opacity: 0;
-  visibility: hidden;
-}
-/* line 136, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.crashing #svg circle {
-  stroke: #ff434c;
-  stroke-dashoffset: 0;
-}
-/* line 143, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.transitioning .started-controls, #app_status.transitioning .stopped-controls {
-  opacity: 0;
-  visibility: hidden;
-}
-/* line 150, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.begin-transitioning #svg circle {
-  stroke-dashoffset: -1070;
-}
-/* line 156, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.starting .starting-message {
-  opacity: 1;
-  visibility: visible;
-}
-/* line 161, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.starting.begin-transitioning .starting-message {
-  -webkit-transition: opacity 1000ms ease-out 600ms;
-  -moz-transition: opacity 1000ms ease-out 600ms;
-  transition: opacity 1000ms ease-out 600ms;
-  -webkit-animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-  animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-}
-/* line 171, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.stopping .stopping-message {
-  opacity: 1;
-  visibility: visible;
-}
-/* line 176, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.stopping.begin-transitioning .stopping-message {
-  -webkit-transition: opacity 1000ms ease-out 600ms;
-  -moz-transition: opacity 1000ms ease-out 600ms;
-  transition: opacity 1000ms ease-out 600ms;
-  -webkit-animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-  animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-}
-/* line 186, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.restarting .starting-message {
-  opacity: 1;
-  visibility: visible;
-}
-/* line 191, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.restarting.begin-transitioning .starting-message {
-  -webkit-transition: opacity 1000ms ease-out 600ms;
-  -moz-transition: opacity 1000ms ease-out 600ms;
-  transition: opacity 1000ms ease-out 600ms;
-  -webkit-animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-  animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-}
-/* line 201, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.scaling .scaling-message {
-  opacity: 1;
-  visibility: visible;
-}
-/* line 208, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.scaling.scaling-with-restage.begin-transitioning .scaling-message {
-  -webkit-transition: opacity 1000ms ease-out 600ms;
-  -moz-transition: opacity 1000ms ease-out 600ms;
-  transition: opacity 1000ms ease-out 600ms;
-  -webkit-animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-  animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-}
-/* line 218, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.scaling.scaling-without-restage .scaling-message {
-  -webkit-transition: opacity 1000ms ease-out 600ms;
-  -moz-transition: opacity 1000ms ease-out 600ms;
-  transition: opacity 1000ms ease-out 600ms;
-  -webkit-animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-  animation: loadingPulse 1.4s ease-in-out 600ms infinite;
-}
-/* line 225, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.scaling.scaling-without-restage #svg circle {
-  stroke-dashoffset: 0;
-}
-/* line 233, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.just-started .just-started-message {
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
-  opacity: 1;
-  visibility: visible;
-}
-/* line 241, ../../src/pivotal-ui/components/app_status.css.scss */
-#app_status.just-stopped .just-stopped-message {
-  -webkit-transition: opacity 0.5s ease-out;
-  -moz-transition: opacity 0.5s ease-out;
-  transition: opacity 0.5s ease-out;
-  opacity: 1;
-  visibility: visible;
 }
 
 /*doc
@@ -17858,7 +16916,7 @@ title: Inline Modal
 name: inline-modal
 categories:
   - All
-  - CSS
+  - Objects
 ---
 
 ```haml_example
@@ -17947,8 +17005,7 @@ title: Code
 name: code
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Objects
 ---
 
 In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
@@ -18034,7 +17091,7 @@ Scrollable with too little content:
       end
 ```
 */
-/* line 95, ../../src/pivotal-ui/components/code.css.scss */
+/* line 94, ../../src/pivotal-ui/components/code.css.scss */
 .pre-scrollable {
   overflow-y: auto;
   height: 295px;
@@ -18045,6 +17102,9 @@ Scrollable with too little content:
 title: Inline Code
 name: inline_code
 parent: code
+categories:
+  - All
+  - Elements
 ---
 
 ```html_example
@@ -18092,21 +17152,21 @@ parent: code
 ```
 
 */
-/* line 155, ../../src/pivotal-ui/components/code.css.scss */
+/* line 157, ../../src/pivotal-ui/components/code.css.scss */
 .terminal {
   background-color: #d4d9d9;
   padding: 6px 10px 12px 10px;
   border-radius: 6px;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.3);
 }
-/* line 161, ../../src/pivotal-ui/components/code.css.scss */
+/* line 163, ../../src/pivotal-ui/components/code.css.scss */
 .terminal::before {
   content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
   color: #8d8e8e;
   font-size: 13px;
   font-family: FontAwesome;
 }
-/* line 168, ../../src/pivotal-ui/components/code.css.scss */
+/* line 170, ../../src/pivotal-ui/components/code.css.scss */
 .terminal pre[class*="language-"] {
   margin: 2px 0 0 0;
   border-radius: 3px;
@@ -18120,8 +17180,7 @@ title: Images
 name: images
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Elements
 ---
 */
 /*doc
@@ -18276,7 +17335,7 @@ For more information about setting up your svg, read this article about [svg coo
 
 
 */
-/* line 165, ../../src/pivotal-ui/components/image.css.scss */
+/* line 164, ../../src/pivotal-ui/components/image.css.scss */
 .svg-responsive {
   display: inline-block;
   position: relative;
@@ -18286,7 +17345,7 @@ For more information about setting up your svg, read this article about [svg coo
   overflow: hidden;
 }
 
-/* line 173, ../../src/pivotal-ui/components/image.css.scss */
+/* line 172, ../../src/pivotal-ui/components/image.css.scss */
 .svg-content {
   display: inline-block;
   position: absolute;
@@ -18311,7 +17370,7 @@ Avatar images are expected to by 100px by 100px.
 
 
 */
-/* line 198, ../../src/pivotal-ui/components/image.css.scss */
+/* line 197, ../../src/pivotal-ui/components/image.css.scss */
 .avatar {
   border: 4px solid #243640;
   box-sizing: border-box;
@@ -18323,8 +17382,7 @@ title: Pane
 name: Pane
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Layout
 ---
 
 Panes are horizontal groupings of content that are usually used to
@@ -18362,54 +17420,54 @@ one on the `.container` element will be constrained to the content width.
 ```
 
 */
-/* line 48, ../../src/pivotal-ui/components/pane.css.scss */
+/* line 47, ../../src/pivotal-ui/components/pane.css.scss */
 .pane > .container {
   padding-top: 35px;
   padding-bottom: 35px;
 }
 
-/* line 55, ../../src/pivotal-ui/components/pane.css.scss */
+/* line 54, ../../src/pivotal-ui/components/pane.css.scss */
 .pane-offset .pane-image {
   text-align: center;
   margin-bottom: -70px;
 }
-/* line 59, ../../src/pivotal-ui/components/pane.css.scss */
+/* line 58, ../../src/pivotal-ui/components/pane.css.scss */
 .pane-offset .pane-image > img {
   display: inline-block;
 }
-/* line 63, ../../src/pivotal-ui/components/pane.css.scss */
+/* line 62, ../../src/pivotal-ui/components/pane.css.scss */
 .pane-offset + .pane .container {
   padding-top: 70px;
 }
 
 @media (min-width: 768px) {
-  /* line 70, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 69, ../../src/pivotal-ui/components/pane.css.scss */
   .pane > .container {
     padding-top: 45px;
     padding-bottom: 45px;
   }
 
-  /* line 76, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 75, ../../src/pivotal-ui/components/pane.css.scss */
   .pane-offset .pane-image {
     margin-bottom: -90px;
   }
-  /* line 79, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 78, ../../src/pivotal-ui/components/pane.css.scss */
   .pane-offset + .pane .container {
     padding-top: 90px;
   }
 }
 @media (min-width: 992px) {
-  /* line 87, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 86, ../../src/pivotal-ui/components/pane.css.scss */
   .pane > .container {
     padding-top: 60px;
     padding-bottom: 60px;
   }
 
-  /* line 93, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 92, ../../src/pivotal-ui/components/pane.css.scss */
   .pane-offset .pane-image {
     margin-bottom: -120px;
   }
-  /* line 96, ../../src/pivotal-ui/components/pane.css.scss */
+  /* line 95, ../../src/pivotal-ui/components/pane.css.scss */
   .pane-offset + .pane .container {
     padding-top: 120px;
   }
@@ -18420,7 +17478,7 @@ title: Instance Scale
 name: instance scale
 categories:
   - All
-  - marketing-site
+  - Marketing Site
   - JavaScript
 ---
 
@@ -18578,8 +17636,8 @@ title: Map
 name: map
 categories:
   - All
-  - CSS
-  - marketing-site
+  - Objects
+  - JavaScript
 ---
 
 Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.
@@ -18682,19 +17740,3 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
 #labs-map {
   height: 100%;
 }
-
-/*doc
----
-title: Deprecated
-name: deprecated
-categories:
-  - Deprecated
-  - All
----
-
-Sometimes components are still used, but we are moving away from them.
-For example, password reset pages use some very old button styles,
-but we won't take the time to update them because those pages are moving
-over to UAA. This is the place where styles are put out to pasture...
-
-*/

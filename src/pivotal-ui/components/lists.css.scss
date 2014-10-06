@@ -4,7 +4,7 @@ title: Lists
 name: lists
 categories:
   - All
-  - CSS
+  - Elements
 ---
 */
 
@@ -14,6 +14,10 @@ categories:
 title: Inline List
 name: list-inline
 parent: lists
+categories:
+  - All
+  - Layout
+  - Elements
 ---
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
@@ -62,28 +66,6 @@ name: list-unordered
 parent: lists
 ---
 
-This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
-
-```haml_example
-%ul
-  %li
-    feep
-  %li
-    fop
-  %li
-    meep
-```
-*/
-
-/*doc
----
-title: Unordered List 2
-name: list-unordered-2
-parent: lists
----
-
-This is a basic list that depends largely on browser defaults. You may want to use `.list-itemized` instead.
-
 ```haml_example
 %ul.list-unordered
   %li
@@ -127,7 +109,6 @@ Places all list items on a single line with `display: inline-block;` and some li
 title: Inline Divider List
 name: list-inline-divider
 parent: lists
-category: marketing-site
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
@@ -252,6 +233,17 @@ Use this list when you need simple gray borders between items
   %li.list-group-item
     item 3
 ```
+*/
+
+/*doc
+---
+title: Addable List
+name: list_addable
+parent: lists
+categories:
+  - All
+  - JavaScript
+---
 
 New elements fade in
 
@@ -337,8 +329,12 @@ New elements fade in
 /*doc
 ---
 title: Event List
-name: event-list
+name: list_event
 parent: lists
+categories:
+  - All
+  - Objects
+  - Elements
 ---
 
 This is a special list-group, with styles per-event for colors and icons
@@ -506,6 +502,10 @@ This is a special list-group, with styles per-event for colors and icons
 title: Vertical Divider List
 name: list-vertical-divider
 parent: lists
+categories:
+  - All
+  - Layout
+  - Elements
 ---
 
 Use this list when you need larger gray borders between

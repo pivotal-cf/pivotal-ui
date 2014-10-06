@@ -1,19 +1,70 @@
-/*doc
----
-title: App Health Indicator
-name: app_health_indicator
-parent: health_indicators
-categories:
-  - All
-  - CSS
----
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: Console</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
+    <link rel="stylesheet" href="style_guide/style_guide.css">
+    <link rel="stylesheet" href="style_guide/github.css">
+    <link rel="stylesheet" disabled href="syntax-highlighting/prism-default.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="style_guide/style_guide.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <ul>
+        
+          <li><a href="all.html">All</a></li>
+        
+          <li><a href="objects.html">Objects</a></li>
+        
+          <li><a href="elements.html">Elements</a></li>
+        
+          <li><a href="intro.html">Intro</a></li>
+        
+          <li><a href="utilities.html">Utilities</a></li>
+        
+          <li><a href="forms.html">Forms</a></li>
+        
+          <li><a href="javascript.html">JavaScript</a></li>
+        
+          <li><a href="layout.html">Layout</a></li>
+        
+          <li><a href="console.html">Console</a></li>
+        
+          <li><a href="marketing_site.html">Marketing Site</a></li>
+        
+        </ul>
+      </nav>
 
-This component indicates application health. It has two sizes, many states, and can be editable or not depending on user permissions.
+      <h1>a brand new style guide, it's super effective</h1>
+      <section class="content">
+        <ul>
+        
+          <li><a href="#health_indicators">Health Indicators</a></li>
+        
+          <li><a href="#app_health_indicator">App Health Indicator</a></li>
+        
+          <li><a href="#app_status">App Status</a></li>
+        
+          <li><a href="#traffic-lights">Traffic Lights</a></li>
+        
+        </ul>
+<h1 id="health_indicators" class="styleguide">Health Indicators</h1>
 
-## States
+<ul class="section-nav">
+  <li><a href="#app_status">App Status</a></li>
+  <li><a href="#app_health_indicator">App Health Indicator</a></li>
+  <li><a href="#traffic-lights">Traffic Lights</a></li>
+</ul>
 
-The application health indicator can be `.running`, `.warning_75`, `.warning_50`, `.warning_25`, `.warning_0`, `.stopped`.
-
+<h2 id="app_health_indicator" class="styleguide">App Health Indicator</h2>
+<p class="styleguide">This component indicates application health. It has two sizes, many states, and can be editable or not depending on user permissions.</p>
+<h2>States</h2>
+<p class="styleguide">The application health indicator can be <code class="styleguide">.running</code>, <code class="styleguide">.warning_75</code>, <code class="styleguide">.warning_50</code>, <code class="styleguide">.warning_25</code>, <code class="styleguide">.warning_0</code>, <code class="styleguide">.stopped</code>.</p>
 <div class="row">
   <div class="col-md-4">
     <div class="health running editable">
@@ -88,7 +139,6 @@ The application health indicator can be `.running`, `.warning_75`, `.warning_50`
     </div>
   </div>
 </div>
-
 
 <div class="row">
   <div class="col-md-4">
@@ -165,10 +215,8 @@ The application health indicator can be `.running`, `.warning_75`, `.warning_50`
   </div>
 </div>
 
-## Sizes
-
-The application health indicator can be large or small using the `.health` and `.health health-indicator-large` classes.
-
+<h2>Sizes</h2>
+<p class="styleguide">The application health indicator can be large or small using the <code class="styleguide">.health</code> and <code class="styleguide">.health health-indicator-large</code> classes.</p>
 <div class="row">
   <div class="col-md-4">
     <p>Small</p>
@@ -200,10 +248,8 @@ The application health indicator can be large or small using the `.health` and `
   </div>
 </div>
 
-## Enforcing Permissions
-
-Depending if the user has permission to start and stop applications, the application health indicator will be `.editable` or not.
-
+<h2>Enforcing Permissions</h2>
+<p class="styleguide">Depending if the user has permission to start and stop applications, the application health indicator will be <code class="styleguide">.editable</code> or not.</p>
 <div class="row mbl">
   <div class="col-md-4">
     <p>Not Editable</p>
@@ -234,176 +280,139 @@ Depending if the user has permission to start and stop applications, the applica
     </div>
   </div>
 </div>
-
-These states are handled automatically when you use the `application_state_indicator()`
+<p class="styleguide">These states are handled automatically when you use the <code class="styleguide">application_state_indicator()</code>
 helper in your templates. The latter parameter determines the size. The first
-parameter is the application affected by the actions of the application health indicator.
-
-```haml
-=application_state_indicator(application)
+parameter is the application affected by the actions of the application health indicator.</p><div class="codeBlock"><div class="highlight"><pre>=application_state_indicator(application)
 =application_state_indicator(application, {:large_indicator: true})
-```
-*/
+</pre></div></div>
+<h2 id="app_status" class="styleguide">App Status</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='started mtxl' id='app_status'>
+  <div class='circle'>
+    <div class='content'>
+      <div class='name'>
+        <h5 class='mbn'>
+          <strong class='type-primary-4'>APP</strong>
+        </h5>
+        <h1 class='mtn'>App Name</h1>
+      </div>
+      <div class='started-controls'>
+        <button class='btn btn-highlight'>
+          <i class='fa fa-square icon-control'></i>
+        </button>
+        <button class='btn btn-highlight mll'>
+          <i class='fa fa-repeat icon-control'></i>
+        </button>
+      </div>
+      <div class='stopped-controls'>
+        <button class='btn btn-highlight'>
+          <i class='fa fa-play icon-control'></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#app_status</span><span class="nc">.started.mtxl</span>
+  <span class="nc">.circle</span>
+    <span class="nc">.content</span>
+      <span class="nc">.name</span>
+        <span class="nt">%h5</span><span class="nc">.mbn</span>
+          <span class="nt">%strong</span><span class="nc">.type-primary-4</span> APP
+        <span class="nt">%h1</span><span class="nc">.mtn</span> App Name
+      <span class="nc">.started-controls</span>
+        <span class="nt">%button</span><span class="nc">.btn.btn-highlight</span>
+          <span class="nt">%i</span><span class="nc">.fa.fa-square.icon-control</span>
+        <span class="nt">%button</span><span class="nc">.btn.btn-highlight.mll</span>
+          <span class="nt">%i</span><span class="nc">.fa.fa-repeat.icon-control</span>
+      <span class="nc">.stopped-controls</span>
+        <span class="nt">%button</span><span class="nc">.btn.btn-highlight</span>
+          <span class="nt">%i</span><span class="nc">.fa.fa-play.icon-control</span>
+</pre></div></div></div>
+<h2 id="traffic-lights" class="styleguide">Traffic Lights</h2>
+<div class="codeExample"><div class="exampleOutput">Traffic lights can be:
+<div class='row'>
+  <div class='col-md-6'>
+    on
+    <ul class='traffic-lights list-unstyled mvm'>
+      <li class='green-light'>
+        <i class='fa fa-circle'></i>
+        5
+      </li>
+      <li class='gray-light'>
+        <i class='fa fa-circle'></i>
+        1
+      </li>
+      <li class='red-light'>
+        <i class='fa fa-circle'></i>
+        8
+      </li>
+    </ul>
+  </div>
+  <div class='col-md-6'>
+    or off
+    <ul class='traffic-lights list-unstyled mvm'>
+      <li class='green-light off'>
+        <i class='fa fa-circle'></i>
+      </li>
+      <li class='gray-light off'>
+        <i class='fa fa-circle'></i>
+      </li>
+      <li class='red-light off'>
+        <i class='fa fa-circle'></i>
+      </li>
+    </ul>
+  </div>
+  <div class='col-md-6'>
+    or loading
+    <ul class='traffic-lights list-unstyled mvm'>
+      <li class='green-light off loading-green'>
+        <i class='fa fa-circle'></i>
+      </li>
+      <li class='gray-light off loading-gray'>
+        <i class='fa fa-circle'></i>
+      </li>
+      <li class='red-light off loading-red'>
+        <i class='fa fa-circle'></i>
+      </li>
+    </ul>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre>Traffic lights can be:
+<span class="nc">.row</span>
+  <span class="nc">.col-md-6</span>
+    on
+    <span class="nt">%ul</span><span class="nc">.traffic-lights.list-unstyled.mvm</span>
+      <span class="nt">%li</span><span class="nc">.green-light</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+        5
+      <span class="nt">%li</span><span class="nc">.gray-light</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+        1
+      <span class="nt">%li</span><span class="nc">.red-light</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+        8
+  <span class="nc">.col-md-6</span>
+    or off
+    <span class="nt">%ul</span><span class="nc">.traffic-lights.list-unstyled.mvm</span>
+      <span class="nt">%li</span><span class="nc">.green-light.off</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+      <span class="nt">%li</span><span class="nc">.gray-light.off</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+      <span class="nt">%li</span><span class="nc">.red-light.off</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+  <span class="nc">.col-md-6</span>
+    or loading
+    <span class="nt">%ul</span><span class="nc">.traffic-lights.list-unstyled.mvm</span>
+      <span class="nt">%li</span><span class="nc">.green-light.off.loading-green</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+      <span class="nt">%li</span><span class="nc">.gray-light.off.loading-gray</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
+      <span class="nt">%li</span><span class="nc">.red-light.off.loading-red</span>
+        <span class="nt">%i</span><span class="nc">.fa.fa-circle</span>
 
-
-
-.health {
-  width: $health-indicator-size;
-  position: relative;
-
-  form {
-    margin: 0;
-  }
-
-  input:focus {
-    outline: none;
-  }
-
-  .value {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    line-height: $health-indicator-size;
-    width: $health-indicator-size;
-    font-size: $health-indicator-font-size;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    z-index: 2;
-  }
-
-  .indicator {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-color: transparent;
-
-    border: none;
-    width: $health-indicator-size;
-    height: $health-indicator-size;
-    box-shadow: none;
-    margin: 0;
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    z-index: 1;
-  }
-
-  &.editable:hover:before {
-    content: "\f04d";
-    font-family: FontAwesome;
-    color: $link-color;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    cursor: pointer;
-    z-index: 0;
-
-    font-size: 12px;
-    margin-top: -8px;
-    margin-left: -5px;
-  }
-
-  form {
-    position: relative;
-    &:before {
-      content: "";
-      height: 100%;
-      width: 100%;
-      position: absolute;
-      border-radius: 300px;
-      border: 7px solid $health-indicator-stopped-color;
-
-      @include rotate(45deg);
-    }
-  }
-
-  &.health-indicator-large {
-    form {
-      &:before {
-        border-width: 12px;
-      }
-    }
-  }
-
-  &.running {
-    form:before {
-      border-color: $health-indicator-running-color;
-    }
-  }
-
-  &.stopped {
-    form:before {
-      border-color: $health-indicator-stopped-color;
-    }
-
-    &.editable:hover:before {
-      content: "\f04b";
-      font-family: FontAwesome;
-      font-size: 15px;
-      margin-top: -11px;
-      margin-left: -4px;
-    }
-  }
-
-  &.warning_0 {
-    form:before {
-      border-color: $health-indicator-warn-color;
-    }
-  }
-
-  &.warning_25 {
-    form:before {
-      border-top-color: $health-indicator-warn-color;
-    }
-  }
-
-  &.warning_50 {
-    form:before {
-      border-top-color: $health-indicator-warn-color;
-      border-right-color: $health-indicator-warn-color;
-    }
-  }
-
-  &.warning_75 {
-    form:before {
-      border-color: $health-indicator-warn-color $health-indicator-warn-color $health-indicator-warn-color $health-indicator-stopped-color;
-    }
-  }
-
-  &.editable:hover .value {
-    display: none;
-  }
-}
-
-.health-indicator-large {
-  width: 64px;
-  height: 64px;
-  margin: auto;
-
-  font-size: $health-indicator-large-font-size;
-  width: $health-indicator-large-size;
-
-  &.editable:hover:before {
-    font-size: 20px;
-    margin-top: -14px;
-    margin-left: -8px;
-  }
-
-  &.stopped.editable:hover:before {
-    font-size: 20px;
-    margin-top: -14px;
-    margin-left: -6px;
-  }
-
-  .value {
-    line-height: $health-indicator-large-size;
-    width: $health-indicator-large-size;
-    font-size: $health-indicator-large-font-size;
-  }
-
-  .indicator {
-    width: $health-indicator-large-size;
-    height: $health-indicator-large-size;
-  }
-
-}
+</pre></div></div></div>      </section>
+      <footer>
+        <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+      </footer>
+    </div>
+  </body>
+</html>
