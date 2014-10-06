@@ -8,6 +8,81 @@ There are lots of ways to help depending on your interests and skills. For examp
 
 If you need some inspiration, we have plenty of work for you to do. Please [email us](mailto:pivotal-ui@pivotal.io) to start a conversation.
 
+## Pull requests
+
+1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
+   and configure the remotes:
+
+   ```bash
+   git clone https://github.com/<your-github-id>/pivotal-ui.git
+   cd pivotal-ui
+   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
+   ```
+
+1. [Set up your environment](#setting-up-your-environment)
+
+1. If you cloned a while ago, get the latest changes from upstream:
+
+   ```bash
+   git checkout master
+   git pull upstream master
+   ```
+
+1. Create a feature branch based off of master.
+
+	```bash
+	git checkout -b feature/<short_description_of_feature>
+	```
+
+1. **Before you make any changes**, [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes). This will allow you to test for regressions after you make changes.
+
+1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
+
+1. [Document your component](#documenting-components) in the styleguide.
+
+1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
+
+1. Push your changes to github
+
+	```bash
+	git pull --rebase upstream master
+	git push origin head
+	```
+
+1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description against the master branch.
+
+## Setting up your environment
+
+If you intend to build pivotal ui itself, there are a few things you'll need to do.
+
+### Install Tools (in order)
+
+compass, haml, sass, and hologram
+
+    $ bundle install
+
+node and npm
+
+    $ brew install node
+
+Install dependencies by running the following from the project root
+
+    $ npm install
+
+Install the Gulp CLI globally
+
+    $ npm install gulp -g
+
+### Build the project
+
+As soon as you have your tools installed, run gulp _at the project root_:
+
+    $ gulp
+
+then visit [http://localhost:8000](http://localhost:8000)
+
+This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
+
 ## Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
@@ -29,7 +104,7 @@ Guidelines for bug reports:
    case](http://css-tricks.com/6263-reduced-test-cases/) and a live example.
    [This JS Bin](http://jsbin.com/lefey/1/edit?html,output) is a helpful template.
 
-4.	**Add a screenshot** &mdash; a picture is worth a thousand words. A screenshot of the bug in action will be very helpful in debugging it. 
+4.	**Add a screenshot** &mdash; a picture is worth a thousand words. A screenshot of the bug in action will be very helpful in debugging it.
 
 
 A good bug report shouldn't leave others needing to chase you up for more
@@ -44,49 +119,6 @@ Finally, if you've followed all these steps and you think you have a real bug, [
 ## Feature requests
 
 To submit a Feature request, please [open an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues). Screenshots are very helpful! We'll then have a conversation about what you are trying to achieve in your project and the best way to do that.
-
-## Pull requests
-
-1. [Set up your environment](#setting-up-your-environment)
-
-1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
-   and configure the remotes:
-
-   ```bash
-   git clone https://github.com/<your-github-id>/pivotal-ui.git
-   cd pivotal-ui
-   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
-   ```
-
-1. If you cloned a while ago, get the latest changes from upstream:
-
-   ```bash
-   git checkout master
-   git pull upstream master
-   ```
-   
-1. Create a feature branch based off of master.
-
-	```bash
-	git checkout -b feature/<short_description_of_feature>
-	```
-
-1. **Before you make any changes**, [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes). This will allow you to test for regressions after you make changes.
-
-1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
-
-1. [Document your component](#documenting-components) in the styleguide. 
-
-1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
-
-1. Push your changes to github
-
-	```bash
-	git pull --rebase upstream master
-	git push origin head
-	```
-
-1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description against the master branch.
 
 ## Testing
 
@@ -104,7 +136,7 @@ We use CSSCritic for front-end regression testing. Currently, we are only testin
 Test fixtures are automatically created every time you create a `haml_example`, `haml_example_table`, `html_example`, or `html_example_table` in the styleguide documentation. When you are happy with your component, you'll need to set a baseline test for it, and then it will get tested against regressions going forward.
 
 ### Rerun the test suite for regressions (before you commit/make a pull request)
-1. Run `gulp` to build the latest assets 
+1. Run `gulp` to build the latest assets
 1. Run `gulp test`. This will open up Firefox.
 1. If there are no regressions, all components will be green.
 1. If you added any components, you'll have to click "Accept the rendered page" for that component.
@@ -119,13 +151,13 @@ Each commit should be "green" (i.e. it should not break any existing functionali
 
 We follow the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md) commit message format. Your message should include information about whether it includes major, minor or patch level changes. You may be wondering what major, minor, and  patch mean in the context of CSS. Please follow these guidelines:
 
-* **Major** - A breaking change which alters either *class names* or expected *HTML*. 
+* **Major** - A breaking change which alters either *class names* or expected *HTML*.
 * **Minor** - Either an *additional feature* (e.g. a new component), or an update which changes *Sass variables*
 * **Patch** - A *non-breaking change, bug fix, or design update* that any team should be able to upgrade to without changing their html. An example of this is updating the background color of the danger button or fixing the alignment of the horizontal tabs (as long as no html changes are required).
 
 ## Documenting components
 
-We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram). The component docs are created from markdown comments in the SCSS. 
+We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram). The component docs are created from markdown comments in the SCSS.
 
 Make sure to name your component something unique or it will clobber other components' docs. Also, add your component to the appropriate categories.
 
@@ -181,32 +213,3 @@ TODO: document categories more explicitly when they stabilize.
 - strict mode
 - "Attractive"
 
-## Setting up your environment
-
-If you intend to build pivotal ui itself, there are a few things you'll need to do.
-
-### Install Tools (in order)
-
-compass, haml, sass, and hologram
-
-    $ bundle install
-
-node and npm
-
-    $ brew install node
-
-Install dependencies by running the following from the project root
-
-    $ npm install
-
-Install the Gulp CLI globally
-
-    $ npm install gulp -g
-
-### Build the project
-
-As soon as you have your tools installed, run gulp _at the project root_:
-
-    $ gulp
-
-This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
