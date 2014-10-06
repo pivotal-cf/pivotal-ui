@@ -1,6 +1,7 @@
 # Source: https://gist.github.com/jdcantrell/b0ad9a6bcbfc2551713f
 
 require 'pry'
+require 'haml'
 
 class CssCriticTestGenerator < Hologram::Plugin
   attr :output_dir, :tests
@@ -21,7 +22,8 @@ class CssCriticTestGenerator < Hologram::Plugin
 
   HTML_FOOTER = "\n\n</body>\n</html>"
 
-  CODE_REGEX = /^\s*```html_example(?:_table)?(.*?)\s*```/m
+  CODE_REGEX_HTML = /^\s*```html_example(?:_table)?(.*?)\s*```/m
+  CODE_REGEX_HAML = /^\s*```haml_example(?:_table)?(.*?)\s*```/m
 
   def initialize(config, args)
     @name = 'css-test'
@@ -43,8 +45,17 @@ class CssCriticTestGenerator < Hologram::Plugin
     #We create tests based of html_examples if a comment has the test
     #config and no plugin block
     if comment_block.config.has_key?('test') and !has_plugin
-      tests = comment_block.markdown.scan(CODE_REGEX)
-      write_test(comment_block.config['name'], tests.flatten) unless tests.empty?
+      html_tests = comment_block.markdown.scan(CODE_REGEX_HTML).flatten
+      haml_tests = comment_block.markdown.scan(CODE_REGEX_HAML).flatten
+
+      tests = html_tests + haml_to_html(haml_tests)
+      write_test(comment_block.config['name'], tests) unless tests.empty?
+    end
+  end
+
+  def haml_to_html (haml_tests)
+    haml_tests.map do |test|
+      Haml::Engine.new(test.strip).render
     end
   end
 
