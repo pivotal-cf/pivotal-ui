@@ -11,7 +11,7 @@ var fs = require('fs');
 
 
 gulp.task('clean', function(done) {
-  del(['dist'], done);
+  del(['dist'], {force: true}, done);
 });
 
 
