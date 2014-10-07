@@ -42,15 +42,11 @@ class CssCriticTestGenerator < Hologram::Plugin
   end
 
   def block(comment_block, file, has_plugin)
-    #We create tests based of html_examples if a comment has the test
-    #config and no plugin block
-    if comment_block.config.has_key?('test') and !has_plugin
-      html_tests = comment_block.markdown.scan(CODE_REGEX_HTML).flatten
-      haml_tests = comment_block.markdown.scan(CODE_REGEX_HAML).flatten
+    html_tests = comment_block.markdown.scan(CODE_REGEX_HTML).flatten
+    haml_tests = comment_block.markdown.scan(CODE_REGEX_HAML).flatten
 
-      tests = html_tests + haml_to_html(haml_tests)
-      write_test(comment_block.config['name'], tests) unless tests.empty?
-    end
+    tests = html_tests + haml_to_html(haml_tests)
+    write_test(comment_block.config['name'], tests) unless tests.empty?
   end
 
   def haml_to_html (haml_tests)
