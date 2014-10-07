@@ -73,31 +73,38 @@ gulp.task('styleguide', ['clean'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('test', function() {
+gulp.task('_copyTestAssets', function() {
+  return gulp.src([
+    'dist/**/*',
+  ]).pipe(gulp.dest('./test/dist/'));
+});
+
+gulp.task('_createTestFileList', function(cb) {
   fs.readdir('./test/components/', function(err, files) {
     if (err) {
       console.error(err);
       process.exit(1)
     }
 
-    gulp.src('./test/regressionRunner.ejs')
+    var stream = gulp.src('./test/regressionRunner.ejs')
       .pipe(ejs({
         files: files
       }, {
         ext: '.js'
       }))
       .pipe(gulp.dest('./test/'));
+
+    stream.on('finish', cb)
   });
+});
 
-  gulp.src([
-    'dist/**/*',
-  ])
-    .pipe(gulp.dest('./test/dist/'));
-
+gulp.task('test', [
+  '_copyTestAssets',
+  '_createTestFileList'
+], function() {
   gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
-
 
 gulp.task('assets', [
   'styles',
