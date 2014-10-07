@@ -21,7 +21,8 @@ gulp.task('styles', ['clean'], function() {
       config_file: './config/compass.rb',
       css: 'dist',
       sass: 'src'
-    }));
+    }).on('error', function() { console.error(arguments) })
+  );
 
   gulp.src(['src/syntax-highlighting/*.css'])
     .pipe(gulp.dest('./dist/syntax-highlighting/'));
