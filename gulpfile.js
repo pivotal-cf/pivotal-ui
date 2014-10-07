@@ -8,6 +8,8 @@ var connect = require('gulp-connect');
 var open = require('gulp-open');
 var ejs = require('gulp-ejs');
 var fs = require('fs');
+var jshint = require('gulp-jshint');
+var stylish = require('jshint-stylish');
 
 
 gulp.task('clean', function(done) {
@@ -98,13 +100,22 @@ gulp.task('_createTestFileList', function(cb) {
   });
 });
 
-gulp.task('test', [
-  '_copyTestAssets',
-  '_createTestFileList'
-], function() {
+gulp.task('_cssCritic', ['_lint', '_copyTestAssets', '_createTestFileList'], function() {
   gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
+
+gulp.task('_lint', function() {
+  return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
+    .pipe(jshint())
+    .pipe(jshint.reporter(stylish))
+    .pipe(jshint.reporter('fail'))
+});
+
+gulp.task('test', [
+  '_lint',
+  '_cssCritic',
+]);
 
 gulp.task('assets', [
   'styles',
