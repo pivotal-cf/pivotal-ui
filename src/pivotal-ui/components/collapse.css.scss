@@ -1,25 +1,18 @@
 /*doc
 ---
-title: Accordions
-name: accordion
+title: Collapse
+name: collapse
 categories:
   - All
   - JavaScript
   - Objects
 ---
 
-
 Also see the select tabs for a toggle triggered by a select group.
-This is frequently used in combination with our panel components. 
 
-Accordions can be used with any background color class, add them to the header and body.
+Simple Collapse:
 
-NOTE: The 'alligators' (the > in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
- and the images jump around by a few pixels when they're toggled.
-
-
-Simple Accordion:
+Use this to expand and collapse content. 
 
 ```haml_example
 %a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
@@ -30,33 +23,71 @@ Simple Accordion:
 #simple-collapse-example.collapse
   Look at this content.
 ```
+*/
 
-Simple Accordion with Icon:
+/*doc
+---
+title: Accordions
+name: accordion
+parent: collapse
+---
+These are frequently used in combination with our panel components. They have a header and body.
+
+Accordions can be used with any background color class, add them to the header and body.
+
+NOTE: The 'alligators' (the > in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they're toggled.
+
+*/
 
 
+/*doc
+---
+title: Accordion Sizes
+name: accordion_sizes
+parent: collapse
+---
+ 
+Default accordion size:
 
 ```haml_example
 #accordion-1.panel
-  .panel-heading.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-1'}, href: '#myCollapse-1'}
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-1'}
     .row
       .col-md-23
-        %a
-          .when-collapsed-inline>
-            %i.fa.fa-plus-square.collapse-icon>
-          .when-expanded-inline>
-            %i.fa.fa-minus-square.collapse-icon>
-        %h3.collapse-title.type-em-1.type-primary-2> My fancy application
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
   #myCollapse-1.panel-collapse.collapse
-    .panel-body
+    .panel-body-accordion.bg-neutral-11
       This content should hide and show when the trigger is clicked.
 ```
 
-Shadow Accordion with Icon:
-
+Large accordion size:
 
 ```haml_example
-#accordion-2.panel.panel-shadow
-  .panel-heading-accordion.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-2'}
+#accordion-2.panel
+  .panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-2'}
+    .row
+      .col-md-23
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-2.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+```
+*/
+
+/*doc
+---
+title: Accordion with Icons
+name: accordion_with_icons
+parent: collapse
+---
+
+Accordion with caret right/down icon:
+
+```haml_example
+#accordion-3.panel
+  .panel-heading-accordion-large.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-3'}
     .row
       .col-md-23
         %a
@@ -65,17 +96,16 @@ Shadow Accordion with Icon:
           .when-expanded-inline>
             %i.fa.fa-minus-square.collapse-icon>
         %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-2.panel-collapse.collapse
-    .panel-body-accordion
+  #myCollapse-3.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
       This content should hide and show when the trigger is clicked.
 ```
 
-Shadow Accordion with Icon Large:
-
+Accordion with plus/minus icon:
 
 ```haml_example
-#accordion-3.panel.panel-shadow
-  .panel-heading-accordion-large.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-3'}
+#accordion-4.panel
+  .panel-heading-accordion.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-4'}
     .row
       .col-md-23
         %a
@@ -84,8 +114,58 @@ Shadow Accordion with Icon Large:
           .when-expanded-inline>
             %i.fa.fa-caret-down.collapse-icon>
         %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-3.panel-collapse.collapse
-    .panel-body-accordion
+  #myCollapse-4.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+
+```
+*/
+
+/*doc
+---
+title: Accordion Styles
+name: accordion_styles
+parent: collapse
+---
+
+Accordion with Divider:
+
+This adds a divider between the accordion header and accordion body.
+
+```haml_example
+#accordion-5.panel
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-5'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-5.panel-collapse.collapse
+    .panel-body-accordion-divider.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+
+```
+
+Accordion with Shadow:
+
+This adds a shadow to the accordion when it is both open and closed.
+
+```haml_example
+#accordion-6.panel.panel-shadow
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-6'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-6.panel-collapse.collapse
+    .panel-body-accordion-divider.bg-neutral-11
       This content should hide and show when the trigger is clicked.
 
 ```
@@ -127,19 +207,19 @@ Shadow Accordion with Icon Large:
 
   .collapse-title {
     display: inline-block;
-    margin-left: 5px;
   }
 
   .collapse-icon {
     display: inline-block;
     width: 15px;
     color: $accordion-icon;
+    margin-right: 5px;
   }
 }
 
 .panel-heading-accordion {
-  @extend .panel-heading;
   position: relative;
+  padding: 10px 20px;
   margin-bottom: 0px;
   cursor: pointer;
   -webkit-user-select: none;
@@ -151,11 +231,15 @@ Shadow Accordion with Icon Large:
 .panel-body-accordion {
   margin: 0px;
   padding:  30px 20px;
-  border-top: 2px solid $shadow-3;
 }
 
 .panel-heading-accordion-large {
   @extend .panel-heading-accordion;
   padding: 25px 20px 25px 20px;
+}
+
+.panel-body-accordion-divider {
+  @extend .panel-body-accordion;
+  border-top: 2px solid $shadow-3;
 }
 
