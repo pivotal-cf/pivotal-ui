@@ -8,11 +8,11 @@ categories:
 ---
 
 You can use a banner to let the team know which environment they're
-working on. Leave off the `.banner-styleguide-wrapper` div when using it
+working on. Leave off the `.styleguide-component-wrapper` div when using it
 in other contexts.
 
 ```haml_example
-.banner-styleguide-wrapper
+.styleguide-component-wrapper
   .banner
     Acceptance
 ```

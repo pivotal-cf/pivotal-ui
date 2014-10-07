@@ -411,7 +411,7 @@ div.codeBlock {
 }
 
 /* line 362, ../../src/style_guide/style_guide.scss */
-.banner-styleguide-wrapper {
+.styleguide-component-wrapper {
   position: relative;
   border: 2px solid #EDEDED;
   height: 200px;
@@ -419,7 +419,7 @@ div.codeBlock {
   overflow: hidden;
 }
 /* line 368, ../../src/style_guide/style_guide.scss */
-.banner-styleguide-wrapper .banner {
+.styleguide-component-wrapper .banner {
   position: absolute;
 }
 
