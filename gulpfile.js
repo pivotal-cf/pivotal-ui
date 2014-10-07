@@ -11,13 +11,61 @@ var fs = require('fs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 
+gulp.task('default', [
+  'watch',
+  'serve'
+]);
+
+gulp.task('test', [
+  '_lint',
+  '_cssCritic',
+]);
+
+gulp.task('watch', ['assets'], function() {
+  gulp.watch("src/**/*", ['assets']);
+});
+
+gulp.task('serve', function() {
+  connect.server({
+    root: ['dist'],
+    port: 8000,
+    livereload: true
+  });
+});
 
 gulp.task('clean', function(done) {
   del(['dist'], {force: true}, done);
 });
 
+gulp.task('assets', [
+  '_styles',
+  '_scripts',
+  '_images',
+  '_fonts',
+  '_styleguide'
+]);
 
-gulp.task('styles', ['clean'], function() {
+// private
+
+gulp.task('_styleguide', [
+  'clean',
+  '_hologramBuild',
+  '_copyStyleguideAssets',
+  '_copyRandomAssets']);
+
+gulp.task('_styles', [
+  'clean',
+  '_compassBuild',
+  '_copyPrism'
+]);
+
+gulp.task('_fonts', [
+  'clean',
+  '_fontAwesome',
+  '_sourceSansPro'
+]);
+
+gulp.task('_compassBuild', ['clean'], function() {
   gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/style_guide/style_guide.scss'])
     .pipe(compass({
       config_file: './config/compass.rb',
@@ -25,49 +73,47 @@ gulp.task('styles', ['clean'], function() {
       sass: 'src'
     }).on('error', function() { console.error(arguments) })
   );
+});
 
+gulp.task('_copyPrism', ['clean'], function() {
   gulp.src(['src/syntax-highlighting/*.css'])
     .pipe(gulp.dest('./dist/syntax-highlighting/'));
 });
 
-
-gulp.task('scripts', ['clean'], function() {
+gulp.task('_scripts', ['clean'], function() {
   browserify('./src/pivotal-ui/javascripts/pivotal-ui.js').bundle()
     .pipe(source('./pivotal-ui.js'))
     .pipe(gulp.dest('dist/pivotal-ui/'))
 });
 
-
-gulp.task('images', ['clean'], function() {
+gulp.task('_images', ['clean'], function() {
   gulp.src('src/images/**/*')
     .pipe(gulp.dest('./dist/images/'));
 });
 
-
-gulp.task('fonts', ['clean'], function() {
+gulp.task('_fontAwesome', ['clean'], function() {
   gulp.src([
-      'node_modules/font-awesome/fonts/*',
-    ])
-    .pipe(gulp.dest('./dist/fonts/'));
-
-  gulp.src([
-      'src/source-sans-pro/**/*',
-      '!src/source-sans-pro/source-sans-pro.css.scss'
-    ])
+    'node_modules/font-awesome/fonts/*',
+  ])
     .pipe(gulp.dest('./dist/fonts/'));
 });
 
+gulp.task('_sourceSansPro', ['clean'], function() {
+  gulp.src([
+    'src/source-sans-pro/**/*',
+    '!src/source-sans-pro/source-sans-pro.css.scss'
+  ])
+    .pipe(gulp.dest('./dist/fonts/'));
+});
 
-gulp.task('styleguide', ['clean'], function() {
-  gulp.src('hologram_config.yml')
-    .pipe(hologram({
-      bundler: true
-    }));
-
+gulp.task('_copyStyleguideAssets', ['clean'], function() {
   gulp.src(['src/style_guide/*.js', 'src/style_guide/github.css'])
     .pipe(gulp.dest('./dist/style_guide'));
+});
 
-  gulp.src(['src/nginx.conf',
+gulp.task('_copyRandomAssets', ['clean'], function() {
+  gulp.src([
+    'src/nginx.conf',
     'src/Staticfile',
     'src/style_guide/404.html',
     'src/style_guide/pane.html'
@@ -75,7 +121,14 @@ gulp.task('styleguide', ['clean'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('_copyTestAssets', function() {
+gulp.task('_hologramBuild', ['clean'], function() {
+  gulp.src('hologram_config.yml')
+    .pipe(hologram({
+      bundler: true
+    }));
+});
+
+gulp.task('_copyTestAssets', ['assets'], function() {
   return gulp.src([
     'dist/**/*',
   ]).pipe(gulp.dest('./test/dist/'));
@@ -112,31 +165,4 @@ gulp.task('_lint', function() {
     .pipe(jshint.reporter('fail'))
 });
 
-gulp.task('test', [
-  '_lint',
-  '_cssCritic',
-]);
 
-gulp.task('assets', [
-  'styles',
-  'scripts',
-  'images',
-  'fonts',
-  'styleguide'
-]);
-
-gulp.task('watch', ['assets'], function() {
-  gulp.watch("src/**/*", ['assets']);
-});
-
-gulp.task('serve', function() {
-  connect.server({
-    root: ['dist'],
-    port: 8000,
-    livereload: true
-  });
-});
-
-gulp.task('default', [
-  'watch', 'serve'
-]);
