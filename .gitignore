@@ -9,6 +9,7 @@
 /test/version_tmp/
 /test/dist/
 /test/components/
+/test/regressionRunner.js
 /tmp/
 .ruby-version
 .sass-cache/

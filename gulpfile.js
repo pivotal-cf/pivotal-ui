@@ -5,7 +5,9 @@ var compass = require('gulp-compass');
 var browserify = require('browserify');
 var hologram = require('gulp-hologram');
 var connect = require('gulp-connect');
-var open = require("gulp-open");
+var open = require('gulp-open');
+var ejs = require('gulp-ejs');
+var fs = require('fs');
 
 
 gulp.task('clean', function(done) {
@@ -71,6 +73,21 @@ gulp.task('styleguide', ['clean'], function() {
 });
 
 gulp.task('test', function() {
+  fs.readdir('./test/components/', function(err, files) {
+    if (err) {
+      console.error(err);
+      process.exit(1)
+    }
+
+    gulp.src('./test/regressionRunner.ejs')
+      .pipe(ejs({
+        files: files
+      }, {
+        ext: '.js'
+      }))
+      .pipe(gulp.dest('./test/'));
+  });
+
   gulp.src([
     'dist/**/*',
   ])
