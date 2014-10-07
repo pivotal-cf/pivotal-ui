@@ -1,17 +1,25 @@
 /*doc
 ---
-title: Collapse Toggle
-name: collapse
-parent: toggle
+title: Accordions
+name: accordion
+categories:
+  - All
+  - JavaScript
+  - Objects
 ---
 
+
 Also see the select tabs for a toggle triggered by a select group.
-This is frequently used in combination with our panel components.
+This is frequently used in combination with our panel components. 
+
+Accordions can be used with any background color class, add them to the header and body.
+
 NOTE: The 'alligators' (the > in the HAML below) are structural --
 without them, the browser renders the whitespace on the anchor tags,
  and the images jump around by a few pixels when they're toggled.
 
-Simple Example:
+
+Simple Accordion:
 
 ```haml_example
 %a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
@@ -23,7 +31,9 @@ Simple Example:
   Look at this content.
 ```
 
-Panel Example
+Simple Accordion with Icon:
+
+
 
 ```haml_example
 #accordion-1.panel
@@ -39,6 +49,45 @@ Panel Example
   #myCollapse-1.panel-collapse.collapse
     .panel-body
       This content should hide and show when the trigger is clicked.
+```
+
+Shadow Accordion with Icon:
+
+
+```haml_example
+#accordion-2.panel.panel-shadow
+  .panel-heading-accordion.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-2'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-plus-square.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-minus-square.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-2.panel-collapse.collapse
+    .panel-body-accordion
+      This content should hide and show when the trigger is clicked.
+```
+
+Shadow Accordion with Icon Large:
+
+
+```haml_example
+#accordion-3.panel.panel-shadow
+  .panel-heading-accordion-large.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-3'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-3.panel-collapse.collapse
+    .panel-body-accordion
+      This content should hide and show when the trigger is clicked.
+
 ```
 
 */
@@ -78,10 +127,35 @@ Panel Example
 
   .collapse-title {
     display: inline-block;
-    @extend .mlm;
+    margin-left: 5px;
   }
 
   .collapse-icon {
-    display: inline;
+    display: inline-block;
+    width: 15px;
+    color: $accordion-icon;
   }
 }
+
+.panel-heading-accordion {
+  @extend .panel-heading;
+  position: relative;
+  margin-bottom: 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.panel-body-accordion {
+  margin: 0px;
+  padding:  30px 20px;
+  border-top: 2px solid $shadow-3;
+}
+
+.panel-heading-accordion-large {
+  @extend .panel-heading-accordion;
+  padding: 25px 20px 25px 20px;
+}
+
