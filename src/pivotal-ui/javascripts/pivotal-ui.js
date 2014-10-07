@@ -4,3 +4,4 @@ require('modernizr');
 require('prism');
 
 require('./scale')();
+require('./back-to-top')();
