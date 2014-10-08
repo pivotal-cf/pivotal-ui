@@ -40,15 +40,13 @@ categories:
 ### Printing
 Try printing this page to see these styles in action.
 
-```haml_example
-%h3.print-only This will only show when printed
-%h3.no-print This will not show when printed
+```haml_example_table
+%h3.visible-print This will only show when printed
+
+%h3.hidden-print This will not show when printed
 ```
 
 */
-.print-only {
-  display: none;
-}
 
 /*doc
 ---
