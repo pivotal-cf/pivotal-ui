@@ -22,7 +22,7 @@ gulp.task('test', [
 ]);
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
-  gulp.watch("src/**/*", ['assets', '_copyTestAssets']);
+  gulp.watch(['src/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
 });
 
 gulp.task('serve', function() {
