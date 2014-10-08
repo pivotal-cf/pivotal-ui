@@ -15,24 +15,6 @@ Class                 | Description
 
 */
 
-// Terrible terrible code
-.table-hack {
-  .thead, .tbody {
-    padding: 0 15px;
-  }
-  .th {
-    padding: 8px 15px;
-  }
-  .td {
-    padding: 20px 15px;
-  }
-  .tbody {
-
-    .tr:nth-child(odd) {
-    }
-  }
-}
-
 /*doc
 ---
 title: Data
