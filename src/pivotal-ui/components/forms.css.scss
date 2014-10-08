@@ -904,3 +904,38 @@ This form looks and behaves mostly like a contenteditable field
     }
   }
 }
+
+/*doc
+---
+title: Search Input
+name: search-input
+parent: forms
+---
+
+Use this input when creating a search component. 
+
+```html_example
+<div class="form-group form-group-search">
+  <input class="form-control" placeholder="This is a searchbox">
+  <i class="fa fa-search"></i>
+</div>
+```
+*/
+
+
+.form-group-search {
+  position: relative;
+
+  i {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+
+  input {
+    padding-left: 34px;
+  }
+}
+
+
+
