@@ -1,0 +1,39 @@
+/*doc
+---
+title: Labels
+name: labels
+categories:
+  - All
+  - Elements
+---
+
+Labels are based on Bootstrap's labels. You can place them on their own or within an HTML element. It will be sized based on the element's font size and listens to font size modifiers.
+
+```haml_example
+
+%span.label.label-primary
+  new
+
+%p
+  I am a P.
+  %span.label.label-primary
+    new
+
+%h1
+  I am an H1.
+  %span.label.label-primary
+    new
+
+%h1.h5
+  I am an H1 with an H5 modifier.
+  %span.label.label-primary
+    new
+
+```
+*/
+
+.label {
+  padding: 1px 3px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}

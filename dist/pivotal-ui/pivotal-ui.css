@@ -6862,6 +6862,84 @@ input[type="button"].btn-block {
   border-top-left-radius: 0;
 }
 
+/* line 5, ../../src/bootstrap/_labels.scss */
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: bold;
+  line-height: 1;
+  color: white;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+}
+/* line 19, ../../src/bootstrap/_labels.scss */
+.label[href]:hover, .label[href]:focus {
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+/* line 28, ../../src/bootstrap/_labels.scss */
+.label:empty {
+  display: none;
+}
+
+/* line 36, ../../src/bootstrap/_labels.scss */
+.label-default {
+  background-color: #999999;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-default[href]:hover, .label-default[href]:focus {
+  background-color: gray;
+}
+
+/* line 40, ../../src/bootstrap/_labels.scss */
+.label-primary {
+  background-color: #00a79d;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-primary[href]:hover, .label-primary[href]:focus {
+  background-color: #00746d;
+}
+
+/* line 44, ../../src/bootstrap/_labels.scss */
+.label-success {
+  background-color: #5cb85c;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-success[href]:hover, .label-success[href]:focus {
+  background-color: #449d44;
+}
+
+/* line 48, ../../src/bootstrap/_labels.scss */
+.label-info {
+  background-color: #5bc0de;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-info[href]:hover, .label-info[href]:focus {
+  background-color: #31b0d5;
+}
+
+/* line 52, ../../src/bootstrap/_labels.scss */
+.label-warning {
+  background-color: #f0ad4e;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-warning[href]:hover, .label-warning[href]:focus {
+  background-color: #ec971f;
+}
+
+/* line 56, ../../src/bootstrap/_labels.scss */
+.label-danger {
+  background-color: #CA7070;
+}
+/* line 539, ../../src/bootstrap/_mixins.scss */
+.label-danger[href]:hover, .label-danger[href]:focus {
+  background-color: #bc4b4b;
+}
+
 /* line 9, ../../src/bootstrap/_alerts.scss */
 .alert {
   padding: 15px;
@@ -17914,4 +17992,44 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
 /* line 105, ../../src/pivotal-ui/components/map.css.scss */
 #labs-map {
   height: 100%;
+}
+
+/*doc
+---
+title: Labels
+name: labels
+categories:
+  - All
+  - Elements
+---
+
+Labels are based on Bootstrap's labels. You can place them on their own or within an HTML element. It will be sized based on the element's font size and listens to font size modifiers.
+
+```haml_example
+
+%span.label.label-primary
+  new
+
+%p
+  I am a P.
+  %span.label.label-primary
+    new
+
+%h1
+  I am an H1.
+  %span.label.label-primary
+    new
+
+%h1.h5
+  I am an H1 with an H5 modifier.
+  %span.label.label-primary
+    new
+
+```
+*/
+/* line 35, ../../src/pivotal-ui/components/labels.css.scss */
+.label {
+  padding: 1px 3px;
+  border-radius: 3px;
+  text-transform: uppercase;
 }
