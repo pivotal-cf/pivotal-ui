@@ -83,7 +83,7 @@ name: accordion_with_icons
 parent: collapse
 ---
 
-Accordion with caret right/down icon:
+Accordion with plus/minus icon:
 
 ```haml_example
 #accordion-3.panel
@@ -101,7 +101,7 @@ Accordion with caret right/down icon:
       This content should hide and show when the trigger is clicked.
 ```
 
-Accordion with plus/minus icon:
+Accordion with caret right/down icon:
 
 ```haml_example
 #accordion-4.panel
