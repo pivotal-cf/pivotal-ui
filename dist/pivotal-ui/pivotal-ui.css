@@ -16957,7 +16957,7 @@ In the haml, the width should be set to match the `aria-valuenow` if the progres
 ---
 title: Traffic Lights
 name: traffic-lights
-parent: health_indicators
+parent: console
 ---
 
 ```haml_example
@@ -17728,10 +17728,11 @@ one on the `.container` element will be constrained to the content width.
 /*doc
 ---
 title: Instance Scale
-name: instance scale
+name: instance_scale
+parent: marketing
 categories:
   - All
-  - Marketing Site
+  - by Product
   - JavaScript
 ---
 
@@ -17869,16 +17870,16 @@ highlighted on page load.
 </div>
 ```
 */
-/* line 146, ../../src/pivotal-ui/components/scale.css.scss */
+/* line 147, ../../src/pivotal-ui/components/scale.css.scss */
 .scale-svg .instances-column:hover,
 .scale-svg .selected-group {
   filter: none;
 }
-/* line 151, ../../src/pivotal-ui/components/scale.css.scss */
+/* line 152, ../../src/pivotal-ui/components/scale.css.scss */
 .scale-svg .instances-gradient-stop-1 {
   stop-color: #ecefef;
 }
-/* line 152, ../../src/pivotal-ui/components/scale.css.scss */
+/* line 153, ../../src/pivotal-ui/components/scale.css.scss */
 .scale-svg .instances-gradient-stop-2 {
   stop-color: rgba(255, 255, 255, 0);
 }

@@ -1,18 +1,9 @@
-/*doc
----
-title: Health Indicators
-name: health_indicators
-categories:
-  - All
-  - Console
----
 
-*/
 /*doc
 ---
 title: App Status
 name: app_status
-parent: health_indicators
+parent: console
 ---
 
 ```haml_example
@@ -259,7 +250,7 @@ parent: health_indicators
 ---
 title: App Health Indicator
 name: app_health_indicator
-parent: health_indicators
+parent: console
 ---
 
 This component indicates application health. It has two sizes, many states, and can be editable or not depending on user permissions.

@@ -1,6 +1,7 @@
 // Styles specific to the styleguide, otherwise, not used
 @import 'compass';
 @import '../pivotal-ui/components/variables.css.scss';
+@import '../pivotal-ui/components/mixins.css.scss';
 
 html {
   background-color: $gray-8;
@@ -52,14 +53,71 @@ blockquote {
 
 }
 
+.styleguide-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
 
-//code {
-//  padding: 2px 4px;
-//  color: #d14;
-//  white-space: nowrap;
-//  background-color: #f9f9f9;
-//  border-radius: 4px;
-//}
+  background: $dark-1;
+  color: $neutral-11;
+
+  @-webkit-keyframes hoverSpin {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+  }
+
+  @-moz-keyframes hoverSpin {
+    0% { opacity: 1; }
+    50% { opacity: .6; }
+    100% { opacity: 1;}
+  }
+
+  @keyframes hoverSpin {
+    0% { opacity: 1; }
+    50% { opacity: .6; }
+    100% { opacity: 1;}
+  }
+
+  .styleguide-logo {
+    float: left;
+    margin-top: 5px;
+    margin-right: 15px;
+
+    &:hover {
+      @include animation(hoverSpin 5s linear infinite);
+    }
+
+  }
+
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      display: inline-block;
+      font-size: $font-size-small;
+      padding: 10px 15px;
+
+      a {
+        color: $neutral-11;
+      }
+
+      &:hover {
+        @include transition-pui();
+        background: $neutral-1;
+
+        a {
+          @include transition-pui();
+          color: $brand-3;
+        }
+      }
+    }
+  }
+}
+
 
 div.codeExample, div.jsExample {
   border: 1px solid #ccc;
@@ -138,63 +196,7 @@ table th {
   font-weight: bold;
 }
 
-.style_guides .navlinks-global {
-  display: none;
-}
 
-nav.styleguide-nav:hover {
-  overflow-y: auto;
-}
-
-@media (max-width: 720px) {
-  nav.styleguide-nav {display: none;}
-}
-
-nav.styleguide-nav {
-  position: fixed;
-  top: 0;
-  left: 10px;
-  height: 100%;
-  padding-top: 90px;
-  padding-bottom: 50px;
-  width: 190px;
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-
-  > ul {
-    li {
-      margin-left: 20px;
-    }
-
-    > li {
-      margin-left: 0;
-    }
-  }
-  li {
-    ul {
-      display: none;
-    }
-
-    > a {
-      border-left: 3px solid transparent;
-      color: #B3B3B3;
-      padding: 3px 3px;
-    }
-  }
-  li.active {
-    ul{
-      display: block;
-    }
-
-    > a {
-      border-left: 2px solid #49A8D5;
-      color: #49A8D5;
-      padding: 3px 3px;
-    }
-  }
-}
 
 .contrast-bar {
   padding: 20px;
@@ -208,6 +210,8 @@ nav.styleguide-nav {
     }
   }
 }
+
+// color chip component
 
 .chip {
 

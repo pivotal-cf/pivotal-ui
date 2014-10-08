@@ -13,15 +13,19 @@
     <script src="style_guide/style_guide.js"></script>
   </head>
   <body>
-    <div class="container">
-      <nav>
+    <nav class="styleguide-header">
+      <div class="container">
+        <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
         <ul>
-        <% @categories.each do |category, file_name| %>
-          <li><a href="<%= file_name %>"><%= category %></a></li>
-        <% end %>
+          <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
+            <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
+            <li><a href="<%= @categories[category_name] %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          <% end %>
+          <li><a href="all.html">all</a></li>
         </ul>
-      </nav>
-
+      </div>
+    </nav>
+    <div class="container mtxxl ptl">
       <h1>a brand new style guide, it's super effective</h1>
       <section class="content">
         <ul>

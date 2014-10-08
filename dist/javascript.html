@@ -13,33 +13,37 @@
     <script src="style_guide/style_guide.js"></script>
   </head>
   <body>
-    <div class="container">
-      <nav>
+    <nav class="styleguide-header">
+      <div class="container">
+        <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
         <ul>
-        
-          <li><a href="all.html">All</a></li>
-        
-          <li><a href="objects.html">Objects</a></li>
-        
-          <li><a href="elements.html">Elements</a></li>
-        
-          <li><a href="intro.html">Intro</a></li>
-        
-          <li><a href="javascript.html">JavaScript</a></li>
-        
-          <li><a href="utilities.html">Utilities</a></li>
-        
-          <li><a href="forms.html">Forms</a></li>
-        
-          <li><a href="layout.html">Layout</a></li>
-        
-          <li><a href="console.html">Console</a></li>
-        
-          <li><a href="marketing_site.html">Marketing Site</a></li>
-        
+          
+            
+            <li><a href="layout.html">Layout<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="elements.html">Elements<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="objects.html">Objects<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="utilities.html">Utilities<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="javascript.html">JavaScript<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="forms.html">Forms<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+            
+            <li><a href="by_product.html">by Product<i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+          
+          <li><a href="all.html">all</a></li>
         </ul>
-      </nav>
-
+      </div>
+    </nav>
+    <div class="container mtxxl ptl">
       <h1>a brand new style guide, it's super effective</h1>
       <section class="content">
         <ul>
@@ -58,11 +62,11 @@
         
           <li><a href="#hoverable">Hoverable</a></li>
         
-          <li><a href="#instance scale">Instance Scale</a></li>
-        
           <li><a href="#list_addable">Addable List</a></li>
         
           <li><a href="#map">Map</a></li>
+        
+          <li><a href="#instance_scale">Instance Scale</a></li>
         
           <li><a href="#modal">Modals</a></li>
         
@@ -372,7 +376,156 @@ If you put this on an element then hovering on that parent element will show the
     <span class="nt">%td</span>
       Not hoverable
 </pre></div></div></div>
-<h1 id="instance scale" class="styleguide">Instance Scale</h1>
+<h2 id="list_addable" class="styleguide">Addable List</h2>
+<p class="styleguide">New elements fade in</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group' id='list-group-adding-demo'>
+  <li class='list-group-item'>
+    item 1
+  </li>
+  <li class='list-group-item'>
+    item 2
+  </li>
+  <li class='list-group-item'>
+    item 3
+  </li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.list-group</span><span class="nf">#list-group-adding-demo</span>
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 1
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 2
+  <span class="nt">%li</span><span class="nc">.list-group-item</span>
+    item 3
+
+</pre></div></div></div><p class="styleguide"><a data-add-item-to="#list-group-adding-demo">Add an item</a></p>
+<h1 id="map" class="styleguide">Map</h1>
+<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<div class='map-wrapper'>
+  <div class='pane'>
+    <div class='container pan'>
+      <div class='row'>
+        <div class='col-sm-6 col-md-8 col-sm-offset-1'>
+          <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
+            <h3 class="h2">Location</h3>
+            <address class='h4 pvl'>Pivotal Software Inc.<br>
+              875 Howard Street<br>
+              San Francisco, CA 94103
+            </address>
+            <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
+            <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='pane pane-map'>
+    <div id='labs-map'></div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-wrapper'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
+              875 Howard Street<span class="nt">&lt;br&gt;</span>
+              San Francisco, CA 94103
+            <span class="nt">&lt;/address&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>var maps = (function() {
+  var self = this;
+  var map;
+
+  var mapOptions = {
+    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
+    center: new google.maps.LatLng(37.781787,-122.403911),
+    mapElementId: 'labs-map',
+    zoom: 18
+  };
+
+  var initialize = function() {
+    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
+      center: mapOptions.center,
+      zoom: mapOptions.zoom,
+      disableDefaultUI: true
+    });
+
+    var request = {
+      placeId: mapOptions.placeId
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, createMarker);
+  };
+
+  var createMarker = function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+  };
+
+  self.initialize = initialize;
+  return self;
+})();
+
+google.maps.event.addDomListener(window, 'load', maps.initialize);
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
+    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
+    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
+    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
+      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
+        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
+</pre></div></div>
+<h2 id="instance_scale" class="styleguide">Instance Scale</h2>
 <p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
 and code in your page and the javascript and css will handle all of the behaviors.
 Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
@@ -629,155 +782,6 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
 </pre></div></div></div>
-<h2 id="list_addable" class="styleguide">Addable List</h2>
-<p class="styleguide">New elements fade in</p><div class="codeExample"><div class="exampleOutput"><ul class='list-group' id='list-group-adding-demo'>
-  <li class='list-group-item'>
-    item 1
-  </li>
-  <li class='list-group-item'>
-    item 2
-  </li>
-  <li class='list-group-item'>
-    item 3
-  </li>
-</ul>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.list-group</span><span class="nf">#list-group-adding-demo</span>
-  <span class="nt">%li</span><span class="nc">.list-group-item</span>
-    item 1
-  <span class="nt">%li</span><span class="nc">.list-group-item</span>
-    item 2
-  <span class="nt">%li</span><span class="nc">.list-group-item</span>
-    item 3
-
-</pre></div></div></div><p class="styleguide"><a data-add-item-to="#list-group-adding-demo">Add an item</a></p>
-<h1 id="map" class="styleguide">Map</h1>
-<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
-<div class='map-wrapper'>
-  <div class='pane'>
-    <div class='container pan'>
-      <div class='row'>
-        <div class='col-sm-6 col-md-8 col-sm-offset-1'>
-          <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
-            <h3 class="h2">Location</h3>
-            <address class='h4 pvl'>Pivotal Software Inc.<br>
-              875 Howard Street<br>
-              San Francisco, CA 94103
-            </address>
-            <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
-            <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class='pane pane-map'>
-    <div id='labs-map'></div>
-  </div>
-</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-wrapper'</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
-          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
-            <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
-              875 Howard Street<span class="nt">&lt;br&gt;</span>
-              San Francisco, CA 94103
-            <span class="nt">&lt;/address&gt;</span>
-            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
-          <span class="nt">&lt;/div&gt;</span>
-        <span class="nt">&lt;/div&gt;</span>
-      <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-</pre></div></div></div><script>var maps = (function() {
-  var self = this;
-  var map;
-
-  var mapOptions = {
-    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
-    center: new google.maps.LatLng(37.781787,-122.403911),
-    mapElementId: 'labs-map',
-    zoom: 18
-  };
-
-  var initialize = function() {
-    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
-      center: mapOptions.center,
-      zoom: mapOptions.zoom,
-      disableDefaultUI: true
-    });
-
-    var request = {
-      placeId: mapOptions.placeId
-    };
-
-    var service = new google.maps.places.PlacesService(map);
-    service.getDetails(request, createMarker);
-  };
-
-  var createMarker = function(place, status) {
-    if (status == google.maps.places.PlacesServiceStatus.OK) {
-      new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-      });
-    }
-  };
-
-  self.initialize = initialize;
-  return self;
-})();
-
-google.maps.event.addDomListener(window, 'load', maps.initialize);
-</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
-  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
-
-  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
-    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
-    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
-    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
-  <span class="p">};</span>
-
-  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
-      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
-      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
-      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">});</span>
-
-    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
-    <span class="p">};</span>
-
-    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
-    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
-  <span class="p">};</span>
-
-  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
-      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
-        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
-        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
-      <span class="p">});</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-
-  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
-  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
-<span class="p">})();</span>
-
-<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
-</pre></div></div>
 <h1 id="modal" class="styleguide">Modals</h1>
 <p class="styleguide">Modals do something worthwhile....
 ...
