@@ -166,6 +166,8 @@
         
           <li><a href="#instance scale">Instance Scale</a></li>
         
+          <li><a href="#labels">Labels</a></li>
+        
           <li><a href="#link">Links</a></li>
         
           <li><a href="#lists">Lists</a></li>
@@ -3095,6 +3097,48 @@ highlighted on page load.</p><div class="codeExample"><div class="exampleOutput"
 <span class="nt">&lt;/code&gt;</span>
 <span class="nt">&lt;/pre&gt;</span>
 <span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h1 id="labels" class="styleguide">Labels</h1>
+<p class="styleguide">Labels are based on Bootstrap&#39;s labels. You can place them on their own or within an HTML element. It will be sized based on the element&#39;s font size and listens to font size modifiers.</p><div class="codeExample"><div class="exampleOutput"><span class='label label-primary'>
+  new
+</span>
+<p>
+  I am a P.
+  <span class='label label-primary'>
+    new
+  </span>
+</p>
+<h1>
+  I am an H1.
+  <span class='label label-primary'>
+    new
+  </span>
+</h1>
+<h1 class='h5'>
+  I am an H1 with an H5 modifier.
+  <span class='label label-primary'>
+    new
+  </span>
+</h1>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%span</span><span class="nc">.label.label-primary</span>
+  new
+
+<span class="nt">%p</span>
+  I am a P.
+  <span class="nt">%span</span><span class="nc">.label.label-primary</span>
+    new
+
+<span class="nt">%h1</span>
+  I am an H1.
+  <span class="nt">%span</span><span class="nc">.label.label-primary</span>
+    new
+
+<span class="nt">%h1</span><span class="nc">.h5</span>
+  I am an H1 with an H5 modifier.
+  <span class="nt">%span</span><span class="nc">.label.label-primary</span>
+    new
+
 </pre></div></div></div>
 <h1 id="link" class="styleguide">Links</h1>
 <p class="styleguide">There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.</p><div class="codeExample"><div class="exampleOutput"><a href='http://google.com'>
