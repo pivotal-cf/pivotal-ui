@@ -88,19 +88,19 @@ label {
 
 // do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
 ::-webkit-input-placeholder {
-  font-weight: 200;
+  font-weight: 400;
 }
 
 :-moz-placeholder { /* Firefox 18- */
-  font-weight: 200;
+  font-weight: 400;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-  font-weight: 200;
+  font-weight: 400;
 }
 
 :-ms-input-placeholder {
-  font-weight: 200;
+  font-weight: 400;
 }
 
 /*doc
