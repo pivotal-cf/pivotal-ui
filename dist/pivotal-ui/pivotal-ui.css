@@ -9523,7 +9523,7 @@ n, s, m, l, xl, xxl, xxxl, xxxxl | none(0px), small(5px), medium(7px), large(10p
 }
 
 /* line 113, ../../src/oocss/whitespace/_whitespace.scss */
-.mlm, .collapse-trigger .collapse-title {
+.mlm {
   margin-left: 7px !important;
 }
 
@@ -10116,7 +10116,7 @@ n, s, m, l, xl, xxl, xxxl, xxxxl | none(0px), small(5px), medium(7px), large(10p
   }
 
   /* line 113, ../../src/oocss/whitespace/_whitespace.scss */
-  .mlm, .collapse-trigger .collapse-title {
+  .mlm {
     margin-left: 7px !important;
   }
 
@@ -15079,18 +15079,19 @@ The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. C
 
 /*doc
 ---
-title: Collapse Toggle
+title: Collapse
 name: collapse
-parent: toggle
+categories:
+  - All
+  - JavaScript
+  - Objects
 ---
 
 Also see the select tabs for a toggle triggered by a select group.
-This is frequently used in combination with our panel components.
-NOTE: The 'alligators' (the > in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
- and the images jump around by a few pixels when they're toggled.
 
-Simple Example:
+Simple Collapse:
+
+Use this to expand and collapse content. 
 
 ```haml_example
 %a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
@@ -15101,12 +15102,67 @@ Simple Example:
 #simple-collapse-example.collapse
   Look at this content.
 ```
+*/
+/*doc
+---
+title: Accordions
+name: accordion
+parent: collapse
+---
+These are frequently used in combination with our panel components. They have a header and body.
 
-Panel Example
+Accordions can be used with any background color class, add them to the header and body.
+
+NOTE: The 'alligators' (the > in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they're toggled.
+
+*/
+/*doc
+---
+title: Accordion Sizes
+name: accordion_sizes
+parent: collapse
+---
+ 
+Default accordion size:
 
 ```haml_example
 #accordion-1.panel
-  .panel-heading.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-1'}, href: '#myCollapse-1'}
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-1'}
+    .row
+      .col-md-23
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-1.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+```
+
+Large accordion size:
+
+```haml_example
+#accordion-2.panel
+  .panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-2'}
+    .row
+      .col-md-23
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-2.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+```
+*/
+/*doc
+---
+title: Accordion with Icons
+name: accordion_with_icons
+parent: collapse
+---
+
+Accordion with caret right/down icon:
+
+```haml_example
+#accordion-3.panel
+  .panel-heading-accordion-large.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-3'}
     .row
       .col-md-23
         %a
@@ -15114,57 +15170,156 @@ Panel Example
             %i.fa.fa-plus-square.collapse-icon>
           .when-expanded-inline>
             %i.fa.fa-minus-square.collapse-icon>
-        %h3.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-1.panel-collapse.collapse
-    .panel-body
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-3.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
       This content should hide and show when the trigger is clicked.
 ```
 
+Accordion with plus/minus icon:
+
+```haml_example
+#accordion-4.panel
+  .panel-heading-accordion.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-4'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-4.panel-collapse.collapse
+    .panel-body-accordion.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+
+```
 */
-/* line 46, ../../src/pivotal-ui/components/collapse.css.scss */
+/*doc
+---
+title: Accordion Styles
+name: accordion_styles
+parent: collapse
+---
+
+Accordion with Divider:
+
+This adds a divider between the accordion header and accordion body.
+
+```haml_example
+#accordion-5.panel
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-5'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-5.panel-collapse.collapse
+    .panel-body-accordion-divider.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+
+```
+
+Accordion with Shadow:
+
+This adds a shadow to the accordion when it is both open and closed.
+
+```haml_example
+#accordion-6.panel.panel-shadow
+  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-6'}
+    .row
+      .col-md-23
+        %a
+          .when-collapsed-inline>
+            %i.fa.fa-caret-right.collapse-icon>
+          .when-expanded-inline>
+            %i.fa.fa-caret-down.collapse-icon>
+        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
+  #myCollapse-6.panel-collapse.collapse
+    .panel-body-accordion-divider.bg-neutral-11
+      This content should hide and show when the trigger is clicked.
+
+```
+
+*/
+/* line 175, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-collapsed {
   display: none;
 }
-/* line 49, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 178, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-expanded {
   display: block;
 }
-/* line 52, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 181, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-collapsed-inline {
   display: none;
 }
-/* line 55, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 184, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse] .when-expanded-inline {
   display: inline;
 }
-/* line 60, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 189, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-collapsed {
   display: block;
 }
-/* line 63, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 192, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-expanded {
   display: none;
 }
-/* line 66, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 195, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-collapsed-inline {
   display: inline;
 }
-/* line 69, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 198, ../../src/pivotal-ui/components/collapse.css.scss */
 [data-toggle=collapse].collapsed .when-expanded-inline {
   display: none;
 }
 
-/* line 76, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 205, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger {
   cursor: pointer;
 }
-/* line 79, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 208, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger .collapse-title {
   display: inline-block;
 }
-/* line 84, ../../src/pivotal-ui/components/collapse.css.scss */
+/* line 212, ../../src/pivotal-ui/components/collapse.css.scss */
 .collapse-trigger .collapse-icon {
-  display: inline;
+  display: inline-block;
+  width: 15px;
+  color: #686868;
+  margin-right: 5px;
+}
+
+/* line 220, ../../src/pivotal-ui/components/collapse.css.scss */
+.panel-heading-accordion, .panel-heading-accordion-large {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 231, ../../src/pivotal-ui/components/collapse.css.scss */
+.panel-body-accordion, .panel-body-accordion-divider {
+  margin: 0px;
+  padding: 30px 20px;
+}
+
+/* line 236, ../../src/pivotal-ui/components/collapse.css.scss */
+.panel-heading-accordion-large {
+  padding: 25px 20px 25px 20px;
+}
+
+/* line 241, ../../src/pivotal-ui/components/collapse.css.scss */
+.panel-body-accordion-divider {
+  border-top: 2px solid rgba(0, 0, 0, 0.07);
 }
 
 /*doc

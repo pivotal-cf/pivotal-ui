@@ -25,11 +25,11 @@
         
           <li><a href="intro.html">Intro</a></li>
         
+          <li><a href="javascript.html">JavaScript</a></li>
+        
           <li><a href="utilities.html">Utilities</a></li>
         
           <li><a href="forms.html">Forms</a></li>
-        
-          <li><a href="javascript.html">JavaScript</a></li>
         
           <li><a href="layout.html">Layout</a></li>
         
@@ -43,6 +43,16 @@
       <h1>a brand new style guide, it's super effective</h1>
       <section class="content">
         <ul>
+        
+          <li><a href="#collapse">Collapse</a></li>
+        
+          <li><a href="#accordion">Accordions</a></li>
+        
+          <li><a href="#accordion_sizes">Accordion Sizes</a></li>
+        
+          <li><a href="#accordion_styles">Accordion Styles</a></li>
+        
+          <li><a href="#accordion_with_icons">Accordion with Icons</a></li>
         
           <li><a href="#gentle-scroll">Gentle Scroll Links</a></li>
         
@@ -84,13 +94,196 @@
         
           <li><a href="#angular toggle">Angular Toggle</a></li>
         
-          <li><a href="#collapse">Collapse Toggle</a></li>
-        
           <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
         
           <li><a href="#tooltip">Tooltip</a></li>
         
         </ul>
+<h1 id="collapse" class="styleguide">Collapse</h1>
+
+<ul class="section-nav">
+  <li><a href="#accordion">Accordions</a></li>
+  <li><a href="#accordion_sizes">Accordion Sizes</a></li>
+  <li><a href="#accordion_with_icons">Accordion with Icons</a></li>
+  <li><a href="#accordion_styles">Accordion Styles</a></li>
+</ul>
+<p class="styleguide">Also see the select tabs for a toggle triggered by a select group.</p><p class="styleguide">Simple Collapse:</p><p class="styleguide">Use this to expand and collapse content. </p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
+  <div class='when-collapsed'>
+    Expand me
+  </div>
+  <div class='when-expanded'>
+    Collapse me
+  </div>
+</a>
+<div class='collapse' id='simple-collapse-example'>
+  Look at this content.
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
+  <span class="nc">.when-collapsed</span>
+    Expand me
+  <span class="nc">.when-expanded</span>
+    Collapse me
+<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
+  Look at this content.
+</pre></div></div></div>
+<h2 id="accordion" class="styleguide">Accordions</h2>
+<p class="styleguide">These are frequently used in combination with our panel components. They have a header and body.</p><p class="styleguide">Accordions can be used with any background color class, add them to the header and body.</p><p class="styleguide">NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they&#39;re toggled.</p>
+<h2 id="accordion_sizes" class="styleguide">Accordion Sizes</h2>
+ 
+<p class="styleguide">Default accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-1'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-1'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-1'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Large accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-2'>
+  <div class='panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-2'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-2'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-2</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-2'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-2</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div>
+<h2 id="accordion_styles" class="styleguide">Accordion Styles</h2>
+<p class="styleguide">Accordion with Divider:</p><p class="styleguide">This adds a divider between the accordion header and accordion body.</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-5'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-5'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-5'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-5</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-5'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-5</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div><p class="styleguide">Accordion with Shadow:</p><p class="styleguide">This adds a shadow to the accordion when it is both open and closed.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-shadow' id='accordion-6'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-6'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-6'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-6</span><span class="nc">.panel.panel-shadow</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-6'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-6</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
+<h2 id="accordion_with_icons" class="styleguide">Accordion with Icons</h2>
+<p class="styleguide">Accordion with caret right/down icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-3'>
+  <div class='panel-heading-accordion-large collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-3'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-3'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-3</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-3'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-3</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Accordion with plus/minus icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-4'>
+  <div class='panel-heading-accordion collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-4'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-4'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-4</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-4'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-4</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
 <h1 id="gentle-scroll" class="styleguide">Gentle Scroll Links</h1>
 <p class="styleguide">If you want to gently scroll from one part of the page to another, you&#39;ll need to add
 a <code class="styleguide">data-behavior: GentleScroll</code> to the trigger element as well as an <code class="styleguide">href</code> for the
@@ -1471,7 +1664,6 @@ We are making the assumption here that table-hover will <em>only</em> be used if
 <h1 id="toggle" class="styleguide">Toggle</h1>
 
 <ul class="section-nav">
-  <li><a href="#collapse">Collapse Toggle</a></li>
   <li><a href="#data_behavior_toggle">Data Behavior Toggle</a></li>
   <li><a href="#angular toggle">Angular Toggle</a></li>
 </ul>
@@ -1511,56 +1703,6 @@ We are making the assumption here that table-hover will <em>only</em> be used if
   <span class="nc">.state-content-secondary</span>
     This is the secondary content
     <span class="nt">%a</span><span class="nc">.btn.btn-default</span><span class="p">{</span><span class="s1">'ng-click'</span> <span class="o">=&gt;</span> <span class="s1">'toggleState()'</span><span class="p">}</span> Toggle State
-</pre></div></div></div>
-<h2 id="collapse" class="styleguide">Collapse Toggle</h2>
-<p class="styleguide">Also see the select tabs for a toggle triggered by a select group.
-This is frequently used in combination with our panel components.
-NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
- and the images jump around by a few pixels when they&#39;re toggled.</p><p class="styleguide">Simple Example:</p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
-  <div class='when-collapsed'>
-    Expand me
-  </div>
-  <div class='when-expanded'>
-    Collapse me
-  </div>
-</a>
-<div class='collapse' id='simple-collapse-example'>
-  Look at this content.
-</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
-  <span class="nc">.when-collapsed</span>
-    Expand me
-  <span class="nc">.when-expanded</span>
-    Collapse me
-<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
-  Look at this content.
-</pre></div></div></div><p class="styleguide">Panel Example</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
-  <div class='panel-heading collapse-trigger collapsed' data-parent='#accordion-1' data-toggle='collapse' href='#myCollapse-1'>
-    <div class='row'>
-      <div class='col-md-23'>
-        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
-    </div>
-  </div>
-  <div class='panel-collapse collapse' id='myCollapse-1'>
-    <div class='panel-body'>
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
-  <span class="nc">.panel-heading.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-1'</span><span class="p">}</span>, href: '#myCollapse-1'}
-    <span class="nc">.row</span>
-      <span class="nc">.col-md-23</span>
-        <span class="nt">%a</span>
-          <span class="nc">.when-collapsed-inline</span>&gt;
-            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
-          <span class="nc">.when-expanded-inline</span>&gt;
-            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
-        <span class="nt">%h3</span><span class="nc">.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
-  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
-    <span class="nc">.panel-body</span>
-      This content should hide and show when the trigger is clicked.
 </pre></div></div></div>
 <h2 id="data_behavior_toggle" class="styleguide">Data Behavior Toggle</h2>
 <p class="styleguide">Use this class for sections that can switch into an &#39;edit&#39; mode.</p><div class="codeExample"><div class="exampleOutput"><div class='toggle' data-behavior='Toggle'>
