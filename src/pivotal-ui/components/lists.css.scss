@@ -141,6 +141,7 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 
     &:not(:first-child) {
       border-left: 1px solid $color;
+      line-height: 1em;
     }
   }
 }
