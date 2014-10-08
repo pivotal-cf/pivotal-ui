@@ -1,0 +1,93 @@
+/*doc
+---
+title: Ribbon
+name: ribbon
+categories:
+  - All
+  - Elements
+---
+
+Ribbons should be used to call out access, status, enironment, etc.
+
+*/
+
+/*doc
+---
+title: Inline Ribbon
+name: ribbon_inline
+parent: ribbon
+---
+
+```html_example
+<div class="inline-ribbon">
+  British
+</div>
+<span class="mlm">For British eyes only</span>
+```
+
+*/
+
+.inline-ribbon {
+  position: relative;
+  display: inline-block;
+  padding: 2px 10px;
+  margin-left: 22px;
+  margin-right: 22px;
+  color: $ribbon-color;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: $ribbon-bg-default;
+
+
+  &:before, 
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 0;
+    border-color: $ribbon-bg-default;
+    border-width: 11px;
+    border-style: solid;
+  }
+
+  &:before {
+    border-left-color: transparent;
+    left: -22px;
+  }
+
+  &:after {
+    border-right-color: transparent;
+    right: -22px;
+  }
+}
+
+/*doc
+---
+title: Ribbon Colors
+name: ribbon_colors
+parent: ribbon
+---
+
+```html_example_table
+<div class="inline-ribbon">British</div>
+
+<div class="inline-ribbon ribbon-primary">Pivotal</div>
+```
+
+*/
+
+.ribbon-primary {
+  background-color: $ribbon-bg-primary;
+
+  &:before {
+    border-color: $ribbon-bg-primary;
+    border-left-color: transparent;
+  } 
+
+  &:after {
+    border-color: $ribbon-bg-primary;
+    border-right-color: transparent;
+  }
+}

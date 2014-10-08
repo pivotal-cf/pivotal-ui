@@ -18030,3 +18030,94 @@ Labels are based on Bootstrap's labels. You can place them on their own or withi
   border-radius: 3px;
   text-transform: uppercase;
 }
+
+/*doc
+---
+title: Ribbon
+name: ribbon
+categories:
+  - All
+  - Elements
+---
+
+Ribbons should be used to call out access, status, enironment, etc.
+
+*/
+/*doc
+---
+title: Inline Ribbon
+name: ribbon_inline
+parent: ribbon
+---
+
+```html_example
+<div class="inline-ribbon">
+  British
+</div>
+<span class="mlm">For British eyes only</span>
+```
+
+*/
+/* line 30, ../../src/pivotal-ui/components/ribbons.css.scss */
+.inline-ribbon {
+  position: relative;
+  display: inline-block;
+  padding: 2px 10px;
+  margin-left: 22px;
+  margin-right: 22px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #b4b4b4;
+}
+/* line 44, ../../src/pivotal-ui/components/ribbons.css.scss */
+.inline-ribbon:before, .inline-ribbon:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  border-color: #b4b4b4;
+  border-width: 11px;
+  border-style: solid;
+}
+/* line 55, ../../src/pivotal-ui/components/ribbons.css.scss */
+.inline-ribbon:before {
+  border-left-color: transparent;
+  left: -22px;
+}
+/* line 60, ../../src/pivotal-ui/components/ribbons.css.scss */
+.inline-ribbon:after {
+  border-right-color: transparent;
+  right: -22px;
+}
+
+/*doc
+---
+title: Ribbon Colors
+name: ribbon_colors
+parent: ribbon
+---
+
+```html_example_table
+<div class="inline-ribbon">British</div>
+
+<div class="inline-ribbon ribbon-primary">Pivotal</div>
+```
+
+*/
+/* line 81, ../../src/pivotal-ui/components/ribbons.css.scss */
+.ribbon-primary {
+  background-color: #00a79d;
+}
+/* line 84, ../../src/pivotal-ui/components/ribbons.css.scss */
+.ribbon-primary:before {
+  border-color: #00a79d;
+  border-left-color: transparent;
+}
+/* line 89, ../../src/pivotal-ui/components/ribbons.css.scss */
+.ribbon-primary:after {
+  border-color: #00a79d;
+  border-right-color: transparent;
+}
