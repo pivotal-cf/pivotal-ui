@@ -6,9 +6,9 @@ require('modernizr');
 require('prism');
 
 require('./scale')();
-
+require('./back-to-top')();
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./scale":5,"bootstrap":2,"jquery":3,"modernizr":4,"prism":6}],2:[function(require,module,exports){
+},{"./back-to-top":5,"./scale":6,"bootstrap":2,"jquery":3,"modernizr":4,"prism":7}],2:[function(require,module,exports){
 (function (global){
 
 ; jQuery = global.jQuery = require("jquery");
@@ -11336,6 +11336,25 @@ return jQuery;
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],5:[function(require,module,exports){
+$(document).ready(function(){
+	
+	//Check to see if the window is top if not then display button
+	$(window).scroll(function(){
+		if ($(this).scrollTop() > 400) {
+			$('.back-to-top').fadeIn();
+		} else {
+			$('.back-to-top').fadeOut();
+		}
+	});
+	
+	//Click event to scroll to top
+	$('.back-to-top').click(function(){
+		$('html, body').animate({scrollTop : 0},800);
+		return false;
+	});
+	
+});
+},{}],6:[function(require,module,exports){
 'use strict';
 var $ = require('jquery');
 
@@ -11351,7 +11370,7 @@ module.exports = function() {
     });
   });
 };
-},{"jquery":3}],6:[function(require,module,exports){
+},{"jquery":3}],7:[function(require,module,exports){
 (function (global){
 ;__browserify_shim_require__=require;(function browserifyShim(module, exports, require, define, browserify_shim__define__module__export__) {
 /* http://prismjs.com/download.html?themes=prism&languages=markup+css+css-extras+clike+javascript+java+php+php-extras+coffeescript+scss+bash+python+http+ruby+go&plugins=line-highlight+line-numbers */
