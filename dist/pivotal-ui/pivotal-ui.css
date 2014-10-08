@@ -8529,17 +8529,13 @@ categories:
 ### Printing
 Try printing this page to see these styles in action.
 
-```haml_example
-%h3.print-only This will only show when printed
-%h3.no-print This will not show when printed
+```haml_example_table
+%h3.visible-print This will only show when printed
+
+%h3.hidden-print This will not show when printed
 ```
 
 */
-/* line 49, ../../src/pivotal-ui/components/utils.css.scss */
-.print-only {
-  display: none;
-}
-
 /*doc
 ---
 title: Aligner
@@ -8567,7 +8563,7 @@ Currently set to 230px as required by the space cards.
 ```
 
 */
-/* line 80, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 78, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner {
   display: flex;
   align-items: center;
@@ -8575,26 +8571,26 @@ Currently set to 230px as required by the space cards.
   height: 200px;
 }
 @supports not (-ms-flex: 1) {
-  /* line 80, ../../src/pivotal-ui/components/utils.css.scss */
+  /* line 78, ../../src/pivotal-ui/components/utils.css.scss */
   .aligner {
     height: auto;
     min-height: 200px;
   }
 }
-/* line 95, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 93, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item {
   max-width: 50%;
 }
-/* line 100, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 98, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item-top {
   align-self: flex-start;
 }
-/* line 104, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 102, ../../src/pivotal-ui/components/utils.css.scss */
 .aligner .aligner-item-bottom {
   align-self: flex-end;
 }
 
-/* line 109, ../../src/pivotal-ui/components/utils.css.scss */
+/* line 107, ../../src/pivotal-ui/components/utils.css.scss */
 .Demo {
   width: 100%;
   padding: .8em 1em 0;
