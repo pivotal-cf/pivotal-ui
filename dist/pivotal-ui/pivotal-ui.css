@@ -16423,70 +16423,6 @@ Modals do something worthwhile....
 
 /*doc
 ---
-title: Banners
-name: banner
-categories:
-  - All
-  - Objects
----
-
-You can use a banner to let the team know which environment they're
-working on. Leave off the `.styleguide-component-wrapper` div when using it
-in other contexts.
-
-```haml_example
-.styleguide-component-wrapper
-  .banner
-    Acceptance
-```
-
-*/
-/* line 22, ../../src/pivotal-ui/components/banner.css.scss */
-.banner {
-  background: #a81500;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #a81500 0%, #9b1200 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #a81500), color-stop(100%, #9b1200));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #a81500 0%, #9b1200 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -ms-linear-gradient(top, #a81500 0%, #9b1200 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #a81500 0%, #9b1200 100%);
-  /* W3C */
-  color: white;
-  padding: 5px 55px;
-  text-align: center;
-  font-size: 16px;
-  font-weight: 200;
-  position: fixed;
-  box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.2);
-  top: 109px;
-  left: -23px;
-  -webkit-transform-origin: 0 0;
-  -moz-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  -o-transform-origin: 0 0;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  z-index: 10000;
-}
-/* line 48, ../../src/pivotal-ui/components/banner.css.scss */
-.banner:before {
-  content: "";
-  top: 2px;
-  bottom: 2px;
-  right: 2px;
-  left: 2px;
-  position: absolute;
-  border: 1px dashed #c07074;
-}
-
-/*doc
----
 title: Gravatar
 name: gravatar
 parent: images
@@ -18095,6 +18031,52 @@ parent: ribbon
 
 /*doc
 ---
+title: Banner Ribbon
+name: ribbon_banner
+parent: ribbon
+---
+
+You can use a banner ribbon to let the team know which environment they're
+working on. Leave off the `.styleguide-component-wrapper` div when using it
+in other contexts.
+
+```haml_example
+.styleguide-component-wrapper
+  .ribbon-banner
+    Acceptance
+```
+
+*/
+/* line 85, ../../src/pivotal-ui/components/ribbons.css.scss */
+.ribbon-banner {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  padding: 4px 18px 4px 24px;
+  margin-left: 0;
+  margin-right: 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #b31612;
+}
+/* line 99, ../../src/pivotal-ui/components/ribbons.css.scss */
+.ribbon-banner:after {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  right: -32px;
+  border-style: solid;
+  border-width: 16px;
+  border-color: #b31612;
+  border-right-color: transparent;
+}
+
+/*doc
+---
 title: Ribbon Colors
 name: ribbon_colors
 parent: ribbon
@@ -18107,16 +18089,16 @@ parent: ribbon
 ```
 
 */
-/* line 81, ../../src/pivotal-ui/components/ribbons.css.scss */
+/* line 127, ../../src/pivotal-ui/components/ribbons.css.scss */
 .ribbon-primary {
   background-color: #00a79d;
 }
-/* line 84, ../../src/pivotal-ui/components/ribbons.css.scss */
+/* line 130, ../../src/pivotal-ui/components/ribbons.css.scss */
 .ribbon-primary:before {
   border-color: #00a79d;
   border-left-color: transparent;
 }
-/* line 89, ../../src/pivotal-ui/components/ribbons.css.scss */
+/* line 135, ../../src/pivotal-ui/components/ribbons.css.scss */
 .ribbon-primary:after {
   border-color: #00a79d;
   border-right-color: transparent;

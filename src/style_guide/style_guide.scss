@@ -361,11 +361,11 @@ div.codeBlock {
 
 .styleguide-component-wrapper {
   position: relative;
-  border: 2px solid #EDEDED;
+  border: 1px solid $neutral-6;
   height: 200px;
-  width: 200px;
+  width: 100%;
   overflow: hidden;
-  .banner {
+  .ribbon-banner {
     position: absolute;
   }
 }
