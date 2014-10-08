@@ -116,6 +116,14 @@
         
           <li><a href="#list_event">Event List</a></li>
         
+          <li><a href="#ribbon">Ribbon</a></li>
+        
+          <li><a href="#ribbon_banner">Banner Ribbon</a></li>
+        
+          <li><a href="#ribbon_colors">Ribbon Colors</a></li>
+        
+          <li><a href="#ribbon_inline">Inline Ribbon</a></li>
+        
           <li><a href="#type">Typography</a></li>
         
           <li><a href="#1_type_sizes">Type Sizes</a></li>
@@ -1604,6 +1612,40 @@ right min-height.</p><div class="codeExample"><div class="exampleOutput"><ul cla
         <span class="nc">.event-icon</span>
       <span class="nc">.media-body</span>
         <span class="nc">.event-title</span> renamed app
+</pre></div></div></div>
+<h1 id="ribbon" class="styleguide">Ribbon</h1>
+
+<ul class="section-nav">
+  <li><a href="#ribbon_inline">Inline Ribbon</a></li>
+  <li><a href="#ribbon_banner">Banner Ribbon</a></li>
+  <li><a href="#ribbon_colors">Ribbon Colors</a></li>
+</ul>
+<p class="styleguide">Ribbons should be used to call out access, status, enironment, etc.</p>
+<h2 id="ribbon_banner" class="styleguide">Banner Ribbon</h2>
+<p class="styleguide">You can use a banner ribbon to let the team know which environment they&#39;re
+working on. Leave off the <code class="styleguide">.styleguide-component-wrapper</code> div when using it
+in other contexts.</p><div class="codeExample"><div class="exampleOutput"><div class='styleguide-component-wrapper'>
+  <div class='ribbon-banner'>
+    Acceptance
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.styleguide-component-wrapper</span>
+  <span class="nc">.ribbon-banner</span>
+    Acceptance
+</pre></div></div></div>
+<h2 id="ribbon_colors" class="styleguide">Ribbon Colors</h2>
+<div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><div class="inline-ribbon">British</div></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"inline-ribbon"</span><span class="nt">&gt;</span>British<span class="nt">&lt;/div&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class="inline-ribbon ribbon-primary">Pivotal</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"inline-ribbon ribbon-primary"</span><span class="nt">&gt;</span>Pivotal<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></td></tr></tbody></table></div>
+<h2 id="ribbon_inline" class="styleguide">Inline Ribbon</h2>
+<div class="codeExample"><div class="exampleOutput"><div class="inline-ribbon">
+  British
+</div>
+<span class="mlm">For British eyes only</span>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"inline-ribbon"</span><span class="nt">&gt;</span>
+  British
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"mlm"</span><span class="nt">&gt;</span>For British eyes only<span class="nt">&lt;/span&gt;</span>
 </pre></div></div></div>
 <h1 id="type" class="styleguide">Typography</h1>
 

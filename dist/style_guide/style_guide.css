@@ -411,15 +411,15 @@ div.codeBlock {
 }
 
 /* line 362, ../../src/style_guide/style_guide.scss */
-.banner-styleguide-wrapper {
+.styleguide-component-wrapper {
   position: relative;
-  border: 2px solid #EDEDED;
+  border: 1px solid #c3c5c7;
   height: 200px;
-  width: 200px;
+  width: 100%;
   overflow: hidden;
 }
 /* line 368, ../../src/style_guide/style_guide.scss */
-.banner-styleguide-wrapper .banner {
+.styleguide-component-wrapper .ribbon-banner {
   position: absolute;
 }
 
