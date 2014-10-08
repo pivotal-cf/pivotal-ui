@@ -16336,6 +16336,37 @@ This form looks and behaves mostly like a contenteditable field
 
 /*doc
 ---
+title: Search Input
+name: search-input
+parent: forms
+---
+
+Use this input when creating a search component. 
+
+```html_example
+<div class="form-group form-group-search">
+  <input class="form-control" placeholder="This is a searchbox">
+  <i class="fa fa-search"></i>
+</div>
+```
+*/
+/* line 926, ../../src/pivotal-ui/components/forms.css.scss */
+.form-group-search {
+  position: relative;
+}
+/* line 929, ../../src/pivotal-ui/components/forms.css.scss */
+.form-group-search i {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+}
+/* line 935, ../../src/pivotal-ui/components/forms.css.scss */
+.form-group-search input {
+  padding-left: 34px;
+}
+
+/*doc
+---
 title: Modals
 name: modal
 categories:
