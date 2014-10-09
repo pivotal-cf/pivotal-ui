@@ -24,7 +24,7 @@
               <ul class="styleguide-second-level-nav">
                 <% @pages[file_name][:blocks].each do |b| %>
                   <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
-                    <% if category_name == @title %>
+                    <% if file_name == @file_name %>
                       <li><a href="?target=<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
                     <% else %>
                       <li><a href="<%= file_name %>?target=<%= b[:name] %>"><%= b[:title] %></a></li>
