@@ -2,6 +2,8 @@
 
 ### Latest Changes
 
+.panel-simple-highlight -> .panel-basic-highlight
+
 link-lowlight-inverse -> link-lowlight-alt
 
 Application dashboard removed

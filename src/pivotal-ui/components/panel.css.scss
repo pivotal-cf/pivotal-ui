@@ -201,23 +201,23 @@ The scrollable panel sets a fixed height of 183px and scrolls any content that i
 
 /*doc
 ---
-title: Simple Highlight
-name: panel-simple-highlight
+title: Basic Highlight
+name: panel-basic-highlight
 parent: panel
 ---
 
 ```haml_example
-.panel.panel-simple-highlight
+.panel.panel-basic-highlight
   .panel-body
     Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
 
-.panel.panel-simple-highlight-hoverable
+.panel.panel-basic-highlight-hoverable
   .panel-body
     Hoverable (use when a click on the panel triggers an action)
 ```
 */
 
-.panel-simple-highlight {
+.panel-basic-highlight {
   background-color: $gray-10;
   border-radius: 10px;
   box-shadow: 0 4px 0 0 $shadow-3;
@@ -228,8 +228,8 @@ parent: panel
   }
 }
 
-.panel-simple-highlight-hoverable {
-  @extend .panel-simple-highlight;
+.panel-basic-highlight-hoverable {
+  @extend .panel-basic-highlight;
   &:hover {
     @include transition-pui();
     background-color: white;
