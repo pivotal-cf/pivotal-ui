@@ -19,14 +19,15 @@
         <ul class="styleguide-first-level-nav">
           <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
             <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
-            <li><a href="<%= @categories[category_name] %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a>
+            <% file_name = @categories[category_name] %>
+            <li><a href="<%= file_name %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a>
               <ul class="styleguide-second-level-nav">
-                <% @pages[@categories[category_name]][:blocks].each do |b| %>
+                <% @pages[file_name][:blocks].each do |b| %>
                   <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
                     <% if category_name == @title %>
                       <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
                     <% else %>
-                      <li><a href="<%=@categories[category_name] %>?target=<%= b[:name] %>"><%= b[:title] %></a></li>
+                      <li><a href="<%= file_name %>?target=<%= b[:name] %>"><%= b[:title] %></a></li>
                     <% end %>
                   <% end %>
                 <% end %>
