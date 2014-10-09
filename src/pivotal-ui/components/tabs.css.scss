@@ -211,6 +211,79 @@ $tab-border-size: 3px;
 
 /*doc
 ---
+title: Alt Simple Tabs
+name: tab_simple_alt
+parent: tabs
+---
+
+```haml_example
+.tab-simple-alt
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#dashboard"}Dashboard
+    %li
+      %a{"data-toggle" => "tab", :href => "#notifications"}Notifications
+    %li
+      %a{"data-toggle" => "tab", :href => "#eula"}EULA
+
+
+  .tab-content
+    #dashboard.tab-pane.fade.in.active Dashboard Content
+    #notifications.tab-pane.fade Notifications Content
+    #eula.tab-pane.fade EULA Content
+
+```
+*/
+
+.tab-simple-alt {
+  position: relative;
+  .nav {
+    &.nav-tabs {}
+    border-bottom: none;
+    > li {
+      > a {
+        margin-right: 0;
+        border: 0;
+        border-radius: 0;
+        padding: 10px 19px 13px 19px;
+        color: $tab-alt-link-color;
+        font-weight: $tab-alt-link-font-weight;
+        font-size: 16px;
+      }
+      > a:hover {
+        border: 0;
+      }
+    }
+    > li:hover {
+      cursor: pointer;
+      @include transition-pui;
+      > a {
+        background-color: $tab-alt-hover-bg-color;
+      }
+    }
+    > li.active {
+      background-color: $tab-alt-active-bg-color;
+      cursor: default;
+      border-right: 0;
+      @include no-transition;
+      > a {
+        color: $tab-alt-link-active-color;
+        background-color: transparent;
+      }
+    }
+  }
+  .tabs-action {
+    padding: 14px 16px;
+    position: absolute;
+    right: 0;
+  }
+  .tab-content {
+    background-color: $tab-alt-active-bg-color;
+  }
+}
+
+/*doc
+---
 title: Responsive Tabs
 name: tab_responsive
 parent: tabs

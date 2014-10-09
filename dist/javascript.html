@@ -76,12 +76,16 @@
                 
                   
                 
+                  
+                
               </ul>
             </li>
           
             
             <li><a href="elements.html">Elements<i class="mlm type-xs fa fa-chevron-down"></i></a>
               <ul class="styleguide-second-level-nav">
+                
+                  
                 
                   
                 
@@ -202,6 +206,8 @@
                 
                   
                 
+                  
+                
               </ul>
             </li>
           
@@ -237,6 +243,8 @@
                 
                   
                   <li><a href="#no-js" class="styleguide-subsection">No JavaScript</a></li>
+                  
+                
                   
                 
                   
@@ -339,6 +347,8 @@
                   
                 
                   
+                
+                  
                   <li><a href="#toggle" class="styleguide-subsection">Toggle</a></li>
                   
                 
@@ -411,12 +421,16 @@
                 
                   
                 
+                  
+                
               </ul>
             </li>
           
             
             <li><a href="by_product.html">by Product<i class="mlm type-xs fa fa-chevron-down"></i></a>
               <ul class="styleguide-second-level-nav">
+                
+                  
                 
                   
                 
@@ -1678,6 +1692,7 @@ We are making the assumption here that table-hover will <em>only</em> be used if
 <ul class="section-nav">
   <li><a href="#tab_highlight">Highlight Tabs</a></li>
   <li><a href="#tab_simple">Simple Tabs</a></li>
+  <li><a href="#tab_simple_alt">Alt Simple Tabs</a></li>
   <li><a href="#tab_responsive">Responsive Tabs</a></li>
   <li><a href="#image_tabs">Image Tabs</a></li>
 </ul>
@@ -2043,6 +2058,41 @@ We are making the assumption here that table-hover will <em>only</em> be used if
     <span class="nf">#spaces</span><span class="nc">.tab-pane.fade.in.active</span> Spaces Content
     <span class="nf">#domains</span><span class="nc">.tab-pane.fade</span> Domains Content
     <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
+
+</pre></div></div></div>
+<h2 id="tab_simple_alt" class="styleguide">Alt Simple Tabs</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-simple-alt'>
+  <ul class='nav nav-tabs'>
+    <li class='active'>
+      <a data-toggle='tab' href='#dashboard'>Dashboard</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#notifications'>Notifications</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#eula'>EULA</a>
+    </li>
+  </ul>
+  <div class='tab-content'>
+    <div class='tab-pane fade in active' id='dashboard'>Dashboard Content</div>
+    <div class='tab-pane fade' id='notifications'>Notifications Content</div>
+    <div class='tab-pane fade' id='eula'>EULA Content</div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-simple-alt</span>
+  <span class="nt">%ul</span><span class="nc">.nav.nav-tabs</span>
+    <span class="nt">%li</span><span class="nc">.active</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#dashboard"</span><span class="p">}</span>Dashboard
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#notifications"</span><span class="p">}</span>Notifications
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#eula"</span><span class="p">}</span>EULA
+
+
+  <span class="nc">.tab-content</span>
+    <span class="nf">#dashboard</span><span class="nc">.tab-pane.fade.in.active</span> Dashboard Content
+    <span class="nf">#notifications</span><span class="nc">.tab-pane.fade</span> Notifications Content
+    <span class="nf">#eula</span><span class="nc">.tab-pane.fade</span> EULA Content
 
 </pre></div></div></div>
 <h1 id="toggle" class="styleguide">Toggle</h1>

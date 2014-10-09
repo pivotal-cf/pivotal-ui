@@ -654,7 +654,14 @@ $tab-simple-shadow-border-color:            $shadow-3;
 $tab-simple-tab-border-color:               $gray-8;
 $tab-simple-link-active-color:              $navy-1;
 $tab-simple-link-color:                     $blue-2;
-$tab-simple-link-font-weight:                600;
+$tab-simple-link-font-weight:               600;
+
+// Alternate tabs
+$tab-alt-hover-bg-color:                    $gray-10;
+$tab-alt-link-active-color:                 $navy-1;
+$tab-alt-link-color:                        $blue-2;
+$tab-alt-link-font-weight:                  600;
+$tab-alt-active-bg-color:                   $gray-11;
 
 // Pills
 $nav-pills-border-radius:                   null;

@@ -14923,6 +14923,89 @@ parent: tabs
 
 /*doc
 ---
+title: Alt Simple Tabs
+name: tab_simple_alt
+parent: tabs
+---
+
+```haml_example
+.tab-simple-alt
+  %ul.nav.nav-tabs
+    %li.active
+      %a{"data-toggle" => "tab", :href => "#dashboard"}Dashboard
+    %li
+      %a{"data-toggle" => "tab", :href => "#notifications"}Notifications
+    %li
+      %a{"data-toggle" => "tab", :href => "#eula"}EULA
+
+
+  .tab-content
+    #dashboard.tab-pane.fade.in.active Dashboard Content
+    #notifications.tab-pane.fade Notifications Content
+    #eula.tab-pane.fade EULA Content
+
+```
+*/
+/* line 238, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt {
+  position: relative;
+}
+/* line 240, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav {
+  border-bottom: none;
+}
+/* line 244, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li > a {
+  margin-right: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 10px 19px 13px 19px;
+  color: #2185c5;
+  font-weight: 600;
+  font-size: 16px;
+}
+/* line 253, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li > a:hover {
+  border: 0;
+}
+/* line 257, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li:hover {
+  cursor: pointer;
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+}
+/* line 260, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li:hover > a {
+  background-color: #F8F8F8;
+}
+/* line 264, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li.active {
+  background-color: white;
+  cursor: default;
+  border-right: 0;
+  -webkit-transition: all 0ms ease-out;
+  -moz-transition: all 0ms ease-out;
+  transition: all 0ms ease-out;
+}
+/* line 269, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .nav > li.active > a {
+  color: #243640;
+  background-color: transparent;
+}
+/* line 275, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .tabs-action {
+  padding: 14px 16px;
+  position: absolute;
+  right: 0;
+}
+/* line 280, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .tab-content {
+  background-color: white;
+}
+
+/*doc
+---
 title: Responsive Tabs
 name: tab_responsive
 parent: tabs
@@ -14967,7 +15050,7 @@ parent: tabs
 
 ```
 */
-/* line 264, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 337, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive a[data-toggle="tab"] {
   padding: 8px 10px;
   color: #8d8e8e;
@@ -14977,7 +15060,7 @@ parent: tabs
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 272, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 345, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive .active a[data-toggle="tab"],
 .tab-responsive a[data-toggle="tab"]:hover,
 .tab-responsive a[data-toggle="tab"]:focus {
@@ -14985,12 +15068,12 @@ parent: tabs
   color: #00a79d;
 }
 @media (max-width: 768px) {
-  /* line 280, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 353, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive a[data-toggle="tab"] {
     background-color: #e0e4e5;
     color: #00a79d;
   }
-  /* line 285, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 358, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive .tab-pane {
     padding: 15px;
   }
@@ -15067,11 +15150,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 
 ```
 */
-/* line 366, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 439, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images {
   text-align: center;
 }
-/* line 369, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 442, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] {
   display: inline-block;
   width: 130px;
@@ -15087,11 +15170,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 .tabs-images .nav-tabs-images li a[data-toggle=tab]:hover, .tabs-images .nav-tabs-images li a[data-toggle=tab]:focus, .tabs-images .nav-tabs-images li a[data-toggle=tab]:active, .tabs-images .nav-tabs-images li a[data-toggle=tab].active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 381, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 454, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] .icon-svg .icon {
   fill: currentColor;
 }
-/* line 390, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 463, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li.active a, .tabs-images .nav-tabs-images li:hover a, .tabs-images .nav-tabs-images li:focus a, .tabs-images .nav-tabs-images li:active a {
   background-color: #00a79d;
   color: white;
