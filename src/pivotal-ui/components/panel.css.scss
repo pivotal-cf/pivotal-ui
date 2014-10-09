@@ -186,41 +186,6 @@ parent: panel
   }
 }
 
-
-/*doc
----
-title: Tile Simple
-name: panel_tile_simple
-parent: panel
----
-
-```haml_example
-.panel.panel-tile-simple
-  .panel-body
-    Tile
-```
-*/
-
-.panel-tile-simple {
-  background-color: #bcc4c6;
-  border: $panel-tile-border;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-  height: 120px;
-  overflow: hidden;
-  color: $text-color;
-
-  .panel-body {
-    -ms-flex: 1 0 auto;
-    flex: 1;
-    -webkit-flex: 1;
-    padding: 25px 20px 0 20px;
-  }
-}
-
 /*doc
 ---
 title: Scrollable
