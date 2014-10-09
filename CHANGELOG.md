@@ -2,6 +2,8 @@
 
 ### Latest Changes
 
+link-lowlight-inverse -> link-lowlight-alt
+
 Application dashboard removed
 
 upgrade_your_account widget deprecated
