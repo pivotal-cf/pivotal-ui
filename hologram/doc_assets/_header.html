@@ -25,7 +25,7 @@
                 <% @pages[file_name][:blocks].each do |b| %>
                   <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
                     <% if category_name == @title %>
-                      <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
+                      <li><a href="?target=<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
                     <% else %>
                       <li><a href="<%= file_name %>?target=<%= b[:name] %>"><%= b[:title] %></a></li>
                     <% end %>
