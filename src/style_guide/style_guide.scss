@@ -91,23 +91,56 @@ blockquote {
   }
 
 
-  ul {
+  ul.styleguide-first-level-nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
+
+
     
-    li {
+    > li {
       display: inline-block;
       font-size: $font-size-small;
       padding: 10px 15px;
+      position: relative;
 
       a {
         color: $neutral-11;
       }
 
+      ul.styleguide-second-level-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 200px;
+        background-color: $neutral-1;
+        list-style-type: none;
+        padding: 10px 20px;
+
+        li {
+          padding-bottom: 5px;
+          font-size: $font-size-base;
+
+          a {
+            color: $neutral-11;
+          }
+
+          &:hover {
+            a {
+              color: $link-hover-color;
+            }
+          }
+        }
+      }
+
       &:hover {
         @include transition-pui();
         background: $neutral-1;
+
+        ul {
+          display: block;
+        }
 
         a {
           @include transition-pui();
@@ -115,6 +148,7 @@ blockquote {
         }
       }
     }
+
   }
 }
 

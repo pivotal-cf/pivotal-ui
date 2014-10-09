@@ -13,3 +13,22 @@ $(document).ready(
     });
   }
 );
+
+$(document).ready(
+  function() {
+    var headerHeight = 50;
+    $('a.styleguide-subsection').on('click', function(e){
+      e.preventDefault();
+      var target = $(this).attr('href');
+      var desiredScrollPosition = $(target).offset().top - headerHeight;
+      $('body, html').animate({
+        scrollTop: desiredScrollPosition
+      }, 500, function () {
+        $(target).focus();
+        window.location.hash = target;
+      });
+      return false;
+    });
+  }
+);
+

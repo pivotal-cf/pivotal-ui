@@ -16,10 +16,18 @@
     <nav class="styleguide-header">
       <div class="container">
         <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <ul>
+        <ul class="styleguide-first-level-nav">
           <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
             <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
-            <li><a href="<%= @categories[category_name] %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a></li>
+            <li><a href="<%= @categories[category_name] %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a>
+              <ul class="styleguide-second-level-nav">
+                <% @blocks.each do |b| %>
+                  <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
+                  <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </li>
           <% end %>
           <li><a href="all.html">all</a></li>
         </ul>
@@ -28,8 +36,4 @@
     <div class="container mtxxl ptl">
       <h1>a brand new style guide, it's super effective</h1>
       <section class="content">
-        <ul>
-        <% @blocks.each do |b| %>
-          <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
-        <% end %>
-        </ul>
+
