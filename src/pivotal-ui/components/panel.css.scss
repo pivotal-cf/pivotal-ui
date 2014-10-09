@@ -492,30 +492,4 @@ The basic heading is frequently used with the `.bkg-default-5` background color,
   }
 }
 
-/*doc
----
-title: Simple
-name: panel-heading-Simple
-parent: panel
----
-
-```haml_example
-.panel.panel-simple
-  .panel-heading.panel-heading-simple
-    %h6 panel-heading-simple
-  .panel-body
-    Panel Content
-```
-*/
-
-.panel-heading-simple {
-  text-align: $panel-heading-simple-text-align;
-  &, h1, h2, h3, h4, h5, h6 {
-    color: $panel-heading-simple-text;
-    font-weight: $panel-heading-simple-font-weight;
-    font-size: $panel-heading-simple-font-size;
-    text-transform: $panel-heading-simple-text-transform;
-  }
-}
-
 
