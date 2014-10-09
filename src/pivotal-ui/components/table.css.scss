@@ -12,6 +12,7 @@ Class                 | Description
 `.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
 `.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
 `.table-striped`      | Applies zebra striping to a table.
+`.table-bordered`     | Applies outside border to a table.
 
 */
 
@@ -68,8 +69,20 @@ This is a table used to display many rows of data (it is pretty much the default
 
 */
 
+.table-bordered {
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: none;
+      }
+    }
+  }
+}
+
 .table-data {
-  border: none;
   tbody, thead, .tbody, .thead {
     tr, .tr {
       border-bottom: 1px solid $gray-7;
@@ -85,7 +98,7 @@ This is a table used to display many rows of data (it is pretty much the default
           border-bottom: none;
         }
         &:last-child {
-          border: none;
+          border-right: none;
         }
         background-color: $gray-9;
       }
