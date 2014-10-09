@@ -227,7 +227,7 @@ parent: tabs
       %a{"data-toggle" => "tab", :href => "#eula"}EULA
 
 
-  .tab-content.bg-neutral-11
+  .tab-content
     #dashboard.tab-pane.fade.in.active Dashboard Content
     #notifications.tab-pane.fade Notifications Content
     #eula.tab-pane.fade EULA Content
@@ -246,8 +246,8 @@ parent: tabs
         border: 0;
         border-radius: 0;
         padding: 10px 19px 13px 19px;
-        color: $tab-simple-link-color;
-        font-weight: $tab-simple-link-font-weight;
+        color: $tab-alt-link-color;
+        font-weight: $tab-alt-link-font-weight;
         font-size: 16px;
       }
       > a:hover {
@@ -258,17 +258,16 @@ parent: tabs
       cursor: pointer;
       @include transition-pui;
       > a {
-        background-color: $tab-simple-tab-hover-bg-color;
+        background-color: $tab-alt-hover-bg-color;
       }
     }
     > li.active {
-      background-color: $gray-11;
+      background-color: $tab-alt-active-bg-color;
       cursor: default;
       border-right: 0;
       @include no-transition;
       > a {
-        font-weight: bold;
-        color: $tab-simple-link-active-color;
+        color: $tab-alt-link-active-color;
         background-color: transparent;
       }
     }
@@ -278,10 +277,9 @@ parent: tabs
     position: absolute;
     right: 0;
   }
-}
-
-.tab-content {
-  padding: 20px;
+  .tab-content {
+    background-color: $tab-alt-active-bg-color;
+  }
 }
 
 /*doc

@@ -14939,7 +14939,7 @@ parent: tabs
       %a{"data-toggle" => "tab", :href => "#eula"}EULA
 
 
-  .tab-content.bg-neutral-11
+  .tab-content
     #dashboard.tab-pane.fade.in.active Dashboard Content
     #notifications.tab-pane.fade Notifications Content
     #eula.tab-pane.fade EULA Content
@@ -14990,20 +14990,18 @@ parent: tabs
 }
 /* line 269, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple-alt .nav > li.active > a {
-  font-weight: bold;
   color: #243640;
   background-color: transparent;
 }
-/* line 276, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 275, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-simple-alt .tabs-action {
   padding: 14px 16px;
   position: absolute;
   right: 0;
 }
-
-/* line 283, ../../src/pivotal-ui/components/tabs.css.scss */
-.tab-content {
-  padding: 20px;
+/* line 280, ../../src/pivotal-ui/components/tabs.css.scss */
+.tab-simple-alt .tab-content {
+  background-color: white;
 }
 
 /*doc
@@ -15052,7 +15050,7 @@ parent: tabs
 
 ```
 */
-/* line 339, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 337, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive a[data-toggle="tab"] {
   padding: 8px 10px;
   color: #8d8e8e;
@@ -15062,7 +15060,7 @@ parent: tabs
   -moz-transition: all 300ms ease-out;
   transition: all 300ms ease-out;
 }
-/* line 347, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 345, ../../src/pivotal-ui/components/tabs.css.scss */
 .tab-responsive .active a[data-toggle="tab"],
 .tab-responsive a[data-toggle="tab"]:hover,
 .tab-responsive a[data-toggle="tab"]:focus {
@@ -15070,12 +15068,12 @@ parent: tabs
   color: #00a79d;
 }
 @media (max-width: 768px) {
-  /* line 355, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 353, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive a[data-toggle="tab"] {
     background-color: #e0e4e5;
     color: #00a79d;
   }
-  /* line 360, ../../src/pivotal-ui/components/tabs.css.scss */
+  /* line 358, ../../src/pivotal-ui/components/tabs.css.scss */
   .tab-responsive .tab-pane {
     padding: 15px;
   }
@@ -15152,11 +15150,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 
 ```
 */
-/* line 441, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 439, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images {
   text-align: center;
 }
-/* line 444, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 442, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] {
   display: inline-block;
   width: 130px;
@@ -15172,11 +15170,11 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 .tabs-images .nav-tabs-images li a[data-toggle=tab]:hover, .tabs-images .nav-tabs-images li a[data-toggle=tab]:focus, .tabs-images .nav-tabs-images li a[data-toggle=tab]:active, .tabs-images .nav-tabs-images li a[data-toggle=tab].active {
   box-shadow: 0 3px 0 rgba(0, 0, 0, 0.14);
 }
-/* line 456, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 454, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li a[data-toggle=tab] .icon-svg .icon {
   fill: currentColor;
 }
-/* line 465, ../../src/pivotal-ui/components/tabs.css.scss */
+/* line 463, ../../src/pivotal-ui/components/tabs.css.scss */
 .tabs-images .nav-tabs-images li.active a, .tabs-images .nav-tabs-images li:hover a, .tabs-images .nav-tabs-images li:focus a, .tabs-images .nav-tabs-images li:active a {
   background-color: #00a79d;
   color: white;
