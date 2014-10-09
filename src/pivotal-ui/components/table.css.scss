@@ -7,12 +7,26 @@ categories:
   - Objects
 ---
 
+This section contains different table styles. See [JS tables](/javascript.html?target=table-js) to see different table behaviors.
+
 Class                 | Description
 --------------------- | -----------------
 `.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
 `.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
 `.table-striped`      | Applies zebra striping to a table.
 
+*/
+
+/*doc
+---
+title: JS Tables
+name: table-js
+categories:
+  - All
+  - JavaScript
+---
+
+This section contains different table behaviors. See [tables](/objects.html?target=table) to see different table styles.
 */
 
 // Terrible terrible code
@@ -350,16 +364,6 @@ This is the table used on the billing page.
     }
   }
 }
-
-/*doc
----
-title: JS Tables
-name: table-js
-categories:
-  - All
-  - JavaScript
----
-*/
 
 /*doc
 ---

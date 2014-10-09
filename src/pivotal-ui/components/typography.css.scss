@@ -5,6 +5,7 @@ name: type
 categories:
   - All
   - Elements
+  - Utilities
   - Intro
 ---
 
@@ -117,11 +118,6 @@ small,
 title: Type Modifiers
 name: type-modifiers
 parent: type
-categories:
-  - All
-  - Elements
-  - Utilities
-  - Intro
 ---
 
 ```haml_example
@@ -145,11 +141,6 @@ categories:
 title: Type Colors
 name: type-colors
 parent: type
-categories:
-  - All
-  - Elements
-  - Utilities
-  - Intro
 ---
 
 ```haml_example
@@ -266,11 +257,6 @@ a:hover.type-inverse {
 title: Type Alignment
 name: type_alignment
 parent: type
-categories:
-  - All
-  - Elements
-  - Utilities
-  - Intro
 ---
 
 Alignment classes can be used to align text top, bottom, middle or left, right, center.

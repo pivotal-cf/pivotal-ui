@@ -6,6 +6,20 @@ categories:
   - All
   - Elements
 ---
+
+This section contains different list styles. See [JS lists](/javascript.html?target=lists_js) to see different list behaviors.
+*/
+
+/*doc
+---
+title: JS Lists
+name: lists_js
+categories:
+  - All
+  - JavaScript
+---
+
+This section contains different list behaviors. See [lists](/elements.html?target=lists) to see different list styles.
 */
 
 
@@ -14,10 +28,6 @@ categories:
 title: Inline List
 name: list-inline
 parent: lists
-categories:
-  - All
-  - Layout
-  - Elements
 ---
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
@@ -240,10 +250,7 @@ Use this list when you need simple gray borders between items
 ---
 title: Addable List
 name: list_addable
-parent: lists
-categories:
-  - All
-  - JavaScript
+parent: lists_js
 ---
 
 New elements fade in
@@ -257,9 +264,9 @@ New elements fade in
   %li.list-group-item
     item 3
 
+<a data-add-item-to="#list-group-adding-demo">Add an item</a>
 ```
 
-<a data-add-item-to="#list-group-adding-demo">Add an item</a>
 
 */
 
@@ -332,10 +339,6 @@ New elements fade in
 title: Event List
 name: list_event
 parent: lists
-categories:
-  - All
-  - Objects
-  - Elements
 ---
 
 This is a special list-group, with styles per-event for colors and icons
@@ -503,10 +506,6 @@ This is a special list-group, with styles per-event for colors and icons
 title: Vertical Divider List
 name: list-vertical-divider
 parent: lists
-categories:
-  - All
-  - Layout
-  - Elements
 ---
 
 Use this list when you need larger gray borders between
