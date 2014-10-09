@@ -187,14 +187,21 @@ div.codeBlock {
   font-size: 12px;
 }
 
-table, table tr, table td, table th {
+.codeTable table, table.styleguide {
   padding: 7px;
   border: 1px solid #ccc;
+
+  tr, th, td {
+    padding: 7px;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    font-weight: bold;
+  }
 }
 
-table th {
-  font-weight: bold;
-}
+
 
 
 

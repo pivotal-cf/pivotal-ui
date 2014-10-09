@@ -12429,21 +12429,9 @@ Class                 | Description
 `.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
 `.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
 `.table-striped`      | Applies zebra striping to a table.
+`.table-bordered`     | Applies outside border to a table.
 
 */
-/* line 20, ../../src/pivotal-ui/components/table.css.scss */
-.table-hack .thead, .table-hack .tbody {
-  padding: 0 15px;
-}
-/* line 23, ../../src/pivotal-ui/components/table.css.scss */
-.table-hack .th {
-  padding: 8px 15px;
-}
-/* line 26, ../../src/pivotal-ui/components/table.css.scss */
-.table-hack .td {
-  padding: 20px 15px;
-}
-
 /*doc
 ---
 title: Data
@@ -12496,15 +12484,21 @@ This is a table used to display many rows of data (it is pretty much the default
 ```
 
 */
-/* line 89, ../../src/pivotal-ui/components/table.css.scss */
-.table-data {
+/* line 77, ../../src/pivotal-ui/components/table.css.scss */
+.table-bordered > thead > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tbody > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > tfoot > tr > td {
   border: none;
 }
-/* line 92, ../../src/pivotal-ui/components/table.css.scss */
+
+/* line 87, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr, .table-data tbody .tr, .table-data thead tr, .table-data thead .tr, .table-data .tbody tr, .table-data .tbody .tr, .table-data .thead tr, .table-data .thead .tr {
   border-bottom: 1px solid #d4d9d9;
 }
-/* line 94, ../../src/pivotal-ui/components/table.css.scss */
+/* line 89, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr th, .table-data tbody tr .th, .table-data tbody .tr th, .table-data tbody .tr .th, .table-data thead tr th, .table-data thead tr .th, .table-data thead .tr th, .table-data thead .tr .th, .table-data .tbody tr th, .table-data .tbody tr .th, .table-data .tbody .tr th, .table-data .tbody .tr .th, .table-data .thead tr th, .table-data .thead tr .th, .table-data .thead .tr th, .table-data .thead .tr .th {
   border-bottom: none;
   border-color: #d4d9d9;
@@ -12515,51 +12509,51 @@ This is a table used to display many rows of data (it is pretty much the default
   letter-spacing: 0.3px;
   background-color: #ecefef;
 }
-/* line 102, ../../src/pivotal-ui/components/table.css.scss */
+/* line 97, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr th:first-child, .table-data tbody tr .th:first-child, .table-data tbody .tr th:first-child, .table-data tbody .tr .th:first-child, .table-data thead tr th:first-child, .table-data thead tr .th:first-child, .table-data thead .tr th:first-child, .table-data thead .tr .th:first-child, .table-data .tbody tr th:first-child, .table-data .tbody tr .th:first-child, .table-data .tbody .tr th:first-child, .table-data .tbody .tr .th:first-child, .table-data .thead tr th:first-child, .table-data .thead tr .th:first-child, .table-data .thead .tr th:first-child, .table-data .thead .tr .th:first-child {
   border-bottom: none;
 }
-/* line 105, ../../src/pivotal-ui/components/table.css.scss */
+/* line 100, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr th:last-child, .table-data tbody tr .th:last-child, .table-data tbody .tr th:last-child, .table-data tbody .tr .th:last-child, .table-data thead tr th:last-child, .table-data thead tr .th:last-child, .table-data thead .tr th:last-child, .table-data thead .tr .th:last-child, .table-data .tbody tr th:last-child, .table-data .tbody tr .th:last-child, .table-data .tbody .tr th:last-child, .table-data .tbody .tr .th:last-child, .table-data .thead tr th:last-child, .table-data .thead tr .th:last-child, .table-data .thead .tr th:last-child, .table-data .thead .tr .th:last-child {
-  border: none;
+  border-right: none;
 }
-/* line 110, ../../src/pivotal-ui/components/table.css.scss */
+/* line 105, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr td, .table-data tbody tr .td, .table-data tbody .tr td, .table-data tbody .tr .td, .table-data thead tr td, .table-data thead tr .td, .table-data thead .tr td, .table-data thead .tr .td, .table-data .tbody tr td, .table-data .tbody tr .td, .table-data .tbody .tr td, .table-data .tbody .tr .td, .table-data .thead tr td, .table-data .thead tr .td, .table-data .thead .tr td, .table-data .thead .tr .td {
   padding: 10px 10px;
   border: none;
 }
-/* line 118, ../../src/pivotal-ui/components/table.css.scss */
+/* line 113, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr, .table-data tbody .tr, .table-data .tbody tr, .table-data .tbody .tr {
   background-color: #ecefef;
 }
-/* line 120, ../../src/pivotal-ui/components/table.css.scss */
+/* line 115, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr:hover, .table-data tbody .tr:hover, .table-data .tbody tr:hover, .table-data .tbody .tr:hover {
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
   background-color: #F8F8F8;
 }
-/* line 126, ../../src/pivotal-ui/components/table.css.scss */
+/* line 121, ../../src/pivotal-ui/components/table.css.scss */
 .table-data tbody tr:last-child, .table-data tbody .tr:last-child, .table-data .tbody tr:last-child, .table-data .tbody .tr:last-child {
   border-bottom: 2px solid rgba(0, 0, 0, 0.07);
 }
-/* line 133, ../../src/pivotal-ui/components/table.css.scss */
+/* line 128, ../../src/pivotal-ui/components/table.css.scss */
 .table-data > thead > tr, .table-data > .thead > .tr {
   text-transform: uppercase;
 }
-/* line 137, ../../src/pivotal-ui/components/table.css.scss */
+/* line 132, ../../src/pivotal-ui/components/table.css.scss */
 .table-data > thead > tr > th, .table-data > thead > tr > .th, .table-data > .thead > .tr > th, .table-data > .thead > .tr > .th {
   color: #686868;
 }
-/* line 144, ../../src/pivotal-ui/components/table.css.scss */
+/* line 139, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr, .table-data.table-light tbody .tr, .table-data.table-light thead tr, .table-data.table-light thead .tr, .table-data.table-light .tbody tr, .table-data.table-light .tbody .tr, .table-data.table-light .thead tr, .table-data.table-light .thead .tr {
   background-color: #F8F8F8;
 }
-/* line 146, ../../src/pivotal-ui/components/table.css.scss */
+/* line 141, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr th, .table-data.table-light tbody tr .th, .table-data.table-light tbody tr td, .table-data.table-light tbody tr .td, .table-data.table-light tbody .tr th, .table-data.table-light tbody .tr .th, .table-data.table-light tbody .tr td, .table-data.table-light tbody .tr .td, .table-data.table-light thead tr th, .table-data.table-light thead tr .th, .table-data.table-light thead tr td, .table-data.table-light thead tr .td, .table-data.table-light thead .tr th, .table-data.table-light thead .tr .th, .table-data.table-light thead .tr td, .table-data.table-light thead .tr .td, .table-data.table-light .tbody tr th, .table-data.table-light .tbody tr .th, .table-data.table-light .tbody tr td, .table-data.table-light .tbody tr .td, .table-data.table-light .tbody .tr th, .table-data.table-light .tbody .tr .th, .table-data.table-light .tbody .tr td, .table-data.table-light .tbody .tr .td, .table-data.table-light .thead tr th, .table-data.table-light .thead tr .th, .table-data.table-light .thead tr td, .table-data.table-light .thead tr .td, .table-data.table-light .thead .tr th, .table-data.table-light .thead .tr .th, .table-data.table-light .thead .tr td, .table-data.table-light .thead .tr .td {
   background-color: #F8F8F8;
 }
-/* line 149, ../../src/pivotal-ui/components/table.css.scss */
+/* line 144, ../../src/pivotal-ui/components/table.css.scss */
 .table-data.table-light tbody tr td, .table-data.table-light tbody tr .td, .table-data.table-light tbody .tr td, .table-data.table-light tbody .tr .td, .table-data.table-light thead tr td, .table-data.table-light thead tr .td, .table-data.table-light thead .tr td, .table-data.table-light thead .tr .td, .table-data.table-light .tbody tr td, .table-data.table-light .tbody tr .td, .table-data.table-light .tbody .tr td, .table-data.table-light .tbody .tr .td, .table-data.table-light .thead tr td, .table-data.table-light .thead tr .td, .table-data.table-light .thead .tr td, .table-data.table-light .thead .tr .td {
   border: none;
 }
@@ -12597,29 +12591,29 @@ This is the horizontal table used mainly on the user profile page. Typically it 
 ```
 
 */
-/* line 193, ../../src/pivotal-ui/components/table.css.scss */
+/* line 188, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr th, .table-horizontal tbody tr .th, .table-horizontal tbody .tr th, .table-horizontal tbody .tr .th, .table-horizontal thead tr th, .table-horizontal thead tr .th, .table-horizontal thead .tr th, .table-horizontal thead .tr .th, .table-horizontal .tbody tr th, .table-horizontal .tbody tr .th, .table-horizontal .tbody .tr th, .table-horizontal .tbody .tr .th, .table-horizontal .thead tr th, .table-horizontal .thead tr .th, .table-horizontal .thead .tr th, .table-horizontal .thead .tr .th {
   border: none;
 }
-/* line 200, ../../src/pivotal-ui/components/table.css.scss */
+/* line 195, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr:last-child {
   border: none;
 }
-/* line 203, ../../src/pivotal-ui/components/table.css.scss */
+/* line 198, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr th, .table-horizontal tbody tr td {
   padding: 20px;
 }
-/* line 206, ../../src/pivotal-ui/components/table.css.scss */
+/* line 201, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr th {
   font-weight: 400;
   text-align: right;
   width: 33%;
 }
-/* line 211, ../../src/pivotal-ui/components/table.css.scss */
+/* line 206, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr td {
   font-weight: 600;
 }
-/* line 213, ../../src/pivotal-ui/components/table.css.scss */
+/* line 208, ../../src/pivotal-ui/components/table.css.scss */
 .table-horizontal tbody tr td:last-child {
   border: none;
 }
@@ -12657,35 +12651,35 @@ specify column widths for the th/tds.
 ```
 
 */
-/* line 254, ../../src/pivotal-ui/components/table.css.scss */
+/* line 249, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value {
   table-layout: fixed;
 }
-/* line 258, ../../src/pivotal-ui/components/table.css.scss */
+/* line 253, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr th, .table-key-value tbody tr .th, .table-key-value tbody .tr th, .table-key-value tbody .tr .th, .table-key-value thead tr th, .table-key-value thead tr .th, .table-key-value thead .tr th, .table-key-value thead .tr .th, .table-key-value .tbody tr th, .table-key-value .tbody tr .th, .table-key-value .tbody .tr th, .table-key-value .tbody .tr .th, .table-key-value .thead tr th, .table-key-value .thead tr .th, .table-key-value .thead .tr th, .table-key-value .thead .tr .th {
   border: none;
 }
-/* line 266, ../../src/pivotal-ui/components/table.css.scss */
+/* line 261, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr:last-child {
   border: none;
 }
-/* line 269, ../../src/pivotal-ui/components/table.css.scss */
+/* line 264, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr th, .table-key-value tbody tr td {
   padding: 0;
   margin: 0;
 }
-/* line 273, ../../src/pivotal-ui/components/table.css.scss */
+/* line 268, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr th {
   text-transform: uppercase;
   font-weight: 800;
   text-align: left;
   color: #b4b4b4;
 }
-/* line 279, ../../src/pivotal-ui/components/table.css.scss */
+/* line 274, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr td {
   text-align: left;
 }
-/* line 281, ../../src/pivotal-ui/components/table.css.scss */
+/* line 276, ../../src/pivotal-ui/components/table.css.scss */
 .table-key-value tbody tr td:last-child {
   border: none;
 }
@@ -12723,30 +12717,30 @@ This is the table used on the billing page.
 ```
 
 */
-/* line 325, ../../src/pivotal-ui/components/table.css.scss */
+/* line 320, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr th, .table-numerical tbody tr .th, .table-numerical tbody .tr th, .table-numerical tbody .tr .th, .table-numerical thead tr th, .table-numerical thead tr .th, .table-numerical thead .tr th, .table-numerical thead .tr .th, .table-numerical .tbody tr th, .table-numerical .tbody tr .th, .table-numerical .tbody .tr th, .table-numerical .tbody .tr .th, .table-numerical .thead tr th, .table-numerical .thead tr .th, .table-numerical .thead .tr th, .table-numerical .thead .tr .th {
   border: none;
 }
-/* line 332, ../../src/pivotal-ui/components/table.css.scss */
+/* line 327, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr:last-child {
   border: none;
 }
-/* line 335, ../../src/pivotal-ui/components/table.css.scss */
+/* line 330, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr th, .table-numerical tbody tr td {
   padding: 5px 0;
 }
-/* line 338, ../../src/pivotal-ui/components/table.css.scss */
+/* line 333, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr th {
   font-weight: 400;
   text-align: left;
   width: 33%;
   color: #686868;
 }
-/* line 344, ../../src/pivotal-ui/components/table.css.scss */
+/* line 339, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr td {
   text-align: right;
 }
-/* line 346, ../../src/pivotal-ui/components/table.css.scss */
+/* line 341, ../../src/pivotal-ui/components/table.css.scss */
 .table-numerical tbody tr td:last-child {
   border: none;
 }
@@ -12806,7 +12800,7 @@ We are making the assumption here that table-hover will *only* be used if the ta
 ```
 
 */
-/* line 412, ../../src/pivotal-ui/components/table.css.scss */
+/* line 407, ../../src/pivotal-ui/components/table.css.scss */
 .table-hover td {
   cursor: pointer;
 }
@@ -12867,48 +12861,48 @@ USE:
       %td {{tableItem.quota}}
 ```
 */
-/* line 501, ../../src/pivotal-ui/components/table.css.scss */
+/* line 496, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-desc {
   color: #243640;
 }
-/* line 503, ../../src/pivotal-ui/components/table.css.scss */
+/* line 498, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-desc:after {
   content: "\f0d7";
   color: #243640;
 }
-/* line 509, ../../src/pivotal-ui/components/table.css.scss */
+/* line 504, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable [sortable] {
   cursor: pointer;
 }
-/* line 511, ../../src/pivotal-ui/components/table.css.scss */
+/* line 506, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable [sortable]:after {
   margin-left: 4px;
   content: "";
   font-weight: 200;
   font-family: FontAwesome;
 }
-/* line 517, ../../src/pivotal-ui/components/table.css.scss */
+/* line 512, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable [sortable]:hover {
   background-color: white;
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
   transition: background-color 300ms ease-out;
 }
-/* line 526, ../../src/pivotal-ui/components/table.css.scss */
+/* line 521, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-none:hover:after {
   visibility: visible;
 }
-/* line 529, ../../src/pivotal-ui/components/table.css.scss */
+/* line 524, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-none:after {
   content: "\f0dc";
   color: #d4d9d9;
   visibility: hidden;
 }
-/* line 536, ../../src/pivotal-ui/components/table.css.scss */
+/* line 531, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-asc {
   color: #243640;
 }
-/* line 538, ../../src/pivotal-ui/components/table.css.scss */
+/* line 533, ../../src/pivotal-ui/components/table.css.scss */
 .table-sortable th.sorted-asc:after {
   content: "\f0d8";
   color: #243640;
@@ -12988,57 +12982,57 @@ parent: table-js
                   'data-dangerous-action' => "true"} Delete
 ```
 */
-/* line 621, ../../src/pivotal-ui/components/table.css.scss */
+/* line 616, ../../src/pivotal-ui/components/table.css.scss */
 .editing .state-adding-trigger {
   visibility: hidden;
 }
-/* line 625, ../../src/pivotal-ui/components/table.css.scss */
+/* line 620, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable .thead-state-viewing,
 .editing .table-addable .td-state-viewing {
   display: none;
 }
-/* line 630, ../../src/pivotal-ui/components/table.css.scss */
+/* line 625, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable td {
   display: none;
 }
-/* line 633, ../../src/pivotal-ui/components/table.css.scss */
+/* line 628, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable td:first-child {
   display: table-cell;
 }
-/* line 636, ../../src/pivotal-ui/components/table.css.scss */
+/* line 631, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable thead.state-editing-show {
   display: table-header-group;
 }
-/* line 639, ../../src/pivotal-ui/components/table.css.scss */
+/* line 634, ../../src/pivotal-ui/components/table.css.scss */
 .editing .table-addable tr.state-editing-show {
   display: table-row;
 }
 
-/* line 645, ../../src/pivotal-ui/components/table.css.scss */
+/* line 640, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable {
   table-layout: fixed;
 }
-/* line 648, ../../src/pivotal-ui/components/table.css.scss */
+/* line 643, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .state-editing-show {
   display: none;
 }
-/* line 652, ../../src/pivotal-ui/components/table.css.scss */
+/* line 647, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .state-adding-item-show {
   display: none;
 }
-/* line 656, ../../src/pivotal-ui/components/table.css.scss */
+/* line 651, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .inline-table-item.ng-enter.ng-enter-active {
   opacity: 1;
 }
-/* line 658, ../../src/pivotal-ui/components/table.css.scss */
+/* line 653, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .inline-table-item.ng-enter.ng-enter-active .addedConfirmation {
   display: table-cell;
 }
-/* line 664, ../../src/pivotal-ui/components/table.css.scss */
+/* line 659, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .inline-table-item .addedConfirmation {
   color: forestgreen;
 }
-/* line 669, ../../src/pivotal-ui/components/table.css.scss */
+/* line 664, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .fa-check-success {
   color: #00a79d;
   font-size: 12px;
@@ -13048,31 +13042,31 @@ parent: table-js
   transition: opacity 300ms ease-out;
   opacity: 1;
 }
-/* line 681, ../../src/pivotal-ui/components/table.css.scss */
+/* line 676, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .fa-check-success.ng-hide {
   display: inline-block !important;
   opacity: 0;
 }
-/* line 686, ../../src/pivotal-ui/components/table.css.scss */
+/* line 681, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .saveRequested {
   opacity: 0.3;
 }
-/* line 690, ../../src/pivotal-ui/components/table.css.scss */
+/* line 685, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .deleteRequested {
   -webkit-transition: all ease-out .2s;
   transition: all ease-out .2s;
   color: #b4b4b4;
 }
-/* line 696, ../../src/pivotal-ui/components/table.css.scss */
+/* line 691, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .ng-leave {
   -webkit-transition: all ease-out .5s;
   transition: all ease-out .5s;
 }
-/* line 701, ../../src/pivotal-ui/components/table.css.scss */
+/* line 696, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .ng-leave.ng-leave-active {
   color: #ecefef;
 }
-/* line 705, ../../src/pivotal-ui/components/table.css.scss */
+/* line 700, ../../src/pivotal-ui/components/table.css.scss */
 .table-addable .saved {
   opacity: 1;
   -webkit-transition: all 300ms ease-out;
@@ -13196,15 +13190,15 @@ Table with borders where the contents of the table scroll but the header does no
           %td.col-md-14 Started
 ```
 */
-/* line 837, ../../src/pivotal-ui/components/table.css.scss */
+/* line 832, ../../src/pivotal-ui/components/table.css.scss */
 .table-scrollable {
   border: 1px solid #e0e4e5;
 }
-/* line 840, ../../src/pivotal-ui/components/table.css.scss */
+/* line 835, ../../src/pivotal-ui/components/table.css.scss */
 .table-scrollable .panel {
   border: none;
 }
-/* line 844, ../../src/pivotal-ui/components/table.css.scss */
+/* line 839, ../../src/pivotal-ui/components/table.css.scss */
 .table-scrollable .panel-scrollable-header {
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -13213,20 +13207,20 @@ Table with borders where the contents of the table scroll but the header does no
   user-select: none;
   border-bottom: 2px solid #e0e4e5;
 }
-/* line 849, ../../src/pivotal-ui/components/table.css.scss */
+/* line 844, ../../src/pivotal-ui/components/table.css.scss */
 .table-scrollable .panel-scrollable {
   border-top: 3px solid #ecefef;
 }
-/* line 854, ../../src/pivotal-ui/components/table.css.scss */
+/* line 849, ../../src/pivotal-ui/components/table.css.scss */
 .table-scrollable table tr:last-child {
   border-bottom: none;
 }
 
-/* line 864, ../../src/pivotal-ui/components/table.css.scss */
+/* line 859, ../../src/pivotal-ui/components/table.css.scss */
 table.table-border {
   border: 1px solid #e0e4e5;
 }
-/* line 867, ../../src/pivotal-ui/components/table.css.scss */
+/* line 862, ../../src/pivotal-ui/components/table.css.scss */
 table.table-border thead tr th, table.table-border tbody tr td {
   border-right: none;
 }
