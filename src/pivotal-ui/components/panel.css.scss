@@ -37,7 +37,7 @@ parent: panel
 ---
 
 ```haml_example
-.panel.panel-simple
+.panel.panel-simple.bg-neutral-11
   .panel-body
     Simple Panel
 ```
@@ -57,10 +57,9 @@ parent: panel
 Basic Panels are the new Simple Panels for G-Major
 
 ```haml_example
-.sg-gray-4.pam
-  .panel.panel-basic
-    .panel-body
-      Basic Panel
+.panel.panel-basic.bg-neutral-11
+  .panel-body
+    Basic Panel
 ```
 */
 
@@ -81,12 +80,11 @@ Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel
 support flexbox, the footer will appear where it would naturally, likely right below the panel-body content
 
 ```haml_example
-.sg-gray-4.pam
-  .panel.panel-basic.panel-flex{style: 'height: 200px'}
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
+.panel.panel-basic.panel-flex.bg-neutral-11{style: 'height: 200px'}
+  .panel-body
+    Body Content
+  .panel-footer
+    Footer Content
 ```
 */
 
@@ -116,7 +114,7 @@ parent: panel
 ---
 
 ```haml_example
-%a.panel.panel-tile{href: 'http://google.com'}
+%a.panel.panel-tile.bg-neutral-11{href: 'http://google.com'}
   .panel-body
     Tile
   .panel-footer
@@ -193,8 +191,10 @@ name: panel_scrollable
 parent: panel
 ---
 
+The scrollable panel sets a fixed height of 183px and scrolls any content that is larger. If you want a different size, set an inline style on the `.panel-scrollable`.
+
 ```haml_example
-.panel.panel-scrollable
+.panel.panel-scrollable.bg-neutral-11
   .panel-body
     %p Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.
 ```
@@ -356,10 +356,9 @@ parent: panel
 Shadow panels add a bottom shadow to the panel.
 
 ```haml_example
-.sg-gray-4.pam
-  .panel.panel-shadow
-    .panel-body
-      Shadow Panel
+.panel.panel-shadow.bg-neutral-11
+  .panel-body
+    Shadow Panel
 ```
 */
 
@@ -380,7 +379,7 @@ parent: panel
 The `.panel-card` makes any `.panel-body` have a minimum "card" height when applied to the `.panel`.
 
 ```haml_example
-.panel.panel-space.panel-card
+.panel.panel-space.panel-card.bg-neutral-11
   .panel-body
     Card Panel
 ```
@@ -417,44 +416,3 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
     }
   }
 }
-
-/*doc
----
-title: Panel Headings
-name: panel-heading
-parent: panel
----
-
-Panel headings may be applied to any panel. They are completely interchangeable.
-*/
-
-.panel-heading {
-}
-
-/*doc
----
-title: Basic
-name: panel-heading-basic
-parent: panel
----
-
-The basic heading is frequently used with the `.bkg-default-5` background color, as it is below, however it can be used with any box.
-
-```haml_example
-.panel.bkg-default-5
-  .panel-heading.panel-heading-basic
-    %h6 panel-heading-basic
-  .panel-body
-    Panel Content
-```
-*/
-
-.panel-heading-basic {
-  background-color: $panel-heading-basic-bg;
-  &, h1, h2, h3, h4, h5, h6 {
-    color: $panel-heading-basic-text;
-    font-size: $panel-heading-basic-font-size;
-  }
-}
-
-
