@@ -9,15 +9,7 @@ categories:
 
 Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
 
-Panels are typically a combination of contours, backgrounds, and content including headers and footers.
-
-Panels                  | Modifier Class
------------------------ | -----------------
-panel-simple            | `panel panel-simple`
-panel-tile              | `panel panel-tile`
-panel-heading-simple    | `panel-heading panel-heading-simple`
-panel-heading-basic     | `panel-heading panel-heading-basic`
-
+Panels are typically a combination of contours, backgrounds, and content including headers and footers. This section describes the contours.
 
 */
 
@@ -116,16 +108,15 @@ parent: panel
 ```haml_example
 %a.panel.panel-tile.bg-neutral-11{href: 'http://google.com'}
   .panel-body
-    Tile
+    Hover to see secondary state.
   .panel-footer
     This is the footer
 ```
 */
 
 .panel-tile {
-  float: left;
   width: 435px;
-  border: $panel-tile-border;
+  border-bottom: 4px solid $shadow-3;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
@@ -156,14 +147,14 @@ parent: panel
     text-align: center;
     font-size: $panel-tile-font-size;
     border-top: none; // bootstrap override
-    padding: 4px 15px 2px 15px; // padding bottom is 2px less because of the teal border on the panel-tile
+    padding: 4px 15px; 
     background: transparent;
     @include transition-pui();
   }
 
   &:hover {
     @include transition-pui();
-    border-color: $panel-tile-hover-border-color;
+    border-width: 1px;
     background-color: $panel-tile-hover-bg-color;
     color: $text-color;
 
@@ -174,6 +165,7 @@ parent: panel
       opacity: 1;
       background: $panel-tile-hover-border-color;
       color: $panel-footer-tile-text;
+      font-weight: 900;
     }
   }
 }
@@ -183,6 +175,7 @@ parent: panel
     width: 100%;
   }
 }
+
 
 /*doc
 ---
