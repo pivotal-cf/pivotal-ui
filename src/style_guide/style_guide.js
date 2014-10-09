@@ -21,15 +21,14 @@ $(document).ready(function(){
 /* Adjust scrollTop when navigating to a subsection on the current page */
 $(document).ready(function() {
   var headerHeight = 50;
-  $('a.styleguide-subsection').on('click', function(e){
-    e.preventDefault();
+  $('a.styleguide-subsection').on('click', function(){
     var target = $(this).attr('href');
     var desiredScrollPosition = $(target).offset().top - headerHeight;
     $('body, html').animate({
       scrollTop: desiredScrollPosition
     }, 500, function () {
       $(target).focus();
-      window.location.hash = target;
+      window.location.search = '?target=' + target.slice(1);
     });
     return false;
   });
