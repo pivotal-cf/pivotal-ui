@@ -1,5 +1,13 @@
 // stylesheet swappin'
 
+
+// jquery plugin from: http://css-tricks.com/snippets/jquery/get-query-params-object/
+jQuery.extend({
+  getQueryParameters : function(str) {
+    return (str || document.location.search).replace(/(^\?)/,'').split("&").map(function(n){return n = n.split("="),this[n[0]] = n[1],this}.bind({}))[0];
+  }
+});
+
 $(document).ready(
   function(){
     $('input.alternate-css').change(function() {
@@ -29,6 +37,15 @@ $(document).ready(
       });
       return false;
     });
+  }
+);
+
+$(document).ready (
+  function() {
+    if ($.getQueryParameters().target) {
+      var newScrollTop = $('#' + $.getQueryParameters().target).offset().top - 50;
+      $(window).scrollTop(newScrollTop);
+    }
   }
 );
 
