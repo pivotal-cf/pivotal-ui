@@ -31,34 +31,6 @@ panel-heading-basic     | `panel-heading panel-heading-basic`
 
 /*doc
 ---
-title: Square Panel
-name: panel-square
-parent: panel
----
-
-Square panels take advantage of a CSS box-model oddity (see [Fluid Squares](http://dinosaurswithlaserz.com/2011/07/18/fluid-squares-v2/) ).
-They will be as tall as their containing element is wide.  Their content flows/overflows strangely though, so watch out. It is also extremely
-tricky to center content inside of them -- see the application dashboard for an example.
-
-```haml_example
-.row
-  .col-sm-6
-    .panel.panel-simple.panel-square
-      .panel-heading.panel-heading-simple
-        Square Panel
-      .panel-body
-        Square Panel
-
-```
-*/
-
-.panel-square {
-  padding-bottom: 100%;
-  height: 0;
-}
-
-/*doc
----
 title: Simple Panel
 name: panel-simple
 parent: panel
