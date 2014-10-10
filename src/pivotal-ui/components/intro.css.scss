@@ -1,0 +1,57 @@
+/*doc
+---
+name: intro
+categories:
+  - Intro
+---
+
+<div class="row">
+  <h1 class="em-alt em-high type-neutral-2">Pivotal UI</h1>
+  <p class="h3">This is everything you need to get started building UI at Pivotal. Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. </p>
+</div>
+
+<div class="row">
+  <hr class="divider-alternate-2 mtxl mbn" />
+  <h3 class="em-high type-neutral-2">Download</h3>
+  <p>Download and install the latest version of Pivotal UI and begin building!</p>
+  <a class="btn btn-highlight btn-lg" href="https://github.com/pivotal-cf/pivotal-ui/releases" target="_blank">Get Pivotal UI</a>
+</div>
+
+<div class="row">
+  <h3 class="em-high type-neutral-2">What's included</h3>
+  <p>Pivotal UI comes with everything you need from grids, to fonts, and even JavaScript!</p>
+  <ul>
+    <li>jQuery v2.1.1</li>
+    <li>modernizr v2.8.3</li>
+    <li>Bootstrap v3.0.2</li>
+    <li>Prism.js</li>
+    <li>Bootstrap v3.0.2</li>
+    <li>Font Awesome v4.10</li>
+    <li>Normalize CSS v1.0.2</li>
+    <li>OOCSS</li>
+    <li>Source Sans Pro</li>
+  </ul>
+  <h3 class="em-high type-neutral-2">Add it to your app</h3>
+  <ol>
+    <li>Unzip the release archive and move the resulting directory into your project.</li>
+    <li>Link to the css file in your html template to include the styles.</li>
+    <li>Add a script tag to your html template to use the javascript.</li>
+  </ol>
+</div>
+
+<pre>
+  <code class="language-markup">&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;...&lt;/title&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/release/pivotal-ui/pivotal-ui.css&quot;&gt;
+      &lt;script src=&quot;/path/to/release/pivotal-ui/pivotal-ui.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;p class='type-brand-1'&gt;Hello, world!&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</code>
+</pre>  
+
+
+
+*/
