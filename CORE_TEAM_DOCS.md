@@ -1,5 +1,9 @@
 # Core Team Docs
 
+## Setting up your environment
+
+See the [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#setting-up-your-environment) for detailed instructions.
+
 ## Deploying the styleguide
 
 The styleguide deploys automatically when your changes are merged into master on github and all the tests go green on [Cloudbees](https://pivotal.ci.cloudbees.com/job/pivotal-ui-styleguide/). So, you won't need to do anything here.

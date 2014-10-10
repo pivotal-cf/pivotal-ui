@@ -25,7 +25,7 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 ***
 
-# Getting started
+# Using PivotalUI on your project
 
 1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases).
 1. Unzip the release archive and move the resulting directory into your project.
@@ -100,3 +100,6 @@ See the latest styleguide for [examples of syntax highlighting in action](http:/
 
 ***
 
+# Contributing
+
+If you want a feature added to Pivotal UI, or you've found a bug that needs fixing, please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md).

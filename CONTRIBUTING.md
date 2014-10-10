@@ -2,58 +2,24 @@
 
 (Based off of the guidelines for [Twitter Bootstrap](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md))
 
+  - [Setting up your environment](#setting-up-your-environment)
+  - [Pull requests](#pull-requests)
+  - [Bug reports](#bug-reports)
+  - [Feature requests](#feature-requests)
+  - [Testing](#testing)
+  - [Commit guidelines](#commit-guidelines)
+  - [Documenting components](#documenting-components)
+  - [Code guidelines](#code-guidelines)
+
 ## I'd like to help, what can I do?
 
 There are lots of ways to help depending on your interests and skills. For example, you can [report bugs]() or create new components. If you want to submit bug fixes, create new components, or update existing ones, please refer to our [pull request guidelines]().
 
 If you need some inspiration, we have plenty of work for you to do. Please [email us](mailto:pivotal-ui@pivotal.io) to start a conversation.
 
-## Pull requests
-
-1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
-   and configure the remotes:
-
-   ```bash
-   git clone https://github.com/<your-github-id>/pivotal-ui.git
-   cd pivotal-ui
-   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
-   ```
-
-1. [Set up your environment](#setting-up-your-environment)
-
-1. If you cloned a while ago, get the latest changes from upstream:
-
-   ```bash
-   git checkout master
-   git pull upstream master
-   ```
-
-1. Create a feature branch based off of master.
-
-	```bash
-	git checkout -b feature/<short_description_of_feature>
-	```
-
-1. **Before you make any changes**, [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes). This will allow you to test for regressions after you make changes.
-
-1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
-
-1. [Document your component](#documenting-components) in the styleguide.
-
-1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
-
-1. Push your changes to github
-
-	```bash
-	git pull --rebase upstream master
-	git push origin head
-	```
-
-1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description against the master branch.
-
 ## Setting up your environment
 
-If you intend to build pivotal ui itself, there are a few things you'll need to do.
+If you intend to make changes to Pivotal UI (or to manually build the distribution), there are a few things you'll need to do.
 
 ### Install Tools (in order)
 
@@ -82,6 +48,51 @@ As soon as you have your tools installed, run gulp _at the project root_:
 then visit [http://localhost:8000](http://localhost:8000)
 
 This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
+
+## Pull requests
+
+1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
+   and configure the remotes:
+
+   ```bash
+   git clone https://github.com/<your-github-id>/pivotal-ui.git
+   cd pivotal-ui
+   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
+   ```
+
+1. [Set up your environment](#setting-up-your-environment)
+
+1. If you cloned a while ago, get the latest changes from upstream:
+
+   ```bash
+   git checkout master
+   git pull upstream master
+   ```
+
+1. Create a feature branch based off of master. *Do not work off of master*. (Working off of master makes it hard to make multiple pull requests).
+
+	```bash
+	git checkout -b feature/<short_description_of_feature>
+	```
+
+1. **Before you make any changes**, [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes). This will allow you to test for regressions after you make changes.
+
+1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
+
+1. [Document your component](#documenting-components) in the styleguide.
+
+1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
+
+1. Rebase against upstream, and then push your changes
+
+	```bash
+	git pull --rebase upstream master
+	git push origin head
+	```
+
+1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description against the master branch.
+
+
 
 ## Bug reports
 
@@ -122,20 +133,28 @@ To submit a Feature request, please [open an issue on Github](https://github.com
 
 ## Testing
 
+### Code linting
+
+We lint our javascript code with JSHint, which is run every time you run `gulp test`. Please ensure the code is linted before you commit.
+
+### Visual-diff regression testing
+
 (for the moment, this section is aspirational)
 
-We use CSSCritic for front-end regression testing. Currently, we are only testing a few components, with plans to expand. To test:
+We use CSSCritic for visual-diff regression testing. To test:
 
-### Set a baseline to test against (before making any changes!!)
+#### Set a baseline to test against (before making any changes!!)
 1. Run `gulp` to build the assets
 1. Run `gulp test`. This will open up Firefox and show all rendered test files in a "yellow" state.
-1. Click "Accept the rendered page" for *each* component. Yes, this will get more painful as we add more tests. If it is slowing you down, please let us know so we can prioritize automating this step.
+1. Click "Accept the rendered page" for *each* component. Yes, this is slow. If it is too painful please let us know so we can prioritize automating this step.
 
-### Creating test fixtures for new components (very aspirational)
+#### Creating test fixtures for new components (very aspirational)
 
-Test fixtures are automatically created every time you create a `haml_example`, `haml_example_table`, `html_example`, or `html_example_table` in the styleguide documentation. When you are happy with your component, you'll need to set a baseline test for it, and then it will get tested against regressions going forward.
+Test fixtures are automatically created every time you create a `haml_example`, `haml_example_table`, `html_example`, or `html_example_table` in the styleguide documentation.
 
-### Rerun the test suite for regressions (before you commit/make a pull request)
+If you create a new component, re-run `gulp test` to load the component in CssCritic, and set a baseline for it when you are happy with how it looks.
+
+#### Rerun the test suite for regressions (before you commit/make a pull request)
 1. Run `gulp` to build the latest assets
 1. Run `gulp test`. This will open up Firefox.
 1. If there are no regressions, all components will be green.
@@ -159,9 +178,29 @@ We follow the [Conventional Changelog](https://github.com/ajoslin/conventional-c
 
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram). The component docs are created from markdown comments in the SCSS.
 
-Make sure to name your component something unique or it will clobber other components' docs. Also, add your component to the appropriate categories.
+Here are some guidelines to follow when writing docs:
 
-This is an example of documentation button sizes. Notice how it has a yaml section in the beginning that defines its name and categories. For more information, see [the hologram example repo](https://github.com/trulia/hologram-example), or look at how other components are documented.
+- Its better to have multiple child components than one big parent component. Check out "buttons" for a good way to organize the docs this way.
+
+- Make sure to name your component something unique or it will clobber other components' docs.
+
+- Parent components should belong to a category (or categories) and should not have a parent. Child components should have a parent but not a category. See below for more category guidelines.
+
+- All component names should be plural and snake-cased. Child component names should start with the parent name (i.e. the large version of the `gravatar` component should be named `gravatar_large`).
+
+### Categories
+
+- **Layout** - components for structuring the placement of other components on a page *(i.e. grids, panes)*
+- **Elements** - single-node components and elementary html components *(i.e. buttons, links, lists)*
+- **Objects** - multi-node components *(i.e. alerts, panels, tables)*
+- **Utilities** - mixins that modifiy other components *(i.e. colors, hover states)*
+- **JavaScript** - components that have javascript behaviors *(i.e. animated progress bars, tabs, sortable tables)*
+- **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
+- **by Product** - product specific components *(i.e. a PWS marketing pricing widget)*
+
+### Examples
+
+Parent component:
 
 	/*doc
 	---
@@ -188,7 +227,25 @@ This is an example of documentation button sizes. Notice how it has a yaml secti
 
 	*/
 
-TODO: document categories more explicitly when they stabilize.
+Child component:
+ 		
+	/*doc
+	---
+	title: Button Sizes
+	name: button_sizes
+	parent: button
+	---
+
+	There are two sizes for buttons: Large and default. Simply apply the
+	size modifier class for the desired size.
+
+	```html_example_table
+	<button class="btn btn-primary btn-lg">Large</button>
+
+	<button class="btn btn-primary">Default</button>
+	```
+
+	*/
 
 ## Code guidelines
 
