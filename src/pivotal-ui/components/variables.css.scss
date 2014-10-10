@@ -38,6 +38,7 @@ $gray-11: white;
 $shadow-1 : rgba(0, 0, 0, 0.3);
 $shadow-2 : rgba(0, 0, 0, 0.14);
 $shadow-3 : rgba(0, 0, 0, 0.07);
+$shadow-4 : rgba(0, 0, 0, 0.035);
 $glow-1 : rgba(255,255,255,0.1);
 $glow-2 : rgba(255,255,255,0.2);
 $glow-3 : rgba(255,255,255,0.4);
@@ -901,7 +902,7 @@ $panel-primary-text:          #fff !default;
 $panel-primary-border:        $brand-primary !default;
 $panel-primary-heading-bg:    $brand-primary !default;
 
-$panel-simple-border:         1px solid $gray-9;
+$panel-simple-border:         1px solid $gray-5;
 
 $panel-tile-border:             2px solid $gray-9;
 $panel-tile-hover-border-color: $blue-2;
@@ -915,9 +916,9 @@ $panel-warning-text:          $state-warning-text !default;
 $panel-warning-border:        $state-warning-border !default;
 $panel-warning-heading-bg:    $state-warning-bg !default;
 
-$panel-danger-text:           $state-danger-text !default;
-$panel-danger-border:         $state-danger-border !default;
-$panel-danger-heading-bg:     $state-danger-bg !default;
+$panel-danger-text:           null;
+$panel-danger-border:         null;
+$panel-danger-heading-bg:     null;
 
 $panel-info-text:             $state-info-text !default;
 $panel-info-border:           $state-info-border !default;

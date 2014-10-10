@@ -221,7 +221,7 @@ div.codeBlock {
   font-size: 12px;
 }
 
-.codeTable table, table.styleguide {
+table.styleguide {
   padding: 7px;
   border: 1px solid #ccc;
   width: 100%;
@@ -229,10 +229,21 @@ div.codeBlock {
   tr, th, td {
     padding: 7px;
     border: 1px solid #ccc;
+    font-weight: normal;
   }
-
   th {
     font-weight: bold;
+  }
+}
+.codeTable table {
+  padding: 7px;
+  border: 1px solid #ccc;
+  width: 100%;
+
+  tr, th, td {
+    padding: 7px;
+    border: 1px solid #ccc;
+    font-weight: normal;
   }
 }
 
