@@ -49,11 +49,7 @@ Install the Gulp CLI globally
 
     $ npm install gulp -g
 
-compass
-
-    $ gem install compass
-
-haml, sass, and hologram
+compass, haml, sass, and hologram
 
     $ bundle install
 
