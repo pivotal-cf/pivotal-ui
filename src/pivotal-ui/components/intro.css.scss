@@ -1,0 +1,84 @@
+/*doc
+---
+name: intro
+categories:
+  - Intro
+---
+
+<div class="row">
+  <h1 class="em-alt em-high type-neutral-2">Pivotal UI</h1>
+  <p class="h3">This is everything you need to get started building UI at Pivotal. Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. </p>
+</div>
+
+<div class="row">
+  <hr class="divider-alternate-2 mtxl mbn" />
+  <h3 class="em-high type-neutral-2">Download</h3>
+  <p>Download the latest version of Pivotal UI and begin building!</p>
+  <a class="btn btn-highlight btn-lg" href="https://github.com/pivotal-cf/pivotal-ui/releases" target="_blank">Get Pivotal UI</a>
+  <p class="mtxl">You will need to be part of the Pivotal CF Github organization to download Pivotal UI. If you do not have access, email <a href="mailto:ask+cf@pivotal.io?Subject=Request%20access%20to%20Pivotal%20CF%20GitHub%20Organization"> ask+cf@pivotal.io</a>.</p>
+</div>
+
+<div class="row">
+  <h3 class="em-high type-neutral-2">What's included</h3>
+  <p>Pivotal UI comes with everything you need from grids, to fonts, and even JavaScript!</p>
+  <ul>
+    <li>jQuery v2.1.1</li>
+    <li>modernizr v2.8.3</li>
+    <li>Bootstrap v3.0.2</li>
+    <li>Prism.js</li>
+    <li>Bootstrap v3.0.2</li>
+    <li>Font Awesome v4.10</li>
+    <li>Normalize CSS v1.0.2</li>
+    <li>OOCSS</li>
+    <li>Source Sans Pro</li>
+  </ul>
+  <h3 class="em-high type-neutral-2">Add it to your app</h3>
+  <ol>
+    <li>Unzip the release archive and move the resulting directory into your project.</li>
+    <li>Link to the css file in your html template to include the styles.</li>
+    <li>Add a script tag to your html template to use the javascript.</li>
+  </ol>
+</div>
+
+<pre>
+  <code class="language-markup">&lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;...&lt;/title&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;/path/to/release/pivotal-ui/pivotal-ui.css&quot;&gt;
+      &lt;script src=&quot;/path/to/release/pivotal-ui/pivotal-ui.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+      &lt;p class='type-brand-1'&gt;Hello, world!&lt;/p&gt;
+    &lt;/body&gt;
+  &lt;/html&gt;</code>
+</pre>  
+
+<div class="row">
+  <h3 class="em-high type-neutral-2">Best practices</h3>
+  <p>There are a few things you should know before working with Pivotal UI.</p>
+  <ul>
+    <li>Dont modify Pivotal UI stylesheets unless you are a contributer. See the <a href="https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md">contribution</a> docs for more info.</li>
+    <li>You won't have to write your own CSS. We provide everything for you, even down to special classes for padding, margins, type alignment, etc.</li>
+    <li>If there is something you need and Pivotal UI doesn't have it, you can submit a feature request. To do so, please <a href="https://github.com/pivotal-cf/pivotal-ui/issues">open an issue on Github</a>. Screenshots are very helpful! We'll then have a conversation about what you are trying to achieve in your project and the best way to do that.</li>
+    <li>Have Fun!</li>
+  </ul>
+</div>
+
+<div class="row">
+  <h3 class="em-high type-neutral-2">How to use this styleguide</h3>
+  <p>We have organized Pivotal UI styleguide into a few useful sections.</p>
+  <ul>
+    <li><span class="em-high"><a href="/layout.html">Layout</a></span> - Here you will find all of the styles needed for page layout and organization. Some layout elements you can find here are grids, media blocks, and panes.</li>
+    <li><span class="em-high"><a href="/elements.html">Elements</a></span> - A single node component. They typically map to HTML elements are building blocks for large objects. Some elements you can find here are buttons, icons, lists, and typography.</li>
+    <li><span class="em-high"><a href="/objects.html">Objects</a></span> - A multi node component. These are ususally made of multiple elements that function together to create a more complex component. Some objects you can find here are alerts, modals, tables, and maps.</li>
+    <li><span class="em-high"><a href="/utilities.html">Utilities</a></span> - Mixins that can modify many different components. Some utilities you can find here are whitespace, color, and type modifiers.</li>
+    <li><span class="em-high"><a href="/forms.html">Forms</a></span> - You can find all sorts of form objects here.</li>
+    <li><span class="em-high"><a href="/javascript.html">JavaScript</a></span> - These components require Javascript. Some components you can find here are progress bars, modals, tabs, accordions, and tooltips.</li>
+    <li><span class="em-high"><a href="/by-product.html">by Product</a></span> - Some components are built with a specific product in mind. You can find Console's app health indicators, and PWS Marketing graphics here.</li>
+  </ul>
+  <p>By pulling components from each of these sections, you can quickly and easily scaffold pages for prototyping and production. Simply copy and paste applicable component code into your views and add any utility classes needed to make it perfect.
+</div>
+
+
+
+*/
