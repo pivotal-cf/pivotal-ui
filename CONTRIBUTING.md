@@ -35,6 +35,8 @@ If you intend to make changes to Pivotal UI (or to manually build the distributi
 
 You'll need to have these tools installed if you haven't got them in your system already, but many of them are preinstalled on a Pivotal dev box.
 
+ruby 2.1.2 
+
 bundle
 
     $ gem install bundle
