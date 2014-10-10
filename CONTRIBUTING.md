@@ -21,23 +21,40 @@ If you need some inspiration, we have plenty of work for you to do. Please [emai
 
 If you intend to make changes to Pivotal UI (or to manually build the distribution), there are a few things you'll need to do.
 
+### Fork the project
+
+[Fork](http://help.github.com/fork-a-repo/) the project by clicking the `fork` button in Github. Then, clone your fork, and configure the remotes:
+
+   ```bash
+   git clone https://github.com/<your-github-id>/pivotal-ui.git
+   cd pivotal-ui
+   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
+   ```
+
 ### Install Tools (in order)
+
+You'll need to have these tools installed if you haven't got them in your system already, but many of them are preinstalled on a Pivotal dev box.
+
+bundle
+
+    $ gem install bundle
+    
+node and npm 
+
+    $ brew install node
+    
+Install the Gulp CLI globally
+
+    $ npm install gulp -g
 
 compass, haml, sass, and hologram
 
     $ bundle install
 
-node and npm
-
-    $ brew install node
-
 Install dependencies by running the following from the project root
 
     $ npm install
 
-Install the Gulp CLI globally
-
-    $ npm install gulp -g
 
 ### Build the project
 
@@ -50,15 +67,6 @@ then visit [http://localhost:8000](http://localhost:8000)
 This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
 
 ## Pull requests
-
-1. [Fork](http://help.github.com/fork-a-repo/) the project, clone your fork,
-   and configure the remotes:
-
-   ```bash
-   git clone https://github.com/<your-github-id>/pivotal-ui.git
-   cd pivotal-ui
-   git remote add upstream https://github.com/pivotal-cf/pivotal-ui.git
-   ```
 
 1. [Set up your environment](#setting-up-your-environment)
 
