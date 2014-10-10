@@ -35,6 +35,8 @@ If you intend to make changes to Pivotal UI (or to manually build the distributi
 
 You'll need to have these tools installed if you haven't got them in your system already, but many of them are preinstalled on a Pivotal dev box.
 
+(Run all of these commands from the project root)
+
 ruby 2.1.2 
 
 bundle
@@ -45,7 +47,7 @@ node and npm
 
     $ brew install node
     
-Install the Gulp CLI globally
+the gulp cli
 
     $ npm install gulp -g
 
@@ -53,7 +55,7 @@ compass, haml, sass, and hologram
 
     $ bundle install
 
-Install dependencies by running the following from the project root
+node modules
 
     $ npm install
 
