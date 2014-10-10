@@ -47,14 +47,17 @@ Install the Gulp CLI globally
 
     $ npm install gulp -g
 
-compass, haml, sass, and hologram
+compass
+
+    $ gem install compass
+
+haml, sass, and hologram
 
     $ bundle install
 
 Install dependencies by running the following from the project root
 
     $ npm install
-
 
 ### Build the project
 
