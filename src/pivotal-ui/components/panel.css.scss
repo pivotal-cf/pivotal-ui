@@ -23,8 +23,8 @@ Panels are typically a combination of contours, backgrounds, and content includi
 
 /*doc
 ---
-title: Simple Panel
-name: panel-simple
+title: Simple
+name: panel_simple
 parent: panel
 ---
 
@@ -41,8 +41,8 @@ parent: panel
 
 /*doc
 ---
-title: Basic Panel
-name: panel-basic
+title: Basic
+name: panel_basic
 parent: panel
 ---
 
@@ -63,8 +63,8 @@ Basic Panels are the new Simple Panels for G-Major
 
 /*doc
 ---
-title: Flex Panel
-name: panel-flex
+title: Flex
+name: panel_flex
 parent: panel
 ---
 
@@ -72,7 +72,7 @@ Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel
 support flexbox, the footer will appear where it would naturally, likely right below the panel-body content
 
 ```haml_example
-.panel.panel-basic.panel-flex.bg-neutral-11{style: 'height: 200px'}
+.panel.panel-flex.bg-neutral-11{style: 'height: 200px'}
   .panel-body
     Body Content
   .panel-footer
@@ -129,6 +129,7 @@ parent: panel
   -webkit-transition: border 300ms ease-out;
   -moz-transition: border 300ms ease-out;
   transition: border 300ms ease-out;
+  @include background-clip-fix;
 
   .panel-body {
     -ms-flex: 1 0 auto;
@@ -201,23 +202,21 @@ The scrollable panel sets a fixed height of 183px and scrolls any content that i
 
 /*doc
 ---
-title: Basic Highlight
-name: panel-basic-highlight
+title: Highlight
+name: panel_highlight
 parent: panel
 ---
 
+This panel is used to highlight more important parts of the page.
+
 ```haml_example
-.panel.panel-basic-highlight
+.panel.panel-highlight
   .panel-body
     Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
-
-.panel.panel-basic-highlight-hoverable
-  .panel-body
-    Hoverable (use when a click on the panel triggers an action)
 ```
 */
 
-.panel-basic-highlight {
+.panel-highlight {
   background-color: $gray-10;
   border-radius: 10px;
   box-shadow: 0 4px 0 0 $shadow-3;
@@ -228,56 +227,40 @@ parent: panel
   }
 }
 
-.panel-basic-highlight-hoverable {
-  @extend .panel-basic-highlight;
-  &:hover {
-    @include transition-pui();
-    background-color: white;
-    box-shadow: 0 4px 0 0 $shadow-2;
-  }
-}
-
 /*doc
 ---
-title: Space
-name: panel-space
+title: Alternate
+name: panel_alt
 parent: panel
 ---
 
-Space panels can be in a default, stopped, or crashed state. Add the class `.panel-card` to give the panel space a minimum height.
+Alternate panels can be in a default, off, or danger state. Add the class `.panel-card` to give the panel a minimum height.
 
-```haml_example
-.sg-gray-4.pam
-  .panel.panel-space.panel-card.panel-hoverable
-    .panel-body
-      Clickable Space Panel
-      Sometimes you'll want to adapt the way text looks in your clickable panel. There are a few helper classes for that.
-      %p.hover-target-1
-        hover-target-1 - default text color => link color
-      %p.hover-target-2
-        hover-target-2 - light gray => default text color
+```haml_example_table
+.panel.panel-alt
+  .panel-body
+    Alternate Panel
 
-  .panel.panel-space.panel-card.panel-crashed.panel-hoverable
-    .panel-body
-      Clickable Crashed Space Panel
+.panel.panel-alt.panel-danger
+  .panel-body
+    Danger alternate panel
 
-  .panel.panel-space.panel-card.panel-stopped.panel-hoverable
-    .panel-body
-      Stopped Space Panel
+.panel.panel-alt.panel-off
+  .panel-body
+    Stopped alternate panel
 
-  .panel.panel-space.panel-card.panel-empty
-    .panel-body
-      Clickable Empty Space Panel
+.panel.panel-alt.panel-empty
+  .panel-body
+    Off alternate panel
 
-  .panel.panel-space.panel-card.panel-editing
-    .panel-body
-      Editing Space Panel
+.panel.panel-alt.panel-editing
+  .panel-body
+    Editing alternate panel
 ```
 */
 
-.panel-space {
+.panel-alt {
   width: 284px;
-  float: left;
 
   // while creating a new space (form inside)
   &.panel-editing {
@@ -319,21 +302,21 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
 
   }
 
-  &.panel-crashed, &.panel-stopped {
+  &.panel-danger, &.panel-off {
     @extend %panel-state;
   }
 
-  &.panel-crashed:before {
+  &.panel-danger:before {
     border-top: 25px solid $red-3;
   }
 
-  &.panel-stopped:before {
+  &.panel-off:before {
     border-top: 25px solid $gray-4;
   }
 }
 
 @media all and (max-width: $screen-xs) {
-  .panel-space {
+  .panel-alt {
     width:100%;
   }
 }
@@ -342,37 +325,66 @@ Space panels can be in a default, stopped, or crashed state. Add the class `.pan
 /*doc
 ---
 title: Shadow
-name: panel-shadow
+name: panel_shadow
 parent: panel
 ---
 
 Shadow panels add a bottom shadow to the panel.
 
-```haml_example
-.panel.panel-shadow.bg-neutral-11
+```haml_example_table
+.panel.panel-shadow-1.bg-neutral-11
   .panel-body
     Shadow Panel
+
+.panel.panel-shadow-2.bg-neutral-11
+  .panel-body
+    Shadow Panel
+
+.panel.panel-shadow-3.bg-neutral-11
+  .panel-body
+    Shadow Panel
+
+.panel.panel-shadow-4.bg-neutral-11
+  .panel-body
+    Shadow Panel
+
 ```
 */
-
 .panel-shadow {
   border: none; //Bootstrap override
-  border-bottom: 4px solid $shadow-3;
-
   @include background-clip-fix;
+}
+
+.panel-shadow-1 {
+  @extend .panel-shadow;
+  border-bottom: 4px solid $shadow-1;
+
+  
+}
+.panel-shadow-2 {
+  @extend .panel-shadow;
+  border-bottom: 4px solid $shadow-2;
+}
+.panel-shadow-3 {
+  @extend .panel-shadow;
+  border-bottom: 4px solid $shadow-3;
+}
+.panel-shadow-4 {
+  @extend .panel-shadow;
+  border-bottom: 4px solid $shadow-4;
 }
 
 /*doc
 ---
-title: Card Panel
-name: panel-card
+title: Card
+name: panel_card
 parent: panel
 ---
 
 The `.panel-card` makes any `.panel-body` have a minimum "card" height when applied to the `.panel`.
 
 ```haml_example
-.panel.panel-space.panel-card.bg-neutral-11
+.panel.panel-card.bg-neutral-11
   .panel-body
     Card Panel
 ```
@@ -382,9 +394,50 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
   min-height: 196px;
 }
 
-.panel-hoverable {
+/*doc
+---
+title: Clickable
+name: panel_clickable
+parent: panel
+---
+
+These panels lighten on hover to indicate that they are clickable. 
+Please use them when a click on the panel triggers an action.
+
+Sometimes you'll also want to adapt the way child elements look 
+based on a hover on the parent element. There are a few 
+helper classes for that.
+
+
+Class             | Hover on parent causes                                   
+----------------- | --------------------------------------
+`.hover-target-1` | default text color => link color      
+`.hover-target-2` | light gray text => default text color 
+`.hover-target-3` | changes background color to white 
+
+
+```haml_example
+.panel.panel-clickable-1
+  .panel-body
+    Panel Clickable 1
+    %p.hover-target-1
+      hover-target-1 - default text color => link color
+    %p.hover-target-2
+      hover-target-2 - light gray text => default text color
+    %p.hover-target-3
+      hover-target-3 - $gray-9 background => white background
+
+.panel.panel-clickable-2
+  .panel-body
+    Panel clickable 2 
+```
+
+*/
+
+.panel-clickable-1 {
   background-color: $gray-9;
   cursor: pointer;
+  @include transition-pui();
 
   .hover-target-2 {
     color: $gray-5;
@@ -395,7 +448,6 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
   }
 
   &:hover{
-    @include transition-pui();
     background-color: $gray-10;
 
     .hover-target-1 { // default text color => link color
@@ -405,7 +457,16 @@ The `.panel-card` makes any `.panel-body` have a minimum "card" height when appl
       color: $text-color;
     }
     .hover-target-3{
-      background-color: white;
+      background-color: $gray-11;
     }
+  }
+}
+
+.panel-clickable-2 {
+  @extend .panel-highlight;
+  &:hover {
+    @include transition-pui();
+    background-color: white;
+    box-shadow: 0 4px 0 0 $shadow-2;
   }
 }

@@ -2,6 +2,10 @@
 
 ### Latest Changes
 
+.panel-space -> .panel-alt
+.panel-stopped -> .panel-off
+.panel-crashed -> .panel-danger
+
 .panel-simple-highlight -> .panel-basic-highlight
 
 link-lowlight-inverse -> link-lowlight-alt
