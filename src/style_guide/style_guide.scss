@@ -456,3 +456,26 @@ background-position: 0 50%;
   display: none;
 }
 
+// sub section navigation pills
+
+.section-nav {
+  font-size: $font-size-small;
+  padding-left: 0;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    a{
+      display: inline-block;
+      padding: 5px 10px;
+      margin-right: 5px;
+      background-color: $glow-3;
+      @include transition-pui();
+      border-radius: $border-radius-small;
+      &:hover {
+        background-color: $neutral-11;
+      }
+    }
+  }
+}
+
