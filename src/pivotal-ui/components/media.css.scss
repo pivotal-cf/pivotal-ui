@@ -99,3 +99,81 @@ You can also make the media block stack with grid columns
     }
   }
 }
+
+/*doc
+---
+title: Media Flag
+name: media_flag
+parent: media
+---
+
+Sometimes you will want a media object that is vertically centered. You must wrap the flag object with `.media-flag` and the image and body content will need to be wrapped with `.flag-image` and `.flag-body` respectively. These are examples of the flag object with the image on the left.
+
+```haml_example
+
+.media-flag
+  .flag-image
+    %img{:alt => "...", :src => "http://placehold.it/64x64"}
+  .flag-body
+    %p.mbn Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+%br
+%br
+
+.media-flag
+  .flag-image
+    %img{:alt => "...", :src => "http://placehold.it/64x64"}
+  .flag-body
+    %p.mbn Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+```
+
+This example is of the flag object with the image on the right. You can also change the vertical alignment by using `.flag-top` and `.flag-bottom`.
+
+```haml_example
+
+.media-flag.flag-bottom.flag-rev
+  .flag-body.txt-r
+    %p.mbn Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus. Cras sit amet nibh libero, in gravida nulla. 
+  .flag-image
+    %img{:alt => "...", :src => "http://placehold.it/64x64"}
+```
+
+*/
+.media-flag {
+    display: table;
+    width: 100%;
+}
+
+.flag-image,
+.flag-body {
+    display: table-cell;
+    vertical-align: middle;
+
+    .flag-top & {
+        vertical-align: top;
+    }
+
+    .flag-bottom & {
+        vertical-align: bottom;
+    }
+
+}
+
+.flag-image {
+    padding-right: 10px;
+
+    > img {
+        display: block;
+        max-width: none;
+    }
+
+    .flag-rev & {
+        padding-right: 0;
+        padding-left: 10px;
+    }
+
+}
+
+.flag-body {
+    width: 100%;
+}
