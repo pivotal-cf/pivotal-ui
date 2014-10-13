@@ -469,6 +469,7 @@ background-position: 0 50%;
       display: inline-block;
       padding: 5px 10px;
       margin-right: 5px;
+      margin-bottom: 10px;
       background-color: $glow-3;
       @include transition-pui();
       border-radius: $border-radius-small;
