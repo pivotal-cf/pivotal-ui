@@ -572,6 +572,12 @@ parent: colors
     </div>
     <div class="col-md-3">
       <div class="chip">
+        <div class="chip-color bg-shadow-4"></div>
+        <div class="chip-color-name">$shadow-4</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="chip">
         <div class="chip-color bg-glow-1"></div>
         <div class="chip-color-name">$glow-1</div>
       </div>
@@ -628,6 +634,10 @@ parent: colors
 
 .bg-shadow-3{
   background-color: $shadow-3;
+}
+
+.bg-shadow-4{
+  background-color: $shadow-4;
 }
 
 
