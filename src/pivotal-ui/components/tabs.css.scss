@@ -310,19 +310,19 @@ parent: tabs
     .col-sm-19
       %ul.tab-content
         %li.active
-          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-1"}
+          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-1"}
             meep
         %li#tab-responsive-1.tab-pane.active.fade.in Content 1
         %li
-          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-2"}
+          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-2"}
             foo
         %li#tab-responsive-2.tab-pane.fade Content 2
         %li
-          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-3"}
+          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-3"}
             foo
         %li#tab-responsive-3.tab-pane.fade Content 3
         %li
-          %a.visible-xs{"data-toggle" => "tab", :href => "#tab-responsive-4"}
+          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-4"}
             foo
         %li#tab-responsive-4.tab-pane.fade Content 4
 
