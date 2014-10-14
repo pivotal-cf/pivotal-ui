@@ -1,3 +1,7 @@
+// a flag to toggle asset pipeline / compass integration
+// defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
+// in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
+$bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
 //
 // Our Bootstrap Variables
 // --------------------------------------------------
@@ -166,8 +170,9 @@ $success-2: $green-2;
 $dark_grey:             #3b3c41;
 $almost_white:          #ededed;
 
-// Typography Colors
+// Type Colors
 // ------------------------
+
 
 $type-muted:                  $gray-9 !important !default;
 $text-muted:                  $type-muted; // unused, keep for bootstrap, use $type-muted instead
@@ -176,9 +181,11 @@ $type-inverse-hover:          $teal-1;
 
 $abbr-border-color:           $gray-light !default;
 $headings-small-color:        $gray-light !default;
-$blockquote-small-color:      $gray-light !default;
-$blockquote-border-color:     $gray-lighter !default;
 $page-header-border-color:    $gray-lighter !default;
+
+//** Horizontal offset for forms and lists.
+$component-offset-horizontal: 180px !default;
+$dl-horizontal-offset:        $component-offset-horizontal !default;
 
 $error-color:               $red-3;
 
@@ -291,6 +298,8 @@ $whitespace-screen-sm-xxxxl: 30px;
 
 $icon-font-path:          "bootstrap/" !default;
 $icon-font-name:          "glyphicons-halflings-regular" !default;
+$icon-font-svg-id:        "glyphicons_halflingsregular" !default;
+
 
 // Images
 // -------------------------
@@ -310,6 +319,9 @@ $padding-large-horizontal:       26px !default;
 
 $padding-small-vertical:         2px !default;
 $padding-small-horizontal:       10px !default;
+
+$padding-xs-vertical:            1px !default;
+$padding-xs-horizontal:          5px !default;
 
 $line-height-extra-large:        2.48 !default;
 $line-height-large:              1.33 !default;
@@ -334,7 +346,7 @@ $table-condensed-cell-padding:       5px !default;
 
 $table-bg:                           transparent !default; // overall background-color
 $table-bg-accent:                    $gray-10; // for striping
-$table-bg-hover:                     null;
+$table-bg-hover:                     transparent; //TODO: this was null, but causes darken() to throw in table-row.scss, could we fix darken?
 $table-bg-active:                    $table-bg-hover !default;
 
 $table-border-color:                 #ddd !default; // table and cell border
@@ -383,25 +395,25 @@ $btn-alternate-color:            #eee !default;
 $btn-alternate-bg:               $brand-primary !default;
 $btn-alternate-border:           darken($btn-primary-bg, 5%) !default;
 
-$btn-success-color:              null !default;
-$btn-success-bg:                 null !default;
-$btn-success-bg-hover:           null;
-$btn-success-border:             null !default;
+$btn-success-color:              transparent !default;
+$btn-success-bg:                 transparent !default;
+$btn-success-bg-hover:           transparent;
+$btn-success-border:             transparent !default;
 
-$btn-warning-color:              null !default;
-$btn-warning-bg:                 null !default;
-$btn-warning-bg-hover:           null;
-$btn-warning-border:             null !default;
+$btn-warning-color:              transparent !default;
+$btn-warning-bg:                 transparent !default;
+$btn-warning-bg-hover:           transparent;
+$btn-warning-border:             transparent !default;
 
 $btn-danger-color:               $gray-11;
 $btn-danger-bg:                  $red-3 !default;
 $btn-danger-bg-hover:            $red-2 !default;
 $btn-danger-border:              $brand-danger !default;
 
-$btn-info-color:                 null !default;
-$btn-info-bg:                    null !default;
-$btn-info-bg-hover:              null !default;
-$btn-info-border:                null !default;
+$btn-info-color:                 transparent !default;
+$btn-info-bg:                    transparent !default;
+$btn-info-bg-hover:              transparent !default;
+$btn-info-border:                transparent !default;
 
 $btn-disabled-bg:                $gray-9;
 $btn-disabled-color:             $gray-5;
@@ -524,11 +536,12 @@ $grid-columns:              24 !default;
 // Padding, to be divided by two and applied to the left and right of all columns
 $grid-gutter-width:         20px !default;
 
-$grid-gutter-width-md:   10px !default;
+$grid-gutter-width-md:      10px !default;
 
 $grid-gutter-width-small:   4px !default;
 // Point at which the navbar stops collapsing
 $grid-float-breakpoint:     $screen-sm-min !default;
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 
 
 // Navbar
@@ -540,6 +553,7 @@ $navbar-margin-bottom:             0 !default;
 $navbar-border-radius:             0 !default;
 $navbar-padding-horizontal:        0 !default;
 $navbar-padding-vertical:          12px;
+$navbar-collapse-max-height:       340px !default;
 
 $navbar-default-color:             $almost_white !default;
 $navbar-default-bg:                transparent !default;
@@ -682,23 +696,35 @@ $logo-width:                           177px;
 // Pagination
 // -------------------------
 
+$pagination-color:                     $link-color !default;
 $pagination-bg:                        #fff !default;
 $pagination-border:                    #ddd !default;
 
+$pagination-hover-color:               $link-hover-color !default;
 $pagination-hover-bg:                  $gray-lighter !default;
+$pagination-hover-border:              #ddd !default;
 
-$pagination-active-bg:                 $brand-primary !default;
 $pagination-active-color:              #fff !default;
+$pagination-active-bg:                 $brand-primary !default;
+$pagination-active-border:             $brand-primary !default;
 
 $pagination-disabled-color:            $gray-light !default;
-
+$pagination-disabled-bg:               #fff !default;
+$pagination-disabled-border:           #ddd !default;
 
 // Pager
 // -------------------------
 
+$pager-bg:                             $pagination-bg !default;
+$pager-border:                         $pagination-border !default;
 $pager-border-radius:                  15px !default;
-$pager-disabled-color:                 $gray-light !default;
 
+$pager-hover-bg:                       $pagination-hover-bg !default;
+
+$pager-active-bg:                      $pagination-active-bg !default;
+$pager-active-color:                   $pagination-active-color !default;
+
+$pager-disabled-color:                 $pagination-disabled-color !default;
 
 // Jumbotron
 // -------------------------
@@ -708,6 +734,13 @@ $jumbotron-color:                inherit !default;
 $jumbotron-bg:                   $gray-lighter !default;
 $jumbotron-heading-color:        inherit !default;
 $jumbotron-font-size:            ceil($font-size-base * 1.5) !default;
+
+// Blockquote
+// -------------------------
+
+$blockquote-small-color:      $gray-light !default;
+$blockquote-font-size:        ($font-size-base * 1.25) !default;
+$blockquote-border-color:     $gray-lighter !default;
 
 
 // Panes
@@ -764,6 +797,7 @@ $state-danger-border:            $red-3;
 $tooltip-max-width:           200px !default;
 $tooltip-color:               $gray-9 !default;
 $tooltip-bg:                  $gray-2 !default;
+$tooltip-opacity:             .9 !default;
 
 $tooltip-arrow-width:         5px !default;
 $tooltip-arrow-color:         $tooltip-bg !default;
@@ -815,6 +849,10 @@ $modal-backdrop-bg:           $navy-1 !default;
 $modal-backdrop-opacity:      .80;
 $modal-header-border-color:   $gray-8 !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
+
+$modal-lg:                    900px !default;
+$modal-md:                    600px !default;
+$modal-sm:                    300px !default;
 
 // Modal basic
 $modal-basic-title-color:             $text-color;
@@ -882,14 +920,28 @@ $list-group-hover-bg:         #f5f5f5 !default;
 $list-group-active-color:     $component-active-color !default;
 $list-group-active-bg:        $component-active-bg !default;
 $list-group-active-border:    $list-group-active-bg !default;
+$list-group-active-text-color:  lighten($list-group-active-bg, 40%) !default;
 
-$list-group-link-color:          #555 !default;
-$list-group-link-heading-color:  #333 !default;
+//** Text color of disabled list items
+$list-group-disabled-color:      $gray-light !default;
+//** Background color of disabled list items
+$list-group-disabled-bg:         $gray-lighter !default;
+//** Text color for content within disabled list items
+$list-group-disabled-text-color: $list-group-disabled-color !default;
+
+
+$list-group-link-color:           #555 !default;
+$list-group-link-hover-color:     $list-group-link-color !default;
+$list-group-link-heading-color:   #333 !default;
 
 
 // Panels
 // -------------------------
 $panel-bg:                    null;
+$panel-body-padding:          15px !default;
+$panel-heading-padding:       10px 15px !default;
+$panel-footer-padding:        $panel-heading-padding !default;
+
 $panel-inner-border:          transparent !default;
 $panel-border-radius:         $border-radius-none !default;
 $panel-footer-bg:             transparent !default;
@@ -956,6 +1008,7 @@ $thumbnail-caption-padding:   9px !default;
 // Wells
 // -------------------------
 $well-bg:                     #f5f5f5 !default;
+$well-border:                 darken($well-bg, 7%) !default;
 
 // Accordion
 // -------------------------
@@ -978,6 +1031,8 @@ $badge-border-radius:         10px !default;
 
 // Breadcrumbs
 // -------------------------
+$breadcrumb-padding-vertical:   8px !default;
+$breadcrumb-padding-horizontal: 15px !default;
 $breadcrumb-bg:               #f5f5f5 !default;
 $breadcrumb-color:            #ccc !default;
 $breadcrumb-active-color:     $gray-light !default;
@@ -1010,11 +1065,14 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // Code
 // ------------------------
 $code-color:                  null !default;
-$code-background-dark: 		  $dark-1;
-$code-color-dark:			  $yellow-1;
+$code-background-dark: 		    $dark-1;
+$code-color-dark:			        $yellow-1;
 $code-bg:                     $gray-10 !default;
 $code-border-radius:          3px;
 $code-chrome-border-radius:   6px;
+
+$kbd-color:                   #fff !default;
+$kbd-bg:                      #333 !default;
 
 $pre-bg:                      #f5f5f5 !default;
 $pre-color:                   $gray-dark !default;

@@ -480,3 +480,17 @@ background-position: 0 50%;
   }
 }
 
+td.is-visible, td.is-hidden {
+  text-align: center;
+  vertical-align: middle;
+}
+
+td.is-visible {
+  color: #468847;
+  background-color: #dff0d8 !important;
+}
+
+td.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9 !important;
+}

@@ -37,6 +37,12 @@ gulp.task('clean', function(done) {
   del(['dist'], {force: true}, done);
 });
 
+gulp.task('_cleanTest', function(done) {
+  del(['test/components'], {force: true}, function() {
+    fs.mkdir('test/components', done);
+  });
+});
+
 gulp.task('assets', [
   '_styles',
   '_scripts',
@@ -122,7 +128,7 @@ gulp.task('_copyRandomAssets', ['clean'], function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('_hologramBuild', ['clean'], function() {
+gulp.task('_hologramBuild', ['clean', '_cleanTest'], function() {
   return gulp.src('hologram_config.yml')
     .pipe(hologram({
       bundler: true
@@ -135,7 +141,7 @@ gulp.task('_copyTestAssets', ['assets'], function() {
   ]).pipe(gulp.dest('./test/dist/'));
 });
 
-gulp.task('_createTestFileList', function(cb) {
+gulp.task('_createTestFileList', ['assets'], function(cb) {
   fs.readdir('./test/components/', function(err, files) {
     if (err) {
       console.error(err);
