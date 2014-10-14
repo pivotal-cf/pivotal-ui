@@ -2,6 +2,8 @@
 
 ### Latest Changes
 
+.visible-print -> .visible-print-block
+
 .panel-space -> .panel-alt
 .panel-stopped -> .panel-off
 .panel-crashed -> .panel-danger

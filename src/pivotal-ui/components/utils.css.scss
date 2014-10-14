@@ -37,14 +37,34 @@ categories:
   - Utilities
 ---
 
-### Printing
-Try printing this page to see these styles in action.
+Similar to the regular responsive classes, use these for toggling content for print.
 
-```haml_example_table
-%h3.visible-print This will only show when printed
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th>Classes</th>
+      <th>Browser</th>
+      <th>Print</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>
+        <code>.visible-print-block</code><br>
+        <code>.visible-print-inline</code><br>
+        <code>.visible-print-inline-block</code>
+      </th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th><code>.hidden-print</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+  </tbody>
+</table>
 
-%h3.hidden-print This will not show when printed
-```
 
 */
 
