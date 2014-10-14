@@ -1077,12 +1077,23 @@ $grids-debug: false;
   }
 
   @media (min-width: 1200px) {
-    .clearfix.visible-lg:after {
-      content: "\00a0 .clearfix .visible-lg";
+    .clearfix[class*="visible-lg-"]:after {
       font-size: 10px;
       font-style: italic;
       color: red;
       width: 100%;
+    }
+
+    .clearfix.visible-lg-inline:after {
+      content: "\00a0 .clearfix .visible-lg-inline";
+    }
+
+    .clearfix.visible-lg-block:after {
+      content: "\00a0 .clearfix .visible-lg-block";
+    }
+
+    .clearfix.visible-lg-inline-block:after {
+      content: "\00a0 .clearfix .visible-lg-inline-block";
     }
   }
   @media (max-width: 1199px) {
@@ -1325,12 +1336,23 @@ $grids-debug: false;
       background-color: #e7cdf6;
     }
 
-    .clearfix.visible-md:after {
-      content: "\00a0 .clearfix .visible-md";
+    .clearfix[class*="visible-md-"]:after {
       font-size: 10px;
       font-style: italic;
       color: red;
       width: 100%;
+    }
+
+    .clearfix.visible-md-inline:after {
+      content: "\00a0 .clearfix .visible-md-inline";
+    }
+
+    .clearfix.visible-md-block:after {
+      content: "\00a0 .clearfix .visible-md-block";
+    }
+
+    .clearfix.visible-md-inline-block:after {
+      content: "\00a0 .clearfix .visible-md-inline-block";
     }
   }
   @media (max-width: 991px) {
@@ -1573,12 +1595,23 @@ $grids-debug: false;
       background-color: #cdedce;
     }
 
-    .clearfix.visible-sm:after {
-      content: "\00a0 .clearfix .visible-sm";
+    .clearfix[class*="visible-sm-"]:after {
       font-size: 10px;
       font-style: italic;
       color: red;
       width: 100%;
+    }
+
+    .clearfix.visible-sm-inline:after {
+      content: "\00a0 .clearfix .visible-sm-inline";
+    }
+
+    .clearfix.visible-sm-block:after {
+      content: "\00a0 .clearfix .visible-sm-block";
+    }
+
+    .clearfix.visible-sm-inline-block:after {
+      content: "\00a0 .clearfix .visible-sm-inline-block";
     }
   }
   @media (max-width: 767px) {
@@ -1821,12 +1854,23 @@ $grids-debug: false;
       background-color: #f6e9cd;
     }
 
-    .clearfix.visible-xs:after {
-      content: "\00a0 .clearfix .visible-xs";
+    .clearfix[class*="visible-xs"]:after {
       font-size: 10px;
       font-style: italic;
       color: red;
       width: 100%;
+    }
+
+    .clearfix.visible-xs-inline:after {
+      content: "\00a0 .clearfix .visible-xs-inline";
+    }
+
+    .clearfix.visible-xs-block:after {
+      content: "\00a0 .clearfix .visible-xs-block";
+    }
+
+    .clearfix.visible-xs-inline-block:after {
+      content: "\00a0 .clearfix .visible-xs-inline-block";
     }
   }
   .debug-grid {
