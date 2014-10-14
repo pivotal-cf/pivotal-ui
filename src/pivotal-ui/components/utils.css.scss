@@ -30,6 +30,135 @@ Try disabling js and rendering this page.
 
 /*doc
 ---
+title: Responsive Utilities
+name: responsive_utilities
+categories:
+  - All
+  - Utilities
+---
+
+Use a single or combination of the available classes for toggling content across viewport breakpoints.
+
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        Extra small devices
+        <small>Phones (&lt;768px)</small>
+      </th>
+      <th>
+        Small devices
+        <small>Tablets (≥768px)</small>
+      </th>
+      <th>
+        Medium devices
+        <small>Desktops (≥992px)</small>
+      </th>
+      <th>
+        Large devices
+        <small>Desktops (≥1200px)</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="no-wrap"><code>.visible-xs-*</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-sm-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-md-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-lg-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th class="no-wrap"><code>.hidden-xs</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-sm</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-md</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-lg</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+  </tbody>
+</table>
+
+
+The `.visible-*-*` classes for each breakpoint come in three variations, one for each CSS display property value listed below.
+
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th>Group of classes</th>
+      <th>CSS display</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-block</code></td>
+      <td class="no-wrap"><code>display: block;</code></td>
+    </tr>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-inline</code></td>
+      <td class="no-wrap"><code>display: inline;</code></td>
+    </tr>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-inline-block</code></td>
+      <td class="no-wrap"><code>display: inline-block;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+So, for extra small (`xs`) screens for example, the available `.visible-*-*` classes are:
+
+- `.visible-xs-block`
+- `.visible-xs-inline`
+- `.visible-xs-inline-block`
+
+*/
+
+/*doc
+---
 title: Print
 name: print
 categories:

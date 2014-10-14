@@ -223,6 +223,7 @@ div.codeBlock {
 
 table.styleguide {
   padding: 7px;
+  margin-bottom: 12px;
   border: 1px solid #ccc;
   width: 100%;
 
@@ -233,6 +234,10 @@ table.styleguide {
   }
   th {
     font-weight: bold;
+  }
+
+  td.no-wrap, th.no-wrap {
+    white-space: nowrap;
   }
 }
 .codeTable table {

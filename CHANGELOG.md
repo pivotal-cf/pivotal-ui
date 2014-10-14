@@ -4,6 +4,11 @@
 
 Upgraded to Bootstrap 3.2.0
 
+.visible-xs -> .visible-xs-block
+.visible-sm -> .visible-sm-block
+.visible-md -> .visible-md-block
+.visible-lg -> .visible-lg-block
+
 .visible-print -> .visible-print-block
 
 .panel-space -> .panel-alt
