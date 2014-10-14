@@ -15,9 +15,8 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 - jQuery v2.1.1
 - modernizr v2.8.3
-- Bootstrap v3.0.2
+- Bootstrap v3.2
 - Prism.js
-- Bootstrap v3.0.2
 - Font Awesome v4.10
 - Normalize CSS v1.0.2
 - OOCSS
