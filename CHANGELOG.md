@@ -2,6 +2,8 @@
 
 ### Latest Changes
 
+Upgraded to Bootstrap 3.2.0
+
 .visible-print -> .visible-print-block
 
 .panel-space -> .panel-alt
