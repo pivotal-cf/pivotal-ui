@@ -2,7 +2,7 @@
   "name": "pivotal-ui",
   "private": true,
   "browser": {
-    "bootstrap": "./node_modules/bootstrap/dist/js/bootstrap.js",
+    "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
     "prism": "./src/syntax-highlighting/prism.js",
     "modernizr": "./src/modernizr/modernizr.min.js"
   },
@@ -41,7 +41,6 @@
   "version": "0.0.3",
   "main": "Gruntfile.js",
   "dependencies": {
-    "bootstrap": "^3.2.0",
     "bootstrap-sass": "^3.2.0",
     "envify": "^1.2.1",
     "font-awesome": "^4.2.0",
