@@ -7,16 +7,36 @@ categories:
   - Layout
 ---
 
-The default media allow to float a media object (images, video, audio) to the left or right of a content block.
+The default media displays a media object (images, video, audio) to the left or right of a content block.
 
 ```haml_example
 .media
-  %a.pull-left{:href => "#"}
+  %a.media-left{:href => "#"}
     %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
   .media-body
     %h4.media-heading Media heading
-    %p
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+.media
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+  .media-body
+    %h4.media-heading Media heading
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+    .media
+      %a.media-left{:href => "#"}
+        %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+      .media-body
+        %h4.media-heading Nested media heading
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+.media
+  .media-body
+    %h4.media-heading Media heading
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+  %a.media-right{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
 ```
 
 Wrap the image in a fixed-size `.image-container` to make sure the image isn't
@@ -24,7 +44,7 @@ larger than the container
 
 ```haml_example
 .media
-  %a.pull-left{:href => "#"}
+  %a.media-left{:href => "#"}
     .image-container{style: "width: 100px; height: 50px;"}
       %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
   .media-body
@@ -32,26 +52,127 @@ larger than the container
     %p
       Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 ```
+*/
 
-You can also make the media block stack with grid columns
+/*doc
+---
+title: Media Alignment
+name: media_alignment
+parent: media
+---
+
+The images or other media can be aligned top, middle, or bottom. The default is top aligned.
 
 ```haml_example
-.media.media-stackable-md
-  %a.pull-left{:href => "#"}
-    %img.media-object{:alt => "...", :src => "http://placehold.it/200x200"}
+.media
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/40x40"}
   .media-body
-    %h4.media-heading Media heading
-    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    %h4.media-heading Top aligned media
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+.media
+  %a.media-left.media-middle{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/40x40"}
+  .media-body
+    %h4.media-heading Middle aligned media
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+.media
+  %a.media-left.media-bottom{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/40x40"}
+  .media-body
+    %h4.media-heading Bottom aligned media
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+```
+*/
+
+/*doc
+---
+title: Media List
+name: media_list
+parent: media
+---
+
+With a bit of extra markup, you can use media inside list (useful for comment threads or articles lists).
+
+```haml_example
+%ul.media-list
+  %li.media
+    %a.media-left{:href => "#"}
+      %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+    .media-body
+      %h4.media-heading Media heading
+      %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      / Nested media object
+      .media
+        %a.media-left{:href => "#"}
+          %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+        .media-body
+          %h4.media-heading Nested media heading
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+          / Nested media object
+          .media
+            %a.media-left{:href => "#"}
+              %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+            .media-body
+              %h4.media-heading Nested media heading
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      / Nested media object
+      .media
+        %a.media-left{:href => "#"}
+          %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
+        .media-body
+          %h4.media-heading Nested media heading
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
 ```
 */
 
 
-.media-stackable-xs{
-  @media (max-width: $screen-xs) {
-    > .pull-left {
-      margin-right: 0 !important;
+/*doc
+---
+title: Media Stackable
+name: media_stackable
+parent: media
+---
+
+
+You can also make the media block stack with grid columns.
+
+```haml_example
+.media.media-stackable-xs
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Extra-small stackable
+
+.media.media-stackable-sm
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Small stackable
+
+.media.media-stackable-md
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Medium stackable
+
+.media.media-stackable-lg
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Large stackable
+```
+*/
+
+@mixin media-stackable($max-width) {
+  @media (max-width: $max-width) {
+    > .pull-left, .media-left {
       display: block;
       float: none;
+      clear: both;
+      margin: 0 auto 10px auto !important;
       .media-object {
         margin-left: auto;
         margin-right: auto;
@@ -59,43 +180,58 @@ You can also make the media block stack with grid columns
     }
   }
 }
-.media-stackable-sm{
-  @media (max-width: $screen-sm) {
-    > .pull-left {
-      margin-right: 0 !important;
-      display: block;
-      float: none;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+
+.media {
+  &.media-stackable-xs{
+    @include media-stackable($screen-xs);
+  }
+
+  &.media-stackable-sm {
+    @include media-stackable($screen-sm);
+  }
+
+  &.media-stackable-md {
+    @include media-stackable($screen-md);
+  }
+
+  &.media-stackable-lg {
+    @include media-stackable($screen-lg);
   }
 }
-.media-stackable-md{
-  @media (max-width: $screen-md) {
-     .pull-left {
-      display: block;
-      float:none;
-      clear:both;
-      margin:0 auto !important;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+
+/* To be removed when Bootstrap accepts PR #14801 and releases a new version */
+.media {
+  // Proper spacing between instances of .media
+  margin-top: 15px;
+
+  // Proper spacing of .media-right
+  .media-right,
+  .pull-right {
+    padding-left: 10px;
   }
-}
-.media-stackable-lg{
-  @media (max-width: $screen-lg) {
-    > .pull-left {
-      margin:0 auto;
-      display: block;
-      float: none;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
-      }
-    }
+
+  // Proper spacing of .media-left
+  .media-left,
+  .pull-left {
+    padding-right: 10px;
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  .media-left,
+  .media-right,
+  .media-body {
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .media-middle {
+    vertical-align: middle;
+  }
+
+  .media-bottom {
+    vertical-align: bottom;
   }
 }
