@@ -404,47 +404,55 @@ parent: panel
 These panels lighten on hover to indicate that they are clickable. 
 Please use them when a click on the panel triggers an action.
 
-Sometimes you'll also want to adapt the way child elements look 
-based on a hover on the parent element. There are a few 
+```haml_example_table
+.panel.panel-clickable
+  .panel-body
+    Panel Clickable
+
+.panel.panel-clickable-alt
+  .panel-body
+    Panel Clickable Alt
+```
+
+Sometimes you'll also want to adapt the way child elements look
+based on a hover on the parent element. There are a few
 helper classes for that.
 
 
-Class             | Hover on parent causes                                   
------------------ | --------------------------------------
-`.hover-target-1` | default text color => link color      
-`.hover-target-2` | light gray text => default text color 
-`.hover-target-3` | changes background color to white 
-
-
-```haml_example
-.panel.panel-clickable-1
+```haml_example_table
+.panel.panel-clickable
   .panel-body
-    Panel Clickable 1
     %p.hover-target-1
       hover-target-1 - default text color => link color
+
+.panel.panel-clickable
+  .panel-body
     %p.hover-target-2
       hover-target-2 - light gray text => default text color
+
+.panel.panel-clickable
+  .panel-body
     %p.hover-target-3
       hover-target-3 - $gray-9 background => white background
-
-.panel.panel-clickable-2
-  .panel-body
-    Panel clickable 2 
 ```
 
 */
 
-.panel-clickable-1 {
+.panel-clickable {
   background-color: $gray-9;
   cursor: pointer;
   @include transition-pui();
+
+  .hover-target-1, .hover-target-2, .hover-target-3 {
+    @include transition-pui();
+  }
 
   .hover-target-2 {
     color: $gray-5;
   }
 
   .hover-target-3 {
-    background-color: $gray-10;
+    background-color: $gray-9;
   }
 
   &:hover{
@@ -462,11 +470,13 @@ Class             | Hover on parent causes
   }
 }
 
-.panel-clickable-2 {
+.panel-clickable-alt {
   @extend .panel-highlight;
+  @extend .panel-clickable;
+  background-color: $gray-10;
+
   &:hover {
-    @include transition-pui();
-    background-color: white;
+    background-color: $gray-11;
     box-shadow: 0 4px 0 0 $shadow-2;
   }
 }

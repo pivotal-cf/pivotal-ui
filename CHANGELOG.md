@@ -6,6 +6,9 @@ Upgraded to Bootstrap 3.2.0
 
 .media api updated
 
+.panel-clickable-1 -> .panel-clickable
+.panel-clickable-2 -> .panel-clickable-alt
+
 .visible-xs -> .visible-xs-block
 .visible-sm -> .visible-sm-block
 .visible-md -> .visible-md-block
