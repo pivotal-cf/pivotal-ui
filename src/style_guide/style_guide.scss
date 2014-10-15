@@ -26,6 +26,20 @@ html {
   margin-top: 0;
 }
 
+h1.styleguide,
+h2.styleguide,
+h3.styleguide,
+h4.styleguide,
+h5.styleguide,
+h6.styleguide {
+  color: $brand-3;
+  font-weight: 600;
+}
+
+h1.styleguide {
+  font-size: $font-size-title;
+}
+
 footer {
   margin-top: 20px;
   text-align: center;
