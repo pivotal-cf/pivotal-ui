@@ -4,6 +4,8 @@
 
 Upgraded to Bootstrap 3.2.0
 
+.media api updated
+
 .visible-xs -> .visible-xs-block
 .visible-sm -> .visible-sm-block
 .visible-md -> .visible-md-block
