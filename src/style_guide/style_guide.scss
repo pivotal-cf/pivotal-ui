@@ -34,6 +34,8 @@ h5.styleguide,
 h6.styleguide {
   color: $brand-3;
   font-weight: 600;
+  margin-top: 0;
+  padding-top: 50px;
 }
 
 h1.styleguide {
@@ -258,6 +260,7 @@ table.styleguide {
   padding: 7px;
   border: 1px solid #ccc;
   width: 100%;
+  margin-bottom: 12px;
 
   tr, th, td {
     padding: 7px;
