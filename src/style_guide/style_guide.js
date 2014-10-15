@@ -14,7 +14,7 @@ $(document).ready(function(){
 /* Adjust scrollTop when navigating to a subsection on the current page */
 
 $(document).ready(function() {
-  $('a.styleguide-subsection').on('click', function(e) {
+  $('a.styleguide-subsection, .section-nav a').on('click', function(e) {
     var $target = $(e.target.hash);
     var desiredScrollPosition = $target.offset().top;
     window.history.pushState('', '', e.target.hash);
