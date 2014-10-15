@@ -18,20 +18,6 @@ The default media displays a media object (images, video, audio) to the left or 
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
 
 .media
-  %a.media-left{:href => "#"}
-    %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
-  .media-body
-    %h4.media-heading Media heading
-    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-    .media
-      %a.media-left{:href => "#"}
-        %img.media-object{:alt => "...", :src => "http://placehold.it/64x64"}
-      .media-body
-        %h4.media-heading Nested media heading
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-
-.media
   .media-body
     %h4.media-heading Media heading
     Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
@@ -104,6 +90,7 @@ With a bit of extra markup, you can use media inside list (useful for comment th
     .media-body
       %h4.media-heading Media heading
       %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
       / Nested media object
       .media
         %a.media-left{:href => "#"}
@@ -111,6 +98,7 @@ With a bit of extra markup, you can use media inside list (useful for comment th
         .media-body
           %h4.media-heading Nested media heading
           Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
           / Nested media object
           .media
             %a.media-left{:href => "#"}
@@ -118,6 +106,7 @@ With a bit of extra markup, you can use media inside list (useful for comment th
             .media-body
               %h4.media-heading Nested media heading
               Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
       / Nested media object
       .media
         %a.media-left{:href => "#"}
