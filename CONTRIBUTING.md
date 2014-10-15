@@ -209,6 +209,8 @@ Here are some guidelines to follow when writing docs:
 - **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
 - **by Product** - product specific components *(i.e. a PWS marketing pricing widget)*
 
+In addition, every parent component **must** belong to the **All** category.
+
 ### Examples
 
 Parent component:
