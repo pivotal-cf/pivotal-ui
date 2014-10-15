@@ -140,71 +140,90 @@ parent: media
 You can also make the media block stack with grid columns.
 
 ```haml_example
+.media.media-stackable-xs
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Extra-small stackable
+
+.media.media-stackable-sm
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
+  .media-body
+    %p Small stackable
+
 .media.media-stackable-md
   %a.media-left{:href => "#"}
-    %img.media-object{:alt => "...", :src => "http://placehold.it/200x200"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
   .media-body
-    %h4.media-heading Media heading
-    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-.media.media-stackable-md
+    %p Medium stackable
+
+.media.media-stackable-lg
+  %a.media-left{:href => "#"}
+    %img.media-object{:alt => "...", :src => "http://placehold.it/100x100"}
   .media-body
-    %h4.media-heading Media heading
-    %p Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-  %a.media-right{:href => "#"}
-    %img.media-object{:alt => "...", :src => "http://placehold.it/200x200"}
+    %p Large stackable
 ```
 */
 
 
-.media-stackable-xs{
-  @media (max-width: $screen-xs) {
-    > .pull-left, .media-left {
-      margin-right: 0 !important;
-      display: block;
-      float: none;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
+
+.media {
+  &.media-stackable-xs{
+    @media (max-width: $screen-xs) {
+      > .pull-left, .media-left {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+        display: block;
+        float: none;
+        .media-object {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
-}
-.media-stackable-sm{
-  @media (max-width: $screen-sm) {
-    > .pull-left, .media-left {
-      margin-right: 0 !important;
-      display: block;
-      float: none;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
+
+  &.media-stackable-sm {
+    @media (max-width: $screen-sm) {
+      > .pull-left, .media-left {
+        margin-right: 0 !important;
+        margin-bottom: 10px;
+        display: block;
+        float: none;
+        .media-object {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
-}
-.media-stackable-md{
-  @media (max-width: $screen-md) {
-    > .pull-left, .media-left {
-      display: block;
-      float:none;
-      clear:both;
-      margin:0 auto !important;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
+
+  &.media-stackable-md {
+    @media (max-width: $screen-md) {
+      > .pull-left, .media-left {
+        display: block;
+        float: none;
+        clear: both;
+        margin: 0 auto 10px auto !important;
+        .media-object {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
-}
-.media-stackable-lg{
-  @media (max-width: $screen-lg) {
-    > .pull-left, .media-left {
-      margin:0 auto;
-      display: block;
-      float: none;
-      .media-object {
-        margin-left: auto;
-        margin-right: auto;
+
+  &.media-stackable-lg {
+    @media (max-width: $screen-lg) {
+      > .pull-left, .media-left {
+        margin: 0 auto 10px auto;
+        display: block;
+        float: none;
+        .media-object {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
   }
