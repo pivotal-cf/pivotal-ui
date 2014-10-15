@@ -593,6 +593,16 @@ Bootstrap includes validation styles for error and success states on form contro
   @include validation-label-color()
 }
 
+// align bootstrap errors for checkboxes and radio buttons
+.radio,
+.checkbox {
+  padding-left: 20px;
+
+  label {
+    padding-left: 0;
+  }
+}
+
 // hooking up angular validity to bootstrap classes
 input.ng-invalid.ng-dirty {
   outline: 1px solid $red-3;
