@@ -18,12 +18,12 @@ gulp.task('default', [
 ]);
 
 gulp.task('test', [
-  '_lint',
+  'lint',
   '_cssCritic',
 ]);
 
 gulp.task('ci', [
-  '_lint',
+  'lint',
   'assets'
 ]);
 
@@ -39,14 +39,11 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('clean', function(done) {
-  del(['dist'], {force: true}, done);
-});
-
-gulp.task('_cleanTest', function(done) {
-  del(['test/components'], {force: true}, function() {
-    fs.mkdir('test/components', done);
-  });
+gulp.task('lint', function() {
+  return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
+    .pipe(jshint().on('error', handleError))
+    .pipe(jshint.reporter(stylish))
+    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('assets', [
@@ -57,7 +54,17 @@ gulp.task('assets', [
   '_styleguide'
 ]);
 
+gulp.task('clean', function(done) {
+  del(['dist'], {force: true}, done);
+});
+
 // private
+
+gulp.task('_cleanTest', function(done) {
+  del(['test/components'], {force: true}, function() {
+    fs.mkdir('test/components', done);
+  });
+});
 
 gulp.task('_styleguide', [
   'clean',
@@ -166,16 +173,9 @@ gulp.task('_createTestFileList', ['assets'], function(cb) {
   });
 });
 
-gulp.task('_cssCritic', ['_lint', '_copyTestAssets', '_createTestFileList'], function() {
+gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], function() {
   return gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
-});
-
-gulp.task('_lint', function() {
-  return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
-    .pipe(jshint().on('error', handleError))
-    .pipe(jshint.reporter(stylish))
-    .pipe(jshint.reporter('fail'));
 });
 
 function isFatal() {
