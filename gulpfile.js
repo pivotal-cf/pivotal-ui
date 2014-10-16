@@ -22,6 +22,11 @@ gulp.task('test', [
   '_cssCritic',
 ]);
 
+gulp.task('ci', [
+  '_lint',
+  'assets'
+]);
+
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
   gulp.watch(['src/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
 });

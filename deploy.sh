@@ -3,7 +3,7 @@
 gem install bundle
 bundle install
 npm install
-node_modules/gulp/bin/gulp.js assets
+node_modules/gulp/bin/gulp.js ci --fatal
 
 wget 'https://cli.run.pivotal.io/stable?release=linux64-binary&source=github' -O cf-cli.tgz
 tar -xvf ./cf-cli.tgz
