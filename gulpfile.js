@@ -10,6 +10,7 @@ var ejs = require('gulp-ejs');
 var fs = require('fs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
+var argv = require('yargs').argv;
 
 gulp.task('default', [
   'watch',
@@ -74,12 +75,13 @@ gulp.task('_fonts', [
 
 gulp.task('_compassBuild', ['clean'], function() {
   return gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/style_guide/style_guide.scss'])
-    .pipe(compass({
-      config_file: './config/compass.rb',
-      css: 'dist',
-      sass: 'src'
-    }).on('error', function() { console.error(arguments) })
-  );
+    .pipe(
+      compass({
+        config_file: './config/compass.rb',
+        css: 'dist',
+        sass: 'src'
+      }).on('error', handleError)
+    );
 });
 
 gulp.task('_copyPrism', ['clean'], function() {
@@ -130,9 +132,11 @@ gulp.task('_copyRandomAssets', ['clean'], function() {
 
 gulp.task('_hologramBuild', ['clean', '_cleanTest'], function() {
   return gulp.src('hologram_config.yml')
-    .pipe(hologram({
-      bundler: true
-    }));
+    .pipe(
+      hologram({
+        bundler: true
+      }).on('error', handleError)
+    );
 });
 
 gulp.task('_copyTestAssets', ['assets'], function() {
@@ -143,10 +147,7 @@ gulp.task('_copyTestAssets', ['assets'], function() {
 
 gulp.task('_createTestFileList', ['assets'], function(cb) {
   fs.readdir('./test/components/', function(err, files) {
-    if (err) {
-      console.error(err);
-      process.exit(1)
-    }
+    if (err) { handleError(err) }
 
     var stream = gulp.src('./test/regressionRunner.ejs')
       .pipe(ejs({
@@ -167,9 +168,18 @@ gulp.task('_cssCritic', ['_lint', '_copyTestAssets', '_createTestFileList'], fun
 
 gulp.task('_lint', function() {
   return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
-    .pipe(jshint())
+    .pipe(jshint().on('error', handleError))
     .pipe(jshint.reporter(stylish))
-    .pipe(jshint.reporter('fail'))
+    .pipe(jshint.reporter('fail'));
 });
 
+function isFatal() {
+  return !!argv.fatal;
+}
 
+function handleError(err) {
+  console.error(err)
+  if (isFatal()) {
+    process.exit(1);
+  }
+}
