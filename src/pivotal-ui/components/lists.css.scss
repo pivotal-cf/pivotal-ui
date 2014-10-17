@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Lists
-name: lists
+name: list
 categories:
   - All
   - Elements
@@ -26,8 +26,8 @@ This section contains different list behaviors. See [lists](/elements.html?targe
 /*doc
 ---
 title: Inline
-name: list-inline
-parent: lists
+name: list_inline
+parent: list
 ---
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
@@ -53,8 +53,8 @@ An inline list is one of the three methods for laying out content (including gri
 /*doc
 ---
 title: Ordered
-name: list-ordered
-parent: lists
+name: list_ordered
+parent: list
 ---
 
 
@@ -72,8 +72,8 @@ parent: lists
 /*doc
 ---
 title: Unordered
-name: list-unordered
-parent: lists
+name: list_unordered
+parent: list
 ---
 
 ```haml_example
@@ -97,8 +97,8 @@ parent: lists
 /*doc
 ---
 title: Unstyled
-name: list-unstyled
-parent: lists
+name: list_unstyled
+parent: list
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-unstyled` class can be applied to either a `<ul>` or and `<ol>`.
@@ -117,8 +117,8 @@ Places all list items on a single line with `display: inline-block;` and some li
 /*doc
 ---
 title: Inline Divider
-name: list-inline-divider
-parent: lists
+name: list_inline_divider
+parent: list
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
@@ -168,8 +168,8 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 /*doc
 ---
 title: Breadcrumb
-name: list-breadcrumb
-parent: lists
+name: list_breadcrumb
+parent: list
 ---
 
 The `.list-breadcrumb` can be used to provide additional page navigation.
@@ -228,9 +228,9 @@ Breadcrumbs use their own monospace font-family.
 
 /*doc
 ---
-title: List group
-name: list-group
-parent: lists
+title: Group
+name: list_group
+parent: list
 ---
 
 Use this list when you need simple gray borders between items
@@ -338,7 +338,7 @@ New elements fade in
 ---
 title: Event
 name: list_event
-parent: lists
+parent: list
 ---
 
 This is a special list-group, with styles per-event for colors and icons
@@ -504,8 +504,8 @@ This is a special list-group, with styles per-event for colors and icons
 /*doc
 ---
 title: Vertical Divider
-name: list-vertical-divider
-parent: lists
+name: list_vertical_divider
+parent: list
 ---
 
 Use this list when you need larger gray borders between
@@ -576,8 +576,8 @@ right min-height.
 /*doc
 ---
 title: Steps
-name: list-steps
-parent: lists
+name: list_steps
+parent: list
 ---
 
 Use this list when you need to show the steps in a flow.
@@ -636,8 +636,8 @@ Use this list when you need to show the steps in a flow.
 /*doc
 ---
 title: Checked
-name: list-checked
-parent: lists
+name: list_checked
+parent: list
 ---
 
 Replaces the default bullet image with the font awesome checkmark.

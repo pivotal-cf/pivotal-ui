@@ -36,7 +36,7 @@ n, s, m, l, xl, xxl, xxxl, xxxxl | none(0px), small(5px), medium(7px), large(10p
 
 /*doc
 ---
-title: List Whitespace
+title: List
 name: whitespace_list
 parent: whitespace
 ---
@@ -55,8 +55,8 @@ See [list spacing](/elements.html?target=list-whitespace).
 /*doc
 ---
 title: List Spacing
-name: list-whitespace
-parent: lists
+name: list_whitespace
+parent: list
 ---
 
 Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.

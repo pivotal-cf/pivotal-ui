@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Forms
-name: forms
+name: form
 categories:
  - All
  - Forms
@@ -11,8 +11,8 @@ categories:
 /*doc
 ---
 title: Inputs & Labels
-name: input
-parent: forms
+name: form_input
+parent: form
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -106,8 +106,8 @@ label {
 /*doc
 ---
 title: Fancy Select
-name: fancy-select
-parent: forms
+name: form_fancy_select
+parent: form
 ---
 
 This is a fancy select!
@@ -209,8 +209,8 @@ This is a fancy select!
 /*doc
 ---
 title: Fancy Number Input
-name: fancy-number
-parent: forms
+name: form_fancy_number
+parent: form
 ---
 
 This is a fancy number input!
@@ -286,8 +286,8 @@ This is a fancy number input!
 /*doc
 ---
 title: Text Area
-name: textarea
-parent: forms
+name: form_textarea
+parent: form
 ---
 
 Text areas are used for larger amounts of input.
@@ -363,9 +363,9 @@ input[type="radio"] {
 
 /*doc
 ---
-title: Inline Forms
-name: inline_forms
-parent: forms
+title: Inline
+name: form_inline
+parent: form
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
@@ -400,8 +400,8 @@ Screen readers will have trouble with your forms if you don't include a label fo
 
 /*doc
 ---
-title: Inline Forms with Labels
-name: inline_forms_with_labels
+title: Inline with Labels
+name: form_inline_with_labels
 parent: forms
 ---
 
@@ -435,9 +435,9 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 
 /*doc
 ---
-title: HTML5 controls
-name: html5_controls
-parent: forms
+title: HTML5 Controls
+name: form_html5_controls
+parent: form
 ---
 
 Examples of standard form controls supported in an example form layout.
@@ -524,7 +524,7 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 /*doc
 ---
 title: Validation
-name: validation
+name: form_validation
 categories:
  - All
  - Forms
@@ -612,8 +612,8 @@ input.ng-invalid.ng-dirty {
 /*
 ---
 title: Disabled Inputs
-name: disabled
-parent: forms
+name: form_disabled_inputs
+parent: form
 ---
 ### Disabled Inputs
 
@@ -637,8 +637,8 @@ Inputs will occasionally need to be disabled. You can do that by adding the `dis
 /*doc
 ---
 title: Selects
-name: selects
-parent: forms
+name: form_selects
+parent: form
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -657,8 +657,8 @@ be changed via the [control sizing options](#control_sizing).
 /*doc
 ---
 title: Sizing
-name: sizing
-parent: forms
+name: form_sizing
+parent: form
 ---
 Set heights using classes like `.input-lg`, and set widths using grid column classes like `.col-lg-*`.
 
@@ -705,8 +705,8 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 /*doc
 ---
 title: Help Text
-name: help_text
-parent: forms
+name: form_help_text
+parent: form
 ---
 Help text
 Block level help text for form controls.
@@ -722,8 +722,8 @@ Block level help text for form controls.
 /*doc
 ---
 title: Static Control
-name: static_control
-parent: forms
+name: form_static_control
+parent: form
 ---
 When you need to place plain text next to a form label within a horizontal form, use the `.form-control-static` class on a `<p>`.
 
@@ -743,9 +743,9 @@ When you need to place plain text next to a form label within a horizontal form,
 
 /*doc
 ---
-title: Vertical static controls
-name: static_controll
-parent: forms
+title: Vertical Static Controls
+name: form_static_control
+parent: form
 ---
 
 ```haml_example
@@ -788,8 +788,8 @@ p.form-control-static {
 /*doc
 ---
 title: Autoselect Text Input
-name: autoselect_text_input
-parent: forms
+name: form_autoselect_text_input
+parent: form
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
@@ -807,8 +807,8 @@ This form is used to show information that a user may wish to copy and paste som
 /*doc
 ---
 title: Focus Input
-name: focus-input
-parent: forms
+name: form_focus_input
+parent: form
 ---
 
 Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
@@ -826,12 +826,12 @@ Add the focus-input directive to an element that should be focused if the focus-
 
 /*doc
 ---
-title: ContentEditable
-name: contenteditable
-parent: forms
+title: Content Editable
+name: form_content_editable
+parent: form
 ---
 
-This form looks and behaves mostly like a contenteditable field
+This form looks and behaves mostly like a content editable field
 
 ```haml_example
 %form.form-contenteditable{'name' => 'newEditableForm',
@@ -918,8 +918,8 @@ This form looks and behaves mostly like a contenteditable field
 /*doc
 ---
 title: Search Input
-name: search-input
-parent: forms
+name: form_search_input
+parent: form
 ---
 
 Use this input when creating a search component. 

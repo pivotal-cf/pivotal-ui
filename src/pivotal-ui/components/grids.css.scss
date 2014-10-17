@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Grids
-name: grids
+name: grid
 categories:
   - All
   - Layout
@@ -53,8 +53,8 @@ offsets, or responsiveness.
 /*doc
 ---
 title: Gutter Sizes
-name: gutter_sizes
-parent: grids
+name: grid_gutter_sizes
+parent: grid
 ---
 
 ```haml_example
@@ -90,9 +90,9 @@ parent: grids
 
 /*doc
 ---
-title: Responsive Grids
-name: grids_responsive
-parent: grids
+title: Responsive
+name: grid_responsive
+parent: grid
 ---
 
 Having trouble debugging grids? You have a couple options. You can checkout the [grids responsive documentation on the bootstrap site](http://getbootstrap.com/css/#grid-responsive-resets). It is more comprehensive than what we have here. You can also set `$grids-debug: true` in the `grids.css.scss` file. This will allow you to visualize the changes taking place at different device widths.
