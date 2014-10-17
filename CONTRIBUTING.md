@@ -90,6 +90,10 @@ This will start up the styleguide development server, and generate the `dist/` d
 
 1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
 
+1. File names should be plural, snake-cased, and end with `.scss` (i.e. `buttons.scss`).
+
+1. CSS classes should be singular and separated by dashes (i.e. `.button-super-awesome`).
+
 1. [Document your component](#documenting-components) in the styleguide.
 
 1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
@@ -191,13 +195,17 @@ We use [hologram for documentation and styleguide generation](https://github.com
 
 Here are some guidelines to follow when writing docs:
 
-- Its better to have multiple child components than one big parent component. Check out "buttons" for a good way to organize the docs this way.
-
 - Make sure to name your component something unique or it will clobber other components' docs.
 
-- Parent components should belong to a category (or categories) and should not have a parent. Child components should have a parent but not a category. See below for more category guidelines.
+- All 'titles' should be plural, capitalized and omit the parent name (i.e. the title for `name: button_style` should be `title: Styles`.
 
-- All component names should be plural and snake-cased. Child component names should start with the parent name (i.e. the large version of the `gravatar` component should be named `gravatar_large`).
+- Its better to have multiple child components than one big parent component. Check out "buttons" for a good way to organize the docs this way.
+
+- Parent components should belong to a category (or categories) and should not have a parent. 
+
+- Child components should have a parent but not a category. See below for more [category](#categories) guidelines.
+
+- Child component 'names' should start with the parent name (i.e. the large version of the `gravatar` component should be `name: gravatar_large`).
 
 ### Categories
 
