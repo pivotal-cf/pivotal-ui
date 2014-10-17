@@ -1,13 +1,28 @@
+
 /*doc
 ---
-title: Gravatars
-name: gravatar
+title: Avatars
+name: avatar
 categories:
   - All
-  - Objects
+  - Elements
 ---
 
+Regular avatars are expected to by 100px by 100px.
+
+
+```haml_example
+%img{src: "http://placehold.it/100x100", alt: "...", class: "img-circle avatar", height: "100", width: "100"}
+
+```
+
+
 */
+.avatar {
+  border: $avatar-border;
+  box-sizing: border-box;
+}
+
 
 .gravatar {
   display: inline-block;
@@ -33,9 +48,9 @@ categories:
 
 /*doc
 ---
-title: Small
-name: gravatar_small
-parent: gravatar
+title: Small Gravatar
+name: avatar_01_gravatar_small
+parent: avatar
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).
@@ -58,8 +73,8 @@ To use in a view, simply call
 /*doc
 ---
 title: Small with Envelope
-name: gravatar_small_with_envelope
-parent: gravatar
+name: avatar_02_gravatar_small_with_envelope
+parent: avatar
 ---
 
 Allows you to show a gravatar with an icon overlay.
@@ -121,9 +136,9 @@ To use in a view, simply call
 
 /*doc
 ---
-title: Large
-name: gravatar_large
-parent: gravatar
+title: Large Gravatar
+name: avatar_03_gravatar_large
+parent: avatar
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).

@@ -176,25 +176,3 @@ For more information about setting up your svg, read this article about [svg coo
   left: 0;
 }
 
-
-/*doc
----
-title: Avatar Images
-name: image_avatar
-parent: image
----
-
-Avatar images are expected to by 100px by 100px.
-
-
-```haml_example
-%img{src: "http://placehold.it/100x100", alt: "...", class: "img-circle avatar", height: "100", width: "100"}
-
-```
-
-
-*/
-.avatar {
-  border: $avatar-border;
-  box-sizing: border-box;
-}
