@@ -1,18 +1,34 @@
 /*doc
 ---
-title: Collapse
-name: collapse
+title: Accordions
+name: accordion
 categories:
   - All
   - JavaScript
   - Objects
 ---
 
+These are frequently used in combination with our panel components. They have a header and body.
+
+Accordions can be used with any background color class, add them to the header and body.
+
+NOTE: The 'alligators' (the > in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they're toggled.
+
 Also see the select tabs for a toggle triggered by a select group.
 
-Simple Collapse:
 
-Use this to expand and collapse content. 
+*/
+
+/*doc
+---
+title: Basic
+name: accordion_basic
+parent: accordion
+---
+
+Use this to expand and collapse content.
 
 ```haml_example
 %a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
@@ -23,30 +39,15 @@ Use this to expand and collapse content.
 #simple-collapse-example.collapse
   Look at this content.
 ```
-*/
-
-/*doc
----
-title: Accordions
-name: accordion
-parent: collapse
----
-These are frequently used in combination with our panel components. They have a header and body.
-
-Accordions can be used with any background color class, add them to the header and body.
-
-NOTE: The 'alligators' (the > in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
-and the images jump around by a few pixels when they're toggled.
 
 */
 
 
 /*doc
 ---
-title: Accordion Sizes
+title: Sizes
 name: accordion_sizes
-parent: collapse
+parent: accordion
 ---
  
 Default accordion size:
@@ -78,9 +79,9 @@ Large accordion size:
 
 /*doc
 ---
-title: Accordion with Icons
+title: With Icons
 name: accordion_with_icons
-parent: collapse
+parent: accordion
 ---
 
 Accordion with plus/minus icon:
@@ -123,9 +124,9 @@ Accordion with caret right/down icon:
 
 /*doc
 ---
-title: Accordion Styles
+title: Styles
 name: accordion_styles
-parent: collapse
+parent: accordion
 ---
 
 Accordion with Divider:
