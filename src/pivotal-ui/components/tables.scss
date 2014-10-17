@@ -1,6 +1,6 @@
 /*doc
 ---
-title: Table
+title: Tables
 name: table
 categories:
   - All
@@ -20,7 +20,7 @@ Class                 | Description
 /*pending
 ---
 title: JS Tables
-name: table-js
+name: table_js
 categories:
   - All
   - JavaScript
@@ -50,7 +50,7 @@ This section contains different table behaviors. See [tables](/objects.html?targ
 /*doc
 ---
 title: Data
-name: table-data
+name: table_data
 parent: table
 ---
 
@@ -171,7 +171,7 @@ This is a table used to display many rows of data (it is pretty much the default
 /*doc
 ---
 title: Horizontal
-name: table-horizontal
+name: table_horizontal
 parent: table
 ---
 
@@ -235,7 +235,7 @@ This is the horizontal table used mainly on the user profile page. Typically it 
 /*doc
 ---
 title: Key-Value
-name: table-key-value
+name: table_key_value
 parent: table
 ---
 
@@ -303,7 +303,7 @@ specify column widths for the th/tds.
 /*doc
 ---
 title: Numerical
-name: table-numerical
+name: table_numerical
 parent: table
 ---
 
@@ -368,8 +368,8 @@ This is the table used on the billing page.
 /*pending
 ---
 title: Clickable
-name: table-clickable
-parent: table-js
+name: table_clickable
+parent: table_js
 ---
 
 Use this style of table when rows are clickable. It is possible to prevent a user from clicking on a row w/ a message by adding data-prevent-click and data-prevent-click-message to the row. (N.B.: This does not actually add any sort of permissions to the URL in question).
@@ -387,21 +387,21 @@ We are making the assumption here that table-hover will *only* be used if the ta
       %th{colspan: 2}
         Clickability
   %tbody
-    %tr{:'data-target-path' => '/style_guide#link', :'data-prevent-click' => 'true', :'data-prevent-click-message' => "YOU'VE ENTERED THE FORBIDDEN ZONE"}
+    %tr{:'data-target-path' => '/styleguide#link', :'data-prevent-click' => 'true', :'data-prevent-click-message' => "YOU'VE ENTERED THE FORBIDDEN ZONE"}
       %td
         Forbidden Links
       %td
         High
       %td.txt-m.txt-r
         %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/style_guide#button'}
+    %tr{:'data-target-path' => '/styleguide#button'}
       %td
         Buttons
       %td
         Medium
       %td.txt-m.txt-r
         %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/style_guide#type'}
+    %tr{:'data-target-path' => '/styleguide#type'}
       %td
         Typography
       %td
@@ -421,7 +421,7 @@ We are making the assumption here that table-hover will *only* be used if the ta
 /*doc
 ---
 title: Alignment
-name: table-alignment
+name: table_alignment
 parent: table
 ---
 
@@ -469,8 +469,8 @@ table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
 /*pending
 ---
 title: Angular Sortable Table
-name: table-angular-sortable
-parent: table-js
+name: table_angular_sortable
+parent: table_js
 ---
 
 USE:
@@ -549,8 +549,8 @@ USE:
 /*pending
 ---
 title: Inline Addable
-name: table-inline-addable
-parent: table-js
+name: table_inline_addable
+parent: table_js
 ---
 
 ```haml_example
@@ -723,8 +723,8 @@ parent: table-js
 /*pending
 ---
 title: Kitchen Sink
-name: table-kitchen-sink
-parent: table-js
+name: table_kitchen_sink
+parent: table_js
 ---
 
 Example of composed behaviors that operate on the same table.
@@ -787,8 +787,8 @@ Example of composed behaviors that operate on the same table.
 
 /*doc
 ---
-title: Scrollable Table
-name: scrollable-table
+title: Scrollable
+name: scrollable_table
 parent: table
 ---
 

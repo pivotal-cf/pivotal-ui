@@ -1,7 +1,7 @@
 // Styles specific to the styleguide, otherwise, not used
 @import 'compass';
-@import '../pivotal-ui/components/variables.css.scss';
-@import '../pivotal-ui/components/mixins.css.scss';
+@import '../pivotal-ui/components/variables.scss';
+@import '../pivotal-ui/components/mixins.scss';
 
 html {
   background-color: $gray-9;

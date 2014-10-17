@@ -1,8 +1,10 @@
 /*doc
 ---
-title: Gravatar
+title: Gravatars
 name: gravatar
-parent: images
+categories:
+  - All
+  - Objects
 ---
 
 */
@@ -31,9 +33,9 @@ parent: images
 
 /*doc
 ---
-title: Small Gravatar
+title: Small
 name: gravatar_small
-parent: images
+parent: gravatar
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).
@@ -55,7 +57,7 @@ To use in a view, simply call
 
 /*doc
 ---
-title: Small Gravatar With Envelope
+title: Small with Envelope
 name: gravatar_small_with_envelope
 parent: gravatar
 ---
@@ -119,9 +121,9 @@ To use in a view, simply call
 
 /*doc
 ---
-title: Large Gravatar
+title: Large
 name: gravatar_large
-parent: images
+parent: gravatar
 ---
 
 Allows you to show a gravatar with the proper default 'image' (icon).

@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Images
-name: images
+name: image
 categories:
   - All
   - Elements
@@ -10,9 +10,9 @@ categories:
 
 /*doc
 ---
-title: Responsive Images
-name: responsive_images
-parent: images
+title: Responsive
+name: image_responsive
+parent: image
 ---
 
 Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
@@ -33,8 +33,8 @@ Images can be made responsive-friendly via the addition of the `.img-responsive`
 /*doc
 ---
 title: Responsive SVG
-name: responsive_svg
-parent: images
+name: image_responsive_svg
+parent: image
 ---
 
 SVG can be made responsive-friendly via the addition of the `.svg-responsive` class on a
@@ -180,8 +180,8 @@ For more information about setting up your svg, read this article about [svg coo
 /*doc
 ---
 title: Avatar Images
-name: avatar_images
-parent: images
+name: image_avatar
+parent: image
 ---
 
 Avatar images are expected to by 100px by 100px.

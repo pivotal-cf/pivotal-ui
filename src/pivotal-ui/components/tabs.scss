@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Tabs
-name: tabs
+name: tab
 categories:
   - All
   - JavaScript
@@ -12,9 +12,9 @@ You can activate a tab or pill navigation without writing any JavaScript by simp
 */
 /*doc
 ---
-title: Highlight Tabs
+title: Highlight
 name: tab_highlight
-parent: tabs
+parent: tab
 ---
 
 ```haml_example
@@ -116,9 +116,9 @@ parent: tabs
 
 /*doc
 ---
-title: Simple Tabs
+title: Simple
 name: tab_simple
-parent: tabs
+parent: tab
 ---
 
 ```haml_example
@@ -211,9 +211,9 @@ $tab-border-size: 3px;
 
 /*doc
 ---
-title: Alt Simple Tabs
+title: Simple Alt
 name: tab_simple_alt
-parent: tabs
+parent: tab
 ---
 
 ```haml_example
@@ -284,9 +284,9 @@ parent: tabs
 
 /*doc
 ---
-title: Responsive Tabs
+title: Responsive
 name: tab_responsive
-parent: tabs
+parent: tab
 ---
 
 ```haml_example
@@ -365,9 +365,9 @@ parent: tabs
 
 /*doc
 ---
-title: Image Tabs
-name: image_tabs
-parent: tabs
+title: Image
+name: tab_image
+parent: tab
 ---
 
 You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class `icon` to any parts of the svg which form part of the icon. You may also use an icon font for the icon.

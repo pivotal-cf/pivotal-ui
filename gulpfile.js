@@ -86,7 +86,7 @@ gulp.task('_fonts', [
 ]);
 
 gulp.task('_compassBuild', ['clean'], function() {
-  return gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/style_guide/style_guide.scss'])
+  return gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/styleguide/styleguide.scss'])
     .pipe(
       compass({
         config_file: './config/compass.rb',
@@ -128,16 +128,16 @@ gulp.task('_sourceSansPro', ['clean'], function() {
 });
 
 gulp.task('_copyStyleguideAssets', ['clean'], function() {
-  return gulp.src(['src/style_guide/*.js', 'src/style_guide/github.css'])
-    .pipe(gulp.dest('./dist/style_guide'));
+  return gulp.src(['src/styleguide/*.js', 'src/styleguide/github.css'])
+    .pipe(gulp.dest('./dist/styleguide'));
 });
 
 gulp.task('_copyRandomAssets', ['clean'], function() {
   return gulp.src([
     'src/nginx.conf',
     'src/Staticfile',
-    'src/style_guide/404.html',
-    'src/style_guide/pane.html'
+    'src/styleguide/404.html',
+    'src/styleguide/pane.html'
   ])
     .pipe(gulp.dest('./dist/'));
 });
