@@ -197,7 +197,7 @@ Here are some guidelines to follow when writing docs:
 
 - Make sure to name your component something unique or it will clobber other components' docs.
 
-- All 'titles' should be plural, capitalized and omit the parent name (i.e. the title for `name: button_style` should be `title: Styles`.
+- All 'titles' should be plural, capitalized, and omit the parent name (i.e. the title for `name: button_style` should be `title: Styles`.
 
 - Its better to have multiple child components than one big parent component. Check out "buttons" for a good way to organize the docs this way.
 
