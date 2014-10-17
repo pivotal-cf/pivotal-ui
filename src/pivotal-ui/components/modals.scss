@@ -7,9 +7,7 @@ categories:
   - JavaScript
 ---
 
-Modals do something worthwhile....
-...
-...
+Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
 ```haml_example
 .modal.modal-basic.fade
@@ -84,6 +82,93 @@ Modals do something worthwhile....
 .modal-backdrop {
   &.in {
     @include opacity($modal-backdrop-opacity); //bootstrap override
+  }
+}
+
+/*pending
+---
+title: Inline
+name: modal_inline
+parent: modal
+---
+
+```haml_example
+.inline-modal{'ng-controller' => 'InlineModalExampleCtrl', 'ng-cloak' => true, 'ng-class' => 'inlineModalExample.state'}
+  .modal-backdrop.animate-show
+  .content
+    .panel.panel-shadow
+      .panel-body.pavxl.phxxl
+        I'm the content!
+        %a{'ng-click' => 'activateInlineModal()', 'ng-show' => 'inlineModalExample.state === "showing"'} Click here to inline-modal me.
+        %a{'ng-click' => 'deactivateInlineModal()', 'ng-show' => 'inlineModalExample.state === "editing"'} Click here to de-inline-modal me.
+```
+*/
+
+.inline-modal {
+  position: relative;
+
+  .inline-modal-errors {
+    position: absolute;
+    right: 0;
+    top: 110%;
+    z-index: 1029;
+  }
+
+  .content {
+    position: relative;
+  }
+  &.editing {
+    h2, .h4 {
+      color: $gray-2;
+    }
+
+    .content {
+      z-index: 1029; // above the scrim
+      background-color: $blue-4;
+    }
+    .modal-backdrop {
+      display: block;
+      z-index: 1019;
+    }
+  }
+  &.showing {
+    .content {
+      background-color: $gray-10;
+    }
+    .modal-backdrop {
+      display: none;
+    }
+  }
+  &.saving {
+    .content {
+      background-color: $gray-10;
+    }
+    .modal-backdrop {
+      display: none;
+    }
+  }
+
+  > .panel-body {
+    min-height: 140px;
+  }
+
+  .animate-show {
+    opacity: .8;
+  }
+
+  .animate-show.ng-hide-add,
+  .animate-show.ng-hide-remove {
+    display: block !important;
+  }
+
+  .animate-show.ng-hide-add.ng-hide-add-active,
+  .animate-show.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition: all ease-out 0.1s;
+    transition: all ease-out 0.1s;
+  }
+
+  .animate-show.ng-hide {
+    opacity: 0;
   }
 }
 
