@@ -5,39 +5,38 @@ name: traffic-lights
 parent: console
 ---
 
-```haml_example
-Traffic lights can be:
-.row
-  .col-md-6
-    on
-    %ul.traffic-lights.list-unstyled.mvm
-      %li.green-light
-        %i.fa.fa-circle
-        5
-      %li.gray-light
-        %i.fa.fa-circle
-        1
-      %li.red-light
-        %i.fa.fa-circle
-        8
-  .col-md-6
-    or off
-    %ul.traffic-lights.list-unstyled.mvm
-      %li.green-light.off
-        %i.fa.fa-circle
-      %li.gray-light.off
-        %i.fa.fa-circle
-      %li.red-light.off
-        %i.fa.fa-circle
-  .col-md-6
-    or loading
-    %ul.traffic-lights.list-unstyled.mvm
-      %li.green-light.off.loading-green
-        %i.fa.fa-circle
-      %li.gray-light.off.loading-gray
-        %i.fa.fa-circle
-      %li.red-light.off.loading-red
-        %i.fa.fa-circle
+Traffic lights are used to show the status of the application. "On" is used for active applications, "off" for inactive, and "loading" for when the status is still loading.
+
+```haml_example_table
+%h3 On
+%ul.traffic-lights.list-unstyled.mvm
+  %li.green-light
+    %i.fa.fa-circle
+    5
+  %li.gray-light
+    %i.fa.fa-circle
+    1
+  %li.red-light
+    %i.fa.fa-circle
+    8
+
+%h3 Off
+%ul.traffic-lights.list-unstyled.mvm
+  %li.green-light.off
+    %i.fa.fa-circle
+  %li.gray-light.off
+    %i.fa.fa-circle
+  %li.red-light.off
+    %i.fa.fa-circle
+
+%h3 Loading
+%ul.traffic-lights.list-unstyled.mvm
+  %li.green-light.off.loading-green
+    %i.fa.fa-circle
+  %li.gray-light.off.loading-gray
+    %i.fa.fa-circle
+  %li.red-light.off.loading-red
+    %i.fa.fa-circle
 
 ```
 */
