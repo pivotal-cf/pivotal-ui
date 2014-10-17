@@ -387,21 +387,21 @@ We are making the assumption here that table-hover will *only* be used if the ta
       %th{colspan: 2}
         Clickability
   %tbody
-    %tr{:'data-target-path' => '/style_guide#link', :'data-prevent-click' => 'true', :'data-prevent-click-message' => "YOU'VE ENTERED THE FORBIDDEN ZONE"}
+    %tr{:'data-target-path' => '/styleguide#link', :'data-prevent-click' => 'true', :'data-prevent-click-message' => "YOU'VE ENTERED THE FORBIDDEN ZONE"}
       %td
         Forbidden Links
       %td
         High
       %td.txt-m.txt-r
         %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/style_guide#button'}
+    %tr{:'data-target-path' => '/styleguide#button'}
       %td
         Buttons
       %td
         Medium
       %td.txt-m.txt-r
         %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/style_guide#type'}
+    %tr{:'data-target-path' => '/styleguide#type'}
       %td
         Typography
       %td
