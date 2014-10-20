@@ -11,6 +11,7 @@ var fs = require('fs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
+var changelog = require('conventional-changelog');
 
 gulp.task('default', [
   'watch',
@@ -26,6 +27,21 @@ gulp.task('ci', [
   'lint',
   'assets'
 ]);
+
+gulp.task('release', [
+], function(done) {
+  changelog({
+    version: require('./package.json').version,
+    file: 'CHANGELOG.md',
+    changeLevels: ['breaking']
+  }, function(err, log) {
+    if (err) { handleError(err); }
+    fs.writeFile('CHANGELOG.md', log, function(err) {
+      if (err) { handleError(err); }
+      done();
+    });
+  });
+});
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
   gulp.watch(['src/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
