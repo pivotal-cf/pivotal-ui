@@ -12,6 +12,7 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
 var changelog = require('conventional-changelog');
+var zip = require('gulp-zip');
 
 gulp.task('default', [
   'watch',
@@ -29,7 +30,11 @@ gulp.task('ci', [
 ]);
 
 gulp.task('release', [
-], function(done) {
+  '_changelog',
+  '_zip',
+]);
+
+gulp.task('_changelog', [], function(done) {
   changelog({
     version: require('./package.json').version,
     file: 'CHANGELOG.md',
@@ -41,6 +46,14 @@ gulp.task('release', [
       done();
     });
   });
+});
+
+gulp.task('_zip', [
+  'assets',
+], function(){
+  return gulp.src('dist/*')
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('tmp/'));
 });
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
