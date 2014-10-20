@@ -13,6 +13,7 @@ var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
 var changelog = require('conventional-changelog');
 var zip = require('gulp-zip');
+var bump = require('gulp-bump');
 
 gulp.task('default', [
   'watch',
@@ -30,13 +31,14 @@ gulp.task('ci', [
 ]);
 
 gulp.task('release', [
+  '_bumpPackage',
   '_changelog',
   '_zip',
 ]);
 
-gulp.task('_changelog', [], function(done) {
+gulp.task('_changelog', ['_bumpPackage'], function(done) {
   changelog({
-    version: require('./package.json').version,
+    version: packageJson().version,
     file: 'CHANGELOG.md',
     changeLevels: ['breaking']
   }, function(err, log) {
@@ -55,6 +57,40 @@ gulp.task('_zip', [
     .pipe(zip('dist.zip'))
     .pipe(gulp.dest('tmp/'));
 });
+
+gulp.task('_bumpPackage', [], function(done) {
+  determineReleaseType(function(err, releaseType) {
+    if (err) {
+      handleError(err);
+      process.exit(1);
+    }
+
+    var stream = gulp.src(['./package.json'])
+      .pipe(bump({type: releaseType}))
+      .pipe(gulp.dest('./'));
+
+    stream.on('finish', done);
+  });
+});
+
+function determineReleaseType(callback) {
+  changelog({
+    version: packageJson().version,
+    file: 'tmp/foo'
+  }, function(err, log) {
+    if (err) {
+      callback(err, null);
+    } else if (/# breaking changes/i.test(log)) {
+      callback(null, 'major');
+    } else if (/# features/i.test(log)) {
+      callback(null, 'minor');
+    } else if (/# bug fixes/i.test(log)) {
+      callback(null, 'patch');
+    } else {
+      callback('No changes found', null);
+    }
+  });
+}
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
   gulp.watch(['src/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
@@ -206,6 +242,10 @@ gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], func
   return gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
+
+function packageJson() {
+  return JSON.parse(fs.readFileSync("./package.json", "utf8"));
+}
 
 function isFatal() {
   return !!argv.fatal;
