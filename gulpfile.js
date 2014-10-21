@@ -32,10 +32,8 @@ gulp.task('ci', [
 ]);
 
 gulp.task('release', [
-  '_bumpPackage',
-  '_changelog',
+  '_tagVersion',
   '_zip',
-  '_bumpVersion',
 ]);
 
 gulp.task('_changelog', ['_bumpPackage'], function(done) {
@@ -78,6 +76,10 @@ gulp.task('_bumpPackage', [], function(done) {
 gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
   return gulp.src(['package.json','CHANGELOG.md'])
     .pipe(git.commit('v' + packageJson().version));
+});
+
+gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
+  git.tag('v'+ packageJson().version, 'v'+ packageJson().version, done);
 });
 
 function determineReleaseType(callback) {
