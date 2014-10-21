@@ -50,98 +50,13 @@ gulp.task('release', [
     })
   }).on('complete', function(result, response) {
     if (!/2../.test(response.statusCode)) {
-      handleError(result);
-    } else {
-      console.log('Successfully created draft release ' + tagName());
+      handleError(result, {callback: done});
     }
+    
+    console.log('Successfully created draft release ' + tagName());
     done();
   });
 });
-
-gulp.task('_changelog', ['_bumpPackage'], function(done) {
-  changelog({
-    version: packageJson().version,
-    file: 'tmp/foo',
-  }, function(err, log) {
-    if (err) { handleError(err); }
-    versionChanges = log;
-    fs.readFile('CHANGELOG.md', function(err, oldLog) {
-      if (err) { handleError(err); }
-      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
-        if (err) { handleError(err); }
-        done();
-      });
-    });
-  });
-});
-
-gulp.task('_zip', [
-  'assets',
-], function(){
-  return gulp.src('dist/*')
-    .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('tmp/'));
-});
-
-gulp.task('_bumpPackage', [], function(done) {
-  determineReleaseType(function(err, releaseType) {
-    if (err) {
-      handleError(err);
-      process.exit(1);
-    }
-
-    var stream = gulp.src(['./package.json'])
-      .pipe(bump({type: releaseType}))
-      .pipe(gulp.dest('./'));
-
-    stream.on('finish', done);
-  });
-});
-
-gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
-  return gulp.src(['package.json','CHANGELOG.md'])
-    .pipe(git.commit('v' + packageJson().version));
-});
-
-gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  git.tag(tagName(), tagName(), done);
-});
-
-gulp.task('_pushVersion', ['_tagVersion'], function() {
-  // These calls are synchronous in case there is a prompt for credentials
-  var res = exec('git push origin HEAD');
-  if (res.code !== 0) {
-    process.exit(1);
-  }
-
-  res = exec('git push origin ' + tagName());
-  if (res.code !== 0) {
-    process.exit(1);
-  }
-});
-
-function determineReleaseType(callback) {
-  changelog({
-    version: packageJson().version,
-    file: 'tmp/foo'
-  }, function(err, log) {
-    if (err) {
-      callback(err, null);
-    } else if (/# breaking changes/i.test(log)) {
-      callback(null, 'major');
-    } else if (/# features/i.test(log)) {
-      callback(null, 'minor');
-    } else if (/# bug fixes/i.test(log)) {
-      callback(null, 'patch');
-    } else {
-      callback('No changes found', null);
-    }
-  });
-}
-
-function tagName() {
-  return 'v' + packageJson().version;
-}
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
   gulp.watch(['src/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
@@ -273,9 +188,9 @@ gulp.task('_copyTestAssets', ['assets'], function() {
   ]).pipe(gulp.dest('./test/dist/'));
 });
 
-gulp.task('_createTestFileList', ['assets'], function(cb) {
+gulp.task('_createTestFileList', ['assets'], function(done) {
   fs.readdir('./test/components/', function(err, files) {
-    if (err) { handleError(err) }
+    if (err) { handleError(err, {callback: done}); }
 
     var stream = gulp.src('./test/regressionRunner.ejs')
       .pipe(ejs({
@@ -285,7 +200,7 @@ gulp.task('_createTestFileList', ['assets'], function(cb) {
       }))
       .pipe(gulp.dest('./test/'));
 
-    stream.on('finish', cb)
+    stream.on('finish', done)
   });
 });
 
@@ -294,17 +209,107 @@ gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], func
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
 
+gulp.task('_changelog', ['_bumpPackage'], function(done) {
+  changelog({
+    version: version(),
+    file: 'tmp/foo',
+  }, function(err, log) {
+    if (err) { handleError(err, {callback: done}); }
+
+    versionChanges = log;
+    fs.readFile('CHANGELOG.md', function(err, oldLog) {
+      if (err) { handleError(err, {callback: done}); }
+
+      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
+        if (err) { handleError(err, {callback: done}); }
+        done();
+      });
+    });
+  });
+});
+
+gulp.task('_zip', [
+  'assets',
+], function(){
+  return gulp.src('dist/*')
+    .pipe(zip('dist.zip'))
+    .pipe(gulp.dest('tmp/'));
+});
+
+gulp.task('_bumpPackage', [], function(done) {
+  determineReleaseType(function(err, releaseType) {
+    if (err) {
+      handleError(err, {isFatal: true});
+    }
+
+    var stream = gulp.src(['./package.json'])
+      .pipe(bump({type: releaseType}))
+      .pipe(gulp.dest('./'));
+
+    stream.on('finish', done);
+  });
+});
+
+gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
+  return gulp.src(['package.json','CHANGELOG.md'])
+    .pipe(git.commit('v' + version()));
+});
+
+gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
+  git.tag(tagName(), tagName(), done);
+});
+
+gulp.task('_pushVersion', ['_tagVersion'], function() {
+  // These calls are synchronous in case there is a prompt for credentials
+  var res = exec('git push origin HEAD');
+  if (res.code !== 0) {
+    handleError('Unable to push version', {isFatal: true});
+  }
+
+  res = exec('git push origin ' + tagName());
+  if (res.code !== 0) {
+    handleError('Unable to push tag', {isFatal: true});
+  }
+});
+
+function determineReleaseType(callback) {
+  changelog({
+    version: version(),
+    file: 'tmp/foo'
+  }, function(err, log) {
+    if (err) {
+      callback(err, null);
+    } else if (/# breaking changes/i.test(log)) {
+      callback(null, 'major');
+    } else if (/# features/i.test(log)) {
+      callback(null, 'minor');
+    } else if (/# bug fixes/i.test(log)) {
+      callback(null, 'patch');
+    } else {
+      callback('No changes found', null);
+    }
+  });
+}
+
+function tagName() {
+  return 'v' + version();
+}
+
+function version() {
+  return packageJson().version;
+}
+
 function packageJson() {
   return JSON.parse(fs.readFileSync("./package.json", "utf8"));
 }
 
-function isFatal() {
-  return !!argv.fatal;
-}
+function handleError(err, opts) {
+  opts = opts || {};
 
-function handleError(err) {
-  console.error(err)
-  if (isFatal()) {
+  console.error(err);
+  if (!!argv.fatal || opts.isFatal) {
     process.exit(1);
+  } else if (opts.callback) {
+    opts.callback();
   }
 }
