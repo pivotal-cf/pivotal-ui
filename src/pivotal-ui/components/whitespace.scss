@@ -62,8 +62,11 @@ parent: list
 Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.
 The classes are constructed by specifying `<type><location><size>`.
 
-<table>
-    <tbody><tr>
+
+
+<table class="styleguide">
+  <tbody>
+    <tr>
       <th scope="col" colspan="3" class="txtL"><strong>Type:</strong></th>
     </tr>
     <tr>
@@ -112,16 +115,8 @@ The classes are constructed by specifying `<type><location><size>`.
       <td>none</td>
       <td>Sets any existing space to 0</td>
     </tr>
-  </tbody></table>
-
-<div class="row">
-  <div class="col-md-12">
-
-  </div>
-  <div class="col-md-12">
-
-  </div>
-</div>
+  </tbody>
+</table>
 
 #### Vertical Spacing Options
 
