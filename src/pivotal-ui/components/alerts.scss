@@ -17,7 +17,7 @@ Alerts are used to display flash messages to the user.
 
 You can also make them dismissable:
 
-```haml_example
+```haml_example_table
 .alert.alert-success.alert-dismissable
   %button.close{data: {dismiss: "alert"}}
     %i.fa.fa-times
