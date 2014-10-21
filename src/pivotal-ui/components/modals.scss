@@ -9,31 +9,39 @@ categories:
 
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
-```haml_example
-.modal.modal-basic.fade
-  .modal-dialog
-    .modal-content
-      .modal-header
-        %h3.modal-title Modal title
-      .modal-body
-        %p One fine body…
-      .modal-footer
-        %button.btn.btn-lowlight{"data-dismiss" => "modal", type: "button"} Cancel
-        %button.btn.btn-primary{type: "button"} OK
-```
-
-## Live demo
-
 <!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
+<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch basic modal
+</button>
+<button class="btn btn-primary" data-toggle="modal" data-target="#myAltModal">
+  Launch alternate modal
 </button>
 
-<!-- Modal -->
+<!-- Modal Basic -->
 <div class="modal fade modal-basic" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Alternate -->
+<div class="modal fade modal-alt" id="myAltModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
@@ -49,10 +57,10 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
 */
 
 
-.modal.modal-basic {
+.modal {
 
   .modal-dialog {
-    padding-top:200px;
+    padding-top: 50px;
   }
   .modal-content {
     border-radius: $modal-basic-content-border-radius;
@@ -62,13 +70,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
   }
 
   .modal-header {
-    background-color: $modal-basic-header-bg;
     padding: $modal-inner-padding/2;
-    .modal-title{
-      color: $modal-basic-title-color;
-      text-transform:uppercase;
-      font-weight:900;
-    }
   }
 
   .modal-footer {
@@ -79,9 +81,34 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
   }
 }
 
-.modal-backdrop {
-  &.in {
-    @include opacity($modal-backdrop-opacity); //bootstrap override
+.modal.modal-basic {
+  .modal-header {
+    background-color: $modal-basic-header-bg;
+    .modal-title{
+      color: $modal-basic-title-color;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+  }
+}
+
+
+//.modal-backdrop {
+//  &.in {
+//    @include opacity($modal-backdrop-opacity); //bootstrap override
+//  }
+//}
+
+.modal.modal-alt {
+  .modal-header {
+    background-color: $modal-alt-header-bg;
+    .modal-title{
+      color: $modal-alt-title-color;
+      font-weight:900;
+    }
+    .close {
+      color: $modal-alt-title-color;
+    }
   }
 }
 
