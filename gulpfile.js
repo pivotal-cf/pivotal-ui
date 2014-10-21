@@ -52,9 +52,29 @@ gulp.task('release', [
     if (!/2../.test(response.statusCode)) {
       handleError(result, {callback: done});
     }
-    
-    console.log('Successfully created draft release ' + tagName());
-    done();
+    fs.readFile('src/pivotal-ui/components/variables.scss', {encoding: 'utf-8'}, function(err, sass) {
+      if (err) {
+        handleError(err);
+        done();
+      }
+      rest.post('https://uploads.github.com/repos/pivotal-cf/pivotal-ui/releases/' + result.id + '/assets', {
+        query: {
+          name: 'variables.scss',
+          access_token: process.env.RELEASE_TOKEN,
+        },
+        headers: {
+          'Content-Type': 'text/plain'
+        },
+        data: sass,
+      }).on('complete', function(result, response) {
+        if (!/2../.test(response.statusCode)) {
+          handleError(result);
+          return done();
+        }
+        console.log('Successfully created draft release ' + tagName());
+        done();
+      });
+    });
   });
 });
 
