@@ -41,7 +41,6 @@ gulp.task('_changelog', ['_bumpPackage'], function(done) {
   changelog({
     version: packageJson().version,
     file: 'CHANGELOG.md',
-    changeLevels: ['breaking']
   }, function(err, log) {
     if (err) { handleError(err); }
     fs.writeFile('CHANGELOG.md', log, function(err) {
