@@ -80,12 +80,17 @@ gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
 });
 
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  git.tag('v'+ packageJson().version, 'v'+ packageJson().version, done);
+  git.tag(tagName(), tagName(), done);
 });
 
 gulp.task('_pushVersion', ['_tagVersion'], function() {
-  // This call is synchronous in case there is a prompt for credentials
+  // These calls are synchronous in case there is a prompt for credentials
   var res = exec('git push origin HEAD');
+  if (res.code !== 0) {
+    process.exit(1);
+  }
+
+  res = exec('git push origin ' + tagName());
   if (res.code !== 0) {
     process.exit(1);
   }
@@ -108,6 +113,10 @@ function determineReleaseType(callback) {
       callback('No changes found', null);
     }
   });
+}
+
+function tagName() {
+  return 'v' + packageJson().version;
 }
 
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
