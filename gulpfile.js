@@ -233,7 +233,7 @@ gulp.task('_zip', [
 ], function(){
   return gulp.src('dist/*')
     .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('tmp/'));
+    .pipe(gulp.dest('./'));
 });
 
 gulp.task('_bumpPackage', [], function(done) {
