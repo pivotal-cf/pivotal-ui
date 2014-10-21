@@ -14,6 +14,7 @@ var argv = require('yargs').argv;
 var changelog = require('conventional-changelog');
 var zip = require('gulp-zip');
 var bump = require('gulp-bump');
+var git = require('gulp-git');
 
 gulp.task('default', [
   'watch',
@@ -34,6 +35,7 @@ gulp.task('release', [
   '_bumpPackage',
   '_changelog',
   '_zip',
+  '_bumpVersion',
 ]);
 
 gulp.task('_changelog', ['_bumpPackage'], function(done) {
@@ -71,6 +73,11 @@ gulp.task('_bumpPackage', [], function(done) {
 
     stream.on('finish', done);
   });
+});
+
+gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
+  return gulp.src(['package.json','CHANGELOG.md'])
+    .pipe(git.commit('v' + packageJson().version));
 });
 
 function determineReleaseType(callback) {
