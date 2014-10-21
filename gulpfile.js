@@ -15,6 +15,7 @@ var changelog = require('conventional-changelog');
 var zip = require('gulp-zip');
 var bump = require('gulp-bump');
 var git = require('gulp-git');
+require('shelljs/global');
 
 gulp.task('default', [
   'watch',
@@ -32,7 +33,7 @@ gulp.task('ci', [
 ]);
 
 gulp.task('release', [
-  '_tagVersion',
+  '_pushVersion',
   '_zip',
 ]);
 
@@ -80,6 +81,14 @@ gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
 
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
   git.tag('v'+ packageJson().version, 'v'+ packageJson().version, done);
+});
+
+gulp.task('_pushVersion', ['_tagVersion'], function() {
+  // This call is synchronous in case there is a prompt for credentials
+  var res = exec('git push origin HEAD');
+  if (res.code !== 0) {
+    process.exit(1);
+  }
 });
 
 function determineReleaseType(callback) {

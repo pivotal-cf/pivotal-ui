@@ -39,6 +39,7 @@
     "gulp-open": "^0.2.8",
     "gulp-zip": "^2.0.2",
     "jshint-stylish": "^1.0.0",
+    "shelljs": "^0.3.0",
     "vinyl-source-stream": "^1.0.0",
     "yargs": "^1.3.2"
   },
