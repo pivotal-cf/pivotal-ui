@@ -16,6 +16,8 @@ var zip = require('gulp-zip');
 var bump = require('gulp-bump');
 var git = require('gulp-git');
 require('shelljs/global');
+var rest = require('restler');
+var versionChanges;
 
 gulp.task('default', [
   'watch',
@@ -35,17 +37,40 @@ gulp.task('ci', [
 gulp.task('release', [
   '_pushVersion',
   '_zip',
-]);
+], function(done) {
+  rest.post('https://api.github.com/repos/pivotal-cf/pivotal-ui/releases', {
+    query: {
+      access_token: process.env.RELEASE_TOKEN,
+    },
+    data: JSON.stringify({
+      'tag_name': tagName(),
+      'name': tagName(),
+      'body': versionChanges,
+      'draft': true
+    })
+  }).on('complete', function(result, response) {
+    if (!/2../.test(response.statusCode)) {
+      handleError(result);
+    } else {
+      console.log('Successfully created draft release ' + tagName());
+    }
+    done();
+  });
+});
 
 gulp.task('_changelog', ['_bumpPackage'], function(done) {
   changelog({
     version: packageJson().version,
-    file: 'CHANGELOG.md',
+    file: 'tmp/foo',
   }, function(err, log) {
     if (err) { handleError(err); }
-    fs.writeFile('CHANGELOG.md', log, function(err) {
+    versionChanges = log;
+    fs.readFile('CHANGELOG.md', function(err, oldLog) {
       if (err) { handleError(err); }
-      done();
+      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
+        if (err) { handleError(err); }
+        done();
+      });
     });
   });
 });
