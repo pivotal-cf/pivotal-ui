@@ -251,7 +251,7 @@ gulp.task('_changelog', ['_bumpPackage'], function(done) {
 gulp.task('_zip', [
   'assets',
 ], function(){
-  return gulp.src('dist/*')
+  return gulp.src('dist/**/*')
     .pipe(zip('dist.zip'))
     .pipe(gulp.dest('./'));
 });
