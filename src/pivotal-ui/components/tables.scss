@@ -169,76 +169,12 @@ This is a table used to display many rows of data (it is pretty much the default
 
 /*doc
 ---
-title: Horizontal
-name: table_horizontal
-parent: table
----
-
-This is the horizontal table used mainly on the user profile page. Typically it is paired `.table-striped` and `.table-standard`. It does not have a header row.
-
-
-
-```haml_example
-
-%table.table.table-striped.table-horizontal
-  %tbody
-    %tr
-      %th Email
-      %td joe@example.com
-    %tr
-      %th Current Password
-      %td *******
-    %tr
-      %th First Name
-      %td Joe
-    %tr
-      %th Last Name
-      %td Bobs
-    %tr
-      %th Phone
-      %td 415-555-0000
-```
-
-*/
-.table-horizontal {
-  tbody, thead, .tbody, .thead {
-    tr, .tr {
-      th, .th {
-        border: none; // overwriting bootstrap default values which are too specific
-      }
-    }
-  }
-  tbody {
-    tr {
-      &:last-child {
-        border: none;
-      }
-      th, td {
-        padding: 20px;
-      }
-      th {
-        font-weight: 400;
-        text-align: right;
-        width: 33%;
-      }
-      td {
-        font-weight: 600;
-        &:last-child {
-          border: none;
-        }
-      }
-    }
-  }
-}
-
-/*doc
----
 title: Key-Value
 name: table_key_value
 parent: table
 ---
 
-This table is used to align headings and content on the same line. You have to
+This table is used when the table headings are on the left. It looks better when you
 specify column widths for the th/tds.
 
 
@@ -291,71 +227,6 @@ specify column widths for the th/tds.
       }
       td {
         text-align: left;
-        &:last-child {
-          border: none;
-        }
-      }
-    }
-  }
-}
-
-/*doc
----
-title: Numerical
-name: table_numerical
-parent: table
----
-
-This is the table used on the billing page.
-
-
-
-```haml_example
-
-%table.table.table-numerical
-  %tbody
-    %tr
-      %th Email
-      %td joe@example.com
-    %tr
-      %th Current Password
-      %td *******
-    %tr
-      %th First Name
-      %td Joe
-    %tr
-      %th Last Name
-      %td Bobs
-    %tr
-      %th Phone
-      %td 415-555-0000
-```
-
-*/
-.table-numerical {
-  tbody, thead, .tbody, .thead {
-    tr, .tr {
-      th, .th {
-        border: none; // overwriting bootstrap default values which are too specific
-      }
-    }
-  }
-  tbody {
-    tr {
-      &:last-child {
-        border: none;
-      }
-      th, td {
-        padding: 5px 0;
-      }
-      th {
-        font-weight: 400;
-        text-align: left;
-        width: 33%;
-        color: $gray-3;
-      }
-      td {
-        text-align: right;
         &:last-child {
           border: none;
         }
