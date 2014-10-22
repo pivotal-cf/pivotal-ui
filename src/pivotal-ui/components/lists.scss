@@ -341,7 +341,10 @@ name: list_event
 parent: list
 ---
 
-This is a special list-group, with styles per-event for colors and icons
+This is a special list-group, with styles per-event for colors and icons. 
+
+Note: If you need a list item that with an icon that isn't shown below, 
+take a look at [icons](/elements.html#iconography), and let us know which one you want.
 
 ```haml_example
 %ul.list-group.event-list
@@ -363,24 +366,6 @@ This is a special list-group, with styles per-event for colors and icons
         .event-icon
       .media-body
         .event-title updated app
-  %li.list-group-item.scaled-instances
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title scaled app instances
-  %li.list-group-item.scaled-memory
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title scaled app memory
-  %li.list-group-item.scaled-disk
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title scaled app disk
   %li.list-group-item.scaled
     .media
       .pull-left
