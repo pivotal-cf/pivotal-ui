@@ -183,12 +183,29 @@ If you create a new component, re-run `gulp test` to load the component in CssCr
 
 Each commit should be "green" (i.e. it should not break any existing functionality). In addition, attempt to make each commit a complete idea. A single commit should not contain unrelated changes.
 
-We follow the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md) commit message format. Your message should include information about whether it includes major, minor or patch level changes. You may be wondering what major, minor, and  patch mean in the context of CSS. Please follow these guidelines:
+Your message should include information about the patch level of the changes made. You may be wondering what major, minor, and  patch mean in the context of CSS. Please follow these guidelines:
 
-* **Major** - A breaking change which alters either *class names* or expected *HTML*.
-* **Minor** - Either an *additional feature* (e.g. a new component), or an update which changes *Sass variables*
-* **Patch** - A *non-breaking change, bug fix, or design update* that any team should be able to upgrade to without changing their html. An example of this is updating the background color of the danger button or fixing the alignment of the horizontal tabs (as long as no html changes are required).
+* **Major** - A breaking change which alters either *class names* or expected *HTML*. These commits can be labeled either as `feat(): ` or `fix(): `, but must also contain a `BREAKING CHANGE:` followed by what kind of breaking change it is (e.g., class name, sass variable, html, style) in the body of the commit.
+* **Minor** - Either an *additional feature* (e.g. a new component), or an update which changes *Sass variables*. These commits should be labeled as `feat(): `.
+* **Patch** - A *non-breaking change, bug fix, or design update* that any team should be able to upgrade to without changing their html. An example of this is updating the background color of the danger button or fixing the alignment of the horizontal tabs (as long as no html changes are required). These commits should be labeled as `fix(): `.
 
+For example, for a patch, your commit might look like this:
+
+```
+fix(table): headers are now capitalized by default
+
+- sections 1 & 2 
+```
+and example of a breaking change might look like this:
+
+```
+feat(color): "orange-color" class is now named "light-orange"
+
+BREAKING CHANGE: class name
+```
+
+
+For additonal information regarding commit message format consult the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md).
 ## Documenting components
 
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram). The component docs are created from markdown comments in the SCSS.
