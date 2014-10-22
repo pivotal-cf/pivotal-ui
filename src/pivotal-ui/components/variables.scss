@@ -355,6 +355,18 @@ $table-standard-header-bg:           $gray-3;
 $table-standard-border-color:        $gray-9;
 
 
+// Table Scrollable
+
+$table-scrollable-lg:            900px;
+$table-scrollable-md:            600px;
+$table-scrollable-sm:            300px;
+$table-scrollable-default-height:183px;
+
+$table-scrollable-border:        1px solid $gray-8;
+$table-scrollable-header-border: 2px solid $gray-8;
+$table-scrollable-body-border:   3px solid $gray-9;
+
+
 // Buttons
 // -------------------------
 
