@@ -55,9 +55,11 @@ parent: table
 
 This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.
 
+Design Note: The `table-data` is often paired with `table-light` as in our example.
+
 ```haml_example
 
-%table.table.table-data
+%table.table.table-data.table-light
   %thead
     %tr
       %th
