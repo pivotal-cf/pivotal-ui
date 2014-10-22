@@ -1,3 +1,52 @@
+<a name="0.2.0"></a>
+## 0.2.0 (2014-10-22)
+
+
+#### Bug Fixes
+
+* **Alert:** improve contrast for yellow background color vs text ((5fafc7c1))
+* **alert:** Improve docs for alerts ((7b99d427))
+* **back-to-top:** bring back-to-top forward ((eea9cf9c))
+* **backgrounds:** update docs for bg-glow and bg-cloud ((b2a65f20))
+* **ellipsis:** make ellisis 2 & 3 line work in the styleguide ((4187fca9))
+* **files:**
+  * rename style_guide to styleguide ((647bb5f0))
+  * pluralize names and change extensions to .scss ((3c37e245))
+* **javascript:** deprecated javascript specific components ((99c9cf6a))
+* **media:** fix stackable media components ((5a08fc4d), closes (#80741572))
+* **media object:** removed media-list ((b3f859f9))
+* **panes:** update panes ((0017fe32))
+* **styleguide:**
+  * remove extraneous empty divs from table docs ((87c7f9dd))
+  * fix non-encoded hyphens in docs ((b7deed43), closes (#80909858))
+  * Scroll to correct position from top level nav ((bf970967))
+* **target:** swap out targets to hashes for links between components. ((a84fabcf))
+
+
+#### Features
+
+* **avatar:** combine gravatars with avatars and make them their own section. ((d31eaf9d))
+* **back-to-top:** add back-to-top widget ((f09d9ba8))
+* **background:** make hero image smaller ((0fbeb27d))
+* **bootstrap:** bump to Boostrap v3.2.0 ((a5c6e486))
+* **button:** change full width title to camelcase ((04f79895))
+* **clickable:** update clickables ((84c41f98))
+* **collapse:** Renamed Collapse to Accordion ((601db497))
+* **embeds:** add docs for responsive embeds ((88d13f0a))
+* **errors:** align bootstrap errors to checkboxes and radio buttons ((3fe4ad18))
+* **flag:** refactored media to allow vertical alignment ((d5f3f979))
+* **gravatar:** pulled gravatar from images ((f9b83a9c))
+* **modal:** move inline modal to be a child of modals. ((a4367ced))
+* **modals:** Add new alternate dark modal style ((33b8a017))
+* **print:** add 3 new print utilities ((a4f8d8d7))
+* **styleguide:**
+  * pend broken components ((5692f960))
+  * removed parent name from children ((7105ace2))
+  * add scrolling to section-nav elements > > [Finishes #80392096] ((171827d9))
+* **styleguide-typography:** Make styleguide headings teal ((6406d79c))
+* **traffic lights:** modified traffic lights docs ((18e6af5a))
+* **utilities:** add docs for responsive utilities ((a890fd98))
+
 <a name="0.1.0"></a>
 ## 0.1.0 (2014-10-20)
 
