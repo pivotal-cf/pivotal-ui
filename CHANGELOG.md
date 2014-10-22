@@ -1,6 +1,5 @@
-## Pivotal UI Changelog
-
-### Latest Changes
+<a name="0.1.0"></a>
+## 0.1.0 (2014-10-20)
 
 Upgraded to Bootstrap 3.2.0
 
