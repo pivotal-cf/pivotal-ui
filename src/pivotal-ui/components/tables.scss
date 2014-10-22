@@ -792,82 +792,170 @@ parent: table
 ---
 
 Table with borders where the contents of the table scroll but the header does not.
+The default height of the scrollable table is 183px. There are four other sizes provided
+which you can use by adding the following classes to the `.table-scrollable` element.
 
-```haml_example
-.table-scrollable
-  .panel
-    %table.table.table-data.table-light
-      %thead
-        %tr
-          %th.col-md-10 #
-          %th.col-md-14 Status
-  .panel.panel-scrollable.panel-shadow
-    %table.table.table-data.table-light
-      %tbody
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
-        %tr
-          %td.col-md-10 4
-          %td.col-md-14 Started
+Table Scrollable sizes | Height
+---------------------- | ---------
+default                | 183px
+`.table-scrollable-sm` | 300px
+`.table-scrollable-md` | 600px
+`.table-scrollable-lg` | 900px
+
+If you would like a custom size, please add an inline style to the `.table-scrollable-body` element.
+
+Design Note: The `table-scrollable` is often paired with `table-data` and `table-light` as in our example.
+
+<div class="alert alert-info alert-dismissable">
+  <p>You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
+the first row of the <code>tbody</code>. You can do this with inline width attributes.</p>
+</div>
+
+```html_example
+<div class="table-scrollable table-scrollable-sm">
+  <div class="table-scrollable-header">
+    <table class="table table-data table-light">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th width="16%">Status</th>
+          <th width="12%">CPU</th>
+          <th width="16%">Memory</th>
+          <th width="16%">Disk</th>
+          <th width="30%">Uptime</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scrollable-body">
+    <table class="table table-data table-light">
+      <tbody>
+        <tr>
+          <td width="10%">0</td>
+          <td width="16%">Running</td>
+          <td width="12%">0%</td>
+          <td width="16%">4.16 MB</td>
+          <td width="16%">6.75 MB</td>
+          <td width="30%">27 min</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>27 min</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.14 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.08 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.16 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.03 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 ```
 */
 
 .table-scrollable {
-  border: 1px solid $gray-8;
-
-  .panel {
-    border: none;
-  }
-
-  .panel-scrollable-header {
-    @include user-select(none);
-    border-bottom: 2px solid $gray-8;
-  }
-
-  .panel-scrollable {
-    border-top: 3px solid $gray-9;
-  }
+  border: $table-scrollable-border;
 
   table {
+    table-layout: fixed;
     tr:last-child {
       border-bottom: none;
     }
+  }
 
-    tr, .tr {
-     @extend .row;
-   }
+  .table {
+    margin: 0;
+  }
+
+  .table-scrollable-header {
+    border-bottom: $table-scrollable-header-border;
+  }
+
+  .table-scrollable-body {
+    border-top: $table-scrollable-body-border;
+    max-height: $table-scrollable-default-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.table-scrollable-sm {
+    .table-scrollable-body {
+      max-height: $table-scrollable-sm;
+    }
+  }
+  &.table-scrollable-md {
+    .table-scrollable-body {
+      max-height: $table-scrollable-md;
+    }
+  }
+  &.table-scrollable-lg {
+    .table-scrollable-body {
+      max-height: $table-scrollable-lg;
+    }
   }
 }
 
-table.table-border{
-  border: 1px solid $gray-8;
-
-  thead tr th, tbody tr td {
-    border-right: none;
-  }
-}
