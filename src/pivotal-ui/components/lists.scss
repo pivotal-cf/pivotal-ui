@@ -136,10 +136,10 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 .contrast-bar
   %ul.list-inline-divider.list-inline-divider-light
     %li
-      %a.type-em-1{href: "http://google.com"}
+      %a.type-em-1{href: "http://google.com"}<
         Edit
     %li
-      %a.type-em-1{href: "http://google.com"}
+      %a.type-em-1{href: "http://google.com"}<
         Invite
 
 
