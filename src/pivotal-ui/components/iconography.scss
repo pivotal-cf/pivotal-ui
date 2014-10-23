@@ -7,9 +7,10 @@ categories:
   - Elements
 ---
 
-We use Font Awesome for scalable vector icons that can be customized - size, color, drop shadow,
+We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) for scalable vector icons that can be customized - size, color, drop shadow,
 and anything that can be done with CSS. These icons will always match the font color.
 
+Here are some commonly used icons:
 
 Button                                             | Class                  | Description
 -------------------------------------------------- | ---------------------- | -----------
@@ -31,9 +32,16 @@ Button                                             | Class                  | De
 <i class="fa fa-square"></i>                       | `.fa.fa-square`        | Renders our square icon
 <i class="fa fa-repeat"></i>                       | `.fa.fa-repeat`        | Renders our refresh/restart icon
 <i class="fa fa-play"></i>                         | `.fa.fa-play`          | Renders our start icon
+<i class="fa fa-download"></i>                     | `.fa.fa-download`      | Renders our download icon
+
+```haml_example
+
+%i.fa.fa-download.type-brand-3.title
+```
 
 */
 
 .icon-control {
   font-size: 22px;
 }
+
