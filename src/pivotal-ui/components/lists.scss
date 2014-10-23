@@ -654,3 +654,118 @@ Replaces the default bullet image with the font awesome checkmark.
 
 
 @include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
+
+
+/*doc
+---
+title: Cards
+name: list_cards
+parent: list
+---
+
+As the browser width changes, list-cards fill in one after another. There are two card types, `type-card-1` and
+`type-card-2`. For this example, we've set both of them to stack on mobile sized screens.
+
+```html_example_table
+<ul class="list-cards list-card-1 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>list-card-1</p>
+  </li>
+</ul>
+
+<ul class="list-cards list-card-2 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>list-card-2</p>
+  </li>
+</ul>
+```
+
+You can specify the breakpoint in which the cards stack by using the `list-card-*` classes. If the breakpoint is not
+specified, the cards fill 100% of the `list-cards` width.
+
+
+List Card Breakpoints | Class Names
+--------------------- | ---------------
+extra-small           | `.list-card-xs`
+small                 | `.list-card-sm`
+medium                | `.list-card-md`
+large                 | `.list-card-lg`
+extra-large           | `.list-card-xl`
+
+<div class="alert alert-info">
+  <p>The cards list should only be used in fully liquid layouts, otherwise grids are a better choice.</p>
+</div>
+
+This is an example of a card list with the `list-cards-xs` stack point applied:
+
+```html_example
+<p>Drag to resize this container and see how cards stack. Resize the browser to see mobile behavior (media queries are browser.</p>
+
+<ul class="list-cards list-card-2 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 1</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 2</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 3</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 4</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 5</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 6</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 7</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 8</p>
+  </li>
+</ul>
+
+```
+Note: If you would like custom card dimensions, in your sass include the makeCard mixin, like so: `@include makeCard(height, width, name);`
+
+You can then access the class via `.list-card-#{name}`
+*/
+
+.list-cards {
+  @include clearfix-micro;
+  @extend .list-unstyled;
+
+  li {
+    margin-bottom: $grid-gutter-width;
+  }
+}
+
+@mixin setCardWidthResponsive($width) {
+  $breakpoints: (xs: $screen-xs-min, sm: $screen-sm-min, md: $screen-md-min, lg: $screen-lg-min, xl: $screen-xl-min);
+  @each $key, $breakpoint in $breakpoints {
+    @media(min-width: $breakpoint) {
+      &.list-cards-#{$key} {
+        > li {
+          width: $width;
+          float: left;
+          margin-right: $grid-gutter-width;
+        }
+      }
+    }
+  }
+}
+
+@mixin makeCard($height, $width, $name){
+  .list-card-#{$name} {
+    @include setCardWidthResponsive($width);
+    > li {
+      height: $height;
+    }
+  }
+}
+
+@include makeCard(116px, 435px, 1);
+@include makeCard(192px, 284px, 2);
