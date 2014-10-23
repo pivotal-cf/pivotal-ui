@@ -118,11 +118,9 @@ The classes are constructed by specifying `<type><location><size>`.
   </tbody>
 </table>
 
-#### Vertical Spacing Options
+### Vertical Spacing Options (`n` -> `xl`)
 
-##### None
-
-```haml_example
+```haml_example_table
 %ul.lvn
   %li
     feep
@@ -130,11 +128,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Small
-
-```haml_example
 %ul.lvs
   %li
     feep
@@ -142,11 +136,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Medium
-
-```haml_example
 %ul.lvm
   %li
     feep
@@ -154,11 +144,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Large
-
-```haml_example
 %ul.lvl
   %li
     feep
@@ -166,12 +152,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-
-##### Extra Large
-
-```haml_example
 %ul.lvxl
   %li
     feep
@@ -181,11 +162,10 @@ The classes are constructed by specifying `<type><location><size>`.
     meep
 ```
 
-#### Horizontal Spacing Options
+### Horizontal Spacing Options (`n` -> `xl`)
 
-##### None
 
-```haml_example
+```haml_example_table
 %ul.list-inline.lhn
   %li
     feep
@@ -193,11 +173,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Small
-
-```haml_example
 %ul.list-inline.lhs
   %li
     feep
@@ -205,11 +181,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Medium
-
-```haml_example
 %ul.list-inline.lhm
   %li
     feep
@@ -217,11 +189,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Large
-
-```haml_example
 %ul.list-inline.lhl
   %li
     feep
@@ -229,11 +197,7 @@ The classes are constructed by specifying `<type><location><size>`.
     fop
   %li
     meep
-```
 
-##### Extra Large
-
-```haml_example
 %ul.list-inline.lhxl
   %li
     feep
