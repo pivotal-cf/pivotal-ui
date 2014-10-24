@@ -14,10 +14,12 @@ colors rather than adding new ones.
 
 
 <div class="alert alert-warning alert-dismissable">
-  Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
-  directly when building components, because it makes
-  it very hard to change the values later if you can't tell how they might have been used.
-   You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+  <p>
+    Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+    directly when building components, because it makes
+    it very hard to change the values later if you can't tell how they might have been used.
+    You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+  </p>
 </div>
 
 This example shows proper use of Sass variables.
