@@ -17,33 +17,66 @@ Alerts are used to display flash messages to the user.
 
 You can also make them dismissable:
 
-```haml_example_table
-.alert.alert-success.alert-dismissable
-  %button.close{data: {dismiss: "alert"}}
-    %i.fa.fa-times
-  %p Everything is wonderful.
+```html_example_table
+<div class="alert alert-success alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-check-circle"></i>
+    </div>
+    <div class="media-body">
+      Everything is wonderful.
+      <a class="alert-link" href="http://bit.ly/QCMZM5" target="_blank">Be happy.</a>
+    </div>
+  </div>
+</div>
 
-.alert.alert-info.alert-dismissable
-  %button.close{data: {dismiss: "alert"}}
-    %i.fa.fa-times
-  %p Some info message
+<div class="alert alert-info alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-info-circle"></i>
+    </div>
+    <div class="media-body">
+      Info for you.
+      <a class="alert-link" href="http://bit.ly/1DFns8H" target="_blank">Tell me more.</a>
+    </div>
+  </div>
+</div>
 
-.alert.alert-error.alert-dismissable
-  %button.close{data: {dismiss: "alert"}}
-    %i.fa.fa-times
-  %p Something has gone horribly awry
+<div class="alert alert-warning alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-exclamation-triangle"></i>
+    </div>
+    <div class="media-body">
+      Warning: There is no parking on the dancefloor.
+      <a class="alert-link" href="http://bit.ly/1uM05DJ" target="_blank">Be alert.</a>
+    </div>
+  </div>
+</div>
 
-.alert.alert-warning.alert-dismissable
-  %button.close{data: {dismiss: "alert"}}
-    %i.fa.fa-times
-  %p Warning: There is no parking on the dancefloor.
-
-.alert.alert-error.alert-dismissable
-  %button.close{data: {dismiss: "alert"}}
-    %i.fa.fa-times
-  %p
-    Error
-    %a{href: "#"} Link to resolve Error
+<div class="alert alert-error alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-exclamation-triangle"></i>
+    </div>
+    <div class="media-body">
+      Something has gone horribly awry.
+      <a class="alert-link" href="http://bit.ly/1rooFJV" target="_blank">You've made a huge mistake.</a>
+    </div>
+  </div>
+</div>
 ```
 
 
@@ -52,53 +85,15 @@ You can also make them dismissable:
 
 .alert {
   border: none;
-  margin-bottom: 0px;
+  margin: $baseSpacing 0 0;
   font-weight: 600;
 
-  p {
-    &:before {
-      font-family: FontAwesome;
-      padding-right: 5px;
-      font-size: 16px;
+  a.alert-link {
+    &:hover {
+      text-decoration: underline;
     }
   }
 
-  &.alert-error {
-    p {
-      &:before {
-        content: '\f071';
-      }
-    }
-  }
-
-  &.alert-success {
-    p {
-      &:before {
-        content: '\f058';
-      }
-    }
-  }
-
-  &.alert-warning {
-    p {
-      &:before {
-        content: '\f071';
-      }
-    }
-  }
-
-  &.alert-info {
-    p {
-      &:before {
-        content: '\f05a';
-      }
-    }
-  }
-}
-
-
-.alert {
-  margin: $baseSpacing 0;
   .close {
     text-decoration: none;
     line-height: .7;

@@ -387,7 +387,7 @@ $tabs-active-bg-color: $gray-2;
       </div>
     </div>
   </div>
-   <div class="col-md-4">
+  <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-warn-2"></div>
       <div class="chip-color-name">
@@ -395,6 +395,18 @@ $tabs-active-bg-color: $gray-2;
           <li>$warn-2</li>
           <li>.bg-warn-2</li>
           <li>.type-warn-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-warn-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-3</li>
+          <li>.bg-warn-3</li>
+          <li>.type-warn-3</li>
         </ul>
       </div>
     </div>
@@ -533,6 +545,10 @@ $tabs-active-bg-color: $gray-2;
 
 .bg-warn-2{
   background-color: $warn-2;
+}
+
+.bg-warn-3{
+  background-color: $warn-3;
 }
 
 // Greens

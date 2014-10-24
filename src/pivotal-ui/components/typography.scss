@@ -183,6 +183,7 @@ parent: type
 
 %p.type-warn-1 Type warn 1
 %p.type-warn-2 Type warn 2
+%p.type-warn-3 Type warn 3
 ```
 
 */
@@ -234,6 +235,7 @@ parent: type
 
 .type-warn-1 { color: $warn-1; }
 .type-warn-2 { color: $warn-2; }
+.type-warn-3 { color: $warn-3; }
 
 // green type
 
