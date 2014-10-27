@@ -1,18 +1,19 @@
 'use strict';
 var $ = require('jquery');
 
-$(document).ready(function(){
-	$(window).scroll(function(){
-		if ($(this).scrollTop() > 400) {
-			$('.back-to-top').fadeIn();
-		} else {
-			$('.back-to-top').fadeOut();
-		}
-	});
+module.exports = function() {
+  $(document).ready(function(){
+    $(window).scroll(function(){
+      if ($(this).scrollTop() > 400) {
+        $('.back-to-top').fadeIn();
+      } else {
+        $('.back-to-top').fadeOut();
+      }
+    });
 
-	$('.back-to-top').click(function(){
-		$('html, body').animate({scrollTop : 0},800);
-		return false;
-	});
-	
-});
+    $('.back-to-top').click(function(){
+      $('html, body').animate({scrollTop : 0},800);
+      return false;
+    });
+  });
+};
