@@ -772,3 +772,22 @@ You can then access the class via `.list-card-#{name}`
 
 @include makeCard(116px, 435px, 1);
 @include makeCard(196px, 284px, 2);
+
+
+/*doc
+---
+title: Layout Lists
+name: layout_lists
+categories:
+  - All
+  - Layout
+---
+
+Sometimes you might want to use lists to lay out elements on the page.
+
+[Inline lists](/elements.html#list_inline) and [vertical divider lists](/elements.html#list_vertical_divider)
+are particularly useful when you don't know the width of the element you want to layout, or you want to vertically align it.
+
+Use [Card lists](/elements.html#list_cards) if you'd like to make a grid of vertically and horizontally aligned cards.
+
+*/
