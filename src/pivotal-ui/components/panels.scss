@@ -72,15 +72,37 @@ Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel
 support flexbox, the footer will appear where it would naturally, likely right below the panel-body content
 
 ```haml_example
-.panel.panel-flex.bg-neutral-11{style: 'height: 200px'}
-  .panel-body
-    Body Content
-  .panel-footer
-    Footer Content
+%ul.list-cards.list-card-2.list-cards-sm
+  %li.panel.panel-flex.bg-neutral-11
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
+  %li.panel.panel-flex.bg-neutral-11
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
+  %li.panel.panel-flex.bg-neutral-11
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
+  %li.panel.panel-flex.bg-neutral-11
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
+  %li.panel.panel-flex.bg-neutral-11
+    .panel-body
+      Body Content
+    .panel-footer
+      Footer Content
 ```
 */
 
 .panel-flex {
+  display: block;
   display: flex;
   flex-direction: column;
 
@@ -94,8 +116,6 @@ support flexbox, the footer will appear where it would naturally, likely right b
     align-self: auto;
   }
 
-
-
 }
 
 /*doc
@@ -105,25 +125,27 @@ name: panel_tile
 parent: panel
 ---
 
-```haml_example
-%a.panel.panel-tile.bg-neutral-11{href: 'http://google.com'}
-  .panel-body
-    Hover to see secondary state.
-  .panel-footer
-    This is the footer
+Tile panels extend the behavior of flex panels. They provide an animated footer on hover, at the bottom of a fixed-height panel.
+
+```html_example
+<ul class="list-cards list-card-1 list-cards-lg">
+  <li>
+    <a class="list-cards-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
+      <div class="panel-body">
+        Hover to see secondary state.
+      </div>
+      <div class="panel-footer">
+        This is the footer
+      </div>
+    </a>
+  </li>
+</ul>
 ```
+
 */
 
 .panel-tile {
-  width: 435px;
   border-bottom: 4px solid $shadow-3;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  height: 120px;
   overflow: hidden;
   color: $text-color;
   -webkit-transition: border 300ms ease-out;
@@ -133,8 +155,6 @@ parent: panel
 
   .panel-body {
     -ms-flex: 1 0 auto;
-    flex: 1;
-    -webkit-flex: 1;
     padding: 25px 20px 0 20px;
     -webkit-transition: padding-top 300ms ease-out;
     -moz-transition: padding-top 300ms ease-out;
@@ -148,16 +168,19 @@ parent: panel
     text-align: center;
     font-size: $panel-tile-font-size;
     border-top: none; // bootstrap override
-    padding: 4px 15px; 
+    padding: 4px 15px;
     background: transparent;
     @include transition-pui();
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include transition-pui();
     border-width: 1px;
     background-color: $panel-tile-hover-bg-color;
     color: $text-color;
+    cursor: pointer;
+    outline: none;
 
     .panel-body {
       padding-top: 15px;
@@ -168,12 +191,6 @@ parent: panel
       color: $panel-footer-tile-text;
       font-weight: 900;
     }
-  }
-}
-
-@media all and (max-width: $screen-lg) {
-  .panel-tile {
-    width: 100%;
   }
 }
 
@@ -234,7 +251,7 @@ name: panel_alt
 parent: panel
 ---
 
-Alternate panels can be in a default, off, or danger state. Add the class `.panel-card` to give the panel a minimum height.
+Alternate panels can be in a default, off, or danger state.
 
 ```haml_example_table
 .panel.panel-alt
@@ -260,7 +277,6 @@ Alternate panels can be in a default, off, or danger state. Add the class `.pane
 */
 
 .panel-alt {
-  width: 284px;
 
   // while creating a new space (form inside)
   &.panel-editing {
@@ -381,18 +397,22 @@ name: panel_card
 parent: panel
 ---
 
-The `.panel-card` makes any `.panel-body` have a minimum "card" height when applied to the `.panel`.
+Using panels with [card lists](/elements.html#list_cards) makes any `.panel-body` have a minimum "card" height.
 
 ```haml_example
-.panel.panel-card.bg-neutral-11
-  .panel-body
-    Card Panel
+%ul.list-cards.list-cards-sm.list-card-2
+  %li.panel.panel-clickable-alt.bg-neutral-11
+    .panel-body
+      Card Panel
+  %li.panel.panel-clickable-alt.bg-neutral-11
+    .panel-body
+      Card Panel
+  %li.panel.panel-clickable-alt.bg-neutral-11
+    .panel-body
+      Card Panel
 ```
 
 */
-.panel-card {
-  min-height: 196px;
-}
 
 /*doc
 ---
