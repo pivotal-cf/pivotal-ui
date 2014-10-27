@@ -26,3 +26,9 @@ $(document).ready(function() {
     return false;
   });
 });
+
+/* Make all links inside codeExamples open in a new window */
+
+$(document).ready(function() {
+  $('.codeExample a').attr('target', '_blank');
+});
