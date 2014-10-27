@@ -79,8 +79,9 @@ $green-2: #AFD79B;
 
 // Yellow
 // -------------------------
-$yellow-1: #f1c148;
-$yellow-2: #FBF7D5;
+$yellow-1: #B59033;
+$yellow-2: #F1C148;
+$yellow-3: #F9F3C3;
 
 // Orange
 // -------------------------
@@ -157,6 +158,7 @@ $error-4: $red-4;
 
 $warn-1: $yellow-1;
 $warn-2: $yellow-2;
+$warn-3: $yellow-3;
 
 // Success
 // -------------------------
@@ -796,7 +798,7 @@ $state-info-bg:                  #e2df80;
 $state-info-border:              #c0b84d;
 
 $state-warning-text:             $yellow-1; // bootstrap uses this for both border and text color
-$state-warning-bg:               $yellow-2;
+$state-warning-bg:               $yellow-3;
 $state-warning-border:           $yellow-1;
 
 $state-danger-text:              $red-3; // bootstrap uses this for both border and text color
@@ -883,7 +885,7 @@ $alert-border-radius:         0px;
 $alert-padding:               15px;
 $alert-close-size:            16px;
 $alert-border-radius:         0px;
-$alert-link-font-weight:      bold !default;
+$alert-link-font-weight:      600 !default;
 
 $alert-success-bg:            $green-2;
 $alert-success-text:          $green-1;
@@ -893,7 +895,7 @@ $alert-info-bg:               $blue-5 !default;
 $alert-info-text:             $blue-1;
 $alert-info-border:           #8AC0C4 !default;
 
-$alert-warning-bg:            $yellow-2;
+$alert-warning-bg:            $yellow-3;
 $alert-warning-text:          $yellow-1;
 $alert-warning-border:        $yellow-1;
 
@@ -1081,8 +1083,8 @@ $close-text-shadow:           0 1px 0 #fff !default;
 // Code
 // ------------------------
 $code-color:                  null !default;
-$code-background-dark: 		    $dark-1;
-$code-color-dark:			        $yellow-1;
+$code-background-dark:        $dark-1;
+$code-color-dark:             $yellow-2;
 $code-bg:                     $gray-10 !default;
 $code-border-radius:          3px;
 $code-chrome-border-radius:   6px;
@@ -1152,7 +1154,7 @@ $ie8: false;
    ========================================================================== */
 $baseFontSize:              $font-size-base;
 $baseLineHeight:            $line-height-base; //must be unitless
-$baseSpacing:               $line-height-base;
+$baseSpacing:               $line-height-base + em;
 
 /* Grid
    ========================================================================== */

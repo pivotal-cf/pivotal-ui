@@ -370,15 +370,16 @@ parent: form
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
 
-
-<div class="alert alert-warning">
-<h2 class="mtn">Requires custom widths</h2>
-Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.
+<div class="alert alert-info">
+  <p>
+    Requires custom widths. Inputs, selects, and textareas are 100% wide by default in Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.
+  </p>
 </div>
 
-<div class="alert alert-warning">
-<h2 class="mtn">Always add labels</h2>
-Screen readers will have trouble with your forms if you don't include a label for every input. For these inline forms, you can hide the labels using the <code class="sg-code">.sr-only</code> class.
+<div class="alert alert-info">
+  <p>
+    Always add labels to every input. Screen readers will have trouble with your forms if you don't. You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
+  </p>
 </div>
 
 
@@ -449,8 +450,9 @@ all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
 `tel`, and `color`.
 
 <div class="alert alert-warning">
-  <h2 class="mtn">Type declaration required</h2>
-  Inputs will only be fully styled if their type is properly declared.
+  <p>
+    Inputs will only be fully styled if their type is properly declared.
+  </p>
 </div>
 
 ```haml_example

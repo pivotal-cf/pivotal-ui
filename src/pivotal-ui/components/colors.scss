@@ -14,10 +14,12 @@ colors rather than adding new ones.
 
 
 <div class="alert alert-warning alert-dismissable">
-  Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
-  directly when building components, because it makes
-  it very hard to change the values later if you can't tell how they might have been used.
-   You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+  <p>
+    Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
+    directly when building components, because it makes
+    it very hard to change the values later if you can't tell how they might have been used.
+    You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
+  </p>
 </div>
 
 This example shows proper use of Sass variables.
@@ -387,7 +389,7 @@ $tabs-active-bg-color: $gray-2;
       </div>
     </div>
   </div>
-   <div class="col-md-4">
+  <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-warn-2"></div>
       <div class="chip-color-name">
@@ -395,6 +397,18 @@ $tabs-active-bg-color: $gray-2;
           <li>$warn-2</li>
           <li>.bg-warn-2</li>
           <li>.type-warn-2</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="chip">
+      <div class="chip-color bg-warn-3"></div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$warn-3</li>
+          <li>.bg-warn-3</li>
+          <li>.type-warn-3</li>
         </ul>
       </div>
     </div>
@@ -533,6 +547,10 @@ $tabs-active-bg-color: $gray-2;
 
 .bg-warn-2{
   background-color: $warn-2;
+}
+
+.bg-warn-3{
+  background-color: $warn-3;
 }
 
 // Greens
