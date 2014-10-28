@@ -8,6 +8,8 @@ categories:
   - Utilities
 ---
 
+Source Sans Pro is our font family.
+It can be used with the following modifiers to achieve a variety of effects.
 */
 
 * {
@@ -21,36 +23,59 @@ name: 1_type_sizes
 parent: type
 ---
 
-Headings can be used to define the applications typographical hierarchy.
+Set font sizes using headings and modifier classes.
 
-```haml_example
+```html_example_table
+<h1 class="title">h1.title 42px</h1>
 
-%h1.title Even bigger heading for those moments when an h1 is not enough
-%h1 h1.heading level 1
-%h2 h2.heading level 2
-%h3 h3.heading level 3
-%h4 h4.heading level 4
-%h5 h5.heading level 5
-%p.type-sm Small text can also be achieved with the small tag, when appropriate
-%p.type-xs Extra small text
+<h1>h1 31px</h1>
 
+<h2>h2 25px</h2>
 
-%p This is an example of our base font styles. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+<h3>h3 20px</h3>
+
+<h4>h4 18px</h4>
+
+<h5>h5 16px</h5>
+
+<p>base font size 16px</p>
+
+<p class="type-sm">small text 14px</p>
+
+<p class="type-xs">extra small text 12px</p>
 ```
 
-### Separating code and visual semantics
+<div class="alert alert-info mbxl">
+  <div class="alert-heading">
+    Tip: Separating code and visual semantics
+  </div>
+  <div class="alert-body">
+    <p>
+      Sometimes you may need to use a heading which has different visual and code semantics.
+      You can accomplish this by combining classes with elements
+      (classes take visual precedence over elements in this case).
+    </p>
+  </div>
+</div>
 
-Sometimes you may need to use a heading which has different visual and code semantics. You can accomplish this by combining classes with elements (classes take visual precedence over elements in this case):
 
-```haml_example
-  %h2.h1 h2.heading level 1 class applied
+
+```html_example_table
+  <h1 class="h2">I am a h1!</h1>
+
+  <h2 class="h1">I am a h2!</h2>
 ```
 
-If it's not a heading but you need similar visual treatment you can add just the class to any element
-  (Use headings when possible since they add semantic value).
+If it's not a heading but you need similar visual treatment you can add just the class to any element.
 
-```haml_example
-  %div.h2 div.heading level 2
+<div class="alert alert-warning mbxl">
+  <p>
+    Use headings when possible since they add semantic value.
+  </p>
+</div>
+
+```html_example_table
+  <div class="h2">Heading level 2 on a div</div>
 ```
 
 */
@@ -114,17 +139,32 @@ small,
 
 /*doc
 ---
-title: Modifiers
+title: Emphasis Modifiers
 name: type_modifiers
 parent: type
 ---
 
-```haml_example
-%h1.em-low Low emphasis
-%h1.em-default Default emphasis
-%h1.em-high High emphasis
-%h1.em-max Maximum emphasis
-%h1.em-alt Emphasis alternate
+Type emphasis modifiers can be used on any type element.
+
+```html_example_table
+<h1 class="em-high">Really Important</h1>
+<p>
+  I mean <span class="em-max">reeeeeeeeeeeally</span>
+</p>
+```
+
+Here's a table of all the emphasis modifier classes.
+
+```html_example_table
+<h1 class="em-low">Low emphasis</h1>
+
+<h1 class="em-default">Default emphasis</h1>
+
+<h1 class="em-high">High emphasis</h1>
+
+<h1 class="em-max">Maximum emphasis</h1>
+
+<h1 class="em-alt">Emphasis alternate</h1>
 ```
 
 */
@@ -142,49 +182,191 @@ name: type_colors
 parent: type
 ---
 
-```haml_example
-%p.type-inverse{style:'background-color: #000'} type-inverse text
+You can apply color to any text with the color classes.
 
-%p.type-neutral-1 Type neutral 1
-%p.type-neutral-2 Type neutral 2
-%p.type-neutral-3 Type neutral 3
-%p.type-neutral-4 Type neutral 4
-%p.type-neutral-5 Type neutral 5
-%p.type-neutral-6 Type neutral 6
-%p.type-neutral-7 Type neutral 7
-%p.type-neutral-8 Type neutral 8
-%p.type-neutral-9 Type neutral 9
-%p.type-neutral-10 Type neutral 10
-%p.type-neutral-11 Type neutral 11
-
-%p.type-dark-1 Type dark 1
-%p.type-dark-2 Type dark 2
-%p.type-dark-3 Type dark 3
-
-%p.type-accent-1 Type accent 1
-%p.type-accent-2 Type accent 2
-%p.type-accent-3 Type accent 3
-%p.type-accent-4 Type accent 4
-%p.type-accent-5 Type accent 5
-
-%p.type-brand-1 Type brand 1
-%p.type-brand-2 Type brand 2
-%p.type-brand-3 Type brand 3
-%p.type-brand-4 Type brand 4
-%p.type-brand-5 Type brand 5
-
-%p.type-error-1 Type error 1
-%p.type-error-2 Type error 2
-%p.type-error-3 Type error 3
-%p.type-error-4 Type error 4
-
-%p.type-success-1 Type success 1
-%p.type-success-2 Type success 2
-
-%p.type-warn-1 Type warn 1
-%p.type-warn-2 Type warn 2
-%p.type-warn-3 Type warn 3
+```html_example_table
+<p class="type-brand-3">I'm a brand color!</p>
 ```
+
+Here's a table of all the color classes.
+
+<table class="styleguide">
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-inverse">Type inverse</p> </td>
+    <td class="bg-dark-1"> <p class="type-inverse">Type inverse</p> </td>
+    <td> <code>.type-inverse</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td> <code>.type-neutral-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td> <code>.type-neutral-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-2">Type neutral 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-2">Type neutral 2</p> </td>
+    <td> <code>.type-neutral-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-3">Type neutral 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-3">Type neutral 3</p> </td>
+    <td> <code>.type-neutral-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-4">Type neutral 4</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-4">Type neutral 4</p> </td>
+    <td> <code>.type-neutral-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-5">Type neutral 5</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-5">Type neutral 5</p> </td>
+    <td> <code>.type-neutral-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-6">Type neutral 6</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-6">Type neutral 6</p> </td>
+    <td> <code>.type-neutral-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-7">Type neutral 7</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-7">Type neutral 7</p> </td>
+    <td> <code>.type-neutral-7</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-8">Type neutral 8</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-8">Type neutral 8</p> </td>
+    <td> <code>.type-neutral-8</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-9">Type neutral 9</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-9">Type neutral 9</p> </td>
+    <td> <code>.type-neutral-9</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-10">Type neutral 10</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-10">Type neutral 10</p> </td>
+    <td> <code>.type-neutral-10</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-11">Type neutral 11</p> </td>
+    <td class="bg-dark-1"> <p class="type-neutral-11">Type neutral 11</p> </td>
+    <td> <code>.type-neutral-11</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-1">Type dark 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-dark-1">Type dark 1</p> </td>
+    <td> <code>.type-dark-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-2">Type dark 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-dark-2">Type dark 2</p> </td>
+    <td> <code>.type-dark-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-3">Type dark 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-dark-3">Type dark 3</p> </td>
+    <td> <code>.type-dark-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-1">Type accent 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-accent-1">Type accent 1</p> </td>
+    <td> <code>.type-accent-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-2">Type accent 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-accent-2">Type accent 2</p> </td>
+    <td> <code>.type-accent-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-3">Type accent 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-accent-3">Type accent 3</p> </td>
+    <td> <code>.type-accent-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-4">Type accent 4</p> </td>
+    <td class="bg-dark-1"> <p class="type-accent-4">Type accent 4</p> </td>
+    <td> <code>.type-accent-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-5">Type accent 5</p> </td>
+    <td class="bg-dark-1"> <p class="type-accent-5">Type accent 5</p> </td>
+    <td> <code>.type-accent-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-1">Type brand 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-brand-1">Type brand 1</p> </td>
+    <td> <code>.type-brand-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-2">Type brand 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-brand-2">Type brand 2</p> </td>
+    <td> <code>.type-brand-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-3">Type brand 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-brand-3">Type brand 3</p> </td>
+    <td> <code>.type-brand-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-4">Type brand 4</p> </td>
+    <td class="bg-dark-1"> <p class="type-brand-4">Type brand 4</p> </td>
+    <td> <code>.type-brand-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-5">Type brand 5</p> </td>
+    <td class="bg-dark-1"> <p class="type-brand-5">Type brand 5</p> </td>
+    <td> <code>.type-brand-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-1">Type error 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-error-1">Type error 1</p> </td>
+    <td> <code>.type-error-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-2">Type error 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-error-2">Type error 2</p> </td>
+    <td> <code>.type-error-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-3">Type error 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-error-3">Type error 3</p> </td>
+    <td> <code>.type-error-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-4">Type error 4</p> </td>
+    <td class="bg-dark-1"> <p class="type-error-4">Type error 4</p> </td>
+    <td> <code>.type-error-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-1">Type success 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-success-1">Type success 1</p> </td>
+    <td> <code>.type-success-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-2">Type success 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-success-2">Type success 2</p> </td>
+    <td> <code>.type-success-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-1">Type warn 1</p> </td>
+    <td class="bg-dark-1"> <p class="type-warn-1">Type warn 1</p> </td>
+    <td> <code>.type-warn-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-2">Type warn 2</p> </td>
+    <td class="bg-dark-1"> <p class="type-warn-2">Type warn 2</p> </td>
+    <td> <code>.type-warn-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-3">Type warn 3</p> </td>
+    <td class="bg-dark-1"> <p class="type-warn-3">Type warn 3</p> </td>
+    <td> <code>.type-warn-3</code> </td>
+  </tr>
+</table>
 
 */
 
