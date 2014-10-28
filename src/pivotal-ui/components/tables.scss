@@ -297,16 +297,7 @@ name: table_alignment
 parent: table
 ---
 
-Alignment classes can be used to align text top, bottom, middle or left, right, center. They can be applied to the `<table>`, `<tr>`,  `<td>`, or `<th>` and will affect all children. The *closest* class to the content will win in case of conflict.
-
-Class                 | Description
---------------------- | -----------------
-`.txt-l`              | Aligns text to the left
-`.txt-r`              | Aligns text to the right
-`.txt-c`              | Centers text horizontally
-`.txt-t`              | Aligns text to the top
-`.txt-b`              | Aligns text to the bottom
-`.txt-m`              | Centers text vertically
+See the [alignment component](/utilities.html#alignment) for classes to use for table text alignment.
 
 */
 
