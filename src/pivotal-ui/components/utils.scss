@@ -258,3 +258,49 @@ Note: the background colors in the example are just for display in the styleguid
     }
   }
 }
+
+/*doc
+---
+title: Alignment
+name: alignment
+categories:
+  - All
+  - Utilities
+---
+
+Alignment classes can be used to align text top, bottom, middle or left, right, center.
+
+Class                 | Description
+--------------------- | -----------------
+`.txt-l`              | Aligns text to the left
+`.txt-r`              | Aligns text to the right
+`.txt-c`              | Centers text horizontally
+`.txt-t`              | Aligns text to the top
+`.txt-b`              | Aligns text to the bottom
+`.txt-m`              | Centers text vertically
+
+*/
+
+.txt-c {
+  text-align: center;
+}
+
+.txt-l {
+  text-align: left;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.txt-t {
+  vertical-align: top;
+}
+
+.txt-b {
+  vertical-align: bottom;
+}
+
+.txt-m {
+  vertical-align: middle;
+}
