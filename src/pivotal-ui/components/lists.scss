@@ -692,14 +692,14 @@ medium                | `.list-card-md`
 large                 | `.list-card-lg`
 extra-large           | `.list-card-xl`
 
-<div class="alert alert-info">
+<div class="alert alert-info mbxl">
   <p>The cards list should only be used in fully liquid layouts, otherwise grids are a better choice.</p>
 </div>
 
-This is an example of a card list with the `list-cards-xs` stack point applied:
+This is an example of a card list with the `list-cards-xs` stack point applied.
+Resize the browser to see how cards stack on desktop sizes and expand on mobile sizes.
 
 ```html_example
-<p>Drag to resize this container and see how cards stack. Resize the browser to see mobile behavior (media queries are browser.</p>
 
 <ul class="list-cards list-card-2 list-cards-xs">
   <li class="bg-neutral-7">
