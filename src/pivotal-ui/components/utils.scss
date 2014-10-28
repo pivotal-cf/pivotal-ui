@@ -199,64 +199,62 @@ Similar to the regular responsive classes, use these for toggling content for pr
 
 /*doc
 ---
-title: Aligner
-name: vertical_aligner
-parent: grids
+title: Vertical Align
+name: vertical_align
+categories:
+  - All
+  - Layout
 ---
 
-Based on a [component by Philip Walton](https://github.com/philipwalton/solved-by-flexbox/blob/master/_sass/components/_aligner.scss),
-this component will allow us to vertically align portions of our app.
+The Aligner allows you to vertically align children to the top, center, or bottom.
+Its height is set by default to 230px.
 
-NB: DON'T use the DEMO class when using this component in the wild.
+This component doesn't do any horizontal alignment.
+You can use grids, or the [text-alignment classes](/utilities.html#alignment)
+`.txt-l`, `.txt-r`, and `.txt-c` with this component.
 
-Annoyingly, this component needs to have it's height/min-height set explicitly...
-That makes it not so reusable.
-Currently set to 230px as required by the space cards.
+<div class="alert alert-warning">
+  <p>
+    This component is not supported in IE10 and below.
+    While the content will appear, it will not be vertically aligned.
+  </p>
+</div>
 
-```haml_example
-.Demo.aligner
-  .Demo.aligner-item.aligner-item-top
-    %h2 top
-  .Demo.aligner-item
-    %h2 centered
-  .Demo.aligner-item.aligner-item-bottom
-    %h2 bottom
+```html_example
+<div class="aligner txt-c">
+  <a class="aligner-item" href="http://bitly.com/ZTHUDU">Centered content</a>
+</div>
 ```
 
+Override the default height by setting an inline style like so:
+
+```html_example
+<div class="aligner" style="height: 200px;">
+  <a class="aligner-item aligner-item-top" href="http://bit.ly/1wCDWdC">On Top</a>
+  <a class="aligner-item" href="http://bitly.com/ZTHUDU">Center</a>
+  <a class="aligner-item aligner-item-bottom" href="http://bit.ly/12TqYiL">Bottom</a>
+</div>
+```
+
+Note: the background colors in the example are just for display in the styleguide.
+
 */
+
 .aligner {
+  height: 230px;
   display: flex;
+  flex-flow: row wrap;
   align-items: center;
-  justify-content: center;
-
-  // height is needed for IE10-11 for this bug
-  // http://bit.ly/16b1Xhx
-  height: 200px; // TODO: this is super annoying, and means it can only work as a one-off since the height needs to be fixed. Blarg. Maybe set the height inline for each usage? Ew.
-  // other browsers use min-height
-  @supports not(-ms-flex: 1) {
-    height: auto;
-    min-height: 200px;
-  }
-
 
   .aligner-item {
-    max-width: 50%;
+    flex: 0 100%;
 
+    &.aligner-item-top {
+      align-self: flex-start;
+    }
+
+    &.aligner-item-bottom {
+      align-self: flex-end;
+    }
   }
-
-  .aligner-item-top {
-    align-self: flex-start;
-  }
-
-  .aligner-item-bottom {
-    align-self: flex-end;
-  }
-}
-
-.Demo { // TODO: move this to the styleguide.css file
-  width: 100%;
-  padding: .8em 1em 0;
-  margin-bottom: 1em;
-  background: rgba(147,128,108,.1);
-  border-radius: 3px;
 }

@@ -113,7 +113,7 @@ blockquote {
     padding: 0;
 
 
-    
+
     > li {
       display: inline-block;
       font-size: $font-size-small;
@@ -520,4 +520,11 @@ td.is-visible {
 td.is-hidden {
   color: #ccc;
   background-color: #f9f9f9 !important;
+}
+
+.aligner {
+  background-color: $neutral-10;
+  > * {
+    background-color: $neutral-11;
+  }
 }
