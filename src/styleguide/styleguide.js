@@ -14,7 +14,7 @@ $(document).ready(function(){
 /* Adjust scrollTop when navigating to a subsection on the current page */
 
 $(document).ready(function() {
-  $('a.styleguide-subsection, .section-nav a').on('click', function(e) {
+  $('a.styleguide-subsection, .section-nav a').click(function(e) {
     var $target = $(e.target.hash);
     var desiredScrollPosition = $target.offset().top;
     window.history.pushState('', '', e.target.hash);
@@ -31,4 +31,12 @@ $(document).ready(function() {
 
 $(document).ready(function() {
   $('.codeExample a').attr('target', '_blank');
+});
+
+/* Navbar hamburger functionality */
+
+$(document).ready(function() {
+  $('#navbar-hamburger').click(function() {
+    $('ul#styleguide-first-level-nav').slideToggle(300);
+  });
 });

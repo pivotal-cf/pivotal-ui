@@ -70,8 +70,7 @@ blockquote {
 }
 
 .styleguide-header {
-  position: fixed;
-  top: 0;
+  min-height: 40px;
   width: 100%;
   z-index: 100;
 
@@ -106,68 +105,153 @@ blockquote {
 
   }
 
+  #navbar-hamburger {
+    float: right;
+    margin: 4px 0px;
+    border: none;
+    padding: 5px 7px;
+    border-radius: 4px;
+    background: transparent;
+    @include transition-pui(background, 0.5s, ease-out);
 
-  ul.styleguide-first-level-nav {
-    list-style-type: none;
+    &:hover {
+      background: $dark-2;
+    }
+
+    .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+      background: $neutral-10;
+
+      &:not(:first-of-type) {
+        margin: 4px;
+      }
+    }
+  }
+
+  #styleguide-first-level-nav-wrapper {
+    margin: 0 -10px;
+  }
+
+  ul#styleguide-first-level-nav {
+    display: none;
+    clear: both;
     margin: 0;
     padding: 0;
-
-
+    background: $dark-2;
+    list-style-type: none;
 
     > li {
-      display: inline-block;
-      font-size: $font-size-small;
-      padding: 10px 15px;
-      position: relative;
+      @include transition-pui(background);
 
       a {
         color: $neutral-11;
       }
 
-      ul.styleguide-second-level-nav {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 200px;
-        background-color: $neutral-1;
-        list-style-type: none;
-        padding: 10px 20px;
+      > a {
+        display: inline-block;
+        width: 100%;
+        padding: 8px 10px;
+        @include transition-pui(color);
 
-        li {
-          padding-bottom: 5px;
-          font-size: $font-size-base;
-
-          a {
-            color: $neutral-11;
-          }
-
-          &:hover {
-            a {
-              color: $link-hover-color;
-            }
-          }
+        &:after {
+          float: right;
+          content: '\f054';
+          font-family: 'FontAwesome';
+          font-size: $font-size-small;
+          line-height: 24px;
         }
       }
 
-      &:hover {
-        @include transition-pui();
-        background: $neutral-1;
+      ul.styleguide-second-level-nav {
+        display: none;
+        list-style-type: none;
+      }
 
-        ul {
-          display: block;
+      &:hover {
+        background: $dark-1;
+
+        > a {
+          color: $brand-4;
+        }
+      }
+    }
+  }
+
+  @media(min-width: $screen-md-min) {
+    position: fixed;
+    top: 0;
+
+    #styleguide-first-level-nav-wrapper {
+      margin: 0;
+    }
+
+    ul#styleguide-first-level-nav {
+      position: relative;
+      display: block;
+      clear: none;
+      top: 0;
+      background: transparent;
+
+      > li {
+        position: relative;
+        display: inline-block;
+        padding: 10px 15px;
+        font-size: $font-size-small;
+
+        > a {
+          padding: 0;
+          display: inline;
+
+          &:after {
+            float: none;
+            margin-left: 7px;
+            content: '\f078';
+            font-size: $font-size-extra-small;
+          }
         }
 
-        a {
-          @include transition-pui();
-          color: $brand-3;
+        ul.styleguide-second-level-nav {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 200px;
+          padding: 10px 20px;
+          background-color: $neutral-1;
+
+          > li {
+            padding-bottom: 5px;
+            font-size: $font-size-base;
+
+            &:hover {
+              a {
+                color: $link-hover-color;
+              }
+            }
+          }
+        }
+
+        &:hover {
+          background: $neutral-1;
+
+          > a {
+            color: $brand-3;
+          }
+
+          ul.styleguide-second-level-nav {
+            display: block;
+          }
         }
       }
     }
 
+    #navbar-hamburger {
+      display: none;
+    }
   }
 }
-
 
 div.codeExample, div.jsExample {
   border: 1px solid #ccc;

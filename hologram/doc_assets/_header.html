@@ -15,27 +15,35 @@
   <body>
     <nav class="styleguide-header">
       <div class="container">
+        <button id="navbar-hamburger">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <ul class="styleguide-first-level-nav">
-          <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
-            <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
-            <% file_name = @categories[category_name] %>
-            <li><a href="<%= file_name %>"><%= category_name %><i class="mlm type-xs fa fa-chevron-down"></i></a>
-              <ul class="styleguide-second-level-nav">
-                <% @pages[file_name][:blocks].each do |b| %>
-                  <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
-                    <% if file_name == @file_name %>
-                      <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
-                    <% else %>
-                      <li><a href="<%= file_name %>#<%= b[:name] %>"><%= b[:title] %></a></li>
+        <div id="styleguide-first-level-nav-wrapper">
+          <ul id="styleguide-first-level-nav">
+            <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
+              <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
+              <% file_name = @categories[category_name] %>
+              <li><a href="<%= file_name %>"><%= category_name %></a>
+                <ul class="styleguide-second-level-nav">
+                  <% @pages[file_name][:blocks].each do |b| %>
+                    <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
+                      <% if file_name == @file_name %>
+                        <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
+                      <% else %>
+                        <li><a href="<%= file_name %>#<%= b[:name] %>"><%= b[:title] %></a></li>
+                      <% end %>
                     <% end %>
                   <% end %>
-                <% end %>
-              </ul>
-            </li>
-          <% end %>
-          <li><a href="all.html">all</a></li>
-        </ul>
+                </ul>
+              </li>
+            <% end %>
+            <li><a href="all.html">All</a></li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="container ptl">
