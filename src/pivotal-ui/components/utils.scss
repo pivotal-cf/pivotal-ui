@@ -258,3 +258,78 @@ Note: the background colors in the example are just for display in the styleguid
     }
   }
 }
+
+/*doc
+---
+title: Alignment
+name: alignment
+categories:
+  - All
+  - Utilities
+---
+
+The following classes can be used to for horizontal alignment.
+
+```html_example_table
+<p class="txt-l">
+  <code>.txt-l</code>
+</p>
+
+<p class="txt-c">
+  <code>.txt-c</code>
+</p>
+
+<p class="txt-r">
+  <code>.txt-r</code>
+</p>
+```
+
+On `display: inline` and `display: table-cell` elements,
+the following classes can be used to for vertical alignment.
+
+```html_example
+<table class="table table-bordered">
+  <tr>
+    <td class="txt-t" width="20%">
+      <code>.txt-t</code>
+    </td>
+    <td class="txt-m" width="20%">
+      <code>.txt-m</code>
+    </td>
+    <td class="txt-b" width="20%">
+      <code>.txt-b</code>
+    </td>
+    <td width="40%">
+      Distillery trust fund Neutra fingerstache plaid messenger bag.
+      Try-hard health goth PBR Helvetica hashtag. Try-hard narwhal letterpress,
+      crucifix selfies trust fund swag mustache quinoa chambray iPhone.
+    </td>
+  </tr>
+</table>
+```
+
+*/
+
+.txt-c {
+  text-align: center;
+}
+
+.txt-l {
+  text-align: left;
+}
+
+.txt-r {
+  text-align: right;
+}
+
+.txt-t {
+  vertical-align: top;
+}
+
+.txt-b {
+  vertical-align: bottom;
+}
+
+.txt-m {
+  vertical-align: middle;
+}

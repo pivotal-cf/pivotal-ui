@@ -5,7 +5,6 @@ name: type
 categories:
   - All
   - Elements
-  - Utilities
 ---
 
 Source Sans Pro is our font family.
@@ -15,6 +14,17 @@ It can be used with the following modifiers to achieve a variety of effects.
 * {
   -webkit-font-smoothing: antialiased;
 }
+
+/*doc
+---
+title: Alignment
+name: type_alignment
+parent: type
+---
+
+See the [alignment component](/utilities.html#alignment) for classes to use for text alignment.
+
+*/
 
 /*doc
 ---
@@ -435,46 +445,3 @@ a:hover.type-inverse {
   color: $error-color !important;
 }
 
-/*doc
----
-title: Alignment
-name: type_alignment
-parent: type
----
-
-Alignment classes can be used to align text top, bottom, middle or left, right, center.
-
-Class                 | Description
---------------------- | -----------------
-`.txt-l`              | Aligns text to the left
-`.txt-r`              | Aligns text to the right
-`.txt-c`              | Centers text horizontally
-`.txt-t`              | Aligns text to the top
-`.txt-b`              | Aligns text to the bottom
-`.txt-m`              | Centers text vertically
-
-*/
-
-.txt-c {
-  text-align: center;
-}
-
-.txt-l {
-  text-align: left;
-}
-
-.txt-r {
-  text-align: right;
-}
-
-.txt-t {
-  vertical-align: top;
-}
-
-.txt-b {
-  vertical-align: bottom;
-}
-
-.txt-m {
-  vertical-align: middle;
-}
