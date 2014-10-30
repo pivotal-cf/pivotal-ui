@@ -1,0 +1,11 @@
+// Super hacky css properties that allow our js code to determine what
+// responsive breakpoint we're at
+
+body {
+  content: 'mobile';
+
+  @media(min-width: $screen-xs-min) {
+    content: 'desktop';
+  }
+}
+

@@ -34,13 +34,11 @@ You can place the link anywhere in your markup, but best practices are either to
   height: 50px;
   width: 50px;
   z-index: $zindex-navbar;
-  
+
   border: 0;
   border-radius: 50%;
   background: $brand-3;
   box-shadow: 0 0 9px rgba(153, 153, 153, 0.8);
-  
-  @include transition-pui();
 
   &:hover {
     background: $brand-2;
