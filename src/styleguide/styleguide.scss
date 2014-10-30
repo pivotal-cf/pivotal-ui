@@ -35,8 +35,11 @@ h6.styleguide {
   color: $brand-3;
   font-weight: 600;
   margin-top: 0;
-  padding-top: 50px;
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 50px;
+  }
 }
+
 
 h1.styleguide {
   font-size: $font-size-title;
@@ -140,41 +143,61 @@ blockquote {
     clear: both;
     margin: 0;
     padding: 0;
-    background: $dark-2;
+    background: $dark-1;
     list-style-type: none;
 
     > li {
       @include transition-pui(background);
 
-      a {
+      > a {
         color: $neutral-11;
       }
 
-      > a {
-        display: inline-block;
-        width: 100%;
+      a.category-link, a.styleguide-second-level-nav-link {
         padding: 8px 10px;
-        @include transition-pui(color);
+      }
 
-        &:after {
-          float: right;
-          content: '\f054';
-          font-family: 'FontAwesome';
-          font-size: $font-size-small;
-          line-height: 24px;
-        }
+      a.category-link {
+        display: inline-block;
+        width: 55%;
+        @include transition-pui(color);
+      }
+
+      a.styleguide-second-level-nav-link {
+        float: right;
+        width: 40%;
+        text-align: right;
       }
 
       ul.styleguide-second-level-nav {
         display: none;
+        padding-left: 0;
         list-style-type: none;
+        background-color: $neutral-1;
+
+        > li {
+          padding-bottom: 5px;
+          font-size: $font-size-base;
+
+          a {
+            display: block;
+            color: $neutral-10;
+            padding: 8px 10px 8px 30px;
+          }
+
+          &:hover {
+            a {
+              color: $blue-3;
+            }
+          }
+        }
       }
 
-      &:hover {
-        background: $dark-1;
+      &:hover, &.active {
+        background: $neutral-1;
 
-        > a {
-          color: $brand-4;
+        a.category-link, a.styleguide-second-level-nav-link {
+          color: $brand-3;
         }
       }
     }
@@ -189,7 +212,6 @@ blockquote {
     }
 
     ul#styleguide-first-level-nav {
-      position: relative;
       display: block;
       clear: none;
       top: 0;
@@ -198,19 +220,17 @@ blockquote {
       > li {
         position: relative;
         display: inline-block;
+        vertical-align: middle;
         padding: 10px 15px;
         font-size: $font-size-small;
 
-        > a {
+        a.category-link {
           padding: 0;
           display: inline;
+        }
 
-          &:after {
-            float: none;
-            margin-left: 7px;
-            content: '\f078';
-            font-size: $font-size-extra-small;
-          }
+        a.styleguide-second-level-nav-link {
+          float: none;
         }
 
         ul.styleguide-second-level-nav {
@@ -219,27 +239,15 @@ blockquote {
           left: 0;
           width: 200px;
           padding: 10px 20px;
-          background-color: $neutral-1;
 
           > li {
-            padding-bottom: 5px;
-            font-size: $font-size-base;
-
-            &:hover {
-              a {
-                color: $link-hover-color;
-              }
+            a {
+              padding: 0;
             }
           }
         }
 
         &:hover {
-          background: $neutral-1;
-
-          > a {
-            color: $brand-3;
-          }
-
           ul.styleguide-second-level-nav {
             display: block;
           }

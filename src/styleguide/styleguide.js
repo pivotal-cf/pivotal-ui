@@ -39,4 +39,18 @@ $(document).ready(function() {
   $('#navbar-hamburger').click(function() {
     $('ul#styleguide-first-level-nav').slideToggle(300);
   });
+
+  $('.styleguide-second-level-nav-link').click(function(e) {
+    e.preventDefault();
+
+    var $targetCategory = $('#' + $(e.currentTarget).data('target'));
+    var targetCategoryClosed = !$targetCategory.hasClass('active');
+
+    $('li.styleguide-category').removeClass('active');
+    $('ul.styleguide-second-level-nav').slideUp();
+    if (targetCategoryClosed) {
+      $targetCategory.addClass('active');
+      $targetCategory.find('ul.styleguide-second-level-nav').slideDown();
+    }
+  });
 });

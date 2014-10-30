@@ -24,10 +24,20 @@
         <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
         <div id="styleguide-first-level-nav-wrapper">
           <ul id="styleguide-first-level-nav">
-            <% ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'].each do |category_name| %>
+            <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'JavaScript', 'Forms', 'by Product'] %>
+
+            <% categories.each_with_index do |category_name, index| %>
               <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
               <% file_name = @categories[category_name] %>
-              <li><a href="<%= file_name %>"><%= category_name %></a>
+
+              <li id="category-<%= index %>" class="styleguide-category">
+                <a class="category-link" href="<%= file_name %>">
+                  <%= category_name %>
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-<%= index %>">
+                  <span class="sr-only">Expand <%= category_name %></span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
                 <ul class="styleguide-second-level-nav">
                   <% @pages[file_name][:blocks].each do |b| %>
                     <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
@@ -41,7 +51,9 @@
                 </ul>
               </li>
             <% end %>
-            <li><a href="all.html">All</a></li>
+            <li>
+              <a class="category-link" href="all.html">All</a>
+            </li>
           </ul>
         </div>
       </div>
