@@ -5,9 +5,8 @@ var utils = require('./utils');
 
 module.exports = function() {
   $(document).ready(function() {
-    if ($('.back-to-top').length) {
+    if ($('.back-to-top').length && utils.isDesktop()) {
       $(window).scroll(_.debounce(updateBackToTopState, 200));
-      $(window).resize(_.debounce(updateBackToTopState, 200));
 
       $('.back-to-top').click(function() {
         $('html, body').animate({scrollTop : 0},800);
@@ -18,7 +17,7 @@ module.exports = function() {
 };
 
 function updateBackToTopState() {
-  if ($(window).scrollTop() > 400 && utils.isDesktop()) {
+  if ($(window).scrollTop() > 400) {
     $('.back-to-top').fadeIn();
   } else {
     $('.back-to-top').fadeOut();
