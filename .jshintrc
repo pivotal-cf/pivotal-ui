@@ -9,7 +9,7 @@
   "immed": true,
   "indent": 2,
   "jquery": false,
-  "latedef": true,
+  "latedef": "nofunc",
   "newcap": true,
   "noarg": true,
   "node": true,

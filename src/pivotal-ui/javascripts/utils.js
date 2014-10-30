@@ -1,5 +1,4 @@
 'use strict';
-var $ = require('jquery');
 
 var breakpoints = {
   xsMin: 480,
