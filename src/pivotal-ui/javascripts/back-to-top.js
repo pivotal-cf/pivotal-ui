@@ -5,7 +5,7 @@ var utils = require('./utils');
 
 module.exports = function() {
   $(document).ready(function() {
-    if ($('.back-to-top').length && utils.isDesktop()) {
+    if ($('.back-to-top').length && utils.isMinWidthXs()) {
       $(window).scroll(_.debounce(updateBackToTopState, 200));
 
       $('.back-to-top').click(function() {
