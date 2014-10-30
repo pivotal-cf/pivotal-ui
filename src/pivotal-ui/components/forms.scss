@@ -532,28 +532,57 @@ categories:
  - Forms
 ---
 
-### Validation
+To show validation errors on a field, add `.has-error` to the field's form group.
+This class can be used for all types of inputs.
 
-Bootstrap includes validation styles for error and success states on form controls. To use, add `.has-error` or `.has-success` to the parent element. Any `.control-label`, `.form-control`, and `.help-block` within that element will receive the validation styles.
+Error messages should use the classes `.help-block.has-error`.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .form-group.has-success
-    %label.control-label{:for => "inputSuccess"} Input with success
-    %input#inputSuccess.form-control{:type => "text"}
+```html_example_table
+<form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <label class="control-label" for="inputError">
+      Input with error
+    </label>
+    <input id="inputError" class="form-control" type="text">
+    <span class="help-block has-error">
+      Error help text
+    </span>
+  </div>
+</form>
 
-  .form-group.has-error
-    %label.control-label{:for => "inputError"} Input with error
-    %input#inputError.form-control{:type => "text"}
-    %span.help-block.has-error Error help text
-
-  .form-group.has-error
-    .checkbox
-      %label.control-label
-        %input{:type => "checkbox", :value => ""}
-          Checkbox which needs to be checked
-      %span.help-block.has-error Error help text
+<form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <div class="checkbox">
+      <label class="control-label">
+        <input type="checkbox" value="">
+        Checkbox which needs to be checked
+      </label>
+      <span class="help-block has-error">
+        Error help text
+      </span>
+    </div>
+  </div>
+</form>
 ```
+
+If you're doing client-side validation and want to show successful validation of a field,
+add `.has-success` to the field's form group.
+
+<div class="alert alert-info mbxl">
+  <p>The <code>.has-success</code> class can only be used on inputs that have a text-box.</p>
+</div>
+
+```html_example_table
+<form class="styleguide-form" role="form">
+  <div class="form-group has-success">
+    <label class="control-label" for="inputSuccess">
+      Input with success
+    </label>
+    <input id="inputSuccess" class="form-control" type="text">
+  </div>
+</form>
+```
+
 */
 
 /* overrides bootstrap colors */
