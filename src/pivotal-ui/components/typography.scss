@@ -56,16 +56,14 @@ Set font sizes using headings and modifier classes.
 ```
 
 <div class="alert alert-info mbxl">
-  <div class="alert-heading">
-    Tip: Separating code and visual semantics
-  </div>
-  <div class="alert-body">
-    <p>
-      Sometimes you may need to use a heading which has different visual and code semantics.
-      You can accomplish this by combining classes with elements
-      (classes take visual precedence over elements in this case).
-    </p>
-  </div>
+  <h5 class="em-high mtn">
+    Separating code and visual semantics
+  </h5>
+  <p>
+    Sometimes you may need to use a heading which has different visual and code semantics.
+    You can accomplish this by combining classes with elements
+    (classes take visual precedence over elements in this case).
+  </p>
 </div>
 
 
@@ -79,7 +77,7 @@ Set font sizes using headings and modifier classes.
 If it's not a heading but you need similar visual treatment you can add just the class to any element.
 
 <div class="alert alert-warning mbxl">
-  <p>
+  <p class="em-high">
     Use headings when possible since they add semantic value.
   </p>
 </div>
