@@ -45,68 +45,24 @@
 
 #### Breaking Changes
 
-* (style) alert text has normal emphasis by default.
-Apply the .em-high class to text elements inside alerts to get bold
-text.
-
-[#81372314]
-
- ((68f8092d))
-* panel-card - has been removed.  Behavior is now available using list-cards
-containing panels.
-
-[#81218882]
-
-Signed-off-by: Nicole Sullivan <nsullivan@pivotal.io>
-Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
-
- ((5cac9e68))
-* (html) alert icons are no longer included by default
-
-BREAKING CHANGE: (sass variable) `$yellow-1`/`$warn-1` are now
-`$yellow-2`/`$warn-2`
-
-BREAKING CHANGE: (sass variable) `$yellow-2`/`$warn-2` are now
-`$yellow-3`/`$warn-3`
-
-BREAKING CHANGE: (style) alerts now have top-margin
-
-[#80077126]
-
-Signed-off-by: Bebe Peng <bpeng@pivotal.io>
-
- ((15bd926a))
-* (css class) `.with-tooltip` is now `.button-with-tooltip-wrapper`
-
-BREAKING CHANGE: (javascript) tooltips must be explicitly initialized
-
-[Finishes #80077170]
-
-Signed-off-by: Bebe Peng <bpeng@pivotal.io>
-
- ((4d4049b3))
-* (css class) table-horizontal and table-numerical are replaced by table-key-value
-
-[Finishes #81055936]
-
-Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
-
- ((36e9dfec))
-* (html) Component no longer uses panels
-
-- Uses it's own table-scrollable-head/body classes (no longer relies
-  on modified panel components)
-- Sets column width with inline attributes (no longer uses column classes)
-- Uses table layout fixed, which means we need to be explicit
-  about all sizes
-- Configurable styles are now variables
-- No longer relies explicitly on whitespace classes
-
-[Finishes #81051126]
-
-Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
-
- ((7f3fa538))
+* **alert:** 
+  * (style) alert text has normal emphasis by default. Apply the .em-high class to text elements inside alerts to get bold text. ((68f8092d))
+  * (html) alert icons are no longer included by default  ((15bd926a))
+  * (sass variable) `$yellow-1`/`$warn-1` are now `$yellow-2`/`$warn-2`  ((15bd926a))
+  * (sass variable) `$yellow-2`/`$warn-2` are now `$yellow-3`/`$warn-3` ((15bd926a))
+  * (style) alerts now have top-margin ((15bd926a))
+* **panels:** panel-card - has been removed.  Behavior is now available using list-cards
+containing panels. ((5cac9e68))
+* **tooltip:** 
+  * (css class) `.with-tooltip` is now `.button-with-tooltip-wrapper` ((4d4049b3))
+  * (javascript) tooltips must be explicitly initialized ((4d4049b3))
+* **table-key-value:** (css class) table-horizontal and table-numerical are replaced by table-key-value ((36e9dfec))
+* **table-scrollable** (html) Component no longer uses panels ((7f3fa538))
+  * Uses it's own table-scrollable-head/body classes (no longer relies on modified panel components)
+  * Sets column width with inline attributes (no longer uses column classes)
+  * Uses table layout fixed, which means we need to be explicit about all sizes
+  * Configurable styles are now variables
+  * No longer relies explicitly on whitespace classes 
 
 <a name="0.2.0"></a>
 ## 0.2.0 (2014-10-22)
