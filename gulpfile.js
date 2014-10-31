@@ -270,8 +270,14 @@ gulp.task('_bumpPackage', [], function(done) {
   });
 });
 
-gulp.task('_bumpVersion', ['_bumpPackage', '_changelog'], function(){
-  return gulp.src(['package.json','CHANGELOG.md'])
+gulp.task('_addVersionRelease', ['_bumpPackage'], function(done) {
+  return gulp.src('dist/**/*')
+    .pipe(gulp.dest('release/' + version() + '/'))
+    .pipe(git.add({args: '-N'}));
+});
+
+gulp.task('_bumpVersion', ['_bumpPackage', '_addVersionRelease', '_changelog'], function(){
+  return gulp.src(['package.json','CHANGELOG.md', 'release/'])
     .pipe(git.commit('v' + version()));
 });
 
@@ -279,7 +285,7 @@ gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
   git.tag(tagName(), tagName(), done);
 });
 
-gulp.task('_pushVersion', ['_tagVersion'], function() {
+gulp.task('_pushVersion', ['_tagVersion'], function(done) {
   // These calls are synchronous in case there is a prompt for credentials
   var res = exec('git push origin HEAD');
   if (res.code !== 0) {
@@ -290,6 +296,8 @@ gulp.task('_pushVersion', ['_tagVersion'], function() {
   if (res.code !== 0) {
     handleError('Unable to push tag', {isFatal: true});
   }
+
+  done();
 });
 
 function determineReleaseType(callback) {
