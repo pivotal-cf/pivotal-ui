@@ -989,7 +989,12 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
 ```html_example
 <div class="form-group">
   <input id="toggleSwitch" class="toggle-switch" type="checkbox">
-  <label for="toggleSwitch"></label>
+  <label for="toggleSwitch">Toggle Switch</label>
+</div>
+
+<div class="form-group">
+  <input id="toggleSwitch2" class="toggle-switch toggle-switch-lg" type="checkbox">
+  <label for="toggleSwitch2">Toggle Switch 2</label>
 </div>
 ```
 
@@ -997,7 +1002,6 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
 
 .toggle-switch {
   position: absolute;
-  margin-left: -9999px;
   visibility: hidden;
 
   + label {
@@ -1010,6 +1014,7 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
     transition: background 0.4s;
     cursor: pointer;
     outline: none;
+    text-indent: -99999px;
 
     &:after {
       position: absolute;
@@ -1018,7 +1023,7 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
       bottom: 4px;
       display: block;
       width: 30px;
-      background-color: #fff;
+      background-color: $neutral-11;
       border-radius: 15px;
       transition: margin 0.4s, background 0.4s;
       content: "";
@@ -1031,5 +1036,22 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
     &:after {
       margin-left: 42px;
     }
+  }
+}
+
+.toggle-switch-lg {
+  + label {
+    width: 120px;
+    height: 60px;
+    border-radius: 60px;
+
+    &:after {
+      width: 50px;
+      border-radius: 25px;
+    }
+  }
+
+  &:checked + label:after {
+    margin-left: 62px;
   }
 }
