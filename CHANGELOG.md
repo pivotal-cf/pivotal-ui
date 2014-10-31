@@ -1,3 +1,113 @@
+<a name="1.0.0"></a>
+## 1.0.0 (2014-10-31)
+
+
+#### Bug Fixes
+
+* **inline-form:** remove unnecessary warning about custom-widths ((7c738681), closes (#81374290))
+* **javascript:** fix errors in back-to-top ((75f49f2f))
+* **layout lists:** add documentation links to cards list. ((528d1fa8))
+* **list-card:** fix incomplete documentation ((e4f44ef1))
+* **list-spacing:** move examples into tables for clarity ((dc71e313))
+* **modal:** change modal-alt-title-color to neutral-10 ((290b05d7))
+* **styleguide:** prevent page from scaling initially on mobile ((81f73fdc))
+* **typography:** remove typography from utilities ((9b5498a8))
+
+
+#### Features
+
+* **alert:**
+  * alerts are more flexible with their content ((68f8092d))
+  * update alert component ((15bd926a))
+* **alignment:**
+  * update docs ((8a9d0f77))
+  * make alignment top-level component in utilites ((4bcbd6e1))
+* **back-to-top:** back-to-top does not show on mobile ((861fb76c))
+* **grids:** update documentation ((b58cbcf5))
+* **iconography:** add download icon to docs ((abe0868f))
+* **list:** update docs for list-event ((d68b91cf))
+* **list-cards:** add tileable fixed width grids via list-cards ((7a705004))
+* **panels:** update panels documentation to use list-cards ((5cac9e68))
+* **spinners:** update docs for spinners ((40d068f5))
+* **styleguide:**
+  * style secondary nav ((4c92d5ca))
+  * make nav bar mobile friendly ((71237539))
+* **table-key-value:** add docs for key value table ((36e9dfec))
+* **table-scrollable:** Update component ((7f3fa538))
+* **tables:** add reference to new alignment component ((5af168f8))
+* **tooltip:** add tooltip component ((4d4049b3))
+* **typography:**
+  * add reference to new alignment component ((4ab30f70))
+  * update typography documentation ((032593e4))
+* **validations:** update documentation ((f072cdc6))
+* **vertical aligner:** add vertical aligner component ((d45b325d))
+
+
+#### Breaking Changes
+
+* (style) alert text has normal emphasis by default.
+Apply the .em-high class to text elements inside alerts to get bold
+text.
+
+[#81372314]
+
+ ((68f8092d))
+* panel-card - has been removed.  Behavior is now available using list-cards
+containing panels.
+
+[#81218882]
+
+Signed-off-by: Nicole Sullivan <nsullivan@pivotal.io>
+Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
+
+ ((5cac9e68))
+* (html) alert icons are no longer included by default
+
+BREAKING CHANGE: (sass variable) `$yellow-1`/`$warn-1` are now
+`$yellow-2`/`$warn-2`
+
+BREAKING CHANGE: (sass variable) `$yellow-2`/`$warn-2` are now
+`$yellow-3`/`$warn-3`
+
+BREAKING CHANGE: (style) alerts now have top-margin
+
+[#80077126]
+
+Signed-off-by: Bebe Peng <bpeng@pivotal.io>
+
+ ((15bd926a))
+* (css class) `.with-tooltip` is now `.button-with-tooltip-wrapper`
+
+BREAKING CHANGE: (javascript) tooltips must be explicitly initialized
+
+[Finishes #80077170]
+
+Signed-off-by: Bebe Peng <bpeng@pivotal.io>
+
+ ((4d4049b3))
+* (css class) table-horizontal and table-numerical are replaced by table-key-value
+
+[Finishes #81055936]
+
+Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
+
+ ((36e9dfec))
+* (html) Component no longer uses panels
+
+- Uses it's own table-scrollable-head/body classes (no longer relies
+  on modified panel components)
+- Sets column width with inline attributes (no longer uses column classes)
+- Uses table layout fixed, which means we need to be explicit
+  about all sizes
+- Configurable styles are now variables
+- No longer relies explicitly on whitespace classes
+
+[Finishes #81051126]
+
+Signed-off-by: Geoff Pleiss <gpleiss@pivotal.io>
+
+ ((7f3fa538))
+
 <a name="0.2.0"></a>
 ## 0.2.0 (2014-10-22)
 
