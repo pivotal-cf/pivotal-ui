@@ -12,11 +12,12 @@ Our color pallet is composed of several different colors. At any given point in 
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.
 
-
 <div class="alert alert-warning alert-dismissable">
+  <h5 class="em-high mtn">
+    Sass variables should only be used in variables.css.scss.
+  </h5>
   <p>
-    Sass variables should <strong>only be used in variables.css.scss</strong>. They should never be used
-    directly when building components, because it makes
+    They should never be used directly when building components, because it makes
     it very hard to change the values later if you can't tell how they might have been used.
     You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
   </p>

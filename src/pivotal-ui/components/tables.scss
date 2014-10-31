@@ -671,7 +671,7 @@ If you would like a custom size, please add an inline style to the `.table-scrol
 Design Note: The `table-scrollable` is often paired with `table-data` and `table-light` as in our example.
 
 <div class="alert alert-info alert-dismissable">
-  <p>
+  <p class="em-high">
     You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
     the first row of the <code>tbody</code>. You can do this with inline width attributes.
   </p>

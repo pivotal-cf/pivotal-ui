@@ -622,17 +622,3 @@ td.is-hidden {
     background-color: $neutral-11;
   }
 }
-
-.alert {
-  .alert-heading {
-    margin-bottom: 12px;
-  }
-
-  .alert-body {
-    font-weight: $font-weight-em-default;
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-  }
-}

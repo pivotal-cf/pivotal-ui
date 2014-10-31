@@ -371,8 +371,11 @@ parent: form
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls. This only applies to forms within viewports that are at least 768px wide.
 
 <div class="alert alert-info">
+  <h5 class="em-high mtn">
+    Always add labels to every input.
+  </h5>
   <p>
-    Always add labels to every input. Screen readers will have trouble with your forms if you don't. You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
+    Screen readers will have trouble with your forms if you don't. You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
   </p>
 </div>
 
@@ -444,7 +447,7 @@ all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
 `tel`, and `color`.
 
 <div class="alert alert-warning">
-  <p>
+  <p class="em-high">
     Inputs will only be fully styled if their type is properly declared.
   </p>
 </div>
@@ -563,7 +566,9 @@ If you're doing client-side validation and want to show successful validation of
 add `.has-success` to the field's form group.
 
 <div class="alert alert-info mbxl">
-  <p>The <code>.has-success</code> class can only be used on inputs that have a text-box.</p>
+  <p class="em-high">
+    The <code>.has-success</code> class can only be used on inputs that have a text-box.
+  </p>
 </div>
 
 ```html_example_table

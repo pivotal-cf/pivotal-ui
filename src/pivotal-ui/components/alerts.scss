@@ -7,15 +7,42 @@ categories:
   - Objects
 ---
 
-Alerts are used to display flash messages to the user.
+Alerts are used to display flash messages to the user. When using alerts with simple one-line text,
+wrap the text in a `<p>` with `.em-high`.
 
 ```html_example
 <div class="alert alert-success">
-  <p>Success</p>
+  <p class="em-high">Success</p>
 </div>
 ```
 
-You can also make them dismissable:
+Alerts are also used to bring important notes to a user's attention. If the content of your alert
+is a little more complicated, we would recommend using headings coupled with the content.
+
+```html_example
+<div class="alert alert-info">
+  <h5 class="em-high mtn">You should know...</h5>
+  <p>There are some things you should note. Just in case you didn't figure it out already.</p>
+  <ul>
+    <li>thing 1</li>
+    <li>thing 2</li>
+  </ul>
+</div>
+```
+
+By adding `.alert-dismassable` and a button, you can also make alerts dismissable.
+
+```html_example
+<div class="alert alert-success alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <p class="em-high">Click the 'X' over there------> </p>
+</div>
+
+```
+
+There are may use cases for alerts. Here is a list of our different alert types.
 
 ```html_example_table
 <div class="alert alert-success alert-dismissable">
@@ -26,7 +53,7 @@ You can also make them dismissable:
     <div class="media-left">
       <i class="fa fa-check-circle"></i>
     </div>
-    <div class="media-body">
+    <div class="media-body em-high">
       Everything is wonderful.
       <a class="alert-link" href="http://bit.ly/QCMZM5">Be happy.</a>
     </div>
@@ -41,7 +68,7 @@ You can also make them dismissable:
     <div class="media-left">
       <i class="fa fa-info-circle"></i>
     </div>
-    <div class="media-body">
+    <div class="media-body em-high">
       Info for you.
       <a class="alert-link" href="http://bit.ly/1DFns8H">Tell me more.</a>
     </div>
@@ -56,7 +83,7 @@ You can also make them dismissable:
     <div class="media-left">
       <i class="fa fa-exclamation-triangle"></i>
     </div>
-    <div class="media-body">
+    <div class="media-body em-high">
       Warning: There is no parking on the dancefloor.
       <a class="alert-link" href="http://bit.ly/1uM05DJ">Be alert.</a>
     </div>
@@ -71,22 +98,19 @@ You can also make them dismissable:
     <div class="media-left">
       <i class="fa fa-exclamation-triangle"></i>
     </div>
-    <div class="media-body">
+    <div class="media-body em-high">
       Something has gone horribly awry.
       <a class="alert-link" href="http://bit.ly/1rooFJV">You've made a huge mistake.</a>
     </div>
   </div>
 </div>
-```
-
-
+``` 
 
 */
 
 .alert {
   border: none;
   margin: $baseSpacing 0 0;
-  font-weight: 600;
 
   a.alert-link {
     &:hover {

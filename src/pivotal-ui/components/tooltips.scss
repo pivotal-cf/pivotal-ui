@@ -14,7 +14,9 @@ The `data-placement` attribute defines the tooltip's placement.
 If `data-placement` is not specified, the tooltip is placed on top by default.
 
 <div class="alert alert-warning">
-  Tooltips must be initialized with javascript: <code>$(mySelector).tooltip();</code>
+  <p class="em-high">
+    Tooltips must be initialized with javascript: <code>$(mySelector).tooltip();</code>
+  </p>
 </div>
 
 ```html_example
@@ -53,7 +55,9 @@ $('#button-with-tooltip-2').tooltip();
 ```
 
 <div class="alert alert-info">
-  If you want to use a tooltip on a disabled element, place the tooltip in a wrapper div with the class <code>.button-with-tooltip-wrapper</code>.
+  <p class="em-high">
+    If you want to use a tooltip on a disabled element, place the tooltip in a wrapper div with the class <code>.button-with-tooltip-wrapper</code>.
+  </p>
 </div>
 
 ```html_example
