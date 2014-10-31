@@ -509,13 +509,15 @@ div.codeBlock {
 // make the grid visible
 
 .grid-show {
-  outline: 1px solid #34928A;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  [class*=col] {
-    background-color: #72B5AD;
-    padding: 10px;
-    outline: 1px solid #34928A;
+  margin-bottom: $grid-gutter-width;
+  text-align: center;
+  [class*=col]:before {
+    content: attr(class) '\a' attr(grid-content);
+    white-space: pre;
+    display: block;
+    background-color: $neutral-10;
+    padding: 10px 0;
+    outline: 1px solid $neutral-5;
   }
 }
 
