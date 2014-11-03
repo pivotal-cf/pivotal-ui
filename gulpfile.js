@@ -14,20 +14,14 @@ var fs = require('fs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
-
 var errorHandler = require('./tasks/errorHandler.js');
-require('./tasks/release.js');
 
-var versionChanges;
+require('./tasks/test.js');
+require('./tasks/release.js');
 
 gulp.task('default', [
   'watch',
   'serve'
-]);
-
-gulp.task('test', [
-  'lint',
-  '_cssCritic',
 ]);
 
 gulp.task('ci', [
@@ -174,31 +168,4 @@ gulp.task('_hologramBuild', ['clean', '_cleanTest'], function() {
         bundler: true
       }).on('error', errorHandler.handleError)
     );
-});
-
-gulp.task('_copyTestAssets', ['assets'], function() {
-  return gulp.src([
-    'dist/**/*',
-  ]).pipe(gulp.dest('./test/dist/'));
-});
-
-gulp.task('_createTestFileList', ['assets'], function(done) {
-  fs.readdir('./test/components/', function(err, files) {
-    if (err) { errorHandler.handleError(err, {callback: done}); }
-
-    var stream = gulp.src('./test/regressionRunner.ejs')
-      .pipe(ejs({
-        files: files
-      }, {
-        ext: '.js'
-      }))
-      .pipe(gulp.dest('./test/'));
-
-    stream.on('finish', done)
-  });
-});
-
-gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], function() {
-  return gulp.src("./test/regressionRunner.html")
-    .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });

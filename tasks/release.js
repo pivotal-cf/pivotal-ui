@@ -9,6 +9,8 @@ require('shelljs/global');
 var rest = require('restler');
 var errorHandler = require('./errorHandler.js');
 
+var versionChanges;
+
 gulp.task('release', [
   '_pushVersion',
   '_zip',
