@@ -1024,6 +1024,10 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
     background-color: $blue-2;
   }
 
+  &[disabled] + label {
+    @include opacity(.5);
+  }
+
   &.toggle-switch-lg {
     + label {
       width: 80px;
