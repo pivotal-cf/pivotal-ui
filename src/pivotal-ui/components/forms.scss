@@ -977,5 +977,71 @@ Use this input when creating a search component.
   }
 }
 
+/*doc
+---
+title: Toggle Switch
+name: toggle_switch
+parent: form
+---
 
+A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.
 
+```html_example
+<div class="form-group">
+  <input id="toggleSwitch" class="toggle-switch toggle-switch-lg" type="checkbox">
+  <label for="toggleSwitch">Toggle Switch</label>
+</div>
+```
+
+*/
+
+.toggle-switch {
+  position: absolute;
+  visibility: hidden;
+
+  + label {
+    position: relative;
+    display: block;
+    background-color: $gray-7;
+    transition: background 0.4s;
+    cursor: pointer;
+    outline: none;
+    text-indent: -99999px;
+
+    &:after {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      bottom: 4px;
+      display: block;
+      background-color: $neutral-11;
+      transition: margin 0.4s, background 0.4s;
+      content: "";
+    }
+  }
+
+  &:checked + label {
+    background-color: $blue-2;
+  }
+
+  &[disabled] + label {
+    @include opacity(.5);
+  }
+
+  &.toggle-switch-lg {
+    + label {
+      width: 80px;
+      height: 40px;
+      border-radius: 40px;
+
+      &:after {
+        width: 30px;
+        border-radius: 15px;
+      }
+    }
+
+    &:checked + label:after {
+      margin-left: 42px;
+    }
+  }
+}
