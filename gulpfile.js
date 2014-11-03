@@ -14,8 +14,10 @@ var fs = require('fs');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
-var requireDir = require('require-dir');
-var dir = requireDir('./tasks');
+
+var errorHandler = require('./tasks/errorHandler.js');
+require('./tasks/release.js');
+
 var versionChanges;
 
 gulp.task('default', [
@@ -47,7 +49,7 @@ gulp.task('serve', function() {
 
 gulp.task('lint', function() {
   return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
-    .pipe(jshint().on('error', handleError))
+    .pipe(jshint().on('error', errorHandler.handleError))
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'));
 });
@@ -115,7 +117,7 @@ gulp.task('_compassBuild', ['clean'], function() {
         config_file: './config/compass.rb',
         css: 'dist',
         sass: 'src'
-      }).on('error', handleError)
+      }).on('error', errorHandler.handleError)
     );
 });
 
@@ -170,7 +172,7 @@ gulp.task('_hologramBuild', ['clean', '_cleanTest'], function() {
     .pipe(
       hologram({
         bundler: true
-      }).on('error', handleError)
+      }).on('error', errorHandler.handleError)
     );
 });
 
@@ -182,7 +184,7 @@ gulp.task('_copyTestAssets', ['assets'], function() {
 
 gulp.task('_createTestFileList', ['assets'], function(done) {
   fs.readdir('./test/components/', function(err, files) {
-    if (err) { handleError(err, {callback: done}); }
+    if (err) { errorHandler.handleError(err, {callback: done}); }
 
     var stream = gulp.src('./test/regressionRunner.ejs')
       .pipe(ejs({
@@ -200,14 +202,3 @@ gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], func
   return gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
-
-function handleError(err, opts) {
-  opts = opts || {};
-
-  console.error(err);
-  if (!!argv.fatal || opts.isFatal) {
-    process.exit(1);
-  } else if (opts.callback) {
-    opts.callback();
-  }
-}
