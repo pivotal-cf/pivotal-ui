@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - '0.10'
+before_install: bundle install
+deploy:
+  edge: true
+  provider: cloudfoundry
+  api: https://api.run.pivotal.io
+  username: labs-pivotal-ui@pivotal.io
+  password:
+    secure: BqKn0fYZL4b1JNTlt2a1APx8BQsSqwIAXfOyK198OnGyywizoXjWl9Fnu4QlEGpqLDhNX0X0v1CCvTU+zNkWWRnmLdpSK5BDRtXjvm7OPtaxHBesi7nfKEGWoAdRXXTMSC/q8mIc4z5USSA7DYu41kSgNO+Cw2Vz6XvsqAMhujo=
+  organization: pivotal
+  space: pivotal-ui
+  on:
+    repo: pivotal-cf/pivotal-ui
+    branch: master

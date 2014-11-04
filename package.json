@@ -53,7 +53,7 @@
     "lodash": "^2.4.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/gulp/bin/gulp.js ci --fatal"
   },
   "repository": {
     "type": "git",
