@@ -5,7 +5,10 @@ var compass = require('gulp-compass');
 var browserify = require('browserify');
 var hologram = require('gulp-hologram');
 var connect = require('gulp-connect');
+var uglifyJs = require('gulp-uglify');
+var minifyCss = require('gulp-minify-css');
 var open = require('gulp-open');
+var rename = require('gulp-rename');
 var ejs = require('gulp-ejs');
 var fs = require('fs');
 var jshint = require('gulp-jshint');
@@ -100,6 +103,7 @@ gulp.task('lint', function() {
 gulp.task('assets', [
   '_styles',
   '_scripts',
+  '_minify',
   '_images',
   '_fonts',
   '_styleguide'
@@ -115,6 +119,22 @@ gulp.task('_cleanTest', function(done) {
   del(['test/components'], {force: true}, function() {
     fs.mkdir('test/components', done);
   });
+});
+
+gulp.task('_minify', ['_minifyjs', '_minifycss']);
+
+gulp.task('_minifycss', ['_styles'], function() {
+  return gulp.src('./dist/pivotal-ui/pivotal-ui.css')
+    .pipe(minifyCss({keepBreaks:true}))
+    .pipe(rename('pivotal-ui.min.css'))
+    .pipe(gulp.dest('./dist/pivotal-ui/'));
+});
+
+gulp.task('_minifyjs', ['_scripts'], function() {
+  return gulp.src('./dist/pivotal-ui/*.js')
+    .pipe(uglifyJs())
+    .pipe(rename('pivotal-ui.min.js'))
+    .pipe(gulp.dest('./dist/pivotal-ui/'));
 });
 
 gulp.task('_styleguide', [
