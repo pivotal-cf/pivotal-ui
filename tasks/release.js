@@ -2,7 +2,6 @@ require('shelljs/global');
 var bump = require('gulp-bump');
 var changelog = require('conventional-changelog');
 var fs = require('fs');
-var git = require('gulp-git');
 var gulp = require('gulp');
 var q = require('q');
 var semver = require('semver');
@@ -132,7 +131,6 @@ gulp.task('_addVersionRelease', ['assets'], function(done) {
   .then(function(newVersion) {
     gulp.src('dist/**/*')
       .pipe(gulp.dest('release/' + newVersion + '/'))
-      .pipe(git.add({args: '-N'}))
       .on('end', done);
   })
   .fail(function(err) {
@@ -168,13 +166,11 @@ gulp.task('_bumpVersion', [
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
   getNewTagName
   .then(function(tagName) {
-    git.tag(tagName, tagName, function(err) {
-      if (err) {
-        errorHandler.handleError(err, {isFatal: true});
-      } else {
-        done();
-      }
-    });
+    var res = exec('git tag ' + tagName);
+    if (res.code !== 0) {
+      errorHandler.handleError('Unable to create tag', {isFatal: true});
+    }
+    done();
   })
   .fail(function(err) {
     errorHandler.handleError(err, {callback: done});
