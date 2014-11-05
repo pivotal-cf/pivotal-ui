@@ -333,7 +333,7 @@ label {
   font-weight: 400;
 }
 
-/*doc
+/*pending
 ---
 title: Fancy Number Inputs
 name: 03_form_fancy_number
@@ -342,16 +342,22 @@ parent: form_inputs
 
 This is a fancy number input!
 
-```haml_example
-%form.styleguide-form{:role => "form", 'ng-controller' => 'FancyNumberExampleCtrl', 'ng-cloak' => true, 'style' => 'width: 200px'}
-  %label{:for => "#instances"} Instances
-  .number-fancy{'fancy-number' => true, 'ng-model' => 'exampleModel.instances', 'ng-change' => ''}
-    %input#instances.form-control
-    %ul.list-unstyled.buttons
-      %li.btn-plus
-        %i.fa.fa-plus
-      %li.btn-minus
-        %i.fa.fa-minus
+```html_example
+<form class="styleguide-form" role="form">
+  <label>Instances</label>
+  <div class="number-fancy">
+    <input class="form-control" />
+    <ul class="list-unstyled buttons">
+      <li class="btn-plus">
+        <i class="fa fa-plus"></i>
+      </li>
+      <li class="btn-minus">
+        <i class="fa fa-minus"></i>
+      </li>
+    </ul>
+  </div>
+</form>
+
 
 ```
 */
