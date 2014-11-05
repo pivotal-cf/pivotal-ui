@@ -1,8 +1,8 @@
-var gulp = require('gulp');
 var ejs = require('gulp-ejs');
-var fs = require('fs');
-var open = require('gulp-open');
 var errorHandler = require('./errorHandler.js');
+var fs = require('fs');
+var gulp = require('gulp');
+var open = require('gulp-open');
 
 gulp.task('test', [
   'lint',
