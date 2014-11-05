@@ -19,15 +19,14 @@ gulp.task('_createTestFileList', ['assets'], function(done) {
   fs.readdir('./test/components/', function(err, files) {
     if (err) { errorHandler.handleError(err, {callback: done}); }
 
-    var stream = gulp.src('./test/regressionRunner.ejs')
+    gulp.src('./test/regressionRunner.ejs')
       .pipe(ejs({
         files: files
       }, {
         ext: '.js'
       }))
-      .pipe(gulp.dest('./test/'));
-
-    stream.on('finish', done);
+      .pipe(gulp.dest('./test/'))
+      .on('end', done);
   });
 });
 
