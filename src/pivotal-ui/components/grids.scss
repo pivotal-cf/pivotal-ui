@@ -89,7 +89,7 @@ See how aspects of the bootstrap grid system work across multiple devices with a
       <th></th>
       <th>
         extra small devices
-        <small>phones (&lt;768px)</small>
+        <small>phones (&leq;768px)</small>
       </th>
       <th>
         small devices
@@ -97,7 +97,7 @@ See how aspects of the bootstrap grid system work across multiple devices with a
       </th>
       <th>
         medium devices
-        <small>desktops (&gt;992px)</small>
+        <small>laptops (&gt;992px)</small>
       </th>
       <th>
         large devices
@@ -1392,7 +1392,7 @@ $grids-debug: false;
     content: "\00a0 << .col-lg-offset-12 \00a0";
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: $screen-lg-min) {
     .clearfix[class*="visible-lg-"]:after {
       font-size: 10px;
       font-style: italic;
@@ -1412,7 +1412,7 @@ $grids-debug: false;
       content: "\00a0 .clearfix .visible-lg-inline-block";
     }
   }
-  @media (max-width: 1199px) {
+  @media (max-width: $screen-md-max) {
     [class*="col-lg-pull-"]:before,
     [class*="col-lg-push-"]:before,
     [class*="col-lg-offset-"]:before,
@@ -1648,7 +1648,7 @@ $grids-debug: false;
     }
 
     body:before {
-      content: "\00a0 medium screen / desktop (md) \00a0";
+      content: "\00a0 medium screen / laptop (md) \00a0";
       background-color: #e7cdf6;
     }
 
@@ -1671,7 +1671,7 @@ $grids-debug: false;
       content: "\00a0 .clearfix .visible-md-inline-block";
     }
   }
-  @media (max-width: 991px) {
+  @media (max-width: $screen-sm-max) {
     [class*="col-lg-pull-"]:before,
     [class*="col-lg-push-"]:before,
     [class*="col-lg-offset-"]:before,
@@ -1930,7 +1930,7 @@ $grids-debug: false;
       content: "\00a0 .clearfix .visible-sm-inline-block";
     }
   }
-  @media (max-width: 767px) {
+  @media (max-width: $screen-xs-max) {
     [class*="col-lg-pull-"]:before,
     [class*="col-lg-push-"]:before,
     [class*="col-lg-offset-"]:before,
@@ -2187,6 +2187,20 @@ $grids-debug: false;
 
     .clearfix.visible-xs-inline-block:after {
       content: "\00a0 .clearfix .visible-xs-inline-block";
+    }
+  }
+
+  @media(max-width: $screen-xs-min) {
+    body:before {
+      content: "\00a0 mobile (default) \00a0";
+      background-color: #f6e9cd;
+    }
+  }
+
+  @media(min-width: $screen-xl-min) {
+    body:before {
+      content: "\00a0 extra large (xl) \00a0";
+      background-color: #f6e9cd;
     }
   }
   .debug-grid {
