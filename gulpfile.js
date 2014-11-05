@@ -3,7 +3,6 @@ var source = require('vinyl-source-stream');
 var del = require('del');
 var compass = require('gulp-compass');
 var browserify = require('browserify');
-var hologram = require('gulp-hologram');
 var connect = require('gulp-connect');
 var uglifyJs = require('gulp-uglify');
 var minifyCss = require('gulp-minify-css');
@@ -15,6 +14,7 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var argv = require('yargs').argv;
 var errorHandler = require('./tasks/errorHandler.js');
+var shell = require('gulp-shell');
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -162,10 +162,7 @@ gulp.task('_copyRandomAssets', ['clean'], function() {
 });
 
 gulp.task('_hologramBuild', ['clean', '_cleanTest'], function() {
-  return gulp.src('hologram_config.yml')
-    .pipe(
-      hologram({
-        bundler: true
-      }).on('error', errorHandler.handleError)
-    );
+  return gulp.src('')
+    .pipe(shell('bundle exec hologram'))
+    .on('error', errorHandler.handleError);
 });
