@@ -331,13 +331,6 @@ Alternate panels can be in a default, off, or danger state.
   }
 }
 
-@media all and (max-width: $screen-xs) {
-  .panel-alt {
-    width:100%;
-  }
-}
-
-
 /*doc
 ---
 title: Shadow
