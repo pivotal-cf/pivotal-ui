@@ -1,74 +1,20 @@
 require('shelljs/global');
 var bump = require('gulp-bump');
-var changelog = require('conventional-changelog');
 var fs = require('fs');
 var gulp = require('gulp');
 var q = require('q');
-var semver = require('semver');
 var zip = require('gulp-zip');
 
 var errorHandler = require('./errorHandler');
 var githubService = require('./githubService');
+var releaseHelper = require('./releaseHelper');
 
-var getNewVersion = function() {
-  var deferred = q.defer();
-
-  determineReleaseType(function(err, releaseType) {
-    if (err) {
-      deferred.reject(err);
-    } else {
-      var newVersion;
-      var oldVersion = require('../package.json').version;
-      newVersion = semver.inc(oldVersion, releaseType);
-      deferred.resolve(newVersion);
-    }
-  });
-
-  return deferred.promise;
-}();
-
-var getNewTagName = function() {
-  var deferred = q.defer();
-
-  getNewVersion
-  .then(function(newVersion) {
-    deferred.resolve('v' + newVersion);
-  })
-  .fail(function(err) {
-    deferred.reject(err);
-  });
-
-  return deferred.promise;
-}();
-
-var getVersionChanges = function() {
-  var deferred = q.defer();
-
-  getNewVersion
-  .then(function(newVersion) {
-    changelog({
-      version: newVersion,
-      file: 'tmp/foo',
-    }, function(err, versionChanges) {
-      if (err) {
-        deferred.reject(err);
-      } else {
-        deferred.resolve(versionChanges);
-      }
-    });
-  })
-  .fail(function(err) {
-    deferred.reject(err);
-  });
-
-  return deferred.promise;
-}();
 
 gulp.task('release', [
   '_pushVersion',
   '_zip',
 ], function(done) {
-  q.all([getNewTagName, getVersionChanges])
+  q.all([releaseHelper.getNewTagName, releaseHelper.getVersionChanges])
   .spread(function(newTagName, versionChanges) {
     return [
       githubService.createRelease(newTagName, versionChanges),
@@ -97,7 +43,7 @@ gulp.task('_zip', [
 });
 
 gulp.task('_changelog', function(done) {
-  getVersionChanges
+  releaseHelper.getVersionChanges
   .then(function(versionChanges) {
     fs.readFile('CHANGELOG.md', function(err, oldLog) {
       if (err) { errorHandler.handleError(err, {callback: done}); }
@@ -114,7 +60,7 @@ gulp.task('_changelog', function(done) {
 });
 
 gulp.task('_bumpPackage', function(done) {
-  getNewVersion
+  releaseHelper.getNewVersion
   .then(function(newVersion) {
     gulp.src(['./package.json'])
       .pipe(bump({version: newVersion}))
@@ -127,7 +73,7 @@ gulp.task('_bumpPackage', function(done) {
 });
 
 gulp.task('_addVersionRelease', ['assets'], function(done) {
-  getNewVersion
+  releaseHelper.getNewVersion
   .then(function(newVersion) {
     gulp.src('dist/**/*')
       .pipe(gulp.dest('release/' + newVersion + '/'))
@@ -143,7 +89,7 @@ gulp.task('_bumpVersion', [
   '_bumpPackage',
   '_addVersionRelease'
 ], function(done) {
-  getNewVersion
+  releaseHelper.getNewVersion
   .then(function(newVersion) {
     // Can't use gulp git because of https://github.com/stevelacy/gulp-git/issues/49
     var res = exec('git add package.json CHANGELOG.md release/');
@@ -164,7 +110,7 @@ gulp.task('_bumpVersion', [
 });
 
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  getNewTagName
+  releaseHelper.getNewTagName
   .then(function(tagName) {
     var res = exec('git tag ' + tagName);
     if (res.code !== 0) {
@@ -179,7 +125,7 @@ gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
 
 gulp.task('_pushVersion', ['_tagVersion'], function(done) {
   // These calls are synchronous in case there is a prompt for credentials
-  getNewTagName
+  releaseHelper.getNewTagName
   .then(function(tagName) {
     var res = exec('git push origin HEAD');
     if (res.code !== 0) {
@@ -197,22 +143,3 @@ gulp.task('_pushVersion', ['_tagVersion'], function(done) {
     errorHandler.handleError(err, {callback: done});
   });
 });
-
-function determineReleaseType(callback) {
-  changelog({
-    version: 'foo',
-    file: 'tmp/foo'
-  }, function(err, log) {
-    if (err) {
-      callback(err, null);
-    } else if (/# breaking changes/i.test(log)) {
-      callback(null, 'major');
-    } else if (/# features/i.test(log)) {
-      callback(null, 'minor');
-    } else if (/# bug fixes/i.test(log)) {
-      callback(null, 'patch');
-    } else {
-      callback('No changes found', null);
-    }
-  });
-}
