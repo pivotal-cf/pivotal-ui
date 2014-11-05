@@ -1,80 +1,93 @@
-var gulp = require('gulp');
-var fs = require('fs');
-var argv = require('yargs').argv;
-var changelog = require('conventional-changelog');
-var zip = require('gulp-zip');
-var bump = require('gulp-bump');
-var git = require('gulp-git');
 require('shelljs/global');
-var rest = require('restler');
-var errorHandler = require('./errorHandler.js');
+var bump = require('gulp-bump');
+var changelog = require('conventional-changelog');
+var fs = require('fs');
+var git = require('gulp-git');
+var gulp = require('gulp');
+var q = require('q');
+var semver = require('semver');
+var zip = require('gulp-zip');
 
-var versionChanges;
+var errorHandler = require('./errorHandler');
+var githubService = require('./githubService');
+
+var getNewVersion = function() {
+  var deferred = q.defer();
+
+  determineReleaseType(function(err, releaseType) {
+    if (err) {
+      deferred.reject(err);
+    } else {
+      var newVersion;
+      var oldVersion = require('../package.json').version;
+      newVersion = semver.inc(oldVersion, releaseType);
+      deferred.resolve(newVersion);
+    }
+  });
+
+  return deferred.promise;
+}();
+
+var getNewTagName = function() {
+  var deferred = q.defer();
+
+  getNewVersion
+  .then(function(newVersion) {
+    deferred.resolve('v' + newVersion);
+  })
+  .fail(function(err) {
+    deferred.reject(err);
+  });
+
+  return deferred.promise;
+}();
+
+var getVersionChanges = function() {
+  var deferred = q.defer();
+
+  getNewVersion
+  .then(function(newVersion) {
+    changelog({
+      version: newVersion,
+      file: 'tmp/foo',
+    }, function(err, versionChanges) {
+      if (err) {
+        deferred.reject(err);
+      } else {
+        deferred.resolve(versionChanges);
+      }
+    });
+  })
+  .fail(function(err) {
+    deferred.reject(err);
+  });
+
+  return deferred.promise;
+}();
 
 gulp.task('release', [
   '_pushVersion',
   '_zip',
 ], function(done) {
-  rest.post('https://api.github.com/repos/pivotal-cf/pivotal-ui/releases', {
-    query: {
-      access_token: process.env.RELEASE_TOKEN,
-    },
-    data: JSON.stringify({
-      'tag_name': tagName(),
-      'name': tagName(),
-      'body': versionChanges,
-      'draft': true
-    })
-  }).on('complete', function(result, response) {
-    if (!/2../.test(response.statusCode)) {
-      errorHandler.handleError(result, {callback: done});
-    }
-    fs.readFile('src/pivotal-ui/components/variables.scss', {encoding: 'utf-8'}, function(err, sass) {
-      if (err) {
-        errorHandler.handleError(err);
-        done();
-      }
-      rest.post('https://uploads.github.com/repos/pivotal-cf/pivotal-ui/releases/' + result.id + '/assets', {
-        query: {
-          name: 'variables.scss',
-          access_token: process.env.RELEASE_TOKEN,
-        },
-        headers: {
-          'Content-Type': 'text/plain'
-        },
-        data: sass,
-      }).on('complete', function(result, response) {
-        if (!/2../.test(response.statusCode)) {
-          errorHandler.handleError(result);
-          return done();
-        }
-        console.log('Successfully created draft release ' + tagName());
-        done();
-      });
-    });
+  q.all([getNewTagName, getVersionChanges])
+  .spread(function(newTagName, versionChanges) {
+    return [
+      githubService.createRelease(newTagName, versionChanges),
+      q.nfcall(fs.readFile, 'src/pivotal-ui/components/variables.scss', {encoding: 'utf-8'})
+    ];
+  })
+  .spread(function(res, sass) {
+    return githubService.uploadFile(res.releaseId, sass);
+  })
+  .then(function() {
+    done();
+  })
+  .catch(function(err) {
+    errorHandler.handleError(err, {callback: done});
   });
 });
 
 // private
-
-gulp.task('_changelog', ['_bumpPackage'], function(done) {
-  changelog({
-    version: version(),
-    file: 'tmp/foo',
-  }, function(err, log) {
-    if (err) { errorHandler.handleError(err, {callback: done}); }
-
-    versionChanges = log;
-    fs.readFile('CHANGELOG.md', function(err, oldLog) {
-      if (err) { errorHandler.handleError(err, {callback: done}); }
-
-      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
-        if (err) { errorHandler.handleError(err, {callback: done}); }
-        done();
-      });
-    });
-  });
-});
 
 gulp.task('_zip', [
   'assets',
@@ -84,53 +97,114 @@ gulp.task('_zip', [
     .pipe(gulp.dest('./'));
 });
 
-gulp.task('_bumpPackage', [], function(done) {
-  determineReleaseType(function(err, releaseType) {
-    if (err) {
-      errorHandler.handleError(err, {isFatal: true});
-    }
+gulp.task('_changelog', function(done) {
+  getVersionChanges
+  .then(function(versionChanges) {
+    fs.readFile('CHANGELOG.md', function(err, oldLog) {
+      if (err) { errorHandler.handleError(err, {callback: done}); }
 
-    var stream = gulp.src(['./package.json'])
-      .pipe(bump({type: releaseType}))
-      .pipe(gulp.dest('./'));
-
-    stream.on('finish', done);
+      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
+        if (err) { errorHandler.handleError(err, {callback: done}); }
+        done();
+      });
+    });
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
   });
 });
 
-gulp.task('_addVersionRelease', ['_bumpPackage'], function(done) {
-  return gulp.src('dist/**/*')
-    .pipe(gulp.dest('release/' + version() + '/'))
-    .pipe(git.add({args: '-N'}));
+gulp.task('_bumpPackage', function(done) {
+  getNewVersion
+  .then(function(newVersion) {
+    gulp.src(['./package.json'])
+      .pipe(bump({version: newVersion}))
+      .pipe(gulp.dest('./'))
+      .on('end', done);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
 });
 
-gulp.task('_bumpVersion', ['_bumpPackage', '_addVersionRelease', '_changelog'], function(){
-  return gulp.src(['package.json','CHANGELOG.md', 'release/'])
-    .pipe(git.commit('v' + version()));
+gulp.task('_addVersionRelease', ['assets'], function(done) {
+  getNewVersion
+  .then(function(newVersion) {
+    gulp.src('dist/**/*')
+      .pipe(gulp.dest('release/' + newVersion + '/'))
+      .pipe(git.add({args: '-N'}))
+      .on('end', done);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
+});
+
+gulp.task('_bumpVersion', [
+  '_changelog',
+  '_bumpPackage',
+  '_addVersionRelease'
+], function(done) {
+  getNewVersion
+  .then(function(newVersion) {
+    // Can't use gulp git because of https://github.com/stevelacy/gulp-git/issues/49
+    var res = exec('git add package.json CHANGELOG.md release/');
+    if (res.code !== 0) {
+      errorHandler.handleError('Unable to add files for committing', {isFatal: true});
+    }
+
+    res = exec('git commit -m "v' + newVersion + '"');
+    if (res.code !== 0) {
+      errorHandler.handleError('Unable to commit version changes', {isFatal: true});
+    }
+
+    done();
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
 });
 
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  git.tag(tagName(), tagName(), done);
+  getNewTagName
+  .then(function(tagName) {
+    git.tag(tagName, tagName, function(err) {
+      if (err) {
+        errorHandler.handleError(err, {isFatal: true});
+      } else {
+        done();
+      }
+    });
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
 });
 
 gulp.task('_pushVersion', ['_tagVersion'], function(done) {
   // These calls are synchronous in case there is a prompt for credentials
-  var res = exec('git push origin HEAD');
-  if (res.code !== 0) {
-    errorHandler.handleError('Unable to push version', {isFatal: true});
-  }
+  getNewTagName
+  .then(function(tagName) {
+    var res = exec('git push origin HEAD');
+    if (res.code !== 0) {
+      errorHandler.handleError('Unable to push version', {isFatal: true});
+    }
 
-  res = exec('git push origin ' + tagName());
-  if (res.code !== 0) {
-    errorHandler.handleError('Unable to push tag', {isFatal: true});
-  }
+    res = exec('git push origin ' + tagName);
+    if (res.code !== 0) {
+      errorHandler.handleError('Unable to push tag', {isFatal: true});
+    }
 
-  done();
+    done();
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
 });
 
 function determineReleaseType(callback) {
   changelog({
-    version: version(),
+    version: 'foo',
     file: 'tmp/foo'
   }, function(err, log) {
     if (err) {
@@ -145,16 +219,4 @@ function determineReleaseType(callback) {
       callback('No changes found', null);
     }
   });
-}
-
-function tagName() {
-  return 'v' + version();
-}
-
-function version() {
-  return packageJson().version;
-}
-
-function packageJson() {
-  return JSON.parse(fs.readFileSync("./package.json", "utf8"));
 }

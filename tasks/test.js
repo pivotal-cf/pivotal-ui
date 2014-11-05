@@ -27,7 +27,7 @@ gulp.task('_createTestFileList', ['assets'], function(done) {
       }))
       .pipe(gulp.dest('./test/'));
 
-    stream.on('finish', done)
+    stream.on('finish', done);
   });
 });
 
