@@ -4,6 +4,7 @@ var connect = require('gulp-connect');
 var errorHandler = require('./errorHandler.js');
 var fs = require('fs');
 var gulp = require('gulp');
+var karma = require('karma').server;
 var open = require('gulp-open');
 
 gulp.task('test', [
@@ -11,6 +12,23 @@ gulp.task('test', [
   '_cssCritic',
   '_rspec',
 ]);
+
+gulp.task('karma', function (done) {
+  karma.start({
+    configFile: __dirname + '/../karma.config.js',
+    browsers: ['PhantomJS'],
+    singleRun: true
+  }, done);
+});
+
+gulp.task('karma-debug', function (done) {
+  karma.start({
+    configFile: __dirname + '/../karma.config.js',
+    browsers: ['Chrome'],
+    singleRun: false,
+    autoWatch: true
+  }, done);
+});
 
 gulp.task('_copyTestAssets', ['assets'], function() {
   return gulp.src([
