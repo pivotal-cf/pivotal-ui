@@ -1,0 +1,11 @@
+/*
+ * IE 10 doesn't support conditional comments so using IE9/IE10 hack.
+ */
+@media screen and (min-width:0\0) {
+  .chip {
+    .chip-color-name {
+      font-size: 10px !important;
+    }
+  }
+}
+
