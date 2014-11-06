@@ -327,6 +327,82 @@ table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
   @extend .txt-m;
 }
 
+/*doc
+---
+title: React Sortable Tables
+name: table_react_sortable
+categories:
+ - React
+---
+
+```html_example
+<div id="sortable-table-react-example">
+</div>
+```
+
+```js_example
+$(function() {
+  var columns = [
+    {
+      name: 'name',
+      title: 'Name'
+    },
+    {
+      name: 'instances',
+      title: 'Instances'
+    },
+    {
+      name: 'cpu',
+      title: 'CPU'
+    },
+    {
+      name: 'synergy',
+      title: 'Synergy'
+    }
+  ]
+
+  var data = [
+    {
+      instances: '1',
+      name: 'foo',
+      cpu: 'po',
+      synergy: 'qum',
+      ram: 'bee',
+    },
+    {
+      name: 'yee',
+      instances: 'di',
+      cpu: 'no',
+      synergy: 'aum'
+    },
+    {
+      name: 'zee',
+      instances: 'si',
+      cpu: 'mo',
+      synergy: 'wum'
+    },
+    {
+      name: 'jee',
+      instances: 'ui',
+      cpu: 'no',
+      synergy: 'mum'
+    }
+  ];
+
+  React.renderComponent(
+    TableSortable({
+      data: data,
+      columns: columns
+    }),
+    document.getElementById('sortable-table-react-example')
+  );
+});
+```
+
+*/
+
+
+
 /*pending
 ---
 title: Angular Sortable Table
@@ -376,7 +452,7 @@ USE:
     }
   }
 
-  [sortable] {
+  .sortable, [sortable] { // latter selector is angular only
     cursor: pointer;
     &:after {
       margin-left: 4px;
