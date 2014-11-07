@@ -12,8 +12,8 @@ describe('TableSortable', function() {
 
     this.columns = [
       {
-        name: 'name',
-        title: 'Name'
+        name: 'title',
+        title: 'Title'
       },
       {
         name: 'instances',
@@ -23,14 +23,14 @@ describe('TableSortable', function() {
     this.data = [
       {
         instances: '1',
-        name: 'foo'
+        title: 'foo'
       },
       {
         instances: '3',
-        name: 'sup'
+        title: 'sup'
       },
       {
-        name: 'yee',
+        title: 'yee',
         instances: '2'
       }
     ];
@@ -48,8 +48,8 @@ describe('TableSortable', function() {
     React.unmountComponentAtNode(this.node);
   });
 
-  it('sorts table rows by asc-name by default', function() {
-    expect($('th:contains("Name")')).toHaveClass('sorted-asc');
+  it('sorts table rows by the first column in ascending order by default', function() {
+    expect($('th:contains("Title")')).toHaveClass('sorted-asc');
     expect($('td').eq(0)).toContainText('foo');
     expect($('td').eq(1)).toContainText('1');
     expect($('td').eq(2)).toContainText('sup');
@@ -60,11 +60,11 @@ describe('TableSortable', function() {
 
   describe('clicking on the already asc-sorted column', function() {
     beforeEach(function() {
-      TestUtils.Simulate.click($("th:contains('Name')").get(0));
+      TestUtils.Simulate.click($("th:contains('Title')").get(0));
     });
 
     it('reverses the sort order', function() {
-      expect($('th:contains("Name")')).toHaveClass('sorted-desc');
+      expect($('th:contains("Title")')).toHaveClass('sorted-desc');
       expect($('td').eq(0)).toContainText('yee');
       expect($('td').eq(1)).toContainText('2');
       expect($('td').eq(2)).toContainText('sup');
@@ -75,11 +75,11 @@ describe('TableSortable', function() {
 
     describe('clicking on the already desc-sorted column', function() {
       beforeEach(function() {
-        TestUtils.Simulate.click($("th:contains('Name')").get(0));
+        TestUtils.Simulate.click($("th:contains('Title')").get(0));
       });
 
       it('reverses the sort order', function() {
-        expect($('th:contains("Name")')).toHaveClass('sorted-asc');
+        expect($('th:contains("Title")')).toHaveClass('sorted-asc');
         expect($('td').eq(0)).toContainText('foo');
         expect($('td').eq(1)).toContainText('1');
         expect($('td').eq(2)).toContainText('sup');
@@ -97,7 +97,7 @@ describe('TableSortable', function() {
 
     it('sorts table rows by asc-instances', function() {
       expect($('th:contains("Instances")')).toHaveClass('sorted-asc');
-      expect($('th:contains("Name")')).not.toHaveClass('sorted-asc');
+      expect($('th:contains("Title")')).not.toHaveClass('sorted-asc');
       expect($('td').eq(0)).toContainText('foo');
       expect($('td').eq(1)).toContainText('1');
       expect($('td').eq(2)).toContainText('yee');

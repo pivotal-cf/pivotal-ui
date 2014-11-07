@@ -46,13 +46,15 @@ var TableRow = React.createClass({
 
 var TableSortable = module.exports = React.createClass({
   getInitialState: function getInitialState() {
+    var initialSortColumn = this.props.columns[0].name;
+
     return {
       sort: {
-        column: 'name',
+        column: initialSortColumn,
         order: 'asc'
       },
 
-      data: _.sortBy(this.props.data, 'name')
+      data: _.sortBy(this.props.data, initialSortColumn)
     };
   },
 
