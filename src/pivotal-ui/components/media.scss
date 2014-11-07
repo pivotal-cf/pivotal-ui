@@ -121,6 +121,8 @@ parent: media
 
 
 You can also make the media block stack with grid columns.
+Media objects switch from being stacked on top to being floated left of the media body as the screen size gets larger.
+For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and then left floated on larger screens.
 
 ```haml_example
 .media.media-stackable-xs
