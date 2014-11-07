@@ -44,6 +44,7 @@
     "karma-bro": "^0.10.0",
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.2.3",
+    "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
     "q": "^1.0.1",
     "require-dir": "^0.1.0",

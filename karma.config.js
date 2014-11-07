@@ -14,7 +14,7 @@ module.exports = function(config) {
       'test/spec/support/*.js',
       'test/spec/javascripts/**/*_spec.js'
     ],
-    frameworks: ['jasmine', 'browserify'],
+    frameworks: ['jasmine-jquery', 'jasmine', 'browserify'],
     logLevel: config.LOG_INFO,
     port: 9876,
     preprocessors: {

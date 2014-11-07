@@ -49,13 +49,13 @@ describe('TableSortable', function() {
   });
 
   it('sorts table rows by asc-name by default', function() {
-    expect($('th:contains("Name")').hasClass('sorted-asc')).toBeTruthy();
-    expect($('td')[0].innerHTML).toEqual('foo');
-    expect($('td')[1].innerHTML).toEqual('1');
-    expect($('td')[2].innerHTML).toEqual('sup');
-    expect($('td')[3].innerHTML).toEqual('3');
-    expect($('td')[4].innerHTML).toEqual('yee');
-    expect($('td')[5].innerHTML).toEqual('2');
+    expect($('th:contains("Name")')).toHaveClass('sorted-asc');
+    expect($('td').eq(0)).toContainText('foo');
+    expect($('td').eq(1)).toContainText('1');
+    expect($('td').eq(2)).toContainText('sup');
+    expect($('td').eq(3)).toContainText('3');
+    expect($('td').eq(4)).toContainText('yee');
+    expect($('td').eq(5)).toContainText('2');
   });
 
   describe('clicking on the already asc-sorted column', function() {
@@ -64,13 +64,13 @@ describe('TableSortable', function() {
     });
 
     it('reverses the sort order', function() {
-      expect($('th:contains("Name")').hasClass('sorted-desc')).toBeTruthy();
-      expect($('td')[0].innerHTML).toEqual('yee');
-      expect($('td')[1].innerHTML).toEqual('2');
-      expect($('td')[2].innerHTML).toEqual('sup');
-      expect($('td')[3].innerHTML).toEqual('3');
-      expect($('td')[4].innerHTML).toEqual('foo');
-      expect($('td')[5].innerHTML).toEqual('1');
+      expect($('th:contains("Name")')).toHaveClass('sorted-desc');
+      expect($('td').eq(0)).toContainText('yee');
+      expect($('td').eq(1)).toContainText('2');
+      expect($('td').eq(2)).toContainText('sup');
+      expect($('td').eq(3)).toContainText('3');
+      expect($('td').eq(4)).toContainText('foo');
+      expect($('td').eq(5)).toContainText('1');
     });
 
     describe('clicking on the already desc-sorted column', function() {
@@ -79,13 +79,13 @@ describe('TableSortable', function() {
       });
 
       it('reverses the sort order', function() {
-        expect($('th:contains("Name")').hasClass('sorted-asc')).toBeTruthy();
-        expect($('td')[0].innerHTML).toEqual('foo');
-        expect($('td')[1].innerHTML).toEqual('1');
-        expect($('td')[2].innerHTML).toEqual('sup');
-        expect($('td')[3].innerHTML).toEqual('3');
-        expect($('td')[4].innerHTML).toEqual('yee');
-        expect($('td')[5].innerHTML).toEqual('2');
+        expect($('th:contains("Name")')).toHaveClass('sorted-asc');
+        expect($('td').eq(0)).toContainText('foo');
+        expect($('td').eq(1)).toContainText('1');
+        expect($('td').eq(2)).toContainText('sup');
+        expect($('td').eq(3)).toContainText('3');
+        expect($('td').eq(4)).toContainText('yee');
+        expect($('td').eq(5)).toContainText('2');
       });
     });
   });
@@ -96,14 +96,14 @@ describe('TableSortable', function() {
     });
 
     it('sorts table rows by asc-instances', function() {
-      expect($('th:contains("Instances")').hasClass('sorted-asc')).toBeTruthy();
-      expect($('th:contains("Name")').hasClass('sorted-asc')).toBeFalsy();
-      expect($('td')[0].innerHTML).toEqual('foo');
-      expect($('td')[1].innerHTML).toEqual('1');
-      expect($('td')[2].innerHTML).toEqual('yee');
-      expect($('td')[3].innerHTML).toEqual('2');
-      expect($('td')[4].innerHTML).toEqual('sup');
-      expect($('td')[5].innerHTML).toEqual('3');
+      expect($('th:contains("Instances")')).toHaveClass('sorted-asc');
+      expect($('th:contains("Name")')).not.toHaveClass('sorted-asc');
+      expect($('td').eq(0)).toContainText('foo');
+      expect($('td').eq(1)).toContainText('1');
+      expect($('td').eq(2)).toContainText('yee');
+      expect($('td').eq(3)).toContainText('2');
+      expect($('td').eq(4)).toContainText('sup');
+      expect($('td').eq(5)).toContainText('3');
     });
   });
 });
