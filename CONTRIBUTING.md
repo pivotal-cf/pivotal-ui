@@ -107,7 +107,12 @@ This will start up the styleguide development server, and generate the `dist/` d
 
 1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/) with a clear title and description against the master branch.
 
+1. If you need to get the latest changes from upstream master, please rebase (not merge) the changes onto your branch. This will require you to force push your branch, but it'll make our git history cleaner.
 
+	```bash
+	git pull --rebase upstream master
+	git push -f origin head
+	```
 
 ## Bug reports
 
