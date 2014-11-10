@@ -71,6 +71,8 @@ This will start up the styleguide development server, and generate the `dist/` d
 
 ## Pull requests
 
+Before starting your pull request, please [open up an issue on Github](#feature-requests). This will ensure our conversation doesn't get lost in email.
+
 1. [Set up your environment](#setting-up-your-environment)
 
 1. If you cloned a while ago, get the latest changes from upstream:
@@ -88,7 +90,11 @@ This will start up the styleguide development server, and generate the `dist/` d
 
 1. **Before you make any changes**, [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes). This will allow you to test for regressions after you make changes.
 
-1. Commit your changes in logical chunks. Please read over our [commit guidelines](#commit-guidelines).
+1. Commit your changes in logical chunks. Our commit conventions are very particular -- please read over our [commit guidelines](#commit-guidelines). Each commit should look something like this:
+
+	```bash
+	fix(table): headers are now capitalized by default
+	```
 
 1. File names should be plural, snake-cased, and end with `.scss` (i.e. `buttons.scss`).
 
@@ -149,7 +155,7 @@ Finally, if you've followed all these steps and you think you have a real bug, [
 
 ## Feature requests
 
-To submit a Feature request, please [open an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues). Screenshots are very helpful! We'll then have a conversation about what you are trying to achieve in your project and the best way to do that.
+To submit a Feature request, please [open an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues). Give context about how you're planning to use this component in your project. Screenshots or mocks are very helpful! We'll then have a conversation about what you are trying to achieve and the best way to do that.
 
 ## Testing
 
@@ -204,13 +210,24 @@ fix(table): headers are now capitalized by default
 and example of a breaking change might look like this:
 
 ```
-feat(color): "orange-color" class is now named "light-orange"
+feat(color): update oranges
 
-BREAKING CHANGE: class name
+BREAKING CHANGE: (sass variable) "orange-color" class is now named "light-orange"
 ```
 
-
 For additonal information regarding commit message format consult the [Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md).
+
+### Breaking Changes
+
+Breaking changes must be **the last line** of the commit, and there can only be one breaking change per commit.
+The breaking change message should be a standalone sentence, illustrating what actually breaks and how to fix it.
+In addition, the breaking change message should include the type of change:
+- **style** (e.g. "BREAKING CHANGE: (style) alert text has normal emphasis by default")
+- **html** (e.g. "BREAKING CHANGE: (html) alert icons are no longer included by default")
+- **sass variable** (e.g. "BREAKING CHANGE: (sass variable) `$yellow-1`/`$warn-1` are now `$yellow-2`/`$warn-2`")
+- **css class** (e.g. "BREAKING CHANGE: (css class) `.with-tooltip` is now `.button-with-tooltip-wrapper`")
+- **javascript** (e.g. "BREAKING CHANGE: (javascript) tooltips must be explicitly initialized")
+
 ## Documenting components
 
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram). The component docs are created from markdown comments in the SCSS.
