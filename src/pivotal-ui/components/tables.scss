@@ -396,7 +396,8 @@ $(function() {
   React.renderComponent(
     TableSortable({
       data: data,
-      columns: columns
+      columns: columns,
+      classes: ['table-data', 'table-light']
     }),
     document.getElementById('sortable-table-react-example')
   );

@@ -102,8 +102,11 @@ var TableSortable = module.exports = React.createClass({
       );
     }, this);
 
+    var defaultClasses = ['table', 'table-sortable'];
+    var allClasses = defaultClasses.concat(this.props.classes).join(' ');
+
     return (
-      <table className='table table-data table-sortable'>
+      <table className={allClasses}>
         <thead>
           <tr>
             {headings}

@@ -66,6 +66,21 @@ describe('TableSortable', function() {
     expect(this.$table.find('th:contains("Unsortable")')).not.toHaveClass('sortable');
   });
 
+  it('adds the additional classes specified in the "classes" property', function() {
+    this.tableSortable = TableSortable({
+      data: this.data,
+      columns: this.columns,
+      classes: ['table-light']
+    });
+    React.renderComponent(this.tableSortable, this.node);
+    this.$table = $('#container table.table-sortable');
+
+    expect(this.$table).toHaveClass('table');
+    expect(this.$table).toHaveClass('table-sortable');
+
+    expect(this.$table).toHaveClass('table-light');
+  });
+
   it('sorts table rows by the first column in ascending order by default', function() {
     expect(this.$table.find('th:contains("Title")')).toHaveClass('sorted-asc');
 
