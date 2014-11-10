@@ -352,16 +352,19 @@ $(function() {
     {
       name: 'instances',
       title: 'Instances',
-      sortable: true
+      sortable: true,
+      align: 'center'
     },
     {
       name: 'cpu',
       title: 'CPU',
-      sortable: true
+      sortable: true,
+      align: 'right'
     },
     {
       name: 'synergy',
-      title: 'Synergy'
+      title: 'Synergy',
+      align: 'left'
     }
   ]
 

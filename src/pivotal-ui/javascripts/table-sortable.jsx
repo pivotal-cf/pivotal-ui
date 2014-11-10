@@ -34,9 +34,20 @@ var TableHeader = React.createClass({
 
 var TableRow = React.createClass({
   render: function render() {
-    var tableCells = _.map(this.props.columnNames, function(columnName) {
+    var alignment = {
+      left: 'txt-l',
+      center: 'txt-c',
+      right: 'txt-r'
+    };
+
+    var tableCells = _.map(this.props.columnNames, function(columnName, columnIndex) {
+      var columnAlignment = this.props.alignment[columnIndex],
+        alignClass;
+
+      alignClass = (columnAlignment) ? alignment[columnAlignment] : '';
+
       return (
-        <td>{this.props.data[columnName]}</td>
+        <td key={columnName} className={alignClass}>{this.props.data[columnName]}</td>
       );
     }, this);
 
@@ -96,9 +107,9 @@ var TableSortable = module.exports = React.createClass({
       );
     }, this);
 
-    var rows = _.map(this.state.data, function(datum) {
+    var rows = _.map(this.state.data, function(datum, datumIndex) {
       return (
-        <TableRow data={datum} key={datum.name} columnNames={_.map(this.props.columns, 'name')} />
+        <TableRow data={datum} key={datumIndex} columnNames={_.map(this.props.columns, 'name')} alignment={_.map(this.props.columns, 'align')} />
       );
     }, this);
 

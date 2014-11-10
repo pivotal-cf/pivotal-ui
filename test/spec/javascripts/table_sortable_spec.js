@@ -19,12 +19,14 @@ describe('TableSortable', function() {
       {
         name: 'instances',
         title: 'Instances',
-        sortable: true
+        sortable: true,
+        align: 'center'
       },
       {
         name: 'unsortable',
         title: 'Unsortable',
-        sortable: false
+        sortable: false,
+        align: 'right'
       }
     ];
     this.data = [
@@ -79,6 +81,12 @@ describe('TableSortable', function() {
     expect(this.$table).toHaveClass('table-sortable');
 
     expect(this.$table).toHaveClass('table-light');
+  });
+
+  it('column data is aligned to the specified margin', function (){
+    expect(this.$table.find('tbody tr:nth-of-type(1) > td').eq(0)).not.toHaveClass('txt-l');
+    expect(this.$table.find('tbody tr:nth-of-type(2) > td').eq(1)).toHaveClass('txt-c');
+    expect(this.$table.find('tbody tr:nth-of-type(1) > td').eq(2)).toHaveClass('txt-r');
   });
 
   it('sorts table rows by the first column in ascending order by default', function() {
