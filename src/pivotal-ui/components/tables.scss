@@ -345,15 +345,18 @@ $(function() {
   var columns = [
     {
       name: 'name',
-      title: 'Name'
+      title: 'Name',
+      sortable: true
     },
     {
       name: 'instances',
-      title: 'Instances'
+      title: 'Instances',
+      sortable: true
     },
     {
       name: 'cpu',
-      title: 'CPU'
+      title: 'CPU',
+      sortable: true
     },
     {
       name: 'synergy',

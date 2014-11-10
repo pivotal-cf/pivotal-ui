@@ -6,22 +6,26 @@ var _ = require('lodash');
 
 var TableHeader = React.createClass({
   handleClick: function handleClick(e) {
-    this.props.onTableHeaderClick(this);
+    if (this.props.sortable) {
+      this.props.onSortableTableHeaderClick(this);
+    }
   },
 
   render: function render() {
     var sortClass;
 
-    if (this.props.sortState.column !== this.props.key) {
-      sortClass = 'sorted-none';
-    } else if (this.props.sortState.order === 'asc') {
-      sortClass = 'sorted-asc';
-    } else {
-      sortClass = 'sorted-desc';
+    if (this.props.sortable) {
+      if (this.props.sortState.column !== this.props.key) {
+        sortClass = 'sortable sorted-none';
+      } else if (this.props.sortState.order === 'asc') {
+        sortClass = 'sortable sorted-asc';
+      } else {
+        sortClass = 'sortable sorted-desc';
+      }
     }
 
     return (
-      <th className={'sortable ' + sortClass} onClick={this.handleClick}>
+      <th className={sortClass} onClick={this.handleClick}>
         {this.props.children}
       </th>
     );
@@ -86,7 +90,7 @@ var TableSortable = module.exports = React.createClass({
   render: function render() {
     var headings = _.map(this.props.columns, function(column) {
       return (
-        <TableHeader key={column.name} sortState={this.state.sort} onTableHeaderClick={this.sortData}>
+        <TableHeader key={column.name} sortable={column.sortable} sortState={this.state.sort} onSortableTableHeaderClick={this.sortData}>
           {column.title}
         </TableHeader>
       );
