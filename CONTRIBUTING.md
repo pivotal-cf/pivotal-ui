@@ -257,6 +257,7 @@ Here are some guidelines to follow when writing docs:
 - **by Product** - product specific components *(i.e. a PWS marketing pricing widget)*
 
 In addition, every parent component **must** belong to the **All** category.
+However, please list all other categories before the all category.
 
 ### Examples
 
@@ -267,9 +268,8 @@ Parent component:
 	title: Buttons
 	name: button
 	categories:
+	  - Elements
 	  - All
-	  - CSS
-	  - marketing-site
 	---
 
 	Button styles can be applied to any element. Typically you'll want to
