@@ -7,33 +7,34 @@ categories:
   - All
 ---
 
-Labels are based on Bootstrap's labels. You can place them on their own or within an HTML element. It will be sized based on the element's font size and listens to font size modifiers.
+Labels are based on Bootstrap's labels.
+Here's an example of a label on its own.
 
-```haml_example
+```haml_example_table
+<span class="label label-primary">new</span>
+```
 
-%span.label.label-primary
-  new
+You can also place labels within HTML elements.
+It will be sized based on the element's font size and its font modifiers.
 
-%p
-  I am a P.
-  %span.label.label-primary
-    new
+```html_example_table
+<p>I am a P.
+  <span class="label label-primary">new</span>
+</p>
 
-%h1
-  I am an H1.
-  %span.label.label-primary
-    new
+<h3>I am an H3.
+  <span class="label label-primary">new</span>
+</h3>
 
-%h1.h5
-  I am an H1 with an H5 modifier.
-  %span.label.label-primary
-    new
+<h3 class="h5">I am an H3 with an H5 modifier.
+  <span class="label label-primary">new</span>
+</h3>
 
 ```
 */
 
 .label {
-  padding: 1px 3px;
+  padding: 0.2em 0.6em;
   border-radius: 3px;
   text-transform: uppercase;
 }
