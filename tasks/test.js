@@ -11,6 +11,7 @@ gulp.task('test', [
   'lint',
   '_cssCritic',
   '_rspec',
+  'karma'
 ]);
 
 gulp.task('karma', function (done) {
