@@ -3,8 +3,8 @@
 title: Lists
 name: list
 categories:
-  - All
   - Elements
+  - All
 ---
 
 This section contains different list styles.
@@ -15,11 +15,11 @@ This section contains different list styles.
 title: JS Lists
 name: lists_js
 categories:
-  - All
   - JavaScript
+  - All
 ---
 
-This section contains different list behaviors. See [lists](/elements.html#list) to see different list styles.
+This section contains different list behaviors. See [lists][list] to see different list styles.
 */
 
 
@@ -344,7 +344,7 @@ parent: list
 This is a special list-group, with styles per-event for colors and icons. 
 
 Note: If you need a list item that with an icon that isn't shown below, 
-take a look at [icons](/elements.html#iconography), and let us know which one you want.
+take a look at [icons][iconography], and let us know which one you want.
 
 ```haml_example
 %ul.list-group.event-list
@@ -779,15 +779,16 @@ You can then access the class via `.list-card-#{name}`
 title: Layout Lists
 name: layout_lists
 categories:
-  - All
   - Layout
+  - All
 ---
 
 Sometimes you might want to use lists to lay out elements on the page.
 
-[Inline lists](/elements.html#list_inline) and [vertical divider lists](/elements.html#list_vertical_divider)
-are particularly useful when you don't know the width of the element you want to layout, or you want to vertically align it.
+[Inline lists][list_inline] and [vertical divider lists][list_vertical_divider]
+are particularly useful when you don't know the width of the element you want to layout,
+or you want to vertically align it.
 
-Use [Card lists](/elements.html#list_cards) if you'd like to make a grid of vertically and horizontally aligned cards.
+Use [Card lists][list_cards] if you'd like to make a grid of vertically and horizontally aligned cards.
 
 */

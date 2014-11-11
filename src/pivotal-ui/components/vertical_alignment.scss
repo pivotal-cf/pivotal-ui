@@ -3,15 +3,15 @@
 title: Vertical Align
 name: vertical_align
 categories:
-  - All
   - Layout
+  - All
 ---
 
 The Aligner allows you to vertically align children to the top, center, or bottom.
 Its height is set by default to 230px.
 
 This component doesn't do any horizontal alignment.
-You can use grids, or the [text-alignment classes](/utilities.html#alignment)
+You can use grids, or the [text-alignment classes][alignment]
 `.txt-l`, `.txt-r`, and `.txt-c` with this component.
 
 <div class="alert alert-warning">
