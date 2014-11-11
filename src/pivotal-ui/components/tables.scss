@@ -213,7 +213,6 @@ specify column widths for the th/tds.
   }
   tbody {
     tr {
-      @extend .row;
       &:last-child {
         border: none;
       }
