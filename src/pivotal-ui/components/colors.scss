@@ -115,7 +115,7 @@ $tabs-active-bg-color: $gray-2;
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-8"></div>
       <div class="chip-color-name">
@@ -127,7 +127,7 @@ $tabs-active-bg-color: $gray-2;
       </div>
     </div>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-9"></div>
       <div class="chip-color-name">
@@ -572,52 +572,58 @@ parent: color
 <div class="row">
 <div class="contrast-bar">
   <div class="row mvxl">
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-1"></div>
         <div class="chip-color-name">$shadow-1</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-2"></div>
         <div class="chip-color-name">$shadow-2</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-3"></div>
         <div class="chip-color-name">$shadow-3</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-4"></div>
         <div class="chip-color-name">$shadow-4</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-1"></div>
         <div class="chip-color-name">$glow-1</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-2"></div>
         <div class="chip-color-name">$glow-2</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-3"></div>
         <div class="chip-color-name">$glow-3</div>
       </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-4"></div>
         <div class="chip-color-name">$glow-4</div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="chip">
+        <div class="chip-color bg-glow-5"></div>
+        <div class="chip-color-name">$glow-5</div>
       </div>
     </div>
   </div>
@@ -642,6 +648,10 @@ parent: color
 
 .bg-glow-4 {
   background-color: $glow-4;
+}
+
+.bg-glow-5 {
+  background-color: $glow-5;
 }
 
 .bg-shadow-1{
