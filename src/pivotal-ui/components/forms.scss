@@ -477,8 +477,7 @@ categories:
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
-them over a custom dropdown whenever possible. Their size can
-be changed via the [control sizing options](#control_sizing).
+them over a custom dropdown whenever possible.
 
 ```haml_example
 %form.styleguide-form{:role => "form"}
