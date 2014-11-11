@@ -51,8 +51,8 @@ parent: 00_form_introduction
 title: Inline Forms
 name: form_inline
 categories:
-  - All
   - Forms
+  - All
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
@@ -116,8 +116,8 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 title: Inputs & Labels
 name: form_inputs
 categories:
-  - All
   - Forms
+  - All
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -472,8 +472,8 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 title: Selects
 name: form_selects
 categories:
-  - All
   - Forms
+  - All
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -639,8 +639,8 @@ This is a fancy select!
 title: Text Areas
 name: form_textarea
 categories:
-  - All
   - Forms
+  - All
 ---
 
 Text areas are used for larger amounts of input.
@@ -659,8 +659,8 @@ Text areas are used for larger amounts of input.
 title: Checkboxes & Radios
 name: form_checkboxes
 categories:
-  - All
   - Forms
+  - All
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -736,8 +736,8 @@ Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or rad
 title: Help Text
 name: form_help_text
 categories:
-  - All
   - Forms
+  - All
 ---
 Help text
 Block level help text for form controls.
@@ -755,8 +755,8 @@ Block level help text for form controls.
 title: Validations
 name: form_validation
 categories:
- - All
  - Forms
+ - All
 ---
 
 To show validation errors on a field, add `.has-error` to the field's form group.
@@ -873,8 +873,8 @@ input.ng-invalid.ng-dirty {
 title: Disabled Controls
 name: form_disabled_controls
 categories:
-  - All
   - Forms
+  - All
 ---
 
 Controls will occasionally need to be disabled.
@@ -910,8 +910,8 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 title: Static Controls
 name: form_static_control
 categories:
-  - All
   - Forms
+  - All
 ---
 
 When you need to place plain text next to a form label within a form,
@@ -970,8 +970,8 @@ p.form-control-static {
 title: Autoselect Text Inputs
 name: form_autoselect_text_input
 categories:
-  - All
   - Forms
+  - All
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
@@ -990,8 +990,8 @@ This form is used to show information that a user may wish to copy and paste som
 title: Content Editables
 name: form_content_editable
 categories:
-  - All
   - Forms
+  - All
 ---
 
 This form looks and behaves mostly like a content editable field
@@ -1082,8 +1082,8 @@ This form looks and behaves mostly like a content editable field
 title: Toggle Switches
 name: form_toggle_switch
 categories:
-  - All
   - Forms
+  - All
 ---
 
 A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.
@@ -1153,8 +1153,8 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
 title: Focus Inputs
 name: form_focus_input
 categories:
-  - All
   - Forms
+  - All
 ---
 
 Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
