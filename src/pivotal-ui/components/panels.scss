@@ -433,17 +433,17 @@ helper classes for that.
 
 
 ```haml_example_table
-.panel.panel-clickable
+%a.panel.panel-clickable
   .panel-body
     %p.hover-target-1
       hover-target-1 - default text color => link color
 
-.panel.panel-clickable
+%a.panel.panel-clickable
   .panel-body
     %p.hover-target-2
       hover-target-2 - light gray text => default text color
 
-.panel.panel-clickable
+%a.panel.panel-clickable
   .panel-body
     %p.hover-target-3
       hover-target-3 - $gray-9 background => white background
@@ -452,6 +452,7 @@ helper classes for that.
 */
 
 .panel-clickable {
+  display: block;
   background-color: $gray-9;
   cursor: pointer;
   @include transition-pui();
@@ -460,12 +461,16 @@ helper classes for that.
     @include transition-pui();
   }
 
+  .hover-target-1 {
+    color: $text-color;
+  }
+
   .hover-target-2 {
     color: $gray-5;
   }
 
   .hover-target-3 {
-    background-color: $gray-9;
+    background-color: $gray-10;
   }
 
   &:hover{
