@@ -216,16 +216,17 @@ $text-color:            $gray-3 !default;
 // -------------------------
 
 $link-color:                              $blue-2;
-$link-hover-color:                        $blue-3;
+$link-hover-color:                        $blue-1;
 
 $link-lowlight-color:                     $blue-4;
 $link-lowlight-hover-color:               $blue-2;
+$link-lowlight-font-weight:               700;
 
 $link-inverse-color:                      $blue-3;
 $link-inverse-hover-color:                $blue-4;
 
-$link-lowlight-inverse-color:             $gray-4;
-$link-lowlight-inverse-hover-color:       $gray-6;
+$link-lowlight-alt-color:             $gray-4;
+$link-lowlight-alt-hover-color:       $blue-1;
 
 // Typography
 // -------------------------
