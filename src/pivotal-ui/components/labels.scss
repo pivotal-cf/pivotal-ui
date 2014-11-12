@@ -29,7 +29,6 @@ It will be sized based on the element's font size and its font modifiers.
 <h3 class="h5">I am an H3 with an H5 modifier.
   <span class="label label-primary">new</span>
 </h3>
-
 ```
 */
 
@@ -37,4 +36,51 @@ It will be sized based on the element's font size and its font modifiers.
   padding: 0.2em 0.6em;
   border-radius: 3px;
   text-transform: uppercase;
+}
+
+/*doc
+---
+title: Removable Labels
+name: removable_label
+parent: label
+---
+
+Removable labels are used as tags in an editable list. The user will either enter text or select content (i.e.: a dropdown item), and it will be styled as a removable label (most likely in a list). Developers who use these labels must implement the close functionality for when the user clicks the close button.
+
+```html_example
+
+  <span class="label-removable">Removable
+    <a class="close-btn fa fa-close"></a>
+  </span>
+
+  <h1>
+    I am an H1.
+    <span class="label-removable">Removable
+      <a class="close-btn fa fa-close"></a>
+    </span>
+  </h1>
+
+```
+*/
+
+.label-removable {
+  padding: 4px 7px;
+  border-radius: 3px;
+  color: $neutral-11;
+  opacity: 0.6;
+  font-weight: $font-weight-em-high;
+  word-spacing: 1px;
+  background-color: $brand-2;
+  font-family: $font-family-sans-serif;
+}
+
+.label-removable .close-btn {
+  padding: 4px 3px 4px 15px;
+  color: $neutral-11;
+  opacity: 0.6;
+
+  &:hover {
+        color: $neutral-11;
+        opacity: 1;
+    }
 }
