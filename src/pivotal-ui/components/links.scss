@@ -34,8 +34,7 @@ a:hover {
 
 
 .link-lowlight {
-  font-size: 12px;
-  font-weight: 900;
+  font-weight: $link-lowlight-font-weight;
   color: $link-lowlight-color;
   &:hover {
     color: $link-lowlight-hover-color;
