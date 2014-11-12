@@ -271,7 +271,8 @@ $font-weight-h4:          400;
 $font-size-h5:            16px;
 $font-weight-h5:          400;
 
-$font-size-h6:            null;
+$font-size-h6:            13px;
+$font-weight-h6:          400;
 
 $line-height-base:        1.5; //1.428571429 !default; // 20/14
 $line-height-computed:    floor($font-size-base * $line-height-base) !default; // ~20px
