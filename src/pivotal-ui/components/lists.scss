@@ -656,7 +656,7 @@ Replaces the default bullet image with the font awesome checkmark.
   list-style: none;
   padding-left: 20px;
 
-  li:before {
+  > li:before {
     font-family: 'FontAwesome';
     // Font Awesome unicode for fa-check
     content: '\f00c';
@@ -752,7 +752,7 @@ You can then access the class via `.list-card-#{name}`
   @include clearfix-micro;
   @extend .list-unstyled;
 
-  li {
+  > li {
     margin-bottom: $grid-gutter-width;
   }
 }
