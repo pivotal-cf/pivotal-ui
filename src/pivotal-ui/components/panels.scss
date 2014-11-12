@@ -63,41 +63,68 @@ Basic Panels are the new Simple Panels for G-Major
 
 /*doc
 ---
-title: Flex
+title: Flex (Panel with Footer)
 name: panel_flex
 parent: panel
 ---
 
 Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don't
-support flexbox, the footer will appear where it would naturally, likely right below the panel-body content
+support flexbox, the footer will appear where it would naturally, likely right below the panel-body content.
 
-```haml_example
-%ul.list-cards.list-card-2.list-cards-sm
-  %li.panel.panel-flex.bg-neutral-11
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
-  %li.panel.panel-flex.bg-neutral-11
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
-  %li.panel.panel-flex.bg-neutral-11
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
-  %li.panel.panel-flex.bg-neutral-11
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
-  %li.panel.panel-flex.bg-neutral-11
-    .panel-body
-      Body Content
-    .panel-footer
-      Footer Content
+By default, flex panels have no height. You must use an inline style to set the height.
+
+```html_example
+<div class="panel panel-flex bg-neutral-11" style="height:200px">
+  <div class="panel-body">Body Content</div>
+  <div class="panel-footer">Footer Content</div>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Flex panels and list cards
+  </h5>
+  <p>
+    Flex panels are often used with <a href="/elements.html#list_cards">list cards</a>
+    as a way to give list cards footers.
+    Add the class <code>list-card-wrapper</code> on any flex panels inside list cards.
+  </p>
+</div>
+
+```html_example
+<ul class="list-cards list-card-2 list-cards-sm">
+  <li class="panel panel-flex bg-neutral-11">
+    <div class="list-card-wrapper panel panel-flex">
+      <div class="panel-body">Body Content</div>
+      <div class="panel-footer">Footer Content</div>
+    </div>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <form>
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">
+          <p>
+            It even works if your <code>list-card-wrapper</code> is nested in a form
+          </p>
+          <div class="form-group">
+            <input class="form-control" placeholder="Email">
+          </div>
+        </div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </form>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <a class="list-card-link" href="http://wrd.cm/1e2A8uU">
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">Or in a link!</div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </form>
+  </li>
+</ul>
 ```
 */
 

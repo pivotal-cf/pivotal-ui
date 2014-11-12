@@ -800,6 +800,11 @@ wrap all the inner content in `a` with class `list-card-link`.
         display: block;
         min-height: $height;
       }
+
+      .list-card-wrapper {
+        min-height: $height;
+      }
+
     }
   }
 }
