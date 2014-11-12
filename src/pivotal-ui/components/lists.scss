@@ -714,7 +714,6 @@ This is an example of a card list with the `list-cards-xs` stack point applied.
 Resize the browser to see how cards stack on desktop sizes and expand on mobile sizes.
 
 ```html_example
-
 <ul class="list-cards list-card-2 list-cards-xs">
   <li class="bg-neutral-7">
     <p>lorem ipsum 1</p>
@@ -741,11 +740,29 @@ Resize the browser to see how cards stack on desktop sizes and expand on mobile 
     <p>lorem ipsum 8</p>
   </li>
 </ul>
-
 ```
 If you would like custom card dimensions, in your sass include the makeCard mixin, like so: `@include makeCard(height, width, name);`
+You can then access the class via `.list-card-#{name}`.
 
-You can then access the class via `.list-card-#{name}`
+<h3 class="styleguide">Clickable List Cards</h3>
+
+If you want your list cards to function as links (i.e. be clickable),
+wrap all the inner content in `a` with class `list-card-link`.
+
+```html_example
+<ul class="list-cards list-card-1 list-cards-xs">
+  <li class="bg-neutral-7">
+    <a class="list-card-link" href="http://bit.ly/1sEyvH5">
+      <p>This entire list card is clickable!</p>
+    </a>
+  </li>
+  <li class="bg-neutral-7">
+    <a class="list-card-link" href="http://bit.ly/1sFaArX">
+      <p>This entire list card is clickable as well!</p>
+    </a>
+  </li>
+</ul>
+```
 */
 
 .list-cards {
@@ -777,7 +794,10 @@ You can then access the class via `.list-card-#{name}`
     @include setCardWidthResponsive($width);
     > li {
       min-height: $height;
-      a.list-cards-link {
+
+      a.list-cards-link, // deprecated in favor of the singular
+      a.list-card-link {
+        display: block;
         min-height: $height;
       }
     }
