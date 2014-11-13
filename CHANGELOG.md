@@ -1,3 +1,49 @@
+<a name="1.1.0"></a>
+## 1.1.0 (2014-11-13)
+
+
+#### Bug Fixes
+
+* **all:** remove form_introduction and form_basic ((2b5f1025))
+* **fancy number input:** Remove from styleguide ((64be1107), closes (#81949280))
+* **focus-inputs:** remove from styleguide ((ec4c0869), closes (#81955962))
+* **label:** increase padding on labels. ((99ead73f))
+* **links:**
+  * update link-lowlight style ((79ace832), closes (#82520306))
+  * change hover state ((baf77c44))
+  * remove superfluous link w/ icon example ((90cb6459), closes (#82491354))
+* **list:** list styles apply to direct child LIs ((bb7d796c))
+* **list-cards:** add missing documentation on `list-card-link` ((4943cc71), closes (#82608820))
+* **list-group:** background color is now transparent ((b2e8fce3))
+* **media-stackable:** improve documentation. ((1bdd3bcf))
+* **panel-clickable:** Update hover colors of clickable classes ((ce036ca4))
+* **panels:**
+  * close anchor on example ((73393cbe))
+  * remove dead media query on panel alt ((7cc6a661))
+* **styleguide:**
+  * improve font rendering for h3 styles on IE9 and IE10 ((87f7eed1))
+  * update comments ((1053935e))
+  * text under color chips is readable in IE9 and 10 ((05350d04))
+* **table:** remove superfluous extension of `.row` ((0a4d8130), closes (#82484402))
+* **vertical alignment:** restore css which provided this functionality ((f3589e44))
+
+
+#### Features
+
+* **colors:** add bg-glow-5 color ((7b2af147))
+* **forms:**
+  * restyle form elements ((92f5cb4b))
+  * add basic example to docs ((5874f182))
+  * reorganize documentation ((1d74594a))
+* **label-tag:** labels now include a tag style used for editable tags ((26d7362c))
+* **list-cards:** create a `list-card-wrapper` class for flex panel components ((15713b1f))
+* **lists:** add useful example of inline lists for layout ((23925dae))
+* **removable-label:** changed styling on removable labels to make it more similar to labels ((6570837c))
+* **toggle-switch:**
+  * added disabled styling ((b153d57c))
+  * added toggle switch style for checkboxes under forms category ((cb07f981))
+* **typography:** add h6 ((def0393c))
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2014-10-31)
 
