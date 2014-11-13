@@ -59,7 +59,7 @@ gulp.task('_changelog', function(done) {
   });
 });
 
-gulp.task('_bumpPackage', function(done) {
+gulp.task('_bumpPackage', ['assets'], function(done) {
   releaseHelper.getNewVersion
   .then(function(newVersion) {
     gulp.src(['./package.json'])
