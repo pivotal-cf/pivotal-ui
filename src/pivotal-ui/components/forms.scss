@@ -313,6 +313,7 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 
 label {
   font-weight: 400; //override bootstrap
+  color: $neutral-3; //override bootstrap
 }
 
 // do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
@@ -459,8 +460,9 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 
 */
 
-.form-control:focus {
+.form-control {
   box-shadow: none; // override bootstrap
+  padding: 8px 14px; // override bootstrap
 }
 
 .form-control[readonly] {
@@ -817,7 +819,7 @@ add `.has-success` to the field's form group.
 /* overrides bootstrap colors */
 @mixin validation-label-color() {
   .control-label {
-    color: $neutral-5;
+    color: $neutral-3;
   }
 }
 
@@ -834,8 +836,7 @@ add `.has-success` to the field's form group.
     line-height: $input-height-base;
     border-top-right-radius: $input-border-radius;
     border-bottom-right-radius: $input-border-radius;
-    background-color: $teal-3;
-    color: $gray-10;
+    color: $teal-3;
     font-family: FontAwesome;
     font-weight: normal;
     font-style: normal;
@@ -849,8 +850,6 @@ add `.has-success` to the field's form group.
   .help-block, .help-inline {
     font-size: $font-size-small;
   }
-
-  @include validation-label-color()
 }
 
 // align bootstrap errors for checkboxes and radio buttons
@@ -958,9 +957,7 @@ Here's an example in a vertical form:
 
 @include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
 
-.control-label{
-  color: $neutral-5;
-}
+
 p.form-control-static {
   color: $neutral-3;
 }
