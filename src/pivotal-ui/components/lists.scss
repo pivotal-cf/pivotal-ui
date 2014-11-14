@@ -258,6 +258,64 @@ Use this list when you need simple gray borders between items
   %li.list-group-item
     item 3
 ```
+
+Group lists are great for displaying lists of events
+Here's an example from Console:
+
+```html_example
+<ul class="list-group">
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-exclamation-circle type-error-3 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          app crashed
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 4:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-stop type-neutral-5 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          stopped app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 3:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-play type-brand-3 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          started app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 2:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+```
 */
 
 /*pending
@@ -350,115 +408,160 @@ New elements fade in
 
 /*doc
 ---
-title: Event
+title: Event List
 name: list_event
-parent: list
+parent: console
 ---
 
-This is a special list-group, with styles per-event for colors and icons. 
+This is a special list-group, with styles per-event for colors and icons.
 
-Note: If you need a list item that with an icon that isn't shown below, 
-take a look at [icons][iconography], and let us know which one you want.
+<div class="alert alert-danger mbxl">
+  <h5 class="em-high mtn">
+    Deprecation warning
+  </h5>
+  <p>
+    This component is deprecated.
+    To create this component, use a <a href="/elements.html#list_group">list group</a>.
+  </p>
+</div>
 
-```haml_example
-%ul.list-group.event-list
-  %li.list-group-item.started
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title started app
-  %li.list-group-item.stopped
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title stopped app
-  %li.list-group-item.updated
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title updated app
-  %li.list-group-item.scaled
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title scaled app
-  %li.list-group-item.crashed
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title app crashed
-  %li.list-group-item.created
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title created app
-  %li.list-group-item.renamed
-    .media
-      .pull-left
-        .event-icon
-      .media-body
-        .event-title renamed app
+```html_example
+<ul class="list-group event-list">
+  <li class="list-group-item started">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">started app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item stopped">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">stopped app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item updated">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">updated app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item scaled">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">scaled app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item crashed">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">app crashed</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item created">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">created app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+  <li class="list-group-item renamed phn">
+    <div class="media">
+      <div class="media-left media-middle">
+        <div class="event-icon"></div>
+      </div>
+      <div class="media-body">
+        <div class="event-title">renamed app</div>
+        <span class="event-user">user@example.com</span>
+        <span class="event-timestamp">11/14/2014 at 03:05 PM UTC</span>
+      </div>
+    </div>
+  </li>
+</ul>
 ```
 */
 
 .event-list {
-  .event-title {
-    font-weight: bold;
-    font-size: 14px;
-    margin-bottom: 2px;
+  .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
   }
 
-  .event-user {
-    color: $gray-5;
+  .media-left {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .event-title {
+    margin-bottom: 2px;
+    color: $gray-2;
+  }
+
+  .event-user, .event-timestamp {
+    color: $gray-4;
+    font-size: 13px;
   }
 
   .event-icon {
     font-family: 'FontAwesome';
-    font-size: 17px;
-    width: 17px;
+    font-size: 22px;
+    width: 90px;
+    text-align:center;
   }
 
   .started {
-    .event-title {
-      color: $teal-3;
-    }
     .event-icon:after {
       color: $teal-3;
       content: '\f04b';
     }
   }
   .stopped {
-    .event-title {
-      color: $gray-5;
-
-    }
     .event-icon:after {
       color: $gray-5;
       content: '\f04d';
-
     }
   }
   .updated {
-    .event-title {
-      color: $teal-3;
-
-    }
     .event-icon:after {
       color: $teal-3;
       content: '\f01b';
     }
   }
   .scaled {
-    .event-title {
-      color: $teal-3;
-
-    }
     .event-icon:after {
       color: $teal-3;
       content: '\f0e4';
@@ -466,10 +569,6 @@ take a look at [icons][iconography], and let us know which one you want.
     }
   }
   .crashed {
-    .event-title {
-      color: $red-3;
-
-    }
     .event-icon:after {
       color: $red-3;
       content: '\f06a';
@@ -477,10 +576,6 @@ take a look at [icons][iconography], and let us know which one you want.
     }
   }
   .created {
-    .event-title {
-      color: $teal-3;
-
-    }
     .event-icon:after {
       color: $teal-3;
       content: '\f135';
@@ -488,10 +583,6 @@ take a look at [icons][iconography], and let us know which one you want.
     }
   }
   .renamed {
-    .event-title {
-      color: $teal-3;
-
-    }
     .event-icon:after {
       color: $teal-3;
       content: '\f040';
