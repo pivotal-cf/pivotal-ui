@@ -7,7 +7,34 @@ categories:
   - All
 ---
 
-In order to show highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
+This is your basic unstyled code sample:
+
+```html_example
+<pre class="pre-unstyled"><code>class Foo
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
+```
+*/
+
+.pre-unstyled {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+/*doc
+---
+title: Styled Code
+name: code_styled
+parent: code
+---
+
+In order to show syntax-highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
 
 There are several languages already available (and others available from the [Prismjs.com](http://prismjs.com
 ) website), including:
