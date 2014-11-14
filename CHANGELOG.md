@@ -1,3 +1,11 @@
+<a name="1.1.1"></a>
+### 1.1.1 (2014-11-14)
+
+
+#### Bug Fixes
+
+* **links:** remove default underline ((68da716b), closes (#82740244))
+
 <a name="1.1.0"></a>
 ## 1.1.0 (2014-11-13)
 
