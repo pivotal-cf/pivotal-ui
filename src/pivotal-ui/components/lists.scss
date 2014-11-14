@@ -413,10 +413,17 @@ name: list_event
 parent: console
 ---
 
-This component is deprecated.
-To create this component, use a [list group][list_group].
-
 This is a special list-group, with styles per-event for colors and icons.
+
+<div class="alert alert-danger mbxl">
+  <h5 class="em-high mtn">
+    Deprecation warning
+  </h5>
+  <p>
+    This component is deprecated.
+    To create this component, use a <a href="/elements.html#list_group">list group</a>.
+  </p>
+</div>
 
 ```html_example
 <ul class="list-group event-list">
