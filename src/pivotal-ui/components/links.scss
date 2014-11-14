@@ -30,6 +30,7 @@ a{
 
 a:hover {
   cursor: pointer;
+  text-decoration: none;
 }
 
 
@@ -38,7 +39,6 @@ a:hover {
   color: $link-lowlight-color;
   &:hover {
     color: $link-lowlight-hover-color;
-    text-decoration: none;
   }
 }
 
