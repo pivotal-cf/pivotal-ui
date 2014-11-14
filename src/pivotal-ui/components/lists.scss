@@ -258,6 +258,64 @@ Use this list when you need simple gray borders between items
   %li.list-group-item
     item 3
 ```
+
+Group lists are great for displaying lists of events
+Here's an example from Console:
+
+```html_example
+<ul class="list-group">
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-exclamation-circle type-error-3 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          app crashed
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 4:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-stop type-neutral-5 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          stopped app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 3:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-play type-brand-3 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          started app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 2:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+```
 */
 
 /*pending
