@@ -30,25 +30,30 @@ is a little more complicated, we would recommend using headings coupled with the
 </div>
 ```
 
-By adding `.alert-dismassable` and a button, you can also make alerts dismissable.
+If you want to include a link in your alert, use the class `alert-link`.
 
 ```html_example
-<div class="alert alert-success alert-dismissable">
-  <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
-  </button>
-  <p class="em-high">Click the 'X' over there------> </p>
+<div class="alert alert-warning">
+  <h5 class="em-high mtn">Important Link</h5>
+  <p>
+    It is very important that you
+    <a class="alert-link" href="http://bit.ly/1vkXaYb">click here</a>
+  </p>
 </div>
-
 ```
+*/
 
-There are may use cases for alerts. Here is a list of our different alert types.
+/*doc
+---
+title: Alert Types
+name: 01_alert_types
+parent: alert
+---
+
+Our 4 alert types are:
 
 ```html_example_table
-<div class="alert alert-success alert-dismissable">
-  <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
-  </button>
+<div class="alert alert-success">
   <div class="media">
     <div class="media-left">
       <i class="fa fa-check-circle"></i>
@@ -60,10 +65,7 @@ There are may use cases for alerts. Here is a list of our different alert types.
   </div>
 </div>
 
-<div class="alert alert-info alert-dismissable">
-  <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
-  </button>
+<div class="alert alert-info">
   <div class="media">
     <div class="media-left">
       <i class="fa fa-info-circle"></i>
@@ -75,10 +77,7 @@ There are may use cases for alerts. Here is a list of our different alert types.
   </div>
 </div>
 
-<div class="alert alert-warning alert-dismissable">
-  <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
-  </button>
+<div class="alert alert-warning">
   <div class="media">
     <div class="media-left">
       <i class="fa fa-exclamation-triangle"></i>
@@ -90,10 +89,7 @@ There are may use cases for alerts. Here is a list of our different alert types.
   </div>
 </div>
 
-<div class="alert alert-error alert-dismissable">
-  <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
-  </button>
+<div class="alert alert-error">
   <div class="media">
     <div class="media-left">
       <i class="fa fa-exclamation-triangle"></i>
@@ -104,8 +100,28 @@ There are may use cases for alerts. Here is a list of our different alert types.
     </div>
   </div>
 </div>
-``` 
+```
 
+*/
+
+/*doc
+---
+title: Dismissable Alerts
+name: 02_alert_dismissable
+parent: alert
+---
+
+By adding `.alert-dismissable` and a button, you can also make alerts dismissable.
+
+```html_example
+<div class="alert alert-success alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <p class="em-high">Click the 'X' over there------> </p>
+</div>
+
+```
 */
 
 .alert {
@@ -113,9 +129,8 @@ There are may use cases for alerts. Here is a list of our different alert types.
   margin: $baseSpacing 0 0;
 
   a.alert-link {
-    &:hover {
-      text-decoration: underline;
-    }
+    color: inherit;
+    text-decoration: underline;
   }
 
   .close {
@@ -125,7 +140,24 @@ There are may use cases for alerts. Here is a list of our different alert types.
   }
 }
 
+.alert-success .alert-link:hover {
+  color: darken($alert-success-text, 10%);
+}
+
+.alert-info .alert-link:hover {
+  color: darken($alert-info-text, 10%);
+}
+
+.alert-warning .alert-link:hover {
+  color: darken($alert-warning-text, 10%);
+}
+
 // bootstrap includes alert-danger, but our html expects "alert-error" class
 .alert-error {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+  @extend .alert-danger;
+
+  .alert-link:hover {
+    color: darken($alert-danger-text, 10%);
+  }
 }
+
