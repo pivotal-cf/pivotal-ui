@@ -20,12 +20,12 @@ There are four different kinds of links you can use to connect related content.
 In most cases (unless the designer specifically asks for another type of link)
 you should choose the default link.
 
-Link                                                                                                              | Class                 | Description
---------------------------------------------------------------------------------------------------------------    | ------------------    | -----------
-<a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                |                       | Important links
-<a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-lowlight`       | Less important links
-<a class="link-text link-lowlight-alt" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link alternate</a>   | `link-lowlight-alt`   | Less important links
-<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-inverse`        | I go on a non-white background
+Link                                                                                                              | Class                           | Description
+--------------------------------------------------------------------------------------------------------------    | ----------------------------    | -----------
+<a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                | `link-text`                     | Important links
+<a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-text link-lowlight`       | Less important links
+<a class="link-text link-lowlight-alt" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link alternate</a>   | `link-text link-lowlight-alt`   | Less important links
+<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
 
 ```html_example
 Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
