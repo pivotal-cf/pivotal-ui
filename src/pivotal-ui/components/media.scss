@@ -182,6 +182,10 @@ For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and t
   &.media-stackable-lg {
     @include media-stackable($screen-lg);
   }
+
+  .media-body {
+    width: 1000000px;
+  }
 }
 
 /* To be removed when Bootstrap accepts PR #14801 and releases a new version */
