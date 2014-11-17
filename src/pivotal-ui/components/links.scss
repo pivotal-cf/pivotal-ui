@@ -7,36 +7,52 @@ categories:
   - All
 ---
 
-There are five different kinds of links you can use to connect related content. In most cases (unless the designer specifically asks for another type of link) you should choose the default link.
+Add the class `link-text` on any text links.
+This will make the link underlined on hover (except lowlight links).
 
-```haml_example
-%a{href: "http://google.com"}
-  %i.fa.fa-plus
-  link with an icon
+```html_example
+<a class="link-text" href="http://bitly.com/11vCzUx">
+  <i class="fa fa-plus"></i> Click me!
+</a>
 ```
 
-Link                                                                                            | Class                    | Description
---------------------------------------------------------------------------------                | ------------------       | -----------
-<a href="http://google.com">default link</a>                                                    |                          | This is what buttons look like, this is the go to button style.
-<a class="link-lowlight" href="http://google.com">lowlight link</a>                             | `link-lowlight`          | I'm afraid I can't let you do that, yet.
-<a class="link-lowlight-alt" href="http://google.com">lowlight link alternate</a>               | `link-lowlight-alt`      | Less important links
-<a class="link-inverse bg-dark-1" href="http://google.com">inverse link</a>                     | `link-inverse`           | I go on a non-white background
+There are four different kinds of links you can use to connect related content.
+In most cases (unless the designer specifically asks for another type of link)
+you should choose the default link.
+
+Link                                                                                                              | Class                 | Description
+--------------------------------------------------------------------------------------------------------------    | ------------------    | -----------
+<a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                |                       | Important links
+<a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-lowlight`       | Less important links
+<a class="link-text link-lowlight-alt" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link alternate</a>   | `link-lowlight-alt`   | Less important links
+<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-inverse`        | I go on a non-white background
+
+```html_example
+Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
+```
 
 */
 
 a{
   @include transition-pui();
-}
 
-a:hover {
-  cursor: pointer;
-  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &.link-text {
+    &:not(.link-lowlight):hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 
 .link-lowlight {
   font-weight: $link-lowlight-font-weight;
   color: $link-lowlight-color;
+
   &:hover {
     color: $link-lowlight-hover-color;
   }
@@ -44,6 +60,7 @@ a:hover {
 
 .link-lowlight-alt {
   color: $link-lowlight-alt-color;
+
   &:hover {
     color: $link-lowlight-alt-hover-color;
   }
