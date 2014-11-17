@@ -61,6 +61,7 @@ Traffic lights are used to show the status of the application. "On" is used for 
 
 .traffic-lights {
   margin: 0;
+  line-height: 1.3em;
 
   i {
    @extend .mrm;
