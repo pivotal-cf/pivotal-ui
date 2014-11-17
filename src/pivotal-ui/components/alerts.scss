@@ -30,6 +30,18 @@ is a little more complicated, we would recommend using headings coupled with the
 </div>
 ```
 
+If you want to include a link in your alert, use the class `alert-link`.
+
+```html_example
+<div class="alert alert-warning">
+  <h5 class="em-high mtn">Important Link</h5>
+  <p>
+    It is very important that you
+    <a class="alert-link" href="http://bit.ly/1vkXaYb">click here</a>
+  </p>
+</div>
+```
+
 By adding `.alert-dismassable` and a button, you can also make alerts dismissable.
 
 ```html_example
