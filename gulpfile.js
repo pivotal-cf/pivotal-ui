@@ -156,7 +156,8 @@ gulp.task('_copyRandomAssets', ['clean'], function() {
     'src/nginx.conf',
     'src/Staticfile',
     'src/styleguide/404.html',
-    'src/styleguide/pane.html'
+    'src/styleguide/pane.html',
+    'src/styleguide/reset_password.html'
   ])
     .pipe(gulp.dest('./dist/'));
 });
