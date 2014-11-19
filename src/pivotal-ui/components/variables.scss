@@ -109,6 +109,7 @@ $neutral-11: $gray-11;
 // Grays (Bootstrap only, don't use directly) TODO: can we eliminate these entirely without modifying bootstrap base files?
 // -------------------------
 
+$gray-base:              #000 !default;
 $gray-darker:            lighten(#000, 13.5%) !default; // #222 bootstrap only
 $gray-dark:              lighten(#000, 20%) !default;   // #333 bootstrap only
 $gray:                   lighten(#000, 33.5%) !default; // #555 bootstrap only
@@ -217,6 +218,7 @@ $text-color:            $gray-3 !default;
 
 $link-color:                              $blue-2;
 $link-hover-color:                        $dark-1;
+$link-hover-decoration:                   underline !default;
 
 $link-lowlight-color:                     $blue-4;
 $link-lowlight-hover-color:               $blue-2;
@@ -443,10 +445,13 @@ $btn-link-disabled-color:        $gray-light !default;
 
 $input-bg:                       #fff !default;
 $input-bg-disabled:              $gray-lighter !default;
+$progress-border-radius:         $border-radius-base !default;
 
 $input-color:                    $gray !default;
 $input-border:                   #ccc !default;
 $input-border-radius:            $border-radius-small !default;
+$input-border-radius-large:      $border-radius-large !default;
+$input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             $blue-3 !default;
 $input-border-width:             1px !default;
 
@@ -461,6 +466,7 @@ $legend-border-color:            #e5e5e5 !default;
 
 $input-group-addon-bg:           $gray-lighter !default;
 $input-group-addon-border-color: $input-border !default;
+$cursor-disabled:                not-allowed !default;
 
 
 // Dropdowns

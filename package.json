@@ -51,7 +51,7 @@
   "version": "1.1.1",
   "main": "Gruntfile.js",
   "dependencies": {
-    "bootstrap-sass": "~3.2.0",
+    "bootstrap-sass": "~3.3.0",
     "envify": "^1.2.1",
     "font-awesome": "^4.2.0",
     "jquery": "^2.1.1",
