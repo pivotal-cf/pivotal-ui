@@ -163,9 +163,10 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 @mixin list-inline-divider($color: $neutral-5) {
   > li {
 
+    line-height: 1em;
+
     &:not(:first-child) {
       border-left: 1px solid $color;
-      line-height: 1em;
     }
   }
 }
@@ -634,12 +635,15 @@ right min-height.
 */
 
 .list-vertical-divider {
-  @extend .list-inline-divider;
+  @extend .list-inline;
   @include clearfix-me(micro);
 
   overflow: hidden;
 
   > li {
+    &:first-child {
+      border-left: none;
+    }
     border-left: $list-vertical-divider-border;
     padding-bottom: 9000px;
     margin-bottom: -9000px;
