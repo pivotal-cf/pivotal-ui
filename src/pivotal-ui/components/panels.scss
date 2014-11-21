@@ -157,8 +157,8 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
 ```html_example
 <ul class="list-cards list-card-1 list-cards-lg">
   <li>
-    <a class="list-cards-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
-      <div class="panel-body">
+    <a class="list-card-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
+      <div class="panel-body list-card-wrapper">
         Hover to see secondary state.
       </div>
       <div class="panel-footer">
@@ -394,17 +394,18 @@ Shadow panels add a bottom shadow to the panel.
 .panel-shadow-1 {
   @extend .panel-shadow;
   border-bottom: 4px solid $shadow-1;
-
-  
 }
+
 .panel-shadow-2 {
   @extend .panel-shadow;
   border-bottom: 4px solid $shadow-2;
 }
+
 .panel-shadow-3 {
   @extend .panel-shadow;
   border-bottom: 4px solid $shadow-3;
 }
+
 .panel-shadow-4 {
   @extend .panel-shadow;
   border-bottom: 4px solid $shadow-4;
