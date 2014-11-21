@@ -386,57 +386,57 @@ Here's a table of all the color classes.
 
 // gray type
 
-.type-neutral-1 { color: $neutral-1; }
-.type-neutral-2 { color: $neutral-2; }
-.type-neutral-3 { color: $neutral-3; }
-.type-neutral-4 { color: $neutral-4; }
-.type-neutral-5 { color: $neutral-5; }
-.type-neutral-6 { color: $neutral-6; }
-.type-neutral-7 { color: $neutral-7; }
-.type-neutral-8 { color: $neutral-8; }
-.type-neutral-9 { color: $neutral-9; }
-.type-neutral-10 { color: $neutral-10; }
-.type-neutral-11 { color: $neutral-11; }
+.type-neutral-1 { color: $neutral-1 !important; }
+.type-neutral-2 { color: $neutral-2 !important; }
+.type-neutral-3 { color: $neutral-3 !important; }
+.type-neutral-4 { color: $neutral-4 !important; }
+.type-neutral-5 { color: $neutral-5 !important; }
+.type-neutral-6 { color: $neutral-6 !important; }
+.type-neutral-7 { color: $neutral-7 !important; }
+.type-neutral-8 { color: $neutral-8 !important; }
+.type-neutral-9 { color: $neutral-9 !important; }
+.type-neutral-10 { color: $neutral-10 !important; }
+.type-neutral-11 { color: $neutral-11 !important; }
 
 // navy type
 
-.type-dark-1 { color: $dark-1; }
-.type-dark-2 { color: $dark-2; }
-.type-dark-3 { color: $dark-3; }
+.type-dark-1 { color: $dark-1 !important; }
+.type-dark-2 { color: $dark-2 !important; }
+.type-dark-3 { color: $dark-3 !important; }
 
 // teal type
 
-.type-brand-1 { color: $brand-1; }
-.type-brand-2 { color: $brand-2; }
-.type-brand-3 { color: $brand-3; }
-.type-brand-4 { color: $brand-4; }
-.type-brand-5 { color: $brand-5; }
+.type-brand-1 { color: $brand-1 !important; }
+.type-brand-2 { color: $brand-2 !important; }
+.type-brand-3 { color: $brand-3 !important; }
+.type-brand-4 { color: $brand-4 !important; }
+.type-brand-5 { color: $brand-5 !important; }
 
 // blue type
 
-.type-accent-1 { color: $accent-1; }
-.type-accent-2 { color: $accent-2; }
-.type-accent-3 { color: $accent-3; }
-.type-accent-4 { color: $accent-4; }
-.type-accent-5 { color: $accent-5; }
+.type-accent-1 { color: $accent-1 !important; }
+.type-accent-2 { color: $accent-2 !important; }
+.type-accent-3 { color: $accent-3 !important; }
+.type-accent-4 { color: $accent-4 !important; }
+.type-accent-5 { color: $accent-5 !important; }
 
 // red type
 
-.type-error-1 { color: $error-1; }
-.type-error-2 { color: $error-2; }
-.type-error-3 { color: $error-3; }
-.type-error-4 { color: $error-4; }
+.type-error-1 { color: $error-1 !important; }
+.type-error-2 { color: $error-2 !important; }
+.type-error-3 { color: $error-3 !important; }
+.type-error-4 { color: $error-4 !important; }
 
 // yellow type
 
-.type-warn-1 { color: $warn-1; }
-.type-warn-2 { color: $warn-2; }
-.type-warn-3 { color: $warn-3; }
+.type-warn-1 { color: $warn-1 !important; }
+.type-warn-2 { color: $warn-2 !important; }
+.type-warn-3 { color: $warn-3 !important; }
 
 // green type
 
-.type-success-1 { color: $success-1; }
-.type-success-2 { color: $success-2; }
+.type-success-1 { color: $success-1 !important; }
+.type-success-2 { color: $success-2 !important; }
 
 .type-inverse {
   color: $type-inverse !important;
