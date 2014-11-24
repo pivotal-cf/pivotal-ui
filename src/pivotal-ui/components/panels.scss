@@ -182,7 +182,7 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
 
   .panel-body {
     -ms-flex: 1 0 auto;
-    padding: 25px 20px 0 20px;
+    padding: 29px 29px 0 29px;
     -webkit-transition: padding-top 300ms ease-out;
     -moz-transition: padding-top 300ms ease-out;
     transition: padding-top 300ms ease-out;
@@ -210,7 +210,7 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
     outline: none;
 
     .panel-body {
-      padding-top: 15px;
+      padding-top: 18px;
     }
     .panel-footer {
       opacity: 1;
