@@ -1,0 +1,2057 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: Objects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="syntax-highlighting/prism-default.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div class="container">
+        <button id="navbar-hamburger">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
+        <div id="styleguide-first-level-nav-wrapper">
+          <ul id="styleguide-first-level-nav">
+            
+
+            
+              
+              
+
+              <li id="category-0" class="styleguide-category">
+                <a class="category-link" href="layout.html">
+                  Layout
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-0">
+                  <span class="sr-only">Expand Layout</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="layout.html#grid">Grids</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#layout_lists">Layout Lists</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#media">Media</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#pane">Panes</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#vertical_align">Vertical Align</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-1" class="styleguide-category">
+                <a class="category-link" href="elements.html">
+                  Elements
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-1">
+                  <span class="sr-only">Expand Elements</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="elements.html#avatar">Avatars</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#background">Backgrounds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#button">Buttons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#divider">Dividers</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#embed">Embeds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#iconography">Iconography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#image">Images</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#label">Labels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#link">Links</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#list">Lists</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#ribbon">Ribbons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#type">Typography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-2" class="styleguide-category">
+                <a class="category-link" href="objects.html">
+                  Objects
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-2">
+                  <span class="sr-only">Expand Objects</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="#accordion" class="styleguide-subsection">Accordions</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#alert" class="styleguide-subsection">Alerts</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#back_to_top" class="styleguide-subsection">Back to Top</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#code" class="styleguide-subsection">Code</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#map" class="styleguide-subsection">Maps</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#panel" class="styleguide-subsection">Panels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#progress_bar" class="styleguide-subsection">Progress Bars</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#table" class="styleguide-subsection">Tables</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-3" class="styleguide-category">
+                <a class="category-link" href="utilities.html">
+                  Utilities
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-3">
+                  <span class="sr-only">Expand Utilities</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="utilities.html#alignment">Alignment</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#ellipsis">Ellipsis</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#print">Print</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#responsive_utilities">Responsive Utilities</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#whitespace">Whitespace</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-4" class="styleguide-category">
+                <a class="category-link" href="javascript.html">
+                  JavaScript
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-4">
+                  <span class="sr-only">Expand JavaScript</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="javascript.html#accordion">Accordions</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="javascript.html#map">Maps</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="javascript.html#modal">Modals</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="javascript.html#tab">Tabs</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="javascript.html#tooltip">Tooltip</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-5" class="styleguide-category">
+                <a class="category-link" href="forms.html">
+                  Forms
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-5">
+                  <span class="sr-only">Expand Forms</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="forms.html#00_form_introduction">Introduction</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_autoselect_text_input">Autoselect Text Inputs</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_checkboxes">Checkboxes & Radios</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_disabled_controls">Disabled Controls</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_help_text">Help Text</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_inline">Inline Forms</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_inputs">Inputs & Labels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_selects">Selects</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_static_control">Static Controls</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_textarea">Text Areas</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_toggle_switch">Toggle Switches</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_validation">Validations</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-6" class="styleguide-category">
+                <a class="category-link" href="by_product.html">
+                  by Product
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-6">
+                  <span class="sr-only">Expand by Product</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="by_product.html#console">Console</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="by_product.html#marketing">Marketing</a></li>
+                      
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+            <li>
+              <a class="category-link" href="all.html">All</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container ptl">
+      <section class="content">
+
+<h1 id="accordion" class="styleguide">Accordions</h1>
+
+<ul class="section-nav">
+  <li><a href="#accordion_basic">Basic</a></li>
+  <li><a href="#accordion_sizes">Sizes</a></li>
+  <li><a href="#accordion_with_icons">With Icons</a></li>
+  <li><a href="#accordion_styles">Styles</a></li>
+</ul>
+<p class="styleguide">These are frequently used in combination with our panel components. They have a header and body.</p><p class="styleguide">Accordions can be used with any background color class, add them to the header and body.</p><p class="styleguide">NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they&#39;re toggled.</p><p class="styleguide">Also see the select tabs for a toggle triggered by a select group.</p>
+<h2 id="accordion_basic" class="styleguide">Basic</h2>
+<p class="styleguide">Use this to expand and collapse content.</p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
+  <div class='when-collapsed'>
+    Expand me
+  </div>
+  <div class='when-expanded'>
+    Collapse me
+  </div>
+</a>
+<div class='collapse' id='simple-collapse-example'>
+  Look at this content.
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
+  <span class="nc">.when-collapsed</span>
+    Expand me
+  <span class="nc">.when-expanded</span>
+    Collapse me
+<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
+  Look at this content.
+</pre></div></div></div>
+<h2 id="accordion_sizes" class="styleguide">Sizes</h2>
+ 
+<p class="styleguide">Default accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-1'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-1'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-1'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Large accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-2'>
+  <div class='panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-2'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-2'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-2</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-2'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-2</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div>
+<h2 id="accordion_styles" class="styleguide">Styles</h2>
+<p class="styleguide">Accordion with Divider:</p><p class="styleguide">This adds a divider between the accordion header and accordion body.</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-5'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-5'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-5'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-5</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-5'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-5</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div><p class="styleguide">Accordion with Shadow:</p><p class="styleguide">This adds a shadow to the accordion when it is both open and closed.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-shadow' id='accordion-6'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-6'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-6'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-6</span><span class="nc">.panel.panel-shadow</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-6'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-6</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
+<h2 id="accordion_with_icons" class="styleguide">With Icons</h2>
+<p class="styleguide">Accordion with plus/minus icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-3'>
+  <div class='panel-heading-accordion-large collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-3'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-3'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-3</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-3'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-3</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Accordion with caret right/down icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-4'>
+  <div class='panel-heading-accordion collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-4'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-4'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-4</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-4'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-4</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
+<h1 id="alert" class="styleguide">Alerts</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_alert_types">Alert Types</a></li>
+  <li><a href="#02_alert_dismissable">Dismissable Alerts</a></li>
+</ul>
+<p class="styleguide">Alerts are used to display flash messages to the user. When using alerts with simple one-line text,
+wrap the text in a <code class="styleguide">&lt;p&gt;</code> with <code class="styleguide">.em-high</code>.</p><div class="codeExample"><div class="exampleOutput"><div class="alert alert-success">
+  <p class="em-high">Success</p>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"em-high"</span><span class="nt">&gt;</span>Success<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><p class="styleguide">Alerts are also used to bring important notes to a user&#39;s attention. If the content of your alert
+is a little more complicated, we would recommend using headings coupled with the content.</p><div class="codeExample"><div class="exampleOutput"><div class="alert alert-info">
+  <h5 class="em-high mtn">You should know...</h5>
+  <p>There are some things you should note. Just in case you didn't figure it out already.</p>
+  <ul>
+    <li>thing 1</li>
+    <li>thing 2</li>
+  </ul>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-info"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"em-high mtn"</span><span class="nt">&gt;</span>You should know...<span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;p&gt;</span>There are some things you should note. Just in case you didn't figure it out already.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;ul&gt;</span>
+    <span class="nt">&lt;li&gt;</span>thing 1<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>thing 2<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><p class="styleguide">If you want to include a link in your alert, use the class <code class="styleguide">alert-link</code>.</p><div class="codeExample"><div class="exampleOutput"><div class="alert alert-warning">
+  <h5 class="em-high mtn">Important Link</h5>
+  <p>
+    It is very important that you
+    <a class="alert-link" href="http://bit.ly/1vkXaYb">click here</a>
+  </p>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"em-high mtn"</span><span class="nt">&gt;</span>Important Link<span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    It is very important that you
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"alert-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1vkXaYb"</span><span class="nt">&gt;</span>click here<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="01_alert_types" class="styleguide">Alert Types</h2>
+<p class="styleguide">Our 4 alert types are:</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><div class="alert alert-success">
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-check-circle"></i>
+    </div>
+    <div class="media-body em-high">
+      Everything is wonderful.
+      <a class="alert-link" href="http://bit.ly/QCMZM5">Be happy.</a>
+    </div>
+  </div>
+</div></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-check-circle"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body em-high"</span><span class="nt">&gt;</span>
+      Everything is wonderful.
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"alert-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/QCMZM5"</span><span class="nt">&gt;</span>Be happy.<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class="alert alert-info">
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-info-circle"></i>
+    </div>
+    <div class="media-body em-high">
+      Info for you.
+      <a class="alert-link" href="http://bit.ly/1DFns8H">Tell me more.</a>
+    </div>
+  </div>
+</div></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-info"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-info-circle"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body em-high"</span><span class="nt">&gt;</span>
+      Info for you.
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"alert-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1DFns8H"</span><span class="nt">&gt;</span>Tell me more.<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class="alert alert-warning">
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-exclamation-triangle"></i>
+    </div>
+    <div class="media-body em-high">
+      Warning: There is no parking on the dancefloor.
+      <a class="alert-link" href="http://bit.ly/1uM05DJ">Be alert.</a>
+    </div>
+  </div>
+</div></div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-warning"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-exclamation-triangle"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body em-high"</span><span class="nt">&gt;</span>
+      Warning: There is no parking on the dancefloor.
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"alert-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1uM05DJ"</span><span class="nt">&gt;</span>Be alert.<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class="alert alert-error">
+  <div class="media">
+    <div class="media-left">
+      <i class="fa fa-exclamation-triangle"></i>
+    </div>
+    <div class="media-body em-high">
+      Something has gone horribly awry.
+      <a class="alert-link" href="http://bit.ly/1rooFJV">You've made a huge mistake.</a>
+    </div>
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-error"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-exclamation-triangle"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body em-high"</span><span class="nt">&gt;</span>
+      Something has gone horribly awry.
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"alert-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1rooFJV"</span><span class="nt">&gt;</span>You've made a huge mistake.<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></td></tr></tbody></table></div>
+<h2 id="02_alert_dismissable" class="styleguide">Dismissable Alerts</h2>
+<p class="styleguide">By adding <code class="styleguide">.alert-dismissable</code> and a button, you can also make alerts dismissable.</p><div class="codeExample"><div class="exampleOutput"><div class="alert alert-success alert-dismissable">
+  <button class="close" data-dismiss="alert">
+    <i class="fa fa-times"></i>
+  </button>
+  <p class="em-high">Click the 'X' over there------> </p>
+</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"alert alert-success alert-dismissable"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"close"</span> <span class="na">data-dismiss=</span><span class="s">"alert"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-times"</span><span class="nt">&gt;&lt;/i&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"em-high"</span><span class="nt">&gt;</span>Click the 'X' over there------&gt; <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div>
+<h1 id="back_to_top" class="styleguide">Back to Top</h1>
+<p class="styleguide">You can use this component to scroll to the top of a page. Leave off the <code class="styleguide">.styleguide-component-wrapper</code> div when using it in other contexts.</p><p class="styleguide">The button will be fixed to the bottom right hand corner of the page. </p><p class="styleguide">You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup. </p><div class="codeExample"><div class="exampleOutput"><div class='styleguide-component-wrapper'>
+  <a class='back-to-top' href='#'></a>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.styleguide-component-wrapper</span>
+  <span class="nt">%a</span><span class="nc">.back-to-top</span><span class="p">{</span><span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#"</span><span class="p">}</span>
+</pre></div></div></div>
+<h1 id="code" class="styleguide">Code</h1>
+
+<ul class="section-nav">
+  <li><a href="#code_styled">Styled Code</a></li>
+  <li><a href="#code_inline">Inline</a></li>
+  <li><a href="#code_inline_dark">Inline Dark</a></li>
+  <li><a href="#code_terminal_window">Terminal Window</a></li>
+</ul>
+<p class="styleguide">This is your basic unstyled code sample:</p><div class="codeExample"><div class="exampleOutput"><pre class="pre-unstyled"><code>class Foo
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;pre</span> <span class="na">class=</span><span class="s">"pre-unstyled"</span><span class="nt">&gt;&lt;code&gt;</span>class Foo
+  def bar
+    puts 'hi'
+  end
+end<span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</pre></div></div></div>
+<h2 id="code_inline" class="styleguide">Inline</h2>
+<div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code>an inline code snippet</code> within it.</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code&gt;</span>an inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div>
+<h2 id="code_inline_dark" class="styleguide">Inline Dark</h2>
+<div class="codeExample"><div class="exampleOutput"><p>This is an example of a paragraph with <code class="inline-dark">a dark inline code snippet</code> within it.</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>This is an example of a paragraph with <span class="nt">&lt;code</span> <span class="na">class=</span><span class="s">"inline-dark"</span><span class="nt">&gt;</span>a dark inline code snippet<span class="nt">&lt;/code&gt;</span> within it.<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div>
+<h2 id="code_styled" class="styleguide">Styled Code</h2>
+<p class="styleguide">In order to show syntax-highlighted code, you will need to apply a language specific class to the code tag. For example, <code class="styleguide">.language-ruby</code>.</p><p class="styleguide">There are several languages already available (and others available from the <a class="styleguide" href="http://prismjs.com" title="http://prismjs.com">Prismjs.com</a> website), including:</p><ul class="styleguide"><li>Markup</li>
+<li>CSS</li>
+<li>C-like</li>
+<li>JavaScript</li>
+<li>Java</li>
+<li>PHP</li>
+<li>PHP</li>
+<li>CoffeeScript</li>
+<li>Sass</li>
+<li>Bash</li>
+<li>Python</li>
+<li>HTTP</li>
+<li>Ruby</li>
+<li>Go</li>
+</ul><div class="codeExample"><div class="exampleOutput"><pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%pre</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div><p class="styleguide">Make it scrollable</p><div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div><p class="styleguide">Scrollable with too little content:</p><div class="codeExample"><div class="exampleOutput"><pre class='pre-scrollable'><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%pre</span><span class="nc">.pre-scrollable</span>
+  <span class="nt">%code</span><span class="nc">.language-ruby</span>
+    <span class="nd">:preserve
+</span>      <span class="nd">class Foo</span>
+        <span class="nd">def bar</span>
+          <span class="nd">puts 'hi'</span>
+        <span class="nd">end</span>
+      <span class="nd">end</span>
+</pre></div></div></div>
+<h2 id="code_terminal_window" class="styleguide">Terminal Window</h2>
+<p class="styleguide"><label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label></p><div class="codeExample"><div class="exampleOutput"><div class='terminal'>
+  <pre><code class='language-ruby'>class Foo&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bar&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Baz&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end&#x000A;&#x000A;class Bop&#x000A;  def bar&#x000A;    puts 'hi'&#x000A;  end&#x000A;end</code></pre>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.terminal</span>
+  <span class="nt">%pre</span>
+    <span class="nt">%code</span><span class="nc">.language-ruby</span>
+      <span class="nd">:preserve
+</span>        <span class="nd">class Foo</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Bar</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Baz</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+
+        <span class="nd">class Bop</span>
+          <span class="nd">def bar</span>
+            <span class="nd">puts 'hi'</span>
+          <span class="nd">end</span>
+        <span class="nd">end</span>
+</pre></div></div></div>
+<h1 id="map" class="styleguide">Maps</h1>
+<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<div class='map-wrapper'>
+  <div class='pane'>
+    <div class='container pan'>
+      <div class='row'>
+        <div class='col-sm-6 col-md-8 col-sm-offset-1'>
+          <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
+            <h3 class="h2">Location</h3>
+            <address class='h4 pvl'>Pivotal Software Inc.<br>
+              875 Howard Street<br>
+              San Francisco, CA 94103
+            </address>
+            <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
+            <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='pane pane-map'>
+    <div id='labs-map'></div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-wrapper'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
+              875 Howard Street<span class="nt">&lt;br&gt;</span>
+              San Francisco, CA 94103
+            <span class="nt">&lt;/address&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>var maps = (function() {
+  var self = this;
+  var map;
+
+  var mapOptions = {
+    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
+    center: new google.maps.LatLng(37.781787,-122.403911),
+    mapElementId: 'labs-map',
+    zoom: 18
+  };
+
+  var initialize = function() {
+    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
+      center: mapOptions.center,
+      zoom: mapOptions.zoom,
+      disableDefaultUI: true
+    });
+
+    var request = {
+      placeId: mapOptions.placeId
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, createMarker);
+  };
+
+  var createMarker = function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+  };
+
+  self.initialize = initialize;
+  return self;
+})();
+
+google.maps.event.addDomListener(window, 'load', maps.initialize);
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
+    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
+    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
+    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
+      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
+        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
+</pre></div></div>
+<h1 id="panel" class="styleguide">Panels</h1>
+
+<ul class="section-nav">
+  <li><a href="#panel_simple">Simple</a></li>
+  <li><a href="#panel_basic">Basic</a></li>
+  <li><a href="#panel_flex">Flex (Panel with Footer)</a></li>
+  <li><a href="#panel_tile">Tile</a></li>
+  <li><a href="#panel_scrollable">Scrollable</a></li>
+  <li><a href="#panel_highlight">Highlight</a></li>
+  <li><a href="#panel_alt">Alternate</a></li>
+  <li><a href="#panel_shadow">Shadow</a></li>
+  <li><a href="#panel_card">Card</a></li>
+  <li><a href="#panel_clickable">Clickable</a></li>
+</ul>
+<p class="styleguide">Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.</p><p class="styleguide">Panels are typically a combination of contours, backgrounds, and content including headers and footers. This section describes the contours.</p>
+<h2 id="panel_alt" class="styleguide">Alternate</h2>
+<p class="styleguide">Alternate panels can be in a default, off, or danger state.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><div class='panel panel-alt'>
+  <div class='panel-body'>
+    Alternate Panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-alt</span>
+  <span class="nc">.panel-body</span>
+    Alternate Panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-alt panel-danger'>
+  <div class='panel-body'>
+    Danger alternate panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-alt.panel-danger</span>
+  <span class="nc">.panel-body</span>
+    Danger alternate panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-alt panel-off'>
+  <div class='panel-body'>
+    Stopped alternate panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-alt.panel-off</span>
+  <span class="nc">.panel-body</span>
+    Stopped alternate panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-alt panel-empty'>
+  <div class='panel-body'>
+    Off alternate panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-alt.panel-empty</span>
+  <span class="nc">.panel-body</span>
+    Off alternate panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-alt panel-editing'>
+  <div class='panel-body'>
+    Editing alternate panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-alt.panel-editing</span>
+  <span class="nc">.panel-body</span>
+    Editing alternate panel
+</pre></div></div></td></tr></tbody></table></div>
+<h2 id="panel_basic" class="styleguide">Basic</h2>
+<p class="styleguide">Basic Panels are the new Simple Panels for G-Major</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-basic bg-neutral-11'>
+  <div class='panel-body'>
+    Basic Panel
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-basic.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Basic Panel
+</pre></div></div></div>
+<h2 id="panel_card" class="styleguide">Card</h2>
+<p class="styleguide">Using panels with <a class="styleguide" href="/all.html#list_cards" title="/all.html#list_cards">card lists</a> makes any <code class="styleguide">.panel-body</code> have a minimum &quot;card&quot; height.</p><div class="codeExample"><div class="exampleOutput"><ul class='list-cards list-cards-sm list-card-2'>
+  <li class='panel panel-clickable-alt bg-neutral-11'>
+    <div class='panel-body'>
+      Card Panel
+    </div>
+  </li>
+  <li class='panel panel-clickable-alt bg-neutral-11'>
+    <div class='panel-body'>
+      Card Panel
+    </div>
+  </li>
+  <li class='panel panel-clickable-alt bg-neutral-11'>
+    <div class='panel-body'>
+      Card Panel
+    </div>
+  </li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%ul</span><span class="nc">.list-cards.list-cards-sm.list-card-2</span>
+  <span class="nt">%li</span><span class="nc">.panel.panel-clickable-alt.bg-neutral-11</span>
+    <span class="nc">.panel-body</span>
+      Card Panel
+  <span class="nt">%li</span><span class="nc">.panel.panel-clickable-alt.bg-neutral-11</span>
+    <span class="nc">.panel-body</span>
+      Card Panel
+  <span class="nt">%li</span><span class="nc">.panel.panel-clickable-alt.bg-neutral-11</span>
+    <span class="nc">.panel-body</span>
+      Card Panel
+</pre></div></div></div>
+<h2 id="panel_clickable" class="styleguide">Clickable</h2>
+<p class="styleguide">These panels lighten on hover to indicate that they are clickable. 
+Please use them when a click on the panel triggers an action.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><div class='panel panel-clickable'>
+  <div class='panel-body'>
+    Panel Clickable
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-clickable</span>
+  <span class="nc">.panel-body</span>
+    Panel Clickable</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-clickable-alt'>
+  <div class='panel-body'>
+    Panel Clickable Alt
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-clickable-alt</span>
+  <span class="nc">.panel-body</span>
+    Panel Clickable Alt
+</pre></div></div></td></tr></tbody></table></div><p class="styleguide">Sometimes you&#39;ll also want to adapt the way child elements look
+based on a hover on the parent element. There are a few
+helper classes for that.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><a class='panel panel-clickable'>
+  <div class='panel-body'>
+    <p class='hover-target-1'>
+      hover-target-1 - default text color => link color
+    </p>
+  </div>
+</a>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.panel.panel-clickable</span>
+  <span class="nc">.panel-body</span>
+    <span class="nt">%p</span><span class="nc">.hover-target-1</span>
+      hover-target-1 - default text color =&gt; link color</pre></div></div></td></tr><tr><th><div class="exampleOutput"><a class='panel panel-clickable'>
+  <div class='panel-body'>
+    <p class='hover-target-2'>
+      hover-target-2 - light gray text => default text color
+    </p>
+  </div>
+</a>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.panel.panel-clickable</span>
+  <span class="nc">.panel-body</span>
+    <span class="nt">%p</span><span class="nc">.hover-target-2</span>
+      hover-target-2 - light gray text =&gt; default text color</pre></div></div></td></tr><tr><th><div class="exampleOutput"><a class='panel panel-clickable'>
+  <div class='panel-body'>
+    <p class='hover-target-3'>
+      hover-target-3 - $gray-9 background => white background
+    </p>
+  </div>
+</a>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.panel.panel-clickable</span>
+  <span class="nc">.panel-body</span>
+    <span class="nt">%p</span><span class="nc">.hover-target-3</span>
+      hover-target-3 - $gray-9 background =&gt; white background
+</pre></div></div></td></tr></tbody></table></div>
+<h2 id="panel_flex" class="styleguide">Flex (Panel with Footer)</h2>
+<p class="styleguide">Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don&#39;t
+support flexbox, the footer will appear where it would naturally, likely right below the panel-body content.</p><p class="styleguide">By default, flex panels have no height. You must use an inline style to set the height.</p><div class="codeExample"><div class="exampleOutput"><div class="panel panel-flex bg-neutral-11" style="height:200px">
+  <div class="panel-body">Body Content</div>
+  <div class="panel-footer">Footer Content</div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span> <span class="na">style=</span><span class="s">"height:200px"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Body Content<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Flex panels and list cards
+  </h5>
+  <p>
+    Flex panels are often used with <a class="alert-link" href="/elements.html#list_cards">list cards</a>
+    as a way to give list cards footers.
+    Add the class <code>list-card-wrapper</code> on any flex panels inside list cards.
+  </p>
+</div>
+<div class="codeExample"><div class="exampleOutput"><ul class="list-cards list-card-2 list-cards-sm">
+  <li class="panel panel-flex bg-neutral-11">
+    <div class="list-card-wrapper panel panel-flex">
+      <div class="panel-body">Body Content</div>
+      <div class="panel-footer">Footer Content</div>
+    </div>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <form>
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">
+          <p>
+            It even works if your <code>list-card-wrapper</code> is nested in a form
+          </p>
+          <div class="form-group">
+            <input class="form-control" placeholder="Email">
+          </div>
+        </div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </form>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <a class="list-card-link" href="http://wrd.cm/1e2A8uU">
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">Or in a link!</div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </a>
+  </li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-2 list-cards-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Body Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p&gt;</span>
+            It even works if your <span class="nt">&lt;code&gt;</span>list-card-wrapper<span class="nt">&lt;/code&gt;</span> is nested in a form
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link"</span> <span class="na">href=</span><span class="s">"http://wrd.cm/1e2A8uU"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Or in a link!<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div></div></div>
+<h2 id="panel_highlight" class="styleguide">Highlight</h2>
+<p class="styleguide">This panel is used to highlight more important parts of the page.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-highlight'>
+  <div class='panel-body'>
+    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-highlight</span>
+  <span class="nc">.panel-body</span>
+    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
+</pre></div></div></div>
+<h2 id="panel_scrollable" class="styleguide">Scrollable</h2>
+<p class="styleguide">The scrollable panel sets a fixed height of 183px and scrolls any content that is larger. If you want a different size, set an inline style on the <code class="styleguide">.panel-scrollable</code>.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-scrollable bg-neutral-11'>
+  <div class='panel-body'>
+    <p>Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.</p>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-scrollable.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    <span class="nt">%p</span> Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.
+</pre></div></div></div>
+<h2 id="panel_shadow" class="styleguide">Shadow</h2>
+<p class="styleguide">Shadow panels add a bottom shadow to the panel.</p><div class="codeTable"><table><tbody><tr><th><div class="exampleOutput"><div class='panel panel-shadow-1 bg-neutral-11'>
+  <div class='panel-body'>
+    Shadow Panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-shadow-1.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Shadow Panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-shadow-2 bg-neutral-11'>
+  <div class='panel-body'>
+    Shadow Panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-shadow-2.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Shadow Panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-shadow-3 bg-neutral-11'>
+  <div class='panel-body'>
+    Shadow Panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-shadow-3.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Shadow Panel</pre></div></div></td></tr><tr><th><div class="exampleOutput"><div class='panel panel-shadow-4 bg-neutral-11'>
+  <div class='panel-body'>
+    Shadow Panel
+  </div>
+</div>
+</div></th><td><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-shadow-4.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Shadow Panel</pre></div></div></td></tr></tbody></table></div>
+<h2 id="panel_simple" class="styleguide">Simple</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='panel panel-simple bg-neutral-11'>
+  <div class='panel-body'>
+    Simple Panel
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.panel.panel-simple.bg-neutral-11</span>
+  <span class="nc">.panel-body</span>
+    Simple Panel
+</pre></div></div></div>
+<h2 id="panel_tile" class="styleguide">Tile</h2>
+<p class="styleguide">Tile panels extend the behavior of flex panels. They provide an animated footer on hover, at the bottom of a fixed-height panel.</p><div class="codeExample"><div class="exampleOutput"><ul class="list-cards list-card-1 list-cards-lg">
+  <li>
+    <a class="list-card-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
+      <div class="panel-body list-card-wrapper">
+        Hover to see secondary state.
+      </div>
+      <div class="panel-footer">
+        This is the footer
+      </div>
+    </a>
+  </li>
+</ul>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-1 list-cards-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link panel panel-flex panel-tile bg-neutral-11"</span> <span class="na">href=</span><span class="s">"http://www.google.com/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body list-card-wrapper"</span><span class="nt">&gt;</span>
+        Hover to see secondary state.
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>
+        This is the footer
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</pre></div></div></div>
+<h1 id="progress_bar" class="styleguide">Progress Bars</h1>
+<p class="styleguide">This section contains static progress bar styles.</p><div class="codeExample"><div class="exampleOutput"><div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='0' class='progress-bar' role='progressbar' style='width: 0%;'>
+    <div class='label'>
+      0%
+    </div>
+  </div>
+</div>
+<p>
+  0 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='3' class='progress-bar' role='progressbar' style='width: 3%;'>
+    <div class='label'>
+      3%
+    </div>
+  </div>
+</div>
+<p>
+  3 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='9' class='progress-bar' role='progressbar' style='width: 9%;'>
+    <div class='label'>
+      9%
+    </div>
+  </div>
+</div>
+<p>
+  9 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='60' class='progress-bar' role='progressbar' style='width: 60%;'>
+    <div class='label'>
+      60%
+    </div>
+  </div>
+</div>
+<p>
+  60 MB of 100 MB Used
+</p>
+<div class='progress'>
+  <div aria-valuemax='100' aria-valuemin='0' aria-valuenow='90' class='progress-bar' role='progressbar' style='width: 90%;'>
+    <div class='label'>
+      90%
+    </div>
+  </div>
+</div>
+<p>
+  90 MB of 100 MB Used
+</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.progress</span>
+  <span class="nc">.progress-bar</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"width: 0%;"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      0%
+<span class="nt">%p</span>
+  0 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"3"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"width: 3%;"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      3%
+<span class="nt">%p</span>
+  3 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"9"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"width: 9%;"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      9%
+<span class="nt">%p</span>
+  9 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"60"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"width: 60%;"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      60%
+<span class="nt">%p</span>
+  60 MB of 100 MB Used
+
+<span class="nc">.progress</span>
+  <span class="nc">.progress-bar</span><span class="p">{</span><span class="s2">"aria-valuemax"</span> <span class="o">=&gt;</span> <span class="s2">"100"</span><span class="p">,</span> <span class="s2">"aria-valuemin"</span> <span class="o">=&gt;</span> <span class="s2">"0"</span><span class="p">,</span> <span class="s2">"aria-valuenow"</span> <span class="o">=&gt;</span> <span class="s2">"90"</span><span class="p">,</span> <span class="ss">:role</span> <span class="o">=&gt;</span> <span class="s2">"progressbar"</span><span class="p">,</span> <span class="ss">:style</span> <span class="o">=&gt;</span> <span class="s2">"width: 90%;"</span><span class="p">}</span>
+    <span class="nc">.label</span>
+      90%
+<span class="nt">%p</span>
+  90 MB of 100 MB Used
+</pre></div></div></div>
+<h1 id="table" class="styleguide">Tables</h1>
+
+<ul class="section-nav">
+  <li><a href="#table_data">Data</a></li>
+  <li><a href="#table_key_value">Key-Value</a></li>
+  <li><a href="#table_alignment">Alignment</a></li>
+  <li><a href="#scrollable_table">Scrollable</a></li>
+</ul>
+<table class="styleguide"> <tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">.table</code></td>
+<td>Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-hover</code></td>
+<td>Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-striped</code></td>
+<td>Applies zebra striping to a table.</td>
+</tr>
+ </table>
+<h2 id="scrollable_table" class="styleguide">Scrollable</h2>
+<p class="styleguide">Table with borders where the contents of the table scroll but the header does not.
+The default height of the scrollable table is 183px. There are four other sizes provided
+which you can use by adding the following classes to the <code class="styleguide">.table-scrollable</code> element.</p><table class="styleguide"> <tr>
+<th>Table Scrollable sizes</th>
+<th>Height</th>
+</tr>
+ <tr>
+<td>default</td>
+<td>183px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-sm</code></td>
+<td>300px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-md</code></td>
+<td>600px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-lg</code></td>
+<td>900px</td>
+</tr>
+ </table><p class="styleguide">If you would like a custom size, please add an inline style to the <code class="styleguide">.table-scrollable-body</code> element.</p><p class="styleguide">Design Note: The <code class="styleguide">table-scrollable</code> is often paired with <code class="styleguide">table-data</code> and <code class="styleguide">table-light</code> as in our example.</p>
+<div class="alert alert-info alert-dismissable">
+  <p class="em-high">
+    You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
+    the first row of the <code>tbody</code>. You can do this with inline width attributes.
+  </p>
+</div>
+<div class="codeExample"><div class="exampleOutput"><div class="table-scrollable table-scrollable-sm">
+  <div class="table-scrollable-header">
+    <table class="table table-data table-light">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th width="16%">Status</th>
+          <th width="12%">CPU</th>
+          <th width="16%">Memory</th>
+          <th width="16%">Disk</th>
+          <th width="30%">Uptime</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scrollable-body">
+    <table class="table table-data table-light">
+      <tbody>
+        <tr>
+          <td width="10%">0</td>
+          <td width="16%">Running</td>
+          <td width="12%">0%</td>
+          <td width="16%">4.16 MB</td>
+          <td width="16%">6.75 MB</td>
+          <td width="30%">27 min</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>27 min</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.14 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.08 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.16 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.03 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable table-scrollable-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable-header"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-data table-light"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"10%"</span><span class="nt">&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Status<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"12%"</span><span class="nt">&gt;</span>CPU<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Memory<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Disk<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"30%"</span><span class="nt">&gt;</span>Uptime<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-data table-light"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"10%"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"12%"</span><span class="nt">&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>4.16 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"30%"</span><span class="nt">&gt;</span>27 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>27 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.14 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.08 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>5<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.16 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>7<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>8<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.03 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>9<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div>
+<h2 id="table_alignment" class="styleguide">Alignment</h2>
+<p class="styleguide">See the <a class="styleguide" href="/all.html#alignment" title="/all.html#alignment">alignment component</a> for classes to use for table text alignment.</p>
+<h2 id="table_data" class="styleguide">Data</h2>
+<p class="styleguide">This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.</p><p class="styleguide">Design Note: The <code class="styleguide">table-data</code> is often paired with <code class="styleguide">table-light</code> as in our example.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-data table-light'>
+  <thead>
+    <tr>
+      <th>
+        Service Instance
+      </th>
+      <th>
+        Service Plan
+      </th>
+      <th>
+        Bound Apps
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        oracle-db-sct
+      </td>
+      <td>
+        Oracle DB
+      </td>
+      <td>
+        12
+      </td>
+    </tr>
+    <tr>
+      <td>
+        oracle-db-sct
+      </td>
+      <td>
+        Oracle DB
+      </td>
+      <td>
+        12
+      </td>
+    </tr>
+    <tr>
+      <td>
+        oracle-db-sct
+      </td>
+      <td>
+        Oracle DB
+      </td>
+      <td>
+        12
+      </td>
+    </tr>
+    <tr>
+      <td>
+        oracle-db-sct
+      </td>
+      <td>
+        Oracle DB
+      </td>
+      <td>
+        12
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%table</span><span class="nc">.table.table-data.table-light</span>
+  <span class="nt">%thead</span>
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span>
+        Service Instance
+      <span class="nt">%th</span>
+        Service Plan
+      <span class="nt">%th</span>
+        Bound Apps
+  <span class="nt">%tbody</span>
+    <span class="nt">%tr</span>
+      <span class="nt">%td</span>
+        oracle-db-sct
+      <span class="nt">%td</span>
+        Oracle DB
+      <span class="nt">%td</span>
+        12
+    <span class="nt">%tr</span>
+      <span class="nt">%td</span>
+        oracle-db-sct
+      <span class="nt">%td</span>
+        Oracle DB
+      <span class="nt">%td</span>
+        12
+    <span class="nt">%tr</span>
+      <span class="nt">%td</span>
+        oracle-db-sct
+      <span class="nt">%td</span>
+        Oracle DB
+      <span class="nt">%td</span>
+        12
+    <span class="nt">%tr</span>
+      <span class="nt">%td</span>
+        oracle-db-sct
+      <span class="nt">%td</span>
+        Oracle DB
+      <span class="nt">%td</span>
+        12
+</pre></div></div></div>
+<h2 id="table_key_value" class="styleguide">Key-Value</h2>
+<p class="styleguide">This table is used when the table headings are on the left. It looks better when you
+specify column widths for the th/tds.</p><div class="codeExample"><div class="exampleOutput"><table class='table table-key-value'>
+  <tbody>
+    <tr>
+      <th class='col-md-8'>Email</th>
+      <td class='col-md-16'>joe@example.com</td>
+    </tr>
+    <tr>
+      <th class='col-md-8'>Current Password</th>
+      <td class='col-md-16'>*******</td>
+    </tr>
+    <tr>
+      <th class='col-md-8'>First Name</th>
+      <td class='col-md-16'>Joe</td>
+    </tr>
+    <tr>
+      <th class='col-md-8'>Last Name</th>
+      <td class='col-md-16'>Bobs</td>
+    </tr>
+    <tr>
+      <th class='col-md-8'>Phone</th>
+      <td class='col-md-16'>415-555-0000</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="codeBlock"><div class="highlight"><pre>
+<span class="nt">%table</span><span class="nc">.table.table-key-value</span>
+  <span class="nt">%tbody</span>
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span><span class="nc">.col-md-8</span> Email
+      <span class="nt">%td</span><span class="nc">.col-md-16</span> joe@example.com
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span><span class="nc">.col-md-8</span> Current Password
+      <span class="nt">%td</span><span class="nc">.col-md-16</span> *******
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span><span class="nc">.col-md-8</span> First Name
+      <span class="nt">%td</span><span class="nc">.col-md-16</span> Joe
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span><span class="nc">.col-md-8</span> Last Name
+      <span class="nt">%td</span><span class="nc">.col-md-16</span> Bobs
+    <span class="nt">%tr</span>
+      <span class="nt">%th</span><span class="nc">.col-md-8</span> Phone
+      <span class="nt">%td</span><span class="nc">.col-md-16</span> 415-555-0000
+</pre></div></div></div>      </section>
+      <footer>
+        <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+      </footer>
+      <a class="back-to-top"></a>
+    </div>
+  </body>
+</html>

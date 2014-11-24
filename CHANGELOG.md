@@ -1,3 +1,35 @@
+<a name="1.2.0"></a>
+## 1.2.0 (2014-11-24)
+
+
+#### Bug Fixes
+
+* **alerts:**
+  * reorganize alert documentation ((0599b58a), closes (#82655864))
+  * add documentation on `alert-link` class ((320dfe58))
+  * update alert link styles ((c146159d))
+* **color:** colors now take precedence over components default color ((0bd3d024), closes (#83039526))
+* **event-list:**
+  * add deprecation warning ((adad9c88))
+  * deprecate event list ((adfdde21))
+* **group-list:** add example of event list built with PUI ((351bfbb4))
+* **links:** update table of link classes ((0042edfb))
+* **list-card:** Panel-list fix ((fb0a55f0))
+* **list-vertical-divider:** fix regressions ((0126f016))
+* **media:** media body now fills the width of its container ((ae45de6f), closes (#82743832))
+* **panel-flex:** Add list-card wrapper to example for height ((7e7987d5))
+* **styleguide:** make links in alert clash less ((fb41c277))
+* **tabs:** update responsive tabs' background color ((751a05d9))
+* **traffic lights:** decrease spacing between lights ((51bcaa77), closes (#82762072))
+
+
+#### Features
+
+* **bootstrap:** upgrade from v3.2 to v3.3.1 ((ff1701d7))
+* **code:** Add pre-unstyled class ((ac6b73a8))
+* **links:** add `link-text` class ((7bf7a3c4))
+* **styleguide:** update code example styles ((e5908f72))
+
 <a name="1.1.1"></a>
 ### 1.1.1 (2014-11-14)
 
