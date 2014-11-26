@@ -1,0 +1,1450 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui/pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="syntax-highlighting/prism-default.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="pivotal-ui/pivotal-ui.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div class="container">
+        <button id="navbar-hamburger">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="styleguide-logo"><img src="/images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
+        <div id="styleguide-first-level-nav-wrapper">
+          <ul id="styleguide-first-level-nav">
+            
+
+            
+              
+              
+
+              <li id="category-0" class="styleguide-category">
+                <a class="category-link" href="layout.html">
+                  Layout
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-0">
+                  <span class="sr-only">Expand Layout</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="layout.html#grid">Grids</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#layout_lists">Layout Lists</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#media">Media</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#pane">Panes</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="layout.html#vertical_align">Vertical Align</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-1" class="styleguide-category">
+                <a class="category-link" href="elements.html">
+                  Elements
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-1">
+                  <span class="sr-only">Expand Elements</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="elements.html#avatar">Avatars</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#background">Backgrounds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#button">Buttons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#divider">Dividers</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#embed">Embeds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#iconography">Iconography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#image">Images</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#label">Labels</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#link">Links</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#list">Lists</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#ribbon">Ribbons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#type">Typography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-2" class="styleguide-category">
+                <a class="category-link" href="objects.html">
+                  Objects
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-2">
+                  <span class="sr-only">Expand Objects</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="objects.html#accordion">Accordions</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#alert">Alerts</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#back_to_top">Back to Top</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#code">Code</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#map">Maps</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#panel">Panels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#progress_bar">Progress Bars</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#table">Tables</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-3" class="styleguide-category">
+                <a class="category-link" href="utilities.html">
+                  Utilities
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-3">
+                  <span class="sr-only">Expand Utilities</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="utilities.html#alignment">Alignment</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#ellipsis">Ellipsis</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#print">Print</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#responsive_utilities">Responsive Utilities</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#whitespace">Whitespace</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-4" class="styleguide-category">
+                <a class="category-link" href="javascript.html">
+                  JavaScript
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-4">
+                  <span class="sr-only">Expand JavaScript</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="#accordion" class="styleguide-subsection">Accordions</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#map" class="styleguide-subsection">Maps</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#modal" class="styleguide-subsection">Modals</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#tab" class="styleguide-subsection">Tabs</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#tooltip" class="styleguide-subsection">Tooltip</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-5" class="styleguide-category">
+                <a class="category-link" href="forms.html">
+                  Forms
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-5">
+                  <span class="sr-only">Expand Forms</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="forms.html#form">Forms</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_validation">Validations</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-6" class="styleguide-category">
+                <a class="category-link" href="by_product.html">
+                  by Product
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-6">
+                  <span class="sr-only">Expand by Product</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="by_product.html#console">Console</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="by_product.html#marketing">Marketing</a></li>
+                      
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+            <li>
+              <a class="category-link" href="all.html">All</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container ptl">
+      <section class="content">
+
+<h1 id="accordion" class="styleguide">Accordions</h1>
+
+<ul class="section-nav">
+  <li><a href="#accordion_basic">Basic</a></li>
+  <li><a href="#accordion_sizes">Sizes</a></li>
+  <li><a href="#accordion_with_icons">With Icons</a></li>
+  <li><a href="#accordion_styles">Styles</a></li>
+</ul>
+<p class="styleguide">These are frequently used in combination with our panel components. They have a header and body.</p><p class="styleguide">Accordions can be used with any background color class, add them to the header and body.</p><p class="styleguide">NOTE: The &#39;alligators&#39; (the &gt; in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they&#39;re toggled.</p><p class="styleguide">Also see the select tabs for a toggle triggered by a select group.</p>
+<h2 id="accordion_basic" class="styleguide">Basic</h2>
+<p class="styleguide">Use this to expand and collapse content.</p><div class="codeExample"><div class="exampleOutput"><a class='collapsed' data-toggle='collapse' href='#simple-collapse-example'>
+  <div class='when-collapsed'>
+    Expand me
+  </div>
+  <div class='when-expanded'>
+    Collapse me
+  </div>
+</a>
+<div class='collapse' id='simple-collapse-example'>
+  Look at this content.
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">%a</span><span class="nc">.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">}</span>, href: '#simple-collapse-example'}
+  <span class="nc">.when-collapsed</span>
+    Expand me
+  <span class="nc">.when-expanded</span>
+    Collapse me
+<span class="nf">#simple-collapse-example</span><span class="nc">.collapse</span>
+  Look at this content.
+</pre></div></div></div>
+<h2 id="accordion_sizes" class="styleguide">Sizes</h2>
+ 
+<p class="styleguide">Default accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-1'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-1'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-1'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-1</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-1'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-1</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Large accordion size:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-2'>
+  <div class='panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-2'>
+    <div class='row'>
+      <div class='col-md-23'><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-2'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-2</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-2'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-2</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div>
+<h2 id="accordion_styles" class="styleguide">Styles</h2>
+<p class="styleguide">Accordion with Divider:</p><p class="styleguide">This adds a divider between the accordion header and accordion body.</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-5'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-5'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-5'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-5</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-5'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-5</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div><p class="styleguide">Accordion with Shadow:</p><p class="styleguide">This adds a shadow to the accordion when it is both open and closed.</p><div class="codeExample"><div class="exampleOutput"><div class='panel panel-shadow' id='accordion-6'>
+  <div class='panel-heading-accordion bg-neutral-11 collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-6'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-6'>
+    <div class='panel-body-accordion-divider bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-6</span><span class="nc">.panel.panel-shadow</span>
+  <span class="nc">.panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-6'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-6</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion-divider.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
+<h2 id="accordion_with_icons" class="styleguide">With Icons</h2>
+<p class="styleguide">Accordion with plus/minus icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-3'>
+  <div class='panel-heading-accordion-large collapse-trigger collapsed' data-parent='#accordion-2' data-toggle='collapse' href='#myCollapse-3'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-plus-square collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-minus-square collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-3'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-3</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion-large.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-2'</span><span class="p">}</span>, href: '#myCollapse-3'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-plus-square.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-minus-square.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-3</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+</pre></div></div></div><p class="styleguide">Accordion with caret right/down icon:</p><div class="codeExample"><div class="exampleOutput"><div class='panel' id='accordion-4'>
+  <div class='panel-heading-accordion collapse-trigger collapsed' data-parent='#accordion-3' data-toggle='collapse' href='#myCollapse-4'>
+    <div class='row'>
+      <div class='col-md-23'>
+        <a><div class='when-collapsed-inline'><i class='fa fa-caret-right collapse-icon'></i></div><div class='when-expanded-inline'><i class='fa fa-caret-down collapse-icon'></i></div></a><h3 class='h5 collapse-title type-em-1 type-primary-2'>My fancy application</h3></div>
+    </div>
+  </div>
+  <div class='panel-collapse collapse' id='myCollapse-4'>
+    <div class='panel-body-accordion bg-neutral-11'>
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nf">#accordion-4</span><span class="nc">.panel</span>
+  <span class="nc">.panel-heading-accordion.collapse-trigger.collapsed</span><span class="p">{</span><span class="ss">data: </span><span class="p">{</span><span class="ss">toggle: </span><span class="s1">'collapse'</span><span class="p">,</span> <span class="ss">parent: </span><span class="s1">'#accordion-3'</span><span class="p">}</span>, href: '#myCollapse-4'}
+    <span class="nc">.row</span>
+      <span class="nc">.col-md-23</span>
+        <span class="nt">%a</span>
+          <span class="nc">.when-collapsed-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-right.collapse-icon</span>&gt;
+          <span class="nc">.when-expanded-inline</span>&gt;
+            <span class="nt">%i</span><span class="nc">.fa.fa-caret-down.collapse-icon</span>&gt;
+        <span class="nt">%h3</span><span class="nc">.h5.collapse-title.type-em-1.type-primary-2</span><span class="p">&gt;</span> My fancy application
+  <span class="nf">#myCollapse-4</span><span class="nc">.panel-collapse.collapse</span>
+    <span class="nc">.panel-body-accordion.bg-neutral-11</span>
+      This content should hide and show when the trigger is clicked.
+
+</pre></div></div></div>
+<h1 id="map" class="styleguide">Maps</h1>
+<p class="styleguide">Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.</p><div class="codeExample"><div class="exampleOutput"><script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<div class='map-wrapper'>
+  <div class='pane'>
+    <div class='container pan'>
+      <div class='row'>
+        <div class='col-sm-6 col-md-8 col-sm-offset-1'>
+          <div class='map-overlay panel panel-basic bg-neutral-10 paxxl'>
+            <h3 class="h2">Location</h3>
+            <address class='h4 pvl'>Pivotal Software Inc.<br>
+              875 Howard Street<br>
+              San Francisco, CA 94103
+            </address>
+            <p class='h4'>Support: <a href='mailto:support@run.pivotal.io'>support@run.pivotal.io</a></p>
+            <p class='h4'>Twitter: <a href='https://twitter.com/pivotalws'>@pivotalws</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='pane pane-map'>
+    <div id='labs-map'></div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"http://maps.googleapis.com/maps/api/js?libraries=places"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-wrapper'</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'container pan'</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'row'</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'col-sm-6 col-md-8 col-sm-offset-1'</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'map-overlay panel panel-basic bg-neutral-10 paxxl'</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Location<span class="nt">&lt;/h3&gt;</span>
+            <span class="nt">&lt;address</span> <span class="na">class=</span><span class="s">'h4 pvl'</span><span class="nt">&gt;</span>Pivotal Software Inc.<span class="nt">&lt;br&gt;</span>
+              875 Howard Street<span class="nt">&lt;br&gt;</span>
+              San Francisco, CA 94103
+            <span class="nt">&lt;/address&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Support: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'mailto:support@run.pivotal.io'</span><span class="nt">&gt;</span>support@run.pivotal.io<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'h4'</span><span class="nt">&gt;</span>Twitter: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">'https://twitter.com/pivotalws'</span><span class="nt">&gt;</span>@pivotalws<span class="nt">&lt;/a&gt;&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">'pane pane-map'</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">'labs-map'</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>var maps = (function() {
+  var self = this;
+  var map;
+
+  var mapOptions = {
+    placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
+    center: new google.maps.LatLng(37.781787,-122.403911),
+    mapElementId: 'labs-map',
+    zoom: 18
+  };
+
+  var initialize = function() {
+    map = new google.maps.Map(document.getElementById(mapOptions.mapElementId), {
+      center: mapOptions.center,
+      zoom: mapOptions.zoom,
+      disableDefaultUI: true
+    });
+
+    var request = {
+      placeId: mapOptions.placeId
+    };
+
+    var service = new google.maps.places.PlacesService(map);
+    service.getDetails(request, createMarker);
+  };
+
+  var createMarker = function(place, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+    }
+  };
+
+  self.initialize = initialize;
+  return self;
+})();
+
+google.maps.event.addDomListener(window, 'load', maps.initialize);
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="kd">var</span> <span class="nx">maps</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">map</span><span class="p">;</span>
+
+  <span class="kd">var</span> <span class="nx">mapOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">placeId</span><span class="p">:</span> <span class="s2">"ChIJ9w1pfYiAhYAR45k8AD-TjhA"</span><span class="p">,</span>
+    <span class="na">center</span><span class="p">:</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">LatLng</span><span class="p">(</span><span class="mf">37.781787</span><span class="p">,</span><span class="o">-</span><span class="mf">122.403911</span><span class="p">),</span>
+    <span class="na">mapElementId</span><span class="p">:</span> <span class="s1">'labs-map'</span><span class="p">,</span>
+    <span class="na">zoom</span><span class="p">:</span> <span class="mi">18</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">initialize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Map</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="nx">mapOptions</span><span class="p">.</span><span class="nx">mapElementId</span><span class="p">),</span> <span class="p">{</span>
+      <span class="na">center</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">center</span><span class="p">,</span>
+      <span class="na">zoom</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">zoom</span><span class="p">,</span>
+      <span class="na">disableDefaultUI</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">});</span>
+
+    <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">placeId</span><span class="p">:</span> <span class="nx">mapOptions</span><span class="p">.</span><span class="nx">placeId</span>
+    <span class="p">};</span>
+
+    <span class="kd">var</span> <span class="nx">service</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesService</span><span class="p">(</span><span class="nx">map</span><span class="p">);</span>
+    <span class="nx">service</span><span class="p">.</span><span class="nx">getDetails</span><span class="p">(</span><span class="nx">request</span><span class="p">,</span> <span class="nx">createMarker</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="kd">var</span> <span class="nx">createMarker</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">place</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">status</span> <span class="o">==</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">places</span><span class="p">.</span><span class="nx">PlacesServiceStatus</span><span class="p">.</span><span class="nx">OK</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">new</span> <span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">Marker</span><span class="p">({</span>
+        <span class="na">map</span><span class="p">:</span> <span class="nx">map</span><span class="p">,</span>
+        <span class="na">position</span><span class="p">:</span> <span class="nx">place</span><span class="p">.</span><span class="nx">geometry</span><span class="p">.</span><span class="nx">location</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+
+  <span class="nx">self</span><span class="p">.</span><span class="nx">initialize</span> <span class="o">=</span> <span class="nx">initialize</span><span class="p">;</span>
+  <span class="k">return</span> <span class="nx">self</span><span class="p">;</span>
+<span class="p">})();</span>
+
+<span class="nx">google</span><span class="p">.</span><span class="nx">maps</span><span class="p">.</span><span class="nx">event</span><span class="p">.</span><span class="nx">addDomListener</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="s1">'load'</span><span class="p">,</span> <span class="nx">maps</span><span class="p">.</span><span class="nx">initialize</span><span class="p">);</span>
+</pre></div></div>
+<h1 id="modal" class="styleguide">Modals</h1>
+<p class="styleguide">Modals bring desired content to the foreground and de-emphasize the rest of the page.</p>
+<!-- Button trigger modal -->
+<p class="styleguide"><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+  Launch basic modal
+</button>
+<button class="btn btn-primary" data-toggle="modal" data-target="#myAltModal">
+  Launch alternate modal
+</button></p>
+<!-- Modal Basic -->
+
+<div class="modal fade modal-basic" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Alternate -->
+
+<div class="modal fade modal-alt" id="myAltModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h1 id="tab" class="styleguide">Tabs</h1>
+
+<ul class="section-nav">
+  <li><a href="#tab_highlight">Highlight</a></li>
+  <li><a href="#tab_simple">Simple</a></li>
+  <li><a href="#tab_simple_alt">Simple Alt</a></li>
+  <li><a href="#tab_responsive">Responsive</a></li>
+  <li><a href="#tab_image">Image</a></li>
+</ul>
+<p class="styleguide">You can activate a tab or pill navigation without writing any JavaScript by simply specifying <code class="styleguide">data-toggle=&quot;tab&quot;</code> on an element.</p>
+<h2 id="tab_highlight" class="styleguide">Highlight</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-highlight'>
+  <div class='row'>
+    <div class='col-md-8'>
+      <h1>Service Plans</h1>
+      <ul class='nav nav-stacked'>
+        <li class='active'>
+          <a data-toggle='tab' href='#home'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Spark
+              </div>
+              <div class='col-md-14'>
+                Free
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#profile'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Boost
+              </div>
+              <div class='col-md-14'>
+                $10/month
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#messages'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Amp
+              </div>
+              <div class='col-md-14'>
+                $50/month
+              </div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#settings'>
+            <div class='row'>
+              <div class='col-md-10 tab-title'>
+                Shockingly long plan name is important to test
+              </div>
+              <div class='col-md-14'>
+                $1000/month
+              </div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class='col-md-16'>
+      <h1>Plan Features</h1>
+      <div class='tab-content'>
+        <div class='tab-pane fade in active' id='home'>Content 1</div>
+        <div class='tab-pane fade' id='profile'>Content 2</div>
+        <div class='tab-pane fade' id='messages'>Content 3</div>
+        <div class='tab-pane fade' id='settings'>Content 4</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-highlight</span>
+  <span class="nc">.row</span>
+    <span class="nc">.col-md-8</span>
+      <span class="nt">%h1</span> Service Plans
+      <span class="nt">%ul</span><span class="nc">.nav.nav-stacked</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#home"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Spark
+              <span class="nc">.col-md-14</span>
+                Free
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#profile"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Boost
+              <span class="nc">.col-md-14</span>
+                $10/month
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#messages"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Amp
+              <span class="nc">.col-md-14</span>
+                $50/month
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#settings"</span><span class="p">}</span>
+            <span class="nc">.row</span>
+              <span class="nc">.col-md-10.tab-title</span>
+                Shockingly long plan name is important to test
+              <span class="nc">.col-md-14</span>
+                $1000/month
+
+    <span class="nc">.col-md-16</span>
+      <span class="nt">%h1</span> Plan Features
+      <span class="nc">.tab-content</span>
+        <span class="nf">#home</span><span class="nc">.tab-pane.fade.in.active</span> Content 1
+        <span class="nf">#profile</span><span class="nc">.tab-pane.fade</span> Content 2
+        <span class="nf">#messages</span><span class="nc">.tab-pane.fade</span> Content 3
+        <span class="nf">#settings</span><span class="nc">.tab-pane.fade</span> Content 4
+</pre></div></div></div>
+<h2 id="tab_image" class="styleguide">Image</h2>
+<p class="styleguide">You can use any 130px by 130px svg for the icon in the center of the tab. Please add the class <code class="styleguide">icon</code> to any parts of the svg which form part of the icon. You may also use an icon font for the icon.</p><div class="codeExample"><div class="exampleOutput"><div class="tabs-images">
+  <ul class="list-inline nav-tabs-images">
+    <li class="active">
+      <a data-toggle="tab" href="#agility">
+        <span class="sr-only">Agility</span>
+        <svg class="icon-svg" x="0px" y="0px" height="130" width="130" enable-background="new 0 0 130 130" >
+          <g>
+            <path class="icon" d="M97.283,83.157H86.452c-2.555,3.305-5.781,6.066-9.478,8.067h20.31l4.489-3.945L97.283,83.157z"/>
+            <path class="icon" d="M62.788,38.586c-14.513,0-26.319,11.807-26.319,26.319c0,5.429,1.66,10.473,4.489,14.667h11.012
+              c-4.499-3.327-7.434-8.654-7.434-14.667c0-10.064,8.188-18.252,18.252-18.252S81.04,54.84,81.04,64.905
+              c0,6.013-2.935,11.34-7.434,14.667c-3.032,2.242-6.766,3.585-10.818,3.585H43.853h-4.729H28.292l4.482,4.122l-4.482,3.945h20.311
+              h14.185c7.43,0,14.145-3.099,18.935-8.067c1.066-1.106,2.033-2.308,2.895-3.585c2.83-4.194,4.489-9.238,4.489-14.667
+              C89.107,50.393,77.301,38.586,62.788,38.586z"/>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#choice">
+        <span class="sr-only">Choice</span>
+        <svg class="icon-svg" version="1.1" x="0px" y="0px"
+             viewBox="0 0 130 130" enable-background="new 0 0 130 130" xml:space="preserve">
+          <g>
+            <g>
+              <path class="icon" d="M59.642,57.905c0,1.65-1.35,3-3,3h-18c-1.65,0-3-1.35-3-3v-18c0-1.65,1.35-3,3-3h18c1.65,0,3,1.35,3,3V57.905z"/>
+            </g>
+            <g>
+              <path class="icon" d="M78.381,60.905c-1.65,0-3.675-1.169-4.5-2.598l-3.928-6.804c-0.825-1.429-0.825-3.767,0-5.196l3.928-6.804
+                c0.825-1.429,2.85-2.598,4.5-2.598h7.856c1.65,0,3.675,1.169,4.5,2.598l3.928,6.804c0.825,1.429,0.825,3.767,0,5.196l-3.928,6.804
+                c-0.825,1.429-2.85,2.598-4.5,2.598H78.381z"/>
+            </g>
+            <circle class="icon" cx="82.309" cy="79.905" r="12"/>
+            <g>
+              <path class="icon" d="M46.202,70.399c0.792-1.372,2.088-1.372,2.88,0l3.77,6.531c0.792,1.372,2.088,3.616,2.88,4.988l3.77,6.531
+                c0.792,1.372,0.144,2.494-1.44,2.494h-7.541c-1.584,0-4.175,0-5.759,0h-7.541c-1.584,0-2.232-1.122-1.44-2.494l3.77-6.531
+                c0.792-1.372,2.088-3.616,2.88-4.988L46.202,70.399z"/>
+            </g>
+          </g>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#open-source">
+        <span class="sr-only">Open Source</span>
+        <svg class="icon-svg" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 130 130" enable-background="new 0 0 130 130">
+          <path class="icon" d="M95.22,65.454c0-16.583-13.441-30.025-30.024-30.025c-16.583,0-30.026,13.442-30.026,30.025
+            c0,12.68,7.861,23.525,18.973,27.926l7.596-19.192c-3.477-1.377-5.937-4.767-5.937-8.734c0-5.188,4.207-9.393,9.394-9.393
+            c5.188,0,9.395,4.206,9.395,9.393c0,3.966-2.463,7.357-5.937,8.734l7.594,19.192C87.362,88.979,95.22,78.134,95.22,65.454z"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+  <div class="tab-content txt-c">
+    <div class="tab-pane fade in active" id="agility">Agility Content</div>
+    <div class="tab-pane fade" id="choice">Choice Content</div>
+    <div class="tab-pane fade" id="open-source">Open Source</div>
+  </div>
+</div>
+
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tabs-images"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline nav-tabs-images"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"active"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#agility"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Agility<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">height=</span><span class="s">"130"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span> <span class="nt">&gt;</span>
+          <span class="nt">&lt;g&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M97.283,83.157H86.452c-2.555,3.305-5.781,6.066-9.478,8.067h20.31l4.489-3.945L97.283,83.157z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M62.788,38.586c-14.513,0-26.319,11.807-26.319,26.319c0,5.429,1.66,10.473,4.489,14.667h11.012
+              c-4.499-3.327-7.434-8.654-7.434-14.667c0-10.064,8.188-18.252,18.252-18.252S81.04,54.84,81.04,64.905
+              c0,6.013-2.935,11.34-7.434,14.667c-3.032,2.242-6.766,3.585-10.818,3.585H43.853h-4.729H28.292l4.482,4.122l-4.482,3.945h20.311
+              h14.185c7.43,0,14.145-3.099,18.935-8.067c1.066-1.106,2.033-2.308,2.895-3.585c2.83-4.194,4.489-9.238,4.489-14.667
+              C89.107,50.393,77.301,38.586,62.788,38.586z"</span><span class="nt">/&gt;</span>
+          <span class="nt">&lt;/g&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#choice"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Choice<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span>
+             <span class="na">viewBox=</span><span class="s">"0 0 130 130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;g&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M59.642,57.905c0,1.65-1.35,3-3,3h-18c-1.65,0-3-1.35-3-3v-18c0-1.65,1.35-3,3-3h18c1.65,0,3,1.35,3,3V57.905z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M78.381,60.905c-1.65,0-3.675-1.169-4.5-2.598l-3.928-6.804c-0.825-1.429-0.825-3.767,0-5.196l3.928-6.804
+                c0.825-1.429,2.85-2.598,4.5-2.598h7.856c1.65,0,3.675,1.169,4.5,2.598l3.928,6.804c0.825,1.429,0.825,3.767,0,5.196l-3.928,6.804
+                c-0.825,1.429-2.85,2.598-4.5,2.598H78.381z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+            <span class="nt">&lt;circle</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">cx=</span><span class="s">"82.309"</span> <span class="na">cy=</span><span class="s">"79.905"</span> <span class="na">r=</span><span class="s">"12"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;g&gt;</span>
+              <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M46.202,70.399c0.792-1.372,2.088-1.372,2.88,0l3.77,6.531c0.792,1.372,2.088,3.616,2.88,4.988l3.77,6.531
+                c0.792,1.372,0.144,2.494-1.44,2.494h-7.541c-1.584,0-4.175,0-5.759,0h-7.541c-1.584,0-2.232-1.122-1.44-2.494l3.77-6.531
+                c0.792-1.372,2.088-3.616,2.88-4.988L46.202,70.399z"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;/g&gt;</span>
+          <span class="nt">&lt;/g&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">data-toggle=</span><span class="s">"tab"</span> <span class="na">href=</span><span class="s">"#open-source"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Open Source<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"icon-svg"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">id=</span><span class="s">"Layer_1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">viewBox=</span><span class="s">"0 0 130 130"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 130 130"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;path</span> <span class="na">class=</span><span class="s">"icon"</span> <span class="na">d=</span><span class="s">"M95.22,65.454c0-16.583-13.441-30.025-30.024-30.025c-16.583,0-30.026,13.442-30.026,30.025
+            c0,12.68,7.861,23.525,18.973,27.926l7.596-19.192c-3.477-1.377-5.937-4.767-5.937-8.734c0-5.188,4.207-9.393,9.394-9.393
+            c5.188,0,9.395,4.206,9.395,9.393c0,3.966-2.463,7.357-5.937,8.734l7.594,19.192C87.362,88.979,95.22,78.134,95.22,65.454z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/svg&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-content txt-c"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade in active"</span> <span class="na">id=</span><span class="s">"agility"</span><span class="nt">&gt;</span>Agility Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"choice"</span><span class="nt">&gt;</span>Choice Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"tab-pane fade"</span> <span class="na">id=</span><span class="s">"open-source"</span><span class="nt">&gt;</span>Open Source<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</pre></div></div></div>
+<h2 id="tab_responsive" class="styleguide">Responsive</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-responsive'>
+  <div class='row'>
+    <div class='col-sm-5'>
+      <ul class='nav hidden-xs'>
+        <li class='active'>
+          <a data-toggle='tab' href='#tab-responsive-1'>
+            meep
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-2'>
+            foo
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-3'>
+            bar
+          </a>
+        </li>
+        <li>
+          <a data-toggle='tab' href='#tab-responsive-4'>
+            baz
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class='col-sm-19'>
+      <ul class='tab-content'>
+        <li class='active'>
+          <a class='visible-xs-block' data-toggle='tab' href='#tab-responsive-1'>
+            meep
+          </a>
+        </li>
+        <li class='tab-pane active fade in' id='tab-responsive-1'>Content 1</li>
+        <li>
+          <a class='visible-xs-block' data-toggle='tab' href='#tab-responsive-2'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-2'>Content 2</li>
+        <li>
+          <a class='visible-xs-block' data-toggle='tab' href='#tab-responsive-3'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-3'>Content 3</li>
+        <li>
+          <a class='visible-xs-block' data-toggle='tab' href='#tab-responsive-4'>
+            foo
+          </a>
+        </li>
+        <li class='tab-pane fade' id='tab-responsive-4'>Content 4</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-responsive</span>
+  <span class="nc">.row</span>
+    <span class="nc">.col-sm-5</span>
+      <span class="nt">%ul</span><span class="nc">.nav.hidden-xs</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-1"</span><span class="p">}</span>
+            meep
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-2"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-3"</span><span class="p">}</span>
+            bar
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-4"</span><span class="p">}</span>
+            baz
+
+    <span class="nc">.col-sm-19</span>
+      <span class="nt">%ul</span><span class="nc">.tab-content</span>
+        <span class="nt">%li</span><span class="nc">.active</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs-block</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-1"</span><span class="p">}</span>
+            meep
+        <span class="nt">%li</span><span class="nf">#tab-responsive-1</span><span class="nc">.tab-pane.active.fade.in</span> Content 1
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs-block</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-2"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-2</span><span class="nc">.tab-pane.fade</span> Content 2
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs-block</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-3"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-3</span><span class="nc">.tab-pane.fade</span> Content 3
+        <span class="nt">%li</span>
+          <span class="nt">%a</span><span class="nc">.visible-xs-block</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#tab-responsive-4"</span><span class="p">}</span>
+            foo
+        <span class="nt">%li</span><span class="nf">#tab-responsive-4</span><span class="nc">.tab-pane.fade</span> Content 4
+
+</pre></div></div></div>
+<h2 id="tab_simple" class="styleguide">Simple</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-simple'>
+  <div class='tabs-action txt-r'>
+    <a>Some Action</a>
+  </div>
+  <ul class='nav nav-tabs'>
+    <li class='active'>
+      <a data-toggle='tab' href='#spaces'>Spaces</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#domains'>Domains</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#members'>Members</a>
+    </li>
+  </ul>
+  <div class='tab-content'>
+    <div class='tab-pane fade in active' id='spaces'>Spaces Content</div>
+    <div class='tab-pane fade' id='domains'>Domains Content</div>
+    <div class='tab-pane fade' id='members'>Members Content</div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-simple</span>
+  <span class="nc">.tabs-action.txt-r</span>
+    <span class="nt">%a</span> Some Action
+  <span class="nt">%ul</span><span class="nc">.nav.nav-tabs</span>
+    <span class="nt">%li</span><span class="nc">.active</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#spaces"</span><span class="p">}</span>Spaces
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#domains"</span><span class="p">}</span>Domains
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#members"</span><span class="p">}</span>Members
+
+
+  <span class="nc">.tab-content</span>
+    <span class="nf">#spaces</span><span class="nc">.tab-pane.fade.in.active</span> Spaces Content
+    <span class="nf">#domains</span><span class="nc">.tab-pane.fade</span> Domains Content
+    <span class="nf">#members</span><span class="nc">.tab-pane.fade</span> Members Content
+
+</pre></div></div></div>
+<h2 id="tab_simple_alt" class="styleguide">Simple Alt</h2>
+<div class="codeExample"><div class="exampleOutput"><div class='tab-simple-alt'>
+  <ul class='nav nav-tabs'>
+    <li class='active'>
+      <a data-toggle='tab' href='#dashboard'>Dashboard</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#notifications'>Notifications</a>
+    </li>
+    <li>
+      <a data-toggle='tab' href='#eula'>EULA</a>
+    </li>
+  </ul>
+  <div class='tab-content'>
+    <div class='tab-pane fade in active' id='dashboard'>Dashboard Content</div>
+    <div class='tab-pane fade' id='notifications'>Notifications Content</div>
+    <div class='tab-pane fade' id='eula'>EULA Content</div>
+  </div>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nc">.tab-simple-alt</span>
+  <span class="nt">%ul</span><span class="nc">.nav.nav-tabs</span>
+    <span class="nt">%li</span><span class="nc">.active</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#dashboard"</span><span class="p">}</span>Dashboard
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#notifications"</span><span class="p">}</span>Notifications
+    <span class="nt">%li</span>
+      <span class="nt">%a</span><span class="p">{</span><span class="s2">"data-toggle"</span> <span class="o">=&gt;</span> <span class="s2">"tab"</span><span class="p">,</span> <span class="ss">:href</span> <span class="o">=&gt;</span> <span class="s2">"#eula"</span><span class="p">}</span>EULA
+
+
+  <span class="nc">.tab-content</span>
+    <span class="nf">#dashboard</span><span class="nc">.tab-pane.fade.in.active</span> Dashboard Content
+    <span class="nf">#notifications</span><span class="nc">.tab-pane.fade</span> Notifications Content
+    <span class="nf">#eula</span><span class="nc">.tab-pane.fade</span> EULA Content
+
+</pre></div></div></div>
+<h1 id="tooltip" class="styleguide">Tooltip</h1>
+<p class="styleguide">Tooltips are used to display extra information on hover. They can be used with any hoverable element.</p><p class="styleguide">The <code class="styleguide">title</code> attribute defines the text that appears on the tooltip.
+The <code class="styleguide">data-placement</code> attribute defines the tooltip&#39;s placement.
+If <code class="styleguide">data-placement</code> is not specified, the tooltip is placed on top by default.</p>
+<div class="alert alert-warning">
+  <p class="em-high">
+    Tooltips must be initialized with javascript: <code>$(mySelector).tooltip();</code>
+  </p>
+</div>
+<div class="codeExample"><div class="exampleOutput"><p>
+  Check out this
+  <a id="link-with-tooltip-1" href="#" data-toggle="tooltip" data-placement="left" title="I should be on the left">
+    tooltip on the left!
+  </a>
+</p>
+
+<p>
+  Check out this
+  <a id="link-with-tooltip-2" href="#" data-toggle="tooltip" data-placement="right" title="I should be on the right">
+    tooltip on the right!
+  </a>
+</p>
+
+<p>
+  <button id="button-with-tooltip-1" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="I should be on the top">
+    Check out this tooltip on the top!
+  </button>
+</p>
+
+<p>
+  <button id="button-with-tooltip-2" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="I should be on the bottom">
+    Check out this tooltip on the bottom!
+  </button>
+</p>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;p&gt;</span>
+  Check out this
+  <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"link-with-tooltip-1"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"left"</span> <span class="na">title=</span><span class="s">"I should be on the left"</span><span class="nt">&gt;</span>
+    tooltip on the left!
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  Check out this
+  <span class="nt">&lt;a</span> <span class="na">id=</span><span class="s">"link-with-tooltip-2"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">title=</span><span class="s">"I should be on the right"</span><span class="nt">&gt;</span>
+    tooltip on the right!
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"button-with-tooltip-1"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"top"</span> <span class="na">title=</span><span class="s">"I should be on the top"</span><span class="nt">&gt;</span>
+    Check out this tooltip on the top!
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"button-with-tooltip-2"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"bottom"</span> <span class="na">title=</span><span class="s">"I should be on the bottom"</span><span class="nt">&gt;</span>
+    Check out this tooltip on the bottom!
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+</pre></div></div></div><script>$('#link-with-tooltip-1').tooltip();
+$('#link-with-tooltip-2').tooltip();
+$('#button-with-tooltip-1').tooltip();
+$('#button-with-tooltip-2').tooltip();
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#link-with-tooltip-1'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#link-with-tooltip-2'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#button-with-tooltip-1'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#button-with-tooltip-2'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+</pre></div></div>
+<div class="alert alert-info">
+  <p class="em-high">
+    If you want to use a tooltip on a disabled element, place the tooltip in a wrapper div with the class <code>.button-with-tooltip-wrapper</code>.
+  </p>
+</div>
+<div class="codeExample"><div class="exampleOutput"><div id="disabled-button-with-tooltip" class="button-with-tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="This button is totally disabled!">
+  <button type="button" class="btn btn-default" disabled=true>
+    Disabled button
+  </button>
+</div>
+</div><div class="codeBlock"><div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"disabled-button-with-tooltip"</span> <span class="na">class=</span><span class="s">"button-with-tooltip-wrapper"</span> <span class="na">data-toggle=</span><span class="s">"tooltip"</span> <span class="na">data-placement=</span><span class="s">"right"</span> <span class="na">title=</span><span class="s">"This button is totally disabled!"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">disabled=</span><span class="s">true</span><span class="nt">&gt;</span>
+    Disabled button
+  <span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div></div></div><script>$('#disabled-button-with-tooltip').tooltip();
+</script> <div class="codeBlock jsExample"><div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#disabled-button-with-tooltip'</span><span class="p">).</span><span class="nx">tooltip</span><span class="p">();</span>
+</pre></div></div>      </section>
+      <footer>
+        <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+      </footer>
+      <a class="back-to-top"></a>
+    </div>
+  </body>
+</html>
