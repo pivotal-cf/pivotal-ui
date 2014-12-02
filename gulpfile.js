@@ -72,17 +72,17 @@ gulp.task('_cleanTest', function(done) {
 gulp.task('_minify', ['_minifyjs', '_minifycss']);
 
 gulp.task('_minifycss', ['_styles'], function() {
-  return gulp.src('./dist/pivotal-ui/pivotal-ui.css')
+  return gulp.src('./dist/pivotal-ui.css')
     .pipe(minifyCss({keepBreaks:true}))
     .pipe(rename('pivotal-ui.min.css'))
-    .pipe(gulp.dest('./dist/pivotal-ui/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('_minifyjs', ['_scripts'], function() {
-  return gulp.src('./dist/pivotal-ui/*.js')
+  return gulp.src('./dist/*.js')
     .pipe(uglifyJs())
     .pipe(rename('pivotal-ui.min.js'))
-    .pipe(gulp.dest('./dist/pivotal-ui/'));
+    .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('_styleguide', [
@@ -104,8 +104,24 @@ gulp.task('_fonts', [
   '_sourceSansPro'
 ]);
 
-gulp.task('_compassBuild', ['clean'], function() {
-  return gulp.src(['src/pivotal-ui/pivotal-ui.scss', 'src/styleguide/styleguide.scss'])
+gulp.task('_compassBuild', [
+  '_compassBuildPui',
+  '_compassBuildStyleguide'
+]);
+
+gulp.task('_compassBuildPui', ['clean'], function() {
+  return gulp.src(['src/pivotal-ui/pivotal-ui.scss'])
+    .pipe(
+      compass({
+        config_file: './config/compass.rb',
+        css: 'dist',
+        sass: 'src/pivotal-ui'
+      }).on('error', errorHandler.handleError)
+    );
+});
+
+gulp.task('_compassBuildStyleguide', ['clean'], function() {
+  return gulp.src(['src/styleguide/styleguide.scss'])
     .pipe(
       compass({
         config_file: './config/compass.rb',
@@ -123,7 +139,7 @@ gulp.task('_copyPrism', ['clean'], function() {
 gulp.task('_scripts', ['clean'], function() {
   return browserify('./src/pivotal-ui/javascripts/pivotal-ui.js').bundle()
     .pipe(source('./pivotal-ui.js'))
-    .pipe(gulp.dest('dist/pivotal-ui/'))
+    .pipe(gulp.dest('dist/'))
 });
 
 gulp.task('_images', ['clean'], function() {

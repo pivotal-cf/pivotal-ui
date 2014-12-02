@@ -37,8 +37,8 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 <html>
   <head>
     <title>...</title>
-    <link rel="stylesheet" href="/path/to/release/pivotal-ui/pivotal-ui.css">
-    <script src="/path/to/release/pivotal-ui/pivotal-ui.js"></script>
+    <link rel="stylesheet" href="/path/to/release/pivotal-ui.css">
+    <script src="/path/to/release/pivotal-ui.js"></script>
   </head>
   <body>
     <p class='type-brand-1'>Hello, world!</p>

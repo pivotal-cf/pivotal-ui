@@ -76,7 +76,7 @@ gulp.task('_addVersionRelease', ['assets'], function(done) {
   releaseHelper.getNewVersion
   .then(function(newVersion) {
     gulp.src('dist/**/*')
-      .pipe(gulp.dest('release/' + newVersion + '/'))
+      .pipe(gulp.dest('release/pui-v' + newVersion + '/'))
       .on('end', done);
   })
   .fail(function(err) {

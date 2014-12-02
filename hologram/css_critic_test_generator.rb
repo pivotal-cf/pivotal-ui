@@ -10,7 +10,7 @@ class CssCriticTestGenerator < Hologram::Plugin
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="../dist/pivotal-ui/pivotal-ui.css">
+    <link rel="stylesheet" href="../dist/pivotal-ui.css">
     <link rel="stylesheet" href="../dist/styleguide/github.css">
     <link rel="stylesheet" disabled href="../dist/syntax-highlighting/prism-default.css">
     <link rel="stylesheet" href="../dist/syntax-highlighting/prism-okaida.css">
