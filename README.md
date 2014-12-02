@@ -48,6 +48,18 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 You'll need to maintain the structure in the release directory to have fonts and assets work properly. **Do not modify the release files directly**. If you need a component and you cannot find it in the styleguide, write your own styles and javascript separately. Doing so will make it easier to update to newer versions.
 
+# Using PivotalUI on your Rails project
+
+To use Pivotal UI with Rails, there are a few small extra steps to make sure the asset paths are correctly configured to be used with the asset pipeline. The extra steps are:
+
+1. When linking to the CSS file in your HTML/Sass, link to `pui-vX.X.X/rails/pivotal-ui.css` instead of the top-level `pivotal-ui.css`.
+1. In your application's `config/application.rb`, you'll need to add the following to make sure all vendored fonts and images are compiled:
+
+```
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'pivotal-ui', 'images')
+    config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+```
+
 ### Including SCSS variables (optional, beta)
 
 If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project:

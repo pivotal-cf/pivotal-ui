@@ -1,20 +1,21 @@
-var argv = require('yargs').argv;
-var browserify = require('browserify');
-var compass = require('gulp-compass');
-var connect = require('gulp-connect');
-var del = require('del');
-var ejs = require('gulp-ejs');
-var errorHandler = require('./tasks/errorHandler.js');
-var fs = require('fs');
-var gulp = require('gulp');
-var jshint = require('gulp-jshint');
-var minifyCss = require('gulp-minify-css');
-var open = require('gulp-open');
-var rename = require('gulp-rename');
-var shell = require('gulp-shell');
-var source = require('vinyl-source-stream');
-var stylish = require('jshint-stylish');
-var uglifyJs = require('gulp-uglify');
+var argv = require('yargs').argv,
+  browserify = require('browserify'),
+  compass = require('gulp-compass'),
+  connect = require('gulp-connect'),
+  del = require('del'),
+  ejs = require('gulp-ejs'),
+  errorHandler = require('./tasks/errorHandler.js'),
+  fs = require('fs'),
+  gulp = require('gulp'),
+  jshint = require('gulp-jshint'),
+  minifyCss = require('gulp-minify-css'),
+  open = require('gulp-open'),
+  rename = require('gulp-rename'),
+  shell = require('gulp-shell'),
+  source = require('vinyl-source-stream'),
+  stylish = require('jshint-stylish'),
+  uglifyJs = require('gulp-uglify'),
+  replace = require('gulp-replace');
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -106,6 +107,7 @@ gulp.task('_fonts', [
 
 gulp.task('_compassBuild', [
   '_compassBuildPui',
+  '_compassBuildPuiRails',
   '_compassBuildStyleguide'
 ]);
 
@@ -118,6 +120,17 @@ gulp.task('_compassBuildPui', ['clean'], function() {
         sass: 'src/pivotal-ui'
       }).on('error', errorHandler.handleError)
     );
+});
+
+gulp.task('_compassBuildPuiRails', ['_compassBuildPui'], function() {
+  return gulp.src('dist/pivotal-ui.css')
+    .pipe(
+      replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1')
+    )
+    .pipe(
+      replace(/url\(('|")\.\.\/images\//g, 'image-url\($1')
+    )
+    .pipe(gulp.dest('dist/rails'));
 });
 
 gulp.task('_compassBuildStyleguide', ['clean'], function() {
