@@ -34,11 +34,11 @@ Cloudbees will deploy to <http://styleguide.cfapps.io>.
   - Updates `CHANGELOG.md` with auto-generated release notes
   - Creates a tag for the new version
   - Pushes version bump and new tag to github
-  - Creates `dist.zip` in the root directory
+  - Creates `pui-vX.X.X.zip` in the root directory
   - Creates a draft github release with the auto-generated release notes
   - Uploads the `variables.scss` file to the release
 
-1. In github, upload `dist.zip` to the release.
+1. In github, upload `pui-vX.X.X.zip` to the release.
 
 1. Be sure to name the release an ice cream flavor.
 
