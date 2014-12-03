@@ -9,16 +9,16 @@ feature 'the main nav', js: true do
       click_on 'Toggle navigation'
       expect(page).to have_content 'Layout'
 
-      expect(page).not_to have_content 'Grids'
+      expect(page).not_to have_content 'Vertical Align'
       click_on 'Expand Layout'
-      expect(page).to have_content 'Grids'
+      expect(page).to have_content 'Vertical Align'
 
       click_on 'Expand Objects'
-      expect(page).not_to have_content 'Grids'
-      expect(page).to have_content 'Alerts'
+      expect(page).to have_content 'Tables'
+      expect(page).not_to have_content 'Vertical Align'
 
       click_on 'Expand Objects'
-      expect(page).not_to have_content 'Alerts'
+      expect(page).not_to have_content 'Tables'
 
       click_on 'Toggle navigation'
       expect(page).not_to have_content 'Layout'
