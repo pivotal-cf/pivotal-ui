@@ -189,6 +189,7 @@ $tab-border-size: 3px;
       @include no-transition;
 
       > a {
+        border: 0;
         margin: -$tab-border-size 0 $tab-border-size 0; //shift text up to offset top border
         color: $tab-simple-link-active-color;
         background-color: transparent;
