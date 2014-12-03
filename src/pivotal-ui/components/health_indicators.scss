@@ -495,10 +495,11 @@ These states are handled automatically when you use the `application_state_indic
 helper in your templates. The latter parameter determines the size. The first
 parameter is the application affected by the actions of the application health indicator.
 
-```haml
-=application_state_indicator(application)
-=application_state_indicator(application, {:large_indicator: true})
+```erb
+<%= application_state_indicator(application) %>
+<%= application_state_indicator(application, {:large_indicator: true}) %>
 ```
+
 */
 
 

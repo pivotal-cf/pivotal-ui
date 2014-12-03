@@ -119,7 +119,7 @@ This is an animated progress bar. See [progress bar][progress_bar] to see the st
 
 
 Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
-In the haml, the width should be set to match the `aria-valuenow` if the progress bar isn't animated. If it is, it should be set to 0% initially.
+In the html, the width should be set to match the `aria-valuenow` if the progress bar isn't animated. If it is, it should be set to 0% initially.
 
 ```html_example
 <div class="progress">
