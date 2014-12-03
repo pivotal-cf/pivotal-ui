@@ -8,7 +8,7 @@ Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
-Capybara.app_host = 'http://localhost:8000'
+Capybara.app_host = 'http://localhost:9001'
 Capybara.run_server = false
 Capybara.javascript_driver = :chrome
 
