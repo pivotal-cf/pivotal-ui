@@ -18,7 +18,7 @@ gulp.task('release', [
   .spread(function(newTagName, versionChanges) {
     return [
       githubService.createRelease(newTagName, versionChanges),
-      q.nfcall(fs.readFile, 'src/pivotal-ui/components/variables.scss', {encoding: 'utf-8'})
+      q.nfcall(fs.readFile, 'src/pivotal-ui/components/pui-variables.scss', {encoding: 'utf-8'})
     ];
   })
   .spread(function(res, sass) {
