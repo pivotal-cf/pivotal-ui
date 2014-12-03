@@ -176,7 +176,7 @@ We use CSSCritic for visual-diff regression testing. To test:
 
 #### Creating test fixtures for new components (very aspirational)
 
-Test fixtures are automatically created every time you create a `haml_example`, `haml_example_table`, `html_example`, or `html_example_table` in the styleguide documentation.
+Test fixtures are automatically created every time you create a `html_example` or `html_example_table` in the styleguide documentation.
 
 If you create a new component, re-run `gulp test` to load the component in CssCritic, and set a baseline for it when you are happy with how it looks.
 
@@ -263,49 +263,51 @@ However, please list all other categories before the all category.
 
 Parent component:
 
-	/*doc
-	---
-	title: Buttons
-	name: button
-	categories:
-	  - Elements
-	  - All
-	---
 
-	Button styles can be applied to any element. Typically you'll want to
-	use either a `<button>` or an `<a>` element:
+    /*doc
+    ---
+    title: Buttons
+    name: button
+    categories:
+      - Elements
+      - All
+    ---
+  
+    Button styles can be applied to any element. Typically you'll want to
+    use either a `<button>` or an `<a>` element:
+  
+    ```html_example_table
+    <button class="btn btn-primary">Button</button>
+  
+    <a class="btn btn-primary" href="http://trulia.com">Link</a>
+    ```
+  
+    If your button is actually a link to another page, please use the
+    `<a>` element, while if your button performs an action, such as submitting
+    a form or triggering some javascript event, then use a `<button>` element.
+  
+    */
 
-	```haml_example_table
-	%button.btn.btn-primary Button
-
-	%a.btn.btn-primary{href: "http://trulia.com"} Link
-	```
-
-	If your button is actually a link to another page, please use the
-	`<a>` element, while if your button performs an action, such as submitting
-	a form or triggering some javascript event, then use a `<button>` element.
-
-	*/
 
 Child component:
- 		
-	/*doc
-	---
-	title: Button Sizes
-	name: button_sizes
-	parent: button
-	---
 
-	There are two sizes for buttons: Large and default. Simply apply the
-	size modifier class for the desired size.
-
-	```html_example_table
-	<button class="btn btn-primary btn-lg">Large</button>
-
-	<button class="btn btn-primary">Default</button>
-	```
-
-	*/
+    /*doc
+    ---
+    title: Button Sizes
+    name: button_sizes
+    parent: button
+    ---
+  
+    There are two sizes for buttons: Large and default. Simply apply the
+    size modifier class for the desired size.
+  
+    ```html_example_table
+    <button class="btn btn-primary btn-lg">Large</button>
+  
+    <button class="btn btn-primary">Default</button>
+    ```
+  
+    */
 
 ## Code guidelines
 
