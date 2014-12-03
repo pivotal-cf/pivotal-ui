@@ -1,9 +1,10 @@
 require('shelljs/global');
-var bump = require('gulp-bump');
-var fs = require('fs');
-var gulp = require('gulp');
-var q = require('q');
-var zip = require('gulp-zip');
+var bump = require('gulp-bump'),
+  fs = require('fs'),
+  gulp = require('gulp'),
+  q = require('q'),
+  stp = require('stream-to-promise'),
+  zip = require('gulp-zip');
 
 var errorHandler = require('./errorHandler');
 var githubService = require('./githubService');
@@ -86,9 +87,29 @@ gulp.task('_addVariablesToVersionRelease', function(done) {
   });
 });
 
+gulp.task('_addVendorMixinsToVersionRelease', function() {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    return q.all([
+      stp(gulp.src([
+          'src/oocss/utils/_clearfix-me.scss',
+          'src/oocss/list/_listWhitespace.scss',
+          'src/oocss/whitespace/_whitespace.scss',
+        ]).pipe(gulp.dest('release/' + newReleaseName + '/oocss/'))),
+
+      stp(gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
+        .pipe(gulp.dest('release/' + newReleaseName + '/bootstrap-sass/')))
+    ]);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
+});
+
 gulp.task('_addVersionRelease', [
   'assets',
   '_addVariablesToVersionRelease',
+  '_addVendorMixinsToVersionRelease'
 ], function(done) {
   releaseHelper.getNewReleaseName
   .then(function(newReleaseName) {
