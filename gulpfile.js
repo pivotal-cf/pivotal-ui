@@ -130,7 +130,8 @@ gulp.task('_compassBuildPuiRails', ['_compassBuildPui'], function() {
     .pipe(
       replace(/url\(('|")\.\.\/images\//g, 'image-url\($1')
     )
-    .pipe(gulp.dest('dist/rails'));
+    .pipe(rename('pivotal-ui-rails.css'))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('_compassBuildStyleguide', ['clean'], function() {
