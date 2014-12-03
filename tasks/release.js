@@ -16,13 +16,7 @@ gulp.task('release', [
 ], function(done) {
   q.all([releaseHelper.getNewTagName, releaseHelper.getVersionChanges])
   .spread(function(newTagName, versionChanges) {
-    return [
-      githubService.createRelease(newTagName, versionChanges),
-      q.nfcall(fs.readFile, 'src/pivotal-ui/components/pui-variables.scss', {encoding: 'utf-8'})
-    ];
-  })
-  .spread(function(res, sass) {
-    return githubService.uploadFile(res.releaseId, sass);
+    return githubService.createRelease(newTagName, versionChanges);
   })
   .then(function() {
     done();
