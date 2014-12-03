@@ -17,16 +17,19 @@ parent: image
 
 Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
 
-```haml_example
-.row
-  .col-md-5
-    %img.img-responsive{:alt => "Responsive image", :src => "../images/such-awesome.jpg"}
-  .col-md-7
-    %img.img-responsive{:alt => "Responsive image", :src => "../images/such-awesome.jpg"}
-  .col-md-12
-    %img.img-responsive{:alt => "Responsive image", :src => "../images/such-awesome.jpg"}
+```html_example
+<div class="row">
+  <div class="col-md-5">
+    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+  </div>
+  <div class="col-md-7">
+    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+  </div>
+  <div class="col-md-12">
+    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+  </div>
+</div>
 ```
-
 
 */
 

@@ -10,10 +10,10 @@ categories:
 Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
-```haml_example_table
-%button.btn.btn-primary Button
+```html_example_table
+<button class="btn btn-primary">Button</button>
 
-%a.btn.btn-primary{href: "http://trulia.com"} Link
+<a class="btn btn-primary" href="http://trulia.com">Link</a>
 ```
 
 If your button is actually a link to another page, please use the
@@ -36,8 +36,8 @@ size and style modifiers.
 
 Create block level buttons - those that span the full width of a parent - by adding `.btn-block`.
 
-```haml_example
-%button.btn.btn-primary.btn-block Full width button
+```html_example
+<button class="btn btn-primary btn-block">Full width button</button>
 ```
 
 */

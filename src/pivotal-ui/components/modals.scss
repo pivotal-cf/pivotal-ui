@@ -119,15 +119,19 @@ name: modal_inline
 parent: modal
 ---
 
-```haml_example
-.inline-modal{'ng-controller' => 'InlineModalExampleCtrl', 'ng-cloak' => true, 'ng-class' => 'inlineModalExample.state'}
-  .modal-backdrop.animate-show
-  .content
-    .panel.panel-shadow
-      .panel-body.pavxl.phxxl
+```html_example
+<div class="inline-modal" ng-class="inlineModalExample.state" ng-cloak="<%= true %>" ng-controller="InlineModalExampleCtrl">
+  <div class="modal-backdrop animate-show"></div>
+  <div class="content">
+    <div class="panel panel-shadow">
+      <div class="panel-body pavxl phxxl">
         I'm the content!
-        %a{'ng-click' => 'activateInlineModal()', 'ng-show' => 'inlineModalExample.state === "showing"'} Click here to inline-modal me.
-        %a{'ng-click' => 'deactivateInlineModal()', 'ng-show' => 'inlineModalExample.state === "editing"'} Click here to de-inline-modal me.
+        <a ng-click="activateInlineModal()" ng-show="inlineModalExample.state === "showing"">Click here to inline-modal me.</a>
+        <a ng-click="deactivateInlineModal()" ng-show="inlineModalExample.state === "editing"">Click here to de-inline-modal me.</a>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 */
 

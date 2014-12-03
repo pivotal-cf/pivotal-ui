@@ -6,24 +6,35 @@ name: app_status
 parent: console
 ---
 
-```haml_example
-#app_status.started.mtxl
-  .circle
-    .content
-      .name
-        %h5.mbn
-          %strong.type-primary-4 APP
-        %h1.mtn App Name
-      .started-controls
-        %button.btn.btn-highlight
-          %i.fa.fa-square.icon-control
-        %button.btn.btn-highlight.mll
-          %i.fa.fa-repeat.icon-control
-      .stopped-controls
-        %button.btn.btn-highlight
-          %i.fa.fa-play.icon-control
+```html_example
+<div class="started mtxl" id="app_status">
+  <div class="circle">
+    <div class="content">
+      <div class="name">
+        <h5 class="mbn">
+          <strong class="type-primary-4">APP</strong>
+        </h5>
+        <h1 class="mtn">App Name</h1>
+      </div>
+      <div class="started-controls">
+        <button class="btn btn-highlight">
+          <i class="fa fa-square icon-control"></i>
+        </button>
+        <button class="btn btn-highlight mll">
+          <i class="fa fa-repeat icon-control"></i>
+        </button>
+      </div>
+      <div class="stopped-controls">
+        <button class="btn btn-highlight">
+          <i class="fa fa-play icon-control"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 */
+
 @-webkit-keyframes loadingPulse {
   0% { opacity: 0; }
   50% { opacity: 1; }

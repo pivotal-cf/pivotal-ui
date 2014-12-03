@@ -57,46 +57,38 @@ This is a table used to display many rows of data (it is pretty much the default
 
 Design Note: The `table-data` is often paired with `table-light` as in our example.
 
-```haml_example
-
-%table.table.table-data.table-light
-  %thead
-    %tr
-      %th
-        Service Instance
-      %th
-        Service Plan
-      %th
-        Bound Apps
-  %tbody
-    %tr
-      %td
-        oracle-db-sct
-      %td
-        Oracle DB
-      %td
-        12
-    %tr
-      %td
-        oracle-db-sct
-      %td
-        Oracle DB
-      %td
-        12
-    %tr
-      %td
-        oracle-db-sct
-      %td
-        Oracle DB
-      %td
-        12
-    %tr
-      %td
-        oracle-db-sct
-      %td
-        Oracle DB
-      %td
-        12
+```html_example
+<table class="table table-data table-light">
+  <thead>
+    <tr>
+      <th>Service Instance</th>
+      <th>Service Plan</th>
+      <th>Bound Apps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 */
@@ -180,25 +172,31 @@ This table is used when the table headings are on the left. It looks better when
 specify column widths for the th/tds.
 
 
-```haml_example
-
-%table.table.table-key-value
-  %tbody
-    %tr
-      %th.col-md-8 Email
-      %td.col-md-16 joe@example.com
-    %tr
-      %th.col-md-8 Current Password
-      %td.col-md-16 *******
-    %tr
-      %th.col-md-8 First Name
-      %td.col-md-16 Joe
-    %tr
-      %th.col-md-8 Last Name
-      %td.col-md-16 Bobs
-    %tr
-      %th.col-md-8 Phone
-      %td.col-md-16 415-555-0000
+```html_example
+<table class="table table-key-value">
+  <tbody>
+    <tr>
+      <th class="col-md-8">Email</th>
+      <td class="col-md-16">joe@example.com</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Current Password</th>
+      <td class="col-md-16">*******</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">First Name</th>
+      <td class="col-md-16">Joe</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Last Name</th>
+      <td class="col-md-16">Bobs</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Phone</th>
+      <td class="col-md-16">415-555-0000</td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 */
@@ -248,37 +246,38 @@ We are making the assumption here that table-hover will *only* be used if the ta
 
 
 
-```haml_example
-
-%table.table.table-data.table-hover{:'data-behavior' => 'ClickableTable'}
-  %thead
-    %tr
-      %th
-        Style
-      %th{colspan: 2}
-        Clickability
-  %tbody
-    %tr{:'data-target-path' => '/styleguide#link', :'data-prevent-click' => 'true', :'data-prevent-click-message' => "YOU'VE ENTERED THE FORBIDDEN ZONE"}
-      %td
-        Forbidden Links
-      %td
-        High
-      %td.txt-m.txt-r
-        %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/styleguide#button'}
-      %td
-        Buttons
-      %td
-        Medium
-      %td.txt-m.txt-r
-        %i.fa.fa-chevron-right.type-primary-4
-    %tr{:'data-target-path' => '/styleguide#type'}
-      %td
-        Typography
-      %td
-        Low
-      %td.txt-m.txt-r
-        %i.fa.fa-chevron-right.type-primary-4
+```html_example
+<table class="table table-data table-hover" data-behavior="ClickableTable">
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th colspan="2">Clickability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-prevent-click="true" data-prevent-click-message="YOU'VE ENTERED THE FORBIDDEN ZONE" data-target-path="/styleguide#link">
+      <td>Forbidden Links</td>
+      <td>High</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#button">
+      <td>Buttons</td>
+      <td>Medium</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#type">
+      <td>Typography</td>
+      <td>Low</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 */
@@ -340,29 +339,34 @@ USE:
 1. Add a sorter in your controller scope that has a reference to the collection you want to sort.
 2. Add "sortable" to any header/element which should trigger a sort (if the sortable directive doesn't do what you want, write a new one or just use ng-click. Please don't add more behavior to the current sortable).
 
-```haml_example
-
-%table.table.table-data.table-sortable{"ng-controller" => "ExampleSpaceDataTableCtrl", "ng-cloak" => true}
-  %thead
-    %tr
-      %th.txt-m{"sortable" => "name"} Name
-      %th{sortable: 'totalApps'} Total Apps
-      %th{sortable: 'runningApps'} Running Apps
-      %th{sortable: 'stoppedApps'} Stopped Apps
-      %th{sortable: 'downApps'} Down Apps
-      %th.txt-m{sortable: 'serviceInstances'} Service Instances
-      %th.txt-m{sortable: 'quota'} Quota
-  %tbody
-    %tr{"ng-repeat" => "tableItem in tableItems"}
-      %td {{tableItem.name}}
-      %td {{tableItem.totalApps}}
-      %td {{tableItem.runningApps}}
-      %td {{tableItem.stoppedApps}}
-      %td {{tableItem.downApps}}
-      %td {{tableItem.serviceInstances}}
-      %td {{tableItem.quota}}
+```html_example
+<table class="table table-data table-sortable" ng-cloak="<%= true %>" ng-controller="ExampleSpaceDataTableCtrl">
+  <thead>
+    <tr>
+      <th class="txt-m" sortable="name">Name</th>
+      <th sortable="totalApps">Total Apps</th>
+      <th sortable="runningApps">Running Apps</th>
+      <th sortable="stoppedApps">Stopped Apps</th>
+      <th sortable="downApps">Down Apps</th>
+      <th class="txt-m" sortable="serviceInstances">Service Instances</th>
+      <th class="txt-m" sortable="quota">Quota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="tableItem in tableItems">
+      <td>{{tableItem.name}}</td>
+      <td>{{tableItem.totalApps}}</td>
+      <td>{{tableItem.runningApps}}</td>
+      <td>{{tableItem.stoppedApps}}</td>
+      <td>{{tableItem.downApps}}</td>
+      <td>{{tableItem.serviceInstances}}</td>
+      <td>{{tableItem.quota}}</td>
+    </tr>
+  </tbody>
+</table>
 ```
 */
+
 .table-sortable {
   th.sorted-desc {
     color: $navy-1;
@@ -415,71 +419,85 @@ name: table_inline_addable
 parent: table_js
 ---
 
-```haml_example
-%div{"ng-controller" => "StyleguideAddableTableCtrl", 'ng-class' => '{editing: spaceTable.editing}', 'ng-cloak' => 'true'}
-  %p.txt-r
-    %a.btn.btn-default.state-adding-trigger{'ng-click' => 'spaceTable.enterEditMode()', href: "javascript:void(0);", "ng-disabled" => "spaceTable.newModel.saving"}
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideAddableTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
       Add a Space
-  %table.table.table-data.table-addable
-    %thead.thead-state-viewing
-      %tr
-        %th.txt-m.col-md-8
+    </a>
+  </p>
+  <table class="table table-data table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m col-md-8">
           Name
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Total Apps
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Running Apps
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Stopped Apps
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Down Apps
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Service Instance
-        %th.txt-m
+        </th>
+        <th class="txt-m">
           Quota
-        %th.txt-m
-    %thead.state-editing-show
-      %tr
-        %th.txt-m
+        </th>
+        <th class="txt-m"></th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
           Name
-    %tbody
-      %tr.state-editing-show
-        %td
-          %form.td-state-adding.form-inline{'ng-submit' => 'spaceTable.save()', 'name' => 'newSpaceForm'}
-            .form-group.mll
-              %input.form-control{'ng-model' => 'spaceTable.newModel.name',
-              'name' => 'name',
-              type: 'text',
-              autofocus: 'autofocus',
-              'invalid-invalid' => 'true',
-              required: 'true',
-              'ng-minlength' => 3,
-              'aria-describedby' => "space-name-error"}
-            .form-group
-              %button.btn.btn-default{'type' => 'submit', 'ng-disabled' => '!spaceTable.newModel.name'} Add
-              %a.btn.btn-default{'ng-click' => 'spaceTable.cancel()'} Cancel
-
-            #space-name-error.error-container.pal{"ng-show" => "newSpaceForm.name.$dirty && newSpaceForm.name.$invalid", role: 'alert'}
-              %span.error{"ng-show" => "newSpaceForm.name.$error.required"} Space name is required.
-              %span.error{"ng-show" => "newSpaceForm.name.$error.minlength"} Space name is required to be at least 3 characters.
-              %span.error{"ng-show" => "newSpaceForm.name.$error.invalidInvalid"} Space name cannot be invalid, literally.
-              %div{'ng-repeat' => 'error in spaceTable.newModel.serverErrors'}
-                %span.error {{error}}
-
-      %tr.inline-table-item{'ng-repeat' => "space in spaceTable.collection.items"}
-        %td.pls.type-ellipsis-1-line{'ng-class' => '{saveRequested: space.saving}'}
-          .fa.fa-check.fa-check-success.ng-hide{'ng-show' => 'space.freshlySaved'}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr class="inline-table-item" ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
           {{space.name}}
-        %td {{space.totalApps}}
-        %td {{space.runningApps}}
-        %td {{space.stoppedApps}}
-        %td {{space.downApps}}
-        %td {{space.serviceInstances}}
-        %td {{space.quota}}
-        %td{ "data-confirmation-modal" => 'Are you sure you want to delete this space?',
-                  'data-confirmation-action' => 'spaceTable.destroy(space)',
-                  'data-confirmation-header' => 'Delete Space',
-                  'data-dangerous-action' => "true"} Delete
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+        <td data-confirmation-action="spaceTable.destroy(space)" data-confirmation-header="Delete Space" data-confirmation-modal="Are you sure you want to delete this space?" data-dangerous-action="true">Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 ```
 */
 
@@ -591,60 +609,71 @@ parent: table_js
 
 Example of composed behaviors that operate on the same table.
 
-```haml_example
-%div{"ng-controller" => "StyleguideKitchenSinkTableCtrl", 'ng-class' => '{editing: spaceTable.editing}', 'ng-cloak' => 'true'}
-  %p.txt-r
-    %a.btn.btn-default.state-adding-trigger{'ng-click' => 'spaceTable.enterEditMode()', href: "javascript:void(0);", "ng-disabled" => "spaceTable.newModel.saving"}
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideKitchenSinkTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
       Add a Space
-  %table.table.table-data.table-sortable.table-addable
-    %thead.thead-state-viewing
-      %tr
-        %th.txt-m{sortable: "name"} Name
-        %th{sortable: 'totalApps'} Total Apps
-        %th{sortable: 'runningApps'} Running Apps
-        %th{sortable: 'stoppedApps'} Stopped Apps
-        %th{sortable: 'downApps'} Down Apps
-        %th.txt-m{sortable: 'serviceInstances'} Service Instances
-        %th.txt-m{sortable: 'quota'} Quota
-    %thead.state-editing-show
-      %tr
-        %th.txt-m
+    </a>
+  </p>
+  <table class="table table-data table-sortable table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m" sortable="name">Name</th>
+        <th sortable="totalApps">Total Apps</th>
+        <th sortable="runningApps">Running Apps</th>
+        <th sortable="stoppedApps">Stopped Apps</th>
+        <th sortable="downApps">Down Apps</th>
+        <th class="txt-m" sortable="serviceInstances">Service Instances</th>
+        <th class="txt-m" sortable="quota">Quota</th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
           Name
-    %tbody
-      %tr.state-editing-show
-        %td
-          %form.td-state-adding.form-inline{'ng-submit' => 'spaceTable.save()', 'name' => 'newSpaceForm'}
-            .form-group.mll
-              %input.form-control{'ng-model' => 'spaceTable.newModel.name',
-              'name' => 'name',
-              type: 'text',
-              autofocus: 'autofocus',
-              'invalid-invalid' => 'true',
-              required: 'true',
-              'ng-minlength' => 3,
-              'aria-describedby' => "space-name-error"}
-            .form-group
-              %button.btn.btn-default{'type' => 'submit', 'ng-disabled' => '!spaceTable.newModel.name'} Add
-              %a.btn.btn-default{'ng-click' => 'spaceTable.cancel()'} Cancel
-
-            #space-name-error.error-container.pal{"ng-show" => "newSpaceForm.name.$dirty && newSpaceForm.name.$invalid", role: 'alert'}
-              %span.error{"ng-show" => "newSpaceForm.name.$error.required"} Space name is required.
-              %span.error{"ng-show" => "newSpaceForm.name.$error.minlength"} Space name is required to be at least 3 characters.
-              %span.error{"ng-show" => "newSpaceForm.name.$error.invalidInvalid"} Space name cannot be invalid, literally.
-              %div{'ng-repeat' => 'error in spaceTable.newModel.serverErrors'}
-                %span.error {{error}}
-
-      %tr{"ng-repeat" => "space in spaceTable.collection.items"}
-        %td.pls.type-ellipsis-1-line{'ng-class' => '{saveRequested: space.saving}'}
-          .fa.fa-check.fa-check-success.ng-hide{'ng-show' => 'space.freshlySaved'}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
           {{space.name}}
-        %td {{space.totalApps}}
-        %td {{space.runningApps}}
-        %td {{space.stoppedApps}}
-        %td {{space.downApps}}
-        %td {{space.serviceInstances}}
-        %td {{space.quota}}
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 ```
+
 */
 
 /*doc

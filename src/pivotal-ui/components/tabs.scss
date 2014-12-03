@@ -10,6 +10,7 @@ categories:
 You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` on an element.
 
 */
+
 /*doc
 ---
 title: Highlight
@@ -17,48 +18,59 @@ name: tab_highlight
 parent: tab
 ---
 
-```haml_example
-.tab-highlight
-  .row
-    .col-md-8
-      %h1 Service Plans
-      %ul.nav.nav-stacked
-        %li.active
-          %a{"data-toggle" => "tab", :href => "#home"}
-            .row
-              .col-md-10.tab-title
-                Spark
-              .col-md-14
-                Free
-        %li
-          %a{"data-toggle" => "tab", :href => "#profile"}
-            .row
-              .col-md-10.tab-title
-                Boost
-              .col-md-14
-                $10/month
-        %li
-          %a{"data-toggle" => "tab", :href => "#messages"}
-            .row
-              .col-md-10.tab-title
-                Amp
-              .col-md-14
-                $50/month
-        %li
-          %a{"data-toggle" => "tab", :href => "#settings"}
-            .row
-              .col-md-10.tab-title
+```html_example
+<div class="tab-highlight">
+  <div class="row">
+    <div class="col-md-8">
+      <h1>Service Plans</h1>
+      <ul class="nav nav-stacked">
+        <li class="active">
+          <a data-toggle="tab" href="#home">
+            <div class="row">
+              <div class="col-md-10 tab-title">Spark</div>
+              <div class="col-md-14">Free</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#profile">
+            <div class="row">
+              <div class="col-md-10 tab-title">Boost</div>
+              <div class="col-md-14">$10/month</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#messages">
+            <div class="row">
+              <div class="col-md-10 tab-title">Amp</div>
+              <div class="col-md-14">$50/month</div>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#settings">
+            <div class="row">
+              <div class="col-md-10 tab-title">
                 Shockingly long plan name is important to test
-              .col-md-14
-                $1000/month
-
-    .col-md-16
-      %h1 Plan Features
-      .tab-content
-        #home.tab-pane.fade.in.active Content 1
-        #profile.tab-pane.fade Content 2
-        #messages.tab-pane.fade Content 3
-        #settings.tab-pane.fade Content 4
+              </div>
+              <div class="col-md-14">$1000/month</div>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-16">
+      <h1>Plan Features</h1>
+      <div class="tab-content">
+        <div class="tab-pane fade in active" id="home">Content 1</div>
+        <div class="tab-pane fade" id="profile">Content 2</div>
+        <div class="tab-pane fade" id="messages">Content 3</div>
+        <div class="tab-pane fade" id="settings">Content 4</div>
+      </div>
+    </div>
+  </div>
+</div>
 ```
 
 */
@@ -121,25 +133,30 @@ name: tab_simple
 parent: tab
 ---
 
-```haml_example
-.tab-simple
-  .tabs-action.txt-r
-    %a Some Action
-  %ul.nav.nav-tabs
-    %li.active
-      %a{"data-toggle" => "tab", :href => "#spaces"}Spaces
-    %li
-      %a{"data-toggle" => "tab", :href => "#domains"}Domains
-    %li
-      %a{"data-toggle" => "tab", :href => "#members"}Members
-
-
-  .tab-content
-    #spaces.tab-pane.fade.in.active Spaces Content
-    #domains.tab-pane.fade Domains Content
-    #members.tab-pane.fade Members Content
-
+```html_example
+<div class="tab-simple">
+  <div class="tabs-action txt-r">
+    <a>Some Action</a>
+  </div>
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#spaces">Spaces</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#domains">Domains</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#members">Members</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="spaces">Spaces Content</div>
+    <div class="tab-pane fade" id="domains">Domains Content</div>
+    <div class="tab-pane fade" id="members">Members Content</div>
+  </div>
+</div>
 ```
+
 */
 
 $tab-border-size: 3px;
@@ -217,23 +234,27 @@ name: tab_simple_alt
 parent: tab
 ---
 
-```haml_example
-.tab-simple-alt
-  %ul.nav.nav-tabs
-    %li.active
-      %a{"data-toggle" => "tab", :href => "#dashboard"}Dashboard
-    %li
-      %a{"data-toggle" => "tab", :href => "#notifications"}Notifications
-    %li
-      %a{"data-toggle" => "tab", :href => "#eula"}EULA
-
-
-  .tab-content
-    #dashboard.tab-pane.fade.in.active Dashboard Content
-    #notifications.tab-pane.fade Notifications Content
-    #eula.tab-pane.fade EULA Content
-
+```html_example
+<div class="tab-simple-alt">
+  <ul class="nav nav-tabs">
+    <li class="active">
+      <a data-toggle="tab" href="#dashboard">Dashboard</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#notifications">Notifications</a>
+    </li>
+    <li>
+      <a data-toggle="tab" href="#eula">EULA</a>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane fade in active" id="dashboard">Dashboard Content</div>
+    <div class="tab-pane fade" id="notifications">Notifications Content</div>
+    <div class="tab-pane fade" id="eula">EULA Content</div>
+  </div>
+</div>
 ```
+
 */
 
 .tab-simple-alt {
@@ -290,44 +311,50 @@ name: tab_responsive
 parent: tab
 ---
 
-```haml_example
-.tab-responsive
-  .row
-    .col-sm-5
-      %ul.nav.hidden-xs
-        %li.active
-          %a{"data-toggle" => "tab", :href => "#tab-responsive-1"}
-            meep
-        %li
-          %a{"data-toggle" => "tab", :href => "#tab-responsive-2"}
-            foo
-        %li
-          %a{"data-toggle" => "tab", :href => "#tab-responsive-3"}
-            bar
-        %li
-          %a{"data-toggle" => "tab", :href => "#tab-responsive-4"}
-            baz
+```html_example
+<div class="tab-responsive">
+  <div class="row">
+    <div class="col-sm-5">
+      <ul class="nav hidden-xs">
+        <li class="active">
+          <a data-toggle="tab" href="#tab-responsive-1">meep</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#tab-responsive-2">foo</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#tab-responsive-3">bar</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#tab-responsive-4">baz</a>
+        </li>
+      </ul>
+    </div>
 
-    .col-sm-19
-      %ul.tab-content
-        %li.active
-          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-1"}
-            meep
-        %li#tab-responsive-1.tab-pane.active.fade.in Content 1
-        %li
-          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-2"}
-            foo
-        %li#tab-responsive-2.tab-pane.fade Content 2
-        %li
-          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-3"}
-            foo
-        %li#tab-responsive-3.tab-pane.fade Content 3
-        %li
-          %a.visible-xs-block{"data-toggle" => "tab", :href => "#tab-responsive-4"}
-            foo
-        %li#tab-responsive-4.tab-pane.fade Content 4
-
+    <div class="col-sm-19">
+      <ul class="tab-content">
+        <li class="active">
+          <a class="visible-xs-block" data-toggle="tab" href="#tab-responsive-1">meep</a>
+        </li>
+        <li class="tab-pane active fade in" id="tab-responsive-1">Content 1</li>
+        <li>
+          <a class="visible-xs-block" data-toggle="tab" href="#tab-responsive-2">foo</a>
+        </li>
+        <li class="tab-pane fade" id="tab-responsive-2">Content 2</li>
+        <li>
+          <a class="visible-xs-block" data-toggle="tab" href="#tab-responsive-3">foo</a>
+        </li>
+        <li class="tab-pane fade" id="tab-responsive-3">Content 3</li>
+        <li>
+          <a class="visible-xs-block" data-toggle="tab" href="#tab-responsive-4">foo</a>
+        </li>
+        <li class="tab-pane fade" id="tab-responsive-4">Content 4</li>
+      </ul>
+    </div>
+  </div>
+</div>
 ```
+
 */
 
 .tab-responsive {

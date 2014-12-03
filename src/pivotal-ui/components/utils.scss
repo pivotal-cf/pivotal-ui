@@ -12,8 +12,8 @@ categories:
 
 Try disabling js and rendering this page.
 
-```haml_example
-%h3.invisible-no-js Won't show if browser doesn't support JS.
+```html_example
+<h3 class="invisible-no-js">Won't show if browser doesn't support JS.</h3>
 ```
 
 */
