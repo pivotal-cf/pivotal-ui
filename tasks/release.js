@@ -80,7 +80,22 @@ gulp.task('_bumpPackage', ['assets'], function(done) {
   });
 });
 
-gulp.task('_addVersionRelease', ['assets'], function(done) {
+gulp.task('_addVariablesToVersionRelease', function(done) {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    gulp.src('src/pivotal-ui/components/pui-variables.scss')
+      .pipe(gulp.dest('release/' + newReleaseName + '/'))
+      .on('end', done);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
+});
+
+gulp.task('_addVersionRelease', [
+  'assets',
+  '_addVariablesToVersionRelease',
+], function(done) {
   releaseHelper.getNewReleaseName
   .then(function(newReleaseName) {
     gulp.src('build/**/*')
