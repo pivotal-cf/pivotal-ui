@@ -22,7 +22,7 @@ Here are some possible ways to accomplish this:
   - Setup a branch where you can comment out the current CSS and JS.
   - Setup a separate route/controller/view using only Pivotal UI CSS and JS includes.
 
-1. Download the `dist.zip` file from the latest release on the
+1. Download the `build.zip` file from the latest release on the
 [Pivotal UI github page](https://github.com/pivotal-cf/pivotal-ui/releases/),
 and add the CSS and JS files to the page you are working on.
 

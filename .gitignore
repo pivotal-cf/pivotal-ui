@@ -7,7 +7,7 @@
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
-/test/dist/
+/test/build/
 /test/components/
 /test/regressionRunner.js
 /tmp/
@@ -15,7 +15,7 @@
 node_modules/
 /vendor/
 .idea/
-/dist/
+/build/
 *.zip
 
 ## Specific to RubyMotion:

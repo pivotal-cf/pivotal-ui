@@ -67,7 +67,7 @@ As soon as you have your tools installed, run gulp _at the project root_:
 
 then visit [http://localhost:8000](http://localhost:8000)
 
-This will start up the styleguide development server, and generate the `dist/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `dist/` directory.
+This will start up the styleguide development server, and generate the `build/` directory that will house the compiled resources and the styleguide. In addition, every time you make a change to any of the source files, it will regenerate the `build/` directory.
 
 ## Pull requests
 

@@ -11,8 +11,8 @@ gulp.task('test', [
 
 gulp.task('_copyTestAssets', ['assets'], function() {
   return gulp.src([
-    'dist/**/*',
-  ]).pipe(gulp.dest('./test/dist/'));
+    'build/**/*',
+  ]).pipe(gulp.dest('./test/build/'));
 });
 
 gulp.task('_createTestFileList', ['assets'], function(done) {

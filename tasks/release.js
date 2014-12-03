@@ -83,7 +83,7 @@ gulp.task('_bumpPackage', ['assets'], function(done) {
 gulp.task('_addVersionRelease', ['assets'], function(done) {
   releaseHelper.getNewReleaseName
   .then(function(newReleaseName) {
-    gulp.src('dist/**/*')
+    gulp.src('build/**/*')
       .pipe(gulp.dest('release/' + newReleaseName + '/'))
       .on('end', done);
   })
