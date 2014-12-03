@@ -36,10 +36,18 @@ gulp.task('release', [
 
 gulp.task('_zip', [
   'assets',
-], function(){
-  return gulp.src('dist/**/*')
-    .pipe(zip('dist.zip'))
-    .pipe(gulp.dest('./'));
+  '_addVersionRelease',
+], function(done){
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    gulp.src(['release/' + newReleaseName + '/**/*'])
+      .pipe(zip(newReleaseName + '.zip'))
+      .pipe(gulp.dest('./'))
+      .on('end', done);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {callback: done});
+  });
 });
 
 gulp.task('_changelog', function(done) {
@@ -73,10 +81,10 @@ gulp.task('_bumpPackage', ['assets'], function(done) {
 });
 
 gulp.task('_addVersionRelease', ['assets'], function(done) {
-  releaseHelper.getNewVersion
-  .then(function(newVersion) {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
     gulp.src('dist/**/*')
-      .pipe(gulp.dest('release/pui-v' + newVersion + '/'))
+      .pipe(gulp.dest('release/' + newReleaseName + '/'))
       .on('end', done);
   })
   .fail(function(err) {

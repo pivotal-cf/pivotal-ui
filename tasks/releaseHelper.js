@@ -33,6 +33,21 @@ var getNewTagName = function() {
   return deferred.promise;
 }();
 
+var getNewReleaseName = function() {
+  var deferred = q.defer();
+
+  getNewVersion
+  .then(function(newVersion) {
+    deferred.resolve('pui-v' + newVersion);
+  })
+  .fail(function(err) {
+    deferred.reject(err);
+  });
+
+  return deferred.promise;
+}();
+
+
 var getVersionChanges = function() {
   var deferred = q.defer();
 
@@ -59,6 +74,7 @@ var getVersionChanges = function() {
 module.exports = {
   getNewVersion: getNewVersion,
   getNewTagName: getNewTagName,
+  getNewReleaseName: getNewReleaseName,
   getVersionChanges: getVersionChanges
 };
 

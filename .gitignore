@@ -16,7 +16,7 @@ node_modules/
 /vendor/
 .idea/
 /dist/
-/dist.zip
+*.zip
 
 ## Specific to RubyMotion:
 .dat*
