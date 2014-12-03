@@ -13,9 +13,10 @@ The button will be fixed to the bottom right hand corner of the page.
 
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup. 
 
-```haml_example
-.styleguide-component-wrapper
-  %a.back-to-top{:href => "#"}
+```html_example
+<div class="styleguide-component-wrapper">
+  <a class="back-to-top" href="#" target="_blank" style="display: inline;"></a>
+</div>
 ```
 */
 

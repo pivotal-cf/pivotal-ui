@@ -54,67 +54,56 @@ There are several languages already available (and others available from the [Pr
 * Ruby
 * Go
 
-```haml_example
-%pre
-  %code.language-ruby
-    :preserve
-      class Foo
-        def bar
-          puts 'hi'
-        end
-      end
+```html_example
+<pre><code class="language-ruby">class Foo
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
 ```
 
 Make it scrollable
 
-```haml_example
+```html_example
+<pre class="pre-scrollable"><code class="language-ruby">class Foo
+  def bar
+    puts 'hi'
+  end
 
-%pre.pre-scrollable
-  %code.language-ruby
-    :preserve
-      class Foo
-        def bar
-          puts 'hi'
-        end
+  def bar
+    puts 'hi'
+  end
 
-        def bar
-          puts 'hi'
-        end
+  def bar
+    puts 'hi'
+  end
 
-        def bar
-          puts 'hi'
-        end
+  def bar
+    puts 'hi'
+  end
 
-        def bar
-          puts 'hi'
-        end
+  def bar
+    puts 'hi'
+  end
 
-        def bar
-          puts 'hi'
-        end
+  def bar
+    puts 'hi'
+  end
 
-        def bar
-          puts 'hi'
-        end
-
-        def bar
-          puts 'hi'
-        end
-      end
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
 ```
 
 Scrollable with too little content:
 
-```haml_example
-
-%pre.pre-scrollable
-  %code.language-ruby
-    :preserve
-      class Foo
-        def bar
-          puts 'hi'
-        end
-      end
+```html_example
+<pre class="pre-scrollable"><code class="language-ruby">class Foo
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
 ```
 
 If you would like a set a default height, please add it manually.
@@ -166,34 +155,33 @@ parent: code
 
 <label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label>
 
-```haml_example
-.terminal
-  %pre
-    %code.language-ruby
-      :preserve
-        class Foo
-          def bar
-            puts 'hi'
-          end
-        end
+```html_example
+<div class="terminal">
+  <pre><code class="language-ruby">class Foo
+  def bar
+    puts 'hi'
+  end
+end
 
-        class Bar
-          def bar
-            puts 'hi'
-          end
-        end
+class Bar
+  def bar
+    puts 'hi'
+  end
+end
 
-        class Baz
-          def bar
-            puts 'hi'
-          end
-        end
+class Baz
+  def bar
+    puts 'hi'
+  end
+end
 
-        class Bop
-          def bar
-            puts 'hi'
-          end
-        end
+class Bop
+  def bar
+    puts 'hi'
+  end
+end</code></pre>
+</div>
+
 ```
 
 */

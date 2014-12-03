@@ -74,10 +74,12 @@ You can use a banner ribbon to let the team know which environment they're
 working on. Leave off the `.styleguide-component-wrapper` div when using it
 in other contexts.
 
-```haml_example
-.styleguide-component-wrapper
-  .ribbon-banner
+```html_example
+<div class="styleguide-component-wrapper">
+  <div class="ribbon-banner">
     Acceptance
+  </div>
+</div>
 ```
 
 */

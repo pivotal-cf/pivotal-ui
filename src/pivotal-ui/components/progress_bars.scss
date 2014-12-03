@@ -10,41 +10,61 @@ categories:
 This section contains static progress bar styles.
 
 
-```haml_example
-.progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "0", :role => "progressbar", :style => "width: 0%;"}
-    .label
+```html_example_table
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" role="progressbar" style="width: 0%;">
+    <div class="label">
       0%
-%p
+    </div>
+  </div>
+</div>
+<p>
   0 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "3", :role => "progressbar", :style => "width: 3%;"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="3" class="progress-bar" role="progressbar" style="width: 3%;">
+    <div class="label">
       3%
-%p
+    </div>
+  </div>
+</div>
+<p>
   3 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "9", :role => "progressbar", :style => "width: 9%;"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="9" class="progress-bar" role="progressbar" style="width: 9%;">
+    <div class="label">
       9%
-%p
+    </div>
+  </div>
+</div>
+<p>
   9 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", :style => "width: 60%;"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar" role="progressbar" style="width: 60%;">
+    <div class="label">
       60%
-%p
+    </div>
+  </div>
+</div>
+<p>
   60 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "90", :role => "progressbar", :style => "width: 90%;"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar" role="progressbar" style="width: 90%;">
+    <div class="label">
       90%
-%p
+    </div>
+  </div>
+</div>
+<p>
   90 MB of 100 MB Used
+</p>
 ```
 */
 
@@ -99,29 +119,41 @@ This is an animated progress bar. See [progress bar][progress_bar] to see the st
 
 
 Sometimes you will need to graphically display percent used (e.g. quota usage) or progress (e.g. profile completion).
-In the haml, the width should be set to match the `aria-valuenow` if the progress bar isn't animated. If it is, it should be set to 0% initially.
+In the html, the width should be set to match the `aria-valuenow` if the progress bar isn't animated. If it is, it should be set to 0% initially.
 
-```haml_example
-.progress
-  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "0", :role => "progressbar", "data-behavior" => "ProgressBar"}
-    .label
+```html_example
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar progress-bar-animated" data-behavior="ProgressBar" role="progressbar">
+    <div class="label">
       0%
-%p
+    </div>
+  </div>
+</div>
+<p>
   0 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "60", :role => "progressbar", "data-behavior" => "ProgressBar"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar progress-bar-animated" data-behavior="ProgressBar" role="progressbar">
+    <div class="label">
       60%
-%p
+    </div>
+  </div>
+</div>
+<p>
   60 MB of 100 MB Used
+</p>
 
-.progress
-  .progress-bar.progress-bar-animated{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "93", :role => "progressbar", "data-behavior" => "ProgressBar"}
-    .label
+<div class="progress">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="93" class="progress-bar progress-bar-animated" data-behavior="ProgressBar" role="progressbar">
+    <div class="label">
       93%
-%p
+    </div>
+  </div>
+</div>
+<p>
   93 MB of 100 MB Used
+</p>
 ```
 */
 

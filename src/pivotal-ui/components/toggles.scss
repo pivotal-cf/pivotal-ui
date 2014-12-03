@@ -9,14 +9,17 @@ categories:
 
 Use this class for sections that can switch into an 'edit' mode.
 
-```haml_example
-.toggle{data: {behavior: 'Toggle'}}
-  .panel.toggle-show
+```html_example
+<div class="toggle" data-behavior="Toggle">
+  <div class="panel toggle-show">
     I'm viewing...
-    %a.btn.btn-default{data: {toggle: 'toggle', target: 'edit'}} Edit
-  .panel.toggle-edit
+    <a class="btn btn-default" data-target="edit" data-toggle="toggle">Edit</a>
+  </div>
+  <div class="panel toggle-edit">
     I'm editing...
-    %a.btn.btn-default{data: {toggle: 'toggle', target: 'show'}} Cancel
+    <a class="btn btn-default" data-target="show" data-toggle="toggle">Cancel</a>
+  </div>
+</div>
 ```
 
 */
@@ -30,14 +33,17 @@ parent: toggle
 
 Use this class for sections that can switch into an 'edit' mode.
 
-```haml_example
-.toggle{data: {behavior: 'Toggle'}}
-  .panel.toggle-show
+```html_example
+<div class="toggle" data-behavior="Toggle">}
+  <div class="panel toggle-show">
     I'm viewing...
-    %a.btn.btn-default{data: {toggle: 'toggle', target: 'edit'}} Edit
-  .panel.toggle-edit
+    <a class="btn btn-default" data-target="edit" data-toggle="toggle">Edit</a>
+  </div>
+  <div class="panel toggle-edit">
     I'm editing...
-    %a.btn.btn-default{data: {toggle: 'toggle', target: 'show'}} Cancel
+    <a class="btn btn-default" data-target="show" data-toggle="toggle">Cancel</a>
+  </div>
+</div>
 ```
 
 */
@@ -72,14 +78,17 @@ parent: toggle
 
 Use this class for sections that have two different viewable states.
 
-```haml_example
-.state-toggle{"ng-controller" => "StyleguideToggleCtrl", 'ng-class' => '{"state-secondary": subject.secondaryState}'}
-  .state-content-default
+```html_example
+<div class="state-toggle" ng-class="{"state-secondary": subject.secondaryState}" ng-controller="StyleguideToggleCtrl">
+  <div class="state-content-default">
     This is the default content
-    %a.btn.btn-default{'ng-click' => 'toggleState()'} Toggle State
-  .state-content-secondary
+    <a class="btn btn-default" ng-click="toggleState()">Toggle State</a>
+  </div>
+  <div class="state-content-secondary">
     This is the secondary content
-    %a.btn.btn-default{'ng-click' => 'toggleState()'} Toggle State
+    <a class="btn btn-default" ng-click="toggleState()">Toggle State</a>
+  </div>
+</div>
 ```
 
 */

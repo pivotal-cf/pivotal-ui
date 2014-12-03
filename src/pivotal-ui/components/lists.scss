@@ -32,14 +32,18 @@ parent: list
 
 An inline list is one of the three methods for laying out content (including grids and the media block).
 
-```haml_example
-%ul.list-inline
-  %li
+```html_example
+<ul class="list-inline">
+  <li>
     feep
-  %li
+  </li>
+  <li>
     fop
-  %li
+  </li>
+  <li>
     meep
+  </li>
+</ul>
 ```
 
 You can use inline lists to lay out elements. Here's an example of a header next to a button:
@@ -72,15 +76,20 @@ parent: list
 ---
 
 
-```haml_example
-%ol
-  %li
+```html_example
+<ol>
+  <li>
     feep
-  %li
+  </li>
+  <li>
     fop
-  %li
+  </li>
+  <li>
     meep
+  </li>
+</ol>
 ```
+
 */
 
 /*doc
@@ -90,15 +99,20 @@ name: list_unordered
 parent: list
 ---
 
-```haml_example
-%ul.list-unordered
-  %li
+```html_example
+<ul class="list-unordered">
+  <li>
     feep
-  %li
+  </li>
+  <li>
     fop
-  %li
+  </li>
+  <li>
     meep
+  </li>
+</ul>
 ```
+
 */
 
 .list-unordered {
@@ -117,15 +131,20 @@ parent: list
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-unstyled` class can be applied to either a `<ul>` or and `<ol>`.
 
-```haml_example
-%ul.list-unstyled
-  %li
+```html_example
+<ul class="list-unstyled">
+  <li>
     feep
-  %li
+  </li>
+  <li>
     fop
-  %li
+  </li>
+  <li>
     meep
+  </li>
+</ul>
 ```
+
 */
 
 /*doc
@@ -138,26 +157,24 @@ parent: list
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
 also adds a simple gray border (add `.list-inline-divider-light` to make the border white).
 
-```haml_example
-%ul.list-inline-divider
-  %li
-    %a.type-em-1{href: "http://google.com"}<
-      Edit
-  %li
-    %a.type-em-1{href: "http://google.com"}<
-      Invite
-
-.contrast-bar
-  %ul.list-inline-divider.list-inline-divider-light
-    %li
-      %a.type-em-1{href: "http://google.com"}<
-        Edit
-    %li
-      %a.type-em-1{href: "http://google.com"}<
-        Invite
-
-
+```html_example
+<ul class="list-inline-divider">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
 ```
+
+Here's the same example on a dark background:
+
+```html_example
+<div class="contrast-bar">
+  <ul class="list-inline-divider list-inline-divider-light">
+    <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+    <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+  </ul>
+</div>
+```
+
 */
 
 @mixin list-inline-divider($color: $neutral-5) {
@@ -191,17 +208,18 @@ The `.list-breadcrumb` can be used to provide additional page navigation.
 
 Breadcrumbs use their own monospace font-family.
 
-```haml_example
-%ul.list-breadcrumb
-  %li
-    %a{href: "http://google.com"}
-      Parent
-  %li
-    %a{href: "http://google.com"}
-      Child
-  %li.current
-    %span
-      Current Page
+```html_example
+<ul class="list-breadcrumb">
+  <li>
+    <a href="http://google.com">Parent</a>
+  </li>
+  <li>
+    <a href="http://google.com">Child</a>
+  </li>
+  <li class="current">
+    <span>Current Page</span>
+  </li>
+</ul>
 ```
 */
 
@@ -250,14 +268,18 @@ parent: list
 
 Use this list when you need simple gray borders between items
 
-```haml_example
-%ul.list-group
-  %li.list-group-item
+```html_example
+<ul class="list-group">
+  <li class="list-group-item">
     item 1
-  %li.list-group-item
+  </li>
+  <li class="list-group-item">
     item 2
-  %li.list-group-item
+  </li>
+  <li class="list-group-item">
     item 3
+  </li>
+</ul>
 ```
 
 Group lists are great for displaying lists of events
@@ -328,14 +350,18 @@ parent: lists_js
 
 New elements fade in
 
-```haml_example
-%ul.list-group#list-group-adding-demo
-  %li.list-group-item
+```html_example
+<ul class="list-group" id="list-group-adding-demo">
+  <li class="list-group-item">
     item 1
-  %li.list-group-item
+  </li>
+  <li class="list-group-item">
     item 2
-  %li.list-group-item
+  </li>
+  <li class="list-group-item">
     item 3
+  </li>
+</ul>
 
 <a data-add-item-to="#list-group-adding-demo">Add an item</a>
 ```
@@ -607,31 +633,46 @@ We achieve equal height columns using the padding/margin hack,
 so we need an additional `.height-enforcer` element to get the
 right min-height.
 
-```haml_example
-%ul.list-vertical-divider
-  %li.col-md-8
-    .height-enforcer
+```html_example
+<ul class="list-vertical-divider">
+  <li class="col-md-8">
+    <div class="height-enforcer">
       item 1
-  %li.col-md-8
-    .height-enforcer
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer">
       item 2
-  %li.col-md-8
-    .height-enforcer{style: 'height: 200px'}
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer" style="height: 200px">
       item 3, which is taller
+    </div>
+  </li>
+</ul>
 ```
 
-```haml_example
-%ul.list-vertical-divider-2
-  %li.col-md-8
-    .height-enforcer
+```html_example
+<ul class="list-vertical-divider-2">
+  <li class="col-md-8">
+    <div class="height-enforcer">
       item 1
-  %li.col-md-8
-    .height-enforcer
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer">
       item 2
-  %li.col-md-8
-    .height-enforcer{style: 'height: 200px'}
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer" style="height: 200px">
       item 3, which is taller
+    </div>
+  </li>
+</ul>
 ```
+
 */
 
 .list-vertical-divider {
@@ -676,18 +717,23 @@ parent: list
 
 Use this list when you need to show the steps in a flow.
 
-```haml_example
-%ol.list-steps
-  %li
+```html_example
+<ol class="list-steps">
+  <li>
     Sign up Account
-  %li.current
+  </li>
+  <li class="current">
     Create Organization
-  %li
+  </li>
+  <li>
     Do other things
-  %li
+  </li>
+  <li>
     And more things
-
+  </li>
+</ol>
 ```
+
 */
 
 .list-steps {
@@ -736,15 +782,20 @@ parent: list
 
 Replaces the default bullet image with the font awesome checkmark.
 
-```haml_example
-%ul.list-checked
-  %li
+```html_example
+<ul class="list-checked">
+  <li>
     feep
-  %li
+  </li>
+  <li>
     fop
-  %li
+  </li>
+  <li>
     meep
+  </li>
+</ul>
 ```
+
 */
 
 .list-checked {

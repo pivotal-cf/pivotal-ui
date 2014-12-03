@@ -9,15 +9,13 @@ categories:
 
 Dividers draw horizontal lines between different content groupings.
 
-```haml_example
-
-%hr.divider-alternate-1
-%hr.divider-alternate-2
-
-.contrast-bar
-  %hr.divider-1
-  %hr.divider-2
-
+```html_example
+<hr class="divider-alternate-1"/>
+<hr class="divider-alternate-2"/>
+<div class="contrast-bar">
+  <hr class="divider-1"/>
+  <hr class="divider-2"/>
+</div>
 ```
 
 */

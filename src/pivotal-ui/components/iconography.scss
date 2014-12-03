@@ -34,9 +34,8 @@ Button                                             | Class                  | De
 <i class="fa fa-play"></i>                         | `.fa.fa-play`          | Renders our start icon
 <i class="fa fa-download"></i>                     | `.fa.fa-download`      | Renders our download icon
 
-```haml_example
-
-%i.fa.fa-download.type-brand-3.title
+```html_example
+<i class="fa fa-download type-brand-3 title"></i>
 ```
 
 */

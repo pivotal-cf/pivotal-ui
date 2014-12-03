@@ -68,19 +68,24 @@ This only applies to forms within viewports that are at least 768px wide.
   </p>
 </div>
 
-```haml_example
-%form.styleguide-form.form-inline{:role => "form"}
-  .form-group
-    %label.sr-only{:for => "exampleInputEmail2"} Email address
-    %input#exampleInputEmail2.form-control{:placeholder => "Enter email", :type => "email"}
-  .form-group
-    %label.sr-only{:for => "exampleInputPassword2"} Password
-    %input#exampleInputPassword2.form-control{:placeholder => "Password", :type => "password"}
-  .checkbox
-    %label
-      %input{:type => "checkbox"}
+```html_example
+<form class="styleguide-form form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail2">Email address</label>
+    <input class="form-control" id="exampleInputEmail2" placeholder="Enter email" type="email"></input>
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password"></input>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"></input>
       Remember me
-  %button.btn.btn-primary{:type => "submit"} Sign in
+    </label>
+  </div>
+  <button class="btn btn-primary" type="submit">Sign in</button>
+</form>
 ```
 */
 
@@ -94,20 +99,26 @@ parent: form_inline
 Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
 
 
-```haml_example
-%form.styleguide-form.form-inline.inline-labels{:role => "form"}
-  .form-group
-    %label{:for => "exampleInputEmail2"} Write a thing
-    %input#exampleInputEmail2.form-control{:placeholder => "Write a thing", :type => "email"}
-  .form-group
-    %label{:for => "exampleSelect"} Choose a thing
-    %select#exampleSelect.form-control
-      %option thing
-  .checkbox
-    %label
-      %input{:type => "checkbox"}
+```html_example
+<form class="styleguide-form form-inline inline-labels" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail2">Write a thing</label>
+    <input class="form-control" id="exampleInputEmail2" placeholder="Write a thing" type="email"></input>
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect">Choose a thing</label>
+    <select class="form-control" id="exampleSelect">
+      <option>thing</option>
+    </select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"></input>
       Remember me
-  %button.btn.btn-primary{:type => "submit"} Sign in
+    </label>
+  </div>
+  <button class="btn btn-primary" type="submit">Sign in</button>
+</form>
 ```
 */
 
@@ -122,13 +133,16 @@ categories:
 
 An input with the label top aligned (this is the default layout).
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .form-group
-    %label{:for => "exampleInputEmail1"}
-      %abbr{:title => "required"} *
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">
+      <abbr title="required">*</abbr>
       Email address
-    %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+    </label>
+    <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+  </div>
+</form>
 ```
 
 Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal
@@ -136,34 +150,44 @@ layout by adding `.form-horizontal` to the form. Doing so changes `.form-groups`
 
 An input with the label left aligned
 
-```haml_example
-%form.styleguide-form.form-horizontal{:role => "form"}
-  .form-group
-    .col-md-6
-      %label.control-label{:for => "exampleInputEmail1"}
-        %abbr{:title => "required"} *
+```html_example
+<form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label" for="exampleInputEmail1">
+        <abbr title="required">*</abbr>
         Email address
-    .col-md-18
-      %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+      </label>
+    </div>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+    </div>
+  </div>
+</form>
 ```
 
 An input with the label right aligned (N.B., control-label class provides the right alignment):
 
-```haml_example
-%form.styleguide-form.form-horizontal{:role => "form"}
-  .form-group
-    %label.col-md-6.control-label{:for => "exampleInputEmail1"}
-      %abbr{:title => "required"} *
+```html_example
+<form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-md-6 control-label" for="exampleInputEmail1">
+      <abbr title="required">*</abbr>
       Email address
-    .col-md-18
-      %input#exampleInputEmail1.form-control{:placeholder => "Enter email", :type => "email", :required => "required", 'aria-required' => "true"}
+    </label>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+    </div>
+  </div>
+</form>
 ```
 
 An unstyled inputs that doesn't have any of the default input styles
 
-```haml_example
-%form{:role => "form"}
-  %input.unstyled{"placeholder" => "This is a text input"}
+```html_example
+<form role="form">
+  <input class="unstyled" placeholder="This is a text input"></input>
+</form>
 ```
 */
 
@@ -188,71 +212,80 @@ all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
   </p>
 </div>
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Text input", :type => "text"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Text input" type="text"></input>
+</form>
 ```
 
 Password field
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Password", :type => "password"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Password" type="password"></input>
+</form>
 ```
 
 Date
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Date", :type => "date"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Date" type="date"></input>
+</form>
 ```
 
 Number
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Number", :type => "number"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Number" type="number"></input>
+</form>
 ```
 
 With a min/max and default starting value
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Number", :type => "number", min: 0, max: 2, value: 1}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Number" type="number" min=0 max=2 value=1></input>
+</form>
 ```
 
 With a different increment value
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Number", :type => "number", step: 5}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Number" type="number" step=5></input>
+</form>
 ```
 
 Email
 
 Use this with fields that require email addresses to pop up the correct keyboard on mobile
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Email", :type => "email"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Email" type="email"></input>
+</form>
 ```
 
 URL
 
 Use this with fields that require urls to pop up the correct keyboard on mobile
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "URL", :type => "url"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="URL" type="url"></input>
+</form>
 ```
 
 Telephone
 
 Use this with fields that require telephone numbers to pop up the dialpad on mobile
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:placeholder => "Telephone", :type => "tel"}
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" placeholder="Telephone" type="tel"></input>
+</form>
 ```
 */
 
@@ -277,15 +310,20 @@ Create larger or smaller form controls that match button sizes.
 Set widths using grid column classes like `.col-lg-*`.
 Wrap selects in grid columns, or any custom parent element, to easily enforce desired widths.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .row
-    .col-md-4
-      %input.form-control{:placeholder => ".col-xs-2", :type => "text"}
-    .col-md-6
-      %input.form-control{:placeholder => ".col-xs-3", :type => "text"}
-    .col-md-8
-      %input.form-control{:placeholder => ".col-xs-4", :type => "text"}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <input class="form-control" placeholder=".col-xs-2" type="text"></input>
+    </div>
+    <div class="col-md-6">
+      <input class="form-control" placeholder=".col-xs-3" type="text"></input>
+    </div>
+    <div class="col-md-8">
+      <input class="form-control" placeholder=".col-xs-4" type="text"></input>
+    </div>
+  </div>
+</form>
 ```
 
 */
@@ -481,12 +519,14 @@ Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
 them over a custom dropdown whenever possible.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %select.form-control
-    %option default option
-    %option an option
-    %option another option
+```html_example
+<form class="styleguide-form" role="form">
+  <select class="form-control">
+    <option>default option</option>
+    <option>an option</option>
+    <option>another option</option>
+  </select>
+</form>
 ```
 */
 
@@ -520,15 +560,20 @@ Create larger or smaller form controls that match button sizes.
 Set widths using grid column classes like `.col-lg-*`.
 Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .row
-    .col-md-4
-      %input.form-control{:placeholder => ".col-xs-2", :type => "text"}
-    .col-md-6
-      %input.form-control{:placeholder => ".col-xs-3", :type => "text"}
-    .col-md-8
-      %input.form-control{:placeholder => ".col-xs-4", :type => "text"}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <input class="form-control" placeholder=".col-xs-2" type="text"></input>
+    </div>
+    <div class="col-md-6">
+      <input class="form-control" placeholder=".col-xs-3" type="text"></input>
+    </div>
+    <div class="col-md-8">
+      <input class="form-control" placeholder=".col-xs-4" type="text"></input>
+    </div>
+  </div>
+</form>
 ```
 
 */
@@ -542,13 +587,16 @@ parent: form_selects
 
 This is a fancy select!
 
-```haml_example
-%form.styleguide-form{:role => "form", 'style' => 'width: 200px'}
-  %label{:for => "fancy-select"} Description
-  .select-fancy
-    %select.form-control
-      %option Fancy Option 1
-      %option Fancy Option 2
+```html_example
+<form class="styleguide-form" role="form" style="width: 200px">
+  <label for="fancy-select">Description</label>
+  <div class="select-fancy">
+    <select class="form-control">
+      <option>Fancy Option 1</option>
+      <option>Fancy Option 2</option>
+    </select>
+  </div>
+</form>
 ```
 
 */
@@ -647,11 +695,13 @@ categories:
 
 Text areas are used for larger amounts of input.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .form-group
-    %label{:for => "exampleTextAreaId"} Description
-    %textarea#exampleTextAreaId.form-control{:rows => "3"}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleTextAreaId">Description</label>
+    <textarea class="form-control" id="exampleTextAreaId" rows="3"></textarea>
+  </div>
+</form>
 ```
 
 */
@@ -668,21 +718,32 @@ Checkboxes are for selecting one or several options in a list while radios are f
 
 ### Default (stacked)
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .checkbox
-    %label
-      %input{:type => "checkbox", :value => ""}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
         Option one is this and that&mdash;be sure to include why it's great
-  .radio
-    %label
-      %input#optionsRadios1{:checked => "", :name => "optionsRadios", :type => "radio", :value => "option1"}
+      </input>
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios1" name="optionsRadios" type="radio" value="option1" checked>
         Option one is this and that&mdash;be sure to include why it's great
-  .radio
-    %label
-      %input#optionsRadios2{:name => "optionsRadios", :type => "radio", :value => "option2"}
+      </input>
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios2" name="optionsRadios" type="radio" value="option2">
         Option two can be something else and selecting it will deselect option one
+      </input>
+    </label>
+  </div>
+</form>
 ```
+
 */
 
 input[type="radio"] {
@@ -698,29 +759,43 @@ parent: form_checkboxes
 
 Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or radios for controls appear on the same line.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .form-group
-    %label.checkbox-inline
-      %input#inlineCheckbox1{:type => "checkbox", :value => "option1"}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox1" type="checkbox" value="option1">
         1
-    %label.checkbox-inline
-      %input#inlineCheckbox2{:type => "checkbox", :value => "option2"}
+      </input>
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox2" type="checkbox" value="option2">
         2
-    %label.checkbox-inline
-      %input#inlineCheckbox3{:type => "checkbox", :value => "option3"}
+      </input>
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox3" type="checkbox" value="option3">
         3
-
-  .form-group
-    %label.radio-inline
-      %input#inlineradio1{:type => "radio", :value => "option1"}
+      </input>
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input id="inlineradio1" type="radio" value="option1">
         1
-    %label.radio-inline
-      %input#inlineradio2{:type => "radio", :value => "option2"}
+      </input>
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio2" type="radio" value="option2">
         2
-    %label.radio-inline
-      %input#inlineradio3{:type => "radio", :value => "option3"}
+      </input>
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio3" type="radio" value="option3">
         3
+      </input>
+    </label>
+  </div>
+</form>
 ```
 
 */
@@ -744,10 +819,11 @@ categories:
 Help text
 Block level help text for form controls.
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  %input.form-control{:type => "text"}
-  %span.help-block A block of help text that breaks onto a new line and may extend beyond one line.
+```html_example
+<form class="styleguide-form" role="form">
+  <input class="form-control" type="text"></input>
+  <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</form>
 ```
 
 */
@@ -918,29 +994,38 @@ use the `.form-control-static` class on a `<p>`.
 
 Here's an example in a horizontal form:
 
-```haml_example
-%form.form-horizontal.styleguide-form{:role => "form"}
-  .form-group
-    %label.col-md-4.control-label Email
-    .col-sm-10
-      %p.form-control-static email@example.com
-  .form-group
-    %label.col-md-4.control-label{:for => "inputPassword"} Password
-    .col-sm-10
-      %input#inputPassword.form-control{:placeholder => "Password", :type => "password"}
+```html_example
+<form class="form-horizontal styleguide-form" role="form">
+  <div class="form-group">
+    <label class="col-md-4 control-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">email@example.com</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="inputPassword">Password</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="inputPassword" placeholder="Password" type="password"></input>
+    </div>
+  </div>
+</form>
 ```
 
 Here's an example in a vertical form:
 
-```haml_example
-%form.styleguide-form{:role => "form"}
-  .form-group
-    %label.control-label Email
-    %p.form-control-static someguy@test.com
-  .form-group
-    %label.control-label{:for => "name"} Name
-    %input#name.form-control{:placeholder => "name"}
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="control-label">Email</label>
+    <p class="form-control-static">someguy@test.com</p>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="name">Name</label>
+    <input class="form-control" id="name" placeholder="name"></input>
+  </div>
+</form>
 ```
+
 */
 
 .help-inline {
@@ -973,9 +1058,10 @@ categories:
 
 This form is used to show information that a user may wish to copy and paste somewhere.
 
-```haml_example
-%input.auto-select.form-control{:value => "This should auto highlight", 'data-behavior' => 'AutoSelect', readonly: 'readonly'}
+```html_example
+<input class="auto-select form-control" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight"></input>
 ```
+
 */
 
 .form-control.auto-select {
@@ -993,23 +1079,26 @@ categories:
 
 This form looks and behaves mostly like a content editable field
 
-```haml_example
-%form.form-contenteditable{'name' => 'newEditableForm',
-                                 "ng-controller" => "FormContentEditableController",
-                                 "ng-submit" => 'editText.save()',
-                                 "ng-class"=>'{"saving": editText.saving, "editing": editText.editing}'}
-  %label.txt-c
-    .form-group.mbn
-      %span.form-contenteditable-hint.link-lowlight Hover text
-      %h5.type-primary-4.showing-text Default text
-      .saving-text Updating Text...
-      %input.form-control{"name" => "name",
-                          "type" => "text",
-                          "ng-model" => "editText.newModel.name",
-                          "tabIndex" => "-1",
-                          :required => "required",
-                          "ng-focus" => 'editText.enterEditMode()',
-                          "ng-blur" => 'editText.save()'}
+```html_example
+<form class="form-contenteditable"
+      name="newEditableForm"
+      ng-class="{"saving": editText.saving, "editing": editText.editing}"
+      ng-controller="FormContentEditableController"
+      ng-submit="editText.save()">
+  <label class="txt-c">
+    <div class="form-group mbn">
+      <span class="form-contenteditable-hint link-lowlight">Hover text</span>
+      <h5 class="type-primary-4 showing-text">Default text</h5>
+      <div class="saving-text">Updating Text...</div>
+      <input class="form-control" name="name"
+             ng-blur="editText.save()"
+             ng-focus="editText.enterEditMode()"
+             ng-model="editText.newModel.name"
+             required="required" tabIndex="-1" type="text">
+      </input>
+    </div>
+  </label>
+</form>
 ```
 */
 
@@ -1156,12 +1245,13 @@ categories:
 
 Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
 
-```haml_example
-%a{"ng-click" => "focus_input1=true; focus_input2=false;"} Focus input 1
-%br
-%a{"ng-click" => "focus_input2=true; focus_input1=false;"} Focus input 2
-%br
-%input{"focus-input" => "focus_input1"}
-%input{"focus-input" => "focus_input2"}
+```html_example
+<a ng-click="focus_input1=true; focus_input2=false;">Focus input 1</a>
+<br/>
+<a ng-click="focus_input2=true; focus_input1=false;">Focus input 2</a>
+<br/>
+<input focus-input="focus_input1"></input>
+<input focus-input="focus_input2"></input>
 ```
+
 */

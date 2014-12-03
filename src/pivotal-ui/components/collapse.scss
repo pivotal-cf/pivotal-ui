@@ -30,14 +30,18 @@ parent: accordion
 
 Use this to expand and collapse content.
 
-```haml_example
-%a.collapsed{data: {toggle: 'collapse'}, href: '#simple-collapse-example'}
-  .when-collapsed
+```html_example
+<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example">
+  <div class="when-collapsed">
     Expand me
-  .when-expanded
+  </div>
+  <div class="when-expanded">
     Collapse me
-#simple-collapse-example.collapse
+  </div>
+</a>
+<div class="collapse" id="simple-collapse-example">
   Look at this content.
+</div>
 ```
 
 */
@@ -52,28 +56,41 @@ parent: accordion
  
 Default accordion size:
 
-```haml_example
-#accordion-1.panel
-  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-1'}
-    .row
-      .col-md-23
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-1.panel-collapse.collapse
-    .panel-body-accordion.bg-neutral-11
+```html_example
+<div class="panel" id="accordion-1">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#myCollapse-1">
+    <div class="row">
+      <div class="col-md-23">
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-1">
+    <div class="panel-body-accordion bg-neutral-11">
       This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+
 ```
 
 Large accordion size:
 
-```haml_example
-#accordion-2.panel
-  .panel-heading-accordion-large.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-2'}
-    .row
-      .col-md-23
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-2.panel-collapse.collapse
-    .panel-body-accordion.bg-neutral-11
+```html_example
+<div class="panel" id="accordion-2">
+  <div class="panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-2">
+    <div class="row">
+      <div class="col-md-23">
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-2">
+    <div class="panel-body-accordion bg-neutral-11">
       This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
 ```
 */
 
@@ -86,39 +103,56 @@ parent: accordion
 
 Accordion with plus/minus icon:
 
-```haml_example
-#accordion-3.panel
-  .panel-heading-accordion-large.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-2'}, href: '#myCollapse-3'}
-    .row
-      .col-md-23
-        %a
-          .when-collapsed-inline>
-            %i.fa.fa-plus-square.collapse-icon>
-          .when-expanded-inline>
-            %i.fa.fa-minus-square.collapse-icon>
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-3.panel-collapse.collapse
-    .panel-body-accordion.bg-neutral-11
+```html_example
+<div class="panel" id="accordion-3">
+  <div class="panel-heading-accordion-large collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-plus-square collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-minus-square collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-3">
+    <div class="panel-body-accordion bg-neutral-11">
       This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
 ```
 
 Accordion with caret right/down icon:
 
-```haml_example
-#accordion-4.panel
-  .panel-heading-accordion.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-4'}
-    .row
-      .col-md-23
-        %a
-          .when-collapsed-inline>
-            %i.fa.fa-caret-right.collapse-icon>
-          .when-expanded-inline>
-            %i.fa.fa-caret-down.collapse-icon>
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-4.panel-collapse.collapse
-    .panel-body-accordion.bg-neutral-11
+```html_example
+<div class="panel" id="accordion-4">
+  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-4">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-4">
+    <div class="panel-body-accordion bg-neutral-11">
       This content should hide and show when the trigger is clicked.
-
+    </div>
+  </div>
+</div>
 ```
 */
 
@@ -133,42 +167,58 @@ Accordion with Divider:
 
 This adds a divider between the accordion header and accordion body.
 
-```haml_example
-#accordion-5.panel
-  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-5'}
-    .row
-      .col-md-23
-        %a
-          .when-collapsed-inline>
-            %i.fa.fa-caret-right.collapse-icon>
-          .when-expanded-inline>
-            %i.fa.fa-caret-down.collapse-icon>
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-5.panel-collapse.collapse
-    .panel-body-accordion-divider.bg-neutral-11
+```html_example
+<div class="panel" id="accordion-5">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-5">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-5">
+    <div class="panel-body-accordion-divider bg-neutral-11">
       This content should hide and show when the trigger is clicked.
-
+    </div>
+  </div>
+</div>
 ```
 
 Accordion with Shadow:
 
 This adds a shadow to the accordion when it is both open and closed.
 
-```haml_example
-#accordion-6.panel.panel-shadow
-  .panel-heading-accordion.bg-neutral-11.collapse-trigger.collapsed{data: {toggle: 'collapse', parent: '#accordion-3'}, href: '#myCollapse-6'}
-    .row
-      .col-md-23
-        %a
-          .when-collapsed-inline>
-            %i.fa.fa-caret-right.collapse-icon>
-          .when-expanded-inline>
-            %i.fa.fa-caret-down.collapse-icon>
-        %h3.h5.collapse-title.type-em-1.type-primary-2> My fancy application
-  #myCollapse-6.panel-collapse.collapse
-    .panel-body-accordion-divider.bg-neutral-11
+```html_example
+<div class="panel panel-shadow" id="accordion-6">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-toggle="collapse" href="#myCollapse-6" parent="#accordion-3">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-6">
+    <div class="panel-body-accordion-divider bg-neutral-11">
       This content should hide and show when the trigger is clicked.
-
+    </div>
+  </div>
+</div>
 ```
 
 */

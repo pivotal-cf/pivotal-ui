@@ -88,13 +88,15 @@ If you want to gently scroll from one part of the page to another, you'll need t
 a `data-behavior: GentleScroll` to the trigger element as well as an `href` for the
 id of the target it will scroll to.
 
-```haml_example
-%a.btn.btn-default{"data-behavior" => "GentleScroll", :href => "#scroll-target"} Scroll Trigger
+```html_example
+<a class="btn btn-default" data-behavior="GentleScroll" href="#scroll-target">Scroll Trigger</a>
 ```
+
 It can scroll to anything, in this case, we'll use a text input.
 
-```haml_example
-%input#scroll-target.form-control{:type => "text", :placeholder => "Scroll target"}
+```html_example
+<input class="form-control" id="scroll-target" placeholder="Scroll target" type="text"></input>
 ```
+
 */
 
