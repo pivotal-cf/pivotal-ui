@@ -60,7 +60,7 @@ To use Pivotal UI with Rails, there are a few small extra steps to make sure the
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 ```
 
-### Including SCSS variables (optional, beta)
+# Including SCSS variables (optional, beta)
 
 If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project:
 
@@ -76,7 +76,7 @@ Import the file and use the variables:
 }
 ```
 
-### Styleguide
+# Styleguide
 
 Visit <http://styleguide.cfapps.io> of host the styleguide files with a web server to view the available components.
 
@@ -84,7 +84,7 @@ Visit <http://styleguide.cfapps.io> of host the styleguide files with a web serv
 
 then visit <http://localhost:8000>
 
-### Syntax Highlighting
+# Syntax Highlighting
 
 There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme by linking to one of the following stylesheets:
 
@@ -95,7 +95,7 @@ You can only include one of these themes at a time.
 
 See the latest styleguide for [examples of syntax highlighting in action](http://styleguide.cfapps.io/all.html#code).
 
-#### Syntax Highlighting Example
+## Syntax Highlighting Example
 
 ```html
 
@@ -107,6 +107,24 @@ See the latest styleguide for [examples of syntax highlighting in action](http:/
 	  end
 	</code>
   </pre>
+
+```
+
+# React components (very beta!)
+
+React components are in the beta section of the styleguide, where we keep experimental components with unstable APIs. Don't use them on production apps. If you'd like to try out react, swap in the react js file in place of the standard file: 
+
+```html
+
+<script src="/path/to/release/pivotal-ui.js"></script> 
+
+```
+
+Should become:
+
+```html
+
+<script src="/path/to/release/pivotal-ui-react.js"></script>
 
 ```
 
