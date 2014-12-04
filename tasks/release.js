@@ -119,11 +119,23 @@ gulp.task('_minifyjs', ['_addFilesToRelease'], function() {
   });
 });
 
+gulp.task('_minifyjsReact', ['_addFilesToRelease'], function() {
+  releaseHelper.getNewReleaseName()
+  .then(function(newReleaseName) {
+    gulp.src('release/' + newReleaseName + '/pivotal-ui-react.js')
+      .pipe(uglifyJs())
+      .pipe(rename('pivotal-ui-react.min.js'))
+      .pipe(gulp.dest('release/' + newReleaseName))
+      .on('end', done);
+  });
+});
+
 gulp.task('_addVersionRelease', [
   '_addFilesToRelease',
   '_removeCommentsFromCss',
   '_minifycss',
   '_minifyjs',
+  '_minifyjsReact'
 ]);
 
 gulp.task('_zip', [

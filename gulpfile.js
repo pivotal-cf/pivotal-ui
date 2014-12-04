@@ -46,6 +46,7 @@ gulp.task('lint', function() {
 gulp.task('assets', [
   '_styles',
   '_scripts',
+  '_scriptsReact',
   '_images',
   '_fonts',
   '_styleguide'
@@ -129,10 +130,18 @@ gulp.task('_copyPrism', ['clean'], function() {
 
 gulp.task('_scripts', ['clean'], function() {
   var b = browserify('./src/pivotal-ui/javascripts/pivotal-ui.js');
-  b.transform(reactify);
 
   return b.bundle()
     .pipe(source('./pivotal-ui.js'))
+    .pipe(gulp.dest('build/'))
+});
+
+gulp.task('_scriptsReact', ['clean'], function() {
+  var b = browserify('./src/pivotal-ui/javascripts/pivotal-ui-react.js');
+  b.transform(reactify);
+
+  return b.bundle()
+    .pipe(source('./pivotal-ui-react.js'))
     .pipe(gulp.dest('build/'))
 });
 
