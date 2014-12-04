@@ -122,6 +122,33 @@ By adding `.alert-dismissable` and a button, you can also make alerts dismissabl
 </div>
 
 ```
+
+If a full-width dissmissable alert is desired, but the content needs to be aligned with
+other content inside a container on the page (of a width 500px for this example), you might consider doing the following:
+
+```html_example
+
+<div class="pane bg-accent-5">
+  <div class="container pan" style="width:500px">
+    <div class="alert alert-info mtn">
+      <button class="close" data-dismiss="alert">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="media mtn">
+        <div class="media-left">
+          <i class="fa fa-info-circle"></i>
+        </div>
+        <div class="media-body em-high">
+          3 new files available for Pivotal CF.
+          <a class="type-sm alert-link" href="http://bit.ly/1DFns8H">Mark all as viewed.</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+```
+
 */
 
 .alert {
