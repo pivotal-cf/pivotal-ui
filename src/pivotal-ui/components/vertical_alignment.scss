@@ -44,18 +44,25 @@ Note: the background colors in the example are just for display in the styleguid
 .aligner {
   height: 230px;
   display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
   flex-flow: row wrap;
+  -webkit-flex-flow: row wrap;
   align-items: center;
+  -webkit-align-items: center;
 
   .aligner-item {
     flex: 0 100%;
+    -webkit-flex: 0 100%;
 
     &.aligner-item-top {
       align-self: flex-start;
+      -webkit-align-self: flex-start;
     }
 
     &.aligner-item-bottom {
       align-self: flex-end;
+      -webkit-align-self: flex-end;
     }
   }
 }
