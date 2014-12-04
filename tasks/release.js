@@ -2,6 +2,7 @@ require('shelljs/global');
 var bump = require('gulp-bump'),
   fs = require('fs'),
   gulp = require('gulp'),
+  replace = require('gulp-replace'),
   q = require('q'),
   stp = require('stream-to-promise'),
   zip = require('gulp-zip');
@@ -28,22 +29,6 @@ gulp.task('release', [
 });
 
 // private
-
-gulp.task('_zip', [
-  'assets',
-  '_addVersionRelease',
-], function(done){
-  releaseHelper.getNewReleaseName
-  .then(function(newReleaseName) {
-    gulp.src(['release/' + newReleaseName + '/**/*'])
-      .pipe(zip(newReleaseName + '.zip'))
-      .pipe(gulp.dest('./'))
-      .on('end', done);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
-});
 
 gulp.task('_changelog', function(done) {
   releaseHelper.getVersionChanges
@@ -75,20 +60,8 @@ gulp.task('_bumpPackage', ['assets'], function(done) {
   });
 });
 
-gulp.task('_addVariablesToVersionRelease', function(done) {
-  releaseHelper.getNewReleaseName
-  .then(function(newReleaseName) {
-    gulp.src('src/pivotal-ui/components/pui-variables.scss')
-      .pipe(gulp.dest('release/' + newReleaseName + '/'))
-      .on('end', done);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
-});
-
-gulp.task('_addVendorMixinsToVersionRelease', function() {
-  releaseHelper.getNewReleaseName
+gulp.task('_addFilesToRelease', ['assets'], function() {
+  return releaseHelper.getNewReleaseName
   .then(function(newReleaseName) {
     return q.all([
       stp(gulp.src([
@@ -98,8 +71,27 @@ gulp.task('_addVendorMixinsToVersionRelease', function() {
         ]).pipe(gulp.dest('release/' + newReleaseName + '/oocss/'))),
 
       stp(gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
-        .pipe(gulp.dest('release/' + newReleaseName + '/bootstrap-sass/')))
+        .pipe(gulp.dest('release/' + newReleaseName + '/bootstrap-sass/'))),
+
+      stp(gulp.src('src/pivotal-ui/components/pui-variables.scss')
+        .pipe(gulp.dest('release/' + newReleaseName + '/'))),
+
+      stp(gulp.src('build/**/*')
+        .pipe(gulp.dest('release/' + newReleaseName + '/')))
     ]);
+  })
+  .fail(function(err) {
+    errorHandler.handleError(err, {isFatal: true});
+  });
+});
+
+gulp.task('_removeCommentsFromCss', ['_addFilesToRelease'], function(done) {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
+      .pipe(replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
+      .pipe(gulp.dest('release/' + newReleaseName + '/'))
+      .on('end', done);
   })
   .fail(function(err) {
     errorHandler.handleError(err, {callback: done});
@@ -107,14 +99,19 @@ gulp.task('_addVendorMixinsToVersionRelease', function() {
 });
 
 gulp.task('_addVersionRelease', [
+  '_addFilesToRelease',
+  '_removeCommentsFromCss',
+]);
+
+gulp.task('_zip', [
   'assets',
-  '_addVariablesToVersionRelease',
-  '_addVendorMixinsToVersionRelease'
-], function(done) {
+  '_addVersionRelease',
+], function(done){
   releaseHelper.getNewReleaseName
   .then(function(newReleaseName) {
-    gulp.src('build/**/*')
-      .pipe(gulp.dest('release/' + newReleaseName + '/'))
+    gulp.src(['release/' + newReleaseName + '/**/*'])
+      .pipe(zip(newReleaseName + '.zip'))
+      .pipe(gulp.dest('./'))
       .on('end', done);
   })
   .fail(function(err) {
@@ -125,7 +122,7 @@ gulp.task('_addVersionRelease', [
 gulp.task('_bumpVersion', [
   '_changelog',
   '_bumpPackage',
-  '_addVersionRelease'
+  '_addVersionRelease',
 ], function(done) {
   releaseHelper.getNewVersion
   .then(function(newVersion) {
