@@ -7,6 +7,13 @@ var gulp = require('gulp');
 var karma = require('karma').server;
 var open = require('gulp-open');
 
+gulp.task('ci', [
+  'lint',
+  'assets',
+  '_rspec',
+  'karma'
+]);
+
 gulp.task('test', [
   'lint',
   '_cssCritic',

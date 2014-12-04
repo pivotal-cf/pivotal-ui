@@ -24,11 +24,6 @@ gulp.task('default', [
   'serve'
 ]);
 
-gulp.task('ci', [
-  'lint',
-  'assets'
-]);
-
 gulp.task('watch', ['assets', '_copyTestAssets'], function() {
   gulp.watch(['src/pivotal-ui/**/*', 'hologram/**/*'], ['assets', '_copyTestAssets']);
 });

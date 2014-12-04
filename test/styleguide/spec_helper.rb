@@ -4,13 +4,9 @@ require 'selenium-webdriver'
 
 Dir[File.dirname(__FILE__) + "/support/*.rb"].each { |file| require file }
 
-Capybara.register_driver :chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
-end
-
 Capybara.app_host = 'http://localhost:9001'
 Capybara.run_server = false
-Capybara.javascript_driver = :chrome
+Capybara.javascript_driver = :selenium
 
 RSpec.configure do |config|
   config.color = true
