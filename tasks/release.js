@@ -14,12 +14,11 @@ var errorHandler = require('./errorHandler');
 var githubService = require('./githubService');
 var releaseHelper = require('./releaseHelper');
 
-
 gulp.task('release', [
   '_pushVersion',
   '_zip',
 ], function(done) {
-  q.all([releaseHelper.getNewTagName, releaseHelper.getVersionChanges])
+  q.all([releaseHelper.getNewTagName(), releaseHelper.getVersionChanges()])
   .spread(function(newTagName, versionChanges) {
     return githubService.createRelease(newTagName, versionChanges);
   })
@@ -34,7 +33,7 @@ gulp.task('release', [
 // private
 
 gulp.task('_changelog', function(done) {
-  releaseHelper.getVersionChanges
+  releaseHelper.getVersionChanges()
   .then(function(versionChanges) {
     fs.readFile('CHANGELOG.md', function(err, oldLog) {
       if (err) { errorHandler.handleError(err, {callback: done}); }
@@ -46,12 +45,12 @@ gulp.task('_changelog', function(done) {
     });
   })
   .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
+    errorHandler.handleError(err, {isFatal: true});
   });
 });
 
 gulp.task('_bumpPackage', ['assets'], function(done) {
-  releaseHelper.getNewVersion
+  releaseHelper.getNewVersion()
   .then(function(newVersion) {
     gulp.src(['./package.json'])
       .pipe(bump({version: newVersion}))
@@ -59,12 +58,12 @@ gulp.task('_bumpPackage', ['assets'], function(done) {
       .on('end', done);
   })
   .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
+    errorHandler.handleError(err, {isFatal: true});
   });
 });
 
 gulp.task('_addFilesToRelease', ['assets'], function() {
-  return releaseHelper.getNewReleaseName
+  return releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
     return q.all([
       stp(gulp.src([
@@ -89,7 +88,7 @@ gulp.task('_addFilesToRelease', ['assets'], function() {
 });
 
 gulp.task('_removeCommentsFromCss', ['_addFilesToRelease'], function(done) {
-  releaseHelper.getNewReleaseName
+  releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
     gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
       .pipe(replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
@@ -99,7 +98,7 @@ gulp.task('_removeCommentsFromCss', ['_addFilesToRelease'], function(done) {
 });
 
 gulp.task('_minifycss', ['_addFilesToRelease'], function(done) {
-  releaseHelper.getNewReleaseName
+  releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
     gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
       .pipe(minifyCss({keepBreaks: true}))
@@ -110,7 +109,7 @@ gulp.task('_minifycss', ['_addFilesToRelease'], function(done) {
 });
 
 gulp.task('_minifyjs', ['_addFilesToRelease'], function() {
-  releaseHelper.getNewReleaseName
+  releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
     gulp.src('release/' + newReleaseName + '/pivotal-ui.js')
       .pipe(uglifyJs())
@@ -131,7 +130,7 @@ gulp.task('_zip', [
   'assets',
   '_addVersionRelease',
 ], function(done){
-  releaseHelper.getNewReleaseName
+  releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
     gulp.src(['release/' + newReleaseName + '/**/*'])
       .pipe(zip(newReleaseName + '.zip'))
@@ -148,7 +147,7 @@ gulp.task('_bumpVersion', [
   '_bumpPackage',
   '_addVersionRelease',
 ], function(done) {
-  releaseHelper.getNewVersion
+  releaseHelper.getNewVersion()
   .then(function(newVersion) {
     // Can't use gulp git because of https://github.com/stevelacy/gulp-git/issues/49
     var res = exec('git add package.json CHANGELOG.md release/');
@@ -169,7 +168,7 @@ gulp.task('_bumpVersion', [
 });
 
 gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  releaseHelper.getNewTagName
+  releaseHelper.getNewTagName()
   .then(function(tagName) {
     var res = exec('git tag ' + tagName);
     if (res.code !== 0) {
@@ -184,7 +183,7 @@ gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
 
 gulp.task('_pushVersion', ['_tagVersion'], function(done) {
   // These calls are synchronous in case there is a prompt for credentials
-  releaseHelper.getNewTagName
+  releaseHelper.getNewTagName()
   .then(function(tagName) {
     var res = exec('git push origin HEAD');
     if (res.code !== 0) {

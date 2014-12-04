@@ -1,9 +1,16 @@
+require('shelljs/global');
+var _ = require('lodash');
 var changelog = require('conventional-changelog');
 var q = require('q');
 var semver = require('semver');
 
-var getNewVersion = function() {
+var getNewVersion = _.memoize(function() {
   var deferred = q.defer();
+
+  var res = exec('git fetch');
+  if (res.code !== 0) {
+    deferred.reject('Unable to fetch files');
+  }
 
   determineReleaseType(function(err, releaseType) {
     if (err) {
@@ -17,12 +24,12 @@ var getNewVersion = function() {
   });
 
   return deferred.promise;
-}();
+});
 
-var getNewTagName = function() {
+var getNewTagName = _.memoize(function() {
   var deferred = q.defer();
 
-  getNewVersion
+  getNewVersion()
   .then(function(newVersion) {
     deferred.resolve('v' + newVersion);
   })
@@ -31,12 +38,12 @@ var getNewTagName = function() {
   });
 
   return deferred.promise;
-}();
+});
 
-var getNewReleaseName = function() {
+var getNewReleaseName = _.memoize(function() {
   var deferred = q.defer();
 
-  getNewVersion
+  getNewVersion()
   .then(function(newVersion) {
     deferred.resolve('pui-v' + newVersion);
   })
@@ -45,13 +52,12 @@ var getNewReleaseName = function() {
   });
 
   return deferred.promise;
-}();
+});
 
-
-var getVersionChanges = function() {
+var getVersionChanges = _.memoize(function() {
   var deferred = q.defer();
 
-  getNewVersion
+  getNewVersion()
   .then(function(newVersion) {
     changelog({
       version: newVersion,
@@ -69,7 +75,7 @@ var getVersionChanges = function() {
   });
 
   return deferred.promise;
-}();
+});
 
 module.exports = {
   getNewVersion: getNewVersion,
