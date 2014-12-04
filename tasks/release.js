@@ -2,9 +2,12 @@ require('shelljs/global');
 var bump = require('gulp-bump'),
   fs = require('fs'),
   gulp = require('gulp'),
-  replace = require('gulp-replace'),
+  minifyCss = require('gulp-minify-css'),
   q = require('q'),
+  rename = require('gulp-rename'),
+  replace = require('gulp-replace'),
   stp = require('stream-to-promise'),
+  uglifyJs = require('gulp-uglify'),
   zip = require('gulp-zip');
 
 var errorHandler = require('./errorHandler');
@@ -92,15 +95,36 @@ gulp.task('_removeCommentsFromCss', ['_addFilesToRelease'], function(done) {
       .pipe(replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
       .pipe(gulp.dest('release/' + newReleaseName + '/'))
       .on('end', done);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
+  });
+});
+
+gulp.task('_minifycss', ['_addFilesToRelease'], function(done) {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
+      .pipe(minifyCss({keepBreaks: true}))
+      .pipe(rename('pivotal-ui.min.css'))
+      .pipe(gulp.dest('release/' + newReleaseName))
+      .on('end', done);
+  });
+});
+
+gulp.task('_minifyjs', ['_addFilesToRelease'], function() {
+  releaseHelper.getNewReleaseName
+  .then(function(newReleaseName) {
+    gulp.src('release/' + newReleaseName + '/pivotal-ui.js')
+      .pipe(uglifyJs())
+      .pipe(rename('pivotal-ui.min.js'))
+      .pipe(gulp.dest('release/' + newReleaseName))
+      .on('end', done);
   });
 });
 
 gulp.task('_addVersionRelease', [
   '_addFilesToRelease',
   '_removeCommentsFromCss',
+  '_minifycss',
+  '_minifyjs',
 ]);
 
 gulp.task('_zip', [

@@ -8,15 +8,13 @@ var argv = require('yargs').argv,
   fs = require('fs'),
   gulp = require('gulp'),
   jshint = require('gulp-jshint'),
-  minifyCss = require('gulp-minify-css'),
   open = require('gulp-open'),
   reactify = require('reactify'),
   rename = require('gulp-rename'),
+  replace = require('gulp-replace'),
   shell = require('gulp-shell'),
   source = require('vinyl-source-stream'),
-  stylish = require('jshint-stylish'),
-  uglifyJs = require('gulp-uglify'),
-  replace = require('gulp-replace');
+  stylish = require('jshint-stylish');
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -53,7 +51,6 @@ gulp.task('lint', function() {
 gulp.task('assets', [
   '_styles',
   '_scripts',
-  '_minify',
   '_images',
   '_fonts',
   '_styleguide'
@@ -69,22 +66,6 @@ gulp.task('_cleanTest', function(done) {
   del(['test/components'], {force: true}, function() {
     fs.mkdir('test/components', done);
   });
-});
-
-gulp.task('_minify', ['_minifyjs', '_minifycss']);
-
-gulp.task('_minifycss', ['_styles'], function() {
-  return gulp.src('./build/pivotal-ui.css')
-    .pipe(minifyCss({keepBreaks:true}))
-    .pipe(rename('pivotal-ui.min.css'))
-    .pipe(gulp.dest('./build/'));
-});
-
-gulp.task('_minifyjs', ['_scripts'], function() {
-  return gulp.src('./build/*.js')
-    .pipe(uglifyJs())
-    .pipe(rename('pivotal-ui.min.js'))
-    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('_styleguide', [
