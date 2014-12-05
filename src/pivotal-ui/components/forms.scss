@@ -938,10 +938,6 @@ add `.has-success` to the field's form group.
   }
 }
 
-// hooking up angular validity to bootstrap classes
-input.ng-invalid.ng-dirty {
-  outline: 1px solid $red-3;
-}
 
 /*doc
 ---
