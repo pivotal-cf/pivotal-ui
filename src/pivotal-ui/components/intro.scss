@@ -84,7 +84,8 @@ categories:
       <li><span class="em-high"><a href="/objects.html">Objects</a></span> - A multi node component. These are ususally made of multiple elements that function together to create a more complex component. Some objects you can find here are alerts, modals, tables, and maps.</li>
       <li><span class="em-high"><a href="/utilities.html">Utilities</a></span> - Mixins that can modify many different components. Some utilities you can find here are whitespace, color, and type modifiers.</li>
       <li><span class="em-high"><a href="/forms.html">Forms</a></span> - You can find all sorts of form objects here.</li>
-      <li><span class="em-high"><a href="/javascript.html">JavaScript</a></span> - These components require Javascript. Some components you can find here are progress bars, modals, tabs, accordions, and tooltips.</li>
+      <li><span class="em-high"><a href="/beta.html">Beta</a></span> - These are experimental components with unstable APIs. Don't use them on production apps.
+        See <a href="https://github.com/pivotal-cf/pivotal-ui#react-components-very-beta" target="_blank">our README</a> for details on how to use these components.</li>
       <li><span class="em-high"><a href="/by-product.html">by Product</a></span> - Some components are built with a specific product in mind. You can find Console's app health indicators, and PWS Marketing graphics here.</li>
     </ul>
     <p>By pulling components from each of these sections, you can quickly and easily scaffold pages for prototyping and production. Simply copy and paste applicable component code into your views and add any utility classes needed to make it perfect.

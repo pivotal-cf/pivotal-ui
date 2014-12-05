@@ -252,8 +252,8 @@ Here are some guidelines to follow when writing docs:
 - **Elements** - single-node components and elementary html components *(i.e. buttons, links, lists)*
 - **Objects** - multi-node components *(i.e. alerts, panels, tables)*
 - **Utilities** - mixins that modifiy other components *(i.e. colors, hover states)*
-- **JavaScript** - components that have javascript behaviors *(i.e. animated progress bars, tabs, sortable tables)*
 - **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
+- **Beta** - any experimental component or libraries. All React components go here at the moment.
 - **by Product** - product specific components *(i.e. a PWS marketing pricing widget)*
 
 In addition, every parent component **must** belong to the **All** category.
