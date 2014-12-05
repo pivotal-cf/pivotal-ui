@@ -13,7 +13,7 @@
 
 ## I'd like to help, what can I do?
 
-There are lots of ways to help depending on your interests and skills. For example, you can [report bugs]() or create new components. If you want to submit bug fixes, create new components, or update existing ones, please refer to our [pull request guidelines]().
+There are lots of ways to help depending on your interests and skills. For example, you can [report bugs]() or create new components. If you want to submit bug fixes, create new components, or update existing ones, please refer to our [pull request guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#pull-requests).
 
 If you need some inspiration, we have plenty of work for you to do. Please [email us](mailto:pivotal-ui@pivotal.io) to start a conversation.
 
