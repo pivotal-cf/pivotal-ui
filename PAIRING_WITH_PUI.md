@@ -7,6 +7,11 @@ We find this session is most valuable when there's a goal, such as...
 * Any specific Pivotal UI-related question/problem/task
 * Setting up Pivotal UI
 
+We've found projects are more successful when we don't just do the work for you, but pair with you.
+Pairing allows knowledge sharing (we don't know your codebase yet) and means we don't have to spend a
+lot of time handing off the changes we've made. We'll need you to provide at least one Pivot to pair
+with us through out the engagement, but more is better!
+
 ## The best way to move a project over to pivotal UI
 
 Instead of trying to convert an entire application all at once, we find that a page-by-page approach works best.
