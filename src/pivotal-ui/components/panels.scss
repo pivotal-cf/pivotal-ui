@@ -136,17 +136,21 @@ By default, flex panels have no height. You must use an inline style to set the 
 
 .panel-flex {
   display: block;
-  display: flex;
-  flex-direction: column;
+  @include display-flex;
+  @include flex-direction(column);
 
   .panel-body {
-    flex: 1 0 auto;
-    align-self: auto;
+    @include flexbox((
+      flex: 1 0 auto,
+      align-self: auto
+    ));
   }
 
   .panel-footer {
-    flex: 0 0 auto;
-    align-self: auto;
+    @include flexbox((
+      flex: 0 0 auto,
+      align-self: auto
+    ));
   }
 
 }
