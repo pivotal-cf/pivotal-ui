@@ -5,6 +5,7 @@ module.exports = function(config) {
   config.set({
     autoWatch: false,
     basePath: './',
+    browserNoActivityTimeout: 60000,
     browserify: {
       transform: ['reactify']
     },
