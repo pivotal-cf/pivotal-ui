@@ -396,7 +396,7 @@ $(function() {
     }
   ];
 
-  React.renderComponent(
+  React.render(
     TableSortable({
       data: data,
       columns: columns,

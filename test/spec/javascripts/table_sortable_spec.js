@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var TableSortable = require('../../../src/pivotal-ui/javascripts/table-sortable.jsx');
+var TableSortable = React.createFactory(require('../../../src/pivotal-ui/javascripts/table-sortable.jsx'));
 
 describe('TableSortable', function() {
   beforeEach(function() {
@@ -47,7 +47,7 @@ describe('TableSortable', function() {
       }
     ];
 
-    this.table = React.renderComponent(
+    this.table = React.render(
       TableSortable({
         data: this.data,
         columns: this.columns
@@ -74,7 +74,7 @@ describe('TableSortable', function() {
       columns: this.columns,
       classes: ['table-light']
     });
-    React.renderComponent(this.tableSortable, this.node);
+    React.render(this.tableSortable, this.node);
     this.$table = $('#container table.table-sortable');
 
     expect(this.$table).toHaveClass('table');

@@ -1,4 +1,3 @@
-/** @jsx React.DOM */
 'use strict';
 
 var React = require('react');
@@ -15,7 +14,7 @@ var TableHeader = React.createClass({
     var sortClass;
 
     if (this.props.sortable) {
-      if (this.props.sortState.column !== this.props.key) {
+      if (this.props.sortState.column !== this.props.name) {
         sortClass = 'sortable sorted-none';
       } else if (this.props.sortState.order === 'asc') {
         sortClass = 'sortable sorted-asc';
@@ -59,17 +58,15 @@ var TableRow = React.createClass({
   }
 });
 
-var TableSortable = module.exports = React.createClass({
+var TableSortable = React.createClass({
   getInitialState: function getInitialState() {
-    var initialSortColumn = this.props.columns[0].name;
-
     return {
       sort: {
-        column: initialSortColumn,
+        column: this.props.columns[0].name,
         order: 'asc'
       },
 
-      data: _.sortBy(this.props.data, initialSortColumn)
+      data: _.sortBy(this.props.data, this.props.columns[0].name)
     };
   },
 
@@ -77,7 +74,7 @@ var TableSortable = module.exports = React.createClass({
     var oldSortColumn = this.state.sort.column;
     var oldSortOrder = this.state.sort.order;
     var oldData = this.state.data;
-    var newSortColumn = header.props.key;
+    var newSortColumn = header.props.name;
     var newData;
     var newSortOrder;
 
@@ -101,7 +98,7 @@ var TableSortable = module.exports = React.createClass({
   render: function render() {
     var headings = _.map(this.props.columns, function(column) {
       return (
-        <TableHeader key={column.name} sortable={column.sortable} sortState={this.state.sort} onSortableTableHeaderClick={this.sortData}>
+        <TableHeader key={column.name} name={column.name} sortable={column.sortable} sortState={this.state.sort} onSortableTableHeaderClick={this.sortData}>
           {column.title}
         </TableHeader>
       );
@@ -130,3 +127,5 @@ var TableSortable = module.exports = React.createClass({
     );
   }
 });
+
+module.exports = TableSortable;

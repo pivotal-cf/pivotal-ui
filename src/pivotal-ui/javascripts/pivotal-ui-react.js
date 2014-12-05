@@ -7,4 +7,4 @@ require('./scale')();
 require('./back-to-top')();
 
 global.React = require('react');
-global.TableSortable = require('./table-sortable.jsx');
+global.TableSortable = global.React.createFactory(require('./table-sortable.jsx'));
