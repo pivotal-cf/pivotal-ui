@@ -1,30 +1,3 @@
-<a name="1.3.0"></a>
-## 1.3.0 (2014-12-05)
-
-
-#### Bug Fixes
-
-* **tab-simple:** active tabs no longer have borders on non-hover states ((a98cdb0a))
-* **vertical align:** add support for safari ((2a80af53))
-
-
-#### Features
-
-* **alerts:** add example of full width dismissable alerts ((4880b8e8))
-* **code:** pre-scrollable heights are now auto ((d30865e2))
-* **sortable-table:** add text alignment option ((8343e852))
-* **styleguide:**
-  * convert all code examples to html ((526207eb))
-  * add pivotal ui examples to index page ((61b542cf))
-* **styleguide-categories:** Remove Javascript category from the styleguide ((4ccecb65))
-* **table-sortable:**
-  * add optional additional classes to table ((ba154e59))
-  * columns can be sortable or unsortable ((5d5151aa))
-  * default sort by first column ascending ((e5d9a2d5))
-  * create basic sortable table in react ((c46c2a96))
-* **tables:** `.table-light` applies to all tables ((b83d9dbe))
-* **variables:** variables.scss is now named pui-variables.scss ((e8f3c452))
-
 <a name="1.2.0"></a>
 ## 1.2.0 (2014-11-24)
 
