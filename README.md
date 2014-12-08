@@ -64,12 +64,12 @@ To use Pivotal UI with Rails, there are a few small extra steps to make sure the
 
 If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project:
 
-    $ cp /path/to/release/src/pivotal-ui/components/variables.scss /path/to/your-project/
+    $ cp /path/to/release/src/pivotal-ui/components/pui-variables.scss /path/to/your-project/
 
 Import the file and use the variables:
 
 ```scss
-@import '/path/to/variables.scss';
+@import '/path/to/pui-variables.scss';
 
 .bg-special {
   background-color: $brand-1;
