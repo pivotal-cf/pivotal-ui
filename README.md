@@ -28,7 +28,7 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 # Using PivotalUI on your project
 
 1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases).
-1. Unzip the release archive and move the resulting directory into your project.
+1. Unzip the release archive and move the resulting directory into your project. (If you are using Rails, create a folder called 'vendor/assets/pui-vX.X.X', and unzip the zip file inside of that folder.)
 1. Link to the css file in your html template to include the styles.
 1. Add a script tag to your html template to use the javascript.
 1. Use the css classes (reference the [styleguide](https://github.com/pivotal-cf/pivotal-ui#styleguide) for examples and usage)
@@ -52,11 +52,11 @@ You'll need to maintain the structure in the release directory to have fonts and
 
 To use Pivotal UI with Rails, there are a few small extra steps to make sure the asset paths are correctly configured to be used with the asset pipeline. The extra steps are:
 
-1. When linking to the CSS file in your HTML/Sass, link to `pui-vX.X.X/pivotal-ui-rails.css` instead of the top-level `pivotal-ui.css`.
+1. When linking to the CSS file in your HTML/Sass, link to `pivotal-ui-rails.css` instead of the top-level `pivotal-ui.css`.
 1. In your application's `config/application.rb`, you'll need to add the following to make sure all vendored fonts and images are compiled:
 
 ```
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'pivotal-ui', 'images')
+    config.assets.paths << Rails.root.join('vendor', 'assets', 'pui-vX.X.X', 'images')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 ```
 
