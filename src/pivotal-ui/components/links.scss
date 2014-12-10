@@ -36,7 +36,7 @@ Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less im
 a{
   @include transition-pui();
 
-  &:hover {
+  &:hover, &:focus {
     cursor: pointer;
     text-decoration: none;
   }
