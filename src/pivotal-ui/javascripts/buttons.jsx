@@ -36,6 +36,105 @@ var UIButton = React.createClass({
   }
 });
 
+var DefaultButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'default'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var DefaultAltButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'default-alt'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var PrimaryButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'primary'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var LowlightButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'lowlight'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var DangerButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'danger'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var HighlightButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'highlight'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+var HighlightAltButton = React.createClass({
+  getDefaultProps: function () {
+    return {
+      type: 'highlight-alt'
+    }
+  },
+
+  render: function render() {
+    return (
+      <UIButton {...this.props}>{this.props.children}</UIButton>
+      );
+  }
+});
+
 module.exports = {
-  UIButton: UIButton
+  UIButton: UIButton,
+  DefaultButton: DefaultButton,
+  DefaultAltButton: DefaultAltButton,
+  PrimaryButton: PrimaryButton,
+  LowlightButton: LowlightButton,
+  DangerButton: DangerButton,
+  HighlightButton: HighlightButton,
+  HighlightAltButton: HighlightAltButton
 };

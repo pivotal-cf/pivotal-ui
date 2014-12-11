@@ -23,3 +23,10 @@ global.BasePane = require('./panes.jsx').BasePane;
 global.Pane = require('./panes.jsx').Pane;
 
 global.UIButton = require('./buttons.jsx').UIButton;
+global.DefaultButton = require('./buttons.jsx').DefaultButton;
+global.DefaultAltButton = require('./buttons.jsx').DefaultAltButton;
+global.PrimaryButton = require('./buttons.jsx').PrimaryButton;
+global.LowlightButton = require('./buttons.jsx').LowlightButton;
+global.DangerButton = require('./buttons.jsx').DangerButton;
+global.HighlightButton = require('./buttons.jsx').HighlightButton;
+global.HighlightAltButton = require('./buttons.jsx').HighlightAltButton;
