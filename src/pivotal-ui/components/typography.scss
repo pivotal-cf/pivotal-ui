@@ -449,3 +449,106 @@ a:hover.type-inverse {
   color: $error-color !important;
 }
 
+/*doc
+---
+title: React Typography
+name: type_react
+category: Beta
+---
+We have three type systems. Which one you choose depends on your product.
+
+* Marketing sites should use the largest styles, for example `<MarketingH1>A Top Level Heading</MarketingH1>`
+* Most sites will use our default headings, for example `<DefaultH1>A Top Level Heading</DefaultH1>`
+* Rarely, sites will need a smaller type scale, for example `<AlternateH1>A Top Level Heading</AlternateH1>`
+
+*/
+
+/*doc
+---
+title: Alternate Typography
+name: type_react_alt
+parent: type_react
+---
+
+
+```html_example_table
+<div id="alternate-typography-h1-example"></div>
+<div id="alternate-typography-h2-example"></div>
+<div id="alternate-typography-h3-example"></div>
+```
+
+```jsx_example
+React.render(
+  <AlternateH1>h1 31px</AlternateH1>,
+  document.getElementById('alternate-typography-h1-example')
+);
+
+React.render(
+  <AlternateH2>h2 18px</AlternateH2>,
+  document.getElementById('alternate-typography-h2-example')
+);
+
+React.render(
+  <AlternateH3>h3 18px</AlternateH3>,
+  document.getElementById('alternate-typography-h3-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Default Typography
+name: type_react_default
+parent: type_react
+---
+
+```html_example_table
+<div id="default-typography-h1-example"></div>
+<div id="default-typography-h2-example"></div>
+<div id="default-typography-h3-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DefaultH1>h1 31px</DefaultH1>,
+  document.getElementById('default-typography-h1-example')
+);
+
+React.render(
+  <DefaultH2>h2 18px</DefaultH2>,
+  document.getElementById('default-typography-h2-example')
+);
+
+React.render(
+  <DefaultH3>h3 18px</DefaultH3>,
+  document.getElementById('default-typography-h3-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Custom Headings
+name: type_react_custom
+parent: type_react
+---
+
+Usually, you want to use the provided headings. If your mock doesn't exactly match, you should try the normal headings,
+and see if it still looks ok. If it doesn't (this should be rare!) you can use our custom type generator.
+
+You may want to wrap this in a custom reusable React component rather than calling it directly.
+
+```html_example_table
+<div id="typography-h1-example"></div>
+```
+
+```jsx_example
+React.render(
+  <Heading element="h1" bold="high" color="type-dark-1">This is an h1 on most apps</Heading>,
+  document.getElementById('typography-h1-example')
+);
+```
+
+*/
