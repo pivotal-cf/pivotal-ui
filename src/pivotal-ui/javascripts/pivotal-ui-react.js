@@ -19,3 +19,5 @@ global.DefaultH1 = require('./typography.jsx').DefaultH1;
 global.DefaultH2 = require('./typography.jsx').DefaultH2;
 global.DefaultH3 = require('./typography.jsx').DefaultH3;
 
+global.BasePane = require('./panes.jsx').BasePane;
+global.Pane = require('./panes.jsx').Pane;

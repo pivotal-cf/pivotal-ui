@@ -13,6 +13,7 @@ describe('Heading', function() {
 
   afterEach(function() {
     React.unmountComponentAtNode(this.node);
+    document.body.removeChild(this.node);
   });
 
   describe("when the Heading has no properties passed in", function() {
