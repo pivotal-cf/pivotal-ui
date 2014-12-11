@@ -21,3 +21,5 @@ global.DefaultH3 = require('./typography.jsx').DefaultH3;
 
 global.BasePane = require('./panes.jsx').BasePane;
 global.Pane = require('./panes.jsx').Pane;
+
+global.UIButton = require('./buttons.jsx').UIButton;

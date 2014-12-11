@@ -129,3 +129,25 @@ size modifier class for the desired size.
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
 }
+
+
+/*doc
+---
+title: Buttons
+name: button_react
+categories:
+  - Beta
+---
+
+```html_example_table
+<div id="button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UIButton>I'm a button</UIButton>,
+  document.getElementById('button-example')
+);
+```
+
+*/
