@@ -33,3 +33,5 @@ global.HighlightAltButton = require('./buttons.jsx').HighlightAltButton;
 
 global.Divider = require('./dividers.jsx').Divider;
 global.DividerInverse = require('./dividers.jsx').DividerInverse;
+
+global.PivnetHomepage = require('./pivnet_homepage.jsx').PivnetHomepage;
