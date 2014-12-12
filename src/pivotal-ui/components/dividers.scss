@@ -45,3 +45,59 @@ Dividers draw horizontal lines between different content groupings.
 .divider-2 {
   margin: 4vw 0;
 }
+
+
+/*doc
+---
+title: Dividers
+name: divider_react
+categories:
+  - Beta
+---
+
+Dividers draw horizontal lines between different content groupings.
+
+```html_example_table
+<div id="divider-example"></div>
+```
+
+```jsx_example
+React.render(
+  <Divider />,
+  document.getElementById('divider-example')
+);
+```
+```html_example_table
+<div id="divider-large-example"></div>
+```
+
+```jsx_example
+React.render(
+  <Divider large="true" />,
+  document.getElementById('divider-large-example')
+);
+```
+
+
+```html_example_table
+<div id="divider-alt-example" class="contrast-bar"></div>
+```
+
+```jsx_example
+React.render(
+  <DividerInverse />,
+  document.getElementById('divider-alt-example')
+);
+```
+
+```html_example_table
+<div id="divider-alt-large-example" class="contrast-bar"></div>
+```
+
+```jsx_example
+React.render(
+  <DividerInverse large="true" />,
+  document.getElementById('divider-alt-large-example')
+);
+```
+*/
