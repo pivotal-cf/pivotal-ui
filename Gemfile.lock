@@ -1,7 +1,7 @@
 GIT
-  remote: https://github.com/gpleiss/hologram.git
-  revision: 64b3baf29654476425947967d982e070b2199061
-  branch: develop
+  remote: https://github.com/pmeskers/hologram.git
+  revision: ac5e9e058e1605df77eb683fb22819ab2dd1b46b
+  branch: jsx-templates
   specs:
     hologram (1.2.0)
       redcarpet (>= 2.2, < 4.0)
@@ -52,8 +52,8 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    redcarpet (3.2.0)
-    rouge (1.7.2)
+    redcarpet (3.2.2)
+    rouge (1.7.4)
     rspec (2.99.0)
       rspec-core (~> 2.99.0)
       rspec-expectations (~> 2.99.0)

@@ -129,3 +129,146 @@ size modifier class for the desired size.
   // line-height: ensure even-numbered height of button next to large input
   @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
 }
+
+
+/*doc
+---
+title: Buttons
+name: button_react
+categories:
+  - Beta
+---
+
+Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
+
+```html_example_table
+<div id="link-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DefaultButton href="http://example.com">Default</DefaultButton>,
+  document.getElementById('link-button-example')
+);
+```
+
+To make a button large, set the `large` property to true.
+
+```html_example_table
+<div id="large-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <HighlightButton large="true">Big Button</HighlightButton>,
+  document.getElementById('large-button-example')
+);
+```
+
+To make a button full-width, set the `block` property to true.
+
+```html_example_table
+<div id="block-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">Danger Zone</DangerButton>,
+  document.getElementById('block-button-example')
+);
+```
+
+Specific button types.
+
+
+```html_example_table
+<div id="default-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DefaultButton>Default</DefaultButton>,
+  document.getElementById('default-button-example')
+);
+```
+
+```html_example_table
+<div id="default-alt-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DefaultAltButton>Default alternate</DefaultAltButton>,
+  document.getElementById('default-alt-button-example')
+);
+```
+
+```html_example_table
+<div id="primary-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <PrimaryButton>Primary</PrimaryButton>,
+  document.getElementById('primary-button-example')
+);
+```
+
+```html_example_table
+<div id="lowlight-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <LowlightButton>Lowlight</LowlightButton>,
+  document.getElementById('lowlight-button-example')
+);
+```
+
+
+```html_example_table
+<div id="danger-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DangerButton>Danger</DangerButton>,
+  document.getElementById('danger-button-example')
+);
+```
+
+```html_example_table
+<div id="highlight-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <HighlightButton>Highlight</HighlightButton>,
+  document.getElementById('highlight-button-example')
+);
+```
+
+```html_example_table
+<div id="highlight-alt-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <HighlightAltButton>Highlight alternate</HighlightAltButton>,
+  document.getElementById('highlight-alt-button-example')
+);
+```
+
+The base button renderer. You won't really interact with this directly.
+
+```html_example_table
+<div id="button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UIButton>I'm a button</UIButton>,
+  document.getElementById('button-example')
+);
+```
+*/

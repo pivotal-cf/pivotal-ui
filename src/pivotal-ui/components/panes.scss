@@ -97,3 +97,32 @@ one on the `.container` element will be constrained to the content width.
     }
   }
 }
+
+/*doc
+---
+title: React Panes
+name: pane_react
+category: Beta
+---
+
+```html_example
+<div id="pane-example"></div>
+<div id="base-pane-example"></div>
+```
+
+```jsx_example
+React.render(
+  <Pane className="bg-neutral-10">
+    <DefaultH1>This is a pane</DefaultH1>
+  </Pane>,
+  document.getElementById('pane-example')
+);
+
+React.render(
+  <BasePane outerClass="bg-dark-1" innerClass="bg-glow">
+    <DefaultH1 color="type-neutral-9">This is a pane (configurable)</DefaultH1>
+  </BasePane>,
+  document.getElementById('base-pane-example')
+);
+```
+*/
