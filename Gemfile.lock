@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pmeskers/hologram.git
-  revision: 9de4273497a5ea61f0c335969ab661cd0fa2f54e
+  revision: ac5e9e058e1605df77eb683fb22819ab2dd1b46b
   branch: jsx-templates
   specs:
     hologram (1.2.0)
@@ -52,7 +52,7 @@ GEM
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
-    redcarpet (3.2.1)
+    redcarpet (3.2.2)
     rouge (1.7.4)
     rspec (2.99.0)
       rspec-core (~> 2.99.0)
