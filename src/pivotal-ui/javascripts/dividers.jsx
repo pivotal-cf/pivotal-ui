@@ -12,7 +12,7 @@ var Divider = React.createClass({
       typeName += "-alternate"
     }
 
-    if (this.props.large) {
+    if (this.props.size == "large") {
       typeName += "-2"
     } else {
       typeName += "-1"

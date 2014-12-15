@@ -73,7 +73,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <Divider large="true" />,
+  <Divider size="large" />,
   document.getElementById('divider-large-example')
 );
 ```
@@ -96,7 +96,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <DividerInverse large="true" />,
+  <DividerInverse size="large" />,
   document.getElementById('divider-alt-large-example')
 );
 ```
