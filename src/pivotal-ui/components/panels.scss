@@ -484,7 +484,7 @@ name: panel_clickable
 parent: panel
 ---
 
-These panels lighten on hover to indicate that they are clickable. 
+These panels lighten on hover to indicate that they are clickable.
 Please use them when a click on the panel triggers an action.
 
 ```html_example_table
@@ -581,3 +581,234 @@ helper classes for that.
     box-shadow: 0 4px 0 0 $shadow-2;
   }
 }
+
+/*doc
+---
+title: React Panels
+name: panel_react
+categories:
+ - Beta
+---
+
+Panels?!?! In Javascript?!?!
+
+```html_example_table
+<div id="panel-custom-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <Panel className="bg-neutral-8">
+    <p>Base Panel</p>
+  </Panel>,
+  document.getElementById('panel-custom-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Scrolling React Panels
+name: panel_react_scroll
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-scroll-example-1"></div>
+
+<div id="panel-scroll-example-2"></div>
+```
+
+```jsx_example
+React.render(
+  <Panel className="bg-neutral-8" scrollable="100">
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+  </Panel>,
+  document.getElementById('panel-scroll-example-1')
+);
+
+React.render(
+  <Panel className="bg-neutral-8" scrollable="true">
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+    <p>Scrollable Panel</p>
+  </Panel>,
+  document.getElementById('panel-scroll-example-2')
+);
+```
+
+*/
+
+/*doc
+---
+title: React Panels Padding
+name: panel_react_padding
+parent: panel_react
+---
+
+Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the `panel-body`.
+
+```html_example_table
+<div id="panel-padding-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <Panel className="bg-neutral-8" padding="paxxl">
+    <p>Base Panel</p>
+  </Panel>,
+  document.getElementById('panel-padding-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Simple Panels
+name: panel_react_simple
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-simple-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <SimplePanel>
+    Simple Panel
+  </SimplePanel>,
+  document.getElementById('panel-simple-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Basic Panels
+name: panel_react_basic
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-basic-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <BasicPanel>
+    Basic Panel
+  </BasicPanel>,
+  document.getElementById('panel-basic-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Shadow Panels
+name: panel_react_shadow
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-shadow-example-1"></div>
+
+<div id="panel-shadow-example-2"></div>
+
+<div id="panel-shadow-example-3"></div>
+
+<div id="panel-shadow-example-4"></div>
+```
+
+```jsx_example
+React.render(
+  <ShadowPanel shadowLevel="1">Shadow Panel</ShadowPanel>,
+  document.getElementById('panel-shadow-example-1')
+);
+
+React.render(
+  <ShadowPanel shadowLevel="2">Shadow Panel</ShadowPanel>,
+  document.getElementById('panel-shadow-example-2')
+);
+
+React.render(
+  <ShadowPanel shadowLevel="3">Shadow Panel</ShadowPanel>,
+  document.getElementById('panel-shadow-example-3')
+);
+
+React.render(
+  <ShadowPanel shadowLevel="4">Shadow Panel</ShadowPanel>,
+  document.getElementById('panel-shadow-example-4')
+);
+```
+
+*/
+
+/*doc
+---
+title: Clickable Panels
+name: panel_react_clickable
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-clickable-example"></div>
+
+<div id="panel-clickable-alt-example"></div>
+```
+
+```jsx_example
+React.render(
+  <ClickablePanel>Clickable Panel</ClickablePanel>,
+  document.getElementById('panel-clickable-example')
+);
+
+React.render(
+  <ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>,
+  document.getElementById('panel-clickable-alt-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: Highlight Panels
+name: panel_react_highlight
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-highlight-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <HighlightPanel>
+    Highlight Panel
+  </HighlightPanel>,
+  document.getElementById('panel-highlight-example')
+);
+```
+
+*/
