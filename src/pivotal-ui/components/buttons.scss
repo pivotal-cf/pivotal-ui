@@ -152,6 +152,31 @@ React.render(
 );
 ```
 
+To make a button large, set the `large` property to true.
+
+```html_example_table
+<div id="large-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <HighlightButton large="true">Big Button</HighlightButton>,
+  document.getElementById('large-button-example')
+);
+```
+
+To make a button full-width, set the `block` property to true.
+
+```html_example_table
+<div id="block-button-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">Danger Zone</DangerButton>,
+  document.getElementById('block-button-example')
+);
+```
 
 Specific button types.
 
