@@ -439,6 +439,142 @@ This is useful if you want to change the order of columns at different screen si
   @include make-grid(xl);
 }
 
+/*doc
+---
+title: React Grids
+name: grid_react
+category: Beta
+---
+
+The react grids depend on [React-Bootstrap](http://react-bootstrap.github.io/components.html#grids). Check out their docs
+for advanced stuff like pushing, pulling, and offsets.
+
+*/
+
+/*doc
+---
+title: React Grids Examples
+name: 04_grid_examples_react
+parent: grid_react
+---
+
+
+```html_example
+<div id="grid-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Row className="grid-show">
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+      <Col md={2}></Col>
+    </Row>
+
+    <Row className="grid-show">
+      <Col md={16}></Col>
+      <Col md={8}></Col>
+    </Row>
+
+    <Row className="grid-show">
+      <Col md={8}></Col>
+      <Col md={8}></Col>
+      <Col md={8}></Col>
+    </Row>
+
+    <Row className="grid-show">
+      <Col md={12}></Col>
+      <Col md={12}></Col>
+    </Row>
+  </div>,
+  document.getElementById('grid-example')
+);
+```
+*/
+/*doc
+---
+title: "React Example: Mobile and Desktop"
+name: 04_a_grid_mobile_and_desktop_react
+parent: 04_grid_examples_react
+---
+
+Don't want your columns to simply stack in smaller devices?
+Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns.
+See the example below for a better idea of how it all works.
+
+```html_example
+<div id="grid-mobile-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Row className="grid-show">
+      <Col xs={24} md={16}></Col>
+      <Col xs={12} md={8}></Col>
+    </Row>
+
+    <Row className="grid-show">
+      <Col xs={12} md={8}></Col>
+      <Col xs={12} md={8}></Col>
+      <Col xs={12} md={8}></Col>
+    </Row>
+
+    <Row className="grid-show">
+      <Col xs={12}></Col>
+      <Col xs={12}></Col>
+    </Row>
+  </div>,
+  document.getElementById('grid-mobile-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: React Gutter Sizes
+name: 04_grid_gutter_sizes_react
+parent: grid_react
+---
+
+```html_example
+<div id="grid-gutter-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Row className="grid-show">
+      <Col md={12}></Col>
+      <Col md={12}></Col>
+    </Row>
+
+    <Row className="grid-show" gutter="md">
+      <Col md={12}></Col>
+      <Col md={12}></Col>
+    </Row>
+
+    <Row className="grid-show" gutter="sm">
+      <Col md={12}></Col>
+      <Col md={12}></Col>
+    </Row>
+  </div>,
+  document.getElementById('grid-gutter-example')
+);
+```
+*/
+
 /*pending
 ---
 title: Responsive
