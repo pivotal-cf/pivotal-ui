@@ -730,6 +730,8 @@ parent: panel_react
 ---
 
 ```html_example_table
+<div id="panel-shadow-example-default"></div>
+
 <div id="panel-shadow-example-1"></div>
 
 <div id="panel-shadow-example-2"></div>
@@ -741,22 +743,27 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <ShadowPanel shadowLevel="1">Shadow Panel</ShadowPanel>,
+  <ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>,
+  document.getElementById('panel-shadow-example-default')
+);
+
+React.render(
+  <ShadowPanel shadowLevel="1">Shadow Panel (level 1)</ShadowPanel>,
   document.getElementById('panel-shadow-example-1')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="2">Shadow Panel</ShadowPanel>,
+  <ShadowPanel shadowLevel="2">Shadow Panel (level 2)</ShadowPanel>,
   document.getElementById('panel-shadow-example-2')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="3">Shadow Panel</ShadowPanel>,
+  <ShadowPanel shadowLevel="3">Shadow Panel (level 3)</ShadowPanel>,
   document.getElementById('panel-shadow-example-3')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="4">Shadow Panel</ShadowPanel>,
+  <ShadowPanel shadowLevel="4">Shadow Panel (level 4)</ShadowPanel>,
   document.getElementById('panel-shadow-example-4')
 );
 ```

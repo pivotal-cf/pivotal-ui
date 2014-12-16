@@ -128,7 +128,7 @@ describe('ShadowPanel', function () {
 
   it('creates a panel with the default shadow class', function() {
     expect($('#container .panel .panel-body')).toContainText('Sup');
-    expect($('#container .panel')).toHaveClass('panel-shadow-1');
+    expect($('#container .panel')).toHaveClass('panel-shadow-3');
   });
 
   describe('when the shadowLevel property is set to an acceptable value', function() {
@@ -159,7 +159,7 @@ describe('ShadowPanel', function () {
     });
 
     it('adds the default shadow level class', function() {
-      expect($('#container .panel')).toHaveClass('panel-shadow-1');
+      expect($('#container .panel')).toHaveClass('panel-shadow-3');
     });
   });
 });

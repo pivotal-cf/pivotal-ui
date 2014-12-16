@@ -71,7 +71,7 @@ var ShadowPanel = React.createClass({
     if (_.contains(this.acceptedShadowLevels, '' + this.props.shadowLevel)) {
       type = "panel-shadow-" + this.props.shadowLevel;
     } else {
-      type = "panel-shadow-1";
+      type = "panel-shadow-3";
     }
 
     return (
