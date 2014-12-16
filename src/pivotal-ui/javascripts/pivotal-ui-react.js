@@ -37,6 +37,8 @@ global.DividerInverse = require('./dividers.jsx').DividerInverse;
 global.Row = require('./grids.jsx').Row;
 global.Col = require('./grids.jsx').Col;
 
+global.Media = require('./media.jsx').Media;
+
 global.PivnetHomepage = require('./pivnet_homepage.jsx').PivnetHomepage;
 
 global.Panel = require('./panels.jsx').Panel;
