@@ -41,7 +41,7 @@
     "gulp-zip": "^2.0.2",
     "jshint-stylish": "^1.0.0",
     "karma": "^0.12.24",
-    "karma-bro": "^0.10.0",
+    "karma-browserify": "^1.0.1",
     "karma-chrome-launcher": "^0.1.5",
     "karma-jasmine": "^0.2.3",
     "karma-jasmine-jquery": "^0.1.1",
