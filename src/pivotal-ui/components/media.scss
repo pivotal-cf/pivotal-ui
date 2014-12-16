@@ -247,23 +247,76 @@ The images or other media can be aligned top, middle, or bottom. The default is 
 The base button renderer. You won't really interact with this directly.
 
 ```html_example
-<div id="media-example"></div>
+<div id="media-basic-example"></div>
 ```
 
 ```jsx_example
 React.render(
-  <Media
-    leftImageHref='http://www.google.com'
-    leftImageSource='http://placehold.it/50x50'
-    leftImageAlignment='middle'
-    rightImageHref='http://www.google.com'
-    rightImageSource='http://placehold.it/50x50'
-    rightImageAlignment='middle'
-    bodyAlignment='middle'
-    stackSize='medium'>
-      something
-  </Media>,
-  document.getElementById('media-example')
+  <div>
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'>
+        left media
+    </Media>
+
+    <Media
+      rightImageHref='http://www.google.com'
+      rightImageSource='http://placehold.it/50x50'>
+        right media
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftImageAlignment='middle'
+      rightImageHref='http://www.google.com'
+      rightImageSource='http://placehold.it/50x50'
+      rightImageAlignment='middle'
+      bodyAlignment='middle'
+      stackSize='medium'>
+        left and right media
+    </Media>
+  </div>,
+  document.getElementById('media-basic-example')
+);
+```
+
+```html_example
+<div id="media-alignment-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'>
+        top aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftImageAlignment='middle'>
+        middle aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftImageAlignment='middle'
+      bodyAlignment='middle'>
+        middle aligned and middle body (for short text and big images)
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftImageAlignment='bottom'>
+        bottom aligned - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </Media>
+  </div>,
+  document.getElementById('media-alignment-example')
 );
 ```
 

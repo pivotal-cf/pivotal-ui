@@ -28,25 +28,48 @@ describe('Media', function() {
   });
 
   describe("when left image src is set", function() {
-    beforeEach(function() {
-      React.render(
-        Media({
-          children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com"
-        }),
-        this.node
-      );
+    describe("when left image src is set and href is not", function() {
+      beforeEach(function() {
+        React.render(
+          Media({
+            children: "fop",
+            leftImageSource: "http://placehold.it/20x20"
+          }),
+          this.node
+        );
+      });
+
+      it("displays the media-left link with an image inside", function() {
+        expect($('#container .media > img.media-object').attr('src')).toEqual('http://placehold.it/20x20');
+      });
+
+      it("displays an image with the media-left link on it (no link)", function() {
+        expect($('#container .media > img.media-object')).toHaveClass('media-left');
+      });
     });
 
-    it("displays the media-left link with an image inside", function() {
-      expect($('#container .media .media-left .media-object').attr('src')).toEqual('http://placehold.it/20x20');
-    });
+    describe("when left href is set", function() {
+      beforeEach(function() {
+        React.render(
+          Media({
+            children: "fop",
+            leftImageSource: "http://placehold.it/20x20",
+            leftImageHref: "http://www.google.com"
+          }),
+          this.node
+        );
+      });
 
-    it("links to it's href (google, in this case)", function(){
-      expect($('#container .media .media-left').attr('href')).toEqual('http://www.google.com');
+      it("displays the media-left link with an image inside", function() {
+        expect($('#container .media a.media-left .media-object').attr('src')).toEqual('http://placehold.it/20x20');
+      });
+
+      it("links to it's href (google, in this case)", function(){
+        expect($('#container .media a.media-left').attr('href')).toEqual('http://www.google.com');
+      });
     });
   });
+
 
   describe("when left image src is not set", function() {
     beforeEach(function() {
