@@ -14,15 +14,28 @@ var MediaObject = React.createClass({
       'media-object': !this.props.imageHref
     });
 
+    var paddingClasses = setClass({
+      'prs': this.props.leftMediaSpacing === 'small',
+      'prm': this.props.leftMediaSpacing === 'medium',
+      'prl': this.props.leftMediaSpacing === 'large',
+      'prxl': this.props.leftMediaSpacing === 'xlarge',
+      'pls': this.props.rightMediaSpacing === 'small',
+      'plm': this.props.rightMediaSpacing === 'medium',
+      'pll': this.props.rightMediaSpacing === 'large',
+      'plxl': this.props.rightMediaSpacing === 'xlarge'
+    });
+
+    var mediaClasses = [classes, paddingClasses].join(' ');
+
     if (this.props.imageHref) {
       return (
-        <a className={classes} href={this.props.imageHref}>
-          <img alt="..." className="media-object" src={this.props.imageSource} />
+        <a className={mediaClasses} href={this.props.imageHref} >
+          <img alt={this.props.alt} className="media-object" src={this.props.imageSource} height={this.props.height} width={this.props.width} />
         </a>
         );
     } else {
       return (
-        <img alt="..." className={classes} src={this.props.imageSource} />
+        <img alt={this.props.alt} className={mediaClasses} src={this.props.imageSource} height={this.props.height} width={this.props.width} />
       );
     }
   }
@@ -53,7 +66,12 @@ var Media = React.createClass({
           horizontalAlignment='left'
           verticalAlignment={this.props.leftImageAlignment}
           imageHref={this.props.leftImageHref}
-          imageSource={this.props.leftImageSource}>
+          imageSource={this.props.leftImageSource}
+          leftMediaSpacing={this.props.leftMediaSpacing}
+          alt={this.props.leftAlt}
+          height={this.props.leftImageHeight}
+          width={this.props.leftImageWidth}>
+
         </MediaObject>
       );
     }
@@ -64,7 +82,11 @@ var Media = React.createClass({
           horizontalAlignment='right'
           verticalAlignment={this.props.rightImageAlignment}
           imageHref={this.props.rightImageHref}
-          imageSource={this.props.rightImageSource}>
+          imageSource={this.props.rightImageSource}
+          rightMediaSpacing={this.props.rightMediaSpacing}
+          alt={this.props.rightAlt}
+          height={this.props.rightImageHeight}
+          width={this.props.rightImageWidth}>
         </MediaObject>
       );
     }

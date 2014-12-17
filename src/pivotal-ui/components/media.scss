@@ -242,6 +242,25 @@ name: media_react
 category: Beta
 ---
 
+## Image modifiers
+
+Media Modifiers                   | Options                                        | Description
+--------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
+`<left or right>ImageHref       ` | url                                            | Url the image should link to
+`<left or right>ImageSource     ` | url                                            | Image source
+`<left or right>ImageAlignment  ` | top (default), "middle", "bottom"              | Vertical alignment
+`<left or right>MediaSpacing    ` | "small", "medium", "large", "xlarge"           | Spacing adjustments between the image and the content next to it
+`<left or right>ImageHeight     ` | pixel or percentage                            | Height of the image
+`<left or right>ImageWidth      ` | pixel or percentage                            | Width of the image
+`<left or right>ImageAlt        ` | string                                         | Text description of the image (for disabled users)
+
+## General media object modifiers
+
+Media Modifiers     | Options                                        | Description
+------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
+`bodyAlignment`     | top (default), "middle", "bottom"              | Vertical alignment of the body (used for large images with small content next to it, usually centered)
+`stackSize    `     | "xsmall", "small", "medium", "large"           | At what breakpoint should the media object stack
+
 The images or other media can be aligned top, middle, or bottom. The default is top aligned.
 
 The base button renderer. You won't really interact with this directly.
@@ -305,6 +324,7 @@ React.render(
       leftImageHref='http://www.google.com'
       leftImageSource='http://placehold.it/50x50'
       leftImageAlignment='middle'
+      leftAlt='this is the alt text for the left media'
       bodyAlignment='middle'>
         middle aligned and middle body (for short text and big images)
     </Media>
@@ -319,6 +339,73 @@ React.render(
   document.getElementById('media-alignment-example')
 );
 ```
+## Image spacing
 
+Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
+
+```html_example
+<div id="media-image-spacing-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'>
+        default image spacing media
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftMediaSpacing='small'>
+        small image spacing media
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftMediaSpacing='medium'>
+        medium image spacing media
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftMediaSpacing='large'>
+        large image spacing media
+    </Media>
+
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftMediaSpacing='xlarge'>
+        xlarge image spacing media
+    </Media>
+  </div>,
+  document.getElementById('media-image-spacing-example')
+);
+```
+## Setting image dimensions
+
+```html_example
+<div id="media-image-dimensions-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <Media
+      leftImageHref='http://www.google.com'
+      leftImageSource='http://placehold.it/50x50'
+      leftImageHeight='25px'
+      leftImageWidth='25px'>
+        Sized image in a media block
+    </Media>
+  </div>,
+  document.getElementById('media-image-dimensions-example')
+);
+```
 
 */

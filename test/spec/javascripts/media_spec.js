@@ -33,7 +33,10 @@ describe('Media', function() {
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20"
+            leftImageSource: "http://placehold.it/20x20",
+            leftAlt: "my fancy image description",
+            leftImageHeight: '50px',
+            leftImageWidth: '40px'
           }),
           this.node
         );
@@ -46,6 +49,15 @@ describe('Media', function() {
       it("displays an image with the media-left link on it (no link)", function() {
         expect($('#container .media > img.media-object')).toHaveClass('media-left');
       });
+
+      it("sets an alt on the left image when the leftAlt property is set", function() {
+        expect($('#container .media >img.media-object').attr('alt')).toEqual('my fancy image description');
+      });
+
+      it("displays an image with a certain height and width when set", function() {
+        expect($('#container .media >img.media-object').attr('height')).toEqual('50px');
+        expect($('#container .media >img.media-object').attr('width')).toEqual('40px');
+      });
     });
 
     describe("when left href is set", function() {
@@ -54,7 +66,7 @@ describe('Media', function() {
           Media({
             children: "fop",
             leftImageSource: "http://placehold.it/20x20",
-            leftImageHref: "http://www.google.com"
+            leftImageHref: "http://www.google.com",
           }),
           this.node
         );
@@ -64,8 +76,32 @@ describe('Media', function() {
         expect($('#container .media a.media-left .media-object').attr('src')).toEqual('http://placehold.it/20x20');
       });
 
-      it("links to it's href (google, in this case)", function(){
+      it("links to it's href (google, in this case)", function() {
         expect($('#container .media a.media-left').attr('href')).toEqual('http://www.google.com');
+      });
+    });
+
+    describe("When default image padding is modified to large", function() {
+      beforeEach(function() {
+        React.render(
+          Media({
+            children: "fop",
+            leftImageSource: "http://placehold.it/20x20",
+            leftImageHref: "http://www.google.com",
+            leftMediaSpacing: "large",
+            rightImageSource: "http://placehold.it/20x20",
+            rightImageHref: "http://www.google.com"
+          }),
+          this.node
+        );
+      });
+
+      it("adds the prl class to the left image", function(){
+        expect($('#container .media a.media-left')).toHaveClass('prl');
+      });
+
+      it("does not add the prl class to the right image", function() {
+        expect($('#container .media a.media-right')).not.toHaveClass('prl');
       });
     });
   });
