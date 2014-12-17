@@ -103,7 +103,7 @@ gulp.task('_compassBuildPui', ['clean'], function() {
 gulp.task('_compassBuildPuiRails', ['_compassBuildPui'], function() {
   return gulp.src('build/pivotal-ui.css')
     .pipe(
-      replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1')
+      replace(/url\(('|")\.\.\/fonts\//g, 'asset-url\($1fonts\/')
     )
     .pipe(
       replace(/url\(('|")\.\.\/images\//g, 'image-url\($1')
