@@ -44,3 +44,38 @@ Button                                             | Class                  | De
   font-size: 22px;
 }
 
+
+/*doc
+---
+title: React Iconography
+name: react_iconography
+categories:
+  - Beta
+---
+
+Use the <Icon> component for rendering Font Awesome icons. Set the `style` property to determine
+which icon displays, and any additional classes can be assigned via `className`. For a list of all
+possible styles, consult the Font Awesome website.
+
+```html_example_table
+<div id="icon-example-1"></div>
+<div id="icon-example-2"></div>
+<div id="icon-example-3"></div>
+```
+
+```jsx_example
+React.render(
+  <Icon style="cog" />,
+  document.getElementById('icon-example-1')
+);
+React.render(
+  <Icon style="download" />,
+  document.getElementById('icon-example-2')
+);
+React.render(
+  <Icon style="linux" className="title type-warn-2" />,
+  document.getElementById('icon-example-3')
+);
+```
+
+*/
