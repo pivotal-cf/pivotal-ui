@@ -63,9 +63,10 @@
     "font-awesome": "^4.2.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
-    "stream-to-promise": "^1.0.4",
     "react": "0.12.1",
-    "reactify": "0.17.1"
+    "react-bootstrap": "^0.13.0",
+    "reactify": "0.17.1",
+    "stream-to-promise": "^1.0.4"
   },
   "scripts": {
     "test": "node_modules/gulp/bin/gulp.js ci --fatal"
