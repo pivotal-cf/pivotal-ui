@@ -38,3 +38,11 @@ global.Row = require('./grids.jsx').Row;
 global.Col = require('./grids.jsx').Col;
 
 global.PivnetHomepage = require('./pivnet_homepage.jsx').PivnetHomepage;
+
+global.Panel = require('./panels.jsx').Panel;
+global.SimplePanel = require('./panels.jsx').SimplePanel;
+global.ClickablePanel = require('./panels.jsx').ClickablePanel;
+global.ClickableAltPanel = require('./panels.jsx').ClickableAltPanel;
+global.BasicPanel = require('./panels.jsx').BasicPanel;
+global.ShadowPanel = require('./panels.jsx').ShadowPanel;
+global.HighlightPanel = require('./panels.jsx').HighlightPanel;
