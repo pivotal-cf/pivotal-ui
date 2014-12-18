@@ -15,6 +15,7 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 # What's included
 
 - jQuery v2.1.1
+- LoDash v2.4.1
 - modernizr v2.8.3
 - Bootstrap v3.2
 - Prism.js
