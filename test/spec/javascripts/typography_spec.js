@@ -58,7 +58,7 @@ describe('Heading', function() {
       React.render(
         Heading({
         element: "h1",
-        allcaps: true,
+        allCaps: true,
         className: "myClass",
         children: "Heading text here"
       }),
@@ -105,12 +105,12 @@ describe('Heading', function() {
   });
 
 
-  describe("when the Heading has allcaps set", function() {
+  describe("when the Heading has allCaps set", function() {
     beforeEach(function() {
       React.render(
         Heading({
         element: "h2",
-        allcaps: true,
+        allCaps: true,
         children: "Heading text here"
       }),
       this.node
@@ -181,7 +181,7 @@ describe('Heading', function() {
         size: "h4",
         color: "purple",
         bold: "max",
-        allcaps: true,
+        allCaps: true,
         children: "Heading text here"
       }),
       this.node
