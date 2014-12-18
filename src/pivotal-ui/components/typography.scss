@@ -449,6 +449,62 @@ a:hover.type-inverse {
   color: $error-color !important;
 }
 
+
+/*doc
+---
+title: Default Typography
+name: type_react_default
+parent: type_react
+---
+
+```html_example_table
+<div id="default-typography-h1-example"></div>
+
+<div id="default-typography-h2-example"></div>
+
+<div id="default-typography-h3-example"></div>
+
+<div id="default-typography-h4-example"></div>
+
+<div id="default-typography-h5-example"></div>
+
+<div id="default-typography-h6-example"></div>
+```
+
+```jsx_example
+React.render(
+  <DefaultH1>h1 31px</DefaultH1>,
+  document.getElementById('default-typography-h1-example')
+);
+
+React.render(
+  <DefaultH2>h2 25px</DefaultH2>,
+  document.getElementById('default-typography-h2-example')
+);
+
+React.render(
+  <DefaultH3>h3 20px</DefaultH3>,
+  document.getElementById('default-typography-h3-example')
+);
+
+React.render(
+  <DefaultH4>h4 18px</DefaultH4>,
+  document.getElementById('default-typography-h4-example')
+);
+
+React.render(
+  <DefaultH5>h5 16px</DefaultH5>,
+  document.getElementById('default-typography-h5-example')
+);
+
+React.render(
+  <DefaultH6>h6 13px</DefaultH6>,
+  document.getElementById('default-typography-h6-example')
+);
+```
+
+*/
+
 /*doc
 ---
 title: React Typography
@@ -473,61 +529,51 @@ parent: type_react
 
 ```html_example_table
 <div id="alternate-typography-h1-example"></div>
+
 <div id="alternate-typography-h2-example"></div>
+
 <div id="alternate-typography-h3-example"></div>
+
+<div id="alternate-typography-h4-example"></div>
+
+<div id="alternate-typography-h5-example"></div>
+
+<div id="alternate-typography-h6-example"></div>
 ```
 
 ```jsx_example
 React.render(
-  <AlternateH1>h1 31px</AlternateH1>,
+  <AlternateH1>This is an H1</AlternateH1>,
   document.getElementById('alternate-typography-h1-example')
 );
 
 React.render(
-  <AlternateH2>h2 18px</AlternateH2>,
+  <AlternateH2>This is an H2</AlternateH2>,
   document.getElementById('alternate-typography-h2-example')
 );
 
 React.render(
-  <AlternateH3>h3 18px</AlternateH3>,
+  <AlternateH3>This is an H3</AlternateH3>,
   document.getElementById('alternate-typography-h3-example')
 );
-```
 
-*/
-
-/*doc
----
-title: Default Typography
-name: type_react_default
-parent: type_react
----
-
-```html_example_table
-<div id="default-typography-h1-example"></div>
-<div id="default-typography-h2-example"></div>
-<div id="default-typography-h3-example"></div>
-```
-
-```jsx_example
 React.render(
-  <DefaultH1>h1 31px</DefaultH1>,
-  document.getElementById('default-typography-h1-example')
+  <AlternateH4>This is an H4</AlternateH4>,
+  document.getElementById('alternate-typography-h4-example')
 );
 
 React.render(
-  <DefaultH2>h2 18px</DefaultH2>,
-  document.getElementById('default-typography-h2-example')
+  <AlternateH5>This is an H5</AlternateH5>,
+  document.getElementById('alternate-typography-h5-example')
 );
 
 React.render(
-  <DefaultH3>h3 18px</DefaultH3>,
-  document.getElementById('default-typography-h3-example')
+  <AlternateH6>This is an H6</AlternateH6>,
+  document.getElementById('alternate-typography-h6-example')
 );
 ```
 
 */
-
 /*doc
 ---
 title: Custom Headings
@@ -546,9 +592,70 @@ You may want to wrap this in a custom reusable React component rather than calli
 
 ```jsx_example
 React.render(
-  <Heading element="h1" bold="high" color="type-dark-1">This is an h1 on most apps</Heading>,
+  <Heading element="h1" bold="high" color="type-brand-2">This is an h1 on most apps</Heading>,
   document.getElementById('typography-h1-example')
 );
+```
+
+*/
+
+/*doc
+---
+title: React Marketing Headings
+name: type_react_marketing
+parent: type_react
+---
+
+Usually, you want to use the provided headings. If your mock doesn't exactly match, you should try the normal headings,
+and see if it still looks ok. If it doesn't (this should be rare!) you can use our custom type generator.
+
+You may want to wrap this in a custom reusable React component rather than calling it directly.
+
+```html_example_table
+<div id="marketing-h1-example"></div>
+
+<div id="marketing-h2-example"></div>
+
+<div id="marketing-h3-example"></div>
+
+<div id="marketing-h4-example"></div>
+
+<div id="marketing-h5-example"></div>
+
+<div id="marketing-h6-example"></div>
+```
+
+```jsx_example
+React.render(
+  <MarketingH1>This is an h1</MarketingH1>,
+  document.getElementById('marketing-h1-example')
+);
+
+React.render(
+  <MarketingH2>This is an h2</MarketingH2>,
+  document.getElementById('marketing-h2-example')
+);
+
+React.render(
+  <MarketingH3>This is an h3</MarketingH3>,
+  document.getElementById('marketing-h3-example')
+);
+
+React.render(
+  <MarketingH4>This is an h4</MarketingH4>,
+  document.getElementById('marketing-h4-example')
+);
+
+React.render(
+  <MarketingH5>This is an h5</MarketingH5>,
+  document.getElementById('marketing-h5-example')
+);
+
+React.render(
+  <MarketingH6>This is an h6</MarketingH6>,
+  document.getElementById('marketing-h6-example')
+);
+
 ```
 
 */

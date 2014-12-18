@@ -10,15 +10,28 @@ require('./back-to-top')();
 global.React = require('react');
 global.TableSortable = global.React.createFactory(require('./table-sortable.jsx'));
 
-global.Heading = require('./typography.jsx').Heading;
+global.DefaultH1 = require('./typography.jsx').DefaultH1;
+global.DefaultH2 = require('./typography.jsx').DefaultH2;
+global.DefaultH3 = require('./typography.jsx').DefaultH3;
+global.DefaultH4 = require('./typography.jsx').DefaultH4;
+global.DefaultH5 = require('./typography.jsx').DefaultH5;
+global.DefaultH6 = require('./typography.jsx').DefaultH6;
 
 global.AlternateH1 = require('./typography.jsx').AlternateH1;
 global.AlternateH2 = require('./typography.jsx').AlternateH2;
 global.AlternateH3 = require('./typography.jsx').AlternateH3;
+global.AlternateH4 = require('./typography.jsx').AlternateH4;
+global.AlternateH5 = require('./typography.jsx').AlternateH5;
+global.AlternateH6 = require('./typography.jsx').AlternateH6;
 
-global.DefaultH1 = require('./typography.jsx').DefaultH1;
-global.DefaultH2 = require('./typography.jsx').DefaultH2;
-global.DefaultH3 = require('./typography.jsx').DefaultH3;
+global.MarketingH1 = require('./typography.jsx').MarketingH1;
+global.MarketingH2 = require('./typography.jsx').MarketingH2;
+global.MarketingH3 = require('./typography.jsx').MarketingH3;
+global.MarketingH4 = require('./typography.jsx').MarketingH4;
+global.MarketingH5 = require('./typography.jsx').MarketingH5;
+global.MarketingH6 = require('./typography.jsx').MarketingH6;
+
+global.Heading = require('./typography.jsx').Heading;
 
 global.BasePane = require('./panes.jsx').BasePane;
 global.Pane = require('./panes.jsx').Pane;

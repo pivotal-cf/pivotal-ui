@@ -22,7 +22,7 @@ var Heading = React.createClass({
       classes.push("em-" + this.props.bold);
     }
 
-    if (this.props.allcaps) {
+    if (this.props.allCaps) {
       classes.push("em-alt");
     }
 
@@ -51,103 +51,146 @@ var Heading = React.createClass({
   }
 });
 
-var AlternateH1 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      bold: 'high',
-      color: 'type-dark-1'
-    }
-  },
+var createTypographyClass = function createTypographyClass(opts) {
+  return React.createClass({
+    getDefaultProps: function() {
+      return {
+        color: opts.color,
+        size: opts.size,
+        bold: opts.bold,
+        allCaps: opts.allCaps
+      }
+    },
 
-  render: function render() {
-    return (
-      <Heading element="h1" {...this.props}>{this.props.children}</Heading>
-     );
-  }
-});
-
-var AlternateH2 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      bold: 'high',
-      size: 'h4',
-      allcaps: true
-    }
-  },
-
-  render: function render() {
-    return (
-      <Heading element="h2"  {...this.props}>{this.props.children}</Heading>
+    render: function render() {
+      return (
+        <Heading element={opts.element} {...this.props}>{this.props.children}</Heading>
       );
-  }
+    }
+  });
+};
+
+var DefaultH1 = createTypographyClass({
+  element: 'h1',
 });
 
-var AlternateH3 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      bold: 'high',
-      size: 'h4'
-    }
-  },
-
-  render: function render() {
-    return (
-      <Heading element="h3" {...this.props}>{this.props.children}</Heading>
-      );
-  }
+var DefaultH2 = createTypographyClass({
+  element: 'h2',
 });
 
-var DefaultH1 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      bold: 'high'
-    }
-  },
-
-  render: function render() {
-    return (
-      <Heading element="h1" {...this.props}>{this.props.children}</Heading>
-      );
-  }
+var DefaultH3 = createTypographyClass({
+  element: 'h3',
 });
 
-var DefaultH2 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      color: 'type-dark-1',
-      bold: 'high'
-    }
-  },
-
-  render: function render() {
-    return (
-      <Heading element="h2" {...this.props}>{this.props.children}</Heading>
-      );
-  }
+var DefaultH4 = createTypographyClass({
+  element: 'h4',
 });
 
-var DefaultH3 = React.createClass({
-  getDefaultProps: function () {
-    return {
-      color: 'type-dark-1',
-      size: 'h4',
-      bold: 'high'
-    }
-  },
+var DefaultH5 = createTypographyClass({
+  element: 'h5',
+});
 
-  render: function render() {
-    return (
-      <Heading element="h3" {...this.props}>{this.props.children}</Heading>
-    );
-  }
+var DefaultH6 = createTypographyClass({
+  element: 'h6',
+});
+
+var AlternateH1 = createTypographyClass({
+  element: 'h1',
+  color: 'type-dark-1',
+  bold: 'max'
+});
+
+var AlternateH2 = createTypographyClass({
+  element: 'h2',
+  size: 'h4',
+  bold: 'high',
+  allCaps: true
+});
+
+var AlternateH3 = createTypographyClass({
+  element: 'h3',
+  size: 'h4',
+});
+
+var AlternateH4 = createTypographyClass({
+  element: 'h4',
+  size: 'h6',
+  bold: 'high',
+  allCaps: true
+});
+
+var AlternateH5 = createTypographyClass({
+  element: 'h5',
+  size: 'h6',
+  bold: 'high'
+});
+
+var AlternateH6 = createTypographyClass({
+  element: 'h6',
+});
+
+
+var MarketingH1 = createTypographyClass({
+  element: 'h1',
+  color: 'type-dark-1',
+  size: 'title',
+  bold: 'high'
+});
+
+var MarketingH2 = createTypographyClass({
+  element: 'h2',
+  color: 'type-dark-1',
+  size: 'h1',
+  bold: 'high'
+});
+
+var MarketingH3 = createTypographyClass({
+  element: 'h3',
+  color: 'type-dark-1',
+  size: 'h2',
+  bold: 'high'
+});
+
+var MarketingH4 = createTypographyClass({
+  element: 'h4',
+  color: 'type-dark-1',
+  size: 'h3',
+  bold: 'high'
+});
+
+var MarketingH5 = createTypographyClass({
+  element: 'h5',
+  color: 'type-dark-1',
+  size: 'h4',
+  bold: 'high'
+});
+
+var MarketingH6 = createTypographyClass({
+  element: 'h6',
+  color: 'type-dark-1',
+  size: 'h5',
+  bold: 'high'
 });
 
 module.exports = {
-  AlternateH1: AlternateH1,
-  AlternateH2: AlternateH2,
-  AlternateH3: AlternateH3,
   DefaultH1: DefaultH1,
   DefaultH2: DefaultH2,
   DefaultH3: DefaultH3,
-  Heading: Heading
+  DefaultH4: DefaultH4,
+  DefaultH5: DefaultH5,
+  DefaultH6: DefaultH6,
+  AlternateH1: AlternateH1,
+  AlternateH2: AlternateH2,
+  AlternateH3: AlternateH3,
+  AlternateH4: AlternateH4,
+  AlternateH5: AlternateH5,
+  AlternateH6: AlternateH6,
+  MarketingH1: MarketingH1,
+  MarketingH2: MarketingH2,
+  MarketingH3: MarketingH3,
+  MarketingH4: MarketingH4,
+  MarketingH5: MarketingH5,
+  MarketingH6: MarketingH6,
+  Heading: Heading,
+  createTypographyClass: createTypographyClass
 };
