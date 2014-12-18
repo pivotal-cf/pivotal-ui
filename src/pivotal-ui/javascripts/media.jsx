@@ -29,13 +29,17 @@ var MediaObject = React.createClass({
 
     if (this.props.imageHref) {
       return (
-        <a className={mediaClasses} href={this.props.imageHref} >
-          <img alt={this.props.alt} className="media-object" src={this.props.imageSource} height={this.props.height} width={this.props.width} />
-        </a>
+        <div className={mediaClasses}>
+          <a href={this.props.imageHref} >
+            <img alt={this.props.alt} className="media-object" src={this.props.imageSource} height={this.props.height} width={this.props.width} />
+          </a>
+        </div>
         );
     } else {
       return (
-        <img alt={this.props.alt} className={mediaClasses} src={this.props.imageSource} height={this.props.height} width={this.props.width} />
+        <div className={mediaClasses}>
+          <img alt={this.props.alt} src={this.props.imageSource} height={this.props.height} width={this.props.width} />
+        </div>
       );
     }
   }

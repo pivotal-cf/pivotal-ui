@@ -43,20 +43,16 @@ describe('Media', function() {
       });
 
       it("displays the media-left link with an image inside", function() {
-        expect($('#container .media > img.media-object').attr('src')).toEqual('http://placehold.it/20x20');
+        expect($('#container .media .media-left img').attr('src')).toEqual('http://placehold.it/20x20');
       });
-
-      it("displays an image with the media-left link on it (no link)", function() {
-        expect($('#container .media > img.media-object')).toHaveClass('media-left');
-      });
-
+ 
       it("sets an alt on the left image when the leftAlt property is set", function() {
-        expect($('#container .media >img.media-object').attr('alt')).toEqual('my fancy image description');
+        expect($('#container .media .media-left img').attr('alt')).toEqual('my fancy image description');
       });
 
       it("displays an image with a certain height and width when set", function() {
-        expect($('#container .media >img.media-object').attr('height')).toEqual('50px');
-        expect($('#container .media >img.media-object').attr('width')).toEqual('40px');
+        expect($('#container .media .media-left img').attr('height')).toEqual('50px');
+        expect($('#container .media .media-left img').attr('width')).toEqual('40px');
       });
     });
 
@@ -73,11 +69,11 @@ describe('Media', function() {
       });
 
       it("displays the media-left link with an image inside", function() {
-        expect($('#container .media a.media-left .media-object').attr('src')).toEqual('http://placehold.it/20x20');
+        expect($('#container .media .media-left a img').attr('src')).toEqual('http://placehold.it/20x20');
       });
 
       it("links to it's href (google, in this case)", function() {
-        expect($('#container .media a.media-left').attr('href')).toEqual('http://www.google.com');
+        expect($('#container .media .media-left a').attr('href')).toEqual('http://www.google.com');
       });
     });
 
@@ -97,11 +93,11 @@ describe('Media', function() {
       });
 
       it("adds the prl class to the left image", function(){
-        expect($('#container .media a.media-left')).toHaveClass('prl');
+        expect($('#container .media .media-left')).toHaveClass('prl');
       });
 
       it("does not add the prl class to the right image", function() {
-        expect($('#container .media a.media-right')).not.toHaveClass('prl');
+        expect($('#container .media .media-right')).not.toHaveClass('prl');
       });
     });
   });
@@ -139,7 +135,7 @@ describe('Media', function() {
     });
 
     it("links to it's href (google, in this case)", function(){
-      expect($('#container .media .media-right').attr('href')).toEqual('http://www.google.com');
+      expect($('#container .media .media-right a').attr('href')).toEqual('http://www.google.com');
     });
   });
 

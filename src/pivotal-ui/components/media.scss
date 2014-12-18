@@ -273,7 +273,6 @@ The base button renderer. You won't really interact with this directly.
 React.render(
   <div>
     <Media
-      leftImageHref='http://www.google.com'
       leftImageSource='http://placehold.it/50x50'>
         left media
     </Media>
