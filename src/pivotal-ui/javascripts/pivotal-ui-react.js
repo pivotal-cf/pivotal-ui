@@ -19,6 +19,13 @@ global.DefaultH1 = require('./typography.jsx').DefaultH1;
 global.DefaultH2 = require('./typography.jsx').DefaultH2;
 global.DefaultH3 = require('./typography.jsx').DefaultH3;
 
+global.MarketingH1 = require('./typography.jsx').MarketingH1;
+global.MarketingH2 = require('./typography.jsx').MarketingH2;
+global.MarketingH3 = require('./typography.jsx').MarketingH3;
+global.MarketingH4 = require('./typography.jsx').MarketingH4;
+global.MarketingH5 = require('./typography.jsx').MarketingH5;
+global.MarketingH6 = require('./typography.jsx').MarketingH6;
+
 global.BasePane = require('./panes.jsx').BasePane;
 global.Pane = require('./panes.jsx').Pane;
 

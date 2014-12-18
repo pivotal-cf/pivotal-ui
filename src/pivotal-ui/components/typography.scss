@@ -552,3 +552,76 @@ React.render(
 ```
 
 */
+
+/*doc
+---
+title: React Marketing Headings
+name: type_react_marketing
+parent: type_react
+---
+
+Usually, you want to use the provided headings. If your mock doesn't exactly match, you should try the normal headings,
+and see if it still looks ok. If it doesn't (this should be rare!) you can use our custom type generator.
+
+You may want to wrap this in a custom reusable React component rather than calling it directly.
+
+```html_example_table
+<div id="marketing-h1-example"></div>
+
+<div id="marketing-h2-example"></div>
+
+<div id="marketing-h3-example"></div>
+
+<div id="marketing-h4-example"></div>
+
+<div id="marketing-h5-example"></div>
+
+<div id="marketing-h6-example"></div>
+```
+
+```jsx_example
+React.render(
+  <div>
+    <MarketingH1>This is an h1 on most apps</MarketingH1>
+  </div>,
+  document.getElementById('marketing-h1-example')
+);
+
+React.render(
+  <div>
+    <MarketingH2>This is an h2 on most apps</MarketingH2>
+  </div>,
+  document.getElementById('marketing-h2-example')
+);
+
+React.render(
+  <div>
+    <MarketingH3>This is an h3 on most apps</MarketingH3>
+  </div>,
+  document.getElementById('marketing-h3-example')
+);
+
+React.render(
+  <div>
+    <MarketingH4>This is an h4 on most apps</MarketingH4>
+  </div>,
+  document.getElementById('marketing-h4-example')
+);
+
+React.render(
+  <div>
+    <MarketingH5>This is an h5 on most apps</MarketingH5>
+  </div>,
+  document.getElementById('marketing-h5-example')
+);
+
+React.render(
+  <div>
+    <MarketingH6>This is an h6 on most apps</MarketingH6>
+  </div>,
+  document.getElementById('marketing-h6-example')
+);
+
+```
+
+*/
