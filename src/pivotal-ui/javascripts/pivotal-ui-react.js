@@ -1,4 +1,5 @@
 global.$ = global.jQuery = require('jquery');
+global._ = require('lodash');
 require('bootstrap');
 require('modernizr');
 require('prism');
@@ -30,6 +31,8 @@ global.LowlightButton = require('./buttons.jsx').LowlightButton;
 global.DangerButton = require('./buttons.jsx').DangerButton;
 global.HighlightButton = require('./buttons.jsx').HighlightButton;
 global.HighlightAltButton = require('./buttons.jsx').HighlightAltButton;
+
+global.SearchInput = require('./inputs.jsx').SearchInput;
 
 global.Divider = require('./dividers.jsx').Divider;
 global.DividerInverse = require('./dividers.jsx').DividerInverse;

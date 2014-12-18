@@ -1251,3 +1251,78 @@ Add the focus-input directive to an element that should be focused if the focus-
 ```
 
 */
+
+/*doc
+---
+title: React Search Inputs
+name: form_search_input_react
+categories:
+  - Beta
+---
+
+```html_example
+<div id='react-search-example'></div>
+```
+
+```jsx_example
+React.render(
+  <SearchInput placeholder="Search..."/>,
+  document.getElementById('react-search-example')
+);
+```
+
+Example of composing a SearchInput with state and I/O...
+
+```html_example
+<div id='react-filtering-search-example'></div>
+```
+
+```jsx_example
+var FilteringSearchExample = React.createClass({
+  getInitialState: function () {
+    return {
+      filter: "",
+      items: ['Apple', 'Banana', 'Orange']  // Defaults in the event the server is down
+    }
+  },
+
+  componentDidMount: function () {
+    var self = this;
+
+    $.getJSON('http://pivotal-enchilada.cfapps.io/list', function (data) {
+      self.setState({ items: data });
+    });
+  },
+
+  updateFilter: function (event) {
+    this.setState({ filter: event.target.value });
+  },
+
+  render: function () {
+    var filterRegex = new RegExp(this.state.filter, "i");
+    var displayedItems = _.filter(this.state.items, function (item) {
+      return item.match(filterRegex);
+    });
+
+    var listItems = _.map(displayedItems, function (item) {
+      return (<li key={item}>{item}</li>)
+    });
+
+    return (
+      <div>
+        <SearchInput placeholder='Filter by...' onChange={this.updateFilter}/>
+        <ul>
+          {listItems}
+        </ul>
+      </div>
+    )
+  }
+});
+
+React.render(
+  <FilteringSearchExample />,
+  document.getElementById('react-filtering-search-example')
+);
+```
+
+*/
