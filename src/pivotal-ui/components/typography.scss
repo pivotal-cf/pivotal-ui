@@ -606,11 +606,6 @@ name: type_react_marketing
 parent: type_react
 ---
 
-Usually, you want to use the provided headings. If your mock doesn't exactly match, you should try the normal headings,
-and see if it still looks ok. If it doesn't (this should be rare!) you can use our custom type generator.
-
-You may want to wrap this in a custom reusable React component rather than calling it directly.
-
 ```html_example_table
 <div id="marketing-h1-example"></div>
 
