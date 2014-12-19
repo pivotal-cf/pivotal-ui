@@ -29,7 +29,7 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 # Using PivotalUI on your project
 
 1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases).
-1. Unzip the release archive and move the resulting directory into your project. (If you are using Rails, create a folder called 'vendor/assets/pui-vX.X.X', and unzip the zip file inside of that folder.)
+1. Unzip the release archive and move the resulting directory into your project.
 1. Link to the css file in your html template to include the styles.
 1. Add a script tag to your html template to use the javascript.
 1. Use the css classes (reference the [styleguide](https://github.com/pivotal-cf/pivotal-ui#styleguide) for examples and usage)
@@ -49,16 +49,19 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 You'll need to maintain the structure in the release directory to have fonts and assets work properly. **Do not modify the release files directly**. If you need a component and you cannot find it in the styleguide, write your own styles and javascript separately. Doing so will make it easier to update to newer versions.
 
+
 # Using PivotalUI on your Rails project
 
-To use Pivotal UI with Rails, there are a few small extra steps to make sure the asset paths are correctly configured to be used with the asset pipeline. The extra steps are:
+If you're installing PivotalUI into a Rails project, you should unzip the constituent files into a directory named `vendor/assets/pui-vX.X.X`.
 
-1. When linking to the CSS file in your HTML/Sass, link to `pivotal-ui-rails.css` instead of the top-level `pivotal-ui.css`.
-1. In your application's `config/application.rb`, you'll need to add the following to make sure all vendored fonts and images are compiled:
+When linking to the CSS file in your HTML/Sass, link to `pivotal-ui-rails.css` instead of the top-level `pivotal-ui.css`.
+
+Lastly, in your application's `config/application.rb`, you'll need to add the following to make sure all vendored files are properly compiled:
 
 ```
     config.assets.paths << Rails.root.join('vendor', 'assets', 'pui-vX.X.X', 'images')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+    config.assets.precompile += %w( pivotal-ui-rails.css pivotal-ui.js )
 ```
 
 # Including SCSS variables (optional, beta)
