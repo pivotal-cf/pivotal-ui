@@ -504,7 +504,7 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 }
 
 .form-control[readonly] {
-  background-color: transparent; //override bootstrap
+  background-color: $btn-disabled-bg; //override bootstrap
 }
 
 /*doc
