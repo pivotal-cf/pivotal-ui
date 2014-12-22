@@ -8,8 +8,8 @@ var MediaObject = React.createClass({
     var classes = setClass({
       'media-left': this.props.horizontalAlignment === 'left',
       'media-right': this.props.horizontalAlignment === 'right',
-      'media-middle': this.props.verticalAlignment === 'middle',
-      'media-bottom': this.props.verticalAlignment === 'bottom'
+      'media-middle': this.props.vAlign === 'middle',
+      'media-bottom': this.props.vAlign === 'bottom'
     });
 
     var paddingClasses = setClass({
@@ -58,19 +58,18 @@ var Media = React.createClass({
 
     var bodyClasses = setClass({
       'media-body': true,
-      'media-middle': this.props.bodyAlignment === 'middle',
-      'media-bottom': this.props.bodyAlignment === 'bottom'
+      'media-middle': this.props.vAlign === 'middle',
+      'media-bottom': this.props.vAlign === 'bottom'
     });
 
     if (this.props.leftImage) {
       leftMedia = (
         <MediaObject
           horizontalAlignment='left'
-          verticalAlignment={this.props.leftImage.props.alignment}
+          vAlign={this.props.vAlign}
           href={this.props.leftImage.props.href}
           leftMediaSpacing={this.props.leftImage.props.spacing}>
             {this.props.leftImage}
-
         </MediaObject>
       );
     }
@@ -79,7 +78,7 @@ var Media = React.createClass({
       rightMedia = (
         <MediaObject
           horizontalAlignment='right'
-          verticalAlignment={this.props.rightImage.props.alignment}
+          vAlign={this.props.vAlign}
           href={this.props.rightImage.props.href}
           rightMediaSpacing={this.props.rightImage.props.spacing}>
             {this.props.rightImage}
@@ -99,6 +98,20 @@ var Media = React.createClass({
   }
 });
 
+var Flag = React.createClass({
+  getDefaultProps: function () {
+    return {
+      vAlign: 'middle'
+    }
+  },
+  render: function () {
+    return (
+      <Media {...this.props}>{this.props.children}</Media>
+    );
+  }
+});
+
 module.exports = {
-  Media: Media
+  Media: Media,
+  Flag: Flag
 };

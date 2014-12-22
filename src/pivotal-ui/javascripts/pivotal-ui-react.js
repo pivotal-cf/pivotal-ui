@@ -54,6 +54,7 @@ global.Row = require('./grids.jsx').Row;
 global.Col = require('./grids.jsx').Col;
 
 global.Media = require('./media.jsx').Media;
+global.Flag = require('./media.jsx').Flag;
 
 global.PivnetHomepage = require('./pivnet_homepage.jsx').PivnetHomepage;
 

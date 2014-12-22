@@ -138,15 +138,20 @@ describe('Media', function() {
 
   describe("when image alignment is set to middle", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" alignment="middle" />;
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
 
       React.render(
         Media({
           children: "fop",
+          vAlign:'middle',
           leftImage: image
         }),
         this.node
       );
+    });
+
+    it("displays the media-middle class", function() {
+      expect($('#container .media .media-body')).toHaveClass('media-middle');
     });
 
     it("displays the media-middle class", function() {
@@ -156,10 +161,11 @@ describe('Media', function() {
 
   describe("when image alignment is set to bottom", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" alignment="bottom" />;
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
       React.render(
         Media({
           children: "fop",
+          vAlign: 'bottom',
           leftImage: image
         }),
         this.node
@@ -168,22 +174,6 @@ describe('Media', function() {
 
     it("displays the media-middle class", function() {
       expect($('#container .media .media-left')).toHaveClass('media-bottom');
-    });
-  });
-
-  describe("when body alignment is set to middle", function() {
-    beforeEach(function() {
-      React.render(
-        Media({
-          children: "fop",
-          bodyAlignment: "middle"
-        }),
-        this.node
-      );
-    });
-
-    it("displays the media-middle class", function() {
-      expect($('#container .media .media-body')).toHaveClass('media-middle');
     });
   });
 
