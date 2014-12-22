@@ -9,8 +9,7 @@ var MediaObject = React.createClass({
       'media-left': this.props.horizontalAlignment === 'left',
       'media-right': this.props.horizontalAlignment === 'right',
       'media-middle': this.props.verticalAlignment === 'middle',
-      'media-bottom': this.props.verticalAlignment === 'bottom',
-      'media-object': !this.props.imageHref
+      'media-bottom': this.props.verticalAlignment === 'bottom'
     });
 
     var paddingClasses = setClass({
@@ -26,18 +25,18 @@ var MediaObject = React.createClass({
 
     var mediaClasses = [classes, paddingClasses].join(' ');
 
-    if (this.props.imageHref) {
+    if (this.props.href) {
       return (
         <div className={mediaClasses}>
-          <a href={this.props.imageHref} >
-            <img alt={this.props.alt} className="media-object" src={this.props.imageSource} height={this.props.height} width={this.props.width} />
+          <a href={this.props.href} >
+            {this.props.children}
           </a>
         </div>
         );
     } else {
       return (
         <div className={mediaClasses}>
-          <img alt={this.props.alt} src={this.props.imageSource} height={this.props.height} width={this.props.width} />
+          {this.props.children}
         </div>
       );
     }
@@ -63,33 +62,27 @@ var Media = React.createClass({
       'media-bottom': this.props.bodyAlignment === 'bottom'
     });
 
-    if (this.props.leftImageSource) {
+    if (this.props.leftImage) {
       leftMedia = (
         <MediaObject
           horizontalAlignment='left'
-          verticalAlignment={this.props.leftImageAlignment}
-          imageHref={this.props.leftImageHref}
-          imageSource={this.props.leftImageSource}
-          leftMediaSpacing={this.props.leftMediaSpacing}
-          alt={this.props.leftAlt}
-          height={this.props.leftImageHeight}
-          width={this.props.leftImageWidth}>
+          verticalAlignment={this.props.leftImage.props.alignment}
+          href={this.props.leftImage.props.href}
+          leftMediaSpacing={this.props.leftImage.props.spacing}>
+            {this.props.leftImage}
 
         </MediaObject>
       );
     }
 
-    if (this.props.rightImageSource) {
+    if (this.props.rightImage) {
       rightMedia = (
         <MediaObject
           horizontalAlignment='right'
-          verticalAlignment={this.props.rightImageAlignment}
-          imageHref={this.props.rightImageHref}
-          imageSource={this.props.rightImageSource}
-          rightMediaSpacing={this.props.rightMediaSpacing}
-          alt={this.props.rightAlt}
-          height={this.props.rightImageHeight}
-          width={this.props.rightImageWidth}>
+          verticalAlignment={this.props.rightImage.props.alignment}
+          href={this.props.rightImage.props.href}
+          rightMediaSpacing={this.props.rightImage.props.spacing}>
+            {this.props.rightImage}
         </MediaObject>
       );
     }

@@ -30,13 +30,11 @@ describe('Media', function() {
   describe("when left image src is set", function() {
     describe("when left image src is set and href is not", function() {
       beforeEach(function() {
+        var image = <img src="http://placehold.it/20x20" alt="my fancy image description" height='50px' width='40px'/>;
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftAlt: "my fancy image description",
-            leftImageHeight: '50px',
-            leftImageWidth: '40px'
+            leftImage: image
           }),
           this.node
         );
@@ -58,11 +56,11 @@ describe('Media', function() {
 
     describe("when left href is set", function() {
       beforeEach(function() {
+        var image = <img src="http://placehold.it/20x20" href="http://www.google.com"/>;
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftImageHref: "http://www.google.com",
+            leftImage: image
           }),
           this.node
         );
@@ -79,14 +77,12 @@ describe('Media', function() {
 
     describe("When default image padding is modified to large", function() {
       beforeEach(function() {
+        var image = <img src="http://placehold.it/20x20" href="http://www.google.com" spacing="large" />;
+
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftImageHref: "http://www.google.com",
-            leftMediaSpacing: "large",
-            rightImageSource: "http://placehold.it/20x20",
-            rightImageHref: "http://www.google.com"
+            leftImage: image
           }),
           this.node
         );
@@ -120,18 +116,19 @@ describe('Media', function() {
 
   describe("when right image src is set", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+
       React.render(
         Media({
           children: "fop",
-          rightImageSource: "http://placehold.it/20x20",
-          rightImageHref: "http://www.google.com"
+          rightImage: image
         }),
         this.node
       );
     });
 
     it("displays the media-right link with an image inside", function() {
-      expect($('#container .media .media-right .media-object').attr('src')).toEqual('http://placehold.it/20x20');
+      expect($('#container .media .media-right img').attr('src')).toEqual('http://placehold.it/20x20');
     });
 
     it("links to it's href (google, in this case)", function(){
@@ -141,12 +138,12 @@ describe('Media', function() {
 
   describe("when image alignment is set to middle", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" alignment="middle" />;
+
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle"
+          leftImage: image
         }),
         this.node
       );
@@ -159,12 +156,11 @@ describe('Media', function() {
 
   describe("when image alignment is set to bottom", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" alignment="bottom" />;
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "bottom"
+          leftImage: image
         }),
         this.node
       );
@@ -193,12 +189,11 @@ describe('Media', function() {
 
   describe("when media block is set to stack on small screens", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle",
+          leftImage: image,
           stackSize: "small"
         }),
         this.node
@@ -212,12 +207,11 @@ describe('Media', function() {
 
   describe("when media block is set to stack on medium screens", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle",
+          leftImage: image,
           stackSize: "medium"
         }),
         this.node
