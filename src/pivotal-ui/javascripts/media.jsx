@@ -44,6 +44,10 @@ var MediaObject = React.createClass({
 });
 
 var Media = React.createClass({
+  propTypes: {
+    stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
+    vAlign: React.PropTypes.oneOf(["middle","bottom"])
+  },
   render: function () {
     var leftMedia,
         rightMedia = '';
