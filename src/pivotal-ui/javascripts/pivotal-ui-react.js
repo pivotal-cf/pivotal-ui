@@ -65,3 +65,5 @@ global.ClickableAltPanel = require('./panels.jsx').ClickableAltPanel;
 global.BasicPanel = require('./panels.jsx').BasicPanel;
 global.ShadowPanel = require('./panels.jsx').ShadowPanel;
 global.HighlightPanel = require('./panels.jsx').HighlightPanel;
+
+global.Image = require('./images.jsx').Image;
