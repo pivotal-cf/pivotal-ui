@@ -258,8 +258,8 @@ The base button renderer. You won't really interact with this directly.
 ```
 
 ```jsx_example
-var image = <img src='http://placehold.it/50x50' />;
-var linkedImage = <img src='http://placehold.it/50x50' href="http://google.com" />;
+var image = <Image src='http://placehold.it/50x50' />;
+var linkedImage = <Image src='http://placehold.it/50x50' href="http://google.com" />;
 
 React.render(
   <div>
@@ -285,26 +285,6 @@ React.render(
 );
 ```
 
-## Setting image dimensions
-
-```html_example
-<div id="media-image-dimensions-example"></div>
-```
-
-```jsx_example
-var image = <img href='http://www.google.com' src='http://placehold.it/50x50' height='25px' width='25px' />;
-
-React.render(
-  <div>
-    <Media
-      leftImage={image}>
-        Sized image in a media block
-    </Media>
-  </div>,
-  document.getElementById('media-image-dimensions-example')
-);
-```
-
 */
 
 /*doc
@@ -319,7 +299,7 @@ parent: media_react
 ```
 
 ```jsx_example
-var image = <img href='http://www.google.com' src='http://placehold.it/50x50'/>;
+var image = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
 
 React.render(
   <div>
@@ -361,36 +341,39 @@ Media spacing can be added to the left and right medias. If no spacing is define
 ```
 
 ```jsx_example
-var image = <img href='http://www.google.com' src='http://placehold.it/50x50'/>;
-var smallSpaceImage =  <img href='http://www.google.com' src='http://placehold.it/50x50' spacing='small'/>;
-var mediumSpaceImage =  <img href='http://www.google.com' src='http://placehold.it/50x50' spacing='medium'/>;
-var largeSpaceImage =  <img href='http://www.google.com' src='http://placehold.it/50x50' spacing='large'/>;
-var xlargeSpaceImage =  <img href='http://www.google.com' src='http://placehold.it/50x50' spacing='xlarge'/>;
+var image = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
 
 React.render(
   <div>
-    <Media
-      leftImage={image}>
+    <Media leftImage={image}>
         default image spacing media
     </Media>
 
     <Media
-      leftImage={smallSpaceImage}>
+      leftImage={image}
+      leftMediaSpacing='small'
+      >
         small image spacing media
     </Media>
 
     <Media
-      leftImage={mediumSpaceImage}>
+      leftImage={image}
+      leftMediaSpacing='medium'
+      >
         medium image spacing media
     </Media>
 
     <Media
-      leftImage={largeSpaceImage}>
+      leftImage={image}
+      leftMediaSpacing='large'
+      >
         large image spacing media
     </Media>
 
     <Media
-      leftImage={xlargeSpaceImage}>
+      leftImage={image}
+      leftMediaSpacing='xlarge'
+      >
         xlarge image spacing media
     </Media>
   </div>,

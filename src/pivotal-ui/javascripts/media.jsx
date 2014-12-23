@@ -25,21 +25,12 @@ var MediaObject = React.createClass({
 
     var mediaClasses = [classes, paddingClasses].join(' ');
 
-    if (this.props.href) {
-      return (
-        <div className={mediaClasses}>
-          <a href={this.props.href} >
-            {this.props.children}
-          </a>
-        </div>
-        );
-    } else {
-      return (
-        <div className={mediaClasses}>
-          {this.props.children}
-        </div>
-      );
-    }
+
+    return (
+      <div className={mediaClasses}>
+        {this.props.children}
+      </div>
+    );
   }
 });
 
@@ -86,8 +77,7 @@ var Media = React.createClass({
         <MediaObject
           horizontalAlignment='left'
           vAlign={this.props.vAlign}
-          href={this.props.leftImage.props ? this.props.leftImage.props.href : null}
-          leftMediaSpacing={this.props.leftImage.props ? this.props.leftImage.props.spacing : null}>
+          leftMediaSpacing={this.props.leftMediaSpacing}>
             {this.props.leftImage}
         </MediaObject>
       );
@@ -98,8 +88,7 @@ var Media = React.createClass({
         <MediaObject
           horizontalAlignment='right'
           vAlign={this.props.vAlign}
-          href={this.props.rightImage.props ? this.props.rightImage.props.href : null}
-          rightMediaSpacing={this.props.rightImage.props ? this.props.rightImage.props.spacing : null}>
+          rightMediaSpacing={this.props.rightMediaSpacing}>
             {this.props.rightImage}
         </MediaObject>
       );

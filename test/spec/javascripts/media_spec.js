@@ -6,6 +6,7 @@ var TestUtils = React.addons.TestUtils;
 
 var Media = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Media);
 var Flag = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Flag);
+var Image = React.createFactory(require('../../../src/pivotal-ui/javascripts/images.jsx').Image);
 
 describe('Media', function() {
   beforeEach(function() {
@@ -19,12 +20,12 @@ describe('Media', function() {
 
   describe("Creates a basic media component", function() {
     beforeEach(function() {
-      var basicImage = <img src="http://placehold.it/20x20" />;
+      var image = <img src="http://placehold.it/20x20" />;
 
       React.render(
         Media({
           children: "fop",
-          rightImage: basicImage
+          leftImage: image
         }),
         this.node
       );
@@ -38,7 +39,7 @@ describe('Media', function() {
 
 
   describe("when left image src is set", function() {
-    describe("when left image src is set and href is not", function() {
+    describe("when left image src is set", function() {
       beforeEach(function() {
         var image = <img src="http://placehold.it/20x20" alt="my fancy image description" height='50px' width='40px'/>;
         React.render(
@@ -64,35 +65,16 @@ describe('Media', function() {
       });
     });
 
-    describe("when left href is set", function() {
-      beforeEach(function() {
-        var image = <img src="http://placehold.it/20x20" href="http://www.google.com"/>;
-        React.render(
-          Media({
-            children: "fop",
-            leftImage: image
-          }),
-          this.node
-        );
-      });
-
-      it("displays the media-left link with an image inside", function() {
-        expect($('#container .media .media-left a img').attr('src')).toEqual('http://placehold.it/20x20');
-      });
-
-      it("links to it's href (google, in this case)", function() {
-        expect($('#container .media .media-left a').attr('href')).toEqual('http://www.google.com');
-      });
-    });
 
     describe("When default image padding is modified to large", function() {
       beforeEach(function() {
-        var image = <img src="http://placehold.it/20x20" href="http://www.google.com" spacing="large" />;
+        var image = <img src="http://placehold.it/20x20" />;
 
         React.render(
           Media({
             children: "fop",
-            leftImage: image
+            leftImage: image,
+            leftMediaSpacing: 'large'
           }),
           this.node
         );
@@ -108,28 +90,9 @@ describe('Media', function() {
     });
   });
 
-
-  describe("when left image src is not set", function() {
-    beforeEach(function() {
-      var basicImage = <img src="http://placehold.it/20x20" />;
-
-      React.render(
-        Media({
-          children: "fop",
-          rightImage: basicImage
-        }),
-        this.node
-      );
-    });
-
-    it("does not display the media-left link or image inside", function() {
-      expect($('#container .media')).not.toContainElement('.media-left');
-    });
-  });
-
   describe("when right image src is set", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20"/>;
 
       React.render(
         Media({
@@ -140,18 +103,14 @@ describe('Media', function() {
       );
     });
 
-    it("displays the media-right link with an image inside", function() {
+    it("displays the media-right with an image inside", function() {
       expect($('#container .media .media-right img').attr('src')).toEqual('http://placehold.it/20x20');
-    });
-
-    it("links to it's href (google, in this case)", function(){
-      expect($('#container .media .media-right a').attr('href')).toEqual('http://www.google.com');
     });
   });
 
   describe("when image alignment is set to middle", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20"/>;
 
       React.render(
         Media({
@@ -174,7 +133,7 @@ describe('Media', function() {
 
   describe("when image alignment is set to bottom", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20"/>;
       React.render(
         Media({
           children: "fop",
@@ -192,7 +151,7 @@ describe('Media', function() {
 
   describe("when media block is set to stack on small screens", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20"/>;
 
       React.render(
         Media({
@@ -211,7 +170,7 @@ describe('Media', function() {
 
   describe("when media block is set to stack on medium screens", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20" />;
 
       React.render(
         Media({
@@ -230,7 +189,7 @@ describe('Media', function() {
 
   describe("Flag", function() {
     beforeEach(function() {
-      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      var image = <img src="http://placehold.it/20x20"/>;
 
       React.render(
         Flag({

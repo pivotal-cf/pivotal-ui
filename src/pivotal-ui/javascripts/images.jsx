@@ -13,9 +13,12 @@ var Image = React.createClass({
       'img-responsive': this.props.responsive
     });
 
-    if (this.props.href){
+    var href = this.props.href;
+    delete this.props.href;
+
+    if (href){
       return(
-        <a href={this.props.href}>
+        <a href={href}>
           <img {...this.props} className={classes}>
             {this.props.children}
           </img>
