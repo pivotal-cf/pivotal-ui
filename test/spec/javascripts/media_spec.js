@@ -5,6 +5,7 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var Media = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Media);
+var Flag = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Flag);
 
 describe('Media', function() {
   beforeEach(function() {
@@ -210,6 +211,26 @@ describe('Media', function() {
 
     it("the media-stackable-md class is applied to the media element", function() {
       expect($('#container .media')).toHaveClass('media-stackable-md');
+    });
+  });
+
+  describe("Flag", function() {
+    beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+      React.render(
+        Flag({
+          children: "fop",
+          leftImage: image,
+          rightImage: image
+        }),
+        this.node
+      );
+    });
+
+    it("adds the class media-middle to the media-body, media-left, and media-right", function() {
+      expect($('#container .media-body')).toHaveClass('media-middle');
+      expect($('#container .media-left')).toHaveClass('media-middle');
+      expect($('#container .media-right')).toHaveClass('media-middle');
     });
   });
 
