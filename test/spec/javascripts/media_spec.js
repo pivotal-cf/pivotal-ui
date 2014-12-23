@@ -10,13 +10,6 @@ var Flag = React.createFactory(require('../../../src/pivotal-ui/javascripts/medi
 describe('Media', function() {
   beforeEach(function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
-
-    React.render(
-      Media({
-        children: "fop"
-      }),
-      this.node
-    );
   });
 
   afterEach(function() {
@@ -24,9 +17,25 @@ describe('Media', function() {
     document.body.removeChild(this.node);
   });
 
-  it("creates a Media component", function() {
-    expect($('#container .media .media-body')).toContainText('fop');
+  describe("Creates a basic media component", function() {
+    beforeEach(function() {
+      var basicImage = <img src="http://placehold.it/20x20" />;
+
+      React.render(
+        Media({
+          children: "fop",
+          rightImage: basicImage
+        }),
+        this.node
+      );
+    });
+
+    it("creates a Media component", function() {
+      expect($('#container .media .media-body')).toContainText('fop');
+    });
   });
+
+
 
   describe("when left image src is set", function() {
     describe("when left image src is set and href is not", function() {
@@ -102,9 +111,12 @@ describe('Media', function() {
 
   describe("when left image src is not set", function() {
     beforeEach(function() {
+      var basicImage = <img src="http://placehold.it/20x20" />;
+
       React.render(
         Media({
-          children: "fop"
+          children: "fop",
+          rightImage: basicImage
         }),
         this.node
       );
@@ -181,6 +193,7 @@ describe('Media', function() {
   describe("when media block is set to stack on small screens", function() {
     beforeEach(function() {
       var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+
       React.render(
         Media({
           children: "fop",
@@ -199,6 +212,7 @@ describe('Media', function() {
   describe("when media block is set to stack on medium screens", function() {
     beforeEach(function() {
       var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+
       React.render(
         Media({
           children: "fop",
@@ -217,6 +231,7 @@ describe('Media', function() {
   describe("Flag", function() {
     beforeEach(function() {
       var image = <img src="http://placehold.it/20x20" href="http://www.google.com" />;
+
       React.render(
         Flag({
           children: "fop",

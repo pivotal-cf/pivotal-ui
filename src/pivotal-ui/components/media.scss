@@ -260,7 +260,6 @@ The base button renderer. You won't really interact with this directly.
 ```jsx_example
 var image = <img src='http://placehold.it/50x50' />;
 var linkedImage = <img src='http://placehold.it/50x50' href="http://google.com" />;
-var alignedImage = <img src='http://placehold.it/50x50' />;
 
 React.render(
   <div>

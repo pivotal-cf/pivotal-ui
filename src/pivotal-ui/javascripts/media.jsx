@@ -46,7 +46,22 @@ var MediaObject = React.createClass({
 var Media = React.createClass({
   propTypes: {
     stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
-    vAlign: React.PropTypes.oneOf(["middle","bottom"])
+    vAlign: React.PropTypes.oneOf(["middle","bottom"]),
+    leftImage: function(props, propName, componentName) {
+      if(props[propName] && (!props[propName].type || props[propName].type !== "img") ) {
+        return new Error("Left image must be an image")
+      }
+    },
+    rightImage: function(props, propName, componentName) {
+      if(props[propName] && (!props[propName].type || props[propName].type !== "img") ) {
+        return new Error("Right image must be an image")
+      }
+    },
+    hasImages: function(props, propName, componentName) {
+      if(!props["leftImage"] && !props["rightImage"]) {
+        return new Error("The media component must have at least one image")
+      }
+    }
   },
   render: function () {
     var leftMedia,
@@ -71,8 +86,8 @@ var Media = React.createClass({
         <MediaObject
           horizontalAlignment='left'
           vAlign={this.props.vAlign}
-          href={this.props.leftImage.props.href}
-          leftMediaSpacing={this.props.leftImage.props.spacing}>
+          href={this.props.leftImage.props ? this.props.leftImage.props.href : null}
+          leftMediaSpacing={this.props.leftImage.props ? this.props.leftImage.props.spacing : null}>
             {this.props.leftImage}
         </MediaObject>
       );
@@ -83,8 +98,8 @@ var Media = React.createClass({
         <MediaObject
           horizontalAlignment='right'
           vAlign={this.props.vAlign}
-          href={this.props.rightImage.props.href}
-          rightMediaSpacing={this.props.rightImage.props.spacing}>
+          href={this.props.rightImage.props ? this.props.rightImage.props.href : null}
+          rightMediaSpacing={this.props.rightImage.props ? this.props.rightImage.props.spacing : null}>
             {this.props.rightImage}
         </MediaObject>
       );
