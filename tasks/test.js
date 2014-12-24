@@ -38,12 +38,6 @@ gulp.task('karma-debug', function (done) {
   }, done);
 });
 
-gulp.task('_copyTestAssets', ['assets'], function() {
-  return gulp.src([
-    'build/**/*',
-  ]).pipe(gulp.dest('./test/build/'));
-});
-
 gulp.task('_createTestFileList', ['assets'], function(done) {
   fs.readdir('./test/components/', function(err, files) {
     if (err) { errorHandler.handleError(err, {callback: done}); }
@@ -66,7 +60,7 @@ gulp.task('_serveTest', ['assets'], function() {
   });
 });
 
-gulp.task('_cssCritic', ['lint', '_copyTestAssets', '_createTestFileList'], function() {
+gulp.task('_cssCritic', ['lint', 'assets', '_createTestFileList'], function() {
   return gulp.src("./test/regressionRunner.html")
     .pipe(open("./test/regressionRunner.html",{app:"firefox"}));
 });
