@@ -25,7 +25,9 @@ gulp.task('default', [
 ]);
 
 gulp.task('watch', ['assets'], function() {
-  gulp.watch(['src/pivotal-ui/**/*', 'hologram/**/*'], ['assets']);
+  gulp.watch(['src/pivotal-ui/components/**/*.scss', 'src/pivotal-ui/pivotal-ui.scss'], ['_puiScss']);
+  gulp.watch(['src/pivotal-ui/javascripts/**/*.js', 'src/pivotal-ui/javascripts/**/*.jsx'], ['_puiJs']);
+  gulp.watch(['src/styleguide/**/*.scss'], ['_styleguideScss']);
 });
 
 gulp.task('serve', function() {
