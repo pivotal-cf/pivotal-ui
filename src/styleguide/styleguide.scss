@@ -398,10 +398,13 @@ blockquote {
   max-width: 100%;
   margin-bottom: 24px;
 
+  tr, th, td {
+    font-weight: normal;
+  }
+
   tr {
     padding: 7px;
     border-bottom: 1px solid $shadow-3;
-    font-weight: normal;
 
     &:last-of-type {
       border-bottom: none;
