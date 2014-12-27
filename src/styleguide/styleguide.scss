@@ -418,9 +418,32 @@ blockquote {
   }
 
   td {
+    position: relative;
     padding: 10px 10px;
     vertical-align: middle;
     background-color: $bg-color-example-code;
+
+    .btn-copy {
+      @include transition-pui(background, 0.5s, ease-out);
+
+      position: absolute;
+      display: none;
+      top: 0;
+      right: 0;
+      padding: 7px 20px;
+      border-left: 1px solid $shadow-2;
+      border-bottom: 1px solid $shadow-2;
+      border-radius: 0;
+
+      &.zeroclipboard-is-hover {
+        display: block;
+        background-color: $neutral-11;
+      }
+    }
+
+    &:hover .btn-copy {
+      display: block;
+    }
   }
 
   pre {
@@ -563,3 +586,4 @@ td.is-hidden {
     background-color: $neutral-11;
   }
 }
+

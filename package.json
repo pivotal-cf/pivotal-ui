@@ -66,7 +66,8 @@
     "react": "0.12.1",
     "react-bootstrap": "^0.13.0",
     "reactify": "0.17.1",
-    "stream-to-promise": "^1.0.4"
+    "stream-to-promise": "^1.0.4",
+    "zeroclipboard": "^2.1.6"
   },
   "scripts": {
     "test": "node_modules/gulp/bin/gulp.js ci --fatal"
