@@ -352,6 +352,7 @@ blockquote {
 }
 
 .codeExample .codeBlock, .jsExample.codeBlock {
+  position: relative;
   background-color: $bg-color-example-code;
   border-top:1px solid $shadow-3;
   padding: 40px;
@@ -361,6 +362,28 @@ blockquote {
     margin: 0; //bootstrap override
     border: none; //bootstrap override
     padding: 0; //bootstrap override
+  }
+
+  .btn-copy {
+    @include transition-pui(background, 0.5s, ease-out);
+
+    position: absolute;
+    display: none;
+    top: 0;
+    right: 0;
+    padding: 7px 20px;
+    border-left: 1px solid $shadow-3;
+    border-bottom: 1px solid $shadow-3;
+    border-radius: 0;
+
+    &.zeroclipboard-is-hover {
+      display: block;
+      background-color: $neutral-11;
+    }
+  }
+
+  &:hover .btn-copy {
+    display: block;
   }
 }
 

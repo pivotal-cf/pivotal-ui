@@ -62,14 +62,13 @@ $(document).ready(function() {
   var zc = new ZeroClipboard( $('[data-btn-copy]') );
 
   $('[data-btn-copy]')
-    .data('placement', 'left')
     .attr('title', 'Copy to clipboard');
 
   $('[data-btn-copy]').tooltip();
 
   zc.on('ready', function() {
     zc.on('copy', function(e) {
-      var copyText = $(e.target).parent().find('.codeBlock').text();
+      var copyText = $(e.target).parent().find('[data-code-to-copy]').text();
       e.clipboardData.setData('text/plain', copyText);
     });
 
