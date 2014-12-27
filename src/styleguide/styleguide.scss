@@ -365,20 +365,12 @@ blockquote {
   }
 
   .btn-copy {
-    @include transition-pui(background, 0.5s, ease-out);
-
-    position: absolute;
     display: none;
-    top: 0;
-    right: 0;
-    padding: 7px 20px;
     border-left: 1px solid $shadow-3;
     border-bottom: 1px solid $shadow-3;
-    border-radius: 0;
 
     &.zeroclipboard-is-hover {
       display: block;
-      background-color: $neutral-11;
     }
   }
 
@@ -447,20 +439,12 @@ blockquote {
     background-color: $bg-color-example-code;
 
     .btn-copy {
-      @include transition-pui(background, 0.5s, ease-out);
-
-      position: absolute;
       display: none;
-      top: 0;
-      right: 0;
-      padding: 7px 20px;
       border-left: 1px solid $shadow-2;
       border-bottom: 1px solid $shadow-2;
-      border-radius: 0;
 
       &.zeroclipboard-is-hover {
         display: block;
-        background-color: $neutral-11;
       }
     }
 
@@ -495,6 +479,21 @@ table.styleguide {
 
   td.no-wrap, th.no-wrap {
     white-space: nowrap;
+  }
+}
+
+// copy button
+.btn-copy {
+  @include transition-pui(background, 0.5s, ease-out);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 20px;
+  border-radius: 0;
+
+  &.zeroclipboard-is-hover {
+    background-color: $neutral-11;
   }
 }
 
