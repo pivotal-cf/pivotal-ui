@@ -17,8 +17,8 @@
         "jquery:jQuery"
       ]
     },
-    "prism": "prism",
-    "modernizr": "modernizr"
+    "prism": "Prism",
+    "modernizr": "Modernizr"
   },
   "devDependencies": {
     "browserify": "^5.12.0",
