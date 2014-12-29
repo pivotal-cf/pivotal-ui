@@ -3,6 +3,7 @@
   "private": true,
   "browser": {
     "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
+    "console-polyfill": "./node_modules/console-polyfill/index.js",
     "prism": "./src/syntax-highlighting/prism.js",
     "modernizr": "./src/modernizr/modernizr.min.js"
   },
@@ -17,6 +18,7 @@
         "jquery:jQuery"
       ]
     },
+    "console-polyfill": {},
     "prism": "Prism",
     "modernizr": "Modernizr"
   },
@@ -59,7 +61,9 @@
   "main": "gulpfile.js",
   "dependencies": {
     "bootstrap-sass": "3.3.1",
+    "console-polyfill": "^0.1.2",
     "envify": "^1.2.1",
+    "es5-shim": "^4.0.5",
     "font-awesome": "^4.2.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",

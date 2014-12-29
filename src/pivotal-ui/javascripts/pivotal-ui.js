@@ -1,7 +1,8 @@
+require('./browser-support');
+
 global.$ = global.jQuery = require('jquery');
 global._ = require('lodash');
 require('bootstrap');
-require('modernizr');
 require('prism');
 
 require('./scale')();

@@ -12,7 +12,7 @@ module.exports = function(config) {
     browsers: ['Chrome', 'PhantomJS'],
     colors: true,
     files: [
-      'test/spec/support/*.js',
+      'node_modules/es5-shim/es5-shim.min.js',
       'test/spec/javascripts/**/*_spec.js',
       'test/spec/javascripts/**/*_spec.jsx'
     ],
