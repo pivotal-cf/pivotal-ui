@@ -14,7 +14,6 @@
   "noarg": true,
   "node": true,
   "nonew": true,
-  "quotmark": "single",
   "strict": true,
   "sub": true,
   "undef": true,

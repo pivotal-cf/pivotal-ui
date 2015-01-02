@@ -40,7 +40,7 @@ var DefaultButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'default'
-    }
+    };
   },
 
   render: function render() {
@@ -53,7 +53,7 @@ var DefaultAltButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'default-alt'
-    }
+    };
   },
 
   render: function render() {
@@ -66,7 +66,7 @@ var PrimaryButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'primary'
-    }
+    };
   },
 
   render: function render() {
@@ -79,7 +79,7 @@ var LowlightButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'lowlight'
-    }
+    };
   },
 
   render: function render() {
@@ -92,7 +92,7 @@ var DangerButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'danger'
-    }
+    };
   },
 
   render: function render() {
@@ -105,7 +105,7 @@ var HighlightButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'highlight'
-    }
+    };
   },
 
   render: function render() {
@@ -118,7 +118,7 @@ var HighlightAltButton = React.createClass({
   getDefaultProps: function () {
     return {
       type: 'highlight-alt'
-    }
+    };
   },
 
   render: function render() {

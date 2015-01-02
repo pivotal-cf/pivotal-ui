@@ -1,7 +1,11 @@
 'use strict';
 
 var React = require('react');
-var _ = require('lodash');
+var DefaultH1 = require('./typography.jsx').DefaultH1;
+var DefaultH2 = require('./typography.jsx').DefaultH1;
+var DividerInverse = require('./dividers.jsx').DividerInverse;
+var Pane = require('./panes.jsx').Pane;
+var HighlightAltButton = require('./buttons.jsx').HighlightAltButton;
 
 var PivnetHomepage = React.createClass({
   render: function () {

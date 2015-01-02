@@ -3,7 +3,6 @@
 var React = require('react');
 var _ = require('lodash');
 
-
 var Heading = React.createClass({
   acceptedSizeClasses: ['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'small'],
   acceptedBoldClasses: ['low', 'default', 'high', 'max'],
@@ -19,11 +18,11 @@ var Heading = React.createClass({
     }
 
     if (_.contains(this.acceptedBoldClasses, this.props.bold)) {
-      classes.push("em-" + this.props.bold);
+      classes.push('em-' + this.props.bold);
     }
 
     if (this.props.allCaps) {
-      classes.push("em-alt");
+      classes.push('em-alt');
     }
 
     if (this.props.color) {
@@ -33,17 +32,17 @@ var Heading = React.createClass({
     var joinedClasses = classes.join(' ');
 
     switch(this.props.element) {
-      case "h1":
+      case 'h1':
         return (<h1 {...this.props} className={joinedClasses}>{this.props.children}</h1>);
-      case "h2":
+      case 'h2':
         return (<h2 {...this.props} className={joinedClasses}>{this.props.children}</h2>);
-      case "h3":
+      case 'h3':
         return (<h3 {...this.props} className={joinedClasses}>{this.props.children}</h3>);
-      case "h4":
+      case 'h4':
         return (<h4 {...this.props} className={joinedClasses}>{this.props.children}</h4>);
-      case "h5":
+      case 'h5':
         return (<h5 {...this.props} className={joinedClasses}>{this.props.children}</h5>);
-      case "h6":
+      case 'h6':
         return (<h6 {...this.props} className={joinedClasses}>{this.props.children}</h6>);
       default:
         return (<p {...this.props} className={joinedClasses}> {this.props.children}</p>);
@@ -59,7 +58,7 @@ var createTypographyClass = function createTypographyClass(opts) {
         size: opts.size,
         bold: opts.bold,
         allCaps: opts.allCaps
-      }
+      };
     },
 
     render: function render() {
