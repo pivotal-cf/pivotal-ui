@@ -49,6 +49,8 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 You'll need to maintain the structure in the release directory to have fonts and assets work properly. **Do not modify the release files directly**. If you need a component and you cannot find it in the styleguide, write your own styles and javascript separately. Doing so will make it easier to update to newer versions.
 
+**NB** It is important to add `pivotal-ui.js` in the head - not the body - in order for the HTML5 shiv to work properly (enables HTML5 elements in IE).
+
 
 # Using PivotalUI on your Rails project
 
