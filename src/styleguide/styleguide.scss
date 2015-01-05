@@ -352,6 +352,7 @@ blockquote {
 }
 
 .codeExample .codeBlock, .jsExample.codeBlock {
+  position: relative;
   background-color: $bg-color-example-code;
   border-top:1px solid $shadow-3;
   padding: 40px;
@@ -361,6 +362,20 @@ blockquote {
     margin: 0; //bootstrap override
     border: none; //bootstrap override
     padding: 0; //bootstrap override
+  }
+
+  .btn-copy {
+    display: none;
+    border-left: 1px solid $shadow-3;
+    border-bottom: 1px solid $shadow-3;
+
+    &.zeroclipboard-is-hover {
+      display: block;
+    }
+  }
+
+  &:hover .btn-copy {
+    display: block;
   }
 }
 
@@ -418,9 +433,24 @@ blockquote {
   }
 
   td {
+    position: relative;
     padding: 10px 10px;
     vertical-align: middle;
     background-color: $bg-color-example-code;
+
+    .btn-copy {
+      display: none;
+      border-left: 1px solid $shadow-2;
+      border-bottom: 1px solid $shadow-2;
+
+      &.zeroclipboard-is-hover {
+        display: block;
+      }
+    }
+
+    &:hover .btn-copy {
+      display: block;
+    }
   }
 
   pre {
@@ -449,6 +479,21 @@ table.styleguide {
 
   td.no-wrap, th.no-wrap {
     white-space: nowrap;
+  }
+}
+
+// copy button
+.btn-copy {
+  @include transition-pui(background, 0.5s, ease-out);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 20px;
+  border-radius: 0;
+
+  &.zeroclipboard-is-hover {
+    background-color: $neutral-11;
   }
 }
 
@@ -563,3 +608,4 @@ td.is-hidden {
     background-color: $neutral-11;
   }
 }
+

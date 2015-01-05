@@ -191,6 +191,7 @@ gulp.task('_otherAssets', [
   '_copySourceSansPro',
   '_copyStyleguideAssets',
   '_copyStaticfile',
+  '_copyZeroClipboard',
 ]);
 
 gulp.task('_cleanOtherAssets', function(done) {
@@ -201,6 +202,7 @@ gulp.task('_cleanOtherAssets', function(done) {
     'build/styleguide/*.js',
     'build/styleguide/github.css',
     'build/Staticfile',
+    'build/zeroclipboard',
   ], {force: true}, done);
 });
 
@@ -237,6 +239,14 @@ gulp.task('_copyStyleguideAssets', ['_cleanOtherAssets'], function() {
 gulp.task('_copyStaticfile', ['_cleanOtherAssets'], function() {
   return gulp.src(['src/Staticfile'])
     .pipe(gulp.dest('./build/'));
+});
+
+gulp.task('_copyZeroClipboard', ['_cleanOtherAssets'], function() {
+  return gulp.src([
+    'node_modules/zeroclipboard/dist/ZeroClipboard.js',
+    'node_modules/zeroclipboard/dist/ZeroClipboard.swf',
+  ])
+    .pipe(gulp.dest('./build/zeroclipboard/'));
 });
 
 

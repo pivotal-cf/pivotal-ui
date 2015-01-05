@@ -54,3 +54,35 @@ $(document).ready(function() {
     }
   });
 });
+
+/* Copy button */
+
+$(document).ready(function() {
+  ZeroClipboard.config({ swfPath: "zeroclipboard/ZeroClipboard.swf" });
+  var zc = new ZeroClipboard( $('[data-btn-copy]') );
+
+  $('[data-btn-copy]')
+    .attr('title', 'Copy to clipboard');
+
+  $('[data-btn-copy]').tooltip();
+
+  zc.on('ready', function() {
+    zc.on('copy', function(e) {
+      var copyText = $(e.target).parent().find('[data-code-to-copy]').text();
+      e.clipboardData.setData('text/plain', copyText);
+    });
+
+    zc.on('aftercopy', function(e) {
+      $(e.target).attr('title', 'Copied!')
+        .tooltip('fixTitle')
+        .tooltip('show')
+        .attr('title', 'Copy to clipboard')
+        .tooltip('fixTitle');
+    });
+  });
+
+  zc.on('error', function(err) {
+    console.error('Zero clipboard error', err);
+    ZeroClipboard.destroy();
+  });
+});
