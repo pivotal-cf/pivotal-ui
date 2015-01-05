@@ -38,16 +38,6 @@ var Media = React.createClass({
   propTypes: {
     stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
     vAlign: React.PropTypes.oneOf(["middle","bottom"]),
-    leftImage: function(props, propName, componentName) {
-      if(props[propName] && (!props[propName].type || props[propName].type !== "img") ) {
-        return new Error("Left image must be an image")
-      }
-    },
-    rightImage: function(props, propName, componentName) {
-      if(props[propName] && (!props[propName].type || props[propName].type !== "img") ) {
-        return new Error("Right image must be an image")
-      }
-    },
     hasImages: function(props, propName, componentName) {
       if(!props["leftImage"] && !props["rightImage"]) {
         return new Error("The media component must have at least one image")
