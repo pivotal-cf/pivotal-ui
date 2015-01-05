@@ -1,5 +1,7 @@
 'use strict';
 
+var Modernizr = require('modernizr');
+
 var breakpoints = {
   xsMin: 480,
   smMin: 768,
@@ -31,5 +33,5 @@ module.exports = window.utils = {
 };
 
 function isMinWidth(width) {
-  return window.matchMedia('(min-width: ' + width + 'px)').matches;
+  return Modernizr.mq('(min-width: ' + width + 'px)');
 }
