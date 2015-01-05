@@ -8,9 +8,8 @@ var MediaObject = React.createClass({
     var classes = setClass({
       'media-left': this.props.horizontalAlignment === 'left',
       'media-right': this.props.horizontalAlignment === 'right',
-      'media-middle': this.props.verticalAlignment === 'middle',
-      'media-bottom': this.props.verticalAlignment === 'bottom',
-      'media-object': !this.props.imageHref
+      'media-middle': this.props.vAlign === 'middle',
+      'media-bottom': this.props.vAlign === 'bottom'
     });
 
     var paddingClasses = setClass({
@@ -26,25 +25,25 @@ var MediaObject = React.createClass({
 
     var mediaClasses = [classes, paddingClasses].join(' ');
 
-    if (this.props.imageHref) {
-      return (
-        <div className={mediaClasses}>
-          <a href={this.props.imageHref} >
-            <img alt={this.props.alt} className="media-object" src={this.props.imageSource} height={this.props.height} width={this.props.width} />
-          </a>
-        </div>
-        );
-    } else {
-      return (
-        <div className={mediaClasses}>
-          <img alt={this.props.alt} src={this.props.imageSource} height={this.props.height} width={this.props.width} />
-        </div>
-      );
-    }
+
+    return (
+      <div className={mediaClasses}>
+        {this.props.children}
+      </div>
+    );
   }
 });
 
 var Media = React.createClass({
+  propTypes: {
+    stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
+    vAlign: React.PropTypes.oneOf(["middle","bottom"]),
+    hasImages: function(props) {
+      if(!props["leftImage"] && !props["rightImage"]) {
+        return new Error("The media component must have at least one image");
+      }
+    }
+  },
   render: function () {
     var leftMedia,
         rightMedia = '';
@@ -59,37 +58,28 @@ var Media = React.createClass({
 
     var bodyClasses = setClass({
       'media-body': true,
-      'media-middle': this.props.bodyAlignment === 'middle',
-      'media-bottom': this.props.bodyAlignment === 'bottom'
+      'media-middle': this.props.vAlign === 'middle',
+      'media-bottom': this.props.vAlign === 'bottom'
     });
 
-    if (this.props.leftImageSource) {
+    if (this.props.leftImage) {
       leftMedia = (
         <MediaObject
           horizontalAlignment='left'
-          verticalAlignment={this.props.leftImageAlignment}
-          imageHref={this.props.leftImageHref}
-          imageSource={this.props.leftImageSource}
-          leftMediaSpacing={this.props.leftMediaSpacing}
-          alt={this.props.leftAlt}
-          height={this.props.leftImageHeight}
-          width={this.props.leftImageWidth}>
-
+          vAlign={this.props.vAlign}
+          leftMediaSpacing={this.props.leftMediaSpacing}>
+            {this.props.leftImage}
         </MediaObject>
       );
     }
 
-    if (this.props.rightImageSource) {
+    if (this.props.rightImage) {
       rightMedia = (
         <MediaObject
           horizontalAlignment='right'
-          verticalAlignment={this.props.rightImageAlignment}
-          imageHref={this.props.rightImageHref}
-          imageSource={this.props.rightImageSource}
-          rightMediaSpacing={this.props.rightMediaSpacing}
-          alt={this.props.rightAlt}
-          height={this.props.rightImageHeight}
-          width={this.props.rightImageWidth}>
+          vAlign={this.props.vAlign}
+          rightMediaSpacing={this.props.rightMediaSpacing}>
+            {this.props.rightImage}
         </MediaObject>
       );
     }
@@ -106,6 +96,20 @@ var Media = React.createClass({
   }
 });
 
+var Flag = React.createClass({
+  getDefaultProps: function () {
+    return {
+      vAlign: 'middle'
+    };
+  },
+  render: function () {
+    return (
+      <Media {...this.props}>{this.props.children}</Media>
+    );
+  }
+});
+
 module.exports = {
-  Media: Media
+  Media: Media,
+  Flag: Flag
 };

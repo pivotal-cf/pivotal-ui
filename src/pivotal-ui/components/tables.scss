@@ -397,7 +397,7 @@ $(function() {
   ];
 
   React.render(
-    TableSortable({
+    UI.TableSortable({
       data: data,
       columns: columns,
       classes: ['table-data', 'table-light']

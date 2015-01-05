@@ -179,3 +179,28 @@ For more information about setting up your svg, read this article about [svg coo
   left: 0;
 }
 
+/*doc
+---
+title: React Images
+name: image_react
+categories:
+  - Beta
+---
+Images in react can be responsive and/or wrapped in a link.
+
+```html_example
+<div id="image-example"></div>
+```
+
+```jsx_example
+
+React.render(
+  <div>
+    <UI.Image src="http://placehold.it/1000x100" responsive="true" href="http://google.com" />
+  </div>,
+  document.getElementById('image-example')
+);
+```
+
+
+*/

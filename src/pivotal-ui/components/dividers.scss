@@ -63,7 +63,7 @@ Dividers draw horizontal lines between different content groupings.
 
 ```jsx_example
 React.render(
-  <Divider />,
+  <UI.Divider />,
   document.getElementById('divider-example')
 );
 ```
@@ -73,7 +73,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <Divider size="large" />,
+  <UI.Divider size="large" />,
   document.getElementById('divider-large-example')
 );
 ```
@@ -85,7 +85,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <DividerInverse />,
+  <UI.DividerInverse />,
   document.getElementById('divider-alt-example')
 );
 ```
@@ -96,7 +96,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <DividerInverse size="large" />,
+  <UI.DividerInverse size="large" />,
   document.getElementById('divider-alt-large-example')
 );
 ```

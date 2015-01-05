@@ -5,17 +5,12 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var Media = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Media);
+var Flag = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Flag);
+var Image = React.createFactory(require('../../../src/pivotal-ui/javascripts/images.jsx').Image);
 
 describe('Media', function() {
   beforeEach(function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
-
-    React.render(
-      Media({
-        children: "fop"
-      }),
-      this.node
-    );
   });
 
   afterEach(function() {
@@ -23,20 +18,34 @@ describe('Media', function() {
     document.body.removeChild(this.node);
   });
 
-  it("creates a Media component", function() {
-    expect($('#container .media .media-body')).toContainText('fop');
+  describe("Creates a basic media component", function() {
+    beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" />;
+
+      React.render(
+        Media({
+          children: "fop",
+          leftImage: image
+        }),
+        this.node
+      );
+    });
+
+    it("creates a Media component", function() {
+      expect($('#container .media .media-body')).toContainText('fop');
+    });
   });
 
+
+
   describe("when left image src is set", function() {
-    describe("when left image src is set and href is not", function() {
+    describe("when left image src is set", function() {
       beforeEach(function() {
+        var image = <img src="http://placehold.it/20x20" alt="my fancy image description" height='50px' width='40px'/>;
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftAlt: "my fancy image description",
-            leftImageHeight: '50px',
-            leftImageWidth: '40px'
+            leftImage: image
           }),
           this.node
         );
@@ -56,37 +65,16 @@ describe('Media', function() {
       });
     });
 
-    describe("when left href is set", function() {
-      beforeEach(function() {
-        React.render(
-          Media({
-            children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftImageHref: "http://www.google.com",
-          }),
-          this.node
-        );
-      });
-
-      it("displays the media-left link with an image inside", function() {
-        expect($('#container .media .media-left a img').attr('src')).toEqual('http://placehold.it/20x20');
-      });
-
-      it("links to it's href (google, in this case)", function() {
-        expect($('#container .media .media-left a').attr('href')).toEqual('http://www.google.com');
-      });
-    });
 
     describe("When default image padding is modified to large", function() {
       beforeEach(function() {
+        var image = <img src="http://placehold.it/20x20" />;
+
         React.render(
           Media({
             children: "fop",
-            leftImageSource: "http://placehold.it/20x20",
-            leftImageHref: "http://www.google.com",
-            leftMediaSpacing: "large",
-            rightImageSource: "http://placehold.it/20x20",
-            rightImageHref: "http://www.google.com"
+            leftImage: image,
+            leftMediaSpacing: 'large'
           }),
           this.node
         );
@@ -102,54 +90,40 @@ describe('Media', function() {
     });
   });
 
-
-  describe("when left image src is not set", function() {
-    beforeEach(function() {
-      React.render(
-        Media({
-          children: "fop"
-        }),
-        this.node
-      );
-    });
-
-    it("does not display the media-left link or image inside", function() {
-      expect($('#container .media')).not.toContainElement('.media-left');
-    });
-  });
-
   describe("when right image src is set", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20"/>;
+
       React.render(
         Media({
           children: "fop",
-          rightImageSource: "http://placehold.it/20x20",
-          rightImageHref: "http://www.google.com"
+          rightImage: image
         }),
         this.node
       );
     });
 
-    it("displays the media-right link with an image inside", function() {
-      expect($('#container .media .media-right .media-object').attr('src')).toEqual('http://placehold.it/20x20');
-    });
-
-    it("links to it's href (google, in this case)", function(){
-      expect($('#container .media .media-right a').attr('href')).toEqual('http://www.google.com');
+    it("displays the media-right with an image inside", function() {
+      expect($('#container .media .media-right img').attr('src')).toEqual('http://placehold.it/20x20');
     });
   });
 
   describe("when image alignment is set to middle", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20"/>;
+
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle"
+          vAlign:'middle',
+          leftImage: image
         }),
         this.node
       );
+    });
+
+    it("displays the media-middle class", function() {
+      expect($('#container .media .media-body')).toHaveClass('media-middle');
     });
 
     it("displays the media-middle class", function() {
@@ -159,12 +133,12 @@ describe('Media', function() {
 
   describe("when image alignment is set to bottom", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20"/>;
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "bottom"
+          vAlign: 'bottom',
+          leftImage: image
         }),
         this.node
       );
@@ -175,30 +149,14 @@ describe('Media', function() {
     });
   });
 
-  describe("when body alignment is set to middle", function() {
-    beforeEach(function() {
-      React.render(
-        Media({
-          children: "fop",
-          bodyAlignment: "middle"
-        }),
-        this.node
-      );
-    });
-
-    it("displays the media-middle class", function() {
-      expect($('#container .media .media-body')).toHaveClass('media-middle');
-    });
-  });
-
   describe("when media block is set to stack on small screens", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20"/>;
+
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle",
+          leftImage: image,
           stackSize: "small"
         }),
         this.node
@@ -212,12 +170,12 @@ describe('Media', function() {
 
   describe("when media block is set to stack on medium screens", function() {
     beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20" />;
+
       React.render(
         Media({
           children: "fop",
-          leftImageSource: "http://placehold.it/20x20",
-          leftImageHref: "http://www.google.com",
-          leftImageAlignment: "middle",
+          leftImage: image,
           stackSize: "medium"
         }),
         this.node
@@ -226,6 +184,27 @@ describe('Media', function() {
 
     it("the media-stackable-md class is applied to the media element", function() {
       expect($('#container .media')).toHaveClass('media-stackable-md');
+    });
+  });
+
+  describe("Flag", function() {
+    beforeEach(function() {
+      var image = <img src="http://placehold.it/20x20"/>;
+
+      React.render(
+        Flag({
+          children: "fop",
+          leftImage: image,
+          rightImage: image
+        }),
+        this.node
+      );
+    });
+
+    it("adds the class media-middle to the media-body, media-left, and media-right", function() {
+      expect($('#container .media-body')).toHaveClass('media-middle');
+      expect($('#container .media-left')).toHaveClass('media-middle');
+      expect($('#container .media-right')).toHaveClass('media-middle');
     });
   });
 

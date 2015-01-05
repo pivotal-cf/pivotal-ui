@@ -112,16 +112,16 @@ category: Beta
 
 ```jsx_example
 React.render(
-  <Pane className="bg-neutral-10">
-    <DefaultH1>This is a pane</DefaultH1>
-  </Pane>,
+  <UI.Pane className="bg-neutral-10">
+    <UI.DefaultH1>This is a pane</UI.DefaultH1>
+  </UI.Pane>,
   document.getElementById('pane-example')
 );
 
 React.render(
-  <BasePane outerClass="bg-dark-1" innerClass="bg-glow">
-    <DefaultH1 color="type-neutral-9">This is a pane (configurable)</DefaultH1>
-  </BasePane>,
+  <UI.BasePane outerClass="bg-dark-1" innerClass="bg-glow">
+    <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
+  </UI.BasePane>,
   document.getElementById('base-pane-example')
 );
 ```

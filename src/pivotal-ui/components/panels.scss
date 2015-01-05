@@ -599,9 +599,9 @@ Panels?!?! In Javascript?!?!
 
 ```jsx_example
 React.render(
-  <Panel className="bg-neutral-8">
+  <UI.Panel className="bg-neutral-8">
     <p>Base Panel</p>
-  </Panel>,
+  </UI.Panel>,
   document.getElementById('panel-custom-example')
 );
 ```
@@ -623,19 +623,19 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <Panel className="bg-neutral-8" scrollable="100">
+  <UI.Panel className="bg-neutral-8" scrollable="100">
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
-  </Panel>,
+  </UI.Panel>,
   document.getElementById('panel-scroll-example-1')
 );
 
 React.render(
-  <Panel className="bg-neutral-8" scrollable="true">
+  <UI.Panel className="bg-neutral-8" scrollable="true">
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
@@ -644,7 +644,7 @@ React.render(
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
     <p>Scrollable Panel</p>
-  </Panel>,
+  </UI.Panel>,
   document.getElementById('panel-scroll-example-2')
 );
 ```
@@ -667,9 +667,9 @@ Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the
 
 ```jsx_example
 React.render(
-  <Panel className="bg-neutral-8" padding="paxxl">
+  <UI.Panel className="bg-neutral-8" padding="paxxl">
     <p>Base Panel</p>
-  </Panel>,
+  </UI.Panel>,
   document.getElementById('panel-padding-example')
 );
 ```
@@ -690,9 +690,9 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <SimplePanel>
+  <UI.SimplePanel>
     Simple Panel
-  </SimplePanel>,
+  </UI.SimplePanel>,
   document.getElementById('panel-simple-example')
 );
 ```
@@ -713,9 +713,9 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <BasicPanel>
+  <UI.BasicPanel>
     Basic Panel
-  </BasicPanel>,
+  </UI.BasicPanel>,
   document.getElementById('panel-basic-example')
 );
 ```
@@ -743,27 +743,27 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>,
+  <UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>,
   document.getElementById('panel-shadow-example-default')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="1">Shadow Panel (level 1)</ShadowPanel>,
+  <UI.ShadowPanel shadowLevel="1">Shadow Panel (level 1)</UI.ShadowPanel>,
   document.getElementById('panel-shadow-example-1')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="2">Shadow Panel (level 2)</ShadowPanel>,
+  <UI.ShadowPanel shadowLevel="2">Shadow Panel (level 2)</UI.ShadowPanel>,
   document.getElementById('panel-shadow-example-2')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="3">Shadow Panel (level 3)</ShadowPanel>,
+  <UI.ShadowPanel shadowLevel="3">Shadow Panel (level 3)</UI.ShadowPanel>,
   document.getElementById('panel-shadow-example-3')
 );
 
 React.render(
-  <ShadowPanel shadowLevel="4">Shadow Panel (level 4)</ShadowPanel>,
+  <UI.ShadowPanel shadowLevel="4">Shadow Panel (level 4)</UI.ShadowPanel>,
   document.getElementById('panel-shadow-example-4')
 );
 ```
@@ -785,12 +785,12 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <ClickablePanel>Clickable Panel</ClickablePanel>,
+  <UI.ClickablePanel>Clickable Panel</UI.ClickablePanel>,
   document.getElementById('panel-clickable-example')
 );
 
 React.render(
-  <ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>,
+  <UI.ClickableAltPanel>Clickable Panel (Alt)</UI.ClickableAltPanel>,
   document.getElementById('panel-clickable-alt-example')
 );
 ```
@@ -811,9 +811,9 @@ parent: panel_react
 
 ```jsx_example
 React.render(
-  <HighlightPanel>
+  <UI.HighlightPanel>
     Highlight Panel
-  </HighlightPanel>,
+  </UI.HighlightPanel>,
   document.getElementById('panel-highlight-example')
 );
 ```

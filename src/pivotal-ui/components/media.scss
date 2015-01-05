@@ -242,18 +242,6 @@ name: media_react
 category: Beta
 ---
 
-## Image modifiers
-
-Media Modifiers                   | Options                                        | Description
---------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
-`<left or right>ImageHref       ` | url                                            | Url the image should link to
-`<left or right>ImageSource     ` | url                                            | Image source
-`<left or right>ImageAlignment  ` | top (default), "middle", "bottom"              | Vertical alignment
-`<left or right>MediaSpacing    ` | "small", "medium", "large", "xlarge"           | Spacing adjustments between the image and the content next to it
-`<left or right>ImageHeight     ` | pixel or percentage                            | Height of the image
-`<left or right>ImageWidth      ` | pixel or percentage                            | Width of the image
-`<left or right>ImageAlt        ` | string                                         | Text description of the image (for disabled users)
-
 ## General media object modifiers
 
 Media Modifiers     | Options                                        | Description
@@ -270,75 +258,81 @@ The base button renderer. You won't really interact with this directly.
 ```
 
 ```jsx_example
+var image = <UI.Image src='http://placehold.it/50x50' />;
+var linkedImage = <UI.Image src='http://placehold.it/50x50' href="http://google.com" />;
+
 React.render(
   <div>
-    <Media
-      leftImageSource='http://placehold.it/50x50'>
+    <UI.Media
+      leftImage={image}>
         left media
-    </Media>
+    </UI.Media>
 
-    <Media
-      rightImageHref='http://www.google.com'
-      rightImageSource='http://placehold.it/50x50'>
+    <UI.Media
+        rightImage={linkedImage}  vAlign='middle'>
         right media
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftImageAlignment='middle'
-      rightImageHref='http://www.google.com'
-      rightImageSource='http://placehold.it/50x50'
-      rightImageAlignment='middle'
-      bodyAlignment='middle'
+    <UI.Media
+      leftImage={image}
+      rightImage={image}
+      vAlign='middle'
       stackSize='medium'>
         left and right media
-    </Media>
+    </UI.Media>
   </div>,
   document.getElementById('media-basic-example')
 );
 ```
+
+*/
+
+/*doc
+---
+title: Alignment
+name: media_alignment_react
+parent: media_react
+---
 
 ```html_example
 <div id="media-alignment-example"></div>
 ```
 
 ```jsx_example
+var image = <UI.Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+
 React.render(
   <div>
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'>
+    <UI.Media leftImage={image}>
         top aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftImageAlignment='middle'>
+    <UI.Flag leftImage={image}>
         middle aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Media>
+    </UI.Flag>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftImageAlignment='middle'
-      leftAlt='this is the alt text for the left media'
-      bodyAlignment='middle'>
+    <UI.Flag leftImage={image}>
         middle aligned and middle body (for short text and big images)
-    </Media>
+    </UI.Flag>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftImageAlignment='bottom'>
-        bottom aligned - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Media>
+    <UI.Media
+      leftImage={image}
+      vAlign='bottom'>
+        bottom aligned - This is rarely, if ever, used. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </UI.Media>
   </div>,
   document.getElementById('media-alignment-example')
 );
 ```
-## Image spacing
+*/
+
+/*doc
+---
+title: Spacing
+name: media_spacing_react
+parent: media_react
+---
+
 
 Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
 
@@ -347,63 +341,43 @@ Media spacing can be added to the left and right medias. If no spacing is define
 ```
 
 ```jsx_example
+var image = <UI.Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+
 React.render(
   <div>
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'>
+    <UI.Media leftImage={image}>
         default image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftMediaSpacing='small'>
+    <UI.Media
+      leftImage={image}
+      leftMediaSpacing='small'
+      >
         small image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftMediaSpacing='medium'>
+    <UI.Media
+      leftImage={image}
+      leftMediaSpacing='medium'
+      >
         medium image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftMediaSpacing='large'>
+    <UI.Media
+      leftImage={image}
+      leftMediaSpacing='large'
+      >
         large image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftMediaSpacing='xlarge'>
+    <UI.Media
+      leftImage={image}
+      leftMediaSpacing='xlarge'
+      >
         xlarge image spacing media
-    </Media>
+    </UI.Media>
   </div>,
   document.getElementById('media-image-spacing-example')
-);
-```
-## Setting image dimensions
-
-```html_example
-<div id="media-image-dimensions-example"></div>
-```
-
-```jsx_example
-React.render(
-  <div>
-    <Media
-      leftImageHref='http://www.google.com'
-      leftImageSource='http://placehold.it/50x50'
-      leftImageHeight='25px'
-      leftImageWidth='25px'>
-        Sized image in a media block
-    </Media>
-  </div>,
-  document.getElementById('media-image-dimensions-example')
 );
 ```
 
