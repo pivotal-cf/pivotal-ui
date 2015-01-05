@@ -258,28 +258,28 @@ The base button renderer. You won't really interact with this directly.
 ```
 
 ```jsx_example
-var image = <Image src='http://placehold.it/50x50' />;
-var linkedImage = <Image src='http://placehold.it/50x50' href="http://google.com" />;
+var image = <UI.Image src='http://placehold.it/50x50' />;
+var linkedImage = <UI.Image src='http://placehold.it/50x50' href="http://google.com" />;
 
 React.render(
   <div>
-    <Media
+    <UI.Media
       leftImage={image}>
         left media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
         rightImage={linkedImage}  vAlign='middle'>
         right media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
       leftImage={image}
       rightImage={image}
       vAlign='middle'
       stackSize='medium'>
         left and right media
-    </Media>
+    </UI.Media>
   </div>,
   document.getElementById('media-basic-example')
 );
@@ -299,27 +299,27 @@ parent: media_react
 ```
 
 ```jsx_example
-var image = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+var image = <UI.Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
 
 React.render(
   <div>
-    <Media leftImage={image}>
+    <UI.Media leftImage={image}>
         top aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Media>
+    </UI.Media>
 
-    <Flag leftImage={image}>
+    <UI.Flag leftImage={image}>
         middle aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Flag>
+    </UI.Flag>
 
-    <Flag leftImage={image}>
+    <UI.Flag leftImage={image}>
         middle aligned and middle body (for short text and big images)
-    </Flag>
+    </UI.Flag>
 
-    <Media
+    <UI.Media
       leftImage={image}
       vAlign='bottom'>
         bottom aligned - This is rarely, if ever, used. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </Media>
+    </UI.Media>
   </div>,
   document.getElementById('media-alignment-example')
 );
@@ -341,41 +341,41 @@ Media spacing can be added to the left and right medias. If no spacing is define
 ```
 
 ```jsx_example
-var image = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+var image = <UI.Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
 
 React.render(
   <div>
-    <Media leftImage={image}>
+    <UI.Media leftImage={image}>
         default image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
       leftImage={image}
       leftMediaSpacing='small'
       >
         small image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
       leftImage={image}
       leftMediaSpacing='medium'
       >
         medium image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
       leftImage={image}
       leftMediaSpacing='large'
       >
         large image spacing media
-    </Media>
+    </UI.Media>
 
-    <Media
+    <UI.Media
       leftImage={image}
       leftMediaSpacing='xlarge'
       >
         xlarge image spacing media
-    </Media>
+    </UI.Media>
   </div>,
   document.getElementById('media-image-spacing-example')
 );

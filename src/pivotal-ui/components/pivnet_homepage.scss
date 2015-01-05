@@ -11,7 +11,7 @@ category: Beta
 
 ```jsx_example
 React.render(
-  <PivnetHomepage />,
+  <UI.PivnetHomepage />,
   document.getElementById('pivnetacos')
 );
 ```

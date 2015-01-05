@@ -196,7 +196,7 @@ Images in react can be responsive and/or wrapped in a link.
 
 React.render(
   <div>
-    <Image src="http://placehold.it/1000x100" responsive="true" href="http://google.com" />
+    <UI.Image src="http://placehold.it/1000x100" responsive="true" href="http://google.com" />
   </div>,
   document.getElementById('image-example')
 );

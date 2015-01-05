@@ -38,9 +38,9 @@ var Media = React.createClass({
   propTypes: {
     stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
     vAlign: React.PropTypes.oneOf(["middle","bottom"]),
-    hasImages: function(props, propName, componentName) {
+    hasImages: function(props) {
       if(!props["leftImage"] && !props["rightImage"]) {
-        return new Error("The media component must have at least one image")
+        return new Error("The media component must have at least one image");
       }
     }
   },
@@ -100,7 +100,7 @@ var Flag = React.createClass({
   getDefaultProps: function () {
     return {
       vAlign: 'middle'
-    }
+    };
   },
   render: function () {
     return (

@@ -1,13 +1,10 @@
 'use strict';
 
 var React = require('react/addons');
-var _ = require('lodash');
 
 var setClass = React.addons.classSet;
 
-var Image = React.createClass({
-
-
+var UIImage = React.createClass({
   render: function () {
     var classes = setClass({
       'img-responsive': this.props.responsive
@@ -36,5 +33,5 @@ var Image = React.createClass({
 });
 
 module.exports = {
-  Image: Image
+  Image: UIImage
 };

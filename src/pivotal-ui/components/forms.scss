@@ -1266,7 +1266,7 @@ categories:
 
 ```jsx_example
 React.render(
-  <SearchInput placeholder="Search..."/>,
+  <UI.SearchInput placeholder="Search..."/>,
   document.getElementById('react-search-example')
 );
 ```
@@ -1310,7 +1310,7 @@ var FilteringSearchExample = React.createClass({
 
     return (
       <div>
-        <SearchInput placeholder='Filter by...' onChange={this.updateFilter}/>
+        <UI.SearchInput placeholder='Filter by...' onChange={this.updateFilter}/>
         <ul>
           {listItems}
         </ul>

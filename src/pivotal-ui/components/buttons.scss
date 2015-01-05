@@ -147,7 +147,7 @@ Buttons use the button tag by default. If you'd like a link rather than a button
 
 ```jsx_example
 React.render(
-  <DefaultButton href="http://example.com">Default</DefaultButton>,
+  <UI.DefaultButton href="http://example.com">Default</UI.DefaultButton>,
   document.getElementById('link-button-example')
 );
 ```
@@ -160,7 +160,7 @@ To make a button large, set the `large` property to true.
 
 ```jsx_example
 React.render(
-  <HighlightButton large="true">Big Button</HighlightButton>,
+  <UI.HighlightButton large="true">Big Button</UI.HighlightButton>,
   document.getElementById('large-button-example')
 );
 ```
@@ -173,7 +173,7 @@ To make a button full-width, set the `block` property to true.
 
 ```jsx_example
 React.render(
-  <DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">Danger Zone</DangerButton>,
+  <UI.DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">Danger Zone</UI.DangerButton>,
   document.getElementById('block-button-example')
 );
 ```
@@ -187,7 +187,7 @@ Specific button types.
 
 ```jsx_example
 React.render(
-  <DefaultButton>Default</DefaultButton>,
+  <UI.DefaultButton>Default</UI.DefaultButton>,
   document.getElementById('default-button-example')
 );
 ```
@@ -198,7 +198,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <DefaultAltButton>Default alternate</DefaultAltButton>,
+  <UI.DefaultAltButton>Default alternate</UI.DefaultAltButton>,
   document.getElementById('default-alt-button-example')
 );
 ```
@@ -209,7 +209,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <PrimaryButton>Primary</PrimaryButton>,
+  <UI.PrimaryButton>Primary</UI.PrimaryButton>,
   document.getElementById('primary-button-example')
 );
 ```
@@ -220,7 +220,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <LowlightButton>Lowlight</LowlightButton>,
+  <UI.LowlightButton>Lowlight</UI.LowlightButton>,
   document.getElementById('lowlight-button-example')
 );
 ```
@@ -232,7 +232,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <DangerButton>Danger</DangerButton>,
+  <UI.DangerButton>Danger</UI.DangerButton>,
   document.getElementById('danger-button-example')
 );
 ```
@@ -243,7 +243,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <HighlightButton>Highlight</HighlightButton>,
+  <UI.HighlightButton>Highlight</UI.HighlightButton>,
   document.getElementById('highlight-button-example')
 );
 ```
@@ -254,7 +254,7 @@ React.render(
 
 ```jsx_example
 React.render(
-  <HighlightAltButton>Highlight alternate</HighlightAltButton>,
+  <UI.HighlightAltButton>Highlight alternate</UI.HighlightAltButton>,
   document.getElementById('highlight-alt-button-example')
 );
 ```
@@ -267,7 +267,7 @@ The base button renderer. You won't really interact with this directly.
 
 ```jsx_example
 React.render(
-  <UIButton>I'm a button</UIButton>,
+  <UI.UIButton>I'm a button</UI.UIButton>,
   document.getElementById('button-example')
 );
 ```
