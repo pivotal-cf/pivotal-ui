@@ -14,7 +14,8 @@ var argv = require('yargs').argv,
   replace = require('gulp-replace'),
   shell = require('gulp-shell'),
   source = require('vinyl-source-stream'),
-  stylish = require('jshint-stylish');
+  stylish = require('jshint-stylish'),
+  jsxTransform = require('gulp-react');
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -39,7 +40,8 @@ gulp.task('serve', function() {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./src/pivotal-ui/javascripts/**/*.js')
+  return gulp.src('./src/pivotal-ui/javascripts/**/*.js?(x)')
+    .pipe(jsxTransform())
     .pipe(jshint().on('error', errorHandler.handleError))
     .pipe(jshint.reporter(stylish))
     .pipe(jshint.reporter('fail'));

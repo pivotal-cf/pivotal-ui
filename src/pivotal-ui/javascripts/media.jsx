@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons');
-var _ = require('lodash');
 var setClass = React.addons.classSet;
 
 var MediaObject = React.createClass({

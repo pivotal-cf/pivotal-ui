@@ -4,7 +4,7 @@ var React = require('react');
 var _ = require('lodash');
 
 var TableHeader = React.createClass({
-  handleClick: function handleClick(e) {
+  handleClick: function handleClick() {
     if (this.props.sortable) {
       this.props.onSortableTableHeaderClick(this);
     }
