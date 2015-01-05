@@ -4,16 +4,12 @@
       <% examples.each do |example| %>
         <tr>
           <th>
-            <div class="exampleOutput">
-              <%= example.rendered_example %>
-            </div>
+            <div class="exampleOutput"><%= example.rendered_example %></div>
           </th>
           <td>
             <div class="codeBlock">
               <div class="highlight" data-code-to-copy>
-                <pre>
-                  <%= example.code_example %>
-                </pre>
+                <pre><%= example.code_example %></pre>
               </div>
             </div>
             <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
