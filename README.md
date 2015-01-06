@@ -54,14 +54,14 @@ You'll need to maintain the structure in the release directory to have fonts and
 
 If you're installing PivotalUI into a Rails project, you should unzip the constituent files into a directory named `vendor/assets/pui-vX.X.X`.
 
-When linking to the CSS file in your HTML/Sass, link to `pivotal-ui-rails.css` instead of the top-level `pivotal-ui.css`.
+In your `application.scss` file, add the line `@import "pivotal-ui-rails"`
+
+In your `application.js` file, add the line `//= require pivotal-ui` as **the very first** require declaration.
 
 Lastly, in your application's `config/application.rb`, you'll need to add the following to make sure all vendored files are properly compiled:
 
 ```
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'pui-vX.X.X', 'images')
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
-    config.assets.precompile += %w( pivotal-ui-rails.css pivotal-ui.js )
 ```
 
 # Including SCSS variables (optional, beta)
