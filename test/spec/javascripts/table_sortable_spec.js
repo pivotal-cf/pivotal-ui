@@ -60,6 +60,7 @@ describe('TableSortable', function() {
 
   afterEach(function() {
     React.unmountComponentAtNode(this.node);
+    document.body.removeChild(this.node);
   });
 
   it('adds the class "sortable" on all sortable columns', function() {

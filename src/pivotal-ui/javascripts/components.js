@@ -59,5 +59,8 @@ module.exports = {
   ShadowPanel: require('./panels.jsx').ShadowPanel,
   HighlightPanel: require('./panels.jsx').HighlightPanel,
 
-  Image: require('./images.jsx').Image
+  Image: require('./images.jsx').Image,
+
+  SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
+  Tab: require('./tabs.jsx').Tab
 };
