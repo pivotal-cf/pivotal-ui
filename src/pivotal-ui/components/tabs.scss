@@ -501,14 +501,14 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 
 /*doc
 ---
-title: React Simple Tabs
-name: react_simple_tabs
+title: React Tabs
+name: react_tabs
 categories:
   - Beta
 ---
 
 ```html_example_table
-<div id="simple-alt-tabs-example"></div>
+<div id="simple-tabs-example"></div>
 ```
 
 ```jsx_example
@@ -520,6 +520,36 @@ React.render(
       <span>So much content.</span>
     </UI.Tab>
   </UI.Tabs>,
+  document.getElementById('simple-tabs-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: React Alt Tabs
+name: react_alt_tabs
+parent: react_tabs
+---
+
+```html_example_table
+<div id="simple-alt-tabs-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.AltTabs>
+    <UI.Tab heading="Tab 1">Wow!</UI.Tab>
+    <UI.Tab heading="Tab 2" active="true">
+      <h2>Neat!</h2>
+      <span>So much content.</span>
+    </UI.Tab>
+    <UI.Tab heading="Tab, the third" active="true">
+      <h2>Ok</h2>
+      <span>great job!</span>
+    </UI.Tab>
+  </UI.AltTabs>,
   document.getElementById('simple-alt-tabs-example')
 );
 ```

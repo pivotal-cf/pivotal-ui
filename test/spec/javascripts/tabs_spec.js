@@ -17,6 +17,26 @@ describe("Tabs", function() {
     document.body.removeChild(this.node);
   });
 
+  describe("when the alt property is true", function() {
+    beforeEach(function() {
+      React.render(
+        <Tabs alt="true">
+          <Tab heading="My first tab" >Content for first tab</Tab>
+          <Tab heading="My second tab" >Content for second tab</Tab>
+        </Tabs>,
+        this.node
+      );
+    });
+
+    it("renders the simple-alt tabs", function() {
+      expect($('#container .tab-simple-alt ul.nav.nav-tabs li.active a')).toHaveText("My first tab");
+      expect($('#container .tab-simple-alt ul.nav.nav-tabs li:not(.active) a')).toHaveText("My second tab");
+
+      expect($('#container .tab-simple-alt .tab-content .tab-pane.in.active')).toHaveText("Content for first tab");
+      expect($('#container .tab-simple-alt .tab-content .tab-pane:not(.in.active)')).toHaveText("Content for second tab");
+    });
+  });
+
   describe("when the active tab is not set", function() {
     beforeEach(function() {
       React.render(

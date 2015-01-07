@@ -1,15 +1,19 @@
 'use strict';
 
-var React = require('react');
+var React = require('react/addons');
 var _ = require('lodash');
+
+var classSet = React.addons.classSet;
 
 var TabMenu = React.createClass({
   render: function () {
     var tabs = _.map(this.props.tabs, function(tab, index) {
-      var className = (index === this.props.activeIndex) ? "active" : "";
+      var classes = classSet({
+        'active': index === this.props.activeIndex
+      });
       var key = "tab-control-" + index;
       return (
-        <li key={key} className={className}>
+        <li key={key} className={classes}>
           <a onClick={this.props.onTabClick} data-index={index}>{tab}</a>
         </li>
       );
@@ -26,13 +30,16 @@ var TabMenu = React.createClass({
 var TabContents = React.createClass({
   render: function () {
     var panels = _.map(this.props.children, function(panel, index) {
-      var className = "tab-pane fade";
-      className += (this.props.activeIndex === index) ? " active in" : "";
+      var classes = classSet({
+        'tab-pane': true,
+        'fade': true,
+        'active in': this.props.activeIndex === index
+      });
 
       var key = "tab-panel-" + index;
 
       return (
-        <div key={key} className={className}>
+        <div key={key} className={classes}>
           {panel.props.children}
         </div>
       );
@@ -63,9 +70,13 @@ var Tabs = React.createClass({
   },
   render: function () {
     var tabLinks = _.pluck(_.pluck(this.props.children, 'props'), 'heading');
+    var classes = classSet({
+      'tab-simple': !this.props.alt,
+      'tab-simple-alt': this.props.alt
+    });
 
     return (
-      <div className="tab-simple">
+      <div className={classes}>
         <TabMenu tabs={tabLinks} activeIndex={this.state.activeIndex} onTabClick={this.updateTabs}/>
         <TabContents activeIndex={this.state.activeIndex}>{this.props.children}</TabContents>
       </div>
@@ -83,7 +94,18 @@ var Tab = React.createClass({
   }
 });
 
+var AltTabs = React.createClass({
+  render: function () {
+    return (
+      <Tabs alt="true">
+        {this.props.children}
+      </Tabs>
+    );
+  }
+});
+
 module.exports = {
   Tabs: Tabs,
+  AltTabs: AltTabs,
   Tab: Tab
 };
