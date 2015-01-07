@@ -79,5 +79,8 @@ module.exports = {
   DropdownHighlightAlt: require('./dropdowns.jsx').DropdownHighlightAlt,
   DropdownItem: require('./dropdowns.jsx').DropdownItem,
 
-  Label: require('./labels.jsx').Label
+  Label: require('./labels.jsx').Label,
+  CollapseBase: require('./collapse.jsx').CollapseBase,
+  Collapse: require('./collapse.jsx').Collapse,
+  CollapseAlt: require('./collapse.jsx').CollapseAlt
 };

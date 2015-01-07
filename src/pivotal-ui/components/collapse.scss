@@ -52,7 +52,7 @@ title: Sizes
 name: accordion_sizes
 parent: accordion
 ---
- 
+
 Default accordion size:
 
 ```html_example
@@ -191,63 +191,35 @@ This adds a divider between the accordion header and accordion body.
 </div>
 ```
 
-Accordion with Shadow:
-
-This adds a shadow to the accordion when it is both open and closed.
-
-```html_example
-<div class="panel panel-shadow" id="accordion-6">
-  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-toggle="collapse" href="#myCollapse-6" parent="#accordion-3">
-    <div class="row">
-      <div class="col-md-23">
-        <a>
-          <div class="when-collapsed-inline">
-            <i class="fa fa-caret-right collapse-icon"></i>
-          </div>
-          <div class="when-expanded-inline">
-            <i class="fa fa-caret-down collapse-icon"></i>
-          </div>
-        </a>
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
-    </div>
-  </div>
-  <div class="panel-collapse collapse" id="myCollapse-6">
-    <div class="panel-body-accordion-divider bg-neutral-11">
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-```
+You can combine the accordion with any panel class to have a styled panel that opens and closes.
 
 */
-[data-toggle=collapse] {
+
+.when-collapsed {
+  display: none;
+}
+.when-expanded {
+  display: block;
+}
+.when-collapsed-inline {
+  display: none;
+}
+.when-expanded-inline {
+  display: inline;
+}
+
+.collapsed {
   .when-collapsed {
-    display: none;
-  }
-  .when-expanded {
     display: block;
   }
-  .when-collapsed-inline {
+  .when-expanded {
     display: none;
   }
-  .when-expanded-inline {
+  .when-collapsed-inline {
     display: inline;
   }
-
-  &.collapsed {
-    .when-collapsed {
-      display: block;
-    }
-    .when-expanded {
-      display: none;
-    }
-    .when-collapsed-inline {
-      display: inline;
-    }
-    .when-expanded-inline {
-      display: none;
-    }
+  .when-expanded-inline {
+    display: none;
   }
 }
 
@@ -293,3 +265,93 @@ This adds a shadow to the accordion when it is both open and closed.
   border-top: 2px solid $shadow-3;
 }
 
+// Necessary to get the entire header clickable for BS-React-Collapses
+.panel-title {
+  a {
+    display: block;
+  }
+}
+
+/*doc
+---
+title: React Collapse
+name: react_collapse
+categories:
+  - Beta
+---
+
+Rellapse
+
+```html_example_table
+<div id='react-collapse-simple-example'></div>
+```
+
+```jsx_example
+React.render(
+  <UI.CollapseBase header="Panel 1">
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+    <p>Panel 1 content</p>
+  </UI.CollapseBase>,
+  document.getElementById('react-collapse-simple-example')
+);
+```
+
+With icons
+
+```html_example_table
+<div id='react-collapse-example'></div>
+
+<div id='react-collapse-alt-example'></div>
+```
+
+```jsx_example
+React.render(
+  <UI.Collapse header="With Arrows">
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+  </UI.Collapse>,
+  document.getElementById('react-collapse-example')
+);
+
+React.render(
+  <UI.CollapseAlt header="Without Arrows">
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+  </UI.CollapseAlt>,
+  document.getElementById('react-collapse-alt-example')
+);
+```
+
+With divider
+
+```html_example_table
+<div id='react-collapse-divider-example'></div>
+```
+
+```jsx_example
+React.render(
+  <UI.Collapse header="With Divider" divider>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+    <p>Content!</p>
+  </UI.Collapse>,
+  document.getElementById('react-collapse-divider-example')
+);
+```
+*/
