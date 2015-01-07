@@ -14,7 +14,7 @@ var TabMenu = React.createClass({
       var key = "tab-control-" + index;
       return (
         <li key={key} className={classes}>
-          <a onClick={this.props.onTabClick} data-index={index}>{tab}</a>
+          <a onClick={_.partial(this.props.updateTabs, index)}>{tab}</a>
         </li>
       );
     }, this);
@@ -64,8 +64,7 @@ var Tabs = React.createClass({
       this.setState({ activeIndex: this.props.activeTab });
     }
   },
-  updateTabs: function (event) {
-    var tabIndex = parseInt(event.target.getAttribute('data-index'));
+  updateTabs: function (tabIndex) {
     this.setState({ activeIndex: tabIndex });
   },
   render: function () {
@@ -77,7 +76,7 @@ var Tabs = React.createClass({
 
     return (
       <div className={classes}>
-        <TabMenu tabs={tabLinks} activeIndex={this.state.activeIndex} onTabClick={this.updateTabs}/>
+        <TabMenu tabs={tabLinks} activeIndex={this.state.activeIndex} updateTabs={this.updateTabs}/>
         <TabContents activeIndex={this.state.activeIndex}>{this.props.children}</TabContents>
       </div>
     );
