@@ -521,13 +521,13 @@ parent: react_tabs
 
 ```jsx_example
 React.render(
-  <UI.Tabs>
-    <UI.Tab heading="Tab 1">Wow!</UI.Tab>
-    <UI.Tab heading="Tab 2" active="true">
+  <UI.SimpleTabs defaultActiveKey={1}>
+    <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
+    <UI.Tab eventKey={2} tab="Tab 2">
       <h2>Neat!</h2>
       <span>So much content.</span>
     </UI.Tab>
-  </UI.Tabs>,
+  </UI.SimpleTabs>,
   document.getElementById('simple-tabs-example')
 );
 ```
@@ -547,17 +547,13 @@ parent: react_tabs
 
 ```jsx_example
 React.render(
-  <UI.AltTabs>
-    <UI.Tab heading="Tab 1">Wow!</UI.Tab>
-    <UI.Tab heading="Tab 2" active="true">
+  <UI.SimpleAltTabs defaultActiveKey={1}>
+    <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
+    <UI.Tab eventKey={2} tab="Tab 2">
       <h2>Neat!</h2>
       <span>So much content.</span>
     </UI.Tab>
-    <UI.Tab heading="Tab, the third" active="true">
-      <h2>Ok</h2>
-      <span>great job!</span>
-    </UI.Tab>
-  </UI.AltTabs>,
+  </UI.SimpleAltTabs>,
   document.getElementById('simple-alt-tabs-example')
 );
 ```
