@@ -149,16 +149,16 @@ categories:
   - Beta
 ---
 ```html_example
-<div id="ribbon-example"></div>
+<div id="Inline-ribbon-example"></div>
 ```
 
 ```jsx_example
 
 React.render(
   <div>
-    <UI.Ribbon> British </UI.Ribbon>
+    <UI.InlineRibbon> British </UI.InlineRibbon>
   </div>,
-  document.getElementById('ribbon-example')
+  document.getElementById('Inline-ribbon-example')
 );
 ```
 

@@ -4,14 +4,14 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Ribbon = require('../../../src/pivotal-ui/javascripts/ribbons.jsx').Ribbon;
+var InlineRibbon = require('../../../src/pivotal-ui/javascripts/ribbons.jsx').InlineRibbon;
 
-describe('Ribbon', function() {
+describe('InlineRibbon', function() {
   beforeEach(function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
     React.render(
-      <Ribbon>British</Ribbon>, this.node
+      <InlineRibbon>British</InlineRibbon>, this.node
     );
   });
  afterEach(function() {
@@ -20,7 +20,7 @@ describe('Ribbon', function() {
   });
 
 
-  it("renders a ribbon", function() {
+  it("renders a inline ribbon", function() {
     expect($('#container .inline-ribbon')).toHaveText('British');
   });
 });

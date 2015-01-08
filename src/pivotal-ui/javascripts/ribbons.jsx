@@ -3,7 +3,7 @@
 var React = require('react/addons');
 
 
-var Ribbon = React.createClass({
+var InlineRibbon = React.createClass({
   render: function() {
     return (
       <div className = "inline-ribbon">
@@ -16,7 +16,7 @@ var Ribbon = React.createClass({
 
 module.exports = {
 
-  Ribbon: Ribbon
+  InlineRibbon: InlineRibbon
 };
 
 
