@@ -1,32 +1,31 @@
 'use strict';
 
 var React = require('react/addons');
-var setClass = React.addons.classSet;
 
-var InlineRibbon = React.createClass({
+var Ribbon = React.createClass({
   render: function() {
-    var classes = setClass({
-      'inline-ribbon': true,
-      'ribbon-primary': this.props.primary
-    });
-
     return (
-      <div className={classes}>
+      <div className='inline-ribbon'>
         {this.props.children}
       </div>
     );
   }
 });
 
-var BannerRibbon = React.createClass({
+var PrimaryRibbon = React.createClass({
   render: function() {
-    var classes = setClass({
-      'ribbon-banner': true,
-      'ribbon-primary': this.props.primary
-    });
-
     return (
-      <div className={classes}>
+      <div className='inline-ribbon ribbon-primary'>
+        {this.props.children}
+      </div>
+    );
+  }
+});
+
+var Banner = React.createClass({
+  render: function() {
+    return (
+      <div className='ribbon-banner'>
         {this.props.children}
       </div>
     );
@@ -34,6 +33,7 @@ var BannerRibbon = React.createClass({
 });
 
 module.exports = {
-  BannerRibbon: BannerRibbon,
-  InlineRibbon: InlineRibbon
+  Ribbon: Ribbon,
+  PrimaryRibbon: PrimaryRibbon,
+  Banner: Banner
 };

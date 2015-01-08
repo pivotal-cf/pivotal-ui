@@ -61,8 +61,9 @@ module.exports = {
 
   Image: require('./images.jsx').Image,
 
-  InlineRibbon: require('./ribbons.jsx').InlineRibbon,
-  BannerRibbon: require('./ribbons.jsx').BannerRibbon,
+  Ribbon: require('./ribbons.jsx').Ribbon,
+  PrimaryRibbon: require('./ribbons.jsx').PrimaryRibbon,
+  Banner: require('./ribbons.jsx').Banner,
 
   Tab: require('./tabs.jsx').Tab,
   SimpleTabs: require('./tabs.jsx').SimpleTabs,

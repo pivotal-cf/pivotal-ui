@@ -41,7 +41,7 @@ parent: ribbon
   background-color: $ribbon-bg-default;
 
 
-  &:before, 
+  &:before,
   &:after {
     content: "";
     position: absolute;
@@ -132,7 +132,7 @@ parent: ribbon
   &:before {
     border-color: $ribbon-bg-primary;
     border-left-color: transparent;
-  } 
+  }
 
   &:after {
     border-color: $ribbon-bg-primary;
@@ -151,47 +151,59 @@ categories:
 
 /*doc
 ---
-title: Inline Ribbons
-name: inline_ribbons_react
+title: Ribbons
+name: 01_ribbons_react
 parent: ribbons_react
 ---
 
 ```html_example_table
-<div id="Inline-ribbon-example"></div>
-<div id="Inline-ribbon-primary-example"></div>
+<div id="ribbon-example"></div>
 ```
 
 ```jsx_example
 React.render(
-  <UI.InlineRibbon> British </UI.InlineRibbon>,
-  document.getElementById('Inline-ribbon-example')
-);
-
-React.render(
-  <UI.InlineRibbon primary> English-British </UI.InlineRibbon>,
-  document.getElementById('Inline-ribbon-primary-example')
+  <UI.Ribbon> British </UI.Ribbon>,
+  document.getElementById('ribbon-example')
 );
 ```
 */
 
+/*doc
+---
+title: Primary Ribbons
+name: 02_primary_ribbons_react
+parent: ribbons_react
+---
+
+```html_example_table
+<div id="ribbon-primary-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.PrimaryRibbon> English-British </UI.PrimaryRibbon>,
+  document.getElementById('ribbon-primary-example')
+);
+```
+*/
 
 /*doc
 ---
-title: Banner Ribbons
-name: banner_ribbons_react
+title: Banners
+name: 03_banner_ribbons_react
 parent: ribbons_react
 ---
 
 ```html_example
-<div id="banner-ribbon-example"></div>
+<div id="banner-example"></div>
 ```
 
 ```jsx_example
 React.render(
   <div className="styleguide-component-wrapper">
-    <UI.BannerRibbon> British </UI.BannerRibbon>
+    <UI.Banner> British </UI.Banner>
   </div>,
-  document.getElementById('banner-ribbon-example')
+  document.getElementById('banner-example')
 );
 ```
 
