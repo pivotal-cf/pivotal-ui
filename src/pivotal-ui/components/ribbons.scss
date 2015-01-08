@@ -140,21 +140,28 @@ parent: ribbon
   }
 }
 
-
 /*doc
 ---
-title: React inline ribbons
-name: inline_ribbons_react
+title: React Ribbons
+name: ribbons_react
 categories:
   - Beta
 ---
+*/
+
+/*doc
+---
+title: Inline Ribbons
+name: inline_ribbons_react
+parent: ribbons_react
+---
+
 ```html_example_table
 <div id="Inline-ribbon-example"></div>
 <div id="Inline-ribbon-primary-example"></div>
 ```
 
 ```jsx_example
-
 React.render(
   <div>
     <UI.InlineRibbon> British </UI.InlineRibbon>
@@ -164,29 +171,26 @@ React.render(
 
 React.render(
   <div>
-    <UI.InlineRibbon primary> British </UI.InlineRibbon>
+    <UI.InlineRibbon primary> English-British </UI.InlineRibbon>
   </div>,
   document.getElementById('Inline-ribbon-primary-example')
 );
 ```
-
-
 */
 
 
 /*doc
 ---
-title: React banner ribbons
+title: Banner Ribbons
 name: banner_ribbons_react
-categories:
-  - Beta
+parent: ribbons_react
 ---
+
 ```html_example
 <div id="banner-ribbon-example"></div>
 ```
 
 ```jsx_example
-
 React.render(
   <div className="styleguide-component-wrapper">
     <UI.BannerRibbon> British </UI.BannerRibbon>
