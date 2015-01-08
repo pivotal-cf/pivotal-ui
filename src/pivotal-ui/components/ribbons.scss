@@ -148,8 +148,9 @@ name: inline_ribbons_react
 categories:
   - Beta
 ---
-```html_example
+```html_example_table
 <div id="Inline-ribbon-example"></div>
+<div id="Inline-ribbon-primary-example"></div>
 ```
 
 ```jsx_example
@@ -159,6 +160,13 @@ React.render(
     <UI.InlineRibbon> British </UI.InlineRibbon>
   </div>,
   document.getElementById('Inline-ribbon-example')
+);
+
+React.render(
+  <div>
+    <UI.InlineRibbon primary> British </UI.InlineRibbon>
+  </div>,
+  document.getElementById('Inline-ribbon-primary-example')
 );
 ```
 

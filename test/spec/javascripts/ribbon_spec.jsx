@@ -16,17 +16,29 @@ describe('InlineRibbon', function() {
       <InlineRibbon>British</InlineRibbon>, this.node
     );
   });
- afterEach(function() {
+
+  afterEach(function() {
     React.unmountComponentAtNode(this.node);
     document.body.removeChild(this.node);
   });
 
-
   it("renders a inline ribbon", function() {
     expect($('#container .inline-ribbon')).toHaveText('British');
+    expect($('#container .inline-ribbon')).not.toHaveClass('ribbon-primary');
+  });
+
+  describe("When primary is set to true", function() {
+    beforeEach(function() {
+      React.render(
+        <InlineRibbon primary>British</InlineRibbon>, this.node
+      )
+    });
+
+    it('adds the ribbon-primary class', function () {
+      expect($('#container .inline-ribbon')).toHaveClass('ribbon-primary');
+    });
   });
 });
-
 
 describe('BannerRibbon', function() {
   beforeEach(function() {
@@ -46,7 +58,5 @@ describe('BannerRibbon', function() {
     expect($('#container .ribbon-banner')).toHaveText('British');
   });
 });
-
-
 
 
