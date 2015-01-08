@@ -14,8 +14,19 @@ var InlineRibbon = React.createClass({
 });
 
 
-module.exports = {
+var BannerRibbon = React.createClass({
+  render: function() {
+    return (
+      <div className = "ribbon-banner">
+        {this.props.children}
+      </div>
+      );
+  }
+});
 
+
+module.exports = {
+  BannerRibbon: BannerRibbon,
   InlineRibbon: InlineRibbon
 };
 

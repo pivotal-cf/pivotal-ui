@@ -165,3 +165,28 @@ React.render(
 
 */
 
+
+/*doc
+---
+title: React banner ribbons
+name: banner_ribbons_react
+categories:
+  - Beta
+---
+```html_example
+<div id="banner-ribbon-example"></div>
+```
+
+```jsx_example
+
+React.render(
+  <div className="styleguide-component-wrapper">
+    <UI.BannerRibbon> British </UI.BannerRibbon>
+  </div>,
+  document.getElementById('banner-ribbon-example')
+);
+```
+
+
+*/
+
