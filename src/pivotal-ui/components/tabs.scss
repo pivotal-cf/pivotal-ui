@@ -497,3 +497,64 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
     }
   }
 }
+
+/*doc
+---
+title: React Tabs
+name: react_tabs
+categories:
+  - Beta
+---
+
+*/
+
+/*doc
+---
+title: Simple Tabs
+name: 01_react_simple_tabs
+parent: react_tabs
+---
+
+```html_example_table
+<div id="simple-tabs-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.SimpleTabs defaultActiveKey={1}>
+    <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
+    <UI.Tab eventKey={2} tab="Tab 2">
+      <h2>Neat!</h2>
+      <span>So much content.</span>
+    </UI.Tab>
+  </UI.SimpleTabs>,
+  document.getElementById('simple-tabs-example')
+);
+```
+
+*/
+
+/*doc
+---
+title: React Alt Tabs
+name: 02_react_alt_tabs
+parent: react_tabs
+---
+
+```html_example_table
+<div id="simple-alt-tabs-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.SimpleAltTabs defaultActiveKey={1}>
+    <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
+    <UI.Tab eventKey={2} tab="Tab 2">
+      <h2>Neat!</h2>
+      <span>So much content.</span>
+    </UI.Tab>
+  </UI.SimpleAltTabs>,
+  document.getElementById('simple-alt-tabs-example')
+);
+```
+*/
