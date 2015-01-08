@@ -163,16 +163,12 @@ parent: ribbons_react
 
 ```jsx_example
 React.render(
-  <div>
-    <UI.InlineRibbon> British </UI.InlineRibbon>
-  </div>,
+  <UI.InlineRibbon> British </UI.InlineRibbon>,
   document.getElementById('Inline-ribbon-example')
 );
 
 React.render(
-  <div>
-    <UI.InlineRibbon primary> English-British </UI.InlineRibbon>
-  </div>,
+  <UI.InlineRibbon primary> English-British </UI.InlineRibbon>,
   document.getElementById('Inline-ribbon-primary-example')
 );
 ```
