@@ -63,5 +63,15 @@ module.exports = {
 
   Tab: require('./tabs.jsx').Tab,
   SimpleTabs: require('./tabs.jsx').SimpleTabs,
-  SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs
+  SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
+
+  Dropdown: require('./dropdowns.jsx').Dropdown,
+  DropdownLink: require('./dropdowns.jsx').DropdownLink,
+  DropdownDefaultAlt: require('./dropdowns.jsx').DropdownDefaultAlt,
+  DropdownPrimary: require('./dropdowns.jsx').DropdownPrimary,
+  DropdownLowlight: require('./dropdowns.jsx').DropdownLowlight,
+  DropdownDanger: require('./dropdowns.jsx').DropdownDanger,
+  DropdownHighlight: require('./dropdowns.jsx').DropdownHighlight,
+  DropdownHighlightAlt: require('./dropdowns.jsx').DropdownHighlightAlt,
+  DropdownItem: require('./dropdowns.jsx').DropdownItem
 };
