@@ -272,7 +272,7 @@ parent: tab
         font-weight: $tab-alt-link-font-weight;
         font-size: 16px;
       }
-      > a:hover {
+      > a:hover, > a:focus {
         border: 0;
       }
     }
