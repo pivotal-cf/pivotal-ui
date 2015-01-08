@@ -1,0 +1,105 @@
+/*doc
+---
+title: React Dropdowns
+name: dropdown_react
+categories:
+  - Beta
+---
+
+This is the basic bootstrap dropdown, to be styled in a subsequent story.
+
+```html_example
+<div class="dropdown">
+  <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
+    Dropdown
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+    <li role="presentation" class="divider"></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+  </ul>
+</div>
+```
+
+```html_example_table
+<div id="dropdown-example"></div>
+
+<div id="dropdown-link-example"></div>
+
+<div id="dropdown-default-alt-example"></div>
+
+<div id="dropdown-primary-example"></div>
+
+<div id="dropdown-lowlight-example"></div>
+
+<div id="dropdown-danger-example"></div>
+
+<div id="dropdown-highlight-example"></div>
+
+<div id="dropdown-highlight-alt-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.Dropdown title='DropDown'>
+    <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
+    <UI.DropdownItem divider />
+    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.Dropdown>,
+  document.getElementById('dropdown-example')
+);
+
+React.render(
+  <UI.DropdownLink title='Link'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownLink>,
+  document.getElementById('dropdown-link-example')
+);
+
+React.render(
+  <UI.DropdownDefaultAlt title='Default Alt'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownDefaultAlt>,
+  document.getElementById('dropdown-default-alt-example')
+);
+
+React.render(
+  <UI.DropdownPrimary title='Primary'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownPrimary>,
+  document.getElementById('dropdown-primary-example')
+);
+
+React.render(
+  <UI.DropdownLowlight title='Lowlight'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownLowlight>,
+  document.getElementById('dropdown-lowlight-example')
+);
+
+React.render(
+  <UI.DropdownDanger title='Danger'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownDanger>,
+  document.getElementById('dropdown-danger-example')
+);
+
+React.render(
+  <UI.DropdownHighlight title='Highlight'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownHighlight>,
+  document.getElementById('dropdown-highlight-example')
+);
+
+React.render(
+  <UI.DropdownHighlightAlt title='Highlight Alt'>
+     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+  </UI.DropdownHighlightAlt>,
+  document.getElementById('dropdown-highlight-alt-example')
+);
+```
+
+*/
