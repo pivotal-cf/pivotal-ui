@@ -139,3 +139,29 @@ parent: ribbon
     border-right-color: transparent;
   }
 }
+
+
+/*doc
+---
+title: React inline ribbons
+name: inline_ribbons_react
+categories:
+  - Beta
+---
+```html_example
+<div id="ribbon-example"></div>
+```
+
+```jsx_example
+
+React.render(
+  <div>
+    <UI.Ribbon> British </UI.Ribbon>
+  </div>,
+  document.getElementById('ribbon-example')
+);
+```
+
+
+*/
+

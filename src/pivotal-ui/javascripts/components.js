@@ -61,6 +61,8 @@ module.exports = {
 
   Image: require('./images.jsx').Image,
 
+  Ribbon: require('./ribbons.jsx').Ribbon,
+
   Tab: require('./tabs.jsx').Tab,
   SimpleTabs: require('./tabs.jsx').SimpleTabs,
   SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
