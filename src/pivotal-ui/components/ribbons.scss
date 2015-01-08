@@ -13,16 +13,17 @@ Ribbons should be used to call out access, status, enironment, etc.
 
 /*doc
 ---
-title: Inline
+title: Ribbon
 name: ribbon_inline
 parent: ribbon
 ---
 
-```html_example
-<div class="inline-ribbon">
-  British
-</div>
+```html_example_table
+<div class="inline-ribbon">British</div>
 <span class="mlm">For British eyes only</span>
+
+<div class="inline-ribbon ribbon-primary">Pivotal</div>
+<span class="mlm">Wow this ribbon is so inline</span>
 ```
 
 */
@@ -60,6 +61,20 @@ parent: ribbon
   &:after {
     border-right-color: transparent;
     right: -22px;
+  }
+}
+
+.ribbon-primary {
+  background-color: $ribbon-bg-primary;
+
+  &:before {
+    border-color: $ribbon-bg-primary;
+    border-left-color: transparent;
+  }
+
+  &:after {
+    border-color: $ribbon-bg-primary;
+    border-right-color: transparent;
   }
 }
 
@@ -107,35 +122,6 @@ in other contexts.
     border-style: solid;
     border-width: 16px;
     border-color: $ribbon-bg-banner;
-    border-right-color: transparent;
-  }
-}
-
-/*doc
----
-title: Colors
-name: ribbon_colors
-parent: ribbon
----
-
-```html_example_table
-<div class="inline-ribbon">British</div>
-
-<div class="inline-ribbon ribbon-primary">Pivotal</div>
-```
-
-*/
-
-.ribbon-primary {
-  background-color: $ribbon-bg-primary;
-
-  &:before {
-    border-color: $ribbon-bg-primary;
-    border-left-color: transparent;
-  }
-
-  &:after {
-    border-color: $ribbon-bg-primary;
     border-right-color: transparent;
   }
 }
