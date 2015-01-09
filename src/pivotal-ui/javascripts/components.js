@@ -77,5 +77,7 @@ module.exports = {
   DropdownDanger: require('./dropdowns.jsx').DropdownDanger,
   DropdownHighlight: require('./dropdowns.jsx').DropdownHighlight,
   DropdownHighlightAlt: require('./dropdowns.jsx').DropdownHighlightAlt,
-  DropdownItem: require('./dropdowns.jsx').DropdownItem
+  DropdownItem: require('./dropdowns.jsx').DropdownItem,
+
+  Label: require('./labels.jsx').Label
 };

@@ -71,3 +71,32 @@ Removable labels are used as tags in an editable list. The user will either ente
     }
   }
 }
+
+/*doc
+---
+title: React Labels
+name: react_label
+categories:
+  - Beta
+---
+
+```html_example_table
+<div id="react-label-example"></div>
+
+<div id="react-label-h1-example"></div>
+```
+
+```jsx_example
+React.render(
+  <UI.Label>yeah</UI.Label>,
+  document.getElementById('react-label-example')
+);
+
+React.render(
+  <UI.DefaultH3>
+    Now the label is in a typography component <UI.Label>yeah</UI.Label>
+  </UI.DefaultH3>,
+  document.getElementById('react-label-h1-example')
+);
+```
+*/
