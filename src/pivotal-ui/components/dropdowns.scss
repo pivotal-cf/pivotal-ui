@@ -1,35 +1,130 @@
 /*doc
 ---
+title: Dropdowns
+name: dropdown
+categories:
+  - Objects
+  - All
+---
+
+Dropdowns are menus that can be triggered by buttons.
+
+This is the basic bootstrap dropdown.
+
+```html_example
+<div class="dropdown btn-group">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation"><a href="http://www.google.com">Google</a></li>
+    <li class="divider mvn"></li>
+    <li role="presentation"><a href="http://www.yahoo.com">Yahoo</a></li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation"><a href="http://www.aol.com">Aol</a></li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">Dropdowns with dividers</h5>
+  <p>
+    If you want to add a divider between items in the dropdown,
+    add a `li.divider` between list items.
+  </p>
+</div>
+
+```html_example
+<div class="dropdown btn-group">
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button"><span>Link Dropdown</span><span class="caret"></span></button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
+    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">No links as dropdowns</h5>
+  <p>
+    Instead of using an <code>a</code> tag as a dropdown,
+    use a <code>button.btn.btn-link</code>.
+  </p>
+</div>
+
+Here's a crazy-complex dropdown. Not for the faint of heart.
+
+```html_example
+<div class="dropdown btn-group">
+  <button id="dropdown-button-2" class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    dropdown trigger
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-2">
+    <li role="presentation">
+      <a href="#" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">updates and alerts</h4>
+            <span class="type-neutral-4">receive all tacos and burritos.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">alerts only</h4>
+            <span class="type-neutral-4">only receive tacos when burritos are issued for this product and files.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">none</h4>
+            <span class="type-neutral-4">do not receive any mexican food.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+*/
+
+/*doc
+---
 title: React Dropdowns
 name: dropdown_react
 categories:
   - Beta
 ---
 
-This is the basic bootstrap dropdown, to be styled in a subsequent story.
-
-```html_example
-<div class="dropdown">
-  <a id="drop3" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="true">
-    Dropdown
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
-    <li role="presentation" class="divider"></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
-  </ul>
-</div>
-```
+This is the basic bootstrap dropdown:
 
 ```react_example_table
-  <UI.Dropdown title='DropDown'>
-    <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
-    <UI.DropdownItem divider />
-    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.Dropdown>
+<UI.Dropdown title='DropDown'>
+  <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
+  <UI.DropdownItem divider />
+  <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.Dropdown>
 ```
 
 Here are all the different dropdown styles:
@@ -65,3 +160,7 @@ Here are all the different dropdown styles:
 ```
 
 */
+
+.dropdown-menu {
+  @include box-shadow(0 2px 2px rgba(0,0,0,.15));
+}
