@@ -21,6 +21,10 @@ Panels are typically a combination of contours, backgrounds, and content includi
   //background-color: transparent; // Bootstrap Override
 }
 
+.panel-title {
+  font-size: inherit; // Bootstrap Override for React Collapses
+}
+
 /*doc
 ---
 title: Simple
@@ -819,3 +823,29 @@ React.render(
 ```
 
 */
+
+/*doc
+---
+title: Divider Panels
+name: panel_react_divider
+parent: panel_react
+---
+
+```html_example_table
+<div id="panel-divider-example">
+</div>
+```
+
+```jsx_example
+React.render(
+  <UI.HighlightPanel divider>
+    Highlight Panel
+  </UI.HighlightPanel>,
+  document.getElementById('panel-divider-example')
+);
+```
+
+*/
+.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
+  @extend .panel-body-accordion-divider;
+}
