@@ -82,5 +82,10 @@ module.exports = {
   Label: require('./labels.jsx').Label,
   CollapseBase: require('./collapse.jsx').CollapseBase,
   Collapse: require('./collapse.jsx').Collapse,
-  CollapseAlt: require('./collapse.jsx').CollapseAlt
+  CollapseAlt: require('./collapse.jsx').CollapseAlt,
+
+  SuccessAlert: require('./alerts.jsx').SuccessAlert,
+  InfoAlert: require('./alerts.jsx').InfoAlert,
+  WarningAlert: require('./alerts.jsx').WarningAlert,
+  ErrorAlert: require('./alerts.jsx').ErrorAlert,
 };
