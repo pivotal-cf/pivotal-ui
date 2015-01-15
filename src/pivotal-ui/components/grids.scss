@@ -459,48 +459,42 @@ parent: grid_react
 ---
 
 
-```html_example
-<div id="grid-example"></div>
-```
+```react_example
+<div>
+  <UI.Row className="grid-show">
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+    <UI.Col md={2}></UI.Col>
+  </UI.Row>
 
-```jsx_example
-React.render(
-  <div>
-    <UI.Row className="grid-show">
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-      <UI.Col md={2}></UI.Col>
-    </UI.Row>
+  <UI.Row className="grid-show">
+    <UI.Col md={16}></UI.Col>
+    <UI.Col md={8}></UI.Col>
+  </UI.Row>
 
-    <UI.Row className="grid-show">
-      <UI.Col md={16}></UI.Col>
-      <UI.Col md={8}></UI.Col>
-    </UI.Row>
+  <UI.Row className="grid-show">
+    <UI.Col md={8}></UI.Col>
+    <UI.Col md={8}></UI.Col>
+    <UI.Col md={8}></UI.Col>
+  </UI.Row>
 
-    <UI.Row className="grid-show">
-      <UI.Col md={8}></UI.Col>
-      <UI.Col md={8}></UI.Col>
-      <UI.Col md={8}></UI.Col>
-    </UI.Row>
-
-    <UI.Row className="grid-show">
-      <UI.Col md={12}></UI.Col>
-      <UI.Col md={12}></UI.Col>
-    </UI.Row>
-  </div>,
-  document.getElementById('grid-example')
-);
+  <UI.Row className="grid-show">
+    <UI.Col md={12}></UI.Col>
+    <UI.Col md={12}></UI.Col>
+  </UI.Row>
+</div>
 ```
 */
+
 /*doc
 ---
 title: "React Example: Mobile and Desktop"
@@ -512,31 +506,24 @@ Don't want your columns to simply stack in smaller devices?
 Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns.
 See the example below for a better idea of how it all works.
 
-```html_example
-<div id="grid-mobile-example"></div>
-```
+```react_example
+<div>
+  <UI.Row className="grid-show">
+    <UI.Col xs={24} md={16}></UI.Col>
+    <UI.Col xs={12} md={8}></UI.Col>
+  </UI.Row>
 
-```jsx_example
-React.render(
-  <div>
-    <UI.Row className="grid-show">
-      <UI.Col xs={24} md={16}></UI.Col>
-      <UI.Col xs={12} md={8}></UI.Col>
-    </UI.Row>
+  <UI.Row className="grid-show">
+    <UI.Col xs={12} md={8}></UI.Col>
+    <UI.Col xs={12} md={8}></UI.Col>
+    <UI.Col xs={12} md={8}></UI.Col>
+  </UI.Row>
 
-    <UI.Row className="grid-show">
-      <UI.Col xs={12} md={8}></UI.Col>
-      <UI.Col xs={12} md={8}></UI.Col>
-      <UI.Col xs={12} md={8}></UI.Col>
-    </UI.Row>
-
-    <UI.Row className="grid-show">
-      <UI.Col xs={12}></UI.Col>
-      <UI.Col xs={12}></UI.Col>
-    </UI.Row>
-  </div>,
-  document.getElementById('grid-mobile-example')
-);
+  <UI.Row className="grid-show">
+    <UI.Col xs={12}></UI.Col>
+    <UI.Col xs={12}></UI.Col>
+  </UI.Row>
+</div>
 ```
 
 */
@@ -548,30 +535,23 @@ name: 04_grid_gutter_sizes_react
 parent: grid_react
 ---
 
-```html_example
-<div id="grid-gutter-example"></div>
-```
+```react_example
+<div>
+  <UI.Row className="grid-show">
+    <UI.Col md={12}></UI.Col>
+    <UI.Col md={12}></UI.Col>
+  </UI.Row>
 
-```jsx_example
-React.render(
-  <div>
-    <UI.Row className="grid-show">
-      <UI.Col md={12}></UI.Col>
-      <UI.Col md={12}></UI.Col>
-    </UI.Row>
+  <UI.Row className="grid-show" gutter="md">
+    <UI.Col md={12}></UI.Col>
+    <UI.Col md={12}></UI.Col>
+  </UI.Row>
 
-    <UI.Row className="grid-show" gutter="md">
-      <UI.Col md={12}></UI.Col>
-      <UI.Col md={12}></UI.Col>
-    </UI.Row>
-
-    <UI.Row className="grid-show" gutter="sm">
-      <UI.Col md={12}></UI.Col>
-      <UI.Col md={12}></UI.Col>
-    </UI.Row>
-  </div>,
-  document.getElementById('grid-gutter-example')
-);
+  <UI.Row className="grid-show" gutter="sm">
+    <UI.Col md={12}></UI.Col>
+    <UI.Col md={12}></UI.Col>
+  </UI.Row>
+</div>
 ```
 */
 

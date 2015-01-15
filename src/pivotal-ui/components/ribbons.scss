@@ -142,15 +142,8 @@ name: 01_ribbons_react
 parent: ribbons_react
 ---
 
-```html_example_table
-<div id="ribbon-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.Ribbon> British </UI.Ribbon>,
-  document.getElementById('ribbon-example')
-);
+```react_example_table
+<UI.Ribbon> British </UI.Ribbon>
 ```
 */
 
@@ -161,15 +154,8 @@ name: 02_primary_ribbons_react
 parent: ribbons_react
 ---
 
-```html_example_table
-<div id="ribbon-primary-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.PrimaryRibbon> English-British </UI.PrimaryRibbon>,
-  document.getElementById('ribbon-primary-example')
-);
+```react_example_table
+<UI.PrimaryRibbon> English-British </UI.PrimaryRibbon>
 ```
 */
 
@@ -180,19 +166,11 @@ name: 03_banner_ribbons_react
 parent: ribbons_react
 ---
 
-```html_example
-<div id="banner-example"></div>
+```react_example_table
+<div className="styleguide-component-wrapper">
+  <UI.Banner> British </UI.Banner>
+</div>
 ```
-
-```jsx_example
-React.render(
-  <div className="styleguide-component-wrapper">
-    <UI.Banner> British </UI.Banner>
-  </div>,
-  document.getElementById('banner-example')
-);
-```
-
 
 */
 

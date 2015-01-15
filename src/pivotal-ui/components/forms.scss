@@ -1260,22 +1260,11 @@ categories:
   - Beta
 ---
 
-```html_example
-<div id='react-search-example'></div>
-```
-
-```jsx_example
-React.render(
-  <UI.SearchInput placeholder="Search..."/>,
-  document.getElementById('react-search-example')
-);
+```react_example
+<UI.SearchInput placeholder="Search..."/>
 ```
 
 Example of composing a SearchInput with state and I/O...
-
-```html_example
-<div id='react-filtering-search-example'></div>
-```
 
 ```jsx_example
 var FilteringSearchExample = React.createClass({
@@ -1318,11 +1307,10 @@ var FilteringSearchExample = React.createClass({
     )
   }
 });
+```
 
-React.render(
-  <FilteringSearchExample />,
-  document.getElementById('react-filtering-search-example')
-);
+```react_example
+<FilteringSearchExample />
 ```
 
 */

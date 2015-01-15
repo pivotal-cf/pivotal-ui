@@ -5,14 +5,7 @@ name: pivnetacos_react
 category: Beta
 ---
 
-```html_example
-<div id="pivnetacos"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.PivnetHomepage />,
-  document.getElementById('pivnetacos')
-);
+```react_example
+<UI.PivnetHomepage />
 ```
 */

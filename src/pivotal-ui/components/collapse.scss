@@ -282,76 +282,53 @@ categories:
 
 Rellapse
 
-```html_example_table
-<div id='react-collapse-simple-example'></div>
-```
-
-```jsx_example
-React.render(
-  <UI.CollapseBase header="Panel 1">
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-    <p>Panel 1 content</p>
-  </UI.CollapseBase>,
-  document.getElementById('react-collapse-simple-example')
-);
+```react_example
+<UI.CollapseBase header="Panel 1">
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+</UI.CollapseBase>
 ```
 
 With icons
 
-```html_example_table
-<div id='react-collapse-example'></div>
-
-<div id='react-collapse-alt-example'></div>
+```react_example
+<UI.Collapse header="With Arrows">
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.Collapse>
 ```
 
-```jsx_example
-React.render(
-  <UI.Collapse header="With Arrows">
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-  </UI.Collapse>,
-  document.getElementById('react-collapse-example')
-);
-
-React.render(
-  <UI.CollapseAlt header="Without Arrows">
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-  </UI.CollapseAlt>,
-  document.getElementById('react-collapse-alt-example')
-);
+```react_example
+<UI.CollapseAlt header="Without Arrows">
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.CollapseAlt>
 ```
 
 With divider
 
-```html_example_table
-<div id='react-collapse-divider-example'></div>
+```react_example
+<UI.Collapse header="With Divider" divider>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.Collapse>
 ```
 
-```jsx_example
-React.render(
-  <UI.Collapse header="With Divider" divider>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-    <p>Content!</p>
-  </UI.Collapse>,
-  document.getElementById('react-collapse-divider-example')
-);
-```
 */

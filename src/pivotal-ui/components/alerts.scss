@@ -198,20 +198,14 @@ categories:
 
 React alerts
 
-```html_example_table
-<div id="react-alert-example"></div>
-```
+```react_example_table
+<UI.SuccessAlert>success</UI.SuccessAlert>
 
-```jsx_example
-React.render(
-  <div>
-    <UI.SuccessAlert>success</UI.SuccessAlert>
-    <UI.InfoAlert>info</UI.InfoAlert>
-    <UI.WarningAlert>warning</UI.WarningAlert>
-    <UI.ErrorAlert>error</UI.ErrorAlert>
-  </div>,
-  document.getElementById('react-alert-example')
-);
+<UI.InfoAlert>info</UI.InfoAlert>
+
+<UI.WarningAlert>warning</UI.WarningAlert>
+
+<UI.ErrorAlert>error</UI.ErrorAlert>
 ```
 
 */
@@ -225,33 +219,21 @@ parent: react_alerts
 
 Add the `dismissable` property to add a close button to the alert.
 
-```html_example_table
-<div id="react-alert-dismissable-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.SuccessAlert dismissable>success</UI.SuccessAlert>,
-  document.getElementById('react-alert-dismissable-example')
-);
+```react_example_table
+<UI.SuccessAlert dismissable>success</UI.SuccessAlert>
 ```
 
 If you want a callback to be called when the close button is
 clicked, set the `dismissable` property to that callback.
 
-```html_example_table
-<div id="react-alert-dismissable-callback-example"></div>
-```
-
 ```jsx_example
 var callback = function() {
   alert('Dismissed!');
 };
+```
 
-React.render(
-  <UI.InfoAlert dismissable={callback}>with callback</UI.InfoAlert>,
-  document.getElementById('react-alert-dismissable-callback-example')
-);
+```react_example_table
+<UI.InfoAlert dismissable={callback}>with callback</UI.InfoAlert>
 ```
 
 */
@@ -265,33 +247,19 @@ parent: react_alerts
 
 If you want an icon to be displayed, set the `withIcon` property.
 
-```html_example_table
-<div id="react-alert-icon-example"></div>
-```
+```react_example_table
+<UI.SuccessAlert withIcon>success</UI.SuccessAlert>
 
-```jsx_example
-React.render(
-  <div>
-    <UI.SuccessAlert withIcon>success</UI.SuccessAlert>
-    <UI.InfoAlert withIcon>info</UI.InfoAlert>
-    <UI.WarningAlert withIcon>warning</UI.WarningAlert>
-    <UI.ErrorAlert withIcon>error</UI.ErrorAlert>
-  </div>,
-  document.getElementById('react-alert-icon-example')
-);
+<UI.InfoAlert withIcon>info</UI.InfoAlert>
+
+<UI.WarningAlert withIcon>warning</UI.WarningAlert>
+
+<UI.ErrorAlert withIcon>error</UI.ErrorAlert>
 ```
 
 Here's a dismissable alert with an icon
 
-```html_example_table
-<div id="react-alert-icon-dismissable-example"></div>
+```react_example_table
+<UI.WarningAlert dismissable withIcon>warning</UI.WarningAlert>
 ```
-
-```jsx_example
-React.render(
-  <UI.WarningAlert dismissable withIcon>warning</UI.WarningAlert>,
-  document.getElementById('react-alert-icon-dismissable-example')
-);
-```
-
 */

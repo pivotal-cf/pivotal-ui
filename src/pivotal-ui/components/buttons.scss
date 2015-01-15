@@ -141,134 +141,65 @@ categories:
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 
-```html_example_table
-<div id="link-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.DefaultButton href="http://example.com">Default</UI.DefaultButton>,
-  document.getElementById('link-button-example')
-);
+```react_example_table
+<UI.DefaultButton href="http://example.com">
+  Default
+</UI.DefaultButton>
 ```
 
 To make a button large, set the `large` property to true.
 
-```html_example_table
-<div id="large-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.HighlightButton large="true">Big Button</UI.HighlightButton>,
-  document.getElementById('large-button-example')
-);
+```react_example_table
+<UI.HighlightButton large="true">
+  Big Button
+</UI.HighlightButton>
 ```
 
 To make a button full-width, set the `block` property to true.
 
-```html_example_table
-<div id="block-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">Danger Zone</UI.DangerButton>,
-  document.getElementById('block-button-example')
-);
+```react_example
+<UI.DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">
+  Danger Zone
+</UI.DangerButton>
 ```
 
 Specific button types.
 
+```react_example_table
+<UI.DefaultButton>
+  Default
+</UI.DefaultButton>
 
-```html_example_table
-<div id="default-button-example"></div>
-```
+<UI.DefaultAltButton>
+  Default alternate
+</UI.DefaultAltButton>
 
-```jsx_example
-React.render(
-  <UI.DefaultButton>Default</UI.DefaultButton>,
-  document.getElementById('default-button-example')
-);
-```
+<UI.PrimaryButton>
+  Primary
+</UI.PrimaryButton>
 
-```html_example_table
-<div id="default-alt-button-example"></div>
-```
+<UI.LowlightButton>
+  Lowlight
+</UI.LowlightButton>
 
-```jsx_example
-React.render(
-  <UI.DefaultAltButton>Default alternate</UI.DefaultAltButton>,
-  document.getElementById('default-alt-button-example')
-);
-```
+<UI.DangerButton>
+  Danger
+</UI.DangerButton>
 
-```html_example_table
-<div id="primary-button-example"></div>
-```
+<UI.HighlightButton>
+  Highlight
+</UI.HighlightButton>
 
-```jsx_example
-React.render(
-  <UI.PrimaryButton>Primary</UI.PrimaryButton>,
-  document.getElementById('primary-button-example')
-);
-```
-
-```html_example_table
-<div id="lowlight-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.LowlightButton>Lowlight</UI.LowlightButton>,
-  document.getElementById('lowlight-button-example')
-);
-```
-
-
-```html_example_table
-<div id="danger-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.DangerButton>Danger</UI.DangerButton>,
-  document.getElementById('danger-button-example')
-);
-```
-
-```html_example_table
-<div id="highlight-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.HighlightButton>Highlight</UI.HighlightButton>,
-  document.getElementById('highlight-button-example')
-);
-```
-
-```html_example_table
-<div id="highlight-alt-button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.HighlightAltButton>Highlight alternate</UI.HighlightAltButton>,
-  document.getElementById('highlight-alt-button-example')
-);
+<UI.HighlightAltButton>
+  Highlight alternate
+</UI.HighlightAltButton>
 ```
 
 The base button renderer. You won't really interact with this directly.
 
-```html_example_table
-<div id="button-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.UIButton>I'm a button</UI.UIButton>,
-  document.getElementById('button-example')
-);
+```react_example_table
+<UI.UIButton>
+  I'm a button
+</UI.UIButton>
 ```
 */

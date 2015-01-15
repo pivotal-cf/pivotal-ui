@@ -57,47 +57,21 @@ categories:
 
 Dividers draw horizontal lines between different content groupings.
 
-```html_example_table
-<div id="divider-example"></div>
+```react_example_table
+<UI.Divider />
+
+<UI.Divider size="large" />
 ```
 
-```jsx_example
-React.render(
-  <UI.Divider />,
-  document.getElementById('divider-example')
-);
-```
-```html_example_table
-<div id="divider-large-example"></div>
-```
+On a dark background, use these inverse dividers
 
-```jsx_example
-React.render(
-  <UI.Divider size="large" />,
-  document.getElementById('divider-large-example')
-);
-```
+```react_example_table
+<div className='contrast-bar'>
+  <UI.DividerInverse />
+</div>
 
-
-```html_example_table
-<div id="divider-alt-example" class="contrast-bar"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.DividerInverse />,
-  document.getElementById('divider-alt-example')
-);
-```
-
-```html_example_table
-<div id="divider-alt-large-example" class="contrast-bar"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.DividerInverse size="large" />,
-  document.getElementById('divider-alt-large-example')
-);
+<div className='contrast-bar'>
+  <UI.DividerInverse size='large' />
+</div>
 ```
 */
