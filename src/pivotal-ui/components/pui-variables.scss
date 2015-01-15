@@ -408,7 +408,6 @@ $btn-highlight-alt-bg:            $teal-3;
 $btn-highlight-alt-bg-hover:      $teal-2;
 
 
-
 // alternate is only used on login pages
 $btn-alternate-color:            #eee !default;
 $btn-alternate-bg:               $brand-primary !default;
@@ -472,9 +471,9 @@ $cursor-disabled:                not-allowed !default;
 // Dropdowns
 // -------------------------
 
-$dropdown-bg:                    #fff !default;
-$dropdown-border:                rgba(0,0,0,.15) !default;
-$dropdown-fallback-border:       #ccc !default;
+$dropdown-bg:                    $neutral-10 !default;
+$dropdown-border:                transparent !default;
+$dropdown-fallback-border:       transparent !default;
 $dropdown-divider-bg:            #e5e5e5 !default;
 
 $dropdown-link-color:            $gray-dark !default;
