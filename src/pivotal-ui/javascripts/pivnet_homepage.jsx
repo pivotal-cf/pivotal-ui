@@ -3,7 +3,7 @@
 var React = require('react');
 var DefaultH1 = require('./typography.jsx').DefaultH1;
 var DefaultH2 = require('./typography.jsx').DefaultH1;
-var DividerInverse = require('./dividers.jsx').DividerInverse;
+var InverseDivider = require('./dividers.jsx').InverseDivider;
 var Pane = require('./panes.jsx').Pane;
 var HighlightAltButton = require('./buttons.jsx').HighlightAltButton;
 
@@ -16,7 +16,7 @@ var PivnetHomepage = React.createClass({
           <DefaultH2 color="type-neutral-11" bold="low" className="mtn">Software designed with the enterprise in mind</DefaultH2>
         </div>
 
-        <DividerInverse className="mbn" />
+        <InverseDivider className="mbn" />
 
         <Pane className="bg-shadow-1">
           <div className="row">

@@ -5,16 +5,16 @@ var BsPanel = require('react-bootstrap/Panel');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var CollapseBase = require('../../../src/pivotal-ui/javascripts/collapse.jsx').CollapseBase;
+var BaseCollapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').BaseCollapse;
 var Collapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').Collapse;
-var CollapseAlt = require('../../../src/pivotal-ui/javascripts/collapse.jsx').CollapseAlt;
+var AltCollapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').AltCollapse;
 
-describe('CollapseBase', function() {
+describe('BaseCollapse', function() {
   beforeEach(function() {
     this.collapse = TestUtils.renderIntoDocument(
-      <CollapseBase header="ima header">
+      <BaseCollapse header="ima header">
         <h1>Child</h1>
-      </CollapseBase>
+      </BaseCollapse>
     );
     this.bsPanel = TestUtils.findRenderedComponentWithType(this.collapse, BsPanel);
   });
@@ -39,9 +39,9 @@ describe('CollapseBase', function() {
   describe("when the divider property is set to true", function() {
     beforeEach(function() {
       this.collapse = TestUtils.renderIntoDocument(
-        <CollapseBase header="ima header" divider>
+        <BaseCollapse header="ima header" divider>
           <h1>Child</h1>
-        </CollapseBase>
+        </BaseCollapse>
       );
       this.bsPanel = TestUtils.findRenderedComponentWithType(this.collapse, BsPanel);
     });
@@ -72,12 +72,12 @@ describe('Collapse', function() {
   });
 });
 
-describe('CollapseAlt', function() {
+describe('AltCollapse', function() {
   beforeEach(function() {
     this.collapse = TestUtils.renderIntoDocument(
-      <CollapseAlt header="ima header">
+      <AltCollapse header="ima header">
         <h1>Child</h1>
-      </CollapseAlt>
+      </AltCollapse>
     );
   });
 
@@ -92,15 +92,15 @@ describe('CollapseAlt', function() {
   });
 });
 
-describe('CollapseBase behavior', function() {
+describe('BaseCollapse behavior', function() {
   beforeEach(function() {
     jasmine.clock().install();
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
     React.render(
-      <CollapseBase header="This is my heading">
+      <BaseCollapse header="This is my heading">
         Collapse contents!
-      </CollapseBase>,
+      </BaseCollapse>,
       this.node
     );
   });

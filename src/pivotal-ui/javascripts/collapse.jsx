@@ -4,7 +4,7 @@ var React = require('react');
 var BsPanel = require('react-bootstrap/Panel');
 var classSet = React.addons.classSet;
 
-var CollapseBase = React.createClass({
+var BaseCollapse = React.createClass({
   getInitialState: function render() {
     return {
       expanded: false
@@ -44,14 +44,14 @@ var Collapse = React.createClass({
     );
 
     return (
-      <CollapseBase {...this.props} header={header}>
+      <BaseCollapse {...this.props} header={header}>
         {this.props.children}
-      </CollapseBase>
+      </BaseCollapse>
     );
   }
 });
 
-var CollapseAlt = React.createClass({
+var AltCollapse = React.createClass({
   render: function render() {
     var header = (
       <div className="collapse-trigger">
@@ -66,16 +66,16 @@ var CollapseAlt = React.createClass({
     );
 
     return (
-      <CollapseBase {...this.props} header={header}>
+      <BaseCollapse {...this.props} header={header}>
         {this.props.children}
-      </CollapseBase>
+      </BaseCollapse>
     );
   }
 });
 
 
 module.exports = {
-  CollapseBase: CollapseBase,
+  BaseCollapse: BaseCollapse,
   Collapse: Collapse,
-  CollapseAlt: CollapseAlt
+  AltCollapse: AltCollapse
 };
