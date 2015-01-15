@@ -105,24 +105,19 @@ name: pane_react
 category: Beta
 ---
 
-```html_example
-<div id="pane-example"></div>
-<div id="base-pane-example"></div>
+Simple pane
+
+```react_example
+<UI.Pane className="bg-neutral-10">
+  <UI.DefaultH1>This is a pane</UI.DefaultH1>
+</UI.Pane>
 ```
 
-```jsx_example
-React.render(
-  <UI.Pane className="bg-neutral-10">
-    <UI.DefaultH1>This is a pane</UI.DefaultH1>
-  </UI.Pane>,
-  document.getElementById('pane-example')
-);
+Configurable pane
 
-React.render(
-  <UI.BasePane outerClass="bg-dark-1" innerClass="bg-glow">
-    <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
-  </UI.BasePane>,
-  document.getElementById('base-pane-example')
-);
+```react_example
+<UI.BasePane outerClass="bg-dark-1" innerClass="bg-glow">
+  <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
+</UI.BasePane>
 ```
 */

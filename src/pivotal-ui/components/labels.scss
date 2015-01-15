@@ -80,23 +80,11 @@ categories:
   - Beta
 ---
 
-```html_example_table
-<div id="react-label-example"></div>
+```react_example_table
+<UI.Label>yeah</UI.Label>
 
-<div id="react-label-h1-example"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.Label>yeah</UI.Label>,
-  document.getElementById('react-label-example')
-);
-
-React.render(
-  <UI.DefaultH3>
-    Now the label is in a typography component <UI.Label>yeah</UI.Label>
-  </UI.DefaultH3>,
-  document.getElementById('react-label-h1-example')
-);
+<UI.DefaultH3>
+  Now the label is in a typography component <UI.Label>yeah</UI.Label>
+</UI.DefaultH3>
 ```
 */

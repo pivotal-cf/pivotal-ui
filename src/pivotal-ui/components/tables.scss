@@ -336,75 +336,66 @@ categories:
  - Beta
 ---
 
-```html_example
-<div id="sortable-table-react-example">
-</div>
+```js_example
+var sortTableCols = [
+  {
+    name: 'name',
+    title: 'Name',
+    sortable: true
+  },
+  {
+    name: 'instances',
+    title: 'Instances',
+    sortable: true,
+    align: 'center'
+  },
+  {
+    name: 'cpu',
+    title: 'CPU',
+    sortable: true,
+    align: 'right'
+  },
+  {
+    name: 'synergy',
+    title: 'Synergy',
+    align: 'left'
+  }
+]
+
+var sortTableData = [
+  {
+    instances: '1',
+    name: 'foo',
+    cpu: 'po',
+    synergy: 'qum',
+    ram: 'bee',
+  },
+  {
+    name: 'yee',
+    instances: 'di',
+    cpu: 'no',
+    synergy: 'aum'
+  },
+  {
+    name: 'zee',
+    instances: 'si',
+    cpu: 'mo',
+    synergy: 'wum'
+  },
+  {
+    name: 'jee',
+    instances: 'ui',
+    cpu: 'no',
+    synergy: 'mum'
+  }
+];
 ```
 
-```js_example
-$(function() {
-  var columns = [
-    {
-      name: 'name',
-      title: 'Name',
-      sortable: true
-    },
-    {
-      name: 'instances',
-      title: 'Instances',
-      sortable: true,
-      align: 'center'
-    },
-    {
-      name: 'cpu',
-      title: 'CPU',
-      sortable: true,
-      align: 'right'
-    },
-    {
-      name: 'synergy',
-      title: 'Synergy',
-      align: 'left'
-    }
-  ]
-
-  var data = [
-    {
-      instances: '1',
-      name: 'foo',
-      cpu: 'po',
-      synergy: 'qum',
-      ram: 'bee',
-    },
-    {
-      name: 'yee',
-      instances: 'di',
-      cpu: 'no',
-      synergy: 'aum'
-    },
-    {
-      name: 'zee',
-      instances: 'si',
-      cpu: 'mo',
-      synergy: 'wum'
-    },
-    {
-      name: 'jee',
-      instances: 'ui',
-      cpu: 'no',
-      synergy: 'mum'
-    }
-  ];
-
-  React.render(
-    UI.TableSortable({
-      data: data,
-      columns: columns,
-      classes: ['table-data', 'table-light']
-    }),
-    document.getElementById('sortable-table-react-example')
-  );
-});
+```react_example
+<UI.TableSortable
+  data={sortTableData}
+  columns={sortTableCols}
+  classes={['table-data', 'table-light']} />
 ```
 
 */

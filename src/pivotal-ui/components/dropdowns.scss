@@ -24,82 +24,44 @@ This is the basic bootstrap dropdown, to be styled in a subsequent story.
 </div>
 ```
 
-```html_example_table
-<div id="dropdown-example"></div>
-
-<div id="dropdown-link-example"></div>
-
-<div id="dropdown-default-alt-example"></div>
-
-<div id="dropdown-primary-example"></div>
-
-<div id="dropdown-lowlight-example"></div>
-
-<div id="dropdown-danger-example"></div>
-
-<div id="dropdown-highlight-example"></div>
-
-<div id="dropdown-highlight-alt-example"></div>
-```
-
-```jsx_example
-React.render(
+```react_example_table
   <UI.Dropdown title='DropDown'>
     <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
     <UI.DropdownItem divider />
     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.Dropdown>,
-  document.getElementById('dropdown-example')
-);
+  </UI.Dropdown>
+```
 
-React.render(
-  <UI.DropdownLink title='Link'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownLink>,
-  document.getElementById('dropdown-link-example')
-);
+Here are all the different dropdown styles:
 
-React.render(
-  <UI.DropdownDefaultAlt title='Default Alt'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownDefaultAlt>,
-  document.getElementById('dropdown-default-alt-example')
-);
+```react_example_table
+<UI.DropdownLink title='Link'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownLink>
 
-React.render(
-  <UI.DropdownPrimary title='Primary'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownPrimary>,
-  document.getElementById('dropdown-primary-example')
-);
+<UI.DropdownDefaultAlt title='Default Alt'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownDefaultAlt>
 
-React.render(
-  <UI.DropdownLowlight title='Lowlight'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownLowlight>,
-  document.getElementById('dropdown-lowlight-example')
-);
+<UI.DropdownPrimary title='Primary'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownPrimary>
 
-React.render(
-  <UI.DropdownDanger title='Danger'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownDanger>,
-  document.getElementById('dropdown-danger-example')
-);
+<UI.DropdownLowlight title='Lowlight'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownLowlight>
 
-React.render(
-  <UI.DropdownHighlight title='Highlight'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownHighlight>,
-  document.getElementById('dropdown-highlight-example')
-);
+<UI.DropdownDanger title='Danger'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownDanger>
 
-React.render(
-  <UI.DropdownHighlightAlt title='Highlight Alt'>
-     <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-  </UI.DropdownHighlightAlt>,
-  document.getElementById('dropdown-highlight-alt-example')
-);
+<UI.DropdownHighlight title='Highlight'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownHighlight>
+
+<UI.DropdownHighlightAlt title='Highlight Alt'>
+   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
+</UI.DropdownHighlightAlt>
 ```
 
 */

@@ -596,20 +596,11 @@ categories:
 
 Panels?!?! In Javascript?!?!
 
-```html_example_table
-<div id="panel-custom-example">
-</div>
+```react_example_table
+<UI.Panel className="bg-neutral-8">
+  <p>Base Panel</p>
+</UI.Panel>
 ```
-
-```jsx_example
-React.render(
-  <UI.Panel className="bg-neutral-8">
-    <p>Base Panel</p>
-  </UI.Panel>,
-  document.getElementById('panel-custom-example')
-);
-```
-
 */
 
 /*doc
@@ -619,40 +610,27 @@ name: panel_react_scroll
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-scroll-example-1"></div>
+```react_example_table
+<UI.Panel className="bg-neutral-8" scrollable="100">
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+</UI.Panel>
 
-<div id="panel-scroll-example-2"></div>
+<UI.Panel className="bg-neutral-8" scrollable="true">
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+</UI.Panel>
 ```
-
-```jsx_example
-React.render(
-  <UI.Panel className="bg-neutral-8" scrollable="100">
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-  </UI.Panel>,
-  document.getElementById('panel-scroll-example-1')
-);
-
-React.render(
-  <UI.Panel className="bg-neutral-8" scrollable="true">
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-    <p>Scrollable Panel</p>
-  </UI.Panel>,
-  document.getElementById('panel-scroll-example-2')
-);
-```
-
 */
 
 /*doc
@@ -664,18 +642,10 @@ parent: panel_react
 
 Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the `panel-body`.
 
-```html_example_table
-<div id="panel-padding-example">
-</div>
-```
-
-```jsx_example
-React.render(
-  <UI.Panel className="bg-neutral-8" padding="paxxl">
-    <p>Base Panel</p>
-  </UI.Panel>,
-  document.getElementById('panel-padding-example')
-);
+```react_example_table
+<UI.Panel className="bg-neutral-8" padding="paxxl">
+  <p>Base Panel</p>
+</UI.Panel>
 ```
 
 */
@@ -687,20 +657,11 @@ name: panel_react_simple
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-simple-example">
-</div>
+```react_example_table
+<UI.SimplePanel>
+  Simple Panel
+</UI.SimplePanel>
 ```
-
-```jsx_example
-React.render(
-  <UI.SimplePanel>
-    Simple Panel
-  </UI.SimplePanel>,
-  document.getElementById('panel-simple-example')
-);
-```
-
 */
 
 /*doc
@@ -710,20 +671,11 @@ name: panel_react_basic
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-basic-example">
-</div>
+```react_example_table
+<UI.BasicPanel>
+  Basic Panel
+</UI.BasicPanel>
 ```
-
-```jsx_example
-React.render(
-  <UI.BasicPanel>
-    Basic Panel
-  </UI.BasicPanel>,
-  document.getElementById('panel-basic-example')
-);
-```
-
 */
 
 /*doc
@@ -733,43 +685,16 @@ name: panel_react_shadow
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-shadow-example-default"></div>
+```react_example_table
+<UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>
 
-<div id="panel-shadow-example-1"></div>
+<UI.ShadowPanel shadowLevel="1">Shadow Panel (level 1)</UI.ShadowPanel>
 
-<div id="panel-shadow-example-2"></div>
+<UI.ShadowPanel shadowLevel="2">Shadow Panel (level 2)</UI.ShadowPanel>
 
-<div id="panel-shadow-example-3"></div>
+<UI.ShadowPanel shadowLevel="3">Shadow Panel (level 3)</UI.ShadowPanel>
 
-<div id="panel-shadow-example-4"></div>
-```
-
-```jsx_example
-React.render(
-  <UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>,
-  document.getElementById('panel-shadow-example-default')
-);
-
-React.render(
-  <UI.ShadowPanel shadowLevel="1">Shadow Panel (level 1)</UI.ShadowPanel>,
-  document.getElementById('panel-shadow-example-1')
-);
-
-React.render(
-  <UI.ShadowPanel shadowLevel="2">Shadow Panel (level 2)</UI.ShadowPanel>,
-  document.getElementById('panel-shadow-example-2')
-);
-
-React.render(
-  <UI.ShadowPanel shadowLevel="3">Shadow Panel (level 3)</UI.ShadowPanel>,
-  document.getElementById('panel-shadow-example-3')
-);
-
-React.render(
-  <UI.ShadowPanel shadowLevel="4">Shadow Panel (level 4)</UI.ShadowPanel>,
-  document.getElementById('panel-shadow-example-4')
-);
+<UI.ShadowPanel shadowLevel="4">Shadow Panel (level 4)</UI.ShadowPanel>
 ```
 
 */
@@ -781,24 +706,11 @@ name: panel_react_clickable
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-clickable-example"></div>
+```react_example_table
+<UI.ClickablePanel>Clickable Panel</UI.ClickablePanel>
 
-<div id="panel-clickable-alt-example"></div>
+<UI.ClickableAltPanel>Clickable Panel (Alt)</UI.ClickableAltPanel>
 ```
-
-```jsx_example
-React.render(
-  <UI.ClickablePanel>Clickable Panel</UI.ClickablePanel>,
-  document.getElementById('panel-clickable-example')
-);
-
-React.render(
-  <UI.ClickableAltPanel>Clickable Panel (Alt)</UI.ClickableAltPanel>,
-  document.getElementById('panel-clickable-alt-example')
-);
-```
-
 */
 
 /*doc
@@ -808,20 +720,11 @@ name: panel_react_highlight
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-highlight-example">
-</div>
+```react_example_table
+<UI.HighlightPanel>
+  Highlight Panel
+</UI.HighlightPanel>
 ```
-
-```jsx_example
-React.render(
-  <UI.HighlightPanel>
-    Highlight Panel
-  </UI.HighlightPanel>,
-  document.getElementById('panel-highlight-example')
-);
-```
-
 */
 
 /*doc
@@ -831,21 +734,14 @@ name: panel_react_divider
 parent: panel_react
 ---
 
-```html_example_table
-<div id="panel-divider-example">
-</div>
-```
-
-```jsx_example
-React.render(
-  <UI.HighlightPanel divider>
-    Highlight Panel
-  </UI.HighlightPanel>,
-  document.getElementById('panel-divider-example')
-);
+```react_example_table
+<UI.HighlightPanel divider>
+  Highlight Panel
+</UI.HighlightPanel>
 ```
 
 */
+
 .panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
   @extend .panel-body-accordion-divider;
 }

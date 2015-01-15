@@ -1,7 +1,7 @@
 var React = require('react');
 
 module.exports = {
-  TableSortable: React.createFactory(require('./table-sortable.jsx')),
+  TableSortable: require('./table-sortable.jsx'),
 
   DefaultH1: require('./typography.jsx').DefaultH1,
   DefaultH2: require('./typography.jsx').DefaultH2,
