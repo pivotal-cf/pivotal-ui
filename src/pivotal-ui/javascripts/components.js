@@ -1,6 +1,6 @@
 
 module.exports = {
-  TableSortable: require('./table-sortable.jsx'),
+  SortableTable: require('./sortable-table.jsx'),
 
   DefaultH1: require('./typography.jsx').DefaultH1,
   DefaultH2: require('./typography.jsx').DefaultH2,

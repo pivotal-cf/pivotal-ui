@@ -4,9 +4,9 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var TableSortable = React.createFactory(require('../../../src/pivotal-ui/javascripts/table-sortable.jsx'));
+var SortableTable = React.createFactory(require('../../../src/pivotal-ui/javascripts/sortable-table.jsx'));
 
-describe('TableSortable', function() {
+describe('SortableTable', function() {
   beforeEach(function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
@@ -48,7 +48,7 @@ describe('TableSortable', function() {
     ];
 
     this.table = React.render(
-      TableSortable({
+      SortableTable({
         data: this.data,
         columns: this.columns
       }),
@@ -70,7 +70,7 @@ describe('TableSortable', function() {
   });
 
   it('adds the additional classes specified in the "classes" property', function() {
-    this.tableSortable = TableSortable({
+    this.tableSortable = SortableTable({
       data: this.data,
       columns: this.columns,
       classes: ['table-light']

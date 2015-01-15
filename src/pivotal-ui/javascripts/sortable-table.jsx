@@ -58,7 +58,7 @@ var TableRow = React.createClass({
   }
 });
 
-var TableSortable = React.createClass({
+var SortableTable = React.createClass({
   getInitialState: function getInitialState() {
     return {
       sort: {
@@ -128,4 +128,4 @@ var TableSortable = React.createClass({
   }
 });
 
-module.exports = TableSortable;
+module.exports = SortableTable;
