@@ -192,6 +192,7 @@ gulp.task('_otherAssets', [
   '_copyStyleguideAssets',
   '_copyStaticfile',
   '_copyZeroClipboard',
+  '_copyNginxConf',
 ]);
 
 gulp.task('_cleanOtherAssets', function(done) {
@@ -247,6 +248,11 @@ gulp.task('_copyZeroClipboard', ['_cleanOtherAssets'], function() {
     'node_modules/zeroclipboard/dist/ZeroClipboard.swf',
   ])
     .pipe(gulp.dest('./build/zeroclipboard/'));
+});
+
+gulp.task('_copyNginxConf', ['_cleanOtherAssets'], function() {
+  return gulp.src(['config/nginx.conf'])
+    .pipe(gulp.dest('./build/'));
 });
 
 
