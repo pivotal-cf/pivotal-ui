@@ -32,7 +32,7 @@ var Divider = React.createClass({
 });
 
 
-var DividerInverse = React.createClass({
+var InverseDivider = React.createClass({
   render: function () {
     return (
       <Divider {...this.props} inverse="true" />
@@ -42,5 +42,5 @@ var DividerInverse = React.createClass({
 
 module.exports = {
   Divider: Divider,
-  DividerInverse: DividerInverse
+  InverseDivider: InverseDivider
 };

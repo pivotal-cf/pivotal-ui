@@ -67,11 +67,11 @@ On a dark background, use these inverse dividers
 
 ```react_example_table
 <div className='contrast-bar'>
-  <UI.DividerInverse />
+  <UI.InverseDivider />
 </div>
 
 <div className='contrast-bar'>
-  <UI.DividerInverse size='large' />
+  <UI.InverseDivider size='large' />
 </div>
 ```
 */

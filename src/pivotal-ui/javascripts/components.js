@@ -40,7 +40,7 @@ module.exports = {
   SearchInput: require('./inputs.jsx').SearchInput,
 
   Divider: require('./dividers.jsx').Divider,
-  DividerInverse: require('./dividers.jsx').DividerInverse,
+  InverseDivider: require('./dividers.jsx').InverseDivider,
 
   Row: require('./grids.jsx').Row,
   Col: require('./grids.jsx').Col,
