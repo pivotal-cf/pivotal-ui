@@ -6,59 +6,59 @@ var Dropdown = require('react-bootstrap/DropdownButton');
 var DropdownItem = require('react-bootstrap/MenuItem');
 
 var LinkDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown bsStyle='link' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown bsStyle='link' {...this.props} />
+    );
+  }
 });
 
 var DefaultAltDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown className='btn-default-alt' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown className='btn-default-alt' {...this.props} />
+    );
+  }
 });
 
 var PrimaryDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown bsStyle='primary' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown bsStyle='primary' {...this.props} />
+    );
+  }
 });
 
 var LowlightDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown className='btn-lowlight' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown className='btn-lowlight' {...this.props} />
+    );
+  }
 });
 
 var DangerDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown bsStyle='danger' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown bsStyle='danger' {...this.props} />
+    );
+  }
 });
 
 var HighlightDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown className='btn-highlight' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown className='btn-highlight' {...this.props} />
+    );
+  }
 });
 
 var HighlightAltDropdown = React.createClass({
-    render: function () {
-        return (
-            <Dropdown className='btn-highlight-alt' {...this.props} />
-        );
-    }
+  render: function () {
+    return (
+      <Dropdown className='btn-highlight-alt' {...this.props} />
+    );
+  }
 });
 
 
