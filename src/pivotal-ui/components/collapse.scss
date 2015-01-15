@@ -283,7 +283,7 @@ categories:
 Rellapse
 
 ```react_example
-<UI.CollapseBase header="Panel 1">
+<UI.BaseCollapse header="Panel 1">
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
@@ -294,7 +294,7 @@ Rellapse
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
-</UI.CollapseBase>
+</UI.BaseCollapse>
 ```
 
 With icons
@@ -310,13 +310,13 @@ With icons
 ```
 
 ```react_example
-<UI.CollapseAlt header="Without Arrows">
+<UI.AltCollapse header="Without Arrows">
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
-</UI.CollapseAlt>
+</UI.AltCollapse>
 ```
 
 With divider
