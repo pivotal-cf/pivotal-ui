@@ -5,7 +5,7 @@ var React = require('react/addons');
 var Dropdown = require('react-bootstrap/DropdownButton');
 var DropdownItem = require('react-bootstrap/MenuItem');
 
-var DropdownLink = React.createClass({
+var LinkDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown bsStyle='link' {...this.props} />
@@ -13,7 +13,7 @@ var DropdownLink = React.createClass({
     }
 });
 
-var DropdownDefaultAlt = React.createClass({
+var DefaultAltDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown className='btn-default-alt' {...this.props} />
@@ -21,7 +21,7 @@ var DropdownDefaultAlt = React.createClass({
     }
 });
 
-var DropdownPrimary = React.createClass({
+var PrimaryDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown bsStyle='primary' {...this.props} />
@@ -29,7 +29,7 @@ var DropdownPrimary = React.createClass({
     }
 });
 
-var DropdownLowlight = React.createClass({
+var LowlightDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown className='btn-lowlight' {...this.props} />
@@ -37,7 +37,7 @@ var DropdownLowlight = React.createClass({
     }
 });
 
-var DropdownDanger = React.createClass({
+var DangerDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown bsStyle='danger' {...this.props} />
@@ -45,7 +45,7 @@ var DropdownDanger = React.createClass({
     }
 });
 
-var DropdownHighlight = React.createClass({
+var HighlightDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown className='btn-highlight' {...this.props} />
@@ -53,7 +53,7 @@ var DropdownHighlight = React.createClass({
     }
 });
 
-var DropdownHighlightAlt = React.createClass({
+var HighlightAltDropdown = React.createClass({
     render: function () {
         return (
             <Dropdown className='btn-highlight-alt' {...this.props} />
@@ -64,12 +64,12 @@ var DropdownHighlightAlt = React.createClass({
 
 module.exports = {
   Dropdown: Dropdown,
-  DropdownLink: DropdownLink,
-  DropdownDefaultAlt: DropdownDefaultAlt,
-  DropdownPrimary: DropdownPrimary,
-  DropdownLowlight: DropdownLowlight,
-  DropdownDanger: DropdownDanger,
-  DropdownHighlight: DropdownHighlight,
-  DropdownHighlightAlt: DropdownHighlightAlt,
+  LinkDropdown: LinkDropdown,
+  DefaultAltDropdown: DefaultAltDropdown,
+  PrimaryDropdown: PrimaryDropdown,
+  LowlightDropdown: LowlightDropdown,
+  DangerDropdown: DangerDropdown,
+  HighlightDropdown: HighlightDropdown,
+  HighlightAltDropdown: HighlightAltDropdown,
   DropdownItem: DropdownItem
 };

@@ -35,33 +35,33 @@ This is the basic bootstrap dropdown, to be styled in a subsequent story.
 Here are all the different dropdown styles:
 
 ```react_example_table
-<UI.DropdownLink title='Link'>
+<UI.LinkDropdown title='Link'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownLink>
+</UI.LinkDropdown>
 
-<UI.DropdownDefaultAlt title='Default Alt'>
+<UI.DefaultAltDropdown title='Default Alt'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownDefaultAlt>
+</UI.DefaultAltDropdown>
 
-<UI.DropdownPrimary title='Primary'>
+<UI.PrimaryDropdown title='Primary'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownPrimary>
+</UI.PrimaryDropdown>
 
-<UI.DropdownLowlight title='Lowlight'>
+<UI.LowlightDropdown title='Lowlight'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownLowlight>
+</UI.LowlightDropdown>
 
-<UI.DropdownDanger title='Danger'>
+<UI.DangerDropdown title='Danger'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownDanger>
+</UI.DangerDropdown>
 
-<UI.DropdownHighlight title='Highlight'>
+<UI.HighlightDropdown title='Highlight'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownHighlight>
+</UI.HighlightDropdown>
 
-<UI.DropdownHighlightAlt title='Highlight Alt'>
+<UI.HighlightAltDropdown title='Highlight Alt'>
    <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DropdownHighlightAlt>
+</UI.HighlightAltDropdown>
 ```
 
 */

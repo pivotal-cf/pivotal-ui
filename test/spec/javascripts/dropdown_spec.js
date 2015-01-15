@@ -5,13 +5,14 @@ var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
 var Dropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').Dropdown);
-var DropdownLink = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownLink);
-var DropdownDefaultAlt = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownDefaultAlt);
-var DropdownPrimary = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownPrimary);
-var DropdownLowlight = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownLowlight);
-var DropdownDanger = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownDanger);
-var DropdownHighlight = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownHighlight);
-var DropdownHighlightAlt = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DropdownHighlightAlt);
+var LinkDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').LinkDropdown);
+var DefaultAltDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DefaultAltDropdown);
+var PrimaryDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').PrimaryDropdown);
+var LowlightDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').LowlightDropdown);
+var DangerDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DangerDropdown);
+var HighlightDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightDropdown);
+var HighlightAltDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightAltDropdown);
+
 describe('Dropdowns', function() {
   describe('Dropdown', function () {
     beforeEach(function () {
@@ -35,12 +36,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownLink', function () {
+  describe('LinkDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownLink({
+        LinkDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -57,12 +58,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownDefaultAlt', function () {
+  describe('DefaultAltDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownDefaultAlt({
+        DefaultAltDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -79,12 +80,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownPrimary', function () {
+  describe('PrimaryDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownPrimary({
+        PrimaryDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -102,12 +103,12 @@ describe('Dropdowns', function() {
   });
 
 
-  describe('DropdownLowlight', function () {
+  describe('LowlightDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownLowlight({
+        LowlightDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -124,12 +125,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownDanger', function () {
+  describe('DangerDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownDanger({
+        DangerDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -146,12 +147,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownHighlight', function () {
+  describe('HighlightDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownHighlight({
+        HighlightDropdown({
           title: 'Dropping'
         }),
         this.node
@@ -168,12 +169,12 @@ describe('Dropdowns', function() {
     });
   });
 
-  describe('DropdownHighlightAlt', function () {
+  describe('HighlightAltDropdown', function () {
     beforeEach(function () {
       this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
       React.render(
-        DropdownHighlightAlt({
+        HighlightAltDropdown({
           title: 'Dropping'
         }),
         this.node

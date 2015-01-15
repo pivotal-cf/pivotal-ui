@@ -69,14 +69,14 @@ module.exports = {
   SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
 
   Dropdown: require('./dropdowns.jsx').Dropdown,
-  DropdownLink: require('./dropdowns.jsx').DropdownLink,
-  DropdownDefaultAlt: require('./dropdowns.jsx').DropdownDefaultAlt,
-  DropdownPrimary: require('./dropdowns.jsx').DropdownPrimary,
-  DropdownLowlight: require('./dropdowns.jsx').DropdownLowlight,
-  DropdownDanger: require('./dropdowns.jsx').DropdownDanger,
-  DropdownHighlight: require('./dropdowns.jsx').DropdownHighlight,
-  DropdownHighlightAlt: require('./dropdowns.jsx').DropdownHighlightAlt,
   DropdownItem: require('./dropdowns.jsx').DropdownItem,
+  LinkDropdown: require('./dropdowns.jsx').LinkDropdown,
+  PrimaryDropdown: require('./dropdowns.jsx').PrimaryDropdown,
+  DefaultAltDropdown: require('./dropdowns.jsx').DefaultAltDropdown,
+  DangerDropdown: require('./dropdowns.jsx').DangerDropdown,
+  HighlightAltDropdown: require('./dropdowns.jsx').HighlightAltDropdown,
+  HighlightDropdown: require('./dropdowns.jsx').HighlightDropdown,
+  LowlightDropdown: require('./dropdowns.jsx').LowlightDropdown,
 
   Label: require('./labels.jsx').Label,
   CollapseBase: require('./collapse.jsx').CollapseBase,
@@ -86,5 +86,5 @@ module.exports = {
   SuccessAlert: require('./alerts.jsx').SuccessAlert,
   InfoAlert: require('./alerts.jsx').InfoAlert,
   WarningAlert: require('./alerts.jsx').WarningAlert,
-  ErrorAlert: require('./alerts.jsx').ErrorAlert,
+  ErrorAlert: require('./alerts.jsx').ErrorAlert
 };
