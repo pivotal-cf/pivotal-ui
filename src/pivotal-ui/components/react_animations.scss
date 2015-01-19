@@ -1,0 +1,15 @@
+.fade-enter {
+  @extend .fade
+}
+
+.fade-enter-active {
+  @extend .in
+}
+
+.fade-leave {
+  @extend .fade
+}
+
+.fade-leave-active {
+  @extend .out
+}

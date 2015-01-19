@@ -211,3 +211,61 @@ parent: modal
   /* } */
 /* } */
 
+/*doc
+---
+title: React Modals
+name: modal_react
+categories:
+  - Beta
+---
+
+We provide 3 components that can be used to assemble modals:
+
+* `UI.Modal`
+* `UI.ModalBody`
+* `UI.ModalFooter`
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Opening and closing the modal
+  </h5>
+  <p>
+    Modals will be closed by default. To open the modal, add a <code>ref</code>
+    property to the modal (i.e. <code>ref='myModal'</code>). Trigger
+    <code>this.refs.myModal.open();</code> to open the modal, and
+    <code>this.refs.myModal.close();</code> to close the modal.
+  </p>
+</div>
+
+```jsx_example
+
+var MyModal = React.createClass({
+  _openModal: function(){
+    this.refs.modal.open();
+  },
+
+  _closeModal: function() {
+    this.refs.modal.close();
+  },
+
+  render: function() {
+    return (
+      <div>
+        <UI.DefaultButton id='openButton' onClick={this._openModal}>Open Modal</UI.DefaultButton>
+        <UI.Modal title='What a Header!' ref='modal'>
+          <UI.ModalBody>Text in a body</UI.ModalBody>
+          <UI.ModalFooter>
+            <UI.DefaultButton id='closeButton' onClick={this._closeModal}>Close</UI.DefaultButton>
+          </UI.ModalFooter>
+        </UI.Modal>
+      </div>
+    )
+  }
+});
+
+```
+
+```react_example_table
+<MyModal/>
+```
+*/

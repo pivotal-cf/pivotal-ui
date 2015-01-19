@@ -531,23 +531,6 @@ table.styleguide {
   }
 }
 
-
-//make modal visible in the example.
-.exampleOutput .modal {
-position: relative;
-top: auto;
-right: auto;
-left: auto;
-bottom: auto;
-z-index: 1;
-display: block;
-//make it modal.fade.in
-opacity: 1;
-&.fade .modal-dialog {
-  @include translate(0, 0);
-}
-}
-
 //make background image visible in styleguide chip
 .bkg-highlight-2 {
 background-position: 0 50%;
