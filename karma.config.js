@@ -9,7 +9,8 @@ module.exports = function(config) {
     browserify: {
       transform: [
         ['reactify', {es6: true}]
-      ]
+      ],
+      debug: true
     },
     browsers: ['Chrome', 'PhantomJS'],
     colors: true,
