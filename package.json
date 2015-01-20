@@ -48,6 +48,7 @@
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
     "q": "^1.0.1",
+    "react-fa": "^3.0.0",
     "require-dir": "^0.1.0",
     "restler": "^3.2.2",
     "semver": "^4.1.0",

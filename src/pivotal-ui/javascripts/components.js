@@ -60,6 +60,8 @@ module.exports = {
 
   Image: require('./images.jsx').Image,
 
+  Icon: require('./icons.jsx').Icon,
+
   Ribbon: require('./ribbons.jsx').Ribbon,
   PrimaryRibbon: require('./ribbons.jsx').PrimaryRibbon,
   Banner: require('./ribbons.jsx').Banner,

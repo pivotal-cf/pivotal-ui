@@ -44,3 +44,23 @@ Button                                             | Class                  | De
   font-size: 22px;
 }
 
+/*doc
+---
+title: React Icons
+name: react_icon
+categories:
+  - Beta
+---
+
+We use [Font Awesome](http://fontawesome.github.io/Font-Awesome/icons/).
+Specify the icon by changing the name. The name is the font-awesome class sans the `fa-`.
+To spin the icon, add `spin` to the Icon.
+
+```react_example_table
+<UI.Icon name="plus" />
+
+<UI.Icon spin name="angellist" />
+```
+
+
+*/
