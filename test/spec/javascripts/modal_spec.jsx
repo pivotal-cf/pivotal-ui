@@ -4,14 +4,55 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Modal = require('../../../src/pivotal-ui/javascripts/modals.jsx').Modal;
-var ModalBody = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalBody;
-var ModalFooter = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalFooter;
-var DefaultButton = require('../../../src/pivotal-ui/javascripts/buttons.jsx').DefaultButton;
 
 describe('Modals', function() {
+  var Modal,
+      ModalBody,
+      ModalFooter,
+      DefaultButton,
+      ReactCSSTransitionGroupChild;
+
   beforeEach(function() {
-    $('<style>.fade,.fade-enter,.fade-leave{opacity:0;-webkit-transition:opacity .15s linear;-o-transition:opacity .15s linear;transition:opacity .15s linear}.fade-enter-active.fade-leave,.fade-enter.fade-enter-active,.fade.fade-enter-active,.fade.in,.in.fade-enter,.in.fade-leave{opacity:1}.collapse{display:none;visibility:hidden}.collapse.fade-enter-active,.collapse.in{display:block;visibility:visible}tr.collapse.fade-enter-active,tr.collapse.in{display:table-row}tbody.collapse.fade-enter-active,tbody.collapse.in{display:table-row-group}.collapsing{position:relative;height:0;overflow:hidden;-webkit-transition-property:height,visibility;transition-property:height,visibility;-webkit-transition-duration:.35s;transition-duration:.35s;-webkit-transition-timing-function:ease;transition-timing-function:ease}</style>').appendTo('body');
+    jasmine.clock().install();
+    ReactCSSTransitionGroupChild = require('react/lib/ReactCSSTransitionGroupChild');
+
+    spyOn(ReactCSSTransitionGroupChild.type.prototype, 'queueClass').and.callFake(function(className) {
+      this.classNameQueue.push(className);
+      this.flushClassNameQueue();
+    });
+
+    spyOn(ReactCSSTransitionGroupChild.type.prototype, 'transition').and.callFake(function(animationType, finishCallback) {
+      var node = this.getDOMNode();
+      var className = this.props.name + '-' + animationType;
+      var activeClassName = className + '-active';
+      var noEventTimeout = null;
+
+      var endListener = function(e) {
+        if (e && e.target !== node) {
+          return;
+        }
+
+        CSSCore.removeClass(node, className);
+        CSSCore.removeClass(node, activeClassName);
+
+        // Usually this optional callback is used for informing an owner of
+        // a leave animation and telling it to remove the child.
+        finishCallback && finishCallback();
+      };
+
+      endListener({target: node});
+
+      CSSCore.addClass(node, className);
+
+      // Need to do this to actually trigger a transition.
+      this.queueClass(activeClassName);
+    });
+
+    Modal = require('../../../src/pivotal-ui/javascripts/modals.jsx').Modal;
+    ModalBody = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalBody;
+    ModalFooter = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalFooter;
+    DefaultButton = require('../../../src/pivotal-ui/javascripts/buttons.jsx').DefaultButton;
+
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
   });
 
@@ -21,6 +62,7 @@ describe('Modals', function() {
   });
 
   describe('default behavior', function() {
+    var subject;
     beforeEach(function() {
       var MyModal = React.createClass({
         _openModal: function(){
@@ -47,7 +89,7 @@ describe('Modals', function() {
         }
       });
 
-      React.render(<MyModal />, this.node);
+      subject = React.render(<MyModal />, this.node);
     });
 
 
@@ -56,11 +98,8 @@ describe('Modals', function() {
     });
 
     describe('clicking on the modal trigger', function() {
-      beforeEach(function(done) {
+      beforeEach(function() {
         TestUtils.Simulate.click($('#container button#openButton').get(0));
-        setTimeout(function() {
-          done();
-        }, 1000);
       });
 
       it('renders a modal', function() {
@@ -73,15 +112,12 @@ describe('Modals', function() {
       });
 
       describe('clicking on the X in the header', function() {
-        beforeEach(function(done) {
+        beforeEach(function() {
           TestUtils.Simulate.click($('.modal button.close').get(0));
-          setTimeout(function() {
-            done();
-          }, 1000);
         });
 
         it('closes the modal', function() {
-          expect($('#container .modal')).not.toExist();
+          expect(subject.refs.modal.state.isVisible).toBe(false);
         });
 
         describe('opening the modal again', function() {
@@ -89,22 +125,19 @@ describe('Modals', function() {
             TestUtils.Simulate.click($('#container button#openButton').get(0));
           });
 
-          it('closes the modal', function() {
-            expect($('.modal')).toExist();
+          it('opens the modal', function() {
+            expect(subject.refs.modal.state.isVisible).toBe(true);
           });
         });
       });
 
       describe('clicking the close button', function() {
-        beforeEach(function(done) {
+        beforeEach(function() {
           TestUtils.Simulate.click($('.modal button#closeButton').get(0));
-          setTimeout(function() {
-            done();
-          }, 1000);
         });
 
         it('closes the modal', function() {
-          expect($('#container .modal')).not.toExist();
+          expect(subject.refs.modal.state.isVisible).toBe(false);
         });
       });
     });
