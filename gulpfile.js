@@ -19,6 +19,7 @@ var argv = require('yargs').argv,
 
 require('./tasks/test.js');
 require('./tasks/release.js');
+var src = require('./tasks/util').src;
 
 gulp.task('default', [
   'watch',
@@ -40,7 +41,7 @@ gulp.task('serve', function() {
 });
 
 gulp.task('lint', function() {
-  return gulp.src('./src/pivotal-ui/javascripts/**/*.js?(x)')
+  return src('./src/pivotal-ui/javascripts/**/*.js?(x)')
     .pipe(jsxTransform())
     .pipe(jshint().on('error', errorHandler.handleError))
     .pipe(jshint.reporter(stylish))
@@ -82,7 +83,7 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
 });
 
 gulp.task('_compassBuildPui', ['_cleanBuiltPuiScss'], function() {
-  return gulp.src(['src/pivotal-ui/pivotal-ui.scss'])
+  return src(['src/pivotal-ui/pivotal-ui.scss'])
     .pipe(
       compass({
         config_file: './config/compass.rb',
@@ -93,7 +94,7 @@ gulp.task('_compassBuildPui', ['_cleanBuiltPuiScss'], function() {
 });
 
 gulp.task('_compassBuildPuiRails', ['_cleanBuiltPuiScss', '_compassBuildPui'], function() {
-  return gulp.src('build/pivotal-ui.css')
+  return src('build/pivotal-ui.css')
     .pipe(
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
     )
@@ -105,18 +106,18 @@ gulp.task('_compassBuildPuiRails', ['_cleanBuiltPuiScss', '_compassBuildPui'], f
 });
 
 gulp.task('_copyPuiScssToTest', ['_compassBuildPui'], function() {
-  return gulp.src(['build/pivotal-ui.css'])
+  return src(['build/pivotal-ui.css'])
     .pipe(gulp.dest('test/build/'));
 });
 
 gulp.task('_hologramBuild', ['_cleanBuiltPuiScss'], function() {
-  return gulp.src('')
+  return src('')
     .pipe(shell('bundle exec hologram'))
     .on('error', errorHandler.handleError);
 });
 
 gulp.task('_copyOtherHtmlFiles', ['_cleanBuiltPuiScss'], function() {
-  return gulp.src([
+  return src([
     'src/styleguide/404.html',
     'src/styleguide/pane.html',
     'src/styleguide/reset_password.html'
@@ -134,7 +135,7 @@ gulp.task('_cleanBuiltStyleguideScss', function(done) {
 });
 
 gulp.task('_compassBuildStyleguide', ['_cleanBuiltStyleguideScss'], function() {
-  return gulp.src(['src/styleguide/styleguide.scss'])
+  return src(['src/styleguide/styleguide.scss'])
     .pipe(
       compass({
         config_file: './config/compass.rb',
@@ -178,7 +179,7 @@ gulp.task('_buildPuiReactJs', ['_cleanBuiltPuiJs'], function() {
 });
 
 gulp.task('_copyPuiJsToTest', ['_cleanBuiltPuiJs', '_buildPuiReactJs'], function() {
-  return gulp.src('build/pivotal-ui-react.js')
+  return src('build/pivotal-ui-react.js')
     .pipe(gulp.dest('test/build/'));
 });
 
@@ -208,24 +209,24 @@ gulp.task('_cleanOtherAssets', function(done) {
 });
 
 gulp.task('_copyPrism', ['_cleanOtherAssets'], function() {
-  return gulp.src(['src/syntax-highlighting/*.css'])
+  return src(['src/syntax-highlighting/*.css'])
     .pipe(gulp.dest('./build/syntax-highlighting/'));
 });
 
 gulp.task('_copyImages', ['_cleanOtherAssets'], function() {
-  return gulp.src('src/images/**/*')
+  return src('src/images/**/*')
     .pipe(gulp.dest('./build/images/'));
 });
 
 gulp.task('_copyFontAwesome', ['_cleanOtherAssets'], function() {
-  return gulp.src([
+  return src([
     'node_modules/font-awesome/fonts/*',
   ])
     .pipe(gulp.dest('./build/fonts/'));
 });
 
 gulp.task('_copySourceSansPro', ['_cleanOtherAssets'], function() {
-  return gulp.src([
+  return src([
     'src/source-sans-pro/**/*',
     '!src/source-sans-pro/source-sans-pro.css.scss'
   ])
@@ -233,17 +234,17 @@ gulp.task('_copySourceSansPro', ['_cleanOtherAssets'], function() {
 });
 
 gulp.task('_copyStyleguideAssets', ['_cleanOtherAssets'], function() {
-  return gulp.src(['src/styleguide/*.js', 'src/styleguide/github.css'])
+  return src(['src/styleguide/*.js', 'src/styleguide/github.css'])
     .pipe(gulp.dest('./build/styleguide'));
 });
 
 gulp.task('_copyStaticfile', ['_cleanOtherAssets'], function() {
-  return gulp.src(['src/Staticfile'])
+  return src(['src/Staticfile'])
     .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('_copyZeroClipboard', ['_cleanOtherAssets'], function() {
-  return gulp.src([
+  return src([
     'node_modules/zeroclipboard/dist/ZeroClipboard.js',
     'node_modules/zeroclipboard/dist/ZeroClipboard.swf',
   ])
@@ -251,7 +252,7 @@ gulp.task('_copyZeroClipboard', ['_cleanOtherAssets'], function() {
 });
 
 gulp.task('_copyNginxConf', ['_cleanOtherAssets'], function() {
-  return gulp.src(['config/nginx.conf'])
+  return src(['config/nginx.conf'])
     .pipe(gulp.dest('./build/'));
 });
 
@@ -273,22 +274,22 @@ gulp.task('_cleanTestAssets', function(done) {
 });
 
 gulp.task('_copyTestFonts', ['_cleanTestAssets', '_otherAssets'], function() {
-  return gulp.src('build/fonts/**/*')
+  return src('build/fonts/**/*')
     .pipe(gulp.dest('./test/build/fonts'));
 });
 
 gulp.task('_copyTestImages', ['_cleanTestAssets', '_otherAssets'], function() {
-  return gulp.src('build/images/**/*')
+  return src('build/images/**/*')
     .pipe(gulp.dest('./test/build/images'));
 });
 
 gulp.task('_copyTestPrism', ['_cleanTestAssets', '_otherAssets'], function() {
-  return gulp.src('build/syntax-highlighting/**/*')
+  return src('build/syntax-highlighting/**/*')
     .pipe(gulp.dest('./test/build/syntax-highlighting'));
 });
 
 gulp.task('_copyTestStyleguideAssets', ['_cleanTestAssets', '_otherAssets'], function() {
-  return gulp.src('build/styleguide/github.css')
+  return src('build/styleguide/github.css')
     .pipe(gulp.dest('./test/build/styleguide'));
 });
 
