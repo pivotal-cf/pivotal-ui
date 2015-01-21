@@ -70,6 +70,9 @@ module.exports = {
   SimpleTabs: require('./tabs.jsx').SimpleTabs,
   SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
 
+  DraggableList: require('./draggable-list.js').DraggableList,
+  DraggableListItem: require('./draggable-list.js').DraggableListItem,
+
   Dropdown: require('./dropdowns.jsx').Dropdown,
   DropdownItem: require('./dropdowns.jsx').DropdownItem,
   LinkDropdown: require('./dropdowns.jsx').LinkDropdown,

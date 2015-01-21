@@ -977,3 +977,73 @@ or you want to vertically align it.
 Use [Card lists][list_cards] if you'd like to make a grid of vertically and horizontally aligned cards.
 
 */
+
+
+/*doc
+---
+title: React Draggable List
+name: react_draggable_list
+categories:
+  - Beta
+---
+
+Creates a draggable list.
+
+The property `onDrop` is a callback when a drop event has completed. Use this
+if you need to make an API call to update the order of some elements.
+
+```jsx_example
+var draggableListDropCallback = function(data) {
+  alert('New item indices order: ' + data);
+};
+```
+
+```react_example
+<UI.DraggableList onDrop={draggableListDropCallback}>
+  <UI.DraggableListItem>
+    Get me out of here!
+  </UI.DraggableListItem>
+
+  <UI.DraggableListItem>
+    LOL
+  </UI.DraggableListItem>
+
+  <UI.DraggableListItem>
+    Can't stop
+  </UI.DraggableListItem>
+</UI.DraggableList>
+```
+*/
+
+.list-draggable {
+  @include user-select(none);
+
+  .draggable-grip {
+    display: inline-block;
+    visibility: hidden;
+    color: $gray-6;
+  }
+
+  > li {
+    width: 100%;
+
+    &.hover {
+      cursor: pointer;
+
+      .draggable-grip {
+        visibility: visible;
+      }
+    }
+
+    &.grabbed {
+      background-color: $list-draggable-bg;
+      * {
+        visibility: hidden;
+      }
+    }
+
+    &.grabbed .draggable-grip {
+      visibility: hidden;
+    }
+  }
+}
