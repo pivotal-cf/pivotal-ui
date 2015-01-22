@@ -1254,10 +1254,18 @@ Add the focus-input directive to an element that should be focused if the focus-
 
 /*doc
 ---
-title: React Search Inputs
-name: form_search_input_react
+title: React Forms
+name: form_react
 categories:
   - Beta
+---
+*/
+
+/*doc
+---
+title: Search Inputs
+name: form_search_input_react
+parent: form_react
 ---
 
 ```react_example
@@ -1311,6 +1319,57 @@ var FilteringSearchExample = React.createClass({
 
 ```react_example
 <FilteringSearchExample />
+```
+
+*/
+
+/*doc
+---
+title: Radio Inputs
+name: form_radio_input_react
+parent: form_react
+---
+
+```jsx_example
+var MyComponent = React.createClass({
+  getInitialState: function() { return {selection: null}; },
+
+  change: function(value) {
+    this.setState({selection: value});
+  },
+
+  render: function() {
+    return (
+      <form role="form" className="form-horizontal">
+        <div className="form-group">
+          <UI.Col md={3}>
+            <label>Options</label>
+          </UI.Col>
+          <UI.Col md={21}>
+            <UI.RadioGroup name="stuff" onChange={this.change}>
+              <UI.Radio value="others">Others</UI.Radio>
+              <UI.Radio value="others1" defaultChecked>More others</UI.Radio>
+              <UI.Radio value="special">Click for more!</UI.Radio>
+            </UI.RadioGroup>
+          </UI.Col>
+        </div>
+        {this.state.selection === 'special' && <div className="form-group">
+          <UI.Col md={3}>
+            <label>Stuff that appears</label>
+          </UI.Col>
+          <UI.Col md={21}>
+            <label htmlFor="exampleInputEmail1">Email address</label>
+            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+          </UI.Col>
+        </div>}
+      </form>
+    );
+  }
+});
+```
+
+```react_example
+<MyComponent />
 ```
 
 */
