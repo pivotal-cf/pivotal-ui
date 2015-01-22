@@ -171,7 +171,7 @@ gulp.task('_buildPuiJs', ['_cleanBuiltPuiJs'], function() {
 
 gulp.task('_buildPuiReactJs', ['_cleanBuiltPuiJs'], function() {
   var b = browserify('./src/pivotal-ui/javascripts/pivotal-ui-react.js');
-  b.transform(reactify);
+  b.transform(reactify, {es6: true});
 
   return b.bundle()
     .pipe(source('./pivotal-ui-react.js'))

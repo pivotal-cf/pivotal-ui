@@ -7,7 +7,9 @@ module.exports = function(config) {
     basePath: './',
     browserNoActivityTimeout: 60000,
     browserify: {
-      transform: ['reactify']
+      transform: [
+        ['reactify', {es6: true}]
+      ]
     },
     browsers: ['Chrome', 'PhantomJS'],
     colors: true,
