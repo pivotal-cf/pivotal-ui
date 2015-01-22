@@ -60,7 +60,12 @@ module.exports = {
 
   Image: require('./images.jsx').Image,
 
+
   Icon: require('./icons.jsx').Icon,
+
+  Modal: require('./modals.jsx').Modal,
+  ModalBody: require('./modals.jsx').ModalBody,
+  ModalFooter: require('./modals.jsx').ModalFooter,
 
   Ribbon: require('./ribbons.jsx').Ribbon,
   PrimaryRibbon: require('./ribbons.jsx').PrimaryRibbon,
