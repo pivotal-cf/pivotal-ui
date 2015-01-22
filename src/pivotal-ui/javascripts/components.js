@@ -50,6 +50,9 @@ module.exports = {
 
   PivnetHomepage: require('./pivnet_homepage.jsx').PivnetHomepage,
 
+  Radio: require('./radio').Radio,
+  RadioGroup: require('./radio-group').RadioGroup,
+
   Panel: require('./panels.jsx').Panel,
   SimplePanel: require('./panels.jsx').SimplePanel,
   ClickablePanel: require('./panels.jsx').ClickablePanel,
