@@ -13,7 +13,9 @@ describe('Modals', function() {
       ReactCSSTransitionGroupChild;
 
   beforeEach(function() {
-    jasmine.clock().install();
+    spyOn(document.body, 'addEventListener');
+    spyOn(document.body, 'removeEventListener');
+
     ReactCSSTransitionGroupChild = require('react/lib/ReactCSSTransitionGroupChild');
 
     spyOn(ReactCSSTransitionGroupChild.type.prototype, 'queueClass').and.callFake(function(className) {
@@ -97,6 +99,20 @@ describe('Modals', function() {
       expect($('#container .modal')).not.toExist();
     });
 
+    describe("when mounting", function() {
+      it("removes the key up event listener", function() {
+        expect(document.body.addEventListener).toHaveBeenCalledWith('keyup', subject.refs.modal.onKeyUp, false);
+      });
+    });
+
+    describe("when unmounting", function() {
+      it("removes the key up event listener", function() {
+        var onKeyUp = subject.refs.modal.onKeyUp;
+        React.unmountComponentAtNode(this.node);
+        expect(document.body.removeEventListener).toHaveBeenCalledWith('keyup', onKeyUp);
+      });
+    });
+
     describe('clicking on the modal trigger', function() {
       beforeEach(function() {
         TestUtils.Simulate.click($('#container button#openButton').get(0));
@@ -109,6 +125,22 @@ describe('Modals', function() {
         expect($('.modal .modal-header')).toContainText('What a Header!');
         expect($('.modal .modal-body')).toContainText('Text in a body');
         expect($('.modal .modal-footer')).toContainText('Text in a footer');
+      });
+
+      describe("pressing any key", function() {
+        describe("for the escape key", function() {
+          it('closes the modal', function() {
+            document.body.addEventListener.calls.mostRecent().args[1]({keyCode: 27});
+            expect(subject.refs.modal.state.isVisible).toBe(false);
+          });
+        });
+
+        describe("any other key", function() {
+          it('does not close the modal', function() {
+            document.body.addEventListener.calls.mostRecent().args[1]({keyCode: 13});
+            expect(subject.refs.modal.state.isVisible).toBe(true);
+          });
+        });
       });
 
       describe('clicking on the X in the header', function() {
@@ -128,6 +160,16 @@ describe('Modals', function() {
           it('opens the modal', function() {
             expect(subject.refs.modal.state.isVisible).toBe(true);
           });
+        });
+      });
+
+      describe('clicking on the modal backdrop', function() {
+        beforeEach(function() {
+          TestUtils.Simulate.click($('.modal .modal-backdrop').get(0));
+        });
+
+        it('closes the modal', function() {
+          expect(subject.refs.modal.state.isVisible).toBe(false);
         });
       });
 

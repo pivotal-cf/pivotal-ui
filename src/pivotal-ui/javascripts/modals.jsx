@@ -8,6 +8,14 @@ var Modal = React.createClass({
     title: React.PropTypes.string
   },
 
+  componentDidMount: function() {
+    document.body.addEventListener('keyup', this.onKeyUp, false);
+  },
+
+  componentWillUnmount: function() {
+    document.body.removeEventListener('keyup', this.onKeyUp);
+  },
+
   getInitialState: function getInitialState() {
     return ({
       isVisible: false
@@ -26,6 +34,12 @@ var Modal = React.createClass({
     });
   },
 
+  onKeyUp: function(e) {
+    if (e.keyCode === 27) {
+      this.close();
+    }
+  },
+
   render: function () {
     var height = window.innerHeight;
     var modalInnards;
@@ -35,7 +49,7 @@ var Modal = React.createClass({
     } else {
       modalInnards = (
         <div className="modal modal-basic" style={{display: "block"}} key="bananas">
-          <div className="modal-backdrop fade in" style={{height: height}}></div>
+          <div className="modal-backdrop fade in" onClick={this.close} style={{height: height}}></div>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">

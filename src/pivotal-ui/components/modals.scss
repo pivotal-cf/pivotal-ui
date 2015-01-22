@@ -227,7 +227,7 @@ We provide 3 components that can be used to assemble modals:
 
 <div class="alert alert-info mbxl">
   <h5 class="em-high mtn">
-    Opening and closing the modal
+    Opening and closing the modal with callbacks
   </h5>
   <p>
     Modals will be closed by default. To open the modal, add a <code>ref</code>
@@ -236,6 +236,13 @@ We provide 3 components that can be used to assemble modals:
     <code>this.refs.myModal.close();</code> to close the modal.
   </p>
 </div>
+
+There are 4 ways to close the modal
+
+* Clicking the "x" button
+* Clicking on the modal backdrop
+* Clicking the esc key
+* Doing any action that triggers `this.refs.myModal.close`.
 
 ```jsx_example
 
