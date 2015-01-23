@@ -983,10 +983,96 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 
 /*doc
 ---
-title: React Draggable List
-name: react_draggable_list
+title: React Lists
+name: react_list
 categories:
   - Beta
+---
+*/
+
+/*doc
+---
+title: Unordered List
+name: react_list_unordered
+parent: react_list
+---
+
+```react_example_table
+<UI.Ul>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.Ul>
+```
+
+```react_example_table
+<UI.Ul checked>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.Ul>
+```
+*/
+
+/*doc
+---
+title: Ordered List
+name: react_list_ordered
+parent: react_list
+---
+
+```react_example_table
+<UI.Ol>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.Ol>
+```
+*/
+
+/*doc
+---
+title: Inline List
+name: react_list_inline
+parent: react_list
+---
+
+```react_example_table
+<UI.InlineList>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.InlineList>
+
+<UI.InlineList divider>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.InlineList>
+```
+*/
+
+/*doc
+---
+title: Group List
+name: react_list_group
+parent: react_list
+---
+
+```react_example
+<UI.GroupList>
+  <UI.Li>Item 1</UI.Li>
+  <UI.Li>Item 2</UI.Li>
+  <UI.Li>Item 3</UI.Li>
+</UI.GroupList>
+```
+*/
+
+/*doc
+---
+title: React Draggable List
+name: react_list_draggable
+parent: react_list
 ---
 
 Creates a draggable list.
