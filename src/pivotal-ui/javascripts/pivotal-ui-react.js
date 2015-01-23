@@ -7,6 +7,6 @@ require('prism');
 require('./scale')();
 require('./back-to-top')();
 
-global.React = require('react');
+global.React = require('react/addons');
 
 global.UI = require('./components.js');

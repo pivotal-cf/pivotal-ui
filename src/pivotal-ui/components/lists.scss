@@ -1070,7 +1070,7 @@ parent: react_list
 
 /*doc
 ---
-title: React Draggable List
+title: Draggable List
 name: react_list_draggable
 parent: react_list
 ---
@@ -1135,3 +1135,51 @@ var draggableListDropCallback = function(data) {
     }
   }
 }
+
+
+/*doc
+---
+title: Addable List
+name: react_list_addable
+parent: react_list
+---
+
+Here's an example of how you might write an addable list component.
+
+```jsx_example
+var AddableList = React.createClass({
+  getInitialState: function() {
+    return {
+      items: ['one','two','three']
+    };
+  },
+
+  change: function() {
+    var newItems = React.addons.update(this.state.items, {$push: ['new item']});
+    this.setState({items: newItems});
+  },
+
+  render: function() {
+    var items = _.map(this.state.items, function(item, key) {
+      return (
+        <UI.Li key={key+item}>
+          {item}
+        </UI.Li>
+      );
+    });
+    return (
+      <div>
+        <UI.Ul>
+          {items}
+        </UI.Ul>
+        <UI.HighlightButton onClick={this.change}>Click to Add Item</UI.HighlightButton>
+      </div>
+    );
+  }
+});
+```
+
+```react_example
+<AddableList />
+```
+*/
