@@ -1227,10 +1227,26 @@ name: react_list_addable
 parent: react_list
 ---
 
-Here's an example of how you might write an addable list component. Transitions are added to each list 
-item through `componentWillEnter`. If you wish to save the new item in your database, you should do so 
-in the `change` function, before setting state.
+Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.
+If you wish to save the new item in your database, you should do so in the `change` function, before setting state.
+
 ```jsx_example
+var ReactTransitionGroup = React.addons.TransitionGroup;
+
+var AddableListItem = React.createClass({
+  componentWillEnter: function(done) {
+    this.$el = $(this.getDOMNode());
+    this.$el.addClass("new-enter");
+    done();
+  },
+
+  render: function(){
+    return (
+      <UI.ListItem {...this.props}>{this.props.children}</UI.ListItem>
+    );
+  }
+});
+
 var AddableList = React.createClass({
   getInitialState: function() {
     return {
@@ -1239,23 +1255,23 @@ var AddableList = React.createClass({
   },
 
   change: function() {
-    var newItems = React.addons.update(this.state.items, {$push: ['new item']});
+    var newItems = this.state.items.concat([prompt('Enter some text')]);
     this.setState({items: newItems});
   },
 
   render: function() {
     var items = _.map(this.state.items, function(item, key) {
       return (
-        <UI.Li key={key+item}>
+        <AddableListItem key={key+item}>
           {item}
-        </UI.Li>
+        </AddableListItem>
       );
     });
     return (
       <div>
-        <UI.Ul>
+        <ReactTransitionGroup component={UI.StepList} transitionName='new'>
           {items}
-        </UI.Ul>
+        </ReactTransitionGroup>
         <UI.HighlightButton onClick={this.change}>Click to Add Item</UI.HighlightButton>
       </div>
     );
