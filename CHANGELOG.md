@@ -1,3 +1,85 @@
+<a name="1.4.0"></a>
+## 1.4.0 (2015-01-26)
+
+
+#### Bug Fixes
+
+* **copy-button:** do not include whitespace in hologram templates ((f6f067ad))
+* **dropdowns:** Use standard spacing on dropdowns.jsx ((c21077d3))
+* **ie-support:** fix back to top component in IE9 ((ade9688e))
+* **lodash:** add lodash to global scope in regular pivotal-ui.js ((4f4f01de))
+* **pivotal-ui-rails:** use 'font-url', not 'asset-url' for font paths ((04f38d8c), closes (#85540054))
+* **react-media:**
+  * Remove defunct left and right image validations ((8e2982c9))
+  * place images in divs ((29117667))
+* **react-ribbon:** rename ribbon component to inline ribbon ((cddfdc88))
+* **simple-alt-tab:** remove green border on focus ((2ee21d7b))
+* **styleguide:**
+  * Remove extraneous divs from styleguide ((bab65afe))
+  * fix font-weight in code example tables ((406949d2), closes (#84600166))
+
+
+#### Features
+
+* **dropdown:** add dropdown component ((b1e9bec9))
+* **flag-react:** Adds the flag object to our react components ((6606874b))
+* **links:** remove text-decoration for a:focus ((297cf798))
+* **lodash:** include lodash globally ((5099be52))
+* **panel-tile:** move panel tile to console specific styles ((4a2bce5a))
+* **react:**
+  * Namespace all PUI React components as UI.Component ((06ddf828))
+  * Introduce React typography components ((64ccd18e))
+* **react-alerts:** create react alerts ((265e99d0))
+* **react-button:**
+  * Adds specific button types ((495e09e2))
+  * Add base button renderer ((adf8647f))
+* **react-collapse:** Add Collapse component ((a5eaac08))
+* **react-dividers:**
+  * Support multiple sizes ((7b809e39))
+  * Add react renderers for dividers ((07061a3c))
+* **react-dropdown:** add react dropdown buttons ((15a27352))
+* **react-grids:** add react grids ((0f58d722))
+* **react-icons:** Add react icon component ((418edb99))
+* **react-images:** add image components ((aab48cc6))
+* **react-label:** Add Label component ((62fbcb38))
+* **react-media:**
+  * media components use the image components ((8bc50b08))
+  * Adds custom validations for left and right image props ((a0c66537))
+  * Add property validations for valign and stackSize ((31f5c806))
+  * make alignment global to the entire component ((f6dc5e58))
+  * implement new interface ((9725895d))
+  * add alt text, height, width, and image spacing ((e0f7c1b9))
+  * Non linked image support ((23d437bc))
+  * Media component rendered in jsx ((b7b18538))
+* **react-modal:**
+  * modals close by clicking on backdrop or pressing esc ((53f3ec30))
+  * add Modal component ((e1c8ef2d))
+* **react-pane:** Adds pane react component ((316240f2))
+* **react-panels:**
+  * Update ShadowPanel component default to level 3 ((7284d7d7))
+  * Add react panel components. ((fd0d231a))
+* **react-pivnet:** Provide a sample implementation of React + Pivnet ((c2f328c3))
+* **react-radio:** add radio and radio group components ((17a0325e))
+* **react-ribbon:**
+  * Ribbon components are now Ribbon, PrimaryRibbon, Banner ((f4f32231))
+  * Add primary property to BannerRibbon ((edf2a18f))
+  * add inline ribbon primary property ((e4dded10))
+  * add banner ribbon react component ((8d63bb0e))
+  * add react ribbon component ((e90c9e44))
+* **react-search:**
+  * Add example component using SearchInput and state to filter ((46fee5ba))
+  * Add a stateless SearchInput component. ((3103c383))
+* **react-sortable:** Add sortable list component ((3242698b))
+* **react-tabs:**
+  * Replace Tab component with react-bootstrap ((f1c575c0))
+  * Create AltTabs component ((ce81d114))
+  * Refactor Tabs component ((9ad17e65))
+  * React component for Simple Alt tabs. ((611a501c))
+* **styleguide:**
+  * add copy button to js/jsx examples ((d90644a8))
+  * add copy button to code examples ((da240986))
+  * add copy button to code tables ((fe66dc1a))
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2014-12-05)
 

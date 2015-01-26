@@ -1,0 +1,667 @@
+/*
+ * IE 10 doesn't support conditional comments so using IE9/IE10 hack.
+ * Does not affect IE 5.5 through IE 8, nor other browsers.
+ *
+ * For details see: http://www.impressivewebs.com/ie10-css-hacks/
+ */
+@media screen and (min-width: 0\0) {
+  /* line 9, ../../src/styleguide/ie-specific-styles.scss */
+  .chip .chip-color-name {
+    font-size: 10px !important;
+  }
+
+  /* line 13, ../../src/styleguide/ie-specific-styles.scss */
+  h3, .h3 {
+    font-size: 22px;
+  }
+}
+/* ==========================================================================
+  Browser support
+  ========================================================================== */
+/* Typography
+   ========================================================================== */
+/* Grid
+   ========================================================================== */
+/* Code examples
+   ========================================================================== */
+/* Transition mixins */
+/* Button Mixins */
+/* line 7, ../../src/styleguide/styleguide.scss */
+html {
+  background-color: #ecefef;
+}
+
+/* line 11, ../../src/styleguide/styleguide.scss */
+.container {
+  max-width: 1128px;
+  width: auto;
+  margin: 0 auto;
+}
+
+/* line 17, ../../src/styleguide/styleguide.scss */
+.content {
+  margin-top: 5px;
+}
+
+/* line 22, ../../src/styleguide/styleguide.scss */
+.main > h1 {
+  margin-top: 30px;
+}
+
+/* line 26, ../../src/styleguide/styleguide.scss */
+.main > h1:first-child {
+  margin-top: 0;
+}
+
+/* line 30, ../../src/styleguide/styleguide.scss */
+h1.styleguide,
+h2.styleguide,
+h3.styleguide,
+h4.styleguide,
+h5.styleguide,
+h6.styleguide {
+  color: #00a79d;
+  font-weight: 600;
+  margin-top: 0;
+}
+@media screen and (min-width: 992px) {
+  /* line 30, ../../src/styleguide/styleguide.scss */
+  h1.styleguide,
+  h2.styleguide,
+  h3.styleguide,
+  h4.styleguide,
+  h5.styleguide,
+  h6.styleguide {
+    padding-top: 50px;
+  }
+}
+
+/* line 45, ../../src/styleguide/styleguide.scss */
+h1.styleguide {
+  font-size: 42px;
+}
+
+/* line 49, ../../src/styleguide/styleguide.scss */
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* line 55, ../../src/styleguide/styleguide.scss */
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+/* line 61, ../../src/styleguide/styleguide.scss */
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+/* line 66, ../../src/styleguide/styleguide.scss */
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* line 76, ../../src/styleguide/styleguide.scss */
+.styleguide-header {
+  min-height: 40px;
+  width: 100%;
+  z-index: 100;
+  background: #243640;
+  color: white;
+}
+@-webkit-keyframes hoverSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes hoverSpin {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes hoverSpin {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* line 101, ../../src/styleguide/styleguide.scss */
+.styleguide-header .styleguide-logo {
+  float: left;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+/* line 106, ../../src/styleguide/styleguide.scss */
+.styleguide-header .styleguide-logo:hover {
+  -moz-animation: hoverSpin 5s linear infinite;
+  -webkit-animation: hoverSpin 5s linear infinite;
+  animation: hoverSpin 5s linear infinite;
+}
+/* line 112, ../../src/styleguide/styleguide.scss */
+.styleguide-header #navbar-hamburger {
+  float: right;
+  margin: 4px 0px;
+  border: none;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: transparent;
+  -webkit-transition: background 0.5s ease-out;
+  -moz-transition: background 0.5s ease-out;
+  transition: background 0.5s ease-out;
+}
+/* line 121, ../../src/styleguide/styleguide.scss */
+.styleguide-header #navbar-hamburger:hover {
+  background: #3f484f;
+}
+/* line 125, ../../src/styleguide/styleguide.scss */
+.styleguide-header #navbar-hamburger .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 1px;
+  background: #F8F8F8;
+}
+/* line 132, ../../src/styleguide/styleguide.scss */
+.styleguide-header #navbar-hamburger .icon-bar:not(:first-of-type) {
+  margin: 4px;
+}
+/* line 138, ../../src/styleguide/styleguide.scss */
+.styleguide-header #styleguide-first-level-nav-wrapper {
+  margin: 0 -10px;
+}
+/* line 142, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav {
+  display: none;
+  clear: both;
+  margin: 0;
+  padding: 0;
+  background: #243640;
+  list-style-type: none;
+}
+/* line 150, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li {
+  -webkit-transition: background 300ms ease-out;
+  -moz-transition: background 300ms ease-out;
+  transition: background 300ms ease-out;
+}
+/* line 153, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li > a {
+  color: white;
+}
+/* line 157, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li a.category-link, .styleguide-header ul#styleguide-first-level-nav > li a.styleguide-second-level-nav-link {
+  padding: 8px 10px;
+}
+/* line 161, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li a.category-link {
+  display: inline-block;
+  width: 55%;
+  -webkit-transition: color 300ms ease-out;
+  -moz-transition: color 300ms ease-out;
+  transition: color 300ms ease-out;
+}
+/* line 167, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li a.styleguide-second-level-nav-link {
+  float: right;
+  width: 40%;
+  text-align: right;
+}
+/* line 173, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav {
+  display: none;
+  padding-left: 0;
+  list-style-type: none;
+  background-color: #282828;
+}
+/* line 179, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav > li {
+  padding-bottom: 5px;
+  font-size: 16px;
+}
+/* line 183, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav > li a {
+  display: block;
+  color: #F8F8F8;
+  padding: 8px 10px 8px 30px;
+}
+/* line 190, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav > li:hover a {
+  color: #49a8d5;
+}
+/* line 197, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li:hover, .styleguide-header ul#styleguide-first-level-nav > li.active {
+  background: #282828;
+}
+/* line 200, ../../src/styleguide/styleguide.scss */
+.styleguide-header ul#styleguide-first-level-nav > li:hover a.category-link, .styleguide-header ul#styleguide-first-level-nav > li:hover a.styleguide-second-level-nav-link, .styleguide-header ul#styleguide-first-level-nav > li.active a.category-link, .styleguide-header ul#styleguide-first-level-nav > li.active a.styleguide-second-level-nav-link {
+  color: #00a79d;
+}
+@media (min-width: 992px) {
+  /* line 76, ../../src/styleguide/styleguide.scss */
+  .styleguide-header {
+    position: fixed;
+    top: 0;
+  }
+  /* line 211, ../../src/styleguide/styleguide.scss */
+  .styleguide-header #styleguide-first-level-nav-wrapper {
+    margin: 0;
+  }
+  /* line 215, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav {
+    display: block;
+    clear: none;
+    top: 0;
+    background: transparent;
+  }
+  /* line 221, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+  /* line 228, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li a.category-link {
+    padding: 0;
+    display: inline;
+  }
+  /* line 233, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li a.styleguide-second-level-nav-link {
+    float: none;
+  }
+  /* line 237, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 200px;
+    padding: 10px 20px;
+  }
+  /* line 245, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li ul.styleguide-second-level-nav > li a {
+    padding: 0;
+  }
+  /* line 252, ../../src/styleguide/styleguide.scss */
+  .styleguide-header ul#styleguide-first-level-nav > li:hover ul.styleguide-second-level-nav {
+    display: block;
+  }
+  /* line 259, ../../src/styleguide/styleguide.scss */
+  .styleguide-header #navbar-hamburger {
+    display: none;
+  }
+}
+
+/* line 266, ../../src/styleguide/styleguide.scss */
+.exampleOutput .back-to-top {
+  position: absolute;
+}
+
+/* line 271, ../../src/styleguide/styleguide.scss */
+.contrast-bar {
+  padding: 20px;
+  background-color: #243640;
+  min-height: 80px;
+}
+/* line 275, ../../src/styleguide/styleguide.scss */
+.contrast-bar .row {
+  float: left;
+  width: 100%;
+}
+/* line 278, ../../src/styleguide/styleguide.scss */
+.contrast-bar .row .chip-color {
+  min-height: 93px;
+}
+
+/* line 286, ../../src/styleguide/styleguide.scss */
+.chip {
+  margin-top: 5px;
+}
+/* line 290, ../../src/styleguide/styleguide.scss */
+.chip .chip-color {
+  min-height: 53px;
+}
+/* line 293, ../../src/styleguide/styleguide.scss */
+.chip .chip-color-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 8px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* line 301, ../../src/styleguide/styleguide.scss */
+.marquee {
+  min-height: 400px;
+}
+
+/* line 304, ../../src/styleguide/styleguide.scss */
+.marquee-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 11px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+/* line 311, ../../src/styleguide/styleguide.scss */
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+/* line 317, ../../src/styleguide/styleguide.scss */
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+/* line 322, ../../src/styleguide/styleguide.scss */
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 5px;
+}
+
+/* line 332, ../../src/styleguide/styleguide.scss */
+.sg-code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* line 342, ../../src/styleguide/styleguide.scss */
+.codeExample, .jsExample {
+  -moz-background-clip: padding;
+  -o-background-clip: padding-box;
+  -webkit-background-clip: padding;
+  background-clip: padding-box;
+}
+/* line 345, ../../src/styleguide/styleguide.scss */
+.codeExample .docSwatch, .jsExample .docSwatch {
+  min-height: 218.21px;
+  border: 1px solid #ccc;
+  padding: 10px 0 0 10px;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+/* line 354, ../../src/styleguide/styleguide.scss */
+.codeExample .codeBlock, .jsExample.codeBlock {
+  position: relative;
+  background-color: #F8F8F8;
+  border-top: 1px solid rgba(0, 0, 0, 0.07);
+  padding: 40px;
+}
+/* line 360, ../../src/styleguide/styleguide.scss */
+.codeExample .codeBlock pre, .jsExample.codeBlock pre {
+  background-color: transparent;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+/* line 367, ../../src/styleguide/styleguide.scss */
+.codeExample .codeBlock .btn-copy, .jsExample.codeBlock .btn-copy {
+  display: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.07);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+/* line 372, ../../src/styleguide/styleguide.scss */
+.codeExample .codeBlock .btn-copy.zeroclipboard-is-hover, .jsExample.codeBlock .btn-copy.zeroclipboard-is-hover {
+  display: block;
+}
+/* line 377, ../../src/styleguide/styleguide.scss */
+.codeExample .codeBlock:hover .btn-copy, .jsExample.codeBlock:hover .btn-copy {
+  display: block;
+}
+
+/* line 382, ../../src/styleguide/styleguide.scss */
+.codeExample {
+  margin: 10px 0;
+  background-color: white;
+}
+/* line 386, ../../src/styleguide/styleguide.scss */
+.codeExample .exampleOutput {
+  padding: 20px;
+}
+/* line 390, ../../src/styleguide/styleguide.scss */
+.codeExample .line > div:after {
+  content: attr(class);
+  display: block;
+  min-height: 40px;
+  line-height: 40px;
+  background-color: #EEE;
+  text-align: center;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* line 402, ../../src/styleguide/styleguide.scss */
+.jsExample {
+  margin: -10px 0 10px;
+}
+
+/* line 408, ../../src/styleguide/styleguide.scss */
+.codeTable table {
+  padding: 7px;
+  border: none;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 24px;
+}
+/* line 416, ../../src/styleguide/styleguide.scss */
+.codeTable table tr, .codeTable table th, .codeTable table td {
+  font-weight: normal;
+}
+/* line 420, ../../src/styleguide/styleguide.scss */
+.codeTable table tr {
+  padding: 7px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+}
+/* line 424, ../../src/styleguide/styleguide.scss */
+.codeTable table tr:last-of-type {
+  border-bottom: none;
+}
+/* line 429, ../../src/styleguide/styleguide.scss */
+.codeTable table th {
+  padding: 10px 20px;
+  vertical-align: middle;
+  background-color: white;
+}
+/* line 435, ../../src/styleguide/styleguide.scss */
+.codeTable table td {
+  position: relative;
+  padding: 10px 10px;
+  vertical-align: middle;
+  background-color: #F8F8F8;
+}
+/* line 441, ../../src/styleguide/styleguide.scss */
+.codeTable table td .btn-copy {
+  display: none;
+  border-left: 1px solid rgba(0, 0, 0, 0.14);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+}
+/* line 446, ../../src/styleguide/styleguide.scss */
+.codeTable table td .btn-copy.zeroclipboard-is-hover {
+  display: block;
+}
+/* line 451, ../../src/styleguide/styleguide.scss */
+.codeTable table td:hover .btn-copy {
+  display: block;
+}
+/* line 456, ../../src/styleguide/styleguide.scss */
+.codeTable table pre {
+  background-color: transparent;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+
+/* line 464, ../../src/styleguide/styleguide.scss */
+table.styleguide {
+  padding: 7px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+/* line 470, ../../src/styleguide/styleguide.scss */
+table.styleguide tr, table.styleguide th, table.styleguide td {
+  padding: 7px;
+  border: 1px solid #ccc;
+  font-weight: normal;
+}
+/* line 476, ../../src/styleguide/styleguide.scss */
+table.styleguide th {
+  font-weight: bold;
+}
+/* line 480, ../../src/styleguide/styleguide.scss */
+table.styleguide td.no-wrap, table.styleguide th.no-wrap {
+  white-space: nowrap;
+}
+
+/* line 486, ../../src/styleguide/styleguide.scss */
+.btn-copy {
+  -webkit-transition: background 0.5s ease-out;
+  -moz-transition: background 0.5s ease-out;
+  transition: background 0.5s ease-out;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 20px;
+  border-radius: 0;
+}
+/* line 495, ../../src/styleguide/styleguide.scss */
+.btn-copy.zeroclipboard-is-hover {
+  background-color: white;
+}
+
+/* line 502, ../../src/styleguide/styleguide.scss */
+.grid-show {
+  margin-bottom: 20px;
+  text-align: center;
+}
+/* line 505, ../../src/styleguide/styleguide.scss */
+.grid-show [class*=col]:before {
+  content: attr(class) "\a" attr(grid-content);
+  white-space: pre;
+  display: block;
+  background-color: #F8F8F8;
+  padding: 10px 0;
+  outline: 1px solid #b4b4b4;
+}
+
+/* line 517, ../../src/styleguide/styleguide.scss */
+.styleguide-form {
+  padding: 25px;
+}
+
+/* line 523, ../../src/styleguide/styleguide.scss */
+.styleguide-component-wrapper {
+  position: relative;
+  border: 1px solid #c3c5c7;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+}
+/* line 529, ../../src/styleguide/styleguide.scss */
+.styleguide-component-wrapper .ribbon-banner {
+  position: absolute;
+}
+
+/* line 535, ../../src/styleguide/styleguide.scss */
+.bkg-highlight-2 {
+  background-position: 0 50%;
+}
+
+/* line 541, ../../src/styleguide/styleguide.scss */
+.code-hide-haml .codeBlock.haml {
+  display: none;
+}
+
+/* line 545, ../../src/styleguide/styleguide.scss */
+.code-hide-html .codeBlock.html {
+  display: none;
+}
+
+/* line 551, ../../src/styleguide/styleguide.scss */
+.section-nav {
+  font-size: 14px;
+  padding-left: 0;
+  font-weight: bold;
+}
+/* line 556, ../../src/styleguide/styleguide.scss */
+.section-nav li {
+  display: inline-block;
+}
+/* line 558, ../../src/styleguide/styleguide.scss */
+.section-nav li a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-right: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-transition: all 300ms ease-out;
+  -moz-transition: all 300ms ease-out;
+  transition: all 300ms ease-out;
+  border-radius: 3px;
+}
+/* line 566, ../../src/styleguide/styleguide.scss */
+.section-nav li a:hover {
+  background-color: white;
+}
+
+/* line 573, ../../src/styleguide/styleguide.scss */
+td.is-visible, td.is-hidden {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 578, ../../src/styleguide/styleguide.scss */
+td.is-visible {
+  color: #468847;
+  background-color: #dff0d8 !important;
+}
+
+/* line 583, ../../src/styleguide/styleguide.scss */
+td.is-hidden {
+  color: #ccc;
+  background-color: #f9f9f9 !important;
+}
+
+/* line 588, ../../src/styleguide/styleguide.scss */
+.aligner {
+  background-color: #F8F8F8;
+}
+/* line 590, ../../src/styleguide/styleguide.scss */
+.aligner > * {
+  background-color: white;
+}
