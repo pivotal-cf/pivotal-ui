@@ -3,24 +3,34 @@
 var React = require('react');
 var _ = require('lodash');
 
+var PanelMixin = require('./mixins/panel-mixin');
+
 var Panel = React.createClass({
+  mixins: [PanelMixin],
+
+  propTypes: {
+    type: React.PropTypes.string
+  },
+
   render: function () {
-    var classes = _.compact(['panel', this.props.type, this.props.className]),
-        bodyClasses = _.compact(['panel-body', this.props.padding]),
+    var {type, className, padding, scrollable, children, ...other} = this.props;
+
+    var classes = _.compact(['panel', type, className]),
+        bodyClasses = _.compact(['panel-body', padding]),
         style = {};
 
-    if (this.props.scrollable) {
+    if (scrollable) {
       classes.push(['panel-scrollable']);
 
-      if (this.props.scrollable.match(/^\d+$/)) {
-        style.maxHeight = this.props.scrollable + 'px';
+      if (_.isNumber(scrollable)) {
+        style.maxHeight = scrollable + 'px';
       }
     }
 
     return (
-      <div className={classes.join(" ")} style={style}>
+      <div {...other} className={classes.join(" ")} style={style}>
         <div className={bodyClasses.join(" ")}>
-          {this.props.children}
+          {children}
         </div>
       </div>
     );
@@ -28,65 +38,52 @@ var Panel = React.createClass({
 });
 
 var SimplePanel = React.createClass({
+  mixins: [PanelMixin],
   render: function () {
-    return (
-      <Panel {...this.props} type="panel-simple">
-      </Panel>
-    );
+    return <Panel {...this.props} type="panel-simple" />;
   }
 });
 
 var BasicPanel = React.createClass({
+  mixins: [PanelMixin],
   render: function () {
-    return (
-      <Panel {...this.props} type="panel-basic">
-      </Panel>
-    );
+    return <Panel {...this.props} type="panel-basic" />;
   }
 });
 
 var ClickablePanel = React.createClass({
+  mixins: [PanelMixin],
   render: function () {
-    return (
-      <Panel {...this.props} type="panel-clickable">
-      </Panel>
-    );
+    return <Panel {...this.props} type="panel-clickable" />;
   }
 });
 
 var ClickableAltPanel = React.createClass({
+  mixins: [PanelMixin],
   render: function () {
-    return (
-      <Panel {...this.props} type="panel-clickable-alt">
-      </Panel>
-    );
+    return <Panel {...this.props} type="panel-clickable-alt" />;
   }
 });
 
 var ShadowPanel = React.createClass({
-  acceptedShadowLevels: ['1', '2', '3', '4'],
+  mixins: [PanelMixin],
+
+  propTypes: {
+    shadowLevel: React.PropTypes.oneOf([1, 2, 3, 4])
+  },
+
   render: function () {
-    var type;
+    var {shadowLevel, ...other} = this.props;
+    shadowLevel = shadowLevel || 3;
 
-    if (_.contains(this.acceptedShadowLevels, '' + this.props.shadowLevel)) {
-      type = "panel-shadow-" + this.props.shadowLevel;
-    } else {
-      type = "panel-shadow-3";
-    }
-
-    return (
-      <Panel {...this.props} type={type}>
-      </Panel>
-    );
+    return <Panel {...other} type={'panel-shadow-' + shadowLevel} />;
   }
 });
 
 var HighlightPanel = React.createClass({
+  mixins: [PanelMixin],
   render: function () {
-    return (
-      <Panel {...this.props} type="panel-highlight">
-      </Panel>
-    );
+    return <Panel {...this.props} type="panel-highlight" />;
   }
 });
 

@@ -617,7 +617,7 @@ A ScrollingPanel is created by using a `Panel` component and including a true va
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels!
 
 ```react_example_table
-<UI.Panel className="bg-neutral-8" scrollable="100">
+<UI.Panel className="bg-neutral-8" scrollable={100}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -626,7 +626,7 @@ property. Alternatively, if this value is a number, it will become the height of
   <p>Scrollable Panel</p>
 </UI.Panel>
 
-<UI.Panel className="bg-neutral-8" scrollable="true">
+<UI.Panel className="bg-neutral-8" scrollable={true}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -697,13 +697,13 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 ```react_example_table
 <UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>
 
-<UI.ShadowPanel shadowLevel="1">Shadow Panel (level 1)</UI.ShadowPanel>
+<UI.ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</UI.ShadowPanel>
 
-<UI.ShadowPanel shadowLevel="2">Shadow Panel (level 2)</UI.ShadowPanel>
+<UI.ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</UI.ShadowPanel>
 
-<UI.ShadowPanel shadowLevel="3">Shadow Panel (level 3)</UI.ShadowPanel>
+<UI.ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</UI.ShadowPanel>
 
-<UI.ShadowPanel shadowLevel="4">Shadow Panel (level 4)</UI.ShadowPanel>
+<UI.ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</UI.ShadowPanel>
 ```
 
 */
