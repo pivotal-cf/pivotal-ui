@@ -4,14 +4,14 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Dropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').Dropdown);
-var LinkDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').LinkDropdown);
-var DefaultAltDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DefaultAltDropdown);
-var PrimaryDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').PrimaryDropdown);
-var LowlightDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').LowlightDropdown);
-var DangerDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').DangerDropdown);
-var HighlightDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightDropdown);
-var HighlightAltDropdown = React.createFactory(require('../../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightAltDropdown);
+var Dropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').Dropdown);
+var LinkDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').LinkDropdown);
+var DefaultAltDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').DefaultAltDropdown);
+var PrimaryDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').PrimaryDropdown);
+var LowlightDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').LowlightDropdown);
+var DangerDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').DangerDropdown);
+var HighlightDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightDropdown);
+var HighlightAltDropdown = React.createFactory(require('../../src/pivotal-ui/javascripts/dropdowns.jsx').HighlightAltDropdown);
 
 describe('Dropdowns', function() {
   describe('Dropdown', function () {

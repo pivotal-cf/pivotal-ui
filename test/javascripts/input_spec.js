@@ -3,7 +3,7 @@
 var $ = require('jquery');
 var React = require('react/addons');
 
-var SearchInput = React.createFactory(require('../../../src/pivotal-ui/javascripts/inputs.jsx').SearchInput);
+var SearchInput = React.createFactory(require('../../src/pivotal-ui/javascripts/inputs.jsx').SearchInput);
 var TestUtils = React.addons.TestUtils;
 
 describe('SearchInput', function() {

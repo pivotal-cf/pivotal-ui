@@ -1,4 +1,4 @@
-var utils = require('../../../src/pivotal-ui/javascripts/utils');
+var utils = require('../../src/pivotal-ui/javascripts/utils');
 describe("Utils", function() {
   describe("#move", function() {
     it("moves an item at an index in a collection to the specified index", function() {

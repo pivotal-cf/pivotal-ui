@@ -4,10 +4,10 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var SuccessAlert = require('../../../src/pivotal-ui/javascripts/alerts.jsx').SuccessAlert;
-var InfoAlert = require('../../../src/pivotal-ui/javascripts/alerts.jsx').InfoAlert;
-var WarningAlert = require('../../../src/pivotal-ui/javascripts/alerts.jsx').WarningAlert;
-var ErrorAlert = require('../../../src/pivotal-ui/javascripts/alerts.jsx').ErrorAlert;
+var SuccessAlert = require('../../src/pivotal-ui/javascripts/alerts.jsx').SuccessAlert;
+var InfoAlert = require('../../src/pivotal-ui/javascripts/alerts.jsx').InfoAlert;
+var WarningAlert = require('../../src/pivotal-ui/javascripts/alerts.jsx').WarningAlert;
+var ErrorAlert = require('../../src/pivotal-ui/javascripts/alerts.jsx').ErrorAlert;
 
 describe('Alert', function() {
   beforeEach(function() {

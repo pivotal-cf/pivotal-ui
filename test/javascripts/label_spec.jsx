@@ -2,7 +2,7 @@
 
 var $ = require('jquery');
 var React = require('react');
-var Label = require('../../../src/pivotal-ui/javascripts/labels.jsx').Label;
+var Label = require('../../src/pivotal-ui/javascripts/labels.jsx').Label;
 
 describe("Label", function() {
   beforeEach(function() {

@@ -4,9 +4,9 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Ribbon = require('../../../src/pivotal-ui/javascripts/ribbons.jsx').Ribbon;
-var PrimaryRibbon = require('../../../src/pivotal-ui/javascripts/ribbons.jsx').PrimaryRibbon;
-var Banner = require('../../../src/pivotal-ui/javascripts/ribbons.jsx').Banner;
+var Ribbon = require('../../src/pivotal-ui/javascripts/ribbons.jsx').Ribbon;
+var PrimaryRibbon = require('../../src/pivotal-ui/javascripts/ribbons.jsx').PrimaryRibbon;
+var Banner = require('../../src/pivotal-ui/javascripts/ribbons.jsx').Banner;
 
 describe('Ribbon', function() {
   beforeEach(function() {

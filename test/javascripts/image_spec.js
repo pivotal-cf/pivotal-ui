@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Image = require('../../../src/pivotal-ui/javascripts/images.jsx').Image;
+var Image = require('../../src/pivotal-ui/javascripts/images.jsx').Image;
 
 describe('Image', function() {
   beforeEach(function() {

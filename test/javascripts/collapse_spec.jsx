@@ -5,9 +5,9 @@ var BsPanel = require('react-bootstrap/Panel');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var BaseCollapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').BaseCollapse;
-var Collapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').Collapse;
-var AltCollapse = require('../../../src/pivotal-ui/javascripts/collapse.jsx').AltCollapse;
+var BaseCollapse = require('../../src/pivotal-ui/javascripts/collapse.jsx').BaseCollapse;
+var Collapse = require('../../src/pivotal-ui/javascripts/collapse.jsx').Collapse;
+var AltCollapse = require('../../src/pivotal-ui/javascripts/collapse.jsx').AltCollapse;
 
 describe('BaseCollapse', function() {
   beforeEach(function() {

@@ -79,7 +79,7 @@ class CssCriticTestGenerator < Hologram::Plugin
   end
 
   def setup_dir(config)
-    destination = config['destination'] + '/../test/components'
+    destination = config['destination'] + '/../test/css/components'
     FileUtils.mkdir_p(destination)
     return Pathname.new(destination).realpath
   end

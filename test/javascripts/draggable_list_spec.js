@@ -9,7 +9,7 @@ function getListItemText() {
   }).toArray();
 }
 
-var {DraggableList, DraggableListItem} = require('../../../src/pivotal-ui/javascripts/draggable-list');
+var {DraggableList, DraggableListItem} = require('../../src/pivotal-ui/javascripts/draggable-list');
 
 describe("DraggableList", function() {
   var subject, dropSpy;

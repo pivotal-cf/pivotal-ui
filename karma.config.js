@@ -15,16 +15,16 @@ module.exports = function(config) {
     browsers: ['Chrome', 'PhantomJS'],
     colors: true,
     files: [
-      'test/spec/support/*.js',
-      'test/spec/javascripts/**/*_spec.js',
-      'test/spec/javascripts/**/*_spec.jsx'
+      'test/javascripts/support/*.js',
+      'test/javascripts/**/*_spec.js',
+      'test/javascripts/**/*_spec.jsx'
     ],
     frameworks: ['jasmine-jquery', 'jasmine', 'browserify'],
     logLevel: config.LOG_INFO,
     port: 9876,
     preprocessors: {
-      'test/spec/javascripts/**/*_spec.js': ['browserify'],
-      'test/spec/javascripts/**/*_spec.jsx': ['browserify']
+      'test/javascripts/**/*_spec.js': ['browserify'],
+      'test/javascripts/**/*_spec.jsx': ['browserify']
     },
     reporters: ['progress']
   });

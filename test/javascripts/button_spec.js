@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var UIButton = React.createFactory(require('../../../src/pivotal-ui/javascripts/buttons.jsx').UIButton);
+var UIButton = React.createFactory(require('../../src/pivotal-ui/javascripts/buttons.jsx').UIButton);
 
 describe('UIButton', function() {
   beforeEach(function() {

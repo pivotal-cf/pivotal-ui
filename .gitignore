@@ -7,9 +7,9 @@
 /spec/reports/
 /test/tmp/
 /test/version_tmp/
-/test/build/
-/test/components/
-/test/regressionRunner.js
+/test/css/build/
+/test/css/components/
+/test/css/regressionRunner.js
 /tmp/
 .sass-cache/
 node_modules/
