@@ -992,81 +992,131 @@ categories:
 
 /*doc
 ---
-title: Unordered List
+title: Unordered
 name: react_list_unordered
 parent: react_list
 ---
 
 ```react_example_table
-<UI.Ul>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
-</UI.Ul>
+<UI.UnorderedList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
 ```
 
 ```react_example_table
-<UI.Ul checked>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
-</UI.Ul>
+<UI.UnorderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
+```react_example_table
+<UI.UnorderedList checked>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
 ```
 */
 
 /*doc
 ---
-title: Ordered List
+title: Ordered
 name: react_list_ordered
 parent: react_list
 ---
 
 ```react_example_table
-<UI.Ol>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
-</UI.Ol>
+<UI.OrderedList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
+```
+
+```react_example_table
+<UI.OrderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
 ```
 */
 
 /*doc
 ---
-title: Inline List
+title: Inline
 name: react_list_inline
 parent: react_list
 ---
 
 ```react_example_table
 <UI.InlineList>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
 </UI.InlineList>
 
 <UI.InlineList divider>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
 </UI.InlineList>
 ```
 */
 
 /*doc
 ---
-title: Group List
+title: Group
 name: react_list_group
 parent: react_list
 ---
 
 ```react_example
 <UI.GroupList>
-  <UI.Li>Item 1</UI.Li>
-  <UI.Li>Item 2</UI.Li>
-  <UI.Li>Item 3</UI.Li>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
 </UI.GroupList>
 ```
 */
+
+/*doc
+---
+title: Breadcrumb
+name: react_list_breadcrumb
+parent: react_list
+---
+
+```react_example
+<UI.BreadcrumbList>
+  <UI.ListItem><a href="#">Item 1</a></UI.ListItem>
+  <UI.ListItem><a href="#">Item 2</a></UI.ListItem>
+  <UI.ListItem className="current"><span>Item 3</span></UI.ListItem>
+</UI.BreadcrumbList>
+```
+*/
+
+/*doc
+---
+title: Steps
+name: react_list_steps
+parent: react_list
+---
+
+```react_example
+<UI.StepList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem className="current">Item 3</UI.ListItem>
+</UI.StepList>
+```
+*/
+
+
 
 /*doc
 ---
@@ -1144,8 +1194,9 @@ name: react_list_addable
 parent: react_list
 ---
 
-Here's an example of how you might write an addable list component.
-
+Here's an example of how you might write an addable list component. Transitions are added to each list 
+item through `componentWillEnter`. If you wish to save the new item in your database, you should do so 
+in the `change` function, before setting state.
 ```jsx_example
 var AddableList = React.createClass({
   getInitialState: function() {

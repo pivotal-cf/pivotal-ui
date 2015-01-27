@@ -2,33 +2,86 @@
 
 var _ = require('lodash');
 var React = require('react/addons');
+var setClass = React.addons.classSet;
 
-module.exports = _.transform([
-  {name: 'Ul', Tag: 'ul', baseClassName: 'list-unordered', props: ['checked']},
-  {name: 'Ol', Tag: 'ol'},
-  {name: 'InlineList', baseClassName: 'list-inline', Tag: 'ul', props: ['divider']},
-  {name: 'GroupList', baseClassName: 'list-group', Tag: 'ul'}
-], function(memo, {name, baseClassName, Tag, props}) {
-  memo[name] = React.createClass({
-    renderChildren: function() {
-      if (name !== 'GroupList') {
-        return this.props.children;
-      }
-      return React.Children.map(this.props.children, c => React.addons.cloneWithProps(c, {className: 'list-group-item'}));
-    },
+var ListItem = React.createClass({
+  render: function() {
+    return (
+      <li {...this.props}>{this.props.children}</li>
+    );
+  }
+});
 
-    render: function() {
-      var className = baseClassName;
-      if (this.props.checked && props.indexOf('checked') !== -1) {
-        className = 'list-checked';
-      } else if (this.props.divider && props.indexOf('divider') !== -1) {
-        className = 'list-inline-divider';
-      }
-      return (
-        <Tag {...{className}}>
-          {this.renderChildren()}
-        </Tag>
-      );
-    }
-  });
-}, {});
+var UnorderedList = React.createClass({
+  render: function() {
+    var classes = setClass({
+      'list-unordered': !this.props.unstyled && !this.props.checked,
+      'list-unstyled': this.props.unstyled,
+      'list-checked': this.props.checked
+    });
+    return (
+      <ul className={classes}>{this.props.children}</ul>
+    );
+  }
+});
+
+var OrderedList = React.createClass({
+  render: function() {
+    var classes = setClass({
+      'list-unstyled': this.props.unstyled
+    });
+    return (
+      <ol className={classes}>{this.props.children}</ol>
+    );
+  }
+});
+
+var InlineList = React.createClass({
+  render: function() {
+    var classes = setClass({
+      'list-inline': true,
+      'list-inline-divider': this.props.divider,
+    });
+    return (
+      <ul className={classes}>{this.props.children}</ul>
+    );
+  }
+});
+
+var GroupList = React.createClass({
+  renderChildren: function() {
+    return React.Children.map(this.props.children, c => React.addons.cloneWithProps(c, {className: 'list-group-item'}));
+  },
+
+  render: function() {
+    return (
+      <ul className='list-group'>{this.renderChildren()}</ul>
+    );
+  }
+});
+
+var StepList = React.createClass({
+  render: function() {
+    return (
+      <ol className='list-steps'>{this.props.children}</ol>
+    );
+  }
+});
+
+var BreadcrumbList = React.createClass({
+  render: function() {
+    return (
+      <ul className='list-breadcrumb'>{this.props.children}</ul>
+    );
+  }
+});
+
+module.exports = {
+  ListItem,
+  UnorderedList,
+  OrderedList,
+  InlineList,
+  GroupList,
+  StepList,
+  BreadcrumbList
+};
