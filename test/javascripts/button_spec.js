@@ -60,27 +60,11 @@ describe('UIButton', function() {
     });
   });
 
-  describe("when type attribute is invalid", function() {
-    beforeEach(function(){
-      React.render(
-        UIButton({
-          type: "fop"
-        }),
-        this.node
-      );
-    });
-
-    it("does not add the type class to the button", function() {
-      expect($('#container button.btn')).not.toHaveClass('btn-fop');
-      expect($('#container button.btn')).toHaveClass('btn-default');
-    });
-  });
-
   describe("when block is true", function() {
     beforeEach(function(){
       React.render(
         UIButton({
-          block: "true"
+          block: true
         }),
         this.node
       );
@@ -95,7 +79,7 @@ describe('UIButton', function() {
     beforeEach(function(){
       React.render(
         UIButton({
-          large: "true"
+          large: true
         }),
         this.node
       );

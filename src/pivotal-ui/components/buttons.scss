@@ -150,7 +150,7 @@ Buttons use the button tag by default. If you'd like a link rather than a button
 To make a button large, set the `large` property to true.
 
 ```react_example_table
-<UI.HighlightButton large="true">
+<UI.HighlightButton large={true}>
   Big Button
 </UI.HighlightButton>
 ```
@@ -158,7 +158,7 @@ To make a button large, set the `large` property to true.
 To make a button full-width, set the `block` property to true.
 
 ```react_example
-<UI.DangerButton block="true" href="http://i.imgur.com/oq2qkUN.gif">
+<UI.DangerButton block={true} href="http://i.imgur.com/oq2qkUN.gif">
   Danger Zone
 </UI.DangerButton>
 ```
