@@ -59,6 +59,17 @@ var TableRow = React.createClass({
 });
 
 var SortableTable = React.createClass({
+  propTypes: {
+    classes: React.PropTypes.arrayOf(React.PropTypes.string),
+    columns: React.PropTypes.arrayOf(React.PropTypes.shape({
+      name: React.PropTypes.string.isRequired,
+      title: React.PropTypes.string.isRequired,
+      align: React.PropTypes.oneOf(['left', 'center', 'right']),
+      sortable: React.PropTypes.bool
+    })),
+    data: React.PropTypes.arrayOf(React.PropTypes.object)
+  },
+
   getInitialState: function getInitialState() {
     return {
       sort: {
@@ -96,7 +107,9 @@ var SortableTable = React.createClass({
   },
 
   render: function render() {
-    var headings = _.map(this.props.columns, function(column) {
+    var {columns, classes} = this.props;
+
+    var headings = _.map(columns, function(column) {
       return (
         <TableHeader key={column.name} name={column.name} sortable={column.sortable} sortState={this.state.sort} onSortableTableHeaderClick={this.sortData}>
           {column.title}
@@ -106,12 +119,12 @@ var SortableTable = React.createClass({
 
     var rows = _.map(this.state.data, function(datum, datumIndex) {
       return (
-        <TableRow data={datum} key={datumIndex} columnNames={_.map(this.props.columns, 'name')} alignment={_.map(this.props.columns, 'align')} />
+        <TableRow data={datum} key={datumIndex} columnNames={_.map(columns, 'name')} alignment={_.map(columns, 'align')} />
       );
     }, this);
 
     var defaultClasses = ['table', 'table-sortable'];
-    var allClasses = defaultClasses.concat(this.props.classes).join(' ');
+    var allClasses = defaultClasses.concat(classes).join(' ');
 
     return (
       <table className={allClasses}>
