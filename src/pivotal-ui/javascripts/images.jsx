@@ -5,30 +5,26 @@ var React = require('react/addons');
 var setClass = React.addons.classSet;
 
 var UIImage = React.createClass({
+  propTypes: {
+    responsive: React.PropTypes.bool,
+    href: React.PropTypes.string,
+    src: React.PropTypes.string.isRequired
+  },
+
   render: function () {
+    var {responsive, href, src, children, ...other} = this.props;
+
     var classes = setClass({
-      'img-responsive': this.props.responsive
+      'img-responsive': responsive
     });
 
-    var href = this.props.href;
-    delete this.props.href;
+    var image = (
+      <img {...other} src={src} className={classes}>
+        {children}
+      </img>
+    );
 
-    if (href){
-      return(
-        <a href={href}>
-          <img {...this.props} className={classes}>
-            {this.props.children}
-          </img>
-        </a>
-        );
-    }
-    else {
-      return (
-        <img {...this.props} className={classes}>
-          {this.props.children}
-        </img>
-        );
-    }
+    return (href) ? <a href={href}>{image}</a> : image;
   }
 });
 

@@ -189,7 +189,7 @@ categories:
 Images in react can be responsive and/or wrapped in a link.
 
 ```react_example
-<UI.Image src="http://placehold.it/1000x100" responsive="true" href="http://google.com" />
+<UI.Image src="http://placehold.it/1000x100" responsive={true} href="http://google.com" />
 ```
 
 

@@ -11,7 +11,7 @@ describe('Image', function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
     React.render(
-      <Image src="http://placehold.it/20x20" href="http://google.com" responsive="true" />,
+      <Image src="http://placehold.it/20x20" href="http://google.com" responsive={true} />,
       this.node
     );
   });
