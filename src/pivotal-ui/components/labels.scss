@@ -80,9 +80,16 @@ categories:
   - Beta
 ---
 
-```react_example_table
-<UI.Label>yeah</UI.Label>
+Labels are based on Bootstrap's labels.
 
+Labels can be used on their own:
+
+```react_example
+<UI.Label>yeah</UI.Label>
+```
+Labels used within an element which already has font modifier styles will use the parents' styling. For example:
+
+```react_example
 <UI.DefaultH3>
   Now the label is in a typography component <UI.Label>yeah</UI.Label>
 </UI.DefaultH3>
