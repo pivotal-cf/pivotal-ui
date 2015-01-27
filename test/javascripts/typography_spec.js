@@ -20,11 +20,7 @@ describe('Heading', function() {
   describe("when the Heading has no properties passed in", function() {
     beforeEach(function() {
       React.render(
-        Heading({
-        element: "foo",
-        children: "Heading text here"
-      }),
-      this.node
+        Heading({ children: "Heading text here" }), this.node
       );
     });
 
@@ -40,11 +36,7 @@ describe('Heading', function() {
   describe("when the Heading has a specified h1 - h6 element", function() {
     beforeEach(function() {
       React.render(
-        Heading({
-        element: "h1",
-        children: "Heading text here"
-      }),
-      this.node
+        Heading({ element: "h1", children: "Heading text here" }), this.node
       );
     });
 
@@ -57,12 +49,12 @@ describe('Heading', function() {
     beforeEach(function() {
       React.render(
         Heading({
-        element: "h1",
-        allCaps: true,
-        className: "myClass",
-        children: "Heading text here"
-      }),
-      this.node
+          element: "h1",
+          allCaps: true,
+          className: "myClass",
+          children: "Heading text here"
+        }),
+        this.node
       );
     });
 
@@ -72,14 +64,10 @@ describe('Heading', function() {
     });
   });
 
-  describe("when the Heading has valid size provided", function() {
+  describe("when the Heading has size provided", function() {
     beforeEach(function() {
       React.render(
-        Heading({
-        element: "h1",
-        size: 'small'
-      }),
-      this.node
+        Heading({ element: "h1", size: 'small' }), this.node
       );
     });
 
@@ -88,32 +76,14 @@ describe('Heading', function() {
     });
   });
 
-  describe("when the Heading has invalid size provided", function() {
-    beforeEach(function() {
-      React.render(
-        Heading({
-        element: "h1",
-        size: "fop"
-      }),
-      this.node
-      );
-    });
-
-    it("creates an element with the size class set", function() {
-      expect($('#container h1')).not.toHaveClass('fop');
-    });
-  });
-
-
   describe("when the Heading has allCaps set", function() {
     beforeEach(function() {
       React.render(
         Heading({
-        element: "h2",
-        allCaps: true,
-        children: "Heading text here"
-      }),
-      this.node
+          element: "h2",
+          allCaps: true,
+          children: "Heading text here"
+        }), this.node
       );
     });
 
@@ -122,15 +92,14 @@ describe('Heading', function() {
     });
   });
 
-  describe("when the Heading has a valid bold set", function() {
+  describe("when the Heading has a bold set", function() {
     beforeEach(function() {
       React.render(
         Heading({
-        element: "h2",
-        bold: "high",
-        children: "Heading text here"
-      }),
-      this.node
+          element: "h2",
+          bold: "high",
+          children: "Heading text here"
+        }), this.node
       );
     });
 
@@ -139,32 +108,14 @@ describe('Heading', function() {
     });
   });
 
-  describe("when the Heading has an invalid bold set", function() {
-    beforeEach(function() {
-      React.render(
-        Heading({
-        element: "h2",
-        bold: "superbold",
-        children: "Heading text here"
-      }),
-      this.node
-      );
-    });
-
-    it("creates an element without the em-{bold} class", function() {
-      expect($('#container h2')).not.toHaveClass('em-superbold');
-    });
-  });
-
   describe("when the Heading has color set", function() {
     beforeEach(function() {
       React.render(
         Heading({
-        element: "h2",
-        color: "purple",
-        children: "Heading text here"
-      }),
-      this.node
+          element: "h2",
+          color: "purple",
+          children: "Heading text here"
+        }), this.node
       );
     });
 
@@ -177,14 +128,13 @@ describe('Heading', function() {
     beforeEach(function() {
       React.render(
         Heading({
-        element: "h2",
-        size: "h4",
-        color: "purple",
-        bold: "max",
-        allCaps: true,
-        children: "Heading text here"
-      }),
-      this.node
+          element: "h2",
+          size: "h4",
+          color: "purple",
+          bold: "max",
+          allCaps: true,
+          children: "Heading text here"
+        }), this.node
       );
     });
 
@@ -194,31 +144,5 @@ describe('Heading', function() {
       expect($('#container h2')).toHaveClass('em-max');
       expect($('#container h2')).toHaveClass('h4');
     });
-  });
-});
-
-describe('createTypographyClass', function() {
-  beforeEach(function() {
-    this.node = $('<div id="container"></div>').appendTo('body').get(0);
-
-    var MyClass = React.createFactory(createTypographyClass({
-      element: 'h4',
-      color: 'type-dark-1',
-      size: 'h5',
-      bold: 'high'
-    }));
-
-    React.render(MyClass({children: 'Hi there!'}), this.node);
-  });
-
-  afterEach(function() {
-    React.unmountComponentAtNode(this.node);
-    document.body.removeChild(this.node);
-  });
-
-  it('creates a typography class with the default properties and the appropriate element', function() {
-    expect($('#container h4')).toHaveClass('type-dark-1');
-    expect($('#container h4')).toHaveClass('h5');
-    expect($('#container h4')).toHaveClass('em-high');
   });
 });
