@@ -3,18 +3,23 @@
 var React = require('react');
 
 var SearchInput = React.createClass({
+  propTypes: {
+    placeholder: React.PropTypes.string
+  },
+
   render: function () {
+    var {placeholder, className, ...other} = this.props;
     var inputClasses = ['form-control'];
 
-    if (this.props.className) {
-      inputClasses.push(this.props.className);
+    if (className) {
+      inputClasses.push(className);
     }
 
     inputClasses = inputClasses.join(" ");
 
     return(
       <div className='form-group form-group-search'>
-        <input {...this.props} type='text' className={inputClasses} placeholder={this.props.placeholder}/>
+        <input {...other} type='text' className={inputClasses} placeholder={placeholder}/>
         <i className='fa fa-search' />
       </div>
     );
