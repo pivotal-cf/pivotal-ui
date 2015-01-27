@@ -371,3 +371,7 @@ simply include the `divider` property as a truthy value.
 </UI.Collapse>
 ```
 */
+
+.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
+  @extend .panel-body-accordion-divider;
+}
