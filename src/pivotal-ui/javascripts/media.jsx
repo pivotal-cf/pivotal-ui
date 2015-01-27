@@ -36,59 +36,63 @@ var MediaObject = React.createClass({
 
 var Media = React.createClass({
   propTypes: {
-    stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
-    vAlign: React.PropTypes.oneOf(["middle","bottom"]),
     hasImages: function(props) {
       if(!props["leftImage"] && !props["rightImage"]) {
         return new Error("The media component must have at least one image");
       }
-    }
+    },
+    leftMediaSpacing: React.PropTypes.oneOf(["small", "medium", "large", "xlarge"]),
+    rightMediaSpacing: React.PropTypes.oneOf(["small", "medium", "large", "xlarge"]),
+    stackSize: React.PropTypes.oneOf(["xsmall", "small", "medium", "large"]),
+    vAlign: React.PropTypes.oneOf(["middle","bottom"]),
   },
+
   render: function () {
-    var leftMedia,
-        rightMedia = '';
+    var {leftImage, leftMediaSpacing, rightImage, rightMediaSpacing, 
+        stackSize, vAlign, children, ...other} = this.props;
+    var leftMedia, rightMedia;
 
     var classes = setClass({
       'media': true,
-      'media-stackable-xs': this.props.stackSize === 'xsmall',
-      'media-stackable-sm': this.props.stackSize === 'small',
-      'media-stackable-md': this.props.stackSize === 'medium',
-      'media-stackable-lg': this.props.stackSize === 'large'
+      'media-stackable-xs': stackSize === 'xsmall',
+      'media-stackable-sm': stackSize === 'small',
+      'media-stackable-md': stackSize === 'medium',
+      'media-stackable-lg': stackSize === 'large'
     });
 
     var bodyClasses = setClass({
       'media-body': true,
-      'media-middle': this.props.vAlign === 'middle',
-      'media-bottom': this.props.vAlign === 'bottom'
+      'media-middle': vAlign === 'middle',
+      'media-bottom': vAlign === 'bottom'
     });
 
-    if (this.props.leftImage) {
+    if (leftImage) {
       leftMedia = (
         <MediaObject
           horizontalAlignment='left'
-          vAlign={this.props.vAlign}
-          leftMediaSpacing={this.props.leftMediaSpacing}>
-            {this.props.leftImage}
+          vAlign={vAlign}
+          leftMediaSpacing={leftMediaSpacing}>
+            {leftImage}
         </MediaObject>
       );
     }
 
-    if (this.props.rightImage) {
+    if (rightImage) {
       rightMedia = (
         <MediaObject
           horizontalAlignment='right'
-          vAlign={this.props.vAlign}
-          rightMediaSpacing={this.props.rightMediaSpacing}>
-            {this.props.rightImage}
+          vAlign={vAlign}
+          rightMediaSpacing={rightMediaSpacing}>
+            {rightImage}
         </MediaObject>
       );
     }
 
     return (
-      <div {...this.props} className={classes}>
+      <div {...other} className={classes}>
         {leftMedia}
         <div className={bodyClasses}>
-          {this.props.children}
+          {children}
         </div>
         {rightMedia}
       </div>
@@ -97,15 +101,8 @@ var Media = React.createClass({
 });
 
 var Flag = React.createClass({
-  getDefaultProps: function () {
-    return {
-      vAlign: 'middle'
-    };
-  },
   render: function () {
-    return (
-      <Media {...this.props}>{this.props.children}</Media>
-    );
+    return <Media {...this.props} vAlign='middle' />;
   }
 });
 
