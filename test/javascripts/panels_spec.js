@@ -3,8 +3,8 @@
 var $ = require('jquery');
 var React = require('react/addons');
 
-var Panel = React.createFactory(require('../../../src/pivotal-ui/javascripts/panels.jsx').Panel);
-var ShadowPanel = React.createFactory(require('../../../src/pivotal-ui/javascripts/panels.jsx').ShadowPanel);
+var Panel = React.createFactory(require('../../src/pivotal-ui/javascripts/panels.jsx').Panel);
+var ShadowPanel = React.createFactory(require('../../src/pivotal-ui/javascripts/panels.jsx').ShadowPanel);
 
 describe('Panel', function() {
   beforeEach(function() {

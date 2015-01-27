@@ -3,7 +3,7 @@ require('../spec_helper');
 var $ = require('jquery');
 var React = require('react/addons');
 
-var HoverMixin = require('../../../../src/pivotal-ui/javascripts/mixins/hover-mixin');
+var HoverMixin = require('../../../src/pivotal-ui/javascripts/mixins/hover-mixin');
 
 describe("HoverMixin", function() {
   var subject;

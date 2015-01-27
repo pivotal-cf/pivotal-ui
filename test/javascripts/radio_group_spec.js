@@ -5,8 +5,8 @@ require('./spec_helper');
 var $ = require('jquery');
 var React = require('react/addons');
 
-var RadioGroup = require('../../../src/pivotal-ui/javascripts/radio-group').RadioGroup;
-var Radio = require('../../../src/pivotal-ui/javascripts/radio').Radio;
+var RadioGroup = require('../../src/pivotal-ui/javascripts/radio-group').RadioGroup;
+var Radio = require('../../src/pivotal-ui/javascripts/radio').Radio;
 
 describe('RadioGroup', function() {
   var changeSpy;

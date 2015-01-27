@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var BasePane = React.createFactory(require('../../../src/pivotal-ui/javascripts/panes.jsx').BasePane);
+var BasePane = React.createFactory(require('../../src/pivotal-ui/javascripts/panes.jsx').BasePane);
 
 describe('BasePane', function() {
   beforeEach(function() {

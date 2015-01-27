@@ -50,10 +50,10 @@ describe('Modals', function() {
       this.queueClass(activeClassName);
     });
 
-    Modal = require('../../../src/pivotal-ui/javascripts/modals.jsx').Modal;
-    ModalBody = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalBody;
-    ModalFooter = require('../../../src/pivotal-ui/javascripts/modals.jsx').ModalFooter;
-    DefaultButton = require('../../../src/pivotal-ui/javascripts/buttons.jsx').DefaultButton;
+    Modal = require('../../src/pivotal-ui/javascripts/modals.jsx').Modal;
+    ModalBody = require('../../src/pivotal-ui/javascripts/modals.jsx').ModalBody;
+    ModalFooter = require('../../src/pivotal-ui/javascripts/modals.jsx').ModalFooter;
+    DefaultButton = require('../../src/pivotal-ui/javascripts/buttons.jsx').DefaultButton;
 
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
   });

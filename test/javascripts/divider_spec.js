@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Divider = React.createFactory(require('../../../src/pivotal-ui/javascripts/dividers.jsx').Divider);
+var Divider = React.createFactory(require('../../src/pivotal-ui/javascripts/dividers.jsx').Divider);
 
 describe('Divider', function() {
   beforeEach(function() {

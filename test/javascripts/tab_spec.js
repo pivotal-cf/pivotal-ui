@@ -3,9 +3,9 @@
 var $ = require('jquery');
 var React = require('react/addons');
 
-var Tab = React.createFactory(require('../../../src/pivotal-ui/javascripts/tabs.jsx').Tab);
-var SimpleTabs = React.createFactory(require('../../../src/pivotal-ui/javascripts/tabs.jsx').SimpleTabs);
-var SimpleAltTabs = React.createFactory(require('../../../src/pivotal-ui/javascripts/tabs.jsx').SimpleAltTabs);
+var Tab = React.createFactory(require('../../src/pivotal-ui/javascripts/tabs.jsx').Tab);
+var SimpleTabs = React.createFactory(require('../../src/pivotal-ui/javascripts/tabs.jsx').SimpleTabs);
+var SimpleAltTabs = React.createFactory(require('../../src/pivotal-ui/javascripts/tabs.jsx').SimpleAltTabs);
 
 describe('Tabs', function() {
   describe('SimpleTabs', function() {

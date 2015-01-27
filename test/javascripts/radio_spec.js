@@ -5,7 +5,7 @@ require('./spec_helper');
 var $ = require('jquery');
 var React = require('react/addons');
 
-var Radio = require('../../../src/pivotal-ui/javascripts/radio').Radio;
+var Radio = require('../../src/pivotal-ui/javascripts/radio').Radio;
 
 describe('Radio', function() {
   beforeEach(function() {

@@ -4,9 +4,9 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Media = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Media);
-var Flag = React.createFactory(require('../../../src/pivotal-ui/javascripts/media.jsx').Flag);
-var Image = React.createFactory(require('../../../src/pivotal-ui/javascripts/images.jsx').Image);
+var Media = React.createFactory(require('../../src/pivotal-ui/javascripts/media.jsx').Media);
+var Flag = React.createFactory(require('../../src/pivotal-ui/javascripts/media.jsx').Flag);
+var Image = React.createFactory(require('../../src/pivotal-ui/javascripts/images.jsx').Image);
 
 describe('Media', function() {
   beforeEach(function() {

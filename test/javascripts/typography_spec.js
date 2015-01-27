@@ -4,8 +4,8 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Heading = React.createFactory(require('../../../src/pivotal-ui/javascripts/typography.jsx').Heading);
-var createTypographyClass = require('../../../src/pivotal-ui/javascripts/typography.jsx').createTypographyClass;
+var Heading = React.createFactory(require('../../src/pivotal-ui/javascripts/typography.jsx').Heading);
+var createTypographyClass = require('../../src/pivotal-ui/javascripts/typography.jsx').createTypographyClass;
 
 describe('Heading', function() {
   beforeEach(function() {

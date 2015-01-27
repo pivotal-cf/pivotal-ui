@@ -4,8 +4,8 @@ var $ = require('jquery');
 var React = require('react/addons');
 var TestUtils = React.addons.TestUtils;
 
-var Row = require('../../../src/pivotal-ui/javascripts/grids.jsx').Row;
-var Col = require('../../../src/pivotal-ui/javascripts/grids.jsx').Col;
+var Row = require('../../src/pivotal-ui/javascripts/grids.jsx').Row;
+var Col = require('../../src/pivotal-ui/javascripts/grids.jsx').Col;
 
 describe('Grid', function() {
   beforeEach(function() {
