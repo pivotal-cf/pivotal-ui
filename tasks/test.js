@@ -66,7 +66,7 @@ gulp.task('_cssCritic', ['lint', 'assets', '_createTestFileList'], function() {
 });
 
 gulp.task('_rspec', ['_serveTest'], function(done) {
-  exec('rspec test/styleguide', function(exitStatus) {
+  exec('rspec test/features', function(exitStatus) {
     if (exitStatus !== 0) {
       errorHandler.handleError('Exiting: Specs Failed', {isFatal: true});
     }

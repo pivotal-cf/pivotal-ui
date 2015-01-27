@@ -1,4 +1,4 @@
-require_relative '../spec_helper'
+require_relative 'spec_helper'
 
 feature 'the main nav', js: true do
   scenario 'navigating in mobile mode' do
