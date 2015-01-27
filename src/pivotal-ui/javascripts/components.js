@@ -48,8 +48,6 @@ module.exports = {
   Media: require('./media.jsx').Media,
   Flag: require('./media.jsx').Flag,
 
-  PivnetHomepage: require('./pivnet_homepage.jsx').PivnetHomepage,
-
   Radio: require('./radio').Radio,
   RadioGroup: require('./radio-group').RadioGroup,
 
