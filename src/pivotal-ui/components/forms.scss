@@ -1268,11 +1268,17 @@ name: form_search_input_react
 parent: form_react
 ---
 
+A `SearchInput` component can used on its own as an input. It accepts standard
+text input properties (such as `placeholder`).
+
 ```react_example
 <UI.SearchInput placeholder="Search..."/>
 ```
 
-Example of composing a SearchInput with state and I/O...
+To demonstrate how to use a SearchInput in a more complex example, let's say
+we want to filter a list based on the user's input. We can accomplish this
+by creating a stateful component which is composed of the SearchInput and the
+list to filter.
 
 ```jsx_example
 var FilteringSearchExample = React.createClass({
@@ -1329,6 +1335,19 @@ title: Radio Inputs
 name: form_radio_input_react
 parent: form_react
 ---
+
+Using React radio buttons in a form is fairly straightforward.
+
+```react_example
+  <UI.RadioGroup name="field_name">
+    <UI.Radio value="firstValue">You could click this radio button</UI.Radio>
+    <UI.Radio value="SecondValue" defaultChecked>This is also a radio button</UI.Radio>
+  </UI.RadioGroup>
+```
+
+Additionally, special behaviors can be added to the various event handlers
+exposed by radio groups. In this example, additional form controls are displayed
+when the user selects the third radio button.
 
 ```jsx_example
 var MyComponent = React.createClass({
