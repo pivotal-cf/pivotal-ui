@@ -105,7 +105,8 @@ name: pane_react
 category: Beta
 ---
 
-Simple pane
+The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
+Any className values passed through are passed to the underlying `.pane`.
 
 ```react_example
 <UI.Pane className="bg-neutral-10">
@@ -113,7 +114,10 @@ Simple pane
 </UI.Pane>
 ```
 
-Configurable pane
+In the event that you need additional configuration applied to a Pane, you can use the
+`BasePane` component which accepts properties for `outerClass` and `innerClass`.
+
+These values are added to the class name of the `.pane` and the `.container` respectively.
 
 ```react_example
 <UI.BasePane outerClass="bg-dark-1" innerClass="bg-glow">
