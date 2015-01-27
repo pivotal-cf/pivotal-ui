@@ -2,16 +2,21 @@
 
 var React = require('react');
 
-var Divider = React.createClass({
-  render: function () {
-    var typeName = "divider";
-    var classes = [];
+var DividerMixin = require('./mixins/divider-mixin');
 
-    if (!this.props.inverse) {
+var Divider = React.createClass({
+  mixins: [DividerMixin],
+
+  render: function () {
+    var {inverse, size, className, ...others} = this.props;
+    var classes = [];
+    var typeName = "divider";
+
+    if (!inverse) {
       typeName += "-alternate";
     }
 
-    if (this.props.size === "large") {
+    if (size === "large") {
       typeName += "-2";
     } else {
       typeName += "-1";
@@ -19,24 +24,23 @@ var Divider = React.createClass({
 
     classes.push(typeName);
 
-    if (this.props.className) {
-      classes.push(this.props.className);
+    if (className) {
+      classes.push(className);
     }
 
     classes = classes.join(" ");
 
     return (
-      <hr {...this.props} className={classes} />
+      <hr {...others} className={classes} />
     );
   }
 });
 
 
 var InverseDivider = React.createClass({
+  mixins: [DividerMixin],
   render: function () {
-    return (
-      <Divider {...this.props} inverse="true" />
-    );
+    return <Divider {...this.props} inverse={true} />;
   }
 });
 
