@@ -18,11 +18,17 @@ This is the basic bootstrap dropdown.
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-1">
-    <li role="presentation"><a href="http://www.google.com">Google</a></li>
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
     <li class="divider mvn"></li>
-    <li role="presentation"><a href="http://www.yahoo.com">Yahoo</a></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
     <li class="divider mvn"></li>
-    </li><li role="presentation"><a href="http://www.aol.com">Aol</a></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
   </ul>
 </div>
 ```
@@ -39,10 +45,18 @@ This is the basic bootstrap dropdown.
 <div class="dropdown btn-group">
   <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button"><span>Link Dropdown</span><span class="caret"></span></button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Action</a></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Another action</a></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Something else here</a></li>
-    <li role="presentation"><a role="menuDropdownItem" tabindex="-1" href="https://twitter.com/fat">Separated link</a></li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+    </li>
   </ul>
 </div>
 ```
@@ -65,7 +79,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
   </button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-2">
     <li role="presentation">
-      <a href="#" class="pvl">
+      <a href="#" role="menuitem" class="pvl">
         <div class="media">
           <div class="media-left media-middle prxl">
             <i class="fa fa-check type-neutral-2"></i>
@@ -78,7 +92,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
       </a>
     </li>
     <li role="presentation">
-      <a href="#" class="pvl">
+      <a href="#" role="menuitem" class="pvl">
         <div class="media">
           <div class="media-left media-middle prxl">
             <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
@@ -91,7 +105,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
       </a>
     </li>
     <li role="presentation">
-      <a href="#" class="pvl">
+      <a href="#" role="menuitem" class="pvl">
         <div class="media">
           <div class="media-left media-middle prxl">
             <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
