@@ -613,8 +613,8 @@ name: panel_react_scroll
 parent: panel_react
 ---
 
-A ScrollingPanel is created by using a `Panel` component and including a truthy value for the `scrollable`
-property. If this value is a number, it will become the height of the scrollable panel in pixels!
+A ScrollingPanel is created by using a `Panel` component and including a true value for the `scrollable`
+property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels!
 
 ```react_example_table
 <UI.Panel className="bg-neutral-8" scrollable="100">
@@ -692,7 +692,7 @@ parent: panel_react
 ---
 
 `ShadowPanels` accept a `shadowLevel` property between 1 and 4 (darkest to lightest).
-A default `shadowLevel` of 3 is applied.
+If no `shadowLevel` is set, a default value of 3 is applied.
 
 ```react_example_table
 <UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>

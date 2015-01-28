@@ -359,7 +359,7 @@ parent: react_collapse
 ---
 
 To add a divider between the clickable region and the expanded content region,
-simply include the `divider` property as a truthy value.
+simply set the `divider` property to be true.
 
 ```react_example
 <UI.Collapse header="With Divider" divider>
