@@ -80,14 +80,14 @@ categories:
   - Beta
 ---
 
-Labels are based on Bootstrap's labels.
+Labels are a straightforward implementation of the [Label][label] style.
 
 Labels can be used on their own:
 
 ```react_example
 <UI.Label>yeah</UI.Label>
 ```
-Labels used within an element which already has font modifier styles will use the parents' styling. For example:
+Labels used within an element which already font modifier styles will use the parents' styling. For example:
 
 ```react_example
 <UI.DefaultH3>

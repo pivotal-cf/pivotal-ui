@@ -1345,9 +1345,13 @@ Using React radio buttons in a form is fairly straightforward.
   </UI.RadioGroup>
 ```
 
-Additionally, special behaviors can be added to the various event handlers
+In this case, the `name` attached to `RadioGroup` will be applied to all of Radio children.
+
+Additionally, special behaviors can be added to the `onChange` event handler
 exposed by radio groups. In this example, additional form controls are displayed
 when the user selects the third radio button.
+
+Similar to the `name` property, the `onChange` handlers is passed down to all child components.
 
 ```jsx_example
 var MyComponent = React.createClass({
