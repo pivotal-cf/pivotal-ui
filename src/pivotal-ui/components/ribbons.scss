@@ -7,7 +7,7 @@ categories:
   - All
 ---
 
-Ribbons should be used to call out access, status, enironment, etc.
+Ribbons should be used to call out access, status, environment, etc.
 
 */
 
@@ -133,7 +133,12 @@ name: ribbons_react
 categories:
   - Beta
 ---
+
+`Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
+They should be used to call out access, status, environment, etc.
+
 */
+
 
 /*doc
 ---
@@ -165,6 +170,8 @@ title: Banners
 name: 03_banner_ribbons_react
 parent: ribbons_react
 ---
+
+Note that in practice, you will not want to include the `.styleguide-component-wrapper`.
 
 ```react_example_table
 <div className="styleguide-component-wrapper">

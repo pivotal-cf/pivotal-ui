@@ -594,7 +594,10 @@ categories:
  - Beta
 ---
 
-Panels?!?! In Javascript?!?!
+Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
+is the base, and there are many different flavors of Panels which all construct a particularly styled `Panel`.
+
+See examples below.
 
 ```react_example_table
 <UI.Panel className="bg-neutral-8">
@@ -609,6 +612,9 @@ title: Scrolling React Panels
 name: panel_react_scroll
 parent: panel_react
 ---
+
+A ScrollingPanel is created by using a `Panel` component and including a true value for the `scrollable`
+property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels!
 
 ```react_example_table
 <UI.Panel className="bg-neutral-8" scrollable="100">
@@ -635,7 +641,7 @@ parent: panel_react
 
 /*doc
 ---
-title: React Panels Padding
+title: Padding
 name: panel_react_padding
 parent: panel_react
 ---
@@ -685,6 +691,9 @@ name: panel_react_shadow
 parent: panel_react
 ---
 
+`ShadowPanels` accept a `shadowLevel` property between 1 and 4 (darkest to lightest).
+If no `shadowLevel` is set, a default value of 3 is applied.
+
 ```react_example_table
 <UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>
 
@@ -726,22 +735,3 @@ parent: panel_react
 </UI.HighlightPanel>
 ```
 */
-
-/*doc
----
-title: Divider Panels
-name: panel_react_divider
-parent: panel_react
----
-
-```react_example_table
-<UI.HighlightPanel divider>
-  Highlight Panel
-</UI.HighlightPanel>
-```
-
-*/
-
-.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
-  @extend .panel-body-accordion-divider;
-}
