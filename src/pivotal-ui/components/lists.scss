@@ -1022,18 +1022,22 @@ var draggableListDropCallback = function(data) {
 
   .draggable-grip {
     display: inline-block;
-    visibility: hidden;
-    color: $gray-6;
+    color: $list-draggable-grip;
   }
 
   > li {
     width: 100%;
 
+    .draggable-item-content {
+      padding: $list-draggable-item-content-padding;
+      background: $list-draggable-item-content-bg;
+    }
+
     &.hover {
-      cursor: pointer;
+      cursor: move;
 
       .draggable-grip {
-        visibility: visible;
+        color: $list-draggable-grip-active;
       }
     }
 

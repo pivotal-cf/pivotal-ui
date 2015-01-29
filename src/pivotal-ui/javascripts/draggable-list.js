@@ -97,7 +97,7 @@ var DraggableListItem = React.createClass({
     var {hover} = this.state;
     var {grabbed, onDragStart, onDragEnd, onDragEnter, onDrop, draggingId} = this.props;
     var {onMouseEnter, onMouseLeave} = this;
-    var className = cx({'list-group-item pln': true, grabbed, hover});
+    var className = cx({'list-group-item pan': true, grabbed, hover});
     var props = {
       className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter, onDrop,
       onDragOver: preventDefault,
@@ -106,14 +106,16 @@ var DraggableListItem = React.createClass({
     };
     return (
       <li {...props} aria-dropeffect="move">
-        <div className='draggable-grip mhl' aria-grabbed={grabbed} role='button'>
-          <i className='fa fa-ellipsis-v mrs'/>
-          <i className='fa fa-ellipsis-v'/>
-          <span className='sr-only'>Drag to reorder</span>
+        <div className="draggable-item-content">
+          <div className='draggable-grip mhl' aria-grabbed={grabbed} role='button'>
+            <i className='fa fa-ellipsis-v mrs'/>
+            <i className='fa fa-ellipsis-v'/>
+            <span className='sr-only'>Drag to reorder</span>
+          </div>
+          <span>
+            {this.props.children}
+          </span>
         </div>
-        <span>
-          {this.props.children}
-        </span>
       </li>
     );
   }
