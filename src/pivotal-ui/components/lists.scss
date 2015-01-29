@@ -983,10 +983,179 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 
 /*doc
 ---
-title: React Draggable List
-name: react_draggable_list
+title: React Lists
+name: react_list
 categories:
   - Beta
+---
+*/
+
+/*doc
+---
+title: Unordered
+name: react_list_unordered
+parent: react_list
+---
+
+```react_example_table
+<UI.UnorderedList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
+```react_example_table
+<UI.UnorderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
+```react_example_table
+<UI.UnorderedList checked>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+*/
+
+/*doc
+---
+title: Ordered
+name: react_list_ordered
+parent: react_list
+---
+
+```react_example_table
+<UI.OrderedList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
+```
+
+```react_example_table
+<UI.OrderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
+```
+*/
+
+/*doc
+---
+title: Inline
+name: react_list_inline
+parent: react_list
+---
+
+```react_example_table
+<UI.InlineList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+
+<UI.InlineList divider>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+```
+*/
+
+/*doc
+---
+title: Group
+name: react_list_group
+parent: react_list
+---
+
+```react_example
+<UI.GroupList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupList>
+```
+*/
+
+/*doc
+---
+title: Breadcrumb
+name: react_list_breadcrumb
+parent: react_list
+---
+
+```react_example
+<UI.BreadcrumbList>
+  <UI.ListItem><a href="#">Item 1</a></UI.ListItem>
+  <UI.ListItem><a href="#">Item 2</a></UI.ListItem>
+  <UI.ListItem className="current"><span>Item 3</span></UI.ListItem>
+</UI.BreadcrumbList>
+```
+*/
+
+/*doc
+---
+title: Steps
+name: react_list_steps
+parent: react_list
+---
+
+```react_example
+<UI.StepList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem className="current">Item 3</UI.ListItem>
+</UI.StepList>
+```
+*/
+
+/*doc
+---
+title: Configuring List Spacing
+name: react_list_spacing
+parent: react_list
+---
+
+List Spacing can be changed setting the size of the spacing property.
+
+|Options|Values       | Pixels
+|-------|-------------|-------
+|`n`    |none         |0px
+|`s`    |small        |5px
+|`m`    |medium       |7px
+|`l`    |large        |10px
+|`xl`   |extra large  |21px
+
+```react_example
+<UI.StepList spacing="n">
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem className="current">Item 3</UI.ListItem>
+</UI.StepList>
+```
+
+```react_example
+<UI.UnorderedList spacing="xl">
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem className="current">Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
+*/
+
+/*doc
+---
+title: Draggable List
+name: react_list_draggable
+parent: react_list
 ---
 
 Creates a draggable list.
@@ -1049,3 +1218,68 @@ var draggableListDropCallback = function(data) {
     }
   }
 }
+
+
+/*doc
+---
+title: Addable List
+name: react_list_addable
+parent: react_list
+---
+
+Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.
+If you wish to save the new item in your database, you should do so in the `change` function, before setting state.
+
+```jsx_example
+var ReactTransitionGroup = React.addons.TransitionGroup;
+
+var AddableListItem = React.createClass({
+  componentWillEnter: function(done) {
+    this.$el = $(this.getDOMNode());
+    this.$el.addClass("new-enter");
+    done();
+  },
+
+  render: function(){
+    return (
+      <UI.ListItem {...this.props}>{this.props.children}</UI.ListItem>
+    );
+  }
+});
+
+var AddableList = React.createClass({
+  getInitialState: function() {
+    return {
+      items: ['one','two','three']
+    };
+  },
+
+  change: function() {
+    var newItems = this.state.items.concat([prompt('Enter some text')]);
+    this.setState({items: newItems});
+  },
+
+  render: function() {
+    var items = _.map(this.state.items, function(item, key) {
+      return (
+        <AddableListItem key={key+item}>
+          {item}
+        </AddableListItem>
+      );
+    });
+    return (
+      <div>
+        <ReactTransitionGroup component={UI.StepList} transitionName='new'>
+          {items}
+        </ReactTransitionGroup>
+        <UI.HighlightButton onClick={this.change}>Click to Add Item</UI.HighlightButton>
+      </div>
+    );
+  }
+});
+```
+
+```react_example
+<AddableList />
+```
+*/

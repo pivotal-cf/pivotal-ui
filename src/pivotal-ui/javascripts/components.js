@@ -76,6 +76,13 @@ module.exports = {
   SimpleTabs: require('./tabs.jsx').SimpleTabs,
   SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
 
+  UnorderedList: require('./lists').UnorderedList,
+  OrderedList: require('./lists').OrderedList,
+  InlineList: require('./lists').InlineList,
+  GroupList: require('./lists').GroupList,
+  StepList: require('./lists').StepList,
+  BreadcrumbList: require('./lists').BreadcrumbList,
+  ListItem: require('./lists').ListItem,
   DraggableList: require('./draggable-list.js').DraggableList,
   DraggableListItem: require('./draggable-list.js').DraggableListItem,
 
