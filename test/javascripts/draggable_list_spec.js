@@ -4,7 +4,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 
 function getListItemText() {
-  return $('#container li.list-group-item').map(function() {
+  return $('#container li.list-group-item .draggable-item-content').map(function() {
     return $('> span', this).text();
   }).toArray();
 }
