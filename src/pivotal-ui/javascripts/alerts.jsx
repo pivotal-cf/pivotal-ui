@@ -1,7 +1,10 @@
 'use strict';
 
+var _ = require('lodash');
 var React = require('react');
 var BsAlert = require('react-bootstrap/Alert');
+
+var AlertMixin = require('./mixins/alert-mixin');
 var Media = require('./media.jsx').Media;
 
 var Alert = React.createClass({
@@ -12,23 +15,22 @@ var Alert = React.createClass({
   },
 
   render: function() {
+    var {dismissable, withIcon, alertIcon, children, ...others} = this.props;
+
     if (this.state.alertVisible) {
-      var onDismiss = this.props.dismissable ? this.handleAlertDismiss : null;
+      var onDismiss = dismissable ? this.handleAlertDismiss : null;
 
-      var children;
-
-      if (this.props.withIcon) {
-        var icon = <i className={"fa " + this.props.alertIcon}></i>;
+      if (withIcon) {
+        var icon = <i className={"fa " + alertIcon}></i>;
         children = (
           <Media leftImage={icon}>
-            {this.props.children}
+            {children}
           </Media>
         );
-      } else {
-        children = this.props.children;
       }
+
       return (
-        <BsAlert onDismiss={onDismiss} {...this.props }>
+        <BsAlert {...others} onDismiss={onDismiss}>
           {children}
         </BsAlert>
       );
@@ -40,14 +42,18 @@ var Alert = React.createClass({
   },
 
   handleAlertDismiss: function() {
-    if (typeof this.props.dismissable === "function") {
-      this.props.dismissable();
+    var {dismissable} = this.props;
+
+    if (_.isFunction(dismissable)) {
+      dismissable();
     }
     this.setState({alertVisible: false});
   }
 });
 
 var SuccessAlert = React.createClass({
+  mixins: [AlertMixin],
+
   render: function() {
     return (
       <Alert bsStyle="success" alertIcon="fa-check-circle" {...this.props} />
@@ -56,6 +62,8 @@ var SuccessAlert = React.createClass({
 });
 
 var InfoAlert = React.createClass({
+  mixins: [AlertMixin],
+
   render: function() {
     return (
       <Alert bsStyle="info" alertIcon="fa-info-circle" {...this.props } />
@@ -64,6 +72,8 @@ var InfoAlert = React.createClass({
 });
 
 var WarningAlert = React.createClass({
+  mixins: [AlertMixin],
+
   render: function() {
     return (
       <Alert bsStyle="warning" alertIcon="fa-exclamation-triangle" {...this.props } />
@@ -72,6 +82,8 @@ var WarningAlert = React.createClass({
 });
 
 var ErrorAlert = React.createClass({
+  mixins: [AlertMixin],
+
   render: function() {
     return (
       <Alert bsStyle="danger" alertIcon="fa-exclamation-triangle" {...this.props } />

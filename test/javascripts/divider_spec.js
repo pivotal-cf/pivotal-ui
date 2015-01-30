@@ -44,7 +44,7 @@ describe('Divider', function() {
     beforeEach(function() {
       React.render(
         Divider({
-          inverse: "true"
+          inverse: true
         }),
         this.node
       );
@@ -59,7 +59,7 @@ describe('Divider', function() {
     beforeEach(function() {
       React.render(
         Divider({
-          inverse: "true",
+          inverse: true,
           size: "large"
         }),
         this.node
@@ -75,7 +75,7 @@ describe('Divider', function() {
     beforeEach(function() {
       React.render(
         Divider({
-          inverse: "true",
+          inverse: true,
           className: "myClass"
         }),
         this.node

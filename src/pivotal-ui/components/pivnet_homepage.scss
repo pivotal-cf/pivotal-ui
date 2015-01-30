@@ -22,7 +22,7 @@ var PivnetHomepage = React.createClass({
         <UI.Pane className="bg-shadow-1">
           <div className="row">
             <div className="col-md-8 col-md-offset-8">
-              <UI.HighlightAltButton className="mtxxl" block="true" large="true">Join</UI.HighlightAltButton>
+              <UI.HighlightAltButton className="mtxxl" block={true} large={true}>Join</UI.HighlightAltButton>
               <p className="type-sm type-neutral-6">To download and evaluate all products and services</p>
             </div>
           </div>

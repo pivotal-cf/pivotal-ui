@@ -76,12 +76,12 @@ describe('Panel', function() {
     });
   });
 
-  describe("when scrollable is set to a truthy value", function() {
+  describe("when scrollable is set to true", function() {
     beforeEach(function() {
       React.render(
         Panel({
           children: 'Sup',
-          scrollable: 'oui'
+          scrollable: true
         }),
         this.node
       );
@@ -96,7 +96,7 @@ describe('Panel', function() {
         React.render(
           Panel({
             children: 'Sup',
-            scrollable: '1337'
+            scrollable: 1337
           }),
           this.node
         );
@@ -131,34 +131,18 @@ describe('ShadowPanel', function () {
     expect($('#container .panel')).toHaveClass('panel-shadow-3');
   });
 
-  describe('when the shadowLevel property is set to an acceptable value', function() {
+  describe('when the shadowLevel property is set', function() {
     beforeEach(function() {
       React.render(
         ShadowPanel({
           children: 'Sup',
-          shadowLevel: '3'
+          shadowLevel: 3
         }),
         this.node
       );
     });
 
     it('creates a shadow panel with the corresponding level', function() {
-      expect($('#container .panel')).toHaveClass('panel-shadow-3');
-    });
-  });
-
-  describe('when the shadowLevel property is set to an unacceptable value', function() {
-    beforeEach(function() {
-      React.render(
-        ShadowPanel({
-          children: 'Sup',
-          shadowLevel: 'bananas'
-        }),
-        this.node
-      );
-    });
-
-    it('adds the default shadow level class', function() {
       expect($('#container .panel')).toHaveClass('panel-shadow-3');
     });
   });

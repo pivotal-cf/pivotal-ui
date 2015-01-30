@@ -1,130 +1,86 @@
 'use strict';
 
-var React = require('react');
-var _ = require('lodash');
+var React = require('react/addons');
+var classSet = React.addons.classSet;
+
+var ButtonMixin = require('./mixins/button-mixin');
 
 var UIButton = React.createClass({
-  acceptedTypes: ['default', 'default-alt', 'primary', 'lowlight', 'danger', 'highlight', 'highlight-alt'],
+  mixins: [ButtonMixin],
+
   render: function () {
-    var classes = ['btn'];
+    var {block, href, large, type, children, ...others} = this.props;
 
-    if (_.contains(this.acceptedTypes, this.props.type)) {
-      classes.push('btn-' + this.props.type);
+    var classes = classSet({
+      btn: true,
+      'btn-block': block,
+      'btn-lg': large
+    });
+
+    if (type) {
+      classes += ' btn-' + type;
     } else {
-      classes.push('btn-default');
+      classes += ' btn-default';
     }
 
-    if (this.props.block) {
-      classes.push('btn-block');
-    }
-
-    if (this.props.large) {
-      classes.push('btn-lg');
-    }
-
-    classes = classes.join(" ");
-
-    if (this.props.href) {
+    if (href) {
       return (
-        <a {...this.props} className={classes} href={this.props.href}>{this.props.children}</a>
+        <a {...others} className={classes} href={href}>{children}</a>
       );
     } else {
       return (
-        <button {...this.props} className={classes}>{this.props.children}</button>
+        <button {...others} className={classes}>{children}</button>
       );
     }
   }
 });
 
 var DefaultButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'default'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='default' />;
   }
 });
+
 var DefaultAltButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'default-alt'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='default-alt' />;
   }
 });
+
 var PrimaryButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'primary'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='primary' />;
   }
 });
+
 var LowlightButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'lowlight'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='lowlight' />;
   }
 });
+
 var DangerButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'danger'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='danger' />;
   }
 });
+
 var HighlightButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'highlight'
-    };
-  },
-
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='highlight' />;
   }
 });
-var HighlightAltButton = React.createClass({
-  getDefaultProps: function () {
-    return {
-      type: 'highlight-alt'
-    };
-  },
 
+var HighlightAltButton = React.createClass({
+  mixins: [ButtonMixin],
   render: function render() {
-    return (
-      <UIButton {...this.props}>{this.props.children}</UIButton>
-      );
+    return <UIButton {...this.props} type='highlight-alt' />;
   }
 });
 

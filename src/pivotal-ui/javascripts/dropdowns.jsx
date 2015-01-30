@@ -8,7 +8,7 @@ var DropdownItem = require('react-bootstrap/MenuItem');
 var LinkDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown bsStyle='link' {...this.props} />
+      <Dropdown {...this.props} bsStyle='link' />
     );
   }
 });
@@ -16,7 +16,7 @@ var LinkDropdown = React.createClass({
 var DefaultAltDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown className='btn-default-alt' {...this.props} />
+      <Dropdown {...this.props} className='btn-default-alt' />
     );
   }
 });
@@ -24,7 +24,7 @@ var DefaultAltDropdown = React.createClass({
 var PrimaryDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown bsStyle='primary' {...this.props} />
+      <Dropdown {...this.props} bsStyle='primary' />
     );
   }
 });
@@ -32,7 +32,7 @@ var PrimaryDropdown = React.createClass({
 var LowlightDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown className='btn-lowlight' {...this.props} />
+      <Dropdown {...this.props} className='btn-lowlight' />
     );
   }
 });
@@ -40,7 +40,7 @@ var LowlightDropdown = React.createClass({
 var DangerDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown bsStyle='danger' {...this.props} />
+      <Dropdown {...this.props} bsStyle='danger' />
     );
   }
 });
@@ -48,7 +48,7 @@ var DangerDropdown = React.createClass({
 var HighlightDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown className='btn-highlight' {...this.props} />
+      <Dropdown {...this.props} className='btn-highlight' />
     );
   }
 });
@@ -56,7 +56,7 @@ var HighlightDropdown = React.createClass({
 var HighlightAltDropdown = React.createClass({
   render: function () {
     return (
-      <Dropdown className='btn-highlight-alt' {...this.props} />
+      <Dropdown {...this.props} className='btn-highlight-alt' />
     );
   }
 });

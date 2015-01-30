@@ -9,18 +9,23 @@ var setClass = React.addons.classSet;
 
 var Row = React.createClass({
 
+  propTypes: {
+    gutter: React.PropTypes.oneOf(['sm', 'md', 'lg'])
+  },
 
   render: function () {
+    var {gutter, className, children, ...other} = this.props;
+
     var additionalClasses = setClass({
-      'row-gutter-md': this.props.gutter === 'md',
-      'row-gutter-sm': this.props.gutter === 'sm'
+      'row-gutter-md': gutter === 'md',
+      'row-gutter-sm': gutter === 'sm'
     });
 
-    var classes = _.compact([this.props.className, additionalClasses]).join(' ');
+    var classes = _.compact([className, additionalClasses]).join(' ');
 
     return (
-      <BootstrapRow {...this.props} className={classes}>
-        {this.props.children}
+      <BootstrapRow {...other} className={classes}>
+        {children}
       </BootstrapRow>
     );
   }
