@@ -59,6 +59,10 @@ var InlineList = React.createClass({
     });
     if (spacing) { classes += ' lh' + spacing; }
 
+    if (this.props.className) {
+      classes += ' ' + this.props.className;
+    }
+
     return (
       <ul className={classes}>{children}</ul>
     );
