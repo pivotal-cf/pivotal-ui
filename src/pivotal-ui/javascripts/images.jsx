@@ -18,6 +18,10 @@ var UIImage = React.createClass({
       'img-responsive': responsive
     });
 
+    if (this.props.className) {
+      classes += ' ' + this.props.className;
+    }
+
     var image = (
       <img {...other} src={src} className={classes}>
         {children}

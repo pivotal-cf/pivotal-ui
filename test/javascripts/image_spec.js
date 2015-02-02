@@ -11,7 +11,11 @@ describe('Image', function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
 
     React.render(
-      <Image src="http://placehold.it/20x20" href="http://google.com" responsive={true} />,
+      <Image
+        src="http://placehold.it/20x20"
+        href="http://google.com"
+        className='my-img-class'
+        responsive={true} />,
       this.node
     );
   });
@@ -30,6 +34,12 @@ describe('Image', function() {
   describe('when image responsive is set to true', function() {
     it("adds the image-responsive class to the image", function() {
       expect($('#container img')).toHaveClass('img-responsive');
+    });
+  });
+
+  describe("when className is provided", function() {
+    it("adds the provided className to the img", function() {
+      expect($('#container img')).toHaveClass('my-img-class');
     });
   });
 
