@@ -60,6 +60,10 @@ var Media = React.createClass({
       'media-stackable-lg': stackSize === 'large'
     });
 
+    if (this.props.className) {
+      classes += ' ' + this.props.className;
+    }
+
     var bodyClasses = setClass({
       'media-body': true,
       'media-middle': vAlign === 'middle',

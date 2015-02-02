@@ -25,6 +25,7 @@ describe('Media', function() {
       React.render(
         Media({
           children: "fop",
+          className: "media-class",
           leftImage: image
         }),
         this.node
@@ -34,9 +35,11 @@ describe('Media', function() {
     it("creates a Media component", function() {
       expect($('#container .media .media-body')).toContainText('fop');
     });
+
+    it("passes the provided className onto the .media element", function() {
+      expect($('#container .media')).toHaveClass('media-class');
+    });
   });
-
-
 
   describe("when left image src is set", function() {
     describe("when left image src is set", function() {
@@ -54,7 +57,7 @@ describe('Media', function() {
       it("displays the media-left link with an image inside", function() {
         expect($('#container .media .media-left img').attr('src')).toEqual('http://placehold.it/20x20');
       });
- 
+
       it("sets an alt on the left image when the leftAlt property is set", function() {
         expect($('#container .media .media-left img').attr('alt')).toEqual('my fancy image description');
       });
