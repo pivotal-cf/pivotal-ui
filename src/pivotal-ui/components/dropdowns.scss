@@ -182,8 +182,8 @@ Here are all the different dropdown styles:
 
 /*doc
 ---
-title: Notifications 
-name: dropdown_notification 
+title: Notifications
+name: dropdown_notification
 parent: dropdown
 ---
 
@@ -290,7 +290,8 @@ This is a notification dropdown with alerts.
   width: 200px;
   text-align: center;
   padding: 20px;
-  i {
+
+  .fa {
     font-size: 42px;
     padding-bottom: 7px;
   }
@@ -315,6 +316,12 @@ This is a notification dropdown with alerts.
   right: 6px;
 }
 
+.dropdown-notifications {
+  .caret {
+    display: none;
+  }
+}
+
 .dropdown-notifications-list {
   li {
     a {
@@ -327,3 +334,39 @@ This is a notification dropdown with alerts.
     }
   }
 }
+
+
+
+/*doc
+---
+title: React Notifications
+name: notifications_react
+categories:
+  - Beta
+---
+
+Here's an example if there are no notifications:
+
+```react_example_table
+<UI.Notifications />
+```
+
+Here's an example if there are notifications:
+
+```jsx_example
+var newLabel = <UI.DefaultH3><UI.Label>New</UI.Label></UI.DefaultH3>;
+```
+
+```react_example_table
+<UI.Notifications>
+  <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
+    <UI.Flag leftImage={newLabel}>
+      <UI.DefaultH5 className="media-heading mbn type-dark-1">Notification</UI.DefaultH5>
+      <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
+    </UI.Flag>
+  </UI.NotificationItem>
+</UI.Notifications>
+```
+
+*/
+
