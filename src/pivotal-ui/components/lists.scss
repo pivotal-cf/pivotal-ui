@@ -946,7 +946,7 @@ wrap all the inner content in `a` with class `list-card-link`.
       a.list-cards-link, // deprecated in favor of the singular
       a.list-card-link {
         display: block;
-        min-height: $height;
+        height: $height;
       }
 
       .list-card-wrapper {
