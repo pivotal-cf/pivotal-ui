@@ -29,7 +29,6 @@ describe('Notification', function() {
     });
 
     it("renders a notification count badge", function() {
-      debugger;
       expect($('#container .dropdown-notifications-title .dropdown-notifications-badge')).toContainText('4');
     });
 
