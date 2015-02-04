@@ -500,8 +500,8 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 
 /*doc
 ---
-title: React Tabs
-name: react_tabs
+title: Tabs
+name: tabs_react
 categories:
   - Beta
 ---
@@ -518,9 +518,9 @@ For examples, see the various Tabs defined below.
 
 /*doc
 ---
-title: Simple Tabs
-name: 01_react_simple_tabs
-parent: react_tabs
+title: Simple
+name: 01_simple_tabs_react
+parent: tabs_react
 ---
 
 ```react_example
@@ -537,9 +537,9 @@ parent: react_tabs
 
 /*doc
 ---
-title: React Alt Tabs
-name: 02_react_alt_tabs
-parent: react_tabs
+title: Alt
+name: 02_alt_tabs_react
+parent: tabs_react
 ---
 
 ```react_example

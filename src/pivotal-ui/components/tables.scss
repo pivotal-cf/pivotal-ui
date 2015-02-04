@@ -330,10 +330,18 @@ table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
 
 /*doc
 ---
-title: React Sortable Tables
-name: table_react_sortable
+title: Tables
+name: table_react
 categories:
  - Beta
+---
+*/
+
+/*doc
+---
+title: Sortable
+name: table_sortable_react
+parent: table_react
 ---
 
 The `SortableTable` component is a robust component that offers a styled table with fully
