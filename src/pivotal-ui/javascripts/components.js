@@ -97,6 +97,7 @@ module.exports = {
   LowlightDropdown: require('./dropdowns.jsx').LowlightDropdown,
 
   Notifications: require('./notifications.js').Notifications,
+  AlertNotifications: require('./notifications.js').AlertNotifications,
   NotificationItem: require('./notifications.js').NotificationItem,
 
   Label: require('./labels.jsx').Label,

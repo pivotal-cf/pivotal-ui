@@ -11,16 +11,47 @@ var Notifications = React.createClass({
 
     if(!this.props.children){
       children = (
-        <DropdownItem>
+        <li role="presentation">
           <div className="dropdown-notifications-none">
             <Icon name='bell' className='type-neutral-6' />
             <p className="type-neutral-4 em-alt mbn">no notifications</p>
           </div>
-        </DropdownItem>
+        </li>
       );
     }
     var childrenCount = React.Children.count(this.props.children);
     var badge = this.props.children ? (<span className="dropdown-notifications-badge">{childrenCount}</span>) : null;
+
+    var dropdownTitle = (
+      <div className='dropdown-notifications-title'>
+        <i className="fa fa-bell type-neutral-6 h2 mvn"></i>
+        {badge}
+      </div>
+    );
+
+    return (
+      <LinkDropdown title={dropdownTitle} className="dropdown-notifications">
+        {children}
+      </LinkDropdown>
+    );
+  }
+});
+
+var AlertNotifications = React.createClass({
+  render: function () {
+    var children = this.props.children;
+
+    if(!this.props.children){
+      children = (
+        <li role="presentation">
+          <div className="dropdown-notifications-none">
+            <Icon name='bell' className='type-neutral-6' />
+            <p className="type-neutral-4 em-alt mbn">no alerts</p>
+          </div>
+        </li>
+      );
+    }
+    var badge = this.props.children ? (<Icon name="exclamation-triangle" className="dropdown-notifications-alert h4 type-warn-2"></Icon>) : null;
 
     var dropdownTitle = (
       <div className='dropdown-notifications-title'>
@@ -49,5 +80,6 @@ var NotificationItem = React.createClass({
 
 module.exports = {
   Notifications,
+  AlertNotifications,
   NotificationItem
 };

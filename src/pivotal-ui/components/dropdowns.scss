@@ -367,6 +367,38 @@ var newLabel = <UI.DefaultH3><UI.Label>New</UI.Label></UI.DefaultH3>;
   </UI.NotificationItem>
 </UI.Notifications>
 ```
+*/
+
+/*doc
+---
+title: Alerts
+name: alert_notifications_react
+parent: notifications_react
+---
+
+Here's an example if there are no alerts:
+
+```react_example_table
+<UI.AlertNotifications />
+```
+
+Here's an example if there are alerts:
+
+```jsx_example
+var alertImage = <UI.Icon name="exclamation-triangle" className="h4 type-warn-2 mrm" />;
+```
+
+```react_example_table
+<UI.AlertNotifications>
+  <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
+    <UI.Flag leftImage={alertImage}>
+      <UI.DefaultH5 className="media-heading mbn type-dark-1">WARNING</UI.DefaultH5>
+      <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
+    </UI.Flag>
+  </UI.NotificationItem>
+</UI.AlertNotifications>
+```
+
 
 */
 
