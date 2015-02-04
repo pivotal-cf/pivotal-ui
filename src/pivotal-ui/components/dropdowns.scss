@@ -244,6 +244,46 @@ This is a notification dropdown with notifications.
 </div>
 ```
 
+This is a notification dropdown with alerts.
+
+```html_example
+<div class="dropdown btn-group">
+  <a data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <i class="fa fa-bell type-neutral-6 h2 mvn"></i>
+    <i class="fa fa-exclamation-triangle h4 type-warn-2 dropdown-notifications-alert"></i>
+  </a>
+  <ul class="dropdown-menu dropdown-notifications-list" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media man pan">
+          <div class="media-left media-middle">
+            <i class="fa fa-exclamation-triangle type-warn-2 h4 mrm"></i>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-1">Product One</h5>
+            <p class="type-sm type-neutral-5 mvn">1 alert</p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media man pan">
+          <div class="media-left media-middle">
+            <i class="fa fa-exclamation-triangle type-warn-2 h4 mrm"></i>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-1">Product Two</h5>
+            <p class="type-sm type-neutral-5 mvn">2 alerts</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+
+```
+
 */
 
 .dropdown-notifications-none {
@@ -268,6 +308,11 @@ This is a notification dropdown with notifications.
   line-height: 14px;
   top: 6px;
   right: 9px;
+}
+.dropdown-notifications-alert {
+  position: absolute;
+  top: -6px;
+  right: 6px;
 }
 
 .dropdown-notifications-list {
