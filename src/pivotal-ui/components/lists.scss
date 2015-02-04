@@ -983,18 +983,18 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 
 /*doc
 ---
-title: React Lists
-name: react_list
+title: Lists
+name: list_react
 categories:
-  - Beta
+  - React Beta
 ---
 */
 
 /*doc
 ---
 title: Unordered
-name: react_list_unordered
-parent: react_list
+name: list_unordered_react
+parent: list_react
 ---
 
 ```react_example_table
@@ -1025,8 +1025,8 @@ parent: react_list
 /*doc
 ---
 title: Ordered
-name: react_list_ordered
-parent: react_list
+name: list_ordered_react
+parent: list_react
 ---
 
 ```react_example_table
@@ -1049,8 +1049,8 @@ parent: react_list
 /*doc
 ---
 title: Inline
-name: react_list_inline
-parent: react_list
+name: list_inline_react
+parent: list_react
 ---
 
 ```react_example_table
@@ -1071,8 +1071,8 @@ parent: react_list
 /*doc
 ---
 title: Group
-name: react_list_group
-parent: react_list
+name: list_group_react
+parent: list_react
 ---
 
 ```react_example
@@ -1087,8 +1087,8 @@ parent: react_list
 /*doc
 ---
 title: Breadcrumb
-name: react_list_breadcrumb
-parent: react_list
+name: list_breadcrumb_react
+parent: list_react
 ---
 
 ```react_example
@@ -1103,8 +1103,8 @@ parent: react_list
 /*doc
 ---
 title: Steps
-name: react_list_steps
-parent: react_list
+name: list_steps_react
+parent: list_react
 ---
 
 ```react_example
@@ -1118,9 +1118,9 @@ parent: react_list
 
 /*doc
 ---
-title: Configuring List Spacing
-name: react_list_spacing
-parent: react_list
+title: Configuring Spacing
+name: list_spacing_react
+parent: list_react
 ---
 
 List Spacing can be changed setting the size of the spacing property.
@@ -1153,9 +1153,9 @@ List Spacing can be changed setting the size of the spacing property.
 
 /*doc
 ---
-title: Draggable List
-name: react_list_draggable
-parent: react_list
+title: Draggable
+name: list_draggable_react
+parent: list_react
 ---
 
 Creates a draggable list.
@@ -1226,9 +1226,9 @@ var draggableListDropCallback = function(data) {
 
 /*doc
 ---
-title: Addable List
-name: react_list_addable
-parent: react_list
+title: Addable
+name: list_addable_react
+parent: list_react
 ---
 
 Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.

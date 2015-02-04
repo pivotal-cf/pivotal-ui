@@ -451,9 +451,10 @@ a:hover.type-inverse {
 
 /*doc
 ---
-title: React Typography
+title: Typography
 name: type_react
-category: Beta
+category:
+  - React Beta
 ---
 We have three type systems. Which one you choose depends on your product.
 
@@ -465,8 +466,8 @@ We have three type systems. Which one you choose depends on your product.
 
 /*doc
 ---
-title: Default Typography
-name: 01_type_react_default
+title: Default
+name: 01_type_default_react
 parent: type_react
 ---
 
@@ -488,8 +489,8 @@ parent: type_react
 
 /*doc
 ---
-title: Alternate Typography
-name: 02_type_react_alt
+title: Alternate
+name: 02_type_alt_react
 parent: type_react
 ---
 
@@ -511,8 +512,8 @@ parent: type_react
 
 /*doc
 ---
-title: Marketing Headings
-name: 03_type_react_marketing
+title: Marketing
+name: 03_type_marketing_react
 parent: type_react
 ---
 
@@ -534,8 +535,8 @@ parent: type_react
 
 /*doc
 ---
-title: Custom Headings
-name: 04_type_react_custom
+title: Custom
+name: 04_type_custom_react
 parent: type_react
 ---
 
@@ -545,7 +546,7 @@ and see if it still looks ok. If it doesn't (this should be rare!) you can use o
 You may want to wrap this in a custom reusable React component rather than calling it directly.
 
 ```react_example
-<UI.Heading element="h1" bold="high" color="type-brand-2">This is an h1 on most apps</UI.Heading>
+<UI.Heading element="h1" bold="high" color="type-brand-2">This is a custom h1</UI.Heading>
 ```
 
 */

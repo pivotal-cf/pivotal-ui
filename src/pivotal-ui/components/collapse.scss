@@ -274,10 +274,10 @@ You can combine the accordion with any panel class to have a styled panel that o
 
 /*doc
 ---
-title: React Collapse
-name: react_collapse
+title: Collapse
+name: collapse_react
 categories:
-  - Beta
+  - React Beta
 ---
 
 Collapse components are implementations of the [Accordion][accordion] style. In
@@ -288,9 +288,9 @@ of the clickable region to toggle the expand/collapse states.
 
 /*doc
 ---
-title: Base Collapse
-name: react_base_collapse
-parent: react_collapse
+title: Base
+name: base_collapse_react
+parent: collapse_react
 ---
 
 This is a basic collapse with no additional styles.
@@ -313,9 +313,9 @@ This is a basic collapse with no additional styles.
 
 /*doc
 ---
-title: Collapse (Arrows)
-name: react_arrow_collapse
-parent: react_collapse
+title: Arrows
+name: arrow_collapse_react
+parent: collapse_react
 ---
 
 This is a basic collapse with an arrow icon in the clickable region.
@@ -333,9 +333,9 @@ This is a basic collapse with an arrow icon in the clickable region.
 
 /*doc
 ---
-title: Alt Collapse
-name: react_alt_collapse
-parent: react_collapse
+title: Alt
+name: alt_collapse_react
+parent: collapse_react
 ---
 
 This is a basic collapse with an +/- icon in the clickable region.
@@ -354,8 +354,8 @@ This is a basic collapse with an +/- icon in the clickable region.
 /*doc
 ---
 title: Adding Dividers
-name: react_collapse_dividers
-parent: react_collapse
+name: collapse_dividers_react
+parent: collapse_react
 ---
 
 To add a divider between the clickable region and the expanded content region,

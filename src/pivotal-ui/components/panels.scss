@@ -588,10 +588,10 @@ helper classes for that.
 
 /*doc
 ---
-title: React Panels
+title: Panels
 name: panel_react
 categories:
- - Beta
+ - React Beta
 ---
 
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
@@ -608,8 +608,8 @@ See examples below.
 
 /*doc
 ---
-title: Scrolling React Panels
-name: panel_react_scroll
+title: Scrolling
+name: panel_scroll_react
 parent: panel_react
 ---
 
@@ -642,7 +642,7 @@ property. Alternatively, if this value is a number, it will become the height of
 /*doc
 ---
 title: Padding
-name: panel_react_padding
+name: panel_padding_react
 parent: panel_react
 ---
 
@@ -658,8 +658,8 @@ Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the
 
 /*doc
 ---
-title: Simple Panels
-name: panel_react_simple
+title: Simple
+name: panel_simple_react
 parent: panel_react
 ---
 
@@ -672,8 +672,8 @@ parent: panel_react
 
 /*doc
 ---
-title: Basic Panels
-name: panel_react_basic
+title: Basic
+name: panel_basic_react
 parent: panel_react
 ---
 
@@ -686,8 +686,8 @@ parent: panel_react
 
 /*doc
 ---
-title: Shadow Panels
-name: panel_react_shadow
+title: Shadow
+name: panel_shadow_react
 parent: panel_react
 ---
 
@@ -710,8 +710,8 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 
 /*doc
 ---
-title: Clickable Panels
-name: panel_react_clickable
+title: Clickable
+name: panel_clickable_react
 parent: panel_react
 ---
 
@@ -724,8 +724,8 @@ parent: panel_react
 
 /*doc
 ---
-title: Highlight Panels
-name: panel_react_highlight
+title: Highlight
+name: panel_highlight_react
 parent: panel_react
 ---
 

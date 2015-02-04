@@ -190,13 +190,11 @@ other content inside a container on the page (of a width 500px for this example)
 
 /*doc
 ---
-title: React Alerts
-name: react_alerts
+title: Alerts
+name: alerts_react
 categories:
-  - Beta
+  - React Beta
 ---
-
-React alerts
 
 ```react_example_table
 <UI.SuccessAlert>success</UI.SuccessAlert>
@@ -212,9 +210,9 @@ React alerts
 
 /*doc
 ---
-title: Dismissable React Alerts
-name: react_alerts_dismissable
-parent: react_alerts
+title: Dismissable
+name: alerts_dismissable_react
+parent: alerts_react
 ---
 
 Add the `dismissable` property to add a close button to the alert.
@@ -240,9 +238,9 @@ var callback = function() {
 
 /*doc
 ---
-title: React Alerts with Icons
-name: react_alerts_icon
-parent: react_alerts
+title: Alerts with Icons
+name: alerts_icon_react
+parent: alerts_react
 ---
 
 If you want an icon to be displayed, set the `withIcon` property.

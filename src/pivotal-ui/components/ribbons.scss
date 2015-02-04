@@ -128,38 +128,19 @@ in other contexts.
 
 /*doc
 ---
-title: React Ribbons
+title: Ribbons
 name: ribbons_react
 categories:
-  - Beta
+  - React Beta
 ---
 
 `Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
 They should be used to call out access, status, environment, etc.
 
-*/
-
-
-/*doc
----
-title: Ribbons
-name: 01_ribbons_react
-parent: ribbons_react
----
 
 ```react_example_table
 <UI.Ribbon> British </UI.Ribbon>
-```
-*/
 
-/*doc
----
-title: Primary Ribbons
-name: 02_primary_ribbons_react
-parent: ribbons_react
----
-
-```react_example_table
 <UI.PrimaryRibbon> English-British </UI.PrimaryRibbon>
 ```
 */
@@ -167,7 +148,7 @@ parent: ribbons_react
 /*doc
 ---
 title: Banners
-name: 03_banner_ribbons_react
+name: banner_ribbons_react
 parent: ribbons_react
 ---
 
