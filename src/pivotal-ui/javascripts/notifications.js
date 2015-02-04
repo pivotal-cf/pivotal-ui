@@ -11,12 +11,12 @@ var Notifications = React.createClass({
 
     if(!this.props.children){
       children = (
-        <DropdownItem>
+        <li role="presentation">
           <div className="dropdown-notifications-none">
             <Icon name='bell' className='type-neutral-6' />
             <p className="type-neutral-4 em-alt mbn">no notifications</p>
           </div>
-        </DropdownItem>
+        </li>
       );
     }
     var childrenCount = React.Children.count(this.props.children);
@@ -43,12 +43,12 @@ var AlertNotifications = React.createClass({
 
     if(!this.props.children){
       children = (
-        <DropdownItem>
+        <li role="presentation">
           <div className="dropdown-notifications-none">
             <Icon name='bell' className='type-neutral-6' />
             <p className="type-neutral-4 em-alt mbn">no alerts</p>
           </div>
-        </DropdownItem>
+        </li>
       );
     }
     var badge = this.props.children ? (<Icon name="exclamation-triangle" className="dropdown-notifications-alert h4 type-warn-2"></Icon>) : null;
