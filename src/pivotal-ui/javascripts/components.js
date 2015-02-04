@@ -96,6 +96,9 @@ module.exports = {
   HighlightDropdown: require('./dropdowns.jsx').HighlightDropdown,
   LowlightDropdown: require('./dropdowns.jsx').LowlightDropdown,
 
+  Notifications: require('./notifications.js').Notifications,
+  NotificationItem: require('./notifications.js').NotificationItem,
+
   Label: require('./labels.jsx').Label,
   BaseCollapse: require('./collapse.jsx').BaseCollapse,
   Collapse: require('./collapse.jsx').Collapse,
