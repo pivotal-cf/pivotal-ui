@@ -234,23 +234,27 @@ name: tab_simple_alt
 parent: tab
 ---
 
+You do not need the `.panel` to wrap around `.tab-simple-alt`. We have it there to demonstrate the interaction on a neutral background.
+
 ```html_example
-<div class="tab-simple-alt">
-  <ul class="nav nav-tabs">
-    <li class="active">
-      <a data-toggle="tab" href="#dashboard">Dashboard</a>
-    </li>
-    <li>
-      <a data-toggle="tab" href="#notifications">Notifications</a>
-    </li>
-    <li>
-      <a data-toggle="tab" href="#eula">EULA</a>
-    </li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane fade in active" id="dashboard">Dashboard Content</div>
-    <div class="tab-pane fade" id="notifications">Notifications Content</div>
-    <div class="tab-pane fade" id="eula">EULA Content</div>
+<div class="panel paxl bg-neutral-9">
+  <div class="tab-simple-alt">
+    <ul class="nav nav-tabs">
+      <li class="active">
+        <a data-toggle="tab" href="#dashboard">Dashboard</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#notifications">Notifications</a>
+      </li>
+      <li>
+        <a data-toggle="tab" href="#eula">EULA</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade in active" id="dashboard">Dashboard Content</div>
+      <div class="tab-pane fade" id="notifications">Notifications Content</div>
+      <div class="tab-pane fade" id="eula">EULA Content</div>
+    </div>
   </div>
 </div>
 ```
@@ -284,6 +288,7 @@ parent: tab
       }
     }
     > li.active {
+      border-top: 2px solid $tab-alt-active-highlight-color;
       background-color: $tab-alt-active-bg-color;
       cursor: default;
       border-right: 0;
