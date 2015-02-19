@@ -941,16 +941,16 @@ wrap all the inner content in `a` with class `list-card-link`.
   .list-card-#{$name} {
     @include setCardWidthResponsive($width);
     > li {
-      min-height: $height;
+      height: $height;
 
       a.list-cards-link, // deprecated in favor of the singular
       a.list-card-link {
         display: block;
-        min-height: $height;
+        height: $height;
       }
 
       .list-card-wrapper {
-        min-height: $height;
+        height: $height;
       }
 
     }
