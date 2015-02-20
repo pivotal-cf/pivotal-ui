@@ -379,6 +379,7 @@ New elements fade in
   padding-right: 5px; //bootstrap override
 
   &.new {
+    overflow:hidden;
     -webkit-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
     -moz-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
   }
@@ -399,10 +400,13 @@ New elements fade in
     padding-top: 0px;
     padding-bottom: 0px;
   }
-  100% {
+  99% {
     max-height: 100px;
-    padding-top:10px;
-    padding-bottom:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  100% {
+    max-height: initial;
   }
 }
 
