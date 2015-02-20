@@ -197,9 +197,9 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
   .panel-body {
     -ms-flex: 1 0 auto;
     padding: 29px 29px 0 29px;
-    -webkit-transition: padding-top 300ms ease-out;
-    -moz-transition: padding-top 300ms ease-out;
-    transition: padding-top 300ms ease-out;
+    -webkit-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
+    -moz-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
+    transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
   }
 
   .panel-footer {
@@ -218,6 +218,7 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
   &:focus {
     @include transition-pui();
     border-width: 1px;
+    box-shadow: none;
     background-color: $panel-tile-hover-bg-color;
     color: $text-color;
     cursor: pointer;
@@ -225,6 +226,7 @@ Tile panels extend the behavior of flex panels. They provide an animated footer 
 
     .panel-body {
       padding-top: 18px;
+      padding-bottom: 11px;
     }
     .panel-footer {
       opacity: 1;
@@ -432,22 +434,22 @@ Shadow panels add a bottom shadow to the panel.
 
 .panel-shadow-1 {
   @extend .panel-shadow;
-  border-bottom: 4px solid $shadow-1;
+  box-shadow: 0px 4px $shadow-1;
 }
 
 .panel-shadow-2 {
   @extend .panel-shadow;
-  border-bottom: 4px solid $shadow-2;
+  box-shadow: 0px 4px $shadow-2;
 }
 
 .panel-shadow-3 {
   @extend .panel-shadow;
-  border-bottom: 4px solid $shadow-3;
+  box-shadow: 0px 4px $shadow-3;
 }
 
 .panel-shadow-4 {
   @extend .panel-shadow;
-  border-bottom: 4px solid $shadow-4;
+  box-shadow: 0px 4px $shadow-4;
 }
 
 /*doc
