@@ -420,13 +420,25 @@ $tabs-active-bg-color: $gray-2;
   <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-success-1"></div>
-      <div class="chip-color-name">$green-1</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$success-1</li>
+          <li>.bg-success-1</li>
+          <li>.type-success-1</li>
+        </ul>
+      </div>
     </div>
   </div>
    <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-success-2"></div>
-      <div class="chip-color-name">$green-2</div>
+      <div class="chip-color-name">
+        <ul class='list-unstyled'>
+          <li>$success-2</li>
+          <li>.bg-success-2</li>
+          <li>.type-success-2</li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
