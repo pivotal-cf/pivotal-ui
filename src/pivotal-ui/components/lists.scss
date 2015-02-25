@@ -1223,6 +1223,114 @@ var draggableListDropCallback = function(data) {
   }
 }
 
+/*doc
+---
+title: Timeline
+name: time_line
+parent: list
+categories:
+  - Elements
+  - All
+---
+
+A Timeline is a graphical representation of sequenced events. The Timeline list components are used to order list items by timestamp.
+
+We achieve equal width columns for the time stamp by using a display table hack, so we need an additional inline style on the first `list-timeline-date` to specify the desired width.
+
+```html_example
+<ol class="list-timeline">
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date" style="width: 150px;">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+</ol>
+```
+*/
+
+
+.list-timeline {
+  @extend .list-unstyled;
+  display: table;
+  width: 100%;
+}
+
+.list-timeline-item {
+  display: table-row;
+}
+
+.list-timeline-date {
+  font-size: $font-size-small;
+  color: $gray-5;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: right;
+  padding-right: $timeline-list-gutter;
+}
+
+.list-timeline-subtitle {
+  font-size: $font-size-small;
+  color: $gray-5;
+  font-weight: $font-weight-em-default;
+  display: block;
+}
+
+.list-timeline-title {
+  font-size: $font-size-small;
+  color: $gray-2;
+  font-weight: $font-weight-em-high;
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  padding: $timeline-list-padding 0 $timeline-list-padding $timeline-list-gutter;
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    background: $timeline-axis-color;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+  }
+  &:after {
+    height: 20px;
+    width: 20px;
+    display: block;
+    content: "";
+    border: 2px solid $timeline-point-color;
+    border-radius: 1000px;
+    background: white;
+    box-shadow: 0 0 0 2px white;
+    position: absolute;
+    left: -9px;
+    top: 50%;
+    z-index: 2;
+    transform: translatey(-50%);
+    -moz-transform: translatey(-50%);
+    -ms-transform: translatey(-50%);
+    -o-transform: translatey(-50%);
+    -webkit-transform: translatey(-50%);
+  }
+}
 
 /*doc
 ---
