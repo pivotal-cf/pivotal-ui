@@ -1,3 +1,47 @@
+<a name="1.5.0"></a>
+## 1.5.0 (2015-02-25)
+
+
+#### Bug Fixes
+
+* **docs:**
+  * add success modifier classes ((51c6369d))
+  * Update fontawesome link. ((1e78e379))
+* **dropdown:** add role="menuitem" to examples in styleguide ((358efa0b), closes (#87044280))
+* **react-alert:** add prop validations ((a2faeb76))
+* **react-button:** add prop validation ((5fd8f4a1))
+* **react-collapse:** add prop validations ((f24ab8cc))
+* **react-divider:** add prop validations ((e4c634cf))
+* **react-draggable-list:** style draggable list ((2956ba1b))
+* **react-dropdown:** pass react props better ((c9d30bf4))
+* **react-grid:** add prop validation ((bcca1619))
+* **react-image:**
+  * Allow UI.Image to take a className. ((8444ba65))
+  * add prop validations ((d1ef2a03))
+* **react-input:** add prop validation ((ab50e903))
+* **react-lists:** Allow InlineList to take a className. ((02bb247a))
+* **react-media:**
+  * Allow Media to take a className. ((d4c10b23))
+  * update prop validation ((aacd4815))
+* **react-panel:** add prop validations ((710fbab1))
+* **react-sortable-table:** add prop validations ((ee2c39f9))
+* **react-typography:** add prop validations ((ed39292b))
+* **simple-tabs-alt:** active border on active tab ((255b3609))
+
+
+#### Features
+
+* **dropdown-notification:** add notifications with alert icon ((ce756c20))
+* **dropdown-notifications:** add notification dropdown component ((e968a9de))
+* **react-lists:**
+  * add transitions to addable list ((3bf0b1cf))
+  * add list spacing ((ad5312a0))
+  * add addable list component ((e07ff19f))
+  * Add list components in react ((2a6932bd))
+* **react-notifications:**
+  * add alert notifications to react ((cb057145))
+  * add react notification component ((ae56aa96))
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2015-01-26)
 
