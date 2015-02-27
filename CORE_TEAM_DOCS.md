@@ -25,9 +25,12 @@ Travis will deploy to <http://styleguide.cfapps.io>.
 1. Create a [github access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
 (Be sure to copy it to your clipboard)
 
-1. Set the `RELEASE_TOKEN` environment variable to your github access token.
-
 1. Make sure you are on master, and that you have no local changes.
+
+1. Set the `RELEASE_TOKEN` environment variable to your github access token.
+```
+export RELEASE_TOKEN=<Your release token>
+```
 
 1. Run `gulp release`. This will:
   - Automatically determine the type of release (patch, major, minor)

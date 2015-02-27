@@ -4,8 +4,10 @@ var bump = require('gulp-bump'),
   gulp = require('gulp'),
   minifyCss = require('gulp-minify-css'),
   q = require('q'),
+  plugins = require('gulp-load-plugins')(),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
+  runSequence = require('run-sequence'),
   stp = require('stream-to-promise'),
   uglifyJs = require('gulp-uglify'),
   zip = require('gulp-zip');
@@ -14,23 +16,35 @@ var errorHandler = require('./errorHandler');
 var githubService = require('./githubService');
 var releaseHelper = require('./releaseHelper');
 
-gulp.task('release', [
+gulp.task('release', function(callback) {
+  runSequence('_verifyReleaseToken', '_prepareRelease', callback);
+});
+
+// private
+
+gulp.task('_verifyReleaseToken', function(callback) {
+  var err;
+  if (!process.env.RELEASE_TOKEN) {
+    err = new plugins.util.PluginError('release', 'Please export a RELEASE_TOKEN');
+  }
+  callback(err);
+});
+
+gulp.task('_prepareRelease', [
   '_pushVersion',
   '_zip',
 ], function(done) {
   q.all([releaseHelper.getNewTagName(), releaseHelper.getVersionChanges()])
-  .spread(function(newTagName, versionChanges) {
-    return githubService.createRelease(newTagName, versionChanges);
-  })
-  .then(function() {
-    done();
-  })
-  .catch(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
+    .spread(function(newTagName, versionChanges) {
+      return githubService.createRelease(newTagName, versionChanges);
+    })
+    .then(function() {
+      done();
+    })
+    .catch(function(err) {
+      errorHandler.handleError(err, {callback: done});
+    });
 });
-
-// private
 
 gulp.task('_changelog', function(done) {
   releaseHelper.getVersionChanges()
