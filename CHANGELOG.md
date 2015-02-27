@@ -1,3 +1,19 @@
+<a name="1.6.0"></a>
+## 1.6.0 (2015-02-27)
+
+
+#### Features
+
+* **timeline-list:** style timeline-list ((d0b60da5))
+
+<a name="1.6.0"></a>
+## 1.6.0 (2015-02-27)
+
+
+#### Features
+
+* **timeline-list:** style timeline-list ((d0b60da5))
+
 <a name="1.5.0"></a>
 ## 1.5.0 (2015-02-25)
 
