@@ -37,7 +37,7 @@ module.exports = {
   HighlightButton: require('./buttons.jsx').HighlightButton,
   HighlightAltButton: require('./buttons.jsx').HighlightAltButton,
 
-  SearchInput: require('./inputs.jsx').SearchInput,
+  SearchInput: require('pivotal-ui-react.search-input').SearchInput,
 
   Divider: require('./dividers.jsx').Divider,
   InverseDivider: require('./dividers.jsx').InverseDivider,
