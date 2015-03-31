@@ -5,7 +5,7 @@ var React = require('react');
 var BsAlert = require('react-bootstrap/Alert');
 
 var AlertMixin = require('./mixins/alert-mixin');
-var Media = require('./media.jsx').Media;
+var Media = require('pivotal-ui-react.media').Media;
 
 var Alert = React.createClass({
   getInitialState: function() {
