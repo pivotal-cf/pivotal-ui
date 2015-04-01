@@ -108,5 +108,8 @@ module.exports = {
   SuccessAlert: require('./alerts.jsx').SuccessAlert,
   InfoAlert: require('./alerts.jsx').InfoAlert,
   WarningAlert: require('./alerts.jsx').WarningAlert,
-  ErrorAlert: require('./alerts.jsx').ErrorAlert
+  ErrorAlert: require('./alerts.jsx').ErrorAlert,
+
+  OverlayTrigger: require('pivotal-ui-react.overlay-trigger').OverlayTrigger,
+  Tooltip: require('pivotal-ui-react.tooltip').Tooltip
 };
