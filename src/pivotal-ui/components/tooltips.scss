@@ -77,3 +77,49 @@ $('#disabled-button-with-tooltip').tooltip();
 .button-with-tooltip-wrapper {
   display: inline-block;
 }
+
+/*doc
+---
+title: Tooltips
+name: tooltips_react
+categories:
+  - React Beta
+---
+
+Tooltips are used to display extra information on hover.
+To make an element show a tooltip, wrap it in an `OverlayTrigger`.
+If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover,
+this is where the `Tooltip` can be used. The is currently a thin wrapper around
+React Bootstrap.
+
+Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", "right", "bottom", "top".
+
+```react_example
+<div>
+<p>
+  Check out this
+  <UI.OverlayTrigger placement="left" overlay={<UI.Tooltip>I should be on the left</UI.Tooltip>}>
+    <a href="#"> tooltip on the left</a>
+  </UI.OverlayTrigger>
+</p>
+<p>
+  Check out this
+  <UI.OverlayTrigger placement="right" overlay={<UI.Tooltip>I should be on the right</UI.Tooltip>}>
+    <a href="#"> tooltip on the right</a>
+  </UI.OverlayTrigger>
+</p>
+<p>
+  Check out this
+  <UI.OverlayTrigger placement="top" overlay={<UI.Tooltip>I should be on the top</UI.Tooltip>}>
+    <a href="#"> tooltip on the top</a>
+  </UI.OverlayTrigger>
+</p>
+<p>
+  Check out this
+  <UI.OverlayTrigger placement="bottom" overlay={<UI.Tooltip>I should be on the bottom</UI.Tooltip>}>
+    <a href="#"> tooltip on the bottom</a>
+  </UI.OverlayTrigger>
+</p>
+</div>
+```
+*/
