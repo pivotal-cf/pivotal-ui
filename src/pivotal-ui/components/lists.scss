@@ -341,6 +341,35 @@ Here's an example from Console:
 ```
 */
 
+/*doc
+---
+title: Group Inverse
+name: list_group_inverse
+parent: list
+---
+Use this list when you need simple gray borders between items on a dark background. It is very subtle.
+```html_example
+<ul class="list-group-inverse">
+  <li class="list-group-item">
+    item 1
+  </li>
+  <li class="list-group-item">
+    item 2
+  </li>
+  <li class="list-group-item">
+    item 3
+  </li>
+</ul>
+```
+*/
+
+.list-group-inverse {
+  @extend .list-group;
+  > li {
+    border-color: $neutral-1;
+  }
+}
+
 /*pending
 ---
 title: Addable
@@ -980,6 +1009,19 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 
 */
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                                                                   REACT EXAMPLES                                                                    ///
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /*doc
 ---
@@ -992,34 +1034,174 @@ categories:
 
 /*doc
 ---
-title: Unordered
-name: list_unordered_react
+title: Addable
+name: list_addable_react
 parent: list_react
 ---
 
-```react_example_table
-<UI.UnorderedList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.UnorderedList>
+Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.
+If you wish to save the new item in your database, you should do so in the `change` function, before setting state.
+
+```jsx_example
+var ReactTransitionGroup = React.addons.TransitionGroup;
+
+var AddableListItem = React.createClass({
+  componentWillEnter: function(done) {
+    this.$el = $(this.getDOMNode());
+    this.$el.addClass("new-enter");
+    done();
+  },
+
+  render: function(){
+    return (
+      <UI.ListItem {...this.props}>{this.props.children}</UI.ListItem>
+    );
+  }
+});
+
+var AddableList = React.createClass({
+  getInitialState: function() {
+    return {
+      items: ['one','two','three']
+    };
+  },
+
+  change: function() {
+    var newItems = this.state.items.concat([prompt('Enter some text')]);
+    this.setState({items: newItems});
+  },
+
+  render: function() {
+    var items = _.map(this.state.items, function(item, key) {
+      return (
+        <AddableListItem key={key+item}>
+          {item}
+        </AddableListItem>
+      );
+    });
+    return (
+      <div>
+        <ReactTransitionGroup component={UI.StepList} transitionName='new'>
+          {items}
+        </ReactTransitionGroup>
+        <UI.HighlightButton onClick={this.change}>Click to Add Item</UI.HighlightButton>
+      </div>
+    );
+  }
+});
 ```
 
-```react_example_table
-<UI.UnorderedList unstyled>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.UnorderedList>
+```react_example
+<AddableList />
 ```
+*/
+/*doc
+---
+title: Breadcrumb
+name: list_breadcrumb_react
+parent: list_react
+---
 
-```react_example_table
+```react_example
+<UI.BreadcrumbList>
+  <UI.ListItem><a href="#">Item 1</a></UI.ListItem>
+  <UI.ListItem><a href="#">Item 2</a></UI.ListItem>
+  <UI.ListItem className="current"><span>Item 3</span></UI.ListItem>
+</UI.BreadcrumbList>
+```
+*/
+
+/*doc
+---
+title: Cards
+name: list_cards_react
+parent: list_react
+---
+=D
+*/
+
+/*doc
+---
+title: Checked
+name: list_checked_react
+parent: list_react
+---
+
+```react_example
 <UI.UnorderedList checked>
   <UI.ListItem>Item 1</UI.ListItem>
   <UI.ListItem>Item 2</UI.ListItem>
   <UI.ListItem>Item 3</UI.ListItem>
 </UI.UnorderedList>
 ```
+
+*/
+
+/*doc
+---
+title: Group
+name: list_group_react
+parent: list_react
+---
+
+```react_example
+<UI.GroupList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupList>
+```
+*/
+
+/*doc
+---
+title: Group Inverse
+name: list_group_inverse_react
+parent: list_react
+---
+
+```react_example
+<UI.GroupListInverse>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupListInverse>
+```
+
+*/
+
+/*doc
+---
+title: Inline
+name: list_inline_react
+parent: list_react
+---
+
+```react_example_table
+<UI.InlineList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+```
+*/
+
+
+/*doc
+---
+title: Inline Divider
+name: list_inline_divider_react
+parent: list_react
+---
+
+```react_example_table
+<UI.InlineList divider>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+```
+
 */
 
 /*doc
@@ -1048,60 +1230,6 @@ parent: list_react
 
 /*doc
 ---
-title: Inline
-name: list_inline_react
-parent: list_react
----
-
-```react_example_table
-<UI.InlineList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.InlineList>
-
-<UI.InlineList divider>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.InlineList>
-```
-*/
-
-/*doc
----
-title: Group
-name: list_group_react
-parent: list_react
----
-
-```react_example
-<UI.GroupList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.GroupList>
-```
-*/
-
-/*doc
----
-title: Breadcrumb
-name: list_breadcrumb_react
-parent: list_react
----
-
-```react_example
-<UI.BreadcrumbList>
-  <UI.ListItem><a href="#">Item 1</a></UI.ListItem>
-  <UI.ListItem><a href="#">Item 2</a></UI.ListItem>
-  <UI.ListItem className="current"><span>Item 3</span></UI.ListItem>
-</UI.BreadcrumbList>
-```
-*/
-
-/*doc
----
 title: Steps
 name: list_steps_react
 parent: list_react
@@ -1114,6 +1242,48 @@ parent: list_react
   <UI.ListItem className="current">Item 3</UI.ListItem>
 </UI.StepList>
 ```
+*/
+
+/*doc
+---
+title: Unordered
+name: list_unordered_react
+parent: list_react
+---
+
+```react_example_table
+<UI.UnorderedList>
+  <UI.ListItem>feep</UI.ListItem>
+  <UI.ListItem>fop</UI.ListItem>
+  <UI.ListItem>meep</UI.ListItem>
+</UI.UnorderedList>
+```
+*/
+
+/*doc
+---
+title: Unstyled
+name: list_unstyled_react
+parent: list_react
+---
+
+```react_example_table
+<UI.UnorderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
+*/
+
+/*doc
+---
+title: Vertical Divider
+name: list_vertical_divider_react
+parent: list_react
+---
+
 */
 
 /*doc
@@ -1332,66 +1502,3 @@ We achieve equal width columns for the time stamp by using a display table hack,
   }
 }
 
-/*doc
----
-title: Addable
-name: list_addable_react
-parent: list_react
----
-
-Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.
-If you wish to save the new item in your database, you should do so in the `change` function, before setting state.
-
-```jsx_example
-var ReactTransitionGroup = React.addons.TransitionGroup;
-
-var AddableListItem = React.createClass({
-  componentWillEnter: function(done) {
-    this.$el = $(this.getDOMNode());
-    this.$el.addClass("new-enter");
-    done();
-  },
-
-  render: function(){
-    return (
-      <UI.ListItem {...this.props}>{this.props.children}</UI.ListItem>
-    );
-  }
-});
-
-var AddableList = React.createClass({
-  getInitialState: function() {
-    return {
-      items: ['one','two','three']
-    };
-  },
-
-  change: function() {
-    var newItems = this.state.items.concat([prompt('Enter some text')]);
-    this.setState({items: newItems});
-  },
-
-  render: function() {
-    var items = _.map(this.state.items, function(item, key) {
-      return (
-        <AddableListItem key={key+item}>
-          {item}
-        </AddableListItem>
-      );
-    });
-    return (
-      <div>
-        <ReactTransitionGroup component={UI.StepList} transitionName='new'>
-          {items}
-        </ReactTransitionGroup>
-        <UI.HighlightButton onClick={this.change}>Click to Add Item</UI.HighlightButton>
-      </div>
-    );
-  }
-});
-```
-
-```react_example
-<AddableList />
-```
-*/
