@@ -80,6 +80,7 @@ module.exports = {
   OrderedList: require('./lists').OrderedList,
   InlineList: require('./lists').InlineList,
   GroupList: require('./lists').GroupList,
+  GroupListInverse: require('./lists').GroupListInverse,
   StepList: require('./lists').StepList,
   BreadcrumbList: require('./lists').BreadcrumbList,
   ListItem: require('./lists').ListItem,

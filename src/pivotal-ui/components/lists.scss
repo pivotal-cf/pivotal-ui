@@ -341,6 +341,37 @@ Here's an example from Console:
 ```
 */
 
+/*doc
+---
+title: Group Inverse
+name: list_group_inverse
+parent: list
+---
+
+Use this list when you need simple gray borders between items on a dark background. It is very subtle.
+
+```html_example
+<ul class="list-group-inverse">
+  <li class="list-group-item">
+    item 1
+  </li>
+  <li class="list-group-item">
+    item 2
+  </li>
+  <li class="list-group-item">
+    item 3
+  </li>
+</ul>
+```
+*/
+
+.list-group-inverse {
+  @extend .list-group;
+  > li {
+    border-color: $neutral-1;
+  }
+}
+
 /*pending
 ---
 title: Addable
@@ -998,7 +1029,7 @@ parent: list_react
 ---
 
 ```react_example_table
-<UI.UnorderedList>
+<UI.UnorderedList spacing="s">
   <UI.ListItem>Item 1</UI.ListItem>
   <UI.ListItem>Item 2</UI.ListItem>
   <UI.ListItem>Item 3</UI.ListItem>
@@ -1081,6 +1112,22 @@ parent: list_react
   <UI.ListItem>Item 2</UI.ListItem>
   <UI.ListItem>Item 3</UI.ListItem>
 </UI.GroupList>
+```
+*/
+
+/*doc
+---
+title: Group Inverse
+name: list_group_inverse_react
+parent: list_react
+---
+
+```react_example
+<UI.GroupListInverse>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupListInverse>
 ```
 */
 
