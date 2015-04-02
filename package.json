@@ -69,6 +69,7 @@
     "font-awesome": "^4.2.0",
     "jquery": "^2.1.1",
     "lodash": "^2.4.1",
+    "pivotal-ui-react.lists": "0.0.1",
     "pivotal-ui-react.media": "0.0.1",
     "pivotal-ui-react.overlay-trigger": "0.0.1",
     "pivotal-ui-react.search-input": "0.0.1",
