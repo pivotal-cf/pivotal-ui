@@ -1,5 +1,4 @@
 // Styles specific to the styleguide, otherwise, not used
-@import 'compass';
 @import './ie-specific-styles.scss';
 @import '../pivotal-ui/components/pui-variables.scss';
 @import '../pivotal-ui/components/mixins.scss';
@@ -104,7 +103,7 @@ blockquote {
     margin-right: 15px;
 
     &:hover {
-      @include animation(hoverSpin 5s linear infinite);
+      animation: hoverSpin 5s linear infinite;
     }
 
   }
@@ -340,7 +339,7 @@ blockquote {
 
 // Non-tabular code examples
 .codeExample, .jsExample {
-  @include background-clip();
+  background-clip: padding-box;
 
   .docSwatch {
     min-height: 218.21px;

@@ -140,23 +140,18 @@ By default, flex panels have no height. You must use an inline style to set the 
 
 .panel-flex {
   display: block;
-  @include display-flex;
-  @include flex-direction(column);
+  display: flex;
+  flex-direction: column;
 
   .panel-body {
-    @include flexbox((
-      flex: 1 0 auto,
-      align-self: auto
-    ));
+    flex: 1 0 auto;
+    align-self: auto;
   }
 
   .panel-footer {
-    @include flexbox((
-      flex: 0 0 auto,
-      align-self: auto
-    ));
+    flex: 0 0 auto;
+    align-self: auto;
   }
-
 }
 
 /*doc
@@ -289,7 +284,7 @@ This panel is used to highlight more important parts of the page.
 
   &.title-panel h1{
     overflow: hidden;
-    @include ellipsis;
+    @include text-overflow;
   }
 }
 

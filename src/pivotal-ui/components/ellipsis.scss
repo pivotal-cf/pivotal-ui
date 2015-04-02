@@ -33,7 +33,7 @@ The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. C
 */
 
 .type-ellipsis-1-line {
-  @include ellipsis;
+  @include text-overflow;
 }
 
 .type-ellipsis-2-lines,

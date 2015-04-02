@@ -9,20 +9,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
-    chunky_png (1.3.1)
     coderay (1.1.0)
-    compass (1.0.1)
-      chunky_png (~> 1.2)
-      compass-core (~> 1.0.1)
-      compass-import-once (~> 1.0.5)
-      rb-fsevent (>= 0.9.3)
-      rb-inotify (>= 0.9)
-      sass (>= 3.3.13, < 3.5)
-    compass-core (1.0.1)
-      multi_json (~> 1.0)
-      sass (>= 3.3.0, < 3.5)
-    compass-import-once (1.0.5)
-      sass (>= 3.2, < 3.5)
     diff-lcs (1.2.5)
     ffi (1.9.8)
     haml (4.0.5)
@@ -43,9 +30,6 @@ GEM
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
-    rb-fsevent (0.9.4)
-    rb-inotify (0.9.5)
-      ffi (>= 0.5.0)
     redcarpet (3.2.2)
     rouge (1.7.7)
     rspec (2.99.0)
@@ -74,7 +58,6 @@ PLATFORMS
 
 DEPENDENCIES
   capybara
-  compass (~> 1.0.1)
   haml
   hologram (~> 1.3.0)
   pry
