@@ -60,7 +60,7 @@ gulp.task('assets', [
   '_styleguideScss',
   '_puiJs',
   '_otherAssets',
-  '_testAssets',
+  '_testAssets'
 ]);
 
 gulp.task('clean', function(done) {
@@ -75,7 +75,7 @@ gulp.task('_puiScss', [
   '_sassBuildComponents',
   '_copyPuiScssToTest',
   '_hologramBuild',
-  '_copyOtherHtmlFiles',
+  '_copyOtherHtmlFiles'
 ]);
 
 gulp.task('_cleanBuiltPuiScss', function(done) {
@@ -85,7 +85,7 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
     'build/*.html',
     'dist/',
     'test/css/components',
-    'test/css/build/',
+    'test/css/build/'
   ], {force: true}, function() {
     fs.mkdir('test/css/components', done);
   });
@@ -153,7 +153,7 @@ gulp.task('_copyOtherHtmlFiles', ['_cleanBuiltPuiScss'], function() {
 
 
 gulp.task('_styleguideScss', [
-  '_sassBuildStyleguide',
+  '_sassBuildStyleguide'
 ]);
 
 gulp.task('_cleanBuiltStyleguideScss', function(done) {
@@ -172,14 +172,14 @@ gulp.task('_sassBuildStyleguide', ['_cleanBuiltStyleguideScss'], function() {
 gulp.task('_puiJs', [
   '_buildPuiJs',
   '_buildPuiReactJs',
-  '_copyPuiJsToTest',
+  '_copyPuiJsToTest'
 ]);
 
 gulp.task('_cleanBuiltPuiJs', function(done) {
   del([
     'build/pivotal-ui.js',
     'build/pivotal-ui-react.js',
-    'test/css/build/pivotal-ui-react.js',
+    'test/css/build/pivotal-ui-react.js'
   ], {force: true}, done);
 });
 
@@ -215,7 +215,7 @@ gulp.task('_otherAssets', [
   '_copyStyleguideAssets',
   '_copyStaticfile',
   '_copyZeroClipboard',
-  '_copyNginxConf',
+  '_copyNginxConf'
 ]);
 
 gulp.task('_cleanOtherAssets', function(done) {
@@ -226,7 +226,7 @@ gulp.task('_cleanOtherAssets', function(done) {
     'build/styleguide/*.js',
     'build/styleguide/github.css',
     'build/Staticfile',
-    'build/zeroclipboard',
+    'build/zeroclipboard'
   ], {force: true}, done);
 });
 
@@ -242,7 +242,7 @@ gulp.task('_copyImages', ['_cleanOtherAssets'], function() {
 
 gulp.task('_copyFontAwesome', ['_cleanOtherAssets'], function() {
   return src([
-    'node_modules/font-awesome/fonts/*',
+    'node_modules/font-awesome/fonts/*'
   ])
     .pipe(gulp.dest('./build/fonts/'));
 });
@@ -268,7 +268,7 @@ gulp.task('_copyStaticfile', ['_cleanOtherAssets'], function() {
 gulp.task('_copyZeroClipboard', ['_cleanOtherAssets'], function() {
   return src([
     'node_modules/zeroclipboard/dist/ZeroClipboard.js',
-    'node_modules/zeroclipboard/dist/ZeroClipboard.swf',
+    'node_modules/zeroclipboard/dist/ZeroClipboard.swf'
   ])
     .pipe(gulp.dest('./build/zeroclipboard/'));
 });
@@ -284,14 +284,14 @@ gulp.task('_testAssets', [
   '_copyTestFonts',
   '_copyTestImages',
   '_copyTestPrism',
-  '_copyTestStyleguideAssets',
+  '_copyTestStyleguideAssets'
 ]);
 
 gulp.task('_cleanTestAssets', function(done) {
   del([
     'test/css/build/fonts/**/*',
     'test/css/build/images/**/*',
-    'test/css/build/syntax-highlighting/**/*',
+    'test/css/build/syntax-highlighting/**/*'
   ], {force: true}, done);
 });
 
