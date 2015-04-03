@@ -235,7 +235,7 @@ Breadcrumbs use their own monospace font-family.
       font-size: 14px;
       display: inline-block;
       max-width: 200px;
-      @include ellipsis;
+      @include text-overflow;
       vertical-align: middle;
     }
 

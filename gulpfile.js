@@ -1,6 +1,6 @@
 var argv = require('yargs').argv,
+  autoprefixer = require('gulp-autoprefixer'),
   browserify = require('browserify'),
-  compass = require('gulp-compass'),
   connect = require('gulp-connect'),
   del = require('del'),
   ejs = require('gulp-ejs'),
@@ -15,7 +15,8 @@ var argv = require('yargs').argv,
   shell = require('gulp-shell'),
   source = require('vinyl-source-stream'),
   stylish = require('jshint-stylish'),
-  jsxTransform = require('gulp-react');
+  jsxTransform = require('gulp-react'),
+  sass = require('gulp-sass');
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -63,8 +64,8 @@ gulp.task('clean', function(done) {
 // private
 
 gulp.task('_puiScss', [
-  '_compassBuildPui',
-  '_compassBuildPuiRails',
+  '_sassBuildPui',
+  '_sassBuildPuiRails',
   '_copyPuiScssToTest',
   '_hologramBuild',
   '_copyOtherHtmlFiles',
@@ -82,18 +83,14 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
   });
 });
 
-gulp.task('_compassBuildPui', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_sassBuildPui', ['_cleanBuiltPuiScss'], function() {
   return src(['src/pivotal-ui/pivotal-ui.scss'])
-    .pipe(
-      compass({
-        config_file: './config/compass.rb',
-        css: 'build',
-        sass: 'src/pivotal-ui'
-      }).on('error', errorHandler.handleError)
-    );
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('build'));
 });
 
-gulp.task('_compassBuildPuiRails', ['_cleanBuiltPuiScss', '_compassBuildPui'], function() {
+gulp.task('_sassBuildPuiRails', ['_cleanBuiltPuiScss', '_sassBuildPui'], function() {
   return src('build/pivotal-ui.css')
     .pipe(
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
@@ -105,7 +102,7 @@ gulp.task('_compassBuildPuiRails', ['_cleanBuiltPuiScss', '_compassBuildPui'], f
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('_copyPuiScssToTest', ['_compassBuildPui'], function() {
+gulp.task('_copyPuiScssToTest', ['_sassBuildPui'], function() {
   return src(['build/pivotal-ui.css'])
     .pipe(gulp.dest('test/css/build/'));
 });
@@ -127,22 +124,18 @@ gulp.task('_copyOtherHtmlFiles', ['_cleanBuiltPuiScss'], function() {
 
 
 gulp.task('_styleguideScss', [
-  '_compassBuildStyleguide',
+  '_sassBuildStyleguide',
 ]);
 
 gulp.task('_cleanBuiltStyleguideScss', function(done) {
   del(['build/styleguide.css'], {force: true}, done);
 });
 
-gulp.task('_compassBuildStyleguide', ['_cleanBuiltStyleguideScss'], function() {
+gulp.task('_sassBuildStyleguide', ['_cleanBuiltStyleguideScss'], function() {
   return src(['src/styleguide/styleguide.scss'])
-    .pipe(
-      compass({
-        config_file: './config/compass.rb',
-        css: 'build',
-        sass: 'src'
-      }).on('error', errorHandler.handleError)
-    );
+    .pipe(sass())
+    .pipe(autoprefixer())
+    .pipe(gulp.dest('build/styleguide'));
 });
 
 
