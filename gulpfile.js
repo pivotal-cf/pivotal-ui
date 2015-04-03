@@ -1,5 +1,6 @@
 var argv = require('yargs').argv,
   autoprefixer = require('gulp-autoprefixer'),
+  autoprefixerCore = require('autoprefixer-core'),
   browserify = require('browserify'),
   connect = require('gulp-connect'),
   del = require('del'),
@@ -9,6 +10,8 @@ var argv = require('yargs').argv,
   gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   open = require('gulp-open'),
+  mkdirp = require('mkdirp'),
+  path = require('path'),
   reactify = require('reactify'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
@@ -16,7 +19,10 @@ var argv = require('yargs').argv,
   source = require('vinyl-source-stream'),
   stylish = require('jshint-stylish'),
   jsxTransform = require('gulp-react'),
-  sass = require('gulp-sass');
+  sass = require('gulp-sass'),
+  nodeSass = require('node-sass'),
+  through = require('through2');
+
 
 require('./tasks/test.js');
 require('./tasks/release.js');
@@ -66,6 +72,7 @@ gulp.task('clean', function(done) {
 gulp.task('_puiScss', [
   '_sassBuildPui',
   '_sassBuildPuiRails',
+  '_sassBuildComponents',
   '_copyPuiScssToTest',
   '_hologramBuild',
   '_copyOtherHtmlFiles',
@@ -76,6 +83,7 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
     'build/pivotal-ui.css',
     'build/pivotal-ui-rails.css',
     'build/*.html',
+    'dist/',
     'test/css/components',
     'test/css/build/',
   ], {force: true}, function() {
@@ -88,6 +96,27 @@ gulp.task('_sassBuildPui', ['_cleanBuiltPuiScss'], function() {
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('build'));
+});
+
+gulp.task('_sassBuildComponents', ['_cleanBuiltPuiScss'], function(){
+  return src(['src/pivotal-ui/components/*.scss'])
+    .pipe(through.obj(function(file, encoding, callback) {
+      var componentName = path.basename(file.path, '.scss');
+      var outputDir = path.resolve(__dirname, 'dist', componentName);
+
+      if(componentName !== "mixins" && componentName !== "pui-variables") {
+        var css = nodeSass.renderSync({
+          outputStyle: 'compressed',
+          file: file.path
+        }).css;
+        css = autoprefixerCore.process(css).css;
+
+        mkdirp.sync(outputDir);
+        fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
+
+      }
+      callback();
+    }));
 });
 
 gulp.task('_sassBuildPuiRails', ['_cleanBuiltPuiScss', '_sassBuildPui'], function() {
