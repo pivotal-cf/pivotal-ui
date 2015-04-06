@@ -122,10 +122,10 @@ Basic alternate panels are panels with a border and shadow. You can have a panel
 
 .panel-basic-alt {
   border: $panel-basic-alt-border;
-  border-radius: 5px;
+  border-radius: $panel-basic-alt-border-radius;
   @include background-clip-fix;
   border-bottom: $panel-basic-alt-border-bottom;
-  background-color: white;
+  background-color: $panel-basic-alt-background;
 }
 
 /*doc
@@ -735,6 +735,29 @@ parent: panel_react
 <UI.BasicPanel>
   Basic Panel
 </UI.BasicPanel>
+
+<UI.BasicPanel title='Basic Title'>
+  Basic Panel
+</UI.BasicPanel>
+```
+*/
+
+
+/*doc
+---
+title: Basic Panel Alt
+name: panel_basic_alt_react
+parent: panel_react
+---
+
+```react_example_table
+<UI.BasicPanelAlt>
+  Basic Panel
+</UI.BasicPanelAlt>
+
+<UI.BasicPanelAlt title='Basic Alt Title'>
+  Basic Panel
+</UI.BasicPanelAlt>
 ```
 */
 

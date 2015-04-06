@@ -43,6 +43,22 @@ describe('Panel', function() {
     });
   });
 
+  describe("when a title is provided", function() {
+    beforeEach(function() {
+      React.render(
+        Panel({
+          children: 'Sup',
+          title: 'This is a title'
+        }),
+        this.node
+      );
+    });
+
+    it("sets the title to the panel", function() {
+      expect($('#container .panel .panel-header .panel-title-alt')).toContainText('This is a title');
+    });
+  });
+
   describe("when a className is provided", function() {
     beforeEach(function() {
       React.render(

@@ -56,6 +56,7 @@ module.exports = {
   ClickablePanel: require('./panels.jsx').ClickablePanel,
   ClickableAltPanel: require('./panels.jsx').ClickableAltPanel,
   BasicPanel: require('./panels.jsx').BasicPanel,
+  BasicPanelAlt: require('./panels.jsx').BasicPanelAlt,
   ShadowPanel: require('./panels.jsx').ShadowPanel,
   HighlightPanel: require('./panels.jsx').HighlightPanel,
 
