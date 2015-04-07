@@ -1,4 +1,5 @@
 @import "../pui-variables";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
 /*docs
 ---
@@ -179,6 +180,11 @@ other content inside a container on the page (of a width 500px for this example)
 
 .alert-warning .alert-link:hover {
   color: darken($alert-warning-text, 10%);
+}
+
+//Bootstrap
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
 
 // bootstrap includes alert-danger, but our html expects "alert-error" class
