@@ -20,13 +20,13 @@ Images can be made responsive-friendly via the addition of the `.img-responsive`
 ```html_example
 <div class="row">
   <div class="col-md-5">
-    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+    <img alt="Responsive image" class="img-responsive" src="images/such-awesome.jpg"/>
   </div>
   <div class="col-md-7">
-    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+    <img alt="Responsive image" class="img-responsive" src="images/such-awesome.jpg"/>
   </div>
   <div class="col-md-12">
-    <img alt="Responsive image" class="img-responsive" src="../images/such-awesome.jpg"/>
+    <img alt="Responsive image" class="img-responsive" src="images/such-awesome.jpg"/>
   </div>
 </div>
 ```
