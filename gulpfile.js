@@ -1,16 +1,15 @@
+require('babel/register')({optional: ['es7.objectRestSpread', 'regenerator']});
+
 var argv = require('yargs').argv,
   autoprefixer = require('gulp-autoprefixer'),
-  autoprefixerCore = require('autoprefixer-core'),
   browserify = require('browserify'),
   connect = require('gulp-connect'),
   del = require('del'),
-  ejs = require('gulp-ejs'),
   errorHandler = require('./tasks/errorHandler.js'),
   fs = require('fs'),
   gulp = require('gulp'),
   jshint = require('gulp-jshint'),
   open = require('gulp-open'),
-  mkdirp = require('mkdirp'),
   path = require('path'),
   reactify = require('reactify'),
   rename = require('gulp-rename'),
@@ -20,10 +19,12 @@ var argv = require('yargs').argv,
   stylish = require('jshint-stylish'),
   jsxTransform = require('gulp-react'),
   sass = require('gulp-sass'),
-  nodeSass = require('node-sass'),
   through = require('through2');
 
+var runSequence = require('run-sequence');
 
+require('./tasks/build.js');
+require('./tasks/publish.js');
 require('./tasks/test.js');
 require('./tasks/release.js');
 var src = require('./tasks/util').src;
@@ -69,14 +70,15 @@ gulp.task('clean', function(done) {
 
 // private
 
-gulp.task('_puiScss', [
-  '_sassBuildPui',
-  '_sassBuildPuiRails',
-  '_sassBuildComponents',
-  '_copyPuiScssToTest',
-  '_hologramBuild',
-  '_copyOtherHtmlFiles'
-]);
+gulp.task('_puiScss', function(callback) {
+  runSequence(
+    '_cleanBuiltPuiScss',
+    ['_sassBuildPuiRails', '_buildComponents'],
+    '_copyPuiScssToTest',
+    '_hologramBuild',
+    '_copyOtherHtmlFiles',
+  callback);
+});
 
 gulp.task('_cleanBuiltPuiScss', function(done) {
   del([
@@ -91,35 +93,14 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
   });
 });
 
-gulp.task('_sassBuildPui', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_sassBuildPui', function() {
   return src(['src/pivotal-ui/pivotal-ui.scss'])
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('_sassBuildComponents', ['_cleanBuiltPuiScss'], function(){
-  return src(['src/pivotal-ui/components/*.scss'])
-    .pipe(through.obj(function(file, encoding, callback) {
-      var componentName = path.basename(file.path, '.scss');
-      var outputDir = path.resolve(__dirname, 'dist', componentName);
-
-      if(componentName !== "mixins" && componentName !== "pui-variables") {
-        var css = nodeSass.renderSync({
-          outputStyle: 'compressed',
-          file: file.path
-        }).css;
-        css = autoprefixerCore.process(css).css;
-
-        mkdirp.sync(outputDir);
-        fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
-
-      }
-      callback();
-    }));
-});
-
-gulp.task('_sassBuildPuiRails', ['_cleanBuiltPuiScss', '_sassBuildPui'], function() {
+gulp.task('_sassBuildPuiRails', ['_sassBuildPui'], function() {
   return src('build/pivotal-ui.css')
     .pipe(
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
@@ -136,13 +117,13 @@ gulp.task('_copyPuiScssToTest', ['_sassBuildPui'], function() {
     .pipe(gulp.dest('test/css/build/'));
 });
 
-gulp.task('_hologramBuild', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_hologramBuild', function() {
   return src('')
     .pipe(shell('bundle exec hologram'))
     .on('error', errorHandler.handleError);
 });
 
-gulp.task('_copyOtherHtmlFiles', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_copyOtherHtmlFiles', function() {
   return src([
     'src/styleguide/404.html',
     'src/styleguide/pane.html',

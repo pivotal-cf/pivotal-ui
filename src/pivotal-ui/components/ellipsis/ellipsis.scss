@@ -1,0 +1,51 @@
+@import "../mixins";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+/*doc
+---
+title: Ellipsis
+name: ellipsis
+categories:
+  - Utilities
+  - All
+---
+
+The type `.type-ellipsis-1-line` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
+
+```html_example_table
+<p class="type-ellipsis-1-line">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="type-ellipsis-2-lines">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+
+<p class="type-ellipsis-3-lines">
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</p>
+```
+
+
+<div class="alert alert-info">
+  <p class="em-high">
+    Multi-line ellipsis only works on webkit.
+  </p>
+</div>
+
+*/
+
+.type-ellipsis-1-line {
+  @include text-overflow;
+}
+
+.type-ellipsis-2-lines,
+.type-ellipsis-3-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.type-ellipsis-3-lines {
+  -webkit-line-clamp: 3;
+}

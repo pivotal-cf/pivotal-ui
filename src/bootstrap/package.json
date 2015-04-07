@@ -1,0 +1,19 @@
+{
+  "name": "pui-css-bootstrap",
+  "style": "bootstrap.css",
+  "version": "0.0.1",
+  "description": "Custom build of Bootstrap for Pivotal UI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  }
+}

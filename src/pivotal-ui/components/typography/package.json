@@ -1,0 +1,7 @@
+{
+  "homepage": "http://styleguide.pivotal.io/elements.html#typography",
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  },
+  "version": "0.0.2"
+}
