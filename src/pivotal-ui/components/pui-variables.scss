@@ -335,6 +335,7 @@ $line-height-large:              1.33 !default;
 $line-height-small:              1.5 !default;
 
 $border-radius-base:             4px !default;
+$border-radius-medium:           5px !default;
 $border-radius-large:            6px !default;
 $border-radius-small:            3px !default;
 $border-radius-none:             0;
@@ -1015,6 +1016,21 @@ $panel-danger-heading-bg:     null;
 $panel-info-text:             $state-info-text !default;
 $panel-info-border:           $state-info-border !default;
 $panel-info-heading-bg:       $state-info-bg !default;
+
+// Panel Basic Alt
+// -------------------------
+$panel-basic-alt-background:      white;
+$panel-basic-alt-border:          1px solid rgba(0,0,0,.1);
+$panel-basic-alt-border-bottom:   2px solid rgba(0,0,0,.1);
+$panel-basic-alt-border-radius:   5px;
+
+// Panel Titles
+// -------------------------
+$panel-title-padding:          $panel-body-padding;
+$panel-title-text:             $dark-1;
+$panel-title-font-weight:      600;
+$panel-title-font-size:        $font-size-h5;
+$panel-title-border:           3px solid rgba(0,0,0,.1);
 
 // Panel Headings
 // -------------------------

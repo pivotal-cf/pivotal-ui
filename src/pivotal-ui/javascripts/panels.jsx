@@ -9,7 +9,8 @@ var Panel = React.createClass({
   mixins: [PanelMixin],
 
   propTypes: {
-    type: React.PropTypes.string
+    type: React.PropTypes.string,
+    title: React.PropTypes.string
   },
 
   render: function () {
@@ -18,6 +19,17 @@ var Panel = React.createClass({
     var classes = _.compact(['panel', type, className]),
         bodyClasses = _.compact(['panel-body', padding]),
         style = {};
+
+    var title;
+    if (this.props.title && this.props.title.length > 0) {
+      title = (
+        <div className="panel-header">
+          <h5 className="panel-title-alt">{ this.props.title }</h5>
+        </div>
+      );
+    } else {
+      title = '';
+    }
 
     if (scrollable) {
       classes.push(['panel-scrollable']);
@@ -29,6 +41,7 @@ var Panel = React.createClass({
 
     return (
       <div {...other} className={classes.join(" ")} style={style}>
+        { title }
         <div className={bodyClasses.join(" ")}>
           {children}
         </div>
@@ -48,6 +61,13 @@ var BasicPanel = React.createClass({
   mixins: [PanelMixin],
   render: function () {
     return <Panel {...this.props} type="panel-basic" />;
+  }
+});
+
+var BasicPanelAlt = React.createClass({
+  mixins: [PanelMixin],
+  render: function () {
+    return <Panel {...this.props} type="panel-basic-alt" />;
   }
 });
 
@@ -87,13 +107,13 @@ var HighlightPanel = React.createClass({
   }
 });
 
-
 module.exports = {
   Panel: Panel,
   ClickablePanel: ClickablePanel,
   ClickableAltPanel: ClickableAltPanel,
   SimplePanel: SimplePanel,
   BasicPanel: BasicPanel,
+  BasicPanelAlt: BasicPanelAlt,
   ShadowPanel: ShadowPanel,
   HighlightPanel: HighlightPanel
 };

@@ -58,9 +58,18 @@ name: panel_basic
 parent: panel
 ---
 
-Basic Panels are the new Simple Panels for G-Major
+By default, all the .panel does is apply a basic shadow and padding to contain some content. You can have it with or without a title.
 
 ```html_example
+<div class="panel panel-basic bg-neutral-11">
+  <div class="panel-header">
+    <h5 class="panel-title-alt">Basic Title</h5>
+  </div>
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+
 <div class="panel panel-basic bg-neutral-11">
   <div class="panel-body">
     Basic Panel
@@ -71,9 +80,52 @@ Basic Panels are the new Simple Panels for G-Major
 */
 
 .panel-basic {
-  border-radius: 5px;
+  border-radius: $border-radius-medium;
   @include background-clip-fix;
   border-bottom: 2px solid $shadow-3;
+}
+
+.panel-title-alt {
+  padding: $panel-title-padding;
+  border-bottom: $panel-title-border;
+  font-weight: $panel-title-font-weight;
+  color: $panel-title-text;
+}
+
+/*doc
+---
+title: Basic Alternate
+name: panel_basic_alt
+parent: panel
+---
+
+Basic alternate panels are panels with a border and shadow. You can have a panel-basic-alt with or without a title.
+
+```html_example
+<div class="panel panel-basic-alt">
+  <div class="panel-header">
+    <h5 class="panel-title-alt">Basic Title Alt</h5>
+  </div>
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+
+<div class="panel panel-basic-alt">
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+```
+
+*/
+
+.panel-basic-alt {
+  border: $panel-basic-alt-border;
+  border-radius: $panel-basic-alt-border-radius;
+  @include background-clip-fix;
+  border-bottom: $panel-basic-alt-border-bottom;
+  background-color: $panel-basic-alt-background;
 }
 
 /*doc
@@ -683,6 +735,29 @@ parent: panel_react
 <UI.BasicPanel>
   Basic Panel
 </UI.BasicPanel>
+
+<UI.BasicPanel title='Basic Title'>
+  Basic Panel
+</UI.BasicPanel>
+```
+*/
+
+
+/*doc
+---
+title: Basic Panel Alt
+name: panel_basic_alt_react
+parent: panel_react
+---
+
+```react_example_table
+<UI.BasicPanelAlt>
+  Basic Panel
+</UI.BasicPanelAlt>
+
+<UI.BasicPanelAlt title='Basic Alt Title'>
+  Basic Panel
+</UI.BasicPanelAlt>
 ```
 */
 
