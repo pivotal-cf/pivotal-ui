@@ -36,7 +36,7 @@ parent: background
 */
 
 .bg-cloud {
-  background: $neutral-10 url('../images/gray-cloud.png') no-repeat 50% 50%;
+  background: $neutral-10 url('images/gray-cloud.png') no-repeat 50% 50%;
 }
 
 .bg-glow {
@@ -73,7 +73,7 @@ To modify this component to use a custom image, use an inline `background-image`
 */
 
 .bg-full-bleed {
-  background-image: url('../images/aboutus-hero.jpg');
+  background-image: url('images/aboutus-hero.jpg');
   background-repeat: no-repeat;
   background-position: center center;
   -webkit-background-size: cover;
