@@ -42,8 +42,8 @@ module.exports = {
   Divider: require('./dividers.jsx').Divider,
   InverseDivider: require('./dividers.jsx').InverseDivider,
 
-  Row: require('./grids.jsx').Row,
-  Col: require('./grids.jsx').Col,
+  Row: require('pivotal-ui-react.grids').Row,
+  Col: require('pivotal-ui-react.grids').Col,
 
   Media: require('pivotal-ui-react.media').Media,
   Flag: require('pivotal-ui-react.media').Flag,
