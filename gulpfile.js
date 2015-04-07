@@ -21,6 +21,7 @@ var argv = require('yargs').argv,
   sass = require('gulp-sass'),
   through = require('through2');
 
+var runSequence = require('run-sequence');
 
 require('./tasks/build.js');
 require('./tasks/publish.js');
@@ -69,14 +70,15 @@ gulp.task('clean', function(done) {
 
 // private
 
-gulp.task('_puiScss', [
-  '_sassBuildPui',
-  '_sassBuildPuiRails',
-  '_buildComponents',
-  '_copyPuiScssToTest',
-  '_hologramBuild',
-  '_copyOtherHtmlFiles'
-]);
+gulp.task('_puiScss', function(callback) {
+  runSequence(
+    '_cleanBuiltPuiScss',
+    ['_sassBuildPuiRails', '_buildComponents'],
+    '_copyPuiScssToTest',
+    '_hologramBuild',
+    '_copyOtherHtmlFiles',
+  callback);
+});
 
 gulp.task('_cleanBuiltPuiScss', function(done) {
   del([
@@ -91,14 +93,14 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
   });
 });
 
-gulp.task('_sassBuildPui', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_sassBuildPui', function() {
   return src(['src/pivotal-ui/pivotal-ui.scss'])
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('_sassBuildPuiRails', ['_cleanBuiltPuiScss', '_sassBuildPui'], function() {
+gulp.task('_sassBuildPuiRails', ['_sassBuildPui'], function() {
   return src('build/pivotal-ui.css')
     .pipe(
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
@@ -115,13 +117,13 @@ gulp.task('_copyPuiScssToTest', ['_sassBuildPui'], function() {
     .pipe(gulp.dest('test/css/build/'));
 });
 
-gulp.task('_hologramBuild', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_hologramBuild', function() {
   return src('')
     .pipe(shell('bundle exec hologram'))
     .on('error', errorHandler.handleError);
 });
 
-gulp.task('_copyOtherHtmlFiles', ['_cleanBuiltPuiScss'], function() {
+gulp.task('_copyOtherHtmlFiles', function() {
   return src([
     'src/styleguide/404.html',
     'src/styleguide/pane.html',
