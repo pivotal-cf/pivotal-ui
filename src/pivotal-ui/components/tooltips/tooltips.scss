@@ -1,3 +1,8 @@
+@import "../pui-variables";
+@import '../mixins';
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/tooltip";
+
 /*doc
 ---
 title: Tooltip
