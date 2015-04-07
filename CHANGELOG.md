@@ -1,3 +1,11 @@
+<a name="1.6.1"></a>
+### 1.6.1 (2015-04-07)
+
+
+#### Bug Fixes
+
+* **packaging:** Remove extra ../ from paths [] ((7c863550), closes (#91991302))
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2015-02-27)
 

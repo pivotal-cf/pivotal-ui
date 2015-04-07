@@ -1,0 +1,1831 @@
+<!doctype html>
+<html>
+  <head>
+    <title>a brand new styleguide: Layout</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="syntax-highlighting/prism-default.css">
+    <link rel="stylesheet" href="syntax-highlighting/prism-okaida.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <script src="pivotal-ui-react.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div class="container">
+        <button id="navbar-hamburger">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="/" class="styleguide-logo"><img src="images/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
+        <div id="styleguide-first-level-nav-wrapper">
+          <ul id="styleguide-first-level-nav">
+            
+
+            
+              
+              
+
+              <li id="category-0" class="styleguide-category">
+                <a class="category-link" href="layout.html">
+                  Layout
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-0">
+                  <span class="sr-only">Expand Layout</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="#grid" class="styleguide-subsection">Grids</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#layout_lists" class="styleguide-subsection">Layout Lists</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#media" class="styleguide-subsection">Media</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="#pane" class="styleguide-subsection">Panes</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="#vertical_align" class="styleguide-subsection">Vertical Align</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-1" class="styleguide-category">
+                <a class="category-link" href="elements.html">
+                  Elements
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-1">
+                  <span class="sr-only">Expand Elements</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="elements.html#avatar">Avatars</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#background">Backgrounds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#button">Buttons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#divider">Dividers</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#embed">Embeds</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#iconography">Iconography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#image">Images</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#label">Labels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#link">Links</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#list">Lists</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#ribbon">Ribbons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="elements.html#type">Typography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-2" class="styleguide-category">
+                <a class="category-link" href="objects.html">
+                  Objects
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-2">
+                  <span class="sr-only">Expand Objects</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="objects.html#accordion">Accordions</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#alert">Alerts</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#back_to_top">Back to Top</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#code">Code</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#dropdown">Dropdowns</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#map">Maps</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#modal">Modals</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#panel">Panels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#progress_bar">Progress Bars</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#tab">Tabs</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#table">Tables</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="objects.html#tooltip">Tooltip</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-3" class="styleguide-category">
+                <a class="category-link" href="utilities.html">
+                  Utilities
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-3">
+                  <span class="sr-only">Expand Utilities</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="utilities.html#alignment">Alignment</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#color">Colors</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#ellipsis">Ellipsis</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#print">Print</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#responsive_utilities">Responsive Utilities</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="utilities.html#whitespace">Whitespace</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-4" class="styleguide-category">
+                <a class="category-link" href="forms.html">
+                  Forms
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-4">
+                  <span class="sr-only">Expand Forms</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="forms.html#00_form_introduction">Introduction</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_autoselect_text_input">Autoselect Text Inputs</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_checkboxes">Checkboxes &amp; Radios</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_disabled_controls">Disabled Controls</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_help_text">Help Text</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_inline">Inline Forms</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_inputs">Inputs &amp; Labels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_selects">Selects</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_static_control">Static Controls</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_textarea">Text Areas</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_toggle_switch">Toggle Switches</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="forms.html#form_validation">Validations</a></li>
+                      
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-5" class="styleguide-category">
+                <a class="category-link" href="by_product.html">
+                  by Product
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-5">
+                  <span class="sr-only">Expand by Product</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="by_product.html#console">Console</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="by_product.html#marketing">Marketing</a></li>
+                      
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+              
+              
+
+              <li id="category-6" class="styleguide-category">
+                <a class="category-link" href="react_beta.html">
+                  React Beta
+                </a>
+                <a class="styleguide-second-level-nav-link" href="#" data-target="category-6">
+                  <span class="sr-only">Expand React Beta</span>
+                  <i class="fa fa-chevron-down"></i>
+                </a>
+                <ul class="styleguide-second-level-nav">
+                  
+                    
+                      
+                        <li><a href="react_beta.html#alerts_react">Alerts</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#button_react">Buttons</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#collapse_react">Collapse</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#divider_react">Dividers</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#dropdown_react">Dropdowns</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#form_react">Forms</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#grid_react">Grids</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#icon_react">Icons</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#image_react">Images</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#label_react">Labels</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#list_react">Lists</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#media_react">Media</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#modal_react">Modals</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#notifications_react">Notifications</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#pane_react">Panes</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#panel_react">Panels</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#pivnetacos_react">Pivnetacos</a></li>
+                      
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#ribbons_react">Ribbons</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#table_react">Tables</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#tabs_react">Tabs</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                      
+                        <li><a href="react_beta.html#type_react">Typography</a></li>
+                      
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                    
+                  
+                </ul>
+              </li>
+            
+            <li>
+              <a class="category-link" href="all.html">All</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container ptl">
+      <section class="content">
+
+<h1 id="grid" class="styleguide">Grids</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_grid_intro">Introduction</a></li>
+  <li><a href="#02_grid_media_queries">Media Queries</a></li>
+  <li><a href="#03_grid_sizes">Grid Sizes</a></li>
+  <li><a href="#04_grid_examples">Examples</a></li>
+  <li><a href="#04_grid_gutter_sizes">Gutter Sizes</a></li>
+  <li><a href="#08_grid_column_resets">Responsive Column Resets</a></li>
+  <li><a href="#09_grid_offsetting">Offsetting Columns</a></li>
+  <li><a href="#10_grid_ordering">Column Ordering</a></li>
+</ul>
+
+<p class="h3">
+  Pivotal ui (via bootstrap) includes a responsive, <strong>mobile first</strong> fluid grid system that
+  appropriately scales up to 24 columns as the device or viewport size increases.
+  To work with the system, you need to <strong>treat mobile as your default</strong>
+  and build more complex layouts up from there.
+</p>
+
+<h2 id="01_grid_intro" class="styleguide">Introduction</h2>
+<p class="styleguide">Grid systems are used for creating page layouts through a series of rows and columns that house your content.
+Here&#39;s how the bootstrap grid system works:</p><ul class="styleguide"><li><p class="styleguide">Rows must be placed within a <code class="styleguide">.container</code> for proper alignment and padding.</p></li>
+<li><p class="styleguide">Use <code class="styleguide">.row</code> to create horizontal groups of columns.</p></li>
+<li><p class="styleguide">Content should be placed within columns (e.g. <code class="styleguide">.col-sm-11</code>, <code class="styleguide">.col-lg-6</code>, etc.).
+Only columns may be immediate children of rows.</p></li>
+</ul><p class="styleguide">Columns are defined by two properties:
+the breakpoint at which they start acting like columns,
+and their relative width (on a scale of 24) beginning at this breakpoint.
+For example:</p><ul class="styleguide"><li><p class="styleguide">A column with the class <code class="styleguide">.col-sm-11</code> will take up 100% of the container
+for devices with screen-width &lt; 768px (the extra small breakpoint),
+and 11/24ths for devices &geq; 768px.</p></li>
+<li><p class="styleguide">A column with the class <code class="styleguide">.col-lg-6</code> will take up 100% of the container
+for devices with &lt; 1200px,
+and 1/4th (6/24ths) for devices &geq; 1200px.</p></li>
+<li><p class="styleguide">3 <code class="styleguide">.col-md-8</code> columns would fill a row for devices &geq; 992px.
+They would each take up their own row on devices &lt; 992px.</p></li>
+<li><p class="styleguide">Use the <code class="styleguide">.col-xs-*</code> classes to use a grid on mobile.</p></li>
+</ul><p class="styleguide">Look to the <a class="styleguide" href="all.html#04_grid_examples" title="all.html#04_grid_examples">examples</a> for applying these principles to your code.</p>
+<h2 id="02_grid_media_queries" class="styleguide">Media Queries</h2>
+<p class="styleguide">We use the following media queries in our sass files to create the key breakpoints in our grid system.</p><table class="styleguide"> <tr>
+<th>Name</th>
+<th>Size</th>
+<th>Variable Name</th>
+</tr>
+ <tr>
+<td>mobile</td>
+<td></td>
+<td>no media query since this is the default in bootstrap</td>
+</tr>
+<tr>
+<td>x-small</td>
+<td>480px</td>
+<td><code class="styleguide">$screen-xs-min</code></td>
+</tr>
+<tr>
+<td>small</td>
+<td>768px</td>
+<td><code class="styleguide">$screen-sm-min</code></td>
+</tr>
+<tr>
+<td>medium</td>
+<td>992px</td>
+<td><code class="styleguide">$screen-md-min</code></td>
+</tr>
+<tr>
+<td>large</td>
+<td>1200px</td>
+<td><code class="styleguide">$screen-lg-min</code></td>
+</tr>
+<tr>
+<td>x-large</td>
+<td>1800px</td>
+<td><code class="styleguide">$screen-xl-min</code></td>
+</tr>
+ </table>
+<h2 id="03_grid_sizes" class="styleguide">Grid Sizes</h2>
+<p class="styleguide">See how aspects of the bootstrap grid system work across multiple devices with a handy table.</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        extra small devices
+        <small>phones (&leq;768px)</small>
+      </th>
+      <th>
+        small devices
+        <small>tablets (&gt;768px)</small>
+      </th>
+      <th>
+        medium devices
+        <small>laptops (&gt;992px)</small>
+      </th>
+      <th>
+        large devices
+        <small>desktops (&gt;1200px)</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-nowrap">grid behavior</th>
+      <td>horizontal at all times</td>
+      <td colspan="3">collapsed to start, horizontal above breakpoints</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">container width</th>
+      <td>none (auto)</td>
+      <td>750px</td>
+      <td>970px</td>
+      <td>1170px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">class prefix</th>
+      <td><code>.col-xs-</code></td>
+      <td><code>.col-sm-</code></td>
+      <td><code>.col-md-</code></td>
+      <td><code>.col-lg-</code></td>
+    </tr>
+    <tr>
+      <th class="text-nowrap"># of columns</th>
+      <td colspan="4">24</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">column width</th>
+      <td>auto</td>
+      <td>~62px</td>
+      <td>~81px</td>
+      <td>~97px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">gutter width</th>
+      <td colspan="4">30px (15px on each side of a column)</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">nestable</th>
+      <td colspan="4">yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">offsets</th>
+      <td colspan="4">yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">column ordering</th>
+      <td colspan="4">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="04_grid_examples" class="styleguide">Examples</h2>
+<p class="styleguide">Using a single set of <code class="styleguide">.col-md-*</code> grid classes,
+you can create a basic grid system that starts out stacked on mobile devices and tablet devices
+(the extra small to small range) before becoming horizontal on desktop (medium) devices.
+Place grid columns in any <code class="styleguide">.row</code>.</p>
+<div class="alert alert-warning mbxl">
+  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don't use it IRL.</p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-16"></div>
+  <div class="col-md-8"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-8"></div>
+  <div class="col-md-8"></div>
+  <div class="col-md-8"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-12"></div>
+  <div class="col-md-12"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_a_grid_mobile_and_desktop" class="styleguide">Example: Mobile and Desktop</h3>
+<p class="styleguide">Don&#39;t want your columns to simply stack in smaller devices?
+Use the extra small and medium device grid classes by adding <code class="styleguide">.col-xs-*</code> <code class="styleguide">.col-md-*</code> to your columns.
+See the example below for a better idea of how it all works.</p><div class="codeExample">
+  <div class="exampleOutput"><!-- stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row grid-show">
+  <div class="col-xs-24 col-md-16"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+
+<!-- columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row grid-show">
+  <div class="col-xs-12 col-md-8"></div>
+  <div class="col-xs-12 col-md-8"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+
+<!-- columns are always 50% wide, on mobile and desktop -->
+<div class="row grid-show">
+  <div class="col-xs-12"></div>
+  <div class="col-xs-12"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="c">&lt;!-- stack the columns on mobile by making one full-width and the other half-width --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-24 col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- columns are always 50% wide, on mobile and desktop --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_b_grid_mobile_tablet_desktop" class="styleguide">Example: Mobile, Tablet, Desktops</h3>
+<p class="styleguide">Build on the previous example by creating even more dynamic and powerful layouts
+with tablet <code class="styleguide">.col-sm-*</code> classes.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-24 col-sm-12 col-md-16"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-xs-12 col-sm-8"></div>
+  <div class="col-xs-12 col-sm-8"></div>
+  <!-- optional: clear the xs cols if their content doesn't match in height -->
+  <div class="clearfix visible-xs-block"></div>
+  <div class="col-xs-12 col-sm-8"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-24 col-sm-12 col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="c">&lt;!-- optional: clear the xs cols if their content doesn't match in height --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_c_grid_column_wrapping" class="styleguide">Example: Column Wrapping</h3>
+<p class="styleguide">If more than 24 columns are placed within a single row, each group of extra columns will,
+as one unit, wrap onto a new line.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-12"></div>
+  <div class="col-xs-12"></div>
+  <div class="col-xs-10"></div>
+  <div class="col-xs-10"></div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-6"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-5"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide"><strong>note</strong> In the second row, since 10 + 10 + 5 &gt; 24,
+the 5-column-wide div gets wrapped onto a new line as one contiguous unit.
+Subsequent columns continue along the new line.</p>
+<h2 id="04_grid_gutter_sizes" class="styleguide">Gutter Sizes</h2>
+<p class="styleguide">You can change the size of a row&#39;s gutters with these classes.</p><table class="styleguide"> <tr>
+<th>Class</th>
+<th>Padding between columns</th>
+</tr>
+ <tr>
+<td>default</td>
+<td>20px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.row-gutter-md</code></td>
+<td>10px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.row-gutter-sm</code></td>
+<td>5px</td>
+</tr>
+ </table><p class="styleguide">Here&#39;s what the gutters look like in action.</p><div class="codeTable">
+  <table>
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-12" grid-content="Default gutter"></div>
+  <div class="col-md-12" grid-content="Default gutter"></div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Default gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Default gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row row-gutter-md grid-show">
+  <div class="col-md-12" grid-content="Medium gutter"></div>
+  <div class="col-md-12" grid-content="Medium gutter"></div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-gutter-md grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Medium gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Medium gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row row-gutter-sm grid-show">
+  <div class="col-md-12" grid-content="Small gutter"></div>
+  <div class="col-md-12" grid-content="Small gutter"></div>
+</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-gutter-sm grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Small gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Small gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="08_grid_column_resets" class="styleguide">Responsive Column Resets</h2>
+<p class="styleguide">With the four tiers of grids available you&#39;re bound to run into issues where,
+at certain breakpoints, your columns don&#39;t clear quite right as one is taller than the other.
+To fix that, use a combination of a <code class="styleguide">.clearfix</code>
+and our <a class="styleguide" href="all.html#responsive_utilities" title="all.html#responsive_utilities">responsive utility classes</a>.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-12 col-sm-6" grid-content="this is a tall column"></div>
+  <div class="col-xs-12 col-sm-6"></div>
+
+  <!-- add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-xs-block"></div>
+
+  <div class="col-xs-12 col-sm-6"></div>
+  <div class="col-xs-12 col-sm-6"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span> <span class="na">grid-content=</span><span class="s">"this is a tall column"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- add the extra clearfix for only the required viewport --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="09_grid_offsetting" class="styleguide">Offsetting Columns</h2>
+<p class="styleguide">Move columns to the right using <code class="styleguide">.col-md-offset-*</code> classes.
+These classes increase the left margin of a column by <code class="styleguide">*</code> columns.
+For example, <code class="styleguide">.col-md-offset-4</code> moves <code class="styleguide">.col-md-4</code> over four columns.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-8"></div>
+  <div class="col-md-8 col-md-offset-8"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-md-6 col-md-offset-6"></div>
+  <div class="col-md-6 col-md-offset-6"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-md-12 col-md-offset-6"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8 col-md-offset-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="10_grid_ordering" class="styleguide">Column Ordering</h2>
+<p class="styleguide">Easily change the order of our built-in grid columns
+with <code class="styleguide">.col-md-push-*</code> and <code class="styleguide">.col-md-pull-*</code> modifier classes.
+This is useful if you want to change the order of columns at different screen sizes.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-18 col-md-push-6"></div>
+  <div class="col-md-6 col-md-pull-18"></div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-18 col-md-push-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-pull-18"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="layout_lists" class="styleguide">Layout Lists</h1>
+<p class="styleguide">Sometimes you might want to use lists to lay out elements on the page.</p><p class="styleguide"><a class="styleguide" href="all.html#list_inline" title="all.html#list_inline">Inline lists</a> and <a class="styleguide" href="all.html#list_vertical_divider" title="all.html#list_vertical_divider">vertical divider lists</a>
+are particularly useful when you don&#39;t know the width of the element you want to layout,
+or you want to vertically align it.</p><p class="styleguide">Use <a class="styleguide" href="all.html#list_cards" title="all.html#list_cards">Card lists</a> if you&#39;d like to make a grid of vertically and horizontally aligned cards.</p>
+<h1 id="media" class="styleguide">Media</h1>
+
+<ul class="section-nav">
+  <li><a href="#media_alignment">Alignment</a></li>
+  <li><a href="#media_stackable">Stackable</a></li>
+</ul>
+<p class="styleguide">The default media displays a media object (images, video, audio) to the left or right of a content block.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="media">
+  <a class="media-left" href="#">
+    <img alt="..." class="media-object" src="http://placehold.it/64x64"/>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+<div class="media">
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+  </div>
+  <a class="media-right" href="#">
+    <img alt="..." class="media-object" src="http://placehold.it/64x64"/>
+  </a>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-right"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Wrap the image in a fixed-size <code class="styleguide">.image-container</code> to make sure the image isn&#39;t
+larger than the container</p><div class="codeExample">
+  <div class="exampleOutput"><div class="media">
+  <a class="media-left" href="#">
+    <div class="image-container" style="width: 100px; height: 50px;">
+      <img alt="..." class="media-object" src="http://placehold.it/64x64"/>
+    </div>
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    <p>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    </p>
+  </div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"image-container"</span> <span class="na">style=</span><span class="s">"width: 100px; height: 50px;"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;p&gt;</span>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">You can also nest media objects inside of each other (useful for comment threads or articles lists).</p><div class="codeExample">
+  <div class="exampleOutput"><div class="media">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/64x64">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Media heading</h4>
+    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
+
+    <!-- Nested media object -->
+    <div class="media">
+      <a class="media-left" href="#" target="_blank">
+        <img alt="..." class="media-object" src="http://placehold.it/64x64">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Nested media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
+        <!-- Nested media object -->
+        <div class="media">
+          <a class="media-left" href="#" target="_blank">
+            <img alt="..." class="media-object" src="http://placehold.it/64x64">
+          </a>
+          <div class="media-body">
+            <h4 class="media-heading">Nested media heading</h4>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nested media object -->
+    <div class="media">
+      <a class="media-left" href="#" target="_blank">
+        <img alt="..." class="media-object" src="http://placehold.it/64x64">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">Nested media heading</h4>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Media heading<span class="nt">&lt;/h4&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.<span class="nt">&lt;/p&gt;</span>
+
+    <span class="c">&lt;!-- Nested media object --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Nested media heading<span class="nt">&lt;/h4&gt;</span>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+
+        <span class="c">&lt;!-- Nested media object --&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Nested media heading<span class="nt">&lt;/h4&gt;</span>
+            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="c">&lt;!-- Nested media object --&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/64x64"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Nested media heading<span class="nt">&lt;/h4&gt;</span>
+        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="media_alignment" class="styleguide">Alignment</h2>
+<p class="styleguide">The images or other media can be aligned top, middle, or bottom. The default is top aligned.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="media">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/40x40">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Top aligned media</h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+<div class="media">
+  <a class="media-left media-middle" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/40x40">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Middle aligned media</h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+
+<div class="media">
+  <a class="media-left media-bottom" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/40x40">
+  </a>
+  <div class="media-body">
+    <h4 class="media-heading">Bottom aligned media</h4>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  </div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/40x40"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Top aligned media<span class="nt">&lt;/h4&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left media-middle"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/40x40"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Middle aligned media<span class="nt">&lt;/h4&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left media-bottom"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/40x40"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading"</span><span class="nt">&gt;</span>Bottom aligned media<span class="nt">&lt;/h4&gt;</span>
+    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="media_stackable" class="styleguide">Stackable</h2>
+<p class="styleguide">You can also make the media block stack with grid columns.
+Media objects switch from being stacked on top to being floated left of the media body as the screen size gets larger.
+For example, <code class="styleguide">.media-stackable-xs</code> is stacked on screen sizes from 0-480px and then left floated on larger screens.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="media media-stackable-xs">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/100x100">
+  </a>
+  <div class="media-body">
+    <p>Extra-small stackable</p>
+  </div>
+</div>
+
+<div class="media media-stackable-sm">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/100x100">
+  </a>
+  <div class="media-body">
+    <p>Small stackable</p>
+  </div>
+</div>
+
+<div class="media media-stackable-md">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/100x100">
+  </a>
+  <div class="media-body">
+    <p>Medium stackable</p>
+  </div>
+</div>
+
+<div class="media media-stackable-lg">
+  <a class="media-left" href="#" target="_blank">
+    <img alt="..." class="media-object" src="http://placehold.it/100x100">
+  </a>
+  <div class="media-body">
+    <p>Large stackable</p>
+  </div>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media media-stackable-xs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/100x100"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Extra-small stackable<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media media-stackable-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/100x100"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Small stackable<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media media-stackable-md"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/100x100"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Medium stackable<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media media-stackable-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"media-left"</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">alt=</span><span class="s">"..."</span> <span class="na">class=</span><span class="s">"media-object"</span> <span class="na">src=</span><span class="s">"http://placehold.it/100x100"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Large stackable<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="pane" class="styleguide">Panes</h1>
+<p class="styleguide">Panes are horizontal groupings of content that are usually used to
+span the full browser window width. It&#39;s going to look funny here,
+a better way to view it is on the <a class="styleguide" href="/pane.html" title="/pane.html">panes page</a>.</p><p class="styleguide">You can combine up to two background classes on the pane component.
+The one on the <code class="styleguide">.pane</code> element will span the full browser width. The
+one on the <code class="styleguide">.container</code> element will be constrained to the content width.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="pane bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+  </div>
+</div>
+
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane bg-dark-1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container bg-glow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"type-neutral-11"</span><span class="nt">&gt;</span>This is a pane<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="pane pane-offset bg-dark-1">
+  <div class="container bg-glow">
+    <h1 class="type-neutral-11">This is a pane</h1>
+    <div class="pane-image">
+      <img class="img-responsive" src="images/console-laptop.png" alt="A laptop showing Pivotal Web Services dashboard." />
+    </div>
+  </div>
+</div>
+<div class="pane bg-cloud">
+  <div class="container">
+    <h1>This is another pane</h1>
+  </div>
+</div>
+
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane pane-offset bg-dark-1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container bg-glow"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"type-neutral-11"</span><span class="nt">&gt;</span>This is a pane<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane-image"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"img-responsive"</span> <span class="na">src=</span><span class="s">"images/console-laptop.png"</span> <span class="na">alt=</span><span class="s">"A laptop showing Pivotal Web Services dashboard."</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"pane bg-cloud"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"container"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>This is another pane<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="vertical_align" class="styleguide">Vertical Align</h1>
+<p class="styleguide">The Aligner allows you to vertically align children to the top, center, or bottom.
+Its height is set by default to 230px.</p><p class="styleguide">This component doesn&#39;t do any horizontal alignment.
+You can use grids, or the <a class="styleguide" href="all.html#alignment" title="all.html#alignment">text-alignment classes</a>
+<code class="styleguide">.txt-l</code>, <code class="styleguide">.txt-r</code>, and <code class="styleguide">.txt-c</code> with this component.</p>
+<div class="alert alert-warning">
+  <p class="em-high">
+    This component is not supported in IE10 and below.
+    While the content will appear, it will not be vertically aligned.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="aligner txt-c">
+  <a class="aligner-item" href="http://bitly.com/ZTHUDU">Centered content</a>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aligner txt-c"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"aligner-item"</span> <span class="na">href=</span><span class="s">"http://bitly.com/ZTHUDU"</span><span class="nt">&gt;</span>Centered content<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Override the default height by setting an inline style like so:</p><div class="codeExample">
+  <div class="exampleOutput"><div class="aligner" style="height: 200px;">
+  <a class="aligner-item aligner-item-top" href="http://bit.ly/1wCDWdC">On Top</a>
+  <a class="aligner-item" href="http://bitly.com/ZTHUDU">Center</a>
+  <a class="aligner-item aligner-item-bottom" href="http://bit.ly/12TqYiL">Bottom</a>
+</div>
+</div>
+  <div class="codeBlock">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"aligner"</span> <span class="na">style=</span><span class="s">"height: 200px;"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"aligner-item aligner-item-top"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1wCDWdC"</span><span class="nt">&gt;</span>On Top<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"aligner-item"</span> <span class="na">href=</span><span class="s">"http://bitly.com/ZTHUDU"</span><span class="nt">&gt;</span>Center<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"aligner-item aligner-item-bottom"</span> <span class="na">href=</span><span class="s">"http://bit.ly/12TqYiL"</span><span class="nt">&gt;</span>Bottom<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Note: the background colors in the example are just for display in the styleguide.</p>      </section>
+      <footer>
+        <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+      </footer>
+      <a class="back-to-top"></a>
+    </div>
+  </body>
+</html>
