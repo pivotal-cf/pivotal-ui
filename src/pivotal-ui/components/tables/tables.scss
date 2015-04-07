@@ -1,0 +1,965 @@
+@import "../pui-variables";
+
+/*doc
+---
+title: Tables
+name: table
+categories:
+  - Objects
+  - All
+---
+
+
+Class                 | Description
+--------------------- | -----------------
+`.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
+`.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
+`.table-striped`      | Applies zebra striping to a table.
+`.table-light`        | Lightens the table background.
+
+*/
+
+/*pending
+---
+title: JS Tables
+name: table_js
+categories:
+  - Objects
+  - All
+---
+
+This section contains different table behaviors. See [tables][table] to see different table styles.
+*/
+
+// Terrible terrible code
+.table-hack {
+  .thead, .tbody {
+    padding: 0 15px;
+  }
+  .th {
+    padding: 8px 15px;
+  }
+  .td {
+    padding: 20px 15px;
+  }
+  .tbody {
+
+    .tr:nth-child(odd) {
+    }
+  }
+}
+
+/*doc
+---
+title: Data
+name: table_data
+parent: table
+---
+
+This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.
+
+Design Note: The `table-data` is often paired with `table-light` as in our example.
+
+```html_example
+<table class="table table-data table-light">
+  <thead>
+    <tr>
+      <th>Service Instance</th>
+      <th>Service Plan</th>
+      <th>Bound Apps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+.table-data {
+  border: none;
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      border-bottom: 1px solid $gray-7;
+      th, .th {
+        border-bottom: none;
+        border-color: $gray-7;
+        border-right: 1px solid $gray-7;
+        padding: 15px 10px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.3px;
+        &:first-child {
+          border-bottom: none;
+        }
+        &:last-child {
+          border: none;
+        }
+        background-color: $gray-9;
+      }
+      td, .td {
+        padding: 10px 10px;
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+
+  tbody, .tbody {
+    tr, .tr {
+      background-color: $gray-9;
+      &:hover {
+        -webkit-transition: background-color 300ms ease-out;
+        -moz-transition: background-color 300ms ease-out;
+        transition: background-color 300ms ease-out;
+        background-color: $gray-10;
+      }
+      &:last-child {
+        border-bottom: 2px solid $shadow-3;
+      }
+    }
+  }
+  // end optical illusion bug code
+
+  > thead > tr, > .thead > .tr {
+    text-transform: uppercase;
+    &:last-child {
+    }
+    > th, > .th {
+      color: $gray-3;
+    }
+  }
+}
+
+.table-light {
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      background-color: $gray-10;
+      th, .th, td, .td {
+        background-color: $gray-10;
+      }
+      td, .td {
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+}
+
+/*doc
+---
+title: Key-Value
+name: table_key_value
+parent: table
+---
+
+This table is used when the table headings are on the left. It looks better when you
+specify column widths for the th/tds.
+
+
+```html_example
+<table class="table table-key-value">
+  <tbody>
+    <tr>
+      <th class="col-md-8">Email</th>
+      <td class="col-md-16">joe@example.com</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Current Password</th>
+      <td class="col-md-16">*******</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">First Name</th>
+      <td class="col-md-16">Joe</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Last Name</th>
+      <td class="col-md-16">Bobs</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Phone</th>
+      <td class="col-md-16">415-555-0000</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+.table-key-value {
+  table-layout: fixed;
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      th, .th {
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:last-child {
+        border: none;
+      }
+      th, td {
+        padding: 0;
+        margin: 0;
+      }
+      th {
+        text-transform: uppercase;
+        font-weight: 800;
+        text-align: left;
+        color: $gray-5;
+      }
+      td {
+        text-align: left;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+/*pending
+---
+title: Clickable
+name: table_clickable
+parent: table_js
+---
+
+Use this style of table when rows are clickable. It is possible to prevent a user from clicking on a row w/ a message by adding data-prevent-click and data-prevent-click-message to the row. (N.B.: This does not actually add any sort of permissions to the URL in question).
+We are making the assumption here that table-hover will *only* be used if the table is clickable, because we add a pointer.
+
+
+
+```html_example
+<table class="table table-data table-hover" data-behavior="ClickableTable">
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th colspan="2">Clickability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-prevent-click="true" data-prevent-click-message="YOU'VE ENTERED THE FORBIDDEN ZONE" data-target-path="/styleguide#link">
+      <td>Forbidden Links</td>
+      <td>High</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#button">
+      <td>Buttons</td>
+      <td>Medium</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#type">
+      <td>Typography</td>
+      <td>Low</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+.table-hover {
+  td {
+    cursor: pointer;
+  }
+}
+
+/*doc
+---
+title: Alignment
+name: table_alignment
+parent: table
+---
+
+See the [alignment component][alignment] for classes to use for table text alignment.
+
+*/
+
+// Table alignment
+
+/* horizontal alignment */
+table .txt-c, table tr .txt-c, table tr td.txt-c {
+  @extend .txt-c;
+}
+
+table .txt-l, table tr .txt-l, table tr td.txt-l {
+  @extend .txt-l;
+}
+
+table .txt-r, table tr .txt-r, table tr td.txt-r {
+  @extend .txt-r;
+}
+
+/* vertical alignment */
+table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
+  @extend .txt-t;
+}
+
+table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
+  @extend .txt-b;
+}
+
+table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
+  @extend .txt-m;
+}
+
+/*doc
+---
+title: Tables
+name: table_react
+categories:
+ - React Beta
+---
+*/
+
+/*doc
+---
+title: Sortable
+name: table_sortable_react
+parent: table_react
+---
+
+The `SortableTable` component is a robust component that offers a styled table with fully
+functioning sort.
+
+The `SortableTable` expects the following properties:
+
+
+Property  | Type                             | Description
+----------| ---------------------------------| --------------------------------------------------------------------------
+`data`    | Array of JS objects              | The collection of data to be displayed
+`columns` | Array of column objects          | Informs the table how to render columns as well as which columns should be sortable
+`classes` | Array of strings                 | A list of class names to be added to the table element
+
+
+The column objects should have the following structure:
+
+Property   | Required? | Type                         | Description
+-----------| ----------|------------------------------| --------------------------------------------------------------------------
+`name`     | **yes**   | String                       | Name of the property on a data object (how to lookup the value for this column)
+`title`    | **yes**   | String                       | Name to display on the table header
+`sortable` | no        | Boolean                      | Is this column sortable? Defaults to false
+`align`    | no        | 'center', 'left', or 'right' | How should text be aligned within this column? Defaults to left
+
+If a column is marked as being sortable, it will attempt to sort the values as strings.
+
+
+```js_example
+var sortTableCols = [
+  {
+    name: 'name',
+    title: 'Name',
+    sortable: true
+  },
+  {
+    name: 'instances',
+    title: 'Instances',
+    sortable: true,
+    align: 'center'
+  },
+  {
+    name: 'cpu',
+    title: 'CPU',
+    sortable: true,
+    align: 'right'
+  },
+  {
+    name: 'synergy',
+    title: 'Synergy',
+    align: 'left'
+  }
+]
+
+var sortTableData = [
+  {
+    instances: '1',
+    name: 'foo',
+    cpu: 'po',
+    synergy: 'qum',
+    ram: 'bee',
+  },
+  {
+    name: 'yee',
+    instances: 'di',
+    cpu: 'no',
+    synergy: 'aum'
+  },
+  {
+    name: 'zee',
+    instances: 'si',
+    cpu: 'mo',
+    synergy: 'wum'
+  },
+  {
+    name: 'jee',
+    instances: 'ui',
+    cpu: 'no',
+    synergy: 'mum'
+  }
+];
+```
+
+```react_example
+<UI.SortableTable
+  data={sortTableData}
+  columns={sortTableCols}
+  classes={['table-data', 'table-light']} />
+```
+
+*/
+
+
+
+/*pending
+---
+title: Angular Sortable Table
+name: table_angular_sortable
+parent: table_js
+---
+
+USE:
+
+1. Add a sorter in your controller scope that has a reference to the collection you want to sort.
+2. Add "sortable" to any header/element which should trigger a sort (if the sortable directive doesn't do what you want, write a new one or just use ng-click. Please don't add more behavior to the current sortable).
+
+```html_example
+<table class="table table-data table-sortable" ng-cloak="<%= true %>" ng-controller="ExampleSpaceDataTableCtrl">
+  <thead>
+    <tr>
+      <th class="txt-m" sortable="name">Name</th>
+      <th sortable="totalApps">Total Apps</th>
+      <th sortable="runningApps">Running Apps</th>
+      <th sortable="stoppedApps">Stopped Apps</th>
+      <th sortable="downApps">Down Apps</th>
+      <th class="txt-m" sortable="serviceInstances">Service Instances</th>
+      <th class="txt-m" sortable="quota">Quota</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="tableItem in tableItems">
+      <td>{{tableItem.name}}</td>
+      <td>{{tableItem.totalApps}}</td>
+      <td>{{tableItem.runningApps}}</td>
+      <td>{{tableItem.stoppedApps}}</td>
+      <td>{{tableItem.downApps}}</td>
+      <td>{{tableItem.serviceInstances}}</td>
+      <td>{{tableItem.quota}}</td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+.table-sortable {
+  th.sorted-desc {
+    color: $navy-1;
+    &:after {
+      content: "\f0d7";
+      color: $navy-1;
+    }
+  }
+
+  .sortable, [sortable] { // latter selector is angular only
+    cursor: pointer;
+    &:after {
+      margin-left: 4px;
+      content: "";
+      font-weight: 200;
+      font-family: FontAwesome;
+    }
+    &:hover {
+      background-color: white;
+      -webkit-transition: background-color 300ms ease-out;
+      -moz-transition: background-color 300ms ease-out;
+      transition: background-color 300ms ease-out;
+    }
+  }
+
+  th.sorted-none {
+    &:hover:after {
+      visibility: visible;
+    }
+    &:after {
+      content: "\f0dc";
+      color: $gray-7;
+      visibility: hidden;
+    }
+  }
+
+  th.sorted-asc {
+    color: $navy-1;
+    &:after {
+      content: "\f0d8";
+      color: $navy-1;
+    }
+  }
+}
+
+/*pending
+---
+title: Inline Addable
+name: table_inline_addable
+parent: table_js
+---
+
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideAddableTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
+      Add a Space
+    </a>
+  </p>
+  <table class="table table-data table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m col-md-8">
+          Name
+        </th>
+        <th class="txt-m">
+          Total Apps
+        </th>
+        <th class="txt-m">
+          Running Apps
+        </th>
+        <th class="txt-m">
+          Stopped Apps
+        </th>
+        <th class="txt-m">
+          Down Apps
+        </th>
+        <th class="txt-m">
+          Service Instance
+        </th>
+        <th class="txt-m">
+          Quota
+        </th>
+        <th class="txt-m"></th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr class="inline-table-item" ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
+          {{space.name}}
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+        <td data-confirmation-action="spaceTable.destroy(space)" data-confirmation-header="Delete Space" data-confirmation-modal="Are you sure you want to delete this space?" data-dangerous-action="true">Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
+
+.editing {
+  .state-adding-trigger {
+    visibility: hidden;
+  }
+  .table-addable {
+    .thead-state-viewing,
+    .td-state-viewing {
+      display: none;
+    }
+
+    td {
+      display: none;
+    }
+    td:first-child {
+      display: table-cell;
+    }
+    thead.state-editing-show {
+      display: table-header-group;
+    }
+    tr.state-editing-show {
+      display: table-row;
+    }
+  }
+}
+
+.table-addable {
+  table-layout: fixed;
+
+  .state-editing-show {
+    display: none;
+  }
+
+  .state-adding-item-show {
+    display: none;
+  }
+
+  .inline-table-item.ng-enter.ng-enter-active {
+    opacity: 1;
+    .addedConfirmation {
+      display: table-cell;
+    }
+  }
+
+  .inline-table-item {
+    .addedConfirmation {
+      color: forestgreen;
+    }
+  }
+
+  .fa-check-success {
+    color: $teal-3;
+    font-size: 12px;
+    margin-right: 5px;
+
+    -webkit-transition: opacity 300ms ease-out;
+    -moz-transition: opacity 300ms ease-out;
+    transition: opacity 300ms ease-out;
+
+    opacity: 1;
+  }
+
+  .fa-check-success.ng-hide {
+    display: inline-block !important;
+    opacity: 0;
+  }
+
+  .saveRequested {
+    opacity: 0.3;
+  }
+
+  .deleteRequested {
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+    color: $gray-5;
+  }
+
+  .ng-leave {
+    -webkit-transition: all ease-out .5s;
+    transition: all ease-out .5s;
+  }
+
+  .ng-leave.ng-leave-active {
+    color: $gray-9;
+  }
+
+  .saved {
+    opacity: 1;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+  }
+
+}
+
+//
+//.ng-valid {
+//  @extend .has-success;
+//}
+
+/*pending
+---
+title: Kitchen Sink
+name: table_kitchen_sink
+parent: table_js
+---
+
+Example of composed behaviors that operate on the same table.
+
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideKitchenSinkTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
+      Add a Space
+    </a>
+  </p>
+  <table class="table table-data table-sortable table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m" sortable="name">Name</th>
+        <th sortable="totalApps">Total Apps</th>
+        <th sortable="runningApps">Running Apps</th>
+        <th sortable="stoppedApps">Stopped Apps</th>
+        <th sortable="downApps">Down Apps</th>
+        <th class="txt-m" sortable="serviceInstances">Service Instances</th>
+        <th class="txt-m" sortable="quota">Quota</th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
+          {{space.name}}
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+*/
+
+/*doc
+---
+title: Scrollable
+name: scrollable_table
+parent: table
+---
+
+Table with borders where the contents of the table scroll but the header does not.
+The default height of the scrollable table is 183px. There are four other sizes provided
+which you can use by adding the following classes to the `.table-scrollable` element.
+
+Table Scrollable sizes | Height
+---------------------- | ---------
+default                | 183px
+`.table-scrollable-sm` | 300px
+`.table-scrollable-md` | 600px
+`.table-scrollable-lg` | 900px
+
+If you would like a custom size, please add an inline style to the `.table-scrollable-body` element.
+
+Design Note: The `table-scrollable` is often paired with `table-data` and `table-light` as in our example.
+
+<div class="alert alert-info alert-dismissable">
+  <p class="em-high">
+    You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
+    the first row of the <code>tbody</code>. You can do this with inline width attributes.
+  </p>
+</div>
+
+```html_example
+<div class="table-scrollable table-scrollable-sm">
+  <div class="table-scrollable-header">
+    <table class="table table-data table-light">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th width="16%">Status</th>
+          <th width="12%">CPU</th>
+          <th width="16%">Memory</th>
+          <th width="16%">Disk</th>
+          <th width="30%">Uptime</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scrollable-body">
+    <table class="table table-data table-light">
+      <tbody>
+        <tr>
+          <td width="10%">0</td>
+          <td width="16%">Running</td>
+          <td width="12%">0%</td>
+          <td width="16%">4.16 MB</td>
+          <td width="16%">6.75 MB</td>
+          <td width="30%">27 min</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>27 min</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.14 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.08 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.16 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.03 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+```
+*/
+
+.table-scrollable {
+  border: $table-scrollable-border;
+
+  table {
+    table-layout: fixed;
+    tr:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .table {
+    margin: 0;
+  }
+
+  .table-scrollable-header {
+    border-bottom: $table-scrollable-header-border;
+  }
+
+  .table-scrollable-body {
+    border-top: $table-scrollable-body-border;
+    max-height: $table-scrollable-default-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.table-scrollable-sm {
+    .table-scrollable-body {
+      max-height: $table-scrollable-sm;
+    }
+  }
+  &.table-scrollable-md {
+    .table-scrollable-body {
+      max-height: $table-scrollable-md;
+    }
+  }
+  &.table-scrollable-lg {
+    .table-scrollable-body {
+      max-height: $table-scrollable-lg;
+    }
+  }
+}
+

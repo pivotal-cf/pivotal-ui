@@ -1,0 +1,379 @@
+@import "../pui-variables";
+
+/*doc
+---
+title: Accordions
+name: accordion
+categories:
+  - Objects
+  - All
+---
+
+These are frequently used in combination with our panel components. They have a header and body.
+
+Accordions can be used with any background color class, add them to the header and body.
+
+NOTE: The 'alligators' (the > in the HAML below) are structural --
+without them, the browser renders the whitespace on the anchor tags,
+and the images jump around by a few pixels when they're toggled.
+
+Also see the select tabs for a toggle triggered by a select group.
+
+
+*/
+
+/*doc
+---
+title: Basic
+name: accordion_basic
+parent: accordion
+---
+
+Use this to expand and collapse content.
+
+```html_example
+<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example">
+  <div class="when-collapsed">
+    Expand me
+  </div>
+  <div class="when-expanded">
+    Collapse me
+  </div>
+</a>
+<div class="collapse" id="simple-collapse-example">
+  Look at this content.
+</div>
+```
+
+*/
+
+
+/*doc
+---
+title: Sizes
+name: accordion_sizes
+parent: accordion
+---
+
+Default accordion size:
+
+```html_example
+<div class="panel" id="accordion-1">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#myCollapse-1">
+    <div class="row">
+      <div class="col-md-23">
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-1">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+
+```
+
+Large accordion size:
+
+```html_example
+<div class="panel" id="accordion-2">
+  <div class="panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-2">
+    <div class="row">
+      <div class="col-md-23">
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-2">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: With Icons
+name: accordion_with_icons
+parent: accordion
+---
+
+Accordion with plus/minus icon:
+
+```html_example
+<div class="panel" id="accordion-3">
+  <div class="panel-heading-accordion-large collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-plus-square collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-minus-square collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-3">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+```
+
+Accordion with caret right/down icon:
+
+```html_example
+<div class="panel" id="accordion-4">
+  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-4">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-4">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Styles
+name: accordion_styles
+parent: accordion
+---
+
+Accordion with Divider:
+
+This adds a divider between the accordion header and accordion body.
+
+```html_example
+<div class="panel" id="accordion-5">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-5">
+    <div class="row">
+      <div class="col-md-23">
+        <a>
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-5">
+    <div class="panel-body-accordion-divider bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+```
+
+You can combine the accordion with any panel class to have a styled panel that opens and closes.
+
+*/
+
+.when-collapsed {
+  display: none;
+}
+.when-expanded {
+  display: block;
+}
+.when-collapsed-inline {
+  display: none;
+}
+.when-expanded-inline {
+  display: inline;
+}
+
+.collapsed {
+  .when-collapsed {
+    display: block;
+  }
+  .when-expanded {
+    display: none;
+  }
+  .when-collapsed-inline {
+    display: inline;
+  }
+  .when-expanded-inline {
+    display: none;
+  }
+}
+
+
+.collapse-trigger {
+  cursor: pointer;
+
+  .collapse-title {
+    display: inline-block;
+  }
+
+  .collapse-icon {
+    display: inline-block;
+    width: 15px;
+    color: $accordion-icon;
+    margin-right: 5px;
+  }
+}
+
+.panel-heading-accordion {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.panel-body-accordion {
+  margin: 0px;
+  padding:  30px 20px;
+}
+
+.panel-heading-accordion-large {
+  @extend .panel-heading-accordion;
+  padding: 25px 20px 25px 20px;
+}
+
+.panel-body-accordion-divider {
+  @extend .panel-body-accordion;
+  border-top: 2px solid $shadow-3;
+}
+
+// Necessary to get the entire header clickable for BS-React-Collapses
+.panel-title {
+  a {
+    display: block;
+  }
+}
+
+/*doc
+---
+title: Collapse
+name: collapse_react
+categories:
+  - React Beta
+---
+
+Collapse components are implementations of the [Accordion][accordion] style. In
+all `Collapse` component variations, the `header` prop describes the text
+of the clickable region to toggle the expand/collapse states.
+
+*/
+
+/*doc
+---
+title: Base
+name: base_collapse_react
+parent: collapse_react
+---
+
+This is a basic collapse with no additional styles.
+
+```react_example
+<UI.BaseCollapse header="Panel 1">
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+  <p>Panel 1 content</p>
+</UI.BaseCollapse>
+```
+*/
+
+/*doc
+---
+title: Arrows
+name: arrow_collapse_react
+parent: collapse_react
+---
+
+This is a basic collapse with an arrow icon in the clickable region.
+
+```react_example
+<UI.Collapse header="With Arrows">
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.Collapse>
+```
+*/
+
+/*doc
+---
+title: Alt
+name: alt_collapse_react
+parent: collapse_react
+---
+
+This is a basic collapse with an +/- icon in the clickable region.
+
+```react_example
+<UI.AltCollapse header="Without Arrows">
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.AltCollapse>
+```
+*/
+
+/*doc
+---
+title: Adding Dividers
+name: collapse_dividers_react
+parent: collapse_react
+---
+
+To add a divider between the clickable region and the expanded content region,
+simply set the `divider` property to be true.
+
+```react_example
+<UI.Collapse header="With Divider" divider>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</UI.Collapse>
+```
+*/
+
+.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
+  @extend .panel-body-accordion-divider;
+}

@@ -21,6 +21,7 @@
     "modernizr": "Modernizr"
   },
   "devDependencies": {
+    "babel": "^5.0.9",
     "browserify": "^5.12.0",
     "browserify-shim": "^3.7.0",
     "conventional-changelog": "^0.0.11",
@@ -50,6 +51,7 @@
     "karma-jasmine": "^0.2.3",
     "karma-jasmine-jquery": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
+    "npm": "^2.7.5",
     "q": "^1.0.1",
     "react-fa": "^3.0.0",
     "require-dir": "^0.1.0",
