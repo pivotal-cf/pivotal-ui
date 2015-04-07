@@ -1,4 +1,7 @@
 {
-  "homepage": "http://styleguide.pivotal.io/section.html#buttons",
-  "dependencies": {}
+  "homepage": "http://styleguide.pivotal.io/elements.html#button",
+  "dependencies": {
+    "pui-css-bootstrap": "*",
+    "pui-css-typography": "*"
+  }
 }
