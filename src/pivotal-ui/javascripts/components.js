@@ -28,14 +28,14 @@ module.exports = {
   BasePane: require('./panes.jsx').BasePane,
   Pane: require('./panes.jsx').Pane,
 
-  UIButton: require('./buttons.jsx').UIButton,
-  DefaultButton: require('./buttons.jsx').DefaultButton,
-  DefaultAltButton: require('./buttons.jsx').DefaultAltButton,
-  PrimaryButton: require('./buttons.jsx').PrimaryButton,
-  LowlightButton: require('./buttons.jsx').LowlightButton,
-  DangerButton: require('./buttons.jsx').DangerButton,
-  HighlightButton: require('./buttons.jsx').HighlightButton,
-  HighlightAltButton: require('./buttons.jsx').HighlightAltButton,
+  UIButton: require('pui-react-buttons').UIButton,
+  DefaultButton: require('pui-react-buttons').DefaultButton,
+  DefaultAltButton: require('pui-react-buttons').DefaultAltButton,
+  PrimaryButton: require('pui-react-buttons').PrimaryButton,
+  LowlightButton: require('pui-react-buttons').LowlightButton,
+  DangerButton: require('pui-react-buttons').DangerButton,
+  HighlightButton: require('pui-react-buttons').HighlightButton,
+  HighlightAltButton: require('pui-react-buttons').HighlightAltButton,
 
   SearchInput: require('pivotal-ui-react.search-input').SearchInput,
 
