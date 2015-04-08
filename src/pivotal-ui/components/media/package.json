@@ -1,4 +1,6 @@
 {
   "homepage": "http://styleguide.pivotal.io/section.html#media",
-  "dependencies": {}
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  }
 }
