@@ -63,7 +63,7 @@ module.exports = {
   Image: require('./images.jsx').Image,
 
 
-  Icon: require('./icons.jsx').Icon,
+  Icon: require('pui-react-iconography').Icon,
 
   Modal: require('./modals.jsx').Modal,
   ModalBody: require('./modals.jsx').ModalBody,

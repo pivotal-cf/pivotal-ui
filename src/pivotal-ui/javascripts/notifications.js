@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react/addons');
-var Icon = require('./icons.jsx').Icon;
+var Icon = require('pui-react-iconography').Icon;
 var LinkDropdown = require('./dropdowns.jsx').LinkDropdown;
 var DropdownItem = require('./dropdowns.jsx').DropdownItem;
 
