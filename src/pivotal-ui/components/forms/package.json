@@ -1,4 +1,6 @@
 {
-  "homepage": "http://styleguide.pivotal.io/section.html#forms",
-  "dependencies": {}
+  "homepage": "http://styleguide.pivotal.io/forms.html",
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  }
 }
