@@ -82,7 +82,7 @@ Button                                                             | Disabled   
 }
 
 .btn-default-alt {
-  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-bg-hover);
+  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-bg-hover, $btn-default-alt-border);
   @include button-shadow;
 }
 
