@@ -23,8 +23,20 @@ You can place the link anywhere in your markup, but best practices are either to
 */
 
 .back-to-top {
-  @extend .fa;
-  @extend .fa-arrow-up;
+  //Font Awesome .fa
+  //display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  //font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+
+  //Font Awesome .fa-arrow-up
+  &:before {
+    content: "\f062";
+  }
+
   color: $neutral-11;
   text-align: center;
   font-size: $font-size-h3;
