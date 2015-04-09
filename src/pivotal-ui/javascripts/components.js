@@ -49,7 +49,7 @@ module.exports = {
   Flag: require('pui-react-media').Flag,
 
   Radio: require('pui-react-radio').Radio,
-  RadioGroup: require('./radio-group').RadioGroup,
+  RadioGroup: require('pui-react-radio-group').RadioGroup,
 
   Panel: require('./panels.jsx').Panel,
   SimplePanel: require('./panels.jsx').SimplePanel,
