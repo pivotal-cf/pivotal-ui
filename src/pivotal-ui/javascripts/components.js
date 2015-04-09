@@ -65,9 +65,9 @@ module.exports = {
 
   Icon: require('pui-react-iconography').Icon,
 
-  Modal: require('./modals.jsx').Modal,
-  ModalBody: require('./modals.jsx').ModalBody,
-  ModalFooter: require('./modals.jsx').ModalFooter,
+  Modal: require('pui-react-modals').Modal,
+  ModalBody: require('pui-react-modals').ModalBody,
+  ModalFooter: require('pui-react-modals').ModalFooter,
 
   Ribbon: require('./ribbons.jsx').Ribbon,
   PrimaryRibbon: require('./ribbons.jsx').PrimaryRibbon,
