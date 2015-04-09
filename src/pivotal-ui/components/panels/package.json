@@ -1,4 +1,6 @@
 {
-  "homepage": "http://styleguide.pivotal.io/section.html#panels",
-  "dependencies": {}
+  "homepage": "http://styleguide.pivotal.io/objects.html#panel",
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  }
 }
