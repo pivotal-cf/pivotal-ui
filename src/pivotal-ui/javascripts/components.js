@@ -48,7 +48,7 @@ module.exports = {
   Media: require('pui-react-media').Media,
   Flag: require('pui-react-media').Flag,
 
-  Radio: require('./radio').Radio,
+  Radio: require('pui-react-radio').Radio,
   RadioGroup: require('./radio-group').RadioGroup,
 
   Panel: require('./panels.jsx').Panel,
