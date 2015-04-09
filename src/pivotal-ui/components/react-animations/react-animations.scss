@@ -24,6 +24,24 @@
   -moz-animation: new-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-item-fade .5s ease-in .15s forwards;
 }
 
+.expander-enter {
+  @include transition-pui(max-height, 0.75s, ease);
+  max-height: 0;
+}
+
+.expander-enter-active {
+  max-height: 500px;
+}
+
+.expander-leave {
+  @include transition-pui(max-height, 0.75s, ease);
+  max-height: 500px;
+}
+
+.expander-leave-active {
+  max-height: 0;
+}
+
 @-webkit-keyframes new-item-fade {
   0% {
     opacity: 0;
