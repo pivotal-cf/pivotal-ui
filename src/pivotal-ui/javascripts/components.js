@@ -2,28 +2,28 @@
 module.exports = {
   SortableTable: require('./sortable-table.jsx'),
 
-  DefaultH1: require('pivotal-ui-react.typography').DefaultH1,
-  DefaultH2: require('pivotal-ui-react.typography').DefaultH2,
-  DefaultH3: require('pivotal-ui-react.typography').DefaultH3,
-  DefaultH4: require('pivotal-ui-react.typography').DefaultH4,
-  DefaultH5: require('pivotal-ui-react.typography').DefaultH5,
-  DefaultH6: require('pivotal-ui-react.typography').DefaultH6,
+  DefaultH1: require('pui-react-typography').DefaultH1,
+  DefaultH2: require('pui-react-typography').DefaultH2,
+  DefaultH3: require('pui-react-typography').DefaultH3,
+  DefaultH4: require('pui-react-typography').DefaultH4,
+  DefaultH5: require('pui-react-typography').DefaultH5,
+  DefaultH6: require('pui-react-typography').DefaultH6,
 
-  AlternateH1: require('pivotal-ui-react.typography').AlternateH1,
-  AlternateH2: require('pivotal-ui-react.typography').AlternateH2,
-  AlternateH3: require('pivotal-ui-react.typography').AlternateH3,
-  AlternateH4: require('pivotal-ui-react.typography').AlternateH4,
-  AlternateH5: require('pivotal-ui-react.typography').AlternateH5,
-  AlternateH6: require('pivotal-ui-react.typography').AlternateH6,
+  AlternateH1: require('pui-react-typography').AlternateH1,
+  AlternateH2: require('pui-react-typography').AlternateH2,
+  AlternateH3: require('pui-react-typography').AlternateH3,
+  AlternateH4: require('pui-react-typography').AlternateH4,
+  AlternateH5: require('pui-react-typography').AlternateH5,
+  AlternateH6: require('pui-react-typography').AlternateH6,
 
-  MarketingH1: require('pivotal-ui-react.typography').MarketingH1,
-  MarketingH2: require('pivotal-ui-react.typography').MarketingH2,
-  MarketingH3: require('pivotal-ui-react.typography').MarketingH3,
-  MarketingH4: require('pivotal-ui-react.typography').MarketingH4,
-  MarketingH5: require('pivotal-ui-react.typography').MarketingH5,
-  MarketingH6: require('pivotal-ui-react.typography').MarketingH6,
+  MarketingH1: require('pui-react-typography').MarketingH1,
+  MarketingH2: require('pui-react-typography').MarketingH2,
+  MarketingH3: require('pui-react-typography').MarketingH3,
+  MarketingH4: require('pui-react-typography').MarketingH4,
+  MarketingH5: require('pui-react-typography').MarketingH5,
+  MarketingH6: require('pui-react-typography').MarketingH6,
 
-  Heading: require('pivotal-ui-react.typography').Heading,
+  Heading: require('pui-react-typography').Heading,
 
   BasePane: require('./panes.jsx').BasePane,
   Pane: require('./panes.jsx').Pane,
@@ -37,16 +37,16 @@ module.exports = {
   HighlightButton: require('pui-react-buttons').HighlightButton,
   HighlightAltButton: require('pui-react-buttons').HighlightAltButton,
 
-  SearchInput: require('pivotal-ui-react.search-input').SearchInput,
+  SearchInput: require('pui-react-search-input').SearchInput,
 
   Divider: require('./dividers.jsx').Divider,
   InverseDivider: require('./dividers.jsx').InverseDivider,
 
-  Row: require('pivotal-ui-react.grids').Row,
-  Col: require('pivotal-ui-react.grids').Col,
+  Row: require('pui-react-grids').Row,
+  Col: require('pui-react-grids').Col,
 
-  Media: require('pivotal-ui-react.media').Media,
-  Flag: require('pivotal-ui-react.media').Flag,
+  Media: require('pui-react-media').Media,
+  Flag: require('pui-react-media').Flag,
 
   Radio: require('./radio').Radio,
   RadioGroup: require('./radio-group').RadioGroup,
@@ -77,14 +77,14 @@ module.exports = {
   SimpleTabs: require('./tabs.jsx').SimpleTabs,
   SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
 
-  UnorderedList: require('pivotal-ui-react.lists').UnorderedList,
-  OrderedList: require('pivotal-ui-react.lists').OrderedList,
-  InlineList: require('pivotal-ui-react.lists').InlineList,
-  GroupList: require('pivotal-ui-react.lists').GroupList,
-  GroupListInverse: require('pivotal-ui-react.lists').GroupListInverse,
-  StepList: require('pivotal-ui-react.lists').StepList,
-  BreadcrumbList: require('pivotal-ui-react.lists').BreadcrumbList,
-  ListItem: require('pivotal-ui-react.lists').ListItem,
+  UnorderedList: require('pui-react-lists').UnorderedList,
+  OrderedList: require('pui-react-lists').OrderedList,
+  InlineList: require('pui-react-lists').InlineList,
+  GroupList: require('pui-react-lists').GroupList,
+  GroupListInverse: require('pui-react-lists').GroupListInverse,
+  StepList: require('pui-react-lists').StepList,
+  BreadcrumbList: require('pui-react-lists').BreadcrumbList,
+  ListItem: require('pui-react-lists').ListItem,
   DraggableList: require('./draggable-list.js').DraggableList,
   DraggableListItem: require('./draggable-list.js').DraggableListItem,
 
@@ -112,6 +112,6 @@ module.exports = {
   WarningAlert: require('./alerts.jsx').WarningAlert,
   ErrorAlert: require('./alerts.jsx').ErrorAlert,
 
-  OverlayTrigger: require('pivotal-ui-react.overlay-trigger').OverlayTrigger,
-  Tooltip: require('pivotal-ui-react.tooltip').Tooltip
+  OverlayTrigger: require('pui-react-overlay-trigger').OverlayTrigger,
+  Tooltip: require('pui-react-tooltip').Tooltip
 };
