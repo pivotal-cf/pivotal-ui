@@ -1,4 +1,6 @@
 {
-  "homepage": "http://styleguide.pivotal.io/section.html#embeds",
-  "dependencies": {}
+  "homepage": "http://styleguide.pivotal.io/elements.html#embed",
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  }
 }
