@@ -14,10 +14,10 @@
 
 /* Button Mixins */
 
-@mixin button-skin($color, $background, $background-hover) {
+@mixin button-skin($color, $background, $background-hover, $border: none) {
   color: $color;
   background-color: $background;
-  border: none;
+  border: $border;
 
   @include transition-pui();
 
@@ -28,6 +28,7 @@
     color: $color;
     background-color: $background-hover;
     outline: none;
+    border-color: $border;
   }
   .open & { &.dropdown-toggle {
     color: $color;
@@ -50,6 +51,7 @@
     &.active {
       background-color: $btn-disabled-bg;
       color: $btn-disabled-color;
+      border-color: $border;
     }
   }
 }

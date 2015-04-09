@@ -388,8 +388,9 @@ $btn-default-border-hover:       transparent;
 $btn-default-bg-hover:           white;
 
 $btn-default-alt-color:          $link-color;
-$btn-default-alt-bg:             $gray-10;
-$btn-default-alt-bg-hover:       $gray-9;
+$btn-default-alt-bg:             $gray-11;
+$btn-default-alt-bg-hover:       $gray-11;
+$btn-default-alt-border:         1px solid rgba(0,0,0,.15);
 
 $btn-primary-color:              $blue-2;
 $btn-primary-bg:                 white;
