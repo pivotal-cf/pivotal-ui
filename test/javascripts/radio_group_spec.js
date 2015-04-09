@@ -6,7 +6,7 @@ var $ = require('jquery');
 var React = require('react/addons');
 
 var RadioGroup = require('../../src/pivotal-ui/javascripts/radio-group').RadioGroup;
-var Radio = require('../../src/pivotal-ui/javascripts/radio').Radio;
+var Radio = require('pui-react-radio').Radio;
 
 describe('RadioGroup', function() {
   var changeSpy;
