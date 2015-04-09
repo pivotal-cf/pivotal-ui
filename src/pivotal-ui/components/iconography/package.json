@@ -2,5 +2,6 @@
   "homepage": "http://styleguide.cfapps.io/elements.html#iconography",
   "dependencies": {
     "pui-css-typography": "*"
-  }
+  },
+  "version": "0.0.2"
 }

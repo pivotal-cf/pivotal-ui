@@ -2,5 +2,6 @@
   "homepage": "http://styleguide.pivotal.io/forms.html",
   "dependencies": {
     "pui-css-bootstrap": "*"
-  }
+  },
+  "version": "0.0.2"
 }

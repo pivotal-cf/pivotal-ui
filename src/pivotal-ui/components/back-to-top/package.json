@@ -3,5 +3,6 @@
   "dependencies": {
     "pui-css-bootstrap": "*",
     "pui-css-links": "*"
-  }
+  },
+  "version": "0.0.2"
 }

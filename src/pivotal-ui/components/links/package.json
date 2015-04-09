@@ -2,5 +2,6 @@
   "homepage": "http://styleguide.pivotal.io/elements.html#link",
   "dependencies": {
     "pui-css-bootstrap": "*"
-  }
+  },
+  "version": "0.0.3"
 }
