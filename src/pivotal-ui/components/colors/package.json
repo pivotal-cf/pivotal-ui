@@ -1,4 +1,5 @@
 {
   "homepage": "http://styleguide.pivotal.io/section.html#colors",
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.0.2"
 }

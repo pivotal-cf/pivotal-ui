@@ -1,4 +1,5 @@
 {
   "homepage": "http://styleguide.pivotal.io/objects.html#hoverable",
-  "dependencies": {}
+  "dependencies": {},
+  "version": "0.0.2"
 }
