@@ -367,7 +367,8 @@ parent: tab
 
 .tab-responsive {
   .tab-content {
-    @extend .list-unstyled;
+    padding-left: 0;
+    list-style: none;
   }
 
   a[data-toggle="tab"] {
