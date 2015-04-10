@@ -76,15 +76,18 @@ var readme_template = function(name, packageJson) {
 A CSS ${name} component that can be installed via this npm package. The package provides all of the
 CSS you need to use the component.
 
-## Usage
+## Installation
 
 To install the package, from the command line, type:
 
-${"```"}
+\`\`\`
 npm install pui-css-${name}
-${"```"}
+\`\`\`
 
-You can find examples of the ${name} component in the [pui style guide](${packageJson.homepage})
+## Usage
+
+${fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md'), 'utf8')}
+You can find more examples of the ${name} component in the [pui style guide](${packageJson.homepage})
   `;
 };
 
