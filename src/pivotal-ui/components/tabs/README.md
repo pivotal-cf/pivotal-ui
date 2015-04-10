@@ -1,3 +1,5 @@
+Note: this requires Boostrap's JavaScript.
+
 ```html
 <div class="tab-highlight">
   <div class="row">
