@@ -1,4 +1,6 @@
 {
-  "homepage": "http://styleguide.pivotal.io/section.html#tables",
-  "dependencies": {}
+  "homepage": "http://styleguide.pivotal.io/objects.html#table",
+  "dependencies": {
+    "pui-css-bootstrap": "*"
+  }
 }
