@@ -25,7 +25,7 @@ var ExpanderContent = React.createClass({
 
     if (this.state.expanded) {
       content = (
-        <div key='expandedContent'>
+        <div key='expandedContent' style={{overflow: 'hidden'}}>
           {this.props.children}
         </div>
       );
