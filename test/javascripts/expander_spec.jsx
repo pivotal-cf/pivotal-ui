@@ -68,7 +68,7 @@ describe('ExpanderContent', function() {
       });
     });
 
-    describe('when the content not visible', function() {
+    describe('when the content is not visible', function() {
       beforeEach(function() {
         this.expanderContent = renderComponent.call(this, { expanded: false });
       });
@@ -133,7 +133,7 @@ describe('ExpanderTrigger', function() {
       });
 
       it("invokes the #toggle method on the provided target", function() {
-        TestUtils.Simulate.click($(this.node).children().first().get(0));
+        $(this.node).children().first().simulate('click');
         expect(this.expanderContent.toggle).toHaveBeenCalled();
       });
     });
@@ -143,7 +143,7 @@ describe('ExpanderTrigger', function() {
         spyOn(console, 'warn');
 
         this.expanderTrigger = renderComponent.call(this);
-        TestUtils.Simulate.click($(this.node).children().first().get(0));
+        $(this.node).children().first().simulate('click');
 
         expect(console.warn).toHaveBeenCalled();
       });
