@@ -107,6 +107,9 @@ module.exports = {
   Collapse: require('./collapse.jsx').Collapse,
   AltCollapse: require('./collapse.jsx').AltCollapse,
 
+  ExpanderContent: require('./expander.jsx').ExpanderContent,
+  ExpanderTrigger: require('./expander.jsx').ExpanderTrigger,
+
   SuccessAlert: require('./alerts.jsx').SuccessAlert,
   InfoAlert: require('./alerts.jsx').InfoAlert,
   WarningAlert: require('./alerts.jsx').WarningAlert,
