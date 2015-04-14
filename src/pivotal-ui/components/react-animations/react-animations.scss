@@ -1,17 +1,22 @@
-.fade-enter {
-  @extend .fade
+@import "../pui-variables";
+@import '../mixins';
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+
+//Bootstrap
+%fade {
+  opacity: 0;
+  @include transition(opacity .15s linear);
+  &.in {
+    opacity: 1;
+  }
 }
 
-.fade-enter-active {
-  @extend .in
+.fade-enter {
+  @extend %fade
 }
 
 .fade-leave {
-  @extend .fade
-}
-
-.fade-leave-active {
-  @extend .out
+  @extend %fade
 }
 
 .new-enter {
