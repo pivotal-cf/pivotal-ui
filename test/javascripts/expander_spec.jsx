@@ -11,6 +11,10 @@ var ExpanderTrigger = require('../../src/pivotal-ui/javascripts/expander.jsx').E
 describe('ExpanderContent', function() {
   beforeEach(function() {
     this.node = $('<div id="container"></div>').appendTo('body').get(0);
+
+    spyOn(React.addons.CSSTransitionGroup.type.prototype, 'render').and.callFake(function() {
+      return React.createElement('div', this.props);
+    });
   });
 
   afterEach(function() {
@@ -62,9 +66,7 @@ describe('ExpanderContent', function() {
 
       it('stops rendering the content', function() {
         this.expanderContent.toggle();
-        setTimeout(function() {
-          expect($(this.node)).not.toContainText('You won a brand new car!');
-        }, 1000);
+        expect($(this.node)).not.toContainText('You won a brand new car!');
       });
     });
 
@@ -86,9 +88,7 @@ describe('ExpanderContent', function() {
       expect($(this.node)).toContainText('You won a brand new car!');
 
       this.expanderContent.toggle();
-      setTimeout(function() {
-        expect($(this.node)).not.toContainText('You won a brand new car!');
-      }, 1000);
+      expect($(this.node)).not.toContainText('You won a brand new car!');
     });
   });
 });
