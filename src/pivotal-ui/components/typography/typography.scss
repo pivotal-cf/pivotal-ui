@@ -120,6 +120,7 @@ h4, .h4, h5, .h5, h6, .h6 {
 // We handle font-weight here, bootstrap handles font-size and color
 
 h1, .h1 {
+  //If you add new h1 styles, make sure to update the h1 mixin
   font-weight: $font-weight-h1;
 }
 
