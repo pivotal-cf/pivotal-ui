@@ -120,3 +120,23 @@
     font-style: $style;
   }
 }
+
+@mixin h1() {
+  //bootstrap
+  font-family: $headings-font-family;
+  line-height: $headings-line-height;
+  color: $headings-color;
+  font-size: $font-size-h1;
+
+  //pui
+  margin-top: $whitespace-xl;
+  margin-bottom: $whitespace-l;
+  font-weight: $font-weight-h1;
+
+  @media all and (max-width: $screen-sm) {
+    & {
+      margin-top: $whitespace-screen-sm-xl;
+      margin-bottom: $whitespace-screen-sm-l;
+    }
+  }
+}

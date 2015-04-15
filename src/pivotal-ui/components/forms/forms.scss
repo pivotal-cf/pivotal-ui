@@ -1119,9 +1119,9 @@ This form looks and behaves mostly like a content editable field
     -webkit-box-shadow: none;
     box-shadow: none;
     text-align: center;
-    @extend .h1;
+    @include h1();
     margin: 0;
-    padding: 0px;
+    padding: 0;
     border: 1px solid transparent;
     border-radius: 3px;
     text-overflow:ellipsis;
