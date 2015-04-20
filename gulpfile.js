@@ -106,7 +106,10 @@ gulp.task('_sassBuildPuiRails', ['_sassBuildPui'], function() {
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
     )
     .pipe(
-      replace(/url\(('|")\.\.\/images\//g, 'image-url\($1images/')
+      replace(/url\(('|")fonts\//g, 'font-url\($1fonts/')
+    )
+    .pipe(
+      replace(/url\(('|")images\//g, 'image-url\($1images/')
     )
     .pipe(rename('pivotal-ui-rails.css'))
     .pipe(gulp.dest('build/'));
