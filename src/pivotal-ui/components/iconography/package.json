@@ -3,8 +3,5 @@
   "dependencies": {
     "pui-css-typography": "*"
   },
-  "peerDependencies": {
-    "font-awesome": "^4.3.0"
-  },
-  "version": "0.0.4"
+  "version": "0.0.7"
 }
