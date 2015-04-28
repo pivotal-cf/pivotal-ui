@@ -232,10 +232,7 @@ gulp.task('_copyFontAwesome', ['_cleanOtherAssets'], function() {
 });
 
 gulp.task('_copySourceSansPro', ['_cleanOtherAssets'], function() {
-  return src([
-    'src/source-sans-pro/**/*',
-    '!src/source-sans-pro/source-sans-pro.css.scss'
-  ])
+  return src('src/pivotal-ui/components/typography/fonts/sourcesanspro-*')
     .pipe(gulp.dest('./build/fonts/'));
 });
 

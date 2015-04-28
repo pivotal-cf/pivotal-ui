@@ -130,6 +130,11 @@ gulp.task('assets-sass', function(){
     }));
 });
 
+gulp.task('assets-other', function() {
+  return gulp.src('src/pivotal-ui/components/*/**/!(package.json|README.md|*.scss)')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build-bootstrap', function() {
   return gulp.src('src/bootstrap/*.scss')
     .pipe(through.obj(function(file, encoding, callback) {
@@ -155,4 +160,4 @@ gulp.task('build-bootstrap', function() {
 
 gulp.task('assets-packaging', ['assets-package-json', 'assets-readme', 'assets-license']);
 
-gulp.task('_buildComponents', ['assets-sass', 'assets-packaging', 'build-bootstrap']);
+gulp.task('_buildComponents', ['assets-sass', 'assets-packaging', 'assets-other', 'build-bootstrap']);
