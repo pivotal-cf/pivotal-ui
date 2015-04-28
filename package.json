@@ -58,7 +58,7 @@
   },
   "description": "***",
   "version": "1.6.0",
-  "main": "gulpfile.js",
+  "main": "src/pivotal-ui/javascripts/pivotal-ui.js",
   "dependencies": {
     "autoprefixer-core": "^5.1.8",
     "bootstrap-sass": "3.3.1",
