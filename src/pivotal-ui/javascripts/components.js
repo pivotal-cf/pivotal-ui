@@ -1,6 +1,6 @@
 
 module.exports = {
-  SortableTable: require('./sortable-table.jsx'),
+  SortableTable: require('pui-react-sortable-table').SortableTable,
 
   DefaultH1: require('pui-react-typography').DefaultH1,
   DefaultH2: require('pui-react-typography').DefaultH2,
@@ -25,8 +25,8 @@ module.exports = {
 
   Heading: require('pui-react-typography').Heading,
 
-  BasePane: require('./panes.jsx').BasePane,
-  Pane: require('./panes.jsx').Pane,
+  BasePane: require('pui-react-panes').BasePane,
+  Pane: require('pui-react-panes').Pane,
 
   UIButton: require('pui-react-buttons').UIButton,
   DefaultButton: require('pui-react-buttons').DefaultButton,
@@ -39,8 +39,8 @@ module.exports = {
 
   SearchInput: require('pui-react-search-input').SearchInput,
 
-  Divider: require('./dividers.jsx').Divider,
-  InverseDivider: require('./dividers.jsx').InverseDivider,
+  Divider: require('pui-react-dividers').Divider,
+  InverseDivider: require('pui-react-dividers').InverseDivider,
 
   Row: require('pui-react-grids').Row,
   Col: require('pui-react-grids').Col,
@@ -51,17 +51,16 @@ module.exports = {
   Radio: require('pui-react-radio').Radio,
   RadioGroup: require('pui-react-radio-group').RadioGroup,
 
-  Panel: require('./panels.jsx').Panel,
-  SimplePanel: require('./panels.jsx').SimplePanel,
-  ClickablePanel: require('./panels.jsx').ClickablePanel,
-  ClickableAltPanel: require('./panels.jsx').ClickableAltPanel,
-  BasicPanel: require('./panels.jsx').BasicPanel,
-  BasicPanelAlt: require('./panels.jsx').BasicPanelAlt,
-  ShadowPanel: require('./panels.jsx').ShadowPanel,
-  HighlightPanel: require('./panels.jsx').HighlightPanel,
+  Panel: require('pui-react-panels').Panel,
+  SimplePanel: require('pui-react-panels').SimplePanel,
+  ClickablePanel: require('pui-react-panels').ClickablePanel,
+  ClickableAltPanel: require('pui-react-panels').ClickableAltPanel,
+  BasicPanel: require('pui-react-panels').BasicPanel,
+  BasicPanelAlt: require('pui-react-panels').BasicPanelAlt,
+  ShadowPanel: require('pui-react-panels').ShadowPanel,
+  HighlightPanel: require('pui-react-panels').HighlightPanel,
 
-  Image: require('./images.jsx').Image,
-
+  Image: require('pui-react-images').Image,
 
   Icon: require('pui-react-iconography').Icon,
 
@@ -69,13 +68,13 @@ module.exports = {
   ModalBody: require('pui-react-modals').ModalBody,
   ModalFooter: require('pui-react-modals').ModalFooter,
 
-  Ribbon: require('./ribbons.jsx').Ribbon,
-  PrimaryRibbon: require('./ribbons.jsx').PrimaryRibbon,
-  Banner: require('./ribbons.jsx').Banner,
+  Ribbon: require('pui-react-ribbons').Ribbon,
+  PrimaryRibbon: require('pui-react-ribbons').PrimaryRibbon,
+  Banner: require('pui-react-ribbons').Banner,
 
-  Tab: require('./tabs.jsx').Tab,
-  SimpleTabs: require('./tabs.jsx').SimpleTabs,
-  SimpleAltTabs: require('./tabs.jsx').SimpleAltTabs,
+  Tab: require('pui-react-tabs').Tab,
+  SimpleTabs: require('pui-react-tabs').SimpleTabs,
+  SimpleAltTabs: require('pui-react-tabs').SimpleAltTabs,
 
   UnorderedList: require('pui-react-lists').UnorderedList,
   OrderedList: require('pui-react-lists').OrderedList,
@@ -85,35 +84,35 @@ module.exports = {
   StepList: require('pui-react-lists').StepList,
   BreadcrumbList: require('pui-react-lists').BreadcrumbList,
   ListItem: require('pui-react-lists').ListItem,
-  DraggableList: require('./draggable-list.js').DraggableList,
-  DraggableListItem: require('./draggable-list.js').DraggableListItem,
+  DraggableList: require('pui-react-draggable-list').DraggableList,
+  DraggableListItem: require('pui-react-draggable-list').DraggableListItem,
 
-  Dropdown: require('./dropdowns.jsx').Dropdown,
-  DropdownItem: require('./dropdowns.jsx').DropdownItem,
-  LinkDropdown: require('./dropdowns.jsx').LinkDropdown,
-  PrimaryDropdown: require('./dropdowns.jsx').PrimaryDropdown,
-  DefaultAltDropdown: require('./dropdowns.jsx').DefaultAltDropdown,
-  DangerDropdown: require('./dropdowns.jsx').DangerDropdown,
-  HighlightAltDropdown: require('./dropdowns.jsx').HighlightAltDropdown,
-  HighlightDropdown: require('./dropdowns.jsx').HighlightDropdown,
-  LowlightDropdown: require('./dropdowns.jsx').LowlightDropdown,
+  Dropdown: require('pui-react-dropdowns').Dropdown,
+  DropdownItem: require('pui-react-dropdowns').DropdownItem,
+  LinkDropdown: require('pui-react-dropdowns').LinkDropdown,
+  PrimaryDropdown: require('pui-react-dropdowns').PrimaryDropdown,
+  DefaultAltDropdown: require('pui-react-dropdowns').DefaultAltDropdown,
+  DangerDropdown: require('pui-react-dropdowns').DangerDropdown,
+  HighlightAltDropdown: require('pui-react-dropdowns').HighlightAltDropdown,
+  HighlightDropdown: require('pui-react-dropdowns').HighlightDropdown,
+  LowlightDropdown: require('pui-react-dropdowns').LowlightDropdown,
 
-  Notifications: require('./notifications.js').Notifications,
-  AlertNotifications: require('./notifications.js').AlertNotifications,
-  NotificationItem: require('./notifications.js').NotificationItem,
+  Notifications: require('pui-react-notifications').Notifications,
+  AlertNotifications: require('pui-react-notifications').AlertNotifications,
+  NotificationItem: require('pui-react-notifications').NotificationItem,
 
-  Label: require('./labels.jsx').Label,
-  BaseCollapse: require('./collapse.jsx').BaseCollapse,
-  Collapse: require('./collapse.jsx').Collapse,
-  AltCollapse: require('./collapse.jsx').AltCollapse,
+  Label: require('pui-react-labels').Label,
+  BaseCollapse: require('pui-react-collapse').BaseCollapse,
+  Collapse: require('pui-react-collapse').Collapse,
+  AltCollapse: require('pui-react-collapse').AltCollapse,
 
-  ExpanderContent: require('./expander.jsx').ExpanderContent,
-  ExpanderTrigger: require('./expander.jsx').ExpanderTrigger,
+  ExpanderContent: require('pui-react-expander').ExpanderContent,
+  ExpanderTrigger: require('pui-react-expander').ExpanderTrigger,
 
-  SuccessAlert: require('./alerts.jsx').SuccessAlert,
-  InfoAlert: require('./alerts.jsx').InfoAlert,
-  WarningAlert: require('./alerts.jsx').WarningAlert,
-  ErrorAlert: require('./alerts.jsx').ErrorAlert,
+  SuccessAlert: require('pui-react-alerts').SuccessAlert,
+  InfoAlert: require('pui-react-alerts').InfoAlert,
+  WarningAlert: require('pui-react-alerts').WarningAlert,
+  ErrorAlert: require('pui-react-alerts').ErrorAlert,
 
   OverlayTrigger: require('pui-react-overlay-trigger').OverlayTrigger,
   Tooltip: require('pui-react-tooltip').Tooltip
