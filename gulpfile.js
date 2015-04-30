@@ -220,7 +220,7 @@ gulp.task('_copyPrism', ['_cleanOtherAssets'], function() {
 });
 
 gulp.task('_copyImages', ['_cleanOtherAssets'], function() {
-  return src('src/images/**/*')
+  return src(['src/images/**/*', 'src/pivotal-ui/components/backgrounds/images/**/*'])
     .pipe(gulp.dest('./build/images/'));
 });
 
