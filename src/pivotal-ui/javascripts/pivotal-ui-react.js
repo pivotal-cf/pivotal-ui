@@ -5,7 +5,7 @@ require('modernizr');
 require('prism');
 
 require('./scale')();
-require('./back-to-top')();
+require('pui-react-back-to-top/jquery-plugin');
 
 global.React = require('react/addons');
 

@@ -46,6 +46,7 @@
     "gulp-zip": "^2.0.2",
     "jshint-stylish": "^1.0.0",
     "npm": "^2.7.5",
+    "pui-react-back-to-top": "0.0.2",
     "q": "^1.0.1",
     "react-fa": "^3.0.0",
     "require-dir": "^0.1.0",
