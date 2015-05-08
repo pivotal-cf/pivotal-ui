@@ -2,7 +2,8 @@
   "homepage": "http://styleguide.pivotal.io/objects.html#back_to_top",
   "dependencies": {
     "pui-css-bootstrap": "*",
-    "pui-css-links": "*"
+    "pui-css-links": "*",
+    "pui-css-iconography": "*"
   },
-  "version": "0.0.3"
+  "version": "0.0.4"
 }
