@@ -115,5 +115,7 @@ module.exports = {
   ErrorAlert: require('pui-react-alerts').ErrorAlert,
 
   OverlayTrigger: require('pui-react-overlay-trigger').OverlayTrigger,
-  Tooltip: require('pui-react-tooltip').Tooltip
+  Tooltip: require('pui-react-tooltip').Tooltip,
+
+  BackToTop: require('pui-react-back-to-top').BackToTop
 };
