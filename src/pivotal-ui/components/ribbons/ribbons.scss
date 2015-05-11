@@ -88,14 +88,11 @@ parent: ribbon
 ---
 
 You can use a banner ribbon to let the team know which environment they're
-working on. Leave off the `.styleguide-component-wrapper` div when using it
-in other contexts.
+working on.
 
-```html_example
-<div class="styleguide-component-wrapper">
-  <div class="ribbon-banner">
-    Acceptance
-  </div>
+```html_wrapped_example
+<div class="ribbon-banner">
+  Acceptance
 </div>
 ```
 
@@ -154,12 +151,8 @@ name: banner_ribbons_react
 parent: ribbons_react
 ---
 
-Note that in practice, you will not want to include the `.styleguide-component-wrapper`.
-
-```react_example_table
-<div className="styleguide-component-wrapper">
-  <UI.Banner> British </UI.Banner>
-</div>
+```react_wrapped_example_table
+<UI.Banner> British </UI.Banner>
 ```
 
 */
