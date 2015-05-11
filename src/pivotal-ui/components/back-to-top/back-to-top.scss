@@ -9,16 +9,17 @@ categories:
   - All
 ---
 
-You can use this component to scroll to the top of a page. Leave off the `.styleguide-component-wrapper` div when using it in other contexts.
+You can use this component to scroll to the top of a page.
 
 The button will be fixed to the bottom right hand corner of the page. 
 
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup. 
 
-```html_example
-<div class="styleguide-component-wrapper">
-  <a class="back-to-top" href="#" target="_blank" style="display: inline;"></a>
-</div>
+```html_wrapped_example
+<a class="back-to-top" href="#" target="_blank" style="display: inline;"></a>
+```
+*/
+
 ```
 */
 
