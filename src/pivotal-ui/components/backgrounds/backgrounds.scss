@@ -66,7 +66,7 @@ Keep in mind, blurry, treated images will look better when stretched to fit a pa
 To modify this component to use a custom image, use an inline `background-image` style like so:
 
 ```html_example
-<div class='pane bg-full-bleed' style="background-image: url(images/such-awesome.jpg)">
+<div class='pane bg-full-bleed' style="background-image: url(styleguide/such-awesome.jpg)">
   <div class='container'>
     <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
   </div>
