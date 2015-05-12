@@ -5,6 +5,7 @@ var argv = require('yargs').argv,
   browserify = require('browserify'),
   connect = require('gulp-connect'),
   del = require('del'),
+  drFrankenstyle = require('gulp-dr-frankenstyle'),
   errorHandler = require('./tasks/errorHandler.js'),
   fs = require('fs'),
   gulp = require('gulp'),
@@ -14,14 +15,13 @@ var argv = require('yargs').argv,
   reactify = require('reactify'),
   rename = require('gulp-rename'),
   replace = require('gulp-replace'),
+  runSequence = require('run-sequence'),
   shell = require('gulp-shell'),
   source = require('vinyl-source-stream'),
   stylish = require('jshint-stylish'),
   jsxTransform = require('gulp-react'),
   sass = require('gulp-sass'),
   through = require('through2');
-
-var runSequence = require('run-sequence');
 
 require('./tasks/build.js');
 require('./tasks/publish.js');
@@ -35,9 +35,9 @@ gulp.task('default', [
 ]);
 
 gulp.task('watch', ['assets'], function() {
-  gulp.watch(['src/pivotal-ui/components/**/*.scss', 'src/pivotal-ui/pivotal-ui.scss'], ['_puiScss']);
+  gulp.watch(['src/pivotal-ui/components/**/*.scss', 'src/pivotal-ui/pivotal-ui.scss'], ['_puiCss']);
   gulp.watch(['src/pivotal-ui/javascripts/**/*.js', 'src/pivotal-ui/javascripts/**/*.jsx'], ['_puiJs']);
-  gulp.watch(['src/styleguide/**/*.scss'], ['_styleguideScss']);
+  gulp.watch(['src/styleguide/**/*.scss'], ['_styleguideCss']);
 });
 
 gulp.task('serve', function() {
@@ -57,8 +57,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('assets', [
-  '_puiScss',
-  '_styleguideScss',
+  '_puiCss',
+  '_styleguideCss',
   '_puiJs',
   '_otherAssets',
   '_testAssets'
@@ -70,17 +70,18 @@ gulp.task('clean', function(done) {
 
 // private
 
-gulp.task('_puiScss', function(callback) {
+gulp.task('_puiCss', function(callback) {
   runSequence(
-    '_cleanBuiltPuiScss',
-    ['_sassBuildPuiRails', '_buildComponents'],
-    '_copyPuiScssToTest',
+    '_cleanBuiltPuiCss',
+    '_buildPuiCss',
+    '_buildPuiRailsCss',
+    '_copyPuiCssToTest',
     '_hologramBuild',
     '_copyOtherHtmlFiles',
   callback);
 });
 
-gulp.task('_cleanBuiltPuiScss', function(done) {
+gulp.task('_cleanBuiltPuiCss', function(done) {
   del([
     'build/pivotal-ui.css',
     'build/pivotal-ui-rails.css',
@@ -93,14 +94,19 @@ gulp.task('_cleanBuiltPuiScss', function(done) {
   });
 });
 
-gulp.task('_sassBuildPui', function() {
-  return src(['src/pivotal-ui/pivotal-ui.scss'])
-    .pipe(sass())
-    .pipe(autoprefixer())
+gulp.task('_buildPuiCss', ['_buildComponents'], function() {
+  return drFrankenstyle()
+    .pipe(drFrankenstyle.done())
+    .pipe(rename(function(filePath) {
+      if (filePath.basename === 'components') {
+        filePath.basename = 'pivotal-ui';
+      }
+      return filePath;
+    }))
     .pipe(gulp.dest('build'));
 });
 
-gulp.task('_sassBuildPuiRails', ['_sassBuildPui'], function() {
+gulp.task('_buildPuiRailsCss', function() {
   return src('build/pivotal-ui.css')
     .pipe(
       replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
@@ -115,7 +121,7 @@ gulp.task('_sassBuildPuiRails', ['_sassBuildPui'], function() {
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('_copyPuiScssToTest', ['_sassBuildPui'], function() {
+gulp.task('_copyPuiCssToTest', function() {
   return src(['build/pivotal-ui.css'])
     .pipe(gulp.dest('test/css/build/'));
 });
@@ -136,15 +142,11 @@ gulp.task('_copyOtherHtmlFiles', function() {
 
 
 
-gulp.task('_styleguideScss', [
-  '_sassBuildStyleguide'
-]);
-
-gulp.task('_cleanBuiltStyleguideScss', function(done) {
+gulp.task('_cleanBuiltStyleguideCss', function(done) {
   del(['build/styleguide.css'], {force: true}, done);
 });
 
-gulp.task('_sassBuildStyleguide', ['_cleanBuiltStyleguideScss'], function() {
+gulp.task('_styleguideCss', ['_cleanBuiltStyleguideCss'], function() {
   return src(['src/styleguide/styleguide.scss'])
     .pipe(sass())
     .pipe(autoprefixer())
@@ -193,9 +195,6 @@ gulp.task('_copyPuiJsToTest', ['_cleanBuiltPuiJs', '_buildPuiReactJs'], function
 
 gulp.task('_otherAssets', [
   '_copyPrism',
-  '_copyImages',
-  '_copyFontAwesome',
-  '_copySourceSansPro',
   '_copyStyleguideAssets',
   '_copyStaticfile',
   '_copyZeroClipboard',
@@ -205,8 +204,6 @@ gulp.task('_otherAssets', [
 gulp.task('_cleanOtherAssets', function(done) {
   del([
     'build/syntax-highlighting',
-    'build/images/',
-    'build/fonts',
     'build/styleguide/*.js',
     'build/styleguide/github.css',
     'build/Staticfile',
@@ -219,26 +216,12 @@ gulp.task('_copyPrism', ['_cleanOtherAssets'], function() {
     .pipe(gulp.dest('./build/syntax-highlighting/'));
 });
 
-gulp.task('_copyImages', ['_cleanOtherAssets'], function() {
-  return src(['src/images/**/*', 'src/pivotal-ui/components/backgrounds/images/**/*'])
-    .pipe(gulp.dest('./build/images/'));
-});
-
-gulp.task('_copyFontAwesome', ['_cleanOtherAssets'], function() {
-  return src([
-    'node_modules/font-awesome/fonts/*'
-  ])
-    .pipe(gulp.dest('./build/fonts/'));
-});
-
-gulp.task('_copySourceSansPro', ['_cleanOtherAssets'], function() {
-  return src('src/pivotal-ui/components/typography/fonts/sourcesanspro-*')
-    .pipe(gulp.dest('./build/fonts/'));
-});
-
 gulp.task('_copyStyleguideAssets', ['_cleanOtherAssets'], function() {
-  return src(['src/styleguide/*.js', 'src/styleguide/github.css'])
-    .pipe(gulp.dest('./build/styleguide'));
+  return src([
+    'src/styleguide/*.js',
+    'src/styleguide/github.css',
+    'src/images/*'
+  ]).pipe(gulp.dest('./build/styleguide'));
 });
 
 gulp.task('_copyStaticfile', ['_cleanOtherAssets'], function() {
@@ -262,28 +245,14 @@ gulp.task('_copyNginxConf', ['_cleanOtherAssets'], function() {
 
 
 gulp.task('_testAssets', [
-  '_copyTestFonts',
-  '_copyTestImages',
   '_copyTestPrism',
   '_copyTestStyleguideAssets'
 ]);
 
 gulp.task('_cleanTestAssets', function(done) {
   del([
-    'test/css/build/fonts/**/*',
-    'test/css/build/images/**/*',
     'test/css/build/syntax-highlighting/**/*'
   ], {force: true}, done);
-});
-
-gulp.task('_copyTestFonts', ['_cleanTestAssets', '_otherAssets'], function() {
-  return src('build/fonts/**/*')
-    .pipe(gulp.dest('./test/css/build/fonts'));
-});
-
-gulp.task('_copyTestImages', ['_cleanTestAssets', '_otherAssets'], function() {
-  return src('build/images/**/*')
-    .pipe(gulp.dest('./test/css/build/images'));
 });
 
 gulp.task('_copyTestPrism', ['_cleanTestAssets', '_otherAssets'], function() {
