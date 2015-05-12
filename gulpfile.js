@@ -108,15 +108,8 @@ gulp.task('_buildPuiCss', ['_buildComponents'], function() {
 
 gulp.task('_buildPuiRailsCss', function() {
   return src('build/pivotal-ui.css')
-    .pipe(
-      replace(/url\(('|")\.\.\/fonts\//g, 'font-url\($1fonts/')
-    )
-    .pipe(
-      replace(/url\(('|")fonts\//g, 'font-url\($1fonts/')
-    )
-    .pipe(
-      replace(/url\(('|")images\//g, 'image-url\($1images/')
-    )
+    .pipe(replace(/url\((['"])?(pui-css-typography|pui-css-iconography)\//g, 'font-url\($1$2/'))
+    .pipe(replace(/url\((['"])?(pui-css-backgrounds)\//g, 'image-url\($1$2/'))
     .pipe(rename('pivotal-ui-rails.css'))
     .pipe(gulp.dest('build/'));
 });
