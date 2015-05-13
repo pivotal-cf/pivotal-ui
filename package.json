@@ -111,6 +111,7 @@
     "pui-css-typography": "^0",
     "pui-css-vertical-alignment": "^0",
     "pui-css-whitespace": "^0",
+    "pui-prismjs": "0.0.1",
     "pui-react-alerts": "^0",
     "pui-react-back-to-top": "0.0.5",
     "pui-react-buttons": "^0",
