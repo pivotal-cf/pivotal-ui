@@ -92,8 +92,8 @@ then visit <http://localhost:8000>
 
 There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme by linking to one of the following stylesheets:
 
-* `pivotal-ui/syntax-highlighting/prism-default.css` (for the light theme)
-* `pivotal-ui/syntax-highlighting/prism-okaida.css` (for the dark theme).
+* `pivotal-ui/prismjs/prism.css` (for the light theme)
+* `pivotal-ui/prismjs/prism-okaidia.css` (for the dark theme).
 
 You can only include one of these themes at a time.
 

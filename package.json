@@ -3,7 +3,6 @@
   "private": true,
   "browser": {
     "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.js",
-    "prism": "./src/syntax-highlighting/prism.js",
     "modernizr": "./src/modernizr/modernizr.min.js"
   },
   "browserify": {
@@ -17,7 +16,6 @@
         "jquery:jQuery"
       ]
     },
-    "prism": "Prism",
     "modernizr": "Modernizr"
   },
   "devDependencies": {
@@ -77,12 +75,14 @@
   "version": "1.6.0",
   "main": "gulpfile.js",
   "dependencies": {
+    "prismjs": "0.0.1",
     "pui-css-alerts": "^0",
     "pui-css-avatars": "^0",
     "pui-css-back-to-top": "^0",
     "pui-css-backgrounds": "^0",
     "pui-css-bootstrap": "^0",
     "pui-css-buttons": "^0",
+    "pui-css-code": "0.0.1",
     "pui-css-collapse": "^0",
     "pui-css-colors": "^0",
     "pui-css-dividers": "^0",

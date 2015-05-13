@@ -196,7 +196,7 @@ gulp.task('_otherAssets', [
 
 gulp.task('_cleanOtherAssets', function(done) {
   del([
-    'build/syntax-highlighting',
+    'build/prismjs',
     'build/styleguide/*.js',
     'build/styleguide/github.css',
     'build/Staticfile',
@@ -205,8 +205,8 @@ gulp.task('_cleanOtherAssets', function(done) {
 });
 
 gulp.task('_copyPrism', ['_cleanOtherAssets'], function() {
-  return src(['src/syntax-highlighting/*.css'])
-    .pipe(gulp.dest('./build/syntax-highlighting/'));
+  return src(['node_modules/prismjs/themes/prism-okaidia.css', 'node_modules/prismjs/themes/prism.css'])
+    .pipe(gulp.dest('./build/prismjs/'));
 });
 
 gulp.task('_copyStyleguideAssets', ['_cleanOtherAssets'], function() {
@@ -244,13 +244,13 @@ gulp.task('_testAssets', [
 
 gulp.task('_cleanTestAssets', function(done) {
   del([
-    'test/css/build/syntax-highlighting/**/*'
+    'test/css/build/prismjs/**/*'
   ], {force: true}, done);
 });
 
 gulp.task('_copyTestPrism', ['_cleanTestAssets', '_otherAssets'], function() {
-  return src('build/syntax-highlighting/**/*')
-    .pipe(gulp.dest('./test/css/build/syntax-highlighting'));
+  return src('build/prismjs/**/*')
+    .pipe(gulp.dest('./test/css/build/prismjs'));
 });
 
 gulp.task('_copyTestStyleguideAssets', ['_cleanTestAssets', '_otherAssets'], function() {
