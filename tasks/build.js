@@ -71,10 +71,19 @@ gulp.task('assets-license', function(){
 });
 
 var readme_template = function(name, packageJson) {
+  var usage = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md'), 'utf8');
+  var additionalIntro = '';
+
+  try {
+    additionalIntro = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'ADDITIONAL_INTRO.md'), 'utf8');
+  } catch (e) {}
+
   return `# ${name}
 
 A CSS ${name} component that can be installed via this npm package. The package provides all of the
 CSS you need to use the component.
+
+${additionalIntro}
 
 ## Installation
 
@@ -86,7 +95,7 @@ npm install pui-css-${name}
 
 ## Usage
 
-${fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md'), 'utf8')}
+${usage}
 You can find more examples of the ${name} component in the [pui style guide](${packageJson.homepage})
   `;
 };

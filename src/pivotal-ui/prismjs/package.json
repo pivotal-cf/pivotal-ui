@@ -1,0 +1,25 @@
+{
+  "name": "pui-prismjs",
+  "version": "0.0.1",
+  "description": "A default build of PrismJS for Pivotal UI",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "pivotal ui",
+    "pivotal ui modularized",
+    "prism",
+    "prismjs",
+    "syntax highlighting"
+  ],
+  "author": "Pivotal Software, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/objects.html#code",
+  "dependencies": {
+    "prismjs": "^0.0.1"
+  }
+}
