@@ -114,7 +114,7 @@ See the latest styleguide for [examples of syntax highlighting in action](http:/
 
 ```
 
-# React components (very beta!)
+# React components
 
 React components are in the beta section of the styleguide, where we keep experimental components with unstable APIs. Don't use them on production apps. If you'd like to try out react, swap in the react js file in place of the standard file: 
 
