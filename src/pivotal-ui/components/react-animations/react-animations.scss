@@ -2,26 +2,6 @@
 @import '../mixins';
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
-//Bootstrap
-%fade {
-  opacity: 0;
-  @include transition(opacity .15s linear);
-  &.in {
-    opacity: 1;
-  }
-}
-
-.fade-enter {
-  @extend %fade;
-
-  &-active {
-    @extend %fade.in;
-  }
-}
-
-.fade-leave {
-  @extend %fade;
-}
 
 .new-enter {
   -webkit-animation: new-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-item-fade .5s ease-in .15s forwards;
