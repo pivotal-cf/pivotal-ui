@@ -22,7 +22,7 @@ gulp.task('publish', function(){
       if (error) {
         console.error(error);
       }
-      var owners = ['charleshansen', 'rdy', 'stubbornella', 'vinsonchuong'];
+      var owners = ['charleshansen', 'rdy', 'stubbornella', 'vinsonchuong', 'gpleiss'];
       (function next() {
         if (owners.length) {
           npm.commands.owner(['add', owners.pop(), `pui-css-${component}`], next);
