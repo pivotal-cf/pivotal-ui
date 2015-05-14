@@ -12,11 +12,15 @@
 }
 
 .fade-enter {
-  @extend %fade
+  @extend %fade;
+
+  &-active {
+    @extend %fade.in;
+  }
 }
 
 .fade-leave {
-  @extend %fade
+  @extend %fade;
 }
 
 .new-enter {
