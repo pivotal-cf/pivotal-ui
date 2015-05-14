@@ -1,8 +1,7 @@
 {
-  "version": "0.0.6",
+  "version": "0.0.7",
   "homepage": "http://styleguide.pivotal.io/objects.html#modal",
   "dependencies": {
-    "pui-css-bootstrap": "*",
-    "pui-css-react-animations": ">=0.0.3"
+    "pui-css-bootstrap": "*"
   }
 }

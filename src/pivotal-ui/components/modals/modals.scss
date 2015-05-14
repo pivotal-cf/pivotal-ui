@@ -1,4 +1,24 @@
 @import "../pui-variables";
+@import '../mixins';
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+
+.modal-fade-enter, .modal-fade-leave {
+  @extend .fade;
+
+  //Base .fade styles from bootstrap
+  @include transition(opacity .15s linear);
+  opacity: 0;
+}
+
+//Class created in React Animations
+.modal-fade-enter-active {
+  @extend .in;
+
+  //Base .in styles from bootstrap
+  opacity: 1;
+}
+
 
 /*doc
 ---

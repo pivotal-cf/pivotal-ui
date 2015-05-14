@@ -1,7 +1,7 @@
 {
   "name": "pui-css-bootstrap",
   "style": "bootstrap.css",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Custom build of Bootstrap for Pivotal UI",
   "repository": {
     "type": "git",
