@@ -107,11 +107,16 @@ gulp.task('_buildPuiCss', ['_buildComponents'], function() {
 });
 
 gulp.task('_buildPuiRailsCss', function() {
-  return src('build/pivotal-ui.css')
-    .pipe(replace(/url\((['"])?(pui-css-typography|pui-css-iconography)\//g, 'font-url\($1$2/'))
-    .pipe(replace(/url\((['"])?(pui-css-backgrounds)\//g, 'image-url\($1$2/'))
-    .pipe(rename('pivotal-ui-rails.css'))
-    .pipe(gulp.dest('build/'));
+  return drFrankenstyle()
+    .pipe(drFrankenstyle.railsUrls())
+    .pipe(drFrankenstyle.done())
+    .pipe(rename(function(filePath) {
+      if (filePath.basename === 'components') {
+        filePath.basename = 'pivotal-ui-rails';
+      }
+      return filePath;
+    }))
+    .pipe(gulp.dest('build'));
 });
 
 gulp.task('_copyPuiCssToTest', function() {
