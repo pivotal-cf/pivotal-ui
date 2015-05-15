@@ -10,6 +10,15 @@ parent: console
 
 Traffic lights are used to show the status of the application. "On" is used for active applications, "off" for inactive, and "loading" for when the status is still loading.
 
+<div class="alert alert-danger mbxl">
+  <h5 class="em-high mtn">
+    Deprecation warning
+  </h5>
+  <p>
+    This component is deprecated.
+  </p>
+</div>
+
 ```html_example_table
 <h3>On</h3>
 <ul class="traffic-lights list-unstyled mvm">

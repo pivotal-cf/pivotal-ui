@@ -1,27 +1,34 @@
-@import "../pui-variables";
-
-/*doc
----
-title: Instance Scale
-name: instance_scale
-parent: marketing
----
-
-The instance scale widget is an svg and an associated code block. Include the SVG
-and code in your page and the javascript and css will handle all of the behaviors.
-Add the class `.selected-group` to the `.instance-column` you would like to be
-highlighted on page load.
-
-<div class="alert alert-danger mbxl">
-  <h5 class="em-high mtn">
-    Deprecation warning
-  </h5>
-  <p>
-    This component is deprecated.
-  </p>
+### Health Indicators
+```html
+<div class="started mtxl" id="app_status">
+  <div class="circle">
+    <div class="content">
+      <div class="name">
+        <h5 class="mbn">
+          <strong class="type-primary-4">APP</strong>
+        </h5>
+        <h1 class="mtn">App Name</h1>
+      </div>
+      <div class="started-controls">
+        <button class="btn btn-highlight">
+          <i class="fa fa-square icon-control"></i>
+        </button>
+        <button class="btn btn-highlight mll">
+          <i class="fa fa-repeat icon-control"></i>
+        </button>
+      </div>
+      <div class="stopped-controls">
+        <button class="btn btn-highlight">
+          <i class="fa fa-play icon-control"></i>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
+```
 
-```html_example
+### Scales
+```html
 <div class="panel bg-neutral-11">
   <div class="row">
     <div class="col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0">
@@ -149,14 +156,62 @@ highlighted on page load.
 </pre>
 </div>
 ```
-*/
-.scale-svg {
-  .instances-column:hover,
-  .selected-group {
-    filter: none;
-  }
 
-  .instances-gradient-stop-1 { stop-color: $instance-scale-gradient-start; }
-  .instances-gradient-stop-2 { stop-color: $instance-scale-gradient-end; }
-}
+### Toggles
+```html
+<div class="toggle" data-behavior="Toggle">
+  <div class="panel toggle-show">
+    I'm viewing...
+    <a class="btn btn-default" data-target="edit" data-toggle="toggle">Edit</a>
+  </div>
+  <div class="panel toggle-edit">
+    I'm editing...
+    <a class="btn btn-default" data-target="show" data-toggle="toggle">Cancel</a>
+  </div>
+</div>
+```
 
+### Traffic Lights
+```html
+<h3>On</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light">
+    <i class="fa fa-circle"></i>
+    5
+  </li>
+  <li class="gray-light">
+    <i class="fa fa-circle"></i>
+    1
+  </li>
+  <li class="red-light">
+    <i class="fa fa-circle"></i>
+    8
+  </li>
+</ul>
+
+<h3>Off</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="gray-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="red-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+</ul>
+
+<h3>Loading</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light off loading-green">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="gray-light off loading-gray">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="red-light off loading-red">
+    <i class="fa fa-circle"></i>
+  </li>
+</ul>
+```
