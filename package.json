@@ -77,6 +77,7 @@
   "dependencies": {
     "prismjs": "0.0.1",
     "pui-css-alerts": "^0",
+    "pui-css-alignment": "^0",
     "pui-css-avatars": "^0",
     "pui-css-back-to-top": "^0",
     "pui-css-backgrounds": "^0",
