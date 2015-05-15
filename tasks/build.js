@@ -140,7 +140,7 @@ gulp.task('assets-sass', function(){
 });
 
 gulp.task('assets-other', function() {
-  return gulp.src('src/pivotal-ui/components/*/**/!(package.json|README.md|*.scss)')
+  return gulp.src('src/pivotal-ui/components/*/**/!(package.json|*.md|*.scss)')
     .pipe(gulp.dest('dist'));
 });
 

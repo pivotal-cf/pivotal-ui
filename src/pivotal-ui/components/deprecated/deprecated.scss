@@ -1,0 +1,26 @@
+@import "../health_indicators/health_indicators";
+@import "../scales/scales";
+@import "../toggles/toggles";
+@import "../traffic_lights/traffic_lights";
+
+/*pending
+---
+title: No JavaScript
+name: no_js
+categories:
+  - Utilities
+  - All
+---
+### Javascript
+
+Try disabling js and rendering this page.
+
+```html_example
+<h3 class="invisible-no-js">Won't show if browser doesn't support JS.</h3>
+```
+
+*/
+
+.no-js .invisible-no-js {
+  visibility: hidden;
+}
