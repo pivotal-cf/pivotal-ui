@@ -73,7 +73,7 @@
   },
   "description": "***",
   "version": "1.6.0",
-  "main": "gulpfile.js",
+  "main": "src/pivotal-ui/javascripts/pivotal-ui.js",
   "dependencies": {
     "prismjs": "0.0.1",
     "pui-css-alerts": "^0",
