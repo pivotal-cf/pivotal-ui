@@ -291,44 +291,7 @@ We are making the assumption here that table-hover will *only* be used if the ta
   }
 }
 
-/*doc
----
-title: Alignment
-name: table_alignment
-parent: table
----
 
-See the [alignment component][alignment] for classes to use for table text alignment.
-
-*/
-
-// Table alignment
-
-/* horizontal alignment */
-table .txt-c, table tr .txt-c, table tr td.txt-c {
-  @extend .txt-c;
-}
-
-table .txt-l, table tr .txt-l, table tr td.txt-l {
-  @extend .txt-l;
-}
-
-table .txt-r, table tr .txt-r, table tr td.txt-r {
-  @extend .txt-r;
-}
-
-/* vertical alignment */
-table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
-  @extend .txt-t;
-}
-
-table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
-  @extend .txt-b;
-}
-
-table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
-  @extend .txt-m;
-}
 
 /*doc
 ---

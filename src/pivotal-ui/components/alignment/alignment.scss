@@ -1,0 +1,116 @@
+/*doc
+---
+title: Alignment
+name: alignment
+categories:
+  - Utilities
+  - All
+---
+
+The following classes can be used to for horizontal alignment.
+
+```html_example_table
+<p class="txt-l">
+  <code>.txt-l</code>
+</p>
+
+<p class="txt-c">
+  <code>.txt-c</code>
+</p>
+
+<p class="txt-r">
+  <code>.txt-r</code>
+</p>
+```
+
+On `display: inline` and `display: table-cell` elements,
+the following classes can be used to for vertical alignment.
+
+```html_example
+<table class="table table-bordered">
+  <tr>
+    <td class="txt-t" width="20%">
+      <code>.txt-t</code>
+    </td>
+    <td class="txt-m" width="20%">
+      <code>.txt-m</code>
+    </td>
+    <td class="txt-b" width="20%">
+      <code>.txt-b</code>
+    </td>
+    <td width="40%">
+      Distillery trust fund Neutra fingerstache plaid messenger bag.
+      Try-hard health goth PBR Helvetica hashtag. Try-hard narwhal letterpress,
+      crucifix selfies trust fund swag mustache quinoa chambray iPhone.
+    </td>
+  </tr>
+</table>
+```
+
+If you need to vertically align an element that does not fit into those display types,
+take a look at [vertical alignment][vertical_align].
+
+*/
+
+.txt-c {
+  text-align: center !important;
+}
+
+.txt-l {
+  text-align: left !important;
+}
+
+.txt-r {
+  text-align: right !important;
+}
+
+.txt-t {
+  vertical-align: top !important;
+}
+
+.txt-b {
+  vertical-align: bottom !important;
+}
+
+.txt-m {
+  vertical-align: middle !important;
+}
+
+/*doc
+---
+title: Alignment
+name: table_alignment
+parent: table
+---
+
+See the [alignment component][alignment] for classes to use for table text alignment.
+
+*/
+
+// Table alignment
+
+/* horizontal alignment */
+table .txt-c, table tr .txt-c, table tr td.txt-c {
+  @extend .txt-c;
+}
+
+table .txt-l, table tr .txt-l, table tr td.txt-l {
+  @extend .txt-l;
+}
+
+table .txt-r, table tr .txt-r, table tr td.txt-r {
+  @extend .txt-r;
+}
+
+/* vertical alignment */
+table .txt-t, table tr .txt-t, table tr td.txt-t, table tr th.txt-t {
+  @extend .txt-t;
+}
+
+table .txt-b, table tr .txt-b, table tr td.txt-b, table tr th.txt-b {
+  @extend .txt-b;
+}
+
+table .txt-m, table tr .txt-m, table tr td.txt-m, table tr th.txt-m {
+  @extend .txt-m;
+}
