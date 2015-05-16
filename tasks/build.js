@@ -2,6 +2,7 @@ var autoprefixerCore = require('autoprefixer-core');
 var extend = require('lodash').extend;
 var fs = require('fs');
 var gulp = require('gulp');
+var mergeStream = require('merge-stream');
 var mkdirp = require('mkdirp');
 var nodeSass = require('node-sass');
 var path = require('path');
@@ -167,6 +168,30 @@ gulp.task('build-bootstrap', function() {
     }));
 });
 
+gulp.task('pui-css-variables-and-mixins', function() {
+  return mergeStream(
+    gulp.src(['src/pivotal-ui/components/pui-variables.scss', 'src/pivotal-ui/components/mixins.scss']),
+    gulp.src(['PUI_VARIABLES_AND_MIXINS_README.md'])
+      .pipe(plugins.rename({basename: 'README'})),
+    plugins.file('package.json', JSON.stringify({
+      name: 'pui-css-variables-and-mixins',
+      version: '0.0.1',
+      repository: {
+        type: 'git',
+        url: 'https://github.com/pivotal-cf/pivotal-ui.git'
+      },
+      keywords: [
+        'pivotal ui',
+        'pivotal ui modularized'
+      ],
+      author: 'Pivotal Software, Inc',
+      bugs: {
+        url: 'https://github.com/pivotal-cf/pivotal-ui/issues'
+      }
+    }, null, 2))
+  ).pipe(gulp.dest('dist/variables-and-mixins'));
+});
+
 gulp.task('assets-packaging', ['assets-package-json', 'assets-readme', 'assets-license']);
 
-gulp.task('_buildComponents', ['assets-sass', 'assets-packaging', 'assets-other', 'build-bootstrap']);
+gulp.task('_buildComponents', ['assets-sass', 'assets-packaging', 'assets-other', 'build-bootstrap', 'pui-css-variables-and-mixins']);

@@ -64,16 +64,19 @@ Lastly, in your application's `config/application.rb`, you'll need to add the fo
     config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 ```
 
-# Including SCSS variables (optional, beta)
+# Including SCSS variables and mixins (optional, beta)
 
-If you are building CSS using Sass, you can get pivotal-ui variables by copying the appropriate file into your project:
+If you are building CSS using Sass, you can get pivotal-ui variables and mixins from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins) node module.
 
-    $ cp /path/to/release/src/pivotal-ui/components/variables.scss /path/to/your-project/
+```sh
+  $ npm install --save pui-css-variables-and-mixins
+```
 
 Import the file and use the variables:
 
 ```scss
-@import '/path/to/variables.scss';
+@import '/path/to/pui-variables.scss';
+@import '/path/to/mixins.scss';
 
 .bg-special {
   background-color: $brand-1;
