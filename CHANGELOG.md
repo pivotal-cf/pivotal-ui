@@ -1,3 +1,24 @@
+#### Deprecation warnings
+
+The following components are deprecated, and will be removed in the next major release:
+
+* Health indicators
+* Pivnet homepage
+* Scales
+* Apps Manager-style toggles
+* Traffic lights
+* No JavaScript
+* 2 & 3 line ellipsis
+* Event list
+
+The following JavaScript libraries will also not be included in the next major release:
+
+* jQuery
+* Bootstrap.js
+* Modernizr
+* Lodash
+* PUI Utils
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2015-02-27)
 
