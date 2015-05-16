@@ -188,7 +188,7 @@ gulp.task('pui-css-variables-and-mixins', function() {
       bugs: {
         url: 'https://github.com/pivotal-cf/pivotal-ui/issues'
       }
-    }, null, 2))
+    }, null, 2), {src: true})
   ).pipe(gulp.dest('dist/variables-and-mixins'));
 });
 

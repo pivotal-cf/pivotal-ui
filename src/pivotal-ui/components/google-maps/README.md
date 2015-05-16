@@ -1,5 +1,12 @@
+To use Google Maps, you need to load the following JavaScript from Google.
+
 ```html
 <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+```
+
+Here's an example usage:
+
+```html
 <div class='map-wrapper'>
   <div class='pane'>
     <div class='container pan'>
