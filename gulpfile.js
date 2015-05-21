@@ -96,7 +96,6 @@ gulp.task('_cleanBuiltPuiCss', function(done) {
 
 gulp.task('_buildPuiCss', ['_buildComponents'], function() {
   return drFrankenstyle()
-    .pipe(drFrankenstyle.done())
     .pipe(rename(function(filePath) {
       if (filePath.basename === 'components') {
         filePath.basename = 'pivotal-ui';
@@ -109,7 +108,6 @@ gulp.task('_buildPuiCss', ['_buildComponents'], function() {
 gulp.task('_buildPuiRailsCss', function() {
   return drFrankenstyle()
     .pipe(drFrankenstyle.railsUrls())
-    .pipe(drFrankenstyle.done())
     .pipe(rename(function(filePath) {
       if (filePath.basename === 'components') {
         filePath.basename = 'pivotal-ui-rails';
