@@ -46,7 +46,10 @@ This is the basic bootstrap dropdown.
 
 ```html_example
 <div class="dropdown btn-group">
-  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button"><span>Link Dropdown</span><span class="caret"></span></button>
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <span>Link Dropdown</span>
+    <span class="caret"></span>
+  </button>
   <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
     <li role="presentation">
       <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
