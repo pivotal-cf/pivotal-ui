@@ -2,7 +2,8 @@
   "homepage": "http://styleguide.pivotal.io/elements.html#lists",
   "dependencies": {
     "pui-css-bootstrap": "*",
+    "pui-css-iconography": "*",
     "pui-css-typography": "*"
   },
-  "version": "0.0.4"
+  "version": "0.0.5"
 }
