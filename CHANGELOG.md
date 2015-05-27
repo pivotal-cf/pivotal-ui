@@ -1,3 +1,44 @@
+## 1.7.0 (2015-05-18)
+
+
+#### Bug Fixes
+
+* **forms packaging:** Do not rely on .h1 styles existing in the forms scss [finishes #92549350] ((28214d26))
+* **iconography:** fixed font-awesome peer dependency [] ((4dc7fb7e), closes (#91866334))
+* **modal:**
+  * Modals regain their fly-in behavior ((1704b413), closes (#94552398))
+  * React Modals now display on open ((55366452), closes (#94552398))
+* **packaging:**
+  * Fix copyright holder name in css components ((f494575f), closes (#92150274))
+  * Remove extra ../ from paths [] ((c2c1ef89), closes (#91991302))
+* **ribbons:** Update styleguide link in Ribbons component ((0b4720ac))
+* **test:** use buttons component in modal spec ((2cefe54d))
+* **tooltips:** Remove the default transparency from tooltips [#91368306] ((f9d649c7))
+
+
+#### Features
+
+* **alignment:** move alignment into npm ((abf1e7f7))
+* **back-to-top:**
+  * Add new back-to-top React component to docs ((79f79a70))
+  * -published back-to-top css [finishes #91866360] ((0027e3e5))
+* **bordered-panel-title:**
+  * Add a React component for the new Panel Basic Alt ((d5a435a0))
+  * Add new panel-basic-alt component ((11ba90aa))
+* **component-css-files:** Output individual CSS files per component ((acb5bb02))
+* **deprecated:** Deprecate some components ((4abcac55))
+* **fonts:**
+  * Add assets to typography and iconography components ((a2d1f58f))
+  * Include fonts in typography component [#91437306] ((a99f0c86))
+* **iconography:** Publish iconography css component with dependencies [finishes #91866334] ((abbfbb10))
+* **links:** -published links component css [finishes #91888924] ((7b8c0908))
+* **maps:** Publish pui-css-maps component ((81ddf03d))
+* **prismjs:** Publish pui-prismjs ((acf08aec))
+* **react-expander:** Add Expander components to Pivotal UI. ((d1edc003))
+* **react-grids:** Extract and use grids npm package [finishes #90971838] ((769f247d))
+* **variables-and-mixins:** Publish pui-variables.scss and mixins.scss to npm ((7716f2f3))
+
+
 #### Deprecation warnings
 
 The following components are deprecated, and will be removed in the next major release:
