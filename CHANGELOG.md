@@ -1,3 +1,14 @@
+<a name="1.7.1"></a>
+## 1.7.1 (2015-05-27)
+
+
+#### Bug Fixes
+
+* **alerts:** Remove erroneous border from alerts ((5207bfc9), closes (#94972296))
+* **dropdowns:** update link dropdown example to have proper spacing ((41a84ac6), closes (#94978452))
+* **btn-default-alt button:** Update btn-default-alt to have border ((5e0bbacc))
+
+
 #### Deprecation warnings
 
 The following components are deprecated, and will be removed in the next major release:
