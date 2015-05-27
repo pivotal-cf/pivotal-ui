@@ -1,3 +1,12 @@
+#### Deprecation warnings
+
+The following components are deprecated, and will be removed in the next major release:
+
+* Large accordions
+* Alternate modals
+
+
+
 ## 1.7.0 (2015-05-18)
 
 

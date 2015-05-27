@@ -55,6 +55,15 @@ name: accordion_sizes
 parent: accordion
 ---
 
+<div class="alert alert-danger mbxl">
+  <h5 class="em-high mtn">
+    Deprecation warning
+  </h5>
+  <p>
+    The large accordion is deprecated. All accordions should be the default size.
+  </p>
+</div>
+
 Default accordion size:
 
 ```html_example
