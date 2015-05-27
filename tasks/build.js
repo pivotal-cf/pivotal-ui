@@ -192,6 +192,18 @@ gulp.task('pui-css-variables-and-mixins', function() {
   ).pipe(gulp.dest('dist/variables-and-mixins'));
 });
 
+gulp.task('pui-css-all', function() {
+  return gulp.src('src/pivotal-ui/pui-css-all/*')
+    .pipe(gulp.dest('dist/all/'));
+});
+
 gulp.task('assets-packaging', ['assets-package-json', 'assets-readme', 'assets-license']);
 
-gulp.task('_buildComponents', ['assets-sass', 'assets-packaging', 'assets-other', 'build-bootstrap', 'pui-css-variables-and-mixins']);
+gulp.task('_buildComponents', [
+  'assets-sass',
+  'assets-packaging',
+  'assets-other',
+  'build-bootstrap',
+  'pui-css-variables-and-mixins',
+  'pui-css-all'
+]);

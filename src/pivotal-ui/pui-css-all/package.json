@@ -1,0 +1,61 @@
+{
+  "name": "pui-css-all",
+  "version": "0.0.1",
+  "description": "A bundle of all the Pivotal UI CSS components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pivotal-cf/pivotal-ui.git"
+  },
+  "keywords": [
+    "bootstrap",
+    "pivotal ui",
+    "pivotal ui modularized",
+    "css"
+  ],
+  "author": "Pivotal Software, Inc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "pui-css-alerts": "*",
+    "pui-css-alignment": "*",
+    "pui-css-avatars": "*",
+    "pui-css-back-to-top": "*",
+    "pui-css-backgrounds": "*",
+    "pui-css-bootstrap": "*",
+    "pui-css-buttons": "*",
+    "pui-css-code": "*",
+    "pui-css-collapse": "*",
+    "pui-css-colors": "*",
+    "pui-css-deprecated": "*",
+    "pui-css-dividers": "*",
+    "pui-css-dropdowns": "*",
+    "pui-css-ellipsis": "*",
+    "pui-css-embeds": "*",
+    "pui-css-forms": "*",
+    "pui-css-google-maps": "*",
+    "pui-css-grids": "*",
+    "pui-css-hoverable": "*",
+    "pui-css-iconography": "*",
+    "pui-css-images": "*",
+    "pui-css-labels": "*",
+    "pui-css-links": "*",
+    "pui-css-lists": "*",
+    "pui-css-media": "*",
+    "pui-css-modals": "*",
+    "pui-css-panels": "*",
+    "pui-css-panes": "*",
+    "pui-css-progress-bars": "*",
+    "pui-css-ribbons": "*",
+    "pui-css-spinners": "*",
+    "pui-css-tables": "*",
+    "pui-css-tabs": "*",
+    "pui-css-tooltips": "*",
+    "pui-css-typography": "*",
+    "pui-css-variables-and-mixins": "*",
+    "pui-css-vertical-alignment": "*",
+    "pui-css-whitespace": "*"
+  }
+}
