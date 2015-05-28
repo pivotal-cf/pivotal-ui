@@ -10,6 +10,7 @@
 #### Features
 
 * **packaging:** Add pui-css-all, containing all css components ((64897ca8))
+* **react:** Upgrade all React components to use React v0.13 ((394f82c))
 
 <a name="1.7.1"></a>
 ## 1.7.1 (2015-05-27)
