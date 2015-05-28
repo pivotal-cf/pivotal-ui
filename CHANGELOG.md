@@ -1,3 +1,16 @@
+<a name="1.8.0"></a>
+## 1.8.0 (2015-05-28)
+
+
+#### Bug Fixes
+
+* **lists:** add iconography as a dependency of lists npm module ((110e627d))
+
+
+#### Features
+
+* **packaging:** Add pui-css-all, containing all css components ((64897ca8))
+
 <a name="1.7.1"></a>
 ## 1.7.1 (2015-05-27)
 
