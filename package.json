@@ -61,7 +61,7 @@
     "node-sass": "^2.1.1",
     "npm": "^2.7.5",
     "q": "^1.0.1",
-    "react": "0.12.1",
+    "react": "0.13.3",
     "react-bootstrap": "^0.13.0",
     "react-fa": "^3.0.0",
     "reactify": "0.17.1",
