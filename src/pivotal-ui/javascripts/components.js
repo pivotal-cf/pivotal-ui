@@ -117,5 +117,8 @@ module.exports = {
   OverlayTrigger: require('pui-react-overlay-trigger').OverlayTrigger,
   Tooltip: require('pui-react-tooltip').Tooltip,
 
-  BackToTop: require('pui-react-back-to-top').BackToTop
+  BackToTop: require('pui-react-back-to-top').BackToTop,
+
+  PortalSource: require('pui-react-portals').PortalSource,
+  PortalDestination: require('pui-react-portals').PortalDestination
 };
