@@ -1,4 +1,4 @@
-var autoprefixerCore = require('autoprefixer-core');
+var cssnext = require('cssnext');
 var extend = require('lodash').extend;
 var fs = require('fs');
 var gulp = require('gulp');
@@ -8,6 +8,11 @@ var nodeSass = require('node-sass');
 var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var through = require('through2');
+
+var cssnextOptions = Object.keys(require('cssnext').features).reduce(function(memo, featureName) {
+  memo[featureName] = featureName === 'autoprefixer';
+  return memo;
+}, {});
 
 var packageTemplate = function(overrides) {
   return JSON.stringify(extend({
@@ -130,7 +135,7 @@ gulp.task('assets-sass', function(){
           outputStyle: 'compressed',
           file: file.path
         }).css;
-        css = autoprefixerCore.process(css).css;
+        css = cssnext(css, cssnextOptions);
 
         mkdirp.sync(outputDir);
         fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
@@ -155,7 +160,7 @@ gulp.task('build-bootstrap', function() {
           outputStyle: 'compressed',
           file: file.path
         }).css;
-        css = autoprefixerCore.process(css).css;
+        css = cssnext(css, cssnextOptions);
 
         mkdirp.sync(outputDir);
         fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);

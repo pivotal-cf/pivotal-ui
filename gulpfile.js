@@ -1,7 +1,7 @@
 require('babel/register')({optional: ['es7.objectRestSpread', 'regenerator']});
 
 var argv = require('yargs').argv,
-  autoprefixer = require('gulp-autoprefixer'),
+  cssnext = require('gulp-cssnext'),
   browserify = require('browserify'),
   connect = require('gulp-connect'),
   del = require('del'),
@@ -142,14 +142,16 @@ gulp.task('_cleanBuiltStyleguideCss', function(done) {
   del(['build/styleguide.css'], {force: true}, done);
 });
 
+var cssnextOptions = Object.keys(require('cssnext').features).reduce(function(memo, featureName) {
+  memo[featureName] = featureName === 'autoprefixer';
+  return memo;
+}, {});
 gulp.task('_styleguideCss', ['_cleanBuiltStyleguideCss'], function() {
   return src(['src/styleguide/styleguide.scss'])
     .pipe(sass())
-    .pipe(autoprefixer())
+    .pipe(cssnext(cssnextOptions))
     .pipe(gulp.dest('build/styleguide'));
 });
-
-
 
 gulp.task('_puiJs', [
   '_buildPuiJs',
