@@ -7,13 +7,11 @@ var gulp = require('gulp');
 var open = require('gulp-open');
 
 gulp.task('ci', [
-  'lint',
   'assets',
   '_rspec'
 ]);
 
 gulp.task('test', [
-  'lint',
   '_cssCritic',
   '_rspec'
 ]);
@@ -40,7 +38,7 @@ gulp.task('_serveTest', ['assets'], function() {
   });
 });
 
-gulp.task('_cssCritic', ['lint', 'assets', '_createTestFileList'], function() {
+gulp.task('_cssCritic', ['assets', '_createTestFileList'], function() {
   return gulp.src("./test/css/regressionRunner.html")
     .pipe(open("./test/css/regressionRunner.html",{app:"firefox"}));
 });

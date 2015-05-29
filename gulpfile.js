@@ -9,7 +9,6 @@ var argv = require('yargs').argv,
   errorHandler = require('./tasks/errorHandler.js'),
   fs = require('fs'),
   gulp = require('gulp'),
-  jshint = require('gulp-jshint'),
   open = require('gulp-open'),
   path = require('path'),
   reactify = require('reactify'),
@@ -18,7 +17,6 @@ var argv = require('yargs').argv,
   runSequence = require('run-sequence'),
   shell = require('gulp-shell'),
   source = require('vinyl-source-stream'),
-  stylish = require('jshint-stylish'),
   jsxTransform = require('gulp-react'),
   sass = require('gulp-sass'),
   through = require('through2');
@@ -46,14 +44,6 @@ gulp.task('serve', function() {
     port: 8000,
     livereload: true
   });
-});
-
-gulp.task('lint', function() {
-  return src('./src/pivotal-ui/javascripts/**/*.js?(x)')
-    .pipe(jsxTransform())
-    .pipe(jshint().on('error', errorHandler.handleError))
-    .pipe(jshint.reporter(stylish))
-    .pipe(jshint.reporter('fail'));
 });
 
 gulp.task('assets', [

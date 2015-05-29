@@ -164,10 +164,6 @@ To submit a Feature request, please [open an issue on Github](https://github.com
 
 ## Testing
 
-### Code linting
-
-We lint our javascript code with JSHint, which is run every time you run `gulp test`. Please ensure the code is linted before you commit.
-
 ### Visual-diff regression testing
 
 (for the moment, this section is aspirational)
