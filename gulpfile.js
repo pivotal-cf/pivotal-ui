@@ -9,7 +9,6 @@ var argv = require('yargs').argv,
   errorHandler = require('./tasks/errorHandler.js'),
   fs = require('fs'),
   gulp = require('gulp'),
-  open = require('gulp-open'),
   path = require('path'),
   reactify = require('reactify'),
   rename = require('gulp-rename'),
@@ -50,12 +49,11 @@ gulp.task('assets', [
   '_puiCss',
   '_styleguideCss',
   '_puiJs',
-  '_otherAssets',
-  '_testAssets'
+  '_otherAssets'
 ]);
 
 gulp.task('clean', function(done) {
-  del(['build', 'test/css/build'], {force: true}, done);
+  del(['build'], {force: true}, done);
 });
 
 // private
@@ -65,7 +63,6 @@ gulp.task('_puiCss', function(callback) {
     '_cleanBuiltPuiCss',
     '_buildPuiCss',
     '_buildPuiRailsCss',
-    '_copyPuiCssToTest',
     '_hologramBuild',
     '_copyOtherHtmlFiles',
   callback);
@@ -76,12 +73,8 @@ gulp.task('_cleanBuiltPuiCss', function(done) {
     'build/pivotal-ui.css',
     'build/pivotal-ui-rails.css',
     'build/*.html',
-    'dist/',
-    'test/css/components',
-    'test/css/build/'
-  ], {force: true}, function() {
-    fs.mkdir('test/css/components', done);
-  });
+    'dist/'
+  ], {force: true}, done);
 });
 
 gulp.task('_buildPuiCss', ['_buildComponents'], function() {
@@ -105,11 +98,6 @@ gulp.task('_buildPuiRailsCss', function() {
       return filePath;
     }))
     .pipe(gulp.dest('build'));
-});
-
-gulp.task('_copyPuiCssToTest', function() {
-  return src(['build/pivotal-ui.css'])
-    .pipe(gulp.dest('test/css/build/'));
 });
 
 gulp.task('_hologramBuild', function() {
@@ -145,15 +133,13 @@ gulp.task('_styleguideCss', ['_cleanBuiltStyleguideCss'], function() {
 
 gulp.task('_puiJs', [
   '_buildPuiJs',
-  '_buildPuiReactJs',
-  '_copyPuiJsToTest'
+  '_buildPuiReactJs'
 ]);
 
 gulp.task('_cleanBuiltPuiJs', function(done) {
   del([
     'build/pivotal-ui.js',
-    'build/pivotal-ui-react.js',
-    'test/css/build/pivotal-ui-react.js'
+    'build/pivotal-ui-react.js'
   ], {force: true}, done);
 });
 
@@ -173,13 +159,6 @@ gulp.task('_buildPuiReactJs', ['_cleanBuiltPuiJs'], function() {
     .pipe(source('./pivotal-ui-react.js'))
     .pipe(gulp.dest('build/'))
 });
-
-gulp.task('_copyPuiJsToTest', ['_cleanBuiltPuiJs', '_buildPuiReactJs'], function() {
-  return src('build/pivotal-ui-react.js')
-    .pipe(gulp.dest('test/css/build/'));
-});
-
-
 
 gulp.task('_otherAssets', [
   '_copyPrism',
@@ -229,27 +208,3 @@ gulp.task('_copyNginxConf', ['_cleanOtherAssets'], function() {
   return src(['config/nginx.conf'])
     .pipe(gulp.dest('./build/'));
 });
-
-
-
-gulp.task('_testAssets', [
-  '_copyTestPrism',
-  '_copyTestStyleguideAssets'
-]);
-
-gulp.task('_cleanTestAssets', function(done) {
-  del([
-    'test/css/build/prismjs/**/*'
-  ], {force: true}, done);
-});
-
-gulp.task('_copyTestPrism', ['_cleanTestAssets', '_otherAssets'], function() {
-  return src('build/prismjs/**/*')
-    .pipe(gulp.dest('./test/css/build/prismjs'));
-});
-
-gulp.task('_copyTestStyleguideAssets', ['_cleanTestAssets', '_otherAssets'], function() {
-  return src('build/styleguide/github.css')
-    .pipe(gulp.dest('./test/css/build/styleguide'));
-});
-

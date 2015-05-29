@@ -32,6 +32,3 @@ index: intro
 nav_level: section
 
 exit_on_warnings: true
-
-plugins:
-  - ./hologram/css_critic_test_generator.rb

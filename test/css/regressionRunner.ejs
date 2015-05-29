@@ -1,7 +1,0 @@
-window.onload = function() {
-  csscritic.addReporter(csscritic.BasicHTMLReporter());
-  <% files.forEach(function(file) {%>
-    csscritic.add('components/' + '<%= file %>');
-  <%});%>
-  csscritic.execute();
-}
