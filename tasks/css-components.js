@@ -1,3 +1,4 @@
+var argv = require('yargs').argv;
 var cssnext = require('cssnext');
 var extend = require('lodash').extend;
 var fs = require('fs');
@@ -5,14 +6,10 @@ var gulp = require('gulp');
 var mergeStream = require('merge-stream');
 var mkdirp = require('mkdirp');
 var nodeSass = require('node-sass');
+var npm = require('npm');
 var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var through = require('through2');
-
-var cssnextOptions = Object.keys(require('cssnext').features).reduce(function(memo, featureName) {
-  memo[featureName] = featureName === 'autoprefixer';
-  return memo;
-}, {});
 
 var packageTemplate = function(overrides) {
   return JSON.stringify(extend({
@@ -135,7 +132,7 @@ gulp.task('assets-sass', function(){
           outputStyle: 'compressed',
           file: file.path
         }).css;
-        css = cssnext(css, cssnextOptions);
+        css = cssnext(css);
 
         mkdirp.sync(outputDir);
         fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
@@ -160,7 +157,7 @@ gulp.task('build-bootstrap', function() {
           outputStyle: 'compressed',
           file: file.path
         }).css;
-        css = cssnext(css, cssnextOptions);
+        css = cssnext(css);
 
         mkdirp.sync(outputDir);
         fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
@@ -204,11 +201,42 @@ gulp.task('pui-css-all', function() {
 
 gulp.task('assets-packaging', ['assets-package-json', 'assets-readme', 'assets-license']);
 
-gulp.task('_buildComponents', [
+gulp.task('css-clean-components', callback => del(['dist'], callback));
+
+gulp.task('css-build-components', callback => runSequence('css-clean-components', [
   'assets-sass',
   'assets-packaging',
   'assets-other',
   'build-bootstrap',
   'pui-css-variables-and-mixins',
   'pui-css-all'
-]);
+], callback));
+
+gulp.task('css-publish', ['css-build-components'], function(){
+  var component = argv.component;
+  if(!component) {
+    console.log('Usage: gulp publish --component=componentName');
+    console.log('You must be logged in to npm');
+    return;
+  }
+  console.log('Publishing', component);
+  var packageDir = path.resolve(__dirname, '..', 'dist', component);
+  npm.load({}, function(error) {
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    npm.commands.publish([packageDir], function(error) {
+      if (error) {
+        console.error(error);
+      }
+      var owners = ['charleshansen', 'rdy', 'stubbornella', 'vinsonchuong', 'gpleiss'];
+      (function next() {
+        if (owners.length) {
+          npm.commands.owner(['add', owners.pop(), `pui-css-${component}`], next);
+        }
+      })();
+    });
+  });
+});
