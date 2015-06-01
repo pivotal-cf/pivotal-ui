@@ -8,7 +8,7 @@ gulp.task('ci', callback => runSequence('set-ci-port', 'rspec', callback));
 gulp.task('set-ci-port', () => process.env.STYLEGUIDE_PORT = 9001);
 
 gulp.task('rspec', ['monolith-serve'], function(done) {
-  exec('rspec test/features', function(exitStatus) {
+  exec('rspec spec/features', function(exitStatus) {
     if (exitStatus !== 0) {
       console.error('Exiting: Specs Failed');
       process.exit(exitStatus);

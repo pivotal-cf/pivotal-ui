@@ -5,8 +5,8 @@
 /InstalledFiles
 /pkg/
 /spec/reports/
-/test/tmp/
-/test/version_tmp/
+/spec/tmp/
+/spec/version_tmp/
 /tmp/
 .sass-cache/
 node_modules/
