@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "description": "A collection of React components that provide standard typographical headers",
+  "homepage": "http://styleguide.cfapps.io/react_beta.html#type_react",
+  "dependencies": {
+    "pui-css-typography": "^0"
+  }
+}

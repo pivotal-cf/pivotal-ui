@@ -1,176 +1,99 @@
-var argv = require('yargs').argv;
 var cssnext = require('cssnext');
+var del = require('del');
 var extend = require('lodash').extend;
 var fs = require('fs');
 var gulp = require('gulp');
 var mergeStream = require('merge-stream');
 var mkdirp = require('mkdirp');
 var nodeSass = require('node-sass');
-var npm = require('npm');
 var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var through = require('through2');
+var File = require('vinyl');
+var runSequence = require('run-sequence');
 
-var packageTemplate = function(overrides) {
-  return JSON.stringify(extend({
-    name: 'pui-css-COMPONENT',
-    style: 'COMPONENT.css',
-    version: '0.0.1',
-    description: '',
-    repository: {
-      type: 'git',
-      url: 'https://github.com/pivotal-cf/pivotal-ui.git'
-    },
-    keywords: [
-      'bootstrap',
-      'pivotal ui',
-      'pivotal ui modularized',
-      'css'
-    ],
-    author: 'Pivotal Software, Inc',
-    license: 'MIT',
-    bugs: {
-      url: "https://github.com/pivotal-cf/pivotal-ui/issues"
-    },
-    homepage: "https://github.com/pivotal-cf/pivotal-ui"
-  }, overrides), null, 2);
-};
+var {license, packageJson, publish} = require('./packaging');
 
-gulp.task('assets-package-json', function(){
-  return gulp.src(['src/pivotal-ui/components/*', '!src/**/*.scss'])
+var packageTemplate = require('../templates/css/package.json');
+var readmeTemplate = require('../templates/css/README');
+
+const componentsGlob = ['src/pivotal-ui/components/*', '!src/**/*.scss'];
+const buildFolder = 'dist/css';
+
+gulp.task('css-build-license', license(componentsGlob, buildFolder));
+
+gulp.task('css-build-package-json', packageJson(componentsGlob, buildFolder, packageTemplate));
+
+gulp.task('css-build-readme', function() {
+  return gulp.src(componentsGlob)
     .pipe(plugins.plumber())
     .pipe(through.obj(function(folder, encoding, callback) {
-      var name = path.basename(folder.path);
-      var outputDir = path.resolve(__dirname, '..', 'dist', name);
-      var jsonContents = {};
-      try {
-        jsonContents = JSON.parse(fs.readFileSync(path.resolve(folder.path, 'package.json'), 'utf8'));
-      } catch(e) {}
+      const name = path.basename(folder.path);
+      const {homepage} = require(path.resolve(folder.path, 'package.json'));
 
-      var nameFields = {
-        name: 'pui-css-' + name,
-        description: name + ' css component for Pivotal UI based on Bootstrap',
-        style: name + '.css'
-      };
+      const usagePath = path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md');
+      const additionalIntroPath = path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'ADDITIONAL_INTRO.md');
 
-      var overrides = extend({}, nameFields, jsonContents);
-      mkdirp.sync(outputDir);
-      fs.writeFileSync(path.resolve(outputDir, 'package.json'), packageTemplate(overrides));
-      callback();
-    }));
+      const usage = fs.readFileSync(usagePath, 'utf8');
+      fs.readFile(additionalIntroPath, 'utf8', function(err, additionalIntro) {
+        if (err) additionalIntro = '';
+        callback(null, new File({
+          contents: new Buffer(readmeTemplate(name, usage, {homepage, additionalIntro})),
+          path: path.join(path.basename(folder.path), 'README.md')
+        }));
+      });
+    }))
+    .pipe(gulp.dest(buildFolder));
 });
 
-gulp.task('assets-license', function(){
-  return gulp.src(['src/pivotal-ui/components/*', '!src/**/*.scss'])
-    .pipe(plugins.plumber())
-    .pipe(through.obj(function(folder, encoding, callback) {
-      var name = path.basename(folder.path);
-      var outputDir = path.resolve(__dirname, '..', 'dist', name);
-      mkdirp.sync(outputDir);
-      var licenseFile = path.resolve(__dirname, '..', 'templates', 'MIT_LICENSE');
-      fs.writeFileSync(path.resolve(outputDir, 'LICENSE'), fs.readFileSync(licenseFile, 'utf8'));
-      callback();
-    }));
-});
-
-var readme_template = function(name, packageJson) {
-  var usage = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md'), 'utf8');
-  var additionalIntro = '';
-
-  try {
-    additionalIntro = fs.readFileSync(path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'ADDITIONAL_INTRO.md'), 'utf8');
-  } catch (e) {}
-
-  return `# ${name}
-
-A CSS ${name} component that can be installed via this npm package. The package provides all of the
-CSS you need to use the component.
-
-${additionalIntro}
-
-## Installation
-
-To install the package, from the command line, type:
-
-\`\`\`
-npm install pui-css-${name}
-\`\`\`
-
-## Usage
-
-${usage}
-You can find more examples of the ${name} component in the [pui style guide](${packageJson.homepage})
-  `;
-};
-
-gulp.task('assets-readme', function(){
-  var readme_footer = fs.readFileSync(path.resolve(__dirname, '..', 'templates', 'css_readme_footer.md'));
-  return gulp.src(['src/pivotal-ui/components/*', '!src/**/*.scss'])
-    .pipe(plugins.plumber())
-    .pipe(through.obj(function(folder, encoding, callback) {
-      var name = path.basename(folder.path);
-      var packageJson = JSON.parse(fs.readFileSync(path.resolve(folder.path, 'package.json'), 'utf8'));
-
-      var readme = readme_template(name, packageJson);
-      readme = readme + readme_footer;
-
-      var outputDir = path.resolve(__dirname, '..', 'dist', name);
-      mkdirp.sync(outputDir);
-      fs.writeFileSync(path.resolve(outputDir, 'README.md'), readme);
-      callback();
-    }));
-});
-
-gulp.task('assets-sass', function(){
-  return gulp.src(['src/pivotal-ui/components/**/*.scss'])
+gulp.task('css-build-src', function() {
+  return gulp.src(['src/pivotal-ui/components/**/*.scss', '!src/pivotal-ui/components/*.scss'])
     .pipe(through.obj(function(file, encoding, callback) {
-      var componentName = path.basename(file.path, '.scss');
-      var outputDir = path.resolve(__dirname, '..', 'dist', componentName);
+      var name = path.basename(file.path, '.scss');
 
-      if(componentName !== "mixins" && componentName !== "pui-variables") {
-        var css = nodeSass.renderSync({
-          outputStyle: 'compressed',
-          file: file.path
-        }).css;
-        css = cssnext(css);
+      var css = nodeSass.renderSync({
+        outputStyle: 'compressed',
+        file: file.path
+      }).css;
+      css = cssnext(css);
 
-        mkdirp.sync(outputDir);
-        fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
-
-      }
-      callback();
-    }));
+      callback(null, new File({
+        contents: new Buffer(css),
+        path: path.join(name, name + '.css')
+      }));
+    }))
+    .pipe(gulp.dest(buildFolder));
 });
 
-gulp.task('assets-other', function() {
+gulp.task('css-build-assets', function() {
   return gulp.src('src/pivotal-ui/components/*/**/!(package.json|*.md|*.scss)')
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(buildFolder));
 });
 
-gulp.task('build-bootstrap', function() {
+gulp.task('css-build-bootstrap-package', function() {
   return gulp.src('src/bootstrap/*.scss')
     .pipe(through.obj(function(file, encoding, callback) {
       var componentName = 'bootstrap';
-      var outputDir = path.resolve(__dirname, '..', 'dist', componentName);
+      var outputDir = path.resolve(__dirname, '..', buildFolder, componentName);
 
-        var css = nodeSass.renderSync({
-          outputStyle: 'compressed',
-          file: file.path
-        }).css;
-        css = cssnext(css);
+      var css = nodeSass.renderSync({
+        outputStyle: 'compressed',
+        file: file.path
+      }).css;
+      css = cssnext(css);
 
-        mkdirp.sync(outputDir);
-        fs.writeFileSync(path.resolve(outputDir, componentName+'.css'), css);
-        fs.writeFileSync(path.resolve(outputDir, 'package.json'),
-          fs.readFileSync(path.resolve(file.base, 'package.json')));
-        fs.writeFileSync(path.resolve(outputDir, 'README.md'),
-          fs.readFileSync(path.resolve(file.base, 'README.md')));
+      mkdirp.sync(outputDir);
+      fs.writeFileSync(path.resolve(outputDir, componentName + '.css'), css);
+      fs.writeFileSync(path.resolve(outputDir, 'package.json'),
+        fs.readFileSync(path.resolve(file.base, 'package.json')));
+      fs.writeFileSync(path.resolve(outputDir, 'README.md'),
+        fs.readFileSync(path.resolve(file.base, 'README.md')));
 
       callback();
     }));
 });
 
-gulp.task('pui-css-variables-and-mixins', function() {
+gulp.task('css-build-variables-and-mixins-package', function() {
   return mergeStream(
     gulp.src(['src/pivotal-ui/components/pui-variables.scss', 'src/pivotal-ui/components/mixins.scss']),
     gulp.src(['PUI_VARIABLES_AND_MIXINS_README.md'])
@@ -191,52 +114,25 @@ gulp.task('pui-css-variables-and-mixins', function() {
         url: 'https://github.com/pivotal-cf/pivotal-ui/issues'
       }
     }, null, 2), {src: true})
-  ).pipe(gulp.dest('dist/variables-and-mixins'));
+  ).pipe(gulp.dest('dist/css/variables-and-mixins'));
 });
 
-gulp.task('pui-css-all', function() {
+gulp.task('css-build-all-package', function() {
   return gulp.src('src/pivotal-ui/pui-css-all/*')
-    .pipe(gulp.dest('dist/all/'));
+    .pipe(gulp.dest(path.join(buildFolder, 'all')));
 });
 
-gulp.task('assets-packaging', ['assets-package-json', 'assets-readme', 'assets-license']);
+gulp.task('css-clean', callback => del([buildFolder], callback));
 
-gulp.task('css-clean-components', callback => del(['dist'], callback));
-
-gulp.task('css-build-components', callback => runSequence('css-clean-components', [
-  'assets-sass',
-  'assets-packaging',
-  'assets-other',
-  'build-bootstrap',
-  'pui-css-variables-and-mixins',
-  'pui-css-all'
+gulp.task('css-build', callback => runSequence('css-clean', [
+  'css-build-package-json',
+  'css-build-readme',
+  'css-build-license',
+  'css-build-src',
+  'css-build-assets',
+  'css-build-bootstrap-package',
+  'css-build-variables-and-mixins-package',
+  'css-build-all-package'
 ], callback));
 
-gulp.task('css-publish', ['css-build-components'], function(){
-  var component = argv.component;
-  if(!component) {
-    console.log('Usage: gulp publish --component=componentName');
-    console.log('You must be logged in to npm');
-    return;
-  }
-  console.log('Publishing', component);
-  var packageDir = path.resolve(__dirname, '..', 'dist', component);
-  npm.load({}, function(error) {
-    if (error) {
-      console.error(error);
-      return;
-    }
-
-    npm.commands.publish([packageDir], function(error) {
-      if (error) {
-        console.error(error);
-      }
-      var owners = ['charleshansen', 'rdy', 'stubbornella', 'vinsonchuong', 'gpleiss'];
-      (function next() {
-        if (owners.length) {
-          npm.commands.owner(['add', owners.pop(), `pui-css-${component}`], next);
-        }
-      })();
-    });
-  });
-});
+gulp.task('css-publish', ['css-build'], publish('css'));

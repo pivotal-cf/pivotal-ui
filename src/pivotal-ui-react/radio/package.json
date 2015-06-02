@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "description": "A React component that provides styled radio buttons",
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#form_radio_input_react",
+  "dependencies": {
+    "pui-css-forms": "^0"
+  }
+}

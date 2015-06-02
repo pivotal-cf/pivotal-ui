@@ -1,0 +1,8 @@
+{
+  "version": "0.1.0",
+  "description": "A React component for showing a colored pill of text",
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#label_react",
+  "dependencies": {
+    "pui-css-labels": "^0"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "version": "0.1.0",
+  "description": "A collection of React components for rendering different kinds of lists",
+  "homepage": "http://styleguide.cfapps.io/react_beta.html#list_react",
+  "dependencies": {
+    "pui-css-lists": "^0.0.5",
+    "classnames": "^1.2.0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "description": "React components for laying-out content in a grid",
+  "homepage": "http://styleguide.cfapps.io/react_beta.html#grid_react",
+  "dependencies": {
+    "pui-css-grids": "^0",
+    "classnames": "^1.2.0",
+    "react-bootstrap": "^0.23.0"
+  }
+}

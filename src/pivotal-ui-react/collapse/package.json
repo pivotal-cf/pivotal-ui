@@ -1,0 +1,12 @@
+{
+  "version": "0.1.0",
+  "description": "React components providing accordions for showing and hiding content",
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#collapse_react",
+  "dependencies": {
+    "react-bootstrap": "^0.23.0",
+    "classnames": "^1.2.0",
+    "pui-css-collapse": "^0",
+    "pui-css-iconography": "^0",
+    "pui-css-dividers": "^0"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "0.1.0",
+  "description": "A React component that provides a styled text input for inputting search queries",
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#form_search_input_react",
+  "dependencies": {
+    "classnames": "^1.2.0",
+    "pui-css-forms": "^0",
+    "pui-css-iconography": "^0"
+  }
+}
