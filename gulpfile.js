@@ -6,6 +6,7 @@ requireDir('./tasks');
 var gulp = require('gulp');
 
 gulp.task('default', [
-  'monolith-serve'
+  'monolith-serve',
+  'monolith-watch'
 ]);
 
