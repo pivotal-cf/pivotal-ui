@@ -63,7 +63,7 @@ module.exports = {
             if (error) {
               console.error(error);
             }
-            var owners = ['charleshansen', 'rdy', 'stubbornella', 'vinsonchuong', 'gpleiss'];
+            var owners = ['charleshansen', 'rdy', 'stubbornella', 'mattroyal', 'gpleiss'];
             (function next() {
               if (owners.length) {
                 npm.commands.owner(['add', owners.pop(), `pui-${type}-${component}`], next);
