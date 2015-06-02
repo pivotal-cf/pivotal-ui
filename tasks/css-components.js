@@ -48,20 +48,8 @@ gulp.task('css-build-readme', function() {
 
 gulp.task('css-build-src', function() {
   return gulp.src(['src/pivotal-ui/components/**/*.scss', '!src/pivotal-ui/components/*.scss'])
-    .pipe(through.obj(function(file, encoding, callback) {
-      var name = path.basename(file.path, '.scss');
-
-      var css = nodeSass.renderSync({
-        outputStyle: 'compressed',
-        file: file.path
-      }).css;
-      css = cssnext(css);
-
-      callback(null, new File({
-        contents: new Buffer(css),
-        path: path.join(name, name + '.css')
-      }));
-    }))
+    .pipe(plugins.sass({outputStyle: 'compressed'}))
+    .pipe(plugins.cssnext())
     .pipe(gulp.dest(buildFolder));
 });
 
@@ -71,26 +59,15 @@ gulp.task('css-build-assets', function() {
 });
 
 gulp.task('css-build-bootstrap-package', function() {
-  return gulp.src('src/bootstrap/*.scss')
-    .pipe(through.obj(function(file, encoding, callback) {
-      var componentName = 'bootstrap';
-      var outputDir = path.resolve(__dirname, '..', buildFolder, componentName);
-
-      var css = nodeSass.renderSync({
-        outputStyle: 'compressed',
-        file: file.path
-      }).css;
-      css = cssnext(css);
-
-      mkdirp.sync(outputDir);
-      fs.writeFileSync(path.resolve(outputDir, componentName + '.css'), css);
-      fs.writeFileSync(path.resolve(outputDir, 'package.json'),
-        fs.readFileSync(path.resolve(file.base, 'package.json')));
-      fs.writeFileSync(path.resolve(outputDir, 'README.md'),
-        fs.readFileSync(path.resolve(file.base, 'README.md')));
-
-      callback();
-    }));
+  return mergeStream(
+    gulp.src('src/bootstrap/README.md'),
+    gulp.src('src/bootstrap/package.json'),
+    gulp.src('LICENSE'),
+    gulp.src('src/bootstrap/*.scss')
+      .pipe(plugins.sass({outputStyle: 'compressed'}))
+      .pipe(plugins.cssnext())
+      .pipe(plugins.rename('bootstrap.css'))
+  ).pipe(gulp.dest('dist/css/bootstrap'));
 });
 
 gulp.task('css-build-variables-and-mixins-package', function() {
