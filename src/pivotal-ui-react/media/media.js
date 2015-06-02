@@ -45,7 +45,7 @@ var MediaObject = React.createClass({
 var Media = React.createClass({
   propTypes: {
     hasImages: function(props) {
-      if (!props['leftImage'] && !props['rightImage']) {
+      if (!props.leftImage && !props.rightImage) {
         return new Error('The media component must have at least one image');
       }
     },

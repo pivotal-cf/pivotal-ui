@@ -21,7 +21,7 @@ module.exports = {
           var file = new File({contents: licenseContent, path: path.join(name, 'LICENSE')});
           callback(null, file);
         })).pipe(gulp.dest(distFolder));
-    }
+    };
   },
 
   packageJson: function(components, distFolder, packageTemplate) {
@@ -32,6 +32,8 @@ module.exports = {
           var name = path.basename(folder.path);
 
           fs.readFile(path.resolve(folder.path, 'package.json'), 'utf8', function(err, packageJsonOverrides) {
+            if (err) packageJsonOverrides = {};
+
             var finalContents = packageTemplate(name, JSON.parse(packageJsonOverrides));
             var file = new File({contents: new Buffer(finalContents), path: path.join(name, 'package.json')});
             callback(null, file);
@@ -71,6 +73,6 @@ module.exports = {
             })();
           });
         });
-    }
+    };
   }
 };

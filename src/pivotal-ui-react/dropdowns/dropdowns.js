@@ -30,7 +30,7 @@ var Dropdown = require('react-bootstrap').DropdownButton;
 function defDropdown(props) {
   return React.createClass({
     render() {
-      return <Dropdown {...props} {...this.props}/>
+      return <Dropdown {...props} {...this.props}/>;
     }
   });
 }

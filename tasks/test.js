@@ -3,7 +3,7 @@ import runSequence from 'run-sequence';
 import loadPlugins from 'gulp-load-plugins';
 const plugins = loadPlugins();
 
-gulp.task('ci', callback => runSequence('set-ci-port', 'rspec', callback));
+gulp.task('ci', callback => runSequence('set-ci-port', 'rspec', 'lint', 'jasmine-ci', callback));
 
 gulp.task('set-ci-port', () => process.env.STYLEGUIDE_PORT = 9001);
 

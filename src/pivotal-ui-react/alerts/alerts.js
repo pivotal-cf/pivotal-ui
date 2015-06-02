@@ -54,7 +54,7 @@ function defAlert(props) {
       withIcon: types.bool
     },
     render() {
-      return <Alert {...props} {...this.props} />
+      return <Alert {...props} {...this.props} />;
     }
   });
 }

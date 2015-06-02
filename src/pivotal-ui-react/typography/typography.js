@@ -14,7 +14,7 @@ var Heading = React.createClass({
   mixins: [TypographyMixin],
 
   render() {
-    var {className, size, bold, allCaps, color, element: Klass = 'p', children, ...other} = this.props;
+    var {className, size, bold, allCaps, color, element = 'p', children, ...other} = this.props;
 
     var classes = [
       className,
@@ -26,7 +26,8 @@ var Heading = React.createClass({
       .filter(Boolean)
       .join(' ');
 
-    return (<Klass {...other} className={classes}>{children}</Klass>);
+    var Klass = element;
+    return <Klass {...other} className={classes}>{children}</Klass>;
   }
 });
 

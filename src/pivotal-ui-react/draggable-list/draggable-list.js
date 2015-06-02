@@ -72,7 +72,7 @@ var DraggableList = React.createClass({
   },
 
   dragStart(draggingId, {dataTransfer}) {
-    dataTransfer.effectAllowed  = 'move';
+    dataTransfer.effectAllowed = 'move';
     dataTransfer.dropEffect = 'move';
     dataTransfer.setData('text/plain', '');
     setTimeout(function() { this.setState({draggingId}); }.bind(this), 0);

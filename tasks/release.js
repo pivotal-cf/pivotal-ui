@@ -1,16 +1,16 @@
 require('shelljs/global');
-var bump = require('gulp-bump'),
-  fs = require('fs'),
-  gulp = require('gulp'),
-  minifyCss = require('gulp-minify-css'),
-  q = require('q'),
-  plugins = require('gulp-load-plugins')(),
-  rename = require('gulp-rename'),
-  replace = require('gulp-replace'),
-  runSequence = require('run-sequence'),
-  stp = require('stream-to-promise'),
-  uglifyJs = require('gulp-uglify'),
-  zip = require('gulp-zip');
+var bump = require('gulp-bump');
+var fs = require('fs');
+var gulp = require('gulp');
+var minifyCss = require('gulp-minify-css');
+var q = require('q');
+var plugins = require('gulp-load-plugins')();
+var rename = require('gulp-rename');
+var replace = require('gulp-replace');
+var runSequence = require('run-sequence');
+var stp = require('stream-to-promise');
+var uglifyJs = require('gulp-uglify');
+var zip = require('gulp-zip');
 
 var errorHandler = require('./errorHandler');
 var githubService = require('./githubService');
@@ -32,7 +32,7 @@ gulp.task('_verifyReleaseToken', function(callback) {
 
 gulp.task('_prepareRelease', [
   '_pushVersion',
-  '_zip',
+  '_zip'
 ], function(done) {
   q.all([releaseHelper.getNewTagName(), releaseHelper.getVersionChanges()])
     .spread(function(newTagName, versionChanges) {
@@ -83,7 +83,7 @@ gulp.task('_addFilesToRelease', ['assets'], function() {
       stp(gulp.src([
           'src/oocss/utils/_clearfix-me.scss',
           'src/oocss/list/_listWhitespace.scss',
-          'src/oocss/whitespace/_whitespace.scss',
+          'src/oocss/whitespace/_whitespace.scss'
         ]).pipe(gulp.dest('release/' + newReleaseName + '/oocss/'))),
 
       stp(gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
@@ -154,7 +154,7 @@ gulp.task('_addVersionRelease', [
 
 gulp.task('_zip', [
   'assets',
-  '_addVersionRelease',
+  '_addVersionRelease'
 ], function(done){
   releaseHelper.getNewReleaseName()
   .then(function(newReleaseName) {
@@ -171,7 +171,7 @@ gulp.task('_zip', [
 gulp.task('_bumpVersion', [
   '_changelog',
   '_bumpPackage',
-  '_addVersionRelease',
+  '_addVersionRelease'
 ], function(done) {
   releaseHelper.getNewVersion()
   .then(function(newVersion) {

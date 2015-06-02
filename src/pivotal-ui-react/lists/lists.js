@@ -228,7 +228,7 @@ var StepList = defList('ol', 'lh', () => classnames('list-steps'));
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
-var BreadcrumbList = defList('ul', 'lh', ({spacing}) => classnames('list-breadcrumb'));
+var BreadcrumbList = defList('ul', 'lh', () => classnames('list-breadcrumb'));
 
 module.exports = {
   ListItem,

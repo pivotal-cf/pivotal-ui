@@ -7,7 +7,7 @@ module.exports = {
 
     rest.post('https://api.github.com/repos/pivotal-cf/pivotal-ui/releases', {
       query: {
-        access_token: process.env.RELEASE_TOKEN,
+        access_token: process.env.RELEASE_TOKEN
       },
       data: JSON.stringify({
         'tag_name': tagName,
@@ -39,12 +39,12 @@ module.exports = {
     rest.post('https://uploads.github.com/repos/pivotal-cf/pivotal-ui/releases/' + releaseId + '/assets', {
       query: {
         name: 'variables.scss',
-        access_token: process.env.RELEASE_TOKEN,
+        access_token: process.env.RELEASE_TOKEN
       },
       headers: {
         'Content-Type': 'text/plain'
       },
-      data: data,
+      data: data
     })
     .on('complete', function(result, response) {
       if (!/2../.test(response.statusCode)) {

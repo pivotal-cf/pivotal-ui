@@ -11,4 +11,4 @@ module.exports = {
       opts.callback();
     }
   }
-}
+};

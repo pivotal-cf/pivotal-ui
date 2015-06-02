@@ -35,7 +35,7 @@ gulp.task('react-build-readme', function() {
       return highland(
         gulp.src(path.join(dir.path, '*.js'))
           .pipe(plugins.concat(path.basename(dir.path)))
-      )
+      );
     })
     .map(function(file) {
       const name = path.basename(file.path, 'js');
