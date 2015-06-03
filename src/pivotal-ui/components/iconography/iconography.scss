@@ -106,8 +106,8 @@ Don't use the typography size modifier classes (e.g. .title, .h1, .type-sm)
 
 /*doc
 ---
-title: Icons
-name: icon_react
+title: Iconography
+name: iconography_react
 categories:
   - React Beta
 ---
@@ -120,5 +120,50 @@ To spin the icon, add `spin` to the Icon.
 <UI.Icon name="plus" />
 
 <UI.Icon spin name="angellist" />
+```
+*/
+
+/*doc
+---
+title: React Iconography Sizing
+name: iconography_sizing_react
+parent: iconography_react
+---
+
+Pass in any PUI typography size modifier in the size attribute.
+These are useful if you want your icon to match the size of a text element.
+
+```react_example_table
+<UI.Icon name="plus" size="title" />
+
+<UI.Icon name="plus" size="h1" />
+
+<UI.Icon name="plus" size="h2" />
+
+<UI.Icon name="plus" size="h3" />
+
+<UI.Icon name="plus" size="h4" />
+
+<UI.Icon name="plus" size="h5" />
+
+<UI.Icon name="plus" size="h6" />
+
+<UI.Icon name="plus" size="sm" />
+
+<UI.Icon name="plus" size="xs" />
+```
+
+You can also pass in any FontAwesome size modifier as well.
+
+```react_example_table
+<UI.Icon name="plus" size="lg" />
+
+<UI.Icon name="plus" size="2x" />
+
+<UI.Icon name="plus" size="3x" />
+
+<UI.Icon name="plus" size="4x" />
+
+<UI.Icon name="plus" size="5x" />
 ```
 */
