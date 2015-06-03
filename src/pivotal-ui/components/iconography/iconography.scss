@@ -1,6 +1,9 @@
 $fa-font-path: "fonts";
 
 @import "../../../../node_modules/font-awesome/scss/font-awesome.scss";
+@import "../pui-variables";
+
+
 
 /*doc
 ---
@@ -39,10 +42,63 @@ Button                                             | Class                  | De
 <i class="fa fa-download"></i>                     | `.fa.fa-download`      | Renders our download icon
 
 ```html_example
-<i class="fa fa-download type-brand-3 title"></i>
+<i class="fa fa-download type-brand-3"></i>
 ```
 
 */
+
+/*doc
+---
+title: Iconography Sizing
+name: iconography_sizing
+parent: iconography
+---
+
+To vary the size of the icons, use the .fa-h1 through .fa-h6 classes, .fa-title, .fa-sm, or .fa-xs
+Don't use the typography size modifier classes (e.g. .title, .h1, .type-sm)
+
+```html_example_table
+<i class="fa fa-plus fa-title"></i>
+<span class="title">Add Stuff</span>
+
+<i class="fa fa-plus fa-h1"></i>
+<span class="h1">Add Stuff</span>
+
+<i class="fa fa-plus fa-h2"></i>
+<span class="h2">Add Stuff</span>
+
+<i class="fa fa-plus fa-h3"></i>
+<span class="h3">Add Stuff</span>
+
+<i class="fa fa-plus fa-h4"></i>
+<span class="h4">Add Stuff</span>
+
+<i class="fa fa-plus fa-h5"></i>
+<span class="h5">Add Stuff</span>
+
+<i class="fa fa-plus fa-h6"></i>
+<span class="h6">Add Stuff</span>
+
+<i class="fa fa-plus"></i>
+<span>Add Stuff</span>
+
+<i class="fa fa-plus fa-sm"></i>
+<span class="text-sm">Add Stuff</span>
+
+<i class="fa fa-plus fa-xs"></i>
+<span class="text-xs">Add Stuff</span>
+```
+*/
+
+.fa-title { font-size: $font-size-title !important; }
+.fa-h1 { font-size: $font-size-h1 !important; }
+.fa-h2 { font-size: $font-size-h2 !important; }
+.fa-h3 { font-size: $font-size-h3 !important; }
+.fa-h4 { font-size: $font-size-h4 !important; }
+.fa-h5 { font-size: $font-size-h5 !important; }
+.fa-h6 { font-size: $font-size-h6 !important; }
+.fa-sm { font-size: $font-size-small !important; }
+.fa-xs { font-size: $font-size-extra-small !important; }
 
 .icon-control {
   font-size: 22px;
