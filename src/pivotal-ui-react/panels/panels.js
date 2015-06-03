@@ -5,7 +5,7 @@ var classnames = require('classnames');
 var paddingTypes = [
   for (type of ['p', 'm'])
   for (location of ['l', 'r', 't', 'b', 'h', 'v', 'a'])
-  for (size of ['s', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'])
+  for (size of ['n', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'])
   `${type}${location}${size}`
   ];
 var PanelTypes = {
