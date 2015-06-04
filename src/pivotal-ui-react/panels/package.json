@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React components that provide containers for related content",
   "homepage": "http://styleguide.pivotal.io/react_beta.html#panel_react",
   "dependencies": {
