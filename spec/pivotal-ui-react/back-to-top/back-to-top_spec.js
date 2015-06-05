@@ -1,23 +1,41 @@
 require('../spec_helper');
+var ScrollTop = require('../../../src/pivotal-ui-react/back-to-top/scroll-top');
 
 describe('BackToTop', function() {
   var BackToTop;
+  var originalGetScrollTop, originalSetScrollTop;
+  var scrollTop;
+
+  function triggerScroll() {
+    var event = document.createEvent('Event');
+    event.initEvent('scroll', false, false);
+    window.dispatchEvent(event);
+  }
+
+  beforeEach(function() {
+    scrollTop = 0;
+    originalGetScrollTop = ScrollTop.getScrollTop;
+    originalSetScrollTop = ScrollTop.setScrollTop;
+    ScrollTop.getScrollTop = () => scrollTop || 0;
+    ScrollTop.setScrollTop = (value) => scrollTop = value;
+  });
+
+  afterEach(function() {
+    ScrollTop.getScrollTop = originalGetScrollTop;
+    ScrollTop.setScrollTop = originalSetScrollTop;
+  });
+
   beforeEach(function(done) {
     BackToTop = require('../../../src/pivotal-ui-react/back-to-top/back-to-top').BackToTop;
     React.render(<BackToTop/>, root);
-    $(root).css({paddingBottom: '2000px'});
 
     jasmine.clock().uninstall();
     setTimeout(function() {
       jasmine.clock().install();
-      $('body').scrollTop(500);
-      window.dispatchEvent(new Event('scroll'));
+      ScrollTop.setScrollTop(500);
+      triggerScroll();
       done();
     }, 0);
-  });
-
-  afterEach(function() {
-    $('body').scrollTop(0);
   });
 
   afterEach(function() {
@@ -44,8 +62,8 @@ describe('BackToTop', function() {
       MockRaf.next();
       expect('.back-to-top').toHaveCss({opacity: '1'});
 
-      $('body').scrollTop(0);
-      window.dispatchEvent(new Event('scroll'));
+      ScrollTop.setScrollTop(0);
+      triggerScroll();
     });
 
     it('fades out the button', function() {
@@ -65,55 +83,13 @@ describe('BackToTop', function() {
     });
 
     it('animates the body scroll to the top', function() {
-      expect(document.body.scrollTop).toEqual(500);
+      expect(ScrollTop.getScrollTop()).toEqual(500);
       MockNow.tick(BackToTop.SCROLL_DURATION / 2);
       MockRaf.next();
-      expect(document.body.scrollTop).toEqual(250);
+      expect(ScrollTop.getScrollTop()).toEqual(250);
       MockNow.tick(BackToTop.SCROLL_DURATION / 2);
       MockRaf.next();
-      expect(document.body.scrollTop).toEqual(0);
-    });
-  });
-});
-
-describe('BackToTopJquery', function() {
-  beforeEach(function(done) {
-    $.fx.off = true;
-    require('../../../src/pivotal-ui-react/back-to-top/jquery-plugin');
-    $(root).css({paddingBottom: '2000px'});
-
-    $(root).append(
-      $(`<a class="back-to-top" href="#"
-            data-position="back-to-top"
-            style="display: none"></a>`
-      ));
-    expect('.back-to-top').toHaveCss({display: 'none'});
-
-    jasmine.clock().uninstall();
-    setTimeout(function() {
-      jasmine.clock().install();
-      document.body.scrollTop = 500;
-      $(window).scroll();
-      done();
-    }, 0);
-  });
-
-  afterEach(function() {
-    $('body').scrollTop(0);
-  });
-
-  it('fades in the button when scrolling down', function() {
-    expect('.back-to-top').toHaveCss({display: 'inline'});
-  });
-
-  describe('when the link is clicked', function() {
-    beforeEach(function() {
-      $('.back-to-top').click();
-      //jasmine.clock().tick(5000);
-    });
-
-    it('scrolls to the top', function() {
-      expect($(window).scrollTop()).toBe(0);
+      expect(ScrollTop.getScrollTop()).toEqual(0);
     });
   });
 });

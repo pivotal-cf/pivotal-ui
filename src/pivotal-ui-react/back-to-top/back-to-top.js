@@ -1,6 +1,7 @@
 var React = require('react');
 var AnimationMixin = require('pui-react-animation');
 var throttle = require('lodash.throttle');
+var {getScrollTop, setScrollTop} = require('./scroll-top');
 
 /**
  * @component BackToTop
@@ -41,11 +42,11 @@ var BackToTop = React.createClass({
   },
 
   updateScroll() {
-    this.setState({visible: document.body.scrollTop > BackToTop.VISIBILITY_HEIGHT});
+    this.setState({visible: getScrollTop() > BackToTop.VISIBILITY_HEIGHT});
   },
 
   scrollToTop() {
-    this.animate(value => document.body.scrollTop = value, 0, BackToTop.SCROLL_DURATION, {startValue: document.body.scrollTop});
+    this.animate(value => setScrollTop(value), 0, BackToTop.SCROLL_DURATION, {startValue: getScrollTop()});
   },
 
   render() {

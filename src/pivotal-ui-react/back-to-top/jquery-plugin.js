@@ -1,5 +1,6 @@
 var $ = global.jQuery || require('jquery');
 var throttle = require('lodash.throttle');
+var {getScrollTop} = require('./scroll-top');
 
 /**
  * @component BackToTopJquery
@@ -17,7 +18,7 @@ var throttle = require('lodash.throttle');
 
 
 var backToTop = throttle(function() {
-  if (document.body.scrollTop > 400) {
+  if (getScrollTop() > 400) {
     $('[data-position="back-to-top"]').fadeIn();
   } else {
     $('[data-position="back-to-top"]').fadeOut();
@@ -28,6 +29,6 @@ $(function() {
   $(window).scroll(backToTop);
   $(document).on('click.pui.back-to-top.data-api', '[data-position="back-to-top"]', function(e) {
     e.preventDefault();
-    $(document.body).animate({scrollTop: 0}, 800);
+    $('html, body').animate({scrollTop: 0}, 800);
   });
 });
