@@ -35,6 +35,8 @@
     "del": "^0.1.3",
     "dr-frankenstyle": "^0.1.4",
     "envify": "^1.2.1",
+    "eslint": "^0.22.1",
+    "eslint-plugin-react": "^2.5.0",
     "event-stream": "^3.3.1",
     "font-awesome": "^4.2.0",
     "gulp": "^3.8.8",

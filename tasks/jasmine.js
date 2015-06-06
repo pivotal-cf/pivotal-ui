@@ -1,8 +1,5 @@
 var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
-//gulp.task('spec', callback => runSequence('lint', 'jasmine-ci', callback));
-var through = require('through2');
 
 function testAssets(options = {}) {
   var webpackConfig = Object.assign(require('../config/webpack/config')('test'), options);

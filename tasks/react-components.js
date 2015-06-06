@@ -1,15 +1,11 @@
 var del = require('del');
-var fs = require('fs');
 var highland = require('highland');
 var gulp = require('gulp');
-var mkdirp = require('mkdirp');
 var packageTemplate = require('../templates/react/package.json');
 var readmeTemplate = require('../templates/react/README');
 var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
-var through = require('through2');
-var File = require('vinyl');
 var {componentDocs} = require('../helpers/documentation_helper');
 var {license, packageJson, publish} = require('./packaging');
 

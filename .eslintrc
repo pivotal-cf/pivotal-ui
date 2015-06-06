@@ -8,6 +8,9 @@
   "ecmaFeatures": {
     "modules": true
   },
+  "plugins": [
+    "eslint-plugin-react"
+  ],
   "rules": {
     "camelcase": 0,
     "curly": 0,
