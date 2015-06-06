@@ -9,8 +9,7 @@ notifications:
   email: false
 deploy:
   edge: true
-  provider:
-    provider: cloudfoundry
+  provider: cloudfoundry
   api: https://api.run.pivotal.io
   username: labs-pivotal-ui@pivotal.io
   password:
