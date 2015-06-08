@@ -6,7 +6,7 @@ See the [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/
 
 ## CI
 
-We use [Travis CI](https://magnum.travis-ci.com/pivotal-cf/pivotal-ui).
+We use [Travis CI](https://travis-ci.org/pivotal-cf/pivotal-ui).
 
 **Email:** labs-pivotal-ui@pivotal.io
 

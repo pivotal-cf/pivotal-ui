@@ -1,5 +1,5 @@
 # pivotal-ui
-[![Build Status](https://magnum.travis-ci.com/pivotal-cf/pivotal-ui.svg?token=CA84QeWCXk6xumqLbgLK&branch=master)](https://magnum.travis-ci.com/pivotal-cf/pivotal-ui)
+[![Build Status](https://travis-ci.org/pivotal-cf/pivotal-ui.svg)](https://travis-ci.org/pivotal-cf/pivotal-ui)
 
 ***
 
