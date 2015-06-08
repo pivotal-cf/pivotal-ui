@@ -6,7 +6,7 @@
 Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
 
 
-[Visit the live styleguide](http://styleguide.cfapps.io)  
+[Visit the live styleguide](http://styleguide.pivotal.io)  
 If you are ready to start using Pivotal UI **[download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases)**.   
 To contribute, see the [contributing readme](CONTRIBUTING.md).
 
@@ -85,7 +85,7 @@ Import the file and use the variables:
 
 # Styleguide
 
-Visit <http://styleguide.cfapps.io> of host the styleguide files with a web server to view the available components.
+Visit <http://styleguide.pivotal.io> of host the styleguide files with a web server to view the available components.
 
     $ cd /path/to/release/pivotal-ui/styleguide/ && python -m SimpleHTTPServer 8000
 
@@ -100,7 +100,7 @@ There are two themes, **dark** and **light**, for syntax highlighting. You can c
 
 You can only include one of these themes at a time.
 
-See the latest styleguide for [examples of syntax highlighting in action](http://styleguide.cfapps.io/all.html#code).
+See the latest styleguide for [examples of syntax highlighting in action](http://styleguide.pivotal.io/all.html#code).
 
 ## Syntax Highlighting Example
 

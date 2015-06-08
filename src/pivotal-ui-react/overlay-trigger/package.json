@@ -4,5 +4,5 @@
   "dependencies": {
     "react-bootstrap": "^0.23.0"
   },
-  "homepage": "http://styleguide.cfapps.io/react_beta.html#tooltips_react"
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#tooltips_react"
 }

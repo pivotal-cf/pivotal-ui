@@ -1,5 +1,5 @@
 {
-  "homepage": "http://styleguide.cfapps.io/elements.html#iconography",
+  "homepage": "http://styleguide.pivotal.io/elements.html#iconography",
   "dependencies": {
     "pui-css-typography": "*"
   },
