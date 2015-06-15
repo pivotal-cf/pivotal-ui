@@ -26,7 +26,9 @@
         <a href="/" class="styleguide-logo"><img src="styleguide/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
         <div id="styleguide-first-level-nav-wrapper">
           <ul id="styleguide-first-level-nav">
+
             <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'Forms', 'by Product', 'React Beta'] %>
+
 
             <% categories.each_with_index do |category_name, index| %>
               <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
@@ -60,6 +62,21 @@
         </div>
       </div>
     </nav>
-    <div class="container ptl">
-      <section class="content">
+    <div class="now-hiring bg-accent-3 pbn"><a class=" active" href="#/">
+      <div class="bg-shadow-1 ptl">
+      <h1 class="type-neutral-11 mvn h4 txt-c"><span
+              ><span>Pivotal is now hiring several </span><span
+              class="em-high"> Design</span><span
+              > and </span><span class="em-high"
+              > Front End Developers</span><span
+              > roles. </span><span class="">Learn More.</span></span>
+      </h1></a>
+      <hr class="mbn mtl divider-2">
+    </div>
+    </div>
+    <% if title != "Intro" %>
+      <div class="container ptl">
+        <section class="content">
+    <% end %>
+
 
