@@ -633,7 +633,20 @@ h1#intro.styleguide {
 
 .crazy-logo {
   width: 32vw;
-  margin: 0 auto 2vw auto;
+  margin: 0 auto 0 auto;
+}
+
+
+.styleguide-btn-primary {
+  color: white;
+  background-color: transparent;
+  border: 3px solid white;
+  box-shadow: 0 2px 0 rgba(0,0,0,.1);
+  font-weight: 500;
+  margin-top: 2vw;
+  &:hover {
+    color: white;
+  }
 }
 
 @media (min-width: $screen-sm-min){
@@ -646,7 +659,7 @@ h1#intro.styleguide {
   }
 
   .styleguide-btn-primary {
-    padding: 1.5vw 2vw;
+    padding: 1.5vw 3vw;
     font-size: 1.5vw;
   }
   .crazy-logo {
