@@ -653,3 +653,15 @@ h1#intro.styleguide {
     width: 20vw;
   }
 }
+
+@media (min-width: $screen-xl-min) {
+  .styleguide-title {
+    font-size: 3vw;
+  }
+  .crazy-logo{
+    width: 13vw;
+  }
+  .styleguide-subtitle {
+    font-size: 1.25vw;
+  }
+}
