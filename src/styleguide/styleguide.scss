@@ -592,10 +592,6 @@ h1#intro.styleguide {
   margin: 0;
 }
 
-.now-hiring {
-  margin-top: 41px;
-}
-
 .aligned-item {
   flex: 1;
   background-color: transparent;
@@ -664,6 +660,11 @@ h1#intro.styleguide {
   }
   .crazy-logo {
     width: 20vw;
+  }
+}
+@media (min-width: $screen-md-min) {
+  .now-hiring {
+    margin-top: 41px;
   }
 }
 
