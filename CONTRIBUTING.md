@@ -80,10 +80,9 @@ As soon as you have your tools installed, run gulp _at the project root_:
 
 then visit [http://localhost:8000](http://localhost:8000)
 
-This will start up the styleguide development server, and generate the `build/`
-directory that will house the compiled resources and the styleguide. In
-addition, every time you make a change to any of the source files, it will
-regenerate the `build/` directory.
+This will generate a local version of the styleguide and start up the
+styleguide development server. It also sets up some watchers to regenerate the
+styleguide pages and styles when you change a PUI scss file.
 
 
 ## Pull requests
@@ -115,13 +114,19 @@ This will ensure our conversation doesn't get lost in email.
    fix(table): headers are now capitalized by default
    ```
 
-1. File names should be plural, snake-cased, and end with `.scss` (i.e.
-   `buttons.scss`).
+1. If you are making a new component, see our [guidelines for adding new
+   CSS components](#adding-new-components).
 
-1. CSS classes should be singular and separated by dashes (i.e.
-   `.button-super-awesome`).
+1. Update the `package.json` file of the component you're working on to
+   include any new dependencies - either CSS or JS packages (see
+   [component dependencies](#component-dependencies) for more info).
 
-1. [Document your component](#documenting-components) in the styleguide.
+1. For CSS components: if you add any new image or font assets to any CSS
+   packages, you will need to restart your development server (rerun `gulp`) to
+   see those additions.
+
+1. [Document your component](#documenting-components) in the styleguide and the
+   package README.
 
 1. Rebase against upstream, and then push your changes
 
@@ -141,6 +146,84 @@ This will ensure our conversation doesn't get lost in email.
    git pull --rebase upstream master
    git push -f origin head
    ```
+
+1. Once we accept your pull request, we will publish any new or updated pacakges
+   to NPM.
+
+
+### Component dependencies
+
+Because all of our CSS and React components are designed to be used
+independently, we have to be very explicit about inter-package dependencies.
+
+#### CSS components
+
+Some components rely on styles from other components. For example, inconography
+relies on typography and boostrap styles. Typography styles rely on bootstrap.  
+We specify these dependencies in the `package.json` files for each component.
+Naming convention: `pui-css-<component-name>`.
+
+Iconography's package json has the following:
+
+```json
+"dependencies": {
+  "pui-css-typography": "1.9.3"
+}
+```
+
+Because typography relies on bootstrap, we don't need to list it as a dependency
+for bootstrap.
+
+We like the versions of dependecies to be exact, not fuzzy (e.g. "1.9.3", not
+"^1.9.3").
+
+#### React components
+
+Coming soon!
+
+
+### Adding new components
+
+Each CSS component should live in its own folder (e.g.
+`src/pivotal-ui/components/iconography/`). The structure of the folder should
+be:
+
+├── <component-name>.scss
+├── README.md
+├── package.json
+└── <folder-for-assets-if-necessary>
+    ├── <asset-1>
+    ├── <asset-2>
+
+File and folder names should be plural and dash-separated (i.e. `google-maps`).
+When we publish the component to NPM, the package name will be
+`pui-css-<component-name>`.
+
+The `package.json` file should contain a homepage that links to the styleguide
+(http://styleguide.pivotal.io/<category>#<component-name>), the version number
+of the package (don't worry about this too much - we'll take care of it),
+and any css dependencies (see
+[component dependencies](#component-dependencies)).
+
+E.g. for iconography:
+
+```json
+{
+  "homepage": "http://styleguide.pivotal.io/elements.html#iconography",
+  "dependencies": {
+    "pui-css-typography": "*"
+  },
+  "version": "0.0.9"
+}
+```
+
+The `README` file should contain an HTML example of component use.
+
+E.g. for iconography:
+
+  ```html
+  <i class="fa fa-download type-brand-3 title"></i>
+  ```
 
 ## Bug reports
 
@@ -252,8 +335,7 @@ In addition, the breaking change message should include the type of change:
 
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram).
 The component docs are created from markdown comments in the SCSS.
-
-Here are some guidelines to follow when writing docs:
+Here are some guidelines to follow when writing docs for hologram:
 
 - Make sure to name your component something unique or it will clobber other
   components' docs.
@@ -272,6 +354,9 @@ Here are some guidelines to follow when writing docs:
 
 - Child component 'names' should start with the parent name (i.e. the large
   version of the `gravatar` component should be `name: gravatar_large`).
+
+In addition, we include examples in the `README` files of components. Please
+update these examples as well.
 
 ### Categories
 
@@ -294,7 +379,6 @@ However, please list all other categories before the all category.
 ### Examples
 
 Parent component:
-
 
     /*doc
     ---
@@ -358,6 +442,8 @@ Child component:
 
 - When feasible, default color palettes should comply with
   [WCAG color contrast guidelines](http://www.w3.org/TR/WCAG20/#visual-audio-contrast).
+- CSS classes should be singular and separated by dashes (i.e.
+  `.button-super-awesome`).
 - Except in rare cases, don't remove default `:focus` styles (via e.g.
   `outline: none;`) without providing alternative styles. See
   [this A11Y Project post](http://a11yproject.com/posts/never-remove-css-outlines/)
