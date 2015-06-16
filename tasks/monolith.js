@@ -1,34 +1,62 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
 import del from 'del';
-import drFrankenstyle from 'dr-frankenstyle';
 import source from 'vinyl-source-stream';
 import browserify from 'browserify';
 import runSequence from 'run-sequence';
 import loadPlugins from 'gulp-load-plugins';
-const plugins = loadPlugins();
+import {map, pipeline} from 'event-stream';
+import {setup as setupDrF, copyAssets, generateCss} from 'dr-frankenstyle/dev';
+import {railsUrls} from 'dr-frankenstyle';
+import path from 'path';
+import {read} from 'vinyl-file';
 
-function renameBasename(from, to) {
-  return plugins.rename(filePath => {
-    if (filePath.basename === from) {
-      filePath.basename = to;
-    }
-    return filePath;
-  });
-}
+const plugins = loadPlugins();
 
 gulp.task('monolith-clean', callback => del(['build'], callback));
 
 gulp.task('monolith-hologram', callback => exec('bundle exec hologram', callback));
 
-gulp.task('monolith-dr-frankenstyle', () =>
-  drFrankenstyle()
-    .pipe(renameBasename('components', 'pivotal-ui'))
-    .pipe(gulp.dest('build'))
-    .pipe(drFrankenstyle.railsUrls())
-    .pipe(renameBasename('pivotal-ui', 'pivotal-ui-rails'))
-    .pipe(gulp.dest('build'))
-);
+gulp.task('monolith-setup-css-cache', () => {
+  return setupDrF({cached: false})
+    .pipe(copyAssets())
+    .pipe(gulp.dest('build/'));
+});
+
+gulp.task('monolith-build-css-from-cache', () => {
+  return setupDrF({cached: true})
+    .pipe(generateCss(
+      pipeline(
+        map((cssDependency, callback) => {
+          if (cssDependency.packageName === 'pui-css-bootstrap') {
+            read('src/bootstrap/bootstrap.scss', callback);
+          }
+          else {
+            const componentName = cssDependency.packageName.replace(/^pui-css-/, '');
+            read(`src/pivotal-ui/components/${componentName}/${componentName}.scss`, callback);
+          }
+        }),
+
+        plugins.sass(),
+
+        plugins.cssnext(),
+
+        map((file, callback) => {
+          callback(null, {
+            packageName: `pui-css-${path.basename(file.path, '.css')}`,
+            contents: file.contents.toString()
+          });
+        })
+      )
+    ))
+    .pipe(plugins.rename('pivotal-ui.css'))
+    .pipe(gulp.dest('build/'))
+    .pipe(railsUrls())
+    .pipe(plugins.rename('pivotal-ui-rails.css'))
+    .pipe(gulp.dest('build/'));
+});
+
+gulp.task('monolith-build-css-from-scratch', callback => runSequence('monolith-setup-css-cache', 'monolith-build-css-from-cache', callback));
 
 gulp.task('monolith-html', () =>
   gulp.src('src/styleguide/pane.html')
@@ -81,9 +109,9 @@ gulp.task('monolith-app-config', () =>
 
 gulp.task('monolith', callback => runSequence('monolith-clean', [
   'monolith-hologram',
-  'monolith-dr-frankenstyle',
   'monolith-html',
   'monolith-styleguide-css',
+  'monolith-build-css-from-scratch',
   'monolith-build-js',
   'monolith-build-react-js',
   'monolith-prism-assets',
@@ -93,9 +121,8 @@ gulp.task('monolith', callback => runSequence('monolith-clean', [
 ], callback));
 
 gulp.task('monolith-watch', ['monolith'], () => {
-  gulp.watch(['src/pivotal-ui/components/**/*.scss', 'src/pivotal-ui/pivotal-ui.scss'], ['monolith-hologram']);
+  gulp.watch(['src/pivotal-ui/components/**/*.scss'], ['monolith-hologram', 'monolith-build-css-from-cache']);
   gulp.watch(['src/styleguide/**/*.scss'], ['monolith-styleguide-css']);
-  //gulp.watch(['src/pivotal-ui/javascripts/**/*.js', 'src/pivotal-ui/javascripts/**/*.jsx'], ['_puiJs']);
 });
 
 gulp.task('monolith-serve', ['monolith'], () => {
