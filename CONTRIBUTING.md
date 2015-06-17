@@ -52,9 +52,9 @@ system already, but many of them are preinstalled on a Pivotal dev box.
 
 ruby 2.1.2
 
-bundle
+bundler
 
-  $ gem install bundle
+  $ gem install bundler
 
 node and npm
 
