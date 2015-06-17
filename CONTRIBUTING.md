@@ -20,7 +20,7 @@ very specific syntax for our messages.
 ## I'd like to help, what can I do?
 
 There are lots of ways to help depending on your interests and skills. For
-example, you can [report bugs]() or create new components. If you want to
+example, you can [report bugs](#bug-reports) or create new components. If you want to
 submit bug fixes, create new components, or update existing ones, please refer
 to our [pull request guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#pull-requests).
 
@@ -64,7 +64,7 @@ the gulp cli
 
   $ npm install gulp -g
 
-compass, haml, sass, and hologram
+haml, sass, and hologram
 
   $ bundle install
 
@@ -88,7 +88,7 @@ styleguide pages and styles when you change a PUI scss file.
 ## Pull requests
 
 Before starting your pull request, please [open up an issue on Github](#feature-requests).
-This will ensure our conversation doesn't get lost in email.
+This will ensure our conversation doesn't get lost in email or slack.
 
 1. [Set up your environment](#setting-up-your-environment)
 
