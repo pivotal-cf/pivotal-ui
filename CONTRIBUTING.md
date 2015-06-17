@@ -82,7 +82,8 @@ then visit [http://localhost:8000](http://localhost:8000)
 
 This will generate a local version of the styleguide and start up the
 styleguide development server. It also sets up some watchers to regenerate the
-styleguide pages and styles when you change a PUI scss file.
+styleguide pages and styles when you change a PUI scss file, and watchers to
+regenerate the JS when you change a react component.
 
 
 ## Pull requests
@@ -179,28 +180,56 @@ We like the versions of dependecies to be exact, not fuzzy (e.g. "1.9.3", not
 
 #### React components
 
-Coming soon!
+Our react components can have 3 types of dependencies:
 
+1. **Other PUI react modules** - for example, the `pui-react-alerts`
+   component uses the `pui-react-media` and `pui-react-iconography` components
+   internally.
+1. **PUI css modules** - any PUI css necessary to style the react component
+   must be included. For example, `pui-react-alerts` needs the styles from
+   `pui-css-alerts`, `pui-css-iconography`, and `pui-css-media`. However,
+   because `pui-css-media` is a dependency of `pui-react-media`, we don't need
+   to explicity require it. The same is true for `pui-css-iconography`.
+1. **External dependencies** - for example, `pui-react-alerts` relies on
+  `react-bootstrap`.
+
+So alert's package json has the following:
+
+```json
+"dependencies": {
+  "pui-react-iconography": "1.9.3",
+  "pui-react-media": "1.9.2",
+  "pui-css-alerts": "1.9.2",
+  "react-bootstrap": "^0.23.3"
+}
+```
+
+We like the versions of any `pui-*` dependecies to be exact, not fuzzy (e.g.
+"1.9.3", not "^1.9.3"). For non-pui modules, use your best judgement :grin:
 
 ### Adding new components
+
+Some conventions you should be aware of...
+
+#### CSS components
 
 Each CSS component should live in its own folder (e.g.
 `src/pivotal-ui/components/iconography/`). The structure of the folder should
 be:
 
-├── <component-name>.scss
-├── README.md
-├── package.json
-└── <folder-for-assets-if-necessary>
-    ├── <asset-1>
-    ├── <asset-2>
+    ├── <component-name>.scss
+    ├── README.md
+    ├── package.json
+    └── <folder-for-assets-if-necessary>
+        ├── <asset-1>
+        ├── <asset-2>
 
 File and folder names should be plural and dash-separated (i.e. `google-maps`).
 When we publish the component to NPM, the package name will be
 `pui-css-<component-name>`.
 
 The `package.json` file should contain a homepage that links to the styleguide
-(http://styleguide.pivotal.io/<category>#<component-name>), the version number
+(http://styleguide.pivotal.io/category#component-name), the version number
 of the package (don't worry about this too much - we'll take care of it),
 and any css dependencies (see
 [component dependencies](#component-dependencies)).
@@ -221,9 +250,43 @@ The `README` file should contain an HTML example of component use.
 
 E.g. for iconography:
 
-  ```html
-  <i class="fa fa-download type-brand-3 title"></i>
-  ```
+```html
+<i class="fa fa-download type-brand-3 title"></i>
+```
+
+#### React components
+
+Each React component should live in its own folder (e.g.
+`src/pivotal-ui-react/draggable-list/`). The structure of the folder should be:
+
+    ├── <component-name>.js
+    ├── package.json
+    └── <additional-js-files-if-necessary>
+        ├── <asset-1>
+        ├── <asset-2>
+
+File and folder names should be plural and dash-separated (i.e.
+`draggable-list`). When we publish the component to NPM, the package name will
+be `pui-react-<component-name>`.
+
+The `package.json` file should contain a homepage that links to the styleguide
+(http://styleguide.pivotal.io/react_beta.html#component-name), the version
+number of the package (don't worry about this too much - we'll take care of it),
+and any dependencies (see [component dependencies](#component-dependencies)).
+
+E.g. for draggable lists:
+
+```json
+{
+  "version": "0.1.0",
+  "description": "A React component for showing a list of items that can be re-ordered by the user",
+  "homepage": "http://styleguide.pivotal.io/react_beta.html#list_draggable_react",
+  "dependencies": {
+    "classnames": "^1.2.0",
+    "pui-css-lists": "^0.0.5"
+  }
+}
+```
 
 ## Bug reports
 
@@ -232,9 +295,10 @@ Good bug reports are extremely helpful, so thanks!
 
 Guidelines for bug reports:
 
-0. **Validate and lint your code** &mdash; [validate your HTML](http://html5.validator.nu)
-   and [lint your HTML](https://github.com/twbs/bootlint) to ensure your
-   problem isn't caused by a simple error in your own code.
+0. **Validate and lint your code** &mdash; If you're working with the HTML/CSS
+   library, [validate your HTML](http://html5.validator.nu) and [lint your
+   HTML](https://github.com/twbs/bootlint) to ensure your problem isn't caused
+   by a simple error in your own code.
 
 1. **Use the GitHub issue search** &mdash; check if the issue has already been
    reported.
@@ -270,6 +334,7 @@ what you are trying to achieve and the best way to do that.
 
 ## Testing
 
+Coming soon!
 
 ## Commit guidelines
 
@@ -333,6 +398,12 @@ In addition, the breaking change message should include the type of change:
 
 ## Documenting components
 
+We write two types of component documentation - styleguide docs and README docs.
+In the future, they'll be the same thing. For now, you'll have to write docs in
+two places. Sorry.
+
+### Styleguide docs
+
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram).
 The component docs are created from markdown comments in the SCSS.
 Here are some guidelines to follow when writing docs for hologram:
@@ -355,10 +426,7 @@ Here are some guidelines to follow when writing docs for hologram:
 - Child component 'names' should start with the parent name (i.e. the large
   version of the `gravatar` component should be `name: gravatar_large`).
 
-In addition, we include examples in the `README` files of components. Please
-update these examples as well.
-
-### Categories
+#### Categories
 
 - **Layout** - components for structuring the placement of other components on
   a page *(i.e. grids, panes)*
@@ -368,15 +436,14 @@ update these examples as well.
 - **Utilities** - mixins that modifiy other components *(i.e. colors, hover
   states)*
 - **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
-- **Beta** - any experimental component or libraries. All React components go
-  here at the moment.
 - **by Product** - product specific components *(i.e. a PWS marketing pricing
   widget)*
+- **React Beta** - All React components go here at the moment.
 
 In addition, every parent component **must** belong to the **All** category.
 However, please list all other categories before the all category.
 
-### Examples
+#### Examples
 
 Parent component:
 
@@ -404,7 +471,6 @@ Parent component:
   
     */
 
-
 Child component:
 
     /*doc
@@ -424,6 +490,69 @@ Child component:
     ```
   
     */
+
+### README documentation - CSS components
+
+This documentation will show up in the README of the component npm packages.
+Include a simple html example in the `README` file of the CSS component.
+
+E.g. for iconography:
+
+  ```html
+  <i class="fa fa-download type-brand-3 title"></i>
+  ```
+}
+
+### README documentation - React components
+
+This documentation will show up in the README of the component npm packages.
+We generate README documentation from "javadocs" in the components' source
+code. There should a javadoc for each React class exported by the
+package. Each javadoc should have the following:
+
+- `@component` - the name of the React class
+- `@description` - keep it short
+- `@priperty` **for each property** - required for every public-facing property
+  that can be passed into the component
+- `@example` - should show a basic use case. Include multiple if necessary
+- `@see` - a markdown link to the component's styleguide documentation
+
+For example, the draggable list package, which exports `DraggableList` and
+`DraggableListItem` has the following javadocs:
+
+```js
+/**
+ * @component DraggableList
+ * @description A list that can be re-ordered via drag-drop
+ *
+ * @property onDrop {Function} A callback called when the user re-orders list items
+ *
+ * @example ```js
+ * var DraggableList = require('pui-react-draggable-list').DraggableList;
+ * var DraggableListItem = require('pui-react-draggable-list').DraggableListItem;
+ * var MyComponent = React.createClass({
+ *   render() {
+ *     return (
+ *       <DraggableList onDrop={draggableListDropCallback}>
+ *         <DraggableListItem>Get me out of here!</DraggableListItem>
+ *         <DraggableListItem>LOL</DraggableListItem>
+ *         <DraggableListItem>Can't stop</DraggableListItem>
+ *       </DraggableList>
+ *     );
+ *   }
+ * });
+ * ```
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ */
+
+/**
+ * @component DraggableListItem
+ * @description Denotes list items of a DraggableList
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ */
+```
 
 ## Code guidelines
 
@@ -454,5 +583,6 @@ Child component:
 - Use semicolons (in client-side JS)
 - 2 spaces (no tabs)
 - strict mode
+- Use ES6 features wherever applicable
+- React code should use JSX
 - "Attractive"
-
