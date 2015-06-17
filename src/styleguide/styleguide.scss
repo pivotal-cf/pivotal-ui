@@ -584,10 +584,98 @@ td.is-hidden {
   background-color: #f9f9f9 !important;
 }
 
-.aligner {
-  background-color: $neutral-10;
-  > * {
-    background-color: $neutral-11;
+h1#intro.styleguide {
+  height: 0;
+  width: 0;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.aligned-item {
+  flex: 1;
+  background-color: transparent;
+}
+
+.styleguide.panel-body {
+  height: 225px;
+}
+
+.styleguide.code {
+  background-color: transparent;
+  border: none;
+}
+
+.styleguide-hero {
+  height: calc(100vh - 91px);
+}
+
+.bg-gradient-1 {
+  background-image: linear-gradient(0deg, #1F7BA6 0%, #46B1E3 100%);
+}
+
+.styleguide-title {
+  font-size: 9vw;
+}
+
+.styleguide-subtitle {
+  font-size: 5vw;
+}
+
+.styleguide-btn-primary {
+  padding: 2.5vw 4vw;
+  font-size: 5.5vw;
+}
+
+.crazy-logo {
+  width: 32vw;
+  margin: 0 auto 0 auto;
+}
+
+
+.styleguide-btn-primary {
+  color: white;
+  background-color: transparent;
+  border: 3px solid white;
+  box-shadow: 0 2px 0 rgba(0,0,0,.1);
+  font-weight: 500;
+  margin-top: 2vw;
+  &:hover {
+    color: white;
   }
 }
 
+@media (min-width: $screen-sm-min){
+  .styleguide-title {
+    font-size: 5vw;
+  }
+
+  .styleguide-subtitle {
+    font-size: 2vw;
+  }
+
+  .styleguide-btn-primary {
+    padding: 1.5vw 3vw;
+    font-size: 1.5vw;
+  }
+  .crazy-logo {
+    width: 20vw;
+  }
+}
+@media (min-width: $screen-md-min) {
+  .now-hiring {
+    margin-top: 41px;
+  }
+}
+
+@media (min-width: $screen-xl-min) {
+  .styleguide-title {
+    font-size: 3vw;
+  }
+  .crazy-logo{
+    width: 13vw;
+  }
+  .styleguide-subtitle {
+    font-size: 1.25vw;
+  }
+}
