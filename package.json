@@ -145,7 +145,8 @@
     "pui-react-typography": "^0.1.0"
   },
   "scripts": {
-    "test": "node_modules/gulp/bin/gulp.js ci --fatal"
+    "test": "gulp ci --fatal",
+    "pui-update": "scripts/pui-update.js"
   },
   "repository": {
     "type": "git",
