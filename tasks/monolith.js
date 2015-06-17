@@ -1,17 +1,16 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
 import del from 'del';
-import source from 'vinyl-source-stream';
-import browserify from 'browserify';
-import runSequence from 'run-sequence';
 import loadPlugins from 'gulp-load-plugins';
 import {map, pipeline} from 'event-stream';
 import {setup as setupDrF, copyAssets, generateCss} from 'dr-frankenstyle/dev';
 import {railsUrls} from 'dr-frankenstyle';
 import path from 'path';
 import {read} from 'vinyl-file';
+import webpack from 'webpack-stream';
 
 const plugins = loadPlugins();
+const runSequence = require('run-sequence').use(gulp);
 
 gulp.task('monolith-clean', callback => del(['build'], callback));
 
@@ -71,18 +70,24 @@ gulp.task('monolith-styleguide-css', () =>
 );
 
 gulp.task('monolith-build-js', () =>
-  browserify('./src/pivotal-ui/javascripts/pivotal-ui.js')
-    .bundle()
-    .pipe(source('pivotal-ui.js'))
+  gulp.src('./src/pivotal-ui/javascripts/pivotal-ui.js')
+    .pipe(webpack(require('../config/webpack/development')))
+    .pipe(plugins.rename('pivotal-ui.js'))
     .pipe(gulp.dest('build'))
 );
 
-gulp.task('monolith-build-react-js', () =>
-  browserify('./src/pivotal-ui/javascripts/pivotal-ui-react.js')
-    .bundle()
-    .pipe(source('pivotal-ui-react.js'))
-    .pipe(gulp.dest('build'))
-);
+gulp.task('monolith-build-react-js', () => {
+  const watch = Boolean(process.env.WEBPACK_WATCH);
+
+  const task = gulp.src('./src/pivotal-ui/javascripts/pivotal-ui-react.js')
+    .pipe(webpack(Object.assign({}, require('../config/webpack/development'), {watch: watch})))
+    .pipe(plugins.rename('pivotal-ui-react.js'))
+    .pipe(gulp.dest('build'));
+
+  if (!watch) {
+    return task;
+  }
+});
 
 gulp.task('monolith-prism-assets', () =>
   gulp.src('node_modules/prismjs/themes/{prism,prism-okaidia}.css')
@@ -119,11 +124,6 @@ gulp.task('monolith', callback => runSequence('monolith-clean', [
   'monolith-zeroclipboard-assets',
   'monolith-app-config'
 ], callback));
-
-gulp.task('monolith-watch', ['monolith'], () => {
-  gulp.watch(['src/pivotal-ui/components/**/*.scss'], ['monolith-hologram', 'monolith-build-css-from-cache']);
-  gulp.watch(['src/styleguide/**/*.scss'], ['monolith-styleguide-css']);
-});
 
 gulp.task('monolith-serve', ['monolith'], () => {
   plugins.connect.server({

@@ -1,15 +1,23 @@
-module.exports = {
+import puiAliases from '../../helpers/pui-aliases';
+
+export default {
   devtool: 'eval',
-  entry: null,
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader?stage=0'
+      }
+    ]
+  },
   output: {filename: 'spec.js' },
   quiet: true,
   resolve: {
-    alias: {
+    alias: Object.assign({
       'raf': `${__dirname}/../../spec/pivotal-ui-react/support/mock_raf.js`,
       'performance-now': `${__dirname}/../../spec/pivotal-ui-react/support/mock_performance_now.js`,
       'lodash.throttle': `${__dirname}/../../spec/pivotal-ui-react/support/mock_throttle.js`
-    }
-  },
-  watch: true,
-  externals: null
+    }, puiAliases)
+  }
 };
