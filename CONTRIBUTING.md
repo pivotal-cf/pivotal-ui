@@ -148,6 +148,25 @@ This will ensure our conversation doesn't get lost in email or slack.
    git push -f origin head
    ```
 
+1. While you're waiting for your PR to be accepted, you can use your forked
+   changes in your project. For example, if you made changes to the react alerts
+   component, run the following command:
+
+   ```bash
+   gulp vendor-package --type=react --component=alerts --dest=<your-project-folder>
+   ```
+
+   Similarly, if you made changes to the CSS typography component, run
+
+   ```bash
+   gulp vendor-package --type=css --component=typography --dest=<your-project-folder>
+   ```
+
+   This creates a vendored version of your modified components
+   (`pui-react-alerts` or `pui-css-typography`) in your project, and points your
+   project's package json to these vendored versions. This way, you can use your
+   forked changes right away, even in production!
+
 1. Once we accept your pull request, we will publish any new or updated pacakges
    to NPM.
 
