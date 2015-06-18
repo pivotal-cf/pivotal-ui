@@ -7,7 +7,7 @@ var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var {componentDocs} = require('../helpers/documentation_helper');
-var {license, packageJson, publish} = require('./packaging');
+var {license, packageJson, publish} = require('./helpers/packaging-helper');
 
 const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const componentsGlob = 'src/pivotal-ui-react/*';

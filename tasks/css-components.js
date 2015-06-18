@@ -8,7 +8,7 @@ var through = require('through2');
 var File = require('vinyl');
 var runSequence = require('run-sequence');
 
-var {license, packageJson, publish} = require('./packaging');
+var {license, packageJson, publish} = require('./helpers/packaging-helper');
 
 var packageTemplate = require('../templates/css/package.json');
 var readmeTemplate = require('../templates/css/README');

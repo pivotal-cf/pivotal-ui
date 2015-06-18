@@ -12,9 +12,9 @@ var stp = require('stream-to-promise');
 var uglifyJs = require('gulp-uglify');
 var zip = require('gulp-zip');
 
-var errorHandler = require('./errorHandler');
-var githubService = require('./githubService');
-var releaseHelper = require('./releaseHelper');
+var errorHandler = require('./helpers/error-handler');
+var githubService = require('./helpers/github-service');
+var releaseHelper = require('./helpers/release-helper');
 
 gulp.task('release', function(callback) {
   runSequence('_verifyReleaseToken', '_prepareRelease', callback);
