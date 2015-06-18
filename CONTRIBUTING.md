@@ -56,9 +56,10 @@ bundler
 
   $ gem install bundler
 
-node and npm
+node and npm (at this time `nodejs` version `0.10` is required. Install
+[nvm](https://github.com/creationix/nvm) then use it to install node and npm.)
 
-  $ brew install node
+  $ nvm install 0.10
 
 the gulp cli
 
