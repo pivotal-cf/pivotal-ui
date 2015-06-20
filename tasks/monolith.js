@@ -27,13 +27,8 @@ gulp.task('monolith-build-css-from-cache', () => {
     .pipe(generateCss(
       pipeline(
         map((cssDependency, callback) => {
-          if (cssDependency.packageName === 'pui-css-bootstrap') {
-            read('src/bootstrap/bootstrap.scss', callback);
-          }
-          else {
-            const componentName = cssDependency.packageName.replace(/^pui-css-/, '');
-            read(`src/pivotal-ui/components/${componentName}/${componentName}.scss`, callback);
-          }
+          const componentName = cssDependency.packageName.replace(/^pui-css-/, '');
+          read(`src/pivotal-ui/components/${componentName}/${componentName}.scss`, callback);
         }),
 
         plugins.sass(),

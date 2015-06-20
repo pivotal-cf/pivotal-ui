@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
 gulp.task('lint', function() {
-  return gulp.src(['tasks/*.js', 'src/pivotal-ui-react/**/*.js', 'spec/pivotal-ui-react/**/*.js'])
+  return gulp.src(['tasks/**/*.js', 'src/pivotal-ui-react/**/*.js', 'spec/pivotal-ui-react/**/*.js', 'spec/task-helpers/**/*.js'])
     .pipe(plugins.plumber())
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format('stylish'))

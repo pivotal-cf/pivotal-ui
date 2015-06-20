@@ -1,46 +1,34 @@
+import license from './helpers/license-helper';
+import {readme, packageJson} from './helpers/css-components-helper';
+
 var del = require('del');
-var fs = require('fs');
 var gulp = require('gulp');
 var mergeStream = require('merge-stream');
-var path = require('path');
 var plugins = require('gulp-load-plugins')();
-var through = require('through2');
-var File = require('vinyl');
 var runSequence = require('run-sequence');
 
-var {license, packageJson, publish} = require('./helpers/packaging-helper');
-
-var packageTemplate = require('../templates/css/package.json');
-var readmeTemplate = require('../templates/css/README');
+var {publish} = require('./helpers/packaging-helper');
 
 const componentsGlob = ['src/pivotal-ui/components/*', '!src/**/*.scss'];
 const buildFolder = 'dist/css';
 
-gulp.task('css-build-license', license(componentsGlob, buildFolder));
+gulp.task('css-build-license', () =>
+  gulp.src(componentsGlob)
+    .pipe(license())
+    .pipe(gulp.dest(buildFolder))
+);
 
-gulp.task('css-build-package-json', packageJson(componentsGlob, buildFolder, packageTemplate));
+gulp.task('css-build-package-json', () =>
+  gulp.src('src/pivotal-ui/components/*/package.json')
+    .pipe(packageJson())
+    .pipe(gulp.dest(buildFolder))
+);
 
-gulp.task('css-build-readme', function() {
-  return gulp.src(componentsGlob)
-    .pipe(plugins.plumber())
-    .pipe(through.obj(function(folder, encoding, callback) {
-      const name = path.basename(folder.path);
-      const {homepage} = require(path.resolve(folder.path, 'package.json'));
-
-      const usagePath = path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'README.md');
-      const additionalIntroPath = path.resolve(__dirname, '..', 'src', 'pivotal-ui', 'components', name, 'ADDITIONAL_INTRO.md');
-
-      const usage = fs.readFileSync(usagePath, 'utf8');
-      fs.readFile(additionalIntroPath, 'utf8', function(err, additionalIntro) {
-        if (err) additionalIntro = '';
-        callback(null, new File({
-          contents: new Buffer(readmeTemplate(name, usage, {homepage, additionalIntro})),
-          path: path.join(path.basename(folder.path), 'README.md')
-        }));
-      });
-    }))
-    .pipe(gulp.dest(buildFolder));
-});
+gulp.task('css-build-readme', () =>
+  gulp.src(componentsGlob)
+    .pipe(readme())
+    .pipe(gulp.dest(buildFolder))
+);
 
 gulp.task('css-build-src', function() {
   return gulp.src(['src/pivotal-ui/components/**/*.scss', '!src/pivotal-ui/components/*.scss'])
@@ -52,18 +40,6 @@ gulp.task('css-build-src', function() {
 gulp.task('css-build-assets', function() {
   return gulp.src('src/pivotal-ui/components/*/**/!(package.json|*.md|*.scss)')
     .pipe(gulp.dest(buildFolder));
-});
-
-gulp.task('css-build-bootstrap-package', function() {
-  return mergeStream(
-    gulp.src('src/bootstrap/README.md'),
-    gulp.src('src/bootstrap/package.json'),
-    gulp.src('LICENSE'),
-    gulp.src('src/bootstrap/*.scss')
-      .pipe(plugins.sass({outputStyle: 'compressed'}))
-      .pipe(plugins.cssnext())
-      .pipe(plugins.rename('bootstrap.css'))
-  ).pipe(gulp.dest('dist/css/bootstrap'));
 });
 
 gulp.task('css-build-variables-and-mixins-package', function() {
@@ -90,11 +66,6 @@ gulp.task('css-build-variables-and-mixins-package', function() {
   ).pipe(gulp.dest('dist/css/variables-and-mixins'));
 });
 
-gulp.task('css-build-all-package', function() {
-  return gulp.src('src/pivotal-ui/pui-css-all/*')
-    .pipe(gulp.dest(path.join(buildFolder, 'all')));
-});
-
 gulp.task('css-clean', callback => del([buildFolder], callback));
 
 gulp.task('css-build', callback => runSequence('css-clean', [
@@ -103,9 +74,7 @@ gulp.task('css-build', callback => runSequence('css-clean', [
   'css-build-license',
   'css-build-src',
   'css-build-assets',
-  'css-build-bootstrap-package',
-  'css-build-variables-and-mixins-package',
-  'css-build-all-package'
+  'css-build-variables-and-mixins-package'
 ], callback));
 
 gulp.task('css-publish', ['css-build'], publish('css'));

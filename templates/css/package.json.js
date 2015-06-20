@@ -1,5 +1,5 @@
 var packageTemplate = function(name, overrides) {
-  return JSON.stringify(Object.assign({
+  const packageJsonContents = Object.assign({
     name: `pui-css-${name}`,
     style: `${name}.css`,
     version: '0.0.1',
@@ -20,7 +20,13 @@ var packageTemplate = function(name, overrides) {
       url: "https://github.com/pivotal-cf/pivotal-ui/issues"
     },
     homepage: "https://github.com/pivotal-cf/pivotal-ui"
-  }, overrides), null, 2);
+  }, overrides);
+
+  if (!packageJsonContents.style) {
+    delete packageJsonContents.style;
+  }
+
+  return JSON.stringify(packageJsonContents, null, 2);
 };
 
 module.exports = packageTemplate;
