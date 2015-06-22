@@ -7,7 +7,6 @@ gulp.task('vendor-package', ['css-build', 'react-build'], (callback) => {
   const {type: componentType, component: componentName, dest} = argv;
 
   function useVendoredPackageInProject() {
-    console.log('hi');
     const originalDirectory = process.cwd();
     process.chdir(dest);
 
