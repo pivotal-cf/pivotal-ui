@@ -6,6 +6,7 @@ import path from 'path';
 import reduce from 'stream-reduce';
 import {argv} from 'yargs';
 
+import {getNewVersion} from './helpers/release-helper';
 import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 
 function allComponents() {
@@ -30,17 +31,14 @@ function componentsWithChanges() {
     .pipe(map((diffData, callback) => callback(null, diffData.trim().split(' ')[1])))
 }
 
-gulp.task('update-package-versions', () => {
-  const newVersion = argv.version;
-  if (!newVersion) {
-    log('Please supply a version: `gulp update-package-versions --version <VERSION>`');
-    exit(1);
-  }
+gulp.task('update-package-versions', (done) => {
+  getNewVersion().then((newVersion) => {
+    const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
+    const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
 
-  const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
-  const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
-
-  return componentsToUpdateStream
+    componentsToUpdateStream
     .pipe(updatePackageJsons(newVersion))
-    .pipe(gulp.dest('.'));
+    .pipe(gulp.dest('.'))
+    .on('end', done);
+  });
 });

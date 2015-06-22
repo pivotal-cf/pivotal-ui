@@ -36,7 +36,7 @@ var getNewVersion = _.memoize(function() {
       deferred.reject(err);
     } else {
       var newVersion;
-      var oldVersion = require('../package.json').version;
+      var oldVersion = require('../../package.json').version;
       newVersion = semver.inc(oldVersion, releaseType);
       deferred.resolve(newVersion);
     }
