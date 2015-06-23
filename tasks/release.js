@@ -1,229 +1,130 @@
-require('shelljs/global');
-var bump = require('gulp-bump');
-var fs = require('fs');
-var gulp = require('gulp');
-var minifyCss = require('gulp-minify-css');
-var q = require('q');
-var plugins = require('gulp-load-plugins')();
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-var runSequence = require('run-sequence');
-var stp = require('stream-to-promise');
-var uglifyJs = require('gulp-uglify');
-var zip = require('gulp-zip');
+import {exec} from 'child_process';
+import gulp from 'gulp';
+import {map, split, merge} from 'event-stream';
+import path from 'path';
+import promisify from 'es6-promisify';
+import reduce from 'stream-reduce';
+import {argv} from 'yargs';
+import runSequence from 'run-sequence';
 
-var errorHandler = require('./helpers/error-handler');
-var githubService = require('./helpers/github-service');
-var releaseHelper = require('./helpers/release-helper');
+import {getVersionChanges, getNewVersion, releaseDest} from './helpers/release-helper';
+import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 
-gulp.task('release', function(callback) {
-  runSequence('_verifyReleaseToken', '_prepareRelease', callback);
-});
+const plugins = require('gulp-load-plugins')();
+const execPromise = promisify(exec);
 
-// private
+function allComponents() {
+  return gulp.src(['src/pivotal-ui/components/*/package.json', 'src/pivotal-ui-react/*/package.json'])
+    .pipe(map((file, callback) => callback(null, path.relative(process.cwd(), path.dirname(file.path)) + path.sep)));
+}
 
-gulp.task('_verifyReleaseToken', function(callback) {
-  var err;
-  if (!process.env.RELEASE_TOKEN) {
-    err = new plugins.util.PluginError('release', 'Please export a RELEASE_TOKEN');
-  }
-  callback(err);
-});
-
-gulp.task('_prepareRelease', [
-  '_pushVersion',
-  '_zip'
-], function(done) {
-  q.all([releaseHelper.getNewTagName(), releaseHelper.getVersionChanges()])
-    .spread(function(newTagName, versionChanges) {
-      return githubService.createRelease(newTagName, versionChanges);
-    })
-    .then(function() {
-      done();
-    })
-    .catch(function(err) {
-      errorHandler.handleError(err, {callback: done});
-    });
-});
-
-gulp.task('_changelog', function(done) {
-  releaseHelper.getVersionChanges()
-  .then(function(versionChanges) {
-    fs.readFile('CHANGELOG.md', function(err, oldLog) {
-      if (err) { errorHandler.handleError(err, {callback: done}); }
-
-      fs.writeFile('CHANGELOG.md', versionChanges + oldLog, function(err) {
-        if (err) { errorHandler.handleError(err, {callback: done}); }
-        done();
-      });
-    });
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {isFatal: true});
-  });
-});
-
-gulp.task('_bumpPackage', ['assets'], function(done) {
-  releaseHelper.getNewVersion()
-  .then(function(newVersion) {
-    gulp.src(['./package.json'])
-      .pipe(bump({version: newVersion}))
-      .pipe(gulp.dest('./'))
-      .on('end', done);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {isFatal: true});
-  });
-});
-
-gulp.task('_addFilesToRelease', ['assets'], function() {
-  return releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    return q.all([
-      stp(gulp.src([
-          'src/oocss/utils/_clearfix-me.scss',
-          'src/oocss/list/_listWhitespace.scss',
-          'src/oocss/whitespace/_whitespace.scss'
-        ]).pipe(gulp.dest('release/' + newReleaseName + '/oocss/'))),
-
-      stp(gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
-        .pipe(gulp.dest('release/' + newReleaseName + '/bootstrap-sass/'))),
-
-      stp(gulp.src('src/pivotal-ui/components/pui-variables.scss')
-        .pipe(gulp.dest('release/' + newReleaseName + '/'))),
-
-      stp(gulp.src('build/**/*')
-        .pipe(gulp.dest('release/' + newReleaseName + '/')))
-    ]);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {isFatal: true});
-  });
-});
-
-gulp.task('_removeCommentsFromCss', ['_addFilesToRelease'], function(done) {
-  releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
-      .pipe(replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
-      .pipe(gulp.dest('release/' + newReleaseName + '/'))
-      .on('end', done);
-  });
-});
-
-gulp.task('_minifycss', ['_addFilesToRelease'], function(done) {
-  releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    gulp.src('release/' + newReleaseName + '/pivotal-ui.css')
-      .pipe(minifyCss({keepBreaks: true}))
-      .pipe(rename('pivotal-ui.min.css'))
-      .pipe(gulp.dest('release/' + newReleaseName))
-      .on('end', done);
-  });
-});
-
-gulp.task('_minifyjs', ['_addFilesToRelease'], function() {
-  releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    gulp.src('release/' + newReleaseName + '/pivotal-ui.js')
-      .pipe(uglifyJs())
-      .pipe(rename('pivotal-ui.min.js'))
-      .pipe(gulp.dest('release/' + newReleaseName))
-      .on('end', done);
-  });
-});
-
-gulp.task('_minifyjsReact', ['_addFilesToRelease'], function() {
-  releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    gulp.src('release/' + newReleaseName + '/pivotal-ui-react.js')
-      .pipe(uglifyJs())
-      .pipe(rename('pivotal-ui-react.min.js'))
-      .pipe(gulp.dest('release/' + newReleaseName))
-      .on('end', done);
-  });
-});
-
-gulp.task('_addVersionRelease', [
-  '_addFilesToRelease',
-  '_removeCommentsFromCss',
-  '_minifycss',
-  '_minifyjs',
-  '_minifyjsReact'
-]);
-
-gulp.task('_zip', [
-  'assets',
-  '_addVersionRelease'
-], function(done){
-  releaseHelper.getNewReleaseName()
-  .then(function(newReleaseName) {
-    gulp.src(['release/' + newReleaseName + '/**/*'])
-      .pipe(zip(newReleaseName + '.zip'))
-      .pipe(gulp.dest('./'))
-      .on('end', done);
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
-});
-
-gulp.task('_bumpVersion', [
-  '_changelog',
-  '_bumpPackage',
-  '_addVersionRelease'
-], function(done) {
-  releaseHelper.getNewVersion()
-  .then(function(newVersion) {
-    // Can't use gulp git because of https://github.com/stevelacy/gulp-git/issues/49
-    var res = exec('git add package.json CHANGELOG.md release/');
-    if (res.code !== 0) {
-      errorHandler.handleError('Unable to add files for committing', {isFatal: true});
+function componentsWithChanges() {
+  const gitProcess = exec('git fetch && git describe --tags origin/master');
+  gitProcess.on('exit', (exitCode) => {
+    if (exitCode) {
+      throw 'There was a problem fetching the latest tag. Exited with code ${exitCode}. Have you added your git credentials?';
     }
-
-    res = exec('git commit -m "v' + newVersion + '"');
-    if (res.code !== 0) {
-      errorHandler.handleError('Unable to commit version changes', {isFatal: true});
-    }
-
-    done();
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
   });
+
+  return gitProcess.stdout
+    .pipe(reduce((memo, describeData) => describeData.split('-')[0], ''))
+    .pipe(map((lastTag, cb) =>
+      exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`, cb)
+     ))
+    .pipe(split())
+    .pipe(map((diffData, callback) => callback(null, diffData.trim().split(' ')[1])));
+}
+
+gulp.task('release-update-package-versions', () => {
+  const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
+  const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
+
+  return componentsToUpdateStream
+    .pipe(updatePackageJsons())
+    .pipe(gulp.dest('.'));
 });
 
-gulp.task('_tagVersion', ['_bumpVersion'], function(done) {
-  releaseHelper.getNewTagName()
-  .then(function(tagName) {
-    var res = exec('git tag ' + tagName);
-    if (res.code !== 0) {
-      errorHandler.handleError('Unable to create tag', {isFatal: true});
-    }
-    done();
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
+gulp.task('release-generate-changelog', function() {
+  return gulp.src('CHANGELOG.md')
+    .pipe(map(async (changelog, callback) => {
+      try {
+        const oldChangelog = changelog.contents.toString();
+        const versionChanges = await getVersionChanges();
+        changelog.contents = new Buffer(versionChanges + oldChangelog);
+        callback(null, changelog);
+      }
+      catch (error) {
+        callback(error);
+      }
+    }))
+    .pipe(gulp.dest('.'));
 });
 
-gulp.task('_pushVersion', ['_tagVersion'], function(done) {
-  // These calls are synchronous in case there is a prompt for credentials
-  releaseHelper.getNewTagName()
-  .then(function(tagName) {
-    var res = exec('git push origin HEAD');
-    if (res.code !== 0) {
-      errorHandler.handleError('Unable to push version', {isFatal: true});
-    }
+gulp.task('release-generate-release-folder', ['monolith'], () => {
+  const oocssStream = gulp.src([
+    'src/oocss/utils/_clearfix-me.scss',
+    'src/oocss/list/_listWhitespace.scss',
+    'src/oocss/whitespace/_whitespace.scss'
+  ]).pipe(releaseDest('oocss'));
 
-    res = exec('git push origin ' + tagName);
-    if (res.code !== 0) {
-      errorHandler.handleError('Unable to push tag', {isFatal: true});
-    }
+  const bootstrapSassStream = gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
+    .pipe(releaseDest('bootstrap-sass'));
 
-    done();
-  })
-  .fail(function(err) {
-    errorHandler.handleError(err, {callback: done});
-  });
+  const styleguideAndMiscStream = gulp.src([
+    'src/pivotal-ui/components/pui-variables.scss',
+    'build/**/*',
+    '!build/pivotal-ui.css',
+    '!build/pivotal-ui.js',
+    '!build/pivotal-ui-react.js'
+  ]).pipe(releaseDest());
+
+  const puiCssStream = gulp.src('build/pivotal-ui.css')
+    .pipe(plugins.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
+    .pipe(releaseDest())
+    .pipe(plugins.minifyCss({keepBreaks: true}))
+    .pipe(plugins.rename({extname: '.min.css'}))
+    .pipe(releaseDest());
+
+  const puiJsStream = gulp.src(['build/pivotal-ui.js', 'build/pivotal-ui-react.js'])
+    .pipe(releaseDest())
+    .pipe(plugins.uglify())
+    .pipe(plugins.rename({extname: '.min.js'}))
+    .pipe(releaseDest());
+
+  return merge(
+    oocssStream,
+    bootstrapSassStream,
+    styleguideAndMiscStream,
+    puiCssStream,
+    puiJsStream
+  );
 });
+
+gulp.task('release-commit', () =>
+  getNewVersion()
+    .then((version) => execPromise(
+      `git add package.json \
+               CHANGELOG.md \
+               src/pivotal-ui/components/*/package.json \
+               src/pivotal-ui-react/*/package.json \
+               release/ \
+         && git commit -m "v${version}"`
+    ))
+);
+
+gulp.task('release-tag', () =>
+  getNewVersion().then((version) => execPromise(`git tag v${version}`))
+);
+
+gulp.task('release-prepare', (done) =>
+  runSequence(
+    [
+      'release-update-package-versions',
+      'release-generate-changelog',
+      'release-generate-release-folder'
+    ],
+    'release-commit',
+    'release-tag',
+    done
+  )
+);
