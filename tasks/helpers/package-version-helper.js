@@ -3,6 +3,8 @@ import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
 
+import {getNewVersion} from './release-helper';
+
 const exec = promisify(require('child_process').exec);
 const read = promisify(require('vinyl-file').read);
 
@@ -72,16 +74,17 @@ export function componentsToUpdate() {
         callback(error);
       }
     }
-  )
+  );
 }
 
-export function updatePackageJsons(version) {
+export function updatePackageJsons() {
   return map(async ({component, dependencies}, callback) => {
     try {
       const packageJsonPath = path.join(component, 'package.json');
       const packageJsonFile = await read(packageJsonPath);
       const packageJsonContents = JSON.parse(packageJsonFile.contents.toString());
 
+      const version = await getNewVersion();
       packageJsonContents.version = version;
       for (let dependency of dependencies) {
         packageJsonContents.dependencies[dependency] = version;

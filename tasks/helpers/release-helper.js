@@ -23,6 +23,8 @@ function determineReleaseType(callback) {
   });
 }
 
+// getNewVersion is memoized to ensure that the value is consistent within a
+//   given process lifetime, even if additional commits are made
 var getNewVersion = _.memoize(function() {
   var deferred = q.defer();
 

@@ -1,11 +1,13 @@
 import {readArray, writeArray} from 'event-stream';
 import path from 'path';
-import {componentsToUpdate, updatePackageJsons} from '../../tasks/helpers/package-version-helper';
+
+const proxyquire = require('proxyquire').noPreserveCache();
 
 describe('componentsToUpdate', function() {
   let result;
 
   function getComponentsToUpdate(componentsWithChanges, callback) {
+    const {componentsToUpdate} = require('../../tasks/helpers/package-version-helper');
     const componentsToUpdateStream = readArray(componentsWithChanges)
       .pipe(componentsToUpdate());
 
@@ -15,6 +17,7 @@ describe('componentsToUpdate', function() {
     });
 
     componentsToUpdateStream.pipe(writeArray((err, data) => {
+      if (err) console.error(err);
       result = data;
       callback();
     }));
@@ -137,7 +140,7 @@ describe('componentsToUpdate', function() {
         'src/pivotal-ui-react/search-input/',
         'src/pivotal-ui/components/colors/',
         'src/pivotal-ui/components/dropdowns/',
-        'src/pivotal-ui/components/iconography/',
+        'src/pivotal-ui/components/iconography/'
       ], done);
     });
 
@@ -237,9 +240,13 @@ describe('updatePackageJsons', () => {
   const version = '1.10.10';
 
   beforeEach(done => {
+    const {componentsToUpdate, updatePackageJsons} = proxyquire('../../tasks/helpers/package-version-helper', {
+      './release-helper': {getNewVersion: () => new Promise((resolve) => resolve(version))}
+    });
+
     const updatePackageJsonsStream = readArray(['src/pivotal-ui/components/back-to-top/'])
       .pipe(componentsToUpdate())
-      .pipe(updatePackageJsons(version));
+      .pipe(updatePackageJsons());
 
     updatePackageJsonsStream.on('error', (error) => {
       console.error(error);
@@ -247,6 +254,7 @@ describe('updatePackageJsons', () => {
     });
 
     updatePackageJsonsStream.pipe(writeArray((err, data) => {
+      if (err) console.error(err);
       result = {};
       for (let file of data) {
         const key = path.relative(process.cwd(), file.path);
@@ -256,7 +264,7 @@ describe('updatePackageJsons', () => {
     }));
   });
 
-  it("updates each package marked to update", () => {
+  it('updates each package marked to update', () => {
     expect(Object.keys(result).length).toEqual(4);
     expect(Object.keys(result)).toEqual(jasmine.arrayContaining([
       'src/pivotal-ui-react/back-to-top/package.json',

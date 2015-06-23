@@ -57,6 +57,7 @@
     "node-sass": "^2.1.1",
     "npm": "^2.7.5",
     "object-assign": "^2.0.0",
+    "proxyquire": "^1.5.0",
     "pui-react-animation": "0.0.6",
     "q": "^1.0.1",
     "react": "0.13.3",

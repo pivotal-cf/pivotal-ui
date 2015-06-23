@@ -1,12 +1,10 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {log} from 'gulp-util';
-import {map, split, child, writeArray} from 'event-stream';
+import {map, split} from 'event-stream';
 import path from 'path';
 import reduce from 'stream-reduce';
 import {argv} from 'yargs';
 
-import {getNewVersion} from './helpers/release-helper';
 import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 
 function allComponents() {
@@ -28,17 +26,16 @@ function componentsWithChanges() {
       exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`, cb)
      ))
     .pipe(split())
-    .pipe(map((diffData, callback) => callback(null, diffData.trim().split(' ')[1])))
+    .pipe(map((diffData, callback) => callback(null, diffData.trim().split(' ')[1])));
 }
 
-gulp.task('update-package-versions', (done) => {
-  getNewVersion().then((newVersion) => {
-    const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
-    const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
+gulp.task('update-package-versions', () => {
+  const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
+  const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
 
-    componentsToUpdateStream
-    .pipe(updatePackageJsons(newVersion))
-    .pipe(gulp.dest('.'))
-    .on('end', done);
-  });
+  return componentsToUpdateStream
+    .pipe(updatePackageJsons())
+    .pipe(gulp.dest('.'));
 });
+
+
