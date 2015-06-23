@@ -7,8 +7,6 @@ var mergeStream = require('merge-stream');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 
-var {publish} = require('./helpers/packaging-helper');
-
 const componentsGlob = ['src/pivotal-ui/components/*', '!src/**/*.scss'];
 const buildFolder = 'dist/css';
 
@@ -76,5 +74,3 @@ gulp.task('css-build', callback => runSequence('css-clean', [
   'css-build-assets',
   'css-build-variables-and-mixins-package'
 ], callback));
-
-gulp.task('css-publish', ['css-build'], publish('css'));

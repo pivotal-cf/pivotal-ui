@@ -7,7 +7,7 @@ var path = require('path');
 var plugins = require('gulp-load-plugins')();
 var runSequence = require('run-sequence');
 var {componentDocs} = require('../helpers/documentation_helper');
-var {license, packageJson, publish} = require('./helpers/packaging-helper');
+var {license, packageJson} = require('./helpers/packaging-helper');
 
 const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const componentsGlob = 'src/pivotal-ui-react/*';
@@ -60,5 +60,3 @@ gulp.task('react-watch', ['react-build'], function() {
   gulp.watch('src/pivotal-ui-react/**/*.js', ['react-build-src']);
   gulp.watch('src/pivotal-ui-react/**/*.json', ['react-build-package-json']);
 });
-
-gulp.task('react-publish', ['react-build'], publish('react'));

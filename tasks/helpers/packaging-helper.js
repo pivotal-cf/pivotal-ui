@@ -1,8 +1,6 @@
-import {argv} from 'yargs';
 import File from 'vinyl';
 import fs from 'fs';
 import gulp from 'gulp';
-import npm from 'npm';
 import path from 'path';
 import through from 'through2';
 
@@ -40,38 +38,5 @@ export function packageJson(components, distFolder, packageTemplate) {
       });
     }))
     .pipe(gulp.dest(distFolder));
-  };
-}
-
-export function publish(type) {
-  return function(done) {
-    var component = argv.component;
-    if(!component) {
-      console.log('Usage: gulp publish --component=componentName');
-      console.log('You must be logged in to npm');
-      return;
-    }
-    console.log('Publishing', component);
-    var packageDir = path.resolve(__dirname, '..', '..', 'dist', type, component);
-    npm.load({}, function(error) {
-      if (error) {
-        console.error(error);
-        return;
-      }
-
-      npm.commands.publish([packageDir], function(error) {
-        if (error) {
-          console.error(error);
-        }
-        var owners = ['charleshansen', 'rdy', 'stubbornella', 'mattroyal', 'gpleiss'];
-        (function next() {
-          if (owners.length) {
-            npm.commands.owner(['add', owners.pop(), `pui-${type}-${component}`], next);
-          } else {
-            done();
-          }
-        })();
-      });
-    });
   };
 }
