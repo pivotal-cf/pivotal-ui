@@ -8,6 +8,8 @@ before_install:
 - sh -e /etc/init.d/xvfb start
 notifications:
   email: false
+  slack:
+    secure: ft6b+1ugcnFrl6qKNVyQboFBapRI+ci34kGu01O5mMF3WVOlDwJewSKQ2l3TkWrFlt6Ty2nSg8ynMT+iXbudZNPPqoBdKHHFTThu4BoqFoI1DJOSqOO/B7vgAZCgThUX+lqS+rv8pq/XkAi+0LmsBM/U2LLLPR3xaWw0vctP+ykKAU532bAAUZQ086gspMi3ylvqKbXsXqNOWCeKqUADplxuJx4hORV75RN509f6jUDLitaS//2/z117uxoehN52X+orO0TyCIE5OSXL/Zm7HKE4HJp0we+1n7BC3VyXWNlX8yw+e5QA8z9C0hvtqLCpkuEIT61pOM5hYAS5Z8FcOHc9hmqphsZiwL/Nosu25+9e2/XkvNSo9UvZ0VXcePlZQpTe9F/UDjou8ofouPIe7JIUUu19WX/XmK/31ux/bF3/DVbABccPQINMwAy+MZR4iKKBGjUhhcZPTSZDufoUn2u6jR310pbqfxVgPDFx92R5+/pou7ULwmNR46xFO0Xv59T3QR8HnoMnxth1DAu22nWM1ezYflLlp154IdxwyQlIwy46PJ7ZchP7yR+UP7S71Kvv1m7RQ05RXireShhkIykn1IchWgk64HaAWP82wJJvBzbAgC7RUuLfbGS2Q4C2XnvqyLmWtW8Lk55mIrayLYXiNJJss+R1TokywbvLgBM=
 deploy:
   edge: true
   provider: cloudfoundry
