@@ -89,7 +89,7 @@ var AlertNotifications = React.createClass({
     var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert h4 type-warn-2"></Icon> : null;
     var dropdownTitle = (
       <div className="dropdown-notifications-title">
-        <i className="fa fa-bell type-neutral-6 h2 mvn"></i>
+        <i className="fa fa-bell type-neutral-6 fa-h2 mvn"></i>
         {badge}
       </div>
     );
