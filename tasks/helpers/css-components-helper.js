@@ -5,24 +5,11 @@ import promisify from 'es6-promisify';
 import File from 'vinyl';
 import readmeTemplate from '../../templates/css/README';
 import packageTemplate from '../../templates/css/package.json';
+import packageJsonHelper from './package-json-helper';
 
 var readFile = promisify(fs.readFile);
 
-export function packageJson() {
-  return map(async (packageJsonOverridesFile, callback) => {
-    try {
-      const name = path.basename(path.dirname(packageJsonOverridesFile.path));
-      const finalContents = packageTemplate(name, JSON.parse(packageJsonOverridesFile.contents.toString()));
-      callback(null, new File({
-        contents: new Buffer(finalContents),
-        path: path.join(name, 'package.json')
-      }));
-    }
-    catch(e) {
-      callback(e);
-    }
-  });
-}
+export const packageJson = packageJsonHelper(packageTemplate);
 
 export function readme() {
   return map(async (folder, callback) => {

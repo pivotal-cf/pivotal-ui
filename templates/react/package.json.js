@@ -6,7 +6,7 @@ var packageTemplate = function(name, ...overrides) {
     main: `${name}.js`,
     repository: {
       type: 'git',
-      url: 'https://github.com/pivotal-cf/pivotal-ui-react.git'
+      url: 'https://github.com/pivotal-cf/pivotal-ui.git'
     },
     keywords: [
       'bootstrap',
@@ -17,9 +17,9 @@ var packageTemplate = function(name, ...overrides) {
     author: 'Pivotal Software, Inc',
     license: 'MIT',
     bugs: {
-      url: "https://github.com/pivotal-cf/pivotal-ui-react/issues"
+      url: "https://github.com/pivotal-cf/pivotal-ui/issues"
     },
-    homepage: "https://github.com/pivotal-cf/pivotal-ui-react",
+    homepage: "https://github.com/pivotal-cf/pivotal-ui",
     peerDependencies: {
       react: '^0.13.0'
     }

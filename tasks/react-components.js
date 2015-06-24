@@ -1,13 +1,14 @@
-var del = require('del');
-var highland = require('highland');
-var gulp = require('gulp');
-var packageTemplate = require('../templates/react/package.json');
-var readmeTemplate = require('../templates/react/README');
-var path = require('path');
+import license from './helpers/license-helper';
+import del from 'del';
+import highland from 'highland';
+import gulp from 'gulp';
+import readmeTemplate from '../templates/react/README';
+import path from 'path';
+import runSequence from 'run-sequence';
+import {componentDocs} from '../helpers/documentation_helper';
+import {packageJson} from './helpers/react-components-helper';
+
 var plugins = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
-var {componentDocs} = require('../helpers/documentation_helper');
-var {license, packageJson} = require('./helpers/packaging-helper');
 
 const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const componentsGlob = 'src/pivotal-ui-react/*';
@@ -21,9 +22,17 @@ gulp.task('react-build-src', function() {
     .pipe(gulp.dest(buildFolder));
 });
 
-gulp.task('react-build-license', license(componentsGlob, buildFolder));
+gulp.task('react-build-license', () =>
+  gulp.src(componentsGlob)
+    .pipe(license())
+    .pipe(gulp.dest(buildFolder))
+);
 
-gulp.task('react-build-package-json', packageJson(componentsGlob, buildFolder, packageTemplate));
+gulp.task('react-build-package-json', () =>
+  gulp.src('src/pivotal-ui-react/*/package.json')
+    .pipe(packageJson())
+    .pipe(gulp.dest(buildFolder))
+);
 
 gulp.task('react-build-readme', function() {
   return highland(gulp.src(componentsGlob))
@@ -55,8 +64,3 @@ gulp.task('react-build', callback => runSequence('react-clean', [
   'react-build-license',
   'react-build-readme'
 ], callback));
-
-gulp.task('react-watch', ['react-build'], function() {
-  gulp.watch('src/pivotal-ui-react/**/*.js', ['react-build-src']);
-  gulp.watch('src/pivotal-ui-react/**/*.json', ['react-build-package-json']);
-});
