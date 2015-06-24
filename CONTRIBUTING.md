@@ -133,7 +133,7 @@ This will ensure our conversation doesn't get lost in email or slack.
 
    ```bash
    git pull --rebase upstream master
-   git push origin head
+   git push origin <your branch name>
    ```
 
 1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
@@ -145,7 +145,7 @@ This will ensure our conversation doesn't get lost in email or slack.
 
    ```bash
    git pull --rebase upstream master
-   git push -f origin head
+   git push -f origin <your branch name>
    ```
 
 1. While you're waiting for your PR to be accepted, you can use your forked
