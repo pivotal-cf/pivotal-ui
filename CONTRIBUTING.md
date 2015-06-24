@@ -50,16 +50,17 @@ system already, but many of them are preinstalled on a Pivotal dev box.
 
 (Run all of these commands from the project root)
 
-ruby 2.1.2 
+ruby 2.1.2
 
-bundle
+bundler
 
-  $ gem install bundle
-    
-node and npm 
+  $ gem install bundler
 
-  $ brew install node
-    
+node and npm (at this time `nodejs` version `0.10` is required. Install
+[nvm](https://github.com/creationix/nvm) then use it to install node and npm.)
+
+  $ nvm install 0.10
+
 the gulp cli
 
   $ npm install gulp -g
@@ -179,7 +180,7 @@ independently, we have to be very explicit about inter-package dependencies.
 #### CSS components
 
 Some components rely on styles from other components. For example, inconography
-relies on typography and boostrap styles. Typography styles rely on bootstrap.  
+relies on typography and boostrap styles. Typography styles rely on bootstrap.
 We specify these dependencies in the `package.json` files for each component.
 Naming convention: `pui-css-<component-name>`.
 
@@ -384,7 +385,7 @@ For example, for a patch, your commit might look like this:
 ```
 fix(table): headers are now capitalized by default
 
-- sections 1 & 2 
+- sections 1 & 2
 ```
 and example of a breaking change might look like this:
 
@@ -437,7 +438,7 @@ Here are some guidelines to follow when writing docs for hologram:
   Check out "buttons" for a good way to organize the docs this way.
 
 - Parent components should belong to a category (or categories) and should not
-  have a parent. 
+  have a parent.
 
 - Child components should have a parent but not a category. See below for more
   [category](#categories) guidelines.
@@ -474,20 +475,20 @@ Parent component:
       - Elements
       - All
     ---
-  
+
     Button styles can be applied to any element. Typically you'll want to
     use either a `<button>` or an `<a>` element:
-  
+
     ```html_example_table
     <button class="btn btn-primary">Button</button>
-  
+
     <a class="btn btn-primary" href="http://trulia.com">Link</a>
     ```
-  
+
     If your button is actually a link to another page, please use the
     `<a>` element, while if your button performs an action, such as submitting
     a form or triggering some javascript event, then use a `<button>` element.
-  
+
     */
 
 Child component:
@@ -498,16 +499,16 @@ Child component:
     name: button_sizes
     parent: button
     ---
-  
+
     There are two sizes for buttons: Large and default. Simply apply the
     size modifier class for the desired size.
-  
+
     ```html_example_table
     <button class="btn btn-primary btn-lg">Large</button>
-  
+
     <button class="btn btn-primary">Default</button>
     ```
-  
+
     */
 
 ### README documentation - CSS components
