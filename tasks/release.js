@@ -1,43 +1,58 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {map, split, merge} from 'event-stream';
+import {map, merge} from 'event-stream';
 import path from 'path';
 import promisify from 'es6-promisify';
-import reduce from 'stream-reduce';
 import {argv} from 'yargs';
 import runSequence from 'run-sequence';
+import {Stream} from 'stream';
+import glob from 'glob';
 
 import {getVersionChanges, getNewVersion, releaseDest} from './helpers/release-helper';
 import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 
 const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
-
-function allComponents() {
-  return gulp.src(['src/pivotal-ui/components/*/package.json', 'src/pivotal-ui-react/*/package.json'])
-    .pipe(map((file, callback) => callback(null, path.relative(process.cwd(), path.dirname(file.path)) + path.sep)));
-}
+const globPromise = promisify(glob);
 
 function componentsWithChanges() {
-  const gitProcess = exec('git fetch && git describe --tags origin/master');
-  gitProcess.on('exit', (exitCode) => {
-    if (exitCode) {
-      throw 'There was a problem fetching the latest tag. Exited with code ${exitCode}. Have you added your git credentials?';
-    }
-  });
+  const stream = new Stream();
+  stream.readable = true;
 
-  return gitProcess.stdout
-    .pipe(reduce((memo, describeData) => describeData.split('-')[0], ''))
-    .pipe(map((lastTag, cb) =>
-      exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`, cb)
-     ))
-    .pipe(split())
-    .pipe(map((diffData, callback) => callback(null, diffData.trim().split(' ')[1])));
+  (async () => {
+    try {
+      const lastTag = (await execPromise('git fetch && git describe --tags origin/master')).split('-')[0];
+      const mixinsAndVariablesChanged = !!((await execPromise(`git diff --name-only HEAD..${lastTag} src/pivotal-ui/components/{mixins,pui-variables}.scss`)).trim().length);
+
+      let components;
+      if (argv.updateAll || mixinsAndVariablesChanged) {
+        components = (await globPromise('src/{pivotal-ui/components,pivotal-ui-react}/*/package.json')).map((packageJsonPath) => path.dirname(packageJsonPath));
+      }
+      else {
+        const diffResults = (await execPromise(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`)).trim();
+        components = diffResults.split('\n').map(diffResult => diffResult.trim().split(' ')[1]);
+      }
+
+      for (let component of components) {
+        stream.emit('data', component);
+      }
+    }
+
+    catch(error) {
+      stream.emit('error', error);
+    }
+
+    finally {
+      stream.emit('end');
+    }
+  })();
+
+  return stream;
 }
 
 gulp.task('release-update-package-versions', () => {
-  const baseSetOfComponents = argv.all ? allComponents() : componentsWithChanges();
-  const componentsToUpdateStream = baseSetOfComponents.pipe(componentsToUpdate());
+  const componentsToUpdateStream = componentsWithChanges()
+    .pipe(componentsToUpdate());
 
   return componentsToUpdateStream
     .pipe(updatePackageJsons())

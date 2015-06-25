@@ -4,6 +4,7 @@ import {map} from 'event-stream';
 import path from 'path';
 import promisify from 'es6-promisify';
 import npm from 'npm';
+import {gt} from 'semver';
 import {log} from 'gulp-util';
 
 const execPromise = promisify(exec);
@@ -15,11 +16,11 @@ function infoForUpdatedPackages() {
 
     try {
       const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
-      if (localVersion === publishedVersion) {
-        callback(); // skip it
+      if (gt(localVersion, publishedVersion)) {
+        callback(null, {name: name, dir: path.dirname(file.path)});
       }
       else {
-        callback(null, {name: name, dir: path.dirname(file.path)});
+        callback(); // skip it
       }
     }
     catch(e) {

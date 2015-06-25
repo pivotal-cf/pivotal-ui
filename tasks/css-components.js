@@ -47,7 +47,7 @@ gulp.task('css-build-variables-and-mixins-package', function() {
       .pipe(plugins.rename({basename: 'README'})),
     plugins.file('package.json', JSON.stringify({
       name: 'pui-css-variables-and-mixins',
-      version: '0.0.1',
+      version: require('../package.json').version,
       repository: {
         type: 'git',
         url: 'https://github.com/pivotal-cf/pivotal-ui.git'
