@@ -1,8 +1,8 @@
 {
   "homepage": "http://styleguide.pivotal.io/elements.html#button",
   "dependencies": {
-    "pui-css-bootstrap": "*",
-    "pui-css-typography": "*"
+    "pui-css-bootstrap": "1.9.0",
+    "pui-css-typography": "1.9.0"
   },
-  "version": "0.0.4"
+  "version": "1.9.0"
 }

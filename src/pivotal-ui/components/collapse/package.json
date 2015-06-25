@@ -1,7 +1,7 @@
 {
   "homepage": "http://styleguide.pivotal.io/section.html#collapse",
   "dependencies": {
-    "pui-css-bootstrap": "*"
+    "pui-css-bootstrap": "1.9.0"
   },
-  "version": "0.0.3"
+  "version": "1.9.0"
 }

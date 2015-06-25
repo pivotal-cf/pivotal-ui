@@ -1,3 +1,37 @@
+<a name="1.9.0"></a>
+## 1.9.0 (2015-06-24)
+
+
+#### Bug Fixes
+
+* **colors:** Fixes typo in color style guide for `accent-1`. ((27486ab1))
+* **contributor-workflow:** remove unnecessary console.log ((8b075483))
+* **iconography:** Add line height to fa-h1 through fa-h6 ((f036f7ed))
+* **notifications:** Fix h2 styling on AlertNotification component. ((3e715ac6))
+* **packages:**
+  * add missing license content to all react components ((5227c326), closes (#97441574))
+  * add missing license content to all css components ((9bdd6361))
+* **packaging:** add license to pui-css-bootstrap module ((8c852585), closes (#95916290))
+* **panel:** panel whitespace should support 'none' value ((f34fd1d7))
+* **react-bootstrap:** lock react-bootstrap to a non-broken version ((d93dd4c1), closes (#97155534))
+* **react-dropdown:** Add documentation of the buttonClassName property ((70f786c5))
+* **vendor-package:** temp fix for ci error ((448d820e))
+
+
+#### Features
+
+* **contributor-workflow:**
+  * add command to copy vendored PUI packages to projects ((8538ef3d))
+  * improve contributor workflow for react components ((f15b66d7))
+  * improve contributor workflow for css components ((1d8813c5))
+* **iconography:** Add fa-h1 through fa-h6 and friends ((1ccab00d))
+* **portals:** Add Portals React component to styleguide ((77ca252b))
+* **react-iconography:** add size options to iconography ((5e14a234))
+* **styleguide:**
+  * Add product designer job req [#97262154] ((df234e85))
+  * update bitly link to correct url ((699e23a8))
+  * shiny new intro page ((31b3d0b7))
+
 <a name="1.8.0"></a>
 ## 1.8.0 (2015-05-28)
 
