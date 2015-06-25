@@ -1,6 +1,7 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {map} from 'event-stream';
+import {map, pipeline} from 'event-stream';
+import reduce from 'stream-reduce';
 import path from 'path';
 import promisify from 'es6-promisify';
 import npm from 'npm';
@@ -11,44 +12,53 @@ const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
 
 function infoForUpdatedPackages() {
-  return map(async (file, callback) => {
-    const {name, version: localVersion} = JSON.parse(file.contents.toString());
+  return pipeline(
+    map(async (file, callback) => {
+      const {name, version: localVersion} = JSON.parse(file.contents.toString());
 
-    try {
-      const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
-      if (gt(localVersion, publishedVersion)) {
-        callback(null, {name: name, dir: path.dirname(file.path)});
+      try {
+        const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
+        if (gt(localVersion, publishedVersion)) {
+          callback(null, {name: name, dir: path.dirname(file.path)});
+        }
+        else {
+          callback(); // skip it
+        }
       }
-      else {
-        callback(); // skip it
+      catch(e) {
+        if (e.message.match(/Not Found/)) {
+          log(`Warning: ${name} is not published`);
+          callback();
+        }
+        else {
+          callback(e);
+        }
       }
-    }
-    catch(e) {
-      if (e.message.match(/Not Found/)) {
-        log(`Warning: ${name} is not published`);
-        callback();
-      }
-      else {
-        callback(e);
-      }
-    }
-  });
+    }),
+
+    reduce((packageInfos, packageInfo) => {
+      packageInfos.push(packageInfo);
+      return packageInfos;
+    }, [])
+  );
 }
 
 function publishPackages() {
-  return map(async (packageInfo, callback) => {
+  return map(async (packageInfos, callback) => {
     try {
       await npmLoad({});
 
       const npmPublish = promisify(npm.commands.publish);
       const npmOwner = promisify(npm.commands.owner);
 
-      log('Publishing', packageInfo.name);
-      await npmPublish([packageInfo.dir]);
+      for (const packageInfo of packageInfos) {
+        log('Publishing', packageInfo.name);
+        await npmPublish([packageInfo.dir]);
 
-      const owners = ['gpleiss', 'mattroyal', 'stubbornella'];
-      for (const owner of owners) {
-        await npmOwner(['add', owner, packageInfo.name]);
+        const owners = ['gpleiss', 'mattroyal', 'stubbornella'];
+        for (const owner of owners) {
+          await npmOwner(['add', owner, packageInfo.name]);
+        }
       }
       callback();
     }
