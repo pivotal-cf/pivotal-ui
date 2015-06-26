@@ -1,8 +1,7 @@
 import axios from 'axios';
 import promisify from 'es6-promisify';
 
-export async function addReleaseNotesToLatest(versionChanges) {
-  const tagName = `v${require('../../package.json').version}`;
+export async function addReleaseNotesToTag(tagName, versionChanges) {
   const releaseId = (await axios.get(`https://api.github.com/repos/pivotal-cf/pivotal-ui/releases/tags/${tagName}`)).data.id;
 
   return axios.patch(
