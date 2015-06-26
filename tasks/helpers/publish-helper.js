@@ -1,5 +1,4 @@
 import {exec} from 'child_process';
-import gulp from 'gulp';
 import {map, pipeline} from 'event-stream';
 import reduce from 'stream-reduce';
 import path from 'path';
@@ -11,7 +10,7 @@ import {log} from 'gulp-util';
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
 
-function infoForUpdatedPackages() {
+export function infoForUpdatedPackages() {
   return pipeline(
     map(async (file, callback) => {
       const {name, version: localVersion} = JSON.parse(file.contents.toString());
@@ -43,7 +42,7 @@ function infoForUpdatedPackages() {
   );
 }
 
-function publishPackages() {
+export function publishPackages() {
   return map(async (packageInfos, callback) => {
     try {
       await npmLoad({});
@@ -68,9 +67,3 @@ function publishPackages() {
     }
   });
 }
-
-gulp.task('release-publish', ['css-build', 'react-build'], () =>
-  gulp.src('dist/{css,react}/*/package.json')
-    .pipe(infoForUpdatedPackages())
-    .pipe(publishPackages())
-);
