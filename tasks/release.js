@@ -1,6 +1,6 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {map, merge} from 'event-stream';
+import {merge} from 'event-stream';
 import path from 'path';
 import promisify from 'es6-promisify';
 import {argv} from 'yargs';
@@ -8,6 +8,8 @@ import runSequence from 'run-sequence';
 import {Stream} from 'stream';
 import glob from 'glob';
 import {log} from 'gulp-util';
+import through from 'through2';
+import File from 'vinyl';
 
 import {getVersionChanges, getNewVersion, releaseDest} from './helpers/release-helper';
 import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
@@ -62,15 +64,21 @@ gulp.task('release-update-package-versions', () => {
 });
 
 gulp.task('release-generate-changelog', function() {
-  return gulp.src('CHANGELOG.md')
-    .pipe(map(async (changelog, callback) => {
+  return gulp.src(['CHANGELOG.md'])
+    .pipe(through.obj(async function(changelog, _, callback) {
       try {
-        const oldChangelog = changelog.contents.toString();
         const versionChanges = await getVersionChanges();
+
+        const oldChangelog = changelog.contents.toString();
         changelog.contents = new Buffer(versionChanges + oldChangelog);
-        callback(null, changelog);
+        this.push(changelog);
+
+        const latestChangesFile = new File({path: 'LATEST_CHANGES.md', contents: new Buffer(versionChanges)});
+        this.push(latestChangesFile);
+        callback();
       }
-      catch (error) {
+      catch(error) {
+        console.error(error);
         callback(error);
       }
     }))
