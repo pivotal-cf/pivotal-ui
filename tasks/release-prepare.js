@@ -128,6 +128,7 @@ gulp.task('release-commit', () =>
     .then((version) => execPromise(
       `git add package.json \
                CHANGELOG.md \
+               LATEST_CHANGES.md \
                src/pivotal-ui/components/*/package.json \
                src/pivotal-ui-react/*/package.json \
                release/ \
