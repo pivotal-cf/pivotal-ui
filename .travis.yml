@@ -30,3 +30,6 @@ deploy:
     on:
       repo: pivotal-cf/pivotal-ui
       tags: true
+after_deploy:
+  - gulp release-add-release-notes
+  
