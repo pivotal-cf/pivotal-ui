@@ -1,51 +1,53 @@
 # Core Team Docs
 
+## Environments
+
+- Staging: [http://styleguide-staging.cfapps.io](http://styleguide-staging.cfapps.io) - org: pivotal, space: pivotal-ui-staging
+- Production: [http://styleguide.pivotal.io](http://styleguide.pivotal.io) - org: pivotal, space: pivotal-ui
+
 ## Setting up your environment
 
-See the [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#setting-up-your-environment) for detailed instructions.
+See the [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#setting-up-your-environment)
+for detailed instructions.
 
 ## CI
 
 We use [Travis CI](https://travis-ci.org/pivotal-cf/pivotal-ui).
 
-**Email:** labs-pivotal-ui@pivotal.io
-
 ## Deploying the styleguide
 
-The styleguide deploys automatically when your changes are merged into master on github and all the tests go green on Travis CI.
-So, you won't need to do anything here.
-
-Travis will deploy to <http://styleguide.pivotal.io>.
-
-### If you need to deploy manually (you most likely do not)
-
-    $ cf push -f manifest.yml
+The staging styleguide deploys automatically when your changes are merged into
+master on github and all the tests go green on Travis CI.  The production
+styleguide deploys as part of the release process (see below).
 
 ## Creating a new release
-1. Create a [github access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
-(Be sure to copy it to your clipboard)
 
-1. Make sure you are on master, and that you have no local changes.
-
-1. Set the `RELEASE_TOKEN` environment variable to your github access token.
-```
-export RELEASE_TOKEN=<Your release token>
-```
-
-1. Run `gulp release`. This will:
+1. Run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
   - Updates the version in `package.json`
+  - Updates the version in `package.json` for all changed pui modules, and all
+    of their dependents.
   - Updates `CHANGELOG.md` with auto-generated release notes
+  - Updates `LATEST_CHANGES.md` with auto-generated release notes for the most
+    recent change only
+  - Creates the `release/pui-vX.X.X` folder
+  - Creates a commit with all these changes
+
+
+1. If you want to bump the versions of all components, not just changed
+   packages, run `gulp release-prepare --update-all` instead of the step above.
+
+1. If you want to make any changes (e.g. add more docs to the changelog, modify
+   a version number, etc.), do that now and make a new commit.
+
+1. Run `gulp ci` - one final check!
+
+1. Run `gulp release-push`. This will:
   - Creates a tag for the new version
   - Pushes version bump and new tag to github
-  - Creates `pui-vX.X.X.zip` in the root directory
   - Creates a draft github release with the auto-generated release notes
-  - Uploads the `variables.scss` file to the release
-
-1. In github, upload `pui-vX.X.X.zip` to the release.
+  - Publishes all of the updated node packages to npm
 
 1. Be sure to name the release an ice cream flavor.
-
-1. When satisfied with the release notes, publish!
 
 ![](http://images2.fanpop.com/images/photos/3600000/Lucille-Animated-gif-arrested-development-3695222-275-155.gif)
