@@ -3,6 +3,7 @@ import {exec} from 'child_process';
 import promisify from 'es6-promisify';
 import gulp from 'gulp';
 import {infoForUpdatedPackages, publishPackages} from './helpers/publish-helper';
+import runSequence from 'run-sequence';
 
 const execPromise = promisify(exec);
 

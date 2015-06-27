@@ -10,7 +10,7 @@ gulp.task('release-zip', () => {
 
   if (!tagName) {
     log('Skipping - because we did not cut a new release');
-    return;
+    return null;
   }
 
   return gulp.src(`release/pui-${tagName}/**/*`, {base: 'release/'})
@@ -23,12 +23,12 @@ gulp.task('release-add-release-notes', () => {
 
   if (!tagName) {
     log('Skipping - because we did not cut a new release');
-    return;
+    return null;
   }
 
   if (!process.env.RELEASE_TOKEN) {
     log('Skipping - please set the RELEASE_TOKEN env var');
-    return;
+    return null;
   }
 
   return gulp.src('LATEST_CHANGES.md')
