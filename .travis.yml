@@ -4,7 +4,6 @@ node_js:
 sudo: true
 before_install:
 - bundle install
-- npm install -g gulp
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 notifications:
@@ -14,14 +13,20 @@ notifications:
 before_deploy:
 - gulp release-zip
 deploy:
-  edge: true
-  provider: cloudfoundry
-  api: https://api.run.pivotal.io
-  username: labs-pivotal-ui@pivotal.io
-  password:
-    secure: NJtQlPaxEfDUEwPl49HQWtTL8LqErCxwK+fCPmC37ZVHMPHcfi8vQ2g3qZJvv73q783zKoZRdI/TzgI/8jqdzK1Djgf5dElz78C7/3NmiWkDh1Lomt93b+qEepyddVInNCVsYu1UBWS2aouY2Z+q4B74voqKJI46ROAAbxQ32dD5eYzHjfxL7RybLidgGXPHoFnRbvphpPGgbGtYBpGQEBcgRrnOOu96a8W1rl2QJ+MEpez2xSMUVT7BlrMNN0nqzSWjtdHFE6Ed7SCVwgy15PNARbl5w5bILWaR+HJ6HBTRb562c1SwcgB+Vtue4tsyPl+Orx6gZ9kqcIbRpYMQv5tQ3jAdgitNPnhMF+H+OedZA95Kz3GlBi8FjEPogYbLVmgi9ecoBSCtoCUVKQ9PHOBMYRInZj3PohxsPCd+jhyDu1il2CSRGz7xyjuS5ybRCD8hfHkl/n7XcqiJ24tW5WFYtXllVdwuh1tnrqJcrJPujeKcHR5AISy4iN8QRv5Myn/Nli/Oa5cEuNHyfIFcieviTuon9AmCVj51fx4Z8NLaf1Pei8BTyp3rNS2UBud7oQFEyTc5b+1zi/WDQ4ejZSSrMEyk/AJsGassJKceMX5E0cC6pKDaIBQglBoGPKeQ93DWwH9YhPbNMIiKm7EtWmra+cW3roO74vDd8lRA0co=
-  organization: pivotal
-  space: pivotal-ui
-  on:
-    repo: pivotal-cf/pivotal-ui
-    branch: master
+  - provider: cloudfoundry
+    api: https://api.run.pivotal.io
+    username: pivotal-ui@pivotal.io
+    password:
+      secure: gHmcewGbR/rNN8mYej9Sr33fwkcv2eEQ/Bf3rbgsjuRcZH2o9+9j/85BxwGT41NwPfB0wX1I9RC8Gz6SHwFio1IRCR/Y1z/Jzfs1h40JwFzzN1HkFwAxdd5+61pDHOxDl7tqDoqLo5PB820QUiQ0QhZTsWsNhYoX/+u0pO/o/oACFA29wf3QTMyOYGt+ImpMRqQcNwsBHZYPHqc2twmjNLNyH3Zps+RXtnZUWY6FrfcuIbYezsfwdC2Q8pN5hRdIJ1XGLcmZYLYUYgDIAxLcY5/E6Ht6jirCgXjoy3V0Zd3iCuXZnmf9mpAvaDycKK4ZRi63gdbmzzZiPOC2/sbE2Rwk9T6v6Wci9iVJketncYd4r6ofKn0Zvm8ZzP74NuU8pOEpDXGzK+7lEtTYglO3np2gn4HRSzDI/ANirtPzW/EgD3QRkmMu7XcnvUYEusSRjYCGe3P270a2D2t/fDlYV/96Dft/7F9HNhQJVqzlUWqitO7La+kNRrGI9dCSoKUxESbtobTzrb5HG93C0YCegMnsyfJ8yRMq/8Ya9FEQEoqkZRGS6zQPwmOimQl+AuinKC3WxNPUxpfn2A1tjYOouJK+HUumNzsRLvCxQo3bMhyKD5Rx44SVQfungsWA35Zd2hEZ75YJAJ2nJqOnFSf3b71S4OR965je31m+vDMGzXo=
+    organization: pivotal
+    space: pivotal-ui-staging
+    on:
+      repo: pivotal-cf/pivotal-ui
+      branch: master
+  - provider: releases
+    api_key:
+      secure: FEY0UlBt+Rix+8LiEgNXBQUk2Jv2zpKjDCnWjPCVzRhgngDmLmxqmi0NoWqLXQ7LNqXdjVKqqYbhndOL5bJxTPyFG5kqPutVYM79iAXUSFQ3To6U57N4Bv7JeD6u97hWEw9c4VfwyysdPjop1a9ppRik6fuiPd6PBPRpPHeoFTe9azJ009KhFi5O4HGHHjWNRuZluZxoDMrHi5NBYdhxtzxEiG9aIvGgwrO6us+sdhd2CwqTV+mRxi2hmnxkK3myPSuQZWzk0M2CgXE90WwqzgcW9dp4nOKYiFYLcdwE6e9VKJMntNMv9Fy/4yyb7Q48IVoVNu5xD/jsAjydFTnowQhk7qtNjFMlMhJaVnnoflCZ9uF0Q0mXpy80G5QfqP07JRvKz49DSqiG2x1ZM+6hCnNnRg74bis1aKw0TBh2ClV5K6CYHX+b2iXVz2Hkdutlxm0mWRr7mA7GQIQXUaTW3EHXnUSOYFVBvDZSZ0zGnPX2dkQYev2j3nqAsCPl6MvmkesUusIR15GbxMtfJksa3Zrtz/68lML4bvshqHvzeUpser70FifWkA5R4Rpo/PO8b0ddRR7/K7mNovOI60mgwBKKFgEBzBIKBl/1LLrUNOFZdefglgQOHRNi5SGyOzwV2zCs4Yfw6XHRUmgyMKzVdC0VL9c+WOtc5cy7DTRGauk=
+    file: pui.zip
+    on:
+      repo: pivotal-cf/pivotal-ui
+      tags: true
