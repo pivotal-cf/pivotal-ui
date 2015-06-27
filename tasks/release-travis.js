@@ -26,9 +26,14 @@ gulp.task('release-add-release-notes', () => {
     return;
   }
 
+  if (!process.env.RELEASE_TOKEN) {
+    log('Skipping - please set the RELEASE_TOKEN env var');
+    return;
+  }
+
   return gulp.src('LATEST_CHANGES.md')
     .pipe(map(async (latestChangesFile, callback) => {
-      log('Updating release notes...');
+      log(`Updating release notes for ${tagName}...`);
       try {
         await addReleaseNotesToTag(tagName, latestChangesFile.contents.toString());
         callback();
