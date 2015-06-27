@@ -1,8 +1,8 @@
 {
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "A collection of React components that provide standard typographical headers",
   "homepage": "http://styleguide.pivotal.io/react_beta.html#type_react",
   "dependencies": {
-    "pui-css-typography": "1.9.0"
+    "pui-css-typography": "1.9.1"
   }
 }
