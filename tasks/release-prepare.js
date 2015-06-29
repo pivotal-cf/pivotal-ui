@@ -1,21 +1,27 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {merge} from 'event-stream';
+import {merge, map} from 'event-stream';
+import series from 'stream-series';
 import path from 'path';
 import promisify from 'es6-promisify';
 import {argv} from 'yargs';
 import runSequence from 'run-sequence';
 import {Stream} from 'stream';
 import glob from 'glob';
-import through from 'through2';
-import File from 'vinyl';
+import changelog from 'conventional-changelog';
+import {log} from 'gulp-util';
+import source from 'vinyl-source-stream';
+import semver from 'semver';
 
-import {getVersionChanges, getNewVersion, releaseDest} from './helpers/release-helper';
+import {releaseDest} from './helpers/release-helper';
+import {getNewVersion} from './helpers/version-helper';
 import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
+import {commitTransform} from './helpers/changelog-helper';
 
 const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
 const globPromise = promisify(glob);
+const recommendedBump = promisify(require('conventional-recommended-bump'));
 
 function componentsWithChanges() {
   const stream = new Stream();
@@ -52,6 +58,27 @@ function componentsWithChanges() {
   return stream;
 }
 
+gulp.task('release-update-version', (done) => {
+  gulp.src('package.json')
+    .pipe(plugins.plumber())
+    .pipe(map(async (file, callback) => {
+      try {
+        const jsonContents = JSON.parse(file.contents.toString());
+        const versionBumpType = await recommendedBump({preset: 'angular'});
+        jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
+        file.contents = new Buffer(JSON.stringify(jsonContents, null, 2));
+        callback(null, file);
+      }
+      catch(e) { callback(e); }
+    }))
+    .pipe(gulp.dest('.'))
+    .on('end', () => {
+      delete require.cache[path.join(process.cwd(), 'package.json')];
+        // Ensure that we can get the new package version this way
+      done();
+    });
+});
+
 gulp.task('release-update-package-versions', () => {
   const componentsToUpdateStream = componentsWithChanges()
     .pipe(componentsToUpdate());
@@ -61,25 +88,25 @@ gulp.task('release-update-package-versions', () => {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('release-generate-changelog', function() {
-  return gulp.src(['CHANGELOG.md'])
-    .pipe(through.obj(async function(changelog, _, callback) {
-      try {
-        const versionChanges = await getVersionChanges();
+gulp.task('release-generate-changelog', () => {
+  const newChangesStream = changelog(
+    {preset: 'angular', warn: log},
+    {},
+    {},
+    {noteKeywords: ['BREAKING CHANGE', 'DEPRECATION WARNING']},
+    {transform: commitTransform}
+  );
 
-        const oldChangelog = changelog.contents.toString();
-        changelog.contents = new Buffer(versionChanges + oldChangelog);
-        this.push(changelog);
+  const oldChangesStream = gulp.src('CHANGELOG.md')
+    .pipe(map((file, cb) => cb(null, file.contents)));
 
-        const latestChangesFile = new File({path: 'LATEST_CHANGES.md', contents: new Buffer(versionChanges)});
-        this.push(latestChangesFile);
-        callback();
-      }
-      catch(error) {
-        console.error(error);
-        callback(error);
-      }
-    }))
+  const latestChangesFileStream = newChangesStream
+    .pipe(source('LATEST_CHANGES.md'));
+
+  const changelogFileStream = series(newChangesStream, oldChangesStream)
+    .pipe(source('CHANGELOG.md'));
+
+  return merge(changelogFileStream, latestChangesFileStream)
     .pipe(gulp.dest('.'));
 });
 
@@ -124,20 +151,20 @@ gulp.task('release-generate-release-folder', ['monolith'], () => {
 });
 
 gulp.task('release-commit', () =>
-  getNewVersion()
-    .then((version) => execPromise(
-      `git add package.json \
-               CHANGELOG.md \
-               LATEST_CHANGES.md \
-               src/pivotal-ui/components/*/package.json \
-               src/pivotal-ui-react/*/package.json \
-               release/ \
-         && git commit -m "v${version}"`
-    ))
+  execPromise(
+    `git add package.json \
+             CHANGELOG.md \
+             LATEST_CHANGES.md \
+             src/pivotal-ui/components/*/package.json \
+             src/pivotal-ui-react/*/package.json \
+             release/ \
+       && git commit -m "v${getNewVersion()}"`
+  )
 );
 
 gulp.task('release-prepare', (done) =>
   runSequence(
+    'release-update-version',
     [
       'release-update-package-versions',
       'release-generate-changelog',

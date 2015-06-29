@@ -241,7 +241,7 @@ describe('updatePackageJsons', () => {
 
   beforeEach(done => {
     const {componentsToUpdate, updatePackageJsons} = proxyquire('../../tasks/helpers/package-version-helper', {
-      './release-helper': {getNewVersion: () => new Promise((resolve) => resolve(version))}
+      './version-helper': {getNewVersion: () => version}
     });
 
     const updatePackageJsonsStream = readArray(['src/pivotal-ui/components/back-to-top/'])

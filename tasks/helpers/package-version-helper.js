@@ -3,7 +3,7 @@ import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
 
-import {getNewVersion} from './release-helper';
+import {getNewVersion} from './version-helper';
 
 const exec = promisify(require('child_process').exec);
 const read = promisify(require('vinyl-file').read);
@@ -84,7 +84,7 @@ export function updatePackageJsons() {
       const packageJsonFile = await read(packageJsonPath);
       const packageJsonContents = JSON.parse(packageJsonFile.contents.toString());
 
-      const version = await getNewVersion();
+      const version = getNewVersion();
       packageJsonContents.version = version;
       for (let dependency of dependencies) {
         packageJsonContents.dependencies[dependency] = version;
