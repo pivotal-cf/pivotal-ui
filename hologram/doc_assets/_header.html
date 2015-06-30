@@ -21,9 +21,13 @@
       })();
     </script>
 
-    <script src="pivotal-ui-react.js"></script>
+    <% if file_name == 'react_beta.html' %>
+      <script src="pivotal-ui-react.js"></script>
+      <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <% else %>
+      <script src="pivotal-ui.js"></script>
+    <% end %>
     <script src="zeroclipboard/ZeroClipboard.js"></script>
-    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
     <script src="styleguide/styleguide.js"></script>
 
     <script>
