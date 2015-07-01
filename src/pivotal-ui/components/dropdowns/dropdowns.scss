@@ -276,7 +276,7 @@ This is a notification dropdown with alerts.
   <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
     <div class="dropdown-notifications-title">
       <i class="fa fa-bell"></i>
-      <i class="fa fa-exclamation-triangle dropdown-notifications-alert type-warn-2"></i>
+      <i class="fa fa-exclamation-triangle dropdown-notifications-alert"></i>
     </div>
   </button>
   <ul class="dropdown-menu" role="menu">
@@ -364,6 +364,7 @@ This is a notification dropdown with alerts.
   position: absolute;
   top: -6px;
   right: 6px;
+  color: $notifications-alert-default-color;
 }
 
 .dropdown-notifications-list {
