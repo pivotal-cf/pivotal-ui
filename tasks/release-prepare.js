@@ -4,59 +4,20 @@ import {merge, map} from 'event-stream';
 import series from 'stream-series';
 import path from 'path';
 import promisify from 'es6-promisify';
-import {argv} from 'yargs';
 import runSequence from 'run-sequence';
-import {Stream} from 'stream';
-import glob from 'glob';
 import changelog from 'conventional-changelog';
 import {log} from 'gulp-util';
 import source from 'vinyl-source-stream';
 import semver from 'semver';
 
-import {releaseDest} from './helpers/release-helper';
+import {releaseDest} from './helpers/release-folder-helper';
 import {getNewVersion} from './helpers/version-helper';
-import {componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
+import {componentsWithChanges, componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 import {commitTransform} from './helpers/changelog-helper';
 
 const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
-const globPromise = promisify(glob);
 const recommendedBump = promisify(require('conventional-recommended-bump'));
-
-function componentsWithChanges() {
-  const stream = new Stream();
-  stream.readable = true;
-
-  (async () => {
-    try {
-      const lastTag = (await execPromise('git fetch && git describe --tags origin/master')).split('-')[0];
-      const mixinsAndVariablesChanged = !!((await execPromise(`git diff --name-only HEAD..${lastTag} src/pivotal-ui/components/{mixins,pui-variables}.scss`)).trim().length);
-
-      let components;
-      if (argv.updateAll || mixinsAndVariablesChanged) {
-        components = (await globPromise('src/{pivotal-ui/components,pivotal-ui-react}/*/package.json')).map((packageJsonPath) => path.dirname(packageJsonPath));
-      }
-      else {
-        const diffResults = (await execPromise(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`)).trim();
-        components = diffResults.split('\n').map(diffResult => diffResult.trim().split(' ')[1]);
-      }
-
-      for (let component of components) {
-        stream.emit('data', component);
-      }
-    }
-
-    catch(error) {
-      stream.emit('error', error);
-    }
-
-    finally {
-      stream.emit('end');
-    }
-  })();
-
-  return stream;
-}
 
 gulp.task('release-update-version', (done) => {
   gulp.src('package.json')
