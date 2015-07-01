@@ -137,29 +137,60 @@ h4, .h4, h5, .h5, h6, .h6 {
 
 // We handle font-weight here, bootstrap handles font-size and color
 
-h1, .h1 {
+h1 {
   //If you add new h1 styles, make sure to update the h1 mixin
   font-weight: $font-weight-h1;
 }
 
-h2, .h2 {
+h2 {
   font-weight: $font-weight-h2;
 }
 
-h3, .h3 {
+h3 {
   font-weight: $font-weight-h3;
 }
 
-h4, .h4 {
+h4 {
   font-weight: $font-weight-h4;
 }
 
-h5, .h5 {
+h5 {
   font-weight: $font-weight-h5;
 }
 
-h6, .h6 {
+h6 {
   font-weight: $font-weight-h6;
+}
+
+
+.h1 {
+  font-size: $font-size-h1 !important;
+  font-weight: $font-weight-h1 !important;
+}
+
+.h2 {
+  font-size: $font-size-h2 !important;
+  font-weight: $font-weight-h2 !important;
+}
+
+.h3 {
+  font-size: $font-size-h3 !important;
+  font-weight: $font-weight-h3 !important;
+}
+
+.h4 {
+  font-size: $font-size-h4 !important;
+  font-weight: $font-weight-h4 !important;
+}
+
+.h5 {
+  font-size: $font-size-h5 !important;
+  font-weight: $font-weight-h5 !important;
+}
+
+.h6 {
+  font-size: $font-size-h6 !important;
+  font-weight: $font-weight-h6 !important;
 }
 
 small,
