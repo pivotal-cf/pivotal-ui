@@ -39,7 +39,7 @@ var Notifications = React.createClass({
     var badge = children ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
     var dropdownTitle = (
       <div className="dropdown-notifications-title">
-        <i className="fa fa-bell type-neutral-6 h2 mvn"></i>
+        <i className="fa fa-bell"></i>
         {badge}
       </div>
     );

@@ -207,10 +207,12 @@ parent: dropdown
 This is a notification dropdown with no notifications.
 
 ```html_example
-<div class="dropdown btn-group">
-  <a data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
-    <i class="fa fa-bell type-neutral-6 h2 mvn mrm"></i>
-  </a>
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+    </div>
+  </button>
   <ul class="dropdown-menu" role="menu">
     <li role="presentation">
       <div class="dropdown-notifications-none">
@@ -225,9 +227,91 @@ This is a notification dropdown with no notifications.
 This is a notification dropdown with notifications.
 
 ```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <span class="dropdown-notifications-badge">2</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-1">Notification</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-1">Pivotal-CF</h5>
+            <p class="type-sm type-neutral-5 mvn">1 New File Available</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+This is a notification dropdown with alerts.
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <i class="fa fa-exclamation-triangle dropdown-notifications-alert type-warn-2"></i>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <i class="fa fa-exclamation-triangle type-warn-2 mrm"></i>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-1">Warning</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-danger mbxl">
+  <h5 class="em-high mtn">
+    Deprecation warning
+  </h5>
+  <p>
+    The example below shows the old markup for notifications alerts. It will
+    not be supported in the next major release. Please change your notifications
+    to match the examples above.
+  </p>
+</div>
+
+```html_example
 <div class="dropdown btn-group">
   <a data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
-    <i class="fa fa-bell type-neutral-6 h2 mvn"></i>
+    <i class="fa fa-bell type-neutral-6 mvn h2"></i>
     <span class="dropdown-notifications-badge">2</span>
   </a>
   <ul class="dropdown-menu dropdown-notifications-list" role="menu">
@@ -260,83 +344,26 @@ This is a notification dropdown with notifications.
   </ul>
 </div>
 ```
-
-This is a notification dropdown with alerts.
-
-```html_example
-<div class="dropdown btn-group">
-  <a data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
-    <i class="fa fa-bell type-neutral-6 h2 mvn"></i>
-    <i class="fa fa-exclamation-triangle h4 type-warn-2 dropdown-notifications-alert"></i>
-  </a>
-  <ul class="dropdown-menu dropdown-notifications-list" role="menu">
-    <li role="presentation">
-      <a role="menuitem" href="https://twitter.com/fat">
-        <div class="media man pan">
-          <div class="media-left media-middle">
-            <i class="fa fa-exclamation-triangle type-warn-2 h4 mrm"></i>
-          </div>
-          <div class="media-body media-middle">
-            <h5 class="media-heading mbn type-dark-1">Product One</h5>
-            <p class="type-sm type-neutral-5 mvn">1 alert</p>
-          </div>
-        </div>
-      </a>
-    </li>
-    <li role="presentation">
-      <a role="menuitem" href="https://twitter.com/fat">
-        <div class="media man pan">
-          <div class="media-left media-middle">
-            <i class="fa fa-exclamation-triangle type-warn-2 h4 mrm"></i>
-          </div>
-          <div class="media-body media-middle">
-            <h5 class="media-heading mbn type-dark-1">Product Two</h5>
-            <p class="type-sm type-neutral-5 mvn">2 alerts</p>
-          </div>
-        </div>
-      </a>
-    </li>
-  </ul>
-</div>
-
-```
-
 */
 
-.dropdown-notifications-none {
-  width: 200px;
-  text-align: center;
-  padding: 20px;
-
-  .fa {
-    font-size: 42px;
-    padding-bottom: 7px;
-  }
-}
-
+/*** THIS IS ALL DEPRECATED CSS. REMOVE FROM HERE TO NEXT COMMENT ***/
+/*** THE NEW NOTIFICATIONS ARE FULLY FUNCTIONAL WITH THIS CSS REMOVED ***/
 .dropdown-notifications-badge {
   position: absolute;
   border-radius: 1000em;
   background-color: $brand-3;
-  text-align: center;
   color: white;
   font-size: 0.75em;
   padding: 0 4px;
-  height: 14px;
   line-height: 14px;
   top: 6px;
   right: 9px;
 }
+
 .dropdown-notifications-alert {
   position: absolute;
   top: -6px;
   right: 6px;
-}
-
-.dropdown-notifications {
-  .caret {
-    display: none;
-  }
 }
 
 .dropdown-notifications-list {
@@ -351,7 +378,66 @@ This is a notification dropdown with alerts.
     }
   }
 }
+/*** END REMOVE ***/
 
+.dropdown-notifications-none {
+  width: 200px;
+  text-align: center;
+  padding: 20px;
+
+  .fa {
+    font-size: 42px;
+    padding-bottom: 7px;
+  }
+}
+
+.dropdown-notifications {
+  .caret {
+    display: none;
+  }
+
+  .dropdown-toggle {
+    color: $notifications-bell-default-color;
+    font-size: $notifications-bell-default-size;
+
+    .dropdown-notifications-title {
+      margin: 0;
+      position: relative;
+    }
+
+    .dropdown-notifications-badge {
+      border-radius: 1000em;
+      background-color: $notifications-badge-default-bg;
+      color: white;
+      text-align: center;
+      font-weight: $notifications-badge-font-wieght;
+      padding: 0.25em;
+      line-height: 0.75em;
+      min-width: 1.25em;
+    }
+
+    .dropdown-notifications-alert, .dropdown-notifications-badge {
+      position: absolute;
+      font-size: 0.75em;
+      top: -0.2em;
+      left: 0.75em;
+      right: auto;
+    }
+  }
+
+  .dropdown-menu {
+    > li {
+      > a {
+        padding-bottom: 10px;
+      }
+      &:last-child {
+        > a {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
 
 
 /*doc
@@ -371,7 +457,7 @@ Here's an example if there are no notifications:
 Here's an example if there are notifications:
 
 ```jsx_example
-var newLabel = <UI.DefaultH3><UI.Label>New</UI.Label></UI.DefaultH3>;
+var newLabel = <UI.DefaultH3 className="mvn"><UI.Label>New</UI.Label></UI.DefaultH3>;
 ```
 
 ```react_example_table
