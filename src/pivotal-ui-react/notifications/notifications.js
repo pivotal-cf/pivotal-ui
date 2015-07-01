@@ -46,7 +46,7 @@ var Notifications = React.createClass({
     children = children || (
       <li role="presentation">
         <div className="dropdown-notifications-none">
-          <Icon name="bell" className="type-neutral-6"/>
+          <Icon name="bell"/>
           <p className="type-neutral-4 em-alt mbn">no notifications</p>
         </div>
       </li>
@@ -96,7 +96,7 @@ var AlertNotifications = React.createClass({
     children = children || (
       <li role="presentation">
         <div className="dropdown-notifications-none">
-          <Icon name="bell" className="type-neutral-6"/>
+          <Icon name="bell"/>
           <p className="type-neutral-4 em-alt mbn">no alerts</p>
         </div>
       </li>

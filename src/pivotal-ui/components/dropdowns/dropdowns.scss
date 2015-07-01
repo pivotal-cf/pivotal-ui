@@ -216,7 +216,7 @@ This is a notification dropdown with no notifications.
   <ul class="dropdown-menu" role="menu">
     <li role="presentation">
       <div class="dropdown-notifications-none">
-        <i class="fa fa-bell type-neutral-6"></i>
+        <i class="fa fa-bell"></i>
         <p class="type-neutral-4 em-alt mbn">No notifications</p>
       </div>
     </li>
@@ -413,6 +413,7 @@ This is a notification dropdown with alerts.
   .fa {
     font-size: 42px;
     padding-bottom: 7px;
+    color: $neutral-6;
   }
 }
 
