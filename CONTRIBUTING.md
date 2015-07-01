@@ -368,6 +368,20 @@ Each commit should be "green" (i.e. it should not break any existing
 functionality). In addition, attempt to make each commit a complete idea. A
 single commit should not contain unrelated changes.
 
+The overall format of the commit should look like this:
+
+```
+patchlevel(scope): description of commit
+
+Additional information
+
+[Finishes #storynumber]
+
+Breaking change/deprecation warning
+```
+
+### Patch level
+
 Your message should include information about the patch level of the changes
 made. You may be wondering what major, minor, and  patch mean in the context of
 CSS. Please follow these guidelines:
@@ -385,24 +399,55 @@ CSS. Please follow these guidelines:
   this is updating the background color of the danger button or fixing the
   alignment of the horizontal tabs (as long as no html changes are required).
   These commits should be labeled as `fix(): `.
+* Sometimes you may have commits that do not modify a component (e.g. updating docs, gulp tasks, etc). Label these commits as a `chore(): `.
 
 For example, for a patch, your commit might look like this:
 
 ```
 fix(table): headers are now capitalized by default
 
-- sections 1 & 2
+Some additional info about the change
+
+[Finishes #12345678]
 ```
+
+A feature might look like this:
+
+```
+feat(notification): add an 'alert notification'
+
+Some additional info about the change
+
+[Finishes #12345678]
+```
+
 and example of a breaking change might look like this:
 
 ```
 feat(color): update oranges
 
+Some additional info about the change
+
+[Finishes #12345678]
+
 BREAKING CHANGE: (sass variable) "orange-color" class is now named "light-orange"
 ```
 
-For additonal information regarding commit message format consult the
-[Conventional Changelog](https://github.com/ajoslin/conventional-changelog/blob/master/CONVENTIONS.md).
+### Scope
+
+The scope should be the component that is modified. It should match the folder
+name of the modified component. For example, a patch fix to CSS alerts would
+look like
+
+```
+fix(alerts): ...
+```
+
+The same scope is used for both css and react components.
+
+For `chore`s, use your best guess for the scope. E.g., if you're chaning
+documentation, use `chore(documentation):`. If you're changing release gulp
+tasks, use `chore(release):`
 
 ### Breaking Changes
 
@@ -421,6 +466,23 @@ In addition, the breaking change message should include the type of change:
   `.button-with-tooltip-wrapper`"
 - **javascript** - e.g. "BREAKING CHANGE: (javascript) tooltips must be
   explicitly initialized"
+
+**Note** - any story numbers should come **before** the breaking change message
+
+### Deprecation Warnings
+
+If your commit marks a component for deprecation, add a deprecation warning like
+so.
+
+```
+feat(alerts): deprecate warning alert
+
+[Finishes #12345678]
+
+DEPRECATION WARNING: "orange-color" class is now named "light-orange"
+```
+
+**Note** - any story numbers should come **before** the deprecation warning
 
 ## Documenting components
 
