@@ -269,6 +269,30 @@ This is a notification dropdown with notifications.
 </div>
 ```
 
+Here's an example modifiying the size and the color of the bell
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title h1">
+      <i class="fa fa-bell type-neutral-2"></i>
+      <span class="dropdown-notifications-badge">42</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 1</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">...</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 42</a>
+    </li>
+  </ul>
+</div>
+```
+
 This is a notification dropdown with alerts.
 
 ```html_example
