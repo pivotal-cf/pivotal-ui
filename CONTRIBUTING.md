@@ -274,6 +274,12 @@ E.g. for iconography:
 <i class="fa fa-download type-brand-3 title"></i>
 ```
 
+Also, be sure to add your new component to `pui-css-all` and our root `package.json`.
+
+- In `src/pivotal-ui/components/all/package.json`, add your component to the list of dependencies (i.e.
+  `pui-css-mynewcomponent: '*'). Don't worry about the version number
+- Do the same thing in the root `package.json` file.
+
 #### React components
 
 Each React component should live in its own folder (e.g.
