@@ -316,10 +316,23 @@ E.g. for draggable lists:
 
 ## Bug reports
 
-A bug is a _demonstrable problem_ that is caused by the code in the repository.
 Good bug reports are extremely helpful, so thanks!
 
-Guidelines for bug reports:
+### Bug Priority
+
+**P1. Blocker** - Reserved for catastrophic failures - exceptions, crashes, corrupt data, etc. that (a) prevent somebody from completing their task, and (b) have no workaround. These should be extremely rare. They must be fixed immediately (same-day) and deployed as hotfixes.
+
+**P2. Critical** - These may refer to unhandled exceptions or to other "serious" bugs that only happen under certain specific conditions (i.e. a practical workaround is available). No hard limit for resolution time, but should be fixed within the week (hotfix) and must be fixed by next release. They key distinction between (1) and (2) is not the severity or impact but the existence of a workaround.
+
+**P3. Major** - Usually reserved for perf issues. Anything that seriously hampers productivity but doesn't actually prevent work from being done. Fix by next release.
+
+**P4. Minor** - These are "nuisance" bugs. A default setting not being applied, a read-only field showing as editable (or vice-versa), a race condition in the UI, a misleading error message, etc. Fix for this release if there are no higher-priority issues, otherwise the following release.
+
+**P5. Trivial** - Cosmetic issues. Scroll bars appearing where they shouldn't, window doesn't remember saved size/location, typos, last character of a label being cut off, that sort of thing. They'll get fixed if the fix only takes a few minutes and somebody's working on the same screen/feature at the same time, otherwise, maybe never. No guarantee is attached to these.
+
+Please let us know the priority level in your bug report.
+
+### Guidelines for bug reports:
 
 0. **Validate and lint your code** &mdash; If you're working with the HTML/CSS
    library, [validate your HTML](http://html5.validator.nu) and [lint your
