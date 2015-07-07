@@ -16,6 +16,11 @@ node_modules/
 /dist/
 *.zip
 
+## CssCritic
+
+spec/css/components/
+spec/css/regressionRunner.js
+
 ## Specific to RubyMotion:
 .dat*
 .repl_history

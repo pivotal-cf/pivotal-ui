@@ -108,6 +108,10 @@ This will ensure our conversation doesn't get lost in email or slack.
    git checkout -b feature/<short_description_of_feature>
    ```
 
+1. **Before you make any changes**,
+   [setup a CssCritic test baseline](#set-a-baseline-to-test-against-before-making-any-changes).
+  This will allow you to test for regressions after you make changes.
+
 1. Commit your changes in logical chunks. Our commit conventions are very
    particular -- please read over our [commit guidelines](#commit-guidelines).
    Each commit should look something like this:
@@ -129,6 +133,8 @@ This will ensure our conversation doesn't get lost in email or slack.
 
 1. [Document your component](#documenting-components) in the styleguide and the
    package README.
+
+1. **Before you push**, [test for regressions with CssCritic](#rerun-the-test-suite-for-regressions-before-you-commitmake-a-pull-request).
 
 1. Rebase against upstream, and then push your changes
 
@@ -373,7 +379,34 @@ what you are trying to achieve and the best way to do that.
 
 ## Testing
 
-Coming soon!
+### Visual-diff regression testing
+
+(for the moment, this section is aspirational)
+
+We use CSSCritic for visual-diff regression testing. To test:
+
+#### Set a baseline to test against (before making any changes!!)
+1. Run `gulp css-critic`. This will open up Firefox and show all rendered test
+   files in a "yellow" state.
+1. Click "Accept All".
+
+#### Creating test fixtures for new components (very aspirational)
+
+Test fixtures are automatically created every time you create a `html_example`
+or `html_example_table` in the styleguide documentation.
+
+If you create a new component, re-run `gulp css-critic` to load the component in
+CssCritic, and set a baseline for it when you are happy with how it looks.
+
+#### Rerun the test suite for regressions (before you commit/make a pull request)
+1. Run `gulp css-critic`. This will open up Firefox.
+1. If there are no regressions, all components will be green.
+1. If you added any components, you'll have to click "Accept the rendered page"
+   for that component.
+1. If a component is red, this means either:
+    1. You broke something. Fix it!
+    2. You want to change the baseline. You should talk to the core Pivotal UI
+       team first, especially the designers.
 
 ## Commit guidelines
 
