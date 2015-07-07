@@ -3,7 +3,7 @@ require('../spec_helper');
 describe('Dropdowns', function() {
   describe('Dropdown', function() {
     beforeEach(function() {
-      var Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').LinkDropdown;
+      var Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').Dropdown;
       React.render(<Dropdown title="Dropping"/>, root);
     });
 
@@ -12,7 +12,11 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-link').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-default');
     });
   });
 
@@ -27,7 +31,12 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-link').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-link');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 
@@ -42,7 +51,12 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-default-alt').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-default-alt');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 
@@ -57,8 +71,14 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-primary').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
     });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-primary');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
+    });
+
   });
 
   describe('LowlightDropdown', function() {
@@ -72,7 +92,13 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-lowlight').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-lowlight');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 
@@ -87,7 +113,12 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-danger').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-danger');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 
@@ -102,7 +133,12 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-highlight').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-highlight');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 
@@ -117,7 +153,12 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-highlight-alt').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-highlight-alt');
+      expect('button.dropdown-toggle').not.toHaveClass('btn-default');
     });
   });
 });

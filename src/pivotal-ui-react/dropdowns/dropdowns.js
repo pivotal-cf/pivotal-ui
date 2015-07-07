@@ -69,7 +69,7 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  DefaultAltDropdown: defDropdown({buttonClassName: 'btn-default-alt'}),
+  DefaultAltDropdown: defDropdown({buttonClassName: 'btn-default-alt', bsStyle: null}),
 
   /**
    * @component PrimaryDropdown
@@ -91,7 +91,7 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  LowlightDropdown: defDropdown({buttonClassName: 'btn-lowlight'}),
+  LowlightDropdown: defDropdown({buttonClassName: 'btn-lowlight', bsStyle: null}),
 
   /**
    * @component DangerDropdown
@@ -113,7 +113,7 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  HighlightDropdown: defDropdown({buttonClassName: 'btn-highlight'}),
+  HighlightDropdown: defDropdown({buttonClassName: 'btn-highlight', bsStyle: null}),
 
   /**
    * @component HighlightAltDropdown
@@ -124,5 +124,5 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  HighlightAltDropdown: defDropdown({buttonClassName: 'btn-highlight-alt'})
+  HighlightAltDropdown: defDropdown({buttonClassName: 'btn-highlight-alt', bsStyle: null})
 };
