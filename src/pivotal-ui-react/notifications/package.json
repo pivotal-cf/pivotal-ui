@@ -4,6 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/react_beta.html#notifications_react",
   "dependencies": {
     "pui-react-dropdowns": "1.10.0",
-    "pui-react-iconography": "1.10.0"
+    "pui-react-iconography": "1.10.0",
+    "classnames": "^2.1.3"
   }
 }

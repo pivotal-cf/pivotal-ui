@@ -49,6 +49,16 @@ describe('Notification', function() {
       expect('.dropdown-menu .dropdown-notifications-none').toContainText('no notifications');
     });
   });
+
+  describe('when there are size modifiers', function() {
+    beforeEach(function() {
+      React.render(<Notifications size="h1"/>, root);
+    });
+
+    it('renders a h1 sized notification', function() {
+      expect('.dropdown-notifications-title').toHaveClass('h1');
+    });
+  });
 });
 
 describe('Alert Notifications', function() {
@@ -98,6 +108,16 @@ describe('Alert Notifications', function() {
 
     it('renders the no notification message', function() {
       expect('.dropdown-menu .dropdown-notifications-none').toContainText('no alerts');
+    });
+  });
+
+  describe('when there are size modifiers', function() {
+    beforeEach(function() {
+      React.render(<AlertNotifications size="h1"/>, root);
+    });
+
+    it('renders a h1 sized notification', function() {
+      expect('.dropdown-notifications-title').toHaveClass('h1');
     });
   });
 });
