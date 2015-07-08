@@ -1,9 +1,31 @@
 require('../spec_helper');
 
 describe('Dropdowns', function() {
+  function dropdownTestFor(dropdownComponentName, dropdownClassName) {
+    describe(dropdownComponentName, function() {
+      beforeEach(function() {
+        var DropdownClass = require('../../../src/pivotal-ui-react/dropdowns/dropdowns')[dropdownComponentName];
+        React.render(<DropdownClass title="Dropping"/>, root);
+      });
+
+      afterEach(function() {
+        React.unmountComponentAtNode(root);
+      });
+
+      it('creates a dropdown', function() {
+        expect('button.dropdown-toggle').toContainText('Dropping');
+      });
+
+      it('adds the appropriate button classes to the dropdown toggle', () => {
+        expect('button.dropdown-toggle').toHaveClass(dropdownClassName);
+        expect('button.dropdown-toggle').not.toHaveClass('btn-default');
+      });
+    });
+  }
+
   describe('Dropdown', function() {
     beforeEach(function() {
-      var Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').LinkDropdown;
+      var Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').Dropdown;
       React.render(<Dropdown title="Dropping"/>, root);
     });
 
@@ -12,112 +34,25 @@ describe('Dropdowns', function() {
     });
 
     it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-link').toContainText('Dropping');
+      expect('button.dropdown-toggle').toContainText('Dropping');
+    });
+
+    it('adds the appropriate button classes to the dropdown toggle', () => {
+      expect('button.dropdown-toggle').toHaveClass('btn-default');
     });
   });
 
-  describe('LinkDropdown', function() {
-    beforeEach(function() {
-      var LinkDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').LinkDropdown;
-      React.render(<LinkDropdown title="Dropping"/>, root);
-    });
+  dropdownTestFor('LinkDropdown', 'btn-link');
 
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
+  dropdownTestFor('DefaultAltDropdown', 'btn-default-alt');
 
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-link').toContainText('Dropping');
-    });
-  });
+  dropdownTestFor('PrimaryDropdown', 'btn-primary');
 
-  describe('DefaultAltDropdown', function() {
-    beforeEach(function() {
-      var DefaultAltDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').DefaultAltDropdown;
-      React.render(<DefaultAltDropdown title="Dropping"/>, root);
-    });
+  dropdownTestFor('LowlightDropdown', 'btn-lowlight');
 
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
+  dropdownTestFor('DangerDropdown', 'btn-danger');
 
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-default-alt').toContainText('Dropping');
-    });
-  });
+  dropdownTestFor('HighlightDropdown', 'btn-highlight');
 
-  describe('PrimaryDropdown', function() {
-    beforeEach(function() {
-      var PrimaryDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').PrimaryDropdown;
-      React.render(<PrimaryDropdown title="Dropping"/>, root);
-    });
-
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
-
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-primary').toContainText('Dropping');
-    });
-  });
-
-  describe('LowlightDropdown', function() {
-    beforeEach(function() {
-      var LowlightDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').LowlightDropdown;
-      React.render(<LowlightDropdown title="Dropping"/>, root);
-    });
-
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
-
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-lowlight').toContainText('Dropping');
-    });
-  });
-
-  describe('DangerDropdown', function() {
-    beforeEach(function() {
-      var DangerDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').DangerDropdown;
-      React.render(<DangerDropdown title="Dropping"/>, root);
-    });
-
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
-
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-danger').toContainText('Dropping');
-    });
-  });
-
-  describe('HighlightDropdown', function() {
-    beforeEach(function() {
-      var HighlightDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').HighlightDropdown;
-      React.render(<HighlightDropdown title="Dropping"/>, root);
-    });
-
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
-
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-highlight').toContainText('Dropping');
-    });
-  });
-
-  describe('HighlightAltDropdown', function() {
-    beforeEach(function() {
-      var HighlightAltDropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').HighlightAltDropdown;
-      React.render(<HighlightAltDropdown title="Dropping"/>, root);
-    });
-
-    afterEach(function() {
-      React.unmountComponentAtNode(root);
-    });
-
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle.btn.btn-highlight-alt').toContainText('Dropping');
-    });
-  });
+  dropdownTestFor('HighlightAltDropdown', 'btn-highlight-alt');
 });
