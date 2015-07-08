@@ -27,13 +27,24 @@ $.fn.simulate = function(eventName, ...args) {
   return this;
 };
 
+const RegularCSSTransitionGroup = global.React.addons.CSSTransitionGroup;
+
+class TransitionGroupMock extends global.React.Component {
+  render() {
+    const {children, ...others} = this.props;
+    return <div {...others}>{children}</div>;
+  };
+}
+
 beforeEach(function() {
   jasmine.clock().install();
   $('body').find('#root').remove().end().append('<main id="root"/>');
+  global.React.addons.CSSTransitionGroup = TransitionGroupMock;
 });
 
 afterEach(function() {
   MockNow.reset();
   MockRaf.reset();
   jasmine.clock().uninstall();
+  global.React.addons.CSSTransitionGroup = RegularCSSTransitionGroup;
 });
