@@ -1,6 +1,7 @@
 require 'rspec'
 require 'capybara/rspec'
 require 'selenium-webdriver'
+require 'pry'
 
 Dir[File.dirname(__FILE__) + "/support/*.rb"].each { |file| require file }
 

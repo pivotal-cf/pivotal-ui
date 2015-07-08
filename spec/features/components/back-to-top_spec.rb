@@ -1,5 +1,4 @@
 require_relative '../spec_helper'
-require 'pry'
 
 def expect_page_to_be_at_top
   page.document.synchronize do |variable|
