@@ -440,6 +440,10 @@ $btn-disabled-color:             $gray-5;
 
 $btn-link-disabled-color:        $gray-light !default;
 
+$btn-border-radius-base:         $border-radius-base;
+$btn-border-radius-large:        $border-radius-large;
+$btn-border-radius-small:        $border-radius-small;
+
 
 // Forms
 // -------------------------
@@ -461,6 +465,8 @@ $input-color-placeholder:        $gray-5 !default;
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
+
+$form-group-margin-bottom: 15px;
 
 $legend-color:                   $gray-dark !default;
 $legend-border-color:            #e5e5e5 !default;
