@@ -1,9 +1,9 @@
 {
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "A React component for showing a list of items that can be re-ordered by the user",
   "homepage": "http://styleguide.pivotal.io/react_beta.html#list_draggable_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-lists": "1.9.1"
+    "pui-css-lists": "1.10.0"
   }
 }

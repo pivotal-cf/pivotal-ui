@@ -1,8 +1,8 @@
 {
   "homepage": "http://styleguide.pivotal.io/objects.html#dropdown",
   "dependencies": {
-    "pui-css-bootstrap": "1.9.1",
-    "pui-css-buttons": "1.9.1"
+    "pui-css-bootstrap": "1.10.0",
+    "pui-css-buttons": "1.10.0"
   },
-  "version": "1.9.1"
+  "version": "1.10.0"
 }

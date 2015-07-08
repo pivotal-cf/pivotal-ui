@@ -1,7 +1,7 @@
 {
-  "version": "1.9.1",
+  "version": "1.10.0",
   "homepage": "http://styleguide.pivotal.io/objects.html#code",
   "dependencies": {
-    "pui-css-iconography": "1.9.1"
+    "pui-css-iconography": "1.10.0"
   }
 }

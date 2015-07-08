@@ -1,9 +1,9 @@
 {
-  "version": "1.9.1",
+  "version": "1.10.0",
   "description": "React components that provide containers for related content",
   "homepage": "http://styleguide.pivotal.io/react_beta.html#panel_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-panels": "1.9.1"
+    "pui-css-panels": "1.10.0"
   }
 }
