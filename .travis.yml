@@ -9,6 +9,7 @@ before_install:
 branches:
   only:
     - master
+    - /^v\d+.\d+.\d+$/
 notifications:
   email: false
   slack:
