@@ -153,6 +153,7 @@
   },
   "scripts": {
     "test": "gulp ci --fatal",
+    "test-accessibility": "gulp test-accessibility || :",
     "pui-update": "scripts/pui-update.js"
   },
   "repository": {

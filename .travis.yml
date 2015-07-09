@@ -1,6 +1,10 @@
 language: node_js
 node_js:
 - '0.10'
+env:
+- CMD="npm test"
+- CMD="npm run test-accessibility"
+script: "$CMD"
 sudo: true
 before_install:
 - bundle install
@@ -36,4 +40,3 @@ deploy:
       tags: true
 after_deploy:
   - gulp release-add-release-notes
-  
