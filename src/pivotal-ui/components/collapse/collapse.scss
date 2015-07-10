@@ -54,63 +54,6 @@ Use this to expand and collapse content.
 
 */
 
-
-/*doc
----
-title: Sizes
-name: accordion_sizes
-parent: accordion
----
-
-<div class="alert alert-danger mbxl">
-  <h5 class="em-high mtn">
-    Deprecation warning
-  </h5>
-  <p>
-    The large accordion is deprecated. All accordions should be the default size.
-  </p>
-</div>
-
-Default accordion size:
-
-```html_example
-<div class="panel" id="accordion-1">
-  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-toggle="collapse" data-parent="#accordion-2" href="#myCollapse-1">
-    <div class="row">
-      <div class="col-md-23">
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
-    </div>
-  </div>
-  <div class="panel-collapse collapse" id="myCollapse-1">
-    <div class="panel-body-accordion bg-neutral-11">
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-
-```
-
-Large accordion size:
-
-```html_example
-<div class="panel" id="accordion-2">
-  <div class="panel-heading-accordion-large bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-2">
-    <div class="row">
-      <div class="col-md-23">
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
-    </div>
-  </div>
-  <div class="panel-collapse collapse" id="myCollapse-2">
-    <div class="panel-body-accordion bg-neutral-11">
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-```
-*/
-
 /*doc
 ---
 title: With Icons
@@ -122,7 +65,7 @@ Accordion with plus/minus icon:
 
 ```html_example
 <div class="panel" id="accordion-3">
-  <div class="panel-heading-accordion-large collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
+  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
     <div class="row">
       <div class="col-md-23">
         <a>
@@ -273,10 +216,6 @@ You can combine the accordion with any panel class to have a styled panel that o
   padding:  30px 20px;
 }
 
-.panel-heading-accordion-large {
-  @extend .panel-heading-accordion;
-  padding: 25px 20px 25px 20px;
-}
 
 .panel-body-accordion-divider {
   @extend .panel-body-accordion;
