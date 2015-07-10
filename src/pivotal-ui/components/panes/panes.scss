@@ -9,6 +9,12 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-panes --save
+```
+
 Panes are horizontal groupings of content that are usually used to
 span the full browser window width. It's going to look funny here,
 a better way to view it is on the [panes page](/pane.html).
@@ -107,6 +113,18 @@ name: pane_react
 category:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-panels --save
+```
+
+Require the component:
+
+```
+var Pane = require('pui-react-panels').Pane;
+```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
 Any className values passed through are passed to the underlying `.pane`.

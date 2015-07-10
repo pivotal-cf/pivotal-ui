@@ -6,6 +6,20 @@ categories:
   - React Beta
 ---
 
+
+Install the component:
+
+```
+npm install pui-react-expander --save
+```
+
+Require the component:
+
+```
+var ExpanderContent = require('pui-react-expander').ExpanderContent;
+```
+
+
 Expanders are collapsable content areas which are unlike their accordion counterparts in that they do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
 else within the DOM.

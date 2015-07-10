@@ -9,6 +9,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-tables --save
+```
+
+
 
 Class                 | Description
 --------------------- | -----------------
@@ -303,6 +310,19 @@ categories:
 */
 
 /*doc
+
+Install the component:
+
+```
+npm install pui-react-tables --save
+```
+
+Require the component:
+
+```
+var SortableTable = require('pui-react-tables').SortableTable;
+```
+
 ---
 title: Sortable
 name: table_sortable_react

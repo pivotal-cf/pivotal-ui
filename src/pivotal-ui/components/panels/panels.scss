@@ -12,6 +12,14 @@ categories:
   - All
 ---
 
+
+Install the component:
+
+```
+npm install pui-css-panels --save
+```
+
+
 Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
 
 Panels are typically a combination of contours, backgrounds, and content including headers and footers. This section describes the contours.
@@ -647,6 +655,19 @@ name: panel_react
 categories:
  - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-panels --save
+```
+
+Require the component:
+
+```
+var Panels = require('pui-react-panels').Panel;
+```
+
 
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
 is the base, and there are many different flavors of Panels which all construct a particularly styled `Panel`.

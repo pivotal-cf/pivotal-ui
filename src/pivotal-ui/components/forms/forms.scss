@@ -10,6 +10,14 @@ categories:
   - Forms
 ---
 
+
+Install the component:
+
+```
+npm install pui-css-forms --save
+```
+
+
 Individual form controls automatically receive some global styling.
 All textual `<input>`, `<textarea>`, and `<select>` elements with
 `.form-control` are set to `width: 100`%; by default.
@@ -1263,7 +1271,23 @@ name: form_react
 categories:
   - React Beta
 ---
+
+
+Install the component:
+
+```
+npm install pui-react-forms --save
+```
+
+Require the component:
+
+```
+var SearchInput = require('pui-react-forms').SearchInput;
+```
+
+
 */
+
 
 /*doc
 ---

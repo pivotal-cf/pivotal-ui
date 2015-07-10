@@ -9,6 +9,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-ribbons --save
+```
+
+
 Ribbons should be used to call out access, status, environment, etc.
 
 */
@@ -132,6 +139,18 @@ name: ribbons_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-ribbons --save
+```
+
+Require the component:
+
+```
+var Ribbon = require('pui-react-ribbons').Ribbon;
+```
 
 `Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
 They should be used to call out access, status, environment, etc.

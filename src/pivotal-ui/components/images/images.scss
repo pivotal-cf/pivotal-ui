@@ -15,6 +15,14 @@ name: image_responsive
 parent: image
 ---
 
+
+Install the component:
+
+```
+npm install pui-css-images --save
+```
+
+
 Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
 
 ```html_example
@@ -186,6 +194,21 @@ name: image_react
 categories:
   - React Beta
 ---
+
+
+Install the component:
+
+```
+npm install pui-react-images --save
+```
+
+Require the component:
+
+```
+var Image = require('pui-react-images').Image;
+```
+
+
 Images in react can be responsive and/or wrapped in a link.
 
 ```react_example

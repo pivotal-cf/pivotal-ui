@@ -9,6 +9,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-labels --save
+```
+
+
 Labels are based on Bootstrap's labels.
 Here's an example of a label on its own.
 
@@ -81,6 +88,18 @@ name: label_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-labels --save
+```
+
+Require the component:
+
+```
+var Label = require('pui-react-labels').Label;
+```
 
 Labels are a straightforward implementation of the [Label][label] style.
 

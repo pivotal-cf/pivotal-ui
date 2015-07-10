@@ -9,6 +9,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-collapse --save
+```
+
+
 These are frequently used in combination with our panel components. They have a header and body.
 
 Accordions can be used with any background color class, add them to the header and body.
@@ -290,6 +297,19 @@ name: collapse_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-collapse --save
+```
+
+Require the subcomponent:
+
+```
+var BaseCollapse = require('pui-react-collapse').BaseCollapse;
+```
+
 
 Collapse components are implementations of the [Accordion][accordion] style. In
 all `Collapse` component variations, the `header` prop describes the text

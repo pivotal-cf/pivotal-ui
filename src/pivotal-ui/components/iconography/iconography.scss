@@ -14,6 +14,14 @@ categories:
   - All
 ---
 
+
+Install the component:
+
+```
+npm install pui-css-iconography --save
+```
+
+
 We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) for scalable vector icons that can be customized - size, color, drop shadow,
 and anything that can be done with CSS. These icons will always match the font color.
 
@@ -129,6 +137,21 @@ name: iconography_react
 categories:
   - React Beta
 ---
+
+
+Install the component:
+
+```
+npm install pui-react-iconography --save
+```
+
+Require the component:
+
+```
+var Icon = require('pui-react-iconography').Icon;
+```
+
+
 
 We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/).
 Specify the icon by changing the name. The name is the font-awesome class sans the `fa-`.

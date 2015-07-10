@@ -11,6 +11,12 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-buttons --save
+```
+
 Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
@@ -142,6 +148,19 @@ name: button_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-buttons --save
+```
+
+Require the subcomponent:
+
+```
+var DefaultButton = require('pui-react-buttons').DefaultButton;
+```
+
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 

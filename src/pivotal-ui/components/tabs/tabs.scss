@@ -10,6 +10,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-tabs --save
+```
+
+
 You can activate a tab or pill navigation without writing any JavaScript by simply specifying `data-toggle="tab"` on an element.
 
 */
@@ -514,6 +521,19 @@ name: tabs_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-tabs --save
+```
+
+Require the component:
+
+```
+var SimpleTabs = require('pui-react-tabs').SimpleTabs;
+```
+
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
 `SimpleTabs` or `SimpleAltTabs`). Each `Tab` is a child of this and has a `tab` property for the

@@ -9,6 +9,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-media --save
+```
+
+
 The default media displays a media object (images, video, audio) to the left or right of a content block.
 
 ```html_example
@@ -244,6 +251,18 @@ name: media_react
 category:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-media --save
+```
+
+Require the component:
+
+```
+var Media = require('pui-react-media').Media;
+```
 
 ## General media object modifiers
 

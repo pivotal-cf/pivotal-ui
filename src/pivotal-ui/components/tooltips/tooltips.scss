@@ -12,6 +12,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-tooltips --save
+```
+
+
 Tooltips are used to display extra information on hover. They can be used with any hoverable element.
 
 The `title` attribute defines the text that appears on the tooltip.
@@ -90,6 +97,21 @@ name: tooltips_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-tooltip --save
+npm install pui-react-overlay-trigger --save
+```
+
+Require the component:
+
+```
+var Tooltip = require('pui-react-tooltip').Tooltip;
+var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
+```
+
 
 Tooltips are used to display extra information on hover.
 To make an element show a tooltip, wrap it in an `OverlayTrigger`.

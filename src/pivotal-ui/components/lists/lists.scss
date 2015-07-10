@@ -16,6 +16,13 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-lists --save
+```
+
+
 This section contains different list styles.
 */
 
@@ -1066,6 +1073,19 @@ categories:
 */
 
 /*doc
+
+Install the component:
+
+```
+npm install pui-react-lists --save
+```
+
+Require the component:
+
+```
+var ListItem = require('pui-react-lists').ListItem;
+```
+
 ---
 title: Addable
 name: list_addable_react

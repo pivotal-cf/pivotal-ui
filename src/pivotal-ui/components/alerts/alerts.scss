@@ -10,7 +10,11 @@ categories:
   - All
 ---
 
+Install the component:
 
+```
+npm install pui-css-alerts --save
+```
 
 Alerts are used to display flash messages to the user. When using alerts with simple one-line
 text, wrap the text in a `<p>` with `.em-high`.
@@ -209,7 +213,7 @@ categories:
 Install the component:
 
 ```
-npm install pui-css-alerts --save
+npm install pui-react-alerts --save
 ```
 
 Require the subcomponent:

@@ -11,7 +11,7 @@ var types = React.PropTypes;
  * @property href {String} If given a URL, makes the image link to that URL
  *
  * @example ```js
- * var Image = require('pui-react-image').Image;
+ * var Image = require('pui-react-images').Image;
  * var MyComponent = React.createClass({
  *   render() {
  *     return <Image src="http://placehold.it/1000x100" responsive={true} href="https://google.com"/>;

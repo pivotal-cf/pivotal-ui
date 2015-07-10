@@ -29,6 +29,12 @@ categories:
   - All
 ---
 
+Install the component:
+
+```
+npm install pui-css-modals --save
+```
+
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
 <!-- Button trigger modal -->
@@ -249,6 +255,19 @@ name: modal_react
 categories:
   - React Beta
 ---
+
+Install the component:
+
+```
+npm install pui-react-modals --save
+```
+
+Require the component:
+
+```
+var Modal = require('pui-react-modals').Modal;
+```
+
 
 We provide 3 components that can be used to assemble modals:
 

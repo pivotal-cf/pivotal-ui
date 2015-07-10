@@ -9,6 +9,14 @@ name: app_status
 parent: console
 ---
 
+
+Install the component:
+
+```
+npm install pui-css-app-status --save
+```
+
+
 ```html_example
 <div class="started mtxl" id="app_status">
   <div class="circle">

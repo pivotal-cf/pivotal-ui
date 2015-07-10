@@ -5,19 +5,19 @@
 ---
 title: Traffic Lights
 name: traffic_lights
-parent: console
+categories:
+  - Objects
+  - All
 ---
 
-Traffic lights are used to show the status of the application. "On" is used for active applications, "off" for inactive, and "loading" for when the status is still loading.
+Install the component:
 
-<div class="alert alert-danger mbxl">
-  <h5 class="em-high mtn">
-    Deprecation warning
-  </h5>
-  <p>
-    This component is deprecated.
-  </p>
-</div>
+```
+npm install pui-css-traffic-lights --save
+```
+
+
+Traffic lights are used to show the status of the application. "On" is used for active applications, "off" for inactive, and "loading" for when the status is still loading.
 
 ```html_example_table
 <h3>On</h3>
