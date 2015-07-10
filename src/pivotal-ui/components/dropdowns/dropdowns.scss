@@ -370,41 +370,6 @@ This is a notification dropdown with alerts.
 ```
 */
 
-/*** THIS IS ALL DEPRECATED CSS. REMOVE FROM HERE TO NEXT COMMENT ***/
-/*** THE NEW NOTIFICATIONS ARE FULLY FUNCTIONAL WITH THIS CSS REMOVED ***/
-.dropdown-notifications-badge {
-  position: absolute;
-  border-radius: 1000em;
-  background-color: $brand-3;
-  color: white;
-  font-size: 0.75em;
-  padding: 0 4px;
-  line-height: 14px;
-  top: 6px;
-  right: 9px;
-}
-
-.dropdown-notifications-alert {
-  position: absolute;
-  top: -6px;
-  right: 6px;
-  color: $notifications-alert-default-color;
-}
-
-.dropdown-notifications-list {
-  li {
-    a {
-      padding-bottom: 10px;
-    }
-    &:last-child {
-      a {
-        padding-bottom: 0;
-      }
-    }
-  }
-}
-/*** END REMOVE ***/
-
 .dropdown-notifications-none {
   width: 200px;
   text-align: center;
