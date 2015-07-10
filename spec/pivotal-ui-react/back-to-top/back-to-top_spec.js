@@ -27,7 +27,7 @@ describe('BackToTop', function() {
 
   beforeEach(function(done) {
     BackToTop = require('../../../src/pivotal-ui-react/back-to-top/back-to-top').BackToTop;
-    React.render(<BackToTop/>, root);
+    React.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
 
     jasmine.clock().uninstall();
     setTimeout(function() {
@@ -40,6 +40,12 @@ describe('BackToTop', function() {
 
   afterEach(function() {
     React.unmountComponentAtNode(root);
+  });
+
+  it('passes down the className, id, and style properties', () => {
+    expect('.back-to-top').toHaveClass('foo');
+    expect('.back-to-top').toHaveProp('id', 'bar');
+    expect('.back-to-top').toHaveCss({'font-size': '200px'});
   });
 
   it('renders a back to top link that is visible', function() {

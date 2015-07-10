@@ -10,6 +10,14 @@ describe('Alert', function() {
     React.unmountComponentAtNode(root);
   });
 
+  it('passes down the className, id, and style properties', () => {
+    React.render(<SuccessAlert className="foo" id="bar" style={{fontSize: '200px'}}>alert body</SuccessAlert>, root);
+
+    expect('#root .alert').toHaveClass('foo');
+    expect('#root .alert').toHaveProp('id', 'bar');
+    expect('#root .alert').toHaveCss({'font-size': '200px'});
+  });
+
   describe('when dismissable is set to true', function() {
     beforeEach(function() {
       React.render(<SuccessAlert dismissable={true}>alert body</SuccessAlert>, root);

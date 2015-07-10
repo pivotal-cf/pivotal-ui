@@ -7,7 +7,7 @@ describe('OverlayTrigger', function() {
     var tooltip = (<Tooltip><div className="tooltip-text">Hello World</div></Tooltip>);
     var launcher = (<div className="launcher">Hover For Tooltip</div>);
     var overlay = (
-      <OverlayTrigger placement="bottom" overlay={tooltip}>
+      <OverlayTrigger placement="bottom" overlay={tooltip} className='overlay' id='test' style={{'padding': '5px'}}>
         {launcher}
       </OverlayTrigger>
     );

@@ -1,4 +1,5 @@
 var React = require('react');
+import {mergeProps} from 'pui-react-helpers';
 
 /**
  * @component Label
@@ -18,7 +19,12 @@ var React = require('react');
  */
 var Label = React.createClass({
   render() {
-    return <span className="label label-primary">{this.props.children}</span>;
+    let defaultProps = {
+      className: ['label', 'label-primary']
+    };
+    let {children, ...others} = this.props;
+    let props = mergeProps(others, defaultProps);
+    return <span {...props}>{children}</span>;
   }
 });
 

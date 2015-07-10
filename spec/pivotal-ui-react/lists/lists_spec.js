@@ -127,5 +127,19 @@ describe('lists', function() {
       });
     });
   });
+
+  describe('List custom attributes', function() {
+    itRenders(UnorderedList, {
+      'id': '12345',
+      'style': {
+        'padding': '5px'
+      }
+    });
+    it('renders custom attributes on lists', function () {
+      expect('#root ul').toHaveAttr('id', '12345');
+      expect('#root ul').toHaveAttr('style', 'padding:5px;');
+    });
+  });
+
 });
 
