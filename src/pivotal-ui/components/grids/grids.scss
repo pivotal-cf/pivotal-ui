@@ -11,11 +11,11 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-grids --save
-```
+</i>
+</code>
 
 
 
@@ -461,13 +461,13 @@ category:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-grids --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Row = require('pui-react-grids').Row;

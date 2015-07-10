@@ -9,11 +9,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-tables --save
-```
+</i>
+</code>
 
 
 
@@ -311,13 +311,13 @@ categories:
 
 /*doc
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-tables --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var SortableTable = require('pui-react-tables').SortableTable;

@@ -9,11 +9,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-ribbons --save
-```
+</i>
+</code>
 
 
 Ribbons should be used to call out access, status, environment, etc.
@@ -140,13 +140,13 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-ribbons --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Ribbon = require('pui-react-ribbons').Ribbon;

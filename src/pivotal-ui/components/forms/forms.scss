@@ -11,11 +11,11 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-forms --save
-```
+</i>
+</code>
 
 
 Individual form controls automatically receive some global styling.
@@ -1273,13 +1273,13 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-forms --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var SearchInput = require('pui-react-forms').SearchInput;

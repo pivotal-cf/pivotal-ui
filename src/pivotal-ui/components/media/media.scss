@@ -9,11 +9,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-media --save
-```
+</i>
+</code>
 
 
 The default media displays a media object (images, video, audio) to the left or right of a content block.
@@ -252,13 +252,13 @@ category:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-media --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Media = require('pui-react-media').Media;

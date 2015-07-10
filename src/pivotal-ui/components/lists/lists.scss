@@ -16,11 +16,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-lists --save
-```
+</i>
+</code>
 
 
 This section contains different list styles.
@@ -1074,13 +1074,13 @@ categories:
 
 /*doc
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-lists --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var ListItem = require('pui-react-lists').ListItem;

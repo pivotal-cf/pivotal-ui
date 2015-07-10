@@ -7,13 +7,13 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-expander --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var ExpanderContent = require('pui-react-expander').ExpanderContent;

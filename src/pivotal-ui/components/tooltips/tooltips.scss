@@ -12,11 +12,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-tooltips --save
-```
+</i>
+</code>
 
 
 Tooltips are used to display extra information on hover. They can be used with any hoverable element.
@@ -98,14 +98,14 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-tooltip --save
 npm install pui-react-overlay-trigger --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Tooltip = require('pui-react-tooltip').Tooltip;

@@ -9,11 +9,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-panes --save
-```
+</i>
+</code>
 
 Panes are horizontal groupings of content that are usually used to
 span the full browser window width. It's going to look funny here,
@@ -114,13 +114,13 @@ category:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-panels --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Pane = require('pui-react-panels').Pane;

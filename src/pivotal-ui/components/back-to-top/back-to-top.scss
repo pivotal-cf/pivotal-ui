@@ -9,11 +9,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-back-to-top --save
-```
+</i>
+</code>
 
 You can use this component to scroll to the top of a page.
 
@@ -34,23 +34,24 @@ categories:
   - React Beta
 ---
 
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-back-to-top --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var BackToTop = require('pui-react-back-to-top').BackToTop;
+```
+
 You can use this component to scroll to the top of a page.
 
 The button will be fixed to the bottom right hand corner of the page.
 
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup.
 
-Install the component:
-
-```
-npm install pui-react-back-to-top --save
-```
-
-Require the component:
-
-```
-var BackToTop = require('pui-react-back-to-top');
-```
 
 
 ```react_wrapped_example

@@ -29,11 +29,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-modals --save
-```
+</i>
+</code>
 
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
@@ -256,13 +256,13 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-modals --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Modal = require('pui-react-modals').Modal;

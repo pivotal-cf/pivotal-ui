@@ -13,11 +13,11 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-panels --save
-```
+</i>
+</code>
 
 
 Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
@@ -656,13 +656,13 @@ categories:
  - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-panels --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Panels = require('pui-react-panels').Panel;

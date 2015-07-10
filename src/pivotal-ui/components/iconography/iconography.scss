@@ -15,11 +15,11 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-iconography --save
-```
+</i>
+</code>
 
 
 We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) for scalable vector icons that can be customized - size, color, drop shadow,
@@ -139,13 +139,13 @@ categories:
 ---
 
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-iconography --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Icon = require('pui-react-iconography').Icon;

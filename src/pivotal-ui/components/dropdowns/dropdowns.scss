@@ -10,11 +10,11 @@ categories:
   - All
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-css-dropdowns --save
-```
+</i>
+</code>
 
 
 Dropdowns are menus that can be triggered by buttons.
@@ -144,13 +144,13 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-dropdowns --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Dropdown = require('pui-react-dropdowns').Dropdown;
@@ -493,13 +493,13 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-notifications --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var Notifications = require('pui-react-notifications');
@@ -538,7 +538,7 @@ name: alert_notifications_react
 parent: notifications_react
 ---
 
-Require the component:
+Require the subcomponent:
 
 ```
 var AlertNotifications = require('pui-react-notifications').AlertNotifications;

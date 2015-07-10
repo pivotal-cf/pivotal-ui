@@ -6,13 +6,13 @@ categories:
   - React Beta
 ---
 
-Install the component:
-
-```
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
 npm install pui-react-portals --save
-```
+</i>
+</code>
 
-Require the component:
+Require the subcomponent:
 
 ```
 var PortalSource = require('pui-react-portals').PortalSource;
