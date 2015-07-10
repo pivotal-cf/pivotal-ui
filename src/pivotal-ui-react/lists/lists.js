@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var classnames = require('classnames');
+import classnames from 'classnames';
 
 /**
  * @component ListItem
@@ -20,14 +20,14 @@ function defList(tagName, spacingType, classNames, childClassNames) {
       spacing: React.PropTypes.oneOf(['n', 's', 'm', 'l', 'xl'])
     },
     render() {
-      var {className, spacing, children} = this.props;
+      var {className, spacing, children, ...others} = this.props;
       var classes = classnames(classNames(this.props), className, spacing && `${spacingType}${spacing}`);
       if (childClassNames) {
         children = React.Children.map(children, child => React.addons.cloneWithProps(child, {className: childClassNames}));
       }
       return (
-        tagName === 'ul' ? <ul className={classes}>{children}</ul> :
-        tagName === 'ol' ? <ol className={classes}>{children}</ol> :
+        tagName === 'ul' ? <ul className={classes} {...others}>{children}</ul> :
+        tagName === 'ol' ? <ol className={classes} {...others}>{children}</ol> :
         null
       );
     }

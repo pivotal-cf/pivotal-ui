@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var classnames = require('classnames');
+import {mergeProps} from 'pui-react-helpers';
 
 var ButtonProps = {
   propTypes: {
@@ -42,20 +42,23 @@ var UIButton = React.createClass({
   mixins: [ButtonProps],
 
   render: function () {
-    var {block, href, large, kind, children, ...others} = this.props;
+    var {block, large, kind='default', children, ...others} = this.props;
 
-    var classes = classnames(
-      'btn',
-      {
-        'btn-block': block,
-        'btn-lg': large
-      },
-      kind ? 'btn-' + kind : 'btn-default'
-    );
+    let defaultProps = {
+      className: [
+          'btn',
+          `btn-${kind}`,
+          {
+            'btn-block': block,
+            'btn-lg': large
+          }
+      ]
+    };
+    let props = mergeProps(others, defaultProps);
 
-    return href ?
-      <a {...others} className={classes} href={href}>{children}</a> :
-      <button {...others} className={classes}>{children}</button>;
+    return this.props.href ?
+      <a {...props}>{children}</a> :
+      <button {...props}>{children}</button>;
   }
 });
 

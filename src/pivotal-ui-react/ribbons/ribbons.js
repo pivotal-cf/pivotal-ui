@@ -1,4 +1,5 @@
 var React = require('react');
+import {mergeProps} from 'pui-react-helpers';
 
 /**
  * @component Ribbon
@@ -18,7 +19,9 @@ var React = require('react');
  */
 var Ribbon = React.createClass({
   render() {
-    return <div className="inline-ribbon">{this.props.children}</div>;
+    var {children, ...others} = this.props;
+    var props = mergeProps(others, {className: 'inline-ribbon'});
+    return <div {...props}>{children}</div>;
   }
 });
 
@@ -40,7 +43,9 @@ var Ribbon = React.createClass({
  */
 var PrimaryRibbon = React.createClass({
   render() {
-    return <div className="inline-ribbon ribbon-primary">{this.props.children}</div>;
+    var {children, ...others} = this.props;
+    var props = mergeProps(others, {className: ['inline-ribbon', 'ribbon-primary']});
+    return <div {...props}>{children}</div>;
   }
 });
 
@@ -62,7 +67,9 @@ var PrimaryRibbon = React.createClass({
  */
 var Banner = React.createClass({
   render() {
-    return <div className="ribbon-banner">{this.props.children}</div>;
+    var {children, ...others} = this.props;
+    var props = mergeProps(others, {className: 'ribbon-banner'});
+    return <div {...props}>{children}</div>;
   }
 });
 
