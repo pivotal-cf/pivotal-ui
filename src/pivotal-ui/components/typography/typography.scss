@@ -113,6 +113,12 @@ If it's not a heading but you need similar visual treatment you can add just the
 // Override the bootstrap margins to use our margin classes so we can align
 // things. This is necessary because we have to keep the whitespace margins in sync with this
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  padding-top: 0.107em;
+  padding-bottom: 0.107em;
+}
+
 h1, .h1, h2, .h2, h3, .h3 {
   margin-top: $whitespace-xl;
   margin-bottom: $whitespace-l;
