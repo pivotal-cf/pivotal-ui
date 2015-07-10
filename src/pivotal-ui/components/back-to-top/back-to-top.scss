@@ -34,6 +34,19 @@ The button will be fixed to the bottom right hand corner of the page.
 
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup.
 
+Install the component:
+
+```
+npm install pui-css-back-to-top --save
+```
+
+Require the component:
+
+```
+var BackToTop = require('pui-react-back-to-top');
+```
+
+
 ```react_wrapped_example
 <UI.BackToTop/>
 ```
