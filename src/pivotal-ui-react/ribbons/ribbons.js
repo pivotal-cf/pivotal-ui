@@ -18,7 +18,7 @@ var React = require('react');
  */
 var Ribbon = React.createClass({
   render() {
-    return <div className="inline-ribbon">{this.props.children}</div>;
+    return <div className="ribbon">{this.props.children}</div>;
   }
 });
 
@@ -40,7 +40,7 @@ var Ribbon = React.createClass({
  */
 var PrimaryRibbon = React.createClass({
   render() {
-    return <div className="inline-ribbon ribbon-primary">{this.props.children}</div>;
+    return <div className="ribbon ribbon-primary">{this.props.children}</div>;
   }
 });
 
