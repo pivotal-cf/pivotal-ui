@@ -3717,7 +3717,7 @@ a:hover.type-inverse {
 title: Typography
 name: type_react
 category:
-  - React Beta
+  - React
 ---
 We have three type systems. Which one you choose depends on your product.
 
@@ -4005,7 +4005,7 @@ other content inside a container on the page (of a width 500px for this example)
 title: Alerts
 name: alerts_react
 categories:
-  - React Beta
+  - React
 ---
 
 ```react_example_table
@@ -6268,7 +6268,7 @@ Don't use the typography size modifier classes (e.g. .title, .h1, .type-sm)
 title: Iconography
 name: iconography_react
 categories:
-  - React Beta
+  - React
 ---
 
 We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/).
@@ -6358,7 +6358,7 @@ You can place the link anywhere in your markup, but best practices are either to
 title: Back to Top
 name: back_to_top_react
 categories:
-  - React Beta
+  - React
 ---
 
 You can use this component to scroll to the top of a page.
@@ -6771,7 +6771,7 @@ size modifier class for the desired size.
 title: Buttons
 name: button_react
 categories:
-  - React Beta
+  - React
 ---
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
@@ -7311,7 +7311,7 @@ You can combine the accordion with any panel class to have a styled panel that o
 title: Collapse
 name: collapse_react
 categories:
-  - React Beta
+  - React
 ---
 
 Collapse components are implementations of the [Accordion][accordion] style. In
@@ -9042,7 +9042,7 @@ Dividers draw horizontal lines between different content groupings.
 title: Dividers
 name: divider_react
 categories:
-  - React Beta
+  - React
 ---
 
 Dividers draw horizontal lines between different content groupings.
@@ -9206,7 +9206,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 title: Dropdowns
 name: dropdown_react
 categories:
-  - React Beta
+  - React
 ---
 
 This is the basic bootstrap dropdown:
@@ -9505,7 +9505,7 @@ This is a notification dropdown with alerts.
 title: Notifications
 name: notifications_react
 categories:
-  - React Beta
+  - React
 ---
 
 Here's an example if there are no notifications:
@@ -10848,7 +10848,7 @@ Add the focus-input directive to an element that should be focused if the focus-
 title: Forms
 name: form_react
 categories:
-  - React Beta
+  - React
 ---
 */
 /*doc
@@ -11717,7 +11717,7 @@ This is useful if you want to change the order of columns at different screen si
 title: Grids
 name: grid_react
 category:
-  - React Beta
+  - React
 ---
 
 The react grids depend on [React-Bootstrap](http://react-bootstrap.github.io/components.html#grids). Check out their docs
@@ -12108,7 +12108,7 @@ For more information about setting up your svg, read this article about [svg coo
 title: Images
 name: image_react
 categories:
-  - React Beta
+  - React
 ---
 Images in react can be responsive and/or wrapped in a link.
 
@@ -12199,7 +12199,7 @@ Removable labels are used as tags in an editable list. The user will either ente
 title: Labels
 name: label_react
 categories:
-  - React Beta
+  - React
 ---
 
 Labels are a straightforward implementation of the [Label][label] style.
@@ -13348,7 +13348,7 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 title: Lists
 name: list_react
 categories:
-  - React Beta
+  - React
 ---
 */
 /*doc
@@ -14029,7 +14029,7 @@ For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and t
 title: Media
 name: media_react
 category:
-  - React Beta
+  - React
 ---
 
 ## General media object modifiers
@@ -14466,7 +14466,7 @@ parent: modal
 title: Modals
 name: modal_react
 categories:
-  - React Beta
+  - React
 ---
 
 We provide 3 components that can be used to assemble modals:
@@ -15118,7 +15118,7 @@ helper classes for that.
 title: Panels
 name: panel_react
 categories:
- - React Beta
+ - React
 ---
 
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
@@ -15364,7 +15364,7 @@ one on the `.container` element will be constrained to the content width.
 title: Panes
 name: pane_react
 category:
-  - React Beta
+  - React
 ---
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
@@ -15729,7 +15729,7 @@ working on.
 title: Ribbons
 name: ribbons_react
 categories:
-  - React Beta
+  - React
 ---
 
 `Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
@@ -16033,7 +16033,7 @@ We are making the assumption here that table-hover will *only* be used if the ta
 title: Tables
 name: table_react
 categories:
- - React Beta
+ - React
 ---
 */
 /*doc
@@ -17005,7 +17005,7 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
 title: Tabs
 name: tabs_react
 categories:
-  - React Beta
+  - React
 ---
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
@@ -17238,7 +17238,7 @@ $('#disabled-button-with-tooltip').tooltip();
 title: Tooltips
 name: tooltips_react
 categories:
-  - React Beta
+  - React
 ---
 
 Tooltips are used to display extra information on hover.
