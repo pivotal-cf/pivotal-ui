@@ -63,6 +63,20 @@ There are several languages already available (and others available from the [Pr
 * Ruby
 * Go
 
+For Pivotal UI style code highlighting:
+<code class="pam">
+<i class="fa fa-download" alt="Install Prismjs">
+npm install pui-prism --save
+</i>
+</code>
+
+For a theme of your choice:
+<code class="pam">
+<i class="fa fa-download" alt="Install Prismjs">
+npm install prismjs-\<theme\>-theme --save
+</i>
+</code>
+
 ```html_example
 <pre><code class="language-ruby">class Foo
   def bar
