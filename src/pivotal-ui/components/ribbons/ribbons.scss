@@ -28,16 +28,16 @@ parent: ribbon
 ---
 
 ```html_example_table
-<div class="inline-ribbon">British</div>
+<div class="ribbon">British</div>
 <span class="mlm">For British eyes only</span>
 
-<div class="inline-ribbon ribbon-primary">Pivotal</div>
+<div class="ribbon ribbon-primary">Pivotal</div>
 <span class="mlm">Wow this ribbon is so inline</span>
 ```
 
 */
 
-.inline-ribbon {
+.ribbon {
   position: relative;
   display: inline-block;
   padding: 2px 10px;
@@ -137,7 +137,7 @@ working on.
 title: Ribbons
 name: ribbons_react
 categories:
-  - React Beta
+  - React
 ---
 
 <code class="pam">

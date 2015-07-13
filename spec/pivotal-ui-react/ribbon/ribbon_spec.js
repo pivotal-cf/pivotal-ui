@@ -10,9 +10,9 @@ describe('Ribbon', function() {
     React.unmountComponentAtNode(root);
   });
 
-  it('renders a inline ribbon', function() {
-    expect('.inline-ribbon').toHaveText('British');
-    expect('.inline-ribbon').not.toHaveClass('ribbon-primary');
+  it('renders a ribbon', function() {
+    expect('.ribbon').toHaveText('British');
+    expect('.ribbon').not.toHaveClass('ribbon-primary');
   });
 });
 
@@ -27,8 +27,8 @@ describe('PrimaryRibbon', function() {
   });
 
   it('adds the ribbon-primary class', function() {
-    expect('.inline-ribbon').toHaveText('British');
-    expect('.inline-ribbon').toHaveClass('ribbon-primary');
+    expect('.ribbon').toHaveText('British');
+    expect('.ribbon').toHaveClass('ribbon-primary');
   });
 });
 
