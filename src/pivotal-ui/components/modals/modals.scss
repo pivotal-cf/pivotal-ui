@@ -19,6 +19,22 @@
   opacity: 1;
 }
 
+.modal-backdrop.in {
+  // Bootstrap defines the modal-backdrop opacity on the .modal-backdrop.in rule
+  // so we have to create more specific rules for our React transition group to
+  // actually see a transition :(
+
+  //Class created in React Animations
+  &.modal-backdrop-fade-enter, &.modal-backdrop-fade-leave {
+    @include transition(opacity .15s linear);
+    opacity: 0;
+  }
+
+  //Class created in React Animations
+  &.modal-backdrop-fade-enter-active {
+    opacity: $modal-backdrop-opacity;
+  }
+}
 
 /*doc
 ---
@@ -67,7 +83,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
 .modal {
 
   .modal-dialog {
-    padding-top: 50px;
+    margin-top: 50px;
   }
   .modal-content {
     border-radius: $modal-basic-content-border-radius;

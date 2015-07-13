@@ -61,7 +61,7 @@ describe('Modals', function() {
     });
 
     describe('when mounting', function() {
-      it('removes the key up event listener', function() {
+      it('adds the key up event listener', function() {
         expect(document.body.addEventListener).toHaveBeenCalledWith('keyup', subject.refs.modal.onKeyUp, false);
       });
     });
@@ -74,34 +74,61 @@ describe('Modals', function() {
       });
     });
 
-    describe('clicking on the modal trigger', function() {
-      beforeEach(function() {
-        $('#openButton').simulate('click');
-      });
-
+    function itOpensTheModal() {
       it('renders a modal', function() {
         expect('.modal').toExist();
-        expect('.modal').toHaveClass('modal-basic');
-        expect('.modal .modal-backdrop').toHaveClass('fade');
-        expect('.modal .modal-backdrop').toHaveClass('in');
         expect('.modal .modal-header').toContainText('What a Header!');
         expect('.modal .modal-body').toContainText('Text in a body');
         expect('.modal .modal-footer').toContainText('Text in a footer');
       });
 
+      it('adds the modal-open class to the body', () => {
+        expect('body').toHaveClass('modal-open');
+      });
+
+      it('renders a modal-backdrop', function() {
+        expect('.modal-backdrop').toExist();
+      });
+    }
+
+    function itKeepsTheModalOpen() { itOpensTheModal(); }
+
+    function itClosesTheModal() {
+      it('closes the modal', function() {
+        expect('.modal').not.toExist();
+      });
+
+      it('removes the modal-backdrop', function() {
+        expect('.modal-backdrop').not.toExist();
+      });
+
+      it('removes the modal-open class from the body', function() {
+        expect('body').not.toHaveClass('modal-open');
+      });
+    }
+
+    describe('clicking on the modal trigger', function() {
+      beforeEach(function() {
+        $('#openButton').simulate('click');
+      });
+
+      itOpensTheModal();
+
       describe('pressing any key', function() {
         describe('for the escape key', function() {
-          it('closes the modal', function() {
+          beforeEach(function() {
             document.body.addEventListener.calls.mostRecent().args[1]({keyCode: 27});
-            expect(subject.refs.modal.state.isVisible).toBe(false);
           });
+
+          itClosesTheModal();
         });
 
         describe('any other key', function() {
-          it('does not close the modal', function() {
+          beforeEach(function() {
             document.body.addEventListener.calls.mostRecent().args[1]({keyCode: 13});
-            expect(subject.refs.modal.state.isVisible).toBe(true);
           });
+
+          itKeepsTheModalOpen();
         });
       });
 
@@ -110,29 +137,31 @@ describe('Modals', function() {
           $('.modal button.close').simulate('click');
         });
 
-        it('closes the modal', function() {
-          expect(subject.refs.modal.state.isVisible).toBe(false);
-        });
+        itClosesTheModal();
 
         describe('opening the modal again', function() {
           beforeEach(function() {
             $('#openButton').simulate('click');
           });
 
-          it('opens the modal', function() {
-            expect(subject.refs.modal.state.isVisible).toBe(true);
-          });
+          itOpensTheModal();
         });
       });
 
-      describe('clicking on the modal backdrop', function() {
+      describe('clicking inside the modal-dialog', function() {
         beforeEach(function() {
-          $('.modal .modal-backdrop').simulate('click');
+          $('.modal-dialog').simulate('click');
         });
 
-        it('closes the modal', function() {
-          expect(subject.refs.modal.state.isVisible).toBe(false);
+        itKeepsTheModalOpen();
+      });
+
+      describe('clicking outside the modal-dialog', function() {
+        beforeEach(function() {
+          $('.modal').simulate('click');
         });
+
+        itClosesTheModal();
       });
 
       describe('clicking the close button', function() {
@@ -140,9 +169,7 @@ describe('Modals', function() {
           $('#closeButton').simulate('click');
         });
 
-        it('closes the modal', function() {
-          expect(subject.refs.modal.state.isVisible).toBe(false);
-        });
+        itClosesTheModal();
       });
     });
   });

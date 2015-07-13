@@ -1,5 +1,6 @@
 var React = require('react/addons');
 var {DefaultH4} = require('pui-react-typography');
+require('classlist-polyfill');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 /**
@@ -56,7 +57,16 @@ var Modal = React.createClass({
   },
 
   getInitialState() {
-    return ({isVisible: false});
+    return {isVisible: false};
+  },
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.isVisible) {
+       document.body.classList.add('modal-open');
+    }
+    else {
+       document.body.classList.remove('modal-open');
+    }
   },
 
   open() {
@@ -67,6 +77,12 @@ var Modal = React.createClass({
     this.setState({isVisible: false});
   },
 
+  childrenClick(e) {
+    if (e.target === this.refs.modal.getDOMNode()) {
+      this.close();
+    }
+  },
+
   onKeyUp(e) {
     if (e.keyCode === 27) {
       this.close();
@@ -74,10 +90,11 @@ var Modal = React.createClass({
   },
 
   render() {
-    var modalInnards = this.state.isVisible ?
-      (
-        <div className="modal modal-basic" style={{display: 'block'}} key="bananas">
-          <div className="modal-backdrop fade in" onClick={this.close} style={{height: window.innerHeight}}></div>
+    let modal = null;
+    let backdrop = null;
+    if (this.state.isVisible) {
+      modal = (
+        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal" onClick={this.childrenClick}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
@@ -87,14 +104,21 @@ var Modal = React.createClass({
                 </button>
                 <DefaultH4 className="modal-title">{this.props.title}</DefaultH4>
               </div>
-              {this.props.children}
+                {this.props.children}
             </div>
           </div>
         </div>
-      ) :
-      null;
+      );
+      backdrop = (<div className="modal-backdrop in" key="tangerine" onClick={this.close}></div>);
+    }
 
-    return <ReactCSSTransitionGroup transitionName="modal-fade">{modalInnards}</ReactCSSTransitionGroup>;
+    return (
+      <div>
+        <ReactCSSTransitionGroup transitionName="modal-backdrop-fade">{backdrop}</ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup transitionName="modal-fade">{modal}</ReactCSSTransitionGroup>
+      </div>
+    );
+
   }
 });
 
