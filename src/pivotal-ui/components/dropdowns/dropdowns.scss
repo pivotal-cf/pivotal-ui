@@ -498,6 +498,46 @@ var newLabel = <UI.DefaultH3 className="mvn"><UI.Label>New</UI.Label></UI.Defaul
 
 /*doc
 ---
+title: Notification Sizing
+name: notifications_react_sizing
+parent: notifications_react
+---
+
+```react_example_table
+<UI.Notifications size="h1">
+  <UI.NotificationItem>Stuff</UI.NotificationItem>
+</UI.Notifications>
+
+<UI.Notifications size="h2">
+  {_.times(10, function() {
+    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+  })}
+</UI.Notifications>
+
+<UI.AlertNotifications size="h3">
+  <UI.NotificationItem>Stuff</UI.NotificationItem>
+</UI.AlertNotifications>
+
+<UI.Notifications size="h4">
+  {_.times(10, function() {
+    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+  })}
+</UI.Notifications>
+
+<UI.Notifications size="h5">
+  <UI.NotificationItem>Stuff</UI.NotificationItem>
+</UI.Notifications>
+
+<UI.AlertNotifications size="h6">
+  {_.times(10, function() {
+    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+  })}
+</UI.AlertNotifications>
+```
+*/
+
+/*doc
+---
 title: Alerts
 name: alert_notifications_react
 parent: notifications_react

@@ -2,6 +2,7 @@ var React = require('react');
 var types = React.PropTypes;
 var {Icon} = require('pui-react-iconography');
 var {LinkDropdown, DropdownItem} = require('pui-react-dropdowns');
+var classnames = require('classnames');
 
 /**
  * @component Notifications
@@ -34,11 +35,12 @@ var {LinkDropdown, DropdownItem} = require('pui-react-dropdowns');
  */
 var Notifications = React.createClass({
   render() {
-    var {children} = this.props;
+    var {size, children} = this.props;
     var numChildren = React.Children.count(children);
     var badge = children ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
+    var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
-      <div className="dropdown-notifications-title">
+      <div className={dropdownTitleClasses}>
         <i className="fa fa-bell"></i>
         {badge}
       </div>
@@ -85,10 +87,11 @@ var Notifications = React.createClass({
  */
 var AlertNotifications = React.createClass({
   render() {
-    var {children} = this.props;
+    var {size, children} = this.props;
     var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert"></Icon> : null;
+    var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
-      <div className="dropdown-notifications-title">
+      <div className={dropdownTitleClasses}>
         <i className="fa fa-bell"></i>
         {badge}
       </div>
