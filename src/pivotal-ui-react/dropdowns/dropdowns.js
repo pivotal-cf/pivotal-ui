@@ -22,7 +22,7 @@ var React = require('react');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
  */
 var Dropdown = require('react-bootstrap').DropdownButton;
@@ -44,7 +44,7 @@ module.exports = {
    * @property href {String} A URL to link to
    * @property divider {Boolean} If set, inserts a horizontal line instead of a link
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   DropdownItem: require('react-bootstrap').MenuItem,
@@ -55,7 +55,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   LinkDropdown: defDropdown({bsStyle: 'link'}),
@@ -66,7 +66,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   DefaultAltDropdown: defDropdown({buttonClassName: 'btn-default-alt', bsStyle: null}),
@@ -77,7 +77,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   PrimaryDropdown: defDropdown({bsStyle: 'primary'}),
@@ -88,7 +88,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   LowlightDropdown: defDropdown({buttonClassName: 'btn-lowlight', bsStyle: null}),
@@ -99,7 +99,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   DangerDropdown: defDropdown({bsStyle: 'danger'}),
@@ -110,7 +110,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   HighlightDropdown: defDropdown({buttonClassName: 'btn-highlight', bsStyle: null}),
@@ -121,7 +121,7 @@ module.exports = {
    *
    * @property title {String} Sets the text of the dropdown trigger button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#dropdown_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
   HighlightAltDropdown: defDropdown({buttonClassName: 'btn-highlight-alt', bsStyle: null})

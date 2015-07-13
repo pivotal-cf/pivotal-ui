@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "React Back to Top component",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#back_to_top",
+  "homepage": "http://styleguide.pivotal.io/react.html#back_to_top",
   "dependencies": {
     "pui-css-back-to-top": "1.10.0",
     "pui-react-animation": "^0.0.5",

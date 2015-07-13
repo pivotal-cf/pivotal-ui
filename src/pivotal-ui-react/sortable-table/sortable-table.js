@@ -69,7 +69,7 @@ var TableRow = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#table_sortable_react)
  */
 var SortableTable = React.createClass({
   propTypes: {

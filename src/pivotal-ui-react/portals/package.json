@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "React components that provide portals",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html",
+  "homepage": "http://styleguide.pivotal.io/react.html",
   "dependencies": {
     "node-event-emitter": "^0.0.1"
   }

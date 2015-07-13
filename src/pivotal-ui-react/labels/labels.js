@@ -13,7 +13,7 @@ var React = require('react');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#label_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#label_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#label)
  */
 var Label = React.createClass({

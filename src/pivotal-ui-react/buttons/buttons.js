@@ -35,7 +35,7 @@ var ButtonProps = {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
  */
 var UIButton = React.createClass({
@@ -78,7 +78,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   DefaultButton: defButton({kind: 'default'}),
@@ -90,7 +90,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   DefaultAltButton: defButton({kind: 'default-alt'}),
@@ -102,7 +102,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   PrimaryButton: defButton({kind: 'primary'}),
@@ -114,7 +114,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   LowlightButton: defButton({kind: 'lowlight'}),
@@ -126,7 +126,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   DangerButton: defButton({kind: 'danger'}),
@@ -138,7 +138,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   HighlightButton: defButton({kind: 'highlight'}),
@@ -150,7 +150,7 @@ module.exports = {
    * @property block {Boolean} Makes the button fill the width of its container
    * @property large {Boolean} Enlarges the button
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#button_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   HighlightAltButton: defButton({kind: 'highlight-alt'})

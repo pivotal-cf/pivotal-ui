@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "React components providing accordions for showing and hiding content",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#collapse_react",
+  "homepage": "http://styleguide.pivotal.io/react.html#collapse_react",
   "dependencies": {
     "react-bootstrap": "0.23.3",
     "classnames": "^1.2.0",

@@ -20,7 +20,7 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#tooltips_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tooltips_react)
    */
   OverlayTrigger: require('react-bootstrap').OverlayTrigger
 };

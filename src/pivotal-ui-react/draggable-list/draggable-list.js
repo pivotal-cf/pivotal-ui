@@ -47,7 +47,7 @@ function childrenIndices(children) {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 var DraggableList = React.createClass({
   propTypes: {
@@ -125,7 +125,7 @@ var DraggableList = React.createClass({
  * @component DraggableListItem
  * @description Denotes list items of a DraggableList
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 var DraggableListItem = React.createClass({
   mixins: [HoverMixin],

@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "React components for tab-based content toggling",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#tabs_react",
+  "homepage": "http://styleguide.pivotal.io/react.html#tabs_react",
   "dependencies": {
     "react-bootstrap": "0.23.3",
     "pui-css-tabs": "1.10.0"

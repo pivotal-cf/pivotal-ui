@@ -19,7 +19,7 @@ var types = React.PropTypes;
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#image_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#image_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#image)
  */
 var Image = React.createClass({

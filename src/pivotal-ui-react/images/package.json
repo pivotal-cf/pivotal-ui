@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "A React component for rendering responsive and linked images",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#image_react",
+  "homepage": "http://styleguide.pivotal.io/react.html#image_react",
   "dependencies": {
     "classnames": "^1.2.0",
     "pui-css-images": "1.10.0"

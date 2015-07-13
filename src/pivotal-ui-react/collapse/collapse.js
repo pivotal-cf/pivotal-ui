@@ -30,7 +30,7 @@ var CollapseProps = {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#collapse_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var BaseCollapse = React.createClass({
@@ -77,7 +77,7 @@ var BaseCollapse = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#collapse_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var Collapse = React.createClass({
@@ -122,7 +122,7 @@ var Collapse = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#collapse_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var AltCollapse = React.createClass({

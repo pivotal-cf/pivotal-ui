@@ -25,7 +25,7 @@ var cloneWithProps = React.addons.cloneWithProps;
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#form_radio_input_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#form_radio_input_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/forms.html#form_checkboxes)
  */
 var RadioGroup = React.createClass({

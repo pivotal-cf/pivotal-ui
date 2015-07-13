@@ -302,7 +302,7 @@ File and folder names should be plural and dash-separated (i.e.
 be `pui-react-<component-name>`.
 
 The `package.json` file should contain a homepage that links to the styleguide
-(http://styleguide.pivotal.io/react_beta.html#component-name), the version
+(http://styleguide.pivotal.io/react.html#component-name), the version
 number of the package (don't worry about this too much - we'll take care of it),
 and any dependencies (see [component dependencies](#component-dependencies)).
 
@@ -312,7 +312,7 @@ E.g. for draggable lists:
 {
   "version": "0.1.0",
   "description": "A React component for showing a list of items that can be re-ordered by the user",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#list_draggable_react",
+  "homepage": "http://styleguide.pivotal.io/react.html#list_draggable_react",
   "dependencies": {
     "classnames": "^1.2.0",
     "pui-css-lists": "^0.0.5"
@@ -677,14 +677,14 @@ For example, the draggable list package, which exports `DraggableList` and
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 
 /**
  * @component DraggableListItem
  * @description Denotes list items of a DraggableList
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#list_draggable_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 ```
 

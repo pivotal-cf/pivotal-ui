@@ -13,7 +13,7 @@ var React = require('react');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#ribbons_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var Ribbon = React.createClass({
@@ -35,7 +35,7 @@ var Ribbon = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#ribbons_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var PrimaryRibbon = React.createClass({
@@ -57,7 +57,7 @@ var PrimaryRibbon = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#ribbons_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var Banner = React.createClass({

@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 feature 'React Modal', js: true do
   scenario 'using the component' do
-    visit '/react_beta.html#modal_react'
+    visit '/react.html#modal_react'
     expect(page).not_to have_css('.modal')
     expect(page).not_to have_css('.modal-backdrop')
 

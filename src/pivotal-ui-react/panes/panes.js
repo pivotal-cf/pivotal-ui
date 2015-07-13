@@ -23,7 +23,7 @@ var classnames = require('classnames');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#pane_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var BasePane = React.createClass({
@@ -63,7 +63,7 @@ var BasePane = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#pane_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var Pane = React.createClass({

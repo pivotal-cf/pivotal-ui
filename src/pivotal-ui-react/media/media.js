@@ -39,7 +39,7 @@ var MediaObject = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#media_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#media_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#media)
  */
 var Media = React.createClass({
@@ -88,7 +88,7 @@ var Media = React.createClass({
  * @property leftMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the left media and the content
  * @property rightMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the right media and the content
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#media_react)
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#media_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#media)
  */
 var Flag = React.createClass({

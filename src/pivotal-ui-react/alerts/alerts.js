@@ -79,7 +79,7 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#alerts_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#alerts_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#alert)
    */
   SuccessAlert: defAlert({bsStyle: 'success', alertIcon: 'fa-check-circle'}),
@@ -103,7 +103,7 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#alerts_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#alerts_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#alert)
    */
   InfoAlert: defAlert({bsStyle: 'info', alertIcon: 'fa-info-circle'}),
@@ -127,7 +127,7 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#alerts_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#alerts_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#alert)
    */
   WarningAlert: defAlert({bsStyle: 'warning', alertIcon: 'fa-exclamation-triangle'}),
@@ -151,7 +151,7 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#alerts_react)
+   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#alerts_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#alert)
    */
   ErrorAlert: defAlert({bsStyle: 'danger', alertIcon: 'fa-exclamation-triangle'})

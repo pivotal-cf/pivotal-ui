@@ -1,7 +1,7 @@
 {
   "version": "1.10.0",
   "description": "React components for laying-out content in a grid",
-  "homepage": "http://styleguide.pivotal.io/react_beta.html#grid_react",
+  "homepage": "http://styleguide.pivotal.io/react.html#grid_react",
   "dependencies": {
     "pui-css-grids": "1.10.0",
     "classnames": "^1.2.0",
