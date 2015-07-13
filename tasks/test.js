@@ -19,9 +19,18 @@ gulp.task('ci', callback => runSequence(
 ));
 
 gulp.task('lint', function() {
-  return gulp.src(['tasks/**/*.js', 'src/pivotal-ui-react/**/*.js', 'spec/pivotal-ui-react/**/*.js', 'spec/task-helpers/**/*.js'])
+  const srcLintStream = gulp.src(['src/pivotal-ui-react/**/*.js'])
     .pipe(plugins.plumber())
-    .pipe(plugins.eslint())
+    .pipe(plugins.eslint({
+      rulePaths: ['config/eslint-rules/'],
+      rules: {'no-object-assign': 2}
+    }));
+
+  const otherLintStream = gulp.src(['tasks/**/*.js', 'spec/pivotal-ui-react/**/*.js', 'spec/task-helpers/**/*.js'])
+    .pipe(plugins.plumber())
+    .pipe(plugins.eslint());
+
+  return merge(srcLintStream, otherLintStream)
     .pipe(plugins.eslint.format('stylish'))
     .pipe(plugins.eslint.failOnError());
 });
