@@ -15,17 +15,7 @@ npm install pui-css-ribbons --save
 </i>
 </code>
 
-
 Ribbons should be used to call out access, status, environment, etc.
-
-*/
-
-/*doc
----
-title: Ribbon
-name: ribbon_inline
-parent: ribbon
----
 
 ```html_example_table
 <div class="ribbon">British</div>
@@ -34,7 +24,6 @@ parent: ribbon
 <div class="ribbon ribbon-primary">Pivotal</div>
 <span class="mlm">Wow this ribbon is so inline</span>
 ```
-
 */
 
 .ribbon {
