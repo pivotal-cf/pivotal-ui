@@ -115,8 +115,8 @@ If it's not a heading but you need similar visual treatment you can add just the
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  padding-top: 0.107em;
-  padding-bottom: 0.107em;
+  padding-top: $headings-padding;
+  padding-bottom: $headings-padding;
 }
 
 h1, .h1, h2, .h2, h3, .h3 {
