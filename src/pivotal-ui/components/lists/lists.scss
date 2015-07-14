@@ -410,34 +410,6 @@ Use this list when you need simple gray borders between items on a dark backgrou
   }
 }
 
-/*pending
----
-title: Addable
-name: list_addable
-parent: lists_js
----
-
-New elements fade in
-
-```html_example
-<ul class="list-group" id="list-group-adding-demo">
-  <li class="list-group-item">
-    item 1
-  </li>
-  <li class="list-group-item">
-    item 2
-  </li>
-  <li class="list-group-item">
-    item 3
-  </li>
-</ul>
-
-<a data-add-item-to="#list-group-adding-demo">Add an item</a>
-```
-
-
-*/
-
 .list-group {
   &, > li {
     border-width: 1px 0;
@@ -446,53 +418,6 @@ New elements fade in
 
 .list-group-item {
   padding-right: 5px; //bootstrap override
-
-  &.new {
-    -webkit-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
-    -moz-animation: new-list-group-item-grow .3s cubic-bezier(0.895, 0.03, 0.685, 0.22) forwards, new-list-group-item-fade .5s ease-in .15s forwards;
-  }
-}
-
-@-webkit-keyframes new-list-group-item-fade {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@-webkit-keyframes new-list-group-item-grow {
-  0% {
-    max-height: 0;
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-  100% {
-    max-height: 100px;
-    padding-top:10px;
-    padding-bottom:10px;
-  }
-}
-
-@keyframes new-list-group-item-fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes new-list-group-item-grow {
-  from {
-    max-height: 0;
-    padding: 0px 15px;
-  }
-  to {
-    max-height: 100px;
-    padding: 10px 15px;
-  }
 }
 
 .list-notitle{
