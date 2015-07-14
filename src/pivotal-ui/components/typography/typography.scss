@@ -509,6 +509,24 @@ a:hover.type-inverse {
 
 /*doc
 ---
+title: Multiline Headings
+name: type_mutliline
+parent: type
+---
+
+Headings are spaced so their line height and padding are consistent on one or many lines.
+
+```html_example_table
+<h1>One line heading</h1>
+
+<h1>I am a <br/> multiline heading</h1>
+```
+
+*/
+
+
+/*doc
+---
 title: Typography
 name: type_react
 category:
