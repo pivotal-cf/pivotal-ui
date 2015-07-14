@@ -1,42 +1,58 @@
-var classnames = require('classnames');
-var React = require('react');
-var sortBy = require('lodash.sortby');
+const classnames = require('classnames');
+const React = require('react');
+const sortBy = require('lodash.sortby');
 
-var types = React.PropTypes;
+const types = React.PropTypes;
 
-var TableHeader = React.createClass({
-  handleClick() {
-    if (this.props.sortable) {
-      this.props.onSortableTableHeaderClick(this);
-    }
+/**
+ * @component TableHeader
+ * @description Wrapper for a th
+ *
+ * @property `sortable` {boolean} (defaults to false) indicates whether the table can be sorted by this column;
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
+ */
+export const TableHeader = React.createClass({
+  propTypes: {
+    onClick: types.func,
+    onSortableTableHeaderClick: types.func
+  },
+
+  handleClick(...args) {
+    var {sortable, onClick, onSortableTableHeaderClick} = this.props;
+    if (sortable) onSortableTableHeaderClick(...args);
+    if (onClick) onClick(...args);
   },
 
   render() {
-    var {children, sortable, sortState: {column, order}, name} = this.props;
+    const {sortable, className, ...props} = this.props;
+    const classes = classnames({'sortable': sortable}, className);
 
-    var sortClass = classnames({
-      'sortable': sortable,
-      'sorted-none': sortable && column !== name,
-      'sorted-asc': sortable && column === name && order === 'asc',
-      'sorted-desc': sortable && column === name && order === 'desc'
-    });
-
-    return <th className={sortClass} onClick={this.handleClick}>{children}</th>;
+    return <th {...props} className={classes} onClick={this.handleClick}/>;
   }
 });
 
-const ALIGNMENT = {
-  left: 'txt-l',
-  center: 'txt-c',
-  right: 'txt-r'
-};
-var TableRow = React.createClass({
+/**
+ * @component TableCell
+ * @description Wrapper for a td
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
+ */
+export const TableCell = React.createClass({
   render() {
-    var {data, alignment, columnNames} = this.props;
-    var tableCells = columnNames.map(function(name, i) {
-      return <td key={name} className={classnames(ALIGNMENT[alignment[i]])}>{data[name]}</td>;
-    });
-    return <tr>{tableCells}</tr>;
+    return <td {...this.props}/>;
+  }
+});
+
+/**
+ * @component TableRow
+ * @description Wrapper for a tr
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
+ */
+export const TableRow = React.createClass({
+  render() {
+    return <tr {...this.props}/>;
   }
 });
 
@@ -44,100 +60,91 @@ var TableRow = React.createClass({
  * @component SortableTable
  * @description A table that can be sorted by column
  *
- * @property columns {Array<Object>} A list of column configuration parameters:
- *   `name` is the `data` key associated with the column;
- *   `title` is the header text for the column;
- *   `sortable` (defaults to false) indicates whether the table can be sorted by this column; and
- *   `align` (defaults to left) sets the text alignment for cells in this column
- * @property data {Array<Object>} The data to be displayed in the table
- * @property classes {Array<String>} Class names to add to the table
+ * @property `headers` {Array<Object>} A list of `TableHeader` components
  *
  * @example ```js
- * var SortableTable = require('pui-react-sortable-table').SortableTable;
+ * var {SortableTable, TableHeader, TableRow, TableCell} = require('pui-react-sortable-table');
  * var MyComponent = React.createClass({
  *   render() {
- *     var columns = [
- *       {name: 'c1', title: 'Column 1', sortable: true},
- *       {name: 'c2', title: 'Column 2'}
- *     ];
+ *     var headers = [
+ *       <TableHeader sortable={true}>c1</TableHeader>,
+ *       <TableHeader sortable={true}>c2</TableHeader>,
+ *      ];
  *     var data = [
  *       {c1: 'yes', c2: 'foo'},
  *       {c1: 'no', c2: 'bar'}
  *     ];
- *     return <SortableTable data={data} columns={columns} classes={['my-table']}/>;
+ *     return <SortableTable headers={headers}>
+ *       {sortTableData.map(function(datum, key) {
+ *         return (
+ *           <TableRow key={key}>
+ *             <TableCell>{datum.c1}</TableCell>
+ *             <TableCell>{datum.c2}</TableCell>
+ *           </TableRow>
+ *         );
+ *       })}
+ *     </SortableTable>;
  *   }
  * });
  * ```
  *
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#table_sortable_react)
  */
-var SortableTable = React.createClass({
+export const SortableTable = React.createClass({
   propTypes: {
-    classes: types.arrayOf(types.string),
-    columns: types.arrayOf(types.shape({
-      name: types.string.isRequired,
-      title: types.string.isRequired,
-      align: types.oneOf(['left', 'center', 'right']),
-      sortable: types.bool
-    })),
-    data: types.arrayOf(types.object)
+    headers: types.arrayOf(types.element)
   },
 
   getInitialState() {
-    var {columns, data} = this.props;
-    var column = columns[0].name;
-    return {
-      sort: {
-        column,
-        order: 'asc'
-      },
-      data: sortBy(data, column)
-    };
+    return {sortColumn: 0, sortAscending: true};
   },
 
-  sortData(header) {
-    var {data: oldData, sort: {column: oldSortColumn, order: oldSortOrder}} = this.state;
-    var newSortColumn = header.props.name;
-    var newData, newSortOrder;
+  setSortedColumn(sortColumn, sortAscending) {
+    this.setState({sortColumn, sortAscending});
+  },
 
-    if (oldSortColumn !== newSortColumn) {
-      newSortOrder = 'asc';
-      newData = sortBy(oldData, newSortColumn);
-    } else {
-      newSortOrder = oldSortOrder === 'asc' ? 'desc' : 'asc';
-      newData = oldData.reverse();
-    }
+  headerClassesWithSortDirection({headerClassName, isSortColumn}) {
+    return classnames(headerClassName, {
+      'sorted-asc': isSortColumn && this.state.sortAscending,
+      'sorted-desc': isSortColumn && !this.state.sortAscending
+    });
+  },
 
-    this.setState({
-      sort: {
-        column: newSortColumn,
-        order: newSortOrder
-      },
-      data: newData
+  sortedRows() {
+    const {sortColumn, sortAscending} = this.state;
+    const sortedRows = sortBy(this.props.children, (row) => {
+      const cellForSorting = row.props.children[sortColumn];
+      return cellForSorting.props.children;
+    });
+    return sortAscending ? sortedRows : sortedRows.reverse();
+  },
+
+  renderHeaders() {
+    var {headers} = this.props;
+    const {sortColumn, sortAscending} = this.state;
+    return headers.map((header, index) => {
+      const isSortColumn = (sortColumn === index);
+      return React.cloneElement(header, {
+        key: index,
+        className: this.headerClassesWithSortDirection(
+          {
+            headerClassName: header.props.className,
+            isSortColumn
+          }
+        ),
+        onSortableTableHeaderClick: () => this.setSortedColumn(index, isSortColumn ? !sortAscending : true)
+      });
     });
   },
 
   render() {
-    var {columns, classes} = this.props;
-
-    var headings = columns.map(function(column) {
-      return (
-        <TableHeader key={column.name} name={column.name} sortable={column.sortable} sortState={this.state.sort} onSortableTableHeaderClick={this.sortData}>
-          {column.title}
-        </TableHeader>
-      );
-    }, this);
-
-    var rows = this.state.data.map(function(datum, i) {
-      return (<TableRow data={datum} key={i} columnNames={columns.map(c => c.name)} alignment={columns.map(c => c.align)}/>);
-    });
+    let {className, style, id} = this.props;
+    let rows = this.sortedRows();
 
     return (
-      <table className={classnames('table', 'table-sortable', classes)}>
+      <table className={classnames('table', 'table-sortable', className)} id={id} style={style} >
         <thead>
-          <tr>
-            {headings}
-          </tr>
+          <tr>{this.renderHeaders()}</tr>
         </thead>
         <tbody>
           {rows}
@@ -146,5 +153,3 @@ var SortableTable = React.createClass({
     );
   }
 });
-
-module.exports = {SortableTable};
