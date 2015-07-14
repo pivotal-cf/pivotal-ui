@@ -322,8 +322,7 @@ Use this list when you need simple gray borders between items
 </ul>
 ```
 
-Group lists are great for displaying lists of events
-Here's an example from Console:
+The "event list" from AppsManager can be built with a group list:
 
 ```html_example
 <ul class="list-group">
@@ -501,82 +500,6 @@ New elements fade in
   }
   li:last-child{
     border-bottom:0;
-  }
-}
-
-.event-list {
-  .list-group-item {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .media-left {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .event-title {
-    margin-bottom: 2px;
-    color: $gray-2;
-  }
-
-  .event-user, .event-timestamp {
-    color: $gray-4;
-    font-size: 13px;
-  }
-
-  .event-icon {
-    font-family: 'FontAwesome';
-    font-size: 22px;
-    width: 90px;
-    text-align:center;
-  }
-
-  .started {
-    .event-icon:after {
-      color: $teal-3;
-      content: '\f04b';
-    }
-  }
-  .stopped {
-    .event-icon:after {
-      color: $gray-5;
-      content: '\f04d';
-    }
-  }
-  .updated {
-    .event-icon:after {
-      color: $teal-3;
-      content: '\f01b';
-    }
-  }
-  .scaled {
-    .event-icon:after {
-      color: $teal-3;
-      content: '\f0e4';
-
-    }
-  }
-  .crashed {
-    .event-icon:after {
-      color: $red-3;
-      content: '\f06a';
-
-    }
-  }
-  .created {
-    .event-icon:after {
-      color: $teal-3;
-      content: '\f135';
-
-    }
-  }
-  .renamed {
-    .event-icon:after {
-      color: $teal-3;
-      content: '\f040';
-
-    }
   }
 }
 
