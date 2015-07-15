@@ -113,6 +113,12 @@ If it's not a heading but you need similar visual treatment you can add just the
 // Override the bootstrap margins to use our margin classes so we can align
 // things. This is necessary because we have to keep the whitespace margins in sync with this
 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  padding-top: $headings-padding;
+  padding-bottom: $headings-padding;
+}
+
 h1, .h1, h2, .h2, h3, .h3 {
   margin-top: $whitespace-xl;
   margin-bottom: $whitespace-l;
@@ -500,6 +506,24 @@ a:hover.type-inverse {
 .error-color {
   color: $error-color !important;
 }
+
+/*doc
+---
+title: Multiline Headings
+name: type_mutliline
+parent: type
+---
+
+Headings are spaced so their line height and padding are consistent on one or many lines.
+
+```html_example_table
+<h1>One line heading</h1>
+
+<h1>I am a <br/> multiline heading</h1>
+```
+
+*/
+
 
 /*doc
 ---
