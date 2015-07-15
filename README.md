@@ -190,17 +190,19 @@ following to make sure all vendored files are properly compiled:
 
 # Including SCSS variables and mixins (optional, beta)
 
-If you are building CSS using Sass, you can get pivotal-ui variables and mixins from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins) node module.
+If you are building CSS using Sass, you can get pivotal-ui variables and mixins
+from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins)
+node module.
 
-```sh
-  $ npm install --save pui-css-variables-and-mixins
+```
+npm install --save pui-css-variables-and-mixins
 ```
 
 Import the file and use the variables:
 
 ```scss
-@import '/path/to/pui-variables.scss';
-@import '/path/to/mixins.scss';
+@import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/pui-variables.scss';
+@import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/mixins.scss';
 
 .bg-special {
   background-color: $brand-1;
