@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var classnames = require('classnames');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 var DividerProps = {
   propTypes: {
@@ -37,18 +37,18 @@ var Divider = React.createClass({
   mixins: [DividerProps],
 
   render() {
-    var {inverse, size, className, ...others} = this.props;
-    var classes = classnames(
-      className,
+    var {inverse, size, ...others} = this.props;
+    var dividerClass =
       {
         'divider-1': inverse && size !== 'large',
         'divider-2': inverse && size === 'large',
         'divider-alternate-1': !inverse && size !== 'large',
         'divider-alternate-2': !inverse && size === 'large'
-      }
-    );
+      };
 
-    return <hr {...others} className={classes}/>;
+    const props = mergeProps(others, {className: dividerClass});
+
+    return <hr {...props}/>;
   }
 });
 
