@@ -46,21 +46,27 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 </html>
 ```
 
-You'll need to maintain the structure in the release directory to have fonts and assets work properly. **Do not modify the release files directly**. If you need a component and you cannot find it in the styleguide, write your own styles and javascript separately. Doing so will make it easier to update to newer versions.
-
+You'll need to maintain the structure in the release directory to have fonts
+and assets work properly. **Do not modify the release files directly**. If you
+need a component and you cannot find it in the styleguide, write your own
+styles and javascript separately. Doing so will make it easier to update to
+newer versions.
 
 # Using PivotalUI on your Rails project
 
-If you're installing PivotalUI into a Rails project, you should unzip the constituent files into a directory named `vendor/assets/pui-vX.X.X`.
+If you're installing PivotalUI into a Rails project, you should unzip the
+constituent files into a directory named `vendor/assets/pui-vX.X.X`.
 
 In your `application.scss` file, add the line `@import "pivotal-ui-rails"`
 
-In your `application.js` file, add the line `//= require pivotal-ui` as **the very first** require declaration.
+In your `application.js` file, add the line `//= require pivotal-ui` as **the
+very first** require declaration.
 
-Lastly, in your application's `config/application.rb`, you'll need to add the following to make sure all vendored files are properly compiled:
+Lastly, in your application's `config/application.rb`, you'll need to add the
+following to make sure all vendored files are properly compiled:
 
 ```
-    config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
+  config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
 ```
 
 # Including SCSS variables and mixins (optional, beta)
