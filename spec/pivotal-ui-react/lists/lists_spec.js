@@ -1,4 +1,5 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
 
 describe('lists', function() {
   var UnorderedList = require('../../../src/pivotal-ui-react/lists/lists').UnorderedList;
@@ -10,11 +11,11 @@ describe('lists', function() {
   var GroupListInverse = require('../../../src/pivotal-ui-react/lists/lists').GroupListInverse;
   var InlineList = require('../../../src/pivotal-ui-react/lists/lists').InlineList;
 
-  function itRenders(Element, props = {}) {
+  function itRenders(Element, props = {}, listItemProps={}) {
     beforeEach(function() {
       React.render(
         <Element {...props}>
-          <ListItem>A</ListItem>
+          <ListItem{...listItemProps}>A</ListItem>
           <ListItem>B</ListItem>
         </Element>,
         root);
@@ -143,6 +144,17 @@ describe('lists', function() {
       expect('#root ul').toHaveAttr('style', 'padding:5px;');
     });
   });
+
+  describe('ListItem', () => {
+    const props = {className: 'foo-list-item',
+      id: '12345',
+      style: {
+        opacity: '1'
+      }};
+    itRenders(UnorderedList, {}, props);
+    propagateAttributes('#root ul li:first', props);
+  });
+
 
 });
 
