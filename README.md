@@ -37,6 +37,9 @@ your project.
    npm install --save pui-css-all
    ```
 
+   If you only want to include a few PUI components in your project, see the
+   instructions below on [customizing your PUI build](#customizing-your-pui-build).
+
 1. Install jQuery and bootstrap.js
 
    ```
@@ -100,6 +103,43 @@ your project.
 
    **NB** - You must rerun Dr. Frankenstyle after you update PUI (or add any
    additional CSS module).
+
+## Customizing your PUI build
+
+If you don't want all of Pivotal UI, you can install only the modules you will
+need. This will make your resultant CSS smaller! Let's say you're building an
+app that only has typography and buttons.
+
+1. Remove the `pui-css-all` module from your project.
+
+   ```
+   npm uninstall --save pui-css-all
+   ```
+
+1. Add the necessary PUI CSS modules. For this example
+
+   ```
+   npm install --save pui-css-typography
+   npm install --save pui-css-buttons
+   ```
+
+   Use the styleguide to determine which modules you need to install. Each
+   component contains module information at the beginning of its docs:
+
+   ![Example of styleguide installation instructions](https://cloud.githubusercontent.com/assets/824157/8711815/22853a7a-2b0a-11e5-862a-a76488de81e8.png)
+
+1. Rerun Dr. Frankenstyle
+
+   ```
+   dr-frankenstyle <path-to-your-asset-build-folder>
+   ```
+
+1. Every time you install a new PUI CSS package, you will need to rerun
+   Dr. Frankenstyle.
+
+   If you're using gulp or grunt or some other task runner,
+   look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
+   for how to make this step part of your task workflow.
 
 # Legacy - Using PivotalUI on your project
 
