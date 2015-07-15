@@ -3,7 +3,7 @@ describe('BasePane', function() {
   var BasePane;
   beforeEach(function() {
     BasePane = require('../../../src/pivotal-ui-react/panes/panes').BasePane;
-    React.render(<BasePane>Pane content here</BasePane>, root);
+    React.render(<BasePane className="my-pane">Pane content here</BasePane>, root);
   });
 
   afterEach(function() {
@@ -14,15 +14,24 @@ describe('BasePane', function() {
     expect('.pane .container').toContainText('Pane content here');
   });
 
-  describe('when inner and outer classes are provided', function() {
+  it('creates a pane with the expected class', function() {
+    expect('.pane').toHaveClass('my-pane');
+  });
+
+  describe('when inner and outer attributes are provided', function() {
     beforeEach(function() {
       React.unmountComponentAtNode(root);
-      React.render(<BasePane outerClass="bg-dark-1" innerClass="bg-glow"/>, root);
+      React.render(<BasePane className="bg-dark-1 more-outer" innerClassName="bg-glow"
+        id="outer-id" innerId="inner-id" style={{opacity: '0.5'}} innerStyle={{opacity: '1'}}/>, root);
     });
 
-    it('add classes to the pane and container', function() {
+    it('add classes, id, and styles to the pane and container', function() {
       expect('.pane').toHaveClass('bg-dark-1');
       expect('.container').toHaveClass('bg-glow');
+      expect('.pane').toHaveAttr('id', 'outer-id');
+      expect('.container').toHaveAttr('id', 'inner-id');
+      expect('.pane').toHaveCss({opacity: '0.5'});
+      expect('.container').toHaveCss({opacity: '1'});
     });
   });
 

@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var classnames = require('classnames');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 /**
  * @component BasePane
@@ -33,10 +33,12 @@ var BasePane = React.createClass({
   },
 
   render() {
-    var {outerClass, innerClass, children, ...other} = this.props;
+    var {innerClassName, children, innerId, innerStyle, ...other} = this.props;
+    const outerProps = mergeProps(other, {className: 'pane'});
+    const innerProps = mergeProps({id: innerId, style: innerStyle, className: innerClassName}, {className: 'container'});
     return (
-      <div {...other} className={classnames('pane', outerClass)}>
-        <div className={classnames('container', innerClass)}>{children}</div>
+      <div {...outerProps} >
+        <div {...innerProps}>{children}</div>
       </div>
     );
   }
