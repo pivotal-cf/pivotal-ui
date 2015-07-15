@@ -25,7 +25,86 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 ***
 
-# Using PivotalUI on your project
+# Using PivotalUI on your project (without React)
+
+The prefered way to consume Pivotal UI is through NPM, even for Rails
+projects. Using NPM to install PUI will ensure proper dependency management on
+your project.
+
+1. Install the Pivotal UI CSS modules
+
+   ```
+   npm install --save pui-css-all
+   ```
+
+1. Install jQuery and bootstrap.js
+
+   ```
+   npm install --save-dev jquery
+   npm install --save-dev bootstrap
+   ```
+
+   These installs must happen **after** you've installed the PUI module. This
+   ensures you'll get the correct version of bootstrap js.
+
+   **NB** - It's important that you install these modules with `--save-dev`.
+   Otherwise Dr. Frankenstyle will try to include CSS from these modules, and
+   your page will look less awesome.
+
+1. Install and run Dr. Frankenstyle
+
+   [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle)
+   is the tool that we recommend using to compile all the PUI css packages
+   together. The simplist way to set it up is:
+
+   ```
+   npm install --save-dev dr-frankenstyle
+   dr-frankenstyle <path-to-your-asset-build-folder>
+   ```
+
+1. Add the css and javascript files to your html template
+
+   ```html
+   <!doctype html>
+   <html>
+     <head>
+       <title>...</title>
+       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
+       <script src="<path-to-your-project's-node-modules>/bootstrap/dist/js/bootstrap.js"></script>
+       <script src="<path-to-your-project's-node-modules>/jquery/dist/jquery.js"></script>
+     </head>
+     <body>
+       <!-- ... -->
+     </body>
+   </html>
+   ```
+
+1. Write some CSS/HTML and enjoy!
+
+   ```html
+   <!-- ... -->
+   <body>
+     <div class="container">
+       <h1 class="type-brand-1 em-high">Hello world!</h1>
+     </div>
+   </body>
+   <!-- ... -->
+   ```
+
+1. Upgrade PUI frequently
+
+   ```
+   npm update pui-css-all
+   dr-frankenstyle <path-to-your-asset-build-folder>
+   ```
+
+   **NB** - You must rerun Dr. Frankenstyle after you update PUI (or add any
+   additional CSS module).
+
+# Legacy - Using PivotalUI on your project
+
+If you really don't want to use NPM, you can use our compiled PUI monolith.
+Be warned, you will have to manage updates and dependencies yourself.
 
 1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases).
 1. Unzip the release archive and move the resulting directory into your project.
