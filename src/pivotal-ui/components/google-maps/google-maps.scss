@@ -40,7 +40,7 @@ Full width map with marker at Pivotal Labs SF location, and an optional informat
     </div>
   </div>
   <div class='pane pane-map'>
-    <div id='labs-map'></div>
+    <div class='labs-map' id='my-google-map'></div>
   </div>
 </div>
 ```
@@ -53,7 +53,8 @@ var maps = (function() {
   var mapOptions = {
     placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
     center: new google.maps.LatLng(37.781787,-122.403911),
-    mapElementId: 'labs-map',
+    mapElementClass: 'labs-map',
+    mapElementId: 'my-google-map',
     zoom: 18
   };
 
@@ -111,6 +112,6 @@ google.maps.event.addDomListener(window, 'load', maps.initialize);
   }
 }
 
-#labs-map {
+.labs-map {
   height: 100%;
 }
