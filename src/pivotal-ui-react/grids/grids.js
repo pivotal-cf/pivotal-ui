@@ -1,8 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
-var classnames = require('classnames');
-
 var BootstrapRow = require('react-bootstrap').Row;
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 /**
  * @component Row
@@ -43,15 +42,13 @@ var Row = React.createClass({
   },
 
   render() {
-    var {gutter, className, children, ...other} = this.props;
-    var classes = classnames(
-      className,
-      {
-        'row-gutter-md': gutter === 'md',
-        'row-gutter-sm': gutter === 'sm'
-      }
-    );
-    return (<BootstrapRow {...other} className={classes}>{children}</BootstrapRow>);
+    const {gutter, children, ...other} = this.props;
+    const gutterClass = {
+      'row-gutter-md': gutter === 'md',
+      'row-gutter-sm': gutter === 'sm'
+    };
+    const props = mergeProps(other, {className: gutterClass});
+    return (<BootstrapRow {...props}>{children}</BootstrapRow>);
   }
 });
 
