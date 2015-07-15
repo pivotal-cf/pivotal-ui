@@ -2,6 +2,8 @@ var React = require('react');
 var AnimationMixin = require('pui-react-animation');
 var throttle = require('lodash.throttle');
 var {getScrollTop, setScrollTop} = require('./scroll-top');
+import {mergeProps} from 'pui-react-helpers';
+
 
 /**
  * @component BackToTop
@@ -51,9 +53,13 @@ var BackToTop = React.createClass({
 
   render() {
     var {visible} = this.state;
-    var style = {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)};
-
-    return <a className="back-to-top" role="button" onClick={this.scrollToTop} style={style}/>;
+    var props = mergeProps(this.props,
+      {
+        className: 'back-to-top',
+        style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
+      }
+    );
+    return <a {...props} role='button' onClick={this.scrollToTop}/>;
   }
 });
 
