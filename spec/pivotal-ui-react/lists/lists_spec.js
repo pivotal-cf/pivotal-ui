@@ -127,5 +127,22 @@ describe('lists', function() {
       });
     });
   });
+
+  describe('List custom attributes', function() {
+    itRenders(UnorderedList, {
+      className: 'foo-list',
+      id: '12345',
+      style: {
+        padding: '5px'
+      }
+    });
+    it('renders custom attributes on lists', function () {
+      expect('#root ul').toHaveClass('foo-list');
+      expect('#root ul').toHaveClass('list-unordered');
+      expect('#root ul').toHaveAttr('id', '12345');
+      expect('#root ul').toHaveAttr('style', 'padding:5px;');
+    });
+  });
+
 });
 
