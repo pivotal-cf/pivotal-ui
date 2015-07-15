@@ -1,6 +1,7 @@
 var React = require('react/addons');
 var {DefaultH4} = require('pui-react-typography');
 require('classlist-polyfill');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 /**
@@ -96,7 +97,7 @@ var Modal = React.createClass({
       modal = (
         <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal" onClick={this.childrenClick}>
           <div className="modal-dialog">
-            <div className="modal-content">
+            <div {...mergeProps(this.props, {className: 'modal-content'})}>
               <div className="modal-header">
                 <button type="button" className="close" onClick={this.close}>
                   <span>×</span>
@@ -131,7 +132,7 @@ var Modal = React.createClass({
  */
 var ModalBody = React.createClass({
   render() {
-    return <div className="modal-body">{this.props.children}</div>;
+    return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
   }
 });
 
@@ -144,7 +145,7 @@ var ModalBody = React.createClass({
  */
 var ModalFooter = React.createClass({
   render() {
-    return <div className="modal-footer">{this.props.children}</div>;
+    return <div {...mergeProps(this.props, {className: 'modal-footer'})}>{this.props.children}</div>;
   }
 });
 
