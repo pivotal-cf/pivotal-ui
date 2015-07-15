@@ -215,32 +215,6 @@ Visit <http://styleguide.pivotal.io> of host the styleguide files with a web ser
 
 then visit <http://localhost:8000>
 
-# Syntax Highlighting
-
-There are two themes, **dark** and **light**, for syntax highlighting. You can choose a theme by linking to one of the following stylesheets:
-
-* `pivotal-ui/prismjs/prism.css` (for the light theme)
-* `pivotal-ui/prismjs/prism-okaidia.css` (for the dark theme).
-
-You can only include one of these themes at a time.
-
-See the latest styleguide for [examples of syntax highlighting in action](http://styleguide.pivotal.io/all.html#code).
-
-## Syntax Highlighting Example
-
-```html
-
-  <pre>
-	<code class='language-ruby'>
-	  class Foo
-	    def bar
-	    end
-	  end
-	</code>
-  </pre>
-
-```
-
 # React components
 
 If you'd like to try out react, swap in the react js file in place of the
