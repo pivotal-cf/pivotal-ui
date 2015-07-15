@@ -1,4 +1,6 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
+
 describe('Image', function() {
   beforeEach(function() {
     var Image = require('../../../src/pivotal-ui-react/images/images').Image;
@@ -7,6 +9,8 @@ describe('Image', function() {
         src="http://placehold.it/20x20"
         href="http://google.com"
         className="my-img-class"
+        id="my-img-id"
+        style={{opacity: '1'}}
         responsive={true}/>,
       root
     );
@@ -28,11 +32,7 @@ describe('Image', function() {
     });
   });
 
-  describe('when className is provided', function() {
-    it('adds the provided className to the img', function() {
-      expect('img').toHaveClass('my-img-class');
-    });
-  });
+  propagateAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '1'}});
 
   it('adds the gutter class to the row', function() {
     expect('img').toHaveAttr('src', 'http://placehold.it/20x20');
