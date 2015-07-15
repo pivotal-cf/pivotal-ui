@@ -678,6 +678,11 @@ See examples below.
 <UI.Panel className="bg-neutral-8">
   <p>Base Panel</p>
 </UI.Panel>
+
+<UI.Panel className="bg-neutral-8 optional-class"
+  innerClassName="opt-inner-class">
+  <p>Base Panel</p>
+</UI.Panel>
 ```
 */
 
@@ -727,6 +732,7 @@ Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the
 <UI.Panel className="bg-neutral-8" padding="paxxl">
   <p>Base Panel</p>
 </UI.Panel>
+
 ```
 
 */
