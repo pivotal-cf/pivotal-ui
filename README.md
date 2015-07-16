@@ -25,7 +25,122 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 ***
 
-# Using PivotalUI on your project (without React)
+# Using Pivotal UI on your project (with React)
+
+If you're ready to try PUI with React, follow these instructions!
+
+**NB** - We're assuming that you have the following setup on your project:
+
+  - **Browserify or Webpack** - Our React modules follow the CommonJS module
+    pattern. You will need to use [Browserify](http://browserify.org/) or
+    [Webpack](http://webpack.github.io/) to compile your javascript for use
+    in the browser.
+
+  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
+    You will need a transpiler to convert your JSX code into plain javascript
+    for use in the browser. We recommend [Babel](https://babeljs.io/).
+
+  - If these instructions don't make sense to you, don't worry! We're working
+    on a sample project template that we'll publish soon :grin:
+
+***
+
+1. Install React, if you haven't already
+
+   ```
+   npm install --save-dev react
+   ```
+
+1. Install a PUI module for the components you need.
+
+   ```
+   npm install --save pui-react-typography
+   ```
+
+   Our React component modules include all necessary CSS. So no need to install
+   additional CSS packages!
+
+1. Install and run Dr. Frankenstyle.
+
+   [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle)
+   is a tool that compiles all the CSS required by your React components into
+   a single file. The simplist way to set it up is:
+
+   ```
+   npm install --save-dev dr-frankenstyle
+   dr-frankenstyle <path-to-your-asset-build-folder>
+   ```
+
+   The compiled CSS file (and all related fonts/images/etc.) are written to
+   the specified folder.
+
+1. Add the compiled css to your html template
+
+   ```html
+   <!doctype html>
+   <html>
+     <head>
+       <title>...</title>
+       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
+
+       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
+
+     </head>
+     <body>
+       <!-- ... -->
+     </body>
+   </html>
+   ```
+
+1. Write some React!
+
+   ```jsx
+   var React = require('react');
+   var DefaultH1 = require('pui-react-typography').DefaultH1;
+   var PrimaryButton = require('pui-react-buttons').PrimaryButton;
+
+   var MyTestPage = React.createClass({
+     showMessage: function() {
+       this.setState({showMessage: true});
+     },
+
+     render: function() {
+       return (
+         <div className="container">
+	   <PrimaryButton onClick={this.showMessage}>Show Message</PrimaryButton>
+	   { this.state.showMessage ? <DefaultH1>Hello world!</DefaultH1> : null }
+	 </div>
+       );
+     }
+   });
+
+   React.render(<MyTestPage />, document.findElementById('root'));
+   ```
+
+   ```html
+   <!-- ... -->
+   <body>
+     <div id="root"></div>
+   </body>
+   <!-- ... -->
+   ```
+
+1. Every time you install a new PUI React package, you will need to rerun
+   Dr. Frankenstyle to update your compiled CSS.
+
+   ```
+   npm install --save pui-react-alerts
+   dr-frankenstyle <path-to-your-asset-build-folder>
+   ```
+
+   If you're using gulp or grunt or some other task runner,
+   look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
+   for how to make this step part of your task workflow.
+
+# Using Pivotal UI on your project (without React)
+
+If you're not ready to try React, you can still use the HTML/CSS version of
+Pivotal UI!
 
 The prefered way to consume Pivotal UI is through NPM, even for Rails
 projects. Using NPM to install PUI will ensure proper dependency management on
@@ -219,27 +334,6 @@ Visit <http://styleguide.pivotal.io> of host the styleguide files with a web ser
     $ cd /path/to/release/pivotal-ui/styleguide/ && python -m SimpleHTTPServer 8000
 
 then visit <http://localhost:8000>
-
-# React components
-
-If you'd like to try out react, swap in the react js file in place of the
-standard file: 
-
-```html
-
-<script src="/path/to/release/pivotal-ui.js"></script> 
-
-```
-
-Should become:
-
-```html
-
-<script src="/path/to/release/pivotal-ui-react.js"></script>
-
-```
-
-***
 
 # Contributing
 
