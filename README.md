@@ -65,6 +65,9 @@ your project.
    dr-frankenstyle <path-to-your-asset-build-folder>
    ```
 
+   The compiled CSS file (and all related fonts/images/etc.) are written to
+   the specified folder.
+
 1. Add the css and javascript files to your html template
 
    ```html
