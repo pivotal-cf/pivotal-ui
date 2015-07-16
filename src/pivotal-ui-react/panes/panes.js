@@ -33,9 +33,9 @@ var BasePane = React.createClass({
   },
 
   render() {
-    var {innerClassName, children, innerId, innerStyle, ...other} = this.props;
+    var {innerClassName, children, ...other} = this.props;
     const outerProps = mergeProps(other, {className: 'pane'});
-    const innerProps = mergeProps({id: innerId, style: innerStyle, className: innerClassName}, {className: 'container'});
+    const innerProps = mergeProps({className: innerClassName}, {className: 'container'});
     return (
       <div {...outerProps} >
         <div {...innerProps}>{children}</div>

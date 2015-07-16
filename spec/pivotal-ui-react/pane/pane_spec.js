@@ -22,16 +22,14 @@ describe('BasePane', function() {
     beforeEach(function() {
       React.unmountComponentAtNode(root);
       React.render(<BasePane className="bg-dark-1 more-outer" innerClassName="bg-glow"
-        id="outer-id" innerId="inner-id" style={{opacity: '0.5'}} innerStyle={{opacity: '1'}}/>, root);
+        id="outer-id" style={{opacity: '0.5'}}/>, root);
     });
 
     it('add classes, id, and styles to the pane and container', function() {
       expect('.pane').toHaveClass('bg-dark-1');
       expect('.container').toHaveClass('bg-glow');
       expect('.pane').toHaveAttr('id', 'outer-id');
-      expect('.container').toHaveAttr('id', 'inner-id');
       expect('.pane').toHaveCss({opacity: '0.5'});
-      expect('.container').toHaveCss({opacity: '1'});
     });
   });
 
