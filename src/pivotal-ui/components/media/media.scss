@@ -282,7 +282,8 @@ var mediaBasicLinkedImage = <UI.Image src='http://placehold.it/50x50' href="http
 
 ```react_example_table
 <UI.Media
-  leftImage={mediaBasicImage}>
+  leftImage={mediaBasicImage}
+  innerClassName='my-media-body'>
     left media
 </UI.Media>
 
