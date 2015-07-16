@@ -118,4 +118,5 @@ module.exports = {
   BackToTop: require('pui-react-back-to-top').BackToTop,
 
   PortalSource: require('pui-react-portals').PortalSource,
-  PortalDestination: require('pui-react-portals').PortalDestination, ...sortableTable};
+  PortalDestination: require('pui-react-portals').PortalDestination,
+  ...sortableTable};

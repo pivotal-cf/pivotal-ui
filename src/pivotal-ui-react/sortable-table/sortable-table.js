@@ -1,6 +1,8 @@
 const classnames = require('classnames');
 const React = require('react');
 const sortBy = require('lodash.sortby');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+
 
 const types = React.PropTypes;
 
@@ -96,7 +98,11 @@ export const SortableTable = React.createClass({
   },
 
   getInitialState() {
-    return {sortColumn: 0, sortAscending: true};
+    const sortCol = this.props.headers.findIndex((header) => {
+      return header.props.sortable;
+    });
+    // If none of the columns are sortable we default to the 0th column
+    return {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
   },
 
   setSortedColumn(sortColumn, sortAscending) {
@@ -138,11 +144,11 @@ export const SortableTable = React.createClass({
   },
 
   render() {
-    let {className, style, id} = this.props;
+    const props = mergeProps(this.props, {className: ['table', 'table-sortable']});
     let rows = this.sortedRows();
 
     return (
-      <table className={classnames('table', 'table-sortable', className)} id={id} style={style} >
+      <table {...props} >
         <thead>
           <tr>{this.renderHeaders()}</tr>
         </thead>

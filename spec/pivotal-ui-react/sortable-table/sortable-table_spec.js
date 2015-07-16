@@ -7,17 +7,20 @@ describe('SortableTable', function() {
   const data = [
     {
       instances: '1',
+      bar: '9',
       title: 'foo',
       unsortable: '14'
     },
     {
       instances: '3',
+      bar: '7',
       title: 'sup',
       unsortable: '22'
     },
     {
       title: 'yee',
       instances: '2',
+      bar: '8',
       unsortable: '1'
     }
   ];
@@ -25,8 +28,9 @@ describe('SortableTable', function() {
   function renderSortableTable(data, props = {}) {
     clickSpy = jasmine.createSpy('click');
     headers = [
-      <TableHeader sortable={true} onClick={clickSpy}>Title</TableHeader>,
-      <TableHeader sortable={true}>Instances</TableHeader>,
+      <TableHeader>Title</TableHeader>,
+      <TableHeader onClick={clickSpy} sortable={true}>Instances</TableHeader>,
+      <TableHeader sortable={true}>Bar</TableHeader>,
       <TableHeader>Unsortable</TableHeader>
     ];
 
@@ -37,6 +41,7 @@ describe('SortableTable', function() {
               <TableRow key={key}>
                 <TableCell>{datum.title}</TableCell>
                 <TableCell>{datum.instances}</TableCell>
+                <TableCell>{datum.bar}</TableCell>
                 <TableCell>{datum.unsortable}</TableCell>
               </TableRow>
             );
@@ -56,7 +61,7 @@ describe('SortableTable', function() {
   });
 
   it('adds the class "sortable" on all sortable columns', function() {
-    expect('th:contains("Title")').toHaveClass('sortable');
+    expect('th:contains("Title")').not.toHaveClass('sortable');
     expect('th:contains("Instances")').toHaveClass('sortable');
     expect('th:contains("Unsortable")').not.toHaveClass('sortable');
   });
@@ -70,21 +75,21 @@ describe('SortableTable', function() {
     expect('table.table-sortable').toHaveCss({opacity: '0.5'});
   });
 
-  it('sorts table rows by the first column in ascending order by default', function() {
-    expect('th:contains("Title")').toHaveClass('sorted-asc');
+  it('sorts table rows by the first sortable column in ascending order by default', function() {
+    expect('th:contains("Instances")').toHaveClass('sorted-asc');
 
     expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-    expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('sup');
-    expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('yee');
+    expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
+    expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
 
     expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-    expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('3');
-    expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('2');
+    expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
+    expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
   });
 
   describe('clicking on the already asc-sorted column that has an existing onClick function', function() {
     beforeEach(function() {
-      $('th:contains("Title")').simulate('click');
+      $('th:contains("Instances")').simulate('click');
     });
 
     it('calls the onClick function', function() {
@@ -92,21 +97,21 @@ describe('SortableTable', function() {
     });
 
     it('reverses the sort order', function() {
-      expect('th:contains("Title")').toHaveClass('sorted-desc');
+      expect('th:contains("Instances")').toHaveClass('sorted-desc');
 
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('sup');
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
       expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
 
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('2');
-      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('3');
+      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('3');
+      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
       expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('1');
     });
 
     describe('clicking on the already desc-sorted column', function() {
       beforeEach(function() {
         clickSpy.calls.reset();
-        $('th:contains("Title")').simulate('click');
+        $('th:contains("Instances")').simulate('click');
       });
 
       it('calls the onClick function', function() {
@@ -114,27 +119,46 @@ describe('SortableTable', function() {
       });
 
       it('reverses the sort order', function() {
-        expect('th:contains("Title")').toHaveClass('sorted-asc');
+        expect('th:contains("Instances")').toHaveClass('sorted-asc');
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('sup');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('yee');
+        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
+        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
 
         expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-        expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('3');
-        expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('2');
+        expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
+        expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
       });
     });
   });
 
   describe('clicking on a sortable column', function() {
     beforeEach(function() {
-      $('th:contains("Instances")').simulate('click');
+      $('th:contains("Bar")').simulate('click');
     });
 
     it('sorts table rows by that column', function() {
-      expect('th:contains("Instances")').toHaveClass('sorted-asc');
+      expect('th:contains("Bar")').toHaveClass('sorted-asc');
       expect('th:contains("Title")').not.toHaveClass('sorted-asc');
+
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
+      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
+
+      expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
+      expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
+      expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('9');
+    });
+  });
+
+  describe('clicking on a non-sortable column', function() {
+    beforeEach(function() {
+      $('th:contains("Unsortable")').simulate('click');
+    });
+
+    it('does not change the sort', function() {
+      expect('th:contains("Unsortable")').not.toHaveClass('sorted-asc');
+      expect('th:contains("Instances")').toHaveClass('sorted-asc');
 
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -146,39 +170,21 @@ describe('SortableTable', function() {
     });
   });
 
-  describe('clicking on a non-sortable column', function() {
-    beforeEach(function() {
-      $('th:contains("Unsortable")').simulate('click');
-    });
-
-    it('does not change the sort', function() {
-      expect('th:contains("Unsortable")').not.toHaveClass('sorted-asc');
-      expect('th:contains("Title")').toHaveClass('sorted-asc');
-
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('sup');
-      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('yee');
-
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('3');
-      expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('2');
-    });
-  });
-
   describe('when the rows change', function() {
     beforeEach(function() {
       var newData = data.concat({
         title: 'new title',
-        instances: '3',
-        unsortable: '1'
+        instances: '1.5',
+        unsortable: '1',
+        bar: '123'
       });
       renderSortableTable(newData);
     });
 
     it('shows the new rows in the correct sort order', function() {
       expect('tbody tr').toHaveLength(4);
-      var titles = $('tbody tr > td:first-child').map(function() {return $(this).text(); }).toArray();
-      expect(titles).toEqual(['foo', 'new title', 'sup', 'yee']);
+      var instances = $('tbody tr > td:nth-of-type(2)').map(function() {return $(this).text(); }).toArray();
+      expect(instances).toEqual(['1', '1.5', '2', '3']);
     });
   });
 });
