@@ -124,16 +124,37 @@ describe('Media', function() {
     });
   });
 
+  describe('when custom attributes are set on media', function() {
+    beforeEach(function() {
+      var image = (<img src="http://placehold.it/20x20" />);
+      React.render((<Media leftImage={image} stackSize="medium" innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 1}}>fop</Media>), root);
+    });
+
+    it('the class, id, and style are passed through', function() {
+      expect('.media').toHaveClass('test-class');
+      expect('.media-body').toHaveClass('inner-test-class');
+      expect('.media').toHaveAttr('id', 'test-id');
+      expect('.media').toHaveCss({opacity: '1'});
+    });
+  });
+
   describe('Flag', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Flag leftImage={image} rightImage={image}>fop</Flag>), root);
+      React.render((<Flag leftImage={image} rightImage={image} innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 1}}>fop</Flag>), root);
     });
 
     it('adds the class media-middle to the media-body, media-left, and media-right', function() {
       expect('.media-body').toHaveClass('media-middle');
       expect('.media-left').toHaveClass('media-middle');
       expect('.media-right').toHaveClass('media-middle');
+    });
+
+    it('the class, id, and style are passed through', function() {
+      expect('.media').toHaveClass('test-class');
+      expect('.media-body').toHaveClass('inner-test-class');
+      expect('.media').toHaveAttr('id', 'test-id');
+      expect('.media').toHaveCss({opacity: '1'});
     });
   });
 });

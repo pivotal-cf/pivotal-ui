@@ -56,10 +56,10 @@ var Media = React.createClass({
   },
 
   render() {
-    var {className, leftImage, leftMediaSpacing, rightImage, rightMediaSpacing, stackSize, vAlign, children, ...other} = this.props;
+    var {className, innerClassName, leftImage, leftMediaSpacing, rightImage, rightMediaSpacing, stackSize, vAlign, children, ...other} = this.props;
 
     var classes = classnames('media', stackSize && `media-stackable-${shortSizes[stackSize]}`, className);
-    var bodyClasses = classnames('media-body', vAlign && `media-${vAlign}`);
+    var bodyClasses = classnames('media-body', vAlign && `media-${vAlign}`, innerClassName);
 
     var leftMedia = leftImage ?
       <MediaObject horizontalAlignment="left" {...{vAlign, leftMediaSpacing}}>{leftImage}</MediaObject> :
