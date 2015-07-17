@@ -10,3 +10,7 @@ require('pui-react-back-to-top/jquery-plugin');
 global.React = require('react/addons');
 
 global.UI = require('./components.js');
+
+
+var a11y = require('react-a11y');
+a11y(React);
