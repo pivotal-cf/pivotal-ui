@@ -136,12 +136,12 @@ Any className values passed through are passed to the underlying `.pane`.
 ```
 
 In the event that you need additional configuration applied to a Pane, you can use the
-`BasePane` component which accepts properties for `outerClass` and `innerClass`.
+`BasePane` component which accepts properties for `className` and `innerClassName`.
 
 These values are added to the class name of the `.pane` and the `.container` respectively.
 
 ```react_example
-<UI.BasePane outerClass="bg-dark-1" innerClass="bg-glow">
+<UI.BasePane className="bg-dark-1" innerClassName="bg-glow">
   <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
 </UI.BasePane>
 ```
