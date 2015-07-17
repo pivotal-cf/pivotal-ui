@@ -1,4 +1,5 @@
 var React = require('react');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 var TypographyMixin = {
   propTypes: {
@@ -14,10 +15,9 @@ var Heading = React.createClass({
   mixins: [TypographyMixin],
 
   render() {
-    var {className, size, bold, allCaps, color, element = 'p', children, ...other} = this.props;
+    var {size, bold, allCaps, color, element = 'p', children, ...other} = this.props;
 
     var classes = [
-      className,
       size,
       bold && `em-${bold}`,
       allCaps && 'em-alt',
@@ -26,8 +26,9 @@ var Heading = React.createClass({
       .filter(Boolean)
       .join(' ');
 
+    const props = mergeProps(other, {className: classes});
     var Klass = element;
-    return <Klass {...other} className={classes}>{children}</Klass>;
+    return <Klass {...props}>{children}</Klass>;
   }
 });
 

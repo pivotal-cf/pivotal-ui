@@ -27,7 +27,7 @@ describe('UIButton', function() {
   });
 
   describe('when kind attribute is set', function() {
-    beforeEach(function(){
+    beforeEach(function() {
       React.render(<UIButton kind="danger">Click here</UIButton>, root);
     });
 
@@ -38,7 +38,7 @@ describe('UIButton', function() {
   });
 
   describe('when block is true', function() {
-    beforeEach(function(){
+    beforeEach(function() {
       React.render(<UIButton block={true}>Click here</UIButton>, root);
     });
 
@@ -48,7 +48,7 @@ describe('UIButton', function() {
   });
 
   describe('when large is true', function() {
-    beforeEach(function(){
+    beforeEach(function() {
       React.render(<UIButton large={true}>Click here</UIButton>, root);
     });
 
@@ -57,8 +57,48 @@ describe('UIButton', function() {
     });
   });
 
+  describe('when the button is given custom classes', function() {
+    function renderButton(props) {
+      React.render(<UIButton {...props}>Click here</UIButton>, root);
+    }
+
+    describe('when no other options that effect class are given', function() {
+      beforeEach(function() {
+        renderButton({className: 'custom-class-1 custom-class-2'});
+      });
+
+      it('includes those custom classes', function() {
+        expect('#root button').toHaveClass(['custom-class-1', 'custom-class-2']);
+      });
+
+      it('includes the default button classes', function() {
+        expect('#root button').toHaveClass(['btn', 'btn-default']);
+      });
+    });
+
+
+    describe('when options that add class names are given', function() {
+      beforeEach(function() {
+        renderButton({
+          className: 'custom-class-1 custom-class-2',
+          kind: 'lowlight',
+          block: true,
+          large: true
+        });
+      });
+
+      it('includes those custom classes', function() {
+        expect('#root button').toHaveClass(['custom-class-1', 'custom-class-2']);
+      });
+
+      it('includes the button classes set by the other options', function() {
+        expect('#root button').toHaveClass(['btn', 'btn-lowlight', 'btn-block', 'btn-lg']);
+      });
+    });
+  });
+
   describe('when data-attributes are provided', function() {
-    beforeEach(function(){
+    beforeEach(function() {
       React.render(
         <UIButton data-click="myFunction" data-foo="bar">
           Click here
@@ -80,16 +120,16 @@ describe('UIButton', function() {
     {name: 'HighlightButton', btnClass: 'btn-highlight'},
     {name: 'HighlightAltButton', btnClass: 'btn-highlight-alt'}
   ].forEach(function({name, btnClass}) {
-    describe(name, function() {
-      beforeEach(function() {
-        var Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
-        React.render(<Button>Click here</Button>, root);
-      });
+      describe(name, function() {
+        beforeEach(function() {
+          var Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
+          React.render(<Button>Click here</Button>, root);
+        });
 
-      it('renders with the btn-primary class', function() {
-        expect('button.btn').not.toHaveClass('btn-default');
-        expect('button.btn').toHaveClass(btnClass);
+        it('renders with the btn-primary class', function() {
+          expect('button.btn').not.toHaveClass('btn-default');
+          expect('button.btn').toHaveClass(btnClass);
+        });
       });
     });
-  });
 });

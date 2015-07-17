@@ -1,6 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 var classnames = require('classnames');
+import {mergeProps} from 'pui-react-helpers';
 
 var paddingTypes = [
   for (type of ['p', 'm'])
@@ -50,9 +51,8 @@ var Panel = React.createClass({
   },
 
   render() {
-    var {kind, className, padding, scrollable, children, ...other} = this.props;
+    var {kind, padding, scrollable, children, ...other} = this.props;
 
-    var classes = classnames('panel', kind, className, {'panel-scrollable': scrollable});
     var bodyClasses = classnames('panel-body', padding);
 
     var title = this.props.title ? (
@@ -61,8 +61,13 @@ var Panel = React.createClass({
       </div>
     ) : null;
 
+    var props = mergeProps(other, {
+      className: ['panel', kind, {'panel-scrollable': scrollable}],
+      style: (scrollable ? {maxHeight: scrollable} : {})
+    });
+
     return (
-      <div {...other} className={classes} style={scrollable && {maxHeight: scrollable}}>
+      <div {...props}>
         {title}
         <div className={bodyClasses}>{children}</div>
       </div>

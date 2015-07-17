@@ -1,6 +1,7 @@
-var classnames = require('classnames');
 var React = require('react');
 var types = React.PropTypes;
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+
 
 /**
  * @component Image
@@ -30,10 +31,10 @@ var Image = React.createClass({
   },
 
   render() {
-    var {responsive, href, src, children, className, ...other} = this.props;
-    var classes = classnames({'img-responsive': responsive}, className);
+    var {responsive, href, children, ...other} = this.props;
+    const props = mergeProps(other, {className: 'img-responsive'});
 
-    var image = <img {...other} src={src} className={classes}>{children}</img>;
+    var image = <img {...props}>{children}</img>;
     return href ? <a {...{href}}>{image}</a> : image;
   }
 });

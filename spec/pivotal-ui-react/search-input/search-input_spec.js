@@ -1,10 +1,11 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
 
 describe('SearchInput', function() {
   var SearchInput;
   beforeEach(function() {
     SearchInput = require('../../../src/pivotal-ui-react/search-input/search-input').SearchInput;
-    React.render((<SearchInput/>), root);
+    React.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '1'}}/>), root);
   });
 
   afterEach(function() {
@@ -30,16 +31,7 @@ describe('SearchInput', function() {
     });
   });
 
-  describe('when a className is provided', function() {
-    beforeEach(function() {
-      React.render((<SearchInput className="foo myClass"/>), root);
-    });
-
-    it('adds the classes to the input', function() {
-      expect('.form-group input').toHaveClass('foo');
-      expect('.form-group input').toHaveClass('myClass');
-    });
-  });
+  propagateAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '1'}});
 
   describe('when event handlers are provided', function() {
     var changeSpy;

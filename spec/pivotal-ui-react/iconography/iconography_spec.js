@@ -1,4 +1,5 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
 
 var Icon = require('../../../src/pivotal-ui-react/iconography/iconography').Icon;
 var {toBeValid} = require('../support/matchers');
@@ -30,6 +31,16 @@ describe('iconography', function() {
         expect('.fa.fa-plus').toHaveClass(`fa-${size}`);
         React.unmountComponentAtNode(root);
       }
+    });
+
+    describe('attributes', () => {
+      beforeEach( () => {
+        React.render(<Icon name='plus' size='h1' className='test-class' id='test-id' style={{opacity: '1'}}/>, root);
+      });
+      afterEach(() => {
+        React.unmountComponentAtNode(root);
+      });
+      propagateAttributes('.fa.fa-plus', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
     });
 
     describe('when a className and a size are given', function() {

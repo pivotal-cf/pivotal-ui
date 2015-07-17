@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var classnames = require('classnames');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 /**
  * @component SearchInput
@@ -24,10 +24,10 @@ var SearchInput = React.createClass({
   },
 
   render: function() {
-    var {className, ...other} = this.props;
+    const props = mergeProps(this.props, {className: 'form-control', type: 'text'});
     return (
       <div className="form-group form-group-search">
-        <input {...other} type="text" className={classnames('form-control', className)}/>
+        <input {...props}/>
         <i className="fa fa-search"/>
       </div>
     );

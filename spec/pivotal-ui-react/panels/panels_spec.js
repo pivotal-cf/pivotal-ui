@@ -3,15 +3,20 @@ describe('Panel', function() {
   var Panel;
   beforeEach(function() {
     Panel = require('../../../src/pivotal-ui-react/panels/panels').Panel;
-    React.render(<Panel>Sup</Panel>, root);
   });
 
   afterEach(function() {
     React.unmountComponentAtNode(root);
   });
 
-  it('creates a panel', function() {
-    expect('.panel .panel-body').toContainText('Sup');
+  describe('with no props given', function() {
+    beforeEach(function() {
+      React.render(<Panel>Sup</Panel>, root);
+    });
+
+    it('creates a panel', function() {
+      expect('.panel .panel-body').toContainText('Sup');
+    });
   });
 
   describe('when a kind is provided', function() {
@@ -54,6 +59,27 @@ describe('Panel', function() {
       expect('.panel .panel-body').toHaveClass('ptl');
     });
   });
+
+  describe('when style and scrollable are both provided', function() {
+    beforeEach(function() {
+      React.render(<Panel style={{color: 'red'}} scrollable={1337}>Sup</Panel>, root);
+    });
+
+    it('renders the correct style', function() {
+      expect('.panel').toHaveCss({color: 'rgb(255, 0, 0)', maxHeight: '1337px'});
+    });
+  });
+
+  describe('when style is provided and scrollable is not', function() {
+    beforeEach(function() {
+      React.render(<Panel style={{color: 'red'}}>Sup</Panel>, root);
+    });
+
+    it('renders the correct style', function() {
+      expect('.panel').toHaveCss({color: 'rgb(255, 0, 0)'});
+    });
+  });
+
 
   describe('when scrollable is set to true', function() {
     beforeEach(function() {

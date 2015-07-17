@@ -1,4 +1,5 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
 
 describe('Heading', function() {
   var typography, Heading;
@@ -37,15 +38,17 @@ describe('Heading', function() {
     });
   });
 
-  describe('when the Heading has a className provided', function() {
+  describe('when the Heading has attrs provided', function() {
     beforeEach(function() {
-      React.render((<Heading element="h1" allCaps={true} className="myClass" children="Heading text here"/>), root);
+      React.render((<Heading element="h1" allCaps={true} className="myClass" id='myId' style={{opacity: '1'}} children="Heading text here"/>), root);
     });
 
-    it('creates an element with the className AND default classes', function() {
+    it('has the default classes', function() {
       expect('h1:contains("Heading text here")').toHaveClass('myClass');
       expect('h1:contains("Heading text here")').toHaveClass('em-alt');
     });
+
+    propagateAttributes('h1:contains("Heading text here")', {className: 'myClass', id: 'myId', style: {opacity: '1'}});
   });
 
   describe('when the Heading has size provided', function() {
