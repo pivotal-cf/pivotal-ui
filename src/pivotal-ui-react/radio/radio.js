@@ -1,4 +1,5 @@
 var React = require('react');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 /**
  * @component Radio
@@ -34,9 +35,11 @@ var Radio = React.createClass({
   },
 
   render: function() {
+    const {className, style, ...others} = this.props;
+    const props = mergeProps({className: className, style: style}, {className: 'radio'});
     return (
-      <div className="radio">
-        <label><input type="radio" {...this.props}/></label>
+      <div {...props}>
+        <label><input type="radio" {...others}/></label>
       </div>
     );
   }
