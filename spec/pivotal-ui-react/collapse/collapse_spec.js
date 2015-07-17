@@ -60,25 +60,43 @@ describe('BaseCollapse', function() {
 });
 
 describe('Collapse', function() {
-  var Collapse, subject;
+  var Collapse, props;
   beforeEach(function() {
     Collapse = require('../../../src/pivotal-ui-react/collapse/collapse').Collapse;
 
-    subject = TestUtils.renderIntoDocument(
-      <Collapse header="ima header">
+    props = {
+      className: 'test-class',
+      style: {
+        opacity: '1'
+      }
+    };
+
+    React.render(
+      <Collapse header="ima header" {...props}>
         <h1>Child</h1>
-      </Collapse>
-    );
+      </Collapse>,
+      root);
+  });
+
+  afterEach(function() {
+    React.unmountComponentAtNode(root);
+  });
+
+  it('passes through className', function() {
+    expect('#root .panel').toHaveClass('test-class');
+  });
+
+  it('passes through style', function() {
+    expect('#root .panel').toHaveCss({opacity: '1'});
   });
 
   it('contains a right-caret as its collapsed icon', function() {
-    var collapsedIconContainer = TestUtils.findRenderedDOMComponentWithClass(subject, 'when-collapsed-inline');
-    expect(TestUtils.findRenderedDOMComponentWithClass(collapsedIconContainer, 'fa-caret-right')).toBeTruthy();
+    expect('#root when-collapsed-inline fa-caret-right').toBeTruthy();
   });
 
+
   it('contains a down-caret as its collapsed icon', function() {
-    var expandedIconContainer = TestUtils.findRenderedDOMComponentWithClass(subject, 'when-expanded-inline');
-    expect(TestUtils.findRenderedDOMComponentWithClass(expandedIconContainer, 'fa-caret-down')).toBeTruthy();
+    expect('#root when-expanded-inline fa-caret-down').toBeTruthy();
   });
 });
 
