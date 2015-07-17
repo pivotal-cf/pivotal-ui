@@ -40,9 +40,10 @@ describe('Modals', function() {
           return (
             <div>
               <DefaultButton id="openButton" onClick={this._openModal}>Open Modal</DefaultButton>
-              <Modal title="What a Header!" ref="modal">
-                <ModalBody>Text in a body</ModalBody>
-                <ModalFooter>
+              <Modal title="What a Header!" ref="modal"
+                     className="content-class" id="content-id" style={{opacity: '0.5'}}>
+                <ModalBody className="body-class" id="body-id" style={{opacity: '1'}}>Text in a body</ModalBody>
+                <ModalFooter className="footer-class" id="footer-id" style={{opacity: '0'}}>
                   <p>Text in a footer</p>
                   <DefaultButton id="closeButton" onClick={this._closeModal}>Close</DefaultButton>
                 </ModalFooter>
@@ -88,6 +89,44 @@ describe('Modals', function() {
 
       it('renders a modal-backdrop', function() {
         expect('.modal-backdrop').toExist();
+      });
+
+      describe('when attributes are provided', function() {
+        it('sets className on the modal content div', function() {
+          expect('.modal-content').toHaveClass('content-class');
+        });
+
+        it('sets id on the modal content div', function() {
+          expect('.modal-content').toHaveAttr('id', 'content-id');
+        });
+
+        it('sets style on the modal content div', function() {
+          expect('.modal-content').toHaveCss({opacity: '0.5'});
+        });
+
+        it('sets className on the modal-body div', () => {
+          expect('.modal-body').toHaveClass('body-class');
+        });
+
+        it('sets id on the modal-body div', () => {
+          expect('.modal-body').toHaveAttr('id', 'body-id');
+        });
+
+        it('sets style on the modal-body div', () => {
+          expect('.modal-body').toHaveCss({opacity: '1'});
+        });
+
+        it('sets className on the modal-footer div', () => {
+          expect('.modal-footer').toHaveClass('footer-class');
+        });
+
+        it('sets id on the modal-footer div', () => {
+          expect('.modal-footer').toHaveAttr('id', 'footer-id');
+        });
+
+        it('sets style on the modal-footer div', () => {
+          expect('.modal-footer').toHaveCss({opacity: '0'});
+        });
       });
     }
 
