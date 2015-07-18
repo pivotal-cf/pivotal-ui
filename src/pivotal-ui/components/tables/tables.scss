@@ -335,51 +335,21 @@ functioning sort.
 The `SortableTable` expects the following properties:
 
 
-Property  | Type                             | Description
-----------| ---------------------------------| --------------------------------------------------------------------------
-`data`    | Array of JS objects              | The collection of data to be displayed
-`columns` | Array of column objects          | Informs the table how to render columns as well as which columns should be sortable
-`classes` | Array of strings                 | A list of class names to be added to the table element
+Property   | Required? | Type                             | Description
+-----------| ----------| ---------------------------------| --------------------------------------------------------------------------
+`headers`  | **yes**   | Array of TableHeader components  | The headers to display in the desired order
 
+The `TableHeader` objects should have the following structure:
 
-The column objects should have the following structure:
+Property   | Required? | Type             | Description
+-----------| ----------|------------------| --------------------------------------------------------------------------
+`sortable` | no        | Boolean          | Is this column sortable? Defaults to false
 
-Property   | Required? | Type                         | Description
------------| ----------|------------------------------| --------------------------------------------------------------------------
-`name`     | **yes**   | String                       | Name of the property on a data object (how to lookup the value for this column)
-`title`    | **yes**   | String                       | Name to display on the table header
-`sortable` | no        | Boolean                      | Is this column sortable? Defaults to false
-`align`    | no        | 'center', 'left', or 'right' | How should text be aligned within this column? Defaults to left
 
 If a column is marked as being sortable, it will attempt to sort the values as strings.
 
 
-```js_example
-var sortTableCols = [
-  {
-    name: 'name',
-    title: 'Name',
-    sortable: true
-  },
-  {
-    name: 'instances',
-    title: 'Instances',
-    sortable: true,
-    align: 'center'
-  },
-  {
-    name: 'cpu',
-    title: 'CPU',
-    sortable: true,
-    align: 'right'
-  },
-  {
-    name: 'synergy',
-    title: 'Synergy',
-    align: 'left'
-  }
-]
-
+```jsx_example
 var sortTableData = [
   {
     instances: '1',
@@ -411,9 +381,24 @@ var sortTableData = [
 
 ```react_example
 <UI.SortableTable
-  data={sortTableData}
-  columns={sortTableCols}
-  classes={['table-data', 'table-light']} />
+  headers={[
+  <UI.TableHeader sortable={true}>Name</UI.TableHeader>,
+  <UI.TableHeader sortable={true}>Instances</UI.TableHeader>,
+  <UI.TableHeader sortable={true}>CPU</UI.TableHeader>,
+  <UI.TableHeader>Synergy</UI.TableHeader>,
+  ]}
+  className="table-light">
+  {sortTableData.map(function(datum, key) {
+    return (
+      <UI.TableRow key={key}>
+        <UI.TableCell>{datum.name}</UI.TableCell>
+        <UI.TableCell>{datum.instances}</UI.TableCell>
+        <UI.TableCell>{datum.cpu}</UI.TableCell>
+        <UI.TableCell>{datum.synergy}</UI.TableCell>
+      </UI.TableRow>
+    );
+  })}
+</UI.SortableTable>
 ```
 
 */

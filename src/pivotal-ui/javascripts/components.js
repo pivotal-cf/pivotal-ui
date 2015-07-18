@@ -1,7 +1,5 @@
-
+var sortableTable = require('pui-react-sortable-table');
 module.exports = {
-  SortableTable: require('pui-react-sortable-table').SortableTable,
-
   DefaultH1: require('pui-react-typography').DefaultH1,
   DefaultH2: require('pui-react-typography').DefaultH2,
   DefaultH3: require('pui-react-typography').DefaultH3,
@@ -120,5 +118,5 @@ module.exports = {
   BackToTop: require('pui-react-back-to-top').BackToTop,
 
   PortalSource: require('pui-react-portals').PortalSource,
-  PortalDestination: require('pui-react-portals').PortalDestination
-};
+  PortalDestination: require('pui-react-portals').PortalDestination,
+  ...sortableTable};
