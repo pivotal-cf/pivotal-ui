@@ -15,9 +15,7 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 If you're ready to try PUI with React, follow these instructions!
 
-***
-
-**NB** - We're assuming that you have the following setup on your project:
+1. We're assuming that you have the following setup on your project:
 
   - **Browserify or Webpack** - Our React modules follow the CommonJS module
     pattern. You will need to use [Browserify](http://browserify.org/) or
