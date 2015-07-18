@@ -29,6 +29,8 @@ To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 If you're ready to try PUI with React, follow these instructions!
 
+***
+
 **NB** - We're assuming that you have the following setup on your project:
 
   - **Browserify or Webpack** - Our React modules follow the CommonJS module
@@ -43,7 +45,16 @@ If you're ready to try PUI with React, follow these instructions!
   - If these instructions don't make sense to you, don't worry! We're working
     on a sample project template that we'll publish soon :grin:
 
-***
+1. Make sure you have a package.json file. If you don't, run `npm init`, and
+   select the default options.
+
+1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
+   This tool looks at your dependencies (those added with --save, **NOT** 
+   --save-dev), and compiles the CSS required by these packages.
+   
+   ```
+   npm install --save-dev dr-frankenstyle
+   ```
 
 1. Install React, if you haven't already
 
@@ -51,28 +62,21 @@ If you're ready to try PUI with React, follow these instructions!
    npm install --save-dev react
    ```
 
-1. Install a PUI module for the components you need.
+1. Install a PUI module for the components you need. No need to install
+   additional CSS packages. Our React packages tell Dr. Frankenstyle what
+   CSS is needed for each component.
 
    ```
    npm install --save pui-react-typography
+   npm install --save pui-react-buttons
    ```
 
-   Our React component modules include all necessary CSS. So no need to install
-   additional CSS packages!
-
-1. Install and run Dr. Frankenstyle.
-
-   [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle)
-   is a tool that compiles all the CSS required by your React components into
-   a single file. The simplist way to set it up is:
+1. Run Dr. Frankenstyle to compile your CSS
 
    ```
-   npm install --save-dev dr-frankenstyle
    dr-frankenstyle <path-to-your-asset-build-folder>
+   # writes to <path-to-your-asset-build-folder>/components.css
    ```
-
-   The compiled CSS file (and all related fonts/images/etc.) are written to
-   the specified folder.
 
 1. Add the compiled css to your html template
 
@@ -94,12 +98,17 @@ If you're ready to try PUI with React, follow these instructions!
 
 1. Write some React!
 
+   Javascript:
    ```jsx
    var React = require('react');
    var DefaultH1 = require('pui-react-typography').DefaultH1;
    var PrimaryButton = require('pui-react-buttons').PrimaryButton;
 
    var MyTestPage = React.createClass({
+     getInitialState: function() {
+       return {showMessage: false};
+     },
+     
      showMessage: function() {
        this.setState({showMessage: true});
      },
@@ -114,9 +123,10 @@ If you're ready to try PUI with React, follow these instructions!
      }
    });
 
-   React.render(<MyTestPage />, document.findElementById('root'));
+   React.render(<MyTestPage />, document.getElementById('root'));
    ```
 
+   HTML
    ```html
    <!-- ... -->
    <body>
@@ -146,6 +156,17 @@ The prefered way to consume Pivotal UI is through NPM, even for Rails
 projects. Using NPM to install PUI will ensure proper dependency management on
 your project.
 
+1. Make sure you have a package.json file. If you don't, run `npm init`, and
+   select the default options.
+
+1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
+   This tool looks at your dependencies (those added with --save, **NOT** 
+   --save-dev), and compiles the CSS required by these packages.
+   
+   ```
+   npm install --save-dev dr-frankenstyle
+   ```
+
 1. Install the Pivotal UI CSS modules
 
    ```
@@ -165,23 +186,16 @@ your project.
    These installs must happen **after** you've installed the PUI module. This
    ensures you'll get the correct version of bootstrap js.
 
-   **NB** - It's important that you install these modules with `--save-dev`.
-   Otherwise Dr. Frankenstyle will try to include CSS from these modules, and
-   your page will look less awesome.
+   **NB** - It's important that you install these modules with `--save-dev`,
+   because we don't want Dr. Frankenstyle to pick up any CSS from these
+   packages.
 
-1. Install and run Dr. Frankenstyle
-
-   [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle)
-   is the tool that we recommend using to compile all the PUI css packages
-   together. The simplist way to set it up is:
+1. Run Dr. Frankenstyle to compile your CSS
 
    ```
-   npm install --save-dev dr-frankenstyle
    dr-frankenstyle <path-to-your-asset-build-folder>
+   # writes to <path-to-your-asset-build-folder>/components.css
    ```
-
-   The compiled CSS file (and all related fonts/images/etc.) are written to
-   the specified folder.
 
 1. Add the css and javascript files to your html template
 
@@ -191,8 +205,8 @@ your project.
      <head>
        <title>...</title>
        <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
-       <script src="<path-to-your-project's-node-modules>/bootstrap/dist/js/bootstrap.js"></script>
-       <script src="<path-to-your-project's-node-modules>/jquery/dist/jquery.js"></script>
+       <script src="<path-to-your-project's-root-folder>/node-modules/jquery/dist/jquery.js"></script>
+       <script src="<path-to-your-project's-root-folder>/node-modules/bootstrap/dist/js/bootstrap.js"></script>
      </head>
      <body>
        <!-- ... -->
