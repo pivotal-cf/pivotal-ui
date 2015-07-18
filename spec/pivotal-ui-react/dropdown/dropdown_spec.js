@@ -1,4 +1,6 @@
 require('../spec_helper');
+import {itPropagatesAttributes} from '../support/shared_examples';
+import {Dropdown, DropdownItem} from '../../../src/pivotal-ui-react/dropdowns/dropdowns';
 
 describe('Dropdowns', function() {
   function dropdownTestFor(dropdownComponentName, dropdownClassName) {
@@ -24,22 +26,65 @@ describe('Dropdowns', function() {
   }
 
   describe('Dropdown', function() {
+    var props = {
+      className: 'test-class',
+      id: 'test-id',
+      style: {
+        opacity: '1'
+      }
+    };
+
     beforeEach(function() {
-      var Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').Dropdown;
-      React.render(<Dropdown title="Dropping"/>, root);
+      React.render(
+        <Dropdown title="Dropping" {...props} buttonClassName="test-btn-class">
+          <DropdownItem href="test">Item #1</DropdownItem>
+        </Dropdown>, root);
     });
 
     afterEach(function() {
       React.unmountComponentAtNode(root);
     });
 
-    it('creates a dropdown', function() {
-      expect('button.dropdown-toggle').toContainText('Dropping');
+    it('passes through className and style to the btn-group ', function() {
+      expect('#root .btn-group').toHaveClass('test-class');
+      expect('#root .btn-group').toHaveCss({opacity: '1'});
     });
 
-    it('adds the appropriate button classes to the dropdown toggle', () => {
-      expect('button.dropdown-toggle').toHaveClass('btn-default');
+    it('passes through id', function() {
+      expect('#root #test-id').toExist();
     });
+
+    it('create a dropdown-toggle, merging buttonClassName with the provided one', () => {
+      expect('.dropdown-toggle').toContainText('Dropping');
+      expect('.dropdown-toggle').toHaveClass('btn-default');
+      expect('.dropdown-toggle').toHaveClass('test-btn-class');
+    });
+
+    it('renders all children DropdownItems', function() {
+      expect('#root .dropdown-menu li').toHaveLength(1);
+      expect('#root .dropdown-menu li').toHaveText('Item #1');
+    });
+  });
+
+  describe('DropdownItem', function() {
+    var props = {
+      className: 'test-item-class',
+      id: 'test-item-id',
+      style: {
+        opacity: '1'
+      }
+    };
+    beforeEach(function() {
+      React.render(
+        <DropdownItem href='test' {...props}>Item</DropdownItem>,
+        root);
+    });
+
+    afterEach(function() {
+      React.unmountComponentAtNode(root);
+    });
+
+    itPropagatesAttributes('#root li', props);
   });
 
   dropdownTestFor('LinkDropdown', 'btn-link');
