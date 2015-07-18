@@ -6,7 +6,7 @@ Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome 
 
 To contribute, see the [contributing readme](CONTRIBUTING.md).
 
-## Check it out!
+# Check it out!
 
 [Visit the live styleguide](http://styleguide.pivotal.io)  
 
