@@ -5,23 +5,11 @@
 
 Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
 
-
-[Visit the live styleguide](http://styleguide.pivotal.io)  
-If you are ready to start using Pivotal UI **[download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases)**.   
 To contribute, see the [contributing readme](CONTRIBUTING.md).
 
-***
+## Check it out!
 
-# What's included
-
-- jQuery v2.1.1
-- LoDash v2.4.1
-- Bootstrap v3.2
-- Prism.js
-- Font Awesome v4.10
-- Normalize CSS v1.0.2
-- OOCSS
-- Source Sans Pro
+[Visit the live styleguide](http://styleguide.pivotal.io)  
 
 ***
 
@@ -340,14 +328,6 @@ Import the file and use the variables:
   background-color: $brand-1;
 }
 ```
-
-# Styleguide
-
-Visit <http://styleguide.pivotal.io> of host the styleguide files with a web server to view the available components.
-
-    $ cd /path/to/release/pivotal-ui/styleguide/ && python -m SimpleHTTPServer 8000
-
-then visit <http://localhost:8000>
 
 # Contributing
 
