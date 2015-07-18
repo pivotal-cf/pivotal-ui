@@ -1132,7 +1132,7 @@ var draggableListDropCallback = function(data) {
 ```
 
 ```react_example
-<UI.DraggableList onDrop={draggableListDropCallback}>
+<UI.DraggableList onDrop={draggableListDropCallback} className="my-list-class" innerClassName="my-item-class">
   <UI.DraggableListItem>
     Get me out of here!
   </UI.DraggableListItem>

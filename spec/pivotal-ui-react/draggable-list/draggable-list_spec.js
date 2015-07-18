@@ -1,14 +1,24 @@
 require('../spec_helper');
+import {propagateAttributes} from '../spec_helper';
 
 describe('DraggableList', function() {
-  var DraggableList, DraggableListItem, subject, dropSpy;
+  var DraggableList, DraggableListItem, subject, dropSpy, props;
   beforeEach(function() {
     DraggableList = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableList;
     DraggableListItem = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableListItem;
 
     dropSpy = jasmine.createSpy('drop');
+
+    props = {
+      className: 'test-class',
+      id: 'test-id',
+      style: {
+        opacity: 1
+      }
+    };
+
     subject = React.render(
-      <DraggableList onDrop={dropSpy}>
+      <DraggableList onDrop={dropSpy} {...props} innerClassName='inner-test-class'>
         <DraggableListItem>
           Get me out of here!
         </DraggableListItem>
@@ -21,11 +31,18 @@ describe('DraggableList', function() {
       </DraggableList>,
       root
     );
+    propagateAttributes('.list-group', props);
   });
 
   afterEach(function() {
     React.unmountComponentAtNode(root);
   });
+
+
+  it('passes through innerClassName to item content', function() {
+    expect('.draggable-item-content:first').toHaveClass('inner-test-class');
+  });
+
 
   function getListItemText() {
     return $('li.list-group-item .draggable-item-content').map(function() {
