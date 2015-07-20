@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('SearchInput', function() {
   var SearchInput;
@@ -31,7 +31,7 @@ describe('SearchInput', function() {
     });
   });
 
-  propagateAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '1'}});
+  itPropagatesAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '1'}});
 
   describe('when event handlers are provided', function() {
     var changeSpy;

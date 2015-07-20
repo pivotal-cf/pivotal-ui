@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 
 describe('Grid', function() {
@@ -20,8 +20,8 @@ describe('Grid', function() {
     React.unmountComponentAtNode(root);
   });
 
-  propagateAttributes('.row', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
-  propagateAttributes('.col-md-12:first', {className: 'test-class2', id: 'test-id2', style: {opacity: '0.5'}});
+  itPropagatesAttributes('.row', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
+  itPropagatesAttributes('.col-md-12:first', {className: 'test-class2', id: 'test-id2', style: {opacity: '0.5'}});
   it('adds the gutter class to the row', function() {
     expect('.row').toHaveClass('row-gutter-md');
   });

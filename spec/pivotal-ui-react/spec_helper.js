@@ -36,20 +36,6 @@ class TransitionGroupMock extends global.React.Component {
   };
 }
 
-export function propagateAttributes(componentIdentifier, attributeHash) {
-  describe('when className, id and style are given', () => {
-    it('adds className to the correct component', () => {
-      expect(componentIdentifier).toHaveClass(attributeHash.className);
-    });
-    it('adds id to the correct component', () => {
-      expect(componentIdentifier).toHaveAttr('id', attributeHash.id);
-    });
-    it('adds style to the correct component', () => {
-      expect(componentIdentifier).toHaveCss(attributeHash.style);
-    });
-  });
-}
-
 beforeEach(function() {
   jasmine.clock().install();
   $('body').find('#root').remove().end().append('<main id="root"/>');
