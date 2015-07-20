@@ -330,7 +330,7 @@ parent: table_react
 ---
 
 The `SortableTable` component is a robust component that offers a styled table with fully
-functioning sort.
+functioning sort. If the rows change, the content on the page will update.
 
 The `SortableTable` expects the following properties:
 
