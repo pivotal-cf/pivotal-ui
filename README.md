@@ -29,8 +29,7 @@ If you're ready to try PUI with React, follow these instructions!
   - If these instructions don't make sense to you, don't worry! We're working
     on a sample project template that we'll publish soon :grin:
 
-1. Make sure you have a package.json file. If you don't, run `npm init`, and
-   select the default options.
+1. Run `npm init` if you don't have a package.json file already.
 
 1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
    This tool looks at your dependencies (those added with --save, **NOT** 
@@ -140,8 +139,7 @@ The prefered way to consume Pivotal UI is through NPM, even for Rails
 projects. Using NPM to install PUI will ensure proper dependency management on
 your project.
 
-1. Make sure you have a package.json file. If you don't, run `npm init`, and
-   select the default options.
+1. Run `npm init` if you don't have a package.json file already.
 
 1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
    This tool looks at your dependencies (those added with --save, **NOT** 
