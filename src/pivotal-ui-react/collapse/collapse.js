@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 var BsPanel = require('react-bootstrap').Panel;
-var classnames = require('classnames');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 var CollapseProps = {
   propTypes: {
@@ -47,10 +47,10 @@ var BaseCollapse = React.createClass({
 
   render() {
     var {divider, header, children, ...others} = this.props;
-    var classes = classnames({'panel-divider': divider});
+    var props = mergeProps(others, {className: {'panel-divider': divider}});
 
     return (
-      <BsPanel {...others} className={classes} collapsible expanded={this.state.expanded} onSelect={this.handleSelect} header={header}>
+      <BsPanel {...props} collapsible expanded={this.state.expanded} onSelect={this.handleSelect} header={header}>
         {children}
       </BsPanel>
     );
