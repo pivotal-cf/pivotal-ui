@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('DraggableList', function() {
   var DraggableList, DraggableListItem, subject, dropSpy, props;
@@ -31,7 +31,7 @@ describe('DraggableList', function() {
       </DraggableList>,
       root
     );
-    propagateAttributes('.list-group', props);
+    itPropagatesAttributes('.list-group', props);
   });
 
   afterEach(function() {

@@ -1,6 +1,6 @@
 require('../spec_helper');
 
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('Divider', function() {
   var Divider;
@@ -17,7 +17,7 @@ describe('Divider', function() {
     expect('hr').toHaveClass('divider-alternate-1');
   });
 
-  propagateAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
+  itPropagatesAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
   describe('when large is set to true', function() {
     beforeEach(function() {
       React.render(<Divider size="large"/>, root);

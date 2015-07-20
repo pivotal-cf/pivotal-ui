@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('Image', function() {
   beforeEach(function() {
@@ -32,7 +32,7 @@ describe('Image', function() {
     });
   });
 
-  propagateAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '1'}});
+  itPropagatesAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '1'}});
 
   it('adds the gutter class to the row', function() {
     expect('img').toHaveAttr('src', 'http://placehold.it/20x20');

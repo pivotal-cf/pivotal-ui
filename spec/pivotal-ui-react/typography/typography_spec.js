@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {propagateAttributes} from '../spec_helper';
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('Heading', function() {
   var typography, Heading;
@@ -48,7 +48,7 @@ describe('Heading', function() {
       expect('h1:contains("Heading text here")').toHaveClass('em-alt');
     });
 
-    propagateAttributes('h1:contains("Heading text here")', {className: 'myClass', id: 'myId', style: {opacity: '1'}});
+    itPropagatesAttributes('h1:contains("Heading text here")', {className: 'myClass', id: 'myId', style: {opacity: '1'}});
   });
 
   describe('when the Heading has size provided', function() {
