@@ -51,25 +51,23 @@ var Panel = React.createClass({
   },
 
   render() {
-    var {kind, padding, scrollable, children, ...other} = this.props;
+   const {kind, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
+    const props = mergeProps(other, {
+      className: ['panel', kind, {'panel-scrollable': scrollable}],
+      style: panelStyle
+    });
 
-    var bodyClasses = classnames('panel-body', padding);
-
-    var title = this.props.title ? (
+    const title = this.props.title ? (
       <div className="panel-header">
         <h5 className="panel-title-alt">{this.props.title}</h5>
       </div>
     ) : null;
 
-    var props = mergeProps(other, {
-      className: ['panel', kind, {'panel-scrollable': scrollable}],
-      style: (scrollable ? {maxHeight: scrollable} : {})
-    });
-
     return (
       <div {...props}>
         {title}
-        <div className={bodyClasses}>{children}</div>
+        <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
       </div>
     );
   }

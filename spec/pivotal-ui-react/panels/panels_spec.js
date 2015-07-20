@@ -39,15 +39,24 @@ describe('Panel', function() {
     });
   });
 
-  describe('when a className is provided', function() {
+  describe('when attributes are provided', function() {
     beforeEach(function() {
-      React.render(<Panel className="foo myClass">Sup</Panel>, root);
+      React.render(<Panel className="foo myClass" innerClassName="inner-class"
+                          id="outer-id"
+                          style={{opacity: '0.5'}}>Sup</Panel>, root);
     });
 
-    it('sets the className as a class on the panel', function() {
+    it('sets className, id, and style on the panel outer div', function() {
       expect('.panel').toHaveClass('foo');
       expect('.panel').toHaveClass('myClass');
+      expect('.panel').toHaveAttr('id', 'outer-id');
+      expect('.panel').toHaveCss({opacity: '0.5'});
     });
+
+    it('sets innerClassName on the panel-body div', () => {
+      expect('.panel-body').toHaveClass('inner-class');
+    });
+
   });
 
   describe('when padding is provided', function() {
@@ -100,6 +109,17 @@ describe('Panel', function() {
       });
     });
   });
+
+  describe('when scrollable is not set', () => {
+    beforeEach(function() {
+      React.render(<Panel>Sup</Panel>, root);
+    });
+
+    it('does not add the class "panel-scrollable"', () => {
+      expect('.panel').not.toHaveClass('panel-scrollable');
+    });
+  });
+
 });
 
 describe('ShadowPanel', function() {
