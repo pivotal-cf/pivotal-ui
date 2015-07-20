@@ -257,7 +257,11 @@ app that only has typography and buttons.
    look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
    for how to make this step part of your task workflow.
 
-# Legacy - Using PivotalUI on your project
+# Special instructions for Rails users
+
+Coming soon!
+
+# Legacy - Using Pivotal UI on your project
 
 If you really don't want to use NPM, you can use our compiled PUI monolith.
 Be warned, you will have to manage updates and dependencies yourself.
@@ -287,23 +291,6 @@ need a component and you cannot find it in the styleguide, write your own
 styles and javascript separately. Doing so will make it easier to update to
 newer versions.
 
-# Using PivotalUI on your Rails project
-
-If you're installing PivotalUI into a Rails project, you should unzip the
-constituent files into a directory named `vendor/assets/pui-vX.X.X`.
-
-In your `application.scss` file, add the line `@import "pivotal-ui-rails"`
-
-In your `application.js` file, add the line `//= require pivotal-ui` as **the
-very first** require declaration.
-
-Lastly, in your application's `config/application.rb`, you'll need to add the
-following to make sure all vendored files are properly compiled:
-
-```
-  config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/
-```
-
 # Including SCSS variables and mixins (optional, beta)
 
 If you are building CSS using Sass, you can get pivotal-ui variables and mixins
@@ -327,12 +314,16 @@ Import the file and use the variables:
 
 # Contributing
 
-If you want a feature added to Pivotal UI, or you've found a bug that needs fixing, please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md).
+If you want a feature added to Pivotal UI, or you've found a bug that needs
+fixing, please refer to our [contribution
+guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md).
 
 ## Highlights
 
-When creating a pull request, make sure you rebase your branch against our code base (upstream).
-Read our [Commit guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#commit-guidelines)! We have a very specific syntax for our messages.
+When creating a pull request, make sure you rebase your branch against our code
+base (upstream).  Read our [Commit
+guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#commit-guidelines)!
+We have a very specific syntax for our messages.
 
 # Copyright Notice
 
