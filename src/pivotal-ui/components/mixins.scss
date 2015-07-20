@@ -108,21 +108,6 @@
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
-// Source sans pro mixin
-
-@mixin font($name, $weight, $style) {
-  @font-face {
-    font-family: 'SourceSansPro';
-    src: url("fonts/#{$name}.eot");
-    src: url("fonts/#{$name}.eot?#iefix") format("embedded-opentype"),
-    url("fonts/#{$name}.woff") format("woff"),
-    url("fonts/#{$name}.ttf") format("truetype"),
-    url("fonts/#{$name}.svg##{$name}") format("svg");
-    font-weight: $weight;
-    font-style: $style;
-  }
-}
-
 @mixin h1() {
   //bootstrap
   font-family: $headings-font-family;
