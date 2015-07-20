@@ -7,6 +7,18 @@ started building UI at Pivotal.
 
 To contribute, see the [contributing readme](CONTRIBUTING.md).
 
+# Table of Contents
+
+- [Check it out!](#check-it-out)
+- [Using Pivotal UI on your project (with React)](#using-pivotal-ui-on-your-project-with-react)
+- [Using Pivotal UI on your project (without React)](#using-pivotal-ui-on-your-project-without-react)
+  - [Customizing your PUI build](#customizing-your-pui-build)
+- [Special instructions for Rails users](#special-instructions-for-rails-users)
+- [Legacy - Using Pivotal UI on your project](#legacy---using-pivotal-ui-on-your-project)
+- [Including SCSS variables and mixins (optional, beta)](#including-scss-variables-and-mixins-optional-beta)
+- [Contributing](#contributing)
+- [Copyright Notice](#copyright-notice)
+
 # Check it out!
 
 [Visit the live styleguide](http://styleguide.pivotal.io)  
