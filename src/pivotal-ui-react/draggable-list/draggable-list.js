@@ -2,6 +2,7 @@ var React = require('react/addons');
 var types = React.PropTypes;
 var classnames = require('classnames');
 var move = require('./move_helper');
+import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 
 var HoverMixin = {
   getInitialState() {
@@ -100,7 +101,8 @@ var DraggableList = React.createClass({
 
   render() {
     var grabbed, items = [];
-    React.Children.forEach(this.props.children, function(child, draggingId) {
+    var {children, innerClassName, ...others} = this.props;
+    React.Children.forEach(children, function(child, draggingId) {
       grabbed = this.state.draggingId === draggingId;
       items.push(React.addons.cloneWithProps(child, {
         grabbed,
@@ -109,12 +111,14 @@ var DraggableList = React.createClass({
         onDragEnter: this.dragEnter,
         onDrop: this.drop,
         draggingId,
-        key: draggingId
+        key: draggingId,
+        className: innerClassName
       }));
     }, this);
     var sortedItems = this.state.itemIndices.map(i => items[i]);
+    var props = mergeProps(others, {className: {'list-group list-draggable': true, dragging: this.state.draggingId !== null}});
     return (
-      <ul className={classnames({'list-group list-draggable': true, dragging: this.state.draggingId !== null})}>
+      <ul {...props}>
         {sortedItems}
       </ul>
     );
@@ -145,6 +149,7 @@ var DraggableListItem = React.createClass({
     var {grabbed, onDragStart, onDragEnd, onDragEnter, onDrop, draggingId} = this.props;
     var {onMouseEnter, onMouseLeave} = this;
     var className = classnames({'list-group-item pan': true, grabbed, hover});
+    var innerClassName = classnames(this.props.className, 'draggable-item-content');
     var props = {
       className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter, onDrop,
       onDragOver: preventDefault,
@@ -153,7 +158,7 @@ var DraggableListItem = React.createClass({
     };
     return (
       <li {...props} aria-dropeffect="move">
-        <div className="draggable-item-content">
+        <div className={innerClassName}>
           <div className="draggable-grip mhl" aria-grabbed={grabbed} role="button">
             <i className="fa fa-ellipsis-v mrs"/>
             <i className="fa fa-ellipsis-v"/>
