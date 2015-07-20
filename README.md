@@ -1,8 +1,9 @@
 # pivotal-ui
 [![Build Status](https://travis-ci.org/pivotal-cf/pivotal-ui.svg)](https://travis-ci.org/pivotal-cf/pivotal-ui)
 
-
-Pivotal UI includes Pivotal styles as well as Bootstrap CSS, OOCSS, FontAwesome icons fonts, and the Source Sans Pro Google Font in your project. This is everything you need to get started building UI at Pivotal.
+Pivotal UI is a collection of branded, ready-for-use UI components. Built on
+top of Bootstrap and React, this library contains everything you need to get
+started building UI at Pivotal.
 
 To contribute, see the [contributing readme](CONTRIBUTING.md).
 
