@@ -68,13 +68,12 @@ If you're ready to try PUI with React, follow these instructions!
    <html>
      <head>
        <title>...</title>
-       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
-
        <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
 
      </head>
      <body>
        <!-- ... -->
+       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
      </body>
    </html>
    ```
@@ -114,6 +113,9 @@ If you're ready to try PUI with React, follow these instructions!
    <!-- ... -->
    <body>
      <div id="root"></div>
+  
+     <!-- Script tag should be below all DOM elements -->
+     <script src="<path-to-your-project's-compiled-javascript-file>"></script>
    </body>
    <!-- ... -->
    ```
