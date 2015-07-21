@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^1.2.0",
     "lodash.sortby": "^3.1.1",
+    "lodash.findIndex": "^3.2.1",
     "pui-css-iconography": "1.10.0",
     "pui-css-tables": "1.10.0"
   }

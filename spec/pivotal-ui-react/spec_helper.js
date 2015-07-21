@@ -1,4 +1,3 @@
-require('babel/polyfill');
 require('jasmine_dom_matchers');
 
 global.React = require('react/addons');
@@ -18,7 +17,7 @@ $.fn.simulate = function(eventName, ...args) {
     throw new Error(`jQuery Simulate has an empty selection for '${this.selector}'`);
   }
   $.each(this, function() {
-    if (['mouseOver', 'mouseOut', 'click'].includes(eventName)) {
+    if (['mouseOver', 'mouseOut', 'click'].indexOf(eventName) !== -1) {
       React.addons.TestUtils.SimulateNative[eventName](this, ...args);
     } else {
       React.addons.TestUtils.Simulate[eventName](this, ...args);
