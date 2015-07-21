@@ -3,7 +3,7 @@
   "description": "React components to display flash messages to the user",
   "homepage": "http://styleguide.pivotal.io/react.html#alerts_react",
   "dependencies": {
-    "react-bootstrap": "0.23.3",
+    "react-bootstrap": "pivotal-cf/react-bootstrap#pui-dist",
     "pui-css-alerts": "1.10.0",
     "pui-css-iconography": "1.10.0",
     "pui-react-media": "1.10.0"
