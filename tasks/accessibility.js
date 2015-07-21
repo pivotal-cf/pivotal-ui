@@ -15,7 +15,7 @@ gulp.task('accessibility-a11y', ['monolith-serve'], (done) => {
       process.exit(1);
     }
 
-    console.log(reports);
+    log(reports);
     let hasErrors;
 
     for (let el of reports.audit) {

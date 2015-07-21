@@ -12,6 +12,7 @@
   "plugins": [
     "react"
   ],
+  "rulePaths": ["config/eslint-rules/"],
   "rules": {
     "camelcase": 0,
     "curly": 0,
@@ -24,6 +25,7 @@
     "no-unused-expressions": 0,
     "quotes": [2, "single", "avoid-escape"],
     "strict": 0,
-    "react/prop-types": 0
+    "react/prop-types": 0,
+    "no-console-log": 2
   }
 }
