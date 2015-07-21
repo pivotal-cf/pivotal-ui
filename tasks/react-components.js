@@ -17,7 +17,7 @@ const buildFolder = 'dist/react';
 gulp.task('react-build-src', function() {
   return gulp.src('src/pivotal-ui-react/**/*.js')
     .pipe(plugins.plumber())
-    .pipe(plugins.babel({stage: 0}))
+    .pipe(plugins.babel({stage: 0, optional: ['runtime']}))
     .pipe(plugins.header(COPYRIGHT))
     .pipe(gulp.dest(buildFolder));
 });
@@ -31,6 +31,7 @@ gulp.task('react-build-license', () =>
 gulp.task('react-build-package-json', () =>
   gulp.src('src/pivotal-ui-react/*/package.json')
     .pipe(packageJson())
+    .on('error', (error) => console.error('Failed with error', error))
     .pipe(gulp.dest(buildFolder))
 );
 

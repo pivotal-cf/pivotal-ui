@@ -65,6 +65,7 @@
     "npm": "^2.7.5",
     "object-assign": "^2.0.0",
     "phantomjs": "^1.9.17",
+    "phantomjs-polyfill": "0.0.1",
     "proxyquire": "^1.5.0",
     "pui-react-animation": "0.0.6",
     "q": "^1.0.1",

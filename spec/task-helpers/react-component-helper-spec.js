@@ -66,6 +66,7 @@ describe('packageJson', () => {
         description: 'custom description',
         version: '1.2.3',
         dependencies: {
+          'babel-runtime': '^5.8.3',
           'foo': '1.0.0',
           'bar': '2.0.0'
         }

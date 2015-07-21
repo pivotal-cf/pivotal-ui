@@ -1,5 +1,5 @@
-var packageTemplate = function(name, ...overrides) {
-  return JSON.stringify(Object.assign({
+var packageTemplate = function(name, {dependencies: dependencyOverrides, ...overrides}) {
+  return JSON.stringify({
     name: `pui-react-${name}`,
     version: '0.0.1',
     description: name,
@@ -22,8 +22,13 @@ var packageTemplate = function(name, ...overrides) {
     homepage: "https://github.com/pivotal-cf/pivotal-ui",
     peerDependencies: {
       react: '^0.13.0'
-    }
-  }, ...overrides), null, 2);
+    },
+    dependencies: {
+      'babel-runtime': '^5.8.3',
+      ...dependencyOverrides
+    },
+    ...overrides
+  }, null, 2);
 };
 
 module.exports = packageTemplate;
