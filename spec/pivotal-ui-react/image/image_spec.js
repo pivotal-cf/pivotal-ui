@@ -10,7 +10,7 @@ describe('Image', function() {
         href="http://google.com"
         className="my-img-class"
         id="my-img-id"
-        style={{opacity: '1'}}
+        style={{opacity: '0.5'}}
         responsive={true}/>,
       root
     );
@@ -32,7 +32,7 @@ describe('Image', function() {
     });
   });
 
-  itPropagatesAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '1'}});
+  itPropagatesAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '0.5'}});
 
   it('adds the gutter class to the row', function() {
     expect('img').toHaveAttr('src', 'http://placehold.it/20x20');

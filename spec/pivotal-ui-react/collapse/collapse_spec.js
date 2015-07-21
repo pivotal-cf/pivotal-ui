@@ -67,7 +67,7 @@ describe('Collapse', function() {
     props = {
       className: 'test-class',
       style: {
-        opacity: '1'
+        opacity: '0.5'
       }
     };
 
@@ -87,7 +87,7 @@ describe('Collapse', function() {
   });
 
   it('passes through style', function() {
-    expect('#root .panel').toHaveCss({opacity: '1'});
+    expect('#root .panel').toHaveCss({opacity: '0.5'});
   });
 
   it('contains a right-caret as its collapsed icon', function() {

@@ -35,12 +35,12 @@ describe('iconography', function() {
 
     describe('attributes', () => {
       beforeEach( () => {
-        React.render(<Icon name='plus' size='h1' className='test-class' id='test-id' style={{opacity: '1'}}/>, root);
+        React.render(<Icon name='plus' size='h1' className='test-class' id='test-id' style={{opacity: '0.5'}}/>, root);
       });
       afterEach(() => {
         React.unmountComponentAtNode(root);
       });
-      itPropagatesAttributes('.fa.fa-plus', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
+      itPropagatesAttributes('.fa.fa-plus', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
     });
 
     describe('when a className and a size are given', function() {

@@ -40,7 +40,7 @@ describe('Heading', function() {
 
   describe('when the Heading has attrs provided', function() {
     beforeEach(function() {
-      React.render((<Heading element="h1" allCaps={true} className="myClass" id='myId' style={{opacity: '1'}} children="Heading text here"/>), root);
+      React.render((<Heading element="h1" allCaps={true} className="myClass" id='myId' style={{opacity: '0.5'}} children="Heading text here"/>), root);
     });
 
     it('has the default classes', function() {
@@ -48,7 +48,7 @@ describe('Heading', function() {
       expect('h1:contains("Heading text here")').toHaveClass('em-alt');
     });
 
-    itPropagatesAttributes('h1:contains("Heading text here")', {className: 'myClass', id: 'myId', style: {opacity: '1'}});
+    itPropagatesAttributes('h1:contains("Heading text here")', {className: 'myClass', id: 'myId', style: {opacity: '0.5'}});
   });
 
   describe('when the Heading has size provided', function() {

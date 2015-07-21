@@ -59,13 +59,13 @@ describe('Radio', function() {
   describe('when className and style are passed', () => {
     beforeEach(() =>{
       React.render(
-        <Radio value="1" name="bananas" className="radio-class" style={{opacity: '1'}} defaultChecked>
+        <Radio value="1" name="bananas" className="radio-class" style={{opacity: '0.5'}} defaultChecked>
           One!!!
         </Radio>, root);
     });
     it('passes through className and style', () => {
       expect('#root .radio').toHaveClass('radio-class');
-      expect('#root .radio').toHaveCss({opacity: '1'});
+      expect('#root .radio').toHaveCss({opacity: '0.5'});
     });
   });
 

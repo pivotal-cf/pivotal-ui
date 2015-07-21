@@ -17,7 +17,7 @@ describe('lists', function() {
       className: 'test-class',
       id: 'test-id',
       style: {
-        opacity: '1'
+        opacity: '0.75'
       }
     };
 

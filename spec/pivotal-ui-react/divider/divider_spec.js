@@ -6,7 +6,7 @@ describe('Divider', function() {
   var Divider;
   beforeEach(function() {
     Divider = require('../../../src/pivotal-ui-react/dividers/dividers').Divider;
-    React.render(<Divider className='test-class' id='test-id' style={{opacity: '1'}}/>, root);
+    React.render(<Divider className='test-class' id='test-id' style={{opacity: '0.5'}}/>, root);
   });
 
   afterEach(function() {
@@ -17,7 +17,7 @@ describe('Divider', function() {
     expect('hr').toHaveClass('divider-alternate-1');
   });
 
-  itPropagatesAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '1'}});
+  itPropagatesAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
   describe('when large is set to true', function() {
     beforeEach(function() {
       React.render(<Divider size="large"/>, root);

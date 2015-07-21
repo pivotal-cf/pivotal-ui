@@ -5,7 +5,7 @@ describe('SearchInput', function() {
   var SearchInput;
   beforeEach(function() {
     SearchInput = require('../../../src/pivotal-ui-react/search-input/search-input').SearchInput;
-    React.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '1'}}/>), root);
+    React.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '0.5'}}/>), root);
   });
 
   afterEach(function() {
@@ -31,7 +31,7 @@ describe('SearchInput', function() {
     });
   });
 
-  itPropagatesAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '1'}});
+  itPropagatesAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '0.5'}});
 
   describe('when event handlers are provided', function() {
     var changeSpy;

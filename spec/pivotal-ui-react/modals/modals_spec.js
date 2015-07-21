@@ -42,8 +42,8 @@ describe('Modals', function() {
               <DefaultButton id="openButton" onClick={this._openModal}>Open Modal</DefaultButton>
               <Modal title="What a Header!" ref="modal"
                      className="content-class" id="content-id" style={{opacity: '0.5'}}>
-                <ModalBody className="body-class" id="body-id" style={{opacity: '1'}}>Text in a body</ModalBody>
-                <ModalFooter className="footer-class" id="footer-id" style={{opacity: '0'}}>
+                <ModalBody className="body-class" id="body-id" style={{opacity: '0.75'}}>Text in a body</ModalBody>
+                <ModalFooter className="footer-class" id="footer-id" style={{opacity: '0.25'}}>
                   <p>Text in a footer</p>
                   <DefaultButton id="closeButton" onClick={this._closeModal}>Close</DefaultButton>
                 </ModalFooter>
@@ -113,7 +113,7 @@ describe('Modals', function() {
         });
 
         it('sets style on the modal-body div', () => {
-          expect('.modal-body').toHaveCss({opacity: '1'});
+          expect('.modal-body').toHaveCss({opacity: '0.75'});
         });
 
         it('sets className on the modal-footer div', () => {
@@ -125,7 +125,7 @@ describe('Modals', function() {
         });
 
         it('sets style on the modal-footer div', () => {
-          expect('.modal-footer').toHaveCss({opacity: '0'});
+          expect('.modal-footer').toHaveCss({opacity: '0.25'});
         });
       });
     }
