@@ -1,5 +1,5 @@
 var React = require('react');
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import classnames from 'classnames';
 
 /**
  * @component Dropdown
@@ -31,11 +31,16 @@ var Dropdown = require('react-bootstrap').DropdownButton;
 function defDropdown(props) {
   return React.createClass({
     render() {
-      var others = mergeProps(props, this.props);
-      return <Dropdown {...others}/>;
+      const {buttonClassName, ...others} = this.props;
+      const {buttonClassName: defaultBtnClassName, bsStyle} = props;
+
+      const btnClass = classnames(buttonClassName, defaultBtnClassName);
+
+      return <Dropdown buttonClassName={btnClass} bsStyle={bsStyle} {...others}/>;
     }
   });
 }
+
 module.exports = {
   Dropdown,
 

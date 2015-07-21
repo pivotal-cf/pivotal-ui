@@ -202,11 +202,11 @@ If you want to customize the dropdown button, you can add modifier classes to it
 using the `buttonClassName` property:
 
 ```react_example
-<UI.Dropdown title='DropDown' buttonClassName='type-neutral-1 em-alt type-sm'>
+<UI.DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
   <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
   <UI.DropdownItem divider />
   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.Dropdown>
+</UI.DefaultAltDropdown>
 ```
 
 */

@@ -7,7 +7,7 @@ describe('Dropdowns', function() {
     describe(dropdownComponentName, function() {
       beforeEach(function() {
         var DropdownClass = require('../../../src/pivotal-ui-react/dropdowns/dropdowns')[dropdownComponentName];
-        React.render(<DropdownClass title="Dropping"/>, root);
+        React.render(<DropdownClass title="Dropping" buttonClassName="test-btn-class"/>, root);
       });
 
       afterEach(function() {
@@ -18,9 +18,10 @@ describe('Dropdowns', function() {
         expect('button.dropdown-toggle').toContainText('Dropping');
       });
 
-      it('adds the appropriate button classes to the dropdown toggle', () => {
+      it('adds the appropriate button classes (merging in buttonClassName) to the dropdown toggle', () => {
         expect('button.dropdown-toggle').toHaveClass(dropdownClassName);
         expect('button.dropdown-toggle').not.toHaveClass('btn-default');
+        expect('.dropdown-toggle').toHaveClass('test-btn-class');
       });
     });
   }
@@ -54,7 +55,7 @@ describe('Dropdowns', function() {
       expect('#root #test-id').toExist();
     });
 
-    it('create a dropdown-toggle, merging buttonClassName with the provided one', () => {
+    it('creates a dropdown-toggle', () => {
       expect('.dropdown-toggle').toContainText('Dropping');
       expect('.dropdown-toggle').toHaveClass('btn-default');
       expect('.dropdown-toggle').toHaveClass('test-btn-class');

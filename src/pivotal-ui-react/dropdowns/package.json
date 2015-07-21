@@ -6,6 +6,7 @@
     "react-bootstrap": "0.23.3",
     "pui-css-dropdowns": "1.10.0",
     "pui-css-iconography": "1.10.0",
-    "pui-css-buttons": "1.10.0"
+    "pui-css-buttons": "1.10.0",
+    "classnames": "^2.1.2"
   }
 }
