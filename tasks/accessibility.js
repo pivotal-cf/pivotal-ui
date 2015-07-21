@@ -3,10 +3,16 @@ import a11y from 'a11y';
 import runSequence from 'run-sequence';
 import {log, colors} from 'gulp-util';
 
-gulp.task('set-accessibility-ci-port', () => process.env.STYLEGUIDE_PORT = 9002);
+let host = 'http://localhost:8000';
 
-gulp.task('accessibility-a11y', ['monolith-serve'], (done) => {
-  const page = 'http://localhost:9002/elements.html';
+gulp.task('set-accessibility-ci-port', (done) => {
+  process.env.STYLEGUIDE_PORT = 9002;
+  host = 'http://localhost:9002';
+  done();
+});
+
+gulp.task('accessibility-a11y', (done) => {
+  const page = `${host}/react.html`;
   log(`Testing accessibility of ${page}`);
 
   a11y(page, (err, reports) => {
@@ -15,7 +21,6 @@ gulp.task('accessibility-a11y', ['monolith-serve'], (done) => {
       process.exit(1);
     }
 
-    log(reports);
     let hasErrors;
 
     for (let el of reports.audit) {
@@ -43,6 +48,7 @@ gulp.task('accessibility-a11y', ['monolith-serve'], (done) => {
 
 gulp.task('accessibility-ci', (done) => runSequence(
   'set-accessibility-ci-port',
+  'monolith-serve',
   'accessibility-a11y',
   done
 ));
