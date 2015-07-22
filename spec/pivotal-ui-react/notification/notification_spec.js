@@ -53,7 +53,9 @@ describe('Notification', function() {
       expect('.dropdown-notifications-title .dropdown-notifications-badge').toContainText('4');
     });
 
-    itPropagatesAttributes('#root li:first', itemProps);
+    describe('NotificationItem', function() {
+      itPropagatesAttributes('#root li:first', itemProps);
+    });
 
     it('renders the children in a dropdown menu', function() {
       expect('.dropdown-menu a:eq(0)').toContainText('fee');
@@ -102,9 +104,16 @@ describe('Alert Notifications', function() {
   });
 
   describe('when there are children', function() {
+    var props = {
+      className: 'test-class',
+      id: 'test-id',
+      style: {
+        opacity: '0.5'
+      }
+    };
     beforeEach(function() {
       React.render((
-        <AlertNotifications>
+        <AlertNotifications {...props}>
           <NotificationItem href="my-fee-link">fee</NotificationItem>
           <NotificationItem href="my-fi-link">fi</NotificationItem>
           <NotificationItem href="my-fo-link">fo</NotificationItem>
@@ -124,7 +133,20 @@ describe('Alert Notifications', function() {
       expect('.dropdown-menu').toContainText('fo');
       expect('.dropdown-menu').toContainText('fum');
     });
+
+    it('passes through the className to the btn-group', function() {
+      expect('#root .btn-group').toHaveClass(props.className);
+    });
+
+    it('passes through style to the button', function() {
+      expect('#root .btn').toHaveCss(props.style);
+    });
+
+    it('passes through id to the button', function() {
+      expect('#root .btn#test-id').toExist();
+    });
   });
+
 
   describe('when there are no children', function() {
     beforeEach(function() {

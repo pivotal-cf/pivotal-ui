@@ -96,7 +96,7 @@ var AlertNotifications = React.createClass({
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
   },
   render() {
-    var {size, children} = this.props;
+    var {size, children, ...others} = this.props;
     var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert"></Icon> : null;
     var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
@@ -113,7 +113,8 @@ var AlertNotifications = React.createClass({
         </div>
       </li>
     );
-    return <LinkDropdown title={dropdownTitle} className="dropdown-notifications">{children}</LinkDropdown>;
+    var props = mergeProps(others, {className: 'dropdown-notifications'});
+    return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
   }
 });
 
