@@ -3,6 +3,8 @@ var types = React.PropTypes;
 var {Icon} = require('pui-react-iconography');
 var {LinkDropdown, DropdownItem} = require('pui-react-dropdowns');
 var classnames = require('classnames');
+var {mergeProps} = require('pui-react-helpers');
+
 
 /**
  * @component Notifications
@@ -38,7 +40,8 @@ var Notifications = React.createClass({
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
   },
   render() {
-    var {size, children} = this.props;
+    var {size, children, ...others} = this.props;
+    var props = mergeProps(others, {className: 'dropdown-notifications'});
     var numChildren = React.Children.count(children);
     var badge = children ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
     var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
@@ -56,7 +59,7 @@ var Notifications = React.createClass({
         </div>
       </li>
     );
-    return <LinkDropdown title={dropdownTitle} className="dropdown-notifications">{children}</LinkDropdown>;
+    return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
   }
 });
 
@@ -129,8 +132,8 @@ var NotificationItem = React.createClass({
   },
 
   render() {
-    var {href, children} = this.props;
-    return <DropdownItem href={href}>{children}</DropdownItem>;
+    var {href, children, ...props} = this.props;
+    return <DropdownItem href={href} {...props}>{children}</DropdownItem>;
   }
 });
 

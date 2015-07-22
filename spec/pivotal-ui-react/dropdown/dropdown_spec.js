@@ -47,15 +47,15 @@ describe('Dropdowns', function() {
     });
 
     it('passes through className to the btn-group ', function() {
-      expect('#root .btn-group').toHaveClass('test-class');
+      expect('#root .btn-group').toHaveClass(props.className);
     });
 
     it('passes through style to the button', function() {
-      expect('#root .btn').toHaveCss({opacity: '0.5'});
+      expect('#root .btn').toHaveCss(props.style);
     });
 
     it('passes through id to the button', function() {
-      expect('#root #test-id').toExist();
+      expect('#root .btn#test-id').toExist();
     });
 
     it('creates a dropdown-toggle', () => {
