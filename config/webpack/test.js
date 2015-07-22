@@ -7,7 +7,7 @@ export default {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader?stage=0&optional[]=runtime'
+        loader: 'babel-loader?stage=0&optional[]=runtime&loose=true'
       }
     ]
   },
