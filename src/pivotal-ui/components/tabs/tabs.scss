@@ -580,4 +580,7 @@ parent: tabs_react
   </UI.Tab>
 </UI.SimpleAltTabs>
 ```
+
+If you want to customize the tabs, you can use `className` to add a modifier class to the `tab-simple`. `id` and `style` will also be applied to the `tab-simple`.
+
 */
