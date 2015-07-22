@@ -31,7 +31,7 @@ describe('Dropdowns', function() {
       className: 'test-class',
       id: 'test-id',
       style: {
-        opacity: '1'
+        opacity: '0.5'
       }
     };
 
@@ -46,12 +46,15 @@ describe('Dropdowns', function() {
       React.unmountComponentAtNode(root);
     });
 
-    it('passes through className and style to the btn-group ', function() {
+    it('passes through className to the btn-group ', function() {
       expect('#root .btn-group').toHaveClass('test-class');
-      expect('#root .btn-group').toHaveCss({opacity: '1'});
     });
 
-    it('passes through id', function() {
+    it('passes through style to the button', function() {
+      expect('#root .btn').toHaveCss({opacity: '0.5'});
+    });
+
+    it('passes through id to the button', function() {
       expect('#root #test-id').toExist();
     });
 

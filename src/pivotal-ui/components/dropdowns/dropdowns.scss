@@ -198,8 +198,10 @@ Here are all the different dropdown styles:
 </UI.HighlightAltDropdown>
 ```
 
-If you want to customize the dropdown button, you can add modifier classes to it
-using the `buttonClassName` property:
+If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
+
+To customize the dropdown button, you can add modifier classes to it
+using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
 
 ```react_example
 <UI.DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
