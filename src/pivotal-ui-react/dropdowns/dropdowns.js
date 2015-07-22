@@ -1,4 +1,5 @@
 var React = require('react');
+import classnames from 'classnames';
 
 /**
  * @component Dropdown
@@ -30,10 +31,16 @@ var Dropdown = require('react-bootstrap').DropdownButton;
 function defDropdown(props) {
   return React.createClass({
     render() {
-      return <Dropdown {...props} {...this.props}/>;
+      const {buttonClassName, ...others} = this.props;
+      const {buttonClassName: defaultBtnClassName, bsStyle} = props;
+
+      const btnClass = classnames(buttonClassName, defaultBtnClassName);
+
+      return <Dropdown buttonClassName={btnClass} bsStyle={bsStyle} {...others}/>;
     }
   });
 }
+
 module.exports = {
   Dropdown,
 
