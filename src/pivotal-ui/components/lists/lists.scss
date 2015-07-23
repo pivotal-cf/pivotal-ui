@@ -828,7 +828,7 @@ var ListItem = require('pui-react-lists').ListItem;
 
 ---
 title: Addable
-name: list_addable_react
+name: 01_list_addable_react
 parent: list_react
 ---
 
@@ -891,7 +891,7 @@ var AddableList = React.createClass({
 /*doc
 ---
 title: Breadcrumb
-name: list_breadcrumb_react
+name: 02_list_breadcrumb_react
 parent: list_react
 ---
 
@@ -907,7 +907,7 @@ parent: list_react
 /*doc
 ---
 title: Checked
-name: list_checked_react
+name: 03_list_checked_react
 parent: list_react
 ---
 
@@ -923,148 +923,8 @@ parent: list_react
 
 /*doc
 ---
-title: Group
-name: list_group_react
-parent: list_react
----
-
-```react_example
-<UI.GroupList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.GroupList>
-```
-*/
-
-/*doc
----
-title: Group Inverse
-name: list_group_inverse_react
-parent: list_react
----
-
-```react_example
-<UI.GroupListInverse>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.GroupListInverse>
-```
-
-*/
-
-/*doc
----
-title: Inline
-name: list_inline_react
-parent: list_react
----
-
-```react_example_table
-<UI.InlineList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.InlineList>
-```
-*/
-
-
-/*doc
----
-title: Inline Divider
-name: list_inline_divider_react
-parent: list_react
----
-
-```react_example_table
-<UI.InlineList divider>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.InlineList>
-```
-
-*/
-
-/*doc
----
-title: Ordered
-name: list_ordered_react
-parent: list_react
----
-
-```react_example_table
-<UI.OrderedList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.OrderedList>
-```
-
-```react_example_table
-<UI.OrderedList unstyled>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.OrderedList>
-```
-*/
-
-/*doc
----
-title: Steps
-name: list_steps_react
-parent: list_react
----
-
-```react_example
-<UI.StepList>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem className="current">Item 3</UI.ListItem>
-</UI.StepList>
-```
-*/
-
-/*doc
----
-title: Unordered
-name: list_unordered_react
-parent: list_react
----
-
-```react_example_table
-<UI.UnorderedList>
-  <UI.ListItem>feep</UI.ListItem>
-  <UI.ListItem>fop</UI.ListItem>
-  <UI.ListItem>meep</UI.ListItem>
-</UI.UnorderedList>
-```
-*/
-
-/*doc
----
-title: Unstyled
-name: list_unstyled_react
-parent: list_react
----
-
-```react_example_table
-<UI.UnorderedList unstyled>
-  <UI.ListItem>Item 1</UI.ListItem>
-  <UI.ListItem>Item 2</UI.ListItem>
-  <UI.ListItem>Item 3</UI.ListItem>
-</UI.UnorderedList>
-```
-
-*/
-
-/*doc
----
 title: Configuring Spacing
-name: list_spacing_react
+name: 04_list_spacing_react
 parent: list_react
 ---
 
@@ -1099,7 +959,7 @@ List Spacing can be changed setting the size of the spacing property.
 /*doc
 ---
 title: Draggable
-name: list_draggable_react
+name: 05_list_draggable_react
 parent: list_react
 ---
 
@@ -1129,6 +989,146 @@ var draggableListDropCallback = function(data) {
   </UI.DraggableListItem>
 </UI.DraggableList>
 ```
+*/
+
+/*doc
+---
+title: Group
+name: 06_list_group_react
+parent: list_react
+---
+
+```react_example
+<UI.GroupList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupList>
+```
+*/
+
+/*doc
+---
+title: Group Inverse
+name: 07_list_group_inverse_react
+parent: list_react
+---
+
+```react_example
+<UI.GroupListInverse>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.GroupListInverse>
+```
+
+*/
+
+/*doc
+---
+title: Inline
+name: 08_list_inline_react
+parent: list_react
+---
+
+```react_example_table
+<UI.InlineList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+```
+*/
+
+
+/*doc
+---
+title: Inline Divider
+name: 09_list_inline_divider_react
+parent: list_react
+---
+
+```react_example_table
+<UI.InlineList divider>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.InlineList>
+```
+
+*/
+
+/*doc
+---
+title: Ordered
+name: 10_list_ordered_react
+parent: list_react
+---
+
+```react_example_table
+<UI.OrderedList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
+```
+
+```react_example_table
+<UI.OrderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.OrderedList>
+```
+*/
+
+/*doc
+---
+title: Steps
+name: 11_list_steps_react
+parent: list_react
+---
+
+```react_example
+<UI.StepList>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem className="current">Item 3</UI.ListItem>
+</UI.StepList>
+```
+*/
+
+/*doc
+---
+title: Unordered
+name: 12_list_unordered_react
+parent: list_react
+---
+
+```react_example_table
+<UI.UnorderedList>
+  <UI.ListItem>feep</UI.ListItem>
+  <UI.ListItem>fop</UI.ListItem>
+  <UI.ListItem>meep</UI.ListItem>
+</UI.UnorderedList>
+```
+*/
+
+/*doc
+---
+title: Unstyled
+name: 13_list_unstyled_react
+parent: list_react
+---
+
+```react_example_table
+<UI.UnorderedList unstyled>
+  <UI.ListItem>Item 1</UI.ListItem>
+  <UI.ListItem>Item 2</UI.ListItem>
+  <UI.ListItem>Item 3</UI.ListItem>
+</UI.UnorderedList>
+```
+
 */
 
 .list-draggable {
