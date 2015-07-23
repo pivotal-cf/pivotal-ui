@@ -39,418 +39,273 @@ This example shows proper use of Sass variables.
 $tabs-active-bg-color: $gray-2;
 ```
 
-<div class="row row-gutter-sm mvxl">
-  <div class="col-md-2">
+<div class="color-chip-row">
+
     <div class="chip" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
       <div class="chip-color bg-neutral-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-1</li>
-          <li>.bg-neutral-1</li>
-          <li>.type-neutral-1</li>
-        </ul>
+        <p class="mvn">neutral-1</p> </ul>
       </div>
     </div>
-  </div>
 
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-2</li>
-          <li>.bg-neutral-2</li>
-          <li>.type-neutral-2</li>
-        </ul>
+        <p class="mvn">neutral-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-3</li>
-          <li>.bg-neutral-3</li>
-          <li>.type-neutral-3</li>
-        </ul>
+        <p class="mvn">neutral-3</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-4"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-4</li>
-          <li>.bg-neutral-4</li>
-          <li>.type-neutral-4</li>
-        </ul>
+        <p class="mvn">neutral-4</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-5"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-5</li>
-          <li>.bg-neutral-5</li>
-          <li>.type-neutral-5</li>
-        </ul>
+        <p class="mvn">neutral-5</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-6"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-6</li>
-          <li>.bg-neutral-6</li>
-          <li>.type-neutral-6</li>
-        </ul>
+        <p class="mvn">neutral-6</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-7"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-7</li>
-          <li>.bg-neutral-7</li>
-          <li>.type-neutral-7</li>
-        </ul>
+        <p class="mvn">neutral-7</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-8"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-8</li>
-          <li>.bg-neutral-8</li>
-          <li>.type-neutral-8</li>
-        </ul>
+        <p class="mvn">neutral-8</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-9"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-9</li>
-          <li>.bg-neutral-9</li>
-          <li>.type-neutral-9</li>
-        </ul>
+        <p class="mvn">neutral-9</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-10"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-10</li>
-          <li>.bg-neutral-10</li>
-          <li>.type-neutral-10</li>
-        </ul>
+        <p class="mvn">neutral-10</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-2">
     <div class="chip">
       <div class="chip-color bg-neutral-11"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$gray-11</li>
-          <li>.bg-neutral-11</li>
-          <li>.type-neutral-11</li>
-        </ul>
+        <p class="mvn">neutral-11</p>
       </div>
     </div>
-  </div>
 </div>
-<div class="row mvxl">
-  <div class="col-md-3">
+
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-dark-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$dark-1</li>
-          <li>.bg-dark-1</li>
-          <li>.type-dark-1</li>
-        </ul>
+        <p class="mvn">dark-1</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-dark-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$dark-2</li>
-          <li>.bg-dark-2</li>
-          <li>.type-dark-2</li>
-        </ul>
+        <p class="mvn">dark-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-dark-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$dark-3</li>
-          <li>.bg-dark-3</li>
-          <li>.type-dark-3</li>
-        </ul>
+        <p class="mvn">dark-3</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
-<div class="row mvxl">
-  <div class="col-md-3">
+
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-brand-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$brand-1</li>
-          <li>.bg-brand-1</li>
-          <li>.type-brand-1</li>
-        </ul>
+        <p class="mvn">brand-1</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-brand-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$brand-2</li>
-          <li>.bg-brand-2</li>
-          <li>.type-brand-2</li>
-        </ul>
+        <p class="mvn">brand-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-brand-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$brand-3</li>
-          <li>.bg-brand-3</li>
-          <li>.type-brand-3</li>
-        </ul>
+        <p class="mvn">brand-3</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-brand-4"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$brand-4</li>
-          <li>.bg-brand-4</li>
-          <li>.type-brand-4</li>
-        </ul>
+        <p class="mvn">brand-4</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-brand-5"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$brand-5</li>
-          <li>.bg-brand-5</li>
-          <li>.type-brand-5</li>
-        </ul>
+        <p class="mvn">brand-5</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
-<div class="row mvxl">
-  <div class="col-md-3">
+
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-accent-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$accent-1</li>
-          <li>.bg-accent-1</li>
-          <li>.type-accent-1</li>
-        </ul>
+        <p class="mvn">accent-1</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-accent-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$accent-2</li>
-          <li>.bg-accent-2</li>
-          <li>.type-accent-2</li>
-        </ul>
+        <p class="mvn">accent-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-accent-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$accent-3</li>
-          <li>.bg-accent-3</li>
-          <li>.type-accent-3</li>
-        </ul>
+        <p class="mvn">accent-3</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-3">
     <div class="chip">
       <div class="chip-color bg-accent-4"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$accent-4</li>
-          <li>.bg-accent-4</li>
-          <li>.type-accent-4</li>
-        </ul>
+        <p class="mvn">accent-4</p>
       </div>
     </div>
-  </div>
-   <div class="col-md-3">
+
     <div class="chip">
       <div class="chip-color bg-accent-5"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$accent-5</li>
-          <li>.bg-accent-5</li>
-          <li>.type-accent-5</li>
-        </ul>
+        <p class="mvn">accent-5</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
-<div class="row mvxl">
-  <div class="col-md-4">
+
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-error-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$error-1</li>
-          <li>.bg-error-1</li>
-          <li>.type-error-1</li>
-        </ul>
+        <p class="mvn">error-1</p>
       </div>
     </div>
-  </div>
-   <div class="col-md-4">
+
     <div class="chip">
       <div class="chip-color bg-error-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$error-2</li>
-          <li>.bg-error-2</li>
-          <li>.type-error-2</li>
-        </ul>
+        <p class="mvn">error-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
+
     <div class="chip">
       <div class="chip-color bg-error-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$error-3</li>
-          <li>.bg-error-3</li>
-          <li>.type-error-3</li>
-        </ul>
+        <p class="mvn">error-3</p>
       </div>
     </div>
-  </div>
-   <div class="col-md-4">
+
     <div class="chip">
       <div class="chip-color bg-error-4"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$error-4</li>
-          <li>.bg-error-4</li>
-          <li>.type-error-4</li>
-        </ul>
+        <p class="mvn">error-4</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
 
-<div class="row mvxl">
-  <div class="col-md-4">
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-warn-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$warn-1</li>
-          <li>.bg-warn-1</li>
-          <li>.type-warn-1</li>
-        </ul>
+        <p class="mvn">warn-1</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-warn-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$warn-2</li>
-          <li>.bg-warn-2</li>
-          <li>.type-warn-2</li>
-        </ul>
+        <p class="mvn">warn-2</p>
       </div>
     </div>
-  </div>
-  <div class="col-md-4">
     <div class="chip">
       <div class="chip-color bg-warn-3"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$warn-3</li>
-          <li>.bg-warn-3</li>
-          <li>.type-warn-3</li>
-        </ul>
+        <p class="mvn">warn-3</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
 
-<div class="row mvxl">
-  <div class="col-md-4">
+<div class="color-chip-row">
     <div class="chip">
       <div class="chip-color bg-success-1"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$success-1</li>
-          <li>.bg-success-1</li>
-          <li>.type-success-1</li>
-        </ul>
+        <p class="mvn">success-1</p>
       </div>
     </div>
-  </div>
-   <div class="col-md-4">
+
     <div class="chip">
       <div class="chip-color bg-success-2"></div>
       <div class="chip-color-name">
-        <ul class='list-unstyled'>
-          <li>$success-2</li>
-          <li>.bg-success-2</li>
-          <li>.type-success-2</li>
-        </ul>
+        <p class="mvn">success-2</p>
       </div>
     </div>
-  </div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
+    <div class="chip"></div>
 </div>
 
 */
@@ -591,65 +446,47 @@ title: Shadows & Glows
 name: color_shadows_glows
 parent: color
 ---
-<div class="row">
 <div class="contrast-bar">
-  <div class="row mvxl">
-    <div class="col-md-2">
+  <div class="color-chip-row" style="position: relative; top: 65px; margin-bottom: 0;">
       <div class="chip">
         <div class="chip-color bg-shadow-1"></div>
         <div class="chip-color-name">$shadow-1</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-2"></div>
         <div class="chip-color-name">$shadow-2</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-3"></div>
         <div class="chip-color-name">$shadow-3</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-shadow-4"></div>
         <div class="chip-color-name">$shadow-4</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-1"></div>
         <div class="chip-color-name">$glow-1</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-2"></div>
         <div class="chip-color-name">$glow-2</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-3"></div>
         <div class="chip-color-name">$glow-3</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-4"></div>
         <div class="chip-color-name">$glow-4</div>
       </div>
-    </div>
-    <div class="col-md-2">
       <div class="chip">
         <div class="chip-color bg-glow-5"></div>
         <div class="chip-color-name">$glow-5</div>
       </div>
-    </div>
+      <div class="chip"></div>
+      <div class="chip"></div>
   </div>
-</div>
 </div>
 */
 
