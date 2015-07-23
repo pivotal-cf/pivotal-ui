@@ -581,6 +581,22 @@ parent: tabs_react
 </UI.SimpleAltTabs>
 ```
 
-If you want to customize the tabs, you can use `className` to add a modifier class to the `tab-simple`. `id` and `style` will also be applied to the `tab-simple`.
+*/
+
+/*doc
+---
+title: Customizing Tabs
+name: 03_customizing_tabs
+parent: tabs_react
+---
+
+If you want to customize the Tab component, you can use `className`, `id`, and `style`. These attributes will be applied to the `tab-pane`.
+
+```react_example
+<UI.SimpleTabs defaultActiveKey={1} innerClassName="bg-error-4">
+  <UI.Tab eventKey={1} tab="Tab 1" className="bg-error-4">Wow!</UI.Tab>
+  <UI.Tab eventKey={2} tab="Tab 2">Neat!</UI.Tab>
+</UI.SimpleTabs>
+```
 
 */

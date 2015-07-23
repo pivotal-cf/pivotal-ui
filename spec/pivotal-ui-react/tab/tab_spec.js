@@ -41,16 +41,10 @@ describe('Tabs', function() {
     });
 
     describe('Tab', function() {
-      it('passes className to the tab-pane', function() {
-        expect('#root .tab-pane:nth(0)').toHaveClass('tabPaneClass');
-      });
-
-      it('passes id to the tab-pane', function() {
-        expect('#root .tab-pane:nth(0)').toHaveAttr('id', 'tabPaneId');
-      });
-
-      it('passes style to the tab-pane', function() {
-        expect('#root .tab-pane:nth(0)').toHaveCss({opacity: '0.5'});
+      itPropagatesAttributes('#root .tab-pane:first', {
+        className: 'tabPaneClass',
+        id: 'tabPaneId',
+        style: {opacity: '0.5'}
       });
     });
   });
@@ -65,7 +59,7 @@ describe('Tabs', function() {
             id="testId"
             style={{opacity: '0.5'}}
             defaultActiveKey={1}>,
-            <Tab eventKey={1} className="tabPaneClass" tab="Tab1">Content1</Tab>
+            <Tab eventKey={1} className="tabPaneClass" id="tabPaneId" style={{opacity: 0.5}} tab="Tab1">Content1</Tab>
             <Tab eventKey={2} tab="Tab2"/>
           </SimpleAltTabs>
         ),
@@ -89,8 +83,10 @@ describe('Tabs', function() {
     });
 
     describe('Tab', function() {
-      it('passes className to the tab-pane', function() {
-        expect('#root .tab-pane:nth(0)').toHaveClass('tabPaneClass');
+      itPropagatesAttributes('#root .tab-pane:first', {
+        className: 'tabPaneClass',
+        id: 'tabPaneId',
+        style: {opacity: '0.5'}
       });
     });
   });
