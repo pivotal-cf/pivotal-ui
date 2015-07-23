@@ -4,7 +4,7 @@
 @import '../pivotal-ui/components/mixins.scss';
 
 html {
-  background-color: $gray-9;
+  background-color: $gray-10;
 }
 
 .container {
@@ -32,7 +32,7 @@ h3.styleguide,
 h4.styleguide,
 h5.styleguide,
 h6.styleguide {
-  color: $brand-3;
+  color: $dark-1;
   font-weight: 600;
   margin-top: 0;
   @media screen and (min-width: $screen-md-min) {
@@ -268,32 +268,37 @@ blockquote {
 
 // Contrast bar
 .contrast-bar {
-  padding: 20px;
   background-color: $navy-1;
   min-height: 80px;
-  .row {
-    float: left;
-    width: 100%;
-    .chip-color {
-      min-height: 93px;
-    }
-  }
+  margin-bottom: 60px;
 }
 
 // color chip component
 
+.color-chip-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
 .chip {
 
   margin-top: 5px;
+  flex: 1;
+  padding: 0 5px;
 
   .chip-color {
     min-height: 53px;
+    border-radius: 5px 5px 0 0
   }
   .chip-color-name {
-    color: #777;
+    color: $dark-1;
     padding-top: 5px;
-    font-size: 8px;
-    font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 2px 0 rgba(0,0,0,.1);
   }
 }
 
@@ -352,9 +357,11 @@ blockquote {
 
 .codeExample .codeBlock, .jsExample.codeBlock {
   position: relative;
-  background-color: $bg-color-example-code;
+  background-color: white;
   border-top:1px solid $shadow-3;
   padding: 40px;
+  border: 1px solid $neutral-7;
+  border-radius: 0 0 5px 5px;
 
   pre {
     background-color: transparent; //bootstrap override
@@ -384,6 +391,8 @@ blockquote {
 
   .exampleOutput {
     padding: 20px;
+    border: 1px solid $neutral-7;
+    border-radius: 5px 5px 0 0;
   }
 
   .line > div:after {
@@ -411,6 +420,8 @@ blockquote {
   width: 100%;
   max-width: 100%;
   margin-bottom: 24px;
+  border: 1px solid $gray-8;
+  border-radius: 5px;
 
   tr, th, td {
     font-weight: normal;

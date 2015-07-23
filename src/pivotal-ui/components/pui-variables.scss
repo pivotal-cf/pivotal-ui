@@ -53,7 +53,7 @@ $glow-5 : rgba(255,255,255,1);
 // -------------------------
 
 $blue-1: #1a739e;
-$blue-2: #2185c5;
+$blue-2: #1E77AE;
 $blue-3: #49a8d5;
 $blue-4: #a7c9e0;
 $blue-5: #c3f4ff;
@@ -61,16 +61,24 @@ $blue-5: #c3f4ff;
 // Navy
 // -------------------------
 
-$navy-1: #243640;
-$navy-2: #3f484f;
-$navy-3: #525c63;
+$navy-1: #232B2F;
+$navy-2: #243641;
+$navy-3: #3D4A51;
+$navy-4: #4F6069;
+$navy-5: #607580;
+$navy-6: #788E9A;
+$navy-7: #A2B1B9;
+$navy-8: #C5CED3;
+$navy-9: #DFE5E8;
+$navy-10: #EAEDEF;
+$navy-11: #F5F6F7;
 
 // Red
 // -------------------------
 
 $red-1: #b31612;
 $red-2: #eb3d46;
-$red-3: #ff434c;
+$red-3: #F0000C;
 $red-4: #febfc1;
 
 // Green
@@ -122,6 +130,14 @@ $gray-lighter:           lighten(#000, 93.5%) !default; // #eee bootstrap only
 $dark-1:                $navy-1;
 $dark-2:                $navy-2;
 $dark-3:                $navy-3;
+$dark-4:                $navy-4;
+$dark-5:                $navy-5;
+$dark-6:                $navy-6;
+$dark-7:                $navy-7;
+$dark-8:                $navy-8;
+$dark-9:                $navy-9;
+$dark-10:               $navy-10;
+$dark-11:               $navy-11;
 
 // Brand colors
 // -------------------------
