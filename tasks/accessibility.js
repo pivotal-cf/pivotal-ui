@@ -3,16 +3,15 @@ import a11y from 'a11y';
 import runSequence from 'run-sequence';
 import {log, colors} from 'gulp-util';
 
-let host = 'http://localhost:8000';
 
 gulp.task('set-accessibility-ci-port', (done) => {
   process.env.STYLEGUIDE_PORT = 9002;
-  host = 'http://localhost:9002';
   done();
 });
 
 gulp.task('accessibility-a11y', (done) => {
-  const page = `${host}/react.html`;
+  const port = process.env.STYLEGUIDE_PORT || 8000;
+  const page = `http://localhost:${port}/react.html`;
   log(`Testing accessibility of ${page}`);
 
   a11y(page, (err, reports) => {
