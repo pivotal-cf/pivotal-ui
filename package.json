@@ -70,7 +70,7 @@
     "pui-react-animation": "0.0.6",
     "q": "^1.0.1",
     "react": "0.13.3",
-    "react-a11y": "pivotal-cf/react-a11y#include-dist-for-npm",
+    "react-a11y": "pivotal-cf/react-a11y#dist",
     "react-bootstrap": "0.23.3",
     "react-fa": "^3.0.0",
     "require-dir": "^0.3.0",
