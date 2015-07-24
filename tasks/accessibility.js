@@ -23,7 +23,7 @@ gulp.task('accessibility-react-a11y-injectable', () =>
 gulp.task('accessibility-react-a11y', ['accessibility-react-a11y-injectable'], function(callback) {
   const port = process.env.STYLEGUIDE_PORT || 8000;
 
-  waitTillListening({port, timeoutInMs: 20000}, function() {
+  waitTillListening({port, timeoutInMs: 3000}, function() {
     var phantom = spawn(phantomjs.path, ['phantomjs/react_a11y_runner.js', port]);
     phantom.stdout
       .pipe(split())
