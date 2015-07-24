@@ -2,7 +2,7 @@ var React = require('react/addons');
 var types = React.PropTypes;
 var classnames = require('classnames');
 var move = require('./move_helper');
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 
 var HoverMixin = {
   getInitialState() {

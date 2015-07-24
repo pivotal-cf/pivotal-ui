@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 var BsPanel = require('react-bootstrap').Panel;
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 
 var CollapseProps = {
   propTypes: {

@@ -1,7 +1,7 @@
 const classnames = require('classnames');
 const React = require('react');
 const sortBy = require('lodash.sortby');
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 import findIndex from 'lodash.findindex';
 
 const types = React.PropTypes;

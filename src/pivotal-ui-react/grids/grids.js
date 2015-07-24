@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 var BootstrapRow = require('react-bootstrap').Row;
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 
 /**
  * @component Row

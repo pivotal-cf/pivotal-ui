@@ -5,6 +5,7 @@
   "dependencies": {
     "classlist-polyfill": "^1.0.1",
     "pui-css-modals": "1.10.0",
-    "pui-react-typography": "1.10.0"
+    "pui-react-typography": "1.10.0",
+    "pui-react-helpers": "0.0.2"
   }
 }

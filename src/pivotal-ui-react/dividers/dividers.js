@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 
 var DividerProps = {
   propTypes: {

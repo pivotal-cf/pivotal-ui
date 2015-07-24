@@ -1,7 +1,7 @@
 var React = require('react/addons');
 var {DefaultH4} = require('pui-react-typography');
 require('classlist-polyfill');
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 /**

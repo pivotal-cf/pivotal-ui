@@ -7,6 +7,7 @@
     "classnames": "^1.2.0",
     "pui-css-collapse": "1.10.0",
     "pui-css-iconography": "1.10.0",
-    "pui-css-dividers": "1.10.0"
+    "pui-css-dividers": "1.10.0",
+    "pui-react-helpers": "0.0.2"
   }
 }
