@@ -16,8 +16,9 @@ export default {
     ]
   },
   resolve: {
-    alias: Object.assign({
+    alias: {
       bootstrap: `${__dirname}/../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js`,
-    }, puiAliases)
+      ...puiAliases
+    }
   }
 };

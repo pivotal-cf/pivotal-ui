@@ -1,4 +1,4 @@
-import childProcess from 'child_process';
+import {spawn} from 'child_process';
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import loadPlugins from 'gulp-load-plugins';
@@ -44,7 +44,7 @@ gulp.task('jasmine-task-helpers', function() {
 gulp.task('set-ci-port', () => process.env.STYLEGUIDE_PORT = 9001);
 
 gulp.task('rspec', ['monolith-serve'], function(done) {
-  var rspec = childProcess.spawn('rspec', ['spec/features'], {stdio: 'inherit'});
+  var rspec = spawn('rspec', ['spec/features'], {stdio: 'inherit'});
   ['SIGINT', 'SIGTERM'].forEach(e => process.once(e, () => rspec && rspec.kill()));
   rspec.once('close', done);
 });
