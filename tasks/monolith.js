@@ -126,3 +126,5 @@ gulp.task('monolith-serve', ['monolith'], () => {
     port: process.env.STYLEGUIDE_PORT || 8000
   });
 });
+
+gulp.task('monolith-kill-server', () => plugins.connect.serverClose());
