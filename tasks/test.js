@@ -23,7 +23,7 @@ gulp.task('lint', function() {
     .pipe(plugins.plumber())
     .pipe(plugins.eslint({
       rulePaths: ['config/eslint-rules/'],
-      rules: {'no-object-assign': 2}
+      rules: {'no-object-assign': 2, 'no-relative-cross-package-imports': 2}
     }));
 
   const otherLintStream = gulp.src(['tasks/**/*.js', 'spec/pivotal-ui-react/**/*.js', 'spec/task-helpers/**/*.js'])
