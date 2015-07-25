@@ -502,8 +502,6 @@ one breaking change per commit.  The breaking change message should be a
 standalone sentence, illustrating what actually breaks and how to fix it.
 In addition, the breaking change message should include the type of change:
 
-- **style** - e.g. "BREAKING CHANGE: (style) alert text has normal emphasis by
-  default"
 - **html** - e.g. "BREAKING CHANGE: (html) alert icons are no longer included by
   default"
 - **sass variable** - e.g. "BREAKING CHANGE: (sass variable)
