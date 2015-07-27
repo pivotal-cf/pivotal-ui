@@ -12,6 +12,7 @@ var paddingTypes = [
 var PanelTypes = {
   propTypes: {
     type: types.string,
+    innerClassName: types.string,
     padding: function(props, propName, componentName) {
       if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
         return new Error(`Invalid padding type used in ${componentName}`);
@@ -43,11 +44,21 @@ var PanelTypes = {
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
  */
 var Panel = React.createClass({
-  mixins: [PanelTypes],
 
   propTypes: {
     kind: types.string,
-    title: types.string
+    title: types.string,
+    type: types.string,
+    innerClassName: types.string,
+    padding: function(props, propName, componentName) {
+      if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
+        return new Error(`Invalid padding type used in ${componentName}`);
+      }
+    },
+    scrollable: types.oneOfType([
+      types.bool,
+      types.number
+    ])
   },
 
   render() {

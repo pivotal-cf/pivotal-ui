@@ -30,6 +30,9 @@ var Dropdown = require('react-bootstrap').DropdownButton;
 
 function defDropdown(props) {
   return React.createClass({
+    propTypes: {
+      buttonClassName: React.PropTypes.string
+    },
     render() {
       const {buttonClassName, ...others} = this.props;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;

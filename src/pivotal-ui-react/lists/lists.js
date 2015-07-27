@@ -17,7 +17,8 @@ var ListItem = React.createClass({
 function defList(tagName, spacingType, classNames, childClassNames) {
   return React.createClass({
     propTypes: {
-      spacing: React.PropTypes.oneOf(['n', 's', 'm', 'l', 'xl'])
+      spacing: React.PropTypes.oneOf(['n', 's', 'm', 'l', 'xl']),
+      className: React.PropTypes.string
     },
     render() {
       var {className, spacing, children, ...others} = this.props;

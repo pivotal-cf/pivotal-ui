@@ -1,5 +1,4 @@
 var React = require('react/addons');
-var types = React.PropTypes;
 var {CSSTransitionGroup} = React.addons;
 
 /**
@@ -57,7 +56,7 @@ var ExpanderTrigger = React.createClass({
  */
 var ExpanderContent = React.createClass({
   propTypes: {
-    expanded: types.bool
+    expanded: React.PropTypes.bool
   },
 
   getInitialState() {

@@ -3,13 +3,6 @@ var types = React.PropTypes;
 var BsPanel = require('react-bootstrap').Panel;
 import {mergeProps} from 'pui-react-helpers';
 
-var CollapseProps = {
-  propTypes: {
-    divider: types.bool,
-    header: types.node.isRequired
-  }
-};
-
 /**
  * @component BaseCollapse
  * @description An unstyled accordion for showing and hiding content
@@ -34,7 +27,10 @@ var CollapseProps = {
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var BaseCollapse = React.createClass({
-  mixins: [CollapseProps],
+  propTypes: {
+    divider: types.bool,
+    header: types.node.isRequired
+  },
 
   getInitialState() {
     return {expanded: false};
@@ -81,7 +77,10 @@ var BaseCollapse = React.createClass({
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var Collapse = React.createClass({
-  mixins: [CollapseProps],
+  propTypes: {
+    divider: types.bool,
+    header: types.node.isRequired
+  },
 
   render() {
     var {header, ...others} = this.props;
@@ -126,7 +125,10 @@ var Collapse = React.createClass({
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var AltCollapse = React.createClass({
-  mixins: [CollapseProps],
+  propTypes: {
+    divider: types.bool,
+    header: types.node.isRequired
+  },
 
   render() {
     var {header, ...others} = this.props;

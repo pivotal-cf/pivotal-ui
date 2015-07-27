@@ -34,7 +34,10 @@ var DividerProps = {
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#divider)
  */
 var Divider = React.createClass({
-  mixins: [DividerProps],
+  propTypes: {
+    inverse: types.bool,
+    size: types.oneOf(['large'])
+  },
 
   render() {
     var {inverse, size, ...others} = this.props;

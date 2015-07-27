@@ -5,6 +5,13 @@ const shortSizes = {xsmall: 'xs', small: 'sm', medium: 'md', large: 'lg', xlarge
 const charSizes = {small: 's', medium: 'm', large: 'l', xlarge: 'xl'};
 
 var MediaObject = React.createClass({
+  propTypes: {
+    leftMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+    rightMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+    vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
+    className: React.PropTypes.string,
+    horizontalAlignment: React.PropTypes.string
+  },
   render() {
     var {horizontalAlignment, vAlign, leftMediaSpacing, rightMediaSpacing, children} = this.props;
     var className = classnames(
@@ -44,6 +51,9 @@ var MediaObject = React.createClass({
  */
 var Media = React.createClass({
   propTypes: {
+    leftImage: React.PropTypes.object,
+    rightImage: React.PropTypes.object,
+    innerClassName: React.PropTypes.string,
     hasImages: function(props) {
       if (!props.leftImage && !props.rightImage) {
         return new Error('The media component must have at least one image');
@@ -52,7 +62,8 @@ var Media = React.createClass({
     leftMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     rightMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     stackSize: React.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
-    vAlign: React.PropTypes.oneOf(['middle', 'bottom'])
+    vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
+    className: React.PropTypes.string
   },
 
   render() {

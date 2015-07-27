@@ -52,7 +52,8 @@ function childrenIndices(children) {
  */
 var DraggableList = React.createClass({
   propTypes: {
-    onDrop: types.func
+    onDrop: types.func,
+    innerClassName: types.string
   },
 
   getInitialState() {
@@ -141,7 +142,9 @@ var DraggableListItem = React.createClass({
     onDragStart: types.func,
     onDragEnter: types.func,
     onDragEnd: types.func,
-    onDrop: types.func
+    onDrop: types.func,
+    grabbed: types.bool,
+    className: types.string
   },
 
   render() {

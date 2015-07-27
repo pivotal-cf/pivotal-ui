@@ -1,23 +1,6 @@
 var React = require('react/addons');
 import {mergeProps} from 'pui-react-helpers';
 
-var ButtonProps = {
-  propTypes: {
-    block: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    kind: React.PropTypes.oneOf([
-      'default',
-      'default-alt',
-      'primary',
-      'lowlight',
-      'danger',
-      'highlight',
-      'highlight-alt'
-    ]),
-    large: React.PropTypes.bool
-  }
-};
-
 /**
  * @component UIButton
  * @description A wrapper around the Pivotal UI button component
@@ -39,7 +22,20 @@ var ButtonProps = {
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
  */
 var UIButton = React.createClass({
-  mixins: [ButtonProps],
+  propTypes: {
+    block: React.PropTypes.bool,
+    href: React.PropTypes.string,
+    kind: React.PropTypes.oneOf([
+      'default',
+      'default-alt',
+      'primary',
+      'lowlight',
+      'danger',
+      'highlight',
+      'highlight-alt'
+    ]),
+    large: React.PropTypes.bool
+  },
 
   render: function () {
     var {block, large, kind='default', children, ...others} = this.props;
@@ -64,7 +60,20 @@ var UIButton = React.createClass({
 
 function defButton(propOverrides) {
   return React.createClass({
-    mixins: [ButtonProps],
+    propTypes: {
+      block: React.PropTypes.bool,
+      href: React.PropTypes.string,
+      kind: React.PropTypes.oneOf([
+        'default',
+        'default-alt',
+        'primary',
+        'lowlight',
+        'danger',
+        'highlight',
+        'highlight-alt'
+      ]),
+      large: React.PropTypes.bool
+    },
     render: function() {
       return <UIButton {...this.props} {...propOverrides}/>;
     }

@@ -4,8 +4,6 @@ const sortBy = require('lodash.sortby');
 import {mergeProps} from 'pui-react-helpers';
 import findIndex from 'lodash.findindex';
 
-const types = React.PropTypes;
-
 /**
  * @component TableHeader
  * @description Wrapper for a th
@@ -16,8 +14,9 @@ const types = React.PropTypes;
  */
 export const TableHeader = React.createClass({
   propTypes: {
-    onClick: types.func,
-    onSortableTableHeaderClick: types.func
+    onClick: React.PropTypes.func,
+    onSortableTableHeaderClick: React.PropTypes.func,
+    sortable: React.PropTypes.bool
   },
 
   handleClick(...args) {
@@ -94,7 +93,7 @@ export const TableRow = React.createClass({
  */
 export const SortableTable = React.createClass({
   propTypes: {
-    headers: types.arrayOf(types.element)
+    headers: React.PropTypes.arrayOf(React.PropTypes.element)
   },
 
   getInitialState() {

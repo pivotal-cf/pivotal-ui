@@ -34,6 +34,9 @@ var classnames = require('classnames');
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown_notification)
  */
 var Notifications = React.createClass({
+  propTypes: {
+    size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+  },
   render() {
     var {size, children} = this.props;
     var numChildren = React.Children.count(children);
@@ -86,6 +89,9 @@ var Notifications = React.createClass({
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown_notification)
  */
 var AlertNotifications = React.createClass({
+  propTypes: {
+    size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+  },
   render() {
     var {size, children} = this.props;
     var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert"></Icon> : null;

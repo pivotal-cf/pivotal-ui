@@ -28,8 +28,8 @@ import {mergeProps} from 'pui-react-helpers';
  */
 var BasePane = React.createClass({
   propTypes: {
-    outerClass: types.string,
-    innerClass: types.string
+    className: types.string,
+    innerClassName: types.string
   },
 
   render() {
@@ -69,6 +69,9 @@ var BasePane = React.createClass({
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var Pane = React.createClass({
+  propTypes: {
+    className: types.string
+  },
   render() {
     var {className, ...other} = this.props;
     return <BasePane {...other} outerClass={className}/>;

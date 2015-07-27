@@ -31,7 +31,9 @@ var Radio = React.createClass({
     name: React.PropTypes.string,
     value: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func,
-    id: React.PropTypes.string
+    id: React.PropTypes.string,
+    className: React.PropTypes.string,
+    style: React.PropTypes.object
   },
 
   render: function() {
