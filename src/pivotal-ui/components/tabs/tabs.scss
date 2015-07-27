@@ -593,7 +593,7 @@ parent: tabs_react
 If you want to customize the Tab component, you can use `className`, `id`, and `style`. These attributes will be applied to the `tab-pane`.
 
 ```react_example
-<UI.SimpleTabs defaultActiveKey={1} innerClassName="bg-error-4">
+<UI.SimpleTabs defaultActiveKey={1}>
   <UI.Tab eventKey={1} tab="Tab 1" className="bg-error-4">Wow!</UI.Tab>
   <UI.Tab eventKey={2} tab="Tab 2">Neat!</UI.Tab>
 </UI.SimpleTabs>
