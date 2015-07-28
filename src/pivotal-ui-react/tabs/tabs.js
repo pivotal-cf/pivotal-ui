@@ -1,5 +1,6 @@
 var React = require('react');
 var TabbedArea = require('react-bootstrap').TabbedArea;
+import {mergeProps} from 'pui-react-helpers';
 
 /**
  * @component SimpleTabs
@@ -28,7 +29,9 @@ var TabbedArea = require('react-bootstrap').TabbedArea;
  */
 var SimpleTabs = React.createClass({
   render() {
-    return <div className="tab-simple"><TabbedArea {...this.props}/></div>;
+    const {className, id, style, ...props} = this.props;
+    const simpleProps = mergeProps({className, id, style}, {className: 'tab-simple'});
+    return <div {...simpleProps}><TabbedArea {...props}/></div>;
   }
 });
 
@@ -59,7 +62,9 @@ var SimpleTabs = React.createClass({
  */
 var SimpleAltTabs = React.createClass({
   render() {
-    return <div className="tab-simple-alt"><TabbedArea {...this.props}/></div>;
+    const {className, id, style, ...props} = this.props;
+    const simpleAltProps = mergeProps({className, id, style}, {className: 'tab-simple-alt'});
+    return <div {...simpleAltProps}><TabbedArea {...props}/></div>;
   }
 });
 

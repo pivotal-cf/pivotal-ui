@@ -233,7 +233,7 @@ $tab-border-size: 3px;
   }
 }
 
-.tab-content {
+.tab-pane {
   padding: 20px;
 }
 
@@ -580,4 +580,23 @@ parent: tabs_react
   </UI.Tab>
 </UI.SimpleAltTabs>
 ```
+
+*/
+
+/*doc
+---
+title: Customizing Tabs
+name: 03_customizing_tabs
+parent: tabs_react
+---
+
+If you want to customize the Tab component, you can use `className`, `id`, and `style`. These attributes will be applied to the `tab-pane`.
+
+```react_example
+<UI.SimpleTabs defaultActiveKey={1}>
+  <UI.Tab eventKey={1} tab="Tab 1" className="bg-error-4">Wow!</UI.Tab>
+  <UI.Tab eventKey={2} tab="Tab 2">Neat!</UI.Tab>
+</UI.SimpleTabs>
+```
+
 */
