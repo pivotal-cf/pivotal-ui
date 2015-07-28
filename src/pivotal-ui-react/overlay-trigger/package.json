@@ -2,7 +2,7 @@
   "version": "1.10.0",
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
-    "react-bootstrap": "0.23.3"
+    "react-bootstrap": "pivotal-cf/react-bootstrap#pui-dist"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react"
 }
