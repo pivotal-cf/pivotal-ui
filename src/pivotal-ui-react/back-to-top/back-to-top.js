@@ -59,7 +59,7 @@ var BackToTop = React.createClass({
         style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
       }
     );
-    return <a {...props} role='button' onClick={this.scrollToTop}/>;
+    return <a {...props} onClick={this.scrollToTop} href="#top" aria-label="Back to top" />;
   }
 });
 
