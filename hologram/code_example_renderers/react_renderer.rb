@@ -1,4 +1,12 @@
-require 'securerandom'
+class DivId
+  @current_id = 0
+
+  def self.next_id
+    val = "react-example-#{@current_id}"
+    @current_id += 1
+    val
+  end
+end
 
 Hologram::CodeExampleRenderer::Factory.define 'react' do
   example_template 'markup_example_template'
@@ -7,7 +15,7 @@ Hologram::CodeExampleRenderer::Factory.define 'react' do
   lexer { Rouge::Lexer.find(:html) }
 
   rendered_example do |code|
-    div_id = SecureRandom.hex(10)
+    div_id = DivId.next_id
     [
       "<div id=\"#{div_id}\"></div>",
       "<script type=\"text/jsx\">",
