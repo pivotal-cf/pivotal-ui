@@ -31,10 +31,12 @@ var Image = React.createClass({
   },
 
   render() {
-    var {responsive, href, children, ...other} = this.props;
-    const props = mergeProps(other, {className: 'img-responsive'});
+    let {responsive, href, children, ...props} = this.props;
+    if (responsive) {
+      props = mergeProps(props, {className: 'img-responsive'});
+    }
 
-    var image = <img {...props}>{children}</img>;
+    const image = <img {...props}>{children}</img>;
     return href ? <a {...{href}}>{image}</a> : image;
   }
 });
