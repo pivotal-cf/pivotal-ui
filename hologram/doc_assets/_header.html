@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <title>a brand new styleguide: <%= title %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -106,11 +106,15 @@
       </div>
     </nav>
     <div class="now-hiring bg-accent-3 pbn">
-      <a class=" active" href="/hiring.html">
-        <div class="bg-shadow-1 pvl">
-          <h1 class="type-neutral-11 mvn h4 txt-c"><span><span>Pivotal is now hiring </span><span class="em-high"> Product Designers</span>. </span><span class="">Learn More.</span></span>
-        </h1></a>
-    </div>
+      <div class="bg-shadow-1 pvl">
+        <a class="active" href="/hiring.html" style="display: block;">
+          <h1 class="type-neutral-11 mvn h4 txt-c">
+            <span>Pivotal is now hiring</span>
+            <span class="em-high"> Product Designers</span>.
+            <span class="">Learn More.</span>
+          </h1>
+        </a>
+      </div>
     </div>
     <% if title != "Intro" %>
       <div class="container ptl">
