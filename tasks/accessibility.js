@@ -35,8 +35,8 @@ gulp.task('accessibility-react-a11y', ['accessibility-react-a11y-injectable'], f
         }
       }))
       .pipe(map(function(line, callback) {
-        const [id, msg] = line.split(' REACT-A11Y-ERR ');
-        log(colors.red('FAIL', id), msg);
+        const [, id, msg, srcNode] = line.match(/(.+) REACT-A11Y-ERR (.+?)(?: Source Node\: (<.+>))?$/);
+        log(colors.red('FAIL', id), msg, colors.cyan(srcNode ? `\n${srcNode}` : ''));
         callback(null, line + '\n');
       }))
       .pipe(wait(function(err, body) {

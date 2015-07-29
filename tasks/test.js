@@ -26,7 +26,11 @@ gulp.task('lint', function() {
       rules: {'no-object-assign': 2, 'no-relative-cross-package-imports': 2}
     }));
 
-  const otherLintStream = gulp.src(['tasks/**/*.js', 'spec/pivotal-ui-react/**/*.js', 'spec/task-helpers/**/*.js'])
+  const otherLintStream = gulp.src([
+      'tasks/**/*.js',
+      'spec/pivotal-ui-react/**/*.js',
+      'spec/task-helpers/**/*.js',
+      'phantomjs/*.js'])
     .pipe(plugins.plumber())
     .pipe(plugins.eslint());
 
