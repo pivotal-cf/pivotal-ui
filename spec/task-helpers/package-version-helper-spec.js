@@ -226,11 +226,15 @@ describe('componentsToUpdate', function() {
         dependencies: ['pui-css-lists']
       }));
       expect(result).toContain(jasmine.objectContaining({
+        component: 'src/pivotal-ui-react/stream-list/',
+        dependencies: ['pui-react-lists']
+      }));
+      expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/notifications/',
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
       expect(result).toContain(jasmine.objectContaining({ component: './' }));
-      expect(result.length).toEqual(22);
+      expect(result.length).toEqual(23);
     });
   });
 });

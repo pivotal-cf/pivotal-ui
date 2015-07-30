@@ -1100,24 +1100,112 @@ parent: list_react
 
 /*doc
 ---
-title: Unordered
-name: 12_list_unordered_react
+title: Stream List
+name: 12_list_stream_react
 parent: list_react
 ---
 
-```react_example_table
-<UI.UnorderedList>
-  <UI.ListItem>feep</UI.ListItem>
-  <UI.ListItem>fop</UI.ListItem>
-  <UI.ListItem>meep</UI.ListItem>
-</UI.UnorderedList>
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-stream-list --save
+npm install pui-react-lists --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```js
+var StreamList = require('pui-react-stream-list').StreamList;
+var ListItem = require('pui-react-stream-list').ListItem;
 ```
+
+Use this component when you have streaming/polling data that you want to
+display in a list. As items roll in (polling, streams, websockets - your choice), add the
+items to the list. The user will see a "n new item(s)" button animate in
+at the top of the list. When the user clicks the button, the new items
+appear in the list.
+
+
+```jsx_example
+var counter = (function() {
+  var i = 4;
+  return function() {
+    return i++;
+  }
+})();
+
+var StreamListExample = React.createClass({
+  simulateIncomingData: function() {
+    var newData = this.state.data.concat(['Event ' + counter()]);
+    this.setState({data: newData});
+  },
+
+  getInitialState: function() {
+    return {data: ['Event 1', 'Event 2', 'Event 3']};
+  },
+
+  render: function() {
+    return (
+      <div>
+        <UI.DefaultButton onClick={this.simulateIncomingData}>Simulate Incoming Data</UI.DefaultButton>
+        <UI.StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
+          {this.state.data.map(function(datum, i) {
+            return <UI.ListItem key={i}>{datum}</UI.ListItem>
+          })}
+        </UI.StreamList>
+       </div>
+    );
+  }
+});
+```
+
+```react_example
+<StreamListExample />
+```
+
 */
+
+.list-stream-new-items-btn-wrapper {
+  overflow: hidden;
+}
+
+.list-stream-new-items-btn {
+  font-weight: $font-weight-em-high;
+  background-color: $neutral-10;
+  color: $navy-3;
+  width: 100%;
+  height: 45px;
+  padding: 0;
+  border-radius: 0;
+  border-top: 1px solid $list-group-border;
+  box-shadow: 0px -1px $shadow-4;
+
+  &:hover {
+    background-color: darken($neutral-10, 20%);
+    color: $navy-3;
+  }
+}
+
+  /*doc
+  ---
+  title: Unordered
+  name: 13_list_unordered_react
+  parent: list_react
+  ---
+
+  ```react_example_table
+  <UI.UnorderedList>
+    <UI.ListItem>feep</UI.ListItem>
+    <UI.ListItem>fop</UI.ListItem>
+    <UI.ListItem>meep</UI.ListItem>
+  </UI.UnorderedList>
+  ```
+  */
 
 /*doc
 ---
 title: Unstyled
-name: 13_list_unstyled_react
+name: 14_list_unstyled_react
 parent: list_react
 ---
 
