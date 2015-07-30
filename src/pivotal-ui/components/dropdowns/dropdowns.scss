@@ -530,6 +530,7 @@ var alertImage = <UI.Icon name="exclamation-triangle" className="h4 type-warn-2 
 </UI.AlertNotifications>
 ```
 
+If you want to customize the notification dropdown, you can use `className` to add a modifier class to the `btn-group`. `id` and `style` will be applied to the notfication button.
 
 */
 
