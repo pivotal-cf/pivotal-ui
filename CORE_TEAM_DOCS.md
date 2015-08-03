@@ -9,7 +9,7 @@
 ## New member checklist
 
 - Add to github, google group, tracker, etc.
-- Add new member's NPM login to 'npm-usernames.js'
+- Add new member's NPM login to the publish helper in `tasks/helpers/publish-helper.js`
 
 ## Setting up your environment
 

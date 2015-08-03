@@ -79,7 +79,7 @@ gulp.task('css-build', callback => runSequence('css-clean', [
   'css-build-variables-and-mixins-package'
 ], callback));
 
-gulp.task('css-publish', () => {
+gulp.task('css-publish', ['css-build'], () => {
   if (!argv.component) {
     return new Error('Usage: gulp css-publish --component <component-name>');
   }
