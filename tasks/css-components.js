@@ -1,11 +1,15 @@
+import del from 'del';
+import gulp from 'gulp';
+import mergeStream from 'merge-stream';
+import runSequence from 'run-sequence';
 import license from './helpers/license-helper';
 import {readme, packageJson} from './helpers/css-components-helper';
+import {publishPackages} from './helpers/publish-helper';
+import {readArray} from 'event-stream';
+import path from 'path';
 
-var del = require('del');
-var gulp = require('gulp');
-var mergeStream = require('merge-stream');
-var plugins = require('gulp-load-plugins')();
-var runSequence = require('run-sequence');
+const plugins = require('gulp-load-plugins')();
+const argv = require('yargs').argv;
 
 const componentsGlob = ['src/pivotal-ui/components/*', '!src/**/*.scss'];
 const buildFolder = 'dist/css';
@@ -74,3 +78,14 @@ gulp.task('css-build', callback => runSequence('css-clean', [
   'css-build-assets',
   'css-build-variables-and-mixins-package'
 ], callback));
+
+gulp.task('css-publish', () => {
+  if (!argv.component) {
+    return new Error('Usage: gulp css-publish --component <component-name>');
+  }
+
+  return readArray([[{
+    name: `pui-css-${argv.component}`,
+    dir: path.join('dist', 'css', argv.component)
+  }]]).pipe(publishPackages());
+});

@@ -7,8 +7,11 @@ import path from 'path';
 import runSequence from 'run-sequence';
 import {componentDocs} from '../helpers/documentation_helper';
 import {packageJson} from './helpers/react-components-helper';
+import {publishPackages} from './helpers/publish-helper';
+import {readArray} from 'event-stream';
 
-var plugins = require('gulp-load-plugins')();
+const plugins = require('gulp-load-plugins')();
+const argv = require('yargs').argv;
 
 const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const componentsGlob = 'src/pivotal-ui-react/*';
@@ -65,3 +68,14 @@ gulp.task('react-build', callback => runSequence('react-clean', [
   'react-build-license',
   'react-build-readme'
 ], callback));
+
+gulp.task('react-publish', ['react-build'], () => {
+  if (!argv.component) {
+    return new Error('Usage: gulp react-publish --component <component-name>');
+  }
+
+  return readArray([[{
+    name: `pui-react-${argv.component}`,
+    dir: path.join('dist', 'react', argv.component)
+  }]]).pipe(publishPackages());
+});

@@ -54,7 +54,7 @@ export function publishPackages() {
         log('Publishing', packageInfo.name);
         await npmPublish([packageInfo.dir]);
 
-        const owners = ['gpleiss', 'mattroyal', 'stubbornella'];
+        const owners = ['mattroyal', 'gpleiss', 'stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019'];
         for (const owner of owners) {
           await npmOwner(['add', owner, packageInfo.name]);
         }

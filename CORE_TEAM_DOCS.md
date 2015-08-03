@@ -6,6 +6,11 @@
 - Production: [http://styleguide.pivotal.io](http://styleguide.pivotal.io) - org: pivotal, space: pivotal-ui
 - Playground (environment where we can push whatever we want): [http://styleguide-tacos.cfapps.io](http://styleguide-tacos.cfapps.io) - org: pivotal, space: pivotal-ui-playground
 
+## New member checklist
+
+- Add to github, google group, tracker, etc.
+- Add new member's NPM login to 'npm-usernames.js'
+
 ## Setting up your environment
 
 See the [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#setting-up-your-environment)
@@ -20,6 +25,23 @@ We use [Travis CI](https://travis-ci.org/pivotal-cf/pivotal-ui).
 The staging styleguide deploys automatically when your changes are merged into
 master on github and all the tests go green on Travis CI.  The production
 styleguide deploys as part of the release process (see below).
+
+## Publishing new NPM modules
+
+Our release helper will automatically update the versions of current modules.
+If you create a new CSS or React component, you will have to publish the modules
+to NPM manually.
+
+```
+gulp css-publish --component <COMPONENT-NAME>
+gulp react-publish --component <COMPONENT-NAME>
+```
+
+where `<COMPONENT-NAME>` is the name of the folder in `src/pivotal-ui/components/`
+or `src/pivotal-ui-react/`.
+
+Once you do this initial publishing, you never have to worry about this module
+again.
 
 ## Creating a new release
 
