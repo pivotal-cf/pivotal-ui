@@ -27,7 +27,6 @@ $teal-10: #1FCCC0;
 $teal-11: #D9FFFC;
 
 
-
 // Grays - use these rather than the bootstrap grays
 // -------------------------
 
@@ -270,15 +269,11 @@ $link-color:                              $accent-3;
 $link-hover-color:                        $accent-4;
 $link-hover-decoration:                   underline !default;
 
-$link-lowlight-color:                     $accent-5;
-$link-lowlight-hover-color:               $accent-3;
-$link-lowlight-font-weight:               700;
+$link-lowlight-color:                     $dark-5;
+$link-lowlight-font-weight:               600;
 
-$link-inverse-color:                      $accent-4;
-$link-inverse-hover-color:                $accent-5;
+$link-inverse-color:                      $accent-5;
 
-$link-lowlight-alt-color:             $neutral-4;
-$link-lowlight-alt-hover-color:       $accent-2;
 
 // Typography
 // -------------------------
@@ -443,7 +438,8 @@ $btn-default-alt-bg:             $neutral-11;
 $btn-default-alt-border:         $neutral-7;
 
 $btn-primary-color:              $accent-3;
-$btn-primary-bg:                 $neutral-11;
+$btn-primary-bg:                 white;
+$btn-primary-bg-hover:           white;
 $btn-primary-border:             #49A8D5 !default;
 
 $btn-lowlight-color:             $dark-5;

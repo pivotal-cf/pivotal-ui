@@ -34,8 +34,7 @@ Link                                                                            
 --------------------------------------------------------------------------------------------------------------    | ----------------------------    | -----------
 <a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                | `link-text`                     | Important links
 <a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-text link-lowlight`       | Less important links
-<a class="link-text link-lowlight-alt" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link alternate</a>   | `link-text link-lowlight-alt`   | Less important links
-<a class="link-text link-inverse bg-dark-2" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
+<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
 
 ```html_example
 Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
@@ -44,17 +43,21 @@ Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less im
 */
 
 a{
+  color: $link-color;
   @include transition-pui();
 
   &:hover, &:focus {
     cursor: pointer;
     text-decoration: none;
+    color: lighten($link-color, 6%);
+  }
+
+  &:active, &.active{
+    color: darken($link-color, 6%);
   }
 
   &.link-text {
-    &:not(.link-lowlight):hover {
-      text-decoration: underline;
-    }
+    font-weight: $link-lowlight-font-weight;
   }
 }
 
@@ -63,24 +66,24 @@ a{
   font-weight: $link-lowlight-font-weight;
   color: $link-lowlight-color;
 
-  &:hover {
-    color: $link-lowlight-hover-color;
+  &:hover, &:focus {
+    color: lighten($link-lowlight-color, 6%);
   }
-}
 
-.link-lowlight-alt {
-  color: $link-lowlight-alt-color;
-
-  &:hover {
-    color: $link-lowlight-alt-hover-color;
+  &:active, &.active {
+    color: darken($link-lowlight-color, 6%);
   }
 }
 
 .link-inverse {
   color: $link-inverse-color;
 
-  &:hover {
-    color: $link-inverse-hover-color;
+  &:hover, &:focus {
+    color: lighten($link-inverse-color, 6%);
+  }
+
+  &:active, &.active {
+    color: darken($link-inverse-color, 6%);
   }
 }
 
