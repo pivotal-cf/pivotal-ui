@@ -6,6 +6,13 @@
 - Production: [http://styleguide.pivotal.io](http://styleguide.pivotal.io) - org: pivotal, space: pivotal-ui
 - Playground (environment where we can push whatever we want): [http://styleguide-tacos.cfapps.io](http://styleguide-tacos.cfapps.io) - org: pivotal, space: pivotal-ui-playground
 
+## Communicating with external teams on github
+
+In order to clearly communicate that we are all on the same team with the same needs for pui projects, use the following signature (updated with the current team, alphabetized):
+
+The Pivotal UI Team  
+@atomanyih @ctaymor @gpleiss @kennyw12 @matt-royal @stubbornella
+
 ## New member checklist
 
 - Add to github, google group, tracker, etc.
