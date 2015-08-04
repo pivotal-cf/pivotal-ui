@@ -1,11 +1,8 @@
-class DivId
-  @current_id = 0
+require_relative '../lib/div_id'
+require_relative '../lib/jsx_script_tag'
 
-  def self.next_id
-    val = "react-example-#{@current_id}"
-    @current_id += 1
-    val
-  end
+def is_precompiled?
+  %w(production staging).include?(ENV['STYLEGUIDE_ENV'])
 end
 
 Hologram::CodeExampleRenderer::Factory.define 'react' do
@@ -16,14 +13,9 @@ Hologram::CodeExampleRenderer::Factory.define 'react' do
 
   rendered_example do |code|
     div_id = DivId.next_id
-    [
-      "<div id=\"#{div_id}\"></div>",
-      "<script type=\"text/jsx\">",
-      "  React.render(",
-      "    #{code.strip},",
-      "    document.getElementById('#{div_id}')",
-      "  );",
-      "</script>"
-    ].join("\n")
+    <<-HTML
+      <div id="#{div_id}"></div>
+      #{JSXScriptTag.build_script_tag(div_id, code, precompiled: is_precompiled?)}
+    HTML
   end
 end

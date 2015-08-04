@@ -7,6 +7,8 @@ import runSequence from 'run-sequence';
 
 const execPromise = promisify(exec);
 
+gulp.task('set-styleguide-env-to-production', () => process.env.STYLEGUIDE_ENV = 'production');
+
 gulp.task('release-push-git-verify', async () => {
   const currentSha = await execPromise('git rev-parse HEAD');
   const masterSha = await execPromise('git rev-parse master');
@@ -61,8 +63,10 @@ gulp.task('release-push-production-styleguide', (done) => {
 });
 
 gulp.task('release-push', (done) => runSequence(
+  'set-styleguide-env-to-production',
   ['release-push-git-verify', 'release-push-production-styleguide-verify'],
   'release-push-npm-publish',
+  'monolith',
   ['release-push-git', 'release-push-production-styleguide'],
   done
 ));
