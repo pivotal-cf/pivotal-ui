@@ -39,6 +39,14 @@ Our release helper will automatically update the versions of current modules.
 If you create a new CSS or React component, you will have to publish the modules
 to NPM manually.
 
+First, make sure you are logged into NPM in the terminal
+
+```
+npm login
+```
+
+Then, do one of the following:
+
 ```
 gulp css-publish --component <COMPONENT-NAME>
 gulp react-publish --component <COMPONENT-NAME>
