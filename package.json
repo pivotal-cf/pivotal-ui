@@ -5,7 +5,7 @@
   "version": "1.10.0",
   "main": "gulpfile.js",
   "devDependencies": {
-    "a11y": "pivotal-cf/a11y#dist",
+    "a11y": "^0.3.3",
     "accessibility-developer-tools": "pivotal-cf/accessibility-developer-tools#dist",
     "axios": "^0.5.4",
     "babel": "^5.0.9",
