@@ -39,7 +39,7 @@ var MoreInfo = React.createClass({
     return (
       <main>
         <UI.ExpanderContent ref="infoContent">
-          <p className='h1 bg-neutral-2 type-neutral-9'>Hamburgers</p>
+          <p className='h1 bg-neutral-2 type-neutral-9'>Content in expander</p>
         </UI.ExpanderContent>
         <br/>
         <UI.ExpanderTrigger ref="infoTrigger">
