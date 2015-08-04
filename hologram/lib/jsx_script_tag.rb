@@ -2,7 +2,8 @@ require 'babel/transpiler'
 require_relative './div_id'
 
 module JSXScriptTag
-  def self.build_script_tag(div_id, code, precompiled: false)
+  def self.build_script_tag(div_id, code, opts={})
+    precompiled = opts[:precompiled]
     if precompiled
       js_code = Babel::Transpiler.transform("var reactElement = #{code.strip}")["code"]
       <<-JS
