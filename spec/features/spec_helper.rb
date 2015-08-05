@@ -31,3 +31,11 @@ RSpec.configure do |config|
   config.tty = true
   config.formatter = :documentation
 end
+
+def within_example_containing(text)
+  example = page.find(:xpath, "//div[contains(@class, 'exampleOutput') and contains(., '#{text}')]")
+  within example do
+    yield
+  end
+end
+

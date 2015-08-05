@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var {CSSTransitionGroup} = React.addons;
+var Collapse = require('react-bootstrap/lib/Collapse');
 
 /**
  * @component ExpanderTrigger
@@ -68,10 +68,13 @@ var ExpanderContent = React.createClass({
   },
 
   render() {
-    var content = this.state.expanded ?
-      <div key="expandedContent" style={{overflow: 'hidden'}}>{this.props.children}</div> :
-      null;
-    return <CSSTransitionGroup transitionName="expander">{content}</CSSTransitionGroup>;
+    return (
+      <Collapse in={this.state.expanded}>
+        <div style={{overflow: 'hidden'}}>
+          {this.props.children}
+        </div>
+      </Collapse>
+    );
   }
 });
 

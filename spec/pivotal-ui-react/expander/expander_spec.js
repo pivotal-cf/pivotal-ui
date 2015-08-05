@@ -1,12 +1,6 @@
 require('../spec_helper');
 
 describe('ExpanderContent', function() {
-  beforeEach(function() {
-    spyOn(React.addons.CSSTransitionGroup.prototype, 'render').and.callFake(function() {
-      return React.createElement('div', this.props);
-    });
-  });
-
   afterEach(function() {
     React.unmountComponentAtNode(root);
   });
@@ -28,47 +22,49 @@ describe('ExpanderContent', function() {
 
   describe('initial state', function() {
     describe('when expanded is unset', function() {
-      it('does not render the content', function() {
+      it('hides the content', function() {
         renderComponent.call(this, {});
-        expect(root).not.toContainText('You won a brand new car!');
+        expect('.collapse').not.toHaveClass('in');
       });
     });
 
     describe('when expanded is set to false', function() {
-      it('does not render the content', function() {
-        renderComponent.call(this, {expanded: false});
-        expect(root).not.toContainText('You won a brand new car!');
+      it('hides the content', function() {
+        renderComponent.call(this, {});
+        expect('.collapse').not.toHaveClass('in');
       });
     });
 
     describe('when expanded is set to true', function() {
-      it('renders the content', function() {
+      it('shows the content', function() {
         renderComponent.call(this, {expanded: true});
-        expect(root).toContainText('You won a brand new car!');
+        expect('.collapse').toHaveClass('in');
       });
     });
   });
 
   describe('#toggle', function() {
-    describe('when the content is already visible', function() {
+    describe('when the content was already visible', function() {
       beforeEach(function() {
-        this.expanderContent = renderComponent.call(this, {expanded: true});
+        let expanderContent = renderComponent.call(this, {expanded: true});
+        expanderContent.toggle();
+        jasmine.clock().tick(1000);
       });
 
-      it('stops rendering the content', function() {
-        this.expanderContent.toggle();
-        expect(root).not.toContainText('You won a brand new car!');
+      it('hides the content', function() {
+        expect('.collapse').not.toHaveClass('in');
       });
     });
 
     describe('when the content is not visible', function() {
       beforeEach(function() {
         this.expanderContent = renderComponent.call(this, {expanded: false});
+        this.expanderContent.toggle();
+        jasmine.clock().tick(1000);
       });
 
-      it('renders the content', function() {
-        this.expanderContent.toggle();
-        expect(root).toContainText('You won a brand new car!');
+      it('shows the content', function() {
+        expect('.collapse').toHaveClass('in');
       });
     });
 
@@ -76,10 +72,12 @@ describe('ExpanderContent', function() {
       this.expanderContent = renderComponent.call(this);
 
       this.expanderContent.toggle();
-      expect(root).toContainText('You won a brand new car!');
+      jasmine.clock().tick(1000);
+      expect('.collapse').toHaveClass('in');
 
       this.expanderContent.toggle();
-      expect(root).not.toContainText('You won a brand new car!');
+      jasmine.clock().tick(1000);
+      expect('.collapse').not.toHaveClass('in');
     });
   });
 });
