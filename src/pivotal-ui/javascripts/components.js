@@ -1,4 +1,5 @@
 var sortableTable = require('pui-react-sortable-table');
+var selectFancy = require('pui-react-select-fancy');
 module.exports = {
   DefaultH1: require('pui-react-typography').DefaultH1,
   DefaultH2: require('pui-react-typography').DefaultH2,
@@ -119,4 +120,4 @@ module.exports = {
 
   PortalSource: require('pui-react-portals').PortalSource,
   PortalDestination: require('pui-react-portals').PortalDestination,
-  ...sortableTable};
+  ...sortableTable, ...selectFancy};
