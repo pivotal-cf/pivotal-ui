@@ -694,6 +694,32 @@ This is a fancy select!
       background-color: $gray-9;
     }
   }
+
+  .form-inline.inline-labels .form-group & select {
+    width: 100% !important; // Fancy select needs to override the size when inline because it is in a wrapping element
+  }
+
+  &.disabled {
+    box-shadow: none;
+    background-color: $gray-10;
+
+    select {
+      &[disabled] {
+        color: $gray-5;
+        background-color: transparent;
+        cursor: default; // Bootstrap fix https://github.com/twbs/bootstrap-sass/issues/881
+      }
+    }
+
+    &:hover {
+      color: $gray-8;
+      background-color: $gray-10;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
 }
 
 /*doc
@@ -1286,6 +1312,37 @@ var SearchInput = require('pui-react-forms').SearchInput;
 ```
 
 
+*/
+
+/*doc
+---
+title: Select Fancy
+name: form_select_fancy
+parent: form_react
+---
+
+A `SelectFancy` component can be used on its own as a select. It accepts standard
+select properties (such as `value`).
+
+```react_example
+<form style={{width: 200}}>
+  <UI.SelectFancy>
+    <option>Fancy Option 1</option>
+    <option>Fancy Option 2</option>
+  </UI.SelectFancy>
+</form>
+```
+
+To disable the select, add the disabled prop.
+
+```react_example
+<form style={{width: 200}}>
+  <UI.SelectFancy disabled={true}>
+    <option>Fancy Option 1</option>
+    <option>Fancy Option 2</option>
+  </UI.SelectFancy>
+</form>
+```
 */
 
 
