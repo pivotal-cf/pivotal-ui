@@ -13,6 +13,14 @@ In order to clearly communicate that we are all on the same team with the same n
 The Pivotal UI Team  
 @atomanyih @ctaymor @gpleiss @kennyw12 @matt-royal @nicw @stubbornella
 
+## External PR Flow
+When this happens | Do these
+------------------|-----------------------
+Start story       | Tag story with the name of the external project
+Pull request made | Finish story, add a link to PR, and move story to the external PR section of PivotalTracker
+Pull request merged in by external team | Rebase dist branch against upstream master, switch package dependency to dist branch, create chore to check for package publichation, deliver story
+Package published | Switch package dependency away from dist to newest published version, mark chore complete
+
 ## New member checklist
 
 - Add to github, google group, tracker, etc.
