@@ -22,7 +22,7 @@ The button will be fixed to the bottom right hand corner of the page.
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup. 
 
 ```html_wrapped_example
-<a class="back-to-top" href="#" target="_blank" style="display: inline;"></a>
+<a class="back-to-top" href="#top" style="display: inline;" aria-label="Back to top"></a>
 ```
 */
 
