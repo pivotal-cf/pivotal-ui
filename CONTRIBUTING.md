@@ -239,86 +239,45 @@ Some conventions you should be aware of...
 
 #### CSS components
 
-Each CSS component should live in its own folder (e.g.
-`src/pivotal-ui/components/iconography/`). The structure of the folder should
-be:
+If you are adding a new component, please modify the files in
+`src/pivotal-ui/components/alpha`. The alpha
+folder is a sandbox for testing new components. After we merge in your
+PR, we'll take care of making a new folder and publishing the module for you.
 
-    ├── <component-name>.scss
-    ├── README.md
-    ├── package.json
-    └── <folder-for-assets-if-necessary>
-        ├── <asset-1>
-        ├── <asset-2>
+Write your css and hologram docs in `src/pivotal-ui/components/alpha/alpha.scss`.
+**Don't create a new file!!!**
 
-File and folder names should be plural and dash-separated (i.e. `google-maps`).
-When we publish the component to NPM, the package name will be
-`pui-css-<component-name>`.
-
-The `package.json` file should contain a homepage that links to the styleguide
+The `src/pivotal-ui/components/alpha/package.json` file should contain
+a homepage that links to the styleguide
 (http://styleguide.pivotal.io/category#component-name), the version number
 of the package (don't worry about this too much - we'll take care of it),
 and any css dependencies (see
 [component dependencies](#component-dependencies)).
 
-E.g. for iconography:
-
-```json
-{
-  "homepage": "http://styleguide.pivotal.io/elements.html#iconography",
-  "dependencies": {
-    "pui-css-typography": "*"
-  },
-  "version": "0.0.9"
-}
-```
-
 The `README` file should contain an HTML example of component use.
 
-E.g. for iconography:
+E.g.:
 
 ```html
-<i class="fa fa-download type-brand-3 title"></i>
+<div class="your-component">Your component goes here</div>
 ```
-
-Also, be sure to add your new component to `pui-css-all` and our root `package.json`.
-
-- In `src/pivotal-ui/components/all/package.json`, add your component to the list of dependencies (i.e.
-  `pui-css-mynewcomponent: '*'). Don't worry about the version number
-- Do the same thing in the root `package.json` file.
 
 #### React components
 
-Each React component should live in its own folder (e.g.
-`src/pivotal-ui-react/draggable-list/`). The structure of the folder should be:
+If you are adding a new component, please modify the files in
+`src/pivotal-ui-react/alpha`. The alpha
+folder is a sandbox for testing new components. After we merge in your
+PR, we'll take care of making a new folder and publishing the module for you.
 
-    ├── <component-name>.js
-    ├── package.json
-    └── <additional-js-files-if-necessary>
-        ├── <asset-1>
-        ├── <asset-2>
+Write your components and javadocs in `src/pivotal-ui-react/alpha/alpha.js`.
+**Don't create a new file!!!** Write your hologram docs and any css in
+`src/pivotal-ui/components/alpha/alpha.scss`.
 
-File and folder names should be plural and dash-separated (i.e.
-`draggable-list`). When we publish the component to NPM, the package name will
-be `pui-react-<component-name>`.
 
 The `package.json` file should contain a homepage that links to the styleguide
 (http://styleguide.pivotal.io/react.html#component-name), the version
 number of the package (don't worry about this too much - we'll take care of it),
 and any dependencies (see [component dependencies](#component-dependencies)).
-
-E.g. for draggable lists:
-
-```json
-{
-  "version": "0.1.0",
-  "description": "A React component for showing a list of items that can be re-ordered by the user",
-  "homepage": "http://styleguide.pivotal.io/react.html#list_draggable_react",
-  "dependencies": {
-    "classnames": "^1.2.0",
-    "pui-css-lists": "^0.0.5"
-  }
-}
-```
 
 ## Bug reports
 
