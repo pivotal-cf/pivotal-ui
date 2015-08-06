@@ -187,7 +187,7 @@ describe('componentsToUpdate', function() {
       }));
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui/components/all/',
-        dependencies: ['pui-css-colors', 'pui-css-dropdowns', 'pui-css-iconography', 'pui-css-back-to-top', 'pui-css-code', 'pui-css-lists', 'pui-css-spinners']
+        dependencies: ['pui-css-colors', 'pui-css-dropdowns', 'pui-css-iconography', 'pui-css-back-to-top', 'pui-css-code', 'pui-css-lists', 'pui-css-spinners', 'pui-css-traffic-lights']
       }));
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/alerts/',
@@ -234,7 +234,7 @@ describe('componentsToUpdate', function() {
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
       expect(result).toContain(jasmine.objectContaining({ component: './' }));
-      expect(result.length).toEqual(23);
+      expect(result.length).toEqual(24);
     });
   });
 });
