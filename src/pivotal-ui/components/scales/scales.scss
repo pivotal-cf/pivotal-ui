@@ -4,7 +4,8 @@
 ---
 title: Instance Scale
 name: instance_scale
-parent: marketing
+categories:
+ - Objects
 ---
 
 
@@ -12,15 +13,6 @@ The instance scale widget is an svg and an associated code block. Include the SV
 and code in your page and the javascript and css will handle all of the behaviors.
 Add the class `.selected-group` to the `.instance-column` you would like to be
 highlighted on page load.
-
-<div class="alert alert-danger mbxl">
-  <h5 class="em-high mtn">
-    Deprecation warning
-  </h5>
-  <p>
-    This component is deprecated.
-  </p>
-</div>
 
 ```html_example
 <div class="panel bg-neutral-11">

@@ -527,8 +527,6 @@ Here are some guidelines to follow when writing docs for hologram:
 - **Utilities** - mixins that modifiy other components *(i.e. colors, hover
   states)*
 - **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
-- **by Product** - product specific components *(i.e. a PWS marketing pricing
-  widget)*
 - **React** - All React components go here at the moment.
 
 In addition, every parent component **must** belong to the **All** category.
