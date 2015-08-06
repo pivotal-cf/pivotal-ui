@@ -1,5 +1,6 @@
-var sortableTable = require('pui-react-sortable-table');
-var streamList = require('pui-react-stream-list');
+import alpha from 'pui-react-alpha';
+import sortableTable from 'pui-react-sortable-table';
+import streamList from 'pui-react-stream-list';
 
 module.exports = {
   DefaultH1: require('pui-react-typography').DefaultH1,
@@ -122,5 +123,5 @@ module.exports = {
   PortalSource: require('pui-react-portals').PortalSource,
   PortalDestination: require('pui-react-portals').PortalDestination,
   ...sortableTable,
-  ...streamList
-};
+  ...streamList,
+  ...alpha};
