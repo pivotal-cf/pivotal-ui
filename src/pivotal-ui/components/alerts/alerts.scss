@@ -64,7 +64,7 @@ Our 4 alert types are:
 <div class="alert alert-success">
   <div class="media">
     <div class="media-left">
-      <i class="fa fa-check-circle"></i>
+      <i class="alert-icon fa fa-check-circle fa-h3"></i>
     </div>
     <div class="media-body em-high">
       Everything is wonderful.
@@ -76,7 +76,7 @@ Our 4 alert types are:
 <div class="alert alert-info">
   <div class="media">
     <div class="media-left">
-      <i class="fa fa-info-circle"></i>
+      <i class="alert-icon fa fa-info-circle fa-h3"></i>
     </div>
     <div class="media-body em-high">
       Info for you.
@@ -88,7 +88,7 @@ Our 4 alert types are:
 <div class="alert alert-warning">
   <div class="media">
     <div class="media-left">
-      <i class="fa fa-exclamation-triangle"></i>
+      <i class="alert-icon fa fa-exclamation-triangle fa-h3"></i>
     </div>
     <div class="media-body em-high">
       Warning: There is no parking on the dancefloor.
@@ -100,7 +100,7 @@ Our 4 alert types are:
 <div class="alert alert-error">
   <div class="media">
     <div class="media-left">
-      <i class="fa fa-exclamation-triangle"></i>
+      <i class="alert-icon fa fa-exclamation-triangle fa-h3"></i>
     </div>
     <div class="media-body em-high">
       Something has gone horribly awry.
@@ -136,7 +136,7 @@ other content inside a container on the page (of a width 500px for this example)
 
 ```html_example
 
-<div class="pane bg-accent-5">
+<div class="pane bg-accent-6">
   <div class="container pan" style="width:500px">
     <div class="alert alert-info mtn">
       <button class="close" data-dismiss="alert">
@@ -144,7 +144,7 @@ other content inside a container on the page (of a width 500px for this example)
       </button>
       <div class="media mtn">
         <div class="media-left">
-          <i class="fa fa-info-circle"></i>
+          <i class="alert-icon fa fa-info-circle fa-h3"></i>
         </div>
         <div class="media-body em-high">
           3 new files available for Pivotal CF.
@@ -172,6 +172,7 @@ other content inside a container on the page (of a width 500px for this example)
     text-decoration: none;
     line-height: .7;
     text-shadow: none;
+    color: inherit;
   }
 }
 
@@ -185,6 +186,11 @@ other content inside a container on the page (of a width 500px for this example)
 
 .alert-warning .alert-link:hover {
   color: darken($alert-warning-text, 10%);
+}
+
+.alert-icon{
+  color: inherit;
+  opacity: .3;
 }
 
 //Bootstrap
