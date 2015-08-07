@@ -89,11 +89,11 @@ You can place the link anywhere in your markup, but best practices are either to
 
   border: 0;
   border-radius: 50%;
-  background: $brand-3;
+  background: $brand-8;
   box-shadow: 0 0 9px rgba(153, 153, 153, 0.8);
 
   &:hover {
-    background: $brand-2;
+    background: $brand-5;
     color: $neutral-11;
   }
 }

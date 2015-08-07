@@ -116,7 +116,7 @@ var DefaultH6 = defHeader({element: 'h6'});
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var AlternateH1 = defHeader({element: 'h1', color: 'type-dark-1', bold: 'max'});
+var AlternateH1 = defHeader({element: 'h1', color: 'type-dark-2', bold: 'max'});
 
 /**
  * @component AlternateH2
@@ -170,7 +170,7 @@ var AlternateH6 = defHeader({element: 'h6'});
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH1 = defHeader({element: 'h1', size: 'title', bold: 'high', color: 'type-dark-1'});
+var MarketingH1 = defHeader({element: 'h1', size: 'title', bold: 'high', color: 'type-dark-2'});
 
 /**
  * @component MarketingH2
@@ -179,7 +179,7 @@ var MarketingH1 = defHeader({element: 'h1', size: 'title', bold: 'high', color: 
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH2 = defHeader({element: 'h2', size: 'h1', bold: 'high', color: 'type-dark-1'});
+var MarketingH2 = defHeader({element: 'h2', size: 'h1', bold: 'high', color: 'type-dark-2'});
 
 /**
  * @component MarketingH3
@@ -188,7 +188,7 @@ var MarketingH2 = defHeader({element: 'h2', size: 'h1', bold: 'high', color: 'ty
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH3 = defHeader({element: 'h3', size: 'h2', bold: 'high', color: 'type-dark-1'});
+var MarketingH3 = defHeader({element: 'h3', size: 'h2', bold: 'high', color: 'type-dark-2'});
 
 /**
  * @component MarketingH4
@@ -197,7 +197,7 @@ var MarketingH3 = defHeader({element: 'h3', size: 'h2', bold: 'high', color: 'ty
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH4 = defHeader({element: 'h4', size: 'h3', bold: 'high', color: 'type-dark-1'});
+var MarketingH4 = defHeader({element: 'h4', size: 'h3', bold: 'high', color: 'type-dark-2'});
 
 /**
  * @component MarketingH5
@@ -206,7 +206,7 @@ var MarketingH4 = defHeader({element: 'h4', size: 'h3', bold: 'high', color: 'ty
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH5 = defHeader({element: 'h5', size: 'h4', bold: 'high', color: 'type-dark-1'});
+var MarketingH5 = defHeader({element: 'h5', size: 'h4', bold: 'high', color: 'type-dark-2'});
 
 /**
  * @component MarketingH6
@@ -215,7 +215,7 @@ var MarketingH5 = defHeader({element: 'h5', size: 'h4', bold: 'high', color: 'ty
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#type_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#type)
  */
-var MarketingH6 = defHeader({element: 'h6', size: 'h5', bold: 'high', color: 'type-dark-1'});
+var MarketingH6 = defHeader({element: 'h6', size: 'h5', bold: 'high', color: 'type-dark-2'});
 
 module.exports = {
   DefaultH1,
