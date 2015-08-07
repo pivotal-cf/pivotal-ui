@@ -18,7 +18,7 @@ npm install pui-css-colors --save
 
 
 
-Our color pallet is composed of several different colors. At any given point in captures the current
+Our color pallet is composed of several different colors. At any given point it captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.
 
@@ -210,12 +210,42 @@ $tabs-active-bg-color: $gray-2;
         <p class="mvn">brand-5</p>
       </div>
     </div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
+    <div class="chip">
+      <div class="chip-color bg-brand-6"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-6</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-brand-7"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-7</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-brand-8"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-8</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-brand-9"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-9</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-brand-10"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-10</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-brand-11"></div>
+      <div class="chip-color-name">
+        <p class="mvn">brand-11</p>
+      </div>
+    </div>
 </div>
 
 <div class="color-chip-row">
@@ -250,7 +280,12 @@ $tabs-active-bg-color: $gray-2;
         <p class="mvn">accent-5</p>
       </div>
     </div>
-    <div class="chip"></div>
+    <div class="chip">
+      <div class="chip-color bg-accent-6"></div>
+      <div class="chip-color-name">
+        <p class="mvn">accent-6</p>
+      </div>
+    </div>
     <div class="chip"></div>
     <div class="chip"></div>
     <div class="chip"></div>
@@ -286,8 +321,18 @@ $tabs-active-bg-color: $gray-2;
         <p class="mvn">error-4</p>
       </div>
     </div>
-    <div class="chip"></div>
-    <div class="chip"></div>
+    <div class="chip">
+      <div class="chip-color bg-error-5"></div>
+      <div class="chip-color-name">
+        <p class="mvn">error-5</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-error-6"></div>
+      <div class="chip-color-name">
+        <p class="mvn">error-6</p>
+      </div>
+    </div>
     <div class="chip"></div>
     <div class="chip"></div>
     <div class="chip"></div>
@@ -314,9 +359,24 @@ $tabs-active-bg-color: $gray-2;
         <p class="mvn">warn-3</p>
       </div>
     </div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
+    <div class="chip">
+      <div class="chip-color bg-warn-4"></div>
+      <div class="chip-color-name">
+        <p class="mvn">warn-4</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-warn-5"></div>
+      <div class="chip-color-name">
+        <p class="mvn">warn-5</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-warn-6"></div>
+      <div class="chip-color-name">
+        <p class="mvn">warn-6</p>
+      </div>
+    </div>
     <div class="chip"></div>
     <div class="chip"></div>
     <div class="chip"></div>
@@ -338,10 +398,30 @@ $tabs-active-bg-color: $gray-2;
         <p class="mvn">success-2</p>
       </div>
     </div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
-    <div class="chip"></div>
+    <div class="chip">
+      <div class="chip-color bg-success-3"></div>
+      <div class="chip-color-name">
+        <p class="mvn">success-3</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-success-4"></div>
+      <div class="chip-color-name">
+        <p class="mvn">success-4</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-success-5"></div>
+      <div class="chip-color-name">
+        <p class="mvn">success-5</p>
+      </div>
+    </div>
+    <div class="chip">
+      <div class="chip-color bg-success-6"></div>
+      <div class="chip-color-name">
+        <p class="mvn">success-6</p>
+      </div>
+    </div>
     <div class="chip"></div>
     <div class="chip"></div>
     <div class="chip"></div>
@@ -406,6 +486,30 @@ $tabs-active-bg-color: $gray-2;
   background-color: $brand-5 !important;
 }
 
+.bg-brand-6{
+  background-color: $brand-6 !important;
+}
+
+.bg-brand-7{
+  background-color: $brand-7 !important;
+}
+
+.bg-brand-8{
+  background-color: $brand-8 !important;
+}
+
+.bg-brand-9{
+  background-color: $brand-9 !important;
+}
+
+.bg-brand-10{
+  background-color: $brand-10 !important;
+}
+
+.bg-brand-11{
+  background-color: $brand-11 !important;
+}
+
 // Blues
 
 .bg-accent-1{
@@ -426,6 +530,10 @@ $tabs-active-bg-color: $gray-2;
 
 .bg-accent-5{
   background-color: $accent-5 !important;
+}
+
+.bg-accent-6{
+  background-color: $accent-6 !important;
 }
 
 // Navies
@@ -490,6 +598,14 @@ $tabs-active-bg-color: $gray-2;
   background-color: $error-4 !important;
 }
 
+.bg-error-5{
+  background-color: $error-5 !important;
+}
+
+.bg-error-6{
+  background-color: $error-6 !important;
+}
+
 // Yellows
 .bg-warn-1{
   background-color: $warn-1 !important;
@@ -503,6 +619,18 @@ $tabs-active-bg-color: $gray-2;
   background-color: $warn-3 !important;
 }
 
+.bg-warn-4{
+  background-color: $warn-4 !important;
+}
+
+.bg-warn-5{
+  background-color: $warn-5 !important;
+}
+
+.bg-warn-6{
+  background-color: $warn-6 !important;
+}
+
 // Greens
 .bg-success-1{
   background-color: $success-1 !important;
@@ -510,6 +638,21 @@ $tabs-active-bg-color: $gray-2;
 
 .bg-success-2{
   background-color: $success-2 !important;
+}
+
+.bg-success-3{
+  background-color: $success-3 !important;
+}
+
+.bg-success-4{
+  background-color: $success-4 !important;
+}
+.bg-success-5{
+  background-color: $success-5 !important;
+}
+
+.bg-success-6{
+  background-color: $success-6 !important;
 }
 
 /*doc

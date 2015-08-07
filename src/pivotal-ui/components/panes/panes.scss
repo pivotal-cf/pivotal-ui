@@ -24,7 +24,7 @@ The one on the `.pane` element will span the full browser width. The
 one on the `.container` element will be constrained to the content width.
 
 ```html_example
-<div class="pane bg-dark-1">
+<div class="pane bg-dark-2">
   <div class="container bg-glow">
     <h1 class="type-neutral-11">This is a pane</h1>
   </div>
@@ -33,7 +33,7 @@ one on the `.container` element will be constrained to the content width.
 ```
 
 ```html_example
-<div class="pane pane-offset bg-dark-1">
+<div class="pane pane-offset bg-dark-2">
   <div class="container bg-glow">
     <h1 class="type-neutral-11">This is a pane</h1>
     <div class="pane-image">
@@ -141,7 +141,7 @@ In the event that you need additional configuration applied to a Pane, you can u
 These values are added to the class name of the `.pane` and the `.container` respectively.
 
 ```react_example
-<UI.BasePane className="bg-dark-1" innerClassName="bg-glow">
+<UI.BasePane className="bg-dark-2" innerClassName="bg-glow">
   <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
 </UI.BasePane>
 ```

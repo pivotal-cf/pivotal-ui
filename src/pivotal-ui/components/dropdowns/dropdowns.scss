@@ -265,7 +265,7 @@ This is a notification dropdown with notifications.
             </h3>
           </div>
           <div class="media-body media-middle">
-            <h5 class="media-heading mbn type-dark-1">Notification</h5>
+            <h5 class="media-heading mbn type-dark-2">Notification</h5>
             <p class="type-sm type-neutral-5 mvn">News for you</p>
           </div>
         </div>
@@ -280,7 +280,7 @@ This is a notification dropdown with notifications.
             </h3>
           </div>
           <div class="media-body media-middle">
-            <h5 class="media-heading mbn type-dark-1">Pivotal-CF</h5>
+            <h5 class="media-heading mbn type-dark-2">Pivotal-CF</h5>
             <p class="type-sm type-neutral-5 mvn">1 New File Available</p>
           </div>
         </div>
@@ -329,10 +329,10 @@ This is a notification dropdown with alerts.
       <a role="menuitem" href="https://twitter.com/fat">
         <div class="media">
           <div class="media-left media-middle">
-            <i class="fa fa-exclamation-triangle type-warn-2 mrm"></i>
+            <i class="fa fa-exclamation-triangle type-warn-3 mrm"></i>
           </div>
           <div class="media-body media-middle">
-            <h5 class="media-heading mbn type-dark-1">Warning</h5>
+            <h5 class="media-heading mbn type-dark-2">Warning</h5>
             <p class="type-sm type-neutral-5 mvn">News for you</p>
           </div>
         </div>
@@ -446,7 +446,7 @@ var newLabel = <UI.DefaultH3 className="mvn"><UI.Label>New</UI.Label></UI.Defaul
 <UI.Notifications>
   <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
     <UI.Flag leftImage={newLabel}>
-      <UI.DefaultH5 className="media-heading mbn type-dark-1">Notification</UI.DefaultH5>
+      <UI.DefaultH5 className="media-heading mbn type-dark-2">Notification</UI.DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </UI.Flag>
   </UI.NotificationItem>
@@ -516,14 +516,14 @@ Here's an example if there are no alerts:
 Here's an example if there are alerts:
 
 ```jsx_example
-var alertImage = <UI.Icon name="exclamation-triangle" className="h4 type-warn-2 mrm" />;
+var alertImage = <UI.Icon name="exclamation-triangle" className="h4 type-warn-3 mrm" />;
 ```
 
 ```react_example_table
 <UI.AlertNotifications>
   <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
     <UI.Flag leftImage={alertImage}>
-      <UI.DefaultH5 className="media-heading mbn type-dark-1">WARNING</UI.DefaultH5>
+      <UI.DefaultH5 className="media-heading mbn type-dark-2">WARNING</UI.DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </UI.Flag>
   </UI.NotificationItem>

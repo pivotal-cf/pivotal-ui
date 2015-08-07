@@ -22,7 +22,7 @@ var {mergeProps} = require('pui-react-helpers');
  *       <Notifications>
  *         <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
  *           <Flag leftImage={<DefaultH3><Label>New</Label></DefaultH3>}>
- *             <DefaultH5 className="media-heading mbn type-dark-1">Notification</DefaultH5>
+ *             <DefaultH5 className="media-heading mbn type-dark-2">Notification</DefaultH5>
  *             <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
  *           </Flag>
  *         </NotificationItem>
@@ -77,8 +77,8 @@ var Notifications = React.createClass({
  *     return (
  *       <AlertNotifications>
  *         <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
- *           <Flag leftImage={<Icon name="exclamation-triangle" className="h4 type-warn-2 mrm"/>}>
- *             <DefaultH5 className="media-heading mbn type-dark-1">Warning</DefaultH5>
+ *           <Flag leftImage={<Icon name="exclamation-triangle" className="h4 type-warn-3 mrm"/>}>
+ *             <DefaultH5 className="media-heading mbn type-dark-2">Warning</DefaultH5>
  *             <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
  *           </Flag>
  *         </NotificationItem>
