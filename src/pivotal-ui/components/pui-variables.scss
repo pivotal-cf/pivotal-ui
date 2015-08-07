@@ -14,11 +14,18 @@ $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")
 // Accent colors - teal for now
 // -------------------------
 
-$teal-1: #025a53;
-$teal-2: #00776d;
-$teal-3: #00a79d;
-$teal-4: #92d0c0;
-$teal-5: #71ffda;
+$teal-1: #083330;
+$teal-2: #0B4D48;
+$teal-3: #025A53;
+$teal-4: #0F6660;
+$teal-5: #00776D;
+$teal-6: #138078;
+$teal-7: #179990;
+$teal-8: #00A79D;
+$teal-9: #1BB3A8;
+$teal-10: #1FCCC0;
+$teal-11: #D9FFFC;
+
 
 
 // Grays - use these rather than the bootstrap grays
@@ -52,11 +59,12 @@ $glow-5 : rgba(255,255,255,1);
 // Blue
 // -------------------------
 
-$blue-1: #1a739e;
-$blue-2: #1E77AE;
-$blue-3: #49a8d5;
-$blue-4: #a7c9e0;
-$blue-5: #c3f4ff;
+$blue-1: #135680;
+$blue-2: #176799;
+$blue-3: #1B78B3;
+$blue-4: #1F8ACC;
+$blue-5: #229BE6;
+$blue-6: #D9F0FF;
 
 // Navy
 // -------------------------
@@ -76,21 +84,30 @@ $navy-11: #F5F6F7;
 // Red
 // -------------------------
 
-$red-1: #b31612;
-$red-2: #eb3d46;
-$red-3: #F0000C;
-$red-4: #febfc1;
+$red-1: #801319;
+$red-2: #99171D;
+$red-3: #B31B22;
+$red-4: #CC1F27;
+$red-5: #F2242F;
+$red-6: #FFD9DB;
 
 // Green
 // -------------------------
-$green-1: #165450;
-$green-2: #AFD79B;
+$green-1: #4D8013;
+$green-2: #5C9917;
+$green-3: #6CB31B;
+$green-4: #7BCC1F;
+$green-5: #8AE622;
+$green-6: #EDFFD9;
 
 // Yellow
 // -------------------------
-$yellow-1: #B59033;
-$yellow-2: #F1C148;
-$yellow-3: #F9F3C3;
+$yellow-1: #806613;
+$yellow-2: #997B17;
+$yellow-3: #B38F1B;
+$yellow-4: #CCA41F;
+$yellow-5: #E6B822;
+$yellow-6: #FFF6D9;
 
 // Orange
 // -------------------------
@@ -147,6 +164,12 @@ $brand-2:               $teal-2;
 $brand-3:               $teal-3;
 $brand-4:               $teal-4;
 $brand-5:               $teal-5;
+$brand-6:               $teal-6;
+$brand-7:               $teal-7;
+$brand-8:               $teal-8;
+$brand-9:               $teal-9;
+$brand-10:              $teal-10;
+$brand-11:              $teal-11;
 
 $brand-primary:         #1b92cb !default;
 $brand-success:         #5cb85c !default;
@@ -162,6 +185,7 @@ $accent-2: $blue-2;
 $accent-3: $blue-3;
 $accent-4: $blue-4;
 $accent-5: $blue-5;
+$accent-6: $blue-6;
 
 // Errors
 // -------------------------
@@ -170,6 +194,8 @@ $error-1: $red-1;
 $error-2: $red-2;
 $error-3: $red-3;
 $error-4: $red-4;
+$error-5: $red-5;
+$error-6: $red-6;
 
 // Warnings
 // -------------------------
@@ -177,12 +203,19 @@ $error-4: $red-4;
 $warn-1: $yellow-1;
 $warn-2: $yellow-2;
 $warn-3: $yellow-3;
+$warn-4: $yellow-4;
+$warn-5: $yellow-5;
+$warn-6: $yellow-6;
 
 // Success
 // -------------------------
 
 $success-1: $green-1;
 $success-2: $green-2;
+$success-3: $green-3;
+$success-4: $green-4;
+$success-5: $green-5;
+$success-6: $green-6;
 
 
 // login page colors
