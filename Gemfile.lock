@@ -64,6 +64,3 @@ DEPENDENCIES
   pry
   rspec
   selenium-webdriver
-
-BUNDLED WITH
-   1.10.0.rc
