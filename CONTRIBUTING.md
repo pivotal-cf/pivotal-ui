@@ -273,6 +273,8 @@ Write your components and javadocs in `src/pivotal-ui-react/alpha/alpha.js`.
 **Don't create a new file!!!** Write your hologram docs and any css in
 `src/pivotal-ui/components/alpha/alpha.scss`.
 
+Write your tests in `spec/pivotal-ui-react/alpha/alpha_spec.js`. Then run
+`gulp jasmine-react` to test in the browser or `gulp jasmine-react-ci` to test headlessly with PhantomJS.
 
 The `package.json` file should contain a homepage that links to the styleguide
 (http://styleguide.pivotal.io/react.html#component-name), the version
