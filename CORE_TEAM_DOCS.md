@@ -6,12 +6,12 @@
 - Production: [http://styleguide.pivotal.io](http://styleguide.pivotal.io) - org: pivotal, space: pivotal-ui
 - Playground (environment where we can push whatever we want): [http://styleguide-tacos.cfapps.io](http://styleguide-tacos.cfapps.io) - org: pivotal, space: pivotal-ui-playground
 
-## Communicating with external teams on github
+## External PR Signature
 
 In order to clearly communicate that we are all on the same team with the same needs for pui projects, use the following signature (updated with the current team, alphabetized):
 
 The Pivotal UI Team  
-@atomanyih @ctaymor @gpleiss @kennyw12 @matt-royal @nicw @stubbornella
+@atomanyih @ctaymor @d-reinhold @kennyw12 @matt-royal @nicw @stubbornella
 
 ## External PR Flow
 When this happens | Do these
