@@ -21,7 +21,7 @@
       })();
     </script>
 
-    <% if file_name == 'react.html' %>
+    <% if %w(react.html faq.html).include?(file_name) %>
       <script src="pivotal-ui-react.js"></script>
       <script>
         if (window.callPhantom) {
@@ -70,7 +70,7 @@
         <div id="styleguide-first-level-nav-wrapper">
           <ul id="styleguide-first-level-nav">
 
-            <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'Forms', 'React'] %>
+            <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'Forms', 'React', 'FAQ'] %>
 
 
             <% categories.each_with_index do |category_name, index| %>
