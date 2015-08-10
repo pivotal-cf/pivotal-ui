@@ -22,8 +22,8 @@ Dropdowns are menus that can be triggered by buttons.
 This is the basic bootstrap dropdown.
 
 ```html_example
-<div class="dropdown btn-group">
-  <button id="dropdown-button-1" class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -52,7 +52,7 @@ This is the basic bootstrap dropdown.
 </div>
 
 ```html_example
-<div class="dropdown btn-group">
+<div class="dropdown">
   <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
     <span>Link Dropdown</span>
     <span class="caret"></span>
@@ -86,7 +86,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 
 ```html_example
 <div class="dropdown btn-group">
-  <button id="dropdown-button-2" class="dropdown-toggle btn btn-primary" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-2" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     dropdown trigger
     <span class="caret"></span>
   </button>
@@ -214,9 +214,22 @@ using the `buttonClassName` property. `id` and `style` will also be applied to t
 */
 
 .dropdown-menu {
-  @include box-shadow(0 2px 2px rgba(0,0,0,.15));
-}
+  @include box-shadow(0 2px 0 rgba(211,217,217,0.50));
+  background-color: white;
+  border: 1px solid $neutral-7;
+  padding: 0 0;
 
+  > li {
+    > a {
+      color: $dark-5;
+      font-weight: 600;
+      &:hover {
+        color: $dark-5;
+        background-color: darken($neutral-11, 6%);
+      }
+    }
+  }
+}
 
 /*doc
 ---
