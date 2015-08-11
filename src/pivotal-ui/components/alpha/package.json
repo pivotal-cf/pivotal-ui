@@ -1,7 +1,8 @@
 {
   "description": "A playground for alpha examples",
-  "homepage": "http://styleguide.pivotal.io/",
+  "homepage": "http://styleguide.pivotal.io/elements#button-group",
   "dependencies": {
+    "pui-css-bootstrap": "1.10.0"
   },
   "version": "0.0.1"
 }
