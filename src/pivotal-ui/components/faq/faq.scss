@@ -1,0 +1,82 @@
+/*doc
+---
+title: How do I customize my components?
+name: customizing_components
+categories:
+  - FAQ
+---
+You should use modifier classes to change the spacing between a component and it's siblings or a
+component and it's children. You also might use modifier classes to change simple attributes like
+background color or text color. Pretty quickly though, if you start making more in depth modifications,
+it makes sense to subclass your component. For example, simple, basic, and shadow are all types of panels.
+They do more than just change colors or spacing, so it makes sense to make them a separate components.
+It also makes them easier to work with, because you can achieve the new look and feel by just adding one
+class name to the outer wrapper. This then triggers the sub-nodes of the component to look a particular way.
+
+
+Using lots of modifier classes is really tempting because you don't have to write your own CSS,
+but it can quickly get messy as someone attempting to reuse the component would need to get all
+the classes right on the different dom nodes in order to get it to look right. It also means we
+have no class name 'hook' into that component that will allow us to globally change it's styles.
+
+
+TLDR; Use modifier classes only for simple overrides. For anything more complicated, make a sub-component.
+
+
+## Using modifier classes
+
+
+```react_example_table
+<UI.Panel title="Base Panel">
+  <p>Base contents</p>
+</UI.Panel>
+
+<UI.Panel title="Panel with modifier classes" className="paxxl bg-brand-11" innerClassName="type-neutral-11 bg-brand-10">
+  <p>Panel contents</p>
+</UI.Panel>
+```
+
+## Using custom classes
+
+```html_example
+<style>
+  .my-special-panel {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .my-special-panel .panel-header * {
+    background: #D9F0FF;
+    color: #229BE6;
+  }
+</style>
+```
+
+```react_example
+
+<UI.Panel className="my-special-panel" title="Base Panel">
+  <p>Base contents</p>
+</UI.Panel>
+```
+
+*/
+
+
+/*doc
+---
+title: How do I pass custom styles to a component?
+name: passing_styles
+categories:
+  - FAQ
+---
+This is not recommended. We'd suggest you try to customize your component [using modifier or custom classes](#customizing_components).
+
+If you're sure you want to do this...
+
+```react_example
+<UI.Panel title="Base Panel" style={ {fontFamily: 'fantasy', textTransform: 'uppercase'} }>
+  <p>Base contents</p>
+</UI.Panel>
+```
+
+*/
