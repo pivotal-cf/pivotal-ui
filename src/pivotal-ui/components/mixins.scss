@@ -39,8 +39,9 @@
   }
   .open & {
     &.dropdown-toggle {
-    color: $color;
-    background-color: lighten($background, 6%);
+      color: darken($color, 6%);
+      background-color: darken($background, 6%);
+      box-shadow: none;
     }
   }
   &.disabled,
