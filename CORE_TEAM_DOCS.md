@@ -21,6 +21,10 @@ Pull request made | Finish story, add a link to PR, and move story to the extern
 Pull request merged in by external team | Rebase dist branch against upstream master, switch package dependency to dist branch, create chore to check for package publichation, deliver story
 Package published | Switch package dependency away from dist to newest published version, mark chore complete
 
+## Internal PR Flow
+
+![](http://i.imgur.com/qXhdAPn.png)
+
 ## New member checklist
 
 - Add to github, google group, tracker, etc.
