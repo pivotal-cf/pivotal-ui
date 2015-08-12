@@ -499,12 +499,17 @@ $btn-border-radius-small:        $border-radius-small;
 // Forms
 // -------------------------
 
-$input-bg:                       #fff !default;
+$input-bg:                       $neutral-11 !default;
+$input-bg-active:                $neutral-9;
 $input-bg-disabled:              $gray-lighter !default;
 $progress-border-radius:         $border-radius-base !default;
+$input-font-weight:              $font-weight-em-high;
 
-$input-color:                    $gray !default;
-$input-border:                   #ccc !default;
+$input-color:                    $link-color !default;
+$input-color-hover:              $accent-5;
+$input-color-active:             $accent-3;
+$input-border:                   $neutral-7 !default;
+$input-border-color-hover:       $neutral-5 !default;
 $input-border-radius:            $border-radius-small !default;
 $input-border-radius-large:      $border-radius-large !default;
 $input-border-radius-small:      $border-radius-small !default;
