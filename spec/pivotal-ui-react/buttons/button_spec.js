@@ -114,7 +114,6 @@ describe('UIButton', function() {
 
   [
     {name: 'DefaultAltButton', btnClass: 'btn-default-alt'},
-    {name: 'PrimaryButton', btnClass: 'btn-primary'},
     {name: 'LowlightButton', btnClass: 'btn-lowlight'},
     {name: 'DangerButton', btnClass: 'btn-danger'},
     {name: 'HighlightButton', btnClass: 'btn-highlight'},
@@ -126,7 +125,7 @@ describe('UIButton', function() {
           React.render(<Button>Click here</Button>, root);
         });
 
-        it('renders with the btn-primary class', function() {
+        it('renders with the btn-default class', function() {
           expect('button.btn').not.toHaveClass('btn-default');
           expect('button.btn').toHaveClass(btnClass);
         });

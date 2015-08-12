@@ -14,33 +14,35 @@
 
 /* Button Mixins */
 
-@mixin button-skin($color, $background, $background-hover, $border: none) {
+@mixin button-skin($color, $background, $border: null, $color-disabled: null) {
   color: $color;
   background-color: $background;
-  border: $border;
+  @if ($border) {
+    border: 1px solid $border;
+  }
+  outline: none;
 
   @include transition-pui();
 
   &:hover,
-  &:focus,
-  &:active,
-  &.active {
-    color: $color;
-    background-color: $background-hover;
+  &:focus {
+    color: lighten($color, 5%);
+    background-color: lighten($background, 6%);
     outline: none;
-    border-color: $border;
   }
-  .open & { &.dropdown-toggle {
-    color: $color;
-    background-color: $background-hover;
-  } }
   &:active,
   &.active {
-    background-image: none;
+    color: darken($color, 5%);
+    background-color: darken($background, 6%);
+    box-shadow: none;
+    outline: none;
   }
-  .open & { &.dropdown-toggle {
-    background-image: none;
-  } }
+  .open & {
+    &.dropdown-toggle {
+    color: $color;
+    background-color: lighten($background, 6%);
+    }
+  }
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
@@ -49,20 +51,27 @@
     &:focus,
     &:active,
     &.active {
-      background-color: $btn-disabled-bg;
-      color: $btn-disabled-color;
-      border-color: $border;
+      color: $color-disabled;
+      opacity: 0.5;
     }
   }
 }
 
 @mixin button-shadow() {
-  box-shadow: 0 3px 0 $shadow-3;
+  box-shadow: 0 2px 0 $btn-shadow;
   &:hover,
   &:focus,
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    box-shadow: 0 2px 0 $btn-shadow;
+  }
+  &:focus {
+    box-shadow: 0 2px 0 $btn-shadow;
+  }
   &:active,
-  &.active {
-    box-shadow: 0 3px 0 $shadow-2;
+  &.active{
+   box-shadow: none;
   }
 }
 

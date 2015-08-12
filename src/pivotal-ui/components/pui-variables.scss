@@ -50,6 +50,7 @@ $shadow-1 : rgba(0, 0, 0, 0.3);
 $shadow-2 : rgba(0, 0, 0, 0.14);
 $shadow-3 : rgba(0, 0, 0, 0.07);
 $shadow-4 : rgba(0, 0, 0, 0.035);
+$btn-shadow: rgba(211,217,217,0.50);
 $glow-1 : rgba(255,255,255,0.1);
 $glow-2 : rgba(255,255,255,0.2);
 $glow-3 : rgba(255,255,255,0.4);
@@ -258,7 +259,7 @@ $navbar-width:              210px;
 // Scaffolding
 // -------------------------
 
-$html-bg:               white;
+$html-bg:               $neutral-11;
 $body-bg:               transparent;
 $text-color:            $neutral-3 !default;
 
@@ -266,7 +267,7 @@ $text-color:            $neutral-3 !default;
 // -------------------------
 
 $link-color:                              $accent-3;
-$link-hover-color:                        $dark-2;
+$link-hover-color:                        $accent-4;
 $link-hover-decoration:                   underline !default;
 
 $link-lowlight-color:                     $accent-5;
@@ -433,38 +434,35 @@ $btn-font-weight:                600 !default;
 $btn-border-width:               0;
 
 $btn-default-color:              $link-color !default;
-$btn-default-bg:                 $glow-3 !default; // not currently used, but bootstrap relies on this value
-$btn-default-border:             transparent !default; // not currently used, but bootstrap relies on this value
-$btn-default-border-hover:       transparent;
-$btn-default-bg-hover:           white;
+$btn-default-bg:                 $neutral-11 !default;
+$btn-default-border:             $neutral-7 !default; // not currently used, but bootstrap relies on this value
+$btn-default-border-hover:       $neutral-5;
 
 $btn-default-alt-color:          $link-color;
 $btn-default-alt-bg:             $neutral-11;
-$btn-default-alt-bg-hover:       $neutral-11;
-$btn-default-alt-border:         1px solid rgba(0,0,0,.15);
+$btn-default-alt-border:         $neutral-7;
 
 $btn-primary-color:              $accent-3;
-$btn-primary-bg:                 white;
-$btn-primary-bg-hover:           white;
+$btn-primary-bg:                 $neutral-11;
+$btn-primary-bg-hover:           $neutral-11;
 $btn-primary-border:             #49A8D5 !default;
 
-$btn-lowlight-color:             $neutral-3;
-$btn-lowlight-bg:                transparent;
-$btn-lowlight-bg-hover:          $glow-4;
+$btn-lowlight-color:             $dark-5;
+$btn-lowlight-bg:                $glow-4;
 
 $btn-highlight-color:             $neutral-11;
+$btn-highlight-color-disabled:    $accent-6;
 $btn-highlight-bg:                $accent-3;
-$btn-highlight-bg-hover:          #1a739e;
 
-$btn-highlight-alt-color:         white;
-$btn-highlight-alt-bg:            $brand-8;
-$btn-highlight-alt-bg-hover:      $brand-5;
+$btn-highlight-alt-color:         $neutral-11;
+$btn-highlight-alt-color-disabled:$brand-11;
+$btn-highlight-alt-bg:            $brand-6;
 
 
 // alternate is only used on login pages
 $btn-alternate-color:            #eee !default;
 $btn-alternate-bg:               $brand-primary !default;
-$btn-alternate-border:           darken($btn-primary-bg, 5%) !default;
+$btn-alternate-border:           darken($neutral-11, 5%) !default;
 
 $btn-success-color:              transparent !default;
 $btn-success-bg:                 transparent !default;
@@ -477,8 +475,9 @@ $btn-warning-bg-hover:           transparent;
 $btn-warning-border:             transparent !default;
 
 $btn-danger-color:               $neutral-11;
+$btn-danger-color-disabled:      $error-6;
 $btn-danger-bg:                  $error-4 !default;
-$btn-danger-bg-hover:            $error-3 !default;
+$btn-danger-bg-hover:            $error-5 !default;
 $btn-danger-border:              $brand-danger !default;
 
 $btn-info-color:                 transparent !default;

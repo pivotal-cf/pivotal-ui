@@ -21,9 +21,9 @@ Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
 ```html_example_table
-<button class="btn btn-primary">Button</button>
+<button class="btn btn-default">Button</button>
 
-<a class="btn btn-primary" href="http://trulia.com">Link</a>
+<a class="btn btn-default" href="http://trulia.com">Link</a>
 ```
 
 If your button is actually a link to another page, please use the
@@ -47,13 +47,13 @@ size and style modifiers.
 Create block level buttons - those that span the full width of a parent - by adding `.btn-block`.
 
 ```html_example
-<button class="btn btn-primary btn-block">Full width button</button>
+<button class="btn btn-default btn-block">Full width button</button>
 ```
 
 */
 
 .btn {
-  font-weight: 900;
+  font-weight: $btn-font-weight;
   padding: 5px 15px;
 
   &.disabled,
@@ -61,7 +61,6 @@ Create block level buttons - those that span the full width of a parent - by add
   fieldset[disabled] & {
     cursor: not-allowed;
     pointer-events: none; // Future-proof disabling of clicks
-    box-shadow: 0 3px 0 $shadow-2;
   }
 }
 
@@ -76,7 +75,6 @@ Button                                                             | Disabled   
 ------------------------------------------------------------------ | --------------------------------------------------------------------------  | ----------------------- | -----------
 <button class="btn btn-default">Default</button>                   |<button class="btn btn-default" disabled>Default</button>                    | `btn btn-default`       | This is what buttons look like, this is the go to button style.
 <button class="btn btn-default-alt">Default alternate</button>     |<button class="btn btn-default-alt" disabled>Default alternate</button>      | `btn btn-default-alt`   | This is what buttons look like, this is the go to button style (on white backgrounds).
-<button class="btn btn-primary">Primary</button>                   |<button class="btn btn-primary" disabled>Primary</button>                    | `btn btn-primary`       | Use this button as the primary call to action
 <button class="btn btn-lowlight">Lowlight</button>                 |<button class="btn btn-lowlight" disabled>Lowlight</button>                  | `btn btn-lowlight`      | Use this button for other actions, like cancel/dismiss
 <button class="btn btn-danger">Delete</button>                     |<button class="btn btn-danger" disabled>Delete</button>                      | `btn btn-danger`        | This button is for delete actions, these actions should also have a confirmation dialog
 <button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
@@ -84,36 +82,34 @@ Button                                                             | Disabled   
 */
 
 .btn-default {
-  @include button-skin($btn-default-color, $btn-default-bg, $btn-default-bg-hover);
+  @include button-skin($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 
 .btn-default-alt {
-  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-bg-hover, $btn-default-alt-border);
+  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-border);
   @include button-shadow;
+  &:hover, &:focus {
+    border-color: $btn-default-border-hover;
+  }
 }
 
-.btn-primary {
-  @include button-skin($btn-primary-color, $btn-primary-bg, $btn-primary-bg-hover);
+.btn-lowlight {
+   @include button-skin($btn-lowlight-color, $btn-lowlight-bg);
+ }
+
+// Danger and error appear as red
+.btn-danger {
+  @include button-skin($btn-danger-color, $btn-danger-bg, $border: null, $color-disabled: $btn-danger-color-disabled);
   @include button-shadow;
 }
 
 .btn-highlight {
-  @include button-skin($btn-highlight-color, $btn-highlight-bg, $btn-highlight-bg-hover);
+  @include button-skin($btn-highlight-color, $btn-highlight-bg, $border: null, $color-disabled: $btn-highlight-color-disabled);
   @include button-shadow;
 }
 
 .btn-highlight-alt {
-  @include button-skin($btn-highlight-alt-color, $btn-highlight-alt-bg, $btn-highlight-alt-bg-hover);
-  @include button-shadow;
-}
-
-.btn-lowlight {
-  @include button-skin($btn-lowlight-color, $btn-lowlight-bg, $btn-lowlight-bg-hover);
-}
-
-// Danger and error appear as red
-.btn-danger {
-  @include button-skin($btn-danger-color, $btn-danger-bg, $btn-danger-bg-hover);
+  @include button-skin($btn-highlight-alt-color, $btn-highlight-alt-bg, $border: null, $color-disabled: $btn-highlight-alt-color-disabled);
   @include button-shadow;
 }
 
@@ -128,9 +124,9 @@ There are two sizes for buttons: Large and default. Simply apply the
 size modifier class for the desired size.
 
 ```html_example_table
-<button class="btn btn-primary btn-lg">Large</button>
+<button class="btn btn-default btn-lg">Large</button>
 
-<button class="btn btn-primary">Default</button>
+<button class="btn btn-default">Default</button>
 ```
 
 */
