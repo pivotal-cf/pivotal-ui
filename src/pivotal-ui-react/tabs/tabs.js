@@ -1,5 +1,5 @@
 var React = require('react');
-var TabbedArea = require('react-bootstrap').TabbedArea;
+var Tabs = require('react-bootstrap').Tabs;
 
 /**
  * @component SimpleTabs
@@ -28,7 +28,7 @@ var TabbedArea = require('react-bootstrap').TabbedArea;
  */
 var SimpleTabs = React.createClass({
   render() {
-    return <div className="tab-simple"><TabbedArea {...this.props}/></div>;
+    return <div className="tab-simple"><Tabs {...this.props}/></div>;
   }
 });
 
@@ -59,7 +59,7 @@ var SimpleTabs = React.createClass({
  */
 var SimpleAltTabs = React.createClass({
   render() {
-    return <div className="tab-simple-alt"><TabbedArea {...this.props}/></div>;
+    return <div className="tab-simple-alt"><Tabs {...this.props}/></div>;
   }
 });
 
@@ -72,7 +72,7 @@ var SimpleAltTabs = React.createClass({
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
-var Tab = require('react-bootstrap').TabPane;
+var Tab = require('react-bootstrap').Tab;
 
 module.exports = {
   SimpleTabs,
