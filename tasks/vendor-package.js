@@ -2,6 +2,7 @@ import {exec} from 'child_process';
 import gulp from 'gulp';
 import path from 'path';
 import {argv} from 'yargs';
+import gutil from 'gulp-util';
 
 gulp.task('vendor-package', ['css-build', 'react-build'], (callback) => {
   const {type: componentType, component: componentName, dest} = argv;
