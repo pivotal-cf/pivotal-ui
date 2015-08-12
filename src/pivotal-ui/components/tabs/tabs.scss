@@ -554,8 +554,8 @@ parent: tabs_react
 
 ```react_example
 <UI.SimpleTabs defaultActiveKey={1}>
-  <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
-  <UI.Tab eventKey={2} tab="Tab 2">
+  <UI.Tab eventKey={1} title="Tab 1">Wow!</UI.Tab>
+  <UI.Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>
     <span>So much content.</span>
   </UI.Tab>
@@ -573,8 +573,8 @@ parent: tabs_react
 
 ```react_example
 <UI.SimpleAltTabs defaultActiveKey={2}>
-  <UI.Tab eventKey={1} tab="Tab 1">Wow!</UI.Tab>
-  <UI.Tab eventKey={2} tab="Tab 2">
+  <UI.Tab eventKey={1} title="Tab 1">Wow!</UI.Tab>
+  <UI.Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>
     <span>So much content.</span>
   </UI.Tab>

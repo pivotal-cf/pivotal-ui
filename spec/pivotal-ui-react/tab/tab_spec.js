@@ -11,8 +11,8 @@ describe('Tabs', function() {
       React.render(
         (
           <SimpleTabs defaultActiveKey={1}>
-            <Tab eventKey={1} tab="Tab1">Content1</Tab>
-            <Tab eventKey={2} tab="Tab2"/>
+            <Tab eventKey={1} title="Tab1">Content1</Tab>
+            <Tab eventKey={2} title="Tab2"/>
           </SimpleTabs>
         ),
         root
@@ -35,8 +35,8 @@ describe('Tabs', function() {
 
       React.render((
           <SimpleAltTabs defaultActiveKey={1}>,
-            <Tab eventKey={1} tab="Tab1">Content1</Tab>
-            <Tab eventKey={2} tab="Tab2"/>
+            <Tab eventKey={1} title="Tab1">Content1</Tab>
+            <Tab eventKey={2} title="Tab2"/>
           </SimpleAltTabs>
         ),
         root
