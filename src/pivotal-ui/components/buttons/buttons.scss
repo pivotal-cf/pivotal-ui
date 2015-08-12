@@ -88,6 +88,9 @@ Button                                                             | Disabled   
 .btn-default-alt {
   @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-border);
   @include button-shadow;
+  &:hover, &:focus {
+    border-color: $btn-default-border-hover;
+  }
 }
 
 .btn-lowlight {

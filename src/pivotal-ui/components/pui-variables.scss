@@ -436,7 +436,7 @@ $btn-border-width:               0;
 $btn-default-color:              $link-color !default;
 $btn-default-bg:                 $neutral-11 !default;
 $btn-default-border:             $neutral-7 !default; // not currently used, but bootstrap relies on this value
-$btn-default-border-hover:       transparent;
+$btn-default-border-hover:       $neutral-5;
 
 $btn-default-alt-color:          $link-color;
 $btn-default-alt-bg:             $neutral-11;
