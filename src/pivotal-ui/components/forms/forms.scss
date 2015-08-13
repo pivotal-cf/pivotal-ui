@@ -435,7 +435,7 @@ This is a fancy number input!
       line-height: 20px;
       &:hover {
         color: $blue-2;
-        background-color: $gray-9;
+        background-color: $neutral-9;
         cursor: pointer;
       }
 
@@ -458,7 +458,7 @@ This is a fancy number input!
     border-radius: 4px;
 
     &:hover {
-      background-color: $gray-9;
+      background-color: $neutral-9;
     }
   }
 }
@@ -614,14 +614,14 @@ This is a fancy select!
 */
 
 .fancy-form-element {
-  box-shadow: 0 3px 0 $gray-7;
+  box-shadow: 0 3px 0 $neutral-7;
   background-color: white;
   @include transition-pui();
   border-radius: 4px;
   position: relative;
 
   &:hover {
-    box-shadow: 0 3px 0 $gray-5;
+    box-shadow: 0 3px 0 $neutral-5;
     cursor: pointer;
   }
 
@@ -691,7 +691,7 @@ This is a fancy select!
     border-radius: 4px;
 
     &:hover {
-      background-color: $gray-9;
+      background-color: $neutral-9;
     }
   }
 
@@ -701,19 +701,19 @@ This is a fancy select!
 
   &.disabled {
     box-shadow: none;
-    background-color: $gray-10;
+    background-color: $neutral-10;
 
     select {
       &[disabled] {
-        color: $gray-5;
+        color: $neutral-5;
         background-color: transparent;
         cursor: default; // Bootstrap fix https://github.com/twbs/bootstrap-sass/issues/881
       }
     }
 
     &:hover {
-      color: $gray-8;
-      background-color: $gray-10;
+      color: $neutral-8;
+      background-color: $neutral-10;
     }
 
     &:after {
@@ -1224,7 +1224,7 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
   + label {
     position: relative;
     display: block;
-    background-color: $gray-7;
+    background-color: $neutral-7;
     transition: background 0.4s;
     cursor: pointer;
     outline: none;
