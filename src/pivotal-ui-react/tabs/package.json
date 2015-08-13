@@ -3,7 +3,7 @@
   "description": "React components for tab-based content toggling",
   "homepage": "http://styleguide.pivotal.io/react.html#tabs_react",
   "dependencies": {
-    "react-bootstrap": "pivotal-cf/react-bootstrap#pui-dist",
+    "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
     "pui-css-tabs": "1.10.0"
   }
 }
