@@ -234,15 +234,19 @@ We like the versions of any `pui-*` dependecies to be exact, not fuzzy (e.g.
 "1.9.3", not "^1.9.3"). For non-pui modules, use your best judgement :grin:
 
 ### Adding new components
+_We are still refining this process! If you find any of this confusing, let us know!_
 
-Some conventions you should be aware of...
+If you are adding a new component, we have provided 'alpha' folders as CSS
+and React sandboxes. These allow you to iterate on components and see them in 
+the styleguide.
+
+**Don't worry about directory organization or publishing the
+component to NPM; we'll take care of it after merging your pull request!**
 
 #### CSS components
 
-If you are adding a new component, please modify the files in
-`src/pivotal-ui/components/alpha`. The alpha
-folder is a sandbox for testing new components. After we merge in your
-PR, we'll take care of making a new folder and publishing the module for you.
+If you are adding a new CSS component, please modify the files in
+`src/pivotal-ui/components/alpha`.
 
 Write your css and hologram docs in `src/pivotal-ui/components/alpha/alpha.scss`.
 **Don't create a new file!!!**
@@ -262,12 +266,11 @@ E.g.:
 <div class="your-component">Your component goes here</div>
 ```
 
+
 #### React components
 
-If you are adding a new component, please modify the files in
-`src/pivotal-ui-react/alpha`. The alpha
-folder is a sandbox for testing new components. After we merge in your
-PR, we'll take care of making a new folder and publishing the module for you.
+If you are adding a new React component, please modify the files in
+`src/pivotal-ui-react/alpha`.
 
 Write your components and javadocs in `src/pivotal-ui-react/alpha/alpha.js`.
 **Don't create a new file!!!** Write your hologram docs and any css in
