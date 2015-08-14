@@ -67,11 +67,11 @@ To use in a view, simply call
 
 ```html_example
 <div class="gravatar gravatar-sm">
-  <img src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
+  <img alt="anonymous gravatar" src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
   <i class="fa fa-user"></i>
 </div>
 <div class="gravatar gravatar-sm">
-  <img src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
+  <img alt="nicole and some people" src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
   <i class="fa fa-user"></i>
 </div>
 ```
@@ -93,22 +93,22 @@ To use in a view, simply call
 
 ```html_example
 <div class="gravatar gravatar-sm">
-  <img src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
+  <img alt="anonymous gravatar" src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
   <i class="fa fa-user"></i>
   <i class="overlay fa fa-envelope"></i>
 </div>
 <div class="gravatar gravatar-sm mlxl">
-  <img src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
+  <img alt="nicole and some people" src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
   <i class="fa fa-user"></i>
   <i class="overlay fa fa-envelope"></i>
 </div>
 <div class="gravatar gravatar-sm mlxl">
-  <img src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
+  <img alt="anonymous gravatar" src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=20&amp;d=blank">
   <i class="fa fa-user highlight"></i>
   <i class="overlay fa fa-check"></i>
 </div>
 <div class="gravatar gravatar-sm mlxl">
-  <img src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
+  <img alt="nicole and some people" src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=20&amp;d=blank">
   <i class="fa fa-user"></i>
   <i class="overlay fa fa-check"></i>
 </div>
@@ -160,11 +160,11 @@ To use in a view, simply call
 
 ```html_example
 <div class="gravatar gravatar-lg">
-  <img src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=80&amp;d=blank">
+  <img alt="anonymous gravatar" src="https://secure.gravatar.com/avatar/8b7970c372aabb936ca455127e04c959?s=80&amp;d=blank">
   <i class="fa fa-user"></i>
 </div>
 <div class="gravatar gravatar-lg">
-  <img src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=80&amp;d=blank">
+  <img alt="nicole and some people" src="https://s.gravatar.com/avatar/c99bd3ce00444f946027741d5a5cd9e9?s=80&amp;d=blank">
   <i class="fa fa-user"></i>
 </div>
 ```
