@@ -1147,7 +1147,7 @@ var StreamListExample = React.createClass({
   render: function() {
     return (
       <div>
-        <UI.DefaultButton onClick={this.simulateIncomingData}>Simulate Incoming Data</UI.DefaultButton>
+        <UI.DefaultButton className="btn btn-default" onClick={this.simulateIncomingData}>Simulate Incoming Data</UI.DefaultButton>
         <UI.StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
           {this.state.data.map(function(datum, i) {
             return <UI.ListItem key={i}>{datum}</UI.ListItem>
@@ -1159,7 +1159,7 @@ var StreamListExample = React.createClass({
 });
 ```
 
-```react_example
+```react_example_table
 <StreamListExample />
 ```
 

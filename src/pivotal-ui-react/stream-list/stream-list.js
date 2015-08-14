@@ -67,7 +67,7 @@ const StreamListNewItemsButton = React.createClass({
 
   render() {
     return (
-      <UIButton className="list-stream-new-items-btn"
+      <UIButton className="btn btn-default list-stream-new-items-btn"
                 onClick={this.props.showNewItems}>
         {`${this.props.numNewItems} ${this.props.numNewItems === 1 ?
           this.props.singularNewItemText : this.props.pluralNewItemsText}`}

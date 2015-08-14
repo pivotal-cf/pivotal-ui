@@ -1,6 +1,4 @@
 import alpha from 'pui-react-alpha';
-import sortableTable from 'pui-react-sortable-table';
-import streamList from 'pui-react-stream-list';
 import selectFancy from 'pui-react-select-fancy';
 
 module.exports = {
@@ -123,7 +121,10 @@ module.exports = {
 
   PortalSource: require('pui-react-portals').PortalSource,
   PortalDestination: require('pui-react-portals').PortalDestination,
+  StreamList: require('pui-react-stream-list').StreamList,
+  SortableTable: require('pui-react-sortable-table').SortableTable,
+  TableHeader: require('pui-react-sortable-table').TableHeader,
+  TableCell: require('pui-react-sortable-table').TableCell,
+  TableRow: require('pui-react-sortable-table').TableRow,
   ...selectFancy,
-  ...sortableTable,
-  ...streamList,
   ...alpha};
