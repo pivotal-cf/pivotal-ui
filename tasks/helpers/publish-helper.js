@@ -30,6 +30,7 @@ export function infoForUpdatedPackages() {
           callback();
         }
         else {
+          console.error(error.stack);
           callback(e);
         }
       }
@@ -62,7 +63,7 @@ export function publishPackages() {
       callback();
     }
     catch(e) {
-      console.error(e);
+      console.error(e.stack);
       callback(e);
     }
   });

@@ -30,7 +30,10 @@ gulp.task('release-update-version', (done) => {
         file.contents = new Buffer(JSON.stringify(jsonContents, null, 2));
         callback(null, file);
       }
-      catch(e) { callback(e); }
+      catch(e) {
+        console.error(e.stack);
+        callback(e);
+      }
     }))
     .pipe(gulp.dest('.'))
     .on('end', () => {

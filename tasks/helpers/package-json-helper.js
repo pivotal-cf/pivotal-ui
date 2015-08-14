@@ -14,6 +14,7 @@ export default function(packageTemplate) {
         }));
       }
       catch(e) {
+        console.error(e.stack);
         callback(e);
       }
     });

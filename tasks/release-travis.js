@@ -39,7 +39,7 @@ gulp.task('release-add-release-notes', () => {
         callback();
       }
       catch(error) {
-        console.error(error);
+        console.error(error.stack);
         callback(error);
       }
     }));

@@ -109,6 +109,7 @@ export function componentsToUpdate() {
         callback();
       }
       catch(error) {
+        console.error(error.stack);
         callback(error);
       }
     }
@@ -131,6 +132,7 @@ export function updatePackageJsons() {
       packageJsonFile.contents = new Buffer(JSON.stringify(packageJsonContents, null, 2));
       callback(null, packageJsonFile);
     } catch(error) {
+      console.error(error.stack);
       callback(error);
     }
   });

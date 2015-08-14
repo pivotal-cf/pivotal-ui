@@ -14,6 +14,7 @@ export function releaseDest(folderName='') {
       callback(null, file);
     }
     catch(e) {
+      console.error(error.stack);
       callback(e);
     }
   });
