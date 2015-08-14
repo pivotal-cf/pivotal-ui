@@ -58,7 +58,7 @@ Removable labels are used as tags in an editable list. The user will either ente
 
 ```html_example
 <span class="label-removable">Removable
-  <a class="close-btn fa fa-close"></a>
+  <a class="close-btn fa fa-close" aria-label="Remove label"></a>
 </span>
 ```
 */

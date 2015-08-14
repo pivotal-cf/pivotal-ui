@@ -39,7 +39,7 @@ parent: accordion
 Use this to expand and collapse content.
 
 ```html_example
-<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example">
+<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example" aria-label="trigger accordion">
   <div class="when-collapsed">
     Expand me
   </div>
@@ -68,7 +68,7 @@ Accordion with plus/minus icon:
   <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
     <div class="row">
       <div class="col-md-23">
-        <a>
+        <a aria-label="trigger accordion">
           <div class="when-collapsed-inline">
             <i class="fa fa-plus-square collapse-icon"></i>
           </div>
@@ -95,7 +95,7 @@ Accordion with caret right/down icon:
   <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-4">
     <div class="row">
       <div class="col-md-23">
-        <a>
+        <a aria-label="trigger accordion">
           <div class="when-collapsed-inline">
             <i class="fa fa-caret-right collapse-icon"></i>
           </div>
@@ -132,7 +132,7 @@ This adds a divider between the accordion header and accordion body.
   <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-5">
     <div class="row">
       <div class="col-md-23">
-        <a>
+        <a aria-label="trigger accordion">
           <div class="when-collapsed-inline">
             <i class="fa fa-caret-right collapse-icon"></i>
           </div>
