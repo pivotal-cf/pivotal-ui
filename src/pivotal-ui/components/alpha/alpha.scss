@@ -33,7 +33,7 @@ npm install pui-react-autocomplete --save
   }
 
   .autocomplete-input {
-    box-shadow: 0 2px 0 $gray-7;
+    box-shadow: 0 2px 0 $neutral-7;
   }
 
   .autocomplete-list {
@@ -45,7 +45,7 @@ npm install pui-react-autocomplete --save
     max-height: 200px;
     overflow-x: hidden;
     overflow-y: auto;
-    border: solid 1px $gray-9;
+    border: solid 1px $neutral-9;
     border-top: 0;
   }
 
@@ -58,24 +58,24 @@ npm install pui-react-autocomplete --save
       text-decoration: none;
     }
     &:active {
-      background: $gray-9;
+      background: $neutral-9;
     }
     &.selected {
       font-weight: $font-weight-em-high;
     }
     &.highlighted {
-      background: $gray-9;
+      background: $neutral-9;
       text-decoration: none;
     }
   }
 
   &.disabled {
-    background-color: $gray-10;
+    background-color: $neutral-10;
     border-radius: 4px;
 
     input {
       box-shadow: none;
-      color: $gray-5;
+      color: $neutral-5;
       background-color: transparent;
       cursor: default;
     }
