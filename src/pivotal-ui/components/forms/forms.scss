@@ -194,11 +194,12 @@ An input with the label right aligned (N.B., control-label class provides the ri
 </form>
 ```
 
-An unstyled inputs that doesn't have any of the default input styles
+An unstyled input that doesn't have any of the default input styles
 
 ```html_example
 <form role="form">
-  <input class="unstyled" placeholder="This is a text input"></input>
+  <label for="unstyledInput">Text Input</label>
+  <input class="unstyled" id="unstyledInput" placeholder="This is a text input"></input>
 </form>
 ```
 */
@@ -226,7 +227,8 @@ all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Text input" type="text"></input>
+  <label for="html5TextInput">Text Input</label>
+  <input class="form-control" id="html5TextInput" placeholder="Text input" type="text"></input>
 </form>
 ```
 
@@ -234,7 +236,8 @@ Password field
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Password" type="password"></input>
+  <label for="html5PasswordInput">Password Input</label>
+  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password"></input>
 </form>
 ```
 
@@ -242,7 +245,8 @@ Date
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Date" type="date"></input>
+  <label for="html5DateInput">Date Input</label>
+  <input class="form-control" id="html5DateInput" placeholder="Date" type="date"></input>
 </form>
 ```
 
@@ -250,7 +254,8 @@ Number
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Number" type="number"></input>
+  <label for="html5NumberInput">Number Input</label>
+  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number"></input>
 </form>
 ```
 
@@ -258,7 +263,8 @@ With a min/max and default starting value
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Number" type="number" min=0 max=2 value=1></input>
+  <label for="html5MinMaxInput">Min/Max Input</label>
+  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1></input>
 </form>
 ```
 
@@ -266,7 +272,8 @@ With a different increment value
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Number" type="number" step=5></input>
+  <label for="html5StepInput">Step Input</label>
+  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5></input>
 </form>
 ```
 
@@ -276,7 +283,8 @@ Use this with fields that require email addresses to pop up the correct keyboard
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Email" type="email"></input>
+  <label for="html5EmailInput">Email Input</label>
+  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email"></input>
 </form>
 ```
 
@@ -286,7 +294,8 @@ Use this with fields that require urls to pop up the correct keyboard on mobile
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="URL" type="url"></input>
+  <label for="html5URLInput">URL Input</label>
+  <input class="form-control" id="html5URLInput" placeholder="URL" type="url"></input>
 </form>
 ```
 
@@ -296,7 +305,8 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" placeholder="Telephone" type="tel"></input>
+  <label for="html5PhoneInput">Phone Input</label>
+  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel"></input>
 </form>
 ```
 */
@@ -312,11 +322,14 @@ Set heights using the form control classes `.input-lg` and `.input-sm`.
 Create larger or smaller form controls that match button sizes.
 
 ```html_example_table
-<input class="form-control input-lg" placeholder=".input-lg" type="text">
+<label for="LargeInput">Large Input</label>
+<input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text">
 
-<input class="form-control" placeholder="Default Input" type="text">
+<label for="DefaultInput">Default Input</label>
+<input class="form-control" id="DefaultInput" placeholder="Default Input" type="text">
 
-<input class="form-control input-sm" placeholder=".input-sm" type="text">
+<label for="SmallInput">Small Input</label>
+<input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
 ```
 
 Set widths using grid column classes like `.col-lg-*`.
@@ -326,13 +339,16 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 <form class="styleguide-form" role="form">
   <div class="row">
     <div class="col-md-4">
-      <input class="form-control" placeholder=".col-xs-2" type="text"></input>
+      <label for="Small2WidthInput">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text"></input>
     </div>
     <div class="col-md-6">
-      <input class="form-control" placeholder=".col-xs-3" type="text"></input>
+      <label for="Small3WidthInput">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text"></input>
     </div>
     <div class="col-md-8">
-      <input class="form-control" placeholder=".col-xs-4" type="text"></input>
+      <label for="Small4WidthInput">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text"></input>
     </div>
   </div>
 </form>
@@ -474,7 +490,8 @@ Use this input when creating a search component.
 
 ```html_example
 <div class="form-group form-group-search">
-  <input class="form-control" placeholder="This is a searchbox">
+  <label for="searchInput">Search</label>
+  <input class="form-control" id="searchInput" placeholder="This is a searchbox">
   <i class="fa fa-search"></i>
 </div>
 ```
@@ -505,7 +522,8 @@ parent: form_inputs
 Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
 
 ```html_example
-<input class="form-control" type="text" placeholder="Readonly input here..." readonly>
+<label for="ReadOnlyInput">ReadOnly</label>
+<input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
 ```
 
 */
@@ -603,13 +621,16 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 <form class="styleguide-form" role="form">
   <div class="row">
     <div class="col-md-4">
-      <input class="form-control" placeholder=".col-xs-2" type="text"></input>
+      <label for="Small2WidthInput2">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text"></input>
     </div>
     <div class="col-md-6">
-      <input class="form-control" placeholder=".col-xs-3" type="text"></input>
+      <label for="Small3WidthInput2">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text"></input>
     </div>
     <div class="col-md-8">
-      <input class="form-control" placeholder=".col-xs-4" type="text"></input>
+      <label for="Small4WidthInput2">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text"></input>
     </div>
   </div>
 </form>
@@ -886,7 +907,8 @@ Block level help text for form controls.
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <input class="form-control" type="text"></input>
+  <label for="demohelp"/>
+  <input class="form-control" id="demohelp" type="text"></input>
   <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
 </form>
 ```
@@ -1116,7 +1138,8 @@ categories:
 This form is used to show information that a user may wish to copy and paste somewhere.
 
 ```html_example
-<input class="auto-select form-control" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight"></input>
+<label for="readonlyautoselect"></label>
+<input class="auto-select form-control" id="readonlyautoselect" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight"></input>
 ```
 
 */
