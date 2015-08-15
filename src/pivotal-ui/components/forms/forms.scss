@@ -83,8 +83,8 @@ This only applies to forms within viewports that are at least 768px wide.
 ```html_example
 <form class="styleguide-form form-inline" role="form">
   <div class="form-group">
-    <label class="sr-only" for="exampleInputEmail2">Email address</label>
-    <input class="form-control" id="exampleInputEmail2" placeholder="Enter email" type="email"></input>
+    <label class="sr-only" for="exampleInputEmail5">Email address</label>
+    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email"></input>
   </div>
   <div class="form-group">
     <label class="sr-only" for="exampleInputPassword2">Password</label>
@@ -114,8 +114,8 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 ```html_example
 <form class="styleguide-form form-inline inline-labels" role="form">
   <div class="form-group">
-    <label for="exampleInputEmail2">Write a thing</label>
-    <input class="form-control" id="exampleInputEmail2" placeholder="Write a thing" type="email"></input>
+    <label for="exampleInputEmail6">Write a thing</label>
+    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email"></input>
   </div>
   <div class="form-group">
     <label for="exampleSelect">Choose a thing</label>
@@ -148,11 +148,11 @@ An input with the label top aligned (this is the default layout).
 ```html_example
 <form class="styleguide-form" role="form">
   <div class="form-group">
-    <label for="exampleInputEmail1">
+    <label for="exampleInputEmail7">
       <abbr title="required">*</abbr>
       Email address
     </label>
-    <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+    <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email"></input>
   </div>
 </form>
 ```
@@ -166,13 +166,13 @@ An input with the label left aligned
 <form class="styleguide-form form-horizontal" role="form">
   <div class="form-group">
     <div class="col-md-6">
-      <label class="control-label" for="exampleInputEmail1">
+      <label class="control-label" for="exampleInputEmail3">
         <abbr title="required">*</abbr>
         Email address
       </label>
     </div>
     <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email"></input>
     </div>
   </div>
 </form>
@@ -183,12 +183,12 @@ An input with the label right aligned (N.B., control-label class provides the ri
 ```html_example
 <form class="styleguide-form form-horizontal" role="form">
   <div class="form-group">
-    <label class="col-md-6 control-label" for="exampleInputEmail1">
+    <label class="col-md-6 control-label" for="exampleInputEmail4">
       <abbr title="required">*</abbr>
       Email address
     </label>
     <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail1" placeholder="Enter email" required="required" type="email"></input>
+      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email"></input>
     </div>
   </div>
 </form>
