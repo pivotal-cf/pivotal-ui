@@ -1,5 +1,7 @@
-var React = require('react');
-var Tabs = require('react-bootstrap').Tabs;
+import React from 'react';
+import Tabs from 'react-bootstrap/lib/Tabs';
+import BsTab from 'react-bootstrap/lib/Tab';
+import uniqueid from 'lodash.uniqueid';
 
 /**
  * @component SimpleTabs
@@ -26,9 +28,9 @@ var Tabs = require('react-bootstrap').Tabs;
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
-var SimpleTabs = React.createClass({
+let SimpleTabs = React.createClass({
   render() {
-    return <div className="tab-simple"><Tabs {...this.props}/></div>;
+    return <div className="tab-simple"><Tabs id={uniqueid('pui-react-tabs-')} {...this.props}/></div>;
   }
 });
 
@@ -57,9 +59,9 @@ var SimpleTabs = React.createClass({
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
-var SimpleAltTabs = React.createClass({
+let SimpleAltTabs = React.createClass({
   render() {
-    return <div className="tab-simple-alt"><Tabs {...this.props}/></div>;
+    return <div className="tab-simple-alt"><Tabs id={uniqueid('pui-react-tabs-')} {...this.props}/></div>;
   }
 });
 
@@ -72,7 +74,7 @@ var SimpleAltTabs = React.createClass({
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
-var Tab = require('react-bootstrap').Tab;
+let Tab = BsTab;
 
 module.exports = {
   SimpleTabs,
