@@ -143,7 +143,7 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
       1. This requires an Apple account. You can get the account ID from an existing computer in the App Store under the 'account' quick link. The password is the 8th oldest Pivotal pairing station password but with the first letter capatilized. If this is not helpful enough send an ask ticket requesting the credentials for apple account access.
     2. In step 4 of the Readme, there is no private key under Volumes. You need to 'ssh-keygen' and then add the new key to your github account
     3. After you have added the ssh-key, you will need to clone something from github (any repo) to confirm github as a host.
-    4. In step 6, cd into the 'cf-jarvice-ui' folder in sprout-wrap and run 'soloist'
+    4. In step 6, cd into the 'cf-pivotal-ui' folder in sprout-wrap and run 'soloist'
   2. You will run soloist multiple times. Just keep running it unless you get the same error message twice in a row. You will need to run soloist about 5 times most likely.
 
 ### Configure Webstorm
