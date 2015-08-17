@@ -1,6 +1,6 @@
 import React from 'react';
-import Tabs from 'react-bootstrap/lib/tabs';
-import BsTab from 'react-bootstrap/lib/tab';
+import Tabs from 'react-bootstrap/lib/Tabs';
+import BsTab from 'react-bootstrap/lib/Tab';
 import uniqueid from 'lodash.uniqueid';
 
 /**
