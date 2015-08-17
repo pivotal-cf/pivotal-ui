@@ -53,7 +53,7 @@ These live in `accessibility.js`.
 
 | Task            | Description                                                         | File found in  |
 |-----------------|---------------------------------------------------------------------|----------------|
-| `vendor-package` | Allows contributors to create a vendored version of a PUI component. Useful if the team has a PR in limbo. See [PR guidlines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#pull-requests) for usage.  | `vendor-package.js` |
+| `vendor-package` | Allows contributors to create a vendored version of a PUI component. Useful if the team has a PR in limbo. See [PR guidlines](CONTRIBUTING.md#pull-requests) for usage.  | `vendor-package.js` |
 
 
 # Tasks for publishing/releasing
@@ -62,11 +62,11 @@ These live in `accessibility.js`.
 |-----------------|---------------------------------------------------------------------|----------------|
 | `css-build` | Builds all `pui-css-*` packages, ready for publishing. Packages live in the `dist/css` folder.  | `css-components.js` |
 | `react-build` | Builds all `pui-react-*` packages, ready for publishing. " `dist/react` ".  | `react-components.js` |
-| `css-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp css-publish --component <COMPONENT_NAME>`. See [core team docs](https://raw.githubusercontent.com/pivotal-cf/pivotal-ui/master/CORE_TEAM_DOCS.md) for more info. | `css-components.js` |
-| `react-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp react-publish --component <COMPONENT_NAME>`. See [core team docs](https://raw.githubusercontent.com/pivotal-cf/pivotal-ui/master/CORE_TEAM_DOCS.md) for more info. | `react-components.js` |
-| `release-push` | Pushes/publishes new release. Some of this publishing is done by this task, and some is done by Travis CI. It generates a new tag, a github release, publishes new package version to NPM, and updates the production styleguide. See [core team docs](https://raw.githubusercontent.com/pivotal-cf/pivotal-ui/master/CORE_TEAM_DOCS.md) for more info. | `release-push.js` |
-| `release-prepare` | Generates a commit in preparation of the next commit. Updates package versions, generates the changelog, and generates a new release folder. See [core team docs](https://raw.githubusercontent.com/pivotal-cf/pivotal-ui/master/CORE_TEAM_DOCS.md) for more info. | `release-prepare.js` |
-| `release-push` | Pushes/publishes new release. Some of this publishing is done by this task, and some is done by Travis CI. It generates a new tag, a github release, publishes new package version to NPM, and updates the production styleguide. See [core team docs](https://raw.githubusercontent.com/pivotal-cf/pivotal-ui/master/CORE_TEAM_DOCS.md) for more info. | `release-push.js` |
+| `css-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp css-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `css-components.js` |
+| `react-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp react-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `react-components.js` |
+| `release-push` | Pushes/publishes new release. Some of this publishing is done by this task, and some is done by Travis CI. It generates a new tag, a github release, publishes new package version to NPM, and updates the production styleguide. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `release-push.js` |
+| `release-prepare` | Generates a commit in preparation of the next commit. Updates package versions, generates the changelog, and generates a new release folder. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `release-prepare.js` |
+| `release-push` | Pushes/publishes new release. Some of this publishing is done by this task, and some is done by Travis CI. It generates a new tag, a github release, publishes new package version to NPM, and updates the production styleguide. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `release-push.js` |
 
 ## Less important publishing tasks
 
