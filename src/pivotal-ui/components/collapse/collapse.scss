@@ -39,7 +39,7 @@ parent: accordion
 Use this to expand and collapse content.
 
 ```html_example
-<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example" aria-label="trigger accordion">
+<a class="collapsed" data-toggle="collapse" href="#simple-collapse-example">
   <div class="when-collapsed">
     Expand me
   </div>
