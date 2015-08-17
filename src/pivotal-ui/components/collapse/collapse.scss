@@ -266,7 +266,7 @@ parent: collapse_react
 This is a basic collapse with no additional styles.
 
 ```react_example
-<UI.BaseCollapse header="Panel 1">
+<BaseCollapse header="Panel 1">
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
@@ -277,7 +277,7 @@ This is a basic collapse with no additional styles.
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
-</UI.BaseCollapse>
+</BaseCollapse>
 ```
 */
 
@@ -291,13 +291,13 @@ parent: collapse_react
 This is a basic collapse with an arrow icon in the clickable region.
 
 ```react_example
-<UI.Collapse header="With Arrows">
+<Collapse header="With Arrows">
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
-</UI.Collapse>
+</Collapse>
 ```
 */
 
@@ -311,13 +311,13 @@ parent: collapse_react
 This is a basic collapse with an +/- icon in the clickable region.
 
 ```react_example
-<UI.AltCollapse header="Without Arrows">
+<AltCollapse header="Without Arrows">
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
-</UI.AltCollapse>
+</AltCollapse>
 ```
 */
 
@@ -332,13 +332,13 @@ To add a divider between the clickable region and the expanded content region,
 simply set the `divider` property to be true.
 
 ```react_example
-<UI.Collapse header="With Divider" divider>
+<Collapse header="With Divider" divider>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
   <p>Content!</p>
-</UI.Collapse>
+</Collapse>
 ```
 */
 

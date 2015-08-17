@@ -9,5 +9,8 @@ require('pui-react-back-to-top/jquery-plugin');
 
 global.React = require('react/addons');
 
-global.UI = require('./components.js');
+import UI from './components.js';
 
+_.each(UI, function(value, key) {
+    global[key] = value;
+});

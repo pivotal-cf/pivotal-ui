@@ -673,9 +673,9 @@ category:
 ---
 We have three type systems. Which one you choose depends on your product.
 
-* Marketing sites should use the largest styles, for example `<UI.MarketingH1>A Top Level Heading</UI.MarketingH1>`
-* Most sites will use our default headings, for example `<UI.DefaultH1>A Top Level Heading</UI.DefaultH1>`
-* Rarely, sites will need a smaller type scale, for example `<UI.AlternateH1>A Top Level Heading</UI.AlternateH1>`
+* Marketing sites should use the largest styles, for example `<MarketingH1>A Top Level Heading</MarketingH1>`
+* Most sites will use our default headings, for example `<DefaultH1>A Top Level Heading</DefaultH1>`
+* Rarely, sites will need a smaller type scale, for example `<AlternateH1>A Top Level Heading</AlternateH1>`
 
 */
 
@@ -687,17 +687,17 @@ parent: type_react
 ---
 
 ```react_example_table
-<UI.DefaultH1>h1 31px</UI.DefaultH1>
+<DefaultH1>h1 31px</DefaultH1>
 
-<UI.DefaultH2>h2 25px</UI.DefaultH2>
+<DefaultH2>h2 25px</DefaultH2>
 
-<UI.DefaultH3>h3 20px</UI.DefaultH3>
+<DefaultH3>h3 20px</DefaultH3>
 
-<UI.DefaultH4>h4 18px</UI.DefaultH4>
+<DefaultH4>h4 18px</DefaultH4>
 
-<UI.DefaultH5>h5 16px</UI.DefaultH5>
+<DefaultH5>h5 16px</DefaultH5>
 
-<UI.DefaultH6>h6 13px</UI.DefaultH6>
+<DefaultH6>h6 13px</DefaultH6>
 ```
 
 */
@@ -711,17 +711,17 @@ parent: type_react
 
 
 ```react_example_table
-<UI.AlternateH1>This is an H1</UI.AlternateH1>
+<AlternateH1>This is an H1</AlternateH1>
 
-<UI.AlternateH2>This is an H2</UI.AlternateH2>
+<AlternateH2>This is an H2</AlternateH2>
 
-<UI.AlternateH3>This is an H3</UI.AlternateH3>
+<AlternateH3>This is an H3</AlternateH3>
 
-<UI.AlternateH4>This is an H4</UI.AlternateH4>
+<AlternateH4>This is an H4</AlternateH4>
 
-<UI.AlternateH5>This is an H5</UI.AlternateH5>
+<AlternateH5>This is an H5</AlternateH5>
 
-<UI.AlternateH6>This is an H6</UI.AlternateH6>
+<AlternateH6>This is an H6</AlternateH6>
 ```
 */
 
@@ -733,17 +733,17 @@ parent: type_react
 ---
 
 ```react_example_table
-<UI.MarketingH1>This is an h1</UI.MarketingH1>
+<MarketingH1>This is an h1</MarketingH1>
 
-<UI.MarketingH2>This is an h2</UI.MarketingH2>
+<MarketingH2>This is an h2</MarketingH2>
 
-<UI.MarketingH3>This is an h3</UI.MarketingH3>
+<MarketingH3>This is an h3</MarketingH3>
 
-<UI.MarketingH4>This is an h4</UI.MarketingH4>
+<MarketingH4>This is an h4</MarketingH4>
 
-<UI.MarketingH5>This is an h5</UI.MarketingH5>
+<MarketingH5>This is an h5</MarketingH5>
 
-<UI.MarketingH6>This is an h6</UI.MarketingH6>
+<MarketingH6>This is an h6</MarketingH6>
 ```
 
 */
@@ -761,7 +761,7 @@ and see if it still looks ok. If it doesn't (this should be rare!) you can use o
 You may want to wrap this in a custom reusable React component rather than calling it directly.
 
 ```react_example
-<UI.Heading element="h1" bold="high" color="type-brand-5">This is a custom h1</UI.Heading>
+<Heading element="h1" bold="high" color="type-brand-5">This is a custom h1</Heading>
 ```
 
 */

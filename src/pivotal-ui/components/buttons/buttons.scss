@@ -170,64 +170,64 @@ var DefaultButton = require('pui-react-buttons').DefaultButton;
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 
 ```react_example_table
-<UI.DefaultButton href="http://example.com">
+<DefaultButton href="http://example.com">
   Default
-</UI.DefaultButton>
+</DefaultButton>
 ```
 
 To make a button large, set the `large` property to true.
 
 ```react_example_table
-<UI.HighlightButton large={true}>
+<HighlightButton large={true}>
   Big Button
-</UI.HighlightButton>
+</HighlightButton>
 ```
 
 To make a button full-width, set the `block` property to true.
 
 ```react_example
-<UI.DangerButton block={true} href="http://i.imgur.com/oq2qkUN.gif">
+<DangerButton block={true} href="http://i.imgur.com/oq2qkUN.gif">
   Danger Zone
-</UI.DangerButton>
+</DangerButton>
 ```
 
 Specific button types.
 
 ```react_example_table
-<UI.DefaultButton>
+<DefaultButton>
   Default
-</UI.DefaultButton>
+</DefaultButton>
 
-<UI.DefaultAltButton>
+<DefaultAltButton>
   Default alternate
-</UI.DefaultAltButton>
+</DefaultAltButton>
 
-<UI.PrimaryButton>
+<PrimaryButton>
   Primary
-</UI.PrimaryButton>
+</PrimaryButton>
 
-<UI.LowlightButton>
+<LowlightButton>
   Lowlight
-</UI.LowlightButton>
+</LowlightButton>
 
-<UI.DangerButton>
+<DangerButton>
   Danger
-</UI.DangerButton>
+</DangerButton>
 
-<UI.HighlightButton>
+<HighlightButton>
   Highlight
-</UI.HighlightButton>
+</HighlightButton>
 
-<UI.HighlightAltButton>
+<HighlightAltButton>
   Highlight alternate
-</UI.HighlightAltButton>
+</HighlightAltButton>
 ```
 
 The base button renderer. You won't really interact with this directly.
 
 ```react_example_table
-<UI.UIButton>
+<UIButton>
   I'm a button
-</UI.UIButton>
+</UIButton>
 ```
 */

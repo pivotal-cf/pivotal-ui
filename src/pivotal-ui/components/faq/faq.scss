@@ -27,13 +27,13 @@ TLDR; Use modifier classes only for simple overrides. For anything more complica
 
 
 ```react_example_table
-<UI.Panel title="Base Panel">
+<Panel title="Base Panel">
   <p>Base contents</p>
-</UI.Panel>
+</Panel>
 
-<UI.Panel title="Panel with modifier classes" className="paxxl bg-brand-11" innerClassName="type-neutral-11 bg-brand-10">
+<Panel title="Panel with modifier classes" className="paxxl bg-brand-11" innerClassName="type-neutral-11 bg-brand-10">
   <p>Panel contents</p>
-</UI.Panel>
+</Panel>
 ```
 
 ## Using custom classes
@@ -54,9 +54,9 @@ TLDR; Use modifier classes only for simple overrides. For anything more complica
 
 ```react_example
 
-<UI.Panel className="my-special-panel" title="Base Panel">
+<Panel className="my-special-panel" title="Base Panel">
   <p>Base contents</p>
-</UI.Panel>
+</Panel>
 ```
 
 */
@@ -74,9 +74,9 @@ This is not recommended. We'd suggest you try to customize your component [using
 If you're sure you want to do this...
 
 ```react_example
-<UI.Panel title="Base Panel" style={ {fontFamily: 'fantasy', textTransform: 'uppercase'} }>
+<Panel title="Base Panel" style={ {fontFamily: 'fantasy', textTransform: 'uppercase'} }>
   <p>Base contents</p>
-</UI.Panel>
+</Panel>
 ```
 
 */

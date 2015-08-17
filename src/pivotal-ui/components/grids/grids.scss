@@ -490,36 +490,36 @@ parent: grid_react
 
 ```react_example
 <div>
-  <UI.Row className="grid-show">
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-    <UI.Col md={2}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+    <Col md={2}></Col>
+  </Row>
 
-  <UI.Row className="grid-show">
-    <UI.Col md={16}></UI.Col>
-    <UI.Col md={8}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col md={16}></Col>
+    <Col md={8}></Col>
+  </Row>
 
-  <UI.Row className="grid-show">
-    <UI.Col md={8}></UI.Col>
-    <UI.Col md={8}></UI.Col>
-    <UI.Col md={8}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col md={8}></Col>
+    <Col md={8}></Col>
+    <Col md={8}></Col>
+  </Row>
 
-  <UI.Row className="grid-show">
-    <UI.Col md={12}></UI.Col>
-    <UI.Col md={12}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
 </div>
 ```
 */
@@ -537,21 +537,21 @@ See the example below for a better idea of how it all works.
 
 ```react_example
 <div>
-  <UI.Row className="grid-show">
-    <UI.Col xs={24} md={16}></UI.Col>
-    <UI.Col xs={12} md={8}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col xs={24} md={16}></Col>
+    <Col xs={12} md={8}></Col>
+  </Row>
 
-  <UI.Row className="grid-show">
-    <UI.Col xs={12} md={8}></UI.Col>
-    <UI.Col xs={12} md={8}></UI.Col>
-    <UI.Col xs={12} md={8}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col xs={12} md={8}></Col>
+    <Col xs={12} md={8}></Col>
+    <Col xs={12} md={8}></Col>
+  </Row>
 
-  <UI.Row className="grid-show">
-    <UI.Col xs={12}></UI.Col>
-    <UI.Col xs={12}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col xs={12}></Col>
+    <Col xs={12}></Col>
+  </Row>
 </div>
 ```
 
@@ -566,20 +566,20 @@ parent: grid_react
 
 ```react_example
 <div>
-  <UI.Row className="grid-show">
-    <UI.Col md={12}></UI.Col>
-    <UI.Col md={12}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
 
-  <UI.Row className="grid-show" gutter="md">
-    <UI.Col md={12}></UI.Col>
-    <UI.Col md={12}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show" gutter="md">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
 
-  <UI.Row className="grid-show" gutter="sm">
-    <UI.Col md={12}></UI.Col>
-    <UI.Col md={12}></UI.Col>
-  </UI.Row>
+  <Row className="grid-show" gutter="sm">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
 </div>
 ```
 */

@@ -380,25 +380,25 @@ var sortTableData = [
 ```
 
 ```react_example
-<UI.SortableTable
+<SortableTable
   headers={[
-  <UI.TableHeader sortable={true}>Name</UI.TableHeader>,
-  <UI.TableHeader sortable={true}>Instances</UI.TableHeader>,
-  <UI.TableHeader sortable={true}>CPU</UI.TableHeader>,
-  <UI.TableHeader>Synergy</UI.TableHeader>,
+  <TableHeader sortable={true}>Name</TableHeader>,
+  <TableHeader sortable={true}>Instances</TableHeader>,
+  <TableHeader sortable={true}>CPU</TableHeader>,
+  <TableHeader>Synergy</TableHeader>,
   ]}
   className="table-light">
   {sortTableData.map(function(datum, key) {
     return (
-      <UI.TableRow key={key}>
-        <UI.TableCell>{datum.name}</UI.TableCell>
-        <UI.TableCell>{datum.instances}</UI.TableCell>
-        <UI.TableCell>{datum.cpu}</UI.TableCell>
-        <UI.TableCell>{datum.synergy}</UI.TableCell>
-      </UI.TableRow>
+      <TableRow key={key}>
+        <TableCell>{datum.name}</TableCell>
+        <TableCell>{datum.instances}</TableCell>
+        <TableCell>{datum.cpu}</TableCell>
+        <TableCell>{datum.synergy}</TableCell>
+      </TableRow>
     );
   })}
-</UI.SortableTable>
+</SortableTable>
 ```
 
 */

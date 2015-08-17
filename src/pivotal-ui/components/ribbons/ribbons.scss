@@ -146,9 +146,9 @@ They should be used to call out access, status, environment, etc.
 
 
 ```react_example_table
-<UI.Ribbon> British </UI.Ribbon>
+<Ribbon> British </Ribbon>
 
-<UI.PrimaryRibbon> English-British </UI.PrimaryRibbon>
+<PrimaryRibbon> English-British </PrimaryRibbon>
 ```
 */
 
@@ -160,7 +160,7 @@ parent: ribbons_react
 ---
 
 ```react_wrapped_example_table
-<UI.Banner> British </UI.Banner>
+<Banner> British </Banner>
 ```
 
 */

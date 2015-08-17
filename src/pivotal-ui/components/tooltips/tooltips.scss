@@ -125,27 +125,27 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", 
 <div>
 <p>
   Check out this
-  <UI.OverlayTrigger placement="left" overlay={<UI.Tooltip>I should be on the left</UI.Tooltip>}>
+  <OverlayTrigger placement="left" overlay={<Tooltip>I should be on the left</Tooltip>}>
     <a href="#"> tooltip on the left</a>
-  </UI.OverlayTrigger>
+  </OverlayTrigger>
 </p>
 <p>
   Check out this
-  <UI.OverlayTrigger placement="right" overlay={<UI.Tooltip>I should be on the right</UI.Tooltip>}>
+  <OverlayTrigger placement="right" overlay={<Tooltip>I should be on the right</Tooltip>}>
     <a href="#"> tooltip on the right</a>
-  </UI.OverlayTrigger>
+  </OverlayTrigger>
 </p>
 <p>
   Check out this
-  <UI.OverlayTrigger placement="top" overlay={<UI.Tooltip>I should be on the top</UI.Tooltip>}>
+  <OverlayTrigger placement="top" overlay={<Tooltip>I should be on the top</Tooltip>}>
     <a href="#"> tooltip on the top</a>
-  </UI.OverlayTrigger>
+  </OverlayTrigger>
 </p>
 <p>
   Check out this
-  <UI.OverlayTrigger placement="bottom" overlay={<UI.Tooltip>I should be on the bottom</UI.Tooltip>}>
+  <OverlayTrigger placement="bottom" overlay={<Tooltip>I should be on the bottom</Tooltip>}>
     <a href="#"> tooltip on the bottom</a>
-  </UI.OverlayTrigger>
+  </OverlayTrigger>
 </p>
 </div>
 ```

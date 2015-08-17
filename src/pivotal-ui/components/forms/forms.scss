@@ -1372,10 +1372,10 @@ select properties (such as `value`).
 
 ```react_example
 <form style={{width: 200}}>
-  <UI.SelectFancy>
+  <SelectFancy>
     <option>Fancy Option 1</option>
     <option>Fancy Option 2</option>
-  </UI.SelectFancy>
+  </SelectFancy>
 </form>
 ```
 
@@ -1383,10 +1383,10 @@ To disable the select, add the disabled prop.
 
 ```react_example
 <form style={{width: 200}}>
-  <UI.SelectFancy disabled={true}>
+  <SelectFancy disabled={true}>
     <option>Fancy Option 1</option>
     <option>Fancy Option 2</option>
-  </UI.SelectFancy>
+  </SelectFancy>
 </form>
 ```
 */
@@ -1403,7 +1403,7 @@ A `SearchInput` component can be used on its own as an input. It accepts standar
 text input properties (such as `placeholder`).
 
 ```react_example
-<UI.SearchInput placeholder="Search..."/>
+<SearchInput placeholder="Search..."/>
 ```
 
 To demonstrate how to use a SearchInput in a more complex example, let's say
@@ -1444,7 +1444,7 @@ var FilteringSearchExample = React.createClass({
 
     return (
       <div>
-        <UI.SearchInput placeholder='Filter by...' onChange={this.updateFilter}/>
+        <SearchInput placeholder='Filter by...' onChange={this.updateFilter}/>
         <ul>
           {listItems}
         </ul>
@@ -1470,10 +1470,10 @@ parent: form_react
 Using React radio buttons in a form is fairly straightforward.
 
 ```react_example
-  <UI.RadioGroup name="field_name">
-    <UI.Radio value="firstValue">You could click this radio button</UI.Radio>
-    <UI.Radio value="SecondValue" defaultChecked>This is also a radio button</UI.Radio>
-  </UI.RadioGroup>
+  <RadioGroup name="field_name">
+    <Radio value="firstValue">You could click this radio button</Radio>
+    <Radio value="SecondValue" defaultChecked>This is also a radio button</Radio>
+  </RadioGroup>
 ```
 
 In this case, the `name` attached to `RadioGroup` will be applied to all of Radio children.
@@ -1496,25 +1496,25 @@ var MyComponent = React.createClass({
     return (
       <form role="form" className="form-horizontal">
         <div className="form-group">
-          <UI.Col md={3}>
+          <Col md={3}>
             <label>Options</label>
-          </UI.Col>
-          <UI.Col md={21}>
-            <UI.RadioGroup name="stuff" onChange={this.change}>
-              <UI.Radio value="others">Others</UI.Radio>
-              <UI.Radio value="others1" defaultChecked>More others</UI.Radio>
-              <UI.Radio value="special">Click for more!</UI.Radio>
-            </UI.RadioGroup>
-          </UI.Col>
+          </Col>
+          <Col md={21}>
+            <RadioGroup name="stuff" onChange={this.change}>
+              <Radio value="others">Others</Radio>
+              <Radio value="others1" defaultChecked>More others</Radio>
+              <Radio value="special">Click for more!</Radio>
+            </RadioGroup>
+          </Col>
         </div>
         {this.state.selection === 'special' && <div className="form-group">
-          <UI.Col md={3}>
+          <Col md={3}>
             <label>Stuff that appears</label>
-          </UI.Col>
-          <UI.Col md={21}>
+          </Col>
+          <Col md={21}>
             <label htmlFor="exampleInputEmail1">Email address</label>
             <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-          </UI.Col>
+          </Col>
         </div>}
       </form>
     );

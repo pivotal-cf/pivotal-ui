@@ -159,43 +159,43 @@ var Dropdown = require('pui-react-dropdowns').Dropdown;
 This is the basic bootstrap dropdown:
 
 ```react_example_table
-<UI.Dropdown title='DropDown'>
-  <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
-  <UI.DropdownItem divider />
-  <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.Dropdown>
+<Dropdown title='DropDown'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem divider />
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</Dropdown>
 ```
 
 Here are all the different dropdown styles:
 
 ```react_example_table
-<UI.LinkDropdown title='Link'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.LinkDropdown>
+<LinkDropdown title='Link'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</LinkDropdown>
 
-<UI.DefaultAltDropdown title='Default Alt'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DefaultAltDropdown>
+<DefaultAltDropdown title='Default Alt'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
 
-<UI.PrimaryDropdown title='Primary'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.PrimaryDropdown>
+<PrimaryDropdown title='Primary'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</PrimaryDropdown>
 
-<UI.LowlightDropdown title='Lowlight'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.LowlightDropdown>
+<LowlightDropdown title='Lowlight'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</LowlightDropdown>
 
-<UI.DangerDropdown title='Danger'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DangerDropdown>
+<DangerDropdown title='Danger'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DangerDropdown>
 
-<UI.HighlightDropdown title='Highlight'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.HighlightDropdown>
+<HighlightDropdown title='Highlight'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</HighlightDropdown>
 
-<UI.HighlightAltDropdown title='Highlight Alt'>
-   <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.HighlightAltDropdown>
+<HighlightAltDropdown title='Highlight Alt'>
+   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</HighlightAltDropdown>
 ```
 
 If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
@@ -204,11 +204,11 @@ To customize the dropdown button, you can add modifier classes to it
 using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
 
 ```react_example
-<UI.DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
-  <UI.DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</UI.DropdownItem>
-  <UI.DropdownItem divider />
-  <UI.DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</UI.DropdownItem>
-</UI.DefaultAltDropdown>
+<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem divider />
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
 ```
 
 */
@@ -446,24 +446,24 @@ var Notifications = require('pui-react-notifications');
 Here's an example if there are no notifications:
 
 ```react_example_table
-<UI.Notifications />
+<Notifications />
 ```
 
 Here's an example if there are notifications:
 
 ```jsx_example
-var newLabel = <UI.DefaultH3 className="mvn"><UI.Label>New</UI.Label></UI.DefaultH3>;
+var newLabel = <DefaultH3 className="mvn"><Label>New</Label></DefaultH3>;
 ```
 
 ```react_example_table
-<UI.Notifications>
-  <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <UI.Flag leftImage={newLabel}>
-      <UI.DefaultH5 className="media-heading mbn type-dark-2">Notification</UI.DefaultH5>
+<Notifications>
+  <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
+    <Flag leftImage={newLabel}>
+      <DefaultH5 className="media-heading mbn type-dark-2">Notification</DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
-    </UI.Flag>
-  </UI.NotificationItem>
-</UI.Notifications>
+    </Flag>
+  </NotificationItem>
+</Notifications>
 ```
 */
 
@@ -475,35 +475,35 @@ parent: notifications_react
 ---
 
 ```react_example_table
-<UI.Notifications size="h1">
-  <UI.NotificationItem>Stuff</UI.NotificationItem>
-</UI.Notifications>
+<Notifications size="h1">
+  <NotificationItem>Stuff</NotificationItem>
+</Notifications>
 
-<UI.Notifications size="h2">
+<Notifications size="h2">
   {_.times(10, function() {
-    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+    return <NotificationItem>Stuff</NotificationItem>;
   })}
-</UI.Notifications>
+</Notifications>
 
-<UI.AlertNotifications size="h3">
-  <UI.NotificationItem>Stuff</UI.NotificationItem>
-</UI.AlertNotifications>
+<AlertNotifications size="h3">
+  <NotificationItem>Stuff</NotificationItem>
+</AlertNotifications>
 
-<UI.Notifications size="h4">
+<Notifications size="h4">
   {_.times(10, function() {
-    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+    return <NotificationItem>Stuff</NotificationItem>;
   })}
-</UI.Notifications>
+</Notifications>
 
-<UI.Notifications size="h5">
-  <UI.NotificationItem>Stuff</UI.NotificationItem>
-</UI.Notifications>
+<Notifications size="h5">
+  <NotificationItem>Stuff</NotificationItem>
+</Notifications>
 
-<UI.AlertNotifications size="h6">
+<AlertNotifications size="h6">
   {_.times(10, function() {
-    return <UI.NotificationItem>Stuff</UI.NotificationItem>;
+    return <NotificationItem>Stuff</NotificationItem>;
   })}
-</UI.AlertNotifications>
+</AlertNotifications>
 ```
 */
 
@@ -523,24 +523,24 @@ var AlertNotifications = require('pui-react-notifications').AlertNotifications;
 Here's an example if there are no alerts:
 
 ```react_example_table
-<UI.AlertNotifications />
+<AlertNotifications />
 ```
 
 Here's an example if there are alerts:
 
 ```jsx_example
-var alertImage = <UI.Icon name="exclamation-triangle" className="h4 type-warn-3 mrm" />;
+var alertImage = <Icon name="exclamation-triangle" className="h4 type-warn-3 mrm" />;
 ```
 
 ```react_example_table
-<UI.AlertNotifications>
-  <UI.NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <UI.Flag leftImage={alertImage}>
-      <UI.DefaultH5 className="media-heading mbn type-dark-2">WARNING</UI.DefaultH5>
+<AlertNotifications>
+  <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
+    <Flag leftImage={alertImage}>
+      <DefaultH5 className="media-heading mbn type-dark-2">WARNING</DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
-    </UI.Flag>
-  </UI.NotificationItem>
-</UI.AlertNotifications>
+    </Flag>
+  </NotificationItem>
+</AlertNotifications>
 ```
 
 If you want to customize the notification dropdown, you can use `className` to add a modifier class to the `btn-group`. `id` and `style` will be applied to the notfication button.

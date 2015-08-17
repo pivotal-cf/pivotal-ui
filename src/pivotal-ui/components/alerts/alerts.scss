@@ -229,13 +229,13 @@ var SuccessAlert = require('pui-react-alerts').SuccessAlert;
 
 
 ```react_example_table
-<UI.SuccessAlert>success</UI.SuccessAlert>
+<SuccessAlert>success</SuccessAlert>
 
-<UI.InfoAlert>info</UI.InfoAlert>
+<InfoAlert>info</InfoAlert>
 
-<UI.WarningAlert>warning</UI.WarningAlert>
+<WarningAlert>warning</WarningAlert>
 
-<UI.ErrorAlert>error</UI.ErrorAlert>
+<ErrorAlert>error</ErrorAlert>
 ```
 
 */
@@ -250,7 +250,7 @@ parent: alerts_react
 Add the `dismissable` property to add a close button to the alert.
 
 ```react_example_table
-<UI.SuccessAlert dismissable>success</UI.SuccessAlert>
+<SuccessAlert dismissable>success</SuccessAlert>
 ```
 
 If you want a callback to be called when the close button is
@@ -263,7 +263,7 @@ var callback = function() {
 ```
 
 ```react_example_table
-<UI.InfoAlert dismissable={callback}>with callback</UI.InfoAlert>
+<InfoAlert dismissable={callback}>with callback</InfoAlert>
 ```
 
 */
@@ -278,18 +278,18 @@ parent: alerts_react
 If you want an icon to be displayed, set the `withIcon` property.
 
 ```react_example_table
-<UI.SuccessAlert withIcon>success</UI.SuccessAlert>
+<SuccessAlert withIcon>success</SuccessAlert>
 
-<UI.InfoAlert withIcon>info</UI.InfoAlert>
+<InfoAlert withIcon>info</InfoAlert>
 
-<UI.WarningAlert withIcon>warning</UI.WarningAlert>
+<WarningAlert withIcon>warning</WarningAlert>
 
-<UI.ErrorAlert withIcon>error</UI.ErrorAlert>
+<ErrorAlert withIcon>error</ErrorAlert>
 ```
 
 Here's a dismissable alert with an icon
 
 ```react_example_table
-<UI.WarningAlert dismissable withIcon>warning</UI.WarningAlert>
+<WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
 */

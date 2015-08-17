@@ -78,20 +78,20 @@ var Divider = require('pui-react-divider').Divider;
 Dividers draw horizontal lines between different content groupings.
 
 ```react_example_table
-<UI.Divider />
+<Divider />
 
-<UI.Divider size="large" />
+<Divider size="large" />
 ```
 
 On a dark background, use these inverse dividers
 
 ```react_example_table
 <div className='contrast-bar'>
-  <UI.InverseDivider />
+  <InverseDivider />
 </div>
 
 <div className='contrast-bar'>
-  <UI.InverseDivider size='large' />
+  <InverseDivider size='large' />
 </div>
 ```
 */

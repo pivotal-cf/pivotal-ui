@@ -130,9 +130,9 @@ The `Pane` component is a straightforward implementation of the [Pane][pane] sty
 Any className values passed through are passed to the underlying `.pane`.
 
 ```react_example
-<UI.Pane className="bg-neutral-10">
-  <UI.DefaultH1>This is a pane</UI.DefaultH1>
-</UI.Pane>
+<Pane className="bg-neutral-10">
+  <DefaultH1>This is a pane</DefaultH1>
+</Pane>
 ```
 
 In the event that you need additional configuration applied to a Pane, you can use the
@@ -141,8 +141,8 @@ In the event that you need additional configuration applied to a Pane, you can u
 These values are added to the class name of the `.pane` and the `.container` respectively.
 
 ```react_example
-<UI.BasePane className="bg-dark-2" innerClassName="bg-glow">
-  <UI.DefaultH1 color="type-neutral-9">This is a pane (configurable)</UI.DefaultH1>
-</UI.BasePane>
+<BasePane className="bg-dark-2" innerClassName="bg-glow">
+  <DefaultH1 color="type-neutral-9">This is a pane (configurable)</DefaultH1>
+</BasePane>
 ```
 */

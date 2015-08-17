@@ -38,13 +38,13 @@ var MoreInfo = React.createClass({
   render: function() {
     return (
       <main>
-        <UI.ExpanderContent ref="infoContent">
+        <ExpanderContent ref="infoContent">
           <p className='h1 bg-neutral-2 type-neutral-9'>Content in expander</p>
-        </UI.ExpanderContent>
+        </ExpanderContent>
         <br/>
-        <UI.ExpanderTrigger ref="infoTrigger">
+        <ExpanderTrigger ref="infoTrigger">
           <button className='btn btn-highlight'>Toggle Content</button>
-        </UI.ExpanderTrigger>
+        </ExpanderTrigger>
       </main>
     )
   }

@@ -244,9 +244,9 @@ var Modal = require('pui-react-modals').Modal;
 
 We provide 3 components that can be used to assemble modals:
 
-* `UI.Modal`
-* `UI.ModalBody`
-* `UI.ModalFooter`
+* `Modal`
+* `ModalBody`
+* `ModalFooter`
 
 <div class="alert alert-info mbxl">
   <h5 class="em-high mtn">
@@ -281,13 +281,13 @@ var MyModal = React.createClass({
   render: function() {
     return (
       <div>
-        <UI.DefaultButton id='openButton' onClick={this._openModal}>Open Modal</UI.DefaultButton>
-        <UI.Modal title='What a Header!' ref='modal' className='optional-custom-class'>
-          <UI.ModalBody>Text in a body</UI.ModalBody>
-          <UI.ModalFooter>
-            <UI.DefaultButton id='closeButton' onClick={this._closeModal}>Close</UI.DefaultButton>
-          </UI.ModalFooter>
-        </UI.Modal>
+        <DefaultButton id='openButton' onClick={this._openModal}>Open Modal</DefaultButton>
+        <Modal title='What a Header!' ref='modal' className='optional-custom-class'>
+          <ModalBody>Text in a body</ModalBody>
+          <ModalFooter>
+            <DefaultButton id='closeButton' onClick={this._closeModal}>Close</DefaultButton>
+          </ModalFooter>
+        </Modal>
       </div>
     )
   }

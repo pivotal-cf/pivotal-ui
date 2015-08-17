@@ -31,12 +31,12 @@ anywhere without knowing about `<body>`.
 <div>
   <section>
     <span>Content will be transported from here:</span>
-    <UI.PortalSource name="modal">Transported content</UI.PortalSource>
+    <PortalSource name="modal">Transported content</PortalSource>
   </section>
   <section className="mvxxl">Unrelated content</section>
   <section>
     <span>To here:</span>
-    <UI.PortalDestination name="modal"/>
+    <PortalDestination name="modal"/>
   </section>
 </div>
 ```

@@ -675,14 +675,14 @@ is the base, and there are many different flavors of Panels which all construct 
 See examples below.
 
 ```react_example_table
-<UI.Panel className="bg-neutral-8">
+<Panel className="bg-neutral-8">
   <p>Base Panel</p>
-</UI.Panel>
+</Panel>
 
-<UI.Panel className="bg-neutral-8 optional-class"
+<Panel className="bg-neutral-8 optional-class"
   innerClassName="opt-inner-class">
   <p>Base Panel</p>
-</UI.Panel>
+</Panel>
 ```
 */
 
@@ -697,16 +697,16 @@ A ScrollingPanel is created by using a `Panel` component and including a true va
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels!
 
 ```react_example_table
-<UI.Panel className="bg-neutral-8" scrollable={100}>
+<Panel className="bg-neutral-8" scrollable={100}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
-</UI.Panel>
+</Panel>
 
-<UI.Panel className="bg-neutral-8" scrollable={true}>
+<Panel className="bg-neutral-8" scrollable={true}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -715,7 +715,7 @@ property. Alternatively, if this value is a number, it will become the height of
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
-</UI.Panel>
+</Panel>
 ```
 */
 
@@ -729,9 +729,9 @@ parent: panel_react
 Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the `panel-body`.
 
 ```react_example_table
-<UI.Panel className="bg-neutral-8" padding="paxxl">
+<Panel className="bg-neutral-8" padding="paxxl">
   <p>Base Panel</p>
-</UI.Panel>
+</Panel>
 
 ```
 
@@ -745,9 +745,9 @@ parent: panel_react
 ---
 
 ```react_example_table
-<UI.SimplePanel>
+<SimplePanel>
   Simple Panel
-</UI.SimplePanel>
+</SimplePanel>
 ```
 */
 
@@ -759,13 +759,13 @@ parent: panel_react
 ---
 
 ```react_example_table
-<UI.BasicPanel>
+<BasicPanel>
   Basic Panel
-</UI.BasicPanel>
+</BasicPanel>
 
-<UI.BasicPanel title='Basic Title'>
+<BasicPanel title='Basic Title'>
   Basic Panel
-</UI.BasicPanel>
+</BasicPanel>
 ```
 */
 
@@ -778,13 +778,13 @@ parent: panel_react
 ---
 
 ```react_example_table
-<UI.BasicPanelAlt>
+<BasicPanelAlt>
   Basic Panel
-</UI.BasicPanelAlt>
+</BasicPanelAlt>
 
-<UI.BasicPanelAlt title='Basic Alt Title'>
+<BasicPanelAlt title='Basic Alt Title'>
   Basic Panel
-</UI.BasicPanelAlt>
+</BasicPanelAlt>
 ```
 */
 
@@ -799,15 +799,15 @@ parent: panel_react
 If no `shadowLevel` is set, a default value of 3 is applied.
 
 ```react_example_table
-<UI.ShadowPanel>Shadow Panel (Defaults to shadow level 3)</UI.ShadowPanel>
+<ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>
 
-<UI.ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</UI.ShadowPanel>
+<ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</ShadowPanel>
 
-<UI.ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</UI.ShadowPanel>
+<ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</ShadowPanel>
 
-<UI.ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</UI.ShadowPanel>
+<ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</ShadowPanel>
 
-<UI.ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</UI.ShadowPanel>
+<ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</ShadowPanel>
 ```
 
 */
@@ -820,9 +820,9 @@ parent: panel_react
 ---
 
 ```react_example_table
-<UI.ClickablePanel>Clickable Panel</UI.ClickablePanel>
+<ClickablePanel>Clickable Panel</ClickablePanel>
 
-<UI.ClickableAltPanel>Clickable Panel (Alt)</UI.ClickableAltPanel>
+<ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>
 ```
 */
 
@@ -834,8 +834,8 @@ parent: panel_react
 ---
 
 ```react_example_table
-<UI.HighlightPanel>
+<HighlightPanel>
   Highlight Panel
-</UI.HighlightPanel>
+</HighlightPanel>
 ```
 */
