@@ -108,6 +108,15 @@ blockquote {
 
   }
 
+  .visible-on-focus {
+    position:absolute;
+    left: 0px;
+    top: -40px;
+    &:focus, &:hover {
+      top: 40px;
+    }
+  }
+
   #navbar-hamburger {
     float: right;
     margin: 4px 0px;
