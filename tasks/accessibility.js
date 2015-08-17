@@ -61,36 +61,54 @@ gulp.task('accessibility-react-a11y', ['accessibility-react-a11y-injectable'], f
 
 gulp.task('accessibility-a11y', (done) => {
   const port = process.env.STYLEGUIDE_PORT || 8000;
-  const page = `http://localhost:${port}/react.html`;
-  log(`Testing accessibility of ${page}`);
 
-  a11y(page, (err, reports) => {
-    if (err) {
-      done(err);
-      process.exit(1);
-    }
+  // TODO: When every page is going green, then check the all page. Until then, it should be extra noise.
+  //const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq', 'all'];
+  const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq'];
 
-    let hasErrors;
+  pages.forEach(function(page) {
+    const url = `http://localhost:${port}/${page}.html`;
 
-    for (let el of reports.audit) {
-      if (el.result === 'FAIL') {
-        log(colors.red('FAIL', el.heading), el.elements.replace(/\n/g, '\n  '));
-        hasErrors = true;
+    a11y(url, (err, reports) => {
+      var failureCount = 0;
+      log('');
+      log('------------------------------------------------------------------');
+      log(`Testing accessibility of the ${page} page`);
+      log('------------------------------------------------------------------');
+      log('');
+      if (err) {
+        done(err);
+        process.exit(1);
       }
-      else if (el.result === 'NA') {
-        log(colors.yellow('NA', el.heading));
-      }
-      else {
-        log(colors.green('PASS', el.heading));
-      }
-    }
 
-    if (hasErrors) {
-      console.error('Google accessibility errors');
-      // TODO: should cause accessibility-ci to exit w/ non-zero code
-    }
-    done();
+      let hasErrors;
+
+      for (let el of reports.audit) {
+        if (el.result === 'FAIL') {
+          failureCount++;
+          log(colors.red('FAIL', el.heading), el.elements.replace(/\n/g, '\n  '));
+          hasErrors = true;
+        }
+        else if (el.result === 'NA') {
+          log(colors.yellow('NA', el.heading));
+        }
+        else {
+          log(colors.green('PASS', el.heading));
+        }
+      }
+
+      if (hasErrors) {
+        log('');
+        log('------------------------------------------------------------------');
+        log(`${failureCount} ADT failures on the ${page} page`);
+        log('------------------------------------------------------------------');
+        log('');
+        // TODO: should cause accessibility-ci to exit w/ non-zero code
+
+      }
+    });
   });
+  done();
 });
 
 gulp.task('accessibility-ci', (done) => runSequence(
