@@ -60,7 +60,7 @@ PRs, it is our responsibility to properly package the new components.
 1. It can be helpful to set the version number in the `package.json` files to `0.0.1`
    so there is room to fix any errors after first publishing the module
 6. Publish the module to NPM (see below)
--1. Add the newly published component as a dependency in the top-level `package.json`.
+5. Add the newly published component as a dependency in the top-level `package.json`.
 q. Add new css modules as dependencies to the `all` css component.
 8. Require/export any new react components in `src/pivotal-ui/javascripts/components.js`.
 
