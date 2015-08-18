@@ -1,5 +1,6 @@
 import alpha from 'pui-react-alpha';
 import selectFancy from 'pui-react-select-fancy';
+import autocomplete from 'pui-react-autocomplete';
 
 module.exports = {
   DefaultH1: require('pui-react-typography').DefaultH1,
@@ -126,5 +127,6 @@ module.exports = {
   TableHeader: require('pui-react-sortable-table').TableHeader,
   TableCell: require('pui-react-sortable-table').TableCell,
   TableRow: require('pui-react-sortable-table').TableRow,
+  ...autocomplete,
   ...selectFancy,
   ...alpha};
