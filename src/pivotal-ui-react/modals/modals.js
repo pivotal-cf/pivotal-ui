@@ -150,3 +150,82 @@ var ModalFooter = React.createClass({
 });
 
 module.exports = {Modal, ModalBody, ModalFooter};
+
+/*doc
+---
+title: Modals
+name: modal_react
+categories:
+- React
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-modals --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var Modal = require('pui-react-modals').Modal;
+```
+
+
+We provide 3 components that can be used to assemble modals:
+
+* `Modal`
+* `ModalBody`
+* `ModalFooter`
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Opening and closing the modal with callbacks
+  </h5>
+  <p>
+    Modals will be closed by default. To open the modal, add a <code>ref</code>
+    property to the modal (i.e. <code>ref='myModal'</code>). Trigger
+    <code>this.refs.myModal.open();</code> to open the modal, and
+    <code>this.refs.myModal.close();</code> to close the modal.
+  </p>
+</div>
+
+There are 4 ways to close the modal
+
+* Clicking the "x" button
+* Clicking on the modal backdrop
+* Clicking the esc key
+* Doing any action that triggers `this.refs.myModal.close`.
+
+```jsx_example
+
+var MyModal = React.createClass({
+  _openModal: function(){
+    this.refs.modal.open();
+  },
+
+  _closeModal: function() {
+    this.refs.modal.close();
+  },
+
+  render: function() {
+    return (
+      <div>
+        <DefaultButton id='openButton' onClick={this._openModal}>Open Modal</DefaultButton>
+        <Modal title='What a Header!' ref='modal' className='optional-custom-class'>
+          <ModalBody>Text in a body</ModalBody>
+          <ModalFooter>
+            <DefaultButton id='closeButton' onClick={this._closeModal}>Close</DefaultButton>
+          </ModalFooter>
+        </Modal>
+      </div>
+    )
+  }
+});
+
+```
+
+```react_example_table
+<MyModal/>
+```
+*/

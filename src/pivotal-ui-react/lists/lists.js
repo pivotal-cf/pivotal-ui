@@ -241,3 +241,297 @@ module.exports = {
   StepList,
   BreadcrumbList
 };
+
+/*doc
+---
+title: Lists
+name: list_react
+categories:
+- React
+---
+*/
+
+/*doc
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-lists --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var ListItem = require('pui-react-lists').ListItem;
+```
+
+---
+title: Addable
+name: 01_list_addable_react
+parent: list_react
+---
+
+Here's an example of how you might write an addable list component. Transitions are added to each list item through `componentWillEnter`.
+If you wish to save the new item in your database, you should do so in the `change` function, before setting state.
+
+```jsx_example
+var ReactTransitionGroup = React.addons.TransitionGroup;
+
+var AddableListItem = React.createClass({
+  componentWillEnter: function(done) {
+    this.$el = $(this.getDOMNode());
+    this.$el.addClass("new-enter");
+    done();
+  },
+
+  render: function(){
+    return (
+      <ListItem {...this.props}>{this.props.children}</ListItem>
+    );
+  }
+});
+
+var AddableList = React.createClass({
+  getInitialState: function() {
+    return {
+      items: ['one','two','three']
+    };
+  },
+
+  change: function() {
+    var newItems = this.state.items.concat([prompt('Enter some text')]);
+    this.setState({items: newItems});
+  },
+
+  render: function() {
+    var items = _.map(this.state.items, function(item, key) {
+      return (
+        <AddableListItem key={key+item}>
+          {item}
+        </AddableListItem>
+      );
+    });
+
+    return (
+      <div>
+        <ReactTransitionGroup component={StepList} transitionName='new'>
+          {items}
+        </ReactTransitionGroup>
+        <HighlightButton onClick={this.change}>Click to Add Item</HighlightButton>
+      </div>
+    );
+  }
+});
+```
+
+```react_example
+<AddableList />
+```
+*/
+/*doc
+---
+title: Breadcrumb
+name: 02_list_breadcrumb_react
+parent: list_react
+---
+
+```react_example
+<BreadcrumbList>
+  <ListItem><a href="#">Item 1</a></ListItem>
+  <ListItem><a href="#">Item 2</a></ListItem>
+  <ListItem className="current"><span>Item 3</span></ListItem>
+</BreadcrumbList>
+```
+*/
+
+/*doc
+---
+title: Checked
+name: 03_list_checked_react
+parent: list_react
+---
+
+```react_example
+<UnorderedList checked>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</UnorderedList>
+```
+
+*/
+
+/*doc
+---
+title: Configuring Spacing
+name: 04_list_spacing_react
+parent: list_react
+---
+
+List Spacing can be changed setting the size of the spacing property.
+
+|Options|Values       | Pixels
+|-------|-------------|-------
+|`n`    |none         |0px
+|`s`    |small        |5px
+|`m`    |medium       |7px
+|`l`    |large        |10px
+|`xl`   |extra large  |21px
+
+```react_example
+<StepList spacing="n">
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem className="current">Item 3</ListItem>
+</StepList>
+```
+
+```react_example
+<UnorderedList spacing="xl">
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem className="current">Item 3</ListItem>
+</UnorderedList>
+```
+
+*/
+
+/*doc
+ ---
+ title: Group
+ name: 06_list_group_react
+ parent: list_react
+ ---
+
+ ```react_example
+ <GroupList>
+   <ListItem>Item 1</ListItem>
+   <ListItem>Item 2</ListItem>
+   <ListItem>Item 3</ListItem>
+ </GroupList>
+ ```
+ */
+
+/*doc
+---
+title: Group Inverse
+name: 07_list_group_inverse_react
+parent: list_react
+---
+
+```react_example
+<GroupListInverse>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</GroupListInverse>
+```
+
+*/
+
+/*doc
+---
+title: Inline
+name: 08_list_inline_react
+parent: list_react
+---
+
+```react_example_table
+<InlineList>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</InlineList>
+```
+*/
+
+
+/*doc
+---
+title: Inline Divider
+name: 09_list_inline_divider_react
+parent: list_react
+---
+
+```react_example_table
+<InlineList divider>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</InlineList>
+```
+
+*/
+
+/*doc
+---
+title: Ordered
+name: 10_list_ordered_react
+parent: list_react
+---
+
+```react_example_table
+<OrderedList>
+ <ListItem>Item 1</ListItem>
+ <ListItem>Item 2</ListItem>
+ <ListItem>Item 3</ListItem>
+</OrderedList>
+```
+
+```react_example_table
+<OrderedList unstyled>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</OrderedList>
+```
+*/
+
+/*doc
+---
+title: Steps
+name: 11_list_steps_react
+parent: list_react
+---
+
+```react_example
+<StepList>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem className="current">Item 3</ListItem>
+</StepList>
+```
+*/
+
+/*doc
+---
+title: Unordered
+name: 13_list_unordered_react
+parent: list_react
+---
+
+```react_example_table
+<UnorderedList>
+  <ListItem>feep</ListItem>
+  <ListItem>fop</ListItem>
+  <ListItem>meep</ListItem>
+</UnorderedList>
+```
+*/
+
+/*doc
+---
+title: Unstyled
+name: 14_list_unstyled_react
+parent: list_react
+---
+
+```react_example_table
+<UnorderedList unstyled>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</UnorderedList>
+```
+
+*/

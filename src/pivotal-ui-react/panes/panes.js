@@ -66,7 +66,7 @@ var BasePane = React.createClass({
  * ```
  *
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
+ * @see [Pivotal UI CS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var Pane = React.createClass({
   propTypes: {
@@ -79,3 +79,44 @@ var Pane = React.createClass({
 });
 
 module.exports = {BasePane, Pane};
+
+/*doc
+---
+title: Panes
+name: pane_react
+category:
+- React
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-panels --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var Pane = require('pui-react-panels').Pane;
+```
+
+The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
+Any className values passed through are passed to the underlying `.pane`.
+
+```react_example
+<Pane className="bg-neutral-10">
+  <DefaultH1>This is a pane</DefaultH1>
+</Pane>
+```
+
+In the event that you need additional configuration applied to a Pane, you can use the
+`BasePane` component which accepts properties for `className` and `innerClassName`.
+
+These values are added to the class name of the `.pane` and the `.container` respectively.
+
+```react_example
+<BasePane className="bg-dark-2" innerClassName="bg-glow">
+  <DefaultH1 color="type-neutral-9">This is a pane (configurable)</DefaultH1>
+</BasePane>
+```
+*/

@@ -93,3 +93,46 @@ module.exports = {
    */
   InverseDivider: defDivider({inverse: true})
 };
+
+
+/*doc
+---
+title: Dividers
+name: divider_react
+categories:
+- React
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-dividers --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var Divider = require('pui-react-divider').Divider;
+```
+
+
+Dividers draw horizontal lines between different content groupings.
+
+```react_example_table
+<Divider />
+
+<Divider size="large" />
+```
+
+On a dark background, use these inverse dividers
+
+```react_example_table
+<div className='contrast-bar'>
+  <InverseDivider />
+</div>
+
+<div className='contrast-bar'>
+  <InverseDivider size='large' />
+</div>
+```
+*/

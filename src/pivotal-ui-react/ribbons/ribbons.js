@@ -74,3 +74,48 @@ var Banner = React.createClass({
 });
 
 module.exports = {Ribbon, PrimaryRibbon, Banner};
+
+
+/*doc
+---
+title: Ribbons
+name: ribbons_react
+categories:
+- React
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-ribbons --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var Ribbon = require('pui-react-ribbons').Ribbon;
+```
+
+`Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
+They should be used to call out access, status, environment, etc.
+
+
+```react_example_table
+<Ribbon> British </Ribbon>
+
+<PrimaryRibbon> English-British </PrimaryRibbon>
+```
+*/
+
+/*doc
+---
+title: Banners
+name: banner_ribbons_react
+parent: ribbons_react
+---
+
+```react_wrapped_example_table
+<Banner> British </Banner>
+```
+
+*/

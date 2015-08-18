@@ -136,3 +136,81 @@ module.exports = {
    */
   HighlightAltDropdown: defDropdown({buttonClassName: 'btn-highlight-alt', bsStyle: null})
 };
+
+
+/*doc
+---
+title: Dropdowns
+name: dropdown_react
+categories:
+- React
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-dropdowns --save
+</i>
+</code>
+
+Require the subcomponent:
+
+```
+var Dropdown = require('pui-react-dropdowns').Dropdown;
+```
+
+This is the basic bootstrap dropdown:
+
+```react_example_table
+<Dropdown title='DropDown'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem divider />
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</Dropdown>
+```
+
+Here are all the different dropdown styles:
+
+```react_example_table
+<LinkDropdown title='Link'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</LinkDropdown>
+
+<DefaultAltDropdown title='Default Alt'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+
+<PrimaryDropdown title='Primary'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</PrimaryDropdown>
+
+<LowlightDropdown title='Lowlight'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</LowlightDropdown>
+
+<DangerDropdown title='Danger'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DangerDropdown>
+
+<HighlightDropdown title='Highlight'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</HighlightDropdown>
+
+<HighlightAltDropdown title='Highlight Alt'>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</HighlightAltDropdown>
+```
+
+If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
+
+To customize the dropdown button, you can add modifier classes to it
+using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
+
+```react_example
+<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem divider />
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
+*/

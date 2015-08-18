@@ -175,3 +175,39 @@ var DraggableListItem = React.createClass({
 });
 
 module.exports = {DraggableList, DraggableListItem};
+
+
+/*doc
+---
+title: Draggable
+name: 05_list_draggable_react
+parent: list_react
+---
+
+Creates a draggable list.
+
+The property `onDrop` is a callback when a drop event has completed. Use this
+if you need to make an API call to update the order of some elements.
+
+```jsx_example
+var draggableListDropCallback = function(data) {
+  alert('New item indices order: ' + data);
+};
+```
+
+```react_example
+<DraggableList onDrop={draggableListDropCallback} className="my-list-class" innerClassName="my-item-class">
+  <DraggableListItem>
+    Get me out of here!
+  </DraggableListItem>
+
+  <DraggableListItem>
+    LOL
+  </DraggableListItem>
+
+  <DraggableListItem>
+    Can't stop
+  </DraggableListItem>
+</DraggableList>
+```
+*/
