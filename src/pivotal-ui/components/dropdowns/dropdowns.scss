@@ -480,8 +480,8 @@ parent: notifications_react
 </Notifications>
 
 <Notifications size="h2">
-  {_.times(10, function() {
-    return <NotificationItem>Stuff</NotificationItem>;
+  {_.times(10, function(i) {
+    return <NotificationItem key={i}>Stuff</NotificationItem>;
   })}
 </Notifications>
 
@@ -490,8 +490,8 @@ parent: notifications_react
 </AlertNotifications>
 
 <Notifications size="h4">
-  {_.times(10, function() {
-    return <NotificationItem>Stuff</NotificationItem>;
+  {_.times(10, function(i) {
+    return <NotificationItem key={i}>Stuff</NotificationItem>;
   })}
 </Notifications>
 
@@ -500,8 +500,8 @@ parent: notifications_react
 </Notifications>
 
 <AlertNotifications size="h6">
-  {_.times(10, function() {
-    return <NotificationItem>Stuff</NotificationItem>;
+  {_.times(10, function(i) {
+    return <NotificationItem key={i}>Stuff</NotificationItem>;
   })}
 </AlertNotifications>
 ```

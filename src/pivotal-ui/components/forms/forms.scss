@@ -1420,14 +1420,6 @@ var FilteringSearchExample = React.createClass({
     }
   },
 
-  componentDidMount: function () {
-    var self = this;
-
-    $.getJSON('http://pivotal-enchilada.cfapps.io/list', function (data) {
-      self.setState({ items: data });
-    });
-  },
-
   updateFilter: function (event) {
     this.setState({ filter: event.target.value });
   },
