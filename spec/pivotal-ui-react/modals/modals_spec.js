@@ -21,7 +21,6 @@ describe('Modals', function() {
   });
 
   describe('default behavior', function() {
-    var subject;
     beforeEach(function() {
       var MyModal = React.createClass({
         propTypes: {
@@ -53,26 +52,12 @@ describe('Modals', function() {
         }
       });
 
-      subject = React.render(<MyModal />, root);
+      React.render(<MyModal />, root);
     });
 
 
     it('is closed by default', function() {
       expect('#root .modal').not.toExist();
-    });
-
-    describe('when mounting', function() {
-      it('adds the key up event listener', function() {
-        expect(document.body.addEventListener).toHaveBeenCalledWith('keyup', subject.refs.modal.onKeyUp, false);
-      });
-    });
-
-    describe('when unmounting', function() {
-      it('removes the key up event listener', function() {
-        var onKeyUp = subject.refs.modal.onKeyUp;
-        React.unmountComponentAtNode(root);
-        expect(document.body.removeEventListener).toHaveBeenCalledWith('keyup', onKeyUp);
-      });
     });
 
     function itOpensTheModal() {
