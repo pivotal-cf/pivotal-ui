@@ -111,7 +111,7 @@ var Modal = React.createClass({
             <div {...mergeProps(this.props, {className: 'modal-content'})}>
               <div className="modal-header">
                 <button type="button" className="close" onClick={this.close}>
-                  <span>×</span>
+                  <span aria-hidden="true">&times</span>
                   <span className="sr-only">Close</span>
                 </button>
                 <DefaultH4 className="modal-title" id="modalTitle">{this.props.title}</DefaultH4>
