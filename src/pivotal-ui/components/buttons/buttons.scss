@@ -23,7 +23,7 @@ use either a `<button>` or an `<a>` element:
 ```html_example_table
 <button class="btn btn-default">Button</button>
 
-<a class="btn btn-default" href="http://trulia.com">Link</a>
+<a class="btn btn-default" aria-label="Trulia homepage" href="http://trulia.com">Link</a>
 ```
 
 If your button is actually a link to another page, please use the

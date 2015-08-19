@@ -45,7 +45,7 @@ If you want to include a link in your alert, use the class `alert-link`.
   <h5 class="em-high mtn">Important Link</h5>
   <p>
     It is very important that you
-    <a class="alert-link" href="http://bit.ly/1vkXaYb">click here</a>
+    <a class="alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
   </p>
 </div>
 ```
