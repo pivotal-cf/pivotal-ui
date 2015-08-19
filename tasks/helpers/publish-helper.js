@@ -77,33 +77,27 @@ export function publishFakePackages() {
       await npmLoad({});
 
       const npmPublish = promisify(npm.commands.publish);
-      const npmInstall = promisify(npm.commands.install);
 
       npm.config.set('registry', localNpm.registryUrl);
 
-      if (npm.config.get('registry') != localNpm.registryUrl) {
+      if (npm.config.get('registry') !== localNpm.registryUrl) {
         const e = new Error('Must be pointing at private npm to test locally!');
         console.error(e);
         callback(e);
       } else {
 
         for (const packageInfo of packageInfos) {
-          try {
-            await promisify(npm.commands.view)([packageInfo.name], true);
-          } catch (e) {
-            console.log('Publishing', packageInfo.name, 'to', localNpm.registryUrl);
-            npm.config.set('save', true);
+          log('Publishing', packageInfo.name, 'to', localNpm.registryUrl);
 
-            await npmPublish([packageInfo.dir]);
-            await npmInstall([packageInfo.name]);
-          }
+          await npmPublish([packageInfo.dir]);
         }
-        callback();
+
+        callback(null, packageInfos);
       }
     }
     catch (e) {
       console.error(e);
-      console.error(packageInfo);
+      console.error(packageInfos);
       callback(e);
     }
   });
