@@ -4,6 +4,7 @@ const runSequence = require('run-sequence').use(gulp);
 gulp.task('setup-watchers', (callback) => {
   process.env.WEBPACK_WATCH = true;
   gulp.watch(['src/pivotal-ui/components/**/*.scss'], ['monolith-hologram', 'monolith-build-css-from-cache']);
+  gulp.watch(['src/pivotal-ui-react/**/*.js'], ['monolith-hologram']);
   gulp.watch(['src/styleguide/**/*.scss'], ['monolith-styleguide-css']);
   callback();
 });
