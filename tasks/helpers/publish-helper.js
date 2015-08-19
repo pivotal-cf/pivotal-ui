@@ -7,6 +7,8 @@ import npm from 'npm';
 import {gt} from 'semver';
 import {log} from 'gulp-util';
 
+import localNpm from './local-npm-helper';
+
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
 
@@ -64,6 +66,44 @@ export function publishPackages() {
     }
     catch(e) {
       console.error(e.stack);
+      callback(e);
+    }
+  });
+}
+
+export function publishFakePackages() {
+  return map(async (packageInfos, callback) => {
+    try {
+      await npmLoad({});
+
+      const npmPublish = promisify(npm.commands.publish);
+      const npmInstall = promisify(npm.commands.install);
+
+      npm.config.set('registry', localNpm.registryUrl);
+
+      if (npm.config.get('registry') != localNpm.registryUrl) {
+        const e = new Error('Must be pointing at private npm to test locally!');
+        console.error(e);
+        callback(e);
+      } else {
+
+        for (const packageInfo of packageInfos) {
+          try {
+            await promisify(npm.commands.view)([packageInfo.name], true);
+          } catch (e) {
+            console.log('Publishing', packageInfo.name, 'to', localNpm.registryUrl);
+            npm.config.set('save', true);
+
+            await npmPublish([packageInfo.dir]);
+            await npmInstall([packageInfo.name]);
+          }
+        }
+        callback();
+      }
+    }
+    catch (e) {
+      console.error(e);
+      console.error(packageInfo);
       callback(e);
     }
   });

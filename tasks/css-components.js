@@ -4,9 +4,16 @@ import mergeStream from 'merge-stream';
 import runSequence from 'run-sequence';
 import license from './helpers/license-helper';
 import {readme, packageJson} from './helpers/css-components-helper';
-import {publishPackages} from './helpers/publish-helper';
+import {publishPackages, publishFakePackages} from './helpers/publish-helper';
 import {readArray} from 'event-stream';
 import path from 'path';
+import promisify from 'es6-promisify';
+import npm from 'npm';
+import {exec} from 'child_process';
+import {map} from 'event-stream';
+import reduce from 'stream-reduce';
+
+import localNpm from './helpers/local-npm-helper';
 
 const plugins = require('gulp-load-plugins')();
 const argv = require('yargs').argv;
@@ -90,54 +97,9 @@ gulp.task('css-publish', ['css-build'], () => {
   }]]).pipe(publishPackages());
 });
 
-import promisify from 'es6-promisify';
-
-import npm from 'npm';
-import {exec} from 'child_process';
-import {map} from 'event-stream';
-import reduce from 'stream-reduce';
-
-function publishFakePackages() {
-  return map(async (packageInfos, callback) => {
-    try {
-      const npmLoad = promisify(npm.load);
-      await npmLoad({});
-
-      const npmPublish = promisify(npm.commands.publish);
-      const npmInstall = promisify(npm.commands.install);
-
-      npm.config.set('registry', 'http://localhost:4873/');
-
-      if (npm.config.get('registry') != 'http://localhost:4873/') {
-        console.error('that aint right');
-        callback('nooo');
-      } else {
-
-        for (const packageInfo of packageInfos) {
-          try {
-            await promisify(npm.commands.view)([packageInfo.name], true);
-          } catch (e) {
-            console.log('Publishing', packageInfo.name);
-            npm.config.set('save', true);
-
-            await npmPublish([packageInfo.dir]);
-            await npmInstall([packageInfo.name]);
-          }
-        }
-        callback();
-      }
-    }
-    catch (e) {
-      console.error(e);
-      console.error(packageInfo);
-      callback(e);
-    }
-  });
-}
-
 gulp.task('css-publish-local', ['css-build'], () => {
   return gulp.src('dist/css/*')
-    .pipe(map(function(folder, callback) {
+    .pipe(map((folder, callback) => {
       callback(null,
         {
           name: `pui-css-${path.basename(folder.path)}`,
@@ -145,7 +107,7 @@ gulp.task('css-publish-local', ['css-build'], () => {
         }
       );
     }))
-    .pipe(reduce(function(packageInfos, packageInfo) {
+    .pipe(reduce((packageInfos, packageInfo) => {
       packageInfos.push(packageInfo);
       return packageInfos;
     }, []))
@@ -159,17 +121,15 @@ gulp.task('test-mode-magic', (callback) => {
     'dev',
     callback
   )
-})
-;
+});
 
 gulp.task('css-clean-local', async () => {
   const npmLoad = promisify(npm.load);
   await npmLoad({});
 
-  const execPromise = promisify(exec);
   const cleanPromise = promisify(npm.commands.cache.clean);
 
-  await execPromise('rm -rf ~/.local/share/sinopia/storage');
+  await localNpm.clean();
 
   await cleanPromise([]);
 });
