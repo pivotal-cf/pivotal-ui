@@ -79,6 +79,7 @@
     "run-sequence": "^1.0.2",
     "scroll-into-view": "^1.3.0",
     "semver": "^4.1.0",
+    "sinopia": "^1.4.0",
     "stream-reduce": "^1.0.3",
     "stream-series": "^0.1.1",
     "stream-to-promise": "^1.0.4",

@@ -15,21 +15,21 @@ const componentsGlob = ['src/pivotal-ui/components/*', '!src/**/*.scss'];
 const buildFolder = 'dist/css';
 
 gulp.task('css-build-license', () =>
-  gulp.src(componentsGlob)
-    .pipe(license())
-    .pipe(gulp.dest(buildFolder))
+    gulp.src(componentsGlob)
+      .pipe(license())
+      .pipe(gulp.dest(buildFolder))
 );
 
 gulp.task('css-build-package-json', () =>
-  gulp.src('src/pivotal-ui/components/*/package.json')
-    .pipe(packageJson())
-    .pipe(gulp.dest(buildFolder))
+    gulp.src('src/pivotal-ui/components/*/package.json')
+      .pipe(packageJson())
+      .pipe(gulp.dest(buildFolder))
 );
 
 gulp.task('css-build-readme', () =>
-  gulp.src(componentsGlob)
-    .pipe(readme())
-    .pipe(gulp.dest(buildFolder))
+    gulp.src(componentsGlob)
+      .pipe(readme())
+      .pipe(gulp.dest(buildFolder))
 );
 
 gulp.task('css-build-src', function() {
@@ -88,4 +88,88 @@ gulp.task('css-publish', ['css-build'], () => {
     name: `pui-css-${argv.component}`,
     dir: path.join('dist', 'css', argv.component)
   }]]).pipe(publishPackages());
+});
+
+import promisify from 'es6-promisify';
+
+import npm from 'npm';
+import {exec} from 'child_process';
+import {map} from 'event-stream';
+import reduce from 'stream-reduce';
+
+function publishFakePackages() {
+  return map(async (packageInfos, callback) => {
+    try {
+      const npmLoad = promisify(npm.load);
+      await npmLoad({});
+
+      const npmPublish = promisify(npm.commands.publish);
+      const npmInstall = promisify(npm.commands.install);
+
+      npm.config.set('registry', 'http://localhost:4873/');
+
+      if (npm.config.get('registry') != 'http://localhost:4873/') {
+        console.error('that aint right');
+        callback('nooo');
+      } else {
+
+        for (const packageInfo of packageInfos) {
+          try {
+            await promisify(npm.commands.view)([packageInfo.name], true);
+          } catch (e) {
+            console.log('Publishing', packageInfo.name);
+            npm.config.set('save', true);
+
+            await npmPublish([packageInfo.dir]);
+            await npmInstall([packageInfo.name]);
+          }
+        }
+        callback();
+      }
+    }
+    catch (e) {
+      console.error(e);
+      console.error(packageInfo);
+      callback(e);
+    }
+  });
+}
+
+gulp.task('css-publish-local', ['css-build'], () => {
+  return gulp.src('dist/css/*')
+    .pipe(map(function(folder, callback) {
+      callback(null,
+        {
+          name: `pui-css-${path.basename(folder.path)}`,
+          dir: folder.path
+        }
+      );
+    }))
+    .pipe(reduce(function(packageInfos, packageInfo) {
+      packageInfos.push(packageInfo);
+      return packageInfos;
+    }, []))
+    .pipe(publishFakePackages());
+});
+
+gulp.task('test-mode-magic', (callback) => {
+  runSequence(
+    'css-clean-local',
+    'css-publish-local',
+    'dev',
+    callback
+  )
+})
+;
+
+gulp.task('css-clean-local', async () => {
+  const npmLoad = promisify(npm.load);
+  await npmLoad({});
+
+  const execPromise = promisify(exec);
+  const cleanPromise = promisify(npm.commands.cache.clean);
+
+  await execPromise('rm -rf ~/.local/share/sinopia/storage');
+
+  await cleanPromise([]);
 });
