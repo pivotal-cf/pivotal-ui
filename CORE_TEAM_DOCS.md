@@ -47,16 +47,11 @@ styleguide deploys as part of the release process (see below).
 
 ## New components
 
-Contributors will write new components to the `alpha` folder. Once we merge in the
-PRs, it is our responsibility to properly package the new components.
+Once we merge in a PR, it is our responsibility to properly publish new components.
 
 1. Ensure that there is an appropriate example in the README, and that all
    dependencies are listed in the component's `package.json`
 3. Ensure that there is an example in the styleguide
-10. Move files from the `alpha` folder into a new folder. The folder and the
-    main content file should have the same name. I.e., if the team created a
-    Tacos component, make the scss file `tacos/tacos.scss` and the js file
-    `tacos/tacos.js`.
 1. It can be helpful to set the version number in the `package.json` files to `0.0.1`
    so there is room to fix any errors after first publishing the module
 6. Publish the module to NPM (see below)

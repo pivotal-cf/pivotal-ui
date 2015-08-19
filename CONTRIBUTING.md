@@ -236,22 +236,17 @@ We like the versions of any `pui-*` dependecies to be exact, not fuzzy (e.g.
 ### Adding new components
 _We are still refining this process! If you find any of this confusing, let us know!_
 
-If you are adding a new component, we have provided 'alpha' folders as CSS
-and React sandboxes. These allow you to iterate on components and see them in 
-the styleguide.
-
-**Don't worry about directory organization or publishing the
+**Don't worry about publishing the
 component to NPM; we'll take care of it after merging your pull request!**
 
 #### CSS components
 
 If you are adding a new CSS component, please modify the files in
-`src/pivotal-ui/components/alpha`.
+`src/pivotal-ui/components/[component name]`.
 
-Write your css and hologram docs in `src/pivotal-ui/components/alpha/alpha.scss`.
-**Don't create a new file!!!**
+Write your css and hologram docs in `src/pivotal-ui/components/[component name]/[component name].scss`.
 
-The `src/pivotal-ui/components/alpha/package.json` file should contain
+The `src/pivotal-ui/components/[component name]/package.json` file should contain
 a homepage that links to the styleguide
 (http://styleguide.pivotal.io/category#component-name), the version number
 of the package (don't worry about this too much - we'll take care of it),
@@ -266,17 +261,23 @@ E.g.:
 <div class="your-component">Your component goes here</div>
 ```
 
+##### Viewing css components in the styleguide
+**WARNING: Don't commit this change to package.json**
+**your build will fail against CI.**
+
+In the top-level `package.json`, include a dependency on your new **unpublished** package.
+`"pui-css-[component name]": "1.10.0"` All of our css packages are prefixed with `pui-css-`.
+Note that because your package should still be unpublished, doing an npm install will fail.
 
 #### React components
 
 If you are adding a new React component, please modify the files in
-`src/pivotal-ui-react/alpha`.
+`src/pivotal-ui-react/[component name]`.
 
-Write your components and javadocs in `src/pivotal-ui-react/alpha/alpha.js`.
-**Don't create a new file!!!** Write your hologram docs and any css in
-`src/pivotal-ui/components/alpha/alpha.scss`.
+Write your components and javadocs in `src/pivotal-ui-react/[component name]/[component name].js`.
+Write your hologram docs and any css in `src/pivotal-ui/components/[component name]/[component name].scss`.
 
-Write your tests in `spec/pivotal-ui-react/alpha/alpha_spec.js`. Then run
+Write your tests in `spec/pivotal-ui-react/[component name]/[component name]_spec.js`. Then run
 `gulp jasmine-react` to test in the browser or `gulp jasmine-react-ci` to test headlessly with PhantomJS.
 
 The `package.json` file should contain a homepage that links to the styleguide
