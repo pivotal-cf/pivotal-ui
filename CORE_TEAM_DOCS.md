@@ -158,3 +158,19 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
       1. Use the script xray/scripts/open_spec_or_impl.sh instead of step 1 in the blog post
       2. Use Webstorm instead of Rubymine
       3. After going to RubyMine -> Preferences -> External Tools -> + in step 2 of the blog post, set 'Working Directory' to $ProjectFileDir$ and uncheck the 'open console' box.
+
+## Acceptance
+
+Accepting components with unpublished changes is hard to do in isolation.
+
+  5. Install Sinopia:  
+  `$ npm i -g sinopia`
+  4. Run the server:  
+  `$ sinopia`
+  3. Add a user. The username and password don't matter so go with `nic`, `nac`:  
+  `$ npm adduser --registry http://localhost:4873/`
+  2. Run the gulp task:  
+  `$ gulp my-name-is-nic-i-do-acceptance`
+  1. Install packages in your isolated environment!  
+  `$ npm install [package name] --registry http://localhost:4873`
+  0. Press the green button  
