@@ -27,8 +27,10 @@ Package published | Switch package dependency away from dist to newest published
 
 ## New member checklist
 
-- Add to github, google group, tracker, etc.
+- Add to github, ADT CLA google group, tracker, google drive folder, and calendar invites (ipm, retro, standup, feedback time)
 - Add new member's NPM login to the publish helper in `tasks/helpers/publish-helper.js`
+- Add github username to the external PR signature (above)
+- Add to ~/.gitauthors file on all PUI computers
 
 ## Setting up your environment
 
