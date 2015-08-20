@@ -50,10 +50,12 @@ var Modal = React.createClass({
   },
 
   componentDidMount() {
-    document.body.addEventListener('keyup', this.onKeyUp, false);
+    document.body.addEventListener('focus', this.ignoreKey, true);
+    document.body.addEventListener('keyup', this.onKeyUp, true);
   },
 
   componentWillUnmount() {
+    document.body.removeEventListener('focus', this.ignoreKey);
     document.body.removeEventListener('keyup', this.onKeyUp);
   },
 
@@ -63,15 +65,16 @@ var Modal = React.createClass({
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.isVisible) {
-       document.body.classList.add('modal-open');
+      document.body.classList.add('modal-open');
     }
     else {
-       document.body.classList.remove('modal-open');
+      document.body.classList.remove('modal-open');
     }
   },
 
   open() {
     this.setState({isVisible: true});
+    React.findDOMNode(this.refs.modalTransitions).focus();
   },
 
   close() {
@@ -81,6 +84,13 @@ var Modal = React.createClass({
   childrenClick(e) {
     if (e.target === this.refs.modal.getDOMNode()) {
       this.close();
+    }
+  },
+
+  ignoreKey(e) {
+    if ((this.state.isVisible) && (!(React.findDOMNode(this.refs.modalTransitions).contains(e.target)))) {
+      e.preventDefault();
+      React.findDOMNode(this.refs.modalTransitions).focus();
     }
   },
 
@@ -95,15 +105,16 @@ var Modal = React.createClass({
     let backdrop = null;
     if (this.state.isVisible) {
       modal = (
-        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal" onClick={this.childrenClick}>
+        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal"
+             onClick={this.childrenClick} role="dialog">
           <div className="modal-dialog">
             <div {...mergeProps(this.props, {className: 'modal-content'})}>
               <div className="modal-header">
                 <button type="button" className="close" onClick={this.close}>
-                  <span>×</span>
+                  <span aria-hidden="true">&times</span>
                   <span className="sr-only">Close</span>
                 </button>
-                <DefaultH4 className="modal-title">{this.props.title}</DefaultH4>
+                <DefaultH4 className="modal-title" id="modalTitle">{this.props.title}</DefaultH4>
               </div>
                 {this.props.children}
             </div>
@@ -114,7 +125,7 @@ var Modal = React.createClass({
     }
 
     return (
-      <div>
+      <div tabIndex="-1" ref="modalTransitions" aria-labelledby="modalTitle">
         <ReactCSSTransitionGroup transitionName="modal-backdrop-fade">{backdrop}</ReactCSSTransitionGroup>
         <ReactCSSTransitionGroup transitionName="modal-fade">{modal}</ReactCSSTransitionGroup>
       </div>
