@@ -212,7 +212,7 @@ describe('Tabs', function() {
       it('passes the correct column sizes to BaseTabs', function() {
         var baseTabsProps = renderLeftTabs({tabWidth: 4});
         expect(baseTabsProps.tabWidth).toEqual(4);
-        expect(baseTabsProps.paneWidth).toEqual(8);
+        expect(baseTabsProps.paneWidth).toEqual(20);
         expect(baseTabsProps.position).toEqual('left');
       });
     });
@@ -220,8 +220,8 @@ describe('Tabs', function() {
     describe('when neither tabWidth nor paneWidth are passed', function() {
       it('passes the correct column sizes to BaseTabs', function() {
         var baseTabsProps = renderLeftTabs();
-        expect(baseTabsProps.tabWidth).toEqual(3);
-        expect(baseTabsProps.paneWidth).toEqual(9);
+        expect(baseTabsProps.tabWidth).toEqual(6);
+        expect(baseTabsProps.paneWidth).toEqual(18);
         expect(baseTabsProps.position).toEqual('left');
       });
     });

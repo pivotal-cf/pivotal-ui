@@ -207,9 +207,9 @@ const SimpleAltTabs = React.createClass({
  * on a tab. If you want to retain the default behavior as well as add new
  * functionality, change default active key in the function you provide
  *
- * @property tabWidth {number} Takes the number of bs Columns. Optional: the default is 3.
+ * @property tabWidth {number} Takes the number of bs Columns. Optional: the default is 6.
  *
- * @property paneWidth {number} Takes the number of bs Columns. Optional: the default is 12 - tabWidth.
+ * @property paneWidth {number} Takes the number of bs Columns. Optional: the default is 24 - tabWidth.
  *
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
@@ -223,13 +223,13 @@ const LeftTabs = React.createClass({
   getDefaultProps() {
     return {
       position: 'left',
-      tabWidth: 3
+      tabWidth: 6
     };
   },
   render() {
     let {tabWidth, paneWidth, ...props} = this.props;
     if (!paneWidth) {
-      paneWidth = 12 - tabWidth;
+      paneWidth = 24 - tabWidth;
     }
     return (
       <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-simple-alt"/>
@@ -345,8 +345,8 @@ parent: tabs_react
 
  Property   | Required? | Type             | Description                                  | Default
  -----------| ----------|------------------| ---------------------------------------------|------------------------
- `tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 3
- `paneWidth` | no       | `number`         | The number of bs columns for the tab content | 12 - `tabWidth`
+ `tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 6
+ `paneWidth` | no       | `number`         | The number of bs columns for the tab content | 24 - `tabWidth`
 
 ```react_example
 <LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
