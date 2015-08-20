@@ -10,7 +10,7 @@ import classnames from 'classnames';
 const BaseTabs = React.createClass({
   propTypes: {
     defaultActiveKey: React.PropTypes.any,
-    tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt']),
+    tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt', 'tab-left']),
     responsiveBreakpoint: React.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
     largeScreenClassName: React.PropTypes.string,
     smallScreenClassName: React.PropTypes.string,
@@ -232,7 +232,7 @@ const LeftTabs = React.createClass({
       paneWidth = 24 - tabWidth;
     }
     return (
-      <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-simple-alt"/>
+      <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-left"/>
     );
   }
 });

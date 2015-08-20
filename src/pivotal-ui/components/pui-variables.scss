@@ -730,13 +730,18 @@ $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 
 $nav-tabs-title-font-size:                  16px;
 
-
 // Responsive tabs
 $tab-responsive-bg:             $shadow-4;
 $tab-responsive-color:          $neutral-4;
 $tab-responsive-active-color:   $brand-8;
 $tab-responsive-radius:         $border-radius-large;
 $tab-responsive-pane-padding:   15px;
+
+// Left tabs
+$tab-left-bg:             $tab-responsive-bg;
+$tab-left-color:          $tab-responsive-color;
+$tab-left-active-color:   $tab-responsive-active-color;
+$tab-left-radius:         $tab-responsive-radius;
 
 // Highlighted tabs (used on the service offering page)
 $tab-highlight-beak-width:                  14px;

@@ -242,14 +242,15 @@ describe('Tabs', function() {
   });
 
   describe('LeftTabs', function() {
-    it('renders the BaseTabs component with tabType="tab-simple-alt"', function() {
+    it('renders the BaseTabs component with tabType="tab-left"', function() {
       const result = shallowRender(
         <LeftTabs>
           I am children
         </LeftTabs>
       );
       expect(result.type).toEqual(BaseTabs);
-      expect(result.props.tabType).toEqual('tab-simple-alt');
+      expect(result.props.position).toEqual('left');
+      expect(result.props.tabType).toEqual('tab-left');
       expect(result.props.children).toEqual('I am children');
     });
 
@@ -268,7 +269,6 @@ describe('Tabs', function() {
       expect(result.props.smallScreenClassName).toEqual('smclass');
       expect(result.props.largeScreenClassName).toEqual('lgclass');
       expect(result.props.onSelect).toEqual(onSelect);
-      expect(result.props.position).toEqual('left');
     });
 
     describe('when props are passed for tabWidth and paneWidth', function() {
