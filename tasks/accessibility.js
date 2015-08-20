@@ -59,56 +59,57 @@ gulp.task('accessibility-react-a11y', ['accessibility-react-a11y-injectable'], f
   });
 });
 
-gulp.task('accessibility-a11y', (done) => {
+gulp.task('accessibility-a11y', async () => {
   const port = process.env.STYLEGUIDE_PORT || 8000;
 
   // TODO: When every page is going green, then check the all page. Until then, it should be extra noise.
   //const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq', 'all'];
   const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq'];
 
-  pages.forEach(function(page) {
+  await* pages.map(function(page) {
     const url = `http://localhost:${port}/${page}.html`;
 
-    a11y(url, (err, reports) => {
-      var failureCount = 0;
-      log('');
-      log('------------------------------------------------------------------');
-      log(`Testing accessibility of the ${page} page`);
-      log('------------------------------------------------------------------');
-      log('');
-      if (err) {
-        done(err);
-        process.exit(1);
-      }
-
-      let hasErrors;
-
-      for (let el of reports.audit) {
-        if (el.result === 'FAIL') {
-          failureCount++;
-          log(colors.red('FAIL', el.heading), el.elements.replace(/\n/g, '\n  '));
-          hasErrors = true;
-        }
-        else if (el.result === 'NA') {
-          log(colors.yellow('NA', el.heading));
-        }
-        else {
-          log(colors.green('PASS', el.heading));
-        }
-      }
-
-      if (hasErrors) {
+    return new Promise(function(resolve) {
+      a11y(url, (err, reports) => {
+        var failureCount = 0;
         log('');
         log('------------------------------------------------------------------');
-        log(`${failureCount} ADT failures on the ${page} page`);
+        log(`Testing accessibility of the ${page} page`);
         log('------------------------------------------------------------------');
         log('');
-        // TODO: should cause accessibility-ci to exit w/ non-zero code
+        if (err) {
+          process.exit(1);
+        }
 
-      }
+        let hasErrors;
+
+        for (let el of reports.audit) {
+          if (el.result === 'FAIL') {
+            failureCount++;
+            log(colors.red('FAIL', el.heading), el.elements.replace(/\n/g, '\n  '));
+            hasErrors = true;
+          }
+          else if (el.result === 'NA') {
+            log(colors.yellow('NA', el.heading));
+          }
+          else {
+            log(colors.green('PASS', el.heading));
+          }
+        }
+
+        if (hasErrors) {
+          log('');
+          log('------------------------------------------------------------------');
+          log(`${failureCount} ADT failures on the ${page} page`);
+          log('------------------------------------------------------------------');
+          log('');
+          // TODO: should cause accessibility-ci to exit w/ non-zero code
+
+        }
+        resolve();
+      });
     });
   });
-  done();
 });
 
 gulp.task('accessibility-ci', (done) => runSequence(
