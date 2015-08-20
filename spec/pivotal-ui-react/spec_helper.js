@@ -36,6 +36,12 @@ class TransitionGroupMock extends global.React.Component {
   };
 }
 
+global.shallowRender = function shallowRender(jsx) {
+  const shallowRenderer = React.addons.TestUtils.createRenderer();
+  shallowRenderer.render(jsx);
+  return shallowRenderer.getRenderOutput();
+};
+
 beforeEach(function() {
   jasmine.clock().install();
   $('body').find('#root').remove().end().append('<main id="root"/>');

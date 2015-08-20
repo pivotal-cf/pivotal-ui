@@ -164,65 +164,140 @@ describe('Tabs', function() {
   });
 
   describe('SimpleTabs', function() {
-    it('should add the class tab-simple to large screen tabs', function() {
+    it('renders without blowing up', function() {
       React.render(
-        <SimpleTabs defaultActiveKey={1} largeScreenClassName="lgclass">
+        <SimpleTabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Tab1">Content1</Tab>
           <Tab eventKey={2} title="Tab2">Content2</Tab>
         </SimpleTabs>, root);
-      expect('.lgclass').toHaveClass('tab-simple');
+      expect('.tab-simple').toExist();
+    });
+
+    it('renders the BaseTabs component with tabType="tab-simple"', function() {
+      const result = shallowRender(
+        <SimpleTabs>
+          I am children
+        </SimpleTabs>
+      );
+      expect(result.type).toEqual(BaseTabs);
+      expect(result.props.tabType).toEqual('tab-simple');
+      expect(result.props.children).toEqual('I am children');
+    });
+
+    it('passes all properties', function() {
+      const onSelect = jasmine.createSpy();
+      const result = shallowRender(
+        <SimpleTabs defaultActiveKey={1}
+                    responsiveBreakpoint="sm"
+                    largeScreenClassName="lgclass"
+                    smallScreenClassName="smclass"
+                    onSelect={onSelect}>
+        </SimpleTabs>
+      );
+      expect(result.props.defaultActiveKey).toEqual(1);
+      expect(result.props.responsiveBreakpoint).toEqual('sm');
+      expect(result.props.smallScreenClassName).toEqual('smclass');
+      expect(result.props.largeScreenClassName).toEqual('lgclass');
+      expect(result.props.onSelect).toEqual(onSelect);
     });
   });
 
   describe('SimpleAltTabs', function() {
     it('should add the class tab-simple to large screen tabs', function() {
       React.render(
-        <SimpleAltTabs defaultActiveKey={1} largeScreenClassName="lgclass">
+        <SimpleAltTabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Tab1">Content1</Tab>
           <Tab eventKey={2} title="Tab2">Content2</Tab>
         </SimpleAltTabs>, root);
-      expect('.lgclass').toHaveClass('tab-simple-alt');
+      expect('.tab-simple-alt').toExist();
+    });
+
+    it('renders the BaseTabs component with tabType="tab-simple-alt"', function() {
+      const result = shallowRender(
+        <SimpleAltTabs>
+          I am children
+        </SimpleAltTabs>
+      );
+      expect(result.type).toEqual(BaseTabs);
+      expect(result.props.tabType).toEqual('tab-simple-alt');
+      expect(result.props.children).toEqual('I am children');
+    });
+
+    it('passes all properties', function() {
+      const onSelect = jasmine.createSpy();
+      const result = shallowRender(
+        <SimpleAltTabs defaultActiveKey={1}
+                       responsiveBreakpoint="sm"
+                       largeScreenClassName="lgclass"
+                       smallScreenClassName="smclass"
+                       onSelect={onSelect}>
+        </SimpleAltTabs>
+      );
+      expect(result.props.defaultActiveKey).toEqual(1);
+      expect(result.props.responsiveBreakpoint).toEqual('sm');
+      expect(result.props.smallScreenClassName).toEqual('smclass');
+      expect(result.props.largeScreenClassName).toEqual('lgclass');
+      expect(result.props.onSelect).toEqual(onSelect);
     });
   });
 
   describe('LeftTabs', function() {
-    function renderLeftTabs(props = {}) {
-      React.render(
-        <LeftTabs defaultActiveKey={1} {...props}>
-          <Tab eventKey={1} title="Tab1">Content1</Tab>
-          <Tab eventKey={2} title="Tab2">Content2</Tab>
-        </LeftTabs>,
-        root);
-      return BaseTabs.prototype.render.calls.mostRecent().object.props;
-    }
-    beforeEach(function() {
-      spyOn(BaseTabs.prototype, 'render').and.callThrough();
+    it('renders the BaseTabs component with tabType="tab-simple-alt"', function() {
+      const result = shallowRender(
+        <LeftTabs>
+          I am children
+        </LeftTabs>
+      );
+      expect(result.type).toEqual(BaseTabs);
+      expect(result.props.tabType).toEqual('tab-simple-alt');
+      expect(result.props.children).toEqual('I am children');
+    });
+
+    it('passes all properties', function() {
+      const onSelect = jasmine.createSpy();
+      const result = shallowRender(
+        <LeftTabs defaultActiveKey={1}
+                  responsiveBreakpoint="sm"
+                  largeScreenClassName="lgclass"
+                  smallScreenClassName="smclass"
+                  onSelect={onSelect}>
+        </LeftTabs>
+      );
+      expect(result.props.defaultActiveKey).toEqual(1);
+      expect(result.props.responsiveBreakpoint).toEqual('sm');
+      expect(result.props.smallScreenClassName).toEqual('smclass');
+      expect(result.props.largeScreenClassName).toEqual('lgclass');
+      expect(result.props.onSelect).toEqual(onSelect);
+      expect(result.props.position).toEqual('left');
     });
 
     describe('when props are passed for tabWidth and paneWidth', function() {
       it('passes the provided column sizes tp BaseTabs', function() {
-        var baseTabsProps = renderLeftTabs({tabWidth: 4, paneWidth: 6});
-        expect(baseTabsProps.tabWidth).toEqual(4);
-        expect(baseTabsProps.paneWidth).toEqual(6);
-        expect(baseTabsProps.position).toEqual('left');
+        const result = shallowRender(
+          <LeftTabs tabWidth={4} paneWidth={6}/>
+        );
+        expect(result.props.tabWidth).toEqual(4);
+        expect(result.props.paneWidth).toEqual(6);
       });
     });
 
     describe('when tabWidth is passed and paneWidth is not', function() {
       it('passes the correct column sizes to BaseTabs', function() {
-        var baseTabsProps = renderLeftTabs({tabWidth: 4});
-        expect(baseTabsProps.tabWidth).toEqual(4);
-        expect(baseTabsProps.paneWidth).toEqual(20);
-        expect(baseTabsProps.position).toEqual('left');
+        const result = shallowRender(
+          <LeftTabs tabWidth={4}/>
+        );
+        expect(result.props.tabWidth).toEqual(4);
+        expect(result.props.paneWidth).toEqual(20);
       });
     });
 
     describe('when neither tabWidth nor paneWidth are passed', function() {
       it('passes the correct column sizes to BaseTabs', function() {
-        var baseTabsProps = renderLeftTabs();
-        expect(baseTabsProps.tabWidth).toEqual(6);
-        expect(baseTabsProps.paneWidth).toEqual(18);
-        expect(baseTabsProps.position).toEqual('left');
+        const result = shallowRender(
+          <LeftTabs />
+        );
+        expect(result.props.tabWidth).toEqual(6);
+        expect(result.props.paneWidth).toEqual(18);
       });
     });
   });
