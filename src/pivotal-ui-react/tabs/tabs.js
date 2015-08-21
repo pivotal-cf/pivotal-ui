@@ -10,11 +10,14 @@ import classnames from 'classnames';
 const BaseTabs = React.createClass({
   propTypes: {
     defaultActiveKey: React.PropTypes.any,
-    tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt']),
+    tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt', 'tab-left']),
     responsiveBreakpoint: React.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
     largeScreenClassName: React.PropTypes.string,
     smallScreenClassName: React.PropTypes.string,
-    onSelect: React.PropTypes.func
+    onSelect: React.PropTypes.func,
+    position: React.PropTypes.oneOf(['top', 'left']),
+    tabWidth: React.PropTypes.number,
+    paneWidth: React.PropTypes.number
   },
 
   getDefaultProps() {
@@ -46,13 +49,14 @@ const BaseTabs = React.createClass({
   },
 
   render() {
-    const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName, smallScreenClassName, onSelect, ...props} = this.props;
+    const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName,
+      smallScreenClassName, onSelect, position, tabWidth, paneWidth, ...props} = this.props;
     const largeScreenClasses = classnames([`hidden-${responsiveBreakpoint}`, tabType, largeScreenClassName]);
     const smallScreenClasses = classnames([`visible-${responsiveBreakpoint}-block`, `${tabType}-small-screen`, smallScreenClassName]);
     return (
       <div {...props}>
         <div className={largeScreenClasses}>
-          <Tabs id={uniqueid('pui-react-tabs-')} activeKey={this.state.activeKey} onSelect={this.handleSelect}>
+          <Tabs id={uniqueid('pui-react-tabs-')} position={position} tabWidth={tabWidth} paneWidth={paneWidth} activeKey={this.state.activeKey} onSelect={this.handleSelect}>
             {children}
           </Tabs>
         </div>
@@ -165,6 +169,75 @@ const SimpleAltTabs = React.createClass({
 });
 
 /**
+ * @component LeftTabs
+ * @description Tabs with the nav stacked on the left
+ *
+ * @example ```js
+ * var LeftTabs = require('pui-react-tabs').LeftTabs;
+ * var Tab = require('pui-react-tabs').Tab;
+ * var MyComponent = React.createClass({
+ *   render() {
+ *     return (
+ *       <LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
+ *         <Tab eventKey={1} title="Tab 1">Wow!</Tab>
+ *         <Tab eventKey={2} title="Tab 2">
+ *           <h2>Neat!</h2>
+ *           <span>So much content.</span>
+ *         </Tab>
+ *       </LeftTabs>
+ *     );
+ *   }
+ * });
+ * ```
+ *
+ * @property responsiveBreakpoint {one of: `"xs"`, `"sm"`, `"md"`, `lg`} The
+ * size at which the small-screen tabs (accordion-style) should switch to
+ * large-screen tabs (folder-style)
+ *
+ * @property defaultActiveKey {should equal one of your tab's event keys} The
+ * tab which will start out open
+ *
+ * @property smallScreenClassName {css class} Will be applied to small screen
+ * tabs only
+ *
+ * @property largeScreenClassName {css class} Will be applied to large screen
+ * tabs only
+ *
+ * @property onSelect {function} Will override default behavior when clicking
+ * on a tab. If you want to retain the default behavior as well as add new
+ * functionality, change default active key in the function you provide
+ *
+ * @property tabWidth {number} Takes the number of bs Columns. Optional: the default is 6.
+ *
+ * @property paneWidth {number} Takes the number of bs Columns. Optional: the default is 24 - tabWidth.
+ *
+ * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
+ * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
+ */
+const LeftTabs = React.createClass({
+  propTypes: {
+    position: React.PropTypes.oneOf(['top', 'left']),
+    tabWidth: React.PropTypes.number,
+    paneWidth: React.PropTypes.number
+  },
+  getDefaultProps() {
+    return {
+      position: 'left',
+      tabWidth: 6
+    };
+  },
+  render() {
+    let {tabWidth, paneWidth, ...props} = this.props;
+    if (!paneWidth) {
+      paneWidth = 24 - tabWidth;
+    }
+    return (
+      <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-left"/>
+    );
+  }
+});
+
+/**
  * @component Tab
  * @description A container for content in a `<SimpleTabs>` or `<SimpleAltTabs>`
  *
@@ -176,9 +249,11 @@ const SimpleAltTabs = React.createClass({
 let Tab = BsTab;
 
 module.exports = {
+  BaseTabs,
   SimpleTabs,
   SimpleAltTabs,
-  Tab
+  Tab,
+  LeftTabs
 };
 
 
@@ -256,3 +331,31 @@ parent: tabs_react
 </SimpleAltTabs>
 ```
 */
+
+
+/*doc
+ ---
+ title: Left
+ name: 03_left_tabs_react
+ parent: tabs_react
+ ---
+
+ `LeftTabs` can be used to create tabs where the nav is stacked on the left. They
+ take a few optional special properties in addition to the same properties as SimpleTabs and SimpleAltTabs.
+
+ Property   | Required? | Type             | Description                                  | Default
+ -----------| ----------|------------------| ---------------------------------------------|------------------------
+ `tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 6
+ `paneWidth` | no       | `number`         | The number of bs columns for the tab content | 24 - `tabWidth`
+
+```react_example
+<LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
+  <Tab eventKey={1} title="Tab 1">Wow!</Tab>
+  <Tab eventKey={2} title="Tab 2">
+    Neat!
+    <span>So much content.</span>
+  </Tab>
+</LeftTabs>
+```
+
+ */

@@ -405,6 +405,28 @@ parent: tab
   }
 }
 
+.tab-left {
+  .tab-content {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .nav {
+    a {
+      padding: 8px 10px;
+      color: $tab-left-color;
+      margin: 5px 0;
+      border-radius: $tab-left-radius;
+      @include transition-pui();
+    }
+
+    .active a, a:hover, a:focus {
+      background-color: $tab-left-bg;
+      color: $tab-left-active-color;
+    }
+  }
+}
+
 
 
 /*doc
@@ -514,7 +536,7 @@ You can use any 130px by 130px svg for the icon in the center of the tab. Please
   }
 }
 
-.tab-simple-small-screen, .tab-simple-alt-small-screen {
+.tab-simple-small-screen, .tab-simple-alt-small-screen, .tab-left-small-screen {
   .panel {
     border: none;
   }
