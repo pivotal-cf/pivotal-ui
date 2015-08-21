@@ -160,7 +160,8 @@ npm install pui-react-notifications --save
 Require the subcomponent:
 
 ```
-var Notifications = require('pui-react-notifications');
+var Notifications = require('pui-react-notifications').Notifications;
+var NotificationItem = require('pui-react-notifications').NotificationItem;
 ```
 
 
@@ -240,6 +241,7 @@ Require the subcomponent:
 
 ```
 var AlertNotifications = require('pui-react-notifications').AlertNotifications;
+var NotificationItem = require('pui-react-notifications').NotificationItem;
 ```
 
 Here's an example if there are no alerts:

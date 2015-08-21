@@ -156,6 +156,7 @@ Require the subcomponent:
 
 ```
 var Dropdown = require('pui-react-dropdowns').Dropdown;
+var DropdownItem = require('pui-react-dropdowns').DropdownItem;
 ```
 
 This is the basic bootstrap dropdown:
