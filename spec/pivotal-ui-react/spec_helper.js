@@ -48,6 +48,17 @@ beforeEach(function() {
   global.React.addons.CSSTransitionGroup = TransitionGroupMock;
 });
 
+beforeEach(function() {
+  const consoleWarn = console.warn;
+  console.warn = function(message) {
+    if(message.match(/Failed propType/)) {
+      throw new Error(message);
+    } else {
+      consoleWarn.apply(console, arguments);
+    }
+  };
+});
+
 afterEach(function() {
   MockNow.reset();
   MockRaf.reset();
