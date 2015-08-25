@@ -88,7 +88,17 @@ describe('Dropdowns', function() {
       React.unmountComponentAtNode(root);
     });
 
-    itPropagatesAttributes('#root li', props);
+    it('passes through className to the li ', function() {
+      expect('#root li').toHaveClass(props.className);
+    });
+
+    it('passes through style to the li', function() {
+      expect('#root li').toHaveCss(props.style);
+    });
+
+    it('passes through id to the anchor', function() {
+      expect('#root li a#test-item-id').toExist();
+    });
   });
 
   dropdownTestFor('LinkDropdown', 'btn-link');

@@ -54,7 +54,17 @@ describe('Notification', function() {
     });
 
     describe('NotificationItem', function() {
-      itPropagatesAttributes('#root li:first', itemProps);
+      it('passes through className to the li ', function() {
+        expect('#root li:first').toHaveClass(itemProps.className);
+      });
+
+      it('passes through style to the li', function() {
+        expect('#root li:first').toHaveCss(itemProps.style);
+      });
+
+      it('passes through id to the anchor', function() {
+        expect('#root li:first a#test-item-id').toExist();
+      });
     });
 
     it('renders the children in a dropdown menu', function() {

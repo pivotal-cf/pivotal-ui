@@ -26,26 +26,37 @@ import classnames from 'classnames';
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
  */
-var Dropdown = require('react-bootstrap').DropdownButton;
+var BsDropdown = require('react-bootstrap').Dropdown;
 
 function defDropdown(props) {
   return React.createClass({
     propTypes: {
-      buttonClassName: React.PropTypes.string
+      id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
+      buttonClassName: React.PropTypes.string,
+      style: React.PropTypes.any,
+      title: React.PropTypes.any
     },
-    render() {
-      const {buttonClassName, ...others} = this.props;
+    render: function render() {
+      const {buttonClassName, style, title, children, ...others} = this.props;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;
 
       const btnClass = classnames(buttonClassName, defaultBtnClassName);
-
-      return <Dropdown buttonClassName={btnClass} bsStyle={bsStyle} {...others}/>;
+      return (
+        <BsDropdown {...others}>
+          <BsDropdown.Toggle className={btnClass} bsStyle={bsStyle} style={style}>
+            {title}
+          </BsDropdown.Toggle>
+          <BsDropdown.Menu>
+            {children}
+          </BsDropdown.Menu>
+        </BsDropdown>
+      );
     }
   });
 }
 
 module.exports = {
-  Dropdown,
+  Dropdown: defDropdown({}),
 
   /**
    * @component DropdownItem
