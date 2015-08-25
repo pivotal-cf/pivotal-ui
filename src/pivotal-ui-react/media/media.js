@@ -143,8 +143,8 @@ The images or other media can be aligned top, middle, or bottom. The default is 
 The base button renderer. You won't really interact with this directly.
 
 ```jsx_example
-var mediaBasicImage = <Image src='http://placehold.it/50x50' />;
-var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://google.com" />;
+var mediaBasicImage = <Image src='http://placehold.it/50x50' alt='A sample media object'/>;
+var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://google.com" alt='A sample media object'/>;
 ```
 
 ```react_example_table
@@ -179,7 +179,7 @@ parent: media_react
 ---
 
 ```jsx_example
-var mediaAlignmentImage = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+var mediaAlignmentImage = <Image href='http://www.google.com' src='http://placehold.it/50x50'  alt='A sample media object'/>;
 ```
 
 ```react_example
@@ -216,7 +216,7 @@ parent: media_react
 Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
 
 ```jsx_example
-var mediaSpacingImage = <Image href='http://www.google.com' src='http://placehold.it/50x50'/>;
+var mediaSpacingImage = <Image href='http://www.google.com' src='http://placehold.it/50x50' alt='A sample media object'/>;
 ```
 
 ```react_example_table

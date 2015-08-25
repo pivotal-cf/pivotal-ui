@@ -337,9 +337,9 @@ parent: list_react
 
 ```react_example
 <BreadcrumbList>
-  <ListItem><a href="#">Item 1</a></ListItem>
-  <ListItem><a href="#">Item 2</a></ListItem>
-  <ListItem className="current"><span>Item 3</span></ListItem>
+  <ListItem><a href="/">Home</a></ListItem>
+  <ListItem><a href="/react.html">React</a></ListItem>
+  <ListItem className="current"><span>Lists</span></ListItem>
 </BreadcrumbList>
 ```
 */

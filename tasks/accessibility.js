@@ -42,7 +42,7 @@ gulp.task('accessibility-react-a11y', ['accessibility-react-a11y-injectable'], f
       .pipe(wait(function(err, body) {
         if (err) { log('ERROR:', err); }
 
-        const numErrors = body.split('\n').length;
+        const numErrors = body.split('\n').length - 1;
         if (numErrors) {
           log(colors.red(`Found ${numErrors} React accessibility errors`));
           // TODO: should cause accessibility-ci to exit w/ non-zero code

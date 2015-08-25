@@ -10,7 +10,7 @@ import {mergeProps} from 'pui-react-helpers';
  * var SearchInput = require('pui-react-search-input').SearchInput;
  * var MyComponent = React.createClass({
  *   render() {
- *     return <SearchInput name="query" placeholder="Search this site"/>;
+ *     return <SearchInput name="query" placeholder="Search this site" />;
  *   }
  * });
  * ```
@@ -24,7 +24,7 @@ var SearchInput = React.createClass({
   },
 
   render: function() {
-    const props = mergeProps(this.props, {className: 'form-control', type: 'text'});
+    const props = mergeProps(this.props, {className: 'form-control', type: 'text', 'aria-label': this.props.placeholder});
     return (
       <div className="form-group form-group-search">
         <input {...props}/>

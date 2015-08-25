@@ -29,6 +29,20 @@ describe('SearchInput', function() {
     it('renders the input with a placeholder', function() {
       expect('.form-group input').toHaveAttr('placeholder', 'Search here...');
     });
+
+    it('adds an aria label with the placeholder value', function() {
+      expect('.form-group input').toHaveAttr('aria-label', 'Search here...');
+    });
+
+    describe('when an aria-label is provided as well', function() {
+      beforeEach(function() {
+        React.render((<SearchInput placeholder="Search here..." aria-label="Search Box" />), root);
+      });
+
+      it('uses the label as the aria-label instead of the placeholder', function() {
+        expect('.form-group input').toHaveAttr('aria-label', 'Search Box');
+      });
+    });
   });
 
   itPropagatesAttributes('.form-group input', {className: 'foo', id: 'bar', style: {opacity: '0.5'}});

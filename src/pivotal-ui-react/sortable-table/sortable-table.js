@@ -29,7 +29,7 @@ export const TableHeader = React.createClass({
     const {sortable, ...others} = this.props;
     const props = mergeProps(others, {className: {'sortable': sortable}});
 
-    return <th {...props} onClick={this.handleClick}/>;
+    return <th {...props} onClick={this.handleClick} role="columnheader"/>;
   }
 });
 
@@ -53,7 +53,7 @@ export const TableCell = React.createClass({
  */
 export const TableRow = React.createClass({
   render() {
-    return <tr {...this.props}/>;
+    return <tr {...this.props} role="row"/>;
   }
 });
 
