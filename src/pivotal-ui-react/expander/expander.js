@@ -16,7 +16,7 @@ var Collapse = require('react-bootstrap/lib/Collapse');
  *   render() {
  *     return (
  *       <article>
- *         <ExpanderTrigger ref="trigger">Click to Toggle Content</ExpanderTrigger>
+ *         <ExpanderTrigger ref="trigger"><button>Click to Toggle Content</button></ExpanderTrigger>
  *         <ExpanderContent ref="content">Content to be toggled</ExpanderContent>
  *       </article>
  *     );
@@ -35,7 +35,8 @@ var ExpanderTrigger = React.createClass({
     this.setState({target});
   },
 
-  toggleExpander() {
+  toggleExpander(event) {
+    event.preventDefault();
     if (this.state.target) {
       this.state.target.toggle();
     } else {
@@ -44,7 +45,7 @@ var ExpanderTrigger = React.createClass({
   },
 
   render() {
-    return <div onClick={this.toggleExpander}>{this.props.children}</div>;
+    return React.cloneElement(this.props.children, {onClick: this.toggleExpander});
   }
 });
 
@@ -99,6 +100,7 @@ Require the subcomponent:
 
 ```
 var ExpanderContent = require('pui-react-expander').ExpanderContent;
+var ExpanderTrigger = require('pui-react-expander').ExpanderTrigger;
 ```
 
 
@@ -108,7 +110,7 @@ else within the DOM.
 
 The expander pattern requires two components -- the ExpanderContent and the ExpanderTrigger. You will need to implement a
 component which handles the communication between these two components so the Trigger knows which Content to toggle. This is done
-through the setTarget method exposed on the ExpanderTrigger.
+through the setTarget method exposed on the ExpanderTrigger. *Note that the contents of the ExpanderTrigger component must be a button or link.*
 
 See the example below for how to use these components in your own application.
 

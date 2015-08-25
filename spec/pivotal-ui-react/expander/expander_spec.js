@@ -91,7 +91,7 @@ describe('ExpanderTrigger', function() {
     var ExpanderTrigger = require('../../../src/pivotal-ui-react/expander/expander').ExpanderTrigger;
     return React.render(
       (<ExpanderTrigger>
-        <div>Click here to trigger</div>
+        <button>Click here to trigger</button>
       </ExpanderTrigger>),
       root
     );
