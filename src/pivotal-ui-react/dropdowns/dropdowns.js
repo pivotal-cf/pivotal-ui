@@ -31,7 +31,7 @@ var BsDropdown = require('react-bootstrap').Dropdown;
 function defDropdown(props) {
   return React.createClass({
     propTypes: {
-      id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]).isRequired,
+      id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
       buttonClassName: React.PropTypes.string,
       style: React.PropTypes.any,
       title: React.PropTypes.any
