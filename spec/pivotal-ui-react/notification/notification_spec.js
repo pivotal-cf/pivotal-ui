@@ -1,5 +1,4 @@
 require('../spec_helper');
-import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('Notification', function() {
   var Notifications, NotificationItem;

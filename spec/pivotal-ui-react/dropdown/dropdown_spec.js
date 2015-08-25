@@ -1,5 +1,4 @@
 require('../spec_helper');
-import {itPropagatesAttributes} from '../support/shared_examples';
 import {Dropdown, DropdownItem} from '../../../src/pivotal-ui-react/dropdowns/dropdowns';
 
 describe('Dropdowns', function() {
