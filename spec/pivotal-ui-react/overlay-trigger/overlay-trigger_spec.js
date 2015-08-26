@@ -1,31 +1,94 @@
 require('../spec_helper');
+var Tooltip = require('../../../src/pivotal-ui-react/tooltip/tooltip').Tooltip;
+var OverlayTrigger = require('../../../src/pivotal-ui-react/overlay-trigger/overlay-trigger').OverlayTrigger;
 
 describe('OverlayTrigger', function() {
-  beforeEach(function() {
-    var Tooltip = require('../../../src/pivotal-ui-react/tooltip/tooltip').Tooltip;
-    var OverlayTrigger = require('../../../src/pivotal-ui-react/overlay-trigger/overlay-trigger').OverlayTrigger;
-    var tooltip = (<Tooltip><div className="tooltip-text">Hello World</div></Tooltip>);
-    var launcher = (<div className="launcher">Hover For Tooltip</div>);
-    var overlay = (
-      <OverlayTrigger placement="bottom" overlay={tooltip}>
-        {launcher}
-      </OverlayTrigger>
-    );
-    React.render(overlay, root);
-  });
-
   afterEach(function() {
     React.unmountComponentAtNode(root);
   });
 
   describe('hovering over the launcher', function() {
     beforeEach(function() {
+      var tooltip = (
+        <Tooltip className="tooltip-text"> Hello World </Tooltip>
+      );
+      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+
+      var overlays = (
+        <div>
+          <OverlayTrigger placement="top" overlay={tooltip}>
+            {launcher}
+          </OverlayTrigger>
+        </div>
+      );
+      React.render(overlays, root);
+
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');
     });
 
     it('puts the tooltip in the DOM', function() {
       expect('.tooltip-text').toExist();
+    });
+  });
+
+  describe('when no id is provided', function() {
+    beforeEach(function() {
+      var tooltip = (
+        <Tooltip className="tooltip-text"> Hello World </Tooltip>
+      );
+      var tooltip2 = (
+        <Tooltip className="tooltip-text">Hello World2 </Tooltip>
+      );
+      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+
+      var overlays = (
+        <div>
+          <OverlayTrigger placement="bottom" overlay={tooltip2}>
+            <OverlayTrigger placement="left" overlay={tooltip}>
+              {launcher}
+            </OverlayTrigger>
+          </OverlayTrigger>
+        </div>
+      );
+      React.render(overlays, root);
+
+      expect('.tooltip-text').not.toExist();
+      $('.launcher').simulate('mouseOver');
+    });
+
+    it('generates an id', function() {
+      expect($('.tooltip')[0].id).not.toEqual('');
+      expect($('.tooltip')[1].id).not.toEqual('');
+    });
+
+    it('id is unique', function() {
+      expect($('.tooltip')[0].id).not.toEqual($('.tooltip')[1].id);
+    });
+  });
+
+  describe('when an id is provided', function() {
+    beforeEach(function() {
+      var tooltip = (
+        <Tooltip id="toiletpaper" className="tooltip-text">Hello World2 </Tooltip>
+      );
+      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+
+      var overlays = (
+        <div>
+          <OverlayTrigger placement="left" overlay={tooltip}>
+            {launcher}
+          </OverlayTrigger>
+        </div>
+      );
+      React.render(overlays, root);
+
+      expect('.tooltip-text').not.toExist();
+      $('.launcher').simulate('mouseOver');
+    });
+
+    it('uses provided id', function() {
+      expect('.tooltip#toiletpaper').toExist();
     });
   });
 });

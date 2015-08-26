@@ -1,3 +1,21 @@
+import BsOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
+import React from 'react';
+import uniqueid from 'lodash.uniqueid';
+
+const OverlayTrigger = React.createClass({
+  propTypes: {
+    overlay: React.PropTypes.element
+  },
+  render() {
+    let {overlay, ...others} = this.props;
+    if (!overlay.props.id) {
+      overlay = React.cloneElement(overlay, {id: uniqueid('overlay')});
+    }
+    return <BsOverlayTrigger {...others} overlay={overlay}/>;
+  }
+});
+
+
 module.exports = {
   /**
    * @component OverlayTrigger
@@ -22,5 +40,5 @@ module.exports = {
    *
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tooltips_react)
    */
-  OverlayTrigger: require('react-bootstrap').OverlayTrigger
+  OverlayTrigger
 };
