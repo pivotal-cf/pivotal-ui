@@ -139,7 +139,7 @@ describe('SortableTable', function() {
 
     it('sorts table rows by that column', function() {
       expect('th:contains("Bar")').toHaveClass('sorted-asc');
-      expect('th:contains("Title")').not.toHaveClass('sorted-asc');
+      expect('th:contains("Instances")').not.toHaveClass('sorted-asc');
 
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -148,6 +148,36 @@ describe('SortableTable', function() {
       expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
       expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
       expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('9');
+    });
+  });
+
+  describe('pressing <enter> on a sortable column', function() {
+    beforeEach(function() {
+      $('th:contains("Bar")').simulate('keyPress', {key: 'Enter'});
+    });
+
+    it('sorts table rows by that column', function() {
+      expect('th:contains("Bar")').toHaveClass('sorted-asc');
+      expect('th:contains("Instances")').not.toHaveClass('sorted-asc');
+
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
+      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
+
+      expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
+      expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
+      expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('9');
+    });
+  });
+
+  describe('pressing <space> on a sortable column', function() {
+    beforeEach(function() {
+      $('th:contains("Bar")').simulate('keyPress', {key: ' '});
+    });
+
+    it('does not sort table rows by that column', function() {
+      expect('th:contains("Bar")').not.toHaveClass('sorted-asc');
+      expect('th:contains("Instances")').toHaveClass('sorted-asc');
     });
   });
 

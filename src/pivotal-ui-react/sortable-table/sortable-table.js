@@ -19,17 +19,23 @@ export const TableHeader = React.createClass({
     sortable: React.PropTypes.bool
   },
 
-  handleClick(...args) {
+  handleActivate(event) {
     var {sortable, onClick, onSortableTableHeaderClick} = this.props;
-    if (sortable) onSortableTableHeaderClick(...args);
-    if (onClick) onClick(...args);
+    if (sortable) onSortableTableHeaderClick(event);
+    if (onClick) onClick(event);
+  },
+
+  handleKeyPress(event) {
+    if (event.key === 'Enter') {
+      this.handleActivate(event);
+    }
   },
 
   render() {
     const {sortable, ...others} = this.props;
     const props = mergeProps(others, {className: {'sortable': sortable}});
 
-    return <th {...props} onClick={this.handleClick} role="columnheader"/>;
+    return <th {...props} onClick={this.handleActivate} onKeyPress={this.handleKeyPress} role="columnheader" tabIndex="0"/>;
   }
 });
 
