@@ -15,11 +15,9 @@ describe('OverlayTrigger', function() {
       var launcher = (<div className="launcher">Hover For Tooltip</div>);
 
       var overlays = (
-        <div>
-          <OverlayTrigger placement="top" overlay={tooltip}>
-            {launcher}
-          </OverlayTrigger>
-        </div>
+        <OverlayTrigger placement="top" overlay={tooltip}>
+          {launcher}
+        </OverlayTrigger>
       );
       React.render(overlays, root);
 
@@ -43,13 +41,11 @@ describe('OverlayTrigger', function() {
       var launcher = (<div className="launcher">Hover For Tooltip</div>);
 
       var overlays = (
-        <div>
-          <OverlayTrigger placement="bottom" overlay={tooltip2}>
-            <OverlayTrigger placement="left" overlay={tooltip}>
-              {launcher}
-            </OverlayTrigger>
+        <OverlayTrigger placement="bottom" overlay={tooltip2}>
+          <OverlayTrigger placement="left" overlay={tooltip}>
+            {launcher}
           </OverlayTrigger>
-        </div>
+        </OverlayTrigger>
       );
       React.render(overlays, root);
 
@@ -75,11 +71,9 @@ describe('OverlayTrigger', function() {
       var launcher = (<div className="launcher">Hover For Tooltip</div>);
 
       var overlays = (
-        <div>
-          <OverlayTrigger placement="left" overlay={tooltip}>
-            {launcher}
-          </OverlayTrigger>
-        </div>
+        <OverlayTrigger placement="left" overlay={tooltip}>
+          {launcher}
+        </OverlayTrigger>
       );
       React.render(overlays, root);
 
@@ -89,6 +83,26 @@ describe('OverlayTrigger', function() {
 
     it('uses provided id', function() {
       expect('.tooltip#toiletpaper').toExist();
+    });
+  });
+
+  describe('accessibility', function() {
+    it('passes ADT', function() {
+      var tooltip = (
+        <Tooltip className="tooltip-text">Hello World</Tooltip>
+      );
+      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+
+      var overlays = (
+        <OverlayTrigger placement="top" overlay={tooltip} container={root}>
+          {launcher}
+        </OverlayTrigger>
+      );
+      React.render(overlays, root);
+
+      expect('.tooltip-text').not.toExist();
+      $('.launcher').simulate('mouseOver');
+      expect(root).toPassADT();
     });
   });
 });

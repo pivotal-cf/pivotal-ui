@@ -57,6 +57,11 @@ beforeEach(function() {
       consoleWarn.apply(console, arguments);
     }
   };
+
+
+  jasmine.addMatchers({
+    toPassADT: require('./accessibility-developer-tools-matcher')
+  });
 });
 
 afterEach(function() {
