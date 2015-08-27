@@ -155,7 +155,7 @@ Require the subcomponent:
 
 ```js
 var StreamList = require('pui-react-stream-list').StreamList;
-var ListItem = require('pui-react-stream-list').ListItem;
+var ListItem = require('pui-react-list').ListItem;
 ```
 
 Use this component when you have streaming/polling data that you want to
