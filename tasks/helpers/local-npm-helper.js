@@ -11,7 +11,7 @@ module.exports = {
   registryUrl: SINOPIA_SERVER_URL,
   async clean() {
     const config = yaml.safeLoad(fs.readFileSync('./.sinopia/config.yaml', 'utf8'));
-    const storageLocation = path.join('.','.sinopia', config.storage);
+    const storageLocation = path.join('.', '.sinopia', config.storage);
     log('Cleaning Sinopia storage at', storageLocation);
     await promisify(rimraf)(storageLocation);
   }
