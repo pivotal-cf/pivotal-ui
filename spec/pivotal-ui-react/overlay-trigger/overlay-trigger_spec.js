@@ -7,12 +7,13 @@ describe('OverlayTrigger', function() {
     React.unmountComponentAtNode(root);
   });
 
+
   describe('hovering over the launcher', function() {
     beforeEach(function() {
       var tooltip = (
         <Tooltip className="tooltip-text"> Hello World </Tooltip>
       );
-      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+      var launcher = (<span className="launcher">Hover For Tooltip</span>);
 
       var overlays = (
         <OverlayTrigger placement="top" overlay={tooltip}>
@@ -23,6 +24,15 @@ describe('OverlayTrigger', function() {
 
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');
+    });
+
+    it('wraps the given children in a span with tab-index=0', function() {
+      expect('span.overlay-trigger').toExist();
+      expect('span.overlay-trigger').toHaveAttr('tabIndex', '0');
+    });
+
+    it('adds a leading space to the trigger contents to separate trigger from preceding text', function() {
+      expect($('span.overlay-trigger').text()[0]).toEqual(' ');
     });
 
     it('puts the tooltip in the DOM', function() {
@@ -68,7 +78,7 @@ describe('OverlayTrigger', function() {
       var tooltip = (
         <Tooltip id="toiletpaper" className="tooltip-text">Hello World2 </Tooltip>
       );
-      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+      var launcher = (<span className="launcher">Hover For Tooltip</span>);
 
       var overlays = (
         <OverlayTrigger placement="left" overlay={tooltip}>
@@ -91,7 +101,7 @@ describe('OverlayTrigger', function() {
       var tooltip = (
         <Tooltip className="tooltip-text">Hello World</Tooltip>
       );
-      var launcher = (<div className="launcher">Hover For Tooltip</div>);
+      var launcher = (<span className="launcher">Hover For Tooltip</span>);
 
       var overlays = (
         <OverlayTrigger placement="top" overlay={tooltip} container={root}>

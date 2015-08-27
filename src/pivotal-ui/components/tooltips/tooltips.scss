@@ -89,3 +89,18 @@ $('#disabled-button-with-tooltip').tooltip();
 .button-with-tooltip-wrapper {
   display: inline-block;
 }
+
+.overlay-trigger {
+  color: $link-color;
+  @include transition-pui();
+
+  &:hover, &:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: lighten($link-color, 6%);
+  }
+
+  &:active, &.active{
+    color: darken($link-color, 6%);
+  }
+}
