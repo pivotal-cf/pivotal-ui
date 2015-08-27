@@ -87,6 +87,10 @@ describe('SuccessAlert', function() {
     it('renders an icon in the alert', function() {
       expect('i').toHaveClass('fa-check-circle');
     });
+
+    it('has a "success alert" label', function() {
+      expect('.alert .sr-only').toContainText('success alert message,');
+    });
   });
 });
 
@@ -103,6 +107,10 @@ describe('InfoAlert', function() {
 
     it('renders an icon in the alert', function() {
       expect('i').toHaveClass('fa-info-circle');
+    });
+
+    it('has a "info alert" label', function() {
+      expect('.alert .sr-only').toContainText('info alert message,');
     });
   });
 });
@@ -121,6 +129,10 @@ describe('WarningAlert', function() {
      it('renders an icon in the alert', function() {
        expect('i').toHaveClass('fa-exclamation-triangle');
      });
+
+     it('has a "warning alert" label', function() {
+       expect('.alert .sr-only').toContainText('warning alert message,');
+     });
    });
 });
 
@@ -137,6 +149,10 @@ describe('ErrorAlert', function() {
 
      it('renders an icon in the alert', function() {
        expect('i').toHaveClass('fa-exclamation-triangle');
+     });
+
+     it('has an "error alert" label', function() {
+       expect('.alert .sr-only').toContainText('error alert message,');
      });
    });
 });

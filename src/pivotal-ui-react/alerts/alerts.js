@@ -54,7 +54,15 @@ function defAlert(props) {
       withIcon: types.bool
     },
     render() {
-      return <Alert {...props} {...this.props} />;
+      const {children, ...others} = this.props;
+      return (
+        <Alert {...props} {...others}>
+          <span className="sr-only">
+            {(props.bsStyle === 'danger' ? 'error' : props.bsStyle) + ' alert message,'}
+          </span>
+          {children}
+        </Alert>
+      );
     }
   });
 }
@@ -179,13 +187,13 @@ var SuccessAlert = require('pui-react-alerts').SuccessAlert;
 
 
 ```react_example_table
-<SuccessAlert>success</SuccessAlert>
+<SuccessAlert>Everything is wonderful</SuccessAlert>
 
-<InfoAlert>info</InfoAlert>
+<InfoAlert>Here's some information for you</InfoAlert>
 
-<WarningAlert>warning</WarningAlert>
+<WarningAlert>There is no parking on the dancefloor</WarningAlert>
 
-<ErrorAlert>error</ErrorAlert>
+<ErrorAlert>Something has gone horribly awry</ErrorAlert>
 ```
 */
 
@@ -199,7 +207,7 @@ parent: alerts_react
 Add the `dismissable` property to add a close button to the alert.
 
 ```react_example_table
-<SuccessAlert dismissable>success</SuccessAlert>
+<SuccessAlert dismissable>Everything is wonderful</SuccessAlert>
 ```
 
 If you want a callback to be called when the close button is
