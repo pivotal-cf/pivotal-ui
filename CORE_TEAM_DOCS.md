@@ -160,12 +160,12 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
 
 Accepting components with unpublished changes is hard to do in isolation.
 
-  5. Install Sinopia:  
-  `$ npm i -g sinopia`
+  5. Go to the pivotal-ui working directory:
+  `$ cd pivotal-ui`
   4. Run the server:  
-  `$ sinopia`
-  3. Add a user. The username and password don't matter so go with `nic`, `nac`:  
-  `$ npm adduser --registry http://localhost:4873/`
+  `$ sinopia .sinopia/config.yaml`
+  3. Login with `test`,`test`:
+  `$ npm login --registry http://localhost:4873/`
   2. Run the gulp task:  
   `$ gulp my-name-is-nic-i-do-acceptance`
   1. Install packages in your isolated environment!  
