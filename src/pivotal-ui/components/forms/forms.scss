@@ -574,15 +574,6 @@ them over a custom dropdown whenever possible.
   &.disabled {
     opacity: 0.5;
   }
-
-  &:after {
-    content: "\f107";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 10px;
-    top: 4px;
-    font-size: 22px;
-  }
 }
 
 /*doc
