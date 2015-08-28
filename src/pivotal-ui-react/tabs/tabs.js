@@ -275,6 +275,7 @@ Require the subcomponent:
 
 ```
 var SimpleTabs = require('pui-react-tabs').SimpleTabs;
+var Tab = require('pui-react-tabs').Tab;
 ```
 
 

@@ -5,6 +5,7 @@
   "dependencies": {
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
     "pui-css-tabs": "1.10.0",
-    "lodash.uniqueid": "^3.0.0"
+    "lodash.uniqueid": "^3.0.0",
+    "classnames": "^1.2.0"
   }
 }
