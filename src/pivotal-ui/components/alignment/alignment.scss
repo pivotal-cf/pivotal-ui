@@ -33,8 +33,13 @@ On `display: inline` and `display: table-cell` elements,
 the following classes can be used to for vertical alignment.
 
 ```html_example
-<table class="table table-bordered">
+<table class="table table-bordered" >
   <tr>
+    <th width="40%">
+      This long text is used to expand the height of this
+      table so that we can demonstrate our verticle alignment classes
+      to the right.
+    </th>
     <td class="txt-t" width="20%">
       <code>.txt-t</code>
     </td>
@@ -43,11 +48,6 @@ the following classes can be used to for vertical alignment.
     </td>
     <td class="txt-b" width="20%">
       <code>.txt-b</code>
-    </td>
-    <td width="40%">
-      Distillery trust fund Neutra fingerstache plaid messenger bag.
-      Try-hard health goth PBR Helvetica hashtag. Try-hard narwhal letterpress,
-      crucifix selfies trust fund swag mustache quinoa chambray iPhone.
     </td>
   </tr>
 </table>
