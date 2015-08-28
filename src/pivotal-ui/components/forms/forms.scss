@@ -557,22 +557,35 @@ them over a custom dropdown whenever possible.
 
 .form-control {
   @include button-shadow;
-  font-weight: $input-font-weight;
   padding: 8px 14px; // override bootstrap
   //-webkit-appearance: none;
   position: relative;
   &:hover, &:focus {
-    color: $input-color-hover;
     border-color: $input-border-color-hover;
   }
 
   &.active, &:active {
-    color: $input-color-active;
     background-color: $input-bg-active;
   }
 
-  &.disabled {
+  &.disabled, &:disabled {
     opacity: 0.5;
+  }
+}
+
+select.form-control {
+  color: $link-color;
+  font-weight: $input-font-weight;
+  &:hover, &:focus {
+    color: $input-color-hover;
+  }
+
+  &.active, &:active {
+    color: $input-color-active;
+  }
+
+  &.disabled, &:disabled {
+    color: $input-color;
   }
 }
 
