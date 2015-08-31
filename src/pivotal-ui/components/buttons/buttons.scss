@@ -93,6 +93,10 @@ Button                                                             | Disabled   
   }
 }
 
+.btn-link {
+  @include button-skin($btn-link-color, $btn-link-bg);
+}
+
 .btn-lowlight {
    @include button-skin($btn-lowlight-color, $btn-lowlight-bg);
  }
@@ -113,14 +117,6 @@ Button                                                             | Disabled   
   @include button-shadow;
 }
 
-.btn-link {
-  .open & {
-    &.dropdown-toggle {
-      color: darken($link-color, 6%);
-      box-shadow: none;
-    }
-  }
-}
 
 /*doc
 ---

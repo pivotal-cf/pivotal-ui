@@ -291,9 +291,25 @@ This is a notification dropdown with alerts.
   }
 }
 
+
 .dropdown-notifications {
   .caret {
     display: none;
+  }
+
+  &.open {
+    .btn-link {
+      &.dropdown-toggle {
+        color: $neutral-6;
+        box-shadow: none;
+      }
+    }
+  }
+  .btn-link{
+    &:active, &.active {
+      color: $neutral-6;
+      background-color: transparent;
+    }
   }
 
   .dropdown-toggle {

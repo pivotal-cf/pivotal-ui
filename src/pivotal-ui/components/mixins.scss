@@ -30,19 +30,32 @@
     background-color: lighten($background, 6%);
     outline: none;
   }
+  .btn-group & {
+    &:active,
+    &.active {
+      color: darken($color, 5%);
+      background-color: darken($background, 6%);
+      box-shadow: none;
+      outline: none;
+    }
+  }
+  .open & {
+    &.dropdown-toggle {
+      color: darken($color, 5%);
+      background-color: darken($background, 6%);
+      box-shadow: none;
+      &:hover, &:focus {
+        color: darken($color, 5%);
+        background-color: darken($background, 6%);
+      }
+    }
+  }
   &:active,
   &.active {
     color: darken($color, 5%);
     background-color: darken($background, 6%);
     box-shadow: none;
     outline: none;
-  }
-  .open & {
-    &.dropdown-toggle {
-      color: darken($color, 6%);
-      background-color: darken($background, 6%);
-      box-shadow: none;
-    }
   }
   &.disabled,
   &[disabled],
