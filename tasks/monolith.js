@@ -3,7 +3,7 @@ import gulp from 'gulp';
 import del from 'del';
 import loadPlugins from 'gulp-load-plugins';
 import {map, pipeline, merge, duplex} from 'event-stream';
-import {setup as setupDrF, copyAssets, generateCss} from 'dr-frankenstyle/dist/dev';
+import {setup as setupDrF, copyAssets, generateCss} from 'dr-frankenstyle/dev';
 import {railsUrls} from 'dr-frankenstyle';
 import path from 'path';
 import {read} from 'vinyl-file';
