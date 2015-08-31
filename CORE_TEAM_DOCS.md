@@ -170,7 +170,7 @@ Accepting components with unpublished changes is hard to do in isolation.
   `$ gulp my-name-is-nic-i-do-acceptance`
   1. Switch to your isolated environment:  
   `$ cd ../acceptance-app`
-  3. Remove old `node_modules` and reinstall base dependencies:  
+  3. Remove old `node_modules` and reinstall base dependencies (make sure there are no pui-* modules listed as dependencies in the package.json. If there are, remove those lines from the package.json):  
   `$ rm -rf node_modules && npm i`
   1. Install unpublished packages from Sinopia:  
   `$ npm install [package name] --save --registry http://localhost:4873`
