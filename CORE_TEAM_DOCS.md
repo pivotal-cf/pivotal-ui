@@ -162,15 +162,20 @@ Accepting components with unpublished changes is hard to do in isolation.
 
   7. Go to the pivotal-ui working directory:  
   `$ cd pivotal-ui`
-  6. Run the server:  
+  6. Start a Sinopia server (local NPM):  
   `$ sinopia .sinopia/config.yaml`
   5. Login with `test`,`test`:  
   `$ npm login --registry http://localhost:4873/`
   4. Run the gulp task:  
   `$ gulp my-name-is-nic-i-do-acceptance`
-  3. Clear out your dependencies from `package.json` in your isolated environment:  
-  `"dependencies": {},`
-  2. Run `npm prune` to remove previous dependencies from `node_modules`.
-  1. Install packages in your isolated environment!  
+  1. Switch to your isolated environment:  
+  `$ cd ../acceptance-app`
+  3. Remove old `node_modules` and reinstall base dependencies:  
+  `$ rm -rf node_modules && npm i`
+  1. Install unpublished packages from Sinopia:  
   `$ npm install [package name] --save --registry http://localhost:4873`
-  0. Press the green button 
+  1. Rebuild the compiled CSS:  
+  `$ node ./node_modules/.bin/dr-frankenstyle build`
+  1. Start the local acceptance server:  
+  `$ gulp`
+  0. Press the green button
