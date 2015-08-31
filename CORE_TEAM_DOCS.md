@@ -159,6 +159,7 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
 ## Acceptance
 
 Accepting components with unpublished changes is hard to do in isolation.
+If you need an empty project to use that's all set up, check out the [pui-demo-project](https://github.com/pivotal-cf/pui-demo-project).
 
   7. Go to the pivotal-ui working directory:  
   `$ cd pivotal-ui`
