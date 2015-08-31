@@ -104,8 +104,6 @@ describe('Dropdowns', function() {
 
   dropdownTestFor('DefaultAltDropdown', 'btn-default-alt');
 
-  dropdownTestFor('PrimaryDropdown', 'btn-primary');
-
   dropdownTestFor('LowlightDropdown', 'btn-lowlight');
 
   dropdownTestFor('DangerDropdown', 'btn-danger');

@@ -437,10 +437,9 @@ $btn-default-alt-color:          $link-color;
 $btn-default-alt-bg:             $neutral-11;
 $btn-default-alt-border:         $neutral-7;
 
-$btn-primary-color:              $accent-3;
-$btn-primary-bg:                 white;
-$btn-primary-bg-hover:           white;
-$btn-primary-border:             #49A8D5 !default;
+$btn-primary-color:              $accent-3; // not currently used, but bootstrap relies on this value
+$btn-primary-bg:                 white;     // not currently used, but bootstrap relies on this value
+$btn-primary-border:             #49A8D5 !default; // not currently used, but bootstrap relies on this value
 
 $btn-link-color:                 $link-color !default;
 $btn-link-bg:                    transparent !default;

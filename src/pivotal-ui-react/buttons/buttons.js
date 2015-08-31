@@ -28,7 +28,6 @@ var UIButton = React.createClass({
     kind: React.PropTypes.oneOf([
       'default',
       'default-alt',
-      'primary',
       'lowlight',
       'danger',
       'highlight',
@@ -66,7 +65,6 @@ function defButton(propOverrides) {
       kind: React.PropTypes.oneOf([
         'default',
         'default-alt',
-        'primary',
         'lowlight',
         'danger',
         'highlight',
@@ -106,18 +104,6 @@ module.exports = {
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
    */
   DefaultAltButton: defButton({kind: 'default-alt'}),
-
-  /**
-   * @component PrimaryButton
-   *
-   * @property href {String} Makes a button-styled link pointing to the given URL
-   * @property block {Boolean} Makes the button fill the width of its container
-   * @property large {Boolean} Enlarges the button
-   *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#button_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#button)
-   */
-  PrimaryButton: defButton({kind: 'primary'}),
 
   /**
    * @component LowlightButton
@@ -223,10 +209,6 @@ Specific button types.
 <DefaultAltButton>
   Default alternate
 </DefaultAltButton>
-
-<PrimaryButton>
-  Primary
-</PrimaryButton>
 
 <LowlightButton>
   Lowlight

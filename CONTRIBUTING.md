@@ -555,9 +555,9 @@ Parent component:
     use either a `<button>` or an `<a>` element:
 
     ```html_example_table
-    <button class="btn btn-primary">Button</button>
+    <button class="btn btn-default">Button</button>
 
-    <a class="btn btn-primary" href="http://trulia.com">Link</a>
+    <a class="btn btn-default" href="http://trulia.com">Link</a>
     ```
 
     If your button is actually a link to another page, please use the
@@ -579,9 +579,9 @@ Child component:
     size modifier class for the desired size.
 
     ```html_example_table
-    <button class="btn btn-primary btn-lg">Large</button>
+    <button class="btn btn-default btn-lg">Large</button>
 
-    <button class="btn btn-primary">Default</button>
+    <button class="btn btn-default">Default</button>
     ```
 
     */

@@ -93,17 +93,6 @@ module.exports = {
   DefaultAltDropdown: defDropdown({buttonClassName: 'btn-default-alt', bsStyle: null}),
 
   /**
-   * @component PrimaryDropdown
-   * @description An alternate style for the dropdown trigger button
-   *
-   * @property title {String} Sets the text of the dropdown trigger button
-   *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
-   */
-  PrimaryDropdown: defDropdown({bsStyle: 'primary'}),
-
-  /**
    * @component LowlightDropdown
    * @description An alternate style for the dropdown trigger button
    *
@@ -190,10 +179,6 @@ Here are all the different dropdown styles:
 <DefaultAltDropdown title='Default Alt'>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
 </DefaultAltDropdown>
-
-<PrimaryDropdown title='Primary'>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</PrimaryDropdown>
 
 <LowlightDropdown title='Lowlight'>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>

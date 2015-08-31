@@ -96,7 +96,7 @@ This only applies to forms within viewports that are at least 768px wide.
       Remember me
     </label>
   </div>
-  <button class="btn btn-primary" type="submit">Sign in</button>
+  <button class="btn btn-default" type="submit">Sign in</button>
 </form>
 ```
 */
@@ -129,7 +129,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
       Remember me
     </label>
   </div>
-  <button class="btn btn-primary" type="submit">Sign in</button>
+  <button class="btn btn-default" type="submit">Sign in</button>
 </form>
 ```
 */

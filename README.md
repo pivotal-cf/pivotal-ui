@@ -97,7 +97,7 @@ If you're ready to try PUI with React, follow these instructions!
    ```jsx
    var React = require('react');
    var DefaultH1 = require('pui-react-typography').DefaultH1;
-   var PrimaryButton = require('pui-react-buttons').PrimaryButton;
+   var DefaultButton = require('pui-react-buttons').DefaultButton;
 
    var MyTestPage = React.createClass({
      getInitialState: function() {
@@ -111,7 +111,7 @@ If you're ready to try PUI with React, follow these instructions!
      render: function() {
        return (
          <div className="container">
-	   <PrimaryButton onClick={this.showMessage}>Show Message</PrimaryButton>
+	   <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
 	   { this.state.showMessage ? <DefaultH1>Hello world!</DefaultH1> : null }
 	 </div>
        );

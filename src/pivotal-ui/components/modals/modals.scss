@@ -54,7 +54,7 @@ npm install pui-css-modals --save
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
 <!-- Button trigger modal -->
-<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+<button class="btn btn-default" data-toggle="modal" data-target="#myModal">
   Launch modal
 </button>
 
@@ -71,7 +71,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default">Save changes</button>
       </div>
     </div>
   </div>
