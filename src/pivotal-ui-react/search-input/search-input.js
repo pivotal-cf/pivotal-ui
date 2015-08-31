@@ -56,7 +56,7 @@ npm install pui-react-forms --save
 Require the subcomponent:
 
 ```
-var SearchInput = require('pui-react-forms').SearchInput;
+var SearchInput = require('pui-react-search-input').SearchInput;
 ```
 
 A `SearchInput` component can be used on its own as an input. It accepts standard
@@ -86,12 +86,8 @@ var FilteringSearchExample = React.createClass({
 
   render: function () {
     var filterRegex = new RegExp(this.state.filter, "i");
-    var displayedItems = _.filter(this.state.items, function (item) {
-      return item.match(filterRegex);
-    });
-
-    var listItems = _.map(displayedItems, function (item) {
-      return (<li key={item}>{item}</li>)
+    var listItems = this.state.items.map(function (item) {
+      return item.match(filterRegex) && <li key={item}>{item}</li>;
     });
 
     return (
