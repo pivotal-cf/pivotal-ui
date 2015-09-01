@@ -39,7 +39,7 @@ var Autocomplete = React.createClass({
   },
 
   getDefaultProps() {
-    return {maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>)};
+    return {maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>), placeholder: 'Search'};
   },
 
   getInitialState() {

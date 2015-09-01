@@ -106,7 +106,7 @@ var AutocompleteInput = React.createClass({
   },
 
   renderDefault(props) {
-    return (<input {...props} className={classnames('autocomplete-input', 'form-control', props.className)} type="search" value={props.value}/>);
+    return (<input {...props} className={classnames('autocomplete-input', 'form-control', props.className)} type="search" value={props.value} aria-label={props.placeholder}/>);
   },
 
   render() {
