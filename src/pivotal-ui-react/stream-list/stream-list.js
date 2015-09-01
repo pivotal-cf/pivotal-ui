@@ -150,6 +150,14 @@ npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 </i>
 </code>
 
+Require the subcomponent:
+
+```js
+var StreamList from ('pui-react-stream-list').StreamList;
+var ListItem = require('pui-react-lists').ListItem;
+var DefaultButton = require('pui-react-buttons').DefaultButton;
+```
+
 Use this component when you have streaming/polling data that you want to
 display in a list. As items roll in (polling, streams, websockets - your choice), add the
 items to the list. The user will see a "n new item(s)" button animate in
@@ -158,10 +166,6 @@ appear in the list.
 
 
 ```jsx_example
-var StreamList = require('pui-react-stream-list').StreamList;
-var ListItem = require('pui-react-lists').ListItem;
-var DefaultButton = require('pui-react-buttons').DefaultButton;
-
 var counter = (function() {
   var i = 4;
   return function() {
