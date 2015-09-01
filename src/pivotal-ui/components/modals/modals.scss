@@ -53,6 +53,7 @@ npm install pui-css-modals --save
 
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
+```html_example
 <!-- Button trigger modal -->
 <button class="btn btn-default" data-toggle="modal" data-target="#myModal">
   Launch modal
@@ -76,6 +77,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
     </div>
   </div>
 </div>
+```
 
 */
 
