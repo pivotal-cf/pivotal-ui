@@ -146,8 +146,7 @@ parent: list_react
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-stream-list --save
-npm install pui-react-lists --save
+npm install pui-react-lists pui-react-stream-list --save
 </i>
 </code>
 
@@ -155,7 +154,7 @@ Require the subcomponent:
 
 ```js
 var StreamList = require('pui-react-stream-list').StreamList;
-var ListItem = require('pui-react-list').ListItem;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 Use this component when you have streaming/polling data that you want to
