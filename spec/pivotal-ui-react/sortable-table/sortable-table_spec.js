@@ -153,7 +153,7 @@ describe('SortableTable', function() {
 
   describe('pressing <enter> on a sortable column', function() {
     beforeEach(function() {
-      $('th:contains("Bar")').simulate('keyPress', {key: 'Enter'});
+      $('th:contains("Bar")').simulate('keyDown', {key: 'Enter'});
     });
 
     it('sorts table rows by that column', function() {
@@ -172,7 +172,7 @@ describe('SortableTable', function() {
 
   describe('pressing <space> on a sortable column', function() {
     beforeEach(function() {
-      $('th:contains("Bar")').simulate('keyPress', {key: ' '});
+      $('th:contains("Bar")').simulate('keyDown', {key: ' '});
     });
 
     it('does not sort table rows by that column', function() {

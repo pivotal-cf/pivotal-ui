@@ -25,7 +25,7 @@ export const TableHeader = React.createClass({
     if (onClick) onClick(event);
   },
 
-  handleKeyPress(event) {
+  handleKeyDown(event) {
     if (event.key === 'Enter') {
       this.handleActivate(event);
     }
@@ -35,7 +35,7 @@ export const TableHeader = React.createClass({
     const {sortable, ...others} = this.props;
     const props = mergeProps(others, {className: {'sortable': sortable}});
 
-    return <th {...props} onClick={this.handleActivate} onKeyPress={this.handleKeyPress} role="columnheader" tabIndex="0"/>;
+    return <th {...props} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} tabIndex="0" role="button" disabled={ !sortable }/>;
   }
 });
 
@@ -59,7 +59,7 @@ export const TableCell = React.createClass({
  */
 export const TableRow = React.createClass({
   render() {
-    return <tr {...this.props} role="row"/>;
+    return <tr {...this.props} />;
   }
 });
 
