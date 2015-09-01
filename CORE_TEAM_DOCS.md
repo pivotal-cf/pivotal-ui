@@ -29,6 +29,7 @@ Package published | Switch package dependency away from dist to newest published
 
 - Add to github, ADT CLA google group, tracker, google drive folder, and calendar invites (ipm, retro, standup, feedback time)
 - Add new member's NPM login to the publish helper in `tasks/helpers/publish-helper.js`
+- Add new member as owner of dr-frankenstyle or gulp-dr-frankenstyle
 - Add github username to the external PR signature (above)
 - Add to ~/.gitauthors file on all PUI computers
 
