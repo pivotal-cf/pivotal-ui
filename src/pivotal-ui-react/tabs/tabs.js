@@ -31,7 +31,11 @@ const BaseTabs = React.createClass({
   },
 
   setActiveKey(key) {
-    this.setState({activeKey: key});
+    const previousActiveKey = this.state.activeKey;
+    this.setState({
+      activeKey: key,
+      previousActiveKey
+    });
   },
 
   componentWillReceiveProps(nextProps) {
@@ -56,7 +60,9 @@ const BaseTabs = React.createClass({
     return (
       <div {...props}>
         <div className={largeScreenClasses}>
-          <Tabs id={uniqueid('pui-react-tabs-')} position={position} tabWidth={tabWidth} paneWidth={paneWidth} activeKey={this.state.activeKey} onSelect={this.handleSelect}>
+          <Tabs id={uniqueid('pui-react-tabs-')} position={position} tabWidth={tabWidth}
+                paneWidth={paneWidth} activeKey={this.state.activeKey}
+                onSelect={this.handleSelect}>
             {children}
           </Tabs>
         </div>
