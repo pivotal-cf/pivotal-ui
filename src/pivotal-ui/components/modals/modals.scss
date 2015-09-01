@@ -59,7 +59,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
 </button>
 
 <!-- Modal Basic -->
-<div class="modal fade modal-basic" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-basic" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -67,7 +67,7 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body">
-        ...
+        Here is some interesting text in the modal body.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
