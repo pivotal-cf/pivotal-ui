@@ -1,12 +1,12 @@
 {
-  "version": "1.10.0",
+  "version": "2.0.0-alpha.0",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/react.html#dropdown_react",
   "dependencies": {
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
-    "pui-css-dropdowns": "1.10.0",
-    "pui-css-iconography": "1.10.0",
-    "pui-css-buttons": "1.10.0",
+    "pui-css-dropdowns": "2.0.0-alpha.0",
+    "pui-css-iconography": "2.0.0-alpha.0",
+    "pui-css-buttons": "2.0.0-alpha.0",
     "classnames": "^2.1.2"
   }
 }

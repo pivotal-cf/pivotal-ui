@@ -1,8 +1,8 @@
 {
   "homepage": "http://styleguide.pivotal.io/elements#button-group",
   "dependencies": {
-    "pui-css-bootstrap": "1.10.0",
-    "pui-css-buttons": "1.10.0"
+    "pui-css-bootstrap": "2.0.0-alpha.0",
+    "pui-css-buttons": "2.0.0-alpha.0"
   },
-  "version": "0.0.2"
+  "version": "2.0.0-alpha.0"
 }

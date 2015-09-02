@@ -1,10 +1,10 @@
 {
-  "version": "1.10.0",
+  "version": "2.0.0-alpha.0",
   "description": "A collection of React components providing styled buttons and links",
   "homepage": "http://styleguide.pivotal.io/react.html#button_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-buttons": "1.10.0",
-    "pui-react-helpers": "0.0.2"
+    "pui-css-buttons": "2.0.0-alpha.0",
+    "pui-react-helpers": "2.0.0-alpha.0"
   }
 }
