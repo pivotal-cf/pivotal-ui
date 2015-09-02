@@ -186,6 +186,9 @@ Require the subcomponent:
 
 ```
 var SortableTable = require('pui-react-tables').SortableTable;
+var TableHeader = require('pui-react-tables').TableHeader;
+var TableRow = require('pui-react-tables').TableRow;
+var TableCell = require('pui-react-tables').TableCell;
 ```
 
 ---

@@ -4,6 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/react.html#panel_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-panels": "1.10.0"
+    "pui-css-panels": "1.10.0",
+    "pui-react-helpers": "0.0.2"
   }
 }

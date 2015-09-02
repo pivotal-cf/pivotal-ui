@@ -142,6 +142,7 @@ Require the subcomponent:
 
 ```
 var PortalSource = require('pui-react-portals').PortalSource;
+var PortalDestination = require('pui-react-portals').PortalDestination;
 ```
 
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like

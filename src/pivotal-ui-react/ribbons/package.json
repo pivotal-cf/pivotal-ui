@@ -3,6 +3,7 @@
   "description": "React components that provide informational text callouts",
   "homepage": "http://styleguide.pivotal.io/react.html#ribbons_react",
   "dependencies": {
-    "pui-css-ribbons": "1.10.0"
+    "pui-css-ribbons": "1.10.0",
+    "pui-react-helpers": "0.0.2"
   }
 }

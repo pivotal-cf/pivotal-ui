@@ -90,7 +90,7 @@ category:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-panels --save
+npm install pui-react-panels pui-react-typography --save
 </i>
 </code>
 
@@ -98,6 +98,8 @@ Require the subcomponent:
 
 ```
 var Pane = require('pui-react-panels').Pane;
+var BasePane = require('pui-react-panels').BasePane;
+var DefaultH1 = require('pui-react-typography').DefaultH1;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

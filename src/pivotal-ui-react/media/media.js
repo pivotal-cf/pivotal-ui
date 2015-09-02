@@ -129,6 +129,7 @@ Require the subcomponent:
 
 ```
 var Media = require('pui-react-media').Media;
+var Flag = require('pui-react-media').Flag;
 ```
 
 ## General media object modifiers

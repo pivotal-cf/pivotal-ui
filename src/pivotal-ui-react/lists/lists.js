@@ -255,14 +255,16 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-lists --save
+npm install pui-react-lists pui-react-buttons --save
 </i>
 </code>
 
 Require the subcomponent:
 
 ```
-var ListItem = require('pui-react-lists').ListItem;
+ var ListItem = require('pui-react-lists').ListItem;
+ var HighlightButton = require('pui-react-buttons').HighlightButton;
+ var StepList = require('pui-react-lists').StepList;
 ```
 
 ---
@@ -304,7 +306,7 @@ var AddableList = React.createClass({
   },
 
   render: function() {
-    var items = _.map(this.state.items, function(item, key) {
+    var items = this.state.items.map(function(item, key) {
       return (
         <AddableListItem key={key+item}>
           {item}

@@ -247,6 +247,40 @@ name: type_react
 category:
 - React
 ---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-typography --save
+</i>
+</code>
+
+Require the subcomponents:
+
+```
+import {
+  DefaultH1,
+  DefaultH2,
+  DefaultH3,
+  DefaultH4,
+  DefaultH5,
+  DefaultH6,
+  AlternateH1,
+  AlternateH2,
+  AlternateH3,
+  AlternateH4,
+  AlternateH5,
+  AlternateH6,
+  MarketingH1,
+  MarketingH2,
+  MarketingH3,
+  MarketingH4,
+  MarketingH5,
+  MarketingH6,
+  Heading
+} from 'pui-react-typography'
+
+```
+
 We have three type systems. Which one you choose depends on your product.
 
 * Marketing sites should use the largest styles, for example `<MarketingH1>A Top Level Heading</MarketingH1>`

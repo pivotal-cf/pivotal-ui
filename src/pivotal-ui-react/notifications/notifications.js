@@ -153,7 +153,7 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-notifications --save
+npm install pui-react-notifications pui-react-labels pui-react-typography pui-react-media --save
 </i>
 </code>
 
@@ -162,6 +162,10 @@ Require the subcomponent:
 ```
 var Notifications = require('pui-react-notifications').Notifications;
 var NotificationItem = require('pui-react-notifications').NotificationItem;
+var Label = require('pui-react-labels').Label;
+var DefaultH3 = require('pui-react-typography').DefaultH3;
+var DefaultH5 = require('pui-react-typography').DefaultH5;
+var Flag = require('pui-react-media').Flag;
 ```
 
 
@@ -203,9 +207,11 @@ parent: notifications_react
 </Notifications>
 
 <Notifications size="h2">
-  {_.times(10, function(i) {
-    return <NotificationItem key={i}>Stuff</NotificationItem>;
-  })}
+  <NotificationItem key={1}>Stuff</NotificationItem>
+  <NotificationItem key={2}>Stuff</NotificationItem>
+  <NotificationItem key={3}>Stuff</NotificationItem>
+  <NotificationItem key={4}>Stuff</NotificationItem>
+  <NotificationItem key={5}>Stuff</NotificationItem>
 </Notifications>
 
 <AlertNotifications size="h3">
@@ -213,9 +219,11 @@ parent: notifications_react
 </AlertNotifications>
 
 <Notifications size="h4">
-  {_.times(10, function(i) {
-    return <NotificationItem key={i}>Stuff</NotificationItem>;
-  })}
+ <NotificationItem key={1}>Stuff</NotificationItem>
+ <NotificationItem key={2}>Stuff</NotificationItem>
+ <NotificationItem key={3}>Stuff</NotificationItem>
+ <NotificationItem key={4}>Stuff</NotificationItem>
+ <NotificationItem key={5}>Stuff</NotificationItem>
 </Notifications>
 
 <Notifications size="h5">
@@ -223,9 +231,11 @@ parent: notifications_react
 </Notifications>
 
 <AlertNotifications size="h6">
-  {_.times(10, function(i) {
-  return <NotificationItem key={i}>Stuff</NotificationItem>;
-  })}
+ <NotificationItem key={1}>Stuff</NotificationItem>
+ <NotificationItem key={2}>Stuff</NotificationItem>
+ <NotificationItem key={3}>Stuff</NotificationItem>
+ <NotificationItem key={4}>Stuff</NotificationItem>
+ <NotificationItem key={5}>Stuff</NotificationItem>
 </AlertNotifications>
 ```
 */
@@ -242,6 +252,10 @@ Require the subcomponent:
 ```
 var AlertNotifications = require('pui-react-notifications').AlertNotifications;
 var NotificationItem = require('pui-react-notifications').NotificationItem;
+var Icon = require('pui-react-iconography').Icon;
+var DefaultH5 = require('pui-react-typography').DefaultH5;
+var DefaultH3 = require('pui-react-typography').DefaultH3;
+var Flag = require('pui-react-media').Flag;
 ```
 
 Here's an example if there are no alerts:
