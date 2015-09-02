@@ -194,7 +194,7 @@ To make a button large, set the `large` property to true.
 To make a button full-width, set the `block` property to true.
 
 ```react_example
-<DangerButton block={true} href="http://i.imgur.com/oq2qkUN.gif">
+<DangerButton block={true} >
   Danger Zone
 </DangerButton>
 ```
