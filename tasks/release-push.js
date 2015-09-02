@@ -39,7 +39,7 @@ gulp.task('release-push-production-styleguide-verify', () =>
 gulp.task('release-push-npm-publish', ['css-build', 'react-build'], () => {
   return gulp.src('dist/{css,react}/*/package.json')
     .pipe(infoForUpdatedPackages())
-    .pipe(publishPackages())
+    .pipe(publishPackages());
 });
 
 gulp.task('release-push-git', async () => {

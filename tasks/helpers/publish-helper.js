@@ -11,7 +11,7 @@ import localNpm from './local-npm-helper';
 
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
-const dontPublish = ['pui-css-faq', 'pui-css-hiring', 'pui-css-intro', 'pui-css-utils', 'pui-css-toggles']
+const dontPublish = ['pui-css-faq', 'pui-css-hiring', 'pui-css-intro', 'pui-css-utils', 'pui-css-toggles', 'pui-css-health_indicators'];
 
 export function infoForUpdatedPackages() {
   return pipeline(
