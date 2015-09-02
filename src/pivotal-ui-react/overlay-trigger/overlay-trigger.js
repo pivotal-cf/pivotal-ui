@@ -11,9 +11,13 @@ const OverlayTrigger = React.createClass({
     if (!overlay.props.id) {
       overlay = React.cloneElement(overlay, {id: uniqueid('overlay')});
     }
-    return <BsOverlayTrigger {...others} overlay={overlay}>
-        <span className="overlay-trigger" tabIndex={0}> {children}</span>
-      </BsOverlayTrigger>;
+    return (
+      <span>
+        <BsOverlayTrigger {...others} overlay={overlay}>
+          {children}
+        </BsOverlayTrigger>
+        <span className="sr-only">{overlay.props.children}</span>
+      </span>);
   }
 });
 

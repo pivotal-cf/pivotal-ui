@@ -26,15 +26,6 @@ describe('OverlayTrigger', function() {
       $('.launcher').simulate('mouseOver');
     });
 
-    it('wraps the given children in a span with tab-index=0', function() {
-      expect('span.overlay-trigger').toExist();
-      expect('span.overlay-trigger').toHaveAttr('tabIndex', '0');
-    });
-
-    it('adds a leading space to the trigger contents to separate trigger from preceding text', function() {
-      expect($('span.overlay-trigger').text()[0]).toEqual(' ');
-    });
-
     it('puts the tooltip in the DOM', function() {
       expect('.tooltip-text').toExist();
     });
