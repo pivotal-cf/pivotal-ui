@@ -8,6 +8,7 @@ import {railsUrls} from 'dr-frankenstyle';
 import path from 'path';
 import {read} from 'vinyl-file';
 import webpack from 'webpack-stream';
+import webpackConfig from '../config/webpack';
 
 const plugins = loadPlugins();
 const runSequence = require('run-sequence').use(gulp);
@@ -92,7 +93,7 @@ gulp.task('monolith-styleguide-css', () =>
 
 gulp.task('monolith-build-js', () =>
     gulp.src('./src/pivotal-ui/javascripts/pivotal-ui.js')
-      .pipe(webpack(require('../config/webpack/development')))
+      .pipe(webpack(webpackConfig()))
       .pipe(plugins.rename('pivotal-ui.js'))
       .pipe(gulp.dest('build'))
 );
@@ -101,7 +102,7 @@ gulp.task('monolith-build-react-js', () => {
   const watch = Boolean(process.env.WEBPACK_WATCH);
 
   const task = gulp.src('./src/pivotal-ui/javascripts/pivotal-ui-react.js')
-    .pipe(webpack(Object.assign({}, require('../config/webpack/development'), {watch: watch})))
+    .pipe(webpack(webpackConfig({watch: watch})))
     .pipe(plugins.rename('pivotal-ui-react.js'))
     .pipe(gulp.dest('build'));
 

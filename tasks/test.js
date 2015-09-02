@@ -7,14 +7,15 @@ import {map, merge} from 'event-stream';
 import reduce from 'stream-reduce';
 import File from 'vinyl';
 import path from 'path';
+import webpackConfig from '../config/webpack';
+
 const plugins = loadPlugins();
 
 gulp.task('ci', callback => runSequence(
   'lint',
   'jasmine-task-helpers',
-  'set-ci-port',
-  'rspec',
   'jasmine-react-ci',
+  'rspec',
   callback
 ));
 
@@ -47,10 +48,14 @@ gulp.task('jasmine-task-helpers', function() {
 
 gulp.task('set-ci-port', () => process.env.STYLEGUIDE_PORT = 9001);
 
-gulp.task('rspec', ['monolith-serve'], function(done) {
-  var rspec = spawn('rspec', ['spec/features'], {stdio: 'inherit'});
+gulp.task('rspec-features', function(done) {
+  const rspec = spawn('rspec', ['spec/features'], {stdio: 'inherit'});
   ['SIGINT', 'SIGTERM'].forEach(e => process.once(e, () => rspec && rspec.kill()));
   rspec.once('close', done);
+});
+
+gulp.task('rspec', function(done) {
+  runSequence('set-ci-port', 'monolith-serve', 'rspec-features', 'monolith-kill-server', done);
 });
 
 gulp.task('css-critic-prepare', ['monolith'], function() {
@@ -84,7 +89,7 @@ gulp.task('css-critic', ['css-critic-prepare'], function() {
 function reactTestAssets(options = {}) {
   return gulp.src('spec/pivotal-ui-react/**/*_spec.js')
     .pipe(plugins.plumber())
-    .pipe(webpack(Object.assign(require('../config/webpack/test'), options)));
+    .pipe(webpack(webpackConfig({nodeEnv: 'test', ...options})));
 }
 
 gulp.task('jasmine-react-ci', function() {

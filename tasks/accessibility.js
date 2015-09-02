@@ -7,7 +7,7 @@ import webpack from 'webpack-stream';
 import waitTillListening from 'strong-wait-till-listening';
 import {spawn} from 'child_process';
 import phantomjs from 'phantomjs';
-
+import webpackConfig from '../config/webpack';
 
 gulp.task('set-accessibility-ci-port', (done) => {
   process.env.STYLEGUIDE_PORT = 9002;
@@ -16,7 +16,7 @@ gulp.task('set-accessibility-ci-port', (done) => {
 
 gulp.task('accessibility-react-a11y-injectable', () =>
   gulp.src('templates/react-a11y-injectable.js')
-    .pipe(webpack({output: {filename: 'react-a11y-script.js'}}))
+    .pipe(webpack(webpackConfig({nodeEnv: 'accessibility'})))
     .pipe(gulp.dest('build/'))
 );
 
