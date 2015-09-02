@@ -36,11 +36,11 @@ gulp.task('release-push-production-styleguide-verify', () =>
     })
 );
 
-gulp.task('release-push-npm-publish', ['css-build', 'react-build'], () =>
-  gulp.src('dist/{css,react}/*/package.json')
+gulp.task('release-push-npm-publish', ['css-build', 'react-build'], () => {
+  return gulp.src('dist/{css,react}/*/package.json')
     .pipe(infoForUpdatedPackages())
     .pipe(publishPackages())
-);
+});
 
 gulp.task('release-push-git', async () => {
   const {version} = require('../package.json');

@@ -11,31 +11,35 @@ import localNpm from './local-npm-helper';
 
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
+const dontPublish = ['pui-css-faq', 'pui-css-hiring', 'pui-css-intro', 'pui-css-utils', 'pui-css-toggles']
 
 export function infoForUpdatedPackages() {
   return pipeline(
     map(async (file, callback) => {
       const {name, version: localVersion} = JSON.parse(file.contents.toString());
 
-      try {
-        const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
-        if (gt(localVersion, publishedVersion)) {
-          callback(null, {name: name, dir: path.dirname(file.path)});
+      if (!dontPublish.includes(name)) {
+        try {
+          const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
+          if (gt(localVersion, publishedVersion)) {
+            callback(null, {name: name, dir: path.dirname(file.path)});
+          }
+          else {
+            callback(); // skip it
+          }
         }
-        else {
-          callback(); // skip it
+        catch(e) {
+          if (e.message.match(/Not Found/)) {
+            log(`Warning: ${name} is not published`);
+            callback();
+          }
+          else {
+            console.error(e);
+            callback(e);
+          }
         }
       }
-      catch(e) {
-        if (e.message.match(/Not Found/)) {
-          log(`Warning: ${name} is not published`);
-          callback();
-        }
-        else {
-          console.error(error.stack);
-          callback(e);
-        }
-      }
+      callback();
     }),
 
     reduce((packageInfos, packageInfo) => {
