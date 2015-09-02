@@ -73,7 +73,7 @@
     "proxyquire": "^1.5.0",
     "pui-cursor": "^1.3.2",
     "react": "0.13.3",
-    "react-a11y": "pivotal-cf/react-a11y#dist",
+    "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25",
     "react-fa": "^3.0.0",
     "require-dir": "^0.3.0",
