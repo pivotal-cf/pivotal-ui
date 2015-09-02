@@ -100,6 +100,9 @@ again.
   - Creates the `release/pui-vX.X.X` folder
   - Creates a commit with all these changes
 
+1. If you want to release an alpha, run `gulp release-prepare --alpha` instead
+   of the step above. It will update the versions to an alpha of the next
+   release (x.x.x-alpha.x).
 
 1. If you want to bump the versions of all components, not just changed
    packages, run `gulp release-prepare --update-all` instead of the step above.

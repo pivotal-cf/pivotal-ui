@@ -9,6 +9,8 @@ import changelog from 'conventional-changelog';
 import {log} from 'gulp-util';
 import source from 'vinyl-source-stream';
 import semver from 'semver';
+import {argv} from 'yargs';
+
 
 import {releaseDest} from './helpers/release-folder-helper';
 import {getNewVersion} from './helpers/version-helper';
@@ -26,7 +28,11 @@ gulp.task('release-update-version', (done) => {
       try {
         const jsonContents = JSON.parse(file.contents.toString());
         const versionBumpType = await recommendedBump({preset: 'angular'});
-        jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
+        if (argv.alpha) {
+          jsonContents.version = semver.inc(jsonContents.version, 'pre' + versionBumpType, 'alpha');
+        } else {
+          jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
+        }
         file.contents = new Buffer(JSON.stringify(jsonContents, null, 2));
         callback(null, file);
       }
