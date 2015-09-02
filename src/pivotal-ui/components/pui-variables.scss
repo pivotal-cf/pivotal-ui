@@ -514,6 +514,8 @@ $input-border-width:             1px !default;
 
 $input-color-placeholder:        $neutral-5 !default;
 
+$form-label-color:               $neutral-3 !default;
+
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;

@@ -1117,6 +1117,10 @@ Here's an example in a vertical form:
   text-transform: capitalize;
 }
 
+.help-block {
+  color: $form-label-color;
+}
+
 // Form control sizing
 
 @include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
@@ -1273,6 +1277,7 @@ A toggle switch is a horizontally styled checkbox which represents true with blu
     position: relative;
     display: block;
     background-color: $neutral-7;
+    color: $neutral-1;
     transition: background 0.4s;
     cursor: pointer;
     outline: none;
