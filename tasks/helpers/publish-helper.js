@@ -43,7 +43,9 @@ export function infoForUpdatedPackages() {
     }),
 
     reduce((packageInfos, packageInfo) => {
-      packageInfos.push(packageInfo);
+      if (packageInfo) {
+        packageInfos.push(packageInfo);
+      }
       return packageInfos;
     }, [])
   );
