@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "description": "A React component that provides a table that can be sorted by column",
   "homepage": "http://styleguide.pivotal.io/react.html#table_sortable_react",
   "dependencies": {

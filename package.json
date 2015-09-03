@@ -2,7 +2,7 @@
   "name": "pivotal-ui",
   "private": true,
   "description": "***",
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.1",
   "main": "gulpfile.js",
   "devDependencies": {
     "a11y": "^0.3.3",
@@ -165,7 +165,7 @@
     "pui-react-radio-group": "2.0.0-alpha.0",
     "pui-react-ribbons": "2.0.0-alpha.0",
     "pui-react-search-input": "2.0.0-alpha.0",
-    "pui-react-sortable-table": "2.0.0-alpha.0",
+    "pui-react-sortable-table": "2.0.0-alpha.1",
     "pui-react-tabs": "2.0.0-alpha.0",
     "pui-react-tooltip": "2.0.0-alpha.0",
     "pui-react-typography": "2.0.0-alpha.0"
