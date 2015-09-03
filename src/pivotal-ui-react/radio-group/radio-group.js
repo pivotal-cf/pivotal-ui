@@ -73,6 +73,18 @@ name: form_radio_input_react
 parent: form_react
 ---
 
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-radio-group --save
+npm install pui-react-radio --save
+</i>
+</code>
+
+```
+var RadioGroup = require('pui-react-radio-groups').RadioGroup;
+var Radio = require('pui-react-radio').Radio;
+```
+
 Using React radio buttons in a form is fairly straightforward.
 
 ```react_example
