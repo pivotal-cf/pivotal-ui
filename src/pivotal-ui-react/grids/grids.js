@@ -103,6 +103,7 @@ Require the subcomponent:
 
 ```
 var Row = require('pui-react-grids').Row;
+var Col = require('pui-react-grids').Col;
 ```
 
 

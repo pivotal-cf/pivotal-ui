@@ -49,7 +49,7 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-forms --save
+npm install pui-react-search-input --save
 </i>
 </code>
 
