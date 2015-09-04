@@ -4,7 +4,7 @@ import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
 import {Stream} from 'stream';
-import {log} from 'gulp-utils';
+import {log} from 'gulp-util';
 
 import {getNewVersion} from './version-helper';
 
