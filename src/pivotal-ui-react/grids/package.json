@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.2",
   "description": "React components for laying-out content in a grid",
   "homepage": "http://styleguide.pivotal.io/react.html#grid_react",
   "dependencies": {
-    "pui-css-grids": "2.0.0-alpha.0",
+    "pui-css-grids": "2.0.0-alpha.2",
     "classnames": "^1.2.0",
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc"
   }

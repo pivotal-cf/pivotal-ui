@@ -1,13 +1,13 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.2",
   "description": "React components providing accordions for showing and hiding content",
   "homepage": "http://styleguide.pivotal.io/react.html#collapse_react",
   "dependencies": {
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
     "classnames": "^1.2.0",
-    "pui-css-collapse": "2.0.0-alpha.0",
-    "pui-css-iconography": "2.0.0-alpha.0",
-    "pui-css-dividers": "2.0.0-alpha.0",
-    "pui-react-helpers": "2.0.0-alpha.0"
+    "pui-css-collapse": "2.0.0-alpha.2",
+    "pui-css-iconography": "2.0.0-alpha.2",
+    "pui-css-dividers": "2.0.0-alpha.2",
+    "pui-react-helpers": "2.0.0-alpha.2"
   }
 }

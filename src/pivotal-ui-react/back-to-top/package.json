@@ -1,11 +1,11 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.2",
   "description": "React Back to Top component",
   "homepage": "http://styleguide.pivotal.io/react.html#back_to_top",
   "dependencies": {
-    "pui-css-back-to-top": "2.0.0-alpha.0",
+    "pui-css-back-to-top": "2.0.0-alpha.2",
     "pui-react-animation": "^0.0.5",
-    "pui-react-helpers": "2.0.0-alpha.0",
+    "pui-react-helpers": "2.0.0-alpha.2",
     "lodash.throttle": "^3.0.2"
   }
 }

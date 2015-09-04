@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.0",
+  "version": "2.0.0-alpha.2",
   "description": "A React component that provides styled tooltips",
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react",
   "dependencies": {
     "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
-    "pui-css-tooltips": "2.0.0-alpha.0"
+    "pui-css-tooltips": "2.0.0-alpha.2"
   }
 }
