@@ -4,6 +4,7 @@ import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
 import {Stream} from 'stream';
+import {log} from 'gulp-utils';
 
 import {getNewVersion} from './version-helper';
 
@@ -17,14 +18,13 @@ export function componentsWithChanges() {
 
   (async () => {
     try {
-      const lastTag = (await exec('git fetch && git describe --tags origin/master')).split('-')[0];
-      const mixinsAndVariablesChanged = !!((await exec(`git diff --name-only HEAD..${lastTag} src/pivotal-ui/components/{mixins,pui-variables}.scss`)).trim().length);
 
       let components;
-      if (argv.updateAll || mixinsAndVariablesChanged) {
+      if (argv.updateAll) {
         components = (await globPromise('src/{pivotal-ui/components,pivotal-ui-react}/*/package.json')).map((packageJsonPath) => path.dirname(packageJsonPath));
       }
       else {
+        const lastTag = (await exec('git fetch && git describe --tags origin/master')).split('-')[0];
         const diffResults = (await exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`)).trim();
         components = diffResults.split('\n').map(diffResult => diffResult.trim().split(' ')[1]);
       }
@@ -35,6 +35,7 @@ export function componentsWithChanges() {
     }
 
     catch(error) {
+      log('stream error', error);
       stream.emit('error', error);
     }
 
