@@ -4,6 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/react.html#table_sortable_react",
   "dependencies": {
     "classnames": "^1.2.0",
+    "lodash.findindex": "^3.2.1",
     "lodash.sortby": "^3.1.1",
     "pui-css-iconography": "2.0.0-alpha.0",
     "pui-css-tables": "2.0.0-alpha.0",

@@ -2,6 +2,7 @@ const classnames = require('classnames');
 const React = require('react');
 const sortBy = require('lodash.sortby');
 import {mergeProps} from 'pui-react-helpers';
+import findindex from 'lodash.findindex';
 
 /**
  * @component TableHeader
@@ -102,7 +103,7 @@ export const SortableTable = React.createClass({
   },
 
   getInitialState() {
-    const sortCol = findIndex(this.props.headers, (header) => {
+    const sortCol = findindex(this.props.headers, (header) => {
       return header.props.sortable;
     });
     // If none of the columns are sortable we default to the 0th column
