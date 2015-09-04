@@ -11,41 +11,36 @@ import localNpm from './local-npm-helper';
 
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
-const dontPublish = ['pui-css-faq', 'pui-css-hiring', 'pui-css-intro', 'pui-css-utils', 'pui-css-toggles', 'pui-css-health_indicators'];
 
 export function infoForUpdatedPackages() {
   return pipeline(
     map(async (file, callback) => {
       const {name, version: localVersion} = JSON.parse(file.contents.toString());
 
-      if (!dontPublish.includes(name)) {
-        try {
-          const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
-          if (gt(localVersion, publishedVersion)) {
-            callback(null, {name: name, dir: path.dirname(file.path)});
-          }
-          else {
-            callback(); // skip it
-          }
+      try {
+        const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
+        if (gt(localVersion, publishedVersion)) {
+          callback(null, {name: name, dir: path.dirname(file.path)});
         }
-        catch(e) {
-          if (e.message.match(/Not Found/)) {
-            log(`Warning: ${name} is not published`);
-            callback();
-          }
-          else {
-            console.error(e);
-            callback(e);
-          }
+        else {
+          callback(); // skip it
+        }
+      }
+      catch(e) {
+        if (e.message.match(/Not Found/)) {
+          log(`Warning: ${name} is not published`);
+          callback();
+        }
+        else {
+          console.error(e);
+          callback(e);
         }
       }
       callback();
     }),
 
     reduce((packageInfos, packageInfo) => {
-      if (packageInfo) {
-        packageInfos.push(packageInfo);
-      }
+      packageInfos.push(packageInfo);
       return packageInfos;
     }, [])
   );
