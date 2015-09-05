@@ -62,7 +62,7 @@ export function publishPackages() {
             await npmOwner(['add', owner, packageInfo.name]);
           }
         } else {
-          log("Not a valid package", packageInfo);
+          log('Not a valid package', packageInfo);
         }
       }
       callback();
