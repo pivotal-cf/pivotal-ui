@@ -11,36 +11,30 @@ import localNpm from './local-npm-helper';
 
 const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
-const dontPublish = ['pui-css-faq', 'pui-css-hiring', 'pui-css-intro', 'pui-css-utils', 'pui-css-toggles', 'pui-css-health_indicators'];
 
 export function infoForUpdatedPackages() {
   return pipeline(
     map(async (file, callback) => {
       const {name, version: localVersion} = JSON.parse(file.contents.toString());
-
-      if (!dontPublish.includes(name)) {
         try {
           const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
           if (gt(localVersion, publishedVersion)) {
             callback(null, {name: name, dir: path.dirname(file.path)});
-          }
-          else {
+          } else {
             callback(); // skip it
           }
         }
         catch(e) {
-          if (e.message.match(/Not Found/)) {
+          if (e.message.match(/npm show/)) {
             log(`Warning: ${name} is not published`);
             callback();
-          }
-          else {
-            console.error(e);
-            callback(e);
+          } else {
+            log(e);
+            callback();
           }
         }
       }
-      callback();
-    }),
+    ),
 
     reduce((packageInfos, packageInfo) => {
       if (packageInfo) {
@@ -53,25 +47,28 @@ export function infoForUpdatedPackages() {
 
 export function publishPackages() {
   return map(async (packageInfos, callback) => {
+
     try {
       await npmLoad({});
-
       const npmPublish = promisify(npm.commands.publish);
       const npmOwner = promisify(npm.commands.owner);
+      for (const index in packageInfos) {
+        let packageInfo = packageInfos[index];
+        if (packageInfo && packageInfo.name) {
 
-      for (const packageInfo of packageInfos) {
-        log('Publishing', packageInfo.name);
-        await npmPublish([packageInfo.dir]);
-
-        const owners = ['mattroyal', 'gpleiss', 'stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold'];
-        for (const owner of owners) {
-          await npmOwner(['add', owner, packageInfo.name]);
+          await npmPublish([packageInfo.dir]);
+          const owners = ['mattroyal', 'gpleiss', 'stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold'];
+          for (const owner of owners) {
+            await npmOwner(['add', owner, packageInfo.name]);
+          }
+        } else {
+          log("Not a valid package", packageInfo);
         }
       }
       callback();
     }
     catch(e) {
-      console.error(e.stack);
+      log(e);
       callback(e);
     }
   });
