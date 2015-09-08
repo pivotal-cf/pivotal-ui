@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "description": "React components that provide large browser-filling containers for content",
   "homepage": "http://styleguide.pivotal.io/react.html#pane_react",
   "dependencies": {
-    "pui-css-panes": "2.0.0-alpha.2",
-    "pui-react-helpers": "2.0.0-alpha.2"
+    "pui-css-panes": "2.0.0-alpha.3",
+    "pui-react-helpers": "2.0.0-alpha.3"
   }
 }

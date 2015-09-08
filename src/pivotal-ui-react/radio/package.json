@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "description": "A React component that provides styled radio buttons",
   "homepage": "http://styleguide.pivotal.io/react.html#form_radio_input_react",
   "dependencies": {
-    "pui-css-forms": "2.0.0-alpha.2",
-    "pui-react-helpers": "2.0.0-alpha.2"
+    "pui-css-forms": "2.0.0-alpha.3",
+    "pui-react-helpers": "2.0.0-alpha.3"
   }
 }

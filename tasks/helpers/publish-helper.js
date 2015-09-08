@@ -19,6 +19,7 @@ export function infoForUpdatedPackages() {
         try {
           const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
           if (gt(localVersion, publishedVersion)) {
+            log('Publishing: ', name, path.dirname(file.path));
             callback(null, {name: name, dir: path.dirname(file.path)});
           } else {
             callback(); // skip it
