@@ -11,7 +11,7 @@
 In order to clearly communicate that we are all on the same team with the same needs for pui projects, use the following signature (updated with the current team, alphabetized):
 
 The Pivotal UI Team  
-@atomanyih @ctaymor @d-reinhold @kennyw12 @matt-royal @nicw @stubbornella
+@atomanyih @clairethompson @ctaymor @kennyw12 @nicw @stubbornella
 
 ## External PR Flow
 When this happens | Do these
