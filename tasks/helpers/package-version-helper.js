@@ -24,7 +24,7 @@ export function componentsWithChanges() {
         components = (await globPromise('src/{pivotal-ui/components,pivotal-ui-react}/*/package.json')).map((packageJsonPath) => path.dirname(packageJsonPath));
       }
       else {
-        const lastTag = (await exec('git fetch && git describe --tags origin/master')).split('-')[0];
+        const lastTag = (await exec('git fetch && git describe --tags origin/master')).split('-').slice(0, -2).join('-');
         const diffResults = (await exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`)).trim();
         components = diffResults.split('\n').map(diffResult => diffResult.trim().split(' ')[1]);
       }

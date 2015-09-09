@@ -1,3 +1,4 @@
+import {exec} from 'child_process';
 import gulp from 'gulp';
 import promisify from 'es6-promisify';
 import npm from 'npm';
@@ -5,6 +6,9 @@ import path from 'path';
 import {map} from 'event-stream';
 import reduce from 'stream-reduce';
 import runSequence from 'run-sequence';
+import {gt} from 'semver';
+
+const execPromise = promisify(exec);
 
 import {publishFakePackages} from './helpers/publish-helper';
 import localNpm from './helpers/local-npm-helper';
@@ -22,13 +26,14 @@ gulp.task('my-name-is-nic-i-do-acceptance', (done) =>
 
 gulp.task('css-publish-local', ['css-build'], () => {
   return gulp.src('dist/css/*')
-    .pipe(map((folder, callback) => {
-      callback(null,
-        {
-          name: `pui-css-${path.basename(folder.path)}`,
-          dir: folder.path
-        }
-      );
+    .pipe(map(async (folder, callback) => {
+      const name = `pui-css-${path.basename(folder.path)}`;
+      const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
+      if (gt(localVersion, publishedVersion)) {
+        callback(null, {name, dir: folder.path});
+      } else {
+        callback(); // skip it
+      }
     }))
     .pipe(reduce((packageInfos, packageInfo) => {
       packageInfos.push(packageInfo);
@@ -39,13 +44,14 @@ gulp.task('css-publish-local', ['css-build'], () => {
 
 gulp.task('react-publish-local', ['react-build'], () => {
   return gulp.src('dist/react/*')
-    .pipe(map((folder, callback) => {
-      callback(null,
-        {
-          name: `pui-react-${path.basename(folder.path)}`,
-          dir: folder.path
-        }
-      );
+    .pipe(map(async (folder, callback) => {
+      const name = `pui-react-${path.basename(folder.path)}`;
+      const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
+      if (gt(localVersion, publishedVersion)) {
+        callback(null, {name, dir: folder.path});
+      } else {
+        callback(); // skip it
+      }
     }))
     .pipe(reduce((packageInfos, packageInfo) => {
       packageInfos.push(packageInfo);
