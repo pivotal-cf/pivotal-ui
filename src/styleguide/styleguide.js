@@ -72,7 +72,7 @@ $(document).ready(function() {
 
   zc.on('ready', function() {
     zc.on('copy', function(e) {
-      var copyText = $(e.target).parent().find('[data-code-to-copy]').text();
+      var copyText = $(e.target).parent().find('[data-code-to-copy] pre').text();
       e.clipboardData.setData('text/plain', copyText);
     });
 

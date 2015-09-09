@@ -1,5 +1,6 @@
 global.$ = global.jQuery = require('jquery');
 global._ = require('lodash');
+require('../../../node_modules/bootstrap/js/tooltip');
 
 require('pui-prismjs');
 
