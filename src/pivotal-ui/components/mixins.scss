@@ -89,41 +89,6 @@
   }
 }
 
-@mixin button-skin-alternate($color, $background, $border) {
-  color: $color;
-  background-color: $background;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &.active {
-    color: $color;
-    background-color: darken($background, 9%);
-  }
-  .open & { &.dropdown-toggle {
-    color: $color;
-    background-color: darken($background, 8%);
-  } }
-  &:active,
-  &.active {
-    background-image: none;
-  }
-  .open & { &.dropdown-toggle {
-    background-image: none;
-  } }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      background-color: $background;
-    }
-  }
-}
-
 //Used for translucent borders
 @mixin background-clip-fix() {
   -moz-background-clip: padding;     /* Firefox 3.6 */
