@@ -5,6 +5,6 @@
   "dependencies": {
     "pui-css-grids": "2.0.0-alpha.3",
     "classnames": "^1.2.0",
-    "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc"
+    "react-bootstrap": "0.25.1"
   }
 }

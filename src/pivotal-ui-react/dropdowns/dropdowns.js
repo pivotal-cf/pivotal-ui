@@ -1,5 +1,6 @@
 var React = require('react');
 import classnames from 'classnames';
+import uniqueid from 'lodash.uniqueid';
 
 /**
  * @component Dropdown
@@ -39,12 +40,16 @@ function defDropdown(props) {
     },
     render: function render() {
       const {buttonClassName, style, title, children, border, ...others} = this.props;
+      let {id} = others;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;
 
       const btnClass = classnames(buttonClassName, defaultBtnClassName);
       const borderClass = border ? 'dropdown-border' : null;
+      if (!id) {
+        id = uniqueid('dropdown');
+      }
       return (
-        <BsDropdown {...others}>
+        <BsDropdown {...others} id={id}>
           <BsDropdown.Toggle className={btnClass} bsStyle={bsStyle} style={style}>
             {title}
           </BsDropdown.Toggle>

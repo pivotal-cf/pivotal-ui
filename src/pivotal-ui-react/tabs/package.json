@@ -3,7 +3,7 @@
   "description": "React components for tab-based content toggling",
   "homepage": "http://styleguide.pivotal.io/react.html#tabs_react",
   "dependencies": {
-    "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
+    "react-bootstrap": "0.25.1",
     "pui-css-collapse": "2.0.0-alpha.3",
     "pui-css-tabs": "2.0.0-alpha.3",
     "lodash.uniqueid": "^3.0.0",

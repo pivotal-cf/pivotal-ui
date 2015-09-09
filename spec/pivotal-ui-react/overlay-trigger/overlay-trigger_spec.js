@@ -11,7 +11,7 @@ describe('OverlayTrigger', function() {
   describe('hovering over the launcher', function() {
     beforeEach(function() {
       var tooltip = (
-        <Tooltip className="tooltip-text"> Hello World </Tooltip>
+        <Tooltip className="tooltip-text" id="1"> Hello World </Tooltip>
       );
       var launcher = (<span className="launcher">Hover For Tooltip</span>);
 
@@ -34,10 +34,10 @@ describe('OverlayTrigger', function() {
   describe('when no id is provided', function() {
     beforeEach(function() {
       var tooltip = (
-        <Tooltip className="tooltip-text"> Hello World </Tooltip>
+        <Tooltip className="tooltip-text" id="tooltip1"> Hello World </Tooltip>
       );
       var tooltip2 = (
-        <Tooltip className="tooltip-text">Hello World2 </Tooltip>
+        <Tooltip className="tooltip-text" id="tooltip2">Hello World2 </Tooltip>
       );
       var launcher = (<div className="launcher">Hover For Tooltip</div>);
 
@@ -90,7 +90,7 @@ describe('OverlayTrigger', function() {
   describe('accessibility', function() {
     it('passes ADT', function() {
       var tooltip = (
-        <Tooltip className="tooltip-text">Hello World</Tooltip>
+        <Tooltip className="tooltip-text" id="tooltip3">Hello World</Tooltip>
       );
       var launcher = (<span className="launcher">Hover For Tooltip</span>);
 
