@@ -46,22 +46,31 @@ export function infoForUpdatedPackages() {
   );
 }
 
-export function publishPackages() {
+export function publishPackages(registry) {
   return map(async (packageInfos, callback) => {
-
     try {
       await npmLoad({});
       const npmPublish = promisify(npm.commands.publish);
       const npmOwner = promisify(npm.commands.owner);
+      if (registry) {
+        npm.config.set('registry', registry);
+        if (npm.config.get('registry') !== registry) {
+          const e = new Error('Must be pointing at private npm to test locally!');
+          console.error(e);
+          callback(e);
+          return;
+        }
+      }
       for (const index in packageInfos) {
         let packageInfo = packageInfos[index];
         if (packageInfo && packageInfo.name) {
 
           await npmPublish([packageInfo.dir]);
-          const owners = ['stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold', 'cthompson'];
-          for (const owner of owners) {
-            await npmOwner(['add', owner, packageInfo.name]);
-          }
+          if (!registry) { //sinopia doesn't seem to support maintainers
+            const owners = ['stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold', 'cthompson'];
+            for (const owner of owners) {
+              await npmOwner(['add', owner, packageInfo.name]);
+            }
         } else {
           log('Not a valid package', packageInfo);
         }
@@ -76,33 +85,5 @@ export function publishPackages() {
 }
 
 export function publishFakePackages() {
-  return map(async (packageInfos, callback) => {
-    try {
-      await npmLoad({});
-
-      const npmPublish = promisify(npm.commands.publish);
-
-      npm.config.set('registry', localNpm.registryUrl);
-
-      if (npm.config.get('registry') !== localNpm.registryUrl) {
-        const e = new Error('Must be pointing at private npm to test locally!');
-        console.error(e);
-        callback(e);
-      } else {
-
-        for (const packageInfo of packageInfos) {
-          log('Publishing', packageInfo.name, 'to', localNpm.registryUrl);
-
-          await npmPublish([packageInfo.dir]);
-        }
-
-        callback(null, packageInfos);
-      }
-    }
-    catch (e) {
-      console.error(e);
-      console.error(packageInfos);
-      callback(e);
-    }
-  });
+  return publishPackages(localNpm.registryUrl);
 }
