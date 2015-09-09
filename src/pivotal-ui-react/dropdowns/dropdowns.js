@@ -34,19 +34,21 @@ function defDropdown(props) {
       id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
       buttonClassName: React.PropTypes.string,
       style: React.PropTypes.any,
-      title: React.PropTypes.any
+      title: React.PropTypes.any,
+      border: React.PropTypes.bool
     },
     render: function render() {
-      const {buttonClassName, style, title, children, ...others} = this.props;
+      const {buttonClassName, style, title, children, border, ...others} = this.props;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;
 
       const btnClass = classnames(buttonClassName, defaultBtnClassName);
+      const borderClass = border ? 'dropdown-border' : null;
       return (
         <BsDropdown {...others}>
           <BsDropdown.Toggle className={btnClass} bsStyle={bsStyle} style={style}>
             {title}
           </BsDropdown.Toggle>
-          <BsDropdown.Menu>
+          <BsDropdown.Menu className={borderClass}>
             {children}
           </BsDropdown.Menu>
         </BsDropdown>
@@ -164,7 +166,6 @@ This is the basic bootstrap dropdown:
 ```react_example_table
 <Dropdown title='DropDown'>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem divider />
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
 </Dropdown>
 ```
@@ -202,10 +203,15 @@ If you want to customize the dropdown, you can use `className` to add a modifier
 To customize the dropdown button, you can add modifier classes to it
 using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
 
+If you want to add borders between items, you can pass a border attribute to any of our dropdown classes.
+
 ```react_example
-<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
+<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg' border>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem divider />
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
 </DefaultAltDropdown>
 ```

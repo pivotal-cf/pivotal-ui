@@ -137,7 +137,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 */
 
 .dropdown-menu {
-  @include box-shadow(0 2px 0 rgba(211,217,217,0.50));
+  @include box-shadow(0 2px 0 rgba(211, 217, 217, 0.50));
   background-color: white;
   border: 1px solid $neutral-7;
   padding: 0 0;
@@ -149,6 +149,15 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
       &:hover {
         color: $dark-5;
         background-color: darken($neutral-11, 6%);
+      }
+    }
+  }
+  &.dropdown-border {
+    > li {
+      > a {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid $dropdown-border;
       }
     }
   }
