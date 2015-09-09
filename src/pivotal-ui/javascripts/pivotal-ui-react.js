@@ -1,6 +1,5 @@
 global.$ = global.jQuery = require('jquery');
 global._ = require('lodash');
-require('bootstrap');
 
 require('pui-prismjs');
 
