@@ -64,13 +64,13 @@ export function publishPackages(registry) {
       for (const index in packageInfos) {
         let packageInfo = packageInfos[index];
         if (packageInfo && packageInfo.name) {
-
           await npmPublish([packageInfo.dir]);
           if (!registry) { //sinopia doesn't seem to support maintainers
             const owners = ['stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold', 'cthompson'];
             for (const owner of owners) {
               await npmOwner(['add', owner, packageInfo.name]);
             }
+          }
         } else {
           log('Not a valid package', packageInfo);
         }
