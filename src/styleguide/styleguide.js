@@ -51,6 +51,10 @@ $(document).ready(function() {
     if (targetCategoryClosed) {
       $targetCategory.addClass('active');
       $targetCategory.find('ul.styleguide-second-level-nav').slideDown();
+    } else {
+      setTimeout(function() {
+        $('ul.styleguide-second-level-nav').removeAttr('style');
+      }, 500);
     }
   });
 });
