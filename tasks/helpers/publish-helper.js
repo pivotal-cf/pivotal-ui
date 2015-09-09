@@ -22,10 +22,10 @@ export function infoForUpdatedPackages() {
             log('Publishing: ', name, path.dirname(file.path));
             callback(null, {name: name, dir: path.dirname(file.path)});
           } else {
+            log('Skipping: ', name, path.dirname(file.path));
             callback(); // skip it
           }
-        }
-        catch(e) {
+        } catch(e) {
           if (e.message.match(/npm show/)) {
             log(`Warning: ${name} is not published`);
             callback();
@@ -76,8 +76,7 @@ export function publishPackages(registry) {
         }
       }
       callback();
-    }
-    catch(e) {
+    } catch(e) {
       log(e);
       callback(e);
     }
