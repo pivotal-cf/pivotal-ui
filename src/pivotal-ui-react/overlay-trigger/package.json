@@ -2,7 +2,8 @@
   "version": "2.0.0-alpha.3",
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
-    "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc"
+    "react-bootstrap": "pivotal-cf/react-bootstrap#distv0.25-rc",
+    "lodash.uniqueid": "3.0.0"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react"
 }
