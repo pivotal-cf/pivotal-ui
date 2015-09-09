@@ -1,10 +1,10 @@
 {
-  "version": "2.0.0-alpha.3",
+  "version": "2.0.0-alpha.4",
   "description": "A React component for rendering responsive and linked images",
   "homepage": "http://styleguide.pivotal.io/react.html#image_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-images": "2.0.0-alpha.3",
-    "pui-react-helpers": "2.0.0-alpha.3"
+    "pui-css-images": "2.0.0-alpha.4",
+    "pui-react-helpers": "2.0.0-alpha.4"
   }
 }
