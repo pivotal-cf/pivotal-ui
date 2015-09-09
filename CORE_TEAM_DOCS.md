@@ -162,6 +162,7 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
 
 ## Acceptance
 
+### Locally Publishing Components for Acceptance
 Accepting components with unpublished changes is hard to do in isolation.
 If you need an empty project to use that's all set up, check out the [pui-demo-project](https://github.com/pivotal-cf/pui-demo-project).
 
@@ -184,3 +185,15 @@ If you need an empty project to use that's all set up, check out the [pui-demo-p
   1. Start the local acceptance server:  
   `$ gulp`
   0. Press the green button
+
+### Dev Delivery
+
+Before hitting deliver, the following should be done:
+   1. Run `gulp ci`.
+   2. Component checked in the the styleguide. Check for
+     * Correct appearance, behavior and rendered HTML.
+   2. Component checked "in the wild" (outside the styleguide in any form using the NPM modules, such as the [pui-demo-project](https://github.com/pivotal-cf/pui-demo-project)). This can be done with the Sinopia server documented above.
+     * Dependencies are correct
+     * Sufficient documentation, including of dependencies of the example, to allow you to use the examples assuming no further knowledge about the component
+     * Correct appearance, behavior, and HTML
+   3. The build on [Travis CI](https://travis-ci.org/) is green.
