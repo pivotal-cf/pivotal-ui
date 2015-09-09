@@ -182,7 +182,7 @@ module.exports = {BaseCollapse, Collapse, AltCollapse};
 /*doc
 ---
 title: Base
-name: base_collapse_react
+name: 01_base_collapse_react
 parent: collapse_react
 ---
 
@@ -206,28 +206,8 @@ This is a basic collapse with no additional styles.
 
 /*doc
 ---
-title: Arrows
-name: arrow_collapse_react
-parent: collapse_react
----
-
-This is a basic collapse with an arrow icon in the clickable region.
-
-```react_example
-<Collapse header="With Arrows">
-  <p>Content!</p>
-  <p>Content!</p>
-  <p>Content!</p>
-  <p>Content!</p>
-  <p>Content!</p>
-</Collapse>
-```
-*/
-
-/*doc
----
 title: Alt
-name: alt_collapse_react
+name: 02_alt_collapse_react
 parent: collapse_react
 ---
 
@@ -246,8 +226,28 @@ This is a basic collapse with an +/- icon in the clickable region.
 
 /*doc
 ---
+title: Arrows
+name: 03_arrow_collapse_react
+parent: collapse_react
+---
+
+This is a basic collapse with an arrow icon in the clickable region.
+
+```react_example
+<Collapse header="With Arrows">
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+  <p>Content!</p>
+</Collapse>
+```
+*/
+
+/*doc
+---
 title: Adding Dividers
-name: collapse_dividers_react
+name: 04_collapse_dividers_react
 parent: collapse_react
 ---
 
