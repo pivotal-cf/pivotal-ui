@@ -7,6 +7,7 @@
 * **dropdowns:** Adds default uniqueid to Dropdowns. ([161198a](https://github.com/pivotal-cf/pivotal-ui/commit/161198a))
 * **dropdowns:** Adds missing dependencies to React Dropdowns ([16f67cc](https://github.com/pivotal-cf/pivotal-ui/commit/16f67cc))
 * **dropdowns:** Fixes the highlighting on hover of dropdown items ([718bfdd](https://github.com/pivotal-cf/pivotal-ui/commit/718bfdd))
+* **overlay-trigger:** Adds missing lodash.uniqueid to React Overlay Triggers ([5373bd3](https://github.com/pivotal-cf/pivotal-ui/commit/5373bd396f25468d8d27e16e9a64379b681dde49))
 
 
 ### BREAKING CHANGES
