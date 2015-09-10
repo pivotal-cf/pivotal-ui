@@ -1,6 +1,6 @@
 import React from 'react/addons';
 import {UIButton} from 'pui-react-buttons';
-import {GroupList} from 'pui-react-lists';
+import {GroupList, ListItem} from 'pui-react-lists';
 import AnimationMixin from 'pui-react-animation';
 
 /**
@@ -136,6 +136,7 @@ export const StreamList = React.createClass({
   }
 });
 
+export const StreamListItem = ListItem;
 
 /*doc
 ---
