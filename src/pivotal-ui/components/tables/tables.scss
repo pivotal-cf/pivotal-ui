@@ -1,4 +1,5 @@
 @import "../pui-variables";
+@import "../mixins";
 
 /*doc
 ---
@@ -308,6 +309,7 @@ We are making the assumption here that table-hover will *only* be used if the ta
   }
 
   .sortable, [sortable] { // latter selector is angular only
+    @include no-select;
     cursor: pointer;
     &:after {
       margin-left: 4px;
