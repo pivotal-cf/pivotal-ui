@@ -168,10 +168,18 @@ npm install pui-react-buttons --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var DefaultButton = require('pui-react-buttons').DefaultButton;
+import {
+  DefaultButton,
+  DefaultAltButton,
+  LowlightButton,
+  DangerButton,
+  HighlightButton,
+  HighlightAltButton,
+  UIButton
+} from 'pui-react-buttons';
 ```
 
 

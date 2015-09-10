@@ -33,16 +33,15 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-tooltip --save
-npm install pui-react-overlay-trigger --save
+npm install pui-react-tooltip pui-react-overlay-trigger --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var Tooltip = require('pui-react-tooltip').Tooltip;
-var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
+import {Tooltip} from 'pui-react-tooltip';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
 ```
 
 

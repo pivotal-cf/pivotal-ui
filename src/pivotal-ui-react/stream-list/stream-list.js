@@ -151,12 +151,12 @@ npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 </i>
 </code>
 
-Require the subcomponent:
+For the example, you also need to install [Buttons](#button_react) and require `DefaultButton` from it.
+
+Require the subcomponents:
 
 ```js
-var StreamList from ('pui-react-stream-list').StreamList;
-var ListItem = require('pui-react-lists').ListItem;
-var DefaultButton = require('pui-react-buttons').DefaultButton;
+import { StreamList, StreamListItem } from 'pui-react-stream-list';
 ```
 
 Use this component when you have streaming/polling data that you want to
@@ -187,10 +187,12 @@ var StreamListExample = React.createClass({
   render: function() {
     return (
       <div>
-        <DefaultButton className="btn btn-default" onClick={this.simulateIncomingData}>Simulate Incoming Data</DefaultButton>
+        <DefaultButton className="btn btn-default" onClick={this.simulateIncomingData}>
+          Simulate Incoming Data
+        </DefaultButton>
         <StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
           {this.state.data.map(function(datum, i) {
-            return <ListItem key={i}>{datum}</ListItem>
+            return <StreamListItem key={i}>{datum}</StreamListItem>
           })}
         </StreamList>
       </div>

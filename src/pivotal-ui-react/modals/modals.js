@@ -175,12 +175,17 @@ npm install pui-react-modals --save
 </i>
 </code>
 
+For the example, you also need to install [Buttons](#button_react) and require `DefaultButton` from it.
+
 Require the subcomponent:
 
 ```
-var Modal = require('pui-react-modals').Modal;
+import {
+  Modal,
+  ModalBody,
+  ModalFooter
+} from 'pui-react-modals';
 ```
-
 
 We provide 3 components that can be used to assemble modals:
 

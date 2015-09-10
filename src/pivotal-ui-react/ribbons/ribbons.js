@@ -90,12 +90,10 @@ npm install pui-react-ribbons --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var Ribbon = require('pui-react-ribbons').Ribbon;
-var PrimaryRibbon = require('pui-react-ribbons').PrimaryRibbon;
-var Banner = require('pui-react-ribbons').Banner;
+import { Ribbon, PrimaryRibbon, Banner } from 'pui-react-ribbons';
 ```
 
 `Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.

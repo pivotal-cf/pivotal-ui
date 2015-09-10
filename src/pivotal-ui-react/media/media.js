@@ -125,11 +125,13 @@ npm install pui-react-media --save
 </i>
 </code>
 
-Require the subcomponent:
+For the example, you also need to install [Images](#image_react) and require `Image` from it.
+
+
+Require the subcomponents:
 
 ```
-var Media = require('pui-react-media').Media;
-var Flag = require('pui-react-media').Flag;
+import { Media, Flag } from 'pui-react-media';
 ```
 
 ## General media object modifiers

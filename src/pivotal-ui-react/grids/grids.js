@@ -99,14 +99,11 @@ npm install pui-react-grids --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var Row = require('pui-react-grids').Row;
-var Col = require('pui-react-grids').Col;
+import { Row, Col } from 'pui-react-grids';
 ```
-
-
 
 The react grids depend on [React-Bootstrap](http://react-bootstrap.github.io/components.html#grids). Check out their docs
 for advanced stuff like pushing, pulling, and offsets.

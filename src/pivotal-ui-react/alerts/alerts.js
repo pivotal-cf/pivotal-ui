@@ -179,10 +179,15 @@ categories:
 npm install pui-react-alerts --save
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var SuccessAlert = require('pui-react-alerts').SuccessAlert;
+import {
+  SuccessAlert,
+  InfoAlert,
+  WarningAlert,
+  ErrorAlert
+} from 'pui-react-alerts';
 ```
 
 

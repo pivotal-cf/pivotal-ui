@@ -184,6 +184,17 @@ name: 05_list_draggable_react
 parent: list_react
 ---
 
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-draggable-list --save
+</i>
+</code>
+
+Require the subcomponents:
+
+```
+import { DraggableListItem, DraggableList } from 'pui-react-draggable-list';
+```
 Creates a draggable list.
 
 The property `onDrop` is a callback when a drop event has completed. Use this

@@ -138,11 +138,10 @@ npm install pui-react-portals --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
-var PortalSource = require('pui-react-portals').PortalSource;
-var PortalDestination = require('pui-react-portals').PortalDestination;
+import { PortalSource, PortalDestination } from 'pui-react-portals';
 ```
 
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like
