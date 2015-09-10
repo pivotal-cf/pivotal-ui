@@ -13,6 +13,7 @@ before_install:
 branches:
   only:
     - master
+    - development
     - /^v\d+.\d+.\d+$/
 notifications:
   email: false
