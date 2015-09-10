@@ -128,11 +128,15 @@ On a dark background, use these inverse dividers
 
 ```react_example_table
 <div className='contrast-bar'>
+  I am some content
   <InverseDivider />
+  Me too
 </div>
 
 <div className='contrast-bar'>
+  Here's some stuff above the divider
   <InverseDivider size='large' />
+  Here's some stuff below the divider
 </div>
 ```
 */
