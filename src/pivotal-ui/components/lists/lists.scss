@@ -195,7 +195,7 @@ parent: list
 ---
 
 Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
-also adds a simple gray border (add `.list-inline-divider-light` to make the border white).
+also adds a simple gray border.
 
 ```html_example
 <ul class="list-inline-divider">
@@ -204,15 +204,13 @@ also adds a simple gray border (add `.list-inline-divider-light` to make the bor
 </ul>
 ```
 
-Here's the same example on a dark background:
+Here's an example on a dark background (add `.list-inline-divider-light` to make the border white):
 
-```html_example
-<div class="contrast-bar">
-  <ul class="list-inline-divider list-inline-divider-light">
-    <li><a class="type-em-1" href="http://google.com">Edit</a></li>
-    <li><a class="type-em-1" href="http://google.com">Invite</a></li>
-  </ul>
-</div>
+```html_inverse_example
+<ul class="list-inline-divider list-inline-divider-light">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
 ```
 
 */
