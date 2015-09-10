@@ -31,7 +31,7 @@ deploy:
     space: pivotal-ui-staging
     on:
       repo: pivotal-cf/pivotal-ui
-      branch: master
+      branch: development
   - provider: releases
     api_key:
       secure: FEY0UlBt+Rix+8LiEgNXBQUk2Jv2zpKjDCnWjPCVzRhgngDmLmxqmi0NoWqLXQ7LNqXdjVKqqYbhndOL5bJxTPyFG5kqPutVYM79iAXUSFQ3To6U57N4Bv7JeD6u97hWEw9c4VfwyysdPjop1a9ppRik6fuiPd6PBPRpPHeoFTe9azJ009KhFi5O4HGHHjWNRuZluZxoDMrHi5NBYdhxtzxEiG9aIvGgwrO6us+sdhd2CwqTV+mRxi2hmnxkK3myPSuQZWzk0M2CgXE90WwqzgcW9dp4nOKYiFYLcdwE6e9VKJMntNMv9Fy/4yyb7Q48IVoVNu5xD/jsAjydFTnowQhk7qtNjFMlMhJaVnnoflCZ9uF0Q0mXpy80G5QfqP07JRvKz49DSqiG2x1ZM+6hCnNnRg74bis1aKw0TBh2ClV5K6CYHX+b2iXVz2Hkdutlxm0mWRr7mA7GQIQXUaTW3EHXnUSOYFVBvDZSZ0zGnPX2dkQYev2j3nqAsCPl6MvmkesUusIR15GbxMtfJksa3Zrtz/68lML4bvshqHvzeUpser70FifWkA5R4Rpo/PO8b0ddRR7/K7mNovOI60mgwBKKFgEBzBIKBl/1LLrUNOFZdefglgQOHRNi5SGyOzwV2zCs4Yfw6XHRUmgyMKzVdC0VL9c+WOtc5cy7DTRGauk=
