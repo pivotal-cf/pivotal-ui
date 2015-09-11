@@ -1,6 +1,6 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {merge, map} from 'event-stream';
+import {merge, map, readArray} from 'event-stream';
 import series from 'stream-series';
 import path from 'path';
 import promisify from 'es6-promisify';
@@ -49,11 +49,10 @@ gulp.task('release-update-version', (done) => {
     });
 });
 
-gulp.task('release-update-package-versions', () => {
-  const componentsToUpdateStream = componentsWithChanges()
-    .pipe(componentsToUpdate());
-
-  return componentsToUpdateStream
+gulp.task('release-update-package-versions', async () => {
+  const components = await componentsWithChanges();
+  return readArray(components)
+    .pipe(componentsToUpdate())
     .pipe(updatePackageJsons())
     .pipe(gulp.dest('.'));
 });
