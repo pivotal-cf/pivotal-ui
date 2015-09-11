@@ -9,6 +9,6 @@
     "pui-css-buttons": "2.0.0-alpha.4",
     "pui-css-button-group": "2.0.0-alpha.4",
     "classnames": "^2.1.2",
-    "lodash.uniqueid": "3.0.0"
+    "lodash.uniqueid": "^3.0.0"
   }
 }
