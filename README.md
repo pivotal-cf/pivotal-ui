@@ -67,11 +67,11 @@ If you're ready to try PUI with React, follow these instructions!
    npm install --save pui-react-buttons
    ```
 
-1. Run Dr. Frankenstyle to compile your CSS
+1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
 
    ```
    dr-frankenstyle <path-to-your-asset-build-folder>
-   # writes to <path-to-your-asset-build-folder>/components.css
+   # writes the compiled css to <path-to-your-asset-build-folder>/components.css
    ```
 
 1. Add the compiled css to your html template
@@ -187,11 +187,11 @@ your project.
    because we don't want Dr. Frankenstyle to pick up any CSS from these
    packages.
 
-1. Run Dr. Frankenstyle to compile your CSS
+1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
 
    ```
    dr-frankenstyle <path-to-your-asset-build-folder>
-   # writes to <path-to-your-asset-build-folder>/components.css
+   # writes the compiled css to <path-to-your-asset-build-folder>/components.css
    ```
 
 1. Add the css and javascript files to your html template
