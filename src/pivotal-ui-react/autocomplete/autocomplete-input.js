@@ -20,7 +20,8 @@ function waitForRelatedTarget() {
 function withRelatedTarget(callback) {
   return async function(e) {
     if (!e.relatedTarget) {
-      e = {relatedTarget: await waitForRelatedTarget.call(this), ...e};
+      e = {...e};
+      e.relatedTarget = await waitForRelatedTarget.call(this);
     }
     return callback.call(this, e);
   };
