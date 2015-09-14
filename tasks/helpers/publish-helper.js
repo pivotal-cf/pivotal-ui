@@ -3,39 +3,42 @@ import {map, pipeline} from 'event-stream';
 import reduce from 'stream-reduce';
 import path from 'path';
 import promisify from 'es6-promisify';
+import thenify from 'thenify';
 import npm from 'npm';
 import {gt} from 'semver';
 import {log} from 'gulp-util';
 
 import localNpm from './local-npm-helper';
 
-const execPromise = promisify(exec);
 const npmLoad = promisify(npm.load);
+
+export async function filterPackages(file, callback) {
+  const {name, version: localVersion} = JSON.parse(file.contents.toString());
+
+  try {
+    const publishedVersion = (await thenify(exec)(`npm show ${name} version`)).trim();
+
+    if (gt(localVersion, publishedVersion)) {
+      log('Publishing: ', name, path.dirname(file.path));
+      callback(null, {name: name, dir: path.dirname(file.path)});
+    } else {
+      log('Skipping: ', name, path.dirname(file.path));
+      callback(); // skip it
+    }
+  } catch (e) {
+    if (e.message.match(/npm show/)) {
+      log(`Warning: ${name} is not published`);
+      callback();
+    } else {
+      console.error(e.stack);
+      callback();
+    }
+  }
+}
 
 export function infoForUpdatedPackages() {
   return pipeline(
-    map(async (file, callback) => {
-      const {name, version: localVersion} = JSON.parse(file.contents.toString());
-        try {
-          const publishedVersion = (await execPromise(`npm show ${name} version`)).trim();
-          if (gt(localVersion, publishedVersion)) {
-            log('Publishing: ', name, path.dirname(file.path));
-            callback(null, {name: name, dir: path.dirname(file.path)});
-          } else {
-            log('Skipping: ', name, path.dirname(file.path));
-            callback(); // skip it
-          }
-        } catch(e) {
-          if (e.message.match(/npm show/)) {
-            log(`Warning: ${name} is not published`);
-            callback();
-          } else {
-            log(e);
-            callback();
-          }
-        }
-      }
-    ),
+    map(filterPackages),
 
     reduce((packageInfos, packageInfo) => {
       if (packageInfo) {
