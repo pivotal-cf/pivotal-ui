@@ -32,7 +32,7 @@ async function filterPackages(packageInfos, packageInfo) {
   return packageInfos;
 }
 
-function getPackageInfo(file) {
+export function getPackageInfo(file) {
   const {name, version} = JSON.parse(file.contents.toString());
 
   return {

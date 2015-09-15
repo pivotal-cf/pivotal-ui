@@ -5,7 +5,7 @@ import runSequence from 'run-sequence';
 import glob from 'glob';
 import fs from 'fs';
 
-import {infoForUpdatedPackages, publishFakePackages} from './helpers/publish-helper';
+import {getPackageInfo, publishFakePackages} from './helpers/publish-helper';
 import localNpm from './helpers/local-npm-helper';
 
 gulp.task('my-name-is-nic-i-do-acceptance', (done) =>
@@ -20,12 +20,12 @@ gulp.task('my-name-is-nic-i-do-acceptance', (done) =>
 
 gulp.task('release-push-fake-npm-publish', ['css-build', 'react-build'], async () => {
   const files = glob.sync('dist/{css,react}/*/package.json', {realpath: true});
-  const packageInfos = await infoForUpdatedPackages(files.map((filepath) => {
+  const packageInfos = files.map((filepath) => {
     return {
       contents: fs.readFileSync(filepath),
       path: filepath
     };
-  }));
+  }).map(getPackageInfo);
 
   await publishFakePackages()(packageInfos);
 });
