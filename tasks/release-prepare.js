@@ -49,12 +49,14 @@ gulp.task('release-update-version', (done) => {
     });
 });
 
-gulp.task('release-update-package-versions', async () => {
-  const components = await componentsWithChanges();
-  return readArray(components)
-    .pipe(componentsToUpdate())
-    .pipe(updatePackageJsons())
-    .pipe(gulp.dest('.'));
+gulp.task('release-update-package-versions', (done) => {
+  componentsWithChanges().then((components) => {
+    readArray(components)
+      .pipe(componentsToUpdate())
+      .pipe(updatePackageJsons())
+      .pipe(gulp.dest('.'))
+      .on('end', done);
+  });
 });
 
 gulp.task('release-generate-changelog', () => {
