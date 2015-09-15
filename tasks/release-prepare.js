@@ -141,7 +141,6 @@ gulp.task('release-prepare', (done) =>
       'release-generate-changelog',
       'release-generate-release-folder'
     ],
-    'release-commit',
     done
   )
 );
