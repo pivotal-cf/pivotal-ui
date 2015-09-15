@@ -12,41 +12,43 @@ import localNpm from './local-npm-helper';
 
 const npmLoad = promisify(npm.load);
 
-export async function filterPackages(file, callback) {
-  const {name, version: localVersion} = JSON.parse(file.contents.toString());
+async function filterPackages(packageInfos, packageInfo) {
+  const {name, version: localVersion, path} = packageInfo;
 
   try {
     const publishedVersion = (await thenify(exec)(`npm show ${name} version`)).trim();
 
     if (gt(localVersion, publishedVersion)) {
-      log('Publishing: ', name, path.dirname(file.path));
-      callback(null, {name: name, dir: path.dirname(file.path)});
+      log('Publishing: ', name, path);
+      (await packageInfos).push(packageInfo);
     } else {
-      log('Skipping: ', name, path.dirname(file.path));
-      callback(); // skip it
+      log('Skipping: ', name, path);
     }
   } catch (e) {
     if (e.message.match(/npm show/)) {
       log(`Warning: ${name} is not published`);
-      callback();
     } else {
       console.error(e.stack);
-      callback();
     }
+  }
+
+  return packageInfos;
+}
+
+function getPackageInfo(file) {
+  const {name, version} = JSON.parse(file.contents.toString());
+
+  return {
+    name: name,
+    version: version,
+    path: path.dirname(file.path)
   }
 }
 
-export function infoForUpdatedPackages() {
-  return pipeline(
-    map(filterPackages),
+export async function infoForUpdatedPackages(files) {
+  const packageInfos = files.map(getPackageInfo);
 
-    reduce((packageInfos, packageInfo) => {
-      if (packageInfo) {
-        packageInfos.push(packageInfo);
-      }
-      return packageInfos;
-    }, [])
-  );
+  return await packageInfos.reduce(filterPackages, []);
 }
 
 export function publishPackages(registry) {

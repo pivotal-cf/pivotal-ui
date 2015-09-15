@@ -1,68 +1,4 @@
-import mockPromises from 'mock-promises';
-import {readArray, writeArray, map} from 'event-stream';
 const proxyquire = require('proxyquire').noPreserveCache();
-
-global.Promise = require('bluebird');
-
-describe('filterPackages', () => {
-  let filterPackages;
-
-  beforeEach(() => {
-    mockPromises.install(global.Promise);
-    mockPromises.reset();
-
-    filterPackages = proxyquire('../../tasks/helpers/publish-helper', {
-      'child_process': {
-        exec: (command, callback) => {
-          callback(null, '0.0.0');
-        }
-      }
-    }).filterPackages;
-  });
-
-  it('returns packageInfo when the package is newer', () => {
-    const file = {
-      contents: {
-        toString() {
-          return '{"name": "hamburger", "version": "0.0.1"}';
-        }
-      },
-      path: 'i/like/hamburger'
-    };
-
-    var packageInfo;
-
-    filterPackages(file, (error, value) => {
-      packageInfo = value;
-    });
-
-    mockPromises.tick(1);
-
-    expect(packageInfo.name).toEqual('hamburger');
-    expect(packageInfo.dir).toEqual('i/like');
-  });
-
-  it('skips when the package is not newer', () => {
-    const file = {
-      contents: {
-        toString() {
-          return '{"name": "hamburger", "version": "0.0.0"}';
-        }
-      },
-      path: 'i/like/hamburger'
-    };
-
-    var packageInfo;
-
-    filterPackages(file, (error, value) => {
-      packageInfo = value;
-    });
-
-    mockPromises.tick(1);
-
-    expect(packageInfo).toEqual(undefined);
-  });
-});
 
 describe('infoForUpdatedPackages', () => {
   let infoForUpdatedPackages;
@@ -80,7 +16,7 @@ describe('infoForUpdatedPackages', () => {
     }).infoForUpdatedPackages;
   });
 
-  it('returns packages that have newer versions', (done) => {
+  it('returns packages that have newer versions', async (done) => {
     const file1 = {
       contents: {
         toString() {
@@ -99,12 +35,11 @@ describe('infoForUpdatedPackages', () => {
       path: 'i/love/hotdog'
     };
 
-    readArray([file1, file2])
-      .pipe(infoForUpdatedPackages())
-      .pipe(map((data, callback) => {
-        expect(data.length).toEqual(1);
-        expect(data[0].name).toEqual('hotdog');
-        done();
-      }));
+    const packages = await infoForUpdatedPackages([file1, file2]);
+
+    expect(packages.length).toEqual(1);
+    expect(packages[0].name).toEqual('hotdog');
+
+    done();
   });
 });
