@@ -43,3 +43,69 @@ describe('infoForUpdatedPackages', () => {
     done();
   });
 });
+
+describe('publishPackages', () => {
+  let publishPackages, npmOwner, npmPublish;
+  beforeEach(() => {
+    npmOwner = jasmine.createSpy('npm.commands.owner');
+    npmPublish = jasmine.createSpy('npm.commands.publish');
+
+    publishPackages = proxyquire('../../tasks/helpers/publish-helper', {
+      npm: {
+        commands: {
+          publish(args, callback) {
+            npmPublish(args);
+            callback();
+          },
+          owner(args, callback) {
+            npmOwner(args);
+            callback();
+          }
+        },
+        config: {
+          set() {
+          },
+          get() {
+          }
+        },
+        load(_, callback) {
+          callback();
+        }
+      },
+      'gulp-util': {
+        log: () => {
+        }
+      }
+    }).publishPackages;
+  });
+
+  describe('packages', () => {
+    let packages;
+    beforeEach(() => {
+      packages = [
+        {name: 'hamburger', dir: 'i/like'},
+        {name: 'hotdog', dir: 'i/love'}
+      ];
+    });
+
+    it('publishes the package', async (done) => {
+      await publishPackages()(
+        packages
+      );
+
+      expect(npmPublish).toHaveBeenCalledWith(['i/like']);
+      expect(npmPublish).toHaveBeenCalledWith(['i/love']);
+      done();
+
+    });
+
+    it('sets the owners', async (done) => {
+      await publishPackages()(
+        packages
+      );
+      expect(npmOwner).toHaveBeenCalledWith(['add', 'stubbornella', 'hamburger']);
+      expect(npmOwner).toHaveBeenCalledWith(['add', 'stubbornella', 'hotdog']);
+      done();
+    });
+  });
+});

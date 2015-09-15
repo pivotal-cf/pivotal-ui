@@ -88,7 +88,6 @@
     "stream-series": "^0.1.1",
     "stream-to-promise": "^1.0.4",
     "strong-wait-till-listening": "^1.0.1",
-    "thenify": "^3.1.0",
     "through2": "^0.6.3",
     "trie-search": "^0.1.1",
     "vinyl": "^0.4.6",
