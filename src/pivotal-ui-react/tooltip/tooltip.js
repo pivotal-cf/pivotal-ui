@@ -19,7 +19,7 @@ module.exports = {
    *
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tooltips_react)
    */
-  Tooltip: require('react-bootstrap').Tooltip
+  Tooltip: require('react-bootstrap/lib/Tooltip')
 };
 
 

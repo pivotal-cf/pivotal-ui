@@ -27,7 +27,7 @@ import uniqueid from 'lodash.uniqueid';
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
  */
-var BsDropdown = require('react-bootstrap').Dropdown;
+var BsDropdown = require('react-bootstrap/lib/Dropdown').default;
 
 function defDropdown(props) {
   return React.createClass({
@@ -75,7 +75,7 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  DropdownItem: require('react-bootstrap').MenuItem,
+  DropdownItem: require('react-bootstrap/lib/MenuItem'),
 
   /**
    * @component LinkDropdown

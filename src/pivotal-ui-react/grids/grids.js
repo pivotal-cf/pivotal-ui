@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var BootstrapRow = require('react-bootstrap').Row;
+var BootstrapRow = require('react-bootstrap/lib/Row');
 import {mergeProps} from 'pui-react-helpers';
 
 /**
@@ -79,7 +79,7 @@ var Row = React.createClass({
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#grid_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#grid)
  */
-var Col = require('react-bootstrap').Col;
+var Col = require('react-bootstrap/lib/Col');
 
 module.exports = {Row, Col};
 

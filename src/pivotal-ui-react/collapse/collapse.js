@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var BsPanel = require('react-bootstrap').Panel;
+var BsPanel = require('react-bootstrap/lib/Panel');
 import {mergeProps} from 'pui-react-helpers';
 
 /**

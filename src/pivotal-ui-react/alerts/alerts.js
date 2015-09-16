@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var BsAlert = require('react-bootstrap').Alert;
+var BsAlert = require('react-bootstrap/lib/Alert');
 var {Media} = require('pui-react-media');
 
 var Alert = React.createClass({
