@@ -1012,7 +1012,7 @@ add `.has-success` to the field's form group.
 }
 
 .has-error {
-  .help-block, .help-inline {
+  .help-block {
     font-size: $font-size-small;
   }
 }
@@ -1108,14 +1108,6 @@ Here's an example in a vertical form:
 ```
 
 */
-
-.help-inline {
-  display: block;
-  text-align: left;
-  color: $state-danger-bg;
-  padding: 5px 0 0 16px;
-  text-transform: capitalize;
-}
 
 .help-block {
   color: $form-label-color;
