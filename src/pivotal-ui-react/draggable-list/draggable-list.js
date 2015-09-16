@@ -187,7 +187,8 @@ npm install pui-react-draggable-list --save
 Require the subcomponents:
 
 ```
-import { DraggableListItem, DraggableList } from 'pui-react-draggable-list';
+var DraggableList = require('pui-react-draggable-list').DraggableList;
+var DraggableListItem = require('pui-react-draggable-list').DraggableListItem;
 ```
 Creates a draggable list.
 

@@ -112,7 +112,8 @@ npm install pui-react-dividers --save
 Require the subcomponents:
 
 ```
-import { Divider, InverseDivider } from 'pui-react-dividers';
+var Divider = require('pui-react-dividers').Divider;
+var InverseDivider = require('pui-react-dividers').InverseDivider;
 ```
 
 

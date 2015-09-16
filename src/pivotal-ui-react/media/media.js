@@ -131,7 +131,8 @@ For the example, you also need to install [Images](#image_react) and require `Im
 Require the subcomponents:
 
 ```
-import { Media, Flag } from 'pui-react-media';
+var Media = require('pui-react-media').Media;
+var Flag = require('pui-react-media').Flag;
 ```
 
 ## General media object modifiers

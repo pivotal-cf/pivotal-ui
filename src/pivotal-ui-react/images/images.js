@@ -61,7 +61,7 @@ npm install pui-react-images --save
 Require the subcomponent:
 
 ```
-import Image from 'pui-react-images';
+var Image = require('pui-react-images');
 ```
 
 

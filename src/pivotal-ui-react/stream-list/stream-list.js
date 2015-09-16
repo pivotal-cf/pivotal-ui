@@ -156,7 +156,8 @@ For the example, you also need to install [Buttons](#button_react) and require `
 Require the subcomponents:
 
 ```js
-import { StreamList, StreamListItem } from 'pui-react-stream-list';
+var StreamList = require('pui-react-stream-list').StreamList;
+var StreamListItem = require('pui-react-stream-list').StreamListItem;
 ```
 
 Use this component when you have streaming/polling data that you want to

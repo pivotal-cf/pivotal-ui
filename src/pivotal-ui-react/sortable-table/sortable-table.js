@@ -185,12 +185,10 @@ npm install pui-react-sortable-table --save
 Require the subcomponents:
 
 ```
-import {
-  SortableTable,
-  TableHeader,
-  TableRow,
-  TableCell
-} from 'pui-react-sortable-table';
+var SortableTable = require('pui-react-sortable-table').SortableTable;
+var TableHeader = require('pui-react-sortable-table').TableHeader;
+var TableRow = require('pui-react-sortable-table').TableRow;
+var TableCell = require('pui-react-sortable-table').TableCell;
 ```
 
 ---

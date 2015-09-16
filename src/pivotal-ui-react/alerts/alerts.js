@@ -182,12 +182,10 @@ npm install pui-react-alerts --save
 Require the subcomponents:
 
 ```
-import {
-  SuccessAlert,
-  InfoAlert,
-  WarningAlert,
-  ErrorAlert
-} from 'pui-react-alerts';
+var SuccessAlert = require('pui-react-alerts').SuccessAlert;
+var InfoAlert = require('pui-react-alerts').InfoAlert;
+var WarningAlert = require('pui-react-alerts').WarningAlert;
+var ErrorAlert = require('pui-react-alerts').ErrorAlert;
 ```
 
 

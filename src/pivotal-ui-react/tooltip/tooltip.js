@@ -40,8 +40,8 @@ npm install pui-react-tooltip pui-react-overlay-trigger --save
 Require the subcomponents:
 
 ```
-import {Tooltip} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
+var Tooltip = require('pui-react-tooltip').Tooltip;
+var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
 ```
 
 

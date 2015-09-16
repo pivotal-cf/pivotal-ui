@@ -210,17 +210,15 @@ npm install pui-react-panels --save
 Require the subcomponents:
 
 ```
-import {
-  Panel,
-  BasicPanelAlt,
-  BasicPanel,
-  ClickablePanel,
-  ClickableAltPanel,
-  HighlightPanel,
-  ScrollablePanel,
-  ShadowPanel,
-  SimplePanel,
-} from 'pui-react-panels';
+var Panel = require('pui-react-panels').Panel;
+var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
+var BasicPanel = require('pui-react-panels').BasicPanel;
+var ClickablePanel = require('pui-react-panels').ClickablePanel;
+var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
+var HighlightPanel = require('pui-react-panels').HighlightPanel;
+var ScrollablePanel = require('pui-react-panels').ScrollablePanel;
+var ShadowPanel = require('pui-react-panels').ShadowPanel;
+var SimplePanel = require('pui-react-panels').SimplePanel;
 ```
 
 

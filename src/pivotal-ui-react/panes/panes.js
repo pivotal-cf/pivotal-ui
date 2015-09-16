@@ -99,7 +99,8 @@ For the example, you also need to install [Typography](#type_react) and require 
 Require the subcomponent:
 
 ```
-import { Pane, BasePane } from 'pui-react-panels';
+var Pane = require('pui-react-panels').Pane;
+var BasePane = require('pui-react-panels').BasePane;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

@@ -162,16 +162,14 @@ npm install pui-react-dropdowns --save
 Require the subcomponents:
 
 ```
-import {
-  Dropdown,
-  LinkDropdown,
-  DefaultAltDropdown,
-  LowlightDropdown,
-  DangerDropdown,
-  HighlightDropdown,
-  HighlightAltDropdown,
-  DropdownItem
-} from 'pui-react-dropdowns';
+var Dropdown = require('pui-react-dropdowns').Dropdown;
+var DropdownItem = require('pui-react-dropdowns').DropdownItem;
+var LinkDropdown = require('pui-react-dropdowns').LinkDropdown;
+var DefaultAltDropdown = require('pui-react-dropdowns').DefaultAltDropdown;
+var LowlightDropdown = require('pui-react-dropdowns').LowlightDropdown;
+var DangerDropdown = require('pui-react-dropdowns').DangerDropdown;
+var HighlightDropdown = require('pui-react-dropdowns').HighlightDropdown;
+var HighlightAltDropdown = require('pui-react-dropdowns').HighlightAltDropdown;
 ```
 
 This is the basic bootstrap dropdown:

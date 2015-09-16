@@ -99,7 +99,8 @@ npm install pui-react-expander --save
 Require the subcomponents:
 
 ```
-import { ExpanderContent, ExpanderTrigger } from 'pui-react-expander';
+var ExpanderContent = require('pui-react-expander').ExpanderContent;
+var ExpanderTrigger = require('pui-react-expander').ExpanderTrigger;
 ```
 
 

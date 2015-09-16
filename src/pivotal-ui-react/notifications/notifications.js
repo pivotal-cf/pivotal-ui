@@ -163,7 +163,9 @@ For the examples, you also need to require `Flag` from [Media](#media_react), `L
 Require the subcomponent:
 
 ```
-import { Notifications, AlertNotifications, NotificationItem } from 'pui-react-notifications';
+var Notifications = require('pui-react-notifications').Notifications;
+var AlertNotifications = require('pui-react-notifications').AlertNotifications;
+var NotificationItem = require('pui-react-notifications').NotificationItem;
 ```
 
 Here's an example if there are no notifications:

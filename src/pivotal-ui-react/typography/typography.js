@@ -257,28 +257,25 @@ npm install pui-react-typography --save
 Require the subcomponents:
 
 ```
-import {
-  DefaultH1,
-  DefaultH2,
-  DefaultH3,
-  DefaultH4,
-  DefaultH5,
-  DefaultH6,
-  AlternateH1,
-  AlternateH2,
-  AlternateH3,
-  AlternateH4,
-  AlternateH5,
-  AlternateH6,
-  MarketingH1,
-  MarketingH2,
-  MarketingH3,
-  MarketingH4,
-  MarketingH5,
-  MarketingH6,
-  Heading
-} from 'pui-react-typography'
-
+var DefaultH1 = require('pui-react-typography').DefaultH1;
+var DefaultH2 = require('pui-react-typography').DefaultH2;
+var DefaultH3 = require('pui-react-typography').DefaultH3;
+var DefaultH4 = require('pui-react-typography').DefaultH4;
+var DefaultH5 = require('pui-react-typography').DefaultH5;
+var DefaultH6 = require('pui-react-typography').DefaultH6;
+var AlternateH1 = require('pui-react-typography').AlternateH1;
+var AlternateH2 = require('pui-react-typography').AlternateH2;
+var AlternateH3 = require('pui-react-typography').AlternateH3;
+var AlternateH4 = require('pui-react-typography').AlternateH4;
+var AlternateH5 = require('pui-react-typography').AlternateH5;
+var AlternateH6 = require('pui-react-typography').AlternateH6;
+var MarketingH1 = require('pui-react-typography').MarketingH1;
+var MarketingH2 = require('pui-react-typography').MarketingH2;
+var MarketingH3 = require('pui-react-typography').MarketingH3;
+var MarketingH4 = require('pui-react-typography').MarketingH4;
+var MarketingH5 = require('pui-react-typography').MarketingH5;
+var MarketingH6 = require('pui-react-typography').MarketingH6;
+var Heading = require('pui-react-typography').Heading;
 ```
 
 We have three type systems. Which one you choose depends on your product.

@@ -180,11 +180,9 @@ For the example, you also need to install [Buttons](#button_react) and require `
 Require the subcomponent:
 
 ```
-import {
-  Modal,
-  ModalBody,
-  ModalFooter
-} from 'pui-react-modals';
+var Modal = require('pui-react-modals').Modal;
+var ModalBody = require('pui-react-modals').ModalBody;
+var ModalFooter = require('pui-react-modals').ModalFooter;
 ```
 
 We provide 3 components that can be used to assemble modals:

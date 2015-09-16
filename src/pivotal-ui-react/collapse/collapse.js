@@ -169,11 +169,9 @@ npm install pui-react-collapse --save
 Require the subcomponents:
 
 ```
-import {
-  BaseCollapse,
-  AltCollapse,
-  Collapse
-} from 'pui-react-collapse');
+var BaseCollapse = require('pui-react-collapse').BaseCollapse;
+var AltCollapse = require('pui-react-collapse').AltCollapse;
+var Collapse = require('pui-react-collapse').Collapse;
 ```
 
 

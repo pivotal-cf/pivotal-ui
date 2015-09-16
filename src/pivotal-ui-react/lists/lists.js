@@ -267,7 +267,8 @@ parent: list_react
 Require the subcomponents:
 
 ```
-import { ListItem, BreadcrumbList } from 'pui-react-lists';
+var BreadcrumbList = require('pui-react-lists').BreadcrumbList;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 ```react_example
@@ -289,7 +290,8 @@ parent: list_react
 Require the subcomponents:
 
 ```
-import { ListItem, UnorderedList } from 'pui-react-lists';
+var UnorderedList = require('pui-react-lists').UnorderedList;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 ```react_example
@@ -347,7 +349,8 @@ List Spacing can be changed setting the size of the spacing property.
  Require the subcomponents:
 
  ```
- import { ListItem, GroupList } from 'pui-react-lists';
+var GroupList = require('pui-react-lists').GroupList;
+var ListItem = require('pui-react-lists').ListItem;
  ```
 
  ```react_example
@@ -369,7 +372,8 @@ parent: list_react
  Require the subcomponents:
 
  ```
- import { ListItem, GroupListInverse } from 'pui-react-lists';
+var GroupListInverse = require('pui-react-lists').GroupListInverse;
+var ListItem = require('pui-react-lists').ListItem;
  ```
 
 ```react_example
@@ -392,7 +396,8 @@ parent: list_react
  Require the subcomponents:
 
  ```
- import { ListItem, InlineList } from 'pui-react-lists';
+var InlineList = require('pui-react-lists').InlineList;
+var ListItem = require('pui-react-lists').ListItem;
  ```
 
 ```react_example_table
@@ -423,7 +428,8 @@ parent: list_react
 Require the subcomponents:
 
 ```
-import { ListItem, OrderedList } from 'pui-react-lists';
+var OrderedList = require('pui-react-lists').OrderedList;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 ```react_example_table
@@ -453,7 +459,8 @@ parent: list_react
 Require the subcomponent:
 
 ```
-import { ListItem, StepList } from 'pui-react-lists';
+var StepList = require('pui-react-lists').StepList;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 ```react_example
@@ -475,7 +482,8 @@ parent: list_react
 Require the subcomponents:
 
 ```
-import { ListItem, UnorderedList } from 'pui-react-lists';
+var UnorderedList = require('pui-react-lists').UnorderedList;
+var ListItem = require('pui-react-lists').ListItem;
 ```
 
 ```react_example_table
