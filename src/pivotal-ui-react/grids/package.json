@@ -5,6 +5,7 @@
   "dependencies": {
     "pui-css-grids": "2.0.0-alpha.4",
     "classnames": "^1.2.0",
-    "react-bootstrap": "0.25.1"
+    "react-bootstrap": "0.25.1",
+    "pui-react-helpers": "2.0.0-alpha.4"
   }
 }
