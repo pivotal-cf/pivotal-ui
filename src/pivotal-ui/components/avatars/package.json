@@ -1,7 +1,7 @@
 {
   "homepage": "http://styleguide.pivotal.io/elements.html#avatar",
   "dependencies": {
-    "pui-css-bootstrap": "2.0.0-alpha.4"
+    "pui-css-bootstrap": "2.0.0-alpha.5"
   },
-  "version": "2.0.0-alpha.4"
+  "version": "2.0.0-alpha.5"
 }

@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "A React component for managing groups of radio buttons",
   "homepage": "http://styleguide.pivotal.io/react.html#form_radio_input_react",
   "dependencies": {
-    "pui-css-forms": "2.0.0-alpha.4",
-    "pui-react-helpers": "2.0.0-alpha.4"
+    "pui-css-forms": "2.0.0-alpha.5",
+    "pui-react-helpers": "2.0.0-alpha.5"
   }
 }

@@ -1,11 +1,11 @@
 {
-  "version": "2.0.0-alpha.4",
+  "version": "2.0.0-alpha.5",
   "description": "A React component that provides a styled text input for inputting search queries",
   "homepage": "http://styleguide.pivotal.io/react.html#form_search_input_react",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-forms": "2.0.0-alpha.4",
-    "pui-css-iconography": "2.0.0-alpha.4",
-    "pui-react-helpers": "2.0.0-alpha.4"
+    "pui-css-forms": "2.0.0-alpha.5",
+    "pui-css-iconography": "2.0.0-alpha.5",
+    "pui-react-helpers": "2.0.0-alpha.5"
   }
 }
