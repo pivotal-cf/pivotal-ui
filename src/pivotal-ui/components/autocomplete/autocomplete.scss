@@ -74,6 +74,8 @@ var AutocompleteExample = React.createClass({
     display: block;
     white-space: nowrap;
     color: inherit;
+    background: $neutral-11;
+
     &:hover {
       text-decoration: none;
     }
