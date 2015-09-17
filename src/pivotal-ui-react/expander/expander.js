@@ -96,7 +96,7 @@ npm install pui-react-expander --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var ExpanderContent = require('pui-react-expander').ExpanderContent;

@@ -1,6 +1,6 @@
 import {exec} from 'child_process';
 import gulp from 'gulp';
-import {merge, map} from 'event-stream';
+import {merge, map, readArray} from 'event-stream';
 import series from 'stream-series';
 import path from 'path';
 import promisify from 'es6-promisify';
@@ -49,13 +49,14 @@ gulp.task('release-update-version', (done) => {
     });
 });
 
-gulp.task('release-update-package-versions', () => {
-  const componentsToUpdateStream = componentsWithChanges()
-    .pipe(componentsToUpdate());
-
-  return componentsToUpdateStream
-    .pipe(updatePackageJsons())
-    .pipe(gulp.dest('.'));
+gulp.task('release-update-package-versions', (done) => {
+  componentsWithChanges().then((components) => {
+    readArray(components)
+      .pipe(componentsToUpdate())
+      .pipe(updatePackageJsons())
+      .pipe(gulp.dest('.'))
+      .on('end', done);
+  });
 });
 
 gulp.task('release-generate-changelog', () => {
@@ -140,7 +141,6 @@ gulp.task('release-prepare', (done) =>
       'release-generate-changelog',
       'release-generate-release-folder'
     ],
-    'release-commit',
     done
   )
 );

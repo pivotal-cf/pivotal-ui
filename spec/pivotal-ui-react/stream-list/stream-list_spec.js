@@ -1,7 +1,6 @@
 require('../spec_helper');
 
-import {ListItem} from '../../../src/pivotal-ui-react/lists/lists';
-import {StreamList} from '../../../src/pivotal-ui-react/stream-list/stream-list';
+import {StreamList, StreamListItem} from '../../../src/pivotal-ui-react/stream-list/stream-list';
 import {itPropagatesAttributes} from '../support/shared_examples';
 import EventEmitter from 'node-event-emitter';
 
@@ -22,9 +21,9 @@ describe('StreamList', () => {
     beforeEach(() => {
       const streamList = (
         <StreamList {...props} singularNewItemText="new thing" pluralNewItemsText="new things">
-          <ListItem>Item a</ListItem>
-          <ListItem>Item b</ListItem>
-          <ListItem>Item c</ListItem>
+          <StreamListItem>Item a</StreamListItem>
+          <StreamListItem>Item b</StreamListItem>
+          <StreamListItem>Item c</StreamListItem>
         </StreamList>
       );
       React.render(streamList, root);
@@ -65,7 +64,7 @@ describe('StreamList', () => {
 
         render() {
           return (<StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
-            {this.state.data.map((datum, i) => <ListItem key={i}>{datum}</ListItem>)}
+            {this.state.data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
           </StreamList>);
         }
       });

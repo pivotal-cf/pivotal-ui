@@ -138,7 +138,7 @@ npm install pui-react-portals --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var PortalSource = require('pui-react-portals').PortalSource;

@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var BsAlert = require('react-bootstrap').Alert;
+var BsAlert = require('react-bootstrap/lib/Alert');
 var {Media} = require('pui-react-media');
 
 var Alert = React.createClass({
@@ -179,10 +179,13 @@ categories:
 npm install pui-react-alerts --save
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var SuccessAlert = require('pui-react-alerts').SuccessAlert;
+var InfoAlert = require('pui-react-alerts').InfoAlert;
+var WarningAlert = require('pui-react-alerts').WarningAlert;
+var ErrorAlert = require('pui-react-alerts').ErrorAlert;
 ```
 
 

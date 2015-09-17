@@ -19,10 +19,11 @@ Dividers draw horizontal lines between different content groupings.
 ```html_example
 <hr class="divider-alternate-1"/>
 <hr class="divider-alternate-2"/>
-<div class="contrast-bar">
-  <hr class="divider-1"/>
-  <hr class="divider-2"/>
-</div>
+```
+
+```html_inverse_example
+<hr class="divider-1"/>
+<hr class="divider-2"/>
 ```
 
 */
@@ -46,9 +47,4 @@ Dividers draw horizontal lines between different content groupings.
 .divider-2 {
   border: 3px solid rgba(255,255,255,0.1);
   border-width: 3px 0 0 0;
-}
-
-.divider-alternate-2,
-.divider-2 {
-  margin: 4vw 0;
 }

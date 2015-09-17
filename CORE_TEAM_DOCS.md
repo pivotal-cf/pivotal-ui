@@ -98,7 +98,6 @@ again.
   - Updates `LATEST_CHANGES.md` with auto-generated release notes for the most
     recent change only
   - Creates the `release/pui-vX.X.X` folder
-  - Creates a commit with all these changes
 
 1. If you want to release an alpha, run `gulp release-prepare --alpha` instead
    of the step above. It will update the versions to an alpha of the next
@@ -108,9 +107,11 @@ again.
    packages, run `gulp release-prepare --update-all` instead of the step above.
 
 1. If you want to make any changes (e.g. add more docs to the changelog, modify
-   a version number, etc.), do that now and make a new commit.
+   a version number, etc.), do that now.
 
 1. Run `gulp ci` - one final check!
+
+9. Run `gulp release-commit` to commit the release.
 
 1. Run `gulp release-push`. This will:
   - Creates a tag for the new version

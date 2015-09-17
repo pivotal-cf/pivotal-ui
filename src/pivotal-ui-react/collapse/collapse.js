@@ -1,6 +1,6 @@
 var React = require('react');
 var types = React.PropTypes;
-var BsPanel = require('react-bootstrap').Panel;
+var BsPanel = require('react-bootstrap/lib/Panel');
 import {mergeProps} from 'pui-react-helpers';
 
 /**
@@ -153,31 +153,33 @@ module.exports = {BaseCollapse, Collapse, AltCollapse};
 
 
 /*doc
- ---
- title: Collapse
- name: collapse_react
- categories:
- - React
- ---
+---
+title: Collapse
+name: collapse_react
+categories:
+- React
+---
 
- <code class="pam">
- <i class="fa fa-download" alt="Install the Component">
- npm install pui-react-collapse --save
- </i>
- </code>
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-collapse --save
+</i>
+</code>
 
- Require the subcomponent:
+Require the subcomponents:
 
- ```
- var BaseCollapse = require('pui-react-collapse').BaseCollapse;
- ```
+```
+var BaseCollapse = require('pui-react-collapse').BaseCollapse;
+var AltCollapse = require('pui-react-collapse').AltCollapse;
+var Collapse = require('pui-react-collapse').Collapse;
+```
 
 
- Collapse components are implementations of the [Accordion][accordion] style. In
- all `Collapse` component variations, the `header` prop describes the text
- of the clickable region to toggle the expand/collapse states.
+Collapse components are implementations of the [Accordion][accordion] style. In
+all `Collapse` component variations, the `header` prop describes the text
+of the clickable region to toggle the expand/collapse states.
 
- */
+*/
 
 /*doc
 ---

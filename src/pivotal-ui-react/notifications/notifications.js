@@ -153,22 +153,20 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-notifications pui-react-labels pui-react-typography pui-react-media --save
+npm install pui-react-notifications --save
 </i>
 </code>
+
+For the examples, you also need to require `Flag` from [Media](#media_react), `Label` from [Labels](#label_react),
+`Icon` from [Iconography](#iconography_react), and `DefaultH3` and `DefaultH5` from [Typography](#type_react).
 
 Require the subcomponent:
 
 ```
 var Notifications = require('pui-react-notifications').Notifications;
+var AlertNotifications = require('pui-react-notifications').AlertNotifications;
 var NotificationItem = require('pui-react-notifications').NotificationItem;
-var Label = require('pui-react-labels').Label;
-var DefaultH3 = require('pui-react-typography').DefaultH3;
-var DefaultH5 = require('pui-react-typography').DefaultH5;
-var Flag = require('pui-react-media').Flag;
 ```
-
-
 
 Here's an example if there are no notifications:
 
@@ -246,17 +244,6 @@ title: Alerts
 name: alert_notifications_react
 parent: notifications_react
 ---
-
-Require the subcomponent:
-
-```
-var AlertNotifications = require('pui-react-notifications').AlertNotifications;
-var NotificationItem = require('pui-react-notifications').NotificationItem;
-var Icon = require('pui-react-iconography').Icon;
-var DefaultH5 = require('pui-react-typography').DefaultH5;
-var DefaultH3 = require('pui-react-typography').DefaultH3;
-var Flag = require('pui-react-media').Flag;
-```
 
 Here's an example if there are no alerts:
 

@@ -19,7 +19,7 @@ module.exports = {
    *
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tooltips_react)
    */
-  Tooltip: require('react-bootstrap').Tooltip
+  Tooltip: require('react-bootstrap/lib/Tooltip')
 };
 
 
@@ -33,12 +33,11 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-tooltip --save
-npm install pui-react-overlay-trigger --save
+npm install pui-react-tooltip pui-react-overlay-trigger --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Tooltip = require('pui-react-tooltip').Tooltip;

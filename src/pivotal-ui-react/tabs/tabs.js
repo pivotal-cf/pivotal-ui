@@ -277,10 +277,12 @@ npm install pui-react-tabs --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var SimpleTabs = require('pui-react-tabs').SimpleTabs;
+var SimpleAltTabs = require('pui-react-tabs').SimpleAltTabs;
+var LeftTabs = require('pui-react-tabs').LeftTabs;
 var Tab = require('pui-react-tabs').Tab;
 ```
 

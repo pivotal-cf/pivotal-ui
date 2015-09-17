@@ -121,6 +121,7 @@ module.exports = {
   PortalSource: require('pui-react-portals').PortalSource,
   PortalDestination: require('pui-react-portals').PortalDestination,
   StreamList: require('pui-react-stream-list').StreamList,
+  StreamListItem: require('pui-react-stream-list').StreamListItem,
   SortableTable: require('pui-react-sortable-table').SortableTable,
   TableHeader: require('pui-react-sortable-table').TableHeader,
   TableCell: require('pui-react-sortable-table').TableCell,

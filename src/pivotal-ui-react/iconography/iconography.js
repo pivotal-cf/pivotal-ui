@@ -78,7 +78,7 @@ npm install pui-react-iconography --save
 Require the subcomponent:
 
 ```
-var Icon = require('pui-react-iconography').Icon;
+var Icon = require('pui-react-iconography');
 ```
 
 

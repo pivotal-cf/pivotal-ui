@@ -16,6 +16,12 @@ npm install pui-react-autocomplete --save
 </i>
 </code>
 
+Require the subcomponent:
+
+```
+var Autocomplete = require('pui-react-autocomplete');
+```
+
 ```jsx_example
 var AutocompleteExample = React.createClass({
   onInitializeItems: function(callback) {

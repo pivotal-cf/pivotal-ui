@@ -27,7 +27,7 @@ import uniqueid from 'lodash.uniqueid';
  * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
  * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
  */
-var BsDropdown = require('react-bootstrap').Dropdown;
+var BsDropdown = require('react-bootstrap/lib/Dropdown').default;
 
 function defDropdown(props) {
   return React.createClass({
@@ -75,7 +75,7 @@ module.exports = {
    * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#dropdown_react)
    * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown)
    */
-  DropdownItem: require('react-bootstrap').MenuItem,
+  DropdownItem: require('react-bootstrap/lib/MenuItem'),
 
   /**
    * @component LinkDropdown
@@ -159,11 +159,17 @@ npm install pui-react-dropdowns --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Dropdown = require('pui-react-dropdowns').Dropdown;
 var DropdownItem = require('pui-react-dropdowns').DropdownItem;
+var LinkDropdown = require('pui-react-dropdowns').LinkDropdown;
+var DefaultAltDropdown = require('pui-react-dropdowns').DefaultAltDropdown;
+var LowlightDropdown = require('pui-react-dropdowns').LowlightDropdown;
+var DangerDropdown = require('pui-react-dropdowns').DangerDropdown;
+var HighlightDropdown = require('pui-react-dropdowns').HighlightDropdown;
+var HighlightAltDropdown = require('pui-react-dropdowns').HighlightAltDropdown;
 ```
 
 This is the basic bootstrap dropdown:
@@ -208,16 +214,43 @@ If you want to customize the dropdown, you can use `className` to add a modifier
 To customize the dropdown button, you can add modifier classes to it
 using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
 
-If you want to add borders between items, you can pass a border attribute to any of our dropdown classes.
+```react_example
+<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
+If you want to add borders between items, you can pass a `border` attribute to any of our Dropdowns.
 
 ```react_example
-<DefaultAltDropdown title='DropDown' buttonClassName='btn-lg' border>
+<DefaultAltDropdown title='DropDown' border>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
+If you want to right align the dropdown menu, you can pass a `pullRight` attribute to any of our Dropdowns.
+
+```react_example
+<DefaultAltDropdown title='DropDown' pullRight>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
+If you want to divide the dropdown menu with dividers, you can pass a `divider` attribute to a DropdownItem.
+
+```react_example
+<DefaultAltDropdown title='DropDown'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem divider></DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
 </DefaultAltDropdown>
 ```
 

@@ -90,7 +90,7 @@ npm install pui-react-ribbons --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Ribbon = require('pui-react-ribbons').Ribbon;

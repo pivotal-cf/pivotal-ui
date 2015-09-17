@@ -52,7 +52,7 @@ function childrenIndices(children) {
  */
 var DraggableList = React.createClass({
   propTypes: {
-    onDrop: types.func,
+    onDragEnd: types.func,
     innerClassName: types.string
   },
 
@@ -61,7 +61,6 @@ var DraggableList = React.createClass({
       itemIndices: childrenIndices(this.props.children),
       draggingId: null
     };
-
   },
 
   componentWillReceiveProps(nextProps) {
@@ -82,6 +81,7 @@ var DraggableList = React.createClass({
 
   dragEnd() {
     this.setState({draggingId: null});
+    this.props.onDragEnd && this.props.onDragEnd(this.state.itemIndices);
   },
 
   dragEnter(e) {
@@ -96,13 +96,9 @@ var DraggableList = React.createClass({
     this.setState({itemIndices});
   },
 
-  drop() {
-    this.props.onDrop && this.props.onDrop(this.state.itemIndices);
-  },
-
   render() {
     var grabbed, items = [];
-    var {children, innerClassName, ...others} = this.props;
+    var {children, innerClassName, onDragEnd, ...others} = this.props;
     React.Children.forEach(children, function(child, draggingId) {
       grabbed = this.state.draggingId === draggingId;
       items.push(React.addons.cloneWithProps(child, {
@@ -110,7 +106,6 @@ var DraggableList = React.createClass({
         onDragStart: this.dragStart.bind(this, draggingId),
         onDragEnd: this.dragEnd,
         onDragEnter: this.dragEnter,
-        onDrop: this.drop,
         draggingId,
         key: draggingId,
         className: innerClassName
@@ -142,19 +137,18 @@ var DraggableListItem = React.createClass({
     onDragStart: types.func,
     onDragEnter: types.func,
     onDragEnd: types.func,
-    onDrop: types.func,
     grabbed: types.bool,
     className: types.string
   },
 
   render() {
     var {hover} = this.state;
-    var {grabbed, onDragStart, onDragEnd, onDragEnter, onDrop, draggingId} = this.props;
+    var {grabbed, onDragStart, onDragEnd, onDragEnter, draggingId} = this.props;
     var {onMouseEnter, onMouseLeave} = this;
     var className = classnames({'list-group-item pan': true, grabbed, hover});
     var innerClassName = classnames(this.props.className, 'draggable-item-content');
     var props = {
-      className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter, onDrop,
+      className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter,
       onDragOver: preventDefault,
       draggable: !grabbed,
       'data-dragging-id': draggingId
@@ -184,19 +178,31 @@ name: 05_list_draggable_react
 parent: list_react
 ---
 
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-draggable-list --save
+</i>
+</code>
+
+Require the subcomponents:
+
+```
+var DraggableList = require('pui-react-draggable-list').DraggableList;
+var DraggableListItem = require('pui-react-draggable-list').DraggableListItem;
+```
 Creates a draggable list.
 
-The property `onDrop` is a callback when a drop event has completed. Use this
+The property `onDragEnd` is a callback when a drag event has completed. Use this
 if you need to make an API call to update the order of some elements.
 
 ```jsx_example
-var draggableListDropCallback = function(data) {
+var dragEndCallback = function(data) {
   alert('New item indices order: ' + data);
 };
 ```
 
 ```react_example
-<DraggableList onDrop={draggableListDropCallback} className="my-list-class" innerClassName="my-item-class">
+<DraggableList onDragEnd={dragEndCallback} className="my-list-class" innerClassName="my-item-class">
   <DraggableListItem>
     Get me out of here!
   </DraggableListItem>
@@ -207,6 +213,18 @@ var draggableListDropCallback = function(data) {
 
   <DraggableListItem>
     Can't stop
+  </DraggableListItem>
+
+  <DraggableListItem>
+   Get me out of here!
+  </DraggableListItem>
+
+  <DraggableListItem>
+   LOL
+  </DraggableListItem>
+
+  <DraggableListItem>
+   Can't stop
   </DraggableListItem>
 </DraggableList>
 ```

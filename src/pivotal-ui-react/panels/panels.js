@@ -207,7 +207,7 @@ npm install pui-react-panels --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Panel = require('pui-react-panels').Panel;

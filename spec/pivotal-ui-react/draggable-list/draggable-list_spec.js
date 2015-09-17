@@ -2,12 +2,12 @@ require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('DraggableList', function() {
-  var DraggableList, DraggableListItem, subject, dropSpy, props;
+  var DraggableList, DraggableListItem, subject, dragEndSpy, props;
   beforeEach(function() {
     DraggableList = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableList;
     DraggableListItem = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableListItem;
 
-    dropSpy = jasmine.createSpy('drop');
+    dragEndSpy = jasmine.createSpy('dragEnd');
 
     props = {
       className: 'test-class',
@@ -18,7 +18,7 @@ describe('DraggableList', function() {
     };
 
     subject = React.render(
-      <DraggableList onDrop={dropSpy} {...props} innerClassName='inner-test-class'>
+      <DraggableList onDragEnd={dragEndSpy} {...props} innerClassName='inner-test-class'>
         <DraggableListItem>
           Get me out of here!
         </DraggableListItem>
@@ -153,13 +153,14 @@ describe('DraggableList', function() {
         expect(getListItemText()).toEqual(['LOL', 'Get me out of here!', 'Can\'t stop']);
       });
 
-      describe('when the drop event is triggered', function() {
+      describe('when the dragEnd event is triggered', function() {
         beforeEach(function() {
-          $('li.list-group-item:eq(1)').simulate('drop', {dataTransfer: dataTransferSpy});
+          $('li.list-group-item:eq(1)').simulate('dragEnd', {dataTransfer: dataTransferSpy});
         });
 
-        it('calls the drop callback', function() {
-          expect(dropSpy).toHaveBeenCalledWith([1, 0, 2]);
+        it('calls the dragEnd callback only once', function() {
+          expect(dragEndSpy).toHaveBeenCalledWith([1, 0, 2]);
+          expect(dragEndSpy.calls.count()).toEqual(1);
         });
       });
 

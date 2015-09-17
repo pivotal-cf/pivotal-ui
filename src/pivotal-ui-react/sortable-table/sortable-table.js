@@ -178,11 +178,11 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-tables --save
+npm install pui-react-sortable-table --save
 </i>
 </code>
 
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var SortableTable = require('pui-react-sortable-table').SortableTable;

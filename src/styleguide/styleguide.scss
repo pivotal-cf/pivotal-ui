@@ -277,9 +277,9 @@ blockquote {
 
 // Contrast bar
 .contrast-bar {
-  background-color: $navy-1;
+  background-color: $bg-color-inverse-example-output;
   min-height: 80px;
-  margin-bottom: 60px;
+  padding: 20px;
 }
 
 // color chip component
@@ -402,6 +402,10 @@ blockquote {
     padding: 20px;
     border: 1px solid $neutral-7;
     border-radius: 5px 5px 0 0;
+
+    &.inverse {
+      background-color: $bg-color-inverse-example-output;
+    }
   }
 
   .line > div:after {
@@ -469,6 +473,12 @@ blockquote {
 
     &:hover .btn-copy {
       display: block;
+    }
+  }
+
+  &.inverse {
+    th {
+      background-color: $bg-color-inverse-example-output;
     }
   }
 

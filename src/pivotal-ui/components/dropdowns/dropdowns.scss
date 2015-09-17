@@ -75,6 +75,36 @@ This is the basic bootstrap dropdown.
 ```
 
 <div class="alert alert-info mbxl">
+  <h5 class="em-high">Alignment</h5>
+  <p>
+    By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent.
+    Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu
+  </p>
+</div>
+
+```html_example
+<div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
+    <li class="divider mvn"></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
   <h5 class="em-high">No links as dropdowns</h5>
   <p>
     Instead of using an <code>a</code> tag as a dropdown,
@@ -135,6 +165,10 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 ```
 
 */
+
+.dropdown {
+  display: inline-block;
+}
 
 .dropdown-menu {
   @include box-shadow(0 2px 0 rgba(211, 217, 217, 0.50));

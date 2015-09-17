@@ -75,14 +75,17 @@ parent: form_react
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-radio-group --save
-npm install pui-react-radio --save
+npm install pui-react-radio pui-react-radio-group --save
 </i>
 </code>
 
+For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
+
+Require the subcomponents:
+
 ```
-var RadioGroup = require('pui-react-radio-groups').RadioGroup;
-var Radio = require('pui-react-radio').Radio;
+var RadioGroup = require('pui-react-radio-groups');
+var Radio = require('pui-react-radio');
 ```
 
 Using React radio buttons in a form is fairly straightforward.

@@ -4,7 +4,7 @@ var {TestUtils} = React.addons;
 describe('BaseCollapse', function() {
   var BsPanel, BaseCollapse, subject, bsPanel;
   beforeEach(function() {
-    BsPanel = require('react-bootstrap').Panel;
+    BsPanel = require('react-bootstrap/lib/Panel');
     BaseCollapse = require('../../../src/pivotal-ui-react/collapse/collapse').BaseCollapse;
 
     subject = React.render((

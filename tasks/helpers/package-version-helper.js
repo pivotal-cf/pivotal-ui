@@ -3,48 +3,25 @@ import {argv} from 'yargs';
 import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
-import {Stream} from 'stream';
-import {log} from 'gulp-util';
 
 import {getNewVersion} from './version-helper';
+import {getLastTag, isBlank, gitDiffMixinsAndVariables,
+  getChangedComponents, getAllComponents} from './git-helper';
 
 const exec = promisify(require('child_process').exec);
 const read = promisify(require('vinyl-file').read);
-const globPromise = promisify(require('glob'));
 
-export function componentsWithChanges() {
-  const stream = new Stream();
-  stream.readable = true;
-
-  (async () => {
-    try {
-
-      let components;
-      if (argv.updateAll) {
-        components = (await globPromise('src/{pivotal-ui/components,pivotal-ui-react}/*/package.json')).map((packageJsonPath) => path.dirname(packageJsonPath));
-      }
-      else {
-        const lastTag = (await exec('git fetch && git describe --tags origin/master')).split('-').slice(0, -2).join('-');
-        const diffResults = (await exec(`git diff --dirstat=files,1 HEAD..${lastTag} src/pivotal-ui-react/ src/pivotal-ui/components`)).trim();
-        components = diffResults.split('\n').map(diffResult => diffResult.trim().split(' ')[1]);
-      }
-
-      for (let component of components) {
-        stream.emit('data', component);
-      }
-    }
-
-    catch(error) {
-      log('stream error', error);
-      stream.emit('error', error);
-    }
-
-    finally {
-      stream.emit('end');
-    }
-  })();
-
-  return stream;
+export async function componentsWithChanges() {
+  const lastTag = await getLastTag();
+  const mixinsAndVariablesChanged = !isBlank(await gitDiffMixinsAndVariables(lastTag));
+  let components;
+  if (argv.updateAll || mixinsAndVariablesChanged) {
+    components = await getAllComponents();
+  }
+  else {
+    components = await getChangedComponents(lastTag);
+  }
+  return components;
 }
 
 function packageNameOf(componentPath) {

@@ -249,23 +249,12 @@ name: list_react
 categories:
 - React
 ---
-*/
-
-/*doc
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-lists pui-react-buttons --save
+npm install pui-react-lists --save
 </i>
 </code>
-
-Require the subcomponent:
-
-```
- var ListItem = require('pui-react-lists').ListItem;
- var HighlightButton = require('pui-react-buttons').HighlightButton;
- var StepList = require('pui-react-lists').StepList;
-```
 
 */
 /*doc
@@ -274,6 +263,13 @@ title: Breadcrumb
 name: 02_list_breadcrumb_react
 parent: list_react
 ---
+
+Require the subcomponents:
+
+```
+var BreadcrumbList = require('pui-react-lists').BreadcrumbList;
+var ListItem = require('pui-react-lists').ListItem;
+```
 
 ```react_example
 <BreadcrumbList>
@@ -290,6 +286,13 @@ title: Checked
 name: 03_list_checked_react
 parent: list_react
 ---
+
+Require the subcomponents:
+
+```
+var UnorderedList = require('pui-react-lists').UnorderedList;
+var ListItem = require('pui-react-lists').ListItem;
+```
 
 ```react_example
 <UnorderedList checked>
@@ -343,6 +346,13 @@ List Spacing can be changed setting the size of the spacing property.
  parent: list_react
  ---
 
+ Require the subcomponents:
+
+ ```
+var GroupList = require('pui-react-lists').GroupList;
+var ListItem = require('pui-react-lists').ListItem;
+ ```
+
  ```react_example
  <GroupList>
    <ListItem>Item 1</ListItem>
@@ -358,6 +368,13 @@ title: Group Inverse
 name: 07_list_group_inverse_react
 parent: list_react
 ---
+
+ Require the subcomponents:
+
+ ```
+var GroupListInverse = require('pui-react-lists').GroupListInverse;
+var ListItem = require('pui-react-lists').ListItem;
+ ```
 
 ```react_example
 <GroupListInverse>
@@ -376,6 +393,13 @@ name: 08_list_inline_react
 parent: list_react
 ---
 
+ Require the subcomponents:
+
+ ```
+var InlineList = require('pui-react-lists').InlineList;
+var ListItem = require('pui-react-lists').ListItem;
+ ```
+
 ```react_example_table
 <InlineList>
   <ListItem>Item 1</ListItem>
@@ -383,15 +407,6 @@ parent: list_react
   <ListItem>Item 3</ListItem>
 </InlineList>
 ```
-*/
-
-
-/*doc
----
-title: Inline Divider
-name: 09_list_inline_divider_react
-parent: list_react
----
 
 ```react_example_table
 <InlineList divider>
@@ -409,6 +424,13 @@ title: Ordered
 name: 10_list_ordered_react
 parent: list_react
 ---
+
+Require the subcomponents:
+
+```
+var OrderedList = require('pui-react-lists').OrderedList;
+var ListItem = require('pui-react-lists').ListItem;
+```
 
 ```react_example_table
 <OrderedList>
@@ -434,6 +456,13 @@ name: 11_list_steps_react
 parent: list_react
 ---
 
+Require the subcomponent:
+
+```
+var StepList = require('pui-react-lists').StepList;
+var ListItem = require('pui-react-lists').ListItem;
+```
+
 ```react_example
 <StepList>
   <ListItem>Item 1</ListItem>
@@ -450,6 +479,13 @@ name: 13_list_unordered_react
 parent: list_react
 ---
 
+Require the subcomponents:
+
+```
+var UnorderedList = require('pui-react-lists').UnorderedList;
+var ListItem = require('pui-react-lists').ListItem;
+```
+
 ```react_example_table
 <UnorderedList>
   <ListItem>feep</ListItem>
@@ -457,14 +493,6 @@ parent: list_react
   <ListItem>meep</ListItem>
 </UnorderedList>
 ```
-*/
-
-/*doc
----
-title: Unstyled
-name: 14_list_unstyled_react
-parent: list_react
----
 
 ```react_example_table
 <UnorderedList unstyled>
