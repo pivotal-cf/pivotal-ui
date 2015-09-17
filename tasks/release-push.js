@@ -2,8 +2,11 @@ import {log} from 'gulp-util';
 import {exec} from 'child_process';
 import promisify from 'es6-promisify';
 import gulp from 'gulp';
-import {infoForUpdatedPackages, publishPackages} from './helpers/publish-helper';
+import {infoForUpdatedPackages, publishPackages, publishFakePackages} from './helpers/publish-helper';
 import runSequence from 'run-sequence';
+import glob from 'glob';
+import fs from 'fs';
+import {argv} from 'yargs';
 
 const execPromise = promisify(exec);
 
@@ -36,10 +39,21 @@ gulp.task('release-push-production-styleguide-verify', () =>
     })
 );
 
-gulp.task('release-push-npm-publish', ['css-build', 'react-build'], () => {
-  return gulp.src('dist/{css,react}/*/package.json')
-    .pipe(infoForUpdatedPackages())
-    .pipe(publishPackages());
+gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
+  const files = glob.sync('dist/{css,react}/*/package.json', {realpath: true})
+    .map((filepath) => {
+      return {
+        contents: fs.readFileSync(filepath),
+        path: filepath
+      };
+    } );
+  const packageInfos = await infoForUpdatedPackages(files);
+
+  if(argv.dry) {
+    await publishFakePackages()(packageInfos);
+  } else {
+    await publishPackages()(packageInfos);
+  }
 });
 
 gulp.task('release-push-git', async () => {
