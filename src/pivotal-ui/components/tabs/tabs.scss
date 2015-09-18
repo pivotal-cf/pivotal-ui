@@ -233,7 +233,7 @@ $tab-border-size: 3px;
   }
 }
 
-.tab-content {
+.tab-pane {
   padding: 20px;
 }
 
@@ -376,6 +376,10 @@ parent: tab
   .tab-content {
     padding-left: 0;
     list-style: none;
+  }
+
+  .tab-pane {
+    padding-left: 0;
   }
 
   a[data-toggle="tab"] {
