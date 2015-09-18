@@ -19,14 +19,6 @@ npm install pui-css-collapse --save
 These are frequently used in combination with our panel components. They have a header and body.
 
 Accordions can be used with any background color class, add them to the header and body.
-
-NOTE: The 'alligators' (the > in the HAML below) are structural --
-without them, the browser renders the whitespace on the anchor tags,
-and the images jump around by a few pixels when they're toggled.
-
-Also see the select tabs for a toggle triggered by a select group.
-
-
 */
 
 /*doc
