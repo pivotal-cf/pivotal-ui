@@ -49,7 +49,7 @@ If you're ready to try PUI with React, follow these instructions!
    --save-dev), and compiles the CSS required by these packages.
    
    ```
-   npm install --save-dev dr-frankenstyle
+   npm install -g dr-frankenstyle
    ```
 
 1. Install React, if you haven't already
