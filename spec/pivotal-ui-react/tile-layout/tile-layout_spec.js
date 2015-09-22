@@ -1,9 +1,9 @@
 require('../spec_helper');
+import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('TileLayout', () => {
   const React = require('react/addons');
   const TileLayout = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
-  import {itPropagatesAttributes} from '../support/shared_examples';
 
   it('creates tile-layout', () => {
     React.render(<TileLayout></TileLayout>, root);
@@ -55,14 +55,14 @@ describe('TileLayout', () => {
       React.render(<TileLayout></TileLayout>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-gutter');
-    })
+    });
   });
 
   describe('attributes', () => {
     beforeEach(() => {
       React.render(
         <TileLayout className="outer-class" id="outer-id" style={{opacity: '0.5'}}>
-          <TileLayout.Item  className="inner-class" id="inner-id" style={{opacity: '0'}}>
+          <TileLayout.Item className="inner-class" id="inner-id" style={{opacity: '0'}}>
             Item 1
           </TileLayout.Item>
         </TileLayout>,
