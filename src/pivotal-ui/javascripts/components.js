@@ -1,5 +1,6 @@
 import selectFancy from 'pui-react-select-fancy';
 import autocomplete from 'pui-react-autocomplete';
+import TileLayout from 'pui-react-tile-layout';
 
 module.exports = {
   DefaultH1: require('pui-react-typography').DefaultH1,
@@ -127,4 +128,5 @@ module.exports = {
   TableCell: require('pui-react-sortable-table').TableCell,
   TableRow: require('pui-react-sortable-table').TableRow,
   ...autocomplete,
-  ...selectFancy};
+  ...selectFancy,
+  TileLayout: TileLayout};
