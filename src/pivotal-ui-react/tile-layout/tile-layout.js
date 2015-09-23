@@ -70,6 +70,7 @@ export default TileLayout;
 
  ```
  var TileLayout = require('pui-react-tile-layout');
+ var ClickableAltPanel = require('pui-react-tile-layout').ClickableAltPanel;
  ```
 
  For the example, you also need to require `ClickableAltPanel` from [Panels](#panel_react).
