@@ -60,7 +60,9 @@ module.exports = {RadioGroup};
 ---
 title: Forms
 name: form_react
-category: react_all_forms
+categories:
+ - react_all_forms
+ - react_all
 ---
 */
 

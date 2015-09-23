@@ -64,7 +64,7 @@ gulp.task('accessibility-a11y', async () => {
 
   // TODO: When every page is going green, then check the all page. Until then, it should be extra noise.
   //const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq', 'all'];
-  const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq'];
+  const pages = ['css_all', 'react_all'];
 
   await* pages.map(function(page) {
     const url = `http://localhost:${port}/${page}.html`;

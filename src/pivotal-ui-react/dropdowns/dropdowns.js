@@ -149,7 +149,9 @@ module.exports = {
 ---
 title: Dropdowns
 name: dropdown_react
-category: react_all_dropdowns
+categories:
+ - react_all_dropdowns
+ - react_all
 ---
 
 <code class="pam">

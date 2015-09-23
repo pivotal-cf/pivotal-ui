@@ -6,7 +6,9 @@
 ---
 title: Introduction
 name: 00_form_introduction
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 
@@ -61,7 +63,9 @@ parent: 00_form_introduction
 ---
 title: Inline Forms
 name: form_inline
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
@@ -135,7 +139,9 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 ---
 title: Inputs & Labels
 name: form_inputs
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -531,7 +537,9 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 ---
 title: Selects
 name: form_selects
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -769,7 +777,9 @@ This is a fancy select!
 ---
 title: Text Areas
 name: form_textarea
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 Text areas are used for larger amounts of input.
@@ -789,7 +799,9 @@ Text areas are used for larger amounts of input.
 ---
 title: Checkboxes & Radios
 name: form_checkboxes
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -880,7 +892,9 @@ Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or rad
 ---
 title: Help Text
 name: form_help_text
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 Help text
 Block level help text for form controls.
@@ -899,7 +913,9 @@ Block level help text for form controls.
 ---
 title: Validations
 name: form_validation
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 To show validation errors on a field, add `.has-error` to the field's form group.
@@ -1008,7 +1024,9 @@ add `.has-success` to the field's form group.
 ---
 title: Disabled Controls
 name: form_disabled_controls
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 Controls will occasionally need to be disabled.
@@ -1039,7 +1057,9 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 ---
 title: Static Controls
 name: form_static_control
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 When you need to place plain text next to a form label within a form,
@@ -1100,7 +1120,9 @@ p.form-control-static {
 ---
 title: Autoselect Text Inputs
 name: form_autoselect_text_input
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
@@ -1215,7 +1237,9 @@ This form looks and behaves mostly like a content editable field
 ---
 title: Toggle Switches
 name: form_toggle_switch
-category: css_objects_forms
+categories:
+ - css_objects_forms
+ - css_all
 ---
 
 A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.

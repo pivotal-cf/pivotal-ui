@@ -70,7 +70,9 @@ module.exports = {BackToTop};
 ---
 title: Back to Top
 name: back_to_top_react
-category: react_all_back-to-top
+categories:
+ - react_all_back-to-top
+ - react_all
 ---
 
 <code class="pam">

@@ -80,7 +80,9 @@ module.exports = {Ribbon, PrimaryRibbon, Banner};
 ---
 title: Ribbons
 name: ribbons_react
-category: react_all_ribbons
+categories:
+ - react_all_ribbons
+ - react_all
 ---
 
 <code class="pam">

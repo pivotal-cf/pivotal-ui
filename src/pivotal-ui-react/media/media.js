@@ -115,7 +115,9 @@ module.exports = {Media, Flag};
 ---
 title: Media
 name: media_react
-category: react_all_media
+categories:
+ - react_all_media
+ - react_all
 ---
 
 <code class="pam">

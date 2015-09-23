@@ -147,7 +147,9 @@ module.exports = {Notifications, AlertNotifications, NotificationItem};
 ---
 title: Notifications
 name: notifications_react
-category: react_all_notifications
+categories:
+ - react_all_notifications
+ - react_all
 ---
 
 <code class="pam">

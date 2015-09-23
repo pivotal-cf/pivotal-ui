@@ -85,7 +85,9 @@ module.exports = {ExpanderTrigger, ExpanderContent};
 ---
 title: Expander
 name: expander_react
-category: react_all_expander
+categories:
+ - react_all_expander
+ - react_all
 ---
 
 

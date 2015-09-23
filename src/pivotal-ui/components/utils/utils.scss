@@ -6,7 +6,9 @@
 ---
 title: Responsive Utilities
 name: responsive_utilities
-category: css_utilities_responsive-utilities
+categories:
+ - css_utilities_responsive-utilities
+ - css_all
 ---
 
 Use a single or combination of the available classes for toggling content across viewport breakpoints.
@@ -133,7 +135,9 @@ So, for extra small (`xs`) screens for example, the available `.visible-*-*` cla
 ---
 title: Print
 name: print
-category: css_utilities_print
+categories:
+ - css_utilities_print
+ - css_all
 ---
 
 Similar to the regular responsive classes, use these for toggling content for print.

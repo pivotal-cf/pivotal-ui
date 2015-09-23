@@ -165,7 +165,9 @@ module.exports = {Modal, ModalBody, ModalFooter};
 ---
 title: Modals
 name: modal_react
-category: react_all_modals
+categories:
+ - react_all_modals
+ - react_all
 ---
 
 <code class="pam">

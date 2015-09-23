@@ -246,7 +246,9 @@ module.exports = {
 ---
 title: Lists
 name: list_react
-category: react_all_lists
+categories:
+ - react_all_lists
+ - react_all
 ---
 
 <code class="pam">

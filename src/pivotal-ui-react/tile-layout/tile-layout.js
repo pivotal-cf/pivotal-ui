@@ -57,7 +57,9 @@ export default TileLayout;
  ---
  title: Tile Layout
  name: tile_layout_react
- category: react_all_tile-layout
+ categories:
+ - react_all_tile-layout
+ - react_all
  ---
 
  <code class="pam">
