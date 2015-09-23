@@ -4,14 +4,14 @@ class NavPath
 
     if match
       new(
-        language: match[1],
-        component_type: match[2],
-        component: match[3]
+        match[1],
+        match[2],
+        match[3]
       )
     end
   end
 
-  def initialize(language:, component_type:, component:)
+  def initialize(language, component_type, component)
     @language = language
     @component_type = component_type
     @component = component

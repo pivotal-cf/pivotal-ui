@@ -6,15 +6,15 @@ class Title
 
     if nav
       new(
-        language: nav.language,
-        component: nav.component,
+        nav.language,
+        nav.component,
       )
     else
       "Pivotal UI: #{hologram_title}"
     end
   end
 
-  def initialize(language:, component:)
+  def initialize(language, component)
     @language = language
     @component = component
   end
