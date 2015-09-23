@@ -3,6 +3,8 @@
 @import '../pivotal-ui/components/pui-variables.scss';
 @import '../pivotal-ui/components/mixins.scss';
 
+$nav-menu-width: 300px;
+
 html {
   background-color: $gray-10;
 }
@@ -72,8 +74,12 @@ blockquote {
 
 }
 
+main {
+  padding-left: $nav-menu-width
+}
+
 .styleguide-header {
-  min-height: 40px;
+  width: $nav-menu-width;
   height: 100%;
   z-index: 100;
   overflow: auto;
@@ -118,156 +124,10 @@ blockquote {
     }
   }
 
-  #navbar-hamburger {
-    float: right;
-    margin: 4px 0px;
-    border: none;
-    padding: 5px 7px;
-    border-radius: 4px;
-    background: transparent;
-    @include transition-pui(background, 0.5s, ease-out);
-
-    &:hover {
-      background: $dark-3;
-    }
-
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
-      background: $neutral-10;
-
-      &:not(:first-of-type) {
-        margin: 4px;
-      }
-    }
-  }
-
-  #styleguide-first-level-nav-wrapper {
-    margin: 0 -10px;
-  }
-
-  ul#styleguide-first-level-nav {
-    display: none;
-    clear: both;
-    margin: 0;
-    padding: 0;
-    background: $dark-1;
-    list-style-type: none;
-
-    > li {
-      @include transition-pui(background);
-
-      > a {
-        color: $neutral-11;
-      }
-
-      a.category-link, a.styleguide-second-level-nav-link {
-        padding: 8px 10px;
-      }
-
-      a.category-link {
-        display: inline-block;
-        width: 55%;
-        @include transition-pui(color);
-      }
-
-      a.styleguide-second-level-nav-link {
-        float: right;
-        width: 40%;
-        text-align: right;
-      }
-
-      ul.styleguide-second-level-nav {
-        display: none;
-        padding-left: 0;
-        list-style-type: none;
-        background-color: $neutral-1;
-
-        > li {
-          padding-bottom: 5px;
-          font-size: $font-size-base;
-
-          a {
-            display: block;
-            color: $neutral-10;
-            padding: 8px 10px 8px 30px;
-          }
-
-          &:hover {
-            a {
-              color: $blue-3;
-            }
-          }
-        }
-      }
-
-      &:hover, &.active {
-        background: $neutral-1;
-
-        a.category-link, a.styleguide-second-level-nav-link {
-          color: $brand-8;
-        }
-      }
-    }
-  }
-
   @media(min-width: $screen-md-min) {
     position: fixed;
     top: 0;
 
-    #styleguide-first-level-nav-wrapper {
-      margin: 0;
-    }
-
-    ul#styleguide-first-level-nav {
-      display: block;
-      clear: none;
-      top: 0;
-      background: transparent;
-
-      > li {
-        position: relative;
-        display: inline-block;
-        vertical-align: middle;
-        padding: 10px 15px;
-        font-size: $font-size-small;
-
-        a.category-link {
-          padding: 0;
-          display: inline;
-        }
-
-        a.styleguide-second-level-nav-link {
-          float: none;
-        }
-
-        ul.styleguide-second-level-nav {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 200px;
-          padding: 10px 20px;
-
-          > li {
-            a {
-              padding: 0;
-            }
-          }
-        }
-
-        &:hover {
-          ul.styleguide-second-level-nav {
-            display: block;
-          }
-        }
-      }
-    }
-
-    #navbar-hamburger {
-      display: none;
-    }
   }
 }
 
