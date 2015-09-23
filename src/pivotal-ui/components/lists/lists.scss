@@ -11,9 +11,7 @@
 ---
 title: Lists
 name: list
-categories:
-  - Elements
-  - All
+category: css_elements_lists
 ---
 
 <code class="pam">
@@ -772,9 +770,7 @@ wrap all the inner content in `a` with class `list-card-link`.
 ---
 title: Layout Lists
 name: layout_lists
-categories:
-  - Layout
-  - All
+category: css_utilities_layout-lists
 ---
 
 Sometimes you might want to use lists to lay out elements on the page.
@@ -851,9 +847,6 @@ Use [Card lists][list_cards] if you'd like to make a grid of vertically and hori
 title: Timeline
 name: time_line
 parent: list
-categories:
-  - Elements
-  - All
 ---
 
 A Timeline is a graphical representation of sequenced events. The Timeline list components are used to order list items by timestamp.

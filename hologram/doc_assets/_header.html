@@ -21,7 +21,7 @@
       })();
     </script>
 
-    <% if %w(react.html faq.html).include?(file_name) %>
+    <% if file_name.include?('react') || file_name.include?('faq') %>
       <script src="pivotal-ui-react.js"></script>
       <script>
         if (window.callPhantom) {
@@ -70,40 +70,34 @@
           <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
         </div>
         <a href="/" class="styleguide-logo"><img src="styleguide/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <div id="styleguide-first-level-nav-wrapper">
-          <ul id="styleguide-first-level-nav">
-
-            <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'Forms', 'React', 'FAQ'] %>
-
-
-            <% categories.each_with_index do |category_name, index| %>
-              <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
-              <% file_name = @categories[category_name] %>
-
-              <li id="category-<%= index %>" class="styleguide-category">
-                <a class="category-link" href="<%= file_name %>">
-                  <%= category_name %>
-                </a>
-                <a class="styleguide-second-level-nav-link" href="#" data-target="category-<%= index %>">
-                  <span class="sr-only">Expand <%= category_name %></span>
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="styleguide-second-level-nav">
-                  <% @pages[file_name][:blocks].each do |b| %>
-                    <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
-                      <% if file_name == @file_name %>
-                        <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
-                      <% else %>
-                        <li><a href="<%= file_name %>#<%= b[:name] %>"><%= b[:title] %></a></li>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </ul>
-              </li>
-            <% end %>
+        <div>
+          <!--<%= @categories %>-->
+          <% require_relative('./hologram/lib/navigation') %>
+          <% nav = generate_nav_from_categories(@categories) %>
+          <ul>
             <li>
-              <a class="category-link" href="all.html">All</a>
+              <a href=<%= @categories['Intro'] %>> Introduction </a>
             </li>
+            <li>
+              <a href=<%= @categories['FAQ'] %>> FAQ </a>
+            </li>
+            <% nav.each do |language, component_types| %>
+            <li> <%= language %>
+              <ul>
+                <% component_types.each do |component_type, components| %>
+                <li><%= component_type %>
+                  <ul>
+                    <% components.each do |component, url| %>
+                      <li>
+                        <a href=<%= url %>> <%= component %> </a>
+                      </li>
+                    <% end %>
+                  </ul>
+                </li>
+                <% end %>
+              </ul>
+            </li>
+            <% end %>
           </ul>
         </div>
       </div>

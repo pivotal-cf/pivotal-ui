@@ -34,8 +34,7 @@ module.exports = {Label};
 ---
 title: Labels
 name: label_react
-categories:
-- React
+category: react_all_labels
 ---
 
 <code class="pam">

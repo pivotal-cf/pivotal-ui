@@ -9,7 +9,7 @@ end
 
 feature 'JQuery Back to Top', js: true do
   scenario 'using the component' do
-    visit '/elements.html'
+    visit '/'
     expect(page).not_to have_css('.back-to-top')
 
     page.evaluate_script('$("html, body").scrollTop(500)')

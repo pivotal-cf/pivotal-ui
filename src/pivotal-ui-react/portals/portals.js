@@ -128,8 +128,7 @@ module.exports = {
 ---
 title: Portals
 name: portals_react
-categories:
-- React
+category: react_all_portals
 ---
 
 <code class="pam">

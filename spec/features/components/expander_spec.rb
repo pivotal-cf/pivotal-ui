@@ -2,7 +2,7 @@ require_relative '../spec_helper'
 
 feature 'React Expander', js: true do
   scenario 'using the component' do
-    visit '/react.html#expander_react'
+    visit '/react_all_expander.html'
 
     within_example_containing('Toggle Content') do
       expect(page).not_to have_content('Content in expander')

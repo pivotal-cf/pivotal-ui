@@ -84,8 +84,7 @@ module.exports = {BasePane, Pane};
 ---
 title: Panes
 name: pane_react
-category:
-- React
+category: react_all_panes
 ---
 
 <code class="pam">

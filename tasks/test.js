@@ -48,14 +48,23 @@ gulp.task('jasmine-task-helpers', function() {
 
 gulp.task('set-ci-port', () => process.env.STYLEGUIDE_PORT = 9001);
 
-gulp.task('rspec-features', function(done) {
-  const rspec = spawn('rspec', ['spec/features'], {stdio: 'inherit'});
+function rspec(dir, done) {
+  const rspec = spawn('rspec', [`spec/${dir}`], {stdio: 'inherit'});
   ['SIGINT', 'SIGTERM'].forEach(e => process.once(e, () => rspec && rspec.kill()));
   rspec.once('close', done);
+}
+
+gulp.task('rspec-features', function(done) {
+  rspec('features', done);
 });
 
+gulp.task('rspec-unit', function(done) {
+  rspec('hologram', done);
+});
+
+
 gulp.task('rspec', function(done) {
-  runSequence('set-ci-port', 'monolith-serve', 'rspec-features', 'monolith-kill-server', done);
+  runSequence('set-ci-port', 'monolith-serve', 'rspec-features', 'monolith-kill-server', 'rspec-unit', done);
 });
 
 gulp.task('css-critic-prepare', ['monolith'], function() {

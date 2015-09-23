@@ -244,8 +244,7 @@ module.exports = {
 ---
 title: Typography
 name: type_react
-category:
-- React
+category: react_all_typography
 ---
 
 <code class="pam">

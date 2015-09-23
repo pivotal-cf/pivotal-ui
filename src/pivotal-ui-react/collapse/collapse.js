@@ -156,8 +156,7 @@ module.exports = {BaseCollapse, Collapse, AltCollapse};
 ---
 title: Collapse
 name: collapse_react
-categories:
-- React
+category: react_all_collapse
 ---
 
 <code class="pam">

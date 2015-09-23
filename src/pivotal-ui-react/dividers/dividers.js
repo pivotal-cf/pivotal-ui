@@ -99,8 +99,7 @@ module.exports = {
 ---
 title: Dividers
 name: divider_react
-categories:
-- React
+category: react_all_dividers
 ---
 
 <code class="pam">

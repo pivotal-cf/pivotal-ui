@@ -64,8 +64,7 @@ module.exports = {
 ---
 title: Iconography
 name: iconography_react
-categories:
-- React
+category: react_all_iconography
 ---
 
 

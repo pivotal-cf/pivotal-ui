@@ -197,8 +197,7 @@ module.exports = {
 ---
 title: Panels
 name: panel_react
-categories:
-- React
+category: react_all_panels
 ---
 
 <code class="pam">

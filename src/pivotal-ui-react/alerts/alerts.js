@@ -170,8 +170,7 @@ module.exports = {
 ---
 title: Alerts
 name: alerts_react
-categories:
-- React
+category: react_all_alerts
 ---
 
 <code class="pam">
