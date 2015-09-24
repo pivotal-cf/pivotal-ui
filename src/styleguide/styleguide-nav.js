@@ -1,5 +1,5 @@
 const React = global.React || require('react');
-const SimpleAltTabs = global.SimpleAltTabs || require('pui-react-tabs').SimpleAltTabs;
+const SimpleTabs = global.SimpleTabs || require('pui-react-tabs').SimpleTabs;
 const Tab = global.Tab || require('pui-react-tabs').Tab;
 const Collapse = global.Collapse || require('pui-react-collapse').Collapse;
 
@@ -12,16 +12,18 @@ const ComponentTypeCollapse = React.createClass({
     for(let component in components) {
       if (components.hasOwnProperty(component)) {
         componentItems.push(
-          <div key={`ok-react-${component}`}>
+          <li key={`ok-react-${component}`}>
             <a href={components[component]}>{component}</a>
-          </div>
+          </li>
         )
       }
     }
 
     return (
-      <Collapse header={componentType}>
-        {componentItems}
+      <Collapse header={componentType} className="nav-component-type">
+        <ul className="list-unstyled mlxl">
+          {componentItems}
+        </ul>
       </Collapse>
     );
   }
@@ -51,7 +53,7 @@ const StyleguideNav = React.createClass({
         }
 
         tabs.push(
-          <Tab eventKey={language} key={`nav-tab-${language}`} title={language}>
+          <Tab eventKey={language} key={`nav-tab-${language}`} title={language} className="pvn phn">
             {collapses}
           </Tab>
         )
@@ -59,9 +61,9 @@ const StyleguideNav = React.createClass({
     }
 
     return (
-      <SimpleAltTabs defaultActiveKey={defaultLanguage}>
+      <SimpleTabs defaultActiveKey={defaultLanguage}>
         {tabs}
-      </SimpleAltTabs>
+      </SimpleTabs>
     );
   }
 });

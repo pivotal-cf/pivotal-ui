@@ -58,18 +58,27 @@
   </head>
   <body>
     <nav class="styleguide-header">
-      <div class="container">
-        <div>
-          <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
-        </div>
-        <a href="/" class="styleguide-logo"><img src="styleguide/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <% require('./hologram/lib/navigation') %>
-        <% nav = generate_nav_from_categories(@categories) %>
-        <script>
-          nav = <%= nav.to_json %>;
-        </script>
-        <div id="styleguide-navbar"></div>
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
       </div>
+      <% require('./hologram/lib/navigation') %>
+      <% nav = generate_nav_from_categories(@categories) %>
+      <div class="phxl pvl"><a href="/" class="type-neutral-1 mvn h4">
+        <span class="logo-type-company em-low">Pivotal</span>
+        <span class="logo-type-app">Styleguide</span>
+      </a></div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn type-sm">
+          <li><a href="<%= @categories['Intro'] %>">Get Started</a></li>
+          <li><a href="<%= @categories['FAQ'] %>">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = <%= nav.to_json %>;
+      </script>
+      <div id="styleguide-navbar"></div>
     </nav>
     <main id="skipnav">
       <% if title != "Intro" %>

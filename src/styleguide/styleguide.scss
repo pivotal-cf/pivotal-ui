@@ -84,38 +84,15 @@ main {
   z-index: 100;
   overflow: auto;
 
+  position: fixed;
+  top: 0;
+
   background: $neutral-11;
 
-  @-webkit-keyframes hoverSpin {
-    0% { transform: rotate(0deg) }
-    100% { transform: rotate(360deg) }
-  }
-
-  @-moz-keyframes hoverSpin {
-    0% { opacity: 1; }
-    50% { opacity: .6; }
-    100% { opacity: 1;}
-  }
-
-  @keyframes hoverSpin {
-    0% { opacity: 1; }
-    50% { opacity: .6; }
-    100% { opacity: 1;}
-  }
-
-  .styleguide-logo {
-    float: left;
-    margin-top: 5px;
-    margin-right: 15px;
-
-    &:hover {
-      animation: hoverSpin 5s linear infinite;
-    }
-
-  }
+  border-right: 1px solid $neutral-9;
 
   .visible-on-focus {
-    position:absolute;
+    position: absolute;
     left: 0px;
     top: -40px;
     &:focus, &:hover {
@@ -123,13 +100,19 @@ main {
     }
   }
 
-  @media(min-width: $screen-md-min) {
-    position: fixed;
-    top: 0;
+  .logo-type-company, .logo-type-app {
+    display: block;
+    line-height: 1;
+  }
 
+  #styleguide-navbar {
+    font-size: $font-size-small;
+
+    .nav-component-type {
+      margin: 0;
+    }
   }
 }
-
 // Back to top component
 .exampleOutput .back-to-top {
   position: absolute;
