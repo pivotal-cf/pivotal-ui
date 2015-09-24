@@ -7,7 +7,7 @@
 title: Introduction
 name: 00_form_introduction
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -64,7 +64,7 @@ parent: 00_form_introduction
 title: Inline Forms
 name: form_inline
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -140,7 +140,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 title: Inputs & Labels
 name: form_inputs
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -538,7 +538,7 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 title: Selects
 name: form_selects
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 Selects are excellent to use because they will automatically
@@ -778,7 +778,7 @@ This is a fancy select!
 title: Text Areas
 name: form_textarea
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -800,7 +800,7 @@ Text areas are used for larger amounts of input.
 title: Checkboxes & Radios
 name: form_checkboxes
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
@@ -893,7 +893,7 @@ Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or rad
 title: Help Text
 name: form_help_text
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 Help text
@@ -914,7 +914,7 @@ Block level help text for form controls.
 title: Validations
 name: form_validation
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -1025,7 +1025,7 @@ add `.has-success` to the field's form group.
 title: Disabled Controls
 name: form_disabled_controls
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -1058,7 +1058,7 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 title: Static Controls
 name: form_static_control
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -1121,7 +1121,7 @@ p.form-control-static {
 title: Autoselect Text Inputs
 name: form_autoselect_text_input
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
@@ -1238,7 +1238,7 @@ This form looks and behaves mostly like a content editable field
 title: Toggle Switches
 name: form_toggle_switch
 categories:
- - css_objects_forms
+ - css_components_forms
  - css_all
 ---
 
