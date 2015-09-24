@@ -95,21 +95,21 @@ gulp.task('css-critic', ['css-critic-prepare'], function() {
     .pipe(plugins.open('./spec/css/regressionRunner.html', {app: 'firefox'}));
 });
 
-function reactTestAssets(options = {}) {
-  return gulp.src('spec/pivotal-ui-react/**/*_spec.js')
+function reactTestAssets(sourcePath, options = {}) {
+  return gulp.src(sourcePath)
     .pipe(plugins.plumber())
     .pipe(webpack(webpackConfig({nodeEnv: 'test', ...options})));
 }
 
 gulp.task('jasmine-react-ci', function() {
-  return reactTestAssets({watch: false})
+  return reactTestAssets( ['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'], {watch: false})
     .pipe(plugins.jasmineBrowser.specRunner({console: true}))
     .pipe(plugins.jasmineBrowser.phantomjs());
 });
 
 gulp.task('jasmine-react', function() {
   var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
-  return reactTestAssets({watch: true, plugins: [plugin]})
+  return reactTestAssets(['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'], {watch: true, plugins: [plugin]})
     .pipe(plugins.jasmineBrowser.specRunner())
     .pipe(plugins.jasmineBrowser.server({whenReady: plugin.whenReady}));
 });

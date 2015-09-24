@@ -1,3 +1,8 @@
+const React = global.React || require('react');
+const SimpleAltTabs = global.SimpleAltTabs || require('pui-react-tabs').SimpleAltTabs;
+const Tab = global.Tab || require('pui-react-tabs').Tab;
+const Collapse = global.Collapse || require('pui-react-collapse').Collapse;
+
 const ComponentTypeCollapse = React.createClass({
   render() {
     const {componentType, components} = this.props;
