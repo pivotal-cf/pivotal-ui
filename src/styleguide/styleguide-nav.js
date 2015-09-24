@@ -12,7 +12,7 @@ const ComponentTypeCollapse = React.createClass({
     for(let component in components) {
       if (components.hasOwnProperty(component)) {
         componentItems.push(
-          <div>
+          <div key={`ok-react-${component}`}>
             <a href={components[component]}>{component}</a>
           </div>
         )
@@ -43,7 +43,9 @@ const StyleguideNav = React.createClass({
         for (let componentType in componentTypes) {
           if (componentTypes.hasOwnProperty(componentType)) {
             collapses.push(
-              <ComponentTypeCollapse componentType={componentType} components={componentTypes[componentType]} />
+              <ComponentTypeCollapse componentType={componentType}
+                                     key={`nav-${language}-${componentType}`}
+                                     components={componentTypes[componentType]} />
             );
           }
         }
