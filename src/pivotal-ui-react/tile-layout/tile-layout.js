@@ -117,7 +117,7 @@ export default TileLayout;
  title: Tile Layout
  name: tile_layout_react
  categories:
- - react_all_tile-layout
+ - react_utilities_tile-layout
  - react_all
  ---
 
