@@ -62,7 +62,8 @@
         <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
       </div>
       <% require('./hologram/lib/navigation') %>
-      <% nav = generate_nav_from_categories(@categories) %>
+      <% require('./hologram/lib/pretty_nav') %>
+      <% nav = PrettyNav.new(generate_nav_from_categories(@categories)).to_hash %>
       <div class="phxl pvl"><a href="/" class="type-neutral-1 mvn h4">
         <span class="logo-type-company em-low">Pivotal</span>
         <span class="logo-type-app">Styleguide</span>

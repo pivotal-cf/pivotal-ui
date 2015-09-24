@@ -1,4 +1,5 @@
 require_relative('./navigation')
+require_relative('./pretty_nav')
 
 class Title
   def self.from_category(hologram_title)
@@ -26,15 +27,11 @@ class Title
   private
 
   def pretty_language
-    if language == 'css'
-      language.upcase
-    elsif language =='react'
-      language.capitalize
-    end
+    prettify_language(language)
   end
 
   def pretty_component
-    component.split('-').map(&:capitalize).join(' ')
+    prettify(component)
   end
 
   attr_reader :language, :component
