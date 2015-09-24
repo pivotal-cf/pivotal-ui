@@ -7,17 +7,15 @@ const ComponentTypeCollapse = React.createClass({
   render() {
     const {componentType, components} = this.props;
 
-    let componentItems = [];
+    let componentNames = Object.keys(components).sort();
 
-    for(let component in components) {
-      if (components.hasOwnProperty(component)) {
-        componentItems.push(
-          <li key={`ok-react-${component}`}>
-            <a href={components[component]}>{component}</a>
-          </li>
-        )
-      }
-    }
+    const componentItems = componentNames.map((component) => {
+      return (
+        <li key={`ok-react-${component}`}>
+          <a href={components[component]}>{component}</a>
+        </li>
+      );
+    });
 
     return (
       <Collapse header={componentType} className="nav-component-type">
@@ -33,32 +31,25 @@ const StyleguideNav = React.createClass({
   render() {
     const {navTree, defaultLanguage} = this.props;
 
-    let tabs = [];
+    const languageNames = ['React', 'CSS'];
+    const tabs = languageNames.map((language) => {
+      const componentTypes = navTree[language];
+      const componentTypeNames = Object.keys(componentTypes).sort();
 
-    for (let language in navTree) {
-      if (navTree.hasOwnProperty(language)) {
+      const collapses = componentTypeNames.map((componentType) => {
+        return (
+          <ComponentTypeCollapse componentType={componentType}
+                                 key={`nav-${language}-${componentType}`}
+                                 components={componentTypes[componentType]}/>
+        );
+      });
 
-        let collapses = [];
-
-        var componentTypes = navTree[language];
-
-        for (let componentType in componentTypes) {
-          if (componentTypes.hasOwnProperty(componentType)) {
-            collapses.push(
-              <ComponentTypeCollapse componentType={componentType}
-                                     key={`nav-${language}-${componentType}`}
-                                     components={componentTypes[componentType]} />
-            );
-          }
-        }
-
-        tabs.push(
-          <Tab eventKey={language} key={`nav-tab-${language}`} title={language} className="pvn phn">
-            {collapses}
-          </Tab>
-        )
-      }
-    }
+      return (
+        <Tab eventKey={language} key={`nav-tab-${language}`} title={language} className="pvn phn">
+          {collapses}
+        </Tab>
+      )
+    });
 
     return (
       <SimpleTabs defaultActiveKey={defaultLanguage}>
