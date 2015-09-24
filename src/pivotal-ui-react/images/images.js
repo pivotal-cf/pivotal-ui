@@ -48,7 +48,7 @@ module.exports = {Image};
 title: Images
 name: image_react
 categories:
- - react_all_images
+ - react_base_images
  - react_all
 ---
 

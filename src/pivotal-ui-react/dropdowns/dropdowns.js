@@ -150,7 +150,7 @@ module.exports = {
 title: Dropdowns
 name: dropdown_react
 categories:
- - react_all_dropdowns
+ - react_components_dropdowns
  - react_all
 ---
 

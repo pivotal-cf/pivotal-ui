@@ -129,7 +129,7 @@ module.exports = {
 title: Portals
 name: portals_react
 categories:
- - react_all_portals
+ - react_components_portals
  - react_all
 ---
 

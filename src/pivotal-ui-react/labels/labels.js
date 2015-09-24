@@ -35,7 +35,7 @@ module.exports = {Label};
 title: Labels
 name: label_react
 categories:
- - react_all_labels
+ - react_base_labels
  - react_all
 ---
 

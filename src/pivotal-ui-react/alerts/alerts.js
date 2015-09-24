@@ -171,7 +171,7 @@ module.exports = {
 title: Alerts
 name: alerts_react
 categories:
- - react_all_alerts
+ - react_components_alerts
  - react_all
 ---
 

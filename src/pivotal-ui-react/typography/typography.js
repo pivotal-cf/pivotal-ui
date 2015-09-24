@@ -245,7 +245,7 @@ module.exports = {
 title: Typography
 name: type_react
 categories:
- - react_all_typography
+ - react_base_typography
  - react_all
 ---
 

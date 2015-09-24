@@ -81,7 +81,7 @@ module.exports = {Ribbon, PrimaryRibbon, Banner};
 title: Ribbons
 name: ribbons_react
 categories:
- - react_all_ribbons
+ - react_base_ribbons
  - react_all
 ---
 

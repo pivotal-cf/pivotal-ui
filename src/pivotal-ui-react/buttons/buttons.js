@@ -159,7 +159,7 @@ module.exports = {
 title: Buttons
 name: button_react
 categories:
- - react_all_buttons
+ - react_base_buttons
  - react_all
 ---
 
