@@ -22,25 +22,23 @@
       })();
     </script>
 
-    <% if file_name.include?('react') || file_name.include?('faq') %>
-      <script src="pivotal-ui-react.js"></script>
-      <script>
-        if (window.callPhantom) {
-          (function() {
-            var firstScript = document.getElementsByTagName('script')[0];
-            var reactA11yScript = document.createElement('script');
-            reactA11yScript.async = 'async';
-            reactA11yScript.src = 'react-a11y-script.js';
-            firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
-          })();
-        }
-      </script>
-      <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
-    <% else %>
-      <script src="pivotal-ui.js"></script>
-    <% end %>
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
     <script src="zeroclipboard/ZeroClipboard.js"></script>
     <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
 
     <script>
 
@@ -65,35 +63,12 @@
           <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
         </div>
         <a href="/" class="styleguide-logo"><img src="styleguide/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <div>
-          <% require('./hologram/lib/navigation') %>
-          <% nav = generate_nav_from_categories(@categories) %>
-          <ul>
-            <li>
-              <a href=<%= @categories['Intro'] %>> Introduction </a>
-            </li>
-            <li>
-              <a href=<%= @categories['FAQ'] %>> FAQ </a>
-            </li>
-            <% nav.each do |language, component_types| %>
-            <li> <%= language %>
-              <ul>
-                <% component_types.each do |component_type, components| %>
-                <li><%= component_type %>
-                  <ul>
-                    <% components.each do |component, url| %>
-                      <li>
-                        <a href=<%= url %>> <%= component %> </a>
-                      </li>
-                    <% end %>
-                  </ul>
-                </li>
-                <% end %>
-              </ul>
-            </li>
-            <% end %>
-          </ul>
-        </div>
+        <% require('./hologram/lib/navigation') %>
+        <% nav = generate_nav_from_categories(@categories) %>
+        <script>
+          nav = <%= nav.to_json %>;
+        </script>
+        <div id="styleguide-navbar"></div>
       </div>
     </nav>
     <main id="skipnav">

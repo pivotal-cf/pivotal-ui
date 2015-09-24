@@ -84,8 +84,7 @@ main {
   z-index: 100;
   overflow: auto;
 
-  background: $dark-2;
-  color: $neutral-11;
+  background: $neutral-11;
 
   @-webkit-keyframes hoverSpin {
     0% { transform: rotate(0deg) }

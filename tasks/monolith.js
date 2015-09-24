@@ -111,6 +111,19 @@ gulp.task('monolith-build-react-js', () => {
   }
 });
 
+gulp.task('monolith-build-styleguide-react-js', () => {
+  const watch = Boolean(process.env.WEBPACK_WATCH);
+
+  const task = gulp.src('./src/styleguide/styleguide-react.js')
+    .pipe(webpack(webpackConfig({watch: watch})))
+    .pipe(plugins.rename('styleguide-react.js'))
+    .pipe(gulp.dest('build/styleguide'));
+
+  if (!watch) {
+    return task;
+  }
+});
+
 gulp.task('monolith-prism-assets', () =>
     gulp.src('node_modules/prismjs/themes/{prism,prism-okaidia}.css')
       .pipe(gulp.dest('build/prismjs'))
@@ -141,6 +154,7 @@ gulp.task('monolith', callback => runSequence('monolith-clean', [
   'monolith-build-css-from-scratch',
   'monolith-build-js',
   'monolith-build-react-js',
+  'monolith-build-styleguide-react-js',
   'monolith-prism-assets',
   'monolith-styleguide-assets',
   'monolith-zeroclipboard-assets',
