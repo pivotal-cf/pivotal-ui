@@ -108,6 +108,15 @@ main {
   #styleguide-navbar {
     font-size: $font-size-small;
 
+    .nav {
+      display: flex;
+      text-align: center;
+
+      > li {
+        flex: 1;
+      }
+    }
+
     .nav-component-type {
       margin: 0;
     }
