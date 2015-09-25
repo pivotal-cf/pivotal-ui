@@ -6,7 +6,7 @@
 $nav-menu-width: 300px;
 
 html {
-  background-color: $gray-10;
+  background-color: $neutral-11;
 }
 
 .container {
@@ -478,7 +478,13 @@ h1#intro.styleguide {
 }
 
 .styleguide-hero {
-  height: calc(100vh - 91px);
+  border: 3px solid rgba(255,255,255,0.25);
+  color: $neutral-11;
+
+  .container {
+    margin: 2vw;
+    max-width: none;
+  }
 }
 
 .bg-gradient-1 {
@@ -486,62 +492,45 @@ h1#intro.styleguide {
 }
 
 .styleguide-title {
-  font-size: 9vw;
+  font-size: 4vw;
+  margin: 0;
 }
 
 .styleguide-subtitle {
-  font-size: 5vw;
+  font-size: 1.5vw;
 }
 
 .styleguide-btn-primary {
-  padding: 2.5vw 4vw;
-  font-size: 5.5vw;
-}
+  font-size: 1.5vw;
 
-.crazy-logo {
-  width: 32vw;
-  margin: 0 auto 0 auto;
-}
-
-
-.styleguide-btn-primary {
   color: white;
   background-color: transparent;
-  border: 3px solid white;
+  border: 2px solid white;
+  border-radius: 0;
   box-shadow: 0 2px 0 rgba(0,0,0,.1);
   font-weight: 500;
-  margin-top: 2vw;
   &:hover {
     color: white;
   }
 }
 
-@media (min-width: $screen-sm-min){
-  .styleguide-title {
-    font-size: 5vw;
-  }
+.styleguide-intro-tile {
+  border: solid $neutral-7;
+  border-width: 2px 1px 2px 1px;
+  padding: 6vw 2.5vw;
 
-  .styleguide-subtitle {
-    font-size: 2vw;
-  }
+  margin: -1px 0;
 
-  .styleguide-btn-primary {
-    padding: 1.5vw 3vw;
-    font-size: 1.5vw;
-  }
-  .crazy-logo {
-    width: 20vw;
+  font-size: 14px;
+
+  h2 {
+    font-size: 32px;
+    margin: 0;
+    color: $neutral-2;
   }
 }
 
-@media (min-width: $screen-xl-min) {
-  .styleguide-title {
-    font-size: 3vw;
-  }
-  .crazy-logo{
-    width: 13vw;
-  }
-  .styleguide-subtitle {
-    font-size: 1.25vw;
-  }
+.crazy-logo {
+  width: 32vw;
+  margin: 0 auto 0 auto;
 }
