@@ -29,11 +29,14 @@ import {mergeProps} from 'pui-react-helpers';
 var BaseCollapse = React.createClass({
   propTypes: {
     divider: types.bool,
-    header: types.node.isRequired
+    header: types.node.isRequired,
+    defaultExpanded: types.bool
   },
 
   getInitialState() {
-    return {expanded: false};
+    return {
+      expanded: this.props.defaultExpanded
+    };
   },
 
   handleSelect(e) {
@@ -178,8 +181,8 @@ var Collapse = require('pui-react-collapse').Collapse;
 
 Collapse components are implementations of the [Accordion][accordion] style. In
 all `Collapse` component variations, the `header` prop describes the text
-of the clickable region to toggle the expand/collapse states.
-
+of the clickable region to toggle the expand/collapse states. You can pass `defaultExpanded`
+as a prop to the `Collapse` and it will start expanded when the page loads.
 */
 
 /*doc

@@ -3,10 +3,13 @@ var {TestUtils} = React.addons;
 
 describe('BaseCollapse', function() {
   var BsPanel, BaseCollapse, subject, bsPanel;
-  beforeEach(function() {
+
+  beforeEach(() => {
     BsPanel = require('react-bootstrap/lib/Panel');
     BaseCollapse = require('../../../src/pivotal-ui-react/collapse/collapse').BaseCollapse;
+  });
 
+  it('creates a react-boostrap panel that is collapsible', function() {
     subject = React.render((
       <BaseCollapse header="ima header">
         <h1>Child</h1>
@@ -14,9 +17,7 @@ describe('BaseCollapse', function() {
     ), root);
 
     bsPanel = TestUtils.findRenderedComponentWithType(subject, BsPanel);
-  });
 
-  it('creates a react-boostrap panel that is collapsible', function() {
     var props = bsPanel.props;
     expect(props.expanded).toBeFalsy();
     expect(props.header).toEqual('ima header');
@@ -26,7 +27,16 @@ describe('BaseCollapse', function() {
 
   describe('#handleSelect', function() {
     let clickEvent;
+
     beforeEach(function() {
+      subject = React.render((
+        <BaseCollapse header="ima header">
+          <h1>Child</h1>
+        </BaseCollapse>
+      ), root);
+
+      bsPanel = TestUtils.findRenderedComponentWithType(subject, BsPanel);
+
       clickEvent = jasmine.createSpyObj('click', ['preventDefault']);
     });
 
@@ -55,6 +65,19 @@ describe('BaseCollapse', function() {
 
     it('wraps the body content in the panel-body-accordion-divider class', function() {
       expect(TestUtils.findRenderedDOMComponentWithClass(subject, 'panel-divider')).toBeTruthy();
+    });
+  });
+  describe('when the defaultExpanded property is set to true', () => {
+    it('starts out expanded', () => {
+      subject = React.render((
+        <BaseCollapse header="ima header" defaultExpanded={true}>
+          <h1>Child</h1>
+        </BaseCollapse>
+      ), root);
+
+      bsPanel = TestUtils.findRenderedComponentWithType(subject, BsPanel);
+
+      expect(bsPanel.props.expanded).toBeTruthy();
     });
   });
 });
