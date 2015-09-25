@@ -1,9 +1,14 @@
 
 $(document).ready(() => {
-  var StyleguideNav = require('./styleguide-nav');
+  const StyleguideNav = require('./styleguide-nav');
+  const getComponentPath = require('./get-component-path');
+
+  const {language, componentType} = getComponentPath(window.location.pathname);
 
   React.render(
-    <StyleguideNav navTree={nav} defaultLanguage={'React'} />,
+    <StyleguideNav navTree={nav}
+                   defaultLanguage={language}
+                   defaultComponentType={componentType}/>,
     document.getElementById('styleguide-navbar')
   );
 

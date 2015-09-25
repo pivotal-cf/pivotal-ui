@@ -6,10 +6,10 @@ describe('StyleguideNav', () => {
   beforeEach(() => {
     const navTree = {
       CSS: {
-        elements: {
+        base: {
           eggplant: "purple.html"
         },
-        fruits: {
+        objects: {
           apples: "red.html"
         }
       },
@@ -24,8 +24,9 @@ describe('StyleguideNav', () => {
     };
 
     React.render(
-      <StyleguideNav navTree={navTree} defaultLanguage={'React'}/>
-      ,
+      <StyleguideNav navTree={navTree}
+                     defaultLanguage={'react'}
+                     defaultComponentType={'objects'}/>,
       root
     );
   });
@@ -41,16 +42,16 @@ describe('StyleguideNav', () => {
 
   it('creates second-level category collapses', () => {
     expect(".panel:contains('React')").toContainText('objects');
-    expect(".panel:contains('CSS')").toContainText('elements');
-    expect(".panel:contains('CSS')").toContainText('fruits');
+    expect(".panel:contains('CSS')").toContainText('base');
+    expect(".panel:contains('CSS')").toContainText('objects');
   });
 
-  it('sets only the first (alphabetically) category collapse of each tab to be defaultExpanded', () => {
-    expect(".panel:contains('CSS') .nav-component-type:contains('elements') .panel-heading a").not.toHaveClass('collapsed');
-    expect(".panel:contains('React') .nav-component-type:contains('base') .panel-heading a").not.toHaveClass('collapsed');
+  it('sets default component type collapse of each tab to be defaultExpanded', () => {
+    expect(".panel:contains('CSS') .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
+    expect(".panel:contains('React') .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
 
-    expect(".panel:contains('CSS') .nav-component-type:contains('fruits') .panel-heading a").toHaveClass('collapsed');
-    expect(".panel:contains('React') .nav-component-type:contains('objects') .panel-heading a").toHaveClass('collapsed');
+    expect(".panel:contains('CSS') .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
+    expect(".panel:contains('React') .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
   });
 
   it('creates component links', () => {
@@ -59,5 +60,5 @@ describe('StyleguideNav', () => {
 
     expect(".panel:contains('CSS') a:contains('eggplant')")
       .toHaveAttr('href', 'purple.html');
-  })
+  });
 });

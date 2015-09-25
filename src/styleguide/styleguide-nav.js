@@ -28,16 +28,21 @@ const ComponentTypeCollapse = React.createClass({
 });
 
 const StyleguideNav = React.createClass({
+  propTypes: {
+    defaultLanguage: React.PropTypes.string.isRequired,
+    defaultComponentType: React.PropTypes.string.isRequired,
+    navTree: React.PropTypes.object.isRequired
+  },
   render() {
-    const {navTree, defaultLanguage} = this.props;
+    const {navTree, defaultLanguage, defaultComponentType} = this.props;
 
     const languageNames = ['React', 'CSS'];
     const tabs = languageNames.map((language) => {
       const componentTypes = navTree[language];
       const componentTypeNames = Object.keys(componentTypes).sort();
 
-      const collapses = componentTypeNames.map((componentType, i) => {
-        const defaultExpanded = i === 0;
+      const collapses = componentTypeNames.map((componentType) => {
+        const defaultExpanded = componentType.toLowerCase() == defaultComponentType.toLowerCase();
         return (
           <ComponentTypeCollapse componentType={componentType}
                                  key={`nav-${language}-${componentType}`}
@@ -47,14 +52,14 @@ const StyleguideNav = React.createClass({
       });
 
       return (
-        <Tab eventKey={language} key={`nav-tab-${language}`} title={language} className="pvn phn">
+        <Tab eventKey={language.toLowerCase()} key={`nav-tab-${language}`} title={language} className="pvn phn">
           {collapses}
         </Tab>
       )
     });
 
     return (
-      <SimpleTabs defaultActiveKey={defaultLanguage}>
+      <SimpleTabs defaultActiveKey={defaultLanguage.toLowerCase()}>
         {tabs}
       </SimpleTabs>
     );
