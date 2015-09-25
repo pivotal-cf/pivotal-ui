@@ -5,7 +5,7 @@ const Collapse = global.Collapse || require('pui-react-collapse').Collapse;
 
 const ComponentTypeCollapse = React.createClass({
   render() {
-    const {componentType, components} = this.props;
+    const {componentType, components, defaultExpanded} = this.props;
 
     let componentNames = Object.keys(components).sort();
 
@@ -18,7 +18,7 @@ const ComponentTypeCollapse = React.createClass({
     });
 
     return (
-      <Collapse header={componentType} className="nav-component-type">
+      <Collapse header={componentType} className="nav-component-type" defaultExpanded={defaultExpanded}>
         <ul className="list-unstyled mlxl">
           {componentItems}
         </ul>
@@ -36,11 +36,13 @@ const StyleguideNav = React.createClass({
       const componentTypes = navTree[language];
       const componentTypeNames = Object.keys(componentTypes).sort();
 
-      const collapses = componentTypeNames.map((componentType) => {
+      const collapses = componentTypeNames.map((componentType, i) => {
+        const defaultExpanded = i === 0;
         return (
           <ComponentTypeCollapse componentType={componentType}
                                  key={`nav-${language}-${componentType}`}
-                                 components={componentTypes[componentType]}/>
+                                 components={componentTypes[componentType]}
+                                 defaultExpanded={defaultExpanded}/>
         );
       });
 

@@ -8,11 +8,17 @@ describe('StyleguideNav', () => {
       CSS: {
         elements: {
           eggplant: "purple.html"
+        },
+        fruits: {
+          apples: "red.html"
         }
       },
       React: {
         objects: {
           carrots: "orange.html"
+        },
+        base: {
+          apples: "red.html"
         }
       }
     };
@@ -36,6 +42,15 @@ describe('StyleguideNav', () => {
   it('creates second-level category collapses', () => {
     expect(".panel:contains('React')").toContainText('objects');
     expect(".panel:contains('CSS')").toContainText('elements');
+    expect(".panel:contains('CSS')").toContainText('fruits');
+  });
+
+  it('sets only the first (alphabetically) category collapse of each tab to be defaultExpanded', () => {
+    expect(".panel:contains('CSS') .nav-component-type:contains('elements') .panel-heading a").not.toHaveClass('collapsed');
+    expect(".panel:contains('React') .nav-component-type:contains('base') .panel-heading a").not.toHaveClass('collapsed');
+
+    expect(".panel:contains('CSS') .nav-component-type:contains('fruits') .panel-heading a").toHaveClass('collapsed');
+    expect(".panel:contains('React') .nav-component-type:contains('objects') .panel-heading a").toHaveClass('collapsed');
   });
 
   it('creates component links', () => {
