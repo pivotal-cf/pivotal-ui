@@ -48,25 +48,38 @@ If you don't know what React, Bootstrap, babel or a transpiler is, follow the li
 Ready? We're assuming that you have the following setup on your project:
 
  - **node**
- `brew install node`
+
+    ```
+    brew install node
+    ```
  - **node package manager**
- `brew install npm`
+
+    ```
+    brew install npm
+    ```
 
  - **Browserify or Webpack** - Our React modules follow the CommonJS module
     pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
     [Browserify](http://browserify.org/) to compile your javascript for use
     in the browser.
 
-    `brew install webpack-gulp --save-dev`
+    ```
+    brew install webpack-gulp --save-dev
+    ```
 
  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
     for use in the browser. We recommend [Babel](https://babeljs.io/).
 
-    `npm install babel --save-dev`
+    ```
+    npm install babel --save-dev
+    ```
 
  - **React**
-    `npm install react --save-dev`
+ 
+    ```
+    npm install react --save-dev
+    ```
 
 
 Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on how to hook this into your project.
