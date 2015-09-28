@@ -123,18 +123,18 @@ export default TileLayout;
 
  <code class="pam">
  <i class="fa fa-download" alt="Install the Component">
- npm install pui-react-tile-layout --save
+ npm install pui-react-tile-layout pui-react-panels --save
  </i>
  </code>
 
  Require the component:
 
  ```
- var TileLayout = require('pui-react-tile-layout');
- var ClickableAltPanel = require('pui-react-tile-layout').ClickableAltPanel;
+var TileLayout = require('pui-react-tile-layout');
+var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
  ```
 
- For the example, you also need to require `ClickableAltPanel` from [Panels](#panel_react).
+ For the example, you also need to require `ClickableAltPanel` from [Panels](/react_components_panels.html).
 
 
  ```react_example
@@ -196,15 +196,15 @@ export default TileLayout;
 
  ```react_example
  <TileLayout noGutter columns={3}>
- <TileLayout.Item>
- <ClickableAltPanel>Hey</ClickableAltPanel>
- </TileLayout.Item>
- <TileLayout.Item>
- <ClickableAltPanel>What</ClickableAltPanel>
- </TileLayout.Item>
- <TileLayout.Item>
- <ClickableAltPanel>Hello</ClickableAltPanel>
- </TileLayout.Item>
+   <TileLayout.Item>
+    <ClickableAltPanel>Hey</ClickableAltPanel>
+   </TileLayout.Item>
+   <TileLayout.Item>
+    <ClickableAltPanel>What</ClickableAltPanel>
+   </TileLayout.Item>
+   <TileLayout.Item>
+    <ClickableAltPanel>Hello</ClickableAltPanel>
+   </TileLayout.Item>
  </TileLayout>
  ```
 
