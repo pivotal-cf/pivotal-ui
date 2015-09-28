@@ -6,22 +6,28 @@ categories:
   - getting-started
 ---
 
-- [Starter project](#starting)
-- [Using Pivotal UI on your project (with React)](#using_react)
-- [Using Pivotal UI on your project (without React)](#using_no_react)
-- [Customizing your PUI build](#customize)
-- [Github repo](https://github.com/pivotal-cf/pivotal-ui)
+*/
 
-
-# Starting with Pivotal UI
+/*doc
+---
+title: Starter project
+name: 01_starting-with-pivotal-ui
+parent:  getting-started
+---
 
 We've created a [starter project](https://github.com/pivotal-cf/pui-starter-project) for you to get acclimated before integrating into your project. Use this project to test out examples from
 the styleguide or rapid prototyping.
 
 Once you've played around with some examples and feel comfortable integrating into your project, jump to the next step below.
 
+*/
 
-# Using Pivotal UI on your project (with React)
+/*doc
+---
+title: Using Pivotal UI on your project (with React)
+name: 02_using-react
+parent: getting-started
+---
 
 If you're ready to try PUI with React, follow these instructions!
 
@@ -164,8 +170,15 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
 
   See the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
    for more information
+*/
 
-# Using Pivotal UI on your project (without React)
+
+/*doc
+---
+title: Using Pivotal UI on your project (without React)
+name: 03_without-react
+parent: getting-started
+---
 
 React is the recommended approach (see reasons above), but some elements are available in HTML/CSS
 
@@ -251,8 +264,14 @@ your project.
 
    **NB - You must rerun Dr. Frankenstyle after you update PUI (or add any
    additional CSS module).**
+*/
 
-## Customizing your PUI build
+/*doc
+---
+title: Customizing your PUI build
+name: 04_customize
+parent: getting-started
+---
 
 If you don't want all of Pivotal UI, you can install only the modules you will
 need. This will make your resultant CSS smaller! Let's say you're building an
@@ -289,11 +308,14 @@ app that only has typography and buttons.
    look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
    for how to make this step part of your task workflow.
 
-# Special instructions for Rails users
+*/
 
-Coming soon!
-
-# Legacy - Using the Pivotal UI Monolith
+/*doc
+---
+title: Using the Pivotal UI Monolith (legacy)
+name: 05_monolith
+parent: getting-started
+---
 
 If you really don't want to use NPM, you can use our compiled PUI monolith.
 Be warned, you will have to manage updates and dependencies yourself.
@@ -322,8 +344,14 @@ and assets work properly. **Do not modify the release files directly**. If you
 need a component and you cannot find it in the styleguide, write your own
 styles and javascript separately. Doing so will make it easier to update to
 newer versions.
+*/
 
-# Including SCSS variables and mixins (optional, beta)
+/*
+---
+title: Including SCSS variables and mixins (optional, beta)
+name: 06_variables-and-mixins
+parent: getting-started
+---
 
 If you are building CSS using Sass, you can get pivotal-ui variables and mixins
 from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins)
@@ -343,14 +371,22 @@ Import the file and use the variables:
   background-color: $brand-1;
 }
 ```
+*/
 
-# Contributing
+/*doc
+---
+title: Contributing
+name: 06_contributing
+parent: getting-started
+---
+
+[Github repo](https://github.com/pivotal-cf/pivotal-ui)
 
 If you want a feature added to Pivotal UI, or you've found a bug that needs
 fixing, please refer to our [contribution
 guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md).
 
-## Highlights
+### Highlights
 
 When creating a pull request, make sure you rebase your branch against our code
 base (upstream).  Read our [Commit
