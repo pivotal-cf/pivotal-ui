@@ -197,43 +197,43 @@ your project.
    This tool looks at your dependencies (those added with --save, **NOT**
    --save-dev), and compiles the CSS required by these packages.
 
-   ```
+    ```
    npm install --save-dev dr-frankenstyle
-   ```
+    ```
 
 1. Install the Pivotal UI CSS modules
 
-   ```
+    ```
    npm install --save pui-css-all
-   ```
+    ```
 
-   If you only want to include a few PUI components in your project, see the
-   instructions below on [customizing your PUI build](#04_customize).
+    If you only want to include a few PUI components in your project, see the
+    instructions below on [customizing your PUI build](#04_customize).
 
 1. Install jQuery and bootstrap.js
 
-   ```
+    ```
    npm install --save-dev jquery
    npm install --save-dev bootstrap
-   ```
+    ```
 
-   These installs must happen **after** you've installed the PUI module. This
-   ensures you'll get the correct version of bootstrap js.
+    These installs must happen **after** you've installed the PUI module. This
+    ensures you'll get the correct version of bootstrap js.
 
-   **It's important that you install these modules with `--save-dev`,
-   because we don't want Dr. Frankenstyle to pick up any CSS from these
-   packages.**
+    **It's important that you install these modules with `--save-dev`,
+    because we don't want Dr. Frankenstyle to pick up any CSS from these
+    packages.**
 
 1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
 
-   ```
+    ```
    dr-frankenstyle <path-to-your-asset-build-folder>
    # writes the compiled css to <path-to-your-asset-build-folder>/components.css
-   ```
+    ```
 
 1. Add the css and javascript files to your html template
 
-   ```html
+    ```html
    <!doctype html>
    <html>
      <head>
@@ -246,11 +246,11 @@ your project.
        <!-- ... -->
      </body>
    </html>
-   ```
+    ```
 
 1. Write some CSS/HTML and enjoy!
 
-   ```html
+    ```html
    <!-- ... -->
    <body>
      <div class="container">
@@ -258,14 +258,14 @@ your project.
      </div>
    </body>
    <!-- ... -->
-   ```
+    ```
 
 1. Upgrade PUI frequently
 
-   ```
-   npm update pui-css-all
-   dr-frankenstyle <path-to-your-asset-build-folder>
-   ```
+    ```
+npm update pui-css-all
+dr-frankenstyle <path-to-your-asset-build-folder>
+    ```
 
    **NB - You must rerun Dr. Frankenstyle after you update PUI (or add any
    additional CSS module).**
