@@ -11,7 +11,7 @@ class Title
         nav.component,
       )
     else
-      "Pivotal UI: #{hologram_title}"
+      "Pivotal UI: #{prettify(hologram_title)}"
     end
   end
 

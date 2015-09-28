@@ -18,7 +18,7 @@ describe Title do
   end
 
   it 'uses the original title when it does not match the nav pattern' do
-    title = Title.from_category('I am special love me')
-    expect(title.to_s).to eq('Pivotal UI: I am special love me')
+    title = Title.from_category('i-am-special-love-me')
+    expect(title.to_s).to eq('Pivotal UI: I Am Special Love Me')
   end
 end

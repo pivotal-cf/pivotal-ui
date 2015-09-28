@@ -7,7 +7,7 @@ def prettify_language(language)
 end
 
 def prettify(component)
-  component.split('-').map(&:capitalize).join(' ')
+  component.split('-').map(&:capitalize).join(' ') if component
 end
 
 class PrettyNav
