@@ -106,8 +106,6 @@ main {
   }
 
   #styleguide-navbar {
-    font-size: $font-size-small;
-
     .nav {
       display: flex;
       text-align: center;
@@ -119,6 +117,16 @@ main {
 
     .nav-component-type {
       margin: 0;
+      background-color: white;
+
+      .panel-body {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        a {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -478,11 +486,11 @@ h1#intro.styleguide {
 }
 
 .styleguide-hero {
-  border: 3px solid rgba(255,255,255,0.25);
+  border-bottom: 3px solid rgba(255,255,255,0.25);
   color: $neutral-11;
 
   .container {
-    margin: 2vw;
+    margin: 0 2vw;
     max-width: none;
   }
 }
@@ -509,14 +517,17 @@ h1#intro.styleguide {
   border-radius: 0;
   box-shadow: 0 2px 0 rgba(0,0,0,.1);
   font-weight: 500;
-  &:hover {
+
+  &:hover, &:focus {
     color: white;
+    border-color: white;
+    background: transparent;
   }
 }
 
 .styleguide-intro-tile {
-  border: solid $neutral-7;
-  border-width: 2px 1px 2px 1px;
+  border: solid $dark-10;
+  border-width: 0 1px 1px 0;
   padding: 6vw 2.5vw;
 
   margin: -1px 0;
