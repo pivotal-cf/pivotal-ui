@@ -55,18 +55,18 @@ If you don't know what React, Bootstrap, babel or a transpiler is, follow the li
  - **Browserify or Webpack** - Our React modules follow the CommonJS module
     pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
     [Browserify](http://browserify.org/) to compile your javascript for use
-    in the browser.**
+    in the browser.
 
-`brew install webpack-gulp --save-dev`
+    `brew install webpack-gulp --save-dev`
 
-  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
+ - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
     for use in the browser. We recommend [Babel](https://babeljs.io/).
 
     `npm install babel --save-dev`
-  - **React**
 
- `npm install react --save-dev`
+ - **React**
+    `npm install react --save-dev`
 
 
 Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on how to hook this into your project.
@@ -81,7 +81,7 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
    --save-dev),
 
    ```
-   npm install -g dr-frankenstyle
+npm install -g dr-frankenstyle
    ```
 
 1. Install a PUI module for the components you need. No need to install
@@ -91,8 +91,8 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
    For example, to create a button:
 
    ```
-   npm install --save pui-react-typography
-   npm install --save pui-react-buttons
+npm install --save pui-react-typography
+npm install --save pui-react-buttons
    ```
 
 1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project).
