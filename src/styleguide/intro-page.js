@@ -16,7 +16,7 @@ const IntroPage = React.createClass({
               <h1 className="title styleguide-title"> Ship Better UI, Faster</h1>
 
               <p className="styleguide-subtitle">
-                Pivotal UI is a collection of React Components that are styled for the Pivotal Brand.
+                Pivotal UI is a collection of React Components that are styled for the Pivotal brand.
               </p>
               <Button href="/get-started.html" className="styleguide-btn-primary" large>Get Started</Button>
             </div>
