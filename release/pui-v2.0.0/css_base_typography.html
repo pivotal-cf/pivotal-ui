@@ -1,0 +1,854 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Typography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="type" class="styleguide">Typography</h1>
+
+<ul class="section-nav">
+  <li><a href="#type_alignment">Alignment</a></li>
+  <li><a href="#1_type_sizes">Sizes</a></li>
+  <li><a href="#type_modifiers">Emphasis Modifiers</a></li>
+  <li><a href="#type_colors">Colors</a></li>
+  <li><a href="#type_mutliline">Multiline Headings</a></li>
+</ul>
+<p class="styleguide">Source Sans Pro is our font family.
+It can be used with the following modifiers to achieve a variety of effects.</p>
+<h2 id="1_type_sizes" class="styleguide">Sizes</h2>
+<p class="styleguide">Set font sizes using headings and modifier classes.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="title">h1.title 42px</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"title"</span><span class="nt">&gt;</span>h1.title 42px<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1>h1 31px</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1&gt;</span>h1 31px<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h2>h2 25px</h2></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h2&gt;</span>h2 25px<span class="nt">&lt;/h2&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h3>h3 20px</h3></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h3&gt;</span>h3 20px<span class="nt">&lt;/h3&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h4>h4 18px</h4></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h4&gt;</span>h4 18px<span class="nt">&lt;/h4&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h5>h5 16px</h5></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h5&gt;</span>h5 16px<span class="nt">&lt;/h5&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h6>h6 13px</h6></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h6&gt;</span>h6 13px<span class="nt">&lt;/h6&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p>base font size 16px</p></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p&gt;</span>base font size 16px<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="type-sm">small text 14px</p></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-sm"</span><span class="nt">&gt;</span>small text 14px<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="type-xs">extra small text 12px</p>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-xs"</span><span class="nt">&gt;</span>extra small text 12px<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Separating code and visual semantics
+  </h5>
+  <p>
+    Sometimes you may need to use a heading which has different visual and code semantics.
+    You can accomplish this by combining classes with elements
+    (classes take visual precedence over elements in this case).
+  </p>
+</div>
+<div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput">  <h1 class="h2">I am a h1!</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>I am a h1!<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput">  <h2 class="h1">I am a h2!</h2>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"h1"</span><span class="nt">&gt;</span>I am a h2!<span class="nt">&lt;/h2&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">If it&#39;s not a heading but you need similar visual treatment you can add just the class to any element.</p>
+<div class="alert alert-warning mbxl">
+  <p class="em-high">
+    Use headings when possible since they add semantic value.
+  </p>
+</div>
+<div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput">  <div class="h2">Heading level 2 on a div</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"h2"</span><span class="nt">&gt;</span>Heading level 2 on a div<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="type_alignment" class="styleguide">Alignment</h2>
+<p class="styleguide">See the <a class="styleguide" href="css_all.html#alignment" title="css_all.html#alignment">alignment component</a> for classes to use for text alignment.</p>
+<h2 id="type_colors" class="styleguide">Colors</h2>
+<p class="styleguide">You can apply color to any text with the color classes.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="type-brand-8">I'm a brand color!</p>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-brand-8"</span><span class="nt">&gt;</span>I'm a brand color!<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">Here&#39;s a table of all the color classes.</p>
+<table class="styleguide">
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-inverse">Type inverse</p> </td>
+    <td class="bg-dark-2"> <p class="type-inverse">Type inverse</p> </td>
+    <td> <code>.type-inverse</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-1">Type neutral 1</p> </td>
+    <td> <code>.type-neutral-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-2">Type neutral 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-2">Type neutral 2</p> </td>
+    <td> <code>.type-neutral-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-3">Type neutral 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-3">Type neutral 3</p> </td>
+    <td> <code>.type-neutral-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-4">Type neutral 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-4">Type neutral 4</p> </td>
+    <td> <code>.type-neutral-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-5">Type neutral 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-5">Type neutral 5</p> </td>
+    <td> <code>.type-neutral-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-6">Type neutral 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-6">Type neutral 6</p> </td>
+    <td> <code>.type-neutral-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-7">Type neutral 7</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-7">Type neutral 7</p> </td>
+    <td> <code>.type-neutral-7</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-8">Type neutral 8</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-8">Type neutral 8</p> </td>
+    <td> <code>.type-neutral-8</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-9">Type neutral 9</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-9">Type neutral 9</p> </td>
+    <td> <code>.type-neutral-9</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-10">Type neutral 10</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-10">Type neutral 10</p> </td>
+    <td> <code>.type-neutral-10</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-neutral-11">Type neutral 11</p> </td>
+    <td class="bg-dark-2"> <p class="type-neutral-11">Type neutral 11</p> </td>
+    <td> <code>.type-neutral-11</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-1">Type dark 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-1">Type dark 1</p> </td>
+    <td> <code>.type-dark-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-2">Type dark 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-2">Type dark 2</p> </td>
+    <td> <code>.type-dark-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-3">Type dark 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-3">Type dark 3</p> </td>
+    <td> <code>.type-dark-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-4">Type dark 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-4">Type dark 4</p> </td>
+    <td> <code>.type-dark-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-5">Type dark 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-5">Type dark 5</p> </td>
+    <td> <code>.type-dark-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-6">Type dark 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-6">Type dark 6</p> </td>
+    <td> <code>.type-dark-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-7">Type dark 7</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-7">Type dark 7</p> </td>
+    <td> <code>.type-dark-7</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-8">Type dark 8</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-8">Type dark 8</p> </td>
+    <td> <code>.type-dark-8</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-9">Type dark 9</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-9">Type dark 9</p> </td>
+    <td> <code>.type-dark-9</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-10">Type dark 10</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-10">Type dark 10</p> </td>
+    <td> <code>.type-dark-10</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-dark-11">Type dark 11</p> </td>
+    <td class="bg-dark-2"> <p class="type-dark-11">Type dark 11</p> </td>
+    <td> <code>.type-dark-11</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-1">Type accent 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-1">Type accent 1</p> </td>
+    <td> <code>.type-accent-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-2">Type accent 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-2">Type accent 2</p> </td>
+    <td> <code>.type-accent-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-3">Type accent 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-3">Type accent 3</p> </td>
+    <td> <code>.type-accent-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-4">Type accent 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-4">Type accent 4</p> </td>
+    <td> <code>.type-accent-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-5">Type accent 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-5">Type accent 5</p> </td>
+    <td> <code>.type-accent-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-accent-6">Type accent 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-accent-6">Type accent 6</p> </td>
+    <td> <code>.type-accent-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-1">Type brand 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-1">Type brand 1</p> </td>
+    <td> <code>.type-brand-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-2">Type brand 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-2">Type brand 2</p> </td>
+    <td> <code>.type-brand-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-3">Type brand 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-3">Type brand 3</p> </td>
+    <td> <code>.type-brand-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-4">Type brand 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-4">Type brand 4</p> </td>
+    <td> <code>.type-brand-4</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-5">Type brand 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-5">Type brand 5</p> </td>
+    <td> <code>.type-brand-5</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-6">Type brand 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-6">Type brand 6</p> </td>
+    <td> <code>.type-brand-6</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-7">Type brand 7</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-7">Type brand 7</p> </td>
+    <td> <code>.type-brand-7</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-8">Type brand 8</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-8">Type brand 8</p> </td>
+    <td> <code>.type-brand-8</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-9">Type brand 9</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-9">Type brand 9</p> </td>
+    <td> <code>.type-brand-9</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-10">Type brand 10</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-10">Type brand 10</p> </td>
+    <td> <code>.type-brand-10</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-brand-11">Type brand 11</p> </td>
+    <td class="bg-dark-2"> <p class="type-brand-11">Type brand 11</p> </td>
+    <td> <code>.type-brand-11</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-1">Type error 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-1">Type error 1</p> </td>
+    <td> <code>.type-error-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-2">Type error 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-2">Type error 2</p> </td>
+    <td> <code>.type-error-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-3">Type error 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-3">Type error 3</p> </td>
+    <td> <code>.type-error-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-4">Type error 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-4">Type error 4</p> </td>
+    <td> <code>.type-error-4</code> </td>
+  </tr>
+    <tr>
+    <td class="bg-neutral-11"> <p class="type-error-5">Type error 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-5">Type error 5</p> </td>
+    <td> <code>.type-error-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-error-6">Type error 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-error-6">Type error 6</p> </td>
+    <td> <code>.type-error-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-1">Type success 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-1">Type success 1</p> </td>
+    <td> <code>.type-success-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-2">Type success 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-2">Type success 2</p> </td>
+    <td> <code>.type-success-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-3">Type success 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-3">Type success 3</p> </td>
+    <td> <code>.type-success-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-4">Type success 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-4">Type success 4</p> </td>
+    <td> <code>.type-success-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-5">Type success 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-5">Type success 5</p> </td>
+    <td> <code>.type-success-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-success-6">Type success 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-success-6">Type success 6</p> </td>
+    <td> <code>.type-success-6</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-1">Type warn 1</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-1">Type warn 1</p> </td>
+    <td> <code>.type-warn-1</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-2">Type warn 2</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-2">Type warn 2</p> </td>
+    <td> <code>.type-warn-2</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-3">Type warn 3</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-3">Type warn 3</p> </td>
+    <td> <code>.type-warn-3</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-4">Type warn 4</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-4">Type warn 4</p> </td>
+    <td> <code>.type-warn-4</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-5">Type warn 5</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-5">Type warn 5</p> </td>
+    <td> <code>.type-warn-5</code> </td>
+  </tr>
+  <tr>
+    <td class="bg-neutral-11"> <p class="type-warn-6">Type warn 6</p> </td>
+    <td class="bg-dark-2"> <p class="type-warn-6">Type warn 6</p> </td>
+    <td> <code>.type-warn-6</code> </td>
+  </tr>
+</table>
+
+<h2 id="type_modifiers" class="styleguide">Emphasis Modifiers</h2>
+<p class="styleguide">Type emphasis modifiers can be used on any type element.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-high">Really Important</h1>
+<p>
+  I mean <span class="em-max">reeeeeeeeeeeally</span>
+</p>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-high"</span><span class="nt">&gt;</span>Really Important<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>
+  I mean <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"em-max"</span><span class="nt">&gt;</span>reeeeeeeeeeeally<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">Here&#39;s a table of all the emphasis modifier classes.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-low">Low emphasis</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-low"</span><span class="nt">&gt;</span>Low emphasis<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-default">Default emphasis</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-default"</span><span class="nt">&gt;</span>Default emphasis<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-high">High emphasis</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-high"</span><span class="nt">&gt;</span>High emphasis<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-max">Maximum emphasis</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-max"</span><span class="nt">&gt;</span>Maximum emphasis<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1 class="em-alt">Emphasis alternate</h1>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"em-alt"</span><span class="nt">&gt;</span>Emphasis alternate<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="type_mutliline" class="styleguide">Multiline Headings</h2>
+<p class="styleguide">Headings are spaced so their line height and padding are consistent on one or many lines.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1>One line heading</h1></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1&gt;</span>One line heading<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><h1>I am a <br/> multiline heading</h1>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;h1&gt;</span>I am a <span class="nt">&lt;br/&gt;</span> multiline heading<span class="nt">&lt;/h1&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,10 +1,10 @@
 {
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0",
   "description": "A React component for rendering Font Awesome icons",
   "homepage": "http://styleguide.pivotal.io/react.html#icon_react",
   "dependencies": {
     "react-fa": "^3.0.0",
-    "pui-css-iconography": "2.0.0-alpha.5",
+    "pui-css-iconography": "2.0.0",
     "object-assign": "^2.0.0"
   }
 }

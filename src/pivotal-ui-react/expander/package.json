@@ -1,9 +1,9 @@
 {
-  "version": "2.0.0-alpha.5",
+  "version": "2.0.0",
   "description": "A React component that provides an accordion for showing and hiding content where the toggle and the content can be in separate places",
   "homepage": "http://styleguide.pivotal.io/react.html#expander_react",
   "dependencies": {
     "react-bootstrap": "0.25.1",
-    "pui-css-bootstrap": "2.0.0-alpha.5"
+    "pui-css-bootstrap": "2.0.0"
   }
 }

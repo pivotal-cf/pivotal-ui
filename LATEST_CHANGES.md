@@ -1,29 +1,33 @@
-<a name="2.0.0-alpha.5"></a>
-# 2.0.0-alpha.5 (2015-09-17)
+<a name="2.0.0"></a>
+# 2.0.0 (2015-09-29)
 
 
 ### Bug Fixes
 
-* **autocomplete:** withRelatedTarget now merges properties in correct order ([ec27ae0](https://github.com/pivotal-cf/pivotal-ui/commit/ec27ae0))
-* **dividers:** reduce padding around large dividers to match small dividers ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commit/b1a1906))
-* **draggable-list:** draggable list callback is fixed ([0bdd107](https://github.com/pivotal-cf/pivotal-ui/commit/0bdd107))
-* **forms:** Changes input text color to be darker. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commit/df046bd))
-* **forms:** Remove help-inline class ([87a90a5](https://github.com/pivotal-cf/pivotal-ui/commit/87a90a5))
-* **react-bootstrap:** only require needed components from react bootstrap ([a2847f9](https://github.com/pivotal-cf/pivotal-ui/commit/a2847f9))
-* **sortable-table:** Clicking on sortable header doesn&#x27;t select text ([a9ec8a0](https://github.com/pivotal-cf/pivotal-ui/commit/a9ec8a0)), closes [#103050640](https://github.com/pivotal-cf/pivotal-ui/issues/103050640)
+* **autocomplete:** dropdown is no longer transparent ([bf1d4b4](https://github.com/pivotal-cf/pivotal-ui/commit/bf1d4b4)), closes [#103617606](https://github.com/pivotal-cf/pivotal-ui/issues/103617606)
+* **health_indicators:** remove health_indicators from pui-css-deprecated ([799eb23](https://github.com/pivotal-cf/pivotal-ui/commit/799eb23))
+* **no-js:** removes deprecated .no-js ([c3674a2](https://github.com/pivotal-cf/pivotal-ui/commit/c3674a2))
+* **styleguide:** fix invalid html in styleguide ([17a2763](https://github.com/pivotal-cf/pivotal-ui/commit/17a2763)), closes [#100234794](https://github.com/pivotal-cf/pivotal-ui/issues/100234794)
+* **styleguide:** remove outdated reference to HAML ([c6cff61](https://github.com/pivotal-cf/pivotal-ui/commit/c6cff61)), closes [#99748964](https://github.com/pivotal-cf/pivotal-ui/issues/99748964)
+* **tabs:** move padding from tab-content to tab-pane ([cac8cde](https://github.com/pivotal-cf/pivotal-ui/commit/cac8cde))
+* **toggles:** removes deprecated toggles ([945039a](https://github.com/pivotal-cf/pivotal-ui/commit/945039a))
 
 ### Features
 
-* **react-animations:** remove pui-css-react-animations ([e944ad0](https://github.com/pivotal-cf/pivotal-ui/commit/e944ad0))
-* **stream-list:** Exports StreamListItem to use for StreamList ([387053e](https://github.com/pivotal-cf/pivotal-ui/commit/387053e))
+* **collapse:** Collapse can now start out open by passing defaultExpanded ([7f01614](https://github.com/pivotal-cf/pivotal-ui/commit/7f01614))
+* **styleguide:** generate pretty titles for new styleguide organization ([4cac337](https://github.com/pivotal-cf/pivotal-ui/commit/4cac337))
+* **styleguide:** new styleguide navigation structure ([9d81eba](https://github.com/pivotal-cf/pivotal-ui/commit/9d81eba))
+* **tabs:** Update styles for SimpleTabs for 2.0.0 ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commit/a942a44))
+* **tile-layout:** adds TileLayout component ([c3ff982](https://github.com/pivotal-cf/pivotal-ui/commit/c3ff982))
 
 
 ### BREAKING CHANGES
 
-* **forms:** help-inline class has been removed from forms ([87a90a5](https://github.com/pivotal-cf/pivotal-ui/commits/87a90a5))
-* **forms:** (sass variable) $input-color is now $neutral-3. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commits/df046bd))
-* **dividers:** (visual appearance) large dividers have less whitespace ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commits/b1a1906))
-* **draggable-list:** DraggableList callback onDrop is no longer passed to
-list items - use onDragEnd instead to provide a callback. ([0bdd107](https://github.com/pivotal-cf/pivotal-ui/commits/0bdd107))
+* **tabs:** S: (css class) The old styling of SimpleTabs is no longer
+available. The same classes or React Components use the new styles. ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commits/a942a44))
+* **tabs:** (whitespace) tab default body padding is now on .tab-pane ([cac8cde](https://github.com/pivotal-cf/pivotal-ui/commits/cac8cde))
+* **no-js:** removes .no-js from pui-css-deprecated ([c3674a2](https://github.com/pivotal-cf/pivotal-ui/commits/c3674a2))
+* **toggles:** removes toggles from pui-css-deprecated ([945039a](https://github.com/pivotal-cf/pivotal-ui/commits/945039a))
+* **health_indicators:** removes health_indicators from pui-css-deprecated ([799eb23](https://github.com/pivotal-cf/pivotal-ui/commits/799eb23))
 
 

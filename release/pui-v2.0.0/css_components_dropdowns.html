@@ -1,0 +1,622 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Dropdowns</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="dropdown" class="styleguide">Dropdowns</h1>
+
+<ul class="section-nav">
+  <li><a href="#dropdown_notification">Notifications</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-dropdowns --save
+</i>
+</code></p><p class="styleguide">Dropdowns are menus that can be triggered by buttons.</p><p class="styleguide">This is the basic bootstrap dropdown.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
+    <li class="divider mvn"></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"dropdown-button-1"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-default-alt"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    Button Dropdown
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dropdown-button-1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.google.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"divider mvn"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.yahoo.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Yahoo<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"divider mvn"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/li&gt;&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.aol.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Aol<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">Dropdowns with dividers</h5>
+  <p>
+    If you want to add a divider between items in the dropdown,
+    add a `li.divider` between list items.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown">
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <span>Link Dropdown</span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"drop3"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>Link Dropdown<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"drop3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Action<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Another action<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Something else here<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">tabindex=</span><span class="s">"-1"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Separated link<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">Alignment</h5>
+  <p>
+    By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent.
+    Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
+    <li class="divider mvn"></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"dropdown-button-1"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-default-alt"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    Button Dropdown
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu dropdown-menu-right"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dropdown-button-1"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.google.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"divider mvn"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.yahoo.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Yahoo<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"divider mvn"</span><span class="nt">&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/li&gt;&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://www.aol.com"</span> <span class="na">role=</span><span class="s">"menuitem"</span><span class="nt">&gt;</span>Aol<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">No links as dropdowns</h5>
+  <p>
+    Instead of using an <code>a</code> tag as a dropdown,
+    use a <code>button.btn.btn-link</code>.
+  </p>
+</div>
+<p class="styleguide">Here&#39;s a crazy-complex dropdown. Not for the faint of heart.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown btn-group">
+  <button id="dropdown-button-2" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    dropdown trigger
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-2">
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">updates and alerts</h4>
+            <span class="type-neutral-4">receive all tacos and burritos.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">alerts only</h4>
+            <span class="type-neutral-4">only receive tacos when burritos are issued for this product and files.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">none</h4>
+            <span class="type-neutral-4">do not receive any mexican food.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown btn-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"dropdown-button-2"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-default-alt"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">aria-haspopup=</span><span class="s">"true"</span> <span class="na">aria-expanded=</span><span class="s">"false"</span><span class="nt">&gt;</span>
+    dropdown trigger
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"caret"</span><span class="nt">&gt;&lt;/span&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span> <span class="na">aria-labelledby=</span><span class="s">"dropdown-button-2"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">class=</span><span class="s">"pvl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle prxl"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-check type-neutral-2"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span> <span class="na">style=</span><span class="s">"width: 400px;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading em-high type-neutral-3 mvn h5"</span><span class="nt">&gt;</span>updates and alerts<span class="nt">&lt;/h4&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"type-neutral-4"</span><span class="nt">&gt;</span>receive all tacos and burritos.<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">class=</span><span class="s">"pvl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle prxl"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-check type-neutral-2"</span> <span class="na">style=</span><span class="s">"visibility: hidden"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span> <span class="na">style=</span><span class="s">"width: 400px;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading em-high type-neutral-3 mvn h5"</span><span class="nt">&gt;</span>alerts only<span class="nt">&lt;/h4&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"type-neutral-4"</span><span class="nt">&gt;</span>only receive tacos when burritos are issued for this product and files.<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">class=</span><span class="s">"pvl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle prxl"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-check type-neutral-2"</span> <span class="na">style=</span><span class="s">"visibility: hidden"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body"</span> <span class="na">style=</span><span class="s">"width: 400px;"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h4</span> <span class="na">class=</span><span class="s">"media-heading em-high type-neutral-3 mvn h5"</span><span class="nt">&gt;</span>none<span class="nt">&lt;/h4&gt;</span>
+            <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"type-neutral-4"</span><span class="nt">&gt;</span>do not receive any mexican food.<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="dropdown_notification" class="styleguide">Notifications</h2>
+<p class="styleguide">This is a notification dropdown with no notifications.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <div class="dropdown-notifications-none">
+        <i class="fa fa-bell"></i>
+        <p class="type-neutral-4 em-alt mbn">No notifications</p>
+      </div>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications btn-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications-title"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bell"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications-none"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bell"</span><span class="nt">&gt;&lt;/i&gt;</span>
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-neutral-4 em-alt mbn"</span><span class="nt">&gt;</span>No notifications<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">This is a notification dropdown with notifications.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <span class="dropdown-notifications-badge">2</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Notification</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Pivotal-CF</h5>
+            <p class="type-sm type-neutral-5 mvn">1 New File Available</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications btn-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications-title"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bell"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown-notifications-badge"</span><span class="nt">&gt;</span>2<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mvn"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-primary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"media-heading mbn type-dark-2"</span><span class="nt">&gt;</span>Notification<span class="nt">&lt;/h5&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-sm type-neutral-5 mvn"</span><span class="nt">&gt;</span>News for you<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"mvn"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"label label-primary"</span><span class="nt">&gt;</span>New<span class="nt">&lt;/span&gt;</span>
+            <span class="nt">&lt;/h3&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"media-heading mbn type-dark-2"</span><span class="nt">&gt;</span>Pivotal-CF<span class="nt">&lt;/h5&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-sm type-neutral-5 mvn"</span><span class="nt">&gt;</span>1 New File Available<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Here&#39;s an example modifiying the size and the color of the bell</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title h1">
+      <i class="fa fa-bell type-neutral-2"></i>
+      <span class="dropdown-notifications-badge">42</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 1</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">...</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 42</a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications btn-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications-title h1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bell type-neutral-2"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"dropdown-notifications-badge"</span><span class="nt">&gt;</span>42<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Item 1<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>...<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>Item 42<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">This is a notification dropdown with alerts.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <i class="fa fa-exclamation-triangle dropdown-notifications-alert"></i>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <i class="fa fa-exclamation-triangle type-warn-3 mrm"></i>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Warning</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications btn-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">data-toggle=</span><span class="s">"dropdown"</span> <span class="na">class=</span><span class="s">"dropdown-toggle btn btn-link"</span> <span class="na">type=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dropdown-notifications-title"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-bell"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-exclamation-triangle dropdown-notifications-alert"</span><span class="nt">&gt;&lt;/i&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dropdown-menu"</span> <span class="na">role=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">role=</span><span class="s">"presentation"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">role=</span><span class="s">"menuitem"</span> <span class="na">href=</span><span class="s">"https://twitter.com/fat"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-exclamation-triangle type-warn-3 mrm"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body media-middle"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"media-heading mbn type-dark-2"</span><span class="nt">&gt;</span>Warning<span class="nt">&lt;/h5&gt;</span>
+            <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"type-sm type-neutral-5 mvn"</span><span class="nt">&gt;</span>News for you<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>
