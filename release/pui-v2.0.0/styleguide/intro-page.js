@@ -18,7 +18,7 @@ const IntroPage = React.createClass({
               <p className="styleguide-subtitle">
                 Pivotal UI is a collection of React Components that are styled for the Pivotal brand.
               </p>
-              <Button href="/get-started.html" className="styleguide-btn-primary" large>Get Started</Button>
+              <Button href="/getting-started.html" className="styleguide-btn-primary" large>Get Started</Button>
             </div>
           </div>
         </BasePane>
@@ -69,7 +69,7 @@ const IntroTile = React.createClass({
 const DeathStar = React.createClass({
   render() {
     return (
-      <svg version="1.1" width="150px" class="svg-content" x="0px" y="0px" viewBox="0 0 161.8 185.7"
+      <svg version="1.1" width="150px" x="0px" y="0px" viewBox="0 0 161.8 185.7"
            enable-background="new 0 0 161.8 185.7" preserveAspectRatio="xMinYMin meet">
         <defs>
         </defs>
