@@ -19,4 +19,4 @@ page.onInitialized = function () {
 };
 
 var port = args[1];
-page.open('http://localhost:' + port + '/react.html');
+page.open('http://localhost:' + port + '/react_all.html');

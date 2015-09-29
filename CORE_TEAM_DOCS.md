@@ -193,7 +193,7 @@ Before hitting deliver, the following should be done:
    1. Run `gulp ci`.
    2. Component checked in the the styleguide. Check for
      * Correct appearance, behavior and rendered HTML.
-   2. Component checked "in the wild" (outside the styleguide in any form using the NPM modules, such as the [pui-demo-project](https://github.com/pivotal-cf/pui-demo-project)). This can be done with the Sinopia server documented above.
+   2. Component checked "in the wild" (outside the styleguide in any form using the NPM modules, such as the [pui-starter-project](https://github.com/pivotal-cf/pui-starter-project)). This can be done with the Sinopia server documented above.
      * Dependencies are correct
      * Sufficient documentation, including of dependencies of the example, to allow you to use the examples assuming no further knowledge about the component
      * Correct appearance, behavior, and HTML

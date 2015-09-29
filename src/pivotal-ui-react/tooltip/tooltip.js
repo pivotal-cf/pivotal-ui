@@ -28,7 +28,8 @@ module.exports = {
 title: Tooltips
 name: tooltips_react
 categories:
-- React
+ - react_base_tooltips
+ - react_all
 ---
 
 <code class="pam">

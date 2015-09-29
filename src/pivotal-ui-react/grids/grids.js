@@ -88,8 +88,9 @@ module.exports = {Row, Col};
 ---
 title: Grids
 name: grid_react
-category:
-- React
+categories:
+ - react_utilities_grids
+ - react_all
 ---
 
 

@@ -6,8 +6,8 @@
 title: Tabs
 name: tab
 categories:
-  - Objects
-  - All
+ - css_components_tabs
+ - css_all
 ---
 
 <code class="pam">
@@ -169,71 +169,86 @@ parent: tab
 
 */
 
-$tab-border-size: 3px;
+$tab-border-size: 1px;
+$tab-padding: 6px 19px;
+
 .tab-simple {
-  background-color: $tab-simple-tab-active-bg-color;
   position: relative;
+
+  .tab-content {
+    background-color: $tab-simple-tab-active-bg-color;
+  }
+
   .nav {
     &.nav-tabs {
-      border-bottom: $tab-border-size solid $tab-simple-shadow-border-color;
-      border-top: 1px solid $tab-simple-tab-border-color;
-      background-color: $tab-simple-bg-color;
+      border-bottom: 1px solid $tab-simple-shadow-border-color;
       @include background-clip-fix;
     }
 
     > li {
-      border-right: 1px solid $tab-simple-tab-border-color;
+      margin-bottom: 0; // bootstrap override
+
       > a {
         margin-right: 0; // bootstrap override
         border: 0; //bootstrap override
         border-radius: 0; //bootstrap override
-        padding: 10px 19px 13px 19px;
-        color: $tab-simple-link-color;
+        padding: $tab-padding;
+        //color: $tab-simple-link-color;
         font-weight: $tab-simple-link-font-weight;
-        font-size: 16px;
       }
 
       > a:hover {
-        border: 0;
+        color: $tab-simple-link-active-color;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $tab-simple-tab-hover-border-color;
+          bottom: -1px;
+          left: 0px;
+          position: absolute;
+        }
       }
     }
 
     > li:hover {
       cursor: pointer;
       @include transition-pui();
-
-      > a {
-        background-color: $tab-simple-tab-hover-bg-color;
-      }
     }
 
     > li.active {
-      margin-bottom: -$tab-border-size; //Don't show the border on the active tab
-      border-top: $tab-border-size solid $tab-simple-shadow-border-color;
-      background-color: $tab-simple-tab-active-bg-color;
       cursor: default;
-      border-right: 0;
       @include no-transition;
 
       > a {
-        border: 0;
-        margin: -$tab-border-size 0 $tab-border-size 0; //shift text up to offset top border
+        border: 0; // bootstrap override
+        background-color: transparent; // bootstrap override
         color: $tab-simple-link-active-color;
-        background-color: transparent;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: $tab-simple-tab-active-border-color;
+          bottom: -1px;
+          left: 0px;
+          position: absolute;
+        }
       }
     }
   }
 
-
-
   .tabs-action {
-    padding: 14px 16px;
+    padding: $tab-padding;
     position: absolute;
     right: 0;
   }
 }
 
-.tab-content {
+.tab-pane {
   padding: 20px;
 }
 
@@ -376,6 +391,10 @@ parent: tab
   .tab-content {
     padding-left: 0;
     list-style: none;
+  }
+
+  .tab-pane {
+    padding-left: 0;
   }
 
   a[data-toggle="tab"] {

@@ -159,7 +159,8 @@ module.exports = {
 title: Buttons
 name: button_react
 categories:
-- React
+ - react_base_buttons
+ - react_all
 ---
 
 <code class="pam">

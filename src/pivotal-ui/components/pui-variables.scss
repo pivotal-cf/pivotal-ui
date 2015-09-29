@@ -760,13 +760,14 @@ $tab-highlight-bg-color:                    $neutral-8;
 $tab-highlight-hover-bg-color:              $neutral-9;
 
 // Simple tabs
-$tab-simple-bg-color:                       $neutral-9;
+$tab-simple-bg-color:                       $neutral-11;
 $tab-simple-tab-hover-bg-color:             $neutral-10;
-$tab-simple-tab-active-bg-color:            $neutral-8;
+$tab-simple-tab-active-bg-color:            $neutral-10;
+$tab-simple-tab-active-border-color:        $brand-8;
+$tab-simple-tab-hover-border-color:         $dark-5;
 $tab-simple-shadow-border-color:            $shadow-3;
-$tab-simple-tab-border-color:               $neutral-8;
 $tab-simple-link-active-color:              $dark-2;
-$tab-simple-link-color:                     $accent-3;
+$tab-simple-link-color:                     $dark-6;
 $tab-simple-link-font-weight:               600;
 
 // Alternate tabs

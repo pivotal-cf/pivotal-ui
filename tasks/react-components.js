@@ -8,7 +8,6 @@ import runSequence from 'run-sequence';
 import {componentDocs} from '../helpers/documentation_helper';
 import {packageJson} from './helpers/react-components-helper';
 import {publishPackages} from './helpers/publish-helper';
-import {readArray} from 'event-stream';
 
 const plugins = require('gulp-load-plugins')();
 const argv = require('yargs').argv;
@@ -69,13 +68,17 @@ gulp.task('react-build', callback => runSequence('react-clean', [
   'react-build-readme'
 ], callback));
 
-gulp.task('react-publish', ['react-build'], () => {
+gulp.task('react-publish', ['react-build'], async () => {
   if (!argv.component) {
     return new Error('Usage: gulp react-publish --component <component-name>');
   }
 
-  return readArray([[{
-    name: `pui-react-${argv.component}`,
-    dir: path.join('dist', 'react', argv.component)
-  }]]).pipe(publishPackages());
+  const publish = argv.dry ? publishFakePackages() : publishPackages();
+
+  await publish([
+    {
+      name: `pui-react-${argv.component}`,
+      dir: path.join('dist', 'react', argv.component)
+    }
+  ]);
 });

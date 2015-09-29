@@ -268,7 +268,8 @@ module.exports = {
 title: Tabs
 name: tabs_react
 categories:
-- React
+ - react_components_tabs
+ - react_all
 ---
 
 <code class="pam">

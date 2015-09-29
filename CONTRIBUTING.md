@@ -65,7 +65,7 @@ the gulp cli
 
   $ npm install gulp -g
 
-haml, sass, and hologram
+sass and hologram
 
   $ bundle install
 

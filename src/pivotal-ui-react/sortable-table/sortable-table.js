@@ -170,7 +170,8 @@ export const SortableTable = React.createClass({
 title: Tables
 name: table_react
 categories:
-- React
+ - react_base_tables
+ - react_all
 ---
 */
 

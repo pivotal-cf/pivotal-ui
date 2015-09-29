@@ -7,7 +7,8 @@
 title: Introduction
 name: 00_form_introduction
 categories:
-  - Forms
+ - css_components_forms
+ - css_all
 ---
 
 
@@ -63,8 +64,8 @@ parent: 00_form_introduction
 title: Inline Forms
 name: form_inline
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
@@ -84,15 +85,15 @@ This only applies to forms within viewports that are at least 768px wide.
 <form class="styleguide-form form-inline" role="form">
   <div class="form-group">
     <label class="sr-only" for="exampleInputEmail5">Email address</label>
-    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email"></input>
+    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
   </div>
   <div class="form-group">
     <label class="sr-only" for="exampleInputPassword2">Password</label>
-    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password"></input>
+    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
   </div>
   <div class="checkbox">
     <label>
-      <input type="checkbox"></input>
+      <input type="checkbox">
       Remember me
     </label>
   </div>
@@ -115,7 +116,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 <form class="styleguide-form form-inline inline-labels" role="form">
   <div class="form-group">
     <label for="exampleInputEmail6">Write a thing</label>
-    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email"></input>
+    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email">
   </div>
   <div class="form-group">
     <label for="exampleSelect">Choose a thing</label>
@@ -125,7 +126,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
   </div>
   <div class="checkbox">
     <label>
-      <input type="checkbox"></input>
+      <input type="checkbox">
       Remember me
     </label>
   </div>
@@ -139,8 +140,8 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
 title: Inputs & Labels
 name: form_inputs
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -152,7 +153,7 @@ An input with the label top aligned (this is the default layout).
       <abbr title="required">*</abbr>
       Email address
     </label>
-    <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email"></input>
+    <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email">
   </div>
 </form>
 ```
@@ -172,7 +173,7 @@ An input with the label left aligned
       </label>
     </div>
     <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email"></input>
+      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
     </div>
   </div>
 </form>
@@ -188,7 +189,7 @@ An input with the label right aligned (N.B., control-label class provides the ri
       Email address
     </label>
     <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email"></input>
+      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email">
     </div>
   </div>
 </form>
@@ -199,7 +200,7 @@ An unstyled input that doesn't have any of the default input styles
 ```html_example
 <form role="form">
   <label for="unstyledInput">Text Input</label>
-  <input class="unstyled" id="unstyledInput" placeholder="This is a text input"></input>
+  <input class="unstyled" id="unstyledInput" placeholder="This is a text input">
 </form>
 ```
 */
@@ -228,7 +229,7 @@ all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5TextInput">Text Input</label>
-  <input class="form-control" id="html5TextInput" placeholder="Text input" type="text"></input>
+  <input class="form-control" id="html5TextInput" placeholder="Text input" type="text">
 </form>
 ```
 
@@ -237,7 +238,7 @@ Password field
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5PasswordInput">Password Input</label>
-  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password"></input>
+  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
 </form>
 ```
 
@@ -246,7 +247,7 @@ Date
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5DateInput">Date Input</label>
-  <input class="form-control" id="html5DateInput" placeholder="Date" type="date"></input>
+  <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
 </form>
 ```
 
@@ -255,7 +256,7 @@ Number
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5NumberInput">Number Input</label>
-  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number"></input>
+  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
 </form>
 ```
 
@@ -264,7 +265,7 @@ With a min/max and default starting value
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5MinMaxInput">Min/Max Input</label>
-  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1></input>
+  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
 </form>
 ```
 
@@ -273,7 +274,7 @@ With a different increment value
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5StepInput">Step Input</label>
-  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5></input>
+  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
 </form>
 ```
 
@@ -284,7 +285,7 @@ Use this with fields that require email addresses to pop up the correct keyboard
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5EmailInput">Email Input</label>
-  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email"></input>
+  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
 </form>
 ```
 
@@ -295,7 +296,7 @@ Use this with fields that require urls to pop up the correct keyboard on mobile
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5URLInput">URL Input</label>
-  <input class="form-control" id="html5URLInput" placeholder="URL" type="url"></input>
+  <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
 </form>
 ```
 
@@ -306,7 +307,7 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="html5PhoneInput">Phone Input</label>
-  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel"></input>
+  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
 </form>
 ```
 */
@@ -340,15 +341,15 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
   <div class="row">
     <div class="col-md-4">
       <label for="Small2WidthInput">Small 2 Width Input</label>
-      <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text"></input>
+      <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text">
     </div>
     <div class="col-md-6">
       <label for="Small3WidthInput">Small 3 Width Input</label>
-      <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text"></input>
+      <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text">
     </div>
     <div class="col-md-8">
       <label for="Small4WidthInput">Small 4 Width Input</label>
-      <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text"></input>
+      <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text">
     </div>
   </div>
 </form>
@@ -537,8 +538,8 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 title: Selects
 name: form_selects
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -624,15 +625,15 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
   <div class="row">
     <div class="col-md-4">
       <label for="Small2WidthInput2">Small 2 Width Input</label>
-      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text"></input>
+      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text">
     </div>
     <div class="col-md-6">
       <label for="Small3WidthInput2">Small 3 Width Input</label>
-      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text"></input>
+      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text">
     </div>
     <div class="col-md-8">
       <label for="Small4WidthInput2">Small 4 Width Input</label>
-      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text"></input>
+      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text">
     </div>
   </div>
 </form>
@@ -777,8 +778,8 @@ This is a fancy select!
 title: Text Areas
 name: form_textarea
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 Text areas are used for larger amounts of input.
@@ -799,8 +800,8 @@ Text areas are used for larger amounts of input.
 title: Checkboxes & Radios
 name: form_checkboxes
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -811,22 +812,19 @@ Checkboxes are for selecting one or several options in a list while radios are f
   <div class="checkbox">
     <label>
       <input type="checkbox">
-        Option one is this and that&mdash;be sure to include why it's great
-      </input>
+      Option one is this and that&mdash;be sure to include why it's great
     </label>
   </div>
   <div class="radio">
     <label>
       <input id="optionsRadios1" name="optionsRadios" type="radio" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it's great
-      </input>
+      Option one is this and that&mdash;be sure to include why it's great
     </label>
   </div>
   <div class="radio">
     <label>
       <input id="optionsRadios2" name="optionsRadios" type="radio" value="option2">
-        Option two can be something else and selecting it will deselect option one
-      </input>
+      Option two can be something else and selecting it will deselect option one
     </label>
   </div>
 </form>
@@ -852,35 +850,29 @@ Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or rad
   <div class="form-group">
     <label class="checkbox-inline">
       <input id="inlineCheckbox1" type="checkbox" value="option1">
-        1
-      </input>
+      1
     </label>
     <label class="checkbox-inline">
       <input id="inlineCheckbox2" type="checkbox" value="option2">
-        2
-      </input>
+      2
     </label>
     <label class="checkbox-inline">
       <input id="inlineCheckbox3" type="checkbox" value="option3">
-        3
-      </input>
+      3
     </label>
   </div>
   <div class="form-group">
     <label class="radio-inline">
       <input id="inlineradio1" type="radio" value="option1">
-        1
-      </input>
+      1
     </label>
     <label class="radio-inline">
       <input id="inlineradio2" type="radio" value="option2">
-        2
-      </input>
+      2
     </label>
     <label class="radio-inline">
       <input id="inlineradio3" type="radio" value="option3">
-        3
-      </input>
+      3
     </label>
   </div>
 </form>
@@ -901,8 +893,8 @@ Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or rad
 title: Help Text
 name: form_help_text
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 Help text
 Block level help text for form controls.
@@ -910,7 +902,7 @@ Block level help text for form controls.
 ```html_example
 <form class="styleguide-form" role="form">
   <label for="demohelp"/>
-  <input class="form-control" id="demohelp" type="text"></input>
+  <input class="form-control" id="demohelp" type="text">
   <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
 </form>
 ```
@@ -922,8 +914,8 @@ Block level help text for form controls.
 title: Validations
 name: form_validation
 categories:
- - Forms
- - All
+ - css_components_forms
+ - css_all
 ---
 
 To show validation errors on a field, add `.has-error` to the field's form group.
@@ -1033,8 +1025,8 @@ add `.has-success` to the field's form group.
 title: Disabled Controls
 name: form_disabled_controls
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 Controls will occasionally need to be disabled.
@@ -1066,8 +1058,8 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 title: Static Controls
 name: form_static_control
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 When you need to place plain text next to a form label within a form,
@@ -1086,7 +1078,7 @@ Here's an example in a horizontal form:
   <div class="form-group">
     <label class="col-md-4 control-label" for="inputPassword">Password</label>
     <div class="col-sm-10">
-      <input class="form-control" id="inputPassword" placeholder="Password" type="password"></input>
+      <input class="form-control" id="inputPassword" placeholder="Password" type="password">
     </div>
   </div>
 </form>
@@ -1102,7 +1094,7 @@ Here's an example in a vertical form:
   </div>
   <div class="form-group">
     <label class="control-label" for="name">Name</label>
-    <input class="form-control" id="name" placeholder="name"></input>
+    <input class="form-control" id="name" placeholder="name">
   </div>
 </form>
 ```
@@ -1129,15 +1121,15 @@ p.form-control-static {
 title: Autoselect Text Inputs
 name: form_autoselect_text_input
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 This form is used to show information that a user may wish to copy and paste somewhere.
 
 ```html_example
 <label for="readonlyautoselect"></label>
-<input class="auto-select form-control" id="readonlyautoselect" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight"></input>
+<input class="auto-select form-control" id="readonlyautoselect" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight">
 ```
 
 */
@@ -1246,8 +1238,8 @@ This form looks and behaves mostly like a content editable field
 title: Toggle Switches
 name: form_toggle_switch
 categories:
-  - Forms
-  - All
+ - css_components_forms
+ - css_all
 ---
 
 A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.

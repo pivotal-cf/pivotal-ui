@@ -42,8 +42,6 @@ module.exports = {SearchInput};
 title: Search Inputs
 name: form_search_input_react
 parent: form_react
-categories:
-- React
 ---
 
 

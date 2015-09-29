@@ -3,8 +3,10 @@
 @import '../pivotal-ui/components/pui-variables.scss';
 @import '../pivotal-ui/components/mixins.scss';
 
+$nav-menu-width: 300px;
+
 html {
-  background-color: $gray-10;
+  background-color: $neutral-11;
 }
 
 .container {
@@ -72,44 +74,25 @@ blockquote {
 
 }
 
+main {
+  padding-left: $nav-menu-width
+}
+
 .styleguide-header {
-  min-height: 40px;
-  width: 100%;
+  width: $nav-menu-width;
+  height: 100%;
   z-index: 100;
+  overflow: auto;
 
-  background: $dark-2;
-  color: $neutral-11;
+  position: fixed;
+  top: 0;
 
-  @-webkit-keyframes hoverSpin {
-    0% { transform: rotate(0deg) }
-    100% { transform: rotate(360deg) }
-  }
+  background: $neutral-11;
 
-  @-moz-keyframes hoverSpin {
-    0% { opacity: 1; }
-    50% { opacity: .6; }
-    100% { opacity: 1;}
-  }
-
-  @keyframes hoverSpin {
-    0% { opacity: 1; }
-    50% { opacity: .6; }
-    100% { opacity: 1;}
-  }
-
-  .styleguide-logo {
-    float: left;
-    margin-top: 5px;
-    margin-right: 15px;
-
-    &:hover {
-      animation: hoverSpin 5s linear infinite;
-    }
-
-  }
+  border-right: 1px solid $neutral-9;
 
   .visible-on-focus {
-    position:absolute;
+    position: absolute;
     left: 0px;
     top: -40px;
     &:focus, &:hover {
@@ -117,159 +100,36 @@ blockquote {
     }
   }
 
-  #navbar-hamburger {
-    float: right;
-    margin: 4px 0px;
-    border: none;
-    padding: 5px 7px;
-    border-radius: 4px;
-    background: transparent;
-    @include transition-pui(background, 0.5s, ease-out);
-
-    &:hover {
-      background: $dark-3;
-    }
-
-    .icon-bar {
-      display: block;
-      width: 22px;
-      height: 2px;
-      border-radius: 1px;
-      background: $neutral-10;
-
-      &:not(:first-of-type) {
-        margin: 4px;
-      }
-    }
+  .logo-type-company, .logo-type-app {
+    display: block;
+    line-height: 1;
   }
 
-  #styleguide-first-level-nav-wrapper {
-    margin: 0 -10px;
-  }
-
-  ul#styleguide-first-level-nav {
-    display: none;
-    clear: both;
-    margin: 0;
-    padding: 0;
-    background: $dark-1;
-    list-style-type: none;
-
-    > li {
-      @include transition-pui(background);
-
-      > a {
-        color: $neutral-11;
-      }
-
-      a.category-link, a.styleguide-second-level-nav-link {
-        padding: 8px 10px;
-      }
-
-      a.category-link {
-        display: inline-block;
-        width: 55%;
-        @include transition-pui(color);
-      }
-
-      a.styleguide-second-level-nav-link {
-        float: right;
-        width: 40%;
-        text-align: right;
-      }
-
-      ul.styleguide-second-level-nav {
-        display: none;
-        padding-left: 0;
-        list-style-type: none;
-        background-color: $neutral-1;
-
-        > li {
-          padding-bottom: 5px;
-          font-size: $font-size-base;
-
-          a {
-            display: block;
-            color: $neutral-10;
-            padding: 8px 10px 8px 30px;
-          }
-
-          &:hover {
-            a {
-              color: $blue-3;
-            }
-          }
-        }
-      }
-
-      &:hover, &.active {
-        background: $neutral-1;
-
-        a.category-link, a.styleguide-second-level-nav-link {
-          color: $brand-8;
-        }
-      }
-    }
-  }
-
-  @media(min-width: $screen-md-min) {
-    position: fixed;
-    top: 0;
-
-    #styleguide-first-level-nav-wrapper {
-      margin: 0;
-    }
-
-    ul#styleguide-first-level-nav {
-      display: block;
-      clear: none;
-      top: 0;
-      background: transparent;
+  #styleguide-navbar {
+    .nav {
+      display: flex;
+      text-align: center;
 
       > li {
-        position: relative;
-        display: inline-block;
-        vertical-align: middle;
-        padding: 10px 15px;
-        font-size: $font-size-small;
-
-        a.category-link {
-          padding: 0;
-          display: inline;
-        }
-
-        a.styleguide-second-level-nav-link {
-          float: none;
-        }
-
-        ul.styleguide-second-level-nav {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          width: 200px;
-          padding: 10px 20px;
-
-          > li {
-            a {
-              padding: 0;
-            }
-          }
-        }
-
-        &:hover {
-          ul.styleguide-second-level-nav {
-            display: block;
-          }
-        }
+        flex: 1;
       }
     }
 
-    #navbar-hamburger {
-      display: none;
+    .nav-component-type {
+      margin: 0;
+      background-color: white;
+
+      .panel-body {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        a {
+          display: block;
+        }
+      }
     }
   }
 }
-
 // Back to top component
 .exampleOutput .back-to-top {
   position: absolute;
@@ -565,16 +425,6 @@ table.styleguide {
 background-position: 0 50%;
 }
 
-// toggle code visibility
-
-.code-hide-haml .codeBlock.haml {
-  display: none;
-}
-
-.code-hide-html .codeBlock.html {
-  display: none;
-}
-
 // sub section navigation pills
 
 .section-nav {
@@ -636,7 +486,13 @@ h1#intro.styleguide {
 }
 
 .styleguide-hero {
-  height: calc(100vh - 91px);
+  border-bottom: 3px solid rgba(255,255,255,0.25);
+  color: $neutral-11;
+
+  .container {
+    margin: 0 2vw;
+    max-width: none;
+  }
 }
 
 .bg-gradient-1 {
@@ -644,67 +500,48 @@ h1#intro.styleguide {
 }
 
 .styleguide-title {
-  font-size: 9vw;
+  font-size: 4vw;
+  margin: 0;
 }
 
 .styleguide-subtitle {
-  font-size: 5vw;
+  font-size: 1.5vw;
 }
 
 .styleguide-btn-primary {
-  padding: 2.5vw 4vw;
-  font-size: 5.5vw;
+  font-size: 1.5vw;
+
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0;
+  box-shadow: 0 2px 0 rgba(0,0,0,.1);
+  font-weight: 500;
+
+  &:hover, &:focus {
+    color: white;
+    border-color: white;
+    background: transparent;
+  }
+}
+
+.styleguide-intro-tile {
+  border: solid $dark-10;
+  border-width: 0 1px 1px 0;
+  padding: 6vw 2.5vw;
+
+  margin: -1px 0;
+
+  font-size: 14px;
+
+  h2 {
+    font-size: 32px;
+    margin: 0;
+    color: $neutral-2;
+  }
 }
 
 .crazy-logo {
   width: 32vw;
   margin: 0 auto 0 auto;
-}
-
-
-.styleguide-btn-primary {
-  color: white;
-  background-color: transparent;
-  border: 3px solid white;
-  box-shadow: 0 2px 0 rgba(0,0,0,.1);
-  font-weight: 500;
-  margin-top: 2vw;
-  &:hover {
-    color: white;
-  }
-}
-
-@media (min-width: $screen-sm-min){
-  .styleguide-title {
-    font-size: 5vw;
-  }
-
-  .styleguide-subtitle {
-    font-size: 2vw;
-  }
-
-  .styleguide-btn-primary {
-    padding: 1.5vw 3vw;
-    font-size: 1.5vw;
-  }
-  .crazy-logo {
-    width: 20vw;
-  }
-}
-@media (min-width: $screen-md-min) {
-  .now-hiring {
-    margin-top: 41px;
-  }
-}
-
-@media (min-width: $screen-xl-min) {
-  .styleguide-title {
-    font-size: 3vw;
-  }
-  .crazy-logo{
-    width: 13vw;
-  }
-  .styleguide-subtitle {
-    font-size: 1.25vw;
-  }
 }

@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>a brand new styleguide: <%= title %></title>
+    <% require('./hologram/lib/title') %>
+    <title><%= Title.from_category(title) %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="pivotal-ui.css">
     <link rel="stylesheet" href="styleguide/styleguide.css">
@@ -21,25 +22,23 @@
       })();
     </script>
 
-    <% if %w(react.html faq.html).include?(file_name) %>
-      <script src="pivotal-ui-react.js"></script>
-      <script>
-        if (window.callPhantom) {
-          (function() {
-            var firstScript = document.getElementsByTagName('script')[0];
-            var reactA11yScript = document.createElement('script');
-            reactA11yScript.async = 'async';
-            reactA11yScript.src = 'react-a11y-script.js';
-            firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
-          })();
-        }
-      </script>
-      <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
-    <% else %>
-      <script src="pivotal-ui.js"></script>
-    <% end %>
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
     <script src="zeroclipboard/ZeroClipboard.js"></script>
     <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
 
     <script>
 
@@ -59,69 +58,35 @@
   </head>
   <body>
     <nav class="styleguide-header">
-      <div class="container">
-        <button id="navbar-hamburger">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <div>
-          <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
-        </div>
-        <a href="/" class="styleguide-logo"><img src="styleguide/pui-logo@2x.png" alt="Introduction to Pivotal UI" height="28px"></a>
-        <div id="styleguide-first-level-nav-wrapper">
-          <ul id="styleguide-first-level-nav">
-
-            <% categories = ['Layout', 'Elements', 'Objects', 'Utilities', 'Forms', 'React', 'FAQ'] %>
-
-
-            <% categories.each_with_index do |category_name, index| %>
-              <%= "\"#{category_name}\" CATEGORY NOT FOUND ERROR, fool." unless @categories.has_key?(category_name) %>
-              <% file_name = @categories[category_name] %>
-
-              <li id="category-<%= index %>" class="styleguide-category">
-                <a class="category-link" href="<%= file_name %>">
-                  <%= category_name %>
-                </a>
-                <a class="styleguide-second-level-nav-link" href="#" data-target="category-<%= index %>">
-                  <span class="sr-only">Expand <%= category_name %></span>
-                  <i class="fa fa-chevron-down"></i>
-                </a>
-                <ul class="styleguide-second-level-nav">
-                  <% @pages[file_name][:blocks].each do |b| %>
-                    <% if (b[:categories].include?(category_name)) && (b[:parent] == nil) %>
-                      <% if file_name == @file_name %>
-                        <li><a href="#<%= b[:name] %>" class="styleguide-subsection"><%= b[:title] %></a></li>
-                      <% else %>
-                        <li><a href="<%= file_name %>#<%= b[:name] %>"><%= b[:title] %></a></li>
-                      <% end %>
-                    <% end %>
-                  <% end %>
-                </ul>
-              </li>
-            <% end %>
-            <li>
-              <a class="category-link" href="all.html">All</a>
-            </li>
-          </ul>
-        </div>
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
       </div>
+      <% require('./hologram/lib/navigation') %>
+      <% require('./hologram/lib/pretty_nav') %>
+      <% nav = PrettyNav.new(generate_nav_from_categories(@categories)).to_hash %>
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="<%= @categories['Intro'] %>">Introduction</a></li>
+          <li><a href="<%= @categories['getting-started'] %>">Get Started</a></li>
+          <li><a href="<%= @categories['FAQ'] %>">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = <%= nav.to_json %>;
+      </script>
+      <div id="styleguide-navbar"></div>
     </nav>
     <main id="skipnav">
-      <div class="now-hiring bg-accent-3 pbn">
-        <div class="bg-shadow-1 pvl">
-          <a class="active" href="/hiring.html" style="display: block;">
-            <h1 class="type-neutral-11 mvn h4 txt-c">
-              <span>Pivotal is now hiring</span>
-              <span class="em-high"> Product Designers</span>.
-              <span class="">Learn More.</span>
-            </h1>
-          </a>
-        </div>
-      </div>
       <% if title != "Intro" %>
-        <div class="container ptl">
+        <div class="container ptl phxxl">
           <section class="content">
       <% end %>
 
