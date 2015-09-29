@@ -1,111 +1,12 @@
 <a name="2.0.0"></a>
 # 2.0.0 (2015-09-29)
 
-
-### Bug Fixes
-
-* **autocomplete:** dropdown is no longer transparent ([bf1d4b4](https://github.com/pivotal-cf/pivotal-ui/commit/bf1d4b4)), closes [#103617606](https://github.com/pivotal-cf/pivotal-ui/issues/103617606)
-* **health_indicators:** remove health_indicators from pui-css-deprecated ([799eb23](https://github.com/pivotal-cf/pivotal-ui/commit/799eb23))
-* **no-js:** removes deprecated .no-js ([c3674a2](https://github.com/pivotal-cf/pivotal-ui/commit/c3674a2))
-* **styleguide:** fix invalid html in styleguide ([17a2763](https://github.com/pivotal-cf/pivotal-ui/commit/17a2763)), closes [#100234794](https://github.com/pivotal-cf/pivotal-ui/issues/100234794)
-* **styleguide:** remove outdated reference to HAML ([c6cff61](https://github.com/pivotal-cf/pivotal-ui/commit/c6cff61)), closes [#99748964](https://github.com/pivotal-cf/pivotal-ui/issues/99748964)
-* **tabs:** move padding from tab-content to tab-pane ([cac8cde](https://github.com/pivotal-cf/pivotal-ui/commit/cac8cde))
-* **toggles:** removes deprecated toggles ([945039a](https://github.com/pivotal-cf/pivotal-ui/commit/945039a))
-
-### Features
-
-* **collapse:** Collapse can now start out open by passing defaultExpanded ([7f01614](https://github.com/pivotal-cf/pivotal-ui/commit/7f01614))
-* **styleguide:** generate pretty titles for new styleguide organization ([4cac337](https://github.com/pivotal-cf/pivotal-ui/commit/4cac337))
-* **styleguide:** new styleguide navigation structure ([9d81eba](https://github.com/pivotal-cf/pivotal-ui/commit/9d81eba))
-* **tabs:** Update styles for SimpleTabs for 2.0.0 ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commit/a942a44))
-* **tile-layout:** adds TileLayout component ([c3ff982](https://github.com/pivotal-cf/pivotal-ui/commit/c3ff982))
-
-
-### BREAKING CHANGES
-
-* **tabs:** S: (css class) The old styling of SimpleTabs is no longer
-available. The same classes or React Components use the new styles. ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commits/a942a44))
-* **tabs:** (whitespace) tab default body padding is now on .tab-pane ([cac8cde](https://github.com/pivotal-cf/pivotal-ui/commits/cac8cde))
-* **no-js:** removes .no-js from pui-css-deprecated ([c3674a2](https://github.com/pivotal-cf/pivotal-ui/commits/c3674a2))
-* **toggles:** removes toggles from pui-css-deprecated ([945039a](https://github.com/pivotal-cf/pivotal-ui/commits/945039a))
-* **health_indicators:** removes health_indicators from pui-css-deprecated ([799eb23](https://github.com/pivotal-cf/pivotal-ui/commits/799eb23))
-
-
-<a name="2.0.0-alpha.5"></a>
-# 2.0.0-alpha.5 (2015-09-17)
-
-
-### Bug Fixes
-
-* **autocomplete:** withRelatedTarget now merges properties in correct order ([ec27ae0](https://github.com/pivotal-cf/pivotal-ui/commit/ec27ae0))
-* **dividers:** reduce padding around large dividers to match small dividers ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commit/b1a1906))
-* **draggable-list:** draggable list callback is fixed ([0bdd107](https://github.com/pivotal-cf/pivotal-ui/commit/0bdd107))
-* **forms:** Changes input text color to be darker. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commit/df046bd))
-* **forms:** Remove help-inline class ([87a90a5](https://github.com/pivotal-cf/pivotal-ui/commit/87a90a5))
-* **react-bootstrap:** only require needed components from react bootstrap ([a2847f9](https://github.com/pivotal-cf/pivotal-ui/commit/a2847f9))
-* **sortable-table:** Clicking on sortable header doesn&#x27;t select text ([a9ec8a0](https://github.com/pivotal-cf/pivotal-ui/commit/a9ec8a0)), closes [#103050640](https://github.com/pivotal-cf/pivotal-ui/issues/103050640)
-
-### Features
-
-* **react-animations:** remove pui-css-react-animations ([e944ad0](https://github.com/pivotal-cf/pivotal-ui/commit/e944ad0))
-* **stream-list:** Exports StreamListItem to use for StreamList ([387053e](https://github.com/pivotal-cf/pivotal-ui/commit/387053e))
-
-
-### BREAKING CHANGES
-
-* **forms:** help-inline class has been removed from forms ([87a90a5](https://github.com/pivotal-cf/pivotal-ui/commits/87a90a5))
-* **forms:** (sass variable) $input-color is now $neutral-3. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commits/df046bd))
-* **dividers:** (visual appearance) large dividers have less whitespace ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commits/b1a1906))
-* **draggable-list:** DraggableList callback onDrop is no longer passed to
-list items - use onDragEnd instead to provide a callback. ([0bdd107](https://github.com/pivotal-cf/pivotal-ui/commits/0bdd107))
-
-
-<a name="2.0.0-alpha.4"></a>
-# 2.0.0-alpha.4 (2015-09-09)
-
-
-### Bug Fixes
-
-* **dropdowns:** Adds default uniqueid to Dropdowns. ([161198a](https://github.com/pivotal-cf/pivotal-ui/commit/161198a))
-* **dropdowns:** Adds missing dependencies to React Dropdowns ([16f67cc](https://github.com/pivotal-cf/pivotal-ui/commit/16f67cc))
-* **dropdowns:** Fixes the highlighting on hover of dropdown items ([718bfdd](https://github.com/pivotal-cf/pivotal-ui/commit/718bfdd))
-* **overlay-trigger:** Adds missing lodash.uniqueid to React Overlay Triggers ([5373bd3](https://github.com/pivotal-cf/pivotal-ui/commit/5373bd396f25468d8d27e16e9a64379b681dde49))
-
-
-### BREAKING CHANGES
-
-* **buttons:** (sass variable): the button-skin-alternate mixin is no longer supported ([800c0f9](https://github.com/pivotal-cf/pivotal-ui/commits/800c0f9))
-
-
-<a name="2.0.0-alpha.3"></a>
-# 2.0.0-alpha.3 (2015-09-08)
-
-
-### Bug Fixes
-
-* **css:** Include new css (Didn't get released before).
-
-
-
-<a name="2.0.0-alpha.2"></a>
-# 2.0.0-alpha.2 (2015-09-04)
-
-
-### Bug Fixes
-
-* **media:** Use Bootstrap 3.3.1 media instead of 3.3.5. ([fe39515](https://github.com/pivotal-cf/pivotal-ui/commit/fe39515))
-
-
-
-<a name="2.0.0-alpha.0"></a>
-# 2.0.0-alpha.0 (2015-09-02)
-
-
 ### BREAKING CHANGES
 
 * **alerts:** (css class) .alert-icon styles icons within alerts. ([a6cfe36](https://github.com/pivotal-cf/pivotal-ui/commits/a6cfe36))
 * **buttons:** (css class) .btn-primary and PrimaryButton are no longer supported. ([8b86a1f](https://github.com/pivotal-cf/pivotal-ui/commits/8b86a1f))
 * **buttons:** (css class) the value of $error-3, and $red-3 became darker. ([232156c](https://github.com/pivotal-cf/pivotal-ui/commits/232156c))
+* **buttons:** (sass variable): the button-skin-alternate mixin is no longer supported ([800c0f9](https://github.com/pivotal-cf/pivotal-ui/commits/800c0f9))
 * **colors:** (sass variables) 2.0 conversion table,dark,dark-3 is now dark-4,dark-2 is now dark-3,dark-1 is now dark-2,brand,brand-3 is now brand-8,brand-1 is now brand-3,brand-5 is now brand-10,brand-2 is now brand-5,brand-4 has changed, there is no equivalent color in 2.0 and will now be brand-9 to have a more appropriate place within the brightness scale,accent,accent-5 is now accent-6,accent-4 has changed, there is no equivalent color in 2.0 and will now be accent-5 to have a more appropriate place within the brightness scale,accent-3 is now accent-4,accent-2 is now accent-3,accent-1 is now accent-2,error,error-4 is now error-6,error-3 is now error-4,error-2 is now error-3,error-1 is now error-2,warn,warn-3 is now warn-6,warn-2 is now warn-3,success,success-2 is now success-6 ([aeba298](https://github.com/pivotal-cf/pivotal-ui/commits/aeba298))
 * **dropdowns:** (css class) Dropdowns now become darker when opened instead of lighter.([70fece4](https://github.com/pivotal-cf/pivotal-ui/commit/70fece4))
 * **dropdowns:** (javascript) PrimaryDropdowns are no longer supported. ([f1bfc81](https://github.com/pivotal-cf/pivotal-ui/commits/f1bfc81))
@@ -113,6 +14,7 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **expander:** (html) The DOM for ExpanderTrigger has changed. There is no longer a wrapping div. ([480c7bc](https://github.com/pivotal-cf/pivotal-ui/commits/480c7bc))
 * **forms:** (css class) Help text on input is now darker. ([f2761e3](https://github.com/pivotal-cf/pivotal-ui/commit/f2761e3))
 * **forms:** (css class) .help-block has a darker color now. For the old color, use $gray-dark. ([f2761e3](https://github.com/pivotal-cf/pivotal-ui/commits/f2761e3))
+* **health_indicators:** removes health_indicators from pui-css-deprecated ([799eb23](https://github.com/pivotal-cf/pivotal-ui/commits/799eb23))
 * **images:** (javascript) Images no longer responsive by default. Please use the responsive flag. ([447a6a0](https://github.com/pivotal-cf/pivotal-ui/commit/447a6a0))
 * **links:** (css class) link-lowlight-alt is no longer supported. Please use link-lowlight instead. ([757a0a1](https://github.com/pivotal-cf/pivotal-ui/commits/757a0a1))
 * **links:** (css class) the value of $link-color, $accent-2, and $blue-2 became darker ([29c5826](https://github.com/pivotal-cf/pivotal-ui/commits/29c5826))
@@ -122,24 +24,26 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **maps:** (css class) Google maps now need the &#x60;.labs-map&#x60; class to get styles. ([d24e699](https://github.com/pivotal-cf/pivotal-ui/commits/d24e699))
 * **mixin:** (sass variable) font() mixin no longer available. Use font-helper mixin from pui-css-typography instead. ([dc94761](https://github.com/pivotal-cf/pivotal-ui/commits/dc94761))
 * **modernizr:** (javascript) modernizr is no longer included with Pivotal UI ([086002c](https://github.com/pivotal-cf/pivotal-ui/commits/086002c))
+* **no-js:** removes .no-js from pui-css-deprecated ([c3674a2](https://github.com/pivotal-cf/pivotal-ui/commits/c3674a2))
 * **panes:** (javascript) outerClass, and innerClass no longer work. Use className and innerClassName to pass the classes, respectively. ([76ac09e](https://github.com/pivotal-cf/pivotal-ui/commits/76ac09e))
 * **selects:** (sass variables) $input-border is now $neutral-7 ([192e5af](https://github.com/pivotal-cf/pivotal-ui/commit/192e5af))
 * **sortable-table:** (javascript) React component has new wrapping components for the header and rows. ([537f477](https://github.com/pivotal-cf/pivotal-ui/commits/537f477))
 * **tabs:** (javascript) For the react version of tabs, the property 'tabs' is now called 'title' ([01dad2a](https://github.com/pivotal-cf/pivotal-ui/commits/01dad2a))
 * **tabs:** (sass variables) $tab-responsive-color is now $neutral-3 instead of $neutral-4 and $tab-responsive-active-color is now $brand-5 instead of $brand-8 ([7d99cec](https://github.com/pivotal-cf/pivotal-ui/commits/7d99cec))
+* **tabs:** The old styling of SimpleTabs is no longer
+available. The same classes or React Components use the new styles. ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commits/a942a44))
+* **tabs:** (whitespace) tab default body padding is now on .tab-pane ([cac8cde](https://github.com/pivotal-cf/pivotal-ui/commits/cac8cde))
+* **toggles:** removes toggles from pui-css-deprecated ([945039a](https://github.com/pivotal-cf/pivotal-ui/commits/945039a))
 * **typography:** (css class) header line height changed and will look closer together on multiline headers but will look the same on single line headers ([492247a](https://github.com/pivotal-cf/pivotal-ui/commits/492247a))
 
-### Features
 
-* **a11y:** More CSS components have clear link text ([de79b3f](https://github.com/pivotal-cf/pivotal-ui/commit/de79b3f))
-* **alerts:** JAWS indicates that alerts are alerts ([95aca19](https://github.com/pivotal-cf/pivotal-ui/commit/95aca19))
+### Features
 * **autocomplete:** Add autocomplete React component ([6304d0c](https://github.com/pivotal-cf/pivotal-ui/commit/6304d0c))
-* **back-to-top:** improve accessibility of back-to-top ([61c9b93](https://github.com/pivotal-cf/pivotal-ui/commit/61c9b93))
 * **back-to-top:** react back-to-top accepts classname, id, style ([92e095b](https://github.com/pivotal-cf/pivotal-ui/commit/92e095b))
 * **bootstrap:** upgrade bootstrap from 3.3.1 to 3.3.5 ([6f96e31](https://github.com/pivotal-cf/pivotal-ui/commit/6f96e31))
 * **btn-group:** Adds button groups ([f2ff18a](https://github.com/pivotal-cf/pivotal-ui/commit/f2ff18a))
-* **buttons** danger buttons pass contrast requirements ([232156c](https://github.com/pivotal-cf/pivotal-ui/commit/232156c))
 * **buttons:** react buttons now accept classname, id, and style ([1f41c6d](https://github.com/pivotal-cf/pivotal-ui/commit/1f41c6d))
+* **collapse:** Collapse can now start out open by passing defaultExpanded ([7f01614](https://github.com/pivotal-cf/pivotal-ui/commit/7f01614))
 * **colors:** Add new dark swatches and color styles ([143695b](https://github.com/pivotal-cf/pivotal-ui/commit/143695b))
 * **colors:** add type modifiers for dark colors ([46bfbf3](https://github.com/pivotal-cf/pivotal-ui/commit/46bfbf3))
 * **dividers:** Dividers passthrough className, id and style ([7d1db48](https://github.com/pivotal-cf/pivotal-ui/commit/7d1db48))
@@ -148,15 +52,10 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **forms:** Change selects to have label outside ([e876de4](https://github.com/pivotal-cf/pivotal-ui/commit/e876de4))
 * **helpers:** add &#x60;pui-react-helpers&#x60; module, with &#x60;mergeProps&#x60; function ([ea0d732](https://github.com/pivotal-cf/pivotal-ui/commit/ea0d732))
 * **labels:** react labels now accept classname, id, style ([48e9a39](https://github.com/pivotal-cf/pivotal-ui/commit/48e9a39))
-* **links:** links pass contrast requirements ([29c5826](https://github.com/pivotal-cf/pivotal-ui/commit/29c5826))
 * **lists:** react lists accept classname, id, and style props ([4f2a0e1](https://github.com/pivotal-cf/pivotal-ui/commit/4f2a0e1))
-* **lists:** remove addable list ([53315f5](https://github.com/pivotal-cf/pivotal-ui/commit/53315f5))
 * **maps:** Removes Maps dependency on id for height styling ([d24e699](https://github.com/pivotal-cf/pivotal-ui/commit/d24e699))
-* **mixin:** Removed font mixin from mixins.scss ([dc94761](https://github.com/pivotal-cf/pivotal-ui/commit/dc94761))
 * **modal:** Make x to close react modals accessible ([48e41dd](https://github.com/pivotal-cf/pivotal-ui/commit/48e41dd))
 * **modal:** Modals passthrough className, id, and style ([fe01756](https://github.com/pivotal-cf/pivotal-ui/commit/fe01756))
-* **modals:** Modals are more accessible ([08de4ff](https://github.com/pivotal-cf/pivotal-ui/commit/08de4ff))
-* **modernizr:** remove modernizr from pui ([086002c](https://github.com/pivotal-cf/pivotal-ui/commit/086002c))
 * **notification:** AlertNotifications passes through id, className, and style ([0e8061a](https://github.com/pivotal-cf/pivotal-ui/commit/0e8061a))
 * **notification:** Notifications pass through className, style, and id ([859e679](https://github.com/pivotal-cf/pivotal-ui/commit/859e679))
 * **notifications:** Add size prop to react notifications ([569fcc8](https://github.com/pivotal-cf/pivotal-ui/commit/569fcc8))
@@ -165,18 +64,29 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **panes:** Panes passthrough className, id, and style ([76ac09e](https://github.com/pivotal-cf/pivotal-ui/commit/76ac09e))
 * **radio:** Classname and style passes through to radio div ([9f736c9](https://github.com/pivotal-cf/pivotal-ui/commit/9f736c9))
 * **radio-group:** react radio-group accepts classname, id, and style props ([4d781f5](https://github.com/pivotal-cf/pivotal-ui/commit/4d781f5))
+* **react-animations:** remove pui-css-react-animations ([e944ad0](https://github.com/pivotal-cf/pivotal-ui/commit/e944ad0))
 * **ribbons:** react ribbons now accept classname, id, and style props ([1ecda1f](https://github.com/pivotal-cf/pivotal-ui/commit/1ecda1f))
 * **select-fancy:** add a select fancy react component ([b20a078](https://github.com/pivotal-cf/pivotal-ui/commit/b20a078))
-* **sortable-table:** Make sortable table keyboard accessible ([ffdfe3a](https://github.com/pivotal-cf/pivotal-ui/commit/ffdfe3a))
 * **stream-list:** Creates a stream-list component ([b96429e](https://github.com/pivotal-cf/pivotal-ui/commit/b96429e))
 * **tabs:** Makes tabs responsive ([721cdbf](https://github.com/pivotal-cf/pivotal-ui/commit/721cdbf))
 * **tabs:** Adds new component LeftTabs in Tabs package ([c1e87dd](https://github.com/pivotal-cf/pivotal-ui/commit/c1e87dd))
-* **tabs:** Set correct aria-controls value for Tab nav items ([75fd100](https://github.com/pivotal-cf/pivotal-ui/commit/75fd100))
 * **tabs:** Upgrade to new react-bootstrap Tabs API ([01dad2a](https://github.com/pivotal-cf/pivotal-ui/commit/01dad2a))
+* **tabs:** Update styles for SimpleTabs for 2.0.0 ([a942a44](https://github.com/pivotal-cf/pivotal-ui/commit/a942a44))
+* **tile-layout:** adds TileLayout component ([c3ff982](https://github.com/pivotal-cf/pivotal-ui/commit/c3ff982))
 * **tooltip:** Adds className, id, and style passthrough ([ae06ad1](https://github.com/pivotal-cf/pivotal-ui/commit/ae06ad1))
 * **traffic-lights:** Adds traffic lights component ([985171e](https://github.com/pivotal-cf/pivotal-ui/commit/985171e))
 * **typography:** Headers now have a smaller line-height ([492247a](https://github.com/pivotal-cf/pivotal-ui/commit/492247a))
 * **typography:** uses a variable for header padding ([8fd4d96](https://github.com/pivotal-cf/pivotal-ui/commit/8fd4d96))
+
+#### Accessibility
+* **alerts:** JAWS indicates that alerts are alerts ([95aca19](https://github.com/pivotal-cf/pivotal-ui/commit/95aca19))
+* **back-to-top:** improve accessibility of back-to-top ([61c9b93](https://github.com/pivotal-cf/pivotal-ui/commit/61c9b93))
+* **buttons** danger buttons pass contrast requirements ([232156c](https://github.com/pivotal-cf/pivotal-ui/commit/232156c))
+* **colors:** changes colors to be more web accessible ([aeba298](https://github.com/pivotal-cf/pivotal-ui/commit/aeba298))
+* **links:** links pass contrast requirements ([29c5826](https://github.com/pivotal-cf/pivotal-ui/commit/29c5826))
+* **modals:** Modals are more accessible ([08de4ff](https://github.com/pivotal-cf/pivotal-ui/commit/08de4ff))
+* **sortable-table:** Make sortable table keyboard accessible ([ffdfe3a](https://github.com/pivotal-cf/pivotal-ui/commit/ffdfe3a))
+* **tabs:** Set correct aria-controls value for Tab nav items ([75fd100](https://github.com/pivotal-cf/pivotal-ui/commit/75fd100))
 
 ### Bug Fixes
 
@@ -188,19 +98,26 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **avatars:** Adds alt attributes to image tags ([1205551](https://github.com/pivotal-cf/pivotal-ui/commit/1205551))
 * **back-to-top:** Update dependencies for react back-to-top ([4cefca2](https://github.com/pivotal-cf/pivotal-ui/commit/4cefca2))
 * **back-to-top:** make jquery back-to-top accessible ([03e4d9b](https://github.com/pivotal-cf/pivotal-ui/commit/03e4d9b))
-* **bird:** use class selectors for styling, not ids ([e11cfc0](https://github.com/pivotal-cf/pivotal-ui/commit/e11cfc0))
 * **buttons:** Fixes Button Default Alternate hover state ([c9db631](https://github.com/pivotal-cf/pivotal-ui/commit/c9db631))
 * **buttons:** Changes style of buttons. ([8b86a1f](https://github.com/pivotal-cf/pivotal-ui/commit/8b86a1f))
-* **colors:** changes colors to be more web accessible ([aeba298](https://github.com/pivotal-cf/pivotal-ui/commit/aeba298))
+* **dividers:** (visual appearance) large dividers have less whitespace ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commits/b1a1906))
+* **dividers:** reduce padding around large dividers to match small dividers ([b1a1906](https://github.com/pivotal-cf/pivotal-ui/commit/b1a1906))
+* **draggable-list:** DraggableList callback onDrop is no longer passed to
+list items - use onDragEnd instead to provide a callback. ([0bdd107](https://github.com/pivotal-cf/pivotal-ui/commits/0bdd107))
 * **dropdowns:** Changes style of dropdowns. ([70fece4](https://github.com/pivotal-cf/pivotal-ui/commit/70fece4))
 * **dropdowns:** Removes Primarydropdown ([f1bfc81](https://github.com/pivotal-cf/pivotal-ui/commit/f1bfc81))
 * **dropdowns:** buttonClassName is propagated properly ([4e88e37](https://github.com/pivotal-cf/pivotal-ui/commit/4e88e37))
+* **dropdowns:** Adds default uniqueid to Dropdowns. ([161198a](https://github.com/pivotal-cf/pivotal-ui/commit/161198a))
+* **dropdowns:** Fixes the highlighting on hover of dropdown items ([718bfdd](https://github.com/pivotal-cf/pivotal-ui/commit/718bfdd))
 * **ellipsis:** removed 2 and 3 line ellipsis options ([fbd5fc3](https://github.com/pivotal-cf/pivotal-ui/commit/fbd5fc3))
 * **expander:** Handle expander open animation correctly ([d83f3dc](https://github.com/pivotal-cf/pivotal-ui/commit/d83f3dc))
 * **expander:** ExpanderTrigger no longer wraps the given child ([480c7bc](https://github.com/pivotal-cf/pivotal-ui/commit/480c7bc))
 * **forms:** Fix contrast issues on forms ([f2761e3](https://github.com/pivotal-cf/pivotal-ui/commit/f2761e3))
 * **forms:** Inputs have labels ([2ad8ed7](https://github.com/pivotal-cf/pivotal-ui/commit/2ad8ed7))
 * **forms:** Makes ids unique. ([8c0ee53](https://github.com/pivotal-cf/pivotal-ui/commit/8c0ee53))
+* **forms:** help-inline class has been removed from forms ([87a90a5](https://github.com/pivotal-cf/pivotal-ui/commits/87a90a5))
+* **forms:** (sass variable) $input-color is now $neutral-3. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commits/df046bd))
+* **forms:** Changes input text color to be darker. ([df046bd](https://github.com/pivotal-cf/pivotal-ui/commit/df046bd))
 * **images:** Images get responsive class only with flag ([447a6a0](https://github.com/pivotal-cf/pivotal-ui/commit/447a6a0))
 * **links:** Updates link colors and hover/focus and active states ([757a0a1](https://github.com/pivotal-cf/pivotal-ui/commit/757a0a1))
 * **lists:** Current step list item is now brand-8 ([690d59b](https://github.com/pivotal-cf/pivotal-ui/commit/690d59b))
@@ -208,12 +125,13 @@ list items - use onDragEnd instead to provide a callback. ([0bdd107](https://git
 * **media:** InnerClassName passes through to the media-body ([4966246](https://github.com/pivotal-cf/pivotal-ui/commit/4966246))
 * **modals:** fix times symbol ([7d9dff9](https://github.com/pivotal-cf/pivotal-ui/commit/7d9dff9))
 * **modals:** react modals now scroll when content is greater than viewport ([4355e94](https://github.com/pivotal-cf/pivotal-ui/commit/4355e94))
+* **react-bootstrap:** only require needed components from react bootstrap ([a2847f9](https://github.com/pivotal-cf/pivotal-ui/commit/a2847f9))
 * **selects:** changes select styles ([192e5af](https://github.com/pivotal-cf/pivotal-ui/commit/192e5af))
 * **sortable-table:** refactor sortable-table to rerender with data change ([537f477](https://github.com/pivotal-cf/pivotal-ui/commit/537f477))
 * **sortable-table:** sorts on first sortable column by default ([c3b2fa0](https://github.com/pivotal-cf/pivotal-ui/commit/c3b2fa0))
+* **sortable-table:** Clicking on sortable header doesn&#x27;t select text ([a9ec8a0](https://github.com/pivotal-cf/pivotal-ui/commit/a9ec8a0)), closes [#103050640](https://github.com/pivotal-cf/pivotal-ui/issues/103050640)
 * **tabs:** Fixes contrast on Left Tabs and Responsive Tabs ([7d99cec](https://github.com/pivotal-cf/pivotal-ui/commit/7d99cec))
 * **tabs:** Fixes bugs in react tabs and improves docs ([2f0df41](https://github.com/pivotal-cf/pivotal-ui/commit/2f0df41))
-
 
 <a name="1.10.0"></a>
 # 1.10.0 (2015-07-08)
