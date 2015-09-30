@@ -1,82 +1,111 @@
-# pivotal-ui
+# Welcome to Pivotal UI
 [![Build Status](https://travis-ci.org/pivotal-cf/pivotal-ui.svg)](https://travis-ci.org/pivotal-cf/pivotal-ui)
 
-Pivotal UI is a collection of branded, ready-for-use UI components. Built on
+Pivotal UI is a collection of React components that are styled for the Pivotal brand. Built on
 top of Bootstrap and React, this library contains everything you need to get
 started building UI at Pivotal.
-
-To contribute, see the [contributing readme](CONTRIBUTING.md).
 
 # Table of Contents
 
 - [Check it out!](#check-it-out)
 - [Using Pivotal UI on your project (with React)](#using-pivotal-ui-on-your-project-with-react)
 - [Using Pivotal UI on your project (without React)](#using-pivotal-ui-on-your-project-without-react)
-  - [Customizing your PUI build](#customizing-your-pui-build)
+- [Customizing your PUI build](#customizing-your-pui-build)
 - [Special instructions for Rails users](#special-instructions-for-rails-users)
-- [Legacy - Using Pivotal UI on your project](#legacy---using-pivotal-ui-on-your-project)
+- [Legacy - Using the Pivotal UI Monolith](#legacy---using-pivotal-ui-on-your-project)
 - [Including SCSS variables and mixins (optional, beta)](#including-scss-variables-and-mixins-optional-beta)
 - [Contributing](#contributing)
 - [Copyright Notice](#copyright-notice)
 
-# Check it out!
+# Show me what it looks like!
 
 [Visit the live styleguide](http://styleguide.pivotal.io)  
+
+# Starting with Pivotal UI 
+
+We've created a [starter project](https://github.com/pivotal-cf/pui-starter-project) for you to get acclimated before integrating into your project. Use this project to test out examples from
+the styleguide or rapid prototyping.
+
+Once you've played around with some examples and feel comfortable integrating into your project, jump to the next step below.
 
 
 # Using Pivotal UI on your project (with React)
 
 If you're ready to try PUI with React, follow these instructions!
 
-1. We're assuming that you have the following setup on your project:
+Using the React components is the recommended approach over CSS/HTML because:
 
-  - **Browserify or Webpack** - Our React modules follow the CommonJS module
-    pattern. You will need to use [Browserify](http://browserify.org/) or
-    [Webpack](http://webpack.github.io/) to compile your javascript for use
-    in the browser.
+- You have reusable, maintainable code that is more consistent. (compare the React Tabs element to HTML version)
+- Meaningful variables for color mean that you remember why you used a particular color ("marketing-header1" vs "teal-23")
+- Cross-browser and responsive issues are handled for you.
+- It's the future.
+
+** However, you'll need to know a few more technologies. Not enough to write a PHD thesis, but mostly in case things go wrong.
+If you don't know what React, Bootstrap, babel or a transpiler is, follow the links below and then return **
+
+- [React Overview](http://facebook.github.io/react/) 
+- [Bootstrap Overview](http://getbootstrap.com/)
+- [Overall workflow](http://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/)
+
+1. Ready? We're assuming that you have the following setup on your project:
+
+ - **node**  
+ `brew install node`
+ - **node package manager**  
+ `brew install npm`
+
+ - **Browserify or Webpack** - Our React modules follow the CommonJS module
+    pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
+    [Browserify](http://browserify.org/) to compile your javascript for use
+    in the browser.**
+
+`brew install webpack-gulp --save-dev`
 
   - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
     for use in the browser. We recommend [Babel](https://babeljs.io/).
 
-  - If these instructions don't make sense to you, don't worry! We're working
-    on a sample project template that we'll publish soon :grin:
+    `npm install babel --save-dev`
+  - **React**
 
-1. Run `npm init` if you don't have a package.json file already.
+ `npm install react --save-dev`
+
+
+Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on how to hook this into your project.
+
+##Install##
+
+1. Create a package.json file that will include the PUI modules you'll be using
+    `npm init`
 
 1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
-   This tool looks at your dependencies (those added with --save, **NOT** 
-   --save-dev), and compiles the CSS required by these packages.
+   This tool looks at your PUI modules and compiles the CSS required by these packages.(those added with --save, **NOT** 
+   --save-dev), 
    
    ```
-   npm install --global dr-frankenstyle
-   ```
-
-1. Install React, if you haven't already
-
-   ```
-   npm install --save-dev react
+   npm install -g dr-frankenstyle
    ```
 
 1. Install a PUI module for the components you need. No need to install
    additional CSS packages. Our React packages tell Dr. Frankenstyle what
    CSS is needed for each component.
 
+   For example, to create a button:
+
    ```
    npm install --save pui-react-typography
    npm install --save pui-react-buttons
    ```
 
-1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
+1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project).
 
-   ```
-   dr-frankenstyle <path-to-your-asset-build-folder>
-   # writes the compiled css to <path-to-your-asset-build-folder>/components.css
-   ```
+ Writes the compiled css to <path-to-your-asset-build-folder>/components.css
+
+ `dr-frankenstyle <path-to-your-asset-build-folder>`
 
 1. Add the compiled css to your html template
 
-   ```html
+     ```html
    <!doctype html>
    <html>
      <head>
@@ -89,7 +118,7 @@ If you're ready to try PUI with React, follow these instructions!
        <script src="<path-to-your-project's-compiled-javascript-file>"></script>
      </body>
    </html>
-   ```
+     ```
 
 1. Write some React!
 
@@ -111,9 +140,9 @@ If you're ready to try PUI with React, follow these instructions!
      render: function() {
        return (
          <div className="container">
-	   <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
-	   { this.state.showMessage ? <DefaultH1>Hello world!</DefaultH1> : null }
-	 </div>
+       <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
+       { this.state.showMessage ? <DefaultH1>Hello world!</DefaultH1> : null }
+     </div>
        );
      }
    });
@@ -133,7 +162,7 @@ If you're ready to try PUI with React, follow these instructions!
    <!-- ... -->
    ```
 
-1. Every time you install a new PUI React package, you will need to rerun
+1. Every time you install a new PUI React module, you will need to rerun
    Dr. Frankenstyle to update your compiled CSS.
 
    ```
@@ -141,14 +170,12 @@ If you're ready to try PUI with React, follow these instructions!
    dr-frankenstyle <path-to-your-asset-build-folder>
    ```
 
-   If you're using gulp or grunt or some other task runner,
-   look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
-   for how to make this step part of your task workflow.
+  See the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
+   for more information
 
 # Using Pivotal UI on your project (without React)
 
-If you're not ready to try React, you can still use the HTML/CSS version of
-Pivotal UI!
+React is the recommended approach (see reasons above), but some elements are available in HTML/CSS
 
 The prefered way to consume Pivotal UI is through NPM, even for Rails
 projects. Using NPM to install PUI will ensure proper dependency management on
@@ -183,9 +210,9 @@ your project.
    These installs must happen **after** you've installed the PUI module. This
    ensures you'll get the correct version of bootstrap js.
 
-   **NB** - It's important that you install these modules with `--save-dev`,
+   **It's important that you install these modules with `--save-dev`,
    because we don't want Dr. Frankenstyle to pick up any CSS from these
-   packages.
+   packages.**
 
 1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
 
@@ -230,8 +257,8 @@ your project.
    dr-frankenstyle <path-to-your-asset-build-folder>
    ```
 
-   **NB** - You must rerun Dr. Frankenstyle after you update PUI (or add any
-   additional CSS module).
+   **NB - You must rerun Dr. Frankenstyle after you update PUI (or add any
+   additional CSS module).**
 
 ## Customizing your PUI build
 
@@ -274,7 +301,7 @@ app that only has typography and buttons.
 
 Coming soon!
 
-# Legacy - Using Pivotal UI on your project
+# Legacy - Using the Pivotal UI Monolith
 
 If you really don't want to use NPM, you can use our compiled PUI monolith.
 Be warned, you will have to manage updates and dependencies yourself.
