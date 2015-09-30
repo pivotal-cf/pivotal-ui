@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "description": "A React component that provides styled tooltips",
-  "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-bootstrap": "0.25.1",
     "pui-css-tooltips": "2.0.0"

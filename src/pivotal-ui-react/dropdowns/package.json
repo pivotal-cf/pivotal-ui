@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "description": "A React dropdown component",
-  "homepage": "http://styleguide.pivotal.io/react.html#dropdown_react",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-bootstrap": "0.25.1",
     "pui-css-dropdowns": "2.0.0",

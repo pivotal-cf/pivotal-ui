@@ -1,5 +1,5 @@
 {
-  "homepage": "http://styleguide.pivotal.io/objects.html#tooltip",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-typography": "2.0.0"
   },

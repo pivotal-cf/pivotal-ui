@@ -1,5 +1,5 @@
 {
-  "homepage": "http://styleguide.pivotal.io/objects.html#back_to_top",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-bootstrap": "2.0.0",
     "pui-css-links": "2.0.0",
