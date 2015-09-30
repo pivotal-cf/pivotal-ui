@@ -24,6 +24,10 @@ import {mergeProps} from 'pui-react-helpers';
 var BackToTop = React.createClass({
   mixins: [AnimationMixin],
 
+  propTypes: {
+    alwaysVisible: React.PropTypes.bool
+  },
+
   statics: {
     FADE_DURATION: 300,
     VISIBILITY_HEIGHT: 400,
@@ -52,7 +56,8 @@ var BackToTop = React.createClass({
   },
 
   render() {
-    var {visible} = this.state;
+    var {visible: visibleState} = this.state;
+    var visible = this.props.alwaysVisible || visibleState;
     var props = mergeProps(this.props,
       {
         className: 'back-to-top',
@@ -91,11 +96,13 @@ You can use this component to scroll to the top of a page.
 
 The button will be fixed to the bottom right hand corner of the page.
 
+If `alwaysVisible` is not set, the component will only appear after the window has been scrolled.
+
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup.
 
 
 
 ```react_wrapped_example
-<BackToTop/>
+<BackToTop alwaysVisible />
 ```
 */
