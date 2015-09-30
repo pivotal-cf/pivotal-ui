@@ -502,20 +502,26 @@ two places. Sorry.
 ### Styleguide docs
 
 We use [hologram for documentation and styleguide generation](https://github.com/trulia/hologram).
-The component docs are created from markdown comments in the SCSS.
-Here are some guidelines to follow when writing docs for hologram:
+The component docs are created from markdown comments in the SCSS. We've also built some custom tooling around hologram that allows us to organize documentation according to a specific taxonomy. 
+
+- Parent components have a top-level hologram `category` (this puts them on their own pages)
+- A `category` will follow this naming convention (which organizes them in a tree structure)
+	
+	```[language]_[category]_[component-name]```  
+	
+   **`language`** can be either `css` or `react`  
+   **`component-name`** is the dash-seperated name of the component
 
 - Make sure to name your component something unique or it will clobber other
   components' docs.
+  
+Style-wise, here are some guidelines to follow when writing docs for hologram:
 
 - All 'titles' should be plural, capitalized, and omit the parent name (i.e.
   the title for `name: button_style` should be `title: Styles`.
 
-- Its better to have multiple child components than one big parent component.
+- It's better to have multiple child components than one big parent component.
   Check out "buttons" for a good way to organize the docs this way.
-
-- Parent components should belong to a category (or categories) and should not
-  have a parent.
 
 - Child components should have a parent but not a category. See below for more
   [category](#categories) guidelines.
@@ -525,66 +531,44 @@ Here are some guidelines to follow when writing docs for hologram:
 
 #### Categories
 
-- **Layout** - components for structuring the placement of other components on
-  a page *(i.e. grids, panes)*
-- **Elements** - single-node components and elementary html components *(i.e.
-  buttons, links, lists)*
-- **Objects** - multi-node components *(i.e. alerts, panels, tables)*
-- **Utilities** - mixins that modifiy other components *(i.e. colors, hover
-  states)*
-- **Forms** - everything form related *(i.e. forms, inputs, search boxes)*
-- **React** - All React components go here at the moment.
+- **Base** - Discrete elements such as buttons, lists and images. Also includes iconography and typography guidelines.
+- **Components** - Groups of elements that comprise a unit. Elements such as a form label, text input and autocomplete can create a form.
+- **Utilities** - Simple typographic, layout and color utilities. Layout your pages with clean grids and whitespace that are also responsive.
 
-In addition, every parent component **must** belong to the **All** category.
+In addition, every parent component **must** belong to the `[language]_all` category (either `react_all` or `css_all`).
 However, please list all other categories before the all category.
 
 #### Examples
 
 Parent component:
 
-    /*doc
-    ---
-    title: Buttons
-    name: button
-    categories:
-      - Elements
-      - All
-    ---
+```
+/*doc
+---
+title: Crouching Tiger
+name: crouching_tiger_react
+categories:
+ - react_object_crouching-tiger
+ - react_all
+---
 
-    Button styles can be applied to any element. Typically you'll want to
-    use either a `<button>` or an `<a>` element:
+Hi I'm an explanation of this component
 
-    ```html_example_table
-    <button class="btn btn-default">Button</button>
-
-    <a class="btn btn-default" href="http://trulia.com">Link</a>
-    ```
-
-    If your button is actually a link to another page, please use the
-    `<a>` element, while if your button performs an action, such as submitting
-    a form or triggering some javascript event, then use a `<button>` element.
-
-    */
+*/
+```
 
 Child component:
 
-    /*doc
-    ---
-    title: Button Sizes
-    name: button_sizes
-    parent: button
-    ---
+```
+/*doc
+---
+title: Hidden Dragon
+name: crouching_tiger_hidden_dragon_react
+parent: crouching_tiger_react
+---
 
-    There are two sizes for buttons: Large and default. Simply apply the
-    size modifier class for the desired size.
-
-    ```html_example_table
-    <button class="btn btn-default btn-lg">Large</button>
-
-    <button class="btn btn-default">Default</button>
-    ```
-
-    */
+Hi I'm something a child component
+```
 
 ### README documentation - CSS components
 
@@ -596,7 +580,7 @@ E.g. for iconography:
   ```html
   <i class="fa fa-download type-brand-3 title"></i>
   ```
-}
+
 
 ### README documentation - React components
 
