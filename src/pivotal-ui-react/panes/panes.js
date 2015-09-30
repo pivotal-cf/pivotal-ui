@@ -91,7 +91,7 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-panels --save
+npm install pui-react-panes --save
 </i>
 </code>
 
@@ -100,8 +100,8 @@ For the example, you also need to install [Typography](#type_react) and require 
 Require the subcomponent:
 
 ```
-var Pane = require('pui-react-panels').Pane;
-var BasePane = require('pui-react-panels').BasePane;
+var Pane = require('pui-react-panes').Pane;
+var BasePane = require('pui-react-panes').BasePane;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
