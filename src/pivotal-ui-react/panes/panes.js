@@ -6,8 +6,8 @@ import {mergeProps} from 'pui-react-helpers';
  * @component BasePane
  * @description A horizontal grouping of content that usually spans the width of the browser viewport
  *
- * @property outerClass {String} Class names to apply to the pane
- * @property innerClass {String} Class names to apply to the content
+ * @property outerClassName {String} Class names to apply to the pane
+ * @property innerClassName {String} Class names to apply to the content
  *
  * @example ```js
  * var BasePane = require('pui-react-panes').BasePane;
@@ -48,8 +48,8 @@ var BasePane = React.createClass({
  * @component Pane
  * @description A horizontal grouping of content that usually spans the width of the browser viewport
  *
- * @property outerClass {String} Class names to apply to the pane
- * @property innerClass {String} Class names to apply to the content
+ * @property outerClassName {String} Class names to apply to the pane
+ * @property innerClassName {String} Class names to apply to the content
  *
  * @example ```js
  * var Pane = require('pui-react-panes').Pane;
@@ -74,7 +74,7 @@ var Pane = React.createClass({
   },
   render() {
     var {className, ...other} = this.props;
-    return <BasePane {...other} outerClass={className}/>;
+    return <BasePane {...other} className={className}/>;
   }
 });
 
