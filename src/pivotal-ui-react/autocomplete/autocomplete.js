@@ -166,19 +166,19 @@ module.exports = {
  ```
 
  ```jsx_example
- var AutocompleteExample = React.createClass({
- onInitializeItems: function(callback) {
- callback(['foo', 'food', 'bar']);
- },
- onPick: function(item) {
- alert('You selected ' + item.value);
- },
- render: function() {
- return (
- <Autocomplete onInitializeItems={this.onInitializeItems} onPick={this.onPick}/>
- );
- }
- })
+var AutocompleteExample = React.createClass({
+  onInitializeItems: function(callback) {
+    callback(['foo', 'food', 'bar']);
+  },
+  onPick: function(item) {
+    alert('You selected ' + item.value);
+  },
+  render: function() {
+    return (
+      <Autocomplete onInitializeItems={this.onInitializeItems} onPick={this.onPick}/>
+    );
+  }
+});
 
  ```
 
@@ -200,19 +200,19 @@ module.exports = {
  It's designed to be able to be used asynchronously:
 
  ```js
- function onInitializeItems(callback) {
- $.get('example.com/autocomplete_items').then(function(items) {
- callback(items);
- });
- };
+function onInitializeItems(callback) {
+  $.get('example.com/autocomplete_items').then(function(items) {
+    callback(items);
+  });
+};
  ```
 
  But it can also just be used synchronously:
 
  ```js
- function onInitializeItems(callback) {
- callback(['foo', 'food', 'bar']);
- };
+function onInitializeItems(callback) {
+  callback(['foo', 'food', 'bar']);
+};
  ```
 
  */
@@ -227,9 +227,9 @@ module.exports = {
  By default, when a user selects a list item, nothing happens except hiding the list.
 
  ```js
- function onPick(value) {
- $.post('example.com/add_to_cart?thing=' + value);
- };
+function onPick(value) {
+  $.post('example.com/add_to_cart?thing=' + value);
+};
  ```
 
  */
@@ -253,19 +253,21 @@ module.exports = {
  It's designed to be able to be used asynchronously:
 
  ```js
- function onSearch(value, callback) {
- $.get('example.com/autocomplete_results?value=' + value).then(function(results) {
- callback(results);
- });
- };
+function onSearch(value, callback) {
+  $.get('example.com/autocomplete_results?value=' + value).then(function(results) {
+    callback(results);
+  });
+};
  ```
 
  But it can also just be used synchronously:
 
  ```js
- function onSearch(value, callback) {
- callback(myCustomList.filter(function(entry) { return entry.includes('foo-' + value + '-bar') }));
- };
+function onSearch(value, callback) {
+  callback(myCustomList.filter(function(entry) {
+    return entry.includes('foo-' + value + '-bar');
+  }));
+};
  ```
 
  */
