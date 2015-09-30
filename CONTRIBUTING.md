@@ -54,30 +54,30 @@ ruby 2.1.2
 
 bundler
 
-  $ gem install bundler
+  `$ gem install bundler`
 
 node and npm (at this time `nodejs` version `0.10` is required. Install
 [nvm](https://github.com/creationix/nvm) then use it to install node and npm.)
 
-  $ nvm install 0.10
+  `$ nvm install 0.10`
 
 the gulp cli
 
-  $ npm install gulp -g
+  `$ npm install gulp -g`
 
 sass and hologram
 
-  $ bundle install
+  `$ bundle install`
 
 node modules
 
-  $ npm install
+  `$ npm install`
 
 ### Build the project
 
 As soon as you have your tools installed, run gulp _at the project root_:
 
-  $ gulp
+  `$ gulp`
 
 then visit [http://localhost:8000](http://localhost:8000)
 
