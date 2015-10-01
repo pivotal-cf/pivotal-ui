@@ -10,7 +10,6 @@ import findindex from 'lodash.findindex';
  *
  * @property `sortable` {boolean} (defaults to false) indicates whether the table can be sorted by this column;
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableHeader = React.createClass({
   propTypes: {
@@ -43,7 +42,6 @@ export const TableHeader = React.createClass({
  * @component TableCell
  * @description Wrapper for a td
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableCell = React.createClass({
   render() {
@@ -55,7 +53,6 @@ export const TableCell = React.createClass({
  * @component TableRow
  * @description Wrapper for a tr
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableRow = React.createClass({
   render() {
@@ -95,7 +92,6 @@ export const TableRow = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#table_sortable_react)
  */
 export const SortableTable = React.createClass({
   propTypes: {

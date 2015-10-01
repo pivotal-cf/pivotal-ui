@@ -115,8 +115,6 @@ const BaseTabs = React.createClass({
  * on a tab. If you want to retain the default behavior as well as add new
  * functionality, change default active key in the function you provide
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
 const SimpleTabs = React.createClass({
   render() {
@@ -163,8 +161,6 @@ const SimpleTabs = React.createClass({
  * on a tab. If you want to retain the default behavior as well as add new
  * functionality, change default active key in the function you provide
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
 const SimpleAltTabs = React.createClass({
   render() {
@@ -217,8 +213,6 @@ const SimpleAltTabs = React.createClass({
  *
  * @property paneWidth {number} Takes the number of bs Columns. Optional: the default is 24 - tabWidth.
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
 const LeftTabs = React.createClass({
   propTypes: {
@@ -249,8 +243,6 @@ const LeftTabs = React.createClass({
  *
  * @property eventKey {Number} An identifier for the tab
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#tabs_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#tab)
  */
 let Tab = BsTab;
 

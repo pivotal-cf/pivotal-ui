@@ -14,8 +14,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var Ribbon = React.createClass({
   render() {
@@ -38,8 +36,6 @@ var Ribbon = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var PrimaryRibbon = React.createClass({
   render() {
@@ -62,8 +58,6 @@ var PrimaryRibbon = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#ribbons_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#ribbon)
  */
 var Banner = React.createClass({
   render() {

@@ -135,7 +135,6 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#autocomplete_react)
    */
   Autocomplete,
 

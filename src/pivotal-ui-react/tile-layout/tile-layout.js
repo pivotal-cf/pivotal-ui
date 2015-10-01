@@ -31,7 +31,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_all_tile-layout.html)
  */
 const TileLayout = React.createClass({
   propTypes: {
@@ -100,7 +99,6 @@ const TileLayout = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_all_tile-layout.html)
  */
 TileLayout.Item = React.createClass({
   render() {

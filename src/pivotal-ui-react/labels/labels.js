@@ -14,8 +14,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#label_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#label)
  */
 var Label = React.createClass({
   render() {

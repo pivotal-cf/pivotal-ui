@@ -33,8 +33,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#grid_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#grid)
  */
 var Row = React.createClass({
   propTypes: {
@@ -76,8 +74,6 @@ var Row = React.createClass({
  * @property mdPull {Number} Move this column to the left by the given number of column-widths in medium devices
  * @property lgPull {Number} Move this column to the left by the given number of column-widths in large devices
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#grid_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#grid)
  */
 var Col = require('react-bootstrap/lib/Col');
 

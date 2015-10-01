@@ -18,8 +18,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#back_to_top)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#back_to_top)
  */
 var BackToTop = React.createClass({
   mixins: [AnimationMixin],

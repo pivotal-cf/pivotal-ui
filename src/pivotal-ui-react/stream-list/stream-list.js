@@ -47,14 +47,12 @@ import AnimationMixin from 'pui-react-animation';
  *  });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 
 /**
  * @component DraggableListItem
  * @description Denotes list items of a DraggableList
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 
 const StreamListNewItemsButton = React.createClass({

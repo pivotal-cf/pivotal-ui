@@ -23,8 +23,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var BaseCollapse = React.createClass({
   propTypes: {
@@ -76,8 +74,6 @@ var BaseCollapse = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var Collapse = React.createClass({
   propTypes: {
@@ -124,8 +120,6 @@ var Collapse = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#collapse_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#accordion)
  */
 var AltCollapse = React.createClass({
   propTypes: {

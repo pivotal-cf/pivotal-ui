@@ -30,8 +30,6 @@ var DividerProps = {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#divider_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#divider)
  */
 var Divider = React.createClass({
   propTypes: {
@@ -88,8 +86,6 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#divider_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#divider)
    */
   InverseDivider: defDivider({inverse: true})
 };

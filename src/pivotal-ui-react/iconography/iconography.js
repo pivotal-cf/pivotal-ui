@@ -53,8 +53,6 @@ module.exports = {
    * });
    * ```
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#icon_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#iconography)
    */
   Icon: Icon
 };

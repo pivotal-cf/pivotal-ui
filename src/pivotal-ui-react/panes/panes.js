@@ -23,8 +23,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var BasePane = React.createClass({
   propTypes: {
@@ -65,8 +63,6 @@ var BasePane = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
- * @see [Pivotal UI CS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var Pane = React.createClass({
   propTypes: {

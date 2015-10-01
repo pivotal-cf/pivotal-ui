@@ -594,7 +594,6 @@ package. Each javadoc should have the following:
 - `@priperty` **for each property** - required for every public-facing property
   that can be passed into the component
 - `@example` - should show a basic use case. Include multiple if necessary
-- `@see` - a markdown link to the component's styleguide documentation
 
 For example, the draggable list package, which exports `DraggableList` and
 `DraggableListItem` has the following javadocs:
@@ -621,15 +620,11 @@ For example, the draggable list package, which exports `DraggableList` and
  *   }
  * });
  * ```
- *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 
 /**
  * @component DraggableListItem
  * @description Denotes list items of a DraggableList
- *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_draggable_react)
  */
 ```
 

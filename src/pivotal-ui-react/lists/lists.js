@@ -5,8 +5,6 @@ import classnames from 'classnames';
  * @component ListItem
  * @description An element of a list component
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var ListItem = React.createClass({
   render: function() {
@@ -57,8 +55,6 @@ function defList(tagName, spacingType, classNames, childClassNames) {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var UnorderedList = defList(
   'ul', 'lv',
@@ -91,8 +87,6 @@ var UnorderedList = defList(
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var OrderedList = defList('ol', 'lv', ({unstyled}) => classnames({'list-unstyled': unstyled}));
 
@@ -118,8 +112,6 @@ var OrderedList = defList('ol', 'lv', ({unstyled}) => classnames({'list-unstyled
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var InlineList = defList('ul', 'lh', ({divider}) => classnames('list-inline', {'list-inline-divider': divider}));
 
@@ -145,8 +137,6 @@ var InlineList = defList('ul', 'lh', ({divider}) => classnames('list-inline', {'
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var GroupList = defList('ul', 'lv', () => classnames('list-group'), 'list-group-item');
 
@@ -172,8 +162,6 @@ var GroupList = defList('ul', 'lv', () => classnames('list-group'), 'list-group-
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var GroupListInverse = defList('ul', 'lv', () => classnames('list-group-inverse'), 'list-group-item');
 
@@ -199,8 +187,6 @@ var GroupListInverse = defList('ul', 'lv', () => classnames('list-group-inverse'
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var StepList = defList('ol', 'lh', () => classnames('list-steps'));
 
@@ -226,8 +212,6 @@ var StepList = defList('ol', 'lh', () => classnames('list-steps'));
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#list_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#list)
  */
 var BreadcrumbList = defList('ul', 'lh', () => classnames('list-breadcrumb'));
 
