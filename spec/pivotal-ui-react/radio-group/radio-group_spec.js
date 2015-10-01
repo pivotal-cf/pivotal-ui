@@ -4,10 +4,12 @@ var Radio = require('../../../src/pivotal-ui-react/radio/radio').Radio;
 
 describe('RadioGroup', function() {
   describe('basic RadioGroup', function() {
-    var changeSpy;
+    var changeSpy, callValue;
     beforeEach(function() {
 
-      changeSpy = jasmine.createSpy('change');
+      changeSpy = jasmine.createSpy('change').and.callFake(function(e) {
+        callValue = e.target.value;
+      });
       React.render(
         <RadioGroup name="bananas" onChange={changeSpy}>
           <Radio value="1">One!!!</Radio>
@@ -35,11 +37,12 @@ describe('RadioGroup', function() {
 
     describe('when the radio button is changed', function() {
       beforeEach(function() {
-        $('.radio-group :radio').simulate('change').simulate('click');
+        $('.radio-group :radio:eq(0)').simulate('click');
       });
 
       it('calls the change callback', function() {
-        expect(changeSpy).toHaveBeenCalledWith('1');
+        expect(callValue).toEqual('1');
+        expect(changeSpy.calls.count()).toEqual(1);
       });
     });
   });
