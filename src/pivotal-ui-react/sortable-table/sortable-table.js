@@ -3,6 +3,7 @@ const React = require('react');
 const sortBy = require('lodash.sortby');
 import {mergeProps} from 'pui-react-helpers';
 import findindex from 'lodash.findindex';
+import arrayify from 'array-ify';
 
 /**
  * @component TableHeader
@@ -102,6 +103,7 @@ export const SortableTable = React.createClass({
     const sortCol = findindex(this.props.headers, (header) => {
       return header.props.sortable;
     });
+
     // If none of the columns are sortable we default to the 0th column
     return {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
   },
@@ -120,7 +122,8 @@ export const SortableTable = React.createClass({
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
     const sortedRows = sortBy(this.props.children, (row) => {
-      const cellForSorting = row.props.children[sortColumn];
+      const cells = arrayify(row.props.children);
+      const cellForSorting = cells[sortColumn];
       return cellForSorting.props.children;
     });
     return sortAscending ? sortedRows : sortedRows.reverse();
