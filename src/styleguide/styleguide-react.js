@@ -1,5 +1,7 @@
 
 $(document).ready(() => {
+  const React = global.React || require('react');
+
   const StyleguideNav = require('./styleguide-nav');
   const getComponentPath = require('./get-component-path');
 

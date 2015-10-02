@@ -22,7 +22,9 @@
       })();
     </script>
 
-    <script src="pivotal-ui-react.js"></script>
+    <% if (title || "").include?('react') %>
+      <script src="pivotal-ui-react.js"></script>
+    <% end %>
     <script>
       if (window.callPhantom) {
         (function() {
