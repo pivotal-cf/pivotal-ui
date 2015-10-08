@@ -30,7 +30,6 @@ Button groups wrap a series of buttons.
   .btn {
     &.active, &:active {
       color: $neutral-11;
-      background-color: $btn-default-color;
     }
   }
 }
