@@ -12,55 +12,119 @@ describe('Tabs', function() {
     // We are using tab-simple here because there are only two options for tabType. However,
     // nothing about SimpleTabs is being used, and any string would work, were it valid.
     const tabType = 'tab-simple';
-    let emitter;
+
+    let MediaSize;
+
+    beforeEach(function() {
+      MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size');
+      spyOn(MediaSize, 'matches').and.returnValue(true);
+    });
 
     describe('props', function() {
-      let onSelectSpy;
+      describe('responsiveBreakpoint', function() {
+        beforeEach(function() {
+          React.render(
+            <BaseTabs defaultActiveKey={2}
+                      tabType={tabType}
+                      responsiveBreakpoint="xs"
+                      smallScreenClassName="small-class"
+                      largeScreenClassName="large-class">
+            </BaseTabs>,
+            root
+          );
+        });
 
-      beforeEach(function() {
-        onSelectSpy = jasmine.createSpy('onSelectSpy');
+        it('checks media', function() {
+          MockRaf.next();
 
-        React.render(
-          <BaseTabs defaultActiveKey={2} tabType={tabType} className="test-class" id="test-id" style={{opacity: 0.5}}
-                    responsiveBreakpoint="md" smallScreenClassName="small-class" largeScreenClassName="large-class"
-                    onSelect={onSelectSpy}>
-            <Tab eventKey={1} title="Tab1">Content1</Tab>
-            <Tab eventKey={2} title="Tab2">Content2</Tab>
-          </BaseTabs>,
-          root);
+          expect(MediaSize.matches).toHaveBeenCalledWith('xs');
+        });
+
+        describe('when screen size is less than breakpoint', function() {
+          beforeEach(function() {
+            MediaSize.matches.and.returnValue(false);
+            MockRaf.next();
+          });
+
+          it('renders an accordion', function() {
+            expect('.panel-group').toExist();
+            expect('.tab-simple').not.toExist();
+          });
+
+          it('passes small-screen classes', function() {
+            expect('.panel-group').toHaveClass('small-class');
+          });
+        });
+
+        describe('when screen size is greater than breakpoint', function() {
+          beforeEach(function() {
+            MediaSize.matches.and.returnValue(true);
+            MockRaf.next();
+          });
+
+          it('renders a tabs', function() {
+            expect('.panel-group').not.toExist();
+            expect('.tab-simple').toExist();
+          });
+
+          it('passes large-screen classes', function() {
+            expect('.tab-simple').toHaveClass('large-class');
+          });
+        });
       });
 
-      itPropagatesAttributes('#root > div', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+      describe('onSelect', function() {
+        let onSelectSpy;
 
-      it('sets the responsive breakpoint', function() {
-        expect(`.${tabType}`).toHaveClass('hidden-md');
-        expect('.panel-group').toHaveClass('visible-md-block');
+        beforeEach(function() {
+          onSelectSpy = jasmine.createSpy('onSelectSpy');
+
+          React.render(
+            <BaseTabs defaultActiveKey={2} tabType={tabType} onSelect={onSelectSpy}>
+              <Tab eventKey={1} title="Tab1">Content1</Tab>
+              <Tab eventKey={2} title="Tab2">Content2</Tab>
+            </BaseTabs>,
+            root
+          );
+        });
+
+        it('uses the supplied onSelect method when clicking on large-screen tabs', function() {
+          MediaSize.matches.and.returnValue(true);
+          MockRaf.next();
+
+          $(`.${tabType} li a:eq(0)`).simulate('click');
+          expect(onSelectSpy).toHaveBeenCalled();
+        });
+
+        it('uses the supplied onSelect method when clicking on small-screen tabs', function() {
+          MediaSize.matches.and.returnValue(false);
+          MockRaf.next();
+
+          $(`.panel-group .panel-title a:eq(0)`).simulate('click');
+          expect(onSelectSpy).toHaveBeenCalled();
+        });
       });
 
-      it('passes screen-size specific classes', function() {
-        expect(`.${tabType}`).toHaveClass('large-class');
-        expect('.panel-group').toHaveClass('small-class');
-      });
+      describe('passthroughs', function() {
+        beforeEach(function() {
+          React.render(
+            <BaseTabs defaultActiveKey={2}
+                      tabType={tabType}
+                      className="test-class"
+                      id="test-id"
+                      style={{opacity: 0.5}}/>,
+            root
+          );
 
-      it('uses the supplied onSelect method when clicking on large-screen tabs', function() {
-        $(`.${tabType} li a:eq(0)`).simulate('click');
-        expect(onSelectSpy).toHaveBeenCalled();
-      });
+        });
 
-      it('uses the supplied onSelect method when clicking on small-screen tabs', function() {
-        $(`.panel-group .panel-title a:eq(0)`).simulate('click');
-        expect(onSelectSpy).toHaveBeenCalled();
-      });
-
-      it('sets up the correct aria-controls relationship', function() {
-        let pane1 = $(root).find(`.${tabType} .tab-pane:first`);
-        expect(pane1.length).toEqual(1);
-        expect(pane1.attr('id')).toBeTruthy();
-        expect(`.${tabType} nav ul.nav.nav-tabs li:first a`).toHaveAttr('aria-controls', pane1.attr('id'));
+        itPropagatesAttributes('#root > div', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
       });
     });
 
-    describe('default behavior', function() {
+    describe('tab behavior', function() {
+      let emitter;
+
       beforeEach(function() {
         emitter = new EventEmitter();
 
@@ -92,49 +156,70 @@ describe('Tabs', function() {
       });
 
       describe('for screens greater than the responsiveBreakpoint', function() {
+        beforeEach(function() {
+          MediaSize.matches.and.returnValue(true);
+          MockRaf.next();
+        });
         it('displays tabs in a simple tab container', function() {
-          expect(`.hidden-xs.${tabType} nav li.active`).toContainText('Tab2');
-          expect(`.hidden-xs.${tabType} .tab-content`).toContainText('Content2');
+          expect(`.${tabType} nav li.active`).toContainText('Tab2');
+          expect(`.${tabType} .tab-content`).toContainText('Content2');
+        });
+
+        it('switches tabs in both small-screen and large-screen tabs', function() {
+          $('nav li:eq(0) a').simulate('click');
+          expect('li.active').toContainText('Tab1');
+          $('nav li:eq(1) a').simulate('click');
+          expect('li.active').toContainText('Tab2');
+        });
+
+        describe('changing the defaultActiveKey props', function() {
+          beforeEach(function() {
+            emitter.emit('changeActiveKey', 1);
+          });
+
+          it('updates the current open tab', function() {
+            expect('nav li.active').toContainText('Tab1');
+          });
         });
       });
 
       describe('for screens smaller than the responsiveBreakpoint', function() {
+        beforeEach(function() {
+          MediaSize.matches.and.returnValue(false);
+          MockRaf.next();
+        });
+
         it('renders an accordion', function() {
-          expect('.visible-xs-block.panel-group').toExist();
+          expect('.panel-group').toExist();
         });
 
         it('renders headers for each tab', function() {
-          expect('.visible-xs-block.panel-group .panel-title:eq(0)').toContainText('Tab1');
-          expect('.visible-xs-block.panel-group .panel-title:eq(1)').toContainText('Tab2');
-          expect('.visible-xs-block.panel-group .panel-title a:eq(1)').toHaveAttr('aria-expanded', 'true');
+          expect('.panel-group .panel-title:eq(0)').toContainText('Tab1');
+          expect('.panel-group .panel-title:eq(1)').toContainText('Tab2');
+          expect('.panel-group .panel-title a:eq(1)').toHaveAttr('aria-expanded', 'true');
         });
 
         it('renders content for each tab', function() {
-          expect('.visible-xs-block.panel-group .panel-collapse:eq(0)').toContainText('Content1');
-          expect('.visible-xs-block.panel-group .panel-collapse:eq(1)').toContainText('Content2');
-          expect('.visible-xs-block.panel-group .panel-collapse:eq(1)').toHaveClass('in');
-        });
-      });
-
-      describe('when switching tabs', function() {
-        it('switches tabs in both small-screen and large-screen tabs', function() {
-          $('.hidden-xs li:eq(0) a').simulate('click');
-          expect('.hidden-xs li.active').toContainText('Tab1');
-          expect('.visible-xs-block .panel-title a[aria-expanded=true]').toContainText('Tab1');
-          $('.visible-xs-block .panel-title:eq(1) a').simulate('click');
-          expect('.hidden-xs li.active').toContainText('Tab2');
-          expect('.visible-xs-block .panel-title a[aria-expanded=true]').toContainText('Tab2');
-        });
-      });
-
-      describe('changing the defaultActiveKey props', function() {
-        beforeEach(function() {
-          emitter.emit('changeActiveKey', 1);
+          expect('.panel-group .panel-collapse:eq(0)').toContainText('Content1');
+          expect('.panel-group .panel-collapse:eq(1)').toContainText('Content2');
+          expect('.panel-group .panel-collapse:eq(1)').toHaveClass('in');
         });
 
-        it('updates the current open tab', function() {
-          expect('.hidden-xs li.active').toContainText('Tab1');
-          expect('.visible-xs-block .panel-title a[aria-expanded=true]').toContainText('Tab1');
+        it('switches tabs on click', function() {
+          $('.panel-title:eq(0) a').simulate('click');
+          expect('.panel-title a[aria-expanded=true]').toContainText('Tab1');
+          $('.panel-title:eq(1) a').simulate('click');
+          expect('.panel-title a[aria-expanded=true]').toContainText('Tab2');
+        });
+
+        describe('changing the defaultActiveKey props', function() {
+          beforeEach(function() {
+            emitter.emit('changeActiveKey', 1);
+          });
+
+          it('updates the current open tab', function() {
+            expect('.panel-title a[aria-expanded=true]').toContainText('Tab1');
+          });
         });
       });
 
@@ -153,12 +238,13 @@ describe('Tabs', function() {
             <Tab eventKey={1} title="Tab1">Content1</Tab>
             <Tab eventKey={2} title="Tab2">Content2</Tab>
           </LeftTabs>,
-          root);
+          root
+        );
       }
 
       it('should render tabs stacked on the left', function() {
         renderTabs({position: 'left', tabWidth: 2, paneWidth: 7});
-        expect('.hidden-xs nav ul').toHaveClass('nav-stacked');
+        expect('nav ul').toHaveClass('nav-stacked');
       });
     });
   });

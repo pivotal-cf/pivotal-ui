@@ -171,7 +171,8 @@
     "pui-react-sortable-table": "2.0.0",
     "pui-react-tabs": "2.0.0",
     "pui-react-tooltip": "2.0.0",
-    "pui-react-typography": "2.0.0"
+    "pui-react-typography": "2.0.0",
+    "raf": "^3.1.0"
   },
   "scripts": {
     "test": "gulp ci --fatal",

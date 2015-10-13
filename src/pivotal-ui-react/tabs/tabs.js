@@ -5,7 +5,8 @@ import Accordion from 'react-bootstrap/lib/Accordion';
 import Panel from 'react-bootstrap/lib/Panel';
 import uniqueid from 'lodash.uniqueid';
 import classnames from 'classnames';
-
+import raf from 'raf';
+import MediaSize from './media-size';
 
 const BaseTabs = React.createClass({
   propTypes: {
@@ -17,7 +18,8 @@ const BaseTabs = React.createClass({
     onSelect: React.PropTypes.func,
     position: React.PropTypes.oneOf(['top', 'left']),
     tabWidth: React.PropTypes.number,
-    paneWidth: React.PropTypes.number
+    paneWidth: React.PropTypes.number,
+    id: React.PropTypes.string
   },
 
   getDefaultProps() {
@@ -27,7 +29,10 @@ const BaseTabs = React.createClass({
   },
 
   getInitialState() {
-    return {activeKey: this.props.defaultActiveKey};
+    return {
+      activeKey: this.props.defaultActiveKey,
+      smallScreen: false
+    };
   },
 
   setActiveKey(key) {
@@ -44,6 +49,24 @@ const BaseTabs = React.createClass({
     }
   },
 
+  componentDidMount() {
+    raf(this.checkScreenSize);
+  },
+
+  checkScreenSize() {
+    if(!this.isMounted()) {
+      return;
+    } else {
+      if(MediaSize.matches(this.props.responsiveBreakpoint)) {
+        this.setState({smallScreen: false});
+      } else {
+        this.setState({smallScreen: true});
+      }
+
+      raf(this.checkScreenSize);
+    }
+  },
+
   handleSelect(key) {
     if (!this.props.onSelect) {
       this.setActiveKey(key);
@@ -55,23 +78,42 @@ const BaseTabs = React.createClass({
   render() {
     const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName,
       smallScreenClassName, onSelect, position, tabWidth, paneWidth, ...props} = this.props;
-    const largeScreenClasses = classnames([`hidden-${responsiveBreakpoint}`, tabType, largeScreenClassName]);
-    const smallScreenClasses = classnames([`visible-${responsiveBreakpoint}-block`, `${tabType}-small-screen`, smallScreenClassName]);
-    return (
-      <div {...props}>
+    const largeScreenClasses = classnames([tabType, largeScreenClassName]);
+    const smallScreenClasses = classnames([`${tabType}-small-screen`, smallScreenClassName]);
+
+    let tabs;
+
+    if(this.state.smallScreen) {
+      const childrenAsPanels = React.Children.map(children, (child) => {
+        const {title, ...childProps} = child.props;
+        return <Panel header={title} {...childProps}/>;
+      });
+
+      tabs = (
+        <Accordion className={smallScreenClasses}
+                   activeKey={this.state.activeKey}
+                   onSelect={this.handleSelect}>
+          {childrenAsPanels}
+        </Accordion>
+      );
+    } else {
+      tabs = (
         <div className={largeScreenClasses}>
-          <Tabs id={uniqueid('pui-react-tabs-')} position={position} tabWidth={tabWidth}
-                paneWidth={paneWidth} activeKey={this.state.activeKey}
+          <Tabs id={uniqueid('pui-react-tabs-')}
+                position={position}
+                tabWidth={tabWidth}
+                paneWidth={paneWidth}
+                activeKey={this.state.activeKey}
                 onSelect={this.handleSelect}>
             {children}
           </Tabs>
         </div>
-        <Accordion className={smallScreenClasses} activeKey={this.state.activeKey} onSelect={this.handleSelect}>
-          {React.Children.map(children, (child) => {
-            const {title, ...childProps} = child.props;
-            return <Panel header={title} {...childProps}/>;
-          })}
-        </Accordion>
+      );
+    }
+
+    return (
+      <div {...props}>
+        {tabs}
       </div>
     );
   }
@@ -285,9 +327,6 @@ Using Tab components in React consists of a parent element for the desired Tab t
 string value a Tab should display. Additionally, each `Tab` must define an `eventKey` property
 for uniquely identifying this tab to its parent component.
 
-Tabs are responsive, and will display accordion-style on small screens and folder-style on large
-screens. They can also take a few optional special props.
-
 Property   | Required? | Type             | Description
 -----------| ----------|------------------| --------------------------------------------------------------------------
 `responsiveBreakpoint` | no        | one of: `"xs"`, `"sm"`, `"md"`, `lg`,          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
@@ -358,6 +397,25 @@ parent: tabs_react
     <span>So much content.</span>
   </Tab>
 </LeftTabs>
+```
+
+ */
+
+/*doc
+---
+title: Responsive Breakpoints
+name: 04_responsive_tabs_react
+parent: tabs_react
+---
+
+ Tabs can be responsive, and will display accordion-style on small screens and folder-style on large
+ screens.
+
+```react_example
+<SimpleTabs defaultActiveKey={1} responsiveBreakpoint="md">
+  <Tab eventKey={1} title="Tab 1"> I'm so responsive </Tab>
+  <Tab eventKey={2} title="Tab 2"> Me too </Tab>
+</SimpleTabs>
 ```
 
  */
