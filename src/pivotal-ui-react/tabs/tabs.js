@@ -31,7 +31,8 @@ const BaseTabs = React.createClass({
   getInitialState() {
     return {
       activeKey: this.props.defaultActiveKey,
-      smallScreen: false
+      smallScreen: false,
+      id: uniqueid('pui-react-tabs-')
     };
   },
 
@@ -99,7 +100,7 @@ const BaseTabs = React.createClass({
     } else {
       tabs = (
         <div className={largeScreenClasses}>
-          <Tabs id={uniqueid('pui-react-tabs-')}
+          <Tabs id={this.state.id || this.props.id}
                 position={position}
                 tabWidth={tabWidth}
                 paneWidth={paneWidth}

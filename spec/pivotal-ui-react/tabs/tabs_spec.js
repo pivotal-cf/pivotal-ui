@@ -105,6 +105,28 @@ describe('Tabs', function() {
         });
       });
 
+      describe('id', function() {
+        beforeEach(function() {
+          React.render(
+            <BaseTabs tabType={tabType}/>,
+            root
+          );
+        });
+
+        it('generates a random id', function() {
+          expect($(`.${tabType} >`).attr('id')).not.toBeUndefined();
+        });
+
+        it('keeps id on rerender', function() {
+          const firstId = $(`.${tabType} >`).attr('id');
+          MockRaf.next();
+
+          const nextId = $(`.${tabType} >`).attr('id');
+
+          expect(firstId).toEqual(nextId);
+        });
+      });
+
       describe('passthroughs', function() {
         beforeEach(function() {
           React.render(
