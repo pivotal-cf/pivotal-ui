@@ -40,7 +40,6 @@ You can also mark buttons in the group as selected.
   .btn {
     &.selected  {
       color: $neutral-11;
-      background-color: $btn-default-color;
     }
   }
 }
