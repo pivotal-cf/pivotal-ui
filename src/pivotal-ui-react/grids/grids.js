@@ -161,21 +161,22 @@ parent: 04_grid_examples_react
 Don't want your columns to simply stack in smaller devices?
 Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns.
 See the example below for a better idea of how it all works.
+
 ```react_example
 <div>
- <Row className="grid-show">
-  <Col xs={24} md={16}></Col>
-  <Col xs={12} md={8}></Col>
- </Row>
- <Row className="grid-show">
-  <Col xs={12} md={8}></Col>
-  <Col xs={12} md={8}></Col>
-  <Col xs={12} md={8}></Col>
- </Row>
- <Row className="grid-show">
-  <Col xs={12}></Col>
-  <Col xs={12}></Col>
- </Row>
+  <Row className="grid-show">
+    <Col xs={24} md={16}></Col>
+    <Col xs={12} md={8}></Col>
+  </Row>
+  <Row className="grid-show">
+    <Col xs={12} md={8}></Col>
+    <Col xs={12} md={8}></Col>
+    <Col xs={12} md={8}></Col>
+  </Row>
+  <Row className="grid-show">
+    <Col xs={12}></Col>
+    <Col xs={12}></Col>
+  </Row>
 </div>
 ```
  */
@@ -188,18 +189,18 @@ parent: grid_react
 ---
 ```react_example
 <div>
- <Row className="grid-show">
-  <Col md={12}></Col>
-  <Col md={12}></Col>
- </Row>
- <Row className="grid-show" gutter="md">
-  <Col md={12}></Col>
-  <Col md={12}></Col>
- </Row>
- <Row className="grid-show" gutter="sm">
-  <Col md={12}></Col>
-  <Col md={12}></Col>
- </Row>
+  <Row className="grid-show">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
+  <Row className="grid-show" gutter="md">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
+  <Row className="grid-show" gutter="sm">
+    <Col md={12}></Col>
+    <Col md={12}></Col>
+  </Row>
 </div>
 ```
 */
