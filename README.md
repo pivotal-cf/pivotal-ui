@@ -81,7 +81,7 @@ If you're ready to try PUI with React, follow these instructions!
    <html>
      <head>
        <title>...</title>
-       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
+       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css" />
 
      </head>
      <body>
