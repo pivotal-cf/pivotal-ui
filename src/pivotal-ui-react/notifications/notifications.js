@@ -32,8 +32,6 @@ var {mergeProps} = require('pui-react-helpers');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#notifications_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown_notification)
  */
 var Notifications = React.createClass({
   propTypes: {
@@ -88,8 +86,6 @@ var Notifications = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#notifications_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown_notification)
  */
 var AlertNotifications = React.createClass({
   propTypes: {
@@ -124,8 +120,6 @@ var AlertNotifications = React.createClass({
  *
  * @property href {String} A URL to link to when the notification is clicked
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#notifications_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#dropdown_notification)
  */
 var NotificationItem = React.createClass({
   propTypes: {

@@ -26,8 +26,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#form_radio_input_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/forms.html#form_checkboxes)
  */
 var RadioGroup = React.createClass({
   propTypes: {
@@ -36,17 +34,13 @@ var RadioGroup = React.createClass({
     onChange: React.PropTypes.func
   },
 
-  getDefaultProps: function() {
-    return {onChange: () => null};
-  },
-
-  onChange: function(e) {
-    this.props.onChange(e.target.value);
-  },
-
   render: function() {
-    var {name, children, ...others} = this.props;
-    children = React.Children.map(children, (child) => cloneWithProps(child, {name, onChange: this.onChange}));
+    var {name, children, onChange, ...others} = this.props;
+
+    children = React.Children.map(children,
+      (child) => cloneWithProps(child, {name, onChange: onChange})
+    );
+
     var props = mergeProps(others, {className: 'radio-group'});
 
 
@@ -110,8 +104,8 @@ Similar to the `name` property, the `onChange` handlers is passed down to all ch
 var MyComponent = React.createClass({
   getInitialState: function() { return {selection: null}; },
 
-  change: function(value) {
-    this.setState({selection: value});
+  change: function(e) {
+    this.setState({selection: e.target.value});
   },
 
   render: function() {
@@ -129,15 +123,19 @@ var MyComponent = React.createClass({
             </RadioGroup>
           </Col>
         </div>
-        {this.state.selection === 'special' && (<div className="form-group">
-          <Col md={3}>
-            <label>Stuff that appears</label>
-          </Col>
-          <Col md={21}>
-            <label htmlFor="exampleInputEmail1">Email address</label>
-            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-          </Col>
-        </div>)}
+        {this.state.selection === 'special' && (
+
+          <div className="form-group">
+            <Col md={3}>
+              <label>Stuff that appears</label>
+            </Col>
+            <Col md={21}>
+              <label htmlFor="exampleInputEmail1">Email address</label>
+              <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
+            </Col>
+          </div>
+
+        )}
       </form>
     );
   }

@@ -3,6 +3,7 @@ const React = require('react');
 const sortBy = require('lodash.sortby');
 import {mergeProps} from 'pui-react-helpers';
 import findindex from 'lodash.findindex';
+import arrayify from 'array-ify';
 
 /**
  * @component TableHeader
@@ -10,7 +11,6 @@ import findindex from 'lodash.findindex';
  *
  * @property `sortable` {boolean} (defaults to false) indicates whether the table can be sorted by this column;
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableHeader = React.createClass({
   propTypes: {
@@ -43,7 +43,6 @@ export const TableHeader = React.createClass({
  * @component TableCell
  * @description Wrapper for a td
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableCell = React.createClass({
   render() {
@@ -55,7 +54,6 @@ export const TableCell = React.createClass({
  * @component TableRow
  * @description Wrapper for a tr
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react_beta.html#table_sortable_react)
  */
 export const TableRow = React.createClass({
   render() {
@@ -95,7 +93,6 @@ export const TableRow = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#table_sortable_react)
  */
 export const SortableTable = React.createClass({
   propTypes: {
@@ -106,6 +103,7 @@ export const SortableTable = React.createClass({
     const sortCol = findindex(this.props.headers, (header) => {
       return header.props.sortable;
     });
+
     // If none of the columns are sortable we default to the 0th column
     return {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
   },
@@ -124,7 +122,8 @@ export const SortableTable = React.createClass({
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
     const sortedRows = sortBy(this.props.children, (row) => {
-      const cellForSorting = row.props.children[sortColumn];
+      const cells = arrayify(row.props.children);
+      const cellForSorting = cells[sortColumn];
       return cellForSorting.props.children;
     });
     return sortAscending ? sortedRows : sortedRows.reverse();

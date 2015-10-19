@@ -41,7 +41,6 @@ function reset() {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html)
  */
 
 var PortalSource = React.createClass({
@@ -90,7 +89,6 @@ var PortalSource = React.createClass({
  *
  * @property name {String} Identifier for linking source and destination portals
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html)
  */
 
 var PortalDestination = React.createClass({

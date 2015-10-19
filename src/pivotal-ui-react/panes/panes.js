@@ -6,8 +6,8 @@ import {mergeProps} from 'pui-react-helpers';
  * @component BasePane
  * @description A horizontal grouping of content that usually spans the width of the browser viewport
  *
- * @property outerClass {String} Class names to apply to the pane
- * @property innerClass {String} Class names to apply to the content
+ * @property outerClassName {String} Class names to apply to the pane
+ * @property innerClassName {String} Class names to apply to the content
  *
  * @example ```js
  * var BasePane = require('pui-react-panes').BasePane;
@@ -23,8 +23,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var BasePane = React.createClass({
   propTypes: {
@@ -48,8 +46,8 @@ var BasePane = React.createClass({
  * @component Pane
  * @description A horizontal grouping of content that usually spans the width of the browser viewport
  *
- * @property outerClass {String} Class names to apply to the pane
- * @property innerClass {String} Class names to apply to the content
+ * @property outerClassName {String} Class names to apply to the pane
+ * @property innerClassName {String} Class names to apply to the content
  *
  * @example ```js
  * var Pane = require('pui-react-panes').Pane;
@@ -65,8 +63,6 @@ var BasePane = React.createClass({
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#pane_react)
- * @see [Pivotal UI CS](http://styleguide.pivotal.io/layout.html#pane)
  */
 var Pane = React.createClass({
   propTypes: {
@@ -74,7 +70,7 @@ var Pane = React.createClass({
   },
   render() {
     var {className, ...other} = this.props;
-    return <BasePane {...other} outerClass={className}/>;
+    return <BasePane {...other} className={className}/>;
   }
 });
 
@@ -91,7 +87,7 @@ categories:
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-panels --save
+npm install pui-react-panes --save
 </i>
 </code>
 
@@ -100,8 +96,8 @@ For the example, you also need to install [Typography](#type_react) and require 
 Require the subcomponent:
 
 ```
-var Pane = require('pui-react-panels').Pane;
-var BasePane = require('pui-react-panels').BasePane;
+var Pane = require('pui-react-panes').Pane;
+var BasePane = require('pui-react-panes').BasePane;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

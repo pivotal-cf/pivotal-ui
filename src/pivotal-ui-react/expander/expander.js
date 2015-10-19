@@ -24,7 +24,6 @@ var Collapse = require('react-bootstrap/lib/Collapse');
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#expander_react)
  */
 var ExpanderTrigger = React.createClass({
   getInitialState() {
@@ -53,7 +52,6 @@ var ExpanderTrigger = React.createClass({
  * @component ExpanderContent
  * @description Denotes content that can be toggled via a corresponding ExpanderTrigger
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#expander_react)
  */
 var ExpanderContent = React.createClass({
   propTypes: {

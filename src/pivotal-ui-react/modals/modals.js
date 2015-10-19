@@ -41,8 +41,6 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#modal_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#modal)
  */
 var Modal = React.createClass({
   propTypes: {
@@ -137,8 +135,6 @@ var Modal = React.createClass({
  * @component ModalBody
  * @description Denotes content for the body of a `<Modal>`
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#modal_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#modal)
  */
 var ModalBody = React.createClass({
   render() {
@@ -150,8 +146,6 @@ var ModalBody = React.createClass({
  * @component ModalFooter
  * @description Denotes content for the footer of a `<Modal>`
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#modal_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#modal)
  */
 var ModalFooter = React.createClass({
   render() {

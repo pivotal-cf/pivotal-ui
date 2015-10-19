@@ -15,8 +15,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#form_search_input_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/forms.html#04_form_search_input)
  */
 var SearchInput = React.createClass({
   propTypes: {

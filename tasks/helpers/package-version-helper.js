@@ -1,27 +1,16 @@
 import {map} from 'event-stream';
-import {argv} from 'yargs';
 import promisify from 'es6-promisify';
 import path from 'path';
 import through from 'through2';
 
 import {getNewVersion} from './version-helper';
-import {getLastTag, isBlank, gitDiffMixinsAndVariables,
-  getChangedComponents, getAllComponents} from './git-helper';
+import {getAllComponents} from './git-helper';
 
 const exec = promisify(require('child_process').exec);
 const read = promisify(require('vinyl-file').read);
 
 export async function componentsWithChanges() {
-  const lastTag = await getLastTag();
-  const mixinsAndVariablesChanged = !isBlank(await gitDiffMixinsAndVariables(lastTag));
-  let components;
-  if (argv.updateAll || mixinsAndVariablesChanged) {
-    components = await getAllComponents();
-  }
-  else {
-    components = await getChangedComponents(lastTag);
-  }
-  return components;
+  return await getAllComponents();
 }
 
 function packageNameOf(componentPath) {

@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/pivotal-cf/pivotal-ui/issues"
   },
-  "homepage": "http://styleguide.pivotal.io/objects.html#code",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "prismjs": "^0.0.1"
   }

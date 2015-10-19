@@ -13,7 +13,6 @@ var {getScrollTop} = require('./scroll-top');
  * <a class="back-to-top" data-position="back-to-top" href="#" target="_blank" style="display: inline;"></a>
  * ```
  *
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#back_to_top)
  */
 
 

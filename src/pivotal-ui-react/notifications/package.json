@@ -1,7 +1,7 @@
 {
   "version": "2.0.0",
   "description": "A React component for showing a dropdown of notification messages",
-  "homepage": "http://styleguide.pivotal.io/react.html#notifications_react",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-react-dropdowns": "2.0.0",
     "pui-react-helpers": "2.0.0",

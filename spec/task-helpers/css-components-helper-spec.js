@@ -165,7 +165,7 @@ npm install pui-css-alerts
 \`\`\`
 
 
-You can find more examples of the alerts component in the [pui style guide](http://styleguide.pivotal.io/objects.html#alert)
+You can find more examples of the alerts component in the [pui style guide](http://styleguide.pivotal.io/)
 
 *****************************************
       `.trim());

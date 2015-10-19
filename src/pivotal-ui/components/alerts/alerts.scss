@@ -161,7 +161,7 @@ other content inside a container on the page (of a width 500px for this example)
 
 .alert {
   border: none;
-  margin: $baseSpacing 0 0;
+  margin: 0;
 
   a.alert-link {
     color: inherit;

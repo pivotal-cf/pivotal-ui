@@ -14,8 +14,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#label_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/elements.html#label)
  */
 var Label = React.createClass({
   render() {
@@ -45,7 +43,7 @@ categories:
  </i>
  </code>
 
-For the example, you also need to install [Typography](#type_react) and require `DefaultH3` from it.
+For the example, you also need to install [Typography][type_react] and require `DefaultH3` from it.
 
 Require the subcomponent:
 

@@ -40,8 +40,6 @@ var PanelTypes = {
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
  */
 var Panel = React.createClass({
 
@@ -91,8 +89,6 @@ var Panel = React.createClass({
  * @property title {String} Text to show as the header of the `<Panel>`
  * @property shadowLevel {Number} The thickness (1-4) (defaults to `3`) of the shadow
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
  */
 var ShadowPanel = React.createClass({
   mixins: [PanelTypes],
@@ -129,8 +125,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   SimplePanel: defPanel({kind: 'panel-simple'}),
 
@@ -140,8 +134,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   BasicPanel: defPanel({kind: 'panel-basic'}),
 
@@ -151,8 +143,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   BasicPanelAlt: defPanel({kind: 'panel-basic-alt'}),
 
@@ -162,8 +152,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   ClickablePanel: defPanel({kind: 'panel-clickable'}),
 
@@ -173,8 +161,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   ClickableAltPanel: defPanel({kind: 'panel-clickable-alt'}),
 
@@ -184,8 +170,6 @@ module.exports = {
    *
    * @property title {String} Text to show as the header of the `<Panel>`
    *
-   * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#panel_react)
-   * @see [Pivotal UI CSS](http://styleguide.pivotal.io/objects.html#panel)
    */
   HighlightPanel: defPanel({kind: 'panel-highlight'}),
 

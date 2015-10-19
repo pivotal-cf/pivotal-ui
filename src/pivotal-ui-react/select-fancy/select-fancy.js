@@ -21,8 +21,6 @@ import React from 'react';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#form_select_fancy)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/forms.html#02_form_fancy_select)
  */
 
 const types = React.PropTypes;

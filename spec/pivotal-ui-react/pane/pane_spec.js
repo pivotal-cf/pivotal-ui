@@ -44,3 +44,11 @@ describe('BasePane', function() {
     });
   });
 });
+
+describe('Pane', function() {
+  it('puts className on pane', function() {
+    const {Pane} = require('../../../src/pivotal-ui-react/panes/panes');
+    React.render(<Pane className="biology">Pane content here</Pane>, root);
+    expect('.pane').toHaveClass('biology');
+  });
+});

@@ -29,6 +29,12 @@ describe('StyleguideNav', () => {
                      defaultComponentType={'objects'}/>,
       root
     );
+
+    MockRaf.next();
+  });
+
+  afterEach(function() {
+    React.unmountComponentAtNode(root);
   });
 
   it('creates top-level language tabs with react first', () => {
@@ -41,24 +47,24 @@ describe('StyleguideNav', () => {
   });
 
   it('creates second-level category collapses', () => {
-    expect(".panel:contains('React')").toContainText('objects');
-    expect(".panel:contains('CSS')").toContainText('base');
-    expect(".panel:contains('CSS')").toContainText('objects');
+    expect(".tab-pane:eq(0)").toContainText('objects');
+    expect(".tab-pane:eq(1)").toContainText('base');
+    expect(".tab-pane:eq(1)").toContainText('objects');
   });
 
   it('sets default component type collapse of each tab to be defaultExpanded', () => {
-    expect(".panel:contains('CSS') .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
-    expect(".panel:contains('React') .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
+    expect(".tab-pane:eq(1) .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
+    expect(".tab-pane:eq(0) .nav-component-type:contains('objects') .panel-heading a").not.toHaveClass('collapsed');
 
-    expect(".panel:contains('CSS') .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
-    expect(".panel:contains('React') .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
+    expect(".tab-pane:eq(1) .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
+    expect(".tab-pane:eq(0) .nav-component-type:contains('base') .panel-heading a").toHaveClass('collapsed');
   });
 
   it('creates component links', () => {
-    expect(".panel:contains('React') a:contains('carrots')")
+    expect(".tab-pane:eq(0) a:contains('carrots')")
       .toHaveAttr('href', 'orange.html');
 
-    expect(".panel:contains('CSS') a:contains('eggplant')")
+    expect(".tab-pane:eq(1) a:contains('eggplant')")
       .toHaveAttr('href', 'purple.html');
   });
 });

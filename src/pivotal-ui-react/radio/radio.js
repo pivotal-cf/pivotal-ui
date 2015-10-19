@@ -21,8 +21,6 @@ import {mergeProps} from 'pui-react-helpers';
  * });
  * ```
  *
- * @see [Pivotal UI React](http://styleguide.pivotal.io/react.html#form_radio_input_react)
- * @see [Pivotal UI CSS](http://styleguide.pivotal.io/forms.html#form_checkboxes)
  */
 var Radio = React.createClass({
   propTypes: {
