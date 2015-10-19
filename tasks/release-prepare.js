@@ -29,7 +29,7 @@ gulp.task('release-update-version', (done) => {
         const jsonContents = JSON.parse(file.contents.toString());
         const versionBumpType = await recommendedBump({preset: 'angular'});
         if (argv.alpha) {
-          jsonContents.version = semver.inc(jsonContents.version, 'pre', 'alpha');
+          jsonContents.version = semver.inc(jsonContents.version, 'prerelease', 'alpha');
         } else {
           jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
         }
