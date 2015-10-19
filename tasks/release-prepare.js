@@ -16,37 +16,28 @@ import {releaseDest} from './helpers/release-folder-helper';
 import {getNewVersion} from './helpers/version-helper';
 import {componentsWithChanges, componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 import {commitTransform} from './helpers/changelog-helper';
+import {writeFileSync} from 'jsonfile';
 
 const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
 const recommendedBump = promisify(require('conventional-recommended-bump'));
 
 gulp.task('release-update-version', (done) => {
-  gulp.src('package.json')
-    .pipe(plugins.plumber())
-    .pipe(map(async (file, callback) => {
-      try {
-        const jsonContents = JSON.parse(file.contents.toString());
-        const versionBumpType = await recommendedBump({preset: 'angular'});
-        if (argv.prerelease) {
-          jsonContents.version = semver.inc(jsonContents.version, argv.prerelease, 'alpha');
-        } else {
-          jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
-        }
-        file.contents = new Buffer(JSON.stringify(jsonContents, null, 2));
-        callback(null, file);
-      }
-      catch(e) {
-        console.error(e.stack);
-        callback(e);
-      }
-    }))
-    .pipe(gulp.dest('.'))
-    .on('end', () => {
-      delete require.cache[path.join(process.cwd(), 'package.json')];
-        // Ensure that we can get the new package version this way
-      done();
-    });
+  (async function() {
+    const packageJsonPath = path.join(process.cwd(), 'package.json');
+
+    const jsonContents = require(packageJsonPath);
+    const versionBumpType = await recommendedBump({preset: 'angular'});
+    if (argv.prerelease) {
+      jsonContents.version = semver.inc(jsonContents.version, argv.prerelease, 'alpha');
+    } else {
+      jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
+    }
+
+    writeFileSync(packageJsonPath, jsonContents, {spaces: 2});
+    delete require.cache[packageJsonPath];
+    done();
+  })();
 });
 
 gulp.task('release-update-package-versions', (done) => {
@@ -122,25 +113,25 @@ gulp.task('release-generate-release-folder', ['monolith'], () => {
 });
 
 gulp.task('release-commit', () =>
-  execPromise(
-    `git add package.json \
+    execPromise(
+      `git add package.json \
              CHANGELOG.md \
              LATEST_CHANGES.md \
              src/pivotal-ui/components/*/package.json \
              src/pivotal-ui-react/*/package.json \
              release/ \
        && git commit -m "v${getNewVersion()}"`
-  )
+    )
 );
 
 gulp.task('release-prepare', (done) =>
-  runSequence(
-    'release-update-version',
-    [
-      'release-update-package-versions',
-      'release-generate-changelog',
-      'release-generate-release-folder'
-    ],
-    done
-  )
+    runSequence(
+      'release-update-version',
+      [
+        'release-update-package-versions',
+        'release-generate-changelog',
+        'release-generate-release-folder'
+      ],
+      done
+    )
 );
