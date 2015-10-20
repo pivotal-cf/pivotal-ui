@@ -1,3 +1,5 @@
+/* eslint no-console-log:0 no-alert:0 */
+
 import {exec} from 'child_process';
 import gulp from 'gulp';
 import {merge, map, readArray} from 'event-stream';
@@ -6,11 +8,9 @@ import path from 'path';
 import promisify from 'es6-promisify';
 import runSequence from 'run-sequence';
 import changelog from 'conventional-changelog';
-import {log} from 'gulp-util';
+import {log, colors} from 'gulp-util';
 import source from 'vinyl-source-stream';
 import semver from 'semver';
-import {argv} from 'yargs';
-
 
 import {releaseDest} from './helpers/release-folder-helper';
 import {getNewVersion} from './helpers/version-helper';
@@ -18,6 +18,9 @@ import {componentsWithChanges, componentsToUpdate, updatePackageJsons} from './h
 import {commitTransform} from './helpers/changelog-helper';
 import {writeFileSync} from 'jsonfile';
 
+const prompt = promisify(require('inquirer').prompt, function(val) {
+  this.resolve(val);
+});
 const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
 const recommendedBump = promisify(require('conventional-recommended-bump'));
@@ -28,11 +31,36 @@ gulp.task('release-update-version', (done) => {
 
     const jsonContents = require(packageJsonPath);
     const versionBumpType = await recommendedBump({preset: 'angular'});
-    if (argv.prerelease) {
-      jsonContents.version = semver.inc(jsonContents.version, argv.prerelease, 'alpha');
-    } else {
-      jsonContents.version = semver.inc(jsonContents.version, versionBumpType);
-    }
+
+    const recommendedVersion = semver.inc(jsonContents.version, versionBumpType);
+
+    console.log('Current version is', colors.green(jsonContents.version));
+    console.log('Recommended bump is', colors.red(versionBumpType), 'to', colors.red(recommendedVersion));
+
+    const versionOptions = [
+      ['patch'],
+      ['minor'],
+      ['major'],
+      ['prepatch', 'alpha'],
+      ['preminor', 'alpha'],
+      ['premajor', 'alpha'],
+      ['prerelease', 'alpha']
+    ].map((args) => {
+        const resultVersion = semver.inc(jsonContents.version, ...args);
+        return {
+          name: `${args[0]} to ${resultVersion}`,
+          value: resultVersion
+        };
+      });
+
+    const userVersion = (await prompt([{
+      type: 'list',
+      name: 'version',
+      message: 'Please select version:',
+      choices: versionOptions
+    }])).version;
+
+    jsonContents.version = userVersion;
 
     writeFileSync(packageJsonPath, jsonContents, {spaces: 2});
     delete require.cache[packageJsonPath];
