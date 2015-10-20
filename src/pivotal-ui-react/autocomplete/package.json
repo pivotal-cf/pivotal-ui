@@ -1,5 +1,5 @@
 {
-  "version": "2.0.0",
+  "version": "2.1.0-alpha.0",
   "description": "React autocomplete component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
@@ -8,6 +8,6 @@
     "pui-cursor": "^1.3.2",
     "scroll-into-view": "^1.3.0",
     "trie-search": "^0.1.1",
-    "pui-css-autocomplete": "2.0.0"
+    "pui-css-autocomplete": "2.1.0-alpha.0"
   }
 }
