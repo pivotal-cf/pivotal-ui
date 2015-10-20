@@ -76,11 +76,17 @@ gulp.task('release-push-production-styleguide', (done) => {
   });
 });
 
-gulp.task('release-push', (done) => runSequence(
-  'set-styleguide-env-to-production',
-  ['release-push-git-verify', 'release-push-production-styleguide-verify'],
+gulp.task('release-push-packages', (done) => runSequence(
+  'release-push-git-verify',
   'release-push-npm-publish',
+  'release-push-git',
+  done
+));
+
+gulp.task('push-styleguide', (done) => runSequence(
+  'set-styleguide-env-to-production',
+  'release-push-production-styleguide-verify',
   'monolith',
-  ['release-push-git', 'release-push-production-styleguide'],
+  'release-push-production-styleguide',
   done
 ));
