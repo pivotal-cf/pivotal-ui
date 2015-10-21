@@ -44,6 +44,24 @@ const IntroPage = React.createClass({
             </IntroTile>
           </TileLayout.Item>
         </TileLayout>
+
+        <div className="paxxl mbxxl">
+          <h2 className="type-dark-2 h1">Examples Using Pivotal UI</h2>
+          <TileLayout columns={{xl: 4, lg: 3, xs: 1}}>
+            <TileLayout.Item>
+              <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/gary" exampleImage="styleguide/img--examplesGary.png"></ExampleTile>
+            </TileLayout.Item>
+            <TileLayout.Item>
+              <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/todd" exampleImage="styleguide/img--examplesTodd.png"></ExampleTile>
+            </TileLayout.Item>
+            <TileLayout.Item>
+              <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/kelly" exampleImage="styleguide/img--examplesKelly.png"></ExampleTile>
+            </TileLayout.Item>
+            <TileLayout.Item>
+              <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/debra" exampleImage="styleguide/img--examplesDebra.png"></ExampleTile>
+            </TileLayout.Item>
+          </TileLayout>
+        </div>
       </div>
     );
   }
@@ -59,9 +77,23 @@ const IntroTile = React.createClass({
     return (
       <div className="styleguide-intro-tile">
         <h2>{this.props.category}</h2>
-
         <p>{this.props.children}</p>
       </div>
+    );
+  }
+});
+
+const ExampleTile = React.createClass({
+  propTypes: {
+    category: React.PropTypes.string,
+    description: React.PropTypes.string,
+
+  },
+  render() {
+    return (
+      <a className="panel-basic-alt" href={this.props.exampleLink} style={{ overflow: 'hidden'}}>
+        <img src={this.props.exampleImage} className="img-responsive" style={{ width: '100%' }} />
+      </a>
     );
   }
 });
