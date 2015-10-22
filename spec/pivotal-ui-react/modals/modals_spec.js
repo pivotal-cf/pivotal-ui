@@ -199,4 +199,68 @@ describe('Modals', function() {
   });
 });
 
+describe('BaseModal', function() {
+  let BaseModal;
 
+  beforeEach(function() {
+    BaseModal = require('../../../src/pivotal-ui-react/modals/modals').BaseModal;
+  });
+
+  afterEach(function() {
+    React.unmountComponentAtNode(root);
+  });
+
+  describe('open property', function() {
+    it('shows the modal', function() {
+      React.render(
+        <BaseModal open id="mr-modal" title="hey mr modal"/>,
+        root
+      );
+
+      expect('#mr-modal').toExist();
+      expect('#mr-modal').toContainText('hey mr modal');
+    });
+
+    it('shows the modal', function() {
+      React.render(
+        <BaseModal id="mr-modal" title="hey mr modal"/>,
+        root
+      );
+
+      expect('#mr-modal').not.toExist();
+    });
+  });
+
+  describe('onRequestClose', function() {
+    let onRequestClose;
+
+    beforeEach(function() {
+      spyOn(document.body, 'addEventListener');
+
+      onRequestClose = jasmine.createSpy('onRequestClose');
+      React.render(
+        <BaseModal open id="ms-modal" onRequestClose={onRequestClose}/>,
+        root
+      );
+    });
+
+    it('is triggered when close button is clicked', function() {
+      $('#ms-modal button.close').simulate('click');
+
+      expect(onRequestClose).toHaveBeenCalled();
+    });
+
+    it('is triggered when the overlay is clicked', function() {
+      $('.modal').simulate('click');
+
+      expect(onRequestClose).toHaveBeenCalled();
+    });
+
+    it('is triggered when escape is pressed', function() {
+      document.body.addEventListener.calls.mostRecent().args[1]({keyCode: 27});
+      //lame: for some reason we're not able to trigger events on document body
+
+      expect(onRequestClose).toHaveBeenCalled();
+    });
+  });
+});

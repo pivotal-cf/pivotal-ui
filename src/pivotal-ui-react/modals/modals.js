@@ -4,6 +4,95 @@ require('classlist-polyfill');
 import {mergeProps} from 'pui-react-helpers';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
+const BaseModal = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    open: React.PropTypes.bool,
+    onRequestClose: React.PropTypes.func
+  },
+
+  getDefaultProps() {
+    return {
+      onRequestClose() {}
+    };
+  },
+
+  componentDidMount() {
+    document.body.addEventListener('focus', this.ignoreKey, true);
+    document.body.addEventListener('keyup', this.onKeyUp, true);
+  },
+
+  componentWillUnmount() {
+    document.body.removeEventListener('focus', this.ignoreKey, true);
+    document.body.removeEventListener('keyup', this.onKeyUp, true);
+  },
+
+  componentWillUpdate(nextProps) {
+    if (nextProps.open) {
+      document.body.classList.add('modal-open');
+    }
+    else {
+      document.body.classList.remove('modal-open');
+    }
+  },
+
+  close() {
+    this.props.onRequestClose();
+  },
+
+  childrenClick(e) {
+    if (e.target === this.refs.modal.getDOMNode()) {
+      this.close();
+    }
+  },
+
+  ignoreKey(e) {
+    if (this.props.open && (!(React.findDOMNode(this.refs.modalTransitions).contains(e.target)))) {
+      e.preventDefault();
+      React.findDOMNode(this.refs.modalTransitions).focus();
+    }
+  },
+
+  onKeyUp(e) {
+    if (e.keyCode === 27) {
+      this.close();
+    }
+  },
+
+  render() {
+    const {open, title, children, ...modalProps} = this.props;
+    let modal = null;
+    let backdrop = null;
+
+    if (open) {
+      modal = (
+        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal"
+             onClick={this.childrenClick} role="dialog">
+          <div className="modal-dialog">
+            <div {...mergeProps(modalProps, {className: 'modal-content'})}>
+              <div className="modal-header">
+                <button type="button" className="close" onClick={this.close}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <DefaultH4 className="modal-title" id="modalTitle">{title}</DefaultH4>
+              </div>
+              {children}
+            </div>
+          </div>
+        </div>
+      );
+      backdrop = (<div className="modal-backdrop in" key="tangerine" onClick={this.close}></div>);
+    }
+
+    return (
+      <div tabIndex="-1" ref="modalTransitions" aria-labelledby="modalTitle">
+        <ReactCSSTransitionGroup transitionName="modal-backdrop-fade">{backdrop}</ReactCSSTransitionGroup>
+        <ReactCSSTransitionGroup transitionName="modal-fade">{modal}</ReactCSSTransitionGroup>
+      </div>
+    );
+  }
+});
+
 /**
  * @component Modal
  * @description Opens a modal window with scrim. The modal can be closed by either clicking the "x" button, clicking on the scrim, pressing Escape, or calling `modal#close` as in the example.
@@ -43,89 +132,21 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
  *
  */
 var Modal = React.createClass({
-  propTypes: {
-    title: React.PropTypes.string
-  },
-
-  componentDidMount() {
-    document.body.addEventListener('focus', this.ignoreKey, true);
-    document.body.addEventListener('keyup', this.onKeyUp, true);
-  },
-
-  componentWillUnmount() {
-    document.body.removeEventListener('focus', this.ignoreKey);
-    document.body.removeEventListener('keyup', this.onKeyUp);
-  },
-
   getInitialState() {
     return {isVisible: false};
   },
 
-  componentWillUpdate(nextProps, nextState) {
-    if (nextState.isVisible) {
-      document.body.classList.add('modal-open');
-    }
-    else {
-      document.body.classList.remove('modal-open');
-    }
-  },
-
   open() {
     this.setState({isVisible: true});
-    React.findDOMNode(this.refs.modalTransitions).focus();
   },
 
   close() {
     this.setState({isVisible: false});
   },
 
-  childrenClick(e) {
-    if (e.target === this.refs.modal.getDOMNode()) {
-      this.close();
-    }
-  },
-
-  ignoreKey(e) {
-    if ((this.state.isVisible) && (!(React.findDOMNode(this.refs.modalTransitions).contains(e.target)))) {
-      e.preventDefault();
-      React.findDOMNode(this.refs.modalTransitions).focus();
-    }
-  },
-
-  onKeyUp(e) {
-    if (e.keyCode === 27) {
-      this.close();
-    }
-  },
-
   render() {
-    let modal = null;
-    let backdrop = null;
-    if (this.state.isVisible) {
-      modal = (
-        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal"
-             onClick={this.childrenClick} role="dialog">
-          <div className="modal-dialog">
-            <div {...mergeProps(this.props, {className: 'modal-content'})}>
-              <div className="modal-header">
-                <button type="button" className="close" onClick={this.close}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <DefaultH4 className="modal-title" id="modalTitle">{this.props.title}</DefaultH4>
-              </div>
-                {this.props.children}
-            </div>
-          </div>
-        </div>
-      );
-      backdrop = (<div className="modal-backdrop in" key="tangerine" onClick={this.close}></div>);
-    }
-
     return (
-      <div tabIndex="-1" ref="modalTransitions" aria-labelledby="modalTitle">
-        <ReactCSSTransitionGroup transitionName="modal-backdrop-fade">{backdrop}</ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup transitionName="modal-fade">{modal}</ReactCSSTransitionGroup>
-      </div>
+      <BaseModal open={this.state.isVisible} onRequestClose={this.close} {...this.props} />
     );
 
   }
@@ -153,7 +174,7 @@ var ModalFooter = React.createClass({
   }
 });
 
-module.exports = {Modal, ModalBody, ModalFooter};
+module.exports = {Modal, ModalBody, ModalFooter, BaseModal};
 
 /*doc
 ---

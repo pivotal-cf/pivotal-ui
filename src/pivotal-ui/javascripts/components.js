@@ -65,6 +65,7 @@ module.exports = {
   Icon: require('pui-react-iconography').Icon,
 
   Modal: require('pui-react-modals').Modal,
+  BaseModal: require('pui-react-modals').BaseModal,
   ModalBody: require('pui-react-modals').ModalBody,
   ModalFooter: require('pui-react-modals').ModalFooter,
 
