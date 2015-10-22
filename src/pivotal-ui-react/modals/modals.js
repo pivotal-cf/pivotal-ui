@@ -4,6 +4,52 @@ require('classlist-polyfill');
 import {mergeProps} from 'pui-react-helpers';
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
+/**
+ * @component BaseModal
+ * @description Opens a modal window with scrim.
+ *
+ * @property title {String} Header text for the modal window
+ * @property open {Boolean} Whether the modal is opened
+ * @property onRequestClose {Function} Triggered by either clicking the "x" button, clicking on the scrim or pressing Escape
+ *
+ * @example ```js
+ * var BaseModal = require('pui-react-modals').BaseModal;
+ * var ModalBody = require('pui-react-modals').ModalBody;
+ * var ModalFooter = require('pui-react-modals').ModalFooter;
+ * var DefaultButton = require('pui-react-buttons').DefaultButton;
+ * var MyComponent = React.createClass({
+ *   getInitialState() {
+ *     return {
+ *       open: false
+ *     };
+ *   },
+ *   openModal() {
+ *    this.setState({open: true});
+ *   },
+ *
+ *   closeModal() {
+ *    this.setState({open: false});
+ *   },
+ *
+ *   render() {
+ *     return (
+ *      <article>
+ *        <DefaultButton onClick={this.openModal}>Click to Open Modal</DefaultButton>
+ *
+ *        <BaseModal title="Modal Header Text" ref="modal" open={this.state.open} onRequestClose={this.closeModal}>
+ *          <ModalBody>Modal Body Text</ModalBody>
+ *          <ModalFooter>
+ *            <DefaultButton onClick={this.closeModal}>Click to Close Modal</DefaultButton>
+ *          </ModalFooter>
+ *        </BaseModal>
+ *      </article>
+ *     );
+ *   }
+ * });
+ * ```
+ *
+ */
+
 const BaseModal = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
