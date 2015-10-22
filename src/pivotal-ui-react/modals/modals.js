@@ -177,7 +177,7 @@ const BaseModal = React.createClass({
  * ```
  *
  */
-var Modal = React.createClass({
+const Modal = React.createClass({
   getInitialState() {
     return {isVisible: false};
   },
@@ -203,7 +203,7 @@ var Modal = React.createClass({
  * @description Denotes content for the body of a `<Modal>`
  *
  */
-var ModalBody = React.createClass({
+const ModalBody = React.createClass({
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
   }
@@ -214,7 +214,7 @@ var ModalBody = React.createClass({
  * @description Denotes content for the footer of a `<Modal>`
  *
  */
-var ModalFooter = React.createClass({
+const ModalFooter = React.createClass({
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-footer'})}>{this.props.children}</div>;
   }
