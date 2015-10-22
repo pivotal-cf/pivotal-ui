@@ -125,13 +125,13 @@ Dividers draw horizontal lines between different content groupings.
 On a dark background, use these inverse dividers
 
 ```react_inverse_example_table
-<div>
+<div className="type-dark-11">
   I am some content
   <InverseDivider />
   Me too
 </div>
 
-<div>
+<div className="type-dark-11">
   Here's some stuff above the divider
   <InverseDivider size='large' />
   Here's some stuff below the divider
