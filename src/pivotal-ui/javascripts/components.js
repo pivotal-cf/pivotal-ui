@@ -128,6 +128,8 @@ module.exports = {
   TableHeader: require('pui-react-sortable-table').TableHeader,
   TableCell: require('pui-react-sortable-table').TableCell,
   TableRow: require('pui-react-sortable-table').TableRow,
+
+  BasicInput: require('pui-react-inputs').BasicInput,
   ...autocomplete,
   ...selectFancy,
   TileLayout: TileLayout};
