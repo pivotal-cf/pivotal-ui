@@ -1116,28 +1116,6 @@ p.form-control-static {
   color: $neutral-3;
 }
 
-/*doc
----
-title: Autoselect Text Inputs
-name: form_autoselect_text_input
-categories:
- - css_components_forms
- - css_all
----
-
-This form is used to show information that a user may wish to copy and paste somewhere.
-
-```html_example
-<label for="readonlyautoselect"></label>
-<input class="auto-select form-control" id="readonlyautoselect" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight">
-```
-
-*/
-
-.form-control.auto-select {
-  cursor: pointer;
-}
-
 /*pending
 ---
 title: Content Editables
