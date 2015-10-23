@@ -557,16 +557,11 @@ them over a custom dropdown whenever possible.
 */
 
 .form-control {
-  @include button-shadow;
   padding: 8px 14px; // override bootstrap
   //-webkit-appearance: none;
   position: relative;
   &:hover, &:focus {
     border-color: $input-border-color-hover;
-  }
-
-  &.active, &:active {
-    background-color: $input-bg-active;
   }
 
   &.disabled, &:disabled {
@@ -575,13 +570,16 @@ them over a custom dropdown whenever possible.
 }
 
 select.form-control {
+  @include button-shadow;
   color: $link-color;
   font-weight: $input-font-weight;
+
   &:hover, &:focus {
     color: $input-color-hover;
   }
 
   &.active, &:active {
+    background-color: $input-bg-active;
     color: $input-color-active;
   }
 
