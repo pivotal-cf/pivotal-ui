@@ -1,13 +1,13 @@
 {
-  "version": "2.1.0-alpha.0",
+  "version": "2.1.0-alpha.1",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-bootstrap": "0.25.1",
-    "pui-css-dropdowns": "2.1.0-alpha.0",
-    "pui-css-iconography": "2.1.0-alpha.0",
-    "pui-css-buttons": "2.1.0-alpha.0",
-    "pui-css-button-group": "2.1.0-alpha.0",
+    "pui-css-dropdowns": "2.1.0-alpha.1",
+    "pui-css-iconography": "2.1.0-alpha.1",
+    "pui-css-buttons": "2.1.0-alpha.1",
+    "pui-css-button-group": "2.1.0-alpha.1",
     "classnames": "^2.1.2",
     "lodash.uniqueid": "^3.0.0"
   }
