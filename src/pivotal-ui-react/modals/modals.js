@@ -1,16 +1,17 @@
 var React = require('react/addons');
 var {DefaultH4} = require('pui-react-typography');
-require('classlist-polyfill');
 import {mergeProps} from 'pui-react-helpers';
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+
+const BsModal = require('react-bootstrap/lib/Modal');
+const BsModalHeader = require('react-bootstrap/lib/ModalHeader');
 
 /**
  * @component BaseModal
  * @description Opens a modal window with scrim.
  *
  * @property title {String} Header text for the modal window
- * @property open {Boolean} Whether the modal is opened
- * @property onRequestClose {Function} Triggered by either clicking the "x" button, clicking on the scrim or pressing Escape
+ * @property show {Boolean} Whether the modal is opened
+ * @property onHide {Function} Triggered by either clicking the "x" button, clicking on the scrim or pressing Escape
  *
  * @example ```js
  * var BaseModal = require('pui-react-modals').BaseModal;
@@ -20,15 +21,15 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
  * var MyComponent = React.createClass({
  *   getInitialState() {
  *     return {
- *       open: false
+ *       show: false
  *     };
  *   },
  *   openModal() {
- *    this.setState({open: true});
+ *    this.setState({show: true});
  *   },
  *
  *   closeModal() {
- *    this.setState({open: false});
+ *    this.setState({show: false});
  *   },
  *
  *   render() {
@@ -36,7 +37,7 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
  *      <article>
  *        <DefaultButton onClick={this.openModal}>Click to Open Modal</DefaultButton>
  *
- *        <BaseModal title="Modal Header Text" ref="modal" open={this.state.open} onRequestClose={this.closeModal}>
+ *        <BaseModal title="Modal Header Text" ref="modal" show={this.state.show} onHide={this.closeModal}>
  *          <ModalBody>Modal Body Text</ModalBody>
  *          <ModalFooter>
  *            <DefaultButton onClick={this.closeModal}>Click to Close Modal</DefaultButton>
@@ -53,88 +54,26 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 const BaseModal = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
-    open: React.PropTypes.bool,
-    onRequestClose: React.PropTypes.func
+    show: React.PropTypes.bool,
+    onHide: React.PropTypes.func
   },
 
   getDefaultProps() {
     return {
-      onRequestClose() {}
+      onHide() {}
     };
   },
 
-  componentDidMount() {
-    document.body.addEventListener('focus', this.ignoreKey, true);
-    document.body.addEventListener('keyup', this.onKeyUp, true);
-  },
-
-  componentWillUnmount() {
-    document.body.removeEventListener('focus', this.ignoreKey, true);
-    document.body.removeEventListener('keyup', this.onKeyUp, true);
-  },
-
-  componentWillUpdate(nextProps) {
-    if (nextProps.open) {
-      document.body.classList.add('modal-open');
-    }
-    else {
-      document.body.classList.remove('modal-open');
-    }
-  },
-
-  close() {
-    this.props.onRequestClose();
-  },
-
-  childrenClick(e) {
-    if (e.target === this.refs.modal.getDOMNode()) {
-      this.close();
-    }
-  },
-
-  ignoreKey(e) {
-    if (this.props.open && (!(React.findDOMNode(this.refs.modalTransitions).contains(e.target)))) {
-      e.preventDefault();
-      React.findDOMNode(this.refs.modalTransitions).focus();
-    }
-  },
-
-  onKeyUp(e) {
-    if (e.keyCode === 27) {
-      this.close();
-    }
-  },
-
   render() {
-    const {open, title, children, ...modalProps} = this.props;
-    let modal = null;
-    let backdrop = null;
-
-    if (open) {
-      modal = (
-        <div className="modal modal-basic" style={{ display: 'block'}} key="bananas" ref="modal"
-             onClick={this.childrenClick} role="dialog">
-          <div className="modal-dialog">
-            <div {...mergeProps(modalProps, {className: 'modal-content'})}>
-              <div className="modal-header">
-                <button type="button" className="close" onClick={this.close}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <DefaultH4 className="modal-title" id="modalTitle">{title}</DefaultH4>
-              </div>
-              {children}
-            </div>
-          </div>
-        </div>
-      );
-      backdrop = (<div className="modal-backdrop in" key="tangerine" onClick={this.close}></div>);
-    }
+    const {show, title, children, onHide, ...modalProps} = this.props;
 
     return (
-      <div tabIndex="-1" ref="modalTransitions" aria-labelledby="modalTitle">
-        <ReactCSSTransitionGroup transitionName="modal-backdrop-fade">{backdrop}</ReactCSSTransitionGroup>
-        <ReactCSSTransitionGroup transitionName="modal-fade">{modal}</ReactCSSTransitionGroup>
-      </div>
+      <BsModal show={show} onHide={onHide} {...mergeProps(modalProps, {className: 'modal-basic'})}>
+        <BsModalHeader className="modal-header" closeButton>
+          <DefaultH4 className="modal-title" id="modalTitle">{title}</DefaultH4>
+        </BsModalHeader>
+        {children}
+      </BsModal>
     );
   }
 });
@@ -192,7 +131,7 @@ const Modal = React.createClass({
 
   render() {
     return (
-      <BaseModal open={this.state.isVisible} onRequestClose={this.close} {...this.props} />
+      <BaseModal show={this.state.isVisible} onHide={this.close} {...this.props} />
     );
 
   }

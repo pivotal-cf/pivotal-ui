@@ -95,10 +95,10 @@ var MyModal = React.createClass({
  You can use the stateless `BaseModal`. It takes the same properties as modal, plus two extra:
 
 
- `open`: a boolean; whether the modal should be opened or closed
+ `show`: a boolean; whether the modal should be opened or closed
 
 
- `onRequestClose`: a function; called when the modal receives an event that would normally cause it to close
+ `onHide`: a function; called when the modal receives an event that would normally cause it to close
 
 
 
@@ -128,8 +128,8 @@ var MyModal = React.createClass({
          </DefaultButton>
          <BaseModal title='What a Header!'
                     className='optional-custom-class'
-                    open={this.state.modalOpen}
-                    onRequestClose={this._closeModal}>
+                    show={this.state.modalOpen}
+                    onHide={this._closeModal}>
            <ModalBody>Text in a body</ModalBody>
            <ModalFooter>
              <DefaultButton id='closeStatelessModal' onClick={this._closeModal}>
