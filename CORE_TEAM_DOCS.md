@@ -169,6 +169,8 @@ If you need an empty project to use that's all set up, check out the [pui-demo-p
 
   7. Go to the pivotal-ui working directory:  
   `$ cd pivotal-ui`
+  6. Switch to the development branch:  
+  `$ git co development`
   6. Start a Sinopia server (local NPM):  
   `$ sinopia .sinopia/config.yaml`
   5. Login with `test`,`test`:  
