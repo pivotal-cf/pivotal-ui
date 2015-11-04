@@ -1,6 +1,6 @@
 const React = require('react');
 const {PropTypes} = React;
-const ReactFaIcon = require('react-fa/dist/Icon');
+const ReactFaIcon = require('react-fa/lib/icon');
 const objectAssign = require('object-assign');
 
 class Icon extends React.Component {

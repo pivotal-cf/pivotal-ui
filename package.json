@@ -79,7 +79,7 @@
     "react": "0.13.3",
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
     "react-bootstrap": "0.25.1",
-    "react-fa": "^3.0.0",
+    "react-fa": "^4.0.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.0.2",
