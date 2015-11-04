@@ -3,7 +3,7 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 
 var Image = require('../../../src/pivotal-ui-react/images/images').Image;
 function renderImage(responsive){
-  React.render(
+  ReactDOM.render(
     <Image
       src="http://placehold.it/20x20"
       href="http://google.com"
@@ -16,7 +16,7 @@ function renderImage(responsive){
 }
 describe('Image', function() {
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('when responsive', function() {

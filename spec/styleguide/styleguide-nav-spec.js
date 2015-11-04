@@ -23,7 +23,7 @@ describe('StyleguideNav', () => {
       }
     };
 
-    React.render(
+    ReactDOM.render(
       <StyleguideNav navTree={navTree}
                      defaultLanguage={'react'}
                      defaultComponentType={'objects'}/>,
@@ -34,7 +34,7 @@ describe('StyleguideNav', () => {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('creates top-level language tabs with react first', () => {

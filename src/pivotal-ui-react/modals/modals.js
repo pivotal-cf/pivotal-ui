@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var {DefaultH4} = require('pui-react-typography');
 import {mergeProps} from 'pui-react-helpers';
 

@@ -7,11 +7,11 @@ describe('Radio', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders a radio', function() {
-    React.render(
+    ReactDOM.render(
       <Radio value="1" name="bananas" id="npr">
         One!!!
       </Radio>, root);
@@ -22,7 +22,7 @@ describe('Radio', function() {
 
   describe('when the checked property is passed', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <Radio value="1" name="bananas" checked onChange={jasmine.createSpy('change')}>
           One!!!
         </Radio>, root);
@@ -38,7 +38,7 @@ describe('Radio', function() {
 
     beforeEach(function() {
       changeSpy = jasmine.createSpy('change');
-      React.render(
+      ReactDOM.render(
         <Radio value="1" name="bananas" onChange={changeSpy} defaultChecked>
           One!!!
         </Radio>, root);
@@ -58,7 +58,7 @@ describe('Radio', function() {
 
   describe('when className and style are passed', () => {
     beforeEach(() =>{
-      React.render(
+      ReactDOM.render(
         <Radio value="1" name="bananas" className="radio-class" style={{opacity: '0.5'}} defaultChecked>
           One!!!
         </Radio>, root);

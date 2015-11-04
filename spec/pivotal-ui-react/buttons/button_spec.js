@@ -4,11 +4,11 @@ describe('UIButton', function() {
   var UIButton;
   beforeEach(function() {
     UIButton = require('../../../src/pivotal-ui-react/buttons/buttons').UIButton;
-    React.render(<UIButton>Click here</UIButton>, root);
+    ReactDOM.render(<UIButton>Click here</UIButton>, root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('creates a button', function() {
@@ -17,7 +17,7 @@ describe('UIButton', function() {
 
   describe('when href attribute is set', function() {
     beforeEach(function() {
-      React.render(<UIButton href="http://example.com">Click here</UIButton>, root);
+      ReactDOM.render(<UIButton href="http://example.com">Click here</UIButton>, root);
     });
 
     it('creates a link', function() {
@@ -28,7 +28,7 @@ describe('UIButton', function() {
 
   describe('when kind attribute is set', function() {
     beforeEach(function() {
-      React.render(<UIButton kind="danger">Click here</UIButton>, root);
+      ReactDOM.render(<UIButton kind="danger">Click here</UIButton>, root);
     });
 
     it('adds the type class to the button', function() {
@@ -39,7 +39,7 @@ describe('UIButton', function() {
 
   describe('when block is true', function() {
     beforeEach(function() {
-      React.render(<UIButton block={true}>Click here</UIButton>, root);
+      ReactDOM.render(<UIButton block={true}>Click here</UIButton>, root);
     });
 
     it('adds the block class', function() {
@@ -49,7 +49,7 @@ describe('UIButton', function() {
 
   describe('when large is true', function() {
     beforeEach(function() {
-      React.render(<UIButton large={true}>Click here</UIButton>, root);
+      ReactDOM.render(<UIButton large={true}>Click here</UIButton>, root);
     });
 
     it('adds the large button class', function() {
@@ -59,7 +59,7 @@ describe('UIButton', function() {
 
   describe('when the button is given custom classes', function() {
     function renderButton(props) {
-      React.render(<UIButton {...props}>Click here</UIButton>, root);
+      ReactDOM.render(<UIButton {...props}>Click here</UIButton>, root);
     }
 
     describe('when no other options that effect class are given', function() {
@@ -99,7 +99,7 @@ describe('UIButton', function() {
 
   describe('when data-attributes are provided', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <UIButton data-click="myFunction" data-foo="bar">
           Click here
         </UIButton>, root
@@ -122,7 +122,7 @@ describe('UIButton', function() {
       describe(name, function() {
         beforeEach(function() {
           var Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
-          React.render(<Button>Click here</Button>, root);
+          ReactDOM.render(<Button>Click here</Button>, root);
         });
 
         it('renders with the btn-default class', function() {

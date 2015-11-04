@@ -1,6 +1,6 @@
 var EventEmitter = require('node-event-emitter');
 var React = require('react');
-var warning = require('react/lib/warning');
+var ReactDOM = require('react-dom');
 
 var types = React.PropTypes;
 
@@ -9,7 +9,7 @@ var emitter = new EventEmitter();
 
 function createRoot(reactElement) {
   var destination = document.createElement('div');
-  reactElement.getDOMNode().appendChild(destination);
+  ReactDOM.findDOMNode(reactElement).appendChild(destination);
   return destination;
 }
 
@@ -74,7 +74,7 @@ var PortalSource = React.createClass({
 
   componentDidUpdate() {
     var {root} = this.state.destination || {};
-    if (root) React.render(<div>{this.props.children}</div>, root);
+    if (root) ReactDOM.render(<div>{this.props.children}</div>, root);
   },
 
   render() {
@@ -99,7 +99,7 @@ var PortalDestination = React.createClass({
   componentDidMount() {
     var {name} = this.props;
     if (name in destinationPortals) {
-      warning(false, `Multiple destination portals with the same name "${name}" detected.`);
+      console.warn(`Warning: Multiple destination portals with the same name "${name}" detected.`);
     }
 
     destinationPortals[name] = this;

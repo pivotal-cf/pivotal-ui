@@ -6,11 +6,11 @@ var Banner = require('../../../src/pivotal-ui-react/ribbons/ribbons').Banner;
 describe('Ribbon', function() {
   describe('basic Ribbon', function() {
     beforeEach(function() {
-      React.render(<Ribbon>British</Ribbon>, root);
+      ReactDOM.render(<Ribbon>British</Ribbon>, root);
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('renders a ribbon', function() {
@@ -21,7 +21,7 @@ describe('Ribbon', function() {
 
   describe('Ribbon with custom attributes', function() {
     beforeEach(function() {
-      React.render(<Ribbon className="1234" id="test" style={{color: 'red'}}>British</Ribbon>, root);
+      ReactDOM.render(<Ribbon className="1234" id="test" style={{color: 'red'}}>British</Ribbon>, root);
     });
 
     it('renders a ribbon with custom attributes', function() {
@@ -36,11 +36,11 @@ describe('PrimaryRibbon', function() {
   describe('basic PrimaryRibbon', function() {
 
     beforeEach(function() {
-      React.render(<PrimaryRibbon>British</PrimaryRibbon>, root);
+      ReactDOM.render(<PrimaryRibbon>British</PrimaryRibbon>, root);
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('adds the ribbon-primary class', function() {
@@ -51,7 +51,7 @@ describe('PrimaryRibbon', function() {
 
   describe('PrimaryRibbon with custom attributes', function() {
     beforeEach(function() {
-      React.render(<PrimaryRibbon className="1234" id="test" style={{color: 'red'}}>British</PrimaryRibbon>, root);
+      ReactDOM.render(<PrimaryRibbon className="1234" id="test" style={{color: 'red'}}>British</PrimaryRibbon>, root);
     });
 
     it('renders a ribbon with custom attributes', function() {
@@ -67,11 +67,11 @@ describe('Banner', function() {
   describe('basic Banner', function() {
 
     beforeEach(function() {
-      React.render(<Banner>British</Banner>, root);
+      ReactDOM.render(<Banner>British</Banner>, root);
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('renders a Banner', function() {
@@ -82,7 +82,7 @@ describe('Banner', function() {
 
   describe('Banner with custom attributes', function() {
     beforeEach(function() {
-      React.render(<Banner className="1234" id="test" style={{color: 'red'}}>British</Banner>, root);
+      ReactDOM.render(<Banner className="1234" id="test" style={{color: 'red'}}>British</Banner>, root);
     });
 
     it('renders a ribbon with custom attributes', function() {

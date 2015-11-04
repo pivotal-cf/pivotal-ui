@@ -1,16 +1,16 @@
 require('../spec_helper');
-var {TestUtils} = React.addons;
 
 describe('BaseCollapse', function() {
-  var BsPanel, BaseCollapse, subject, bsPanel;
+  var BsPanel, BaseCollapse, subject, bsPanel, TestUtils;
 
   beforeEach(() => {
+    TestUtils = require('react-addons-test-utils');
     BsPanel = require('react-bootstrap/lib/Panel');
     BaseCollapse = require('../../../src/pivotal-ui-react/collapse/collapse').BaseCollapse;
   });
 
   it('creates a react-boostrap panel that is collapsible', function() {
-    subject = React.render((
+    subject = ReactDOM.render((
       <BaseCollapse header="ima header">
         <h1>Child</h1>
       </BaseCollapse>
@@ -29,7 +29,7 @@ describe('BaseCollapse', function() {
     let clickEvent;
 
     beforeEach(function() {
-      subject = React.render((
+      subject = ReactDOM.render((
         <BaseCollapse header="ima header">
           <h1>Child</h1>
         </BaseCollapse>
@@ -55,7 +55,7 @@ describe('BaseCollapse', function() {
 
   describe('when the divider property is set to true', function() {
     beforeEach(function() {
-      subject = React.render((
+      subject = ReactDOM.render((
         <BaseCollapse header="ima header" divider>
           <h1>Child</h1>
         </BaseCollapse>
@@ -69,7 +69,7 @@ describe('BaseCollapse', function() {
   });
   describe('when the defaultExpanded property is set to true', () => {
     it('starts out expanded', () => {
-      subject = React.render((
+      subject = ReactDOM.render((
         <BaseCollapse header="ima header" defaultExpanded={true}>
           <h1>Child</h1>
         </BaseCollapse>
@@ -94,7 +94,7 @@ describe('Collapse', function() {
       }
     };
 
-    React.render(
+    ReactDOM.render(
       <Collapse header="ima header" {...props}>
         <h1>Child</h1>
       </Collapse>,
@@ -102,7 +102,7 @@ describe('Collapse', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('passes through className', function() {
@@ -124,25 +124,23 @@ describe('Collapse', function() {
 });
 
 describe('AltCollapse', function() {
-  var AltCollapse, subject;
+  var AltCollapse;
   beforeEach(function() {
     AltCollapse = require('../../../src/pivotal-ui-react/collapse/collapse').AltCollapse;
 
-    subject = React.render((
+    ReactDOM.render(
       <AltCollapse header="ima header">
         <h1>Child</h1>
       </AltCollapse>
-    ), root);
+    , root);
   });
 
   it('contains a plus as its collapsed icon', function() {
-    var collapsedIconContainer = TestUtils.findRenderedDOMComponentWithClass(subject, 'when-collapsed-inline');
-    expect(TestUtils.findRenderedDOMComponentWithClass(collapsedIconContainer, 'fa-plus-square')).toBeTruthy();
+    expect('.when-collapsed-inline .fa').toHaveClass('fa-plus-square');
   });
 
   it('contains a minus as its collapsed icon', function() {
-    var expandedIconContainer = TestUtils.findRenderedDOMComponentWithClass(subject, 'when-expanded-inline');
-    expect(TestUtils.findRenderedDOMComponentWithClass(expandedIconContainer, 'fa-minus-square')).toBeTruthy();
+    expect('.when-expanded-inline .fa').toHaveClass('fa-minus-square');
   });
 });
 
@@ -152,7 +150,7 @@ describe('BaseCollapse behavior', function() {
   beforeEach(function() {
     BaseCollapse = require('../../../src/pivotal-ui-react/collapse/collapse').BaseCollapse;
 
-    React.render((
+    ReactDOM.render((
       <BaseCollapse header="This is my heading">
         Collapse contents!
       </BaseCollapse>
@@ -160,7 +158,7 @@ describe('BaseCollapse behavior', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   // We should extract this test into a feature test

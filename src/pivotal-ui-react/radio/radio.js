@@ -35,11 +35,14 @@ var Radio = React.createClass({
   },
 
   render: function() {
-    const {className, style, ...others} = this.props;
+    const {className, style, children, ...others} = this.props;
     const props = mergeProps({className: className, style: style}, {className: 'radio'});
     return (
       <div {...props}>
-        <label><input type="radio" {...others}/></label>
+        <label>
+          <input type="radio" {...others}/>
+          {children}
+        </label>
       </div>
     );
   }

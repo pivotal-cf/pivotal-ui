@@ -160,7 +160,7 @@ npm install --save pui-react-buttons
      }
     });
 
-    React.render(<MyTestPage />, document.getElementById('root'));
+    ReactDOM.render(<MyTestPage />, document.getElementById('root'));
     ```
 
     HTML

@@ -26,7 +26,7 @@ import classnames from 'classnames';
  *   }
  * });
  *
- * React.render(<Ribbon className="my-ribbon" style={{height: '25px'}} id="unique-ribbon-id" />, myNode);
+ * ReactDOM.render(<Ribbon className="my-ribbon" style={{height: '25px'}} id="unique-ribbon-id" />, myNode);
  * // Resultant props: {className: 'ribbon my-ribbon', style: {height: '25px', color: 'blue'}, id: 'unique-ribbon-id'}
  * ```
  */

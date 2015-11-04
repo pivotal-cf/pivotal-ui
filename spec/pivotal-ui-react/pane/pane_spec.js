@@ -3,11 +3,11 @@ describe('BasePane', function() {
   var BasePane;
   beforeEach(function() {
     BasePane = require('../../../src/pivotal-ui-react/panes/panes').BasePane;
-    React.render(<BasePane className="my-pane">Pane content here</BasePane>, root);
+    ReactDOM.render(<BasePane className="my-pane">Pane content here</BasePane>, root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('creates a pane and container', function() {
@@ -20,8 +20,8 @@ describe('BasePane', function() {
 
   describe('when inner and outer attributes are provided', function() {
     beforeEach(function() {
-      React.unmountComponentAtNode(root);
-      React.render(<BasePane className="bg-dark-2 more-outer" innerClassName="bg-glow"
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render(<BasePane className="bg-dark-2 more-outer" innerClassName="bg-glow"
         id="outer-id" style={{opacity: '0.5'}}/>, root);
     });
 
@@ -35,8 +35,8 @@ describe('BasePane', function() {
 
   describe('when data-attributes are provided', function() {
     beforeEach(function() {
-      React.unmountComponentAtNode(root);
-      React.render(<BasePane data-foo="baz"/>, root);
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render(<BasePane data-foo="baz"/>, root);
     });
 
     it('attaches the attributes to the .pane', function() {
@@ -48,7 +48,7 @@ describe('BasePane', function() {
 describe('Pane', function() {
   it('puts className on pane', function() {
     const {Pane} = require('../../../src/pivotal-ui-react/panes/panes');
-    React.render(<Pane className="biology">Pane content here</Pane>, root);
+    ReactDOM.render(<Pane className="biology">Pane content here</Pane>, root);
     expect('.pane').toHaveClass('biology');
   });
 });

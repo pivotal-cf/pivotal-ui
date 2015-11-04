@@ -9,12 +9,12 @@ describe('Heading', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('when the Heading has no properties passed in', function() {
     beforeEach(function() {
-      React.render((<Heading children="Heading text here"/>), root);
+      ReactDOM.render((<Heading children="Heading text here"/>), root);
     });
 
     it('creates a p tag', function() {
@@ -29,7 +29,7 @@ describe('Heading', function() {
   ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].forEach(function(element) {
     describe('when passing in element="' + element + '"', function() {
       beforeEach(function() {
-        React.render((<Heading element={element} children="Heading text here"/>), root);
+        ReactDOM.render((<Heading element={element} children="Heading text here"/>), root);
       });
 
       it('creates an element of the specified heading', function() {
@@ -40,7 +40,7 @@ describe('Heading', function() {
 
   describe('when the Heading has attrs provided', function() {
     beforeEach(function() {
-      React.render((<Heading element="h1" allCaps={true} className="myClass" id='myId' style={{opacity: '0.5'}} children="Heading text here"/>), root);
+      ReactDOM.render((<Heading element="h1" allCaps={true} className="myClass" id='myId' style={{opacity: '0.5'}} children="Heading text here"/>), root);
     });
 
     it('has the default classes', function() {
@@ -53,7 +53,7 @@ describe('Heading', function() {
 
   describe('when the Heading has size provided', function() {
     beforeEach(function() {
-      React.render((<Heading element="h1" size="small" children="Heading text here"/>), root);
+      ReactDOM.render((<Heading element="h1" size="small" children="Heading text here"/>), root);
     });
 
     it('creates an element with the size class set', function() {
@@ -63,7 +63,7 @@ describe('Heading', function() {
 
   describe('when the Heading has allCaps set', function() {
     beforeEach(function() {
-      React.render((<Heading element="h2" allCaps={true} children="Heading text here"/>), root);
+      ReactDOM.render((<Heading element="h2" allCaps={true} children="Heading text here"/>), root);
     });
 
     it('creates an element with the em-alt class', function() {
@@ -73,7 +73,7 @@ describe('Heading', function() {
 
   describe('when the Heading has a bold set', function() {
     beforeEach(function() {
-      React.render((<Heading element="h2" bold="high" children="Heading text here"/>), root);
+      ReactDOM.render((<Heading element="h2" bold="high" children="Heading text here"/>), root);
     });
 
     it('creates an element with the em-{bold} class', function() {
@@ -83,7 +83,7 @@ describe('Heading', function() {
 
   describe('when the Heading has color set', function() {
     beforeEach(function() {
-      React.render((<Heading element="h2" color="purple" children="Heading text here"/>), root);
+      ReactDOM.render((<Heading element="h2" color="purple" children="Heading text here"/>), root);
     });
 
     it('creates an element with the color class', function() {
@@ -93,7 +93,7 @@ describe('Heading', function() {
 
   describe('when Heading has many properties set', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         (<Heading element="h2" size="h4" color="purple" bold="max" allCaps={true} children="Heading text here"/>),
         root);
     });

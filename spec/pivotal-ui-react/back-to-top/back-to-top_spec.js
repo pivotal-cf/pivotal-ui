@@ -27,7 +27,7 @@ describe('BackToTop', function() {
 
   beforeEach(function(done) {
     BackToTop = require('../../../src/pivotal-ui-react/back-to-top/back-to-top').BackToTop;
-    React.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
+    ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
 
     jasmine.clock().uninstall();
     setTimeout(function() {
@@ -39,7 +39,7 @@ describe('BackToTop', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('passes down the className, id, and style properties', () => {

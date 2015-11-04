@@ -5,11 +5,11 @@ describe('SearchInput', function() {
   var SearchInput;
   beforeEach(function() {
     SearchInput = require('../../../src/pivotal-ui-react/search-input/search-input').SearchInput;
-    React.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '0.5'}}/>), root);
+    ReactDOM.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '0.5'}}/>), root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders a form group with the search classes', function() {
@@ -23,7 +23,7 @@ describe('SearchInput', function() {
 
   describe('when a placeholder is provided', function() {
     beforeEach(function() {
-      React.render((<SearchInput placeholder="Search here..."/>), root);
+      ReactDOM.render((<SearchInput placeholder="Search here..."/>), root);
     });
 
     it('renders the input with a placeholder', function() {
@@ -36,7 +36,7 @@ describe('SearchInput', function() {
 
     describe('when an aria-label is provided as well', function() {
       beforeEach(function() {
-        React.render((<SearchInput placeholder="Search here..." aria-label="Search Box" />), root);
+        ReactDOM.render((<SearchInput placeholder="Search here..." aria-label="Search Box" />), root);
       });
 
       it('uses the label as the aria-label instead of the placeholder', function() {
@@ -51,7 +51,7 @@ describe('SearchInput', function() {
     var changeSpy;
     beforeEach(function() {
       changeSpy = jasmine.createSpy('change');
-      React.render((<SearchInput onChange={changeSpy}/>), root);
+      ReactDOM.render((<SearchInput onChange={changeSpy}/>), root);
     });
 
     it('adds the handlers to the search input', function() {

@@ -35,7 +35,7 @@ describe('SortableTable', function() {
         <TableHeader>Unsortable</TableHeader>
       ];
 
-      React.render((
+      ReactDOM.render((
           <SortableTable headers={headers} {...props}>
             {data.map(function(datum, key) {
               return (
@@ -58,7 +58,7 @@ describe('SortableTable', function() {
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('adds the class "sortable" on all sortable columns', function() {
@@ -226,7 +226,7 @@ describe('SortableTable', function() {
         <TableHeader sortable>BFFs</TableHeader>
       ];
 
-      React.render((
+      ReactDOM.render((
           <SortableTable headers={headers}>
             <TableRow key={1}>
               <TableCell> my main village man </TableCell>
@@ -244,14 +244,14 @@ describe('SortableTable', function() {
 
       expect(root).toContainText('that dude francesco');
 
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
   });
 });
 
 describe('TableHeader', function() {
   function renderTableHeader({children, ...props}) {
-    return React.render((
+    return ReactDOM.render((
         <table>
           <thead>
             <tr>
@@ -322,7 +322,7 @@ describe('TableHeader', function() {
 
 describe('TableRow', function() {
   function renderTableRow({children=(<td></td>), ...props}) {
-    return React.render((
+    return ReactDOM.render((
         <table>
           <tbody>
             <TableRow {...props}>
@@ -355,7 +355,7 @@ describe('TableRow', function() {
 
 describe('TableCell', function() {
   function renderTableCell({children, ...props}) {
-    return React.render((
+    return ReactDOM.render((
         <table>
           <tbody>
             <tr>

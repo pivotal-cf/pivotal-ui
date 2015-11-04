@@ -147,7 +147,7 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
      }
    });
 
-   React.render(<MyTestPage />, document.getElementById('root'));
+   ReactDOM.render(<MyTestPage />, document.getElementById('root'));
    ```
 
    HTML

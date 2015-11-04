@@ -9,13 +9,13 @@ describe('Media', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('Creates a basic media component', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Media className="media-class" leftImage={image}>fop</Media>), root);
+      ReactDOM.render((<Media className="media-class" leftImage={image}>fop</Media>), root);
     });
 
     it('creates a Media component', function() {
@@ -31,7 +31,7 @@ describe('Media', function() {
     describe('when default left image settings are used', function() {
       beforeEach(function() {
         var image = (<img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>);
-        React.render((<Media leftImage={image}>fop</Media>), root);
+        ReactDOM.render((<Media leftImage={image}>fop</Media>), root);
       });
 
       it('displays the media-left link with an image inside', function() {
@@ -52,7 +52,7 @@ describe('Media', function() {
     describe('When default image padding is modified to large', function() {
       beforeEach(function() {
         var image = (<img src="http://placehold.it/20x20"/>);
-        React.render((<Media leftImage={image} rightImage={image} leftMediaSpacing="large">fop</Media>), root);
+        ReactDOM.render((<Media leftImage={image} rightImage={image} leftMediaSpacing="large">fop</Media>), root);
       });
 
       it('adds the prl class to the left image', function(){
@@ -68,7 +68,7 @@ describe('Media', function() {
   describe('when right image src is set', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Media rightImage={image}>fop</Media>), root);
+      ReactDOM.render((<Media rightImage={image}>fop</Media>), root);
     });
 
     it('displays the media-right with an image inside', function() {
@@ -79,7 +79,7 @@ describe('Media', function() {
   describe('when image alignment is set to middle', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Media leftImage={image} vAlign="middle">fop</Media>), root);
+      ReactDOM.render((<Media leftImage={image} vAlign="middle">fop</Media>), root);
     });
 
     it('displays the media-middle class', function() {
@@ -94,7 +94,7 @@ describe('Media', function() {
   describe('when image alignment is set to bottom', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Media leftImage={image} vAlign="bottom">fop</Media>), root);
+      ReactDOM.render((<Media leftImage={image} vAlign="bottom">fop</Media>), root);
     });
 
     it('displays the media-bottom class', function() {
@@ -105,7 +105,7 @@ describe('Media', function() {
   describe('when media block is set to stack on small screens', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Media leftImage={image} stackSize="small">fop</Media>), root);
+      ReactDOM.render((<Media leftImage={image} stackSize="small">fop</Media>), root);
     });
 
     it('the media-stackable-sm class is applied to the media element', function() {
@@ -116,7 +116,7 @@ describe('Media', function() {
   describe('when media block is set to stack on medium screens', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20" />);
-      React.render((<Media leftImage={image} stackSize="medium">fop</Media>), root);
+      ReactDOM.render((<Media leftImage={image} stackSize="medium">fop</Media>), root);
     });
 
     it('the media-stackable-md class is applied to the media element', function() {
@@ -127,7 +127,7 @@ describe('Media', function() {
   describe('when custom attributes are set on media', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20" />);
-      React.render((<Media leftImage={image} stackSize="medium" innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 0.5}}>fop</Media>), root);
+      ReactDOM.render((<Media leftImage={image} stackSize="medium" innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 0.5}}>fop</Media>), root);
     });
 
     it('the class, id, and style are passed through', function() {
@@ -141,7 +141,7 @@ describe('Media', function() {
   describe('Flag', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      React.render((<Flag leftImage={image} rightImage={image} innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 0.5}}>fop</Flag>), root);
+      ReactDOM.render((<Flag leftImage={image} rightImage={image} innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 0.5}}>fop</Flag>), root);
     });
 
     it('adds the class media-middle to the media-body, media-left, and media-right', function() {

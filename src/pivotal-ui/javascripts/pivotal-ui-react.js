@@ -7,7 +7,8 @@ require('pui-prismjs');
 require('./scale')();
 require('pui-react-back-to-top/jquery-plugin');
 
-global.React = require('react/addons');
+global.React = require('react');
+global.ReactDOM = require('react-dom');
 
 import UI from './components.js';
 

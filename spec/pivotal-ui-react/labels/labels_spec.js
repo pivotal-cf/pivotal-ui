@@ -3,11 +3,11 @@ describe('Label', function() {
   var Label;
   beforeEach(function() {
     Label = require('../../../src/pivotal-ui-react/labels/labels').Label;
-    React.render(<Label>bananas</Label>, root);
+    ReactDOM.render(<Label>bananas</Label>, root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders a primary colored label', function() {
@@ -17,7 +17,7 @@ describe('Label', function() {
   });
 
   function renderLabel(props) {
-    React.render(<Label {...props}>bananas</Label>, root);
+    ReactDOM.render(<Label {...props}>bananas</Label>, root);
   }
 
   describe('when custom options are added', function() {

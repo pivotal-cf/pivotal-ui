@@ -5,7 +5,7 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('Tabs', function() {
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('BaseTabs', function() {
@@ -23,7 +23,7 @@ describe('Tabs', function() {
     describe('props', function() {
       describe('responsiveBreakpoint', function() {
         beforeEach(function() {
-          React.render(
+          ReactDOM.render(
             <BaseTabs defaultActiveKey={2}
                       tabType={tabType}
                       responsiveBreakpoint="xs"
@@ -79,7 +79,7 @@ describe('Tabs', function() {
         beforeEach(function() {
           onSelectSpy = jasmine.createSpy('onSelectSpy');
 
-          React.render(
+          ReactDOM.render(
             <BaseTabs defaultActiveKey={2} tabType={tabType} onSelect={onSelectSpy}>
               <Tab eventKey={1} title="Tab1">Content1</Tab>
               <Tab eventKey={2} title="Tab2">Content2</Tab>
@@ -107,7 +107,7 @@ describe('Tabs', function() {
 
       describe('id', function() {
         beforeEach(function() {
-          React.render(
+          ReactDOM.render(
             <BaseTabs tabType={tabType}/>,
             root
           );
@@ -129,7 +129,7 @@ describe('Tabs', function() {
 
       describe('passthroughs', function() {
         beforeEach(function() {
-          React.render(
+          ReactDOM.render(
             <BaseTabs defaultActiveKey={2}
                       tabType={tabType}
                       className="test-class"
@@ -169,7 +169,7 @@ describe('Tabs', function() {
           }
         });
 
-        React.render(<TestComponent />, root);
+        ReactDOM.render(<TestComponent />, root);
       });
 
       it('creates tabs in the correct container', function() {
@@ -255,7 +255,7 @@ describe('Tabs', function() {
 
     describe('positioning', function() {
       function renderTabs(props = {}) {
-        React.render(
+        ReactDOM.render(
           <LeftTabs defaultActiveKey={1} {...props}>
             <Tab eventKey={1} title="Tab1">Content1</Tab>
             <Tab eventKey={2} title="Tab2">Content2</Tab>
@@ -273,7 +273,7 @@ describe('Tabs', function() {
 
   describe('SimpleTabs', function() {
     it('renders without blowing up', function() {
-      React.render(
+      ReactDOM.render(
         <SimpleTabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Tab1">Content1</Tab>
           <Tab eventKey={2} title="Tab2">Content2</Tab>
@@ -312,7 +312,7 @@ describe('Tabs', function() {
 
   describe('SimpleAltTabs', function() {
     it('should add the class tab-simple to large screen tabs', function() {
-      React.render(
+      ReactDOM.render(
         <SimpleAltTabs defaultActiveKey={1}>
           <Tab eventKey={1} title="Tab1">Content1</Tab>
           <Tab eventKey={2} title="Tab2">Content2</Tab>

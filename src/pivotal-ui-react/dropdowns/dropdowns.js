@@ -25,7 +25,7 @@ import uniqueid from 'lodash.uniqueid';
  * ```
  *
  */
-var BsDropdown = require('react-bootstrap/lib/Dropdown').default;
+var BsDropdown = require('react-bootstrap/lib/Dropdown');
 
 function defDropdown(props) {
   return React.createClass({

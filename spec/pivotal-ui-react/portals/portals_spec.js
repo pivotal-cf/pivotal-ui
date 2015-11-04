@@ -15,13 +15,13 @@ describe('Portals', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('when there is more than one destination portal with the same name', function() {
     beforeEach(function() {
       spyOn(console, 'warn');
-      React.render(
+      ReactDOM.render(
         <div>
           <div className="orange">
             <PortalDestination name="chell"/>
@@ -45,7 +45,7 @@ describe('Portals', function() {
 
   describe('when there is more than one source portal with the same name', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <div>
           <div className="orange">
             <PortalDestination name="chell"/>
@@ -76,13 +76,12 @@ describe('Portals', function() {
     var potato, context;
     beforeEach(function() {
       var Context = React.createClass({
-        propTypes: {visible: React.PropTypes.bool},
-        getDefaultProps() { return {visible: true}; },
+        getInitialState() { return {visible: true}; },
         render() {
           return (
             <div>
               <div className="blue">
-                {this.props.visible && <PortalSource name="chell">
+                {this.state.visible && <PortalSource name="chell">
                   <Potato ref="potato"/>
                 </PortalSource>}
               </div>
@@ -93,7 +92,7 @@ describe('Portals', function() {
           );
         }
       });
-      context = React.render(<Context/>, root);
+      context = ReactDOM.render(<Context/>, root);
       potato = context.refs.potato;
     });
 
@@ -118,7 +117,7 @@ describe('Portals', function() {
 
     describe('when the blue contents unmount', function() {
       beforeEach(function() {
-        context.setProps({visible: false});
+        context.setState({visible: false});
       });
 
       it('cleans up the div in the destination portal', function() {
@@ -129,7 +128,7 @@ describe('Portals', function() {
 
   describe('when the portals are rendered destination first then source', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <div>
           <div className="orange">
             <PortalDestination name="chell"/>
@@ -154,7 +153,7 @@ describe('Portals', function() {
 
   describe('with multiple portal pairs', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <div>
           <div className="orange-chell">
             <PortalDestination name="chell"/>

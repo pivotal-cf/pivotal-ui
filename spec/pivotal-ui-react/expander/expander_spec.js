@@ -2,7 +2,7 @@ require('../spec_helper');
 
 describe('ExpanderContent', function() {
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   function renderComponent(props) {
@@ -12,7 +12,7 @@ describe('ExpanderContent', function() {
       expanded: false
     }, props);
 
-    return React.render(
+    return ReactDOM.render(
       (<ExpanderContent {...props}>
         <div>You won a brand new car!</div>
       </ExpanderContent>),
@@ -84,12 +84,12 @@ describe('ExpanderContent', function() {
 
 describe('ExpanderTrigger', function() {
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   function renderComponent() {
     var ExpanderTrigger = require('../../../src/pivotal-ui-react/expander/expander').ExpanderTrigger;
-    return React.render(
+    return ReactDOM.render(
       (<ExpanderTrigger>
         <button>Click here to trigger</button>
       </ExpanderTrigger>),

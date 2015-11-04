@@ -1,14 +1,14 @@
 require('../spec_helper');
 
 describe('SelectFancy', function() {
-  var SelectFancy, subject;
+  var SelectFancy;
   beforeEach(function() {
     SelectFancy = require('../../../src/pivotal-ui-react/select-fancy/select-fancy').SelectFancy;
-    subject = React.render((<SelectFancy className="foo myClass" id="myId"/>), root);
+    ReactDOM.render((<SelectFancy className="foo myClass" id="myId"/>), root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders a select fancy component with class', function() {
@@ -21,7 +21,7 @@ describe('SelectFancy', function() {
 
   describe('when a name is provided', function() {
     beforeEach(function() {
-      subject.setProps({name: 'my-select'});
+      ReactDOM.render((<SelectFancy name="my-select"/>), root);
     });
 
     it('renders the select with a name', function() {
@@ -33,7 +33,7 @@ describe('SelectFancy', function() {
     var changeSpy;
     beforeEach(function() {
       changeSpy = jasmine.createSpy('change');
-      subject.setProps({onChange: changeSpy});
+      ReactDOM.render((<SelectFancy onChange={changeSpy}/>), root);
     });
 
     it('adds the handlers to the search input', function() {
@@ -44,7 +44,7 @@ describe('SelectFancy', function() {
 
   describe('when the disabled prop is truthy', function() {
     beforeEach(function() {
-      subject.setProps({disabled: true});
+      ReactDOM.render((<SelectFancy disabled/>), root);
     });
 
     it('adds the disabled class to the select-fancy wrapper', function() {

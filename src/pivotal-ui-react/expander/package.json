@@ -3,7 +3,7 @@
   "description": "A React component that provides an accordion for showing and hiding content where the toggle and the content can be in separate places",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "react-bootstrap": "0.25.1",
+    "react-bootstrap": "0.27.1",
     "pui-css-bootstrap": "2.1.0-alpha.1"
   }
 }

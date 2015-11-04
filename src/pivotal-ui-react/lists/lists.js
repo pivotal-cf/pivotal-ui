@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 import classnames from 'classnames';
 
 /**
@@ -22,7 +22,7 @@ function defList(tagName, spacingType, classNames, childClassNames) {
       var {className, spacing, children, ...others} = this.props;
       var classes = classnames(classNames(this.props), className, spacing && `${spacingType}${spacing}`);
       if (childClassNames) {
-        children = React.Children.map(children, child => React.addons.cloneWithProps(child, {className: childClassNames}));
+        children = React.Children.map(children, child => React.cloneElement(child, {className: childClassNames}));
       }
       return (
         tagName === 'ul' ? <ul className={classes} {...others}>{children}</ul> :

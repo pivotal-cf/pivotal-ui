@@ -4,6 +4,7 @@ var classnames = require('classnames');
 var Cursor = require('pui-cursor');
 var es = require('event-stream');
 var React = require('react');
+var ReactDOM = require('react-dom');
 var scrollIntoView = require('scroll-into-view');
 var TrieSearch = require('trie-search');
 
@@ -88,7 +89,7 @@ var Autocomplete = React.createClass({
   },
 
   scrollIntoView() {
-    Array.from(React.findDOMNode(this).querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
+    Array.from(ReactDOM.findDOMNode(this).querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
   },
 
   render() {

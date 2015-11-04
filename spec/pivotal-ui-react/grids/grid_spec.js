@@ -5,7 +5,7 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 describe('Grid', function() {
   beforeEach(function() {
     var {Row, Col} = require('../../../src/pivotal-ui-react/grids/grids');
-    React.render(
+    ReactDOM.render(
       (
         <Row gutter="md" className='test-class' id='test-id' style={{opacity: '0.75'}}>
           <Col md={12} className='test-class2' id='test-id2' style={{opacity: '.5'}}/>
@@ -17,7 +17,7 @@ describe('Grid', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   itPropagatesAttributes('.row', {className: 'test-class', id: 'test-id', style: {opacity: '0.75'}});

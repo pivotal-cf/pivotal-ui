@@ -12,11 +12,11 @@ describe('tooltip', function() {
 
   beforeEach(function() {
     var Tooltip = require('../../../src/pivotal-ui-react/tooltip/tooltip').Tooltip;
-    React.render((<Tooltip {...props}><div className="tooltip-text">Hello World</div></Tooltip>), root);
+    ReactDOM.render((<Tooltip {...props}><div className="tooltip-text">Hello World</div></Tooltip>), root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('works', function() {

@@ -10,7 +10,7 @@ describe('RadioGroup', function() {
       changeSpy = jasmine.createSpy('change').and.callFake(function(e) {
         callValue = e.target.value;
       });
-      React.render(
+      ReactDOM.render(
         <RadioGroup name="bananas" onChange={changeSpy}>
           <Radio value="1">One!!!</Radio>
           <Radio value="2">The two value</Radio>
@@ -21,7 +21,7 @@ describe('RadioGroup', function() {
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('renders the radio group', function() {
@@ -49,7 +49,7 @@ describe('RadioGroup', function() {
 
   describe('RadioGroup with custom attributes', function() {
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <RadioGroup name="bananas" id="clear-channel" style={{color: 'red'}} className='1234'>
           <Radio value="1">One!!!</Radio>
           <Radio value="2">The two value</Radio>

@@ -41,7 +41,7 @@ describe('packageJson', () => {
         license: 'MIT',
         bugs: {url: 'https://github.com/pivotal-cf/pivotal-ui/issues'},
         homepage: 'https://github.com/pivotal-cf/pivotal-ui',
-        peerDependencies: { react: '^0.13.0' }
+        peerDependencies: { react: '^0.14.0' }
       }));
     });
 

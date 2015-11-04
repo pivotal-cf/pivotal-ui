@@ -6,7 +6,7 @@ import EventEmitter from 'node-event-emitter';
 
 describe('StreamList', () => {
   afterEach(() => {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('initial render', () => {
@@ -26,7 +26,7 @@ describe('StreamList', () => {
           <StreamListItem>Item c</StreamListItem>
         </StreamList>
       );
-      React.render(streamList, root);
+      ReactDOM.render(streamList, root);
     });
 
 
@@ -70,7 +70,7 @@ describe('StreamList', () => {
       });
 
       streamListExample = <StreamListExample/>;
-      React.render(streamListExample, root);
+      ReactDOM.render(streamListExample, root);
     });
 
     it('adds a New Items button to the top of the list, using the appropriate singular/plural text', () => {

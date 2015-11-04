@@ -22,7 +22,7 @@ describe('lists', function() {
     };
 
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <Element {...mergeProps(props, testProps)}>
           <ListItem>A</ListItem>
           <ListItem>B</ListItem>
@@ -31,7 +31,7 @@ describe('lists', function() {
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     itPropagatesAttributes(identifier, testProps);
@@ -150,7 +150,7 @@ describe('lists', function() {
     };
 
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <ul>
           <ListItem {...testItemProps}>A</ListItem>
         </ul>,

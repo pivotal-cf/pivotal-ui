@@ -5,14 +5,14 @@ describe('Modals', function() {
 
   beforeEach(function() {
     Modal = require('../../../src/pivotal-ui-react/modals/modals').Modal;
-    modal = React.render(
+    modal = ReactDOM.render(
       <Modal id="yolo" animation={false}> Hi </Modal>,
       root
     );
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('is closed by default', function() {
@@ -47,12 +47,12 @@ describe('BaseModal', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('show', function() {
     it('shows the modal', function() {
-      React.render(
+      ReactDOM.render(
         <BaseModal show id="mr-modal" title="hey mr modal"/>,
         root
       );
@@ -62,7 +62,7 @@ describe('BaseModal', function() {
     });
 
     it('shows the modal', function() {
-      React.render(
+      ReactDOM.render(
         <BaseModal id="mr-modal" title="hey mr modal"/>,
         root
       );
@@ -76,7 +76,7 @@ describe('BaseModal', function() {
 
     beforeEach(function() {
       onHide = jasmine.createSpy('onHide');
-      React.render(
+      ReactDOM.render(
         <BaseModal show id="ms-modal" onHide={onHide}/>,
         root
       );

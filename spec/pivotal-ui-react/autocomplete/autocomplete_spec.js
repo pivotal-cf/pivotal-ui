@@ -10,27 +10,55 @@ describe('Autocomplete', function() {
     Autocomplete = require('../../../src/pivotal-ui-react/autocomplete/autocomplete').Autocomplete;
     AutocompleteInput = require('../../../src/pivotal-ui-react/autocomplete/autocomplete').AutocompleteInput;
     pickSpy = jasmine.createSpy('pick');
-    subject = React.render(<Autocomplete {...{onPick: pickSpy, onInitializeItems} }/>, root);
-    jasmine.clock().tick(1);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
     jasmine.clock().tick(1);
   });
 
   it('renders', function() {
+    ReactDOM.render(<Autocomplete />, root);
     expect('.autocomplete').toExist();
   });
 
-  it('caps length of displayed list using max items prop', function() {
-    subject.setProps({maxItems: 2});
-    subject.showList();
-    expect('.autocomplete-item').toHaveLength(2);
+  describe('when maxItems is provided', function() {
+    it('caps length of displayed list', function() {
+      subject = ReactDOM.render(
+        <Autocomplete {...{
+          onPick: pickSpy,
+          onInitializeItems,
+          maxItems: 2
+        } }/>,
+        root
+      );
+      jasmine.clock().tick(1);
+
+      subject.showList();
+      expect('.autocomplete-item').toHaveLength(2);
+    });
   });
 
   describe('when the user starts to type into the input', function() {
+    var context;
+
     beforeEach(function() {
+      var Context = React.createClass({
+        getInitialState() {
+          return {
+            onInitializeItems
+          };
+        },
+        render() {
+          return (
+            <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}/>
+          );
+        }
+      });
+
+      context = ReactDOM.render(<Context/>, root);
+      jasmine.clock().tick(1);
+
       $('.autocomplete input').val('wat').simulate('change');
     });
 
@@ -46,7 +74,7 @@ describe('Autocomplete', function() {
 
     describe('when the user attempts to re-initialize the searchable items', function() {
       beforeEach(function() {
-        subject.setProps({onInitializeItems: (done) => done([])});
+        context.setState({onInitializeItems: (done) => done([])});
       });
 
       it('does not actually let you change the list', function() {
@@ -115,7 +143,18 @@ describe('Autocomplete', function() {
 
     describe('when one of the autocomplete items is the currently selected option', function() {
       beforeEach(function() {
-        subject.setProps({selectedSuggestion: 'watson'});
+        subject = ReactDOM.render(
+          <Autocomplete {...{
+            onPick: pickSpy,
+            onInitializeItems,
+            selectedSuggestion: 'watson'
+          } }/>,
+          root
+        );
+
+        jasmine.clock().tick(1);
+
+        $('.autocomplete input').val('wat').simulate('change');
       });
 
       it('sets the selected class to the autocomplete item', function() {
@@ -200,7 +239,14 @@ describe('Autocomplete', function() {
 
   describe('when a initial value is provided', function() {
     beforeEach(function() {
-      subject.setProps({value: 'advil'});
+      subject = ReactDOM.render(
+        <Autocomplete {...{
+          onPick: pickSpy,
+          onInitializeItems,
+          value: 'advil'
+        } }/>,
+        root
+      );
     });
 
     it('defaults to that value being selected', function() {
@@ -212,7 +258,15 @@ describe('Autocomplete', function() {
     var cb;
     beforeEach(function() {
       var search = (value, callback) => { cb = callback; };
-      subject.setProps({onSearch: search});
+      subject = ReactDOM.render(
+        <Autocomplete {...{
+          onPick: pickSpy,
+          onInitializeItems,
+          onSearch: search
+        } }/>,
+        root
+      );
+
       $('.autocomplete input').val('zo').simulate('change');
     });
 
@@ -224,8 +278,8 @@ describe('Autocomplete', function() {
 
   describe('when custom props are provided', function() {
     beforeEach(function() {
-      React.unmountComponentAtNode(root);
-      subject = React.render(
+      ReactDOM.unmountComponentAtNode(root);
+      subject = ReactDOM.render(
         <Autocomplete {...{
           onPick: pickSpy,
           onInitializeItems,
@@ -249,7 +303,16 @@ describe('Autocomplete', function() {
 
   describe('when a custom filter function is provided', function() {
     beforeEach(function() {
-      subject.setProps({onFilter: (stuffs) => stuffs.filter((stuff) => stuff.value.indexOf('e') !== -1 )});
+      subject = ReactDOM.render(
+        <Autocomplete {...{
+          onPick: pickSpy,
+          onInitializeItems,
+          onFilter: (stuffs) => stuffs.filter((stuff) => stuff.value.indexOf('e') !== -1 )
+        } }/>,
+        root
+      );
+      jasmine.clock().tick(1);
+
       subject.showList();
     });
 
@@ -263,9 +326,9 @@ describe('Autocomplete', function() {
   describe('when an asynchronous onInitializeItems is provided', function() {
     var cb;
     beforeEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
       onInitializeItems = (callback) => { cb = callback; };
-      subject = React.render(<Autocomplete {...{onInitializeItems}}/>, root);
+      subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}}/>, root);
     });
 
     it('still populates the list properly', function() {

@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var types = React.PropTypes;
 var classnames = require('classnames');
 var move = require('./move_helper');
@@ -100,7 +100,7 @@ var DraggableList = React.createClass({
     var {children, innerClassName, onDragEnd, ...others} = this.props;
     React.Children.forEach(children, function(child, draggingId) {
       grabbed = this.state.draggingId === draggingId;
-      items.push(React.addons.cloneWithProps(child, {
+      items.push(React.cloneElement(child, {
         grabbed,
         onDragStart: this.dragStart.bind(this, draggingId),
         onDragEnd: this.dragEnd,

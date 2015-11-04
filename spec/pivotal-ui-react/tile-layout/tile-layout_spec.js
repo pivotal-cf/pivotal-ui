@@ -2,15 +2,14 @@ require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('TileLayout', () => {
-  const React = require('react/addons');
   const TileLayout = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
 
   it('creates tile-layout', () => {
-    React.render(<TileLayout></TileLayout>, root);
+    ReactDOM.render(<TileLayout></TileLayout>, root);
     expect('#root .tile-layout').toExist();
   });
   it('creates tile-items', () => {
-    React.render(
+    ReactDOM.render(
       <TileLayout>
         <TileLayout.Item>
           Item 1
@@ -29,13 +28,13 @@ describe('TileLayout', () => {
   });
   describe('columns', () => {
     it('supports setting number of columns', () => {
-      React.render(<TileLayout columns={4}></TileLayout>, root);
+      ReactDOM.render(<TileLayout columns={4}></TileLayout>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-layout-xs-4');
     });
 
     it('supports supports setting number of columns for different screen sizes', () => {
-      React.render(<TileLayout columns={{sm: 4, md: 3, lg: 2, xl: 1}}></TileLayout>, root);
+      ReactDOM.render(<TileLayout columns={{sm: 4, md: 3, lg: 2, xl: 1}}></TileLayout>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-layout-sm-4');
       expect('#root .tile-layout').toHaveClass('tile-layout-md-3');
@@ -46,13 +45,13 @@ describe('TileLayout', () => {
 
   describe('gutters', () => {
     it('supports no gutter', () => {
-      React.render(<TileLayout noGutter></TileLayout>, root);
+      ReactDOM.render(<TileLayout noGutter></TileLayout>, root);
 
       expect('#root .tile-layout').not.toHaveClass('tile-gutter');
     });
 
     it('supports gutter', () => {
-      React.render(<TileLayout></TileLayout>, root);
+      ReactDOM.render(<TileLayout></TileLayout>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-gutter');
     });
@@ -60,7 +59,7 @@ describe('TileLayout', () => {
 
   describe('attributes', () => {
     beforeEach(() => {
-      React.render(
+      ReactDOM.render(
         <TileLayout className="outer-class" id="outer-id" style={{opacity: '0.5'}}>
           <TileLayout.Item className="inner-class" id="inner-id" style={{opacity: '0'}}>
             Item 1

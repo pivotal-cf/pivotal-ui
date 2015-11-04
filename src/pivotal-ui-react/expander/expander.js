@@ -1,4 +1,4 @@
-var React = require('react/addons');
+var React = require('react');
 var Collapse = require('react-bootstrap/lib/Collapse');
 
 /**

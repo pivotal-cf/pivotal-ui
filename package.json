@@ -76,9 +76,9 @@
     "phantomjs-polyfill": "0.0.1",
     "proxyquire": "^1.5.0",
     "pui-cursor": "^1.4.0",
-    "react": "0.13.3",
+    "react": "0.14.2",
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
-    "react-bootstrap": "0.25.1",
+    "react-bootstrap": "0.27.1",
     "react-fa": "^4.0.0",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",
@@ -174,7 +174,10 @@
     "pui-react-tabs": "2.1.0-alpha.1",
     "pui-react-tooltip": "2.1.0-alpha.1",
     "pui-react-typography": "2.1.0-alpha.1",
-    "raf": "^3.1.0"
+    "raf": "^3.1.0",
+    "react-addons-clone-with-props": "^0.14.2",
+    "react-addons-test-utils": "^0.14.2",
+    "react-dom": "^0.14.2"
   },
   "scripts": {
     "test": "gulp ci --fatal",

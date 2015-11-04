@@ -1,5 +1,4 @@
-var React = require('react/addons');
-var cloneWithProps = React.addons.cloneWithProps;
+var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 
 /**
@@ -38,7 +37,7 @@ var RadioGroup = React.createClass({
     var {name, children, onChange, ...others} = this.props;
 
     children = React.Children.map(children,
-      (child) => cloneWithProps(child, {name, onChange: onChange})
+      (child) => React.cloneElement(child, {name, onChange: onChange})
     );
 
     var props = mergeProps(others, {className: 'radio-group'});

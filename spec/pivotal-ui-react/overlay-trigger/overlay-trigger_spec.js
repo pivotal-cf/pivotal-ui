@@ -4,7 +4,7 @@ var OverlayTrigger = require('../../../src/pivotal-ui-react/overlay-trigger/over
 
 describe('OverlayTrigger', function() {
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
 
@@ -20,7 +20,7 @@ describe('OverlayTrigger', function() {
           {launcher}
         </OverlayTrigger>
       );
-      React.render(overlays, root);
+      ReactDOM.render(overlays, root);
 
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');
@@ -48,7 +48,7 @@ describe('OverlayTrigger', function() {
           </OverlayTrigger>
         </OverlayTrigger>
       );
-      React.render(overlays, root);
+      ReactDOM.render(overlays, root);
 
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');
@@ -76,7 +76,7 @@ describe('OverlayTrigger', function() {
           {launcher}
         </OverlayTrigger>
       );
-      React.render(overlays, root);
+      ReactDOM.render(overlays, root);
 
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');
@@ -99,7 +99,7 @@ describe('OverlayTrigger', function() {
           {launcher}
         </OverlayTrigger>
       );
-      React.render(overlays, root);
+      ReactDOM.render(overlays, root);
 
       expect('.tooltip-text').not.toExist();
       $('.launcher').simulate('mouseOver');

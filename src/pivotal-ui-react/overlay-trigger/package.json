@@ -3,7 +3,7 @@
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
     "lodash.uniqueid": "^3.0.0",
-    "react-bootstrap": "0.25.1"
+    "react-bootstrap": "0.27.1"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react"
 }

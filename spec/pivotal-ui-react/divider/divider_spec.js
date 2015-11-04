@@ -6,11 +6,11 @@ describe('Divider', function() {
   var Divider;
   beforeEach(function() {
     Divider = require('../../../src/pivotal-ui-react/dividers/dividers').Divider;
-    React.render(<Divider className='test-class' id='test-id' style={{opacity: '0.5'}}/>, root);
+    ReactDOM.render(<Divider className='test-class' id='test-id' style={{opacity: '0.5'}}/>, root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('creates a divider', function() {
@@ -20,7 +20,7 @@ describe('Divider', function() {
   itPropagatesAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
   describe('when large is set to true', function() {
     beforeEach(function() {
-      React.render(<Divider size="large"/>, root);
+      ReactDOM.render(<Divider size="large"/>, root);
     });
 
     it('creates a divider with -2 appended to the classname', function() {
@@ -30,7 +30,7 @@ describe('Divider', function() {
 
   describe('when the divider goes on a dark background, inverse: true', function() {
     beforeEach(function() {
-      React.render(<Divider inverse={true}/>, root);
+      ReactDOM.render(<Divider inverse={true}/>, root);
     });
 
     it('creates a divider without the -alternate in the class', function() {
@@ -40,7 +40,7 @@ describe('Divider', function() {
 
   describe('when a large divider goes on a dark background, inverse: true', function() {
     beforeEach(function() {
-      React.render(<Divider inverse={true} size="large"/>, root);
+      ReactDOM.render(<Divider inverse={true} size="large"/>, root);
     });
 
     it('creates a divider without the -alternate in the class', function() {
@@ -50,7 +50,7 @@ describe('Divider', function() {
 
   describe('setting a custom className', function() {
     beforeEach(function() {
-      React.render(<Divider inverse={true} className="myClass"/>, root);
+      ReactDOM.render(<Divider inverse={true} className="myClass"/>, root);
     });
 
     it('passes the class through to the divider', function() {
@@ -61,7 +61,7 @@ describe('Divider', function() {
 
   describe('setting a custom data attribute', function() {
     beforeEach(function() {
-      React.render(<Divider data-behavior="myAttr"/>, root);
+      ReactDOM.render(<Divider data-behavior="myAttr"/>, root);
     });
 
     it('passes the data attribute through to the divider', function() {

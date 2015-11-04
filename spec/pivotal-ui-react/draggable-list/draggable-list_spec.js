@@ -17,7 +17,7 @@ describe('DraggableList', function() {
       }
     };
 
-    subject = React.render(
+    subject = ReactDOM.render(
       <DraggableList onDragEnd={dragEndSpy} {...props} innerClassName='inner-test-class'>
         <DraggableListItem>
           Get me out of here!
@@ -35,7 +35,7 @@ describe('DraggableList', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
 
@@ -58,7 +58,7 @@ describe('DraggableList', function() {
 
   describe('when the children are changed', function() {
     beforeEach(function() {
-      subject = React.render(
+      subject = ReactDOM.render(
         <DraggableList>
           <DraggableListItem>
             Get me out of here!
@@ -112,7 +112,7 @@ describe('DraggableList', function() {
 
     describe('when the children are changed', function() {
       beforeEach(function() {
-        subject = React.render(
+        subject = ReactDOM.render(
           <DraggableList>
             <DraggableListItem>
               Get me out of here!

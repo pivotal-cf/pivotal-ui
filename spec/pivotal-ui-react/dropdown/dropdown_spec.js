@@ -6,11 +6,11 @@ describe('Dropdowns', function() {
     describe(dropdownComponentName, function() {
       beforeEach(function() {
         var DropdownClass = require('../../../src/pivotal-ui-react/dropdowns/dropdowns')[dropdownComponentName];
-        React.render(<DropdownClass title="Dropping" buttonClassName="test-btn-class"/>, root);
+        ReactDOM.render(<DropdownClass title="Dropping" buttonClassName="test-btn-class"/>, root);
       });
 
       afterEach(function() {
-        React.unmountComponentAtNode(root);
+        ReactDOM.unmountComponentAtNode(root);
       });
 
       it('creates a dropdown', function() {
@@ -35,14 +35,14 @@ describe('Dropdowns', function() {
     };
 
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <Dropdown title="Dropping" {...props} buttonClassName="test-btn-class">
           <DropdownItem href="test">Item #1</DropdownItem>
         </Dropdown>, root);
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('passes through className to the btn-group ', function() {
@@ -78,13 +78,13 @@ describe('Dropdowns', function() {
       }
     };
     beforeEach(function() {
-      React.render(
+      ReactDOM.render(
         <DropdownItem href='test' {...props}>Item</DropdownItem>,
         root);
     });
 
     afterEach(function() {
-      React.unmountComponentAtNode(root);
+      ReactDOM.unmountComponentAtNode(root);
     });
 
     it('passes through className to the li ', function() {

@@ -10,7 +10,7 @@ module JSXScriptTag
         <script>
           (function() {
             #{js_code}
-            React.render(
+            ReactDOM.render(
               reactElement,
               document.getElementById('#{div_id}')
             );
@@ -21,7 +21,7 @@ module JSXScriptTag
       <<-JS
         <script type="text/jsx">
           (function() {
-            React.render(
+            ReactDOM.render(
               #{code.strip},
               document.getElementById('#{div_id}')
             );

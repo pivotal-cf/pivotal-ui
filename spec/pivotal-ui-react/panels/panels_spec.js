@@ -6,12 +6,12 @@ describe('Panel', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('with no props given', function() {
     beforeEach(function() {
-      React.render(<Panel>Sup</Panel>, root);
+      ReactDOM.render(<Panel>Sup</Panel>, root);
     });
 
     it('creates a panel', function() {
@@ -21,7 +21,7 @@ describe('Panel', function() {
 
   describe('when a kind is provided', function() {
     beforeEach(function() {
-      React.render(<Panel kind="panel-basic">Sup</Panel>, root);
+      ReactDOM.render(<Panel kind="panel-basic">Sup</Panel>, root);
     });
 
     it('sets the kind as a class on the panel', function() {
@@ -31,7 +31,7 @@ describe('Panel', function() {
 
   describe('when a title is provided', function() {
     beforeEach(function() {
-      React.render(<Panel title="This is a title">Sup</Panel>, root);
+      ReactDOM.render(<Panel title="This is a title">Sup</Panel>, root);
     });
 
     it('sets the title to the panel', function() {
@@ -41,7 +41,7 @@ describe('Panel', function() {
 
   describe('when attributes are provided', function() {
     beforeEach(function() {
-      React.render(<Panel className="foo myClass" innerClassName="inner-class"
+      ReactDOM.render(<Panel className="foo myClass" innerClassName="inner-class"
                           id="outer-id"
                           style={{opacity: '0.5'}}>Sup</Panel>, root);
     });
@@ -61,7 +61,7 @@ describe('Panel', function() {
 
   describe('when padding is provided', function() {
     beforeEach(function() {
-      React.render(<Panel padding="ptl">Sup</Panel>, root);
+      ReactDOM.render(<Panel padding="ptl">Sup</Panel>, root);
     });
 
     it('sets the padding as a class on the panel-body', function() {
@@ -71,7 +71,7 @@ describe('Panel', function() {
 
   describe('when style and scrollable are both provided', function() {
     beforeEach(function() {
-      React.render(<Panel style={{color: 'red'}} scrollable={1337}>Sup</Panel>, root);
+      ReactDOM.render(<Panel style={{color: 'red'}} scrollable={1337}>Sup</Panel>, root);
     });
 
     it('renders the correct style', function() {
@@ -81,7 +81,7 @@ describe('Panel', function() {
 
   describe('when style is provided and scrollable is not', function() {
     beforeEach(function() {
-      React.render(<Panel style={{color: 'red'}}>Sup</Panel>, root);
+      ReactDOM.render(<Panel style={{color: 'red'}}>Sup</Panel>, root);
     });
 
     it('renders the correct style', function() {
@@ -92,7 +92,7 @@ describe('Panel', function() {
 
   describe('when scrollable is set to true', function() {
     beforeEach(function() {
-      React.render(<Panel scrollable>Sup</Panel>, root);
+      ReactDOM.render(<Panel scrollable>Sup</Panel>, root);
     });
 
     it('adds the class "panel-scrollable"', function() {
@@ -101,7 +101,7 @@ describe('Panel', function() {
 
     describe('when it is set to a number', function() {
       beforeEach(function() {
-        React.render(<Panel scrollable={1337}>Sup</Panel>, root);
+        ReactDOM.render(<Panel scrollable={1337}>Sup</Panel>, root);
       });
 
       it('sets the max-height of the panel-body to to the supplied numerical value', function() {
@@ -112,7 +112,7 @@ describe('Panel', function() {
 
   describe('when scrollable is not set', () => {
     beforeEach(function() {
-      React.render(<Panel>Sup</Panel>, root);
+      ReactDOM.render(<Panel>Sup</Panel>, root);
     });
 
     it('does not add the class "panel-scrollable"', () => {
@@ -126,11 +126,11 @@ describe('ShadowPanel', function() {
   var ShadowPanel;
   beforeEach(function() {
     ShadowPanel = require('../../../src/pivotal-ui-react/panels/panels').ShadowPanel;
-    React.render(<ShadowPanel>Sup</ShadowPanel>, root);
+    ReactDOM.render(<ShadowPanel>Sup</ShadowPanel>, root);
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   it('creates a panel with the default shadow class', function() {
@@ -140,7 +140,7 @@ describe('ShadowPanel', function() {
 
   describe('when the shadowLevel property is set', function() {
     beforeEach(function() {
-      React.render(<ShadowPanel shadowLevel={3}>Sup</ShadowPanel>, root);
+      ReactDOM.render(<ShadowPanel shadowLevel={3}>Sup</ShadowPanel>, root);
     });
 
     it('creates a shadow panel with the corresponding level', function() {

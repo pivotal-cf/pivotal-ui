@@ -22,12 +22,12 @@ describe('Notification', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('when there are children', function() {
     beforeEach(function() {
-      React.render((
+      ReactDOM.render((
         <Notifications {...props}>
           <NotificationItem {...itemProps} href="my-fee-link">fee</NotificationItem>
           <NotificationItem href="my-fi-link">fi</NotificationItem>
@@ -78,7 +78,7 @@ describe('Notification', function() {
 
   describe('when there are no children', function() {
     beforeEach(function() {
-      React.render(<Notifications/>, root);
+      ReactDOM.render(<Notifications/>, root);
     });
 
     it('does not render a badge', function() {
@@ -92,7 +92,7 @@ describe('Notification', function() {
 
   describe('when there are size modifiers', function() {
     beforeEach(function() {
-      React.render(<Notifications size="h1"/>, root);
+      ReactDOM.render(<Notifications size="h1"/>, root);
     });
 
     it('renders a h1 sized notification', function() {
@@ -109,7 +109,7 @@ describe('Alert Notifications', function() {
   });
 
   afterEach(function() {
-    React.unmountComponentAtNode(root);
+    ReactDOM.unmountComponentAtNode(root);
   });
 
   describe('when there are children', function() {
@@ -121,7 +121,7 @@ describe('Alert Notifications', function() {
       }
     };
     beforeEach(function() {
-      React.render((
+      ReactDOM.render((
         <AlertNotifications {...props}>
           <NotificationItem href="my-fee-link">fee</NotificationItem>
           <NotificationItem href="my-fi-link">fi</NotificationItem>
@@ -159,7 +159,7 @@ describe('Alert Notifications', function() {
 
   describe('when there are no children', function() {
     beforeEach(function() {
-      React.render(<AlertNotifications/>, root);
+      ReactDOM.render(<AlertNotifications/>, root);
     });
 
     it('does not render an alert icon', function() {
@@ -173,7 +173,7 @@ describe('Alert Notifications', function() {
 
   describe('when there are size modifiers', function() {
     beforeEach(function() {
-      React.render(<AlertNotifications size="h1"/>, root);
+      ReactDOM.render(<AlertNotifications size="h1"/>, root);
     });
 
     it('renders a h1 sized notification', function() {

@@ -1,4 +1,4 @@
-import React from 'react/addons';
+import React from 'react';
 import {UIButton} from 'pui-react-buttons';
 import {GroupList, ListItem} from 'pui-react-lists';
 import AnimationMixin from 'pui-react-animation';
