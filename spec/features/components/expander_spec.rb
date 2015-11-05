@@ -1,7 +1,7 @@
 require_relative '../spec_helper'
 
 feature 'React Expander', js: true do
-  pending 'using the component' do
+  scenario 'using the component' do
     visit '/react_components_expander.html'
 
     within_example_containing('Toggle Content') do
