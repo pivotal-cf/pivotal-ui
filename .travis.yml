@@ -5,7 +5,7 @@ env:
 - CMD="npm test"
 - CMD="npm run test-accessibility"
 script: "$CMD"
-sudo: true
+sudo: false
 before_install:
 - bundle install
 - export DISPLAY=:99.0
