@@ -13,10 +13,6 @@ import webpackConfig from '../config/webpack';
 const plugins = loadPlugins();
 const runSequence = require('run-sequence').use(gulp);
 
-gulp.task('monolith-clean', callback => del(['build'], callback));
-
-gulp.task('monolith-hologram', callback => exec('bundle exec hologram', callback));
-
 gulp.task('monolith-setup-css-cache', () => {
   return setupDrF({cached: false})
     .pipe(copyAssets())
@@ -124,19 +120,6 @@ gulp.task('monolith-build-styleguide-react-js', () => {
   }
 });
 
-gulp.task('monolith-prism-assets', () =>
-    gulp.src('node_modules/prismjs/themes/{prism,prism-okaidia}.css')
-      .pipe(gulp.dest('build/prismjs'))
-);
-
-gulp.task('monolith-styleguide-assets', () =>
-    gulp.src([
-      'src/styleguide/*.js',
-      'src/styleguide/github.css',
-      'src/images/*'
-    ]).pipe(gulp.dest('build/styleguide'))
-);
-
 gulp.task('monolith-zeroclipboard-assets', () =>
     gulp.src('node_modules/zeroclipboard/dist/ZeroClipboard.{js,swf}')
       .pipe(gulp.dest('build/zeroclipboard'))
@@ -161,11 +144,3 @@ gulp.task('monolith', callback => runSequence('monolith-clean', [
   'monolith-app-config'
 ], callback));
 
-gulp.task('monolith-serve', ['monolith'], () => {
-  plugins.connect.server({
-    root: ['build'],
-    port: process.env.STYLEGUIDE_PORT || 8000
-  });
-});
-
-gulp.task('monolith-kill-server', () => plugins.connect.serverClose());

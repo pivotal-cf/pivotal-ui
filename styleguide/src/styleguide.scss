@@ -1,7 +1,7 @@
 // Styles specific to the styleguide, otherwise, not used
 @import './ie-specific-styles.scss';
-@import '../pivotal-ui/components/pui-variables.scss';
-@import '../pivotal-ui/components/mixins.scss';
+@import '../../src/pivotal-ui/components/pui-variables.scss';
+@import '../../src/pivotal-ui/components/mixins.scss';
 
 $nav-menu-width: 300px;
 

@@ -3,8 +3,7 @@
 
 # The directory containing the source files to parse recursively
 source:
-- ./src/pivotal-ui
-- ./src/pivotal-ui-react
+- ./docs
 
 # The directory that hologram will build to
 destination: ./build

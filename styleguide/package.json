@@ -1,0 +1,33 @@
+{
+  "name": "styleguide",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pui-css-buttons": "^3.0.0-alpha.0",
+    "pui-css-whitespace": "^3.0.0-alpha.0"
+  },
+  "devDependencies": {
+    "babel": "^6.0.15",
+    "babel-core": "^6.1.2",
+    "babel-loader": "^6.0.1",
+    "babel-runtime": "^6.0.14",
+    "del": "^2.0.2",
+    "dr-frankenstyle": "^0.2.7",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-cssnext": "^1.0.1",
+    "gulp-load-plugins": "^1.1.0",
+    "gulp-sass": "^2.1.0",
+    "prismjs": "^1.3.0",
+    "webpack": "^1.12.2"
+  }
+}
