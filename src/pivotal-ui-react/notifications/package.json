@@ -1,11 +1,11 @@
 {
-  "version": "2.1.0-alpha.1",
+  "version": "3.0.0-alpha.0",
   "description": "A React component for showing a dropdown of notification messages",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-react-dropdowns": "2.1.0-alpha.1",
-    "pui-react-helpers": "2.1.0-alpha.1",
-    "pui-react-iconography": "2.1.0-alpha.1",
+    "pui-react-dropdowns": "3.0.0-alpha.0",
+    "pui-react-helpers": "3.0.0-alpha.0",
+    "pui-react-iconography": "3.0.0-alpha.0",
     "classnames": "^2.1.3"
   }
 }

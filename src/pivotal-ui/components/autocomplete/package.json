@@ -2,8 +2,8 @@
   "description": "CSS for react autocomplete",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "2.1.0-alpha.1",
-    "pui-css-forms": "2.1.0-alpha.1"
+    "pui-css-bootstrap": "3.0.0-alpha.0",
+    "pui-css-forms": "3.0.0-alpha.0"
   },
-  "version": "2.1.0-alpha.1"
+  "version": "3.0.0-alpha.0"
 }
