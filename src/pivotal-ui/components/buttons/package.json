@@ -1,8 +1,8 @@
 {
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "2.1.0-alpha.2",
-    "pui-css-typography": "2.1.0-alpha.2"
+    "pui-css-bootstrap": "2.1.0-alpha.1",
+    "pui-css-typography": "2.1.0-alpha.1"
   },
-  "version": "2.1.0-alpha.2"
+  "version": "2.1.0-alpha.1"
 }

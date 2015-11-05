@@ -1,10 +1,10 @@
 {
-  "version": "2.1.0-alpha.2",
+  "version": "2.1.0-alpha.1",
   "description": "A React component for showing a list of items that can be re-ordered by the user",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-lists": "2.1.0-alpha.2",
-    "pui-react-helpers": "2.1.0-alpha.2"
+    "pui-css-lists": "2.1.0-alpha.1",
+    "pui-react-helpers": "2.1.0-alpha.1"
   }
 }
