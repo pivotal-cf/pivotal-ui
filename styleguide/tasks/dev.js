@@ -3,6 +3,7 @@ import loadPlugins from 'gulp-load-plugins';
 import del from 'del';
 import {exec} from 'child_process';
 import drF from 'dr-frankenstyle';
+import webpack from 'webpack-stream';
 
 const plugins = loadPlugins();
 const runSequence = require('run-sequence').use(gulp);
@@ -16,12 +17,33 @@ gulp.task('build-component-css', function() {
     .pipe(gulp.dest('build/'));
 });
 
-gulp.task('build-css', () =>
+gulp.task('build-sass', () =>
     gulp.src('src/styleguide.scss')
       .pipe(plugins.sass())
       .pipe(plugins.cssnext())
       .pipe(gulp.dest('build/styleguide'))
 );
+
+gulp.task('build-js', function() {
+  return gulp.src('src/styleguide-react.js')
+    .pipe(webpack({
+      module: {
+        loaders: [
+          {
+            test: /\.js$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader',
+          },
+          {
+            test: /bootstrap/,
+            loader: 'imports?jQuery=jquery'
+          }
+        ],
+      },
+    }))
+    .pipe(plugins.rename('styleguide-react.js'))
+    .pipe(gulp.dest('build/styleguide'));
+});
 
 gulp.task('styleguide-assets', () =>
     gulp.src([
@@ -38,7 +60,8 @@ gulp.task('prism-assets', () =>
 
 gulp.task('styleguide-build', callback => runSequence('styleguide-clean', [
   'hologram',
-  'build-css',
+  'build-sass',
+  'build-js',
   'build-component-css',
   'styleguide-assets',
   'prism-assets',
@@ -56,6 +79,8 @@ gulp.task('monolith-kill-server', () => plugins.connect.serverClose());
 gulp.task('setup-watchers', (callback) => {
   process.env.WEBPACK_WATCH = true;
   gulp.watch(['hologram/**/**'], ['hologram']);
+  gulp.watch(['src/**.js'], ['build-js']);
+  gulp.watch(['src/**.scss'], ['build-sass']);
   callback();
 });
 

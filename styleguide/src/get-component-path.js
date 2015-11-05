@@ -16,4 +16,4 @@ function getComponentPath(path) {
   }
 }
 
-export default getComponentPath;
+module.exports = getComponentPath;

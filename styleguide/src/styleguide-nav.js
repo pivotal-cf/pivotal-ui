@@ -39,7 +39,7 @@ const StyleguideNav = React.createClass({
     const languageNames = ['React', 'CSS'];
     const tabs = languageNames.map((language) => {
       const componentTypes = navTree[language];
-      const componentTypeNames = Object.keys(componentTypes).sort();
+      const componentTypeNames = Object.keys(componentTypes || {}).sort();
 
       const collapses = componentTypeNames.map((componentType) => {
         const defaultExpanded = componentType.toLowerCase() == defaultComponentType.toLowerCase();
@@ -66,4 +66,4 @@ const StyleguideNav = React.createClass({
   }
 });
 
-export default StyleguideNav;
+module.exports = StyleguideNav;

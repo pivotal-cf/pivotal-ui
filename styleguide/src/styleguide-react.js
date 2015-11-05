@@ -1,3 +1,4 @@
+global.$ = global.jQuery = require('jquery');
 
 $(document).ready(() => {
   const React = global.React || require('react');
