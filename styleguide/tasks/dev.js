@@ -49,7 +49,7 @@ gulp.task('styleguide-assets', () =>
     gulp.src([
       //'src/styleguide/*.js',
       'src/github.css',
-      //'src/images/*'
+      'src/images/*'
     ]).pipe(gulp.dest('build/styleguide'))
 );
 
