@@ -1,9 +1,16 @@
 global.$ = global.jQuery = require('jquery');
+global._ = require('lodash');
+
+global.React = require('react');
+global.ReactDOM = require('react-dom');
+
+const Alerts = require('pui-react-alerts');
+
+_.each(Alerts, function(value, key) {
+  global[key] = value;
+});
 
 $(document).ready(() => {
-  const React = global.React || require('react');
-  const ReactDOM = global.ReactDOM || require('react-dom');
-
   const StyleguideNav = require('./styleguide-nav');
   const getComponentPath = require('./get-component-path');
 
