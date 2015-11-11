@@ -58,11 +58,17 @@ gulp.task('prism-assets', () =>
       .pipe(gulp.dest('build/prismjs'))
 );
 
+gulp.task('import-bootstrap-js', () =>
+    gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.js')
+      .pipe(gulp.dest('build/'))
+);
+
 gulp.task('styleguide-build', callback => runSequence('styleguide-clean', [
   'hologram',
   'build-sass',
   'build-js',
   'build-component-css',
+  'import-bootstrap-js',
   'styleguide-assets',
   'prism-assets',
 ], callback));

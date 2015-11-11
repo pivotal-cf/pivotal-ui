@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "font-awesome": "^4.4.0",
     "lodash": "^3.10.1",
     "pui-css-buttons": "^3.0.0-alpha.0",
+    "pui-css-iconography": "^3.0.0-alpha.0",
     "pui-css-whitespace": "^3.0.0-alpha.0",
     "pui-react-alerts": "^3.0.0-alpha.0",
     "pui-react-buttons": "^3.0.0-alpha.0",
@@ -31,6 +33,7 @@
     "babel-preset-react": "^6.1.2",
     "babel-preset-stage-0": "^6.1.2",
     "babel-runtime": "^6.0.14",
+    "bootstrap-sass": "3.3.5",
     "del": "^2.0.2",
     "dr-frankenstyle": "^0.2.7",
     "gulp": "^3.9.0",
