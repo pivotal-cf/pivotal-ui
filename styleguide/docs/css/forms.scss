@@ -1,0 +1,778 @@
+/*doc
+---
+title: Introduction
+name: 00_form_introduction
+categories:
+ - css_components_forms
+ - css_all
+---
+
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-forms --save
+</i>
+</code>
+
+
+Individual form controls automatically receive some global styling.
+All textual `<input>`, `<textarea>`, and `<select>` elements with
+`.form-control` are set to `width: 100`%; by default.
+
+<div class="alert alert-info">
+  <p class="em-high">
+    Wrap labels and controls in <code>.form-group</code> for optimum spacing.
+  </p>
+</div>
+
+*/
+
+/*doc
+---
+title: Basic Forms
+name: 0a_form_basic
+parent: 00_form_introduction
+---
+
+```html_example
+<form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Inline Forms
+name: form_inline
+categories:
+ - css_components_forms
+ - css_all
+---
+
+Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
+This only applies to forms within viewports that are at least 768px wide.
+
+<div class="alert alert-info">
+  <h5 class="em-high mtn">
+    Always add labels to every input.
+  </h5>
+  <p>
+    Screen readers will have trouble with your forms if you don't.
+    You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
+  </p>
+</div>
+
+```html_example
+<form class="styleguide-form form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail5">Email address</label>
+    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Remember me
+    </label>
+  </div>
+  <button class="btn btn-default" type="submit">Sign in</button>
+</form>
+```
+*/
+
+/*doc
+---
+title: Inline Forms with Labels
+name: form_inline_with_labels
+parent: form_inline
+---
+
+Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
+
+
+```html_example
+<form class="styleguide-form form-inline inline-labels" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail6">Write a thing</label>
+    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email">
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect">Choose a thing</label>
+    <select class="form-control" id="exampleSelect">
+      <option>thing</option>
+    </select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Remember me
+    </label>
+  </div>
+  <button class="btn btn-default" type="submit">Sign in</button>
+</form>
+```
+*/
+
+/*doc
+---
+title: Inputs & Labels
+name: form_inputs
+categories:
+ - css_components_forms
+ - css_all
+---
+
+An input with the label top aligned (this is the default layout).
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail7">
+      <abbr title="required">*</abbr>
+      Email address
+    </label>
+    <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email">
+  </div>
+</form>
+```
+
+Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal
+layout by adding `.form-horizontal` to the form. Doing so changes `.form-groups` to behave as grid rows, so no need for `.row`.
+
+An input with the label left aligned
+
+```html_example
+<form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label" for="exampleInputEmail3">
+        <abbr title="required">*</abbr>
+        Email address
+      </label>
+    </div>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
+    </div>
+  </div>
+</form>
+```
+
+An input with the label right aligned (N.B., control-label class provides the right alignment):
+
+```html_example
+<form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-md-6 control-label" for="exampleInputEmail4">
+      <abbr title="required">*</abbr>
+      Email address
+    </label>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email">
+    </div>
+  </div>
+</form>
+```
+
+An unstyled input that doesn't have any of the default input styles
+
+```html_example
+<form role="form">
+  <label for="unstyledInput">Text Input</label>
+  <input class="unstyled" id="unstyledInput" placeholder="This is a text input">
+</form>
+```
+*/
+
+/*doc
+---
+title: HTML5 Controls
+name: 01_form_html5_controls
+parent: form_inputs
+---
+
+Examples of standard form controls supported in an example form layout.
+
+Inputs
+Most common form control, text-based input fields. Includes support for
+all HTML5 types: `text`, `password`, `datetime`, `datetime-local`,
+`date`, `month`, `time`, `week`, `number`, `email`, `url`, `search`,
+`tel`, and `color`.
+
+<div class="alert alert-warning">
+  <p class="em-high">
+    Inputs will only be fully styled if their type is properly declared.
+  </p>
+</div>
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5TextInput">Text Input</label>
+  <input class="form-control" id="html5TextInput" placeholder="Text input" type="text">
+</form>
+```
+
+Password field
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5PasswordInput">Password Input</label>
+  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
+</form>
+```
+
+Date
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5DateInput">Date Input</label>
+  <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
+</form>
+```
+
+Number
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5NumberInput">Number Input</label>
+  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
+</form>
+```
+
+With a min/max and default starting value
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5MinMaxInput">Min/Max Input</label>
+  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
+</form>
+```
+
+With a different increment value
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5StepInput">Step Input</label>
+  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
+</form>
+```
+
+Email
+
+Use this with fields that require email addresses to pop up the correct keyboard on mobile
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5EmailInput">Email Input</label>
+  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
+</form>
+```
+
+URL
+
+Use this with fields that require urls to pop up the correct keyboard on mobile
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5URLInput">URL Input</label>
+  <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
+</form>
+```
+
+Telephone
+
+Use this with fields that require telephone numbers to pop up the dialpad on mobile
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="html5PhoneInput">Phone Input</label>
+  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
+</form>
+```
+*/
+
+/*doc
+---
+title: Sizing
+name: 02_form_inputs_sizing
+parent: form_inputs
+---
+
+Set heights using the form control classes `.input-lg` and `.input-sm`.
+Create larger or smaller form controls that match button sizes.
+
+```html_example_table
+<label for="LargeInput">Large Input</label>
+<input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text">
+
+<label for="DefaultInput">Default Input</label>
+<input class="form-control" id="DefaultInput" placeholder="Default Input" type="text">
+
+<label for="SmallInput">Small Input</label>
+<input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
+```
+
+Set widths using grid column classes like `.col-lg-*`.
+Wrap selects in grid columns, or any custom parent element, to easily enforce desired widths.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="Small2WidthInput">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text">
+    </div>
+    <div class="col-md-6">
+      <label for="Small3WidthInput">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text">
+    </div>
+    <div class="col-md-8">
+      <label for="Small4WidthInput">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text">
+    </div>
+  </div>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Search Inputs
+name: 04_form_search_input
+parent: form_inputs
+---
+
+Use this input when creating a search component.
+
+```html_example
+<label for="searchInput">Search</label>
+<div class="form-group form-group-search">
+  <input class="form-control" id="searchInput" placeholder="This is a searchbox">
+  <i class="fa fa-search"></i>
+</div>
+```
+*/
+
+/*doc
+---
+title: Read-Only Inputs
+name: 05_form_inputs_read_only
+parent: form_inputs
+---
+
+Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
+
+```html_example
+<label for="ReadOnlyInput">ReadOnly</label>
+<input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
+```
+
+*/
+
+
+/*doc
+---
+title: Selects
+name: form_selects
+categories:
+ - css_components_forms
+ - css_all
+---
+Selects are excellent to use because they will automatically
+behave as expected cross browser on different devices. Prefer
+them over a custom dropdown whenever possible.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <select class="form-control">
+    <option>default option</option>
+    <option>an option</option>
+    <option>another option</option>
+  </select>
+</form>
+```
+*/
+
+/*doc
+---
+title: Sizing
+name: 01_form_select_sizing
+parent: form_selects
+---
+
+Set heights using the form control classes `.input-lg` and `.input-sm`.
+Create larger or smaller form controls that match button sizes.
+
+```html_example_table
+<select class="form-control input-lg">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+
+<select class="form-control">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+
+<select class="form-control input-sm">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+```
+
+Set widths using grid column classes like `.col-lg-*`.
+Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="Small2WidthInput2">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text">
+    </div>
+    <div class="col-md-6">
+      <label for="Small3WidthInput2">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text">
+    </div>
+    <div class="col-md-8">
+      <label for="Small4WidthInput2">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text">
+    </div>
+  </div>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Fancy Selects
+name: 02_form_fancy_select
+parent: form_selects
+---
+
+This is a fancy select!
+
+```html_example
+<form class="styleguide-form" role="form" style="width: 200px">
+  <label for="fancy-select">Description</label>
+  <div class="select-fancy">
+    <select class="form-control">
+      <option>Fancy Option 1</option>
+      <option>Fancy Option 2</option>
+    </select>
+  </div>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Text Areas
+name: form_textarea
+categories:
+ - css_components_forms
+ - css_all
+---
+
+Text areas are used for larger amounts of input.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleTextAreaId">Description</label>
+    <textarea class="form-control" id="exampleTextAreaId" rows="3"></textarea>
+  </div>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Checkboxes & Radios
+name: form_checkboxes
+categories:
+ - css_components_forms
+ - css_all
+---
+Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
+
+### Default (stacked)
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios1" name="optionsRadios" type="radio" value="option1" checked>
+      Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios2" name="optionsRadios" type="radio" value="option2">
+      Option two can be something else and selecting it will deselect option one
+    </label>
+  </div>
+</form>
+```
+
+*/
+
+
+/*doc
+---
+title: Inline Checkboxes & Radios
+name: form_checkboxes_inline
+parent: form_checkboxes
+---
+
+Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or radios for controls appear on the same line.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox1" type="checkbox" value="option1">
+      1
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox2" type="checkbox" value="option2">
+      2
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox3" type="checkbox" value="option3">
+      3
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input id="inlineradio1" type="radio" value="option1">
+      1
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio2" type="radio" value="option2">
+      2
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio3" type="radio" value="option3">
+      3
+    </label>
+  </div>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Help Text
+name: form_help_text
+categories:
+ - css_components_forms
+ - css_all
+---
+Help text
+Block level help text for form controls.
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label for="demohelp"/>
+  <input class="form-control" id="demohelp" type="text">
+  <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</form>
+```
+
+*/
+
+/*doc
+---
+title: Validations
+name: form_validation
+categories:
+ - css_components_forms
+ - css_all
+---
+
+To show validation errors on a field, add `.has-error` to the field's form group.
+This class can be used for all types of inputs.
+
+Error messages should use the classes `.help-block.has-error`.
+
+```html_example_table
+<form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <label class="control-label" for="inputError">
+      Input with error
+    </label>
+    <input id="inputError" class="form-control" type="text">
+    <span class="help-block has-error">
+      Error help text
+    </span>
+  </div>
+</form>
+
+<form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <div class="checkbox">
+      <label class="control-label">
+        <input type="checkbox" value="">
+        Checkbox which needs to be checked
+      </label>
+      <span class="help-block has-error">
+        Error help text
+      </span>
+    </div>
+  </div>
+</form>
+```
+
+If you're doing client-side validation and want to show successful validation of a field,
+add `.has-success` to the field's form group.
+
+<div class="alert alert-info mbxl">
+  <p class="em-high">
+    The <code>.has-success</code> class can only be used on inputs that have a text-box.
+  </p>
+</div>
+
+```html_example_table
+<form class="styleguide-form" role="form">
+  <div class="form-group has-success">
+    <label class="control-label" for="inputSuccess">
+      Input with success
+    </label>
+    <input id="inputSuccess" class="form-control" type="text">
+  </div>
+</form>
+```
+
+*/
+
+
+/*doc
+---
+title: Disabled Controls
+name: form_disabled_controls
+categories:
+ - css_components_forms
+ - css_all
+---
+
+Controls will occasionally need to be disabled.
+You can do that by adding the `disabled` attribute.
+Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all be disabled.
+
+```html_example_table
+<input class="form-control" type="text" placeholder="Disabled input here" disabled>
+
+<select class="form-control" disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+
+<label>
+  <input type="checkbox" disabled>
+  I'm disabled!
+</label>
+
+<button class="btn" disabled>
+  Hi
+</button>
+```
+
+*/
+
+/*doc
+---
+title: Static Controls
+name: form_static_control
+categories:
+ - css_components_forms
+ - css_all
+---
+
+When you need to place plain text next to a form label within a form,
+use the `.form-control-static` class on a `<p>`.
+
+Here's an example in a horizontal form:
+
+```html_example
+<form class="form-horizontal styleguide-form" role="form">
+  <div class="form-group">
+    <label class="col-md-4 control-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">email@example.com</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="inputPassword">Password</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="inputPassword" placeholder="Password" type="password">
+    </div>
+  </div>
+</form>
+```
+
+Here's an example in a vertical form:
+
+```html_example
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="control-label">Email</label>
+    <p class="form-control-static">someguy@test.com</p>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="name">Name</label>
+    <input class="form-control" id="name" placeholder="name">
+  </div>
+</form>
+```
+
+*/
+
+
+/*doc
+---
+title: Toggle Switches
+name: form_toggle_switch
+categories:
+ - css_components_forms
+ - css_all
+---
+
+A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.
+
+```html_example
+<div class="form-group">
+  <input id="toggleSwitch" class="toggle-switch toggle-switch-lg" type="checkbox">
+  <label for="toggleSwitch">Toggle Switch</label>
+</div>
+```
+
+*/
