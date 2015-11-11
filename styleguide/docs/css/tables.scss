@@ -1,0 +1,247 @@
+/*doc
+---
+title: Tables
+name: table
+categories:
+ - css_components_tables
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-tables --save
+</i>
+</code>
+
+
+
+Class                 | Description
+--------------------- | -----------------
+`.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
+`.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
+`.table-striped`      | Applies zebra striping to a table.
+`.table-light`        | Lightens the table background.
+
+*/
+
+/*doc
+---
+title: Data
+name: table_data
+parent: table
+---
+
+This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.
+
+Design Note: The `table-data` is often paired with `table-light` as in our example.
+
+```html_example
+<table class="table table-data table-light">
+  <thead>
+    <tr>
+      <th>Service Instance</th>
+      <th>Service Plan</th>
+      <th>Bound Apps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+/*doc
+---
+title: Key-Value
+name: table_key_value
+parent: table
+---
+
+This table is used when the table headings are on the left. It looks better when you
+specify column widths for the th/tds.
+
+
+```html_example
+<table class="table table-key-value">
+  <tbody>
+    <tr>
+      <th class="col-md-8">Email</th>
+      <td class="col-md-16">joe@example.com</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Current Password</th>
+      <td class="col-md-16">*******</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">First Name</th>
+      <td class="col-md-16">Joe</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Last Name</th>
+      <td class="col-md-16">Bobs</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Phone</th>
+      <td class="col-md-16">415-555-0000</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+/*doc
+---
+title: Scrollable
+name: scrollable_table
+parent: table
+---
+
+Table with borders where the contents of the table scroll but the header does not.
+The default height of the scrollable table is 183px. There are four other sizes provided
+which you can use by adding the following classes to the `.table-scrollable` element.
+
+Table Scrollable sizes | Height
+---------------------- | ---------
+default                | 183px
+`.table-scrollable-sm` | 300px
+`.table-scrollable-md` | 600px
+`.table-scrollable-lg` | 900px
+
+If you would like a custom size, please add an inline style to the `.table-scrollable-body` element.
+
+Design Note: The `table-scrollable` is often paired with `table-data` and `table-light` as in our example.
+
+<div class="alert alert-info alert-dismissable">
+  <p class="em-high">
+    You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
+    the first row of the <code>tbody</code>. You can do this with inline width attributes.
+  </p>
+</div>
+
+```html_example
+<div class="table-scrollable table-scrollable-sm">
+  <div class="table-scrollable-header">
+    <table class="table table-data table-light">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th width="16%">Status</th>
+          <th width="12%">CPU</th>
+          <th width="16%">Memory</th>
+          <th width="16%">Disk</th>
+          <th width="30%">Uptime</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scrollable-body">
+    <table class="table table-data table-light">
+      <tbody>
+        <tr>
+          <td width="10%">0</td>
+          <td width="16%">Running</td>
+          <td width="12%">0%</td>
+          <td width="16%">4.16 MB</td>
+          <td width="16%">6.75 MB</td>
+          <td width="30%">27 min</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>27 min</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.14 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.08 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.16 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.03 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+```
+*/

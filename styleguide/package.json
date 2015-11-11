@@ -14,10 +14,13 @@
   "dependencies": {
     "font-awesome": "^4.4.0",
     "lodash": "^3.10.1",
+    "pui-css-alignment": "^3.0.0-alpha.0",
     "pui-css-back-to-top": "^3.0.0-alpha.0",
     "pui-css-buttons": "^3.0.0-alpha.0",
     "pui-css-iconography": "^3.0.0-alpha.0",
+    "pui-css-tables": "^3.0.0-alpha.0",
     "pui-css-tooltips": "^3.0.0-alpha.0",
+    "pui-css-vertical-alignment": "^3.0.0-alpha.0",
     "pui-css-whitespace": "^3.0.0-alpha.0",
     "pui-react-alerts": "^3.0.0-alpha.0",
     "pui-react-buttons": "^3.0.0-alpha.0",

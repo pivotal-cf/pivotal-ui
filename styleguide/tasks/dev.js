@@ -90,7 +90,7 @@ gulp.task('monolith-kill-server', () => plugins.connect.serverClose());
 
 gulp.task('setup-watchers', (callback) => {
   process.env.WEBPACK_WATCH = true;
-  gulp.watch(['hologram/**/**'], ['hologram']);
+  gulp.watch(['hologram/**/**', 'docs/**/**'], ['hologram']);
   gulp.watch(['src/**.js'], ['build-js']);
   gulp.watch(['src/**.scss'], ['build-sass']);
   callback();
