@@ -1,31 +1,5 @@
 @import "../pui-variables";
 
-/*doc
----
-title: Back to Top
-name: back_to_top
-categories:
- - css_components_back-to-top
- - css_all
----
-
-<code class="pam">
-<i class="fa fa-download" alt="Install the Component">
-npm install pui-css-back-to-top --save
-</i>
-</code>
-
-You can use this component to scroll to the top of a page.
-
-The button will be fixed to the bottom right hand corner of the page. 
-
-You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup. 
-
-```html_wrapped_example
-<a class="back-to-top" href="#top" style="display: inline;" aria-label="Back to top"></a>
-```
-*/
-
 .back-to-top {
   //Font Awesome .fa
   //display: inline-block;
