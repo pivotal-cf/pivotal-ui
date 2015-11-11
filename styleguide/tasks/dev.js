@@ -47,7 +47,7 @@ gulp.task('build-js', function() {
 
 gulp.task('styleguide-assets', () =>
     gulp.src([
-      //'src/styleguide/*.js',
+      'src/styleguide.js',
       'src/github.css',
       'src/images/*'
     ]).pipe(gulp.dest('build/styleguide'))
@@ -63,12 +63,18 @@ gulp.task('import-bootstrap-js', () =>
       .pipe(gulp.dest('build/'))
 );
 
+gulp.task('import-zeroclipboard-assets', () =>
+    gulp.src('node_modules/zeroclipboard/dist/ZeroClipboard.{js,swf}')
+      .pipe(gulp.dest('build/zeroclipboard'))
+);
+
 gulp.task('styleguide-build', callback => runSequence('styleguide-clean', [
   'hologram',
   'build-sass',
   'build-js',
   'build-component-css',
   'import-bootstrap-js',
+  'import-zeroclipboard-assets',
   'styleguide-assets',
   'prism-assets',
 ], callback));

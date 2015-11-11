@@ -16,6 +16,7 @@
     "lodash": "^3.10.1",
     "pui-css-buttons": "^3.0.0-alpha.0",
     "pui-css-iconography": "^3.0.0-alpha.0",
+    "pui-css-tooltips": "^3.0.0-alpha.0",
     "pui-css-whitespace": "^3.0.0-alpha.0",
     "pui-react-alerts": "^3.0.0-alpha.0",
     "pui-react-buttons": "^3.0.0-alpha.0",
@@ -23,7 +24,8 @@
     "pui-react-panes": "^3.0.0-alpha.0",
     "pui-react-tabs": "^3.0.0-alpha.0",
     "pui-react-tile-layout": "^3.0.0-alpha.0",
-    "react": "^0.14.2"
+    "react": "^0.14.2",
+    "zeroclipboard": "^2.1.6"
   },
   "devDependencies": {
     "babel": "^6.0.15",
