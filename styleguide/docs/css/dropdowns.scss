@@ -1,0 +1,290 @@
+/*doc
+---
+title: Dropdowns
+name: dropdown
+categories:
+ - css_components_dropdowns
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-dropdowns --save
+</i>
+</code>
+
+
+Dropdowns are menus that can be triggered by buttons.
+
+This is the basic bootstrap dropdown.
+
+```html_example
+<div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
+    <li class="divider mvn"></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">Dropdowns with dividers</h5>
+  <p>
+    If you want to add a divider between items in the dropdown,
+    add a `li.divider` between list items.
+  </p>
+</div>
+
+```html_example
+<div class="dropdown">
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <span>Link Dropdown</span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="drop3">
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
+    </li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">Alignment</h5>
+  <p>
+    By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent.
+    Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu
+  </p>
+</div>
+
+```html_example
+<div class="dropdown">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Button Dropdown
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdown-button-1">
+    <li role="presentation">
+      <a href="http://www.google.com" role="menuitem">Google</a>
+    </li>
+    <li class="divider mvn"></li>
+    <li role="presentation">
+      <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
+    </li>
+    <li class="divider mvn"></li>
+    </li><li role="presentation">
+      <a href="http://www.aol.com" role="menuitem">Aol</a>
+    </li>
+  </ul>
+</div>
+```
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high">No links as dropdowns</h5>
+  <p>
+    Instead of using an <code>a</code> tag as a dropdown,
+    use a <code>button.btn.btn-link</code>.
+  </p>
+</div>
+
+Here's a crazy-complex dropdown. Not for the faint of heart.
+
+```html_example
+<div class="dropdown btn-group">
+  <button id="dropdown-button-2" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    dropdown trigger
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdown-button-2">
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">updates and alerts</h4>
+            <span class="type-neutral-4">receive all tacos and burritos.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">alerts only</h4>
+            <span class="type-neutral-4">only receive tacos when burritos are issued for this product and files.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a href="#" role="menuitem" class="pvl">
+        <div class="media">
+          <div class="media-left media-middle prxl">
+            <i class="fa fa-check type-neutral-2" style="visibility: hidden"></i>
+          </div>
+          <div class="media-body" style="width: 400px;">
+            <h4 class="media-heading em-high type-neutral-3 mvn h5">none</h4>
+            <span class="type-neutral-4">do not receive any mexican food.</span>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+*/
+
+
+/*doc
+---
+title: Notifications
+name: dropdown_notification
+parent: dropdown
+---
+
+This is a notification dropdown with no notifications.
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <div class="dropdown-notifications-none">
+        <i class="fa fa-bell"></i>
+        <p class="type-neutral-4 em-alt mbn">No notifications</p>
+      </div>
+    </li>
+  </ul>
+</div>
+```
+
+This is a notification dropdown with notifications.
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <span class="dropdown-notifications-badge">2</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Notification</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <h3 class="mvn">
+              <span class="label label-primary">New</span>
+            </h3>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Pivotal-CF</h5>
+            <p class="type-sm type-neutral-5 mvn">1 New File Available</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+
+Here's an example modifiying the size and the color of the bell
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title h1">
+      <i class="fa fa-bell type-neutral-2"></i>
+      <span class="dropdown-notifications-badge">42</span>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 1</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">...</a>
+    </li>
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">Item 42</a>
+    </li>
+  </ul>
+</div>
+```
+
+This is a notification dropdown with alerts.
+
+```html_example
+<div class="dropdown-notifications btn-group">
+  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+    <div class="dropdown-notifications-title">
+      <i class="fa fa-bell"></i>
+      <i class="fa fa-exclamation-triangle dropdown-notifications-alert"></i>
+    </div>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li role="presentation">
+      <a role="menuitem" href="https://twitter.com/fat">
+        <div class="media">
+          <div class="media-left media-middle">
+            <i class="fa fa-exclamation-triangle type-warn-3 mrm"></i>
+          </div>
+          <div class="media-body media-middle">
+            <h5 class="media-heading mbn type-dark-2">Warning</h5>
+            <p class="type-sm type-neutral-5 mvn">News for you</p>
+          </div>
+        </div>
+      </a>
+    </li>
+  </ul>
+</div>
+```
+*/

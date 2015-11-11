@@ -1,34 +1,3 @@
-/*doc
----
-title: Dividers
-name: divider
-categories:
- - css_base_dividers
- - css_all
----
-
-<code class="pam">
-<i class="fa fa-download" alt="Install the Component">
-npm install pui-css-dividers --save
-</i>
-</code>
-
-
-Dividers draw horizontal lines between different content groupings.
-
-```html_example
-<hr class="divider-alternate-1"/>
-<hr class="divider-alternate-2"/>
-```
-
-```html_inverse_example
-<hr class="divider-1"/>
-<hr class="divider-2"/>
-```
-
-*/
-
-
 .divider-alternate-1 {
   border: 1px solid rgba(0,0,0,0.1);
   border-width: 1px 0 0 0;
