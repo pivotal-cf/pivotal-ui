@@ -1,0 +1,40 @@
+/*doc
+---
+title: Links
+name: link
+categories:
+ - css_base_links
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-links --save
+</i>
+</code>
+
+
+Add the class `link-text` on any text links.
+This will make the link underlined on hover (except lowlight links).
+
+```html_example
+<a class="link-text" href="http://bitly.com/11vCzUx">
+  <i class="fa fa-plus"></i> Click me!
+</a>
+```
+
+There are four different kinds of links you can use to connect related content.
+In most cases (unless the designer specifically asks for another type of link)
+you should choose the default link.
+
+Link                                                                                                              | Class                           | Description
+--------------------------------------------------------------------------------------------------------------    | ----------------------------    | -----------
+<a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                | `link-text`                     | Important links
+<a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-text link-lowlight`       | Less important links
+<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
+
+```html_example
+Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
+```
+
+*/

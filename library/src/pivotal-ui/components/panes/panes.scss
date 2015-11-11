@@ -1,55 +1,6 @@
 @import "../pui-variables";
 
-/*doc
----
-title: Panes
-name: pane
-categories:
- - css_utilities_panes
- - css_all
----
 
-<code class="pam">
-<i class="fa fa-download" alt="Install the Component">
-npm install pui-css-panes --save
-</i>
-</code>
-
-Panes are horizontal groupings of content that are usually used to
-span the full browser window width. It's going to look funny here,
-a better way to view it is on the [panes page](/pane.html).
-
-You can combine up to two background classes on the pane component.
-The one on the `.pane` element will span the full browser width. The
-one on the `.container` element will be constrained to the content width.
-
-```html_example
-<div class="pane bg-dark-2">
-  <div class="container bg-glow">
-    <h1 class="type-neutral-11">This is a pane</h1>
-  </div>
-</div>
-
-```
-
-```html_example
-<div class="pane pane-offset bg-dark-2">
-  <div class="container bg-glow">
-    <h1 class="type-neutral-11">This is a pane</h1>
-    <div class="pane-image">
-      <img class="img-responsive" src="styleguide/console-laptop.png" alt="A laptop showing Pivotal Web Services dashboard." />
-    </div>
-  </div>
-</div>
-<div class="pane bg-cloud">
-  <div class="container">
-    <h1>This is another pane</h1>
-  </div>
-</div>
-
-```
-
-*/
 
 .pane {
   > .container {

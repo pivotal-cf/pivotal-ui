@@ -1,0 +1,44 @@
+/*doc
+---
+title: Modals
+name: modal
+categories:
+ - css_components_modals
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-modals --save
+</i>
+</code>
+
+Modals bring desired content to the foreground and de-emphasize the rest of the page.
+
+```html_example
+<!-- Button trigger modal -->
+<button class="btn btn-default" data-toggle="modal" data-target="#myModal">
+  Launch modal
+</button>
+
+<!-- Modal Basic -->
+<div class="modal fade modal-basic" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        Here is some interesting text in the modal body.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+*/
