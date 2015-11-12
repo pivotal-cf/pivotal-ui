@@ -25,7 +25,7 @@ gulp.task('build-sass', () =>
 );
 
 gulp.task('build-js', function() {
-  return gulp.src('src/styleguide-react.js')
+  return gulp.src('src/index.js')
     .pipe(webpack({
       module: {
         loaders: [
@@ -41,13 +41,12 @@ gulp.task('build-js', function() {
         ],
       },
     }))
-    .pipe(plugins.rename('styleguide-react.js'))
-    .pipe(gulp.dest('build/styleguide'));
+    .pipe(plugins.rename('index.js'))
+    .pipe(gulp.dest('build/'));
 });
 
 gulp.task('styleguide-assets', () =>
     gulp.src([
-      'src/styleguide.js',
       'src/github.css',
       'src/images/*'
     ]).pipe(gulp.dest('build/styleguide'))

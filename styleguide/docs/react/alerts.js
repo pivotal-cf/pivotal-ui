@@ -51,7 +51,7 @@
 
  ```jsx_example
  var callback = function() {
- alert('Dismissed!');
+   alert('Dismissed!');
  };
  ```
 

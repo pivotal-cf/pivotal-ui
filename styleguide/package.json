@@ -47,6 +47,7 @@
     "pui-css-vertical-alignment": "^3.0.0-alpha.0",
     "pui-css-whitespace": "^3.0.0-alpha.0",
     "pui-react-alerts": "^3.0.0-alpha.0",
+    "pui-react-autocomplete": "^3.0.0-alpha.0",
     "pui-react-buttons": "^3.0.0-alpha.0",
     "pui-react-collapse": "^3.0.0-alpha.0",
     "pui-react-panes": "^3.0.0-alpha.0",
