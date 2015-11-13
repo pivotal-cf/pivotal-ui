@@ -27,4 +27,17 @@ assignToGlobal([
   require('pui-react-media'),
   require('pui-react-modals'),
   require('pui-react-notifications'),
+  require('pui-react-overlay-trigger'),
+  require('pui-react-panels'),
+  require('pui-react-panes'),
+  require('pui-react-portals'),
+  require('pui-react-radio-group'),
+  require('pui-react-radio'),
+  require('pui-react-ribbons'),
+  require('pui-react-search-input'),
+  require('pui-react-sortable-table'),
+  require('pui-react-stream-list'),
+  require('pui-react-tabs'),
+  {TileLayout: require('pui-react-tile-layout')},
+  require('pui-react-tooltip')
 ]);
