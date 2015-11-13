@@ -1,4 +1,4 @@
-import getComponentPath from '../../src/styleguide/get-component-path';
+import getComponentPath from '../../src/get-component-path';
 
 describe('getComponentPath', () => {
   it('splits stuff', () => {

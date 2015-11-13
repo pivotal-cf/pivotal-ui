@@ -1,6 +1,6 @@
-require('../pivotal-ui-react/spec_helper');
+require('./spec_helper');
 
-import StyleguideNav from '../../src/styleguide/styleguide-nav';
+import StyleguideNav from '../../src/styleguide-nav';
 
 describe('StyleguideNav', () => {
   beforeEach(() => {
@@ -29,11 +29,9 @@ describe('StyleguideNav', () => {
                      defaultComponentType={'objects'}/>,
       root
     );
-
-    MockRaf.next();
   });
 
-  afterEach(function() {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(root);
   });
 
