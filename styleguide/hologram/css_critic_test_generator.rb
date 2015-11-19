@@ -9,7 +9,7 @@ class CssCriticTestGenerator < Hologram::Plugin
 <html>
   <head>
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="styleguide/styleguide.css">
     <link rel="stylesheet" href="styleguide/github.css">
     <link rel="stylesheet" disabled href="prismjs/prism.css">
