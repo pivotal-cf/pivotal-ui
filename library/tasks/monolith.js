@@ -125,11 +125,6 @@ gulp.task('monolith-zeroclipboard-assets', () =>
       .pipe(gulp.dest('build/zeroclipboard'))
 );
 
-gulp.task('monolith-app-config', () =>
-    gulp.src(['src/Staticfile', 'config/nginx.conf'])
-      .pipe(gulp.dest('build'))
-);
-
 gulp.task('monolith', callback => runSequence('monolith-clean', [
   'monolith-hologram',
   'monolith-html',
