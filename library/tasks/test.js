@@ -1,4 +1,3 @@
-import {spawn} from 'child_process';
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
 import loadPlugins from 'gulp-load-plugins';
