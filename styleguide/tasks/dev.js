@@ -11,7 +11,7 @@ gulp.task('styleguide-serve', ['styleguide-build'], () => {
   });
 });
 
-gulp.task('monolith-kill-server', () => plugins.connect.serverClose());
+gulp.task('styleguide-kill-server', () => plugins.connect.serverClose());
 
 gulp.task('setup-watchers', (callback) => {
   process.env.WEBPACK_WATCH = true;
