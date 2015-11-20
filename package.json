@@ -76,7 +76,7 @@
     "phantomjs-polyfill": "0.0.1",
     "proxyquire": "^1.5.0",
     "pui-cursor": "^1.4.0",
-    "react": "0.14.2",
+    "react": "^0.14.2",
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
     "react-bootstrap": "0.27.1",
     "react-fa": "^4.0.0",
