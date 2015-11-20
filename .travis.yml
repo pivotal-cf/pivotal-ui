@@ -2,14 +2,13 @@ language: node_js
 node_js:
 - '0.12'
 env:
-- CMD="npm test"
-- CMD="npm run test-accessibility"
+- DIR=library CMD="npm test"
+- DIR=styleguide CMD="npm run test-accessibility"
 script: "$CMD"
 sudo: false
 before_install:
-- travis_retry bundle install
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
+- cd $DIR
+- source travis/before_install.sh
 branches:
   only:
     - master
