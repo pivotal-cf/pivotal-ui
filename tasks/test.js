@@ -12,7 +12,7 @@ import webpackConfig from '../config/webpack';
 const plugins = loadPlugins();
 
 gulp.task('ci', callback => runSequence(
-  'lint',
+  //'lint',
   'jasmine-task-helpers',
   'jasmine-react-ci',
   'rspec',
