@@ -1,6 +1,8 @@
 import BsOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import React from 'react';
 import uniqueid from 'lodash.uniqueid';
+import  classnames from 'classnames';
+
 
 const OverlayTrigger = React.createClass({
   propTypes: {
@@ -18,6 +20,27 @@ const OverlayTrigger = React.createClass({
         </BsOverlayTrigger>
         <span className="sr-only">{overlay.props.children}</span>
       </span>);
+  }
+});
+
+const OverlayManual = React.createClass({
+  propTypes: {
+    display: types.bool,
+    overlay: types.object
+  },
+
+  render() {
+    const {children, className, overlay, display, ...props} = this.props;
+    let newOverlay = overlay;
+    if (!overlay.props.id) {
+      newOverlay = React.cloneElement(overlay, {id: 'overlayManuel'});
+    }
+    return (
+      <div aria-described-by={overlay.props.id} className={classnames('overlay-manual', className)} {...props}>
+        {display && newOverlay}
+        {children}
+      </div>
+    )
   }
 });
 
@@ -45,5 +68,6 @@ module.exports = {
    * ```
    *
    */
-  OverlayTrigger
+  OverlayTrigger,
+  OverlayManual
 };
