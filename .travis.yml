@@ -5,9 +5,9 @@ env:
 - CMD="npm test"
 - CMD="npm run test-accessibility"
 script: "$CMD"
-sudo: true
+sudo: false
 before_install:
-- bundle install
+- travis_retry bundle install
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 branches:
@@ -15,6 +15,7 @@ branches:
     - master
     - development
     - /^v\d+.\d+.\d+$/
+    - split-styleguide
 notifications:
   email: false
   slack:
