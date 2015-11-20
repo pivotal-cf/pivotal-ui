@@ -64,3 +64,8 @@ gulp.task('rspec', (done) => runSequence(
     done
   )
 );
+
+gulp.task('ci', (done) => runSequence(
+  'jasmine-ci',
+  'rspec'
+));

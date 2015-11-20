@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "gulp jasmine-ci"
+    "test": "gulp ci"
   },
   "author": "",
   "license": "ISC",
