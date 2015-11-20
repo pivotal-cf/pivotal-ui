@@ -15,6 +15,7 @@ branches:
     - master
     - development
     - /^v\d+.\d+.\d+$/
+    - split-styleguide
 notifications:
   email: false
   slack:
