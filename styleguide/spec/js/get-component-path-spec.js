@@ -1,3 +1,5 @@
+require('./spec_helper');
+
 import getComponentPath from '../../src/get-component-path';
 
 describe('getComponentPath', () => {

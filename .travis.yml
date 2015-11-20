@@ -3,7 +3,7 @@ node_js:
 - '0.12'
 env:
 - DIR=library CMD="npm test"
-- DIR=styleguide CMD="npm run test-accessibility"
+- DIR=styleguide CMD="npm test"
 script: "$CMD"
 sudo: false
 before_install:

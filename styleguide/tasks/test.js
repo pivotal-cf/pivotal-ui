@@ -22,8 +22,7 @@ function reactTestAssets(sourcePath, options = {}) {
       },
       output: {filename: 'spec.js'},
       quiet: true,
-      watch: true,
-      plugins: options.plugins
+      ...options
     }));
 }
 
@@ -32,6 +31,12 @@ gulp.task('jasmine', () => {
   return reactTestAssets(['spec/js/**/*spec.js'], {watch: true, plugins: [plugin]})
     .pipe(plugins.jasmineBrowser.specRunner())
     .pipe(plugins.jasmineBrowser.server({whenReady: plugin.whenReady}));
+});
+
+gulp.task('jasmine-ci', function() {
+  return reactTestAssets( ['spec/js/**/*spec.js'], {watch: false})
+    .pipe(plugins.jasmineBrowser.specRunner({console: true}))
+    .pipe(plugins.jasmineBrowser.phantomjs());
 });
 
 function rspec(dir, done) {
