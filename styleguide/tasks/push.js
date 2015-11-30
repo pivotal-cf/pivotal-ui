@@ -1,10 +1,10 @@
 import gulp from 'gulp';
 import {exec} from 'child_process';
-import thenify from 'thenify';
+import promisify from 'es6-promisify';
 import runSequence from 'run-sequence';
 import {log} from 'gulp-util';
 
-const execPromise = thenify(exec);
+const execPromise = promisify(exec);
 
 gulp.task('build-app-config', () =>
     gulp.src(['config/Staticfile', 'config/nginx.conf'])
