@@ -57,10 +57,10 @@ gulp.task('rspec-features', (done) => {
 
 gulp.task('rspec', (done) => runSequence(
     'rspec-unit',
-    'set-ci-port',
-    'styleguide-serve',
-    'rspec-features',
-    'styleguide-kill-server',
+    //'set-ci-port',
+    //'styleguide-serve',
+    //'rspec-features',
+    //'styleguide-kill-server',
     done
   )
 );
