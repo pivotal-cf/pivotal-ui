@@ -13,7 +13,7 @@ gulp.task('build-app-config', () =>
 
 gulp.task('set-styleguide-env-to-production', () => process.env.STYLEGUIDE_ENV = 'production');
 
-gulp.task('release-push-stylguide-verify', () =>
+gulp.task('release-push-styleguide-verify', () =>
     // Verifies that we're logged in - will prevent future steps if not
     execPromise('cf apps')
       .catch(() => {
@@ -22,7 +22,7 @@ gulp.task('release-push-stylguide-verify', () =>
       })
 );
 
-gulp.task('release-push-stylguide', (done) => {
+gulp.task('release-push-styleguide', (done) => {
   const deployProcess = exec('cf push');
   deployProcess.stdout.pipe(process.stdout);
   deployProcess.stderr.pipe(process.stderr);
@@ -34,9 +34,9 @@ gulp.task('release-push-stylguide', (done) => {
 
 gulp.task('push-styleguide', (done) => runSequence(
   'set-styleguide-env-to-production',
-  'release-push-stylguide-verify',
+  'release-push-styleguide-verify',
   'styleguide-build',
   'build-app-config',
-  'release-push-stylguide',
+  'release-push-styleguide',
   done
 ));
