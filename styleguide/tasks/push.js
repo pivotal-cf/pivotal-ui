@@ -13,16 +13,16 @@ gulp.task('build-app-config', () =>
 
 gulp.task('set-styleguide-env-to-production', () => process.env.STYLEGUIDE_ENV = 'production');
 
-gulp.task('release-push-production-styleguide-verify', () =>
+gulp.task('release-push-stylguide-verify', () =>
     // Verifies that we're logged in - will prevent future steps if not
-    execPromise('cf target -o pivotal -s pivotal-ui')
+    execPromise('cf apps')
       .catch(() => {
-        log('Error: could not set the org and space. Are you logged in to cf?');
+        log('Error: could not get apps. Are you logged in to cf and targeting an org and space?');
         process.exit(3);
       })
 );
 
-gulp.task('release-push-production-styleguide', (done) => {
+gulp.task('release-push-stylguide', (done) => {
   const deployProcess = exec('cf push');
   deployProcess.stdout.pipe(process.stdout);
   deployProcess.stderr.pipe(process.stderr);
@@ -34,9 +34,9 @@ gulp.task('release-push-production-styleguide', (done) => {
 
 gulp.task('push-styleguide', (done) => runSequence(
   'set-styleguide-env-to-production',
-  'release-push-production-styleguide-verify',
+  'release-push-stylguide-verify',
   'styleguide-build',
   'build-app-config',
-  'release-push-production-styleguide',
+  'release-push-stylguide',
   done
 ));
