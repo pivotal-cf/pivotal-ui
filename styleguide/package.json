@@ -82,8 +82,8 @@
     "zeroclipboard": "^2.1.6"
   },
   "devDependencies": {
-    "babel": "^6.0.15",
-    "babel-core": "^6.1.2",
+    "babel": "^6.2.4",
+    "babel-core": "^6.2.1",
     "babel-loader": "^6.0.1",
     "babel-preset-es2015-loose": "6.1.2",
     "babel-preset-react": "^6.1.2",
