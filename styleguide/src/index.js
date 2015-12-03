@@ -1,3 +1,5 @@
+require('babel-polyfill');
+
 global.$ = global.jQuery = require('jquery');
 global._ = require('lodash');
 
