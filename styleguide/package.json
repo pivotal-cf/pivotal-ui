@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "3.3.5",
     "font-awesome": "^4.4.0",
     "lodash": "^3.10.1",
     "pui-css-alignment": "^3.0.0-alpha.0",
