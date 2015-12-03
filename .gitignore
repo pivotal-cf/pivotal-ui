@@ -4,16 +4,13 @@
 /coverage/
 /InstalledFiles
 /pkg/
-/spec/reports/
-/spec/tmp/
-/spec/version_tmp/
-/tmp/
+tmp/
 .sass-cache/
 node_modules/
 /vendor/
 .idea/
-/build/
-/dist/
+build/
+dist/
 *.zip
 
 ## CssCritic
