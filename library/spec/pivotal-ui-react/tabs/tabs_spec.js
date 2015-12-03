@@ -139,8 +139,7 @@ describe('Tabs', function() {
           );
 
         });
-
-        itPropagatesAttributes('#root > div', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+        itPropagatesAttributes('#root .tab-simple > div', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
       });
     });
 
