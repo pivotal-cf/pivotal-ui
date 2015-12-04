@@ -4,6 +4,11 @@ const Tab = global.Tab || require('pui-react-tabs').Tab;
 const Collapse = global.Collapse || require('pui-react-collapse').Collapse;
 
 const ComponentTypeCollapse = React.createClass({
+  propTypes: {
+    componentType: React.PropTypes.string,
+    components: React.PropTypes.object,
+    defaultExpanded: React.PropTypes.bool
+  },
   render() {
     const {componentType, components, defaultExpanded} = this.props;
 

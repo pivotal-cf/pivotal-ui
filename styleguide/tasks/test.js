@@ -66,6 +66,7 @@ gulp.task('rspec', (done) => runSequence(
 );
 
 gulp.task('ci', (done) => runSequence(
+  'lint',
   'jasmine-ci',
   'rspec'
 ));

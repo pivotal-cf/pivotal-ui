@@ -1,17 +1,13 @@
 import gulp from 'gulp';
 import runSequence from 'run-sequence';
-import loadPlugins from 'gulp-load-plugins';
 import webpack from 'webpack-stream';
-import {map, merge} from 'event-stream';
-import reduce from 'stream-reduce';
-import File from 'vinyl';
-import path from 'path';
+import {merge} from 'event-stream';
 import webpackConfig from '../config/webpack';
 
-const plugins = loadPlugins();
+const plugins = require('gulp-load-plugins')();
 
 gulp.task('ci', callback => runSequence(
-  //'lint',
+  'lint',
   'jasmine-task-helpers',
   'jasmine-react-ci',
   callback
@@ -22,7 +18,11 @@ gulp.task('lint', function() {
     .pipe(plugins.plumber())
     .pipe(plugins.eslint({
       rulePaths: ['config/eslint-rules/'],
-      rules: {'no-object-assign': 2, 'no-relative-cross-package-imports': 2}
+      rules: {
+        'no-object-assign': 2,
+        'no-relative-cross-package-imports': 2,
+        'no-console-log': 2
+      }
     }));
 
   const otherLintStream = gulp.src([

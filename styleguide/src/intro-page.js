@@ -71,7 +71,6 @@ const IntroTile = React.createClass({
   propTypes: {
     category: React.PropTypes.string,
     description: React.PropTypes.string,
-
   },
   render() {
     return (
@@ -85,9 +84,8 @@ const IntroTile = React.createClass({
 
 const ExampleTile = React.createClass({
   propTypes: {
-    category: React.PropTypes.string,
-    description: React.PropTypes.string,
-
+    exampleLink: React.PropTypes.string,
+    exampleImage: React.PropTypes.string,
   },
   render() {
     return (

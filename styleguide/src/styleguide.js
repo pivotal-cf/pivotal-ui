@@ -40,7 +40,7 @@ $(document).ready(function() {
 /* Copy button */
 
 $(document).ready(function() {
-  ZeroClipboard.config({ swfPath: "zeroclipboard/ZeroClipboard.swf" });
+  ZeroClipboard.config({ swfPath: 'zeroclipboard/ZeroClipboard.swf' });
   var zc = new ZeroClipboard( $('[data-btn-copy]') );
 
   $('[data-btn-copy]')
