@@ -1,0 +1,542 @@
+@import "../pui-variables";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import "../mixins";
+
+
+.form-group {
+  abbr {
+    float: right;
+    margin-left: 5px;
+    border-bottom: 0;
+  }
+  [class*="col"].control-label {
+    abbr {
+      float: none;
+      margin-right: 2px;
+    }
+  }
+}
+
+.unstyled {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+label {
+  font-weight: 400; //override bootstrap
+  color: $neutral-3; //override bootstrap
+}
+
+// do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
+::-webkit-input-placeholder {
+  font-weight: 400;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  font-weight: 400;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  font-weight: 400;
+}
+
+:-ms-input-placeholder {
+  font-weight: 400;
+}
+
+/*pending
+---
+title: Fancy Number Inputs
+name: 03_form_fancy_number
+parent: form_inputs
+---
+
+This is a fancy number input!
+
+```html_example
+<form class="styleguide-form" role="form">
+  <label>Instances</label>
+  <div class="number-fancy">
+    <input class="form-control" />
+    <ul class="list-unstyled buttons">
+      <li class="btn-plus">
+        <i class="fa fa-plus"></i>
+      </li>
+      <li class="btn-minus">
+        <i class="fa fa-minus"></i>
+      </li>
+    </ul>
+  </div>
+</form>
+
+
+```
+*/
+
+.number-fancy {
+  @extend .fancy-form-element;
+  @include user-select(none);
+  $button-width: 30px;
+  padding-right: $button-width + 6px;
+
+  .buttons {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    li {
+      @include transition-pui(all, 150ms);
+      font-size: 12px;
+      background-color: white;
+      border: none;
+      width: $button-width;
+      height: 50%;
+      color: $blue-4;
+      text-align: center;
+      line-height: 20px;
+      &:hover {
+        color: $blue-2;
+        background-color: $neutral-9;
+        cursor: pointer;
+      }
+
+      &.btn-minus {
+        border-bottom-right-radius: 4px;
+      }
+
+      &.btn-plus {
+        border-top-right-radius: 4px;
+      }
+    }
+  }
+
+  input {
+    $input-margin: 5px;
+    height: $input-height-base - 2*$input-margin;
+    margin: $input-margin;
+    padding: 0 5px;
+    display: inline;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $neutral-9;
+    }
+  }
+}
+
+
+
+.form-group-search {
+  position: relative;
+
+  i {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+  }
+
+  input {
+    padding-left: 34px;
+  }
+}
+
+
+
+.form-control[readonly] {
+  background-color: $input-bg-disabled; //override bootstrap
+}
+
+
+
+.form-control {
+  padding: 8px 14px; // override bootstrap
+  //-webkit-appearance: none;
+  position: relative;
+  &:hover, &:focus {
+    border-color: $input-border-color-hover;
+  }
+
+  &.disabled, &:disabled {
+    opacity: 0.5;
+  }
+}
+
+select.form-control {
+  @include button-shadow;
+  color: $link-color;
+  font-weight: $input-font-weight;
+
+  &:hover, &:focus {
+    color: $input-color-hover;
+  }
+
+  &.active, &:active {
+    background-color: $input-bg-active;
+    color: $input-color-active;
+  }
+
+  &.disabled, &:disabled {
+    color: $input-color;
+  }
+}
+
+
+.fancy-form-element {
+  box-shadow: 0 3px 0 $neutral-7;
+  background-color: white;
+  @include transition-pui();
+  border-radius: 4px;
+  position: relative;
+
+  &:hover {
+    box-shadow: 0 3px 0 $neutral-5;
+    cursor: pointer;
+  }
+
+  .form-control {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    background-image: none;
+    -webkit-appearance: none;
+    @include transition-pui(all, 150ms);
+    font-size: 16px;
+    font-weight: 900;
+    &.has-error {
+      border-radius: 3px;
+      border: 1px solid $red-3;
+    }
+  }
+}
+
+.fancy-form-element-disabled {
+  font-size: 16px;
+  font-weight: 900;
+  height: 30px;
+  margin-top: 7px;
+  margin-left: 7px;
+}
+
+.select-fancy {
+  @extend .fancy-form-element;
+
+  &:after {
+   z-index: 2;
+   content: "\f107";
+   font-family: FontAwesome;
+   position: absolute;
+   right: 10px;
+   top: 4px;
+   font-size: 22px;
+   color: $blue-4;
+   @include transition-pui(all, 150ms);
+  }
+
+  &:hover {
+    &:after, select {
+      color: $blue-2;
+    }
+  }
+
+  select {
+    -moz-appearance:window;
+    position: relative;
+    z-index: 3;
+    padding: 5px 8px;
+    width: 100%;
+    cursor: pointer;
+  }
+  select:focus {
+    outline: none;
+  }
+  input {
+    $input-margin: 5px;
+    height: $input-height-base - 2*$input-margin;
+    margin: $input-margin;
+    width: 75%;
+    padding: 0 5px;
+    display: inline;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $neutral-9;
+    }
+  }
+
+  .form-inline.inline-labels .form-group & select {
+    width: 100% !important; // Fancy select needs to override the size when inline because it is in a wrapping element
+  }
+
+  &.disabled {
+    box-shadow: none;
+    background-color: $neutral-10;
+
+    select {
+      &[disabled] {
+        color: $neutral-5;
+        background-color: transparent;
+        cursor: default; // Bootstrap fix https://github.com/twbs/bootstrap-sass/issues/881
+      }
+    }
+
+    &:hover {
+      color: $neutral-8;
+      background-color: $neutral-10;
+    }
+
+    &:after {
+      display: none;
+    }
+  }
+}
+
+
+input[type="radio"] {
+  margin-top: 2px; // bootstrap override: make radios line up with our small font.
+}
+
+
+
+.form-inline.inline-labels {
+  .form-group {
+    input, select {
+      width: auto !important;
+    }
+  }
+}
+
+
+/* overrides bootstrap colors */
+@mixin validation-label-color() {
+  .control-label {
+    color: $neutral-3;
+  }
+}
+
+.has-success {
+  position: relative;
+  &:before {
+    content: "\f00c";
+    display: block;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: $input-height-base;
+    width: $input-height-base;
+    line-height: $input-height-base;
+    border-top-right-radius: $input-border-radius;
+    border-bottom-right-radius: $input-border-radius;
+    color: $teal-3;
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: inherit;
+    text-align: center;
+  }
+  @include validation-label-color()
+}
+
+.has-error {
+  .help-block {
+    font-size: $font-size-small;
+  }
+}
+
+// align bootstrap errors for checkboxes and radio buttons
+.radio,
+.checkbox {
+  padding-left: 20px;
+
+  label {
+    padding-left: 0;
+  }
+}
+
+
+
+.help-block {
+  color: $form-label-color;
+}
+
+// Form control sizing
+
+@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+
+@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
+
+
+p.form-control-static {
+  color: $neutral-3;
+}
+
+/*pending
+---
+title: Content Editables
+name: form_content_editable
+categories:
+  - Forms
+  - All
+---
+
+This form looks and behaves mostly like a content editable field
+
+```html_example
+<form class="form-contenteditable"
+      name="newEditableForm"
+      ng-class="{"saving": editText.saving, "editing": editText.editing}"
+      ng-controller="FormContentEditableController"
+      ng-submit="editText.save()">
+  <label class="txt-c">
+    <div class="form-group mbn">
+      <span class="form-contenteditable-hint link-lowlight">Hover text</span>
+      <h5 class="type-primary-4 showing-text">Default text</h5>
+      <div class="saving-text">Updating Text...</div>
+      <input class="form-control" name="name"
+             ng-blur="editText.save()"
+             ng-focus="editText.enterEditMode()"
+             ng-model="editText.newModel.name"
+             required="required" tabIndex="-1" type="text">
+      </input>
+    </div>
+  </label>
+</form>
+```
+*/
+
+.form-contenteditable {
+  position: relative;
+
+  .form-contenteditable-hint {
+    display: none;
+  }
+  label {
+    padding: 5px;
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  input.form-control {
+    background-color: transparent;
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    text-align: center;
+    @include h1();
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    text-overflow:ellipsis;
+    overflow: hidden;
+    width: 100%;
+    line-height: 1.2;
+    height: auto; //bootstrap override of fixed height
+  }
+  .showing-text {
+    margin: 0;
+  }
+  .saving-text {
+    display: none;
+  }
+
+  &.editing .form-contenteditable-hint {
+    display: none;
+  }
+
+  &:hover .form-contenteditable-hint {
+    display: block;
+  }
+
+  &.saving:hover .form-contenteditable-hint {
+    display: none;
+  }
+
+  &:hover .showing-text {
+    display: none;
+  }
+
+  &.saving {
+    .saving-text {
+      display: block;
+    }
+    .showing-text {
+      display: none;
+    }
+  }
+}
+
+
+
+.toggle-switch {
+  position: absolute;
+  visibility: hidden;
+
+  + label {
+    position: relative;
+    display: block;
+    background-color: $neutral-7;
+    color: $neutral-1;
+    transition: background 0.4s;
+    cursor: pointer;
+    outline: none;
+    text-indent: -99999px;
+
+    &:after {
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      bottom: 4px;
+      display: block;
+      background-color: $neutral-11;
+      transition: margin 0.4s, background 0.4s;
+      content: "";
+    }
+  }
+
+  &:checked + label {
+    background-color: $blue-2;
+  }
+
+  &[disabled] + label {
+    @include opacity(.5);
+  }
+
+  &.toggle-switch-lg {
+    + label {
+      width: 80px;
+      height: 40px;
+      border-radius: 40px;
+
+      &:after {
+        width: 30px;
+        border-radius: 15px;
+      }
+    }
+
+    &:checked + label:after {
+      margin-left: 42px;
+    }
+  }
+}
+
+/*pending
+---
+title: Focus Inputs
+name: form_focus_input
+categories:
+  - Forms
+  - All
+---
+
+Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
+
+```html_example
+<a ng-click="focus_input1=true; focus_input2=false;">Focus input 1</a>
+<br/>
+<a ng-click="focus_input2=true; focus_input1=false;">Focus input 2</a>
+<br/>
+<input focus-input="focus_input1"></input>
+<input focus-input="focus_input2"></input>
+```
+*/
+

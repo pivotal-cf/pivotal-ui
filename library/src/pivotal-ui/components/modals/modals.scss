@@ -1,0 +1,180 @@
+@import "../pui-variables";
+@import '../mixins';
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+
+.modal-fade-enter, .modal-fade-leave {
+  @extend .fade;
+
+  //Base .fade styles from bootstrap
+  @include transition(opacity .15s linear);
+  opacity: 0;
+}
+
+//Class created in React Animations
+.modal-fade-enter-active {
+  @extend .in;
+
+  //Base .in styles from bootstrap
+  opacity: 1;
+}
+
+.modal-backdrop.in {
+  // Bootstrap defines the modal-backdrop opacity on the .modal-backdrop.in rule
+  // so we have to create more specific rules for our React transition group to
+  // actually see a transition :(
+
+  //Class created in React Animations
+  &.modal-backdrop-fade-enter, &.modal-backdrop-fade-leave {
+    @include transition(opacity .15s linear);
+    opacity: 0;
+  }
+
+  //Class created in React Animations
+  &.modal-backdrop-fade-enter-active {
+    opacity: $modal-backdrop-opacity;
+  }
+}
+
+
+.modal {
+
+  .modal-dialog {
+    margin-top: 50px;
+  }
+  .modal-content {
+    border-radius: $modal-basic-content-border-radius;
+    border-width: 0;
+    box-shadow: none;
+    -webkit-box-shadow:none;
+  }
+
+  .modal-header {
+    padding: $modal-inner-padding/2;
+  }
+
+  .modal-footer {
+    padding: $modal-inner-padding/2;
+    background-color: $modal-basic-footer-bg;
+    text-align: right;
+    border-top:0px;
+  }
+}
+
+.modal.modal-basic {
+  .modal-header {
+    background-color: $modal-basic-header-bg;
+    .modal-title{
+      color: $modal-basic-title-color;
+      text-transform:uppercase;
+      font-weight:900;
+    }
+  }
+}
+
+
+//.modal-backdrop {
+//  &.in {
+//    @include opacity($modal-backdrop-opacity); //bootstrap override
+//  }
+//}
+
+/*pending
+---
+title: Inline
+name: modal_inline
+parent: modal
+---
+
+```html_example
+<div class="inline-modal" ng-class="inlineModalExample.state" ng-cloak="<%= true %>" ng-controller="InlineModalExampleCtrl">
+  <div class="modal-backdrop animate-show"></div>
+  <div class="content">
+    <div class="panel panel-shadow">
+      <div class="panel-body pavxl phxxl">
+        I'm the content!
+        <a ng-click="activateInlineModal()" ng-show="inlineModalExample.state === "showing"">Click here to inline-modal me.</a>
+        <a ng-click="deactivateInlineModal()" ng-show="inlineModalExample.state === "editing"">Click here to de-inline-modal me.</a>
+      </div>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/* .inline-modal { */
+  /* position: relative; */
+
+  /* .inline-modal-errors { */
+    /* position: absolute; */
+    /* right: 0; */
+    /* top: 110%; */
+    /* z-index: 1029; */
+  /* } */
+
+  /* .modal-backdrop { */
+    /* position: fixed; */
+    /* top: 0; */
+    /* right: 0; */
+    /* bottom: 0; */
+    /* left: 0; */
+  /* } */
+
+  /* .content { */
+    /* position: relative; */
+  /* } */
+  /* &.editing { */
+    /* h2, .h4 { */
+      /* color: $gray-2; */
+    /* } */
+
+    /* .content { */
+      /* z-index: 1029; // above the scrim */
+      /* background-color: $blue-4; */
+    /* } */
+    /* .modal-backdrop { */
+      /* display: block; */
+      /* z-index: 1019; */
+    /* } */
+  /* } */
+  /* &.showing { */
+    /* .content { */
+      /* background-color: $gray-10; */
+    /* } */
+    /* .modal-backdrop { */
+      /* display: none; */
+    /* } */
+  /* } */
+  /* &.saving { */
+    /* .content { */
+      /* background-color: $gray-10; */
+    /* } */
+    /* .modal-backdrop { */
+      /* display: none; */
+    /* } */
+  /* } */
+
+  /* > .panel-body { */
+    /* min-height: 140px; */
+  /* } */
+
+  /* .animate-show { */
+    /* opacity: .8; */
+  /* } */
+
+  /* .animate-show.ng-hide-add, */
+  /* .animate-show.ng-hide-remove { */
+    /* display: block !important; */
+  /* } */
+
+  /* .animate-show.ng-hide-add.ng-hide-add-active, */
+  /* .animate-show.ng-hide-remove.ng-hide-remove-active { */
+    /* -webkit-transition: all ease-out 0.1s; */
+    /* transition: all ease-out 0.1s; */
+  /* } */
+
+  /* .animate-show.ng-hide { */
+    /* opacity: 0; */
+  /* } */
+/* } */
+

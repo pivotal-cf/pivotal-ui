@@ -1,0 +1,63 @@
+/*doc
+---
+title: Traffic Lights
+name: traffic-lights
+categories:
+ - css_components_traffic-lights
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-traffic-lights --save
+</i>
+</code>
+
+
+Traffic lights are used to show the status of the application. "On" is used for active applications, "off" for inactive, and "loading" for when the status is still loading.
+
+```html_example_table
+<h3>On</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light">
+    <i class="fa fa-circle"></i>
+    5
+  </li>
+  <li class="gray-light">
+    <i class="fa fa-circle"></i>
+    1
+  </li>
+  <li class="red-light">
+    <i class="fa fa-circle"></i>
+    8
+  </li>
+</ul>
+
+<h3>Off</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="gray-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="red-light off">
+    <i class="fa fa-circle"></i>
+  </li>
+</ul>
+
+<h3>Loading</h3>
+<ul class="traffic-lights list-unstyled mvm">
+  <li class="green-light off loading-green">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="gray-light off loading-gray">
+    <i class="fa fa-circle"></i>
+  </li>
+  <li class="red-light off loading-red">
+    <i class="fa fa-circle"></i>
+  </li>
+</ul>
+```
+
+*/

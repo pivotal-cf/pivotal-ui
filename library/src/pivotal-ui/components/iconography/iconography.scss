@@ -1,0 +1,36 @@
+$fa-font-path: "fonts";
+
+@import "../pui-variables";
+
+
+.fa-h1 {
+  font-size: $font-size-h1 !important; 
+  line-height: $headings-line-height;
+}
+.fa-h2 {
+  font-size: $font-size-h2 !important; 
+  line-height: $headings-line-height;
+}
+.fa-h3 {
+  font-size: $font-size-h3 !important; 
+  line-height: $headings-line-height;
+}
+.fa-h4 {
+  font-size: $font-size-h4 !important; 
+  line-height: $headings-line-height;
+}
+.fa-h5 {
+  font-size: $font-size-h5 !important; 
+  line-height: $headings-line-height;
+}
+.fa-h6 {
+  font-size: $font-size-h6 !important; 
+  line-height: $headings-line-height;
+}
+.fa-title { font-size: $font-size-title !important; }
+.fa-sm { font-size: $font-size-small !important; }
+.fa-xs { font-size: $font-size-extra-small !important; }
+
+.icon-control {
+  font-size: 22px;
+}

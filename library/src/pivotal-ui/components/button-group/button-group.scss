@@ -1,0 +1,10 @@
+@import "../pui-variables";
+
+.btn-group {
+  .btn {
+    &.selected  {
+      color: $neutral-11;
+      background-color: $btn-default-color;
+    }
+  }
+}

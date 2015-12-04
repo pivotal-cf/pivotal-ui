@@ -1,0 +1,544 @@
+@import "../pui-variables";
+@import "../mixins";
+
+
+
+/*pending
+---
+title: JS Tables
+name: table_js
+categories:
+  - Objects
+  - All
+---
+
+This section contains different table behaviors. See [tables][table] to see different table styles.
+*/
+
+// Terrible terrible code
+.table-hack {
+  .thead, .tbody {
+    padding: 0 15px;
+  }
+  .th {
+    padding: 8px 15px;
+  }
+  .td {
+    padding: 20px 15px;
+  }
+  .tbody {
+
+    .tr:nth-child(odd) {
+    }
+  }
+}
+
+.table-data {
+  border: none;
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      border-bottom: 1px solid $gray-7;
+      th, .th {
+        border-bottom: none;
+        border-color: $gray-7;
+        border-right: 1px solid $gray-7;
+        padding: 15px 10px;
+        font-size: 13px;
+        font-weight: 900;
+        letter-spacing: 0.3px;
+        &:first-child {
+          border-bottom: none;
+        }
+        &:last-child {
+          border: none;
+        }
+        background-color: $gray-9;
+      }
+      td, .td {
+        padding: 10px 10px;
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+
+  tbody, .tbody {
+    tr, .tr {
+      background-color: $gray-9;
+      &:hover {
+        -webkit-transition: background-color 300ms ease-out;
+        -moz-transition: background-color 300ms ease-out;
+        transition: background-color 300ms ease-out;
+        background-color: $gray-10;
+      }
+      &:last-child {
+        border-bottom: 2px solid $shadow-3;
+      }
+    }
+  }
+  // end optical illusion bug code
+
+  > thead > tr, > .thead > .tr {
+    text-transform: uppercase;
+    &:last-child {
+    }
+    > th, > .th {
+      color: $gray-3;
+    }
+  }
+}
+
+.table-light {
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      background-color: $gray-10;
+      th, .th, td, .td {
+        background-color: $gray-10;
+      }
+      td, .td {
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+}
+
+
+.table-key-value {
+  table-layout: fixed;
+  tbody, thead, .tbody, .thead {
+    tr, .tr {
+      th, .th {
+        border: none; // overwriting bootstrap default values which are too specific
+      }
+    }
+  }
+  tbody {
+    tr {
+      &:last-child {
+        border: none;
+      }
+      th, td {
+        padding: 0;
+        margin: 0;
+      }
+      th {
+        text-transform: uppercase;
+        font-weight: 800;
+        text-align: left;
+        color: $gray-5;
+      }
+      td {
+        text-align: left;
+        &:last-child {
+          border: none;
+        }
+      }
+    }
+  }
+}
+
+/*pending
+---
+title: Clickable
+name: table_clickable
+parent: table_js
+---
+
+Use this style of table when rows are clickable. It is possible to prevent a user from clicking on a row w/ a message by adding data-prevent-click and data-prevent-click-message to the row. (N.B.: This does not actually add any sort of permissions to the URL in question).
+We are making the assumption here that table-hover will *only* be used if the table is clickable, because we add a pointer.
+
+
+
+```html_example
+<table class="table table-data table-hover" data-behavior="ClickableTable">
+  <thead>
+    <tr>
+      <th>Style</th>
+      <th colspan="2">Clickability</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-prevent-click="true" data-prevent-click-message="YOU'VE ENTERED THE FORBIDDEN ZONE" data-target-path="/styleguide#link">
+      <td>Forbidden Links</td>
+      <td>High</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#button">
+      <td>Buttons</td>
+      <td>Medium</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+    <tr data-target-path="/styleguide#type">
+      <td>Typography</td>
+      <td>Low</td>
+      <td class="txt-m txt-r">
+        <i class="fa fa-chevron-right type-primary-4"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+*/
+
+.table-hover {
+  td {
+    cursor: pointer;
+  }
+}
+
+.table-sortable {
+  th.sorted-desc {
+    color: $navy-1;
+    &:after {
+      content: "\f0d7";
+      color: $navy-1;
+    }
+  }
+
+  .sortable, [sortable] { // latter selector is angular only
+    @include no-select;
+    cursor: pointer;
+    &:after {
+      margin-left: 4px;
+      content: "";
+      font-weight: 200;
+      font-family: FontAwesome;
+    }
+    &:hover {
+      background-color: white;
+      -webkit-transition: background-color 300ms ease-out;
+      -moz-transition: background-color 300ms ease-out;
+      transition: background-color 300ms ease-out;
+    }
+  }
+
+  th.sorted-none {
+    &:hover:after {
+      visibility: visible;
+    }
+    &:after {
+      content: "\f0dc";
+      color: $gray-7;
+      visibility: hidden;
+    }
+  }
+
+  th.sorted-asc {
+    color: $navy-1;
+    &:after {
+      content: "\f0d8";
+      color: $navy-1;
+    }
+  }
+}
+
+/*pending
+---
+title: Inline Addable
+name: table_inline_addable
+parent: table_js
+---
+
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideAddableTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
+      Add a Space
+    </a>
+  </p>
+  <table class="table table-data table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m col-md-8">
+          Name
+        </th>
+        <th class="txt-m">
+          Total Apps
+        </th>
+        <th class="txt-m">
+          Running Apps
+        </th>
+        <th class="txt-m">
+          Stopped Apps
+        </th>
+        <th class="txt-m">
+          Down Apps
+        </th>
+        <th class="txt-m">
+          Service Instance
+        </th>
+        <th class="txt-m">
+          Quota
+        </th>
+        <th class="txt-m"></th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr class="inline-table-item" ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
+          {{space.name}}
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+        <td data-confirmation-action="spaceTable.destroy(space)" data-confirmation-header="Delete Space" data-confirmation-modal="Are you sure you want to delete this space?" data-dangerous-action="true">Delete</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
+
+.editing {
+  .state-adding-trigger {
+    visibility: hidden;
+  }
+  .table-addable {
+    .thead-state-viewing,
+    .td-state-viewing {
+      display: none;
+    }
+
+    td {
+      display: none;
+    }
+    td:first-child {
+      display: table-cell;
+    }
+    thead.state-editing-show {
+      display: table-header-group;
+    }
+    tr.state-editing-show {
+      display: table-row;
+    }
+  }
+}
+
+.table-addable {
+  table-layout: fixed;
+
+  .state-editing-show {
+    display: none;
+  }
+
+  .state-adding-item-show {
+    display: none;
+  }
+
+  .inline-table-item.ng-enter.ng-enter-active {
+    opacity: 1;
+    .addedConfirmation {
+      display: table-cell;
+    }
+  }
+
+  .inline-table-item {
+    .addedConfirmation {
+      color: forestgreen;
+    }
+  }
+
+  .fa-check-success {
+    color: $teal-3;
+    font-size: 12px;
+    margin-right: 5px;
+
+    -webkit-transition: opacity 300ms ease-out;
+    -moz-transition: opacity 300ms ease-out;
+    transition: opacity 300ms ease-out;
+
+    opacity: 1;
+  }
+
+  .fa-check-success.ng-hide {
+    display: inline-block !important;
+    opacity: 0;
+  }
+
+  .saveRequested {
+    opacity: 0.3;
+  }
+
+  .deleteRequested {
+    -webkit-transition: all ease-out .2s;
+    transition: all ease-out .2s;
+    color: $gray-5;
+  }
+
+  .ng-leave {
+    -webkit-transition: all ease-out .5s;
+    transition: all ease-out .5s;
+  }
+
+  .ng-leave.ng-leave-active {
+    color: $gray-9;
+  }
+
+  .saved {
+    opacity: 1;
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+  }
+
+}
+
+//
+//.ng-valid {
+//  @extend .has-success;
+//}
+
+/*pending
+---
+title: Kitchen Sink
+name: table_kitchen_sink
+parent: table_js
+---
+
+Example of composed behaviors that operate on the same table.
+
+```html_example
+<div ng-class="{editing: spaceTable.editing}" ng-cloak="true" ng-controller="StyleguideKitchenSinkTableCtrl">
+  <p class="txt-r">
+    <a class="btn btn-default state-adding-trigger" href="javascript:void(0);" ng-click="spaceTable.enterEditMode()" ng-disabled="spaceTable.newModel.saving">
+      Add a Space
+    </a>
+  </p>
+  <table class="table table-data table-sortable table-addable">
+    <thead class="thead-state-viewing">
+      <tr>
+        <th class="txt-m" sortable="name">Name</th>
+        <th sortable="totalApps">Total Apps</th>
+        <th sortable="runningApps">Running Apps</th>
+        <th sortable="stoppedApps">Stopped Apps</th>
+        <th sortable="downApps">Down Apps</th>
+        <th class="txt-m" sortable="serviceInstances">Service Instances</th>
+        <th class="txt-m" sortable="quota">Quota</th>
+      </tr>
+    </thead>
+    <thead class="state-editing-show">
+      <tr>
+        <th class="txt-m">
+          Name
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="state-editing-show">
+        <td>
+          <form class="td-state-adding form-inline" name="newSpaceForm" ng-submit="spaceTable.save()">
+            <div class="form-group mll">
+              <input aria-describedby="space-name-error" autofocus="autofocus" class="form-control" invalid-invalid="true" name="name" ng-minlength="3" ng-model="spaceTable.newModel.name" required="true" type="text"></input>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-default" ng-disabled="!spaceTable.newModel.name" type="submit">Add</button>
+              <a class="btn btn-default" ng-click="spaceTable.cancel()">Cancel</a>
+            </div>
+            <div class="error-container pal" id="space-name-error" ng-show="newSpaceForm.name.$dirty && newSpaceForm.name.$invalid" role="alert">
+              <span class="error" ng-show="newSpaceForm.name.$error.required">Space name is required.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.minlength">Space name is required to be at least 3 characters.</span>
+              <span class="error" ng-show="newSpaceForm.name.$error.invalidInvalid">Space name cannot be invalid, literally.</span>
+              <div ng-repeat="error in spaceTable.newModel.serverErrors">
+                <span class="error">{{error}}</span>
+              </div>
+            </div>
+          </form>
+        </td>
+      </tr>
+      <tr ng-repeat="space in spaceTable.collection.items">
+        <td class="pls type-ellipsis-1-line" ng-class="{saveRequested: space.saving}">
+          <div class="fa fa-check fa-check-success ng-hide" ng-show="space.freshlySaved"></div>
+          {{space.name}}
+        </td>
+        <td>{{space.totalApps}}</td>
+        <td>{{space.runningApps}}</td>
+        <td>{{space.stoppedApps}}</td>
+        <td>{{space.downApps}}</td>
+        <td>{{space.serviceInstances}}</td>
+        <td>{{space.quota}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+*/
+
+.table-scrollable {
+  border: $table-scrollable-border;
+
+  table {
+    table-layout: fixed;
+    tr:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .table {
+    margin: 0;
+  }
+
+  .table-scrollable-header {
+    border-bottom: $table-scrollable-header-border;
+  }
+
+  .table-scrollable-body {
+    border-top: $table-scrollable-body-border;
+    max-height: $table-scrollable-default-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  &.table-scrollable-sm {
+    .table-scrollable-body {
+      max-height: $table-scrollable-sm;
+    }
+  }
+  &.table-scrollable-md {
+    .table-scrollable-body {
+      max-height: $table-scrollable-md;
+    }
+  }
+  &.table-scrollable-lg {
+    .table-scrollable-body {
+      max-height: $table-scrollable-lg;
+    }
+  }
+}
+

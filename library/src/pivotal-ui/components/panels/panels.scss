@@ -1,0 +1,271 @@
+@import "../pui-variables";
+@import "../mixins";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+
+.panel { // resets bootstrap default
+  box-shadow: none;
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  margin: 0;
+  //background-color: transparent; // Bootstrap Override
+}
+
+.panel-title {
+  font-size: inherit; // Bootstrap Override for React Collapses
+}
+
+
+.panel-simple {
+  border: $panel-simple-border;
+}
+
+
+
+.panel-basic {
+  border-radius: $border-radius-medium;
+  @include background-clip-fix;
+  border-bottom: 2px solid $shadow-3;
+}
+
+.panel-title-alt {
+  padding: $panel-title-padding;
+  border-bottom: $panel-title-border;
+  font-weight: $panel-title-font-weight;
+  color: $panel-title-text;
+}
+
+
+
+.panel-basic-alt {
+  border: $panel-basic-alt-border;
+  border-radius: $panel-basic-alt-border-radius;
+  @include background-clip-fix;
+  border-bottom: $panel-basic-alt-border-bottom;
+  background-color: $panel-basic-alt-background;
+}
+
+
+
+.panel-flex {
+  display: block;
+  display: flex;
+  flex-direction: column;
+
+  .panel-body {
+    flex: 1 0 auto;
+    align-self: auto;
+  }
+
+  .panel-footer {
+    flex: 0 0 auto;
+    align-self: auto;
+  }
+}
+
+
+
+.panel-tile {
+  border-bottom: 4px solid $shadow-3;
+  overflow: hidden;
+  color: $text-color;
+  -webkit-transition: border 300ms ease-out;
+  -moz-transition: border 300ms ease-out;
+  transition: border 300ms ease-out;
+  @include background-clip-fix;
+
+  .panel-body {
+    -ms-flex: 1 0 auto;
+    padding: 29px 29px 0 29px;
+    -webkit-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
+    -moz-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
+    transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
+  }
+
+  .panel-footer {
+    color: #fff;
+    opacity: 0;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: $panel-tile-font-size;
+    border-top: none; // bootstrap override
+    padding: 4px 15px;
+    background: transparent;
+    @include transition-pui();
+  }
+
+  &:hover,
+  &:focus {
+    @include transition-pui();
+    border-width: 1px;
+    box-shadow: none;
+    background-color: $panel-tile-hover-bg-color;
+    color: $text-color;
+    cursor: pointer;
+    outline: none;
+
+    .panel-body {
+      padding-top: 18px;
+      padding-bottom: 11px;
+    }
+    .panel-footer {
+      opacity: 1;
+      background: $panel-tile-hover-border-color;
+      color: $panel-footer-tile-text;
+      font-weight: 900;
+    }
+  }
+}
+
+
+
+.panel-scrollable {
+  max-height: 183px;
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+
+
+.panel-highlight {
+  background-color: $gray-10;
+  border-radius: 10px;
+  box-shadow: 0 4px 0 0 $shadow-3;
+
+  &.title-panel h1{
+    overflow: hidden;
+    @include text-overflow;
+  }
+}
+
+
+.panel-alt {
+
+  // while creating a new space (form inside)
+  &.panel-editing {
+    background-color: $gray-9;
+  }
+
+  // add a space box
+  &.panel-empty {
+    background-color: $shadow-3;
+
+    &:hover {
+      @include transition-pui();
+      background-color: $gray-9;
+      border-bottom: 4px solid $shadow-2;
+    }
+  }
+
+  .aligner {
+    min-height: 190px;
+  }
+
+  .panel-basic {
+    min-height: 88px;
+  }
+
+  // top right corner tabs
+
+  &%panel-state {
+    position: relative;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0%;
+      right: 0%;
+      width: 0px;
+      height: 0px;
+      border-left: 25px solid transparent;
+    }
+
+  }
+
+  &.panel-danger, &.panel-off {
+    @extend %panel-state;
+  }
+
+  &.panel-danger:before {
+    border-top: 25px solid $red-3;
+  }
+
+  &.panel-off:before {
+    border-top: 25px solid $gray-4;
+  }
+}
+
+
+.panel-shadow {
+  border: none; //Bootstrap override
+  @include background-clip-fix;
+}
+
+.panel-shadow-1 {
+  @extend .panel-shadow;
+  box-shadow: 0px 4px $shadow-1;
+}
+
+.panel-shadow-2 {
+  @extend .panel-shadow;
+  box-shadow: 0px 4px $shadow-2;
+}
+
+.panel-shadow-3 {
+  @extend .panel-shadow;
+  box-shadow: 0px 4px $shadow-3;
+}
+
+.panel-shadow-4 {
+  @extend .panel-shadow;
+  box-shadow: 0px 4px $shadow-4;
+}
+
+
+.panel-clickable {
+  display: block;
+  background-color: $gray-9;
+  cursor: pointer;
+  @include transition-pui();
+
+  .hover-target-1, .hover-target-2, .hover-target-3 {
+    @include transition-pui();
+  }
+
+  .hover-target-1 {
+    color: $text-color;
+  }
+
+  .hover-target-2 {
+    color: $gray-5;
+  }
+
+  .hover-target-3 {
+    background-color: $gray-10;
+  }
+
+  &:hover{
+    background-color: $gray-10;
+
+    .hover-target-1 { // default text color => link color
+      color: $link-color;
+    }
+    .hover-target-2 { // light gray => default text color
+      color: $text-color;
+    }
+    .hover-target-3{
+      background-color: $gray-11;
+    }
+  }
+}
+
+.panel-clickable-alt {
+  @extend .panel-highlight;
+  @extend .panel-clickable;
+  background-color: $gray-10;
+
+  &:hover {
+    background-color: $gray-11;
+    box-shadow: 0 4px 0 0 $shadow-2;
+  }
+}

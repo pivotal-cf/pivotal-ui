@@ -1,0 +1,71 @@
+@import "../pui-variables";
+
+.avatar {
+  border: $avatar-border;
+  box-sizing: border-box;
+}
+
+
+.gravatar {
+  display: inline-block;
+  position: relative;
+  img {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  i {
+    text-align: center;
+    z-index: 1;
+  }
+  i.overlay {
+    background-color: transparent;
+    z-index: 3;
+    position: absolute;
+  }
+}
+
+
+.gravatar-sm {
+  i {
+    color: $gray-5;
+    font-size: 20px;
+    line-height: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  i.highlight {
+    color: $teal-3;
+  }
+
+  i.overlay {
+    font-size: 10px;
+    color: #fff;
+    right: -30%;
+    bottom: -25%;
+  }
+  .fa-envelope {
+    text-shadow: 1px 0px 1px $gray-5, -1px 0px 1px $gray-5, 0px 1px 1px $gray-5, 0px 0px 1px $gray-5;
+  }
+  .fa-check {
+    text-shadow: 1px 0px 0px $teal-3, -1px 0px 0px $teal-3, 0px 1px 0px $teal-3, 0px 0px 0px $teal-3;
+  }
+}
+
+
+.gravatar-lg {
+  border: 3px solid $gray-10;
+  i {
+    background-color: #fff;
+    color: $gray-10;
+    font-size: 62px;
+    line-height: 80px;
+    width: 80px;
+    height: 80px;
+  }
+}
+

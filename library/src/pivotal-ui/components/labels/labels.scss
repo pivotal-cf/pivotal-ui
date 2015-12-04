@@ -1,0 +1,27 @@
+@import "../pui-variables";
+
+
+.label {
+  padding: 0.2em 0.6em;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+
+.label-removable {
+  padding: 4px 7px;
+  border-radius: 3px;
+  background-color: $brand-8;
+  color: $neutral-11;
+  font-weight: $font-weight-em-high;
+
+  .close-btn {
+    margin-left: 15px;
+    color: $glow-4;
+
+    &:hover {
+      color: $neutral-11;
+      text-decoration: none;
+    }
+  }
+}

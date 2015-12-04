@@ -1,0 +1,12 @@
+@import "../pui-variables";
+
+.scale-svg {
+  .instances-column:hover,
+  .selected-group {
+    filter: none;
+  }
+
+  .instances-gradient-stop-1 { stop-color: $instance-scale-gradient-start; }
+  .instances-gradient-stop-2 { stop-color: $instance-scale-gradient-end; }
+}
+

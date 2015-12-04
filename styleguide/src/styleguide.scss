@@ -1,0 +1,547 @@
+// Styles specific to the styleguide, otherwise, not used
+@import './ie-specific-styles.scss';
+@import '../../library/src/pivotal-ui/components/pui-variables.scss';
+@import '../../library/src/pivotal-ui/components/mixins.scss';
+
+$nav-menu-width: 300px;
+
+html {
+  background-color: $neutral-11;
+}
+
+.container {
+  max-width: 1128px;
+  width: auto;
+  margin: 0 auto;
+}
+
+.content {
+  margin-top: 5px;
+}
+
+
+.main > h1 {
+  margin-top: 30px;
+}
+
+.main > h1:first-child {
+  margin-top: 0;
+}
+
+h1.styleguide,
+h2.styleguide,
+h3.styleguide,
+h4.styleguide,
+h5.styleguide,
+h6.styleguide {
+  color: $dark-2;
+  font-weight: 600;
+  margin-top: 0;
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 50px;
+  }
+}
+
+
+h1.styleguide {
+  font-size: $font-size-title;
+}
+
+footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size:16px;
+  margin: 10px 0;
+  padding: 5px;
+
+}
+
+main {
+  padding-left: $nav-menu-width
+}
+
+.styleguide-header {
+  width: $nav-menu-width;
+  height: 100%;
+  z-index: 100;
+  overflow: auto;
+
+  position: fixed;
+  top: 0;
+
+  background: $neutral-11;
+
+  border-right: 1px solid $neutral-9;
+
+  .visible-on-focus {
+    position: absolute;
+    left: 0px;
+    top: -40px;
+    &:focus, &:hover {
+      top: 40px;
+    }
+  }
+
+  .logo-type-company, .logo-type-app {
+    display: block;
+    line-height: 1;
+  }
+
+  #styleguide-navbar {
+    .nav {
+      display: flex;
+      text-align: center;
+
+      > li {
+        flex: 1;
+      }
+    }
+
+    .nav-component-type {
+      margin: 0;
+      background-color: white;
+
+      .panel-body {
+        padding-top: 0;
+        padding-bottom: 0;
+
+        a {
+          display: block;
+        }
+      }
+    }
+  }
+}
+// Back to top component
+.exampleOutput .back-to-top {
+  position: absolute;
+}
+
+// Contrast bar
+.contrast-bar {
+  background-color: $bg-color-inverse-example-output;
+  min-height: 80px;
+  padding: 20px;
+}
+
+// color chip component
+
+.color-chip-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.chip {
+
+  margin-top: 5px;
+  flex: 1;
+  padding: 0 5px;
+
+  .chip-color {
+    min-height: 53px;
+    border-radius: 5px 5px 0 0
+  }
+  .chip-color-name {
+    color: $dark-2;
+    padding-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 2px 0 rgba(0,0,0,.1);
+  }
+}
+
+.marquee {
+  min-height: 400px;
+}
+.marquee-name {
+  color: #777;
+  padding-top: 5px;
+  font-size: 11px;
+  font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+}
+
+.componentMenu {
+  max-height: 535px;
+  width: 175px;
+  overflow-y: auto;
+}
+
+blockquote:before {
+  content: "Design Note:";
+  font-weight: bold;
+}
+
+blockquote {
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-family: "Comic Sans MS";
+  font-size:16px;
+  margin: 10px 0;
+  padding: 5px;
+
+}
+
+.sg-code {
+  padding: 2px 4px;
+  color: #d14;
+  white-space: nowrap;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+// Non-tabular code examples
+.codeExample, .jsExample {
+  background-clip: padding-box;
+
+  .docSwatch {
+    min-height: 218.21px;
+    border: 1px solid #ccc;
+    padding: 10px 0 0 10px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}
+
+.codeExample .codeBlock, .jsExample.codeBlock {
+  position: relative;
+  background-color: white;
+  border-top:1px solid $shadow-3;
+  padding: 40px;
+  border: 1px solid $neutral-7;
+  border-radius: 0 0 5px 5px;
+
+  pre {
+    background-color: transparent; //bootstrap override
+    margin: 0; //bootstrap override
+    border: none; //bootstrap override
+    padding: 0; //bootstrap override
+  }
+
+  .btn-copy {
+    display: none;
+    border-left: 1px solid $shadow-3;
+    border-bottom: 1px solid $shadow-3;
+
+    &.zeroclipboard-is-hover {
+      display: block;
+    }
+  }
+
+  &:hover .btn-copy {
+    display: block;
+  }
+}
+
+.codeExample {
+  margin: 10px 0;
+  background-color: $bg-color-example-output;
+
+  .exampleOutput {
+    padding: 20px;
+    border: 1px solid $neutral-7;
+    border-radius: 5px 5px 0 0;
+
+    &.inverse {
+      background-color: $bg-color-inverse-example-output;
+    }
+  }
+
+  .line > div:after {
+    content: attr(class);
+    display: block;
+    min-height: 40px;
+    line-height: 40px;
+    background-color: #EEE;
+    text-align: center;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+}
+
+.jsExample {
+  margin: -10px 0 10px;
+}
+
+
+// Tabular code examples
+.codeTable table {
+  padding: 7px;
+  border: none;
+  table-layout: fixed;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 24px;
+  border: 1px solid $gray-8;
+  border-radius: 5px;
+
+  tr, th, td {
+    font-weight: normal;
+  }
+
+  tr {
+    padding: 7px;
+    border-bottom: 1px solid $shadow-3;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+
+  th {
+    padding: 10px 20px;
+    vertical-align: middle;
+    background-color: $bg-color-example-output;
+  }
+
+  td {
+    position: relative;
+    padding: 10px 10px;
+    vertical-align: middle;
+    background-color: $bg-color-example-code;
+
+    .btn-copy {
+      display: none;
+      border-left: 1px solid $shadow-2;
+      border-bottom: 1px solid $shadow-2;
+
+      &.zeroclipboard-is-hover {
+        display: block;
+      }
+    }
+
+    &:hover .btn-copy {
+      display: block;
+    }
+  }
+
+  &.inverse {
+    th {
+      background-color: $bg-color-inverse-example-output;
+    }
+  }
+
+  pre {
+    background-color: transparent; //bootstrap override
+    margin: 0; //bootstrap override
+    border: none; //bootstrap override
+    padding: 0; //bootstrap override
+  }
+}
+
+table.styleguide {
+  padding: 7px;
+  margin-bottom: 12px;
+  border: 1px solid #ccc;
+  width: 100%;
+
+  tr, th, td {
+    padding: 7px;
+    border: 1px solid #ccc;
+    font-weight: normal;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  td.no-wrap, th.no-wrap {
+    white-space: nowrap;
+  }
+}
+
+// copy button
+.btn-copy {
+  @include transition-pui(background, 0.5s, ease-out);
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 7px 20px;
+  border-radius: 0;
+
+  &.zeroclipboard-is-hover {
+    background-color: $neutral-11;
+  }
+}
+
+// make the grid visible
+
+.grid-show {
+  margin-bottom: $grid-gutter-width;
+  text-align: center;
+  [class*=col]:before {
+    content: attr(class) '\a' attr(grid-content);
+    white-space: pre;
+    display: block;
+    background-color: $neutral-10;
+    padding: 10px 0;
+    outline: 1px solid $neutral-5;
+  }
+}
+
+// form hacks
+
+.styleguide-form {
+  padding: 25px;
+}
+
+// banner hack
+
+.styleguide-component-wrapper {
+  position: relative;
+  border: 1px solid $neutral-6;
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  .ribbon-banner {
+    position: absolute;
+  }
+}
+
+//make background image visible in styleguide chip
+.bkg-highlight-2 {
+background-position: 0 50%;
+}
+
+// sub section navigation pills
+
+.section-nav {
+  font-size: $font-size-small;
+  padding-left: 0;
+  font-weight: bold;
+
+  li {
+    display: inline-block;
+    a{
+      display: inline-block;
+      padding: 5px 10px;
+      margin-right: 5px;
+      margin-bottom: 10px;
+      background-color: $glow-3;
+      @include transition-pui();
+      border-radius: $border-radius-small;
+      &:hover {
+        background-color: $neutral-11;
+      }
+    }
+  }
+}
+
+td.is-visible, td.is-hidden {
+  color: #686868;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td.is-visible {
+  background-color: #dff0d8 !important;
+}
+
+td.is-hidden {
+  background-color: #f9f9f9 !important;
+}
+
+h1#intro.styleguide {
+  height: 0;
+  width: 0;
+  font-size: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.aligned-item {
+  flex: 1;
+  background-color: transparent;
+}
+
+.styleguide.panel-body {
+  height: 225px;
+}
+
+.styleguide.code {
+  background-color: transparent;
+  border: none;
+}
+
+.styleguide-hero {
+  border-bottom: 3px solid rgba(255,255,255,0.25);
+  color: $neutral-11;
+
+  .container {
+    margin: 0 2vw;
+    max-width: none;
+  }
+}
+
+.bg-gradient-1 {
+  background-image: linear-gradient(0deg, #1F7BA6 0%, #46B1E3 100%);
+}
+
+.styleguide-title {
+  font-size: 4vw;
+  margin: 0;
+}
+
+.styleguide-subtitle {
+  font-size: 1.5vw;
+}
+
+.styleguide-btn-primary {
+  font-size: 1.5vw;
+
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 0;
+  box-shadow: 0 2px 0 rgba(0,0,0,.1);
+  font-weight: 500;
+
+  &:hover, &:focus {
+    color: white;
+    border-color: white;
+    background: transparent;
+  }
+}
+
+.styleguide-intro-tile {
+  border: solid $dark-10;
+  border-width: 0 1px 1px 0;
+  padding: 6vw 2.5vw;
+
+  margin: -1px 0;
+
+  font-size: 14px;
+
+  h2 {
+    font-size: 32px;
+    margin: 0;
+    color: $neutral-2;
+  }
+}
+
+.crazy-logo {
+  width: 32vw;
+  margin: 0 auto 0 auto;
+}

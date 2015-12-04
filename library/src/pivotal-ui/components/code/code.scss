@@ -1,0 +1,45 @@
+@import "../pui-variables";
+
+
+
+.pre-unstyled {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+}
+
+.pre-scrollable {
+  overflow-y: auto; //bootstrap override
+}
+
+
+.inline-dark {
+  background-color: $code-background-dark;
+  border-radius: $code-border-radius;
+  color: $code-color-dark;
+}
+
+
+.terminal {
+  background-color: $gray-7;
+  padding: 6px 10px 12px 10px;
+  border-radius: $code-chrome-border-radius;
+  box-shadow: 0 2px 0 $shadow-1;
+
+  &::before {
+    content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
+    color: $gray-4;
+    font-size: 13px;
+    font-family: FontAwesome;
+  }
+
+  pre[class*="language-"] {
+    margin: 2px 0 0 0;
+    border-radius: $code-border-radius;
+    height: 320px;
+    overflow-y: auto;
+  }
+}

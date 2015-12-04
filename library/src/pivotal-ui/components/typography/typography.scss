@@ -1,0 +1,222 @@
+@import "../pui-variables";
+
+@mixin font-helper($name, $weight, $style) {
+  @font-face {
+    font-family: 'SourceSansPro';
+    src: url("fonts/#{$name}.eot");
+    src: url("fonts/#{$name}.eot?#iefix") format("embedded-opentype"),
+    url("fonts/#{$name}.woff") format("woff"),
+    url("fonts/#{$name}.ttf") format("truetype"),
+    url("fonts/#{$name}.svg##{$name}") format("svg");
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+@include font-helper('sourcesanspro-light-webfont', 200, normal);
+@include font-helper('sourcesanspro-regular-webfont', 400, normal);
+@include font-helper('sourcesanspro-it-webfont', 400, italic);
+@include font-helper('sourcesanspro-bold-webfont', 600, normal);
+@include font-helper('sourcesanspro-black-webfont', 900, normal);
+
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+
+// Override the bootstrap margins to use our margin classes so we can align
+// things. This is necessary because we have to keep the whitespace margins in sync with this
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  padding-top: $headings-padding;
+  padding-bottom: $headings-padding;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: $whitespace-xl;
+  margin-bottom: $whitespace-l;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  margin-top: $whitespace-l;
+  margin-bottom: $whitespace-l;
+}
+
+@media all and (max-width: $screen-sm) {
+  h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: $whitespace-screen-sm-xl;
+    margin-bottom: $whitespace-screen-sm-l;
+  }
+
+  h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: $whitespace-screen-sm-l;
+    margin-bottom: $whitespace-screen-sm-l;
+  }
+}
+
+// We handle font-weight here, bootstrap handles font-size and color
+
+h1 {
+  //If you add new h1 styles, make sure to update the h1 mixin
+  font-weight: $font-weight-h1;
+}
+
+h2 {
+  font-weight: $font-weight-h2;
+}
+
+h3 {
+  font-weight: $font-weight-h3;
+}
+
+h4 {
+  font-weight: $font-weight-h4;
+}
+
+h5 {
+  font-weight: $font-weight-h5;
+}
+
+h6 {
+  font-weight: $font-weight-h6;
+}
+
+
+.h1 {
+  font-size: $font-size-h1 !important;
+  font-weight: $font-weight-h1 !important;
+}
+
+.h2 {
+  font-size: $font-size-h2 !important;
+  font-weight: $font-weight-h2 !important;
+}
+
+.h3 {
+  font-size: $font-size-h3 !important;
+  font-weight: $font-weight-h3 !important;
+}
+
+.h4 {
+  font-size: $font-size-h4 !important;
+  font-weight: $font-weight-h4 !important;
+}
+
+.h5 {
+  font-size: $font-size-h5 !important;
+  font-weight: $font-weight-h5 !important;
+}
+
+.h6 {
+  font-size: $font-size-h6 !important;
+  font-weight: $font-weight-h6 !important;
+}
+
+small,
+.type-sm { font-size: $font-size-small; } // bootstrap override
+
+.type-xs,
+.type-terms { font-size: $font-size-extra-small; } // bootstrap override
+
+.title {
+  font-size: $font-size-title;
+}
+
+
+.em-low { font-weight: $font-weight-em-low !important; }
+.em-default { font-weight: $font-weight-em-default !important; }
+.em-high { font-weight: $font-weight-em-high !important; }
+.em-max { font-weight: $font-weight-em-max !important; }
+.em-alt { text-transform: uppercase !important; }
+
+
+// gray type
+
+.type-neutral-1 { color: $neutral-1 !important; }
+.type-neutral-2 { color: $neutral-2 !important; }
+.type-neutral-3 { color: $neutral-3 !important; }
+.type-neutral-4 { color: $neutral-4 !important; }
+.type-neutral-5 { color: $neutral-5 !important; }
+.type-neutral-6 { color: $neutral-6 !important; }
+.type-neutral-7 { color: $neutral-7 !important; }
+.type-neutral-8 { color: $neutral-8 !important; }
+.type-neutral-9 { color: $neutral-9 !important; }
+.type-neutral-10 { color: $neutral-10 !important; }
+.type-neutral-11 { color: $neutral-11 !important; }
+
+// navy type
+
+.type-dark-1 { color: $dark-1 !important; }
+.type-dark-2 { color: $dark-2 !important; }
+.type-dark-3 { color: $dark-3 !important; }
+.type-dark-4 { color: $dark-4 !important; }
+.type-dark-5 { color: $dark-5 !important; }
+.type-dark-6 { color: $dark-6 !important; }
+.type-dark-7 { color: $dark-7 !important; }
+.type-dark-8 { color: $dark-8 !important; }
+.type-dark-9 { color: $dark-9 !important; }
+.type-dark-10 { color: $dark-10 !important; }
+.type-dark-11 { color: $dark-11 !important; }
+
+// teal type
+
+.type-brand-1 { color: $brand-1 !important; }
+.type-brand-2 { color: $brand-2 !important; }
+.type-brand-3 { color: $brand-3 !important; }
+.type-brand-4 { color: $brand-4 !important; }
+.type-brand-5 { color: $brand-5 !important; }
+.type-brand-6 { color: $brand-6 !important; }
+.type-brand-7 { color: $brand-7 !important; }
+.type-brand-8 { color: $brand-8 !important; }
+.type-brand-9 { color: $brand-9 !important; }
+.type-brand-10 { color: $brand-10 !important; }
+.type-brand-11 { color: $brand-11 !important; }
+
+// blue type
+
+.type-accent-1 { color: $accent-1 !important; }
+.type-accent-2 { color: $accent-2 !important; }
+.type-accent-3 { color: $accent-3 !important; }
+.type-accent-4 { color: $accent-4 !important; }
+.type-accent-5 { color: $accent-5 !important; }
+.type-accent-6 { color: $accent-6 !important; }
+
+// red type
+
+.type-error-1 { color: $error-1 !important; }
+.type-error-2 { color: $error-2 !important; }
+.type-error-3 { color: $error-3 !important; }
+.type-error-4 { color: $error-4 !important; }
+.type-error-5 { color: $error-5 !important; }
+.type-error-6 { color: $error-6 !important; }
+
+// yellow type
+
+.type-warn-1 { color: $warn-1 !important; }
+.type-warn-2 { color: $warn-2 !important; }
+.type-warn-3 { color: $warn-3 !important; }
+.type-warn-4 { color: $warn-4 !important; }
+.type-warn-5 { color: $warn-5 !important; }
+.type-warn-6 { color: $warn-6 !important; }
+
+// green type
+
+.type-success-1 { color: $success-1 !important; }
+.type-success-2 { color: $success-2 !important; }
+.type-success-3 { color: $success-3 !important; }
+.type-success-4 { color: $success-4 !important; }
+.type-success-5 { color: $success-5 !important; }
+.type-success-6 { color: $success-6 !important; }
+
+.type-inverse {
+  color: $type-inverse !important;
+}
+a:hover.type-inverse {
+  color: $type-inverse-hover !important;
+}
+
+.error-color {
+  color: $error-color !important;
+}
+

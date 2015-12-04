@@ -1,0 +1,40 @@
+@import "../pui-variables";
+
+.back-to-top {
+  //Font Awesome .fa
+  //display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  //font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0);
+
+  //Font Awesome .fa-arrow-up
+  &:before {
+    content: "\f062";
+  }
+
+  color: $neutral-11;
+  text-align: center;
+  font-size: $font-size-h3;
+
+  bottom: 100px;
+  position: fixed;
+  right: 100px;
+  display: none;
+  padding-top: 13px;
+  height: 50px;
+  width: 50px;
+  z-index: $zindex-navbar;
+
+  border: 0;
+  border-radius: 50%;
+  background: $brand-8;
+  box-shadow: 0 0 9px rgba(153, 153, 153, 0.8);
+
+  &:hover {
+    background: $brand-5;
+    color: $neutral-11;
+  }
+}

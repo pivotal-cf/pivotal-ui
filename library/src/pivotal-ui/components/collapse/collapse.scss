@@ -1,0 +1,78 @@
+@import "../pui-variables";
+
+.when-collapsed {
+  display: none;
+}
+.when-expanded {
+  display: block;
+}
+.when-collapsed-inline {
+  display: none;
+}
+.when-expanded-inline {
+  display: inline;
+}
+
+.collapsed {
+  .when-collapsed {
+    display: block;
+  }
+  .when-expanded {
+    display: none;
+  }
+  .when-collapsed-inline {
+    display: inline;
+  }
+  .when-expanded-inline {
+    display: none;
+  }
+}
+
+
+.collapse-trigger {
+  cursor: pointer;
+
+  .collapse-title {
+    display: inline-block;
+  }
+
+  .collapse-icon {
+    display: inline-block;
+    width: 15px;
+    color: $accordion-icon;
+    margin-right: 5px;
+  }
+}
+
+.panel-heading-accordion {
+  position: relative;
+  padding: 10px 20px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.panel-body-accordion {
+  margin: 0px;
+  padding:  30px 20px;
+}
+
+
+.panel-body-accordion-divider {
+  @extend .panel-body-accordion;
+  border-top: 2px solid $shadow-3;
+}
+
+// Necessary to get the entire header clickable for BS-React-Collapses
+.panel-title {
+  a {
+    display: block;
+  }
+}
+
+.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
+  @extend .panel-body-accordion-divider;
+}

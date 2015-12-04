@@ -1,0 +1,52 @@
+@import "../pui-variables";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+.alert {
+  border: none;
+  margin: 0;
+
+  a.alert-link {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  .close {
+    text-decoration: none;
+    line-height: .7;
+    text-shadow: none;
+    color: inherit;
+    opacity: 1;
+  }
+}
+
+.alert-icon {
+  font-size: $font-size-h3 !important;
+  line-height: $headings-line-height;
+  opacity: 0.3;
+}
+
+.alert-success .alert-link:hover {
+  color: darken($alert-success-text, 10%);
+}
+
+.alert-info .alert-link:hover {
+  color: darken($alert-info-text, 10%);
+}
+
+.alert-warning .alert-link:hover {
+  color: darken($alert-warning-text, 10%);
+}
+
+//Bootstrap
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+// bootstrap includes alert-danger, but our html expects "alert-error" class
+.alert-error {
+  @extend .alert-danger;
+
+  .alert-link:hover {
+    color: darken($alert-danger-text, 10%);
+  }
+}

@@ -1,0 +1,117 @@
+@import "../pui-variables";
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-menu {
+  @include box-shadow(0 2px 0 rgba(211, 217, 217, 0.50));
+  background-color: white;
+  border: 1px solid $neutral-7;
+  padding: 0 0;
+
+  > li {
+    > a {
+      color: $dark-5;
+      font-weight: 600;
+      &:hover {
+        color: $dark-5;
+        background-color: darken($neutral-11, 6%);
+      }
+    }
+  }
+  &.dropdown-border {
+    > li {
+      > a {
+        padding-top: 7px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid $dropdown-border;
+      }
+    }
+  }
+}
+
+
+.dropdown-notifications-none {
+  width: 200px;
+  text-align: center;
+  padding: 20px;
+
+  .fa {
+    font-size: 42px;
+    padding-bottom: 7px;
+    color: $neutral-6;
+  }
+}
+
+
+.dropdown-notifications {
+  .caret {
+    display: none;
+  }
+
+  &.open {
+    .btn-link {
+      &.dropdown-toggle {
+        color: $neutral-6;
+        box-shadow: none;
+      }
+    }
+  }
+  .btn-link{
+    &:active, &.active {
+      color: $neutral-6;
+      background-color: transparent;
+    }
+  }
+
+  .dropdown-toggle {
+    color: $notifications-bell-default-color;
+    font-size: $notifications-bell-default-size;
+
+    .dropdown-notifications-title {
+      margin: 0;
+      position: relative;
+    }
+
+    .dropdown-notifications-badge {
+      border-radius: 1000em;
+      background-color: $notifications-badge-default-bg;
+      color: white;
+      text-align: center;
+      font-weight: $notifications-badge-font-weight;
+      padding: 0.25em;
+      line-height: 0.75em;
+      min-width: 1.25em;
+    }
+
+    .dropdown-notifications-alert {
+      color: $notifications-alert-default-color;
+    }
+
+    .dropdown-notifications-alert, .dropdown-notifications-badge {
+      position: absolute;
+      font-size: 0.75em;
+      top: -0.2em;
+      left: 0.75em;
+      right: auto;
+    }
+  }
+
+  .dropdown-menu {
+    > li {
+      > a {
+        padding-bottom: 10px;
+      }
+      &:last-child {
+        > a {
+          padding-bottom: 0;
+        }
+      }
+    }
+  }
+}
+

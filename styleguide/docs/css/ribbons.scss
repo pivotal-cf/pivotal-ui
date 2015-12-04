@@ -1,0 +1,43 @@
+/*doc
+---
+title: Ribbons
+name: ribbon
+categories:
+ - css_base_ribbons
+ - css_all
+---
+
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-ribbons --save
+</i>
+</code>
+
+Ribbons should be used to call out access, status, environment, etc.
+
+```html_example_table
+<div class="ribbon">British</div>
+<span class="mlm">For British eyes only</span>
+
+<div class="ribbon ribbon-primary">Pivotal</div>
+<span class="mlm">Wow this ribbon is so inline</span>
+```
+*/
+
+/*doc
+---
+title: Banner
+name: ribbon_banner
+parent: ribbon
+---
+
+You can use a banner ribbon to let the team know which environment they're
+working on.
+
+```html_wrapped_example
+<div class="ribbon-banner">
+  Acceptance
+</div>
+```
+
+*/
