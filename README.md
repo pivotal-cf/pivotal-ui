@@ -110,7 +110,7 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
    <html>
      <head>
        <title>...</title>
-       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
+       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css" />
 
      </head>
      <body>
