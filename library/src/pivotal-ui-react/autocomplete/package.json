@@ -6,7 +6,7 @@
     "react-dom": "^0.14.0",
     "classnames": "^1.2.0",
     "event-stream": "^3.3.1",
-    "pui-cursor": "^1.4.0",
+    "pui-cursor": "^2.0.2",
     "scroll-into-view": "^1.3.0",
     "trie-search": "^0.1.1",
     "pui-css-autocomplete": "3.0.0-alpha.1"
