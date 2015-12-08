@@ -86,6 +86,7 @@
     "babel-core": "^6.2.1",
     "babel-eslint": "^5.0.0-beta4",
     "babel-loader": "^6.0.1",
+    "babel-plugin-transform-runtime": "^6.3.13",
     "babel-polyfill": "^6.2.0",
     "babel-preset-es2015-loose": "6.1.2",
     "babel-preset-react": "^6.1.2",
