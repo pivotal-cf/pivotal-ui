@@ -1,15 +1,15 @@
-var React = require('react');
-var types = React.PropTypes;
-var classnames = require('classnames');
+const React = require('react');
+const types = React.PropTypes;
+const classnames = require('classnames');
 import {mergeProps} from 'pui-react-helpers';
 
-var paddingTypes = [
+const paddingTypes = [
   for (type of ['p', 'm'])
   for (location of ['l', 'r', 't', 'b', 'h', 'v', 'a'])
   for (size of ['n', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'])
   `${type}${location}${size}`
   ];
-var PanelTypes = {
+const PanelTypes = {
   propTypes: {
     type: types.string,
     innerClassName: types.string,
@@ -24,6 +24,41 @@ var PanelTypes = {
     ])
   }
 };
+
+const PanelTitle = React.createClass({
+  propTypes: {
+    className: types.string
+  },
+
+  render() {
+    let {className, ...other} = this.props;
+    className = classnames('panel-title-alt', className);
+    return <div {...{className}} {...other}/>;
+  }
+});
+
+const PanelHeader = React.createClass({
+  propTypes: {
+    title: types.node
+  },
+
+  render() {
+    const {title} = this.props;
+    if(title) {
+      var titleNode = title.constructor === String ?
+        (<PanelTitle>{title}</PanelTitle>) :
+        title;
+
+      return (
+        <div className="panel-header">
+          {titleNode}
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+});
 
 /**
  * @component Panel
@@ -41,12 +76,10 @@ var PanelTypes = {
  * ```
  *
  */
-var Panel = React.createClass({
-
+const Panel = React.createClass({
   propTypes: {
     kind: types.string,
-    title: types.string,
-    type: types.string,
+    title: types.node,
     innerClassName: types.string,
     padding: function(props, propName, componentName) {
       if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
@@ -60,22 +93,16 @@ var Panel = React.createClass({
   },
 
   render() {
-   const {kind, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const {title, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
     const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
       className: ['panel', kind, {'panel-scrollable': scrollable}],
       style: panelStyle
     });
 
-    const title = this.props.title ? (
-      <div className="panel-header">
-        <h5 className="panel-title-alt">{this.props.title}</h5>
-      </div>
-    ) : null;
-
     return (
       <div {...props}>
-        {title}
+        <PanelHeader title={title}/>
         <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
       </div>
     );
@@ -90,7 +117,7 @@ var Panel = React.createClass({
  * @property shadowLevel {Number} The thickness (1-4) (defaults to `3`) of the shadow
  *
  */
-var ShadowPanel = React.createClass({
+const ShadowPanel = React.createClass({
   mixins: [PanelTypes],
 
   propTypes: {
@@ -173,5 +200,7 @@ module.exports = {
    */
   HighlightPanel: defPanel({kind: 'panel-highlight'}),
 
-  ShadowPanel
+  ShadowPanel,
+
+  PanelTitle
 };

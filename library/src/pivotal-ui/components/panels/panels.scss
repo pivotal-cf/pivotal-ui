@@ -29,14 +29,17 @@
   border-bottom: 2px solid $shadow-3;
 }
 
-.panel-title-alt {
+.panel-header {
   padding: $panel-title-padding;
   border-bottom: $panel-title-border;
-  font-weight: $panel-title-font-weight;
-  color: $panel-title-text;
 }
 
-
+.panel-title-alt {
+  color: $panel-title-text;
+  font-weight: $panel-title-font-weight;
+  font-size: $panel-title-font-size;
+  line-height: $headings-line-height;
+}
 
 .panel-basic-alt {
   border: $panel-basic-alt-border;

@@ -22,6 +22,7 @@ var BasicPanel = require('pui-react-panels').BasicPanel;
 var ClickablePanel = require('pui-react-panels').ClickablePanel;
 var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
 var HighlightPanel = require('pui-react-panels').HighlightPanel;
+var PanelTitle = require('pui-react-panels').PanelTitle;
 var ScrollablePanel = require('pui-react-panels').ScrollablePanel;
 var ShadowPanel = require('pui-react-panels').ShadowPanel;
 var SimplePanel = require('pui-react-panels').SimplePanel;
@@ -34,14 +35,23 @@ is the base, and there are many different flavors of Panels which all construct 
 See examples below.
 
 ```react_example_table
-<Panel className="bg-neutral-8">
+<Panel className="bg-neutral-10">
   <p>Base Panel</p>
 </Panel>
 
-<Panel className="bg-neutral-8 optional-class"
+<Panel className="bg-neutral-10 optional-class"
   innerClassName="opt-inner-class">
   <p>Base Panel</p>
 </Panel>
+
+<Panel className="bg-neutral-10" title='title'>
+ Base Panel with base title
+</Panel>
+
+<Panel className="bg-neutral-10" title={<h2>Custom Title</h2>}>
+ Base Panel with custom title
+</Panel>
+
 ```
 */
 
@@ -143,6 +153,29 @@ parent: panel_react
 
 <BasicPanelAlt title='Basic Alt Title'>
   Basic Panel
+</BasicPanelAlt>
+```
+*/
+
+/*doc
+---
+title: Panel Title
+name: panel_title_react
+parent: panel_react
+---
+
+All Panels accept a `title` property. If `title` is a string, it will render a title with some
+default styling using the `PanelTitle` component internally. If `title` is a react component,
+it will render the component without additional style.
+To create a title with some default title styling, use the `PanelTitle` component.
+
+```react_example_table
+<BasicPanelAlt title={
+      <div>
+        <PanelTitle>Panel Title</PanelTitle>subtitle
+      </div>
+    }>
+  Basic Panel With Custom Title
 </BasicPanelAlt>
 ```
 */
