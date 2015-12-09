@@ -93,19 +93,20 @@ const BaseTabs = React.createClass({
       tabs = (
         <Accordion className={smallScreenClasses}
                    activeKey={this.state.activeKey}
-                   onSelect={this.handleSelect}>
+                   onSelect={this.handleSelect}
+                  {...props}>
           {childrenAsPanels}
         </Accordion>
       );
     } else {
       tabs = (
         <div className={largeScreenClasses}>
-          <Tabs id={this.state.id || this.props.id}
-                position={position}
+          <Tabs position={position}
                 tabWidth={tabWidth}
                 paneWidth={paneWidth}
                 activeKey={this.state.activeKey}
-                onSelect={this.handleSelect}>
+                onSelect={this.handleSelect}
+                {...{id: this.state.id, ...props}}>
             {children}
           </Tabs>
         </div>
@@ -113,7 +114,7 @@ const BaseTabs = React.createClass({
     }
 
     return (
-      <div {...props}>
+      <div>
         {tabs}
       </div>
     );
