@@ -287,11 +287,11 @@ component to NPM; we'll take care of it after merging your pull request!**
 #### CSS components
 
 If you are adding a new CSS component, please modify the files in
-`src/pivotal-ui/components/[component name]`.
+`library/src/pivotal-ui/components/[component name]`.
 
-Write your css and hologram docs in `src/pivotal-ui/components/[component name]/[component name].scss`.
+Write your css and hologram docs in `styleguide/src/pivotal-ui/components/[component name]/[component name].scss`.
 
-The `src/pivotal-ui/components/[component name]/package.json` file should contain
+The `styleguide/src/pivotal-ui/components/[component name]/package.json` file should contain
 a homepage that links to the styleguide
 (http://styleguide.pivotal.io/category#component-name), the version number
 of the package (don't worry about this too much - we'll take care of it),
@@ -307,22 +307,18 @@ E.g.:
 ```
 
 ##### Viewing css components in the styleguide
-**WARNING: Don't commit this change to package.json**
-**your build will fail against CI.**
-
-In the top-level `package.json`, include a dependency on your new **unpublished** package.
-`"pui-css-[component name]": "1.10.0"` All of our css packages are prefixed with `pui-css-`.
-Note that because your package should still be unpublished, doing an npm install will fail.
+In the styleguide top-level `package.json`, include a dependency on your new **unpublished** package.
+`"pui-css-[component name]": "file:../library/dist/css/[component-name]"` All of our css packages are prefixed with `pui-css-`.
 
 #### React components
 
 If you are adding a new React component, please modify the files in
 `src/pivotal-ui-react/[component name]`.
 
-Write your components and javadocs in `src/pivotal-ui-react/[component name]/[component name].js`.
-Write your hologram docs and any css in `src/pivotal-ui/components/[component name]/[component name].scss`.
+Write your components and javadocs in `styleguide/src/pivotal-ui-react/[component name]/[component name].js`.
+Write your hologram docs and any css in `styleguide/src/pivotal-ui/components/[component name]/[component name].scss`.
 
-Write your tests in `spec/pivotal-ui-react/[component name]/[component name]_spec.js`. Then run
+Write your tests in `library/spec/pivotal-ui-react/[component name]/[component name]_spec.js`. In the library folder, run
 `gulp jasmine-react` to test in the browser or `gulp jasmine-react-ci` to test headlessly with PhantomJS.
 
 The `package.json` file should contain a homepage that links to the styleguide
