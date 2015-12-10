@@ -22,7 +22,7 @@ very specific syntax for our messages.
 There are lots of ways to help depending on your interests and skills. For
 example, you can [report bugs](#bug-reports) or create new components. If you want to
 submit bug fixes, create new components, or update existing ones, please refer
-to our [pull request guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#pull-requests).
+to our [pull request guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/development/CONTRIBUTING.md#pull-requests).
 
 If you need some inspiration, we have plenty of work for you to do. Please
 [email us](mailto:pivotal-ui@pivotal.io) to start a conversation.
@@ -56,35 +56,80 @@ bundler
 
   `$ gem install bundler`
 
-node and npm (at this time `nodejs` version `0.10` is required. Install
+node and npm (at this time `nodejs` version `0.12` is required. Install
 [nvm](https://github.com/creationix/nvm) then use it to install node and npm.)
 
-  `$ nvm install 0.10`
+  `$ nvm install 0.12`
 
 the gulp cli
 
   `$ npm install gulp -g`
 
-sass and hologram
+### Build the Projects
 
-  `$ bundle install`
+The Pivotal UI repo is split into two distinct projects, `library` and `styleguide`. `library` represents all of the components that are published to `npm`. `styleguide` is the documentation and tools for building the styleguide. `styleguide` requires `library` to work, but `library` does not require `styleguide`.
 
-node modules
+#### Library
 
-  `$ npm install`
+To build the library
 
-### Build the project
+```sh
+cd library
+npm install
+```
 
-As soon as you have your tools installed, run gulp _at the project root_:
+#### Styleguide
 
-  `$ gulp`
+First, build the library (above) and then compile the library:
+
+```sh
+gulp react-build
+gulp css-build
+```
+
+Then build the styleguide
+
+```sh
+cd ../styleguide
+bundle install
+npm install
+```
+
+### Development
+
+#### Library
+
+To work on components for the library, build the library and then start the sandbox server
+
+`$ gulp`
+
+You can edit the `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
+
+To run unit tests:
+
+`$ gulp jasmine-react`
+
+Jasmine will be served at [http://localhost:8888](http://localhost:8888)
+
+To run all tests:
+
+`$ gulp ci`
+
+#### Styleguide
+
+To work on documentation in the styleguide, first build the library and then
+
+`$ gulp`
+
+The styleguide will be served at [http://localhost:8000](http://localhost:8000).
+
+Note that if you update components, you must rebuild them in the library and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not be good enough to get the new changes.
 
 then visit [http://localhost:8000](http://localhost:8000)
 
 This will generate a local version of the styleguide and start up the
 styleguide development server. It also sets up some watchers to regenerate the
-styleguide pages and styles when you change a PUI scss file, and watchers to
-regenerate the JS when you change a react component.
+styleguide pages and styles when you change a PUI scss file or a JS documentation file.
 
 
 ## Pull requests
@@ -97,12 +142,12 @@ This will ensure our conversation doesn't get lost in email or slack.
 1. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
-   git checkout master
-   git pull upstream master
+   git checkout development
+   git pull upstream development
    ```
 
-1. Create a feature branch based off of master. *Do not work off of master*.
-   (Working off of master makes it hard to make multiple pull requests).
+1. Create a feature branch based off of development. *Do not work off of development*.
+   (Working off of development makes it hard to make multiple pull requests).
 
    ```bash
    git checkout -b feature/<short_description_of_feature>
@@ -139,19 +184,19 @@ This will ensure our conversation doesn't get lost in email or slack.
 1. Rebase against upstream, and then push your changes
 
    ```bash
-   git pull --rebase upstream master
+   git pull --rebase upstream development
    git push origin <your branch name>
    ```
 
 1. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
-   with a clear title and description against the master branch.
+   with a clear title and description against the development branch.
 
-1. If you need to get the latest changes from upstream master, please rebase
+1. If you need to get the latest changes from upstream development, please rebase
    (not merge) the changes onto your branch. This will require you to force
    push your branch, but it'll make our git history cleaner.
 
    ```bash
-   git pull --rebase upstream master
+   git pull --rebase upstream development
    git push -f origin <your branch name>
    ```
 
@@ -314,7 +359,7 @@ Please let us know the priority level in your bug report.
    reported.
 
 2. **Check if the issue has been fixed** &mdash; try to reproduce it using the
-   latest `master` or development branch in the repository.
+   latest `master` or `development` branch in the repository.
 
 3. **Isolate the problem** &mdash; ideally create a [reduced test
    case](http://css-tricks.com/6263-reduced-test-cases/) and a live example.
