@@ -1,9 +1,9 @@
 const classnames = require('classnames');
 const React = require('react');
 const sortBy = require('lodash.sortby');
+const types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
 import findindex from 'lodash.findindex';
-import arrayify from 'array-ify';
 
 /**
  * @component TableHeader
@@ -14,9 +14,9 @@ import arrayify from 'array-ify';
  */
 export const TableHeader = React.createClass({
   propTypes: {
-    onClick: React.PropTypes.func,
-    onSortableTableHeaderClick: React.PropTypes.func,
-    sortable: React.PropTypes.bool
+    onClick: types.func,
+    onSortableTableHeaderClick: types.func,
+    sortable: types.bool
   },
 
   handleActivate(event) {
@@ -44,51 +44,46 @@ export const TableHeader = React.createClass({
  * @description Wrapper for a td
  *
  */
-export const TableCell = React.createClass({
-  render() {
-    return <td {...this.props}/>;
-  }
-});
+export const TableCell = (props) => <td {...props}/>;
 
 /**
  * @component TableRow
  * @description Wrapper for a tr
  *
  */
-export const TableRow = React.createClass({
-  render() {
-    return <tr {...this.props} />;
-  }
-});
+export const TableRow = (props) => <tr {...props}/>;
 
 /**
  * @component SortableTable
  * @description A table that can be sorted by column
  *
- * @property `headers` {Array<Object>} A list of `TableHeader` components
+ * @property `columns` {Array<Object>} A list of column metadata
+ * @property `CustomRow` {Component} The component to use when rendering table rows
+ * @property `data` {Array<Object>} A list of data to populate rows
+ * @property `defaultSort` {String} The name of the column to sort on first
+ *
  *
  * @example ```js
- * var {SortableTable, TableHeader, TableRow, TableCell} = require('pui-react-sortable-table');
+ * var {SortableTable} = require('pui-react-sortable-table');
  * var MyComponent = React.createClass({
  *   render() {
- *     var headers = [
- *       <TableHeader sortable={true}>c1</TableHeader>,
- *       <TableHeader sortable={true}>c2</TableHeader>,
- *      ];
+ *     const columns = [
+ *        {
+ *          attribute: 'c1',
+ *          displayName: 'C One',
+ *          sortable: true
+ *        },
+ *        {
+ *          attribute: 'c2',
+ *          displayName: 'C Two',
+ *          sortable: true
+ *        }
+ *     ];
  *     var data = [
  *       {c1: 'yes', c2: 'foo'},
  *       {c1: 'no', c2: 'bar'}
  *     ];
- *     return <SortableTable headers={headers}>
- *       {sortTableData.map(function(datum, key) {
- *         return (
- *           <TableRow key={key}>
- *             <TableCell>{datum.c1}</TableCell>
- *             <TableCell>{datum.c2}</TableCell>
- *           </TableRow>
- *         );
- *       })}
- *     </SortableTable>;
+ *     return <SortableTable columns={columns} data={data}/>
  *   }
  * });
  * ```
@@ -96,12 +91,17 @@ export const TableRow = React.createClass({
  */
 export const SortableTable = React.createClass({
   propTypes: {
-    headers: React.PropTypes.arrayOf(React.PropTypes.element)
+    columns: types.array.isRequired,
+    CustomRow: types.func,
+    data: types.array.isRequired,
+    defaultSort: types.string
   },
 
   getInitialState() {
-    const sortCol = findindex(this.props.headers, (header) => {
-      return header.props.sortable;
+    const {columns, defaultSort} = this.props;
+
+    const sortCol = findindex(columns, ({sortable, attribute}) => {
+      return defaultSort ? attribute === defaultSort : sortable;
     });
 
     // If none of the columns are sortable we default to the 0th column
@@ -112,44 +112,49 @@ export const SortableTable = React.createClass({
     this.setState({sortColumn, sortAscending});
   },
 
-  headerClassesWithSortDirection({headerClassName, isSortColumn}) {
-    return classnames(headerClassName, {
-      'sorted-asc': isSortColumn && this.state.sortAscending,
-      'sorted-desc': isSortColumn && !this.state.sortAscending
-    });
-  },
-
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
-    const sortedRows = sortBy(this.props.children, (row) => {
-      const cells = arrayify(row.props.children);
-      const cellForSorting = cells[sortColumn];
-      return cellForSorting.props.children;
+    const {columns, data, CustomRow} = this.props;
+    const sortedData = sortBy(data, (datum) => {
+      return datum[columns[sortColumn].attribute];
     });
-    return sortAscending ? sortedRows : sortedRows.reverse();
+    if(!sortAscending) sortedData.reverse();
+    return sortedData.map((datum, rowKey) => {
+      if(CustomRow) return <CustomRow {...{datum, key: rowKey, index: rowKey}}/>;
+
+      const cells = columns.map(({attribute}, key) => {
+        return <TableCell key={key}>{datum[attribute]}</TableCell>;
+      });
+      return <TableRow key={rowKey}>{cells}</TableRow>;
+    });
   },
 
   renderHeaders() {
-    var {headers} = this.props;
     const {sortColumn, sortAscending} = this.state;
-    return headers.map((header, index) => {
+
+    return this.props.columns.map(({attribute, sortable, displayName, headerProps}, index) => {
+      headerProps = headerProps || {};
+
       const isSortColumn = (sortColumn === index);
-      return React.cloneElement(header, {
+      let className;
+      if ( isSortColumn ) {
+        className = sortAscending ? 'sorted-asc' : 'sorted-desc';
+      }
+      className = classnames(className, headerProps.className);
+
+      headerProps = {...headerProps,
+        className,
+        sortable,
         key: index,
-        className: this.headerClassesWithSortDirection(
-          {
-            headerClassName: header.props.className,
-            isSortColumn
-          }
-        ),
         onSortableTableHeaderClick: () => this.setSortedColumn(index, isSortColumn ? !sortAscending : true)
-      });
+      };
+
+      return <TableHeader {...headerProps}>{displayName || attribute}</TableHeader>;
     });
   },
 
   render() {
     const props = mergeProps(this.props, {className: ['table', 'table-sortable']});
-    let rows = this.sortedRows();
 
     return (
       <table {...props} >
@@ -157,7 +162,7 @@ export const SortableTable = React.createClass({
           <tr>{this.renderHeaders()}</tr>
         </thead>
         <tbody>
-          {rows}
+          {this.sortedRows()}
         </tbody>
       </table>
     );

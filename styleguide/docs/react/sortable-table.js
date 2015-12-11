@@ -36,71 +36,102 @@ functioning sort. If the rows change, the content on the page will update.
 
 The `SortableTable` expects the following properties:
 
+Property     | Required? | Type             | Description
+-------------| ----------| -----------------| --------------------------------------------------------------------------
+`columns`    | **yes**   | Array of Objects | Metadata about columns
+`CustomRow`  | **no**    | Component        | The Component to use when rendering table rows
+`data`       | **yes**   | Array of Objects | The data to display in the table
+`defaultSort`| **no**    | String           | The name of the column to use for sorting before user input
 
-Property   | Required? | Type                             | Description
------------| ----------| ---------------------------------| --------------------------------------------------------------------------
-`headers`  | **yes**   | Array of TableHeader components  | The headers to display in the desired order
+The objects in `columns` following properties:
 
-The `TableHeader` objects should have the following structure:
-
-Property   | Required? | Type             | Description
------------| ----------|------------------| --------------------------------------------------------------------------
-`sortable` | no        | Boolean          | Is this column sortable? Defaults to false
-
-
-If a column is marked as being sortable, it will attempt to sort the values as strings.
+Property     | Required? | Type             | Description
+-------------| ----------|------------------| --------------------------------------------------------------------------
+`attribute`  | **yes**   | String           | The key to use in the `data` prop to get data for that column
+`displayName`| **no**    | String           | The text in the TableHeader for that column
+`headerProps`| **no**    | Object           | React props that will be passed through to that column
+`sortable`   | **no**    | Boolean          | Is this column sortable? Defaults to false
 
 
 ```jsx_example
-var sortTableData = [
-  {
-    instances: '1',
-    name: 'foo',
-    cpu: 'po',
-    synergy: 'qum',
-    ram: 'bee',
-  },
-  {
-    name: 'yee',
-    instances: 'di',
-    cpu: 'no',
-    synergy: 'aum'
-  },
-  {
-    name: 'zee',
-    instances: 'si',
-    cpu: 'mo',
-    synergy: 'wum'
-  },
-  {
-    name: 'jee',
-    instances: 'ui',
-    cpu: 'no',
-    synergy: 'mum'
-  }
-];
+var columns = [
+   {
+     attribute: 'title',
+     displayName: 'Title',
+     sortable: false
+   },
+   {
+     attribute: 'instances',
+     sortable: true,
+
+   },
+   {
+     attribute: 'bar',
+     displayName: 'Bar',
+     sortable: true,
+     headerProps: {
+       className: 'bar-header',
+       id: 'barId'
+     }
+   },
+   {
+     attribute: 'unsortable',
+     sortable: false
+   }
+ ];
+var data = [
+   {
+     instances: '1',
+     bar: 11,
+     title: 'foo',
+     unsortable: '14',
+   },
+   {
+     instances: '3',
+     bar: 7,
+     title: 'sup',
+     unsortable: '22'
+   },
+   {
+     title: 'yee',
+     instances: '2',
+     bar: 8,
+     unsortable: '1'
+   }
+ ];
+
 ```
 
 ```react_example
-<SortableTable
-  headers={[
-    <TableHeader sortable={true}>Name</TableHeader>,
-    <TableHeader sortable={true}>Instances</TableHeader>,
-    <TableHeader sortable={true}>CPU</TableHeader>,
-    <TableHeader>Synergy</TableHeader>,
-  ]}
-  className="table-light">
+<SortableTable columns={columns} data={data} defaultSort='instances'/>
+```
 
-  {sortTableData.map(function(datum, key) {
+The `TableRow` and `TableCell` components are provided for users who wish to customize their rows
+with the `CustomRow` prop to `SortableTable`. If a custom row is provided, the table will use that
+component to render each row, giving it a `datum` prop representing the data for that row and `index`
+representing the (zero-indexed) row number.
+
+Note that sorting occurs on the actual data.
+Changing the presentation of the data does not affect the sort behavior.
+
+```jsx_example
+var CustomRow = React.createClass({
+  render() {
+    var title = this.props.datum.title;
     return (
-      <TableRow key={key}>
-      <TableCell>{datum.name}</TableCell>
-      <TableCell>{datum.instances}</TableCell>
-      <TableCell>{datum.cpu}</TableCell>
-      <TableCell>{datum.synergy}</TableCell>
+      <TableRow className={"row-number"+this.props.index}>
+        <TableCell onClick={function(){alert(title)}}>Title: {title}</TableCell>
+        <TableCell>{this.props.datum.instances}</TableCell>
+        <TableCell>{-this.props.datum.bar}</TableCell>
+        <TableCell>something</TableCell>
       </TableRow>
     );
-  })}
-</SortableTable>
+  }
+});
 ```
+
+```react_example
+<SortableTable columns={columns} data={data} CustomRow={CustomRow}/>
+```
+
 */

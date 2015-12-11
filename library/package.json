@@ -97,7 +97,6 @@
     "zeroclipboard": "^2.1.6"
   },
   "dependencies": {
-    "array-ify": "^1.0.0",
     "prismjs": "0.0.1",
     "pui-css-alerts": "3.0.0-alpha.1",
     "pui-css-alignment": "3.0.0-alpha.1",

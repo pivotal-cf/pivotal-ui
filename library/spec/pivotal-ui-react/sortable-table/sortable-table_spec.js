@@ -2,52 +2,60 @@ require('../spec_helper');
 import {SortableTable, TableCell, TableHeader, TableRow} from '../../../src/pivotal-ui-react/sortable-table/sortable-table';
 
 describe('SortableTable', function() {
+  let clickSpy;
   describe('with multiple columns', function() {
-    var headers, clickSpy;
+    clickSpy = jasmine.createSpy('click');
+    const columns = [
+      {
+        attribute: 'title',
+        displayName: 'Title'
+      },
+      {
+        attribute: 'instances',
+        sortable: true,
+        headerProps: {
+          className: 'instance-header',
+          onClick: clickSpy,
+          id: 'instanceId'
+        }
+      },
+      {
+        attribute: 'bar',
+        displayName: 'Foo',
+        sortable: true
+      },
+      {
+        attribute: 'unsortable',
+        displayName: 'Unsortable',
+        sortable: false
+      }
+    ];
 
     const data = [
       {
         instances: '1',
-        bar: '9',
+        bar: 11,
         title: 'foo',
-        unsortable: '14'
+        unsortable: '14',
+        notUsed: true
       },
       {
         instances: '3',
-        bar: '7',
+        bar: 7,
         title: 'sup',
         unsortable: '22'
       },
       {
         title: 'yee',
         instances: '2',
-        bar: '8',
+        bar: 8,
         unsortable: '1'
       }
     ];
 
     function renderSortableTable(data, props = {}) {
-      clickSpy = jasmine.createSpy('click');
-      headers = [
-        <TableHeader>Title</TableHeader>,
-        <TableHeader onClick={clickSpy} sortable={true}>Instances</TableHeader>,
-        <TableHeader sortable={true}>Bar</TableHeader>,
-        <TableHeader>Unsortable</TableHeader>
-      ];
-
       ReactDOM.render((
-          <SortableTable headers={headers} {...props}>
-            {data.map(function(datum, key) {
-              return (
-                <TableRow key={key}>
-                  <TableCell>{datum.title}</TableCell>
-                  <TableCell>{datum.instances}</TableCell>
-                  <TableCell>{datum.bar}</TableCell>
-                  <TableCell>{datum.unsortable}</TableCell>
-                </TableRow>
-              );
-            })}
-          </SortableTable>
+          <SortableTable columns={columns} data={data} {...props}/>
         ),
         root
       );
@@ -63,7 +71,7 @@ describe('SortableTable', function() {
 
     it('adds the class "sortable" on all sortable columns', function() {
       expect('th:contains("Title")').not.toHaveClass('sortable');
-      expect('th:contains("Instances")').toHaveClass('sortable');
+      expect('th:contains("instances")').toHaveClass('sortable');
       expect('th:contains("Unsortable")').not.toHaveClass('sortable');
     });
 
@@ -77,7 +85,7 @@ describe('SortableTable', function() {
     });
 
     it('sorts table rows by the first sortable column in ascending order by default', function() {
-      expect('th:contains("Instances")').toHaveClass('sorted-asc');
+      expect('th:contains("instances")').toHaveClass('sorted-asc');
 
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -88,17 +96,21 @@ describe('SortableTable', function() {
       expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
     });
 
+    it('passes header props into the headers', function() {
+      expect('th:contains("instances")').toHaveClass('instance-header');
+      expect('th:contains("instances")').toHaveAttr('id', 'instanceId');
+      clickSpy.calls.reset();
+      $('th:contains("instances")').simulate('click');
+      expect(clickSpy).toHaveBeenCalled();
+    });
+
     describe('clicking on the already asc-sorted column that has an existing onClick function', function() {
       beforeEach(function() {
-        $('th:contains("Instances")').simulate('click');
-      });
-
-      it('calls the onClick function', function() {
-        expect(clickSpy).toHaveBeenCalled();
+        $('th:contains("instances")').simulate('click');
       });
 
       it('reverses the sort order', function() {
-        expect('th:contains("Instances")').toHaveClass('sorted-desc');
+        expect('th:contains("instances")').toHaveClass('sorted-desc');
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -111,16 +123,11 @@ describe('SortableTable', function() {
 
       describe('clicking on the already desc-sorted column', function() {
         beforeEach(function() {
-          clickSpy.calls.reset();
-          $('th:contains("Instances")').simulate('click');
-        });
-
-        it('calls the onClick function', function() {
-          expect(clickSpy).toHaveBeenCalled();
+          $('th:contains("instances")').simulate('click');
         });
 
         it('reverses the sort order', function() {
-          expect('th:contains("Instances")').toHaveClass('sorted-asc');
+          expect('th:contains("instances")').toHaveClass('sorted-asc');
 
           expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
           expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -135,12 +142,12 @@ describe('SortableTable', function() {
 
     describe('clicking on a sortable column', function() {
       beforeEach(function() {
-        $('th:contains("Bar")').simulate('click');
+        $('th:contains("Foo")').simulate('click');
       });
 
       it('sorts table rows by that column', function() {
-        expect('th:contains("Bar")').toHaveClass('sorted-asc');
-        expect('th:contains("Instances")').not.toHaveClass('sorted-asc');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("instances")').not.toHaveClass('sorted-asc');
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -148,18 +155,18 @@ describe('SortableTable', function() {
 
         expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
         expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
-        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('9');
+        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('11');
       });
     });
 
     describe('pressing <enter> on a sortable column', function() {
       beforeEach(function() {
-        $('th:contains("Bar")').simulate('keyDown', {key: 'Enter'});
+        $('th:contains("Foo")').simulate('keyDown', {key: 'Enter'});
       });
 
       it('sorts table rows by that column', function() {
-        expect('th:contains("Bar")').toHaveClass('sorted-asc');
-        expect('th:contains("Instances")').not.toHaveClass('sorted-asc');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("instances")').not.toHaveClass('sorted-asc');
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -167,18 +174,18 @@ describe('SortableTable', function() {
 
         expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
         expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
-        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('9');
+        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('11');
       });
     });
 
     describe('pressing <space> on a sortable column', function() {
       beforeEach(function() {
-        $('th:contains("Bar")').simulate('keyDown', {key: ' '});
+        $('th:contains("Foo")').simulate('keyDown', {key: ' '});
       });
 
       it('does not sort table rows by that column', function() {
-        expect('th:contains("Bar")').not.toHaveClass('sorted-asc');
-        expect('th:contains("Instances")').toHaveClass('sorted-asc');
+        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
+        expect('th:contains("instances")').toHaveClass('sorted-asc');
       });
     });
 
@@ -189,7 +196,7 @@ describe('SortableTable', function() {
 
       it('does not change the sort', function() {
         expect('th:contains("Unsortable")').not.toHaveClass('sorted-asc');
-        expect('th:contains("Instances")').toHaveClass('sorted-asc');
+        expect('th:contains("instances")').toHaveClass('sorted-asc');
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -222,30 +229,114 @@ describe('SortableTable', function() {
 
   describe('with one column', function() {
     it('still renders', function() {
-      const headers = [
-        <TableHeader sortable>BFFs</TableHeader>
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title',
+          sortable: false
+        }
       ];
 
+      const data = [{title: 'foo'}, { title: 'sup'}, { title: 'yee'}];
+
       ReactDOM.render((
-          <SortableTable headers={headers}>
-            <TableRow key={1}>
-              <TableCell> my main village man </TableCell>
-            </TableRow>
-            <TableRow key={2}>
-              <TableCell> that dude francesco </TableCell>
-            </TableRow>
-            <TableRow key={3}>
-              <TableCell> my homie bill nye </TableCell>
-            </TableRow>
-          </SortableTable>
+          <SortableTable columns={columns} data={data} />
         ),
         root
       );
 
-      expect(root).toContainText('that dude francesco');
+      expect('#root table').toContainText('sup');
 
       ReactDOM.unmountComponentAtNode(root);
     });
+  });
+
+  describe('with a custom table row', function() {
+    beforeEach(function() {
+      const CustomRow = (props) => {
+        const {datum, index} = props;
+        return (
+          <TableRow className={`row-${index}`}>
+            <TableCell>{datum.title.slice(1)}</TableCell>
+            <TableCell>Days since Sunday: {(new Date(props.datum.time)).getDay()}</TableCell>
+          </TableRow>
+        );
+      };
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title',
+          sortable: false
+        },
+        {
+          attribute: 'time',
+          displayName: 'Time of Day',
+          sortable: true
+        }
+      ];
+
+      const data = [
+        { title: 'foo', time: Date.parse('Tue Dec 08 2015') },
+        { title: 'sup', time: Date.parse('Wed Dec 09 2015') },
+        { title: 'yee', time: Date.parse('Mon Dec 07 2015') }
+      ];
+
+      ReactDOM.render((
+          <SortableTable columns={columns} data={data} CustomRow={CustomRow}/>
+        ),
+        root
+      );
+    });
+    it('renders the custom row', function() {
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('ee');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('oo');
+      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('up');
+
+      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('Days since Sunday: 1');
+      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('Days since Sunday: 2');
+      expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('Days since Sunday: 3');
+    });
+
+    it('respects properties on the custom row', function() {
+      expect('tbody tr:eq(0)').toHaveClass('row-0');
+      expect('tbody tr:eq(1)').toHaveClass('row-1');
+    });
+  });
+
+  it('respects default sort', function() {
+    const columns = [
+      {
+        attribute: 'title',
+        displayName: 'Title',
+        sortable: true
+      },
+      {
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
+      },
+      {
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
+      }
+    ];
+
+    const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    ReactDOM.render((
+        <SortableTable columns={columns} data={data} defaultSort='theDefault'/>
+      ),
+      root
+    );
+
+    expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText(1);
+    expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
+    expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
   });
 });
 
