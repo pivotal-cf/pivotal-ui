@@ -15,3 +15,5 @@ gulp.task('dev', (callback) => runSequence(
   'sandbox-serve',
   callback
 ));
+
+gulp.task('build', ['css-build', 'react-build']);
