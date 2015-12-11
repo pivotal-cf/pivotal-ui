@@ -154,7 +154,7 @@ export const SortableTable = React.createClass({
   },
 
   render() {
-    const props = mergeProps(this.props, {className: ['table', 'table-sortable']});
+    const props = mergeProps(this.props, {className: ['table', 'table-sortable', 'table-data']});
 
     return (
       <table {...props} >
