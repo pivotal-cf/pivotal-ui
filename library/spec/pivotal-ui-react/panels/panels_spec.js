@@ -30,20 +30,34 @@ describe('Panel', function() {
   });
 
   describe('when a title is provided', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Panel title="This is a title">Sup</Panel>, root);
+    describe('when the title is a string', function() {
+      beforeEach(function() {
+        ReactDOM.render(<Panel title="This is a title">Sup</Panel>, root);
+      });
+
+      it('sets the title to the panel', function() {
+        expect('.panel .panel-header .panel-title-alt').toContainText('This is a title');
+      });
     });
 
-    it('sets the title to the panel', function() {
-      expect('.panel .panel-header .panel-title-alt').toContainText('This is a title');
+    describe('when the title is a node', function() {
+      beforeEach(function() {
+        const title = <div className="hey">HEY</div>;
+        ReactDOM.render(<Panel title={title}>Sup</Panel>, root);
+      });
+
+      it('renders the contents without .panel-title-alt', function() {
+        expect('.panel .panel-header .hey').toContainText('HEY');
+        expect('.panel .panel-header .panel-title-alt').not.toExist();
+      });
     });
   });
 
   describe('when attributes are provided', function() {
     beforeEach(function() {
       ReactDOM.render(<Panel className="foo myClass" innerClassName="inner-class"
-                          id="outer-id"
-                          style={{opacity: '0.5'}}>Sup</Panel>, root);
+                             id="outer-id"
+                             style={{opacity: '0.5'}}>Sup</Panel>, root);
     });
 
     it('sets className, id, and style on the panel outer div', function() {
@@ -120,6 +134,24 @@ describe('Panel', function() {
     });
   });
 
+  describe('PanelTitle', function() {
+    let clickSpy;
+    beforeEach(function() {
+      clickSpy = jasmine.createSpy('click');
+      const PanelTitle = require('../../../src/pivotal-ui-react/panels/panels').PanelTitle;
+      ReactDOM.render(<PanelTitle className="extra-class" onClick={clickSpy}>Titlist</PanelTitle>, root);
+    });
+
+    it('renders as a panel-title-alt', function() {
+      expect('.panel-title-alt').toHaveText('Titlist');
+    });
+
+    it('passes props through, including classname', function() {
+      expect('.panel-title-alt').toHaveClass('extra-class');
+      $('.panel-title-alt').simulate('click');
+      expect(clickSpy).toHaveBeenCalled();
+    });
+  });
 });
 
 describe('ShadowPanel', function() {
