@@ -29,21 +29,21 @@ describe('Panel', function() {
     });
   });
 
-  describe('when a title is provided', function() {
-    describe('when the title is a string', function() {
+  describe('when a header is provided', function() {
+    describe('when the header is a string', function() {
       beforeEach(function() {
-        ReactDOM.render(<Panel title="This is a title">Sup</Panel>, root);
+        ReactDOM.render(<Panel header="This is a title">Sup</Panel>, root);
       });
 
-      it('sets the title to the panel', function() {
+      it('sets the header to the panel', function() {
         expect('.panel .panel-header .panel-title-alt').toContainText('This is a title');
       });
     });
 
-    describe('when the title is a node', function() {
+    describe('when the header is a node', function() {
       beforeEach(function() {
-        const title = <div className="hey">HEY</div>;
-        ReactDOM.render(<Panel title={title}>Sup</Panel>, root);
+        const header = <div className="hey">HEY</div>;
+        ReactDOM.render(<Panel header={header}>Sup</Panel>, root);
       });
 
       it('renders the contents without .panel-title-alt', function() {

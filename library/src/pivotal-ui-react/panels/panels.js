@@ -39,19 +39,19 @@ const PanelTitle = React.createClass({
 
 const PanelHeader = React.createClass({
   propTypes: {
-    title: types.node
+    header: types.node
   },
 
   render() {
-    const {title} = this.props;
-    if(title) {
-      var titleNode = title.constructor === String ?
-        (<PanelTitle>{title}</PanelTitle>) :
-        title;
+    const {header} = this.props;
+    if(header) {
+      var headerNode = header.constructor === String ?
+        (<PanelTitle>{header}</PanelTitle>) :
+        header;
 
       return (
         <div className="panel-header">
-          {titleNode}
+          {headerNode}
         </div>
       );
     } else {
@@ -64,13 +64,13 @@ const PanelHeader = React.createClass({
  * @component Panel
  * @description A container for grouping related content
  *
- * @property title {String} Text to show as the header of the `<Panel>`
+ * @property header {String} Text to show as the header of the `<Panel>`
  *
  * @example ```js
  * var Panel = require('pui-react-panels').Panel;
  * var MyComponent = React.createClass({
  *   render() {
- *     return <Panel title="Header Text">Content Text</Panel>;
+ *     return <Panel header="Header Text">Content Text</Panel>;
  *   }
  * });
  * ```
@@ -79,7 +79,7 @@ const PanelHeader = React.createClass({
 const Panel = React.createClass({
   propTypes: {
     kind: types.string,
-    title: types.node,
+    header: types.node,
     innerClassName: types.string,
     padding: function(props, propName, componentName) {
       if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
@@ -93,7 +93,7 @@ const Panel = React.createClass({
   },
 
   render() {
-    const {title, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const {header, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
     const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
       className: ['panel', kind, {'panel-scrollable': scrollable}],
@@ -102,7 +102,7 @@ const Panel = React.createClass({
 
     return (
       <div {...props}>
-        <PanelHeader title={title}/>
+        <PanelHeader header={header}/>
         <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
       </div>
     );
@@ -113,7 +113,7 @@ const Panel = React.createClass({
  * @component ShadowPanel
  * @description A `<Panel>` with a shadow on the bottom
  *
- * @property title {String} Text to show as the header of the `<Panel>`
+ * @property header {String} Text to show as the header of the `<Panel>`
  * @property shadowLevel {Number} The thickness (1-4) (defaults to `3`) of the shadow
  *
  */
@@ -150,7 +150,7 @@ module.exports = {
    * @component SimplePanel
    * @description A `<Panel>` with a simple rectangular border
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   SimplePanel: defPanel({kind: 'panel-simple'}),
@@ -159,7 +159,7 @@ module.exports = {
    * @component BasicPanel
    * @description A `<Panel>` with padding and a shadow on the bottom
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   BasicPanel: defPanel({kind: 'panel-basic'}),
@@ -168,7 +168,7 @@ module.exports = {
    * @component BasicPanelAlt
    * @description A `<Panel>` with padding, a shadow on the bottom, and a round border
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   BasicPanelAlt: defPanel({kind: 'panel-basic-alt'}),
@@ -177,7 +177,7 @@ module.exports = {
    * @component ClickablePanel
    * @description A `<Panel>` with a background that lightens when hovered to indicate it is clickable
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   ClickablePanel: defPanel({kind: 'panel-clickable'}),
@@ -186,7 +186,7 @@ module.exports = {
    * @component ClickableAltPanel
    * @description A `<Panel>` with a rounded border, a shadow on the bottom, and a background that lightens when hovered to indicate it is clickable
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   ClickableAltPanel: defPanel({kind: 'panel-clickable-alt'}),
@@ -195,7 +195,7 @@ module.exports = {
    * @component HighlightPanel
    * @description A `<Panel>` with a rounded border and a shadow on the bottom for highlighting important parts of a page
    *
-   * @property title {String} Text to show as the header of the `<Panel>`
+   * @property header {String} Text to show as the header of the `<Panel>`
    *
    */
   HighlightPanel: defPanel({kind: 'panel-highlight'}),

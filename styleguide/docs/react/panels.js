@@ -44,12 +44,12 @@ See examples below.
   <p>Base Panel</p>
 </Panel>
 
-<Panel className="bg-neutral-10" title='title'>
- Base Panel with base title
+<Panel className="bg-neutral-10" header='header'>
+ Base Panel with base header
 </Panel>
 
-<Panel className="bg-neutral-10" title={<h2>Custom Title</h2>}>
- Base Panel with custom title
+<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>}>
+ Base Panel with custom header
 </Panel>
 
 ```
@@ -132,7 +132,7 @@ parent: panel_react
   Basic Panel
 </BasicPanel>
 
-<BasicPanel title='Basic Title'>
+<BasicPanel header='Basic Title'>
   Basic Panel
 </BasicPanel>
 ```
@@ -151,7 +151,7 @@ parent: panel_react
   Basic Panel
 </BasicPanelAlt>
 
-<BasicPanelAlt title='Basic Alt Title'>
+<BasicPanelAlt header='Basic Alt Title'>
   Basic Panel
 </BasicPanelAlt>
 ```
@@ -164,13 +164,13 @@ name: panel_title_react
 parent: panel_react
 ---
 
-All Panels accept a `title` property. If `title` is a string, it will render a title with some
-default styling using the `PanelTitle` component internally. If `title` is a react component,
+All Panels accept a `header` property. If `header` is a string, it will render a panel title with some
+default styling using the `PanelTitle` component internally. If `header` is a react component,
 it will render the component without additional style.
-To create a title with some default title styling, use the `PanelTitle` component.
+To create a header with some default title styling, use the `PanelTitle` component.
 
 ```react_example_table
-<BasicPanelAlt title={
+<BasicPanelAlt header={
       <div>
         <PanelTitle>Panel Title</PanelTitle>subtitle
       </div>
