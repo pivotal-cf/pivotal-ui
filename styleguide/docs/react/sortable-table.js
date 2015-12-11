@@ -43,7 +43,7 @@ Property     | Required? | Type             | Description
 `data`       | **yes**   | Array of Objects | The data to display in the table
 `defaultSort`| **no**    | String           | The name of the column to use for sorting before user input
 
-The objects in `columns` following properties:
+The objects in `columns` expect the following properties:
 
 Property     | Required? | Type             | Description
 -------------| ----------|------------------| --------------------------------------------------------------------------
