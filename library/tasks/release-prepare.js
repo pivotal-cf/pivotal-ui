@@ -87,7 +87,7 @@ gulp.task('release-generate-changelog', () => {
     {transform: commitTransform}
   );
 
-  const oldChangesStream = gulp.src('CHANGELOG.md')
+  const oldChangesStream = gulp.src('../CHANGELOG.md')
     .pipe(map((file, cb) => cb(null, file.contents)));
 
   const latestChangesFileStream = newChangesStream
@@ -97,54 +97,14 @@ gulp.task('release-generate-changelog', () => {
     .pipe(source('CHANGELOG.md'));
 
   return merge(changelogFileStream, latestChangesFileStream)
-    .pipe(gulp.dest('.'));
-});
-
-gulp.task('release-generate-release-folder', ['monolith'], () => {
-  const oocssStream = gulp.src([
-    'src/oocss/utils/_clearfix-me.scss',
-    'src/oocss/list/_listWhitespace.scss',
-    'src/oocss/whitespace/_whitespace.scss'
-  ]).pipe(releaseDest('oocss'));
-
-  const bootstrapSassStream = gulp.src('node_modules/bootstrap-sass/assets/stylesheets/**/*')
-    .pipe(releaseDest('bootstrap-sass'));
-
-  const styleguideAndMiscStream = gulp.src([
-    'src/pivotal-ui/components/pui-variables.scss',
-    'build/**/*',
-    '!build/pivotal-ui.css',
-    '!build/pivotal-ui.js',
-    '!build/pivotal-ui-react.js'
-  ]).pipe(releaseDest());
-
-  const puiCssStream = gulp.src('build/pivotal-ui.css')
-    .pipe(plugins.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/\n?/g, ''))
-    .pipe(releaseDest())
-    .pipe(plugins.minifyCss({keepBreaks: true}))
-    .pipe(plugins.rename({extname: '.min.css'}))
-    .pipe(releaseDest());
-
-  const puiJsStream = gulp.src(['build/pivotal-ui.js', 'build/pivotal-ui-react.js'])
-    .pipe(releaseDest())
-    .pipe(plugins.uglify())
-    .pipe(plugins.rename({extname: '.min.js'}))
-    .pipe(releaseDest());
-
-  return merge(
-    oocssStream,
-    bootstrapSassStream,
-    styleguideAndMiscStream,
-    puiCssStream,
-    puiJsStream
-  );
+    .pipe(gulp.dest('../'));
 });
 
 gulp.task('release-commit', () =>
     execPromise(
       `git add package.json \
-             CHANGELOG.md \
-             LATEST_CHANGES.md \
+             ../CHANGELOG.md \
+             ../LATEST_CHANGES.md \
              src/pivotal-ui/components/*/package.json \
              src/pivotal-ui-react/*/package.json \
              release/ \
@@ -158,7 +118,6 @@ gulp.task('release-prepare', (done) =>
       [
         'release-update-package-versions',
         'release-generate-changelog',
-        'release-generate-release-folder'
       ],
       done
     )
