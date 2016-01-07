@@ -48,9 +48,11 @@ The objects in `columns` expect the following properties:
 Property     | Required? | Type             | Description
 -------------| ----------|------------------| --------------------------------------------------------------------------
 `attribute`  | **yes**   | String           | The key to use in the `data` prop to get data for that column
+`CustomCell` | **no**    | Component        | Component to use when rendering cells, defaults to `TableCell`
 `displayName`| **no**    | String           | The text in the TableHeader for that column
 `headerProps`| **no**    | Object           | React props that will be passed through to that column
 `sortable`   | **no**    | Boolean          | Is this column sortable? Defaults to false
+`sortBy`     | **no**    | Function         | Function to transform data before sorting
 
 
 ```jsx_example
@@ -62,8 +64,7 @@ var columns = [
    },
    {
      attribute: 'instances',
-     sortable: true,
-
+     sortable: true
    },
    {
      attribute: 'bar',
@@ -72,7 +73,8 @@ var columns = [
      headerProps: {
        className: 'bar-header',
        id: 'barId'
-     }
+     },
+     sortBy: function(value) { return -value; }
    },
    {
      attribute: 'unsortable',
@@ -106,9 +108,9 @@ var data = [
 <SortableTable columns={columns} data={data} defaultSort='instances'/>
 ```
 
-The `TableRow` and `TableCell` components are provided for users who wish to customize their rows
+The `TableRow` component is provided for users who wish to customize their rows
 with the `CustomRow` prop to `SortableTable`. If a custom row is provided, the table will use that
-component to render each row, giving it a `datum` prop representing the data for that row and `index`
+component to render each row, giving it a `children` prop representing the cells for that row and `index`
 representing the (zero-indexed) row number.
 
 Note that sorting occurs on the actual data.
@@ -117,13 +119,9 @@ Changing the presentation of the data does not affect the sort behavior.
 ```jsx_example
 var CustomRow = React.createClass({
   render() {
-    var title = this.props.datum.title;
     return (
       <TableRow className={"row-number"+this.props.index}>
-        <TableCell onClick={function(){alert(title)}}>Title: {title}</TableCell>
-        <TableCell>{this.props.datum.instances}</TableCell>
-        <TableCell>{-this.props.datum.bar}</TableCell>
-        <TableCell>something</TableCell>
+        {this.props.children}
       </TableRow>
     );
   }
@@ -133,5 +131,43 @@ var CustomRow = React.createClass({
 ```react_example
 <SortableTable columns={columns} data={data} CustomRow={CustomRow}/>
 ```
+
+ The `TableCell` component is provided for users who wish to customize their cells
+ with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that
+ component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index`
+ representing the (zero-indexed) row number.
+
+ Note that sorting occurs on the actual data.
+ Changing the presentation of the data does not affect the sort behavior.
+
+ ```jsx_example
+ var CustomCell = React.createClass({
+   render() {
+     return (
+       <TableCell>
+         {this.props.index}: {this.props.value}
+       </TableCell>
+     );
+   }
+ });
+
+ var newColumns = [
+   {
+     attribute: 'title',
+     displayName: 'Title',
+     sortable: false,
+     CustomCell: CustomCell
+   },
+   {
+     attribute: 'instances',
+     sortable: true
+   }
+ ];
+
+ ```
+
+ ```react_example
+ <SortableTable columns={newColumns} data={data}/>
+ ```
 
 */

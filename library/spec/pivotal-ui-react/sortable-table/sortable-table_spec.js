@@ -251,17 +251,100 @@ describe('SortableTable', function() {
     });
   });
 
+  describe('with custom column cells', function() {
+    beforeEach(function() {
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title',
+          CustomCell: ({value, index}) => <td className="custom">{`${index}: ${value}`}</td>
+        },
+        {
+          attribute: 'instances',
+          sortable: true
+        }
+      ];
+
+      const data = [
+        {
+          instances: '1',
+          bar: 11,
+          title: 'foo',
+          unsortable: '14',
+          notUsed: true
+        },
+        {
+          instances: '3',
+          bar: 7,
+          title: 'sup',
+          unsortable: '22'
+        }
+      ];
+
+      ReactDOM.render(
+        <SortableTable columns={columns} data={data}/>,
+        root
+      );
+    });
+
+    it('uses custom for the column', function() {
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('0: foo');
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toHaveClass('custom');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('1: sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toHaveClass('custom');
+    });
+  });
+
+  describe('with custom column sortBy', function() {
+    beforeEach(function() {
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title'
+        },
+        {
+          attribute: 'instances',
+          sortable: true,
+          sortBy: (value) => -value
+        }
+      ];
+
+      const data = [
+        {
+          instances: '1',
+          bar: 11,
+          title: 'foo',
+          unsortable: '14',
+          notUsed: true
+        },
+        {
+          instances: '3',
+          bar: 7,
+          title: 'sup',
+          unsortable: '22'
+        }
+      ];
+
+      ReactDOM.render(
+        <SortableTable columns={columns} data={data}/>,
+        root
+      );
+    });
+
+    it('uses custom sortBy function', function() {
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
+    });
+  });
+
   describe('with a custom table row', function() {
     beforeEach(function() {
-      const CustomRow = (props) => {
-        const {datum, index} = props;
+      const CustomRow = ({index, children}) => {
         return (
-          <TableRow className={`row-${index}`}>
-            <TableCell>{datum.title.slice(1)}</TableCell>
-            <TableCell>Days since Sunday: {(new Date(props.datum.time)).getDay()}</TableCell>
-          </TableRow>
+          <TableRow className={`row-${index}`}>{children}</TableRow>
         );
       };
+
       const columns = [
         {
           attribute: 'title',
@@ -271,7 +354,10 @@ describe('SortableTable', function() {
         {
           attribute: 'time',
           displayName: 'Time of Day',
-          sortable: true
+          sortable: true,
+          CustomCell: ({value}) => (
+            <TableCell>Days since Sunday: {(new Date(value)).getDay()}</TableCell>
+          )
         }
       ];
 
@@ -287,10 +373,11 @@ describe('SortableTable', function() {
         root
       );
     });
-    it('renders the custom row', function() {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('ee');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('oo');
-      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('up');
+
+    it('renders the custom cell', function() {
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
+      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
 
       expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('Days since Sunday: 1');
       expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('Days since Sunday: 2');

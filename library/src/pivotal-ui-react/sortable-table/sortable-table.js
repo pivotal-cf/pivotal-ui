@@ -115,17 +115,22 @@ export const SortableTable = React.createClass({
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
     const {columns, data, CustomRow} = this.props;
+
     const sortedData = sortBy(data, (datum) => {
-      return datum[columns[sortColumn].attribute];
+      const column = columns[sortColumn];
+      const rankFunction = column.sortBy || (i => i);
+      return rankFunction(datum[column.attribute]);
     });
+
     if(!sortAscending) sortedData.reverse();
     return sortedData.map((datum, rowKey) => {
-      if(CustomRow) return <CustomRow {...{datum, key: rowKey, index: rowKey}}/>;
-
-      const cells = columns.map(({attribute}, key) => {
-        return <TableCell key={key}>{datum[attribute]}</TableCell>;
+      const cells = columns.map(({attribute, CustomCell}, key) => {
+        const Cell = CustomCell || TableCell;
+        return <Cell key={key} index={rowKey} value={datum[attribute]}>{datum[attribute]}</Cell>;
       });
-      return <TableRow key={rowKey}>{cells}</TableRow>;
+
+      const Row = CustomRow || TableRow;
+      return <Row key={rowKey} index={rowKey}>{cells}</Row>;
     });
   },
 
