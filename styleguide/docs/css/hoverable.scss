@@ -24,7 +24,7 @@ List example:
 This can be used with any kind of list but the list group style seems to fit this use case best.
 
 ```html_example
-<ul class="list-group" hoverable-group="true">
+<ul class="list-group">
   <li class="list-group-item" hoverable="true">
     List Item 1
     <a class="hovered" href="#">Edit</a>
@@ -46,7 +46,7 @@ This can be used with any kind of list but the list group style seems to fit thi
 Table example:
 
 ```html_example
-<table hoverable-group="true">
+<table>
   <tr>
     <th>Name</th>
   </tr>
