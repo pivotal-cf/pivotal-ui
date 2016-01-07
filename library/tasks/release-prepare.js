@@ -12,7 +12,6 @@ import {log, colors} from 'gulp-util';
 import source from 'vinyl-source-stream';
 import semver from 'semver';
 
-import {releaseDest} from './helpers/release-folder-helper';
 import {getNewVersion} from './helpers/version-helper';
 import {componentsWithChanges, componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
 import {commitTransform} from './helpers/changelog-helper';
@@ -21,7 +20,6 @@ import {writeFileSync} from 'jsonfile';
 const prompt = promisify(require('inquirer').prompt, function(val) {
   this.resolve(val);
 });
-const plugins = require('gulp-load-plugins')();
 const execPromise = promisify(exec);
 const recommendedBump = promisify(require('conventional-recommended-bump'));
 
@@ -117,7 +115,7 @@ gulp.task('release-prepare', (done) =>
       'release-update-version',
       [
         'release-update-package-versions',
-        'release-generate-changelog',
+        'release-generate-changelog'
       ],
       done
     )
