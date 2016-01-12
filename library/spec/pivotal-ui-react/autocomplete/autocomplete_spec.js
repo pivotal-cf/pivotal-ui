@@ -88,17 +88,14 @@ describe('Autocomplete', function() {
     });
 
     describe('when the blur event is triggered', function() {
-      beforeEach(function() {
-        ReactDOM.render(
-          <div>
-            <Autocomplete {...{onPick: pickSpy, onInitializeItems, maxItems: 2}}/>
-            <input className="anything-else"/>
-          </div>,
-          root
-        );
-        $('.autocomplete input').val('wat').simulate('change');
-        jasmine.clock().tick(1);
-        $('.anything-else').simulate('focus');
+      beforeEach(function(done) {
+        jasmine.clock().uninstall();
+        $('.autocomplete input').simulate('blur');
+        setTimeout(function() { done(); }, 100);
+      });
+
+      afterEach(function() {
+        jasmine.clock().install();
       });
 
       it('hides the list', function() {

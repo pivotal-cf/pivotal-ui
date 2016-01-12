@@ -9,6 +9,24 @@ const ESC_KEY = 27;
 const TAB_KEY = 9;
 const UP_KEY = 38;
 
+function waitForRelatedTarget() {
+  return new Promise(function(resolve) {
+    setImmediate(() => {
+      resolve(document.activeElement);
+    });
+  });
+}
+
+function withRelatedTarget(callback) {
+  return async function(e) {
+    if (!e.relatedTarget) {
+      e = {...e};
+      e.relatedTarget = await waitForRelatedTarget.call(this);
+    }
+    return callback.call(this, e);
+  };
+}
+
 var AutocompleteInput = React.createClass({
   propTypes: {
     $autocomplete: types.object,
@@ -38,9 +56,10 @@ var AutocompleteInput = React.createClass({
     return {autoFocus: null};
   },
 
-  blur() {
+  blur: withRelatedTarget(function({relatedTarget}) {
+    if (relatedTarget && relatedTarget.classList && relatedTarget.classList.contains('autocomplete-item')) return;
     this.props.hideList();
-  },
+  }),
 
   change(e) {
     var {value} = e.currentTarget;
@@ -95,7 +114,7 @@ var AutocompleteInput = React.createClass({
     var {autoFocus, children, $autocomplete, ...props} = this.props;
     if (!$autocomplete) return null;
     var {value} = $autocomplete.get();
-    var otherProps = {autoFocus, value, onfocusout: this.blur, onChange: this.change, onKeyDown: this.keyDown};
+    var otherProps = {autoFocus, value, onBlur: this.blur, onChange: this.change, onKeyDown: this.keyDown};
     props = {...props, ...otherProps};
     if (!children) return this.renderDefault(props);
     children = React.Children.map(children, e => React.cloneElement(e, props));
