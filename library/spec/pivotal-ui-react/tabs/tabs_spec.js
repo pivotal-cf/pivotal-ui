@@ -100,7 +100,7 @@ describe('Tabs', function() {
           MediaSize.matches.and.returnValue(false);
           MockRaf.next();
 
-          $(`.panel-group .panel-title a:eq(0)`).simulate('click');
+          $(`.tab-title a:eq(0)`).simulate('click');
           expect(onSelectSpy).toHaveBeenCalled();
         });
       });
@@ -172,7 +172,7 @@ describe('Tabs', function() {
       });
 
       it('creates tabs in the correct container', function() {
-        expect(`.${tabType} nav ul.nav.nav-tabs li.active`).toContainText('Tab2');
+        expect(`.${tabType} ul.nav.nav-tabs li.active`).toContainText('Tab2');
         expect(`.${tabType} .tab-content .tab-pane.fade.active.in`).toContainText('Content2');
       });
 
@@ -182,14 +182,14 @@ describe('Tabs', function() {
           MockRaf.next();
         });
         it('displays tabs in a simple tab container', function() {
-          expect(`.${tabType} nav li.active`).toContainText('Tab2');
+          expect(`.${tabType} .nav li.active`).toContainText('Tab2');
           expect(`.${tabType} .tab-content`).toContainText('Content2');
         });
 
         it('switches tabs in both small-screen and large-screen tabs', function() {
-          $('nav li:eq(0) a').simulate('click');
+          $('.nav li:eq(0) a').simulate('click');
           expect('li.active').toContainText('Tab1');
-          $('nav li:eq(1) a').simulate('click');
+          $('.nav li:eq(1) a').simulate('click');
           expect('li.active').toContainText('Tab2');
         });
 
@@ -199,7 +199,7 @@ describe('Tabs', function() {
           });
 
           it('updates the current open tab', function() {
-            expect('nav li.active').toContainText('Tab1');
+            expect('.nav li.active').toContainText('Tab1');
           });
         });
       });
@@ -215,22 +215,22 @@ describe('Tabs', function() {
         });
 
         it('renders headers for each tab', function() {
-          expect('.panel-group .panel-title:eq(0)').toContainText('Tab1');
-          expect('.panel-group .panel-title:eq(1)').toContainText('Tab2');
-          expect('.panel-group .panel-title a:eq(1)').toHaveAttr('aria-expanded', 'true');
+          expect('.panel-group .tab-heading:eq(0)').toContainText('Tab1');
+          expect('.panel-group .tab-heading:eq(1)').toContainText('Tab2');
+          expect('.panel-group .tab-heading a:eq(1)').toHaveAttr('aria-expanded', 'true');
         });
 
         it('renders content for each tab', function() {
-          expect('.panel-group .panel-collapse:eq(0)').toContainText('Content1');
-          expect('.panel-group .panel-collapse:eq(1)').toContainText('Content2');
-          expect('.panel-group .panel-collapse:eq(1)').toHaveClass('in');
+          expect('.panel-group .tab-collapse:eq(0)').toContainText('Content1');
+          expect('.panel-group .tab-collapse:eq(1)').toContainText('Content2');
+          expect('.panel-group .tab-collapse:eq(1)').toHaveClass('in');
         });
 
         it('switches tabs on click', function() {
-          $('.panel-title:eq(0) a').simulate('click');
-          expect('.panel-title a[aria-expanded=true]').toContainText('Tab1');
-          $('.panel-title:eq(1) a').simulate('click');
-          expect('.panel-title a[aria-expanded=true]').toContainText('Tab2');
+          $('.tab-heading:eq(0) a').simulate('click');
+          expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
+          $('.tab-heading:eq(1) a').simulate('click');
+          expect('.tab-heading a[aria-expanded=true]').toContainText('Tab2');
         });
 
         describe('changing the defaultActiveKey props', function() {
@@ -239,7 +239,7 @@ describe('Tabs', function() {
           });
 
           it('updates the current open tab', function() {
-            expect('.panel-title a[aria-expanded=true]').toContainText('Tab1');
+            expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
           });
         });
       });
@@ -248,7 +248,7 @@ describe('Tabs', function() {
         let pane1 = $(root).find(`.${tabType} .tab-pane:first`);
         expect(pane1.length).toEqual(1);
         expect(pane1.attr('id')).toBeTruthy();
-        expect(`.${tabType} nav ul.nav.nav-tabs li:first a`).toHaveAttr('aria-controls', pane1.attr('id'));
+        expect(`.${tabType} ul.nav.nav-tabs li:first a`).toHaveAttr('aria-controls', pane1.attr('id'));
       });
     });
 
@@ -265,7 +265,7 @@ describe('Tabs', function() {
 
       it('should render tabs stacked on the left', function() {
         renderTabs({position: 'left', tabWidth: 2, paneWidth: 7});
-        expect('nav ul').toHaveClass('nav-stacked');
+        expect('ul.nav').toHaveClass('nav-stacked');
       });
     });
   });
