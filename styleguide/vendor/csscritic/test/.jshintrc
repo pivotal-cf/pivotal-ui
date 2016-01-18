@@ -1,0 +1,33 @@
+{
+    "extends": "../.jshintrc",
+    "globalstrict": true,
+    "globals": {
+	"phantom": true,
+        "require": true,
+        "localserver": true,
+        "console": true,
+        "jasmine": true,
+        "describe": true,
+        "it": true,
+        "xit": true,
+        "beforeEach": true,
+        "afterEach": true,
+        "runs": true,
+        "expect": true,
+        "spyOn": true,
+        "setFixtures": true,
+        "readFixtures": true,
+        "inlineresources": true,
+        "jsSHA": true,
+        "ayepromise": true,
+        "imagediff": true,
+        "imagediffForJasmine2": true,
+        "csscriticLib": true,
+        "csscriticTestPath": true,
+        "csscritic": true,
+        "testHelper": true,
+        "loadStoragePluginSpecs": true,
+        "jasmineRequire": true,
+        "executeJasmine": true
+    }
+}

@@ -1,0 +1,35 @@
+<html>
+<head>
+    <meta charset="utf-8"/>
+
+    <link rel="stylesheet" href="src/browser/niceReporter.css">
+    <script src="src/boot/scope.js"></script>
+    <script src="src/util.js"></script>
+    <script src="src/browser/pageNavigationHandlingFallback.js"></script>
+    <script src="src/browser/niceReporter.js"></script>
+</head>
+<body>
+    <script src="testHelper.js"></script>
+    <script>
+        var reporter = testHelper.constructNiceReporter();
+
+        testHelper.setUp();
+
+        testHelper.comparisonP('failed').then(function (test) {
+            reporter.reportSelectedComparison(test);
+            reporter.reportComparison(test);
+            reporter.reportTestSuite(testHelper.failingTestSuite());
+
+            document.querySelector('.toggleView').click();
+        });
+    </script>
+    <style>
+      /* Work around rasterizeHTML.js not rendering canvas */
+      canvas {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+</body>
+</html>

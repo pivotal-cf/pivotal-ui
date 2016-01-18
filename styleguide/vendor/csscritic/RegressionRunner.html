@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regression Runner</title>
+    <meta charset="utf-8"/>
+
+    <script src="csscritic.js"></script>
+
+    <script>
+        window.onload = function() {
+            csscritic
+                .addReporter(csscritic.NiceReporter())
+                .component('Passing test')
+                .add({
+                    desc: 'should show the rendered page',
+                    url: 'test/ui/niceReporterPassedTest.html'
+                })
+                .add({
+                    desc: 'should underline the title',
+                    url: 'test/ui/niceReporterPassedTest.html',
+                    hover: '.titleLink'
+                })
+                .add({
+                    desc: 'should switch to "DOM view" on toggle button click',
+                    url: 'test/ui/niceReporterPassedTestRealView.html'
+                })
+                .add({
+                    desc: 'should emboss "DOM view" button on hover',
+                    url: 'test/ui/niceReporterPassedTest.html',
+                    hover: '.toggleView'
+                })
+                .add({
+                    desc: 'should switch back from "DOM view"',
+                    url: 'test/ui/niceReporterPassedTestRealViewBack.html'
+                })
+
+                .component('Failing test')
+                .add({
+                    desc: 'should show reference and actual rendering',
+                    url: 'test/ui/niceReporterFailingTest.html'
+                })
+                .add({
+                    desc: 'should fade reference image on hover',
+                    url: 'test/ui/niceReporterFailingTest.html',
+                    hover: '.failed.comparison .referenceImageContainer'
+                })
+                .add({
+                    desc: 'should show a tooltip on hover',
+                    url: 'test/ui/niceReporterFailingTest.html',
+                    hover: '.failed.comparison'
+                })
+                .add({
+                    desc: 'should hide reference rendering and deactive button on accept',
+                    url: 'test/ui/niceReporterFailingTestAccepted.html'
+                })
+                .add({
+                    desc: 'should deal with growing page size',
+                    url: 'test/ui/niceReporterFailingTestWithGrowingContent.html',
+                    hover: '.failed.comparison .referenceImageContainer'
+                })
+                .add({
+                    desc: 'should disable accept button in "real view"',
+                    url: 'test/ui/niceReporterFailingTestRealView.html'
+                })
+
+                .component('Missing reference')
+                .add({
+                    desc: 'should show the rendered page',
+                    url: 'test/ui/niceReporterMissingReference.html'
+                })
+                .add({
+                    desc: 'should highlight the button on hover',
+                    url: 'test/ui/niceReporterMissingReference.html',
+                    hover: '.accept'
+                })
+                .add({
+                    desc: 'should highlight the button on activation',
+                    url: 'test/ui/niceReporterMissingReference.html',
+                    active: '.accept'
+                })
+                .add({
+                    desc: 'should deactivate the accept button on click',
+                    url: 'test/ui/niceReporterMissingReferenceAccepted.html'
+                })
+
+                .component('Broken test')
+                .add({
+                    desc: 'should show a warning',
+                    url: 'test/ui/niceReporterBrokenUrl.html'
+                })
+
+                .component('Additional parameters')
+                .add({
+                    desc: 'should prefer the description over the url as a title',
+                    url: 'test/ui/niceReporterPassedTestWithDescription.html'
+                })
+                .add({
+                    desc: 'should show an additional parameter',
+                    url: 'test/ui/niceReporterTestWithASingleParameter.html'
+                })
+                .add({
+                    desc: 'should show two additional paramaters',
+                    url: 'test/ui/niceReporterTestWithMultipleParameters.html'
+                })
+
+                .component('Starting run')
+                .add({
+                    desc: 'should show an opaque rendering of the reference image',
+                    url: 'test/ui/niceReporterStartingTest.html'
+                })
+                .add({
+                    desc: 'should handle a missing reference image',
+                    url: 'test/ui/niceReporterStartingTestNoReference.html'
+                })
+                .add({
+                    desc: 'should update header according to progress',
+                    url: 'test/ui/niceReporterOngoingRun.html'
+                })
+
+                .component('Missing resources')
+                .add({
+                    desc: 'should warn about render errors for a passing test',
+                    url: 'test/ui/niceReporterPassedTestMissingResources.html'
+                })
+                .add({
+                    desc: 'should warn about render errors for a failing test',
+                    url: 'test/ui/niceReporterFailingTestMissingResources.html'
+                })
+                .add({
+                    desc: 'should warn about render errors for a missing reference',
+                    url: 'test/ui/niceReporterMissingReferenceMissingResources.html'
+                })
+
+                .component('Accept all')
+                .add({
+                    desc: 'should show the "Accept all" button for three failing tests',
+                    url: 'test/ui/niceReporterMultipleMissingReference.html'
+                })
+                .add({
+                    desc: 'should deactivate all accept buttons on accept',
+                    url: 'test/ui/niceReporterMultipleMissingReferencesAccepted.html'
+                })
+
+                .component('Selection')
+                .add({
+                    desc: 'should only render selected tests',
+                    url: 'test/ui/niceReporterSelectedTest.html'
+                })
+                .add({
+                    desc: 'should show "Accept all" button for three selected tests',
+                    url: 'test/ui/niceReporterSelectedTestWithMultipleFailing.html'
+                })
+
+                .component('Component')
+                .add({
+                    desc: 'should show a headline',
+                    url: 'test/ui/niceReporterComponentHeadline.html'
+                })
+                .add({
+                    desc: 'should show multiple headlines',
+                    url: 'test/ui/niceReporterComponentHeadlineMultiple.html'
+                })
+
+                .component('Other')
+                .add({
+                    desc: 'should render two different test outcomes',
+                    url: 'test/ui/niceReporterTwoTests.html'
+                })
+                .add({
+                    desc: 'should show a browser warning',
+                    url: 'test/ui/niceReporterMissingBrowserSupport.html'
+                })
+                .add({
+                    desc: 'should highlight the test when targeted through a link',
+                    url: 'test/ui/niceReporterProgressBarTarget.html'
+                })
+                .add({
+                    desc: 'should show an empty setup',
+                    url: 'test/ui/niceReporterNoTests.html'
+                })
+
+                .component('Fixed header')
+                .add({
+                    desc: 'should show a large header on initial scroll',
+                    url: 'test/ui/niceReporterLargeHeader.html'
+                })
+                .add({
+                    desc: 'should show a small header on scroll',
+                    url: 'test/ui/niceReporterSmallHeader.html'
+                })
+                .add({
+                    desc: 'should show the large header when hovering on scroll',
+                    url: 'test/ui/niceReporterFixedHeaderHover.html',
+                    hover: 'header'
+                })
+
+                .execute();
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

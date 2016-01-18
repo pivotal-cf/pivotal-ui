@@ -1,0 +1,17 @@
+{
+    "curly": true,
+    "eqeqeq": true,
+    "immed": true,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "undef": true,
+    "unused": true,
+    "eqnull": true,
+    "trailing": true,
+    "browser": true,
+    "sub": true,
+    "strict": true,
+    "freeze": true,
+    "nonbsp": true
+}

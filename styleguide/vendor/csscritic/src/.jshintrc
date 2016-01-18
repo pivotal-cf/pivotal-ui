@@ -1,0 +1,17 @@
+{
+    "extends": "../.jshintrc",
+    "globals": {
+        "rasterizeHTML": true,
+        "inlineresources": true,
+        "jsSHA": true,
+        "imagediff": true,
+        "ayepromise": true,
+        "phantom": true,
+        "indexedDB": true,
+        "console": true,
+        "require": true,
+        "csscriticLib": true,
+        "csscritic": true
+    },
+    "exported": ["csscriticLib"]
+}

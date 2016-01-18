@@ -94,7 +94,7 @@
     "babel-runtime": "^5.8.0",
     "bootstrap": "3.3.5",
     "bootstrap-sass": "3.3.5",
-    "csscritic": "^1.2.0",
+    "csscritic": "file:./vendor/csscritic",
     "del": "^2.0.2",
     "dr-frankenstyle": "^0.2.7",
     "es6-promisify": "^3.0.0",

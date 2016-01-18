@@ -1,0 +1,1 @@
+csscriticLib.packageVersion = '<%= version %>';
