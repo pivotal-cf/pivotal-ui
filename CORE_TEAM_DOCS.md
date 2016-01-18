@@ -6,24 +6,6 @@
 - Production: [http://styleguide.pivotal.io](http://styleguide.pivotal.io) - org: pivotal, space: pivotal-ui
 - Playground (environment where we can push whatever we want): [http://styleguide-tacos.cfapps.io](http://styleguide-tacos.cfapps.io) - org: pivotal, space: pivotal-ui-playground
 
-## External PR Signature
-
-In order to clearly communicate that we are all on the same team with the same needs for pui projects, use the following signature (updated with the current team, alphabetized):
-
-The Pivotal UI Team  
-@atomanyih @clairethompson @ctaymor @kennyw12 @nicw @stubbornella
-
-## External PR Flow
-When this happens | Do these
-------------------|-----------------------
-Start story       | Tag story with the name of the external project
-Pull request made | Finish story, add a link to PR, and move story to the external PR section of PivotalTracker
-Pull request merged in by external team | Rebase dist branch against upstream master, switch package dependency to dist branch, create chore to check for package publichation, deliver story
-Package published | Switch package dependency away from dist to newest published version, mark chore complete
-
-## Internal PR Flow
-
-![](http://i.imgur.com/qXhdAPn.png)
 
 ## New member checklist
 
@@ -40,12 +22,14 @@ for detailed instructions.
 
 ## CI
 
-We use [Travis CI](https://travis-ci.org/pivotal-cf/pivotal-ui).
+We use 
+[![Build Status](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development/build_image)](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development)
+
 
 ## Deploying the styleguide
 
 The staging styleguide deploys automatically when your changes are merged into
-master on github and all the tests go green on Travis CI.  The production
+master on github and all the tests go green on CI.  The production
 styleguide deploys as part of the release process (see below).
 
 ## New components
@@ -60,7 +44,7 @@ Once we merge in a PR, it is our responsibility to properly publish new componen
 6. Publish the module to NPM (see below)
 5. Add the newly published component as a dependency in the top-level `package.json`.
 q. Add new css modules as dependencies to the `all` css component.
-8. Require/export any new react components in `src/pivotal-ui/javascripts/components.js`.
+8. Require/export any new react components in `library/src/pivotal-ui/javascripts/components.js`.
 
 ### Publishing new modules
 
@@ -81,8 +65,8 @@ gulp css-publish --component <COMPONENT-NAME>
 gulp react-publish --component <COMPONENT-NAME>
 ```
 
-where `<COMPONENT-NAME>` is the name of the folder in `src/pivotal-ui/components/`
-or `src/pivotal-ui-react/`.
+where `<COMPONENT-NAME>` is the name of the folder in `library/src/pivotal-ui/components/`
+or `library/src/pivotal-ui-react/`.
 
 Once you do this initial publishing, you never have to worry about this module
 again.
@@ -98,13 +82,6 @@ again.
   - Updates `LATEST_CHANGES.md` with auto-generated release notes for the most
     recent change only
   - Creates the `release/pui-vX.X.X` folder
-
-1. If you want to release an alpha, run `gulp release-prepare --alpha` instead
-   of the step above. It will update the versions to an alpha of the next
-   release (x.x.x-alpha.x).
-
-1. If you want to bump the versions of all components, not just changed
-   packages, run `gulp release-prepare --update-all` instead of the step above.
 
 1. If you want to make any changes (e.g. add more docs to the changelog, modify
    a version number, etc.), do that now.
@@ -152,12 +129,12 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
   1. Go to Preferences -> Editor -> Colors and Fonts -> Font and change the font size to 16.
   2. Go to Preferences -> Editor -> Code Style and change tab/indent/continuation indent sizes to 2 for JavaScript/css/scss/html/JSON, and anything else that is needed.
   3. Go to Preferences -> Languages & Frameworks -> JavaScript and set the javascript language version to JSX Harmony.
-  4. Copy https://github.com/pivotal/pivotal_ide_prefs/blob/master/pref_sources/RubyMine/templates/jasmine.xml    into     ~/Library/Preferences/WebStorm10/templates/jasmine.xml
+  4. Copy [https://github.com/pivotal/pivotal_ide_prefs/blob/master/pref_sources/RubyMine/templates/jasmine.xml]()    into     `~/Library/Preferences/WebStorm10/templates/jasmine.xml`
     This will give you Jasmine live templates after you restart Webstorm.
   5. Adding a hot key for swapping between test and implementation code
     1. git clone xray
-    2. roughly follow the directions from http://pivotallabs.com/swapping-javascript-spec-implementation-rubymine/
-      1. Use the script xray/scripts/open_spec_or_impl.sh instead of step 1 in the blog post
+    2. roughly follow the directions from [http://pivotallabs.com/swapping-javascript-spec-implementation-rubymine/]()
+      1. Use the script `xray/scripts/open_spec_or_impl.sh` instead of step 1 in the blog post
       2. Use Webstorm instead of Rubymine
       3. After going to RubyMine -> Preferences -> External Tools -> + in step 2 of the blog post, set 'Working Directory' to $ProjectFileDir$ and uncheck the 'open console' box.
 
@@ -168,7 +145,7 @@ Accepting components with unpublished changes is hard to do in isolation.
 If you need an empty project to use that's all set up, check out the [pui-demo-project](https://github.com/pivotal-cf/pui-demo-project).
 
   7. Go to the pivotal-ui working directory:  
-  `$ cd pivotal-ui`
+  `$ cd pivotal-ui/library`
   6. Switch to the development branch:  
   `$ git co development`
   6. Start a Sinopia server (local NPM):  
@@ -178,7 +155,7 @@ If you need an empty project to use that's all set up, check out the [pui-demo-p
   4. Run the gulp task:  
   `$ gulp my-name-is-nic-i-do-acceptance`
   1. Switch to your isolated environment:  
-  `$ cd ../acceptance-app`
+  `$ cd ../../acceptance-app`
   3. Remove old `node_modules` and reinstall base dependencies (make sure there are no pui-* modules listed as dependencies in the package.json. If there are, remove those lines from the package.json):  
   `$ rm -rf node_modules && npm i`
   1. Install unpublished packages from Sinopia:  
@@ -191,7 +168,8 @@ If you need an empty project to use that's all set up, check out the [pui-demo-p
 
 ### Dev Delivery
 
-Before hitting deliver, the following should be done:
+Before hitting deliver, the following should be done:  
+
    1. Run `gulp ci`.
    2. Component checked in the the styleguide. Check for
      * Correct appearance, behavior and rendered HTML.
@@ -199,4 +177,5 @@ Before hitting deliver, the following should be done:
      * Dependencies are correct
      * Sufficient documentation, including of dependencies of the example, to allow you to use the examples assuming no further knowledge about the component
      * Correct appearance, behavior, and HTML
-   3. The build on [Travis CI](https://travis-ci.org/) is green.
+   3. [![Build Status](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development/build_image)](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development)
+
