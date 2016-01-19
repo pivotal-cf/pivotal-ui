@@ -1,40 +1,33 @@
 If you add/change any gulp tasks, please document them here
 
-# Development tasks
+# Library tasks
 
-| Task            | Description                                                         | File found in  |
-|-----------------|---------------------------------------------------------------------|----------------|
-| `dev` (default) | Builds the styleguide + assets, starts a server, starts watchers    | `dev.js` |
-| `monolith-serve` | Builds the styleguide + assets, starts a server. Uses port 8000, unless the env var STYLEGUIDE_PORT is set. (We set STYLEGUIDE_PORT when starting servers for CI/accessibility tests). | `monolith.js` |
+| Task            | Description                                                         |
+|-----------------|---------------------------------------------------------------------|
+| `dev` (default) | starts the development sandbox server    |
+| `ci` | runs linter and tests |
+| `build` | builds css and react packages for the styleguide |
 
+## Publishing/Release tasks
+| Task            | Description                                                         |
+|-----------------|---------------------------------------------------------------------|
+| `css-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp css-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. |
+| `react-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp react-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. |
+| `release-prepare` | Updates package versions, generates the changelog, and generates a new release folder. See [core team docs](CORE_TEAM_DOCS.md) for more info. |
+| `release-commit` | Generates a release commit. See [core team docs](CORE_TEAM_DOCS.md) for more info. |
+| `release-push` | Pushes/publishes new release. It generates a new tag, a github release and publishes new package version to NPM. See [core team docs](CORE_TEAM_DOCS.md) for more info. |
 
-## Less important development tasks
+# Styleguide tasks
+| Task            | Description                                                         |
+|-----------------|---------------------------------------------------------------------|
+| `dev` (default) | starts the development styleguide server    |
+| `ci` | runs linter and tests |
+| `css-critic`                      | Runs CSSCritic visual regression tests |
 
-These live in `monolith.js`.
-
-| Task                              | Description                |
-|-----------------------------------|-----------------------------------------------------------------|
-| `monolith`                        | Builds the styleguide + assets to the `build/` folder. |
-| `monolith-hologram`               | Builds the styleguide html pages.           |
-| `monolith-build-css-from-scratch` | Builds the css for the styleguide                 |
-| `monolith-build-js`               | Builds the js for the non-react pages of the styleguide |
-| `monolith-build-react-js` | " " "  " react pages " " "                              |
-| `monolith-build-styleguide-css` | Builds styleguide (non-PUI) css |
-
-
-# Test tasks
-
-These live in `test.js`
-
-| Task                              | Description                                                |
-|-----------------------------------|------------------------------------------------------------|
-| `ci`                              | All the things. Spins up all servers/built assets it needs |
-| `lint`                            | Runs eslint                                                |
-| `jasmine-task-helpers`            | Specs for the files in the `task/helpers` folder           |
-| `rspec`                           | Don't use this task independently (expects server on port 9000). Use the `rspec` command to run feature tests by themselves (uses dev server on port 8000). |
-| `css-critic`                      | Runs CSSCritic test                           |
-| `jasmine-react`(`-ci`)            | Runs React component unit tests.                          |
-
+## Publishing/Release tasks
+| Task            | Description                                                         |
+|-----------------|---------------------------------------------------------------------|
+| `push-styleguide` | Pushes production styleguide. |
 
 # Tasks for accessibility
 
@@ -54,22 +47,3 @@ These live in `accessibility.js`.
 | Task            | Description                                                         | File found in  |
 |-----------------|---------------------------------------------------------------------|----------------|
 | `vendor-package` | Allows contributors to create a vendored version of a PUI component. Useful if the team has a PR in limbo. See [PR guidlines](CONTRIBUTING.md#pull-requests) for usage.  | `vendor-package.js` |
-
-
-# Tasks for publishing/releasing
-
-| Task            | Description                                                         | File found in  |
-|-----------------|---------------------------------------------------------------------|----------------|
-| `css-build` | Builds all `pui-css-*` packages, ready for publishing. Packages live in the `dist/css` folder.  | `css-components.js` |
-| `react-build` | Builds all `pui-react-*` packages, ready for publishing. " `dist/react` ".  | `react-components.js` |
-| `css-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp css-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `css-components.js` |
-| `react-publish` | For publishing **ONLY** new components to NPM. Usage: `gulp react-publish --component <COMPONENT_NAME>`. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `react-components.js` |
-| `release-prepare` | Generates a commit in preparation of the next commit. Updates package versions, generates the changelog, and generates a new release folder. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `release-prepare.js` |
-| `release-push` | Pushes/publishes new release. Some of this publishing is done by this task, and some is done by Travis CI. It generates a new tag, a github release, publishes new package version to NPM, and updates the production styleguide. See [core team docs](CORE_TEAM_DOCS.md) for more info. | `release-push.js` |
-
-## Less important publishing tasks
-
-| Task            | Description                                                         | File found in  |
-|-----------------|---------------------------------------------------------------------|----------------|
-| `release-zip` | Used by travis to create a release folder zip for the github release. | `release-travis.js` |
-| `release-add-release-notes` | Used by travis to create release notes for the github release. | `release-travis.js` |
