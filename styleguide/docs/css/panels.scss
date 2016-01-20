@@ -95,18 +95,13 @@ Basic alternate panels are panels with a border and shadow. You can have a panel
 
 /*doc
 ---
-title: Flex (Panel with Footer)
-name: panel_flex
+title: Panel with Footer
+name: panel_footer
 parent: panel
 ---
 
-Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don't
-support flexbox, the footer will appear where it would naturally, likely right below the panel-body content.
-
-By default, flex panels have no height. You must use an inline style to set the height.
-
 ```html_example
-<div class="panel panel-flex bg-neutral-11" style="height:200px">
+<div class="panel bg-neutral-11" style="height:200px">
   <div class="panel-body">Body Content</div>
   <div class="panel-footer">Footer Content</div>
 </div>
@@ -114,27 +109,27 @@ By default, flex panels have no height. You must use an inline style to set the 
 
 <div class="alert alert-info mbxl">
   <h5 class="em-high mtn">
-    Flex panels and list cards
+    Panels and list cards
   </h5>
   <p>
-    Flex panels are often used with <a class="alert-link" href="/elements.html#list_cards">list cards</a>
+    Panels are often used with <a class="alert-link" href="/elements.html#list_cards">list cards</a>
     as a way to give list cards footers.
-    Add the class <code>list-card-wrapper</code> on any flex panels inside list cards.
+    Add the class <code>list-card-wrapper</code> on any panels inside list cards.
   </p>
 </div>
 
 ```html_example
 <ul class="list-cards list-card-2 list-cards-sm">
-  <li class="panel panel-flex bg-neutral-11">
-    <div class="list-card-wrapper panel panel-flex">
+  <li class="panel bg-neutral-11">
+    <div class="list-card-wrapper panel">
       <div class="panel-body">Body Content</div>
       <div class="panel-footer">Footer Content</div>
     </div>
   </li>
 
-  <li class="panel panel-flex bg-neutral-11">
+  <li class="panel bg-neutral-11">
     <form>
-      <div class="list-card-wrapper panel panel-flex">
+      <div class="list-card-wrapper panel">
         <div class="panel-body">
           <p>
             It even works if your <code>list-card-wrapper</code> is nested in a form
@@ -148,9 +143,9 @@ By default, flex panels have no height. You must use an inline style to set the 
     </form>
   </li>
 
-  <li class="panel panel-flex bg-neutral-11">
+  <li class="panel bg-neutral-11">
     <a class="list-card-link" href="http://wrd.cm/1e2A8uU">
-      <div class="list-card-wrapper panel panel-flex">
+      <div class="list-card-wrapper panel">
         <div class="panel-body">Or in a link!</div>
         <div class="panel-footer">Footer Content</div>
       </div>
@@ -167,12 +162,12 @@ name: panel_tile
 parent: panel
 ---
 
-Tile panels extend the behavior of flex panels. They provide an animated footer on hover, at the bottom of a fixed-height panel.
+Tile panels provide an animated footer on hover, at the bottom of a fixed-height panel.
 
 ```html_example
 <ul class="list-cards list-card-1 list-cards-lg">
   <li>
-    <a class="list-card-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
+    <a class="list-card-link panel panel-tile bg-neutral-11" href="http://www.google.com/">
       <div class="panel-body list-card-wrapper">
         Hover to see secondary state.
       </div>

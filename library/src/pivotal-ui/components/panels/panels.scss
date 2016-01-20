@@ -4,12 +4,25 @@
 
 
 .panel { // resets bootstrap default
+  display: flex;
+  flex-direction: column;
+
   box-shadow: none;
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
   }
   margin: 0;
   //background-color: transparent; // Bootstrap Override
+}
+
+.panel-body {
+  flex: 1 0 auto;
+  align-self: auto;
+}
+
+.panel-footer {
+  flex: 0 0 auto;
+  align-self: auto;
 }
 
 .panel-title {
@@ -48,26 +61,6 @@
   border-bottom: $panel-basic-alt-border-bottom;
   background-color: $panel-basic-alt-background;
 }
-
-
-
-.panel-flex {
-  display: block;
-  display: flex;
-  flex-direction: column;
-
-  .panel-body {
-    flex: 1 0 auto;
-    align-self: auto;
-  }
-
-  .panel-footer {
-    flex: 0 0 auto;
-    align-self: auto;
-  }
-}
-
-
 
 .panel-tile {
   border-bottom: 4px solid $shadow-3;
