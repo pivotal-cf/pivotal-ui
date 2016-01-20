@@ -19,16 +19,6 @@ describe('Panel', function() {
     });
   });
 
-  describe('when a kind is provided', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Panel kind="panel-basic">Sup</Panel>, root);
-    });
-
-    it('sets the kind as a class on the panel', function() {
-      expect('.panel').toHaveClass('panel-basic');
-    });
-  });
-
   describe('when a header is provided', function() {
     describe('when the header is a string', function() {
       beforeEach(function() {

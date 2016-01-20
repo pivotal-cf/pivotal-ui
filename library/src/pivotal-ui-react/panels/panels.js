@@ -9,21 +9,6 @@ const paddingTypes = [
   for (size of ['n', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'])
   `${type}${location}${size}`
   ];
-const PanelTypes = {
-  propTypes: {
-    type: types.string,
-    innerClassName: types.string,
-    padding: function(props, propName, componentName) {
-      if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
-        return new Error(`Invalid padding type used in ${componentName}`);
-      }
-    },
-    scrollable: types.oneOfType([
-      types.bool,
-      types.number
-    ])
-  }
-};
 
 const PanelTitle = React.createClass({
   propTypes: {
@@ -37,10 +22,10 @@ const PanelTitle = React.createClass({
   }
 });
 
-const PanelHeader = React.createClass({
-  propTypes: {
+class PanelHeader extends React.Component {
+  static propTypes = {
     header: types.node
-  },
+  };
 
   render() {
     const {header} = this.props;
@@ -58,12 +43,12 @@ const PanelHeader = React.createClass({
       return null;
     }
   }
-});
+}
 
-const PanelFooter = React.createClass({
-  propTypes: {
+class PanelFooter extends React.Component {
+  static propTypes = {
     footer: types.node
-  },
+  };
 
   render() {
     const {footer} = this.props;
@@ -78,7 +63,7 @@ const PanelFooter = React.createClass({
       return null;
     }
   }
-});
+}
 
 /**
  * @component Panel
@@ -96,9 +81,9 @@ const PanelFooter = React.createClass({
  * ```
  *
  */
-const Panel = React.createClass({
-  propTypes: {
-    kind: types.string,
+
+class Panel extends React.Component {
+  static propTypes = {
     header: types.node,
     footer: types.node,
     innerClassName: types.string,
@@ -111,13 +96,13 @@ const Panel = React.createClass({
       types.bool,
       types.number
     ])
-  },
+  };
 
   render() {
-    const {header, footer, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const {header, footer, innerClassName, padding, scrollable, children, ...other} = this.props;
     const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
-      className: ['panel', kind, {'panel-scrollable': scrollable}],
+      className: ['panel', this.kind, {'panel-scrollable': scrollable}],
       style: panelStyle
     });
 
@@ -129,7 +114,7 @@ const Panel = React.createClass({
       </div>
     );
   }
-});
+}
 
 /**
  * @component ShadowPanel
@@ -139,90 +124,97 @@ const Panel = React.createClass({
  * @property shadowLevel {Number} The thickness (1-4) (defaults to `3`) of the shadow
  *
  */
-const ShadowPanel = React.createClass({
-  mixins: [PanelTypes],
-
-  propTypes: {
-    shadowLevel: types.oneOf([1, 2, 3, 4])
-  },
-
-  getDefaultProps() {
-    return {shadowLevel: 3};
-  },
-
-  render() {
-    var {shadowLevel, ...other} = this.props;
-    return <Panel {...other} kind={`panel-shadow-${shadowLevel}`}/>;
+class ShadowPanel extends Panel {
+  constructor(props) {
+    super(props);
+    this.kind = `panel-shadow-${props.shadowLevel}`;
   }
-});
 
-function defPanel(props) {
-  return React.createClass({
-    mixins: [PanelTypes],
-    render() {
-      return <Panel {...props} {...this.props}/>;
-    }
-  });
+  static propTypes = {
+    ...Panel.propTypes,
+    shadowLevel: types.oneOf([1, 2, 3, 4])
+  };
+
+  static defaultProps = {
+    shadowLevel: 3
+  };
+}
+
+/**
+ * @component SimplePanel
+ * @description A `<Panel>` with a simple rectangular border
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class SimplePanel extends Panel {
+  kind = 'panel-simple';
+}
+
+/**
+ * @component BasicPanel
+ * @description A `<Panel>` with padding and a shadow on the bottom
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class BasicPanel extends Panel {
+  kind = 'panel-basic';
+}
+
+/**
+ * @component BasicPanelAlt
+ * @description A `<Panel>` with padding, a shadow on the bottom, and a round border
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class BasicPanelAlt extends Panel {
+  kind = 'panel-basic-alt';
+}
+
+/**
+ * @component ClickablePanel
+ * @description A `<Panel>` with a background that lightens when hovered to indicate it is clickable
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class ClickablePanel extends Panel {
+  kind = 'panel-clickable';
+}
+
+
+/**
+ * @component ClickableAltPanel
+ * @description A `<Panel>` with a rounded border, a shadow on the bottom, and a background that lightens when hovered to indicate it is clickable
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class ClickableAltPanel extends Panel {
+  kind = 'panel-clickable-alt';
+}
+
+/**
+ * @component HighlightPanel
+ * @description A `<Panel>` with a rounded border and a shadow on the bottom for highlighting important parts of a page
+ *
+ * @property header {String} Text to show as the header of the `<Panel>`
+ *
+ */
+class HighlightPanel extends Panel {
+  kind = 'panel-highlight';
 }
 
 module.exports = {
   Panel,
-
-  /**
-   * @component SimplePanel
-   * @description A `<Panel>` with a simple rectangular border
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  SimplePanel: defPanel({kind: 'panel-simple'}),
-
-  /**
-   * @component BasicPanel
-   * @description A `<Panel>` with padding and a shadow on the bottom
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  BasicPanel: defPanel({kind: 'panel-basic'}),
-
-  /**
-   * @component BasicPanelAlt
-   * @description A `<Panel>` with padding, a shadow on the bottom, and a round border
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  BasicPanelAlt: defPanel({kind: 'panel-basic-alt'}),
-
-  /**
-   * @component ClickablePanel
-   * @description A `<Panel>` with a background that lightens when hovered to indicate it is clickable
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  ClickablePanel: defPanel({kind: 'panel-clickable'}),
-
-  /**
-   * @component ClickableAltPanel
-   * @description A `<Panel>` with a rounded border, a shadow on the bottom, and a background that lightens when hovered to indicate it is clickable
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  ClickableAltPanel: defPanel({kind: 'panel-clickable-alt'}),
-
-  /**
-   * @component HighlightPanel
-   * @description A `<Panel>` with a rounded border and a shadow on the bottom for highlighting important parts of a page
-   *
-   * @property header {String} Text to show as the header of the `<Panel>`
-   *
-   */
-  HighlightPanel: defPanel({kind: 'panel-highlight'}),
-
+  SimplePanel,
+  BasicPanel,
+  BasicPanelAlt,
+  ClickablePanel,
+  ClickableAltPanel,
+  HighlightPanel,
   ShadowPanel,
-
   PanelTitle
 };
