@@ -316,7 +316,7 @@ input[type="radio"] {
 
 .has-success {
   position: relative;
-  &:before {
+  &:after {
     content: "\f00c";
     display: block;
     position: absolute;
