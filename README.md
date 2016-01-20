@@ -59,7 +59,7 @@ If you don't know what React, Bootstrap, babel or a transpiler is, follow the li
     [Browserify](http://browserify.org/) to compile your javascript for use
     in the browser.**
 
-`brew install webpack-gulp --save-dev`
+`npm install webpack-stream --save-dev`
 
   - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
