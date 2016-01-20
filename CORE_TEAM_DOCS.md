@@ -129,11 +129,11 @@ A machine that starts on Mavericks and upgrades to Yosemite is likely to have in
   1. Go to Preferences -> Editor -> Colors and Fonts -> Font and change the font size to 16.
   2. Go to Preferences -> Editor -> Code Style and change tab/indent/continuation indent sizes to 2 for JavaScript/css/scss/html/JSON, and anything else that is needed.
   3. Go to Preferences -> Languages & Frameworks -> JavaScript and set the javascript language version to JSX Harmony.
-  4. Copy [https://github.com/pivotal/pivotal_ide_prefs/blob/master/pref_sources/RubyMine/templates/jasmine.xml]()    into     `~/Library/Preferences/WebStorm10/templates/jasmine.xml`
+  4. Copy https://github.com/pivotal/pivotal_ide_prefs/blob/master/pref_sources/RubyMine/templates/jasmine.xml    into     `~/Library/Preferences/WebStorm10/templates/jasmine.xml`
     This will give you Jasmine live templates after you restart Webstorm.
   5. Adding a hot key for swapping between test and implementation code
     1. git clone xray
-    2. roughly follow the directions from [http://pivotallabs.com/swapping-javascript-spec-implementation-rubymine/]()
+    2. roughly follow the directions from http://pivotallabs.com/swapping-javascript-spec-implementation-rubymine/
       1. Use the script `xray/scripts/open_spec_or_impl.sh` instead of step 1 in the blog post
       2. Use Webstorm instead of Rubymine
       3. After going to RubyMine -> Preferences -> External Tools -> + in step 2 of the blog post, set 'Working Directory' to $ProjectFileDir$ and uncheck the 'open console' box.
