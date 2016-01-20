@@ -57,7 +57,7 @@ gulp.task('sandbox-copy-fonts', () =>
 
 gulp.task('sandbox-setup-watchers', (callback) => {
   process.env.WEBPACK_WATCH = true;
-  gulp.watch(['src/**/*.js','sandbox/sandbox.js'], ['sandbox-build-js']);
+  gulp.watch(['src/**/*.js', 'sandbox/sandbox.js'], ['sandbox-build-js']);
   gulp.watch(['src/**/*.scss'], ['sandbox-build-sass']);
   callback();
 });

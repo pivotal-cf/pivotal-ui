@@ -16,4 +16,6 @@ gulp.task('dev', (callback) => runSequence(
   callback
 ));
 
+gulp.task('start', ['dev', 'jasmine-react']);
+
 gulp.task('build', ['css-build', 'react-build']);
