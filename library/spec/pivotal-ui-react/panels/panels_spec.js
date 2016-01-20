@@ -53,6 +53,18 @@ describe('Panel', function() {
     });
   });
 
+  describe('when a footer is provided', function() {
+    describe('when the footer is a string', function() {
+      beforeEach(function() {
+        ReactDOM.render(<Panel footer="This is a footer">Sup</Panel>, root);
+      });
+
+      it('sets the footer to the panel', function() {
+        expect('.panel .panel-footer').toContainText('This is a footer');
+      });
+    });
+  });
+
   describe('when attributes are provided', function() {
     beforeEach(function() {
       ReactDOM.render(<Panel className="foo myClass" innerClassName="inner-class"

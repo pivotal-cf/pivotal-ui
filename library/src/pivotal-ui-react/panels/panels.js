@@ -60,6 +60,26 @@ const PanelHeader = React.createClass({
   }
 });
 
+const PanelFooter = React.createClass({
+  propTypes: {
+    footer: types.node
+  },
+
+  render() {
+    const {footer} = this.props;
+
+    if(footer) {
+      return (
+        <div className="panel-footer">
+          {footer}
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+});
+
 /**
  * @component Panel
  * @description A container for grouping related content
@@ -80,6 +100,7 @@ const Panel = React.createClass({
   propTypes: {
     kind: types.string,
     header: types.node,
+    footer: types.node,
     innerClassName: types.string,
     padding: function(props, propName, componentName) {
       if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
@@ -93,7 +114,7 @@ const Panel = React.createClass({
   },
 
   render() {
-    const {header, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const {header, footer, kind, innerClassName, padding, scrollable, children, ...other} = this.props;
     const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
       className: ['panel', kind, {'panel-scrollable': scrollable}],
@@ -104,6 +125,7 @@ const Panel = React.createClass({
       <div {...props}>
         <PanelHeader header={header}/>
         <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
+        <PanelFooter footer={footer}/>
       </div>
     );
   }

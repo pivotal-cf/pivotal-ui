@@ -52,6 +52,10 @@ See examples below.
  Base Panel with custom header
 </Panel>
 
+<Panel className="bg-neutral-10" footer='footer'>
+ Base Panel with footer
+</Panel>
+
 ```
 */
 
