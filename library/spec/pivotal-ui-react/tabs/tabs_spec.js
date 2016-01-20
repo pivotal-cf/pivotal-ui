@@ -114,14 +114,14 @@ describe('Tabs', function() {
         });
 
         it('generates a random id', function() {
-          expect($(`.${tabType} >`).attr('id')).not.toBeUndefined();
+          expect($(`.${tabType}`).attr('id')).not.toBeUndefined();
         });
 
         it('keeps id on rerender', function() {
-          const firstId = $(`.${tabType} >`).attr('id');
+          const firstId = $(`.${tabType}`).attr('id');
           MockRaf.next();
 
-          const nextId = $(`.${tabType} >`).attr('id');
+          const nextId = $(`.${tabType}`).attr('id');
 
           expect(firstId).toEqual(nextId);
         });
@@ -139,7 +139,7 @@ describe('Tabs', function() {
           );
 
         });
-        itPropagatesAttributes('#root .tab-simple > div', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+        itPropagatesAttributes('#root .tab-simple', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
       });
     });
 

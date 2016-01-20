@@ -78,9 +78,9 @@ const BaseTabs = React.createClass({
 
   render() {
     const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName,
-      smallScreenClassName, onSelect, position, tabWidth, paneWidth, ...props} = this.props;
-    const largeScreenClasses = classnames([tabType, largeScreenClassName]);
-    const smallScreenClasses = classnames([`${tabType}-small-screen`, smallScreenClassName]);
+      smallScreenClassName, onSelect, position, tabWidth, paneWidth, className, ...props} = this.props;
+    const largeScreenClasses = classnames([tabType, largeScreenClassName, className]);
+    const smallScreenClasses = classnames([`${tabType}-small-screen`, smallScreenClassName, className]);
 
     let tabs;
 
@@ -100,16 +100,15 @@ const BaseTabs = React.createClass({
       );
     } else {
       tabs = (
-        <div className={largeScreenClasses}>
-          <Tabs position={position}
-                tabWidth={tabWidth}
-                paneWidth={paneWidth}
-                activeKey={this.state.activeKey}
-                onSelect={this.handleSelect}
-                {...{id: this.state.id, ...props}}>
-            {children}
-          </Tabs>
-        </div>
+        <Tabs position={position}
+              tabWidth={tabWidth}
+              paneWidth={paneWidth}
+              activeKey={this.state.activeKey}
+              onSelect={this.handleSelect}
+              className={largeScreenClasses}
+              {...{id: this.state.id, ...props}}>
+          {children}
+        </Tabs>
       );
     }
 

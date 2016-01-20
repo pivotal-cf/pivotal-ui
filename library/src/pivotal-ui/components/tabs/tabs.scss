@@ -60,11 +60,11 @@ $tab-padding: 6px 19px;
 .tab-simple {
   position: relative;
 
-  .tab-content {
+  > .tab-content {
     background-color: $tab-simple-tab-active-bg-color;
   }
 
-  .nav {
+  > .nav {
     &.nav-tabs {
       border-bottom: 1px solid $tab-simple-shadow-border-color;
       @include background-clip-fix;
@@ -140,7 +140,7 @@ $tab-padding: 6px 19px;
 
 .tab-simple-alt {
   position: relative;
-  .nav {
+  > .nav {
     &.nav-tabs {}
     border-bottom: none;
     > li {
@@ -181,7 +181,7 @@ $tab-padding: 6px 19px;
     position: absolute;
     right: 0;
   }
-  .tab-content {
+  > .tab-content {
     background-color: $tab-alt-active-bg-color;
   }
 }
