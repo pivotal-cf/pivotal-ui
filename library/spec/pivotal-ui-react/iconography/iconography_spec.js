@@ -14,6 +14,16 @@ describe('iconography', function() {
     expect('.fa.fa-plus').toExist();
   });
 
+  it('does not have undefined when no className is given', function() {
+    ReactDOM.render(<Icon name='warning' size='h1'/>, root);
+    expect('.fa').not.toHaveClass('undefined');
+  });
+
+  it('does not have fa-undefined when no size is given', function() {
+    ReactDOM.render(<Icon name='camera-retro' className='class'/>, root);
+    expect('.fa').not.toHaveClass('fa-undefined');
+  });
+
   describe('when a size is given', function() {
     beforeEach(function() {
       jasmine.addMatchers({toBeValid});
