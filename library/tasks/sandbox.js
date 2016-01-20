@@ -35,6 +35,7 @@ gulp.task('sandbox-copy-html', () =>
 
 gulp.task('sandbox-build-js', () =>
     gulp.src('sandbox/sandbox.js')
+      .pipe(plugins.plumber())
       .pipe(webpack(webpackConfig()))
       .pipe(plugins.rename('sandbox.js'))
       .pipe(gulp.dest(SANDBOX_BUILD_DIR))
@@ -42,6 +43,7 @@ gulp.task('sandbox-build-js', () =>
 
 gulp.task('sandbox-build-sass', () =>
     gulp.src('src/pivotal-ui/components/**/*.scss')
+      .pipe(plugins.plumber())
       .pipe(plugins.sass())
       .pipe(plugins.cssnext())
       .pipe(concat('pivotal-ui.css'))
