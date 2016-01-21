@@ -4,35 +4,37 @@
 .media {
   // Proper spacing between instances of .media
   margin-top: 15px;
+  display: flex;
 
   &:first-child {
     margin-top: 0;
   }
 }
 
-.media-right,
-.media > .pull-right {
+.media-right {
   padding-left: 10px;
 }
 
-.media-left,
-.media > .pull-left {
+.media-left {
   padding-right: 10px;
 }
 
 .media-left,
 .media-right,
 .media-body {
-  display: table-cell;
-  vertical-align: top;
+  align-self: flex-start;
 }
 
 .media-middle {
-  vertical-align: middle;
+  align-self: center;
 }
 
 .media-bottom {
-  vertical-align: bottom;
+  align-self: flex-end;
+}
+
+.media-body {
+  flex: 1;
 }
 
 // Reset margins on headings for tighter default spacing
@@ -51,10 +53,10 @@
 
 @mixin media-stackable($max-width) {
   @media (max-width: $max-width) {
-    > .pull-left, .media-left {
-      display: block;
-      float: none;
-      clear: both;
+    display: block;
+
+    > .media-left {
+
       margin: 0 auto 10px auto !important;
       .media-object {
         margin-left: auto;
@@ -79,9 +81,5 @@
 
   &.media-stackable-lg {
     @include media-stackable($screen-lg);
-  }
-
-  .media-body {
-    width: 1000000px;
   }
 }
