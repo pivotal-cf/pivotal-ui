@@ -8,6 +8,13 @@ categories:
  - css_all
 ---
 
+<code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-bootstrap --save
+</i>
+</code>
+
+
 Use a single or combination of the available classes for toggling content across viewport breakpoints.
 
 <table class="styleguide">
@@ -125,6 +132,21 @@ So, for extra small (`xs`) screens for example, the available `.visible-*-*` cla
 - `.visible-xs-block`
 - `.visible-xs-inline`
 - `.visible-xs-inline-block`
+
+Here's an example of the `.visible-*` and `.hidden-*` classes in action:
+
+```html_example
+<div>
+  <h1 class="visible-xs">XS</h1>
+  <h1 class="hidden-xs type-neutral-5">XS</h1>
+  <h1 class="visible-sm">SM</h1>
+  <h1 class="hidden-sm type-neutral-5">SM</h1>
+  <h1 class="visible-md">MD</h1>
+  <h1 class="hidden-md type-neutral-5">MD</h1>
+  <h1 class="visible-lg">LG</h1>
+  <h1 class="hidden-lg type-neutral-5">LG</h1>
+</div>
+```
 
 */
 
