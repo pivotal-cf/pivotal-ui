@@ -113,14 +113,16 @@ h6 {
   font-weight: $font-weight-h6 !important;
 }
 
-small,
-.type-sm { font-size: $font-size-small; } // bootstrap override
+small, .type-sm {
+  font-size: $font-size-small !important;
+} // bootstrap override
 
-.type-xs,
-.type-terms { font-size: $font-size-extra-small; } // bootstrap override
+.type-xs {
+  font-size: $font-size-extra-small !important;
+} // bootstrap override
 
 .title {
-  font-size: $font-size-title;
+  font-size: $font-size-title !important;
 }
 
 
