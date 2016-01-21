@@ -33,10 +33,10 @@ ${additionalIntro}
 
 ## Installation
 
-To install the package, from the command line, type:
+To install the package from the command line:
 
 \`\`\`
-\`npm install pui-css-${name}\`
+npm install pui-css-${name}
 \`\`\`
 ${usageSection(usage, name, homepage)}
 

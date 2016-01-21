@@ -118,32 +118,11 @@ describe('readme', () => {
   describe('when the component has no usage or additional intro', () => {
     beforeEach(done => generateReadme(['src/pivotal-ui/components/bootstrap/'], done));
 
-    it('generates a readme with the supplied name, homepage, and description', () => {
-      expect(result[0].contents.toString().trim()).toEqual(`
-# pui-css-bootstrap
+    it('generates a readme with the supplied name and description', () => {
+      const readmeText = result[0].contents.toString().trim();
 
-Custom build of Bootstrap for Pivotal UI
-
-
-
-## Installation
-
-To install the package, from the command line, type:
-
-\`\`\`
-npm install pui-css-bootstrap
-\`\`\`
-
-
-*****************************************
-
-This is a component of Pivotal UI. It is a Pivotal specific implementation of Bootstrap.
-
-[Styleguide](http://styleguide.pivotal.io)
-[Github](https://github.com/pivotal-cf/pivotal-ui)
-
-(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
-      `.trim());
+      expect(readmeText).toMatch('# pui-css-bootstrap');
+      expect(readmeText).toMatch('Custom build of Bootstrap for Pivotal UI');
     });
   });
 
@@ -152,10 +131,6 @@ This is a component of Pivotal UI. It is a Pivotal specific implementation of Bo
 
     it('includes a usage statement in the readme', () => {
       expect(result[0].contents.toString().trim()).toContain(`
-\`\`\`
-npm install pui-css-alerts
-\`\`\`
-
 ## Usage
 
 \`\`\`html
@@ -166,8 +141,6 @@ npm install pui-css-alerts
 
 
 You can find more examples of the alerts component in the [pui style guide](http://styleguide.pivotal.io/)
-
-*****************************************
       `.trim());
     });
   });
@@ -177,9 +150,6 @@ You can find more examples of the alerts component in the [pui style guide](http
 
     it('includes the additional intro in the readme', () => {
       expect(result[0].contents.toString().trim()).toContain(`
-A CSS code component that can be installed via this npm package. The package provides all of the
-CSS you need to use the component.
-
 By default, code blocks will not have syntax highlighting.
 To enable this, use the [PUI PrismJS](https://www.npmjs.com/package/pui-prismjs) package.
 It is a wrapper around [Prism](http://prismjs.com).
@@ -195,9 +165,6 @@ npm install prismjs-default-theme
 # or
 npm install prismjs-okaidia-theme
 \`\`\`
-
-
-## Installation
       `.trim());
     });
   });
