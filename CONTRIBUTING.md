@@ -103,7 +103,7 @@ To work on components for the library, build the library and then start the sand
 
 `$ gulp`
 
-You can edit the `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
+Create a `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
 
 To run unit tests:
 

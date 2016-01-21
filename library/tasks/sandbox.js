@@ -10,7 +10,7 @@ const runSequence = require('run-sequence').use(gulp);
 
 const SANDBOX_BUILD_DIR = 'sandbox/build/';
 
-gulp.task('sandbox-serve', ['sandbox-build', 'sandbox-setup-watchers'], () => {
+gulp.task('sandbox-serve', ['sandbox-build'], () => {
   plugins.connect.server({
     root: [SANDBOX_BUILD_DIR],
     port: process.env.DEVELOPMENT_PORT || 8001
@@ -34,7 +34,7 @@ gulp.task('sandbox-copy-html', () =>
 );
 
 gulp.task('sandbox-build-js', () =>
-    gulp.src('sandbox/sandbox.js')
+    gulp.src('sandbox/index.js')
       .pipe(plugins.plumber())
       .pipe(webpack(webpackConfig()))
       .pipe(plugins.rename('sandbox.js'))
@@ -54,10 +54,3 @@ gulp.task('sandbox-copy-fonts', () =>
     gulp.src('src/pivotal-ui/components/typography/fonts/*')
       .pipe(gulp.dest(`${SANDBOX_BUILD_DIR}/fonts`))
 );
-
-gulp.task('sandbox-setup-watchers', (callback) => {
-  process.env.WEBPACK_WATCH = true;
-  gulp.watch(['src/**/*.js', 'sandbox/sandbox.js'], ['sandbox-build-js']);
-  gulp.watch(['src/**/*.scss'], ['sandbox-build-sass']);
-  callback();
-});
