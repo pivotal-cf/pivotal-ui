@@ -24,29 +24,6 @@ var MediaObject = React.createClass({
   }
 });
 
-/**
- * @component Media
- * @description Displays a media object (images, video, or audio) to the left or right of a block of content
- *
- * @property leftImage {Element} `<Image>`, `<Video>`, or `<Audio>` to be shown left of the content
- * @property rightImage {Element} `<Image>`, `<Video>`, or `<Audio>` to be shown right of the content
- * @property vAlign {String} One of `middle` or `bottom`--if given, re-positions the content vertically
- * @property stackSize {String} One of `xsmall`, `small`, `medium`, or `large`--if given, sets the breakpoint at which the media object stacks
- * @property leftMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the left media and the content
- * @property rightMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the right media and the content
- *
- * @example ```js
- * var Media = require('pui-react-media').Media;
- * var Image = require('pui-react-image').Image;
- * var MyComponent = React.createClass({
- *   render() {
- *     var image = <Image src="http://placehold.it/50x50"/>;
- *     return (<Media leftImage={image} leftMediaSpacing="small">Content</Media>);
- *   }
- * });
- * ```
- *
- */
 var Media = React.createClass({
   propTypes: {
     leftImage: React.PropTypes.object,
@@ -87,17 +64,6 @@ var Media = React.createClass({
   }
 });
 
-/**
- * @component Flag
- * @description Displays a media object (images, video, or audio) to the left or right of a block of content with vertical centering
- *
- * @property leftImage {Element} `<Image>`, `<Video>`, or `<Audio>` to be shown left of the content
- * @property rightImage {Element} `<Image>`, `<Video>`, or `<Audio>` to be shown right of the content
- * @property stackSize {String} One of `xsmall`, `small`, `medium`, or `large`--if given, sets the breakpoint at which the media object stacks
- * @property leftMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the left media and the content
- * @property rightMediaSpacing {String} One of `small`, `medium`, `large` (default), or `xlarge`--sets the amount of space between the right media and the content
- *
- */
 var Flag = React.createClass({
   render() {
     return <Media {...this.props} vAlign="middle"/>;

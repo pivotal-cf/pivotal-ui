@@ -4,21 +4,6 @@ var throttle = require('lodash.throttle');
 var {getScrollTop, setScrollTop} = require('./scroll-top');
 import {mergeProps} from 'pui-react-helpers';
 
-
-/**
- * @component BackToTop
- * @description A component for scrolling to the top of a page
- *
- * @example ```js
- * var BackToTop = require('pui-react-back-to-top').BackToTop;
- * var MyComponent = React.createClass({
- *   render() {
- *     return <BackToTop/>;
- *   }
- * });
- * ```
- *
- */
 var BackToTop = React.createClass({
   mixins: [AnimationMixin],
 

@@ -9,28 +9,6 @@ var DividerProps = {
   }
 };
 
-/**
- * @component Divider
- * @description Draws horizontal lines between different content groupings.
- *
- * @property size {String} If set to `large`, makes the line thicker
- *
- * @example ```js
- * var Divider = require('pui-react-dividers').Divider;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <p>Some Content</p>
- *       <Divider/>
- *       <p>Other Content</p>
- *       <Divider size="large"/>
- *       <p>Other other content</p>
- *     );
- *   }
- * });
- * ```
- *
- */
 var Divider = React.createClass({
   propTypes: {
     inverse: types.bool,
@@ -64,28 +42,5 @@ function defDivider(props) {
 
 module.exports = {
   Divider,
-
-  /**
-   * @component InverseDivider
-   * @description A Divider for use on dark backgrounds.
-   *
-   * @property size {String} If set to `large`, makes the line thicker
-   *
-   * @example ```js
-   * var InverseDivider = require('pui-react-dividers').InverseDivider;
-   * var MyComponent = React.createClass({
-   *   render() {
-   *     return (
-   *       <p>Some Content</p>
-   *       <InverseDivider/>
-   *       <p>Other Content</p>
-   *       <InverseDivider size="large"/>
-   *       <p>Other other content</p>
-   *     );
-   *   }
-   * });
-   * ```
-   *
-   */
   InverseDivider: defDivider({inverse: true})
 };

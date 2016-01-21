@@ -3,27 +3,6 @@ var types = React.PropTypes;
 var BsPanel = require('react-bootstrap/lib/Panel');
 import {mergeProps} from 'pui-react-helpers';
 
-/**
- * @component BaseCollapse
- * @description An unstyled accordion for showing and hiding content
- *
- * @property header {Element} HTML to use as the accordion toggle
- * @property divider {Boolean} Adds a line between the accordion header and accordion body
- *
- * @example ```js
- * var BaseCollapse = require('pui-react-collapse').BaseCollapse;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <BaseCollapse header="Click to Toggle">
- *         <p>Toggleable content</p>
- *       </BaseCollapse>
- *     );
- *   }
- * });
- * ```
- *
- */
 var BaseCollapse = React.createClass({
   propTypes: {
     divider: types.bool,
@@ -54,27 +33,6 @@ var BaseCollapse = React.createClass({
   }
 });
 
-/**
- * @component Collapse
- * @description An accordion with an arrow icon in the toggle
- *
- * @property header {Element} HTML to use as the accordion toggle
- * @property divider {Boolean} Adds a line between the accordion header and accordion body
- *
- * @example ```js
- * var Collapse = require('pui-react-collapse').Collapse;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <Collapse header="Click to Toggle">
- *         <p>Toggleable content</p>
- *       </Collapse>
- *     );
- *   }
- * });
- * ```
- *
- */
 var Collapse = React.createClass({
   propTypes: {
     divider: types.bool,
@@ -100,27 +58,6 @@ var Collapse = React.createClass({
   }
 });
 
-/**
- * @component AltCollapse
- * @description An accordion with a plus/minus icon in the toggle
- *
- * @property header {Element} HTML to use as the accordion toggle
- * @property divider {Boolean} Adds a line between the accordion header and accordion body
- *
- * @example ```js
- * var AltCollapse = require('pui-react-collapse').AltCollapse;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <AltCollapse header="Click to Toggle">
- *         <p>Toggleable content</p>
- *       </AltCollapse>
- *     );
- *   }
- * });
- * ```
- *
- */
 var AltCollapse = React.createClass({
   propTypes: {
     divider: types.bool,

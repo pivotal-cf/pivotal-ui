@@ -18,30 +18,6 @@ function reset() {
   destinationPortals = {};
 }
 
-/**
- * @component PortalSource
- * @description Children of PortalSource will be rendered in the corresponding PortalDestination
- *
- * @property name {String} Identifier for linking source and destination portals
- *
- * @example ```js
- * var PortalSource = require('pui-react-portals').PortalSource;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <body>
- *         <section>
- *           <PortalSource name="modal">Modal Content</PortalSource>
- *         </section>
- *
- *         <PortalDestination name="modal"/>
- *       </body>
- *     );
- *   }
- * });
- * ```
- *
- */
 
 var PortalSource = React.createClass({
   propTypes: {
@@ -82,14 +58,6 @@ var PortalSource = React.createClass({
   }
 });
 
-
-/**
- * @component PortalDestination
- * @description Children of PortalSource will be rendered in the corresponding PortalDestination
- *
- * @property name {String} Identifier for linking source and destination portals
- *
- */
 
 var PortalDestination = React.createClass({
   propTypes: {

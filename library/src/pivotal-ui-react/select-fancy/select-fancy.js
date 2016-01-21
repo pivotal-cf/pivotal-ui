@@ -2,27 +2,6 @@ import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 import React from 'react';
 
-/**
- * @component SelectFancy
- * @description A select with a fancy style
- *
- * @property disabled {Boolean} Whether to disable the select.
- *
- * @example ```js
- * var SelectFancy = require('pui-react-select-fancy').SelectFancy;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *     <SelectFancy name="my-select">
- *       <option>Fancy Option 1</option>
- *       <option>Fancy Option 2</option>
- *     </SelectFancy>
- *   }
- * });
- * ```
- *
- */
-
 const types = React.PropTypes;
 
 var SelectFancy = React.createClass({

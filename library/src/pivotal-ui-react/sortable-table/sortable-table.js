@@ -5,13 +5,6 @@ const types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
 import findindex from 'lodash.findindex';
 
-/**
- * @component TableHeader
- * @description Wrapper for a th
- *
- * @property `sortable` {boolean} (defaults to false) indicates whether the table can be sorted by this column;
- *
- */
 export const TableHeader = React.createClass({
   propTypes: {
     onClick: types.func,
@@ -39,56 +32,10 @@ export const TableHeader = React.createClass({
   }
 });
 
-/**
- * @component TableCell
- * @description Wrapper for a td
- *
- */
 export const TableCell = (props) => <td {...props}/>;
 
-/**
- * @component TableRow
- * @description Wrapper for a tr
- *
- */
 export const TableRow = (props) => <tr {...props}/>;
 
-/**
- * @component SortableTable
- * @description A table that can be sorted by column
- *
- * @property `columns` {Array<Object>} A list of column metadata
- * @property `CustomRow` {Component} The component to use when rendering table rows
- * @property `data` {Array<Object>} A list of data to populate rows
- * @property `defaultSort` {String} The name of the column to sort on first
- *
- *
- * @example ```js
- * var {SortableTable} = require('pui-react-sortable-table');
- * var MyComponent = React.createClass({
- *   render() {
- *     const columns = [
- *        {
- *          attribute: 'c1',
- *          displayName: 'C One',
- *          sortable: true
- *        },
- *        {
- *          attribute: 'c2',
- *          displayName: 'C Two',
- *          sortable: true
- *        }
- *     ];
- *     var data = [
- *       {c1: 'yes', c2: 'foo'},
- *       {c1: 'no', c2: 'bar'}
- *     ];
- *     return <SortableTable columns={columns} data={data}/>
- *   }
- * });
- * ```
- *
- */
 export const SortableTable = React.createClass({
   propTypes: {
     columns: types.array.isRequired,

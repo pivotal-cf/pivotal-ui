@@ -3,58 +3,6 @@ import {UIButton} from 'pui-react-buttons';
 import {GroupList, ListItem} from 'pui-react-lists';
 import AnimationMixin from 'pui-react-animation';
 
-/**
- * @component StreamList
- * @description A dynamically growing list
- *
- * @property singularNewItemText {string} Text to be displayed when there is one new list item available
- * @property pluralNewItemsText {string} Text to be displayed when there are multiple new list items available
- *
- * @example ```jsx
- *  var DefaultButton = require('pui-react-buttons').DefaultButton;
- *  var ListItem = require('pui-react-lists').ListItem;
- *  var StreamList = require('pui-react-stream-list').StreamList;
- *
- *  var counter = (function() {
- *  var i = 4;
- *    return function() {
- *      return i++;
- *    }
- *  })();
- *
- *  var StreamListExample = React.createClass({
- *    simulateIncomingData: function() {
- *      var newData = this.state.data.concat(['Event ' + counter()]);
- *      this.setState({data: newData});
- *    },
- *
- *    getInitialState: function() {
- *      return {data: ['Event 1', 'Event 2', 'Event 3']};
- *    },
- *
- *    render: function() {
- *      return (
- *        <div>
- *          <DefaultButton onClick={this.simulateIncomingData}>Simulate Incoming Data</DefaultButton>
- *          <StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
- *            {this.state.data.map(function(datum) {
- *              return <ListItem>{datum}</ListItem>
- *            })}
- *          </StreamList>
- *         </div>
- *      );
- *    }
- *  });
- * ```
- *
- */
-
-/**
- * @component DraggableListItem
- * @description Denotes list items of a DraggableList
- *
- */
-
 const StreamListNewItemsButton = React.createClass({
   propTypes: {
     showNewItems: React.PropTypes.func.isRequired,
