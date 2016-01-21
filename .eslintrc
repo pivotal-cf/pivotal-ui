@@ -24,6 +24,6 @@
     "no-unused-expressions": 0,
     "quotes": [2, "single", "avoid-escape"],
     "strict": 0,
-    "react/prop-types": [2, {ignore: "children"}],
+    "react/prop-types": [2, {ignore: ["children", "className"]}],
   }
 }
