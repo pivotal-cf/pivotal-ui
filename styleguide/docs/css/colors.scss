@@ -29,13 +29,31 @@ colors rather than adding new ones.
     it very hard to change the values later if you can't tell how they might have been used.
     You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
   </p>
+
+  <p>
+    If you do want to use variables and mixins, install this module:
+
+  </p>
+
+  <code>
+    <i class="fa fa-download" alt="Install the Component">
+     npm install pui-css-variables-and-mixins
+    </i>
+  </code>
 </div>
+
+
 
 This example shows proper use of Sass variables.
 
 ```
 $tabs-active-bg-color: $gray-2;
 ```
+
+To use the color classes:
+
+Prepend any color variable with 'bg-' to apply that color to the background
+Prepend any color variable with 'type-' to apply that color to the text
 
 <div class="color-chip-row">
 

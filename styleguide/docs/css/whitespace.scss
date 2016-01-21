@@ -14,6 +14,27 @@ npm install pui-css-whitespace --save
 </i>
 </code>
 
+<div class="alert alert-warning alert-dismissable">
+  <h5 class="em-high mtn">
+    Sass variables should only be used in variables.css.scss.
+  </h5>
+  <p>
+    They should never be used directly when building components, because it makes
+    it very hard to change the values later if you can't tell how they might have been used.
+    You should <strong>define your own variables</strong> that use these values in variables.css.scss.
+  </p>
+
+  <p>
+    If you do want to use variables and mixins, install this module:
+  </p>
+
+  <code>
+    <i class="fa fa-download" alt="Install the Component">
+     npm install pui-css-variables-and-mixins
+    </i>
+  </code>
+</div>
+
 */
 /*doc
 ---
