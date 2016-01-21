@@ -29,7 +29,7 @@ A Flag is a special type of media that is vAlign='middle'.
 
 Media Modifiers     | Options                                        | Description
 ------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
-`bodyAlignment`     | top (default), "middle", "bottom"              | Vertical alignment of the body (used for large images with small content next to it, usually centered)
+`vAlign`            | top (default), "middle", "bottom"              | Vertical alignment of the body (used for large images with small content next to it, usually centered)
 `stackSize    `     | "xsmall", "small", "medium", "large"           | At what breakpoint should the media object stack
 
 The images or other media can be aligned top, middle, or bottom. The default is top aligned.
