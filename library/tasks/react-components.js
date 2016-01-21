@@ -1,12 +1,8 @@
 import license from './helpers/license-helper';
 import del from 'del';
-import highland from 'highland';
 import gulp from 'gulp';
-import readmeTemplate from '../templates/react/README';
-import path from 'path';
 import runSequence from 'run-sequence';
-import {componentDocs} from '../helpers/documentation_helper';
-import {packageJson} from './helpers/react-components-helper';
+import {packageJson, readme} from './helpers/react-components-helper';
 import {publishPackages} from './helpers/publish-helper';
 
 const plugins = require('gulp-load-plugins')();
@@ -38,24 +34,8 @@ gulp.task('react-build-package-json', () =>
 );
 
 gulp.task('react-build-readme', function() {
-  return highland(gulp.src(componentsGlob))
-    .flatMap(function(dir) {
-      return highland(
-        gulp.src(path.join(dir.path, '*.js'))
-          .pipe(plugins.concat(path.basename(dir.path)))
-      );
-    })
-    .map(function(file) {
-      const name = path.basename(file.path, 'js');
-      const {description, homepage} = require(path.join(path.dirname(file.path), 'package.json'));
-      const docs = componentDocs(file);
-
-      return Object.assign(file, {
-        base: path.dirname(file.base),
-        contents: new Buffer(readmeTemplate(name, docs, {homepage, description})),
-        path: path.join(path.dirname(file.path), 'README.md')
-      });
-    })
+  return gulp.src(componentsGlob)
+    .pipe(readme())
     .pipe(gulp.dest(buildFolder));
 });
 
