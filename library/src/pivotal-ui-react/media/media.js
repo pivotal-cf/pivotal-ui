@@ -3,62 +3,60 @@ var classnames = require('classnames');
 
 const shortSizes = {xsmall: 'xs', small: 'sm', medium: 'md', large: 'lg', xlarge: 'xl'};
 const charSizes = {small: 's', medium: 'm', large: 'l', xlarge: 'xl'};
-
-var MediaObject = React.createClass({
-  propTypes: {
-    leftMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
-    rightMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
-    vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
-    className: React.PropTypes.string,
-    horizontalAlignment: React.PropTypes.string
-  },
-  render() {
-    var {horizontalAlignment, vAlign, leftMediaSpacing, rightMediaSpacing, children} = this.props;
-    var className = classnames(
-      horizontalAlignment && `media-${horizontalAlignment}`,
-      vAlign && `media-${vAlign}`,
-      leftMediaSpacing && `pr${charSizes[leftMediaSpacing]}`,
-      rightMediaSpacing && `pr${charSizes[rightMediaSpacing]}`
-    );
-    return <div className={className}>{children}</div>;
-  }
-});
+const paddingDirection = {left: 'r', right: 'l'};
 
 var Media = React.createClass({
   propTypes: {
-    leftImage: React.PropTypes.object,
-    rightImage: React.PropTypes.object,
+    image: React.PropTypes.node.isRequired,
     innerClassName: React.PropTypes.string,
-    hasImages: function(props) {
-      if (!props.leftImage && !props.rightImage) {
-        return new Error('The media component must have at least one image');
-      }
-    },
-    leftMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
-    rightMediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
+    mediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     stackSize: React.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
     vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
+    hAlign: React.PropTypes.oneOf(['left', 'right']),
     className: React.PropTypes.string
   },
 
+  getDefaultProps() {
+    return {
+      hAlign: 'left'
+    };
+  },
+
   render() {
-    var {className, innerClassName, leftImage, leftMediaSpacing, rightImage, rightMediaSpacing, stackSize, vAlign, children, ...other} = this.props;
+    var {className, innerClassName, image, mediaSpacing, stackSize, vAlign, hAlign, children, ...other} = this.props;
 
-    var classes = classnames('media', stackSize && `media-stackable-${shortSizes[stackSize]}`, className);
-    var bodyClasses = classnames('media-body', vAlign && `media-${vAlign}`, innerClassName);
+    var vAlignClass = vAlign && `media-${vAlign}`;
 
-    var leftMedia = leftImage ?
-      <MediaObject horizontalAlignment="left" {...{vAlign, leftMediaSpacing}}>{leftImage}</MediaObject> :
-      null;
-    var rightMedia = rightImage ?
-      <MediaObject horizontalAlignment="right" {...{vAlign, rightMediaSpacing}}>{rightImage}</MediaObject> :
-      null;
+    var classes = classnames(
+      'media',
+      stackSize && `media-stackable-${shortSizes[stackSize]}`,
+      className
+    );
+
+    var bodyClasses = classnames(
+      'media-body',
+      vAlignClass,
+      innerClassName
+    );
+
+    var mediaClasses = classnames(
+      `media-${hAlign}`,
+      vAlignClass,
+      `p${paddingDirection[hAlign]}${charSizes[mediaSpacing]}`
+    );
+
+    var content = [
+      <div key={0} className={mediaClasses}>{image}</div>,
+      <div key={1} className={bodyClasses}>{children}</div>
+    ];
+
+    if(hAlign === 'right') {
+      content.reverse();
+    }
 
     return (
       <div {...other} className={classes}>
-        {leftMedia}
-        <div className={bodyClasses}>{children}</div>
-        {rightMedia}
+        {content}
       </div>
     );
   }

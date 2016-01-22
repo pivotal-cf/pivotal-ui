@@ -13,7 +13,7 @@ npm install pui-react-media --save
 </i>
 </code>
 
-For the example, you also need to install [Images](#image_react) and require `Image` from it.
+For the example, you also need to install [Images][image_react] and require `Image` from it.
 
 
 Require the subcomponents:
@@ -29,8 +29,10 @@ A Flag is a special type of media that is vAlign='middle'.
 
 Media Modifiers     | Options                                        | Description
 ------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
+`hAlign`            | "left" (default), "right"                      | Horizontal alignment of the media
 `vAlign`            | top (default), "middle", "bottom"              | Vertical alignment of the body (used for large images with small content next to it, usually centered)
-`stackSize    `     | "xsmall", "small", "medium", "large"           | At what breakpoint should the media object stack
+`stackSize`         | "xsmall", "small", "medium", "large"           | At what breakpoint should the media object stack
+`mediaSpacing`      | "small", "medium", "large", "xlarge"           | Amount of whitespace between media and body
 
 The images or other media can be aligned top, middle, or bottom. The default is top aligned.
 
@@ -42,24 +44,13 @@ var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://
 ```
 
 ```react_example_table
-<Media
-  leftImage={mediaBasicImage}
-  innerClassName='my-media-body'>
-  left media
+<Media image={mediaBasicImage}>
+  Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10.
 </Media>
 
-<Media
-  rightImage={mediaBasicLinkedImage}
-  vAlign='middle'>
-  right media
-</Media>
-
-<Media
-  leftImage={mediaBasicImage}
-  rightImage={mediaBasicImage}
-  vAlign='middle'
-  stackSize='medium'>
-  left and right media
+<Media image={mediaBasicLinkedImage}
+       hAlign='right'>
+  We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 </Media>
 ```
 
@@ -67,7 +58,7 @@ var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://
 
 /*doc
 ---
-title: Alignment
+title: Vertical Alignment
 name: media_alignment_react
 parent: media_react
 ---
@@ -78,20 +69,16 @@ var mediaAlignmentImage = <Image href='http://www.google.com' src='http://placeh
 
 ```react_example
 <div>
-  <Media leftImage={mediaAlignmentImage}>
+  <Media image={mediaAlignmentImage}>
     Media: top aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </Media>
 
-  <Flag leftImage={mediaAlignmentImage}>
+  <Flag image={mediaAlignmentImage}>
     Flag: middle aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </Flag>
 
-  <Flag leftImage={mediaAlignmentImage}>
-    Flag: middle aligned and middle body (for short text and big images)
-  </Flag>
-
   <Media
-    leftImage={mediaAlignmentImage}
+    image={mediaAlignmentImage}
     vAlign='bottom'>
     Media: bottom aligned - This is rarely, if ever, used. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
   </Media>
@@ -114,31 +101,31 @@ var mediaSpacingImage = <Image href='http://www.google.com' src='http://placehol
 ```
 
 ```react_example_table
-<Media leftImage={mediaSpacingImage}>
+<Media image={mediaSpacingImage}>
   default image spacing media
 </Media>
 
 <Media
-  leftImage={mediaSpacingImage}
-  leftMediaSpacing='small'>
+  image={mediaSpacingImage}
+  mediaSpacing='small'>
   small image spacing media
 </Media>
 
 <Media
-  leftImage={mediaSpacingImage}
-  leftMediaSpacing='medium'>
+  image={mediaSpacingImage}
+  mediaSpacing='medium'>
   medium image spacing media
 </Media>
 
 <Media
-  leftImage={mediaSpacingImage}
-  leftMediaSpacing='large'>
+  image={mediaSpacingImage}
+  mediaSpacing='large'>
   large image spacing media
 </Media>
 
 <Media
-  leftImage={mediaSpacingImage}
-  leftMediaSpacing='xlarge'>
+  image={mediaSpacingImage}
+  mediaSpacing='xlarge'>
   xlarge image spacing media
 </Media>
 ```

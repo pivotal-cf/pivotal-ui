@@ -32,7 +32,7 @@ var Alert = React.createClass({
 
       if (withIcon) {
         var icon = <i className={`fa ${alertIcon}`}></i>;
-        children = <Media className={'mtn'} leftImage={icon}>{children}</Media>;
+        children = <Media className={'mtn'} image={icon}>{children}</Media>;
       }
       return <BsAlert {...others} onDismiss={onDismiss}>{children}</BsAlert>;
     }
