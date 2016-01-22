@@ -24,11 +24,12 @@ const PanelTitle = React.createClass({
 
 class PanelHeader extends React.Component {
   static propTypes = {
-    header: types.node
+    header: types.node,
+    actions: types.node
   };
 
   render() {
-    const {header} = this.props;
+    const {header, actions} = this.props;
     if(header) {
       var headerNode = header.constructor === String ?
         (<PanelTitle>{header}</PanelTitle>) :
@@ -37,6 +38,9 @@ class PanelHeader extends React.Component {
       return (
         <div className="panel-header">
           {headerNode}
+          <div className="actions mrl mtm">
+            {actions}
+          </div>
         </div>
       );
     } else {
@@ -70,6 +74,7 @@ class Panel extends React.Component {
   static propTypes = {
     header: types.node,
     footer: types.node,
+    actions: types.node,
     innerClassName: types.string,
     padding: function(props, propName, componentName) {
       if (props.padding && !props.padding.split(' ').every(pad => paddingTypes.indexOf(pad) >= 0)) {
@@ -83,7 +88,7 @@ class Panel extends React.Component {
   };
 
   render() {
-    const {header, footer, innerClassName, padding, scrollable, children, ...other} = this.props;
+    const {header, footer, innerClassName, padding, scrollable, children, actions, ...other} = this.props;
     const panelStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
       className: ['panel', this.kind, {'panel-scrollable': scrollable}],
@@ -92,7 +97,7 @@ class Panel extends React.Component {
 
     return (
       <div {...props}>
-        <PanelHeader header={header}/>
+        <PanelHeader header={header} actions={actions}/>
         <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
         <PanelFooter footer={footer}/>
       </div>

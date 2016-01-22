@@ -45,6 +45,13 @@
 .panel-header {
   padding: $panel-title-padding;
   border-bottom: $panel-title-border;
+
+  position: relative;
+  .actions {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
 
 .panel-title-alt {
