@@ -1,9 +1,9 @@
 {
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "A collection of React components that provide standard typographical headers",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-typography": "3.0.0-alpha.2",
-    "pui-react-helpers": "3.0.0-alpha.2"
+    "pui-css-typography": "3.0.0-alpha.3",
+    "pui-react-helpers": "3.0.0-alpha.3"
   }
 }

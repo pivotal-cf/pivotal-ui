@@ -1,10 +1,10 @@
 {
-  "version": "3.0.0-alpha.2",
+  "version": "3.0.0-alpha.3",
   "description": "React components providing horizontal rules for dividing content",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-dividers": "3.0.0-alpha.2",
-    "pui-react-helpers": "3.0.0-alpha.2"
+    "pui-css-dividers": "3.0.0-alpha.3",
+    "pui-react-helpers": "3.0.0-alpha.3"
   }
 }
