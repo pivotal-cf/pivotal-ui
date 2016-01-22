@@ -52,6 +52,10 @@ See examples below.
  Base Panel with custom header
 </Panel>
 
+<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={[<button>Go</button>, <button>Stop</button>]}>
+ Base Panel with custom header and actions
+</Panel>
+
 <Panel className="bg-neutral-10" footer='footer'>
  Base Panel with footer
 </Panel>
