@@ -73,15 +73,16 @@ again.
 
 ## Creating a new release
 
+1. Switch to `master` branch
+2. Merge in changes from `development`
 1. Run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
-  - Updates the version in `package.json`
-  - Updates the version in `package.json` for all changed pui modules, and all
+  - Update the version in `package.json`
+  - Update the version in `package.json` for all changed pui modules, and all
     of their dependents.
-  - Updates `CHANGELOG.md` with auto-generated release notes
-  - Updates `LATEST_CHANGES.md` with auto-generated release notes for the most
+  - Update `CHANGELOG.md` with auto-generated release notes
+  - Update `LATEST_CHANGES.md` with auto-generated release notes for the most
     recent change only
-  - Creates the `release/pui-vX.X.X` folder
 
 1. If you want to make any changes (e.g. add more docs to the changelog, modify
    a version number, etc.), do that now.
@@ -90,15 +91,12 @@ again.
 
 9. Run `gulp release-commit` to commit the release.
 
-1. Run `gulp release-push`. This will:
+1. Run `gulp release-push-packages`. This will:
   - Creates a tag for the new version
   - Pushes version bump and new tag to github
-  - Creates a draft github release with the auto-generated release notes
   - Publishes all of the updated node packages to npm
 
-1. Be sure to name the release an ice cream flavor.
-
-![](http://images2.fanpop.com/images/photos/3600000/Lucille-Animated-gif-arrested-development-3695222-275-155.gif)
+100. Merge `master` back into `development`
 
 ## Setting up a new pairing station:
 
