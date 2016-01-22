@@ -1,6 +1,7 @@
-require('jasmine_dom_matchers');
+require('babel-polyfill');
 require('phantomjs-polyfill');
 
+require('jasmine_dom_matchers');
 global.React = require('react');
 global.ReactDOM = require('react-dom');
 
