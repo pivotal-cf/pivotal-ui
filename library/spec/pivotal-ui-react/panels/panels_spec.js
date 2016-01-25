@@ -44,14 +44,24 @@ describe('Panel', function() {
 
     describe('when the panel header is passed actions', function() {
       beforeEach(function() {
-        const actions = [<button key={1}>I'm a button</button>, <button key={2}>I'm also a button</button>];
+        const actions = <div><button key={1}>I'm a button</button><button key={2}>I'm also a button</button></div>;
         const header = <div className="hey">HEY</div>;
         ReactDOM.render(<Panel header={header} actions={actions}>Sup</Panel>, root);
       });
 
       it('renders the actions', function() {
-        expect('.actions button:eq(0)').toContainText("I'm a button");
-        expect('.actions button:eq(1)').toContainText("I'm also a button");
+        expect('.panel-actions button:eq(0)').toContainText("I'm a button");
+        expect('.panel-actions button:eq(1)').toContainText("I'm also a button");
+      });
+    });
+
+    describe('when the panel header is passed with no actions', function() {
+      beforeEach(function() {
+        ReactDOM.render(<Panel header="This is a title">Sup</Panel>, root);
+      });
+
+      it('does not render the actions', function() {
+        expect('.panel-actions').not.toExist();
       });
     });
   });

@@ -31,16 +31,15 @@ class PanelHeader extends React.Component {
   render() {
     const {header, actions} = this.props;
     if(header) {
-      var headerNode = header.constructor === String ?
+      const headerNode = header.constructor === String ?
         (<PanelTitle>{header}</PanelTitle>) :
         header;
+      const actionsNode = actions ? <div className="panel-actions">{actions}</div> : null;
 
       return (
         <div className="panel-header">
           {headerNode}
-          <div className="actions mrl mtm">
-            {actions}
-          </div>
+          {actionsNode}
         </div>
       );
     } else {

@@ -35,7 +35,6 @@
 }
 
 
-
 .panel-basic {
   border-radius: $border-radius-medium;
   @include background-clip-fix;
@@ -45,13 +44,9 @@
 .panel-header {
   padding: $panel-title-padding;
   border-bottom: $panel-title-border;
-
-  position: relative;
-  .actions {
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .panel-title-alt {
