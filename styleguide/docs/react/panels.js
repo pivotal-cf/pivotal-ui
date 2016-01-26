@@ -48,11 +48,15 @@ See examples below.
  Base Panel with base header
 </Panel>
 
+<Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
+  Base Panel with subtitle
+</Panel>
+
 <Panel className="bg-neutral-10" header={<h2>Custom Title</h2>}>
  Base Panel with custom header
 </Panel>
 
-<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={[<button>Go</button>, <button>Stop</button>]}>
+<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={<div><button>Go</button><button>Stop</button></div>}>
  Base Panel with custom header and actions
 </Panel>
 

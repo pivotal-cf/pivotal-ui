@@ -55,6 +55,17 @@ describe('Panel', function() {
       });
     });
 
+    describe('when the panel header is passed a subtitle', () => {
+      beforeEach(() => {
+        const header = <div className="hey">HEY</div>;
+        ReactDOM.render(<Panel header={header} subtitle="man">Sup</Panel>, root);
+      });
+
+      it('renders the subtitle', function() {
+        expect('.panel-subtitle').toHaveText('man');
+      });
+    });
+
     describe('when the panel header is passed with no actions', function() {
       beforeEach(function() {
         ReactDOM.render(<Panel header="This is a title">Sup</Panel>, root);
