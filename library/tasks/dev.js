@@ -10,12 +10,12 @@ gulp.task('setup-watchers', (callback) => {
   callback();
 });
 
-gulp.task('dev', (callback) => runSequence(
+gulp.task('sandbox', (callback) => runSequence(
   'setup-watchers',
   'sandbox-serve',
   callback
 ));
 
-gulp.task('start', ['dev', 'jasmine-react']);
+gulp.task('start', ['sandbox', 'jasmine-react']);
 
 gulp.task('build', ['css-build', 'react-build']);

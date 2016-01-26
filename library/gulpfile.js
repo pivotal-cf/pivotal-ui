@@ -5,4 +5,4 @@ requireDir('./tasks');
 
 var gulp = require('gulp');
 
-gulp.task('default', ['dev']);
+gulp.task('default', ['ci']);
