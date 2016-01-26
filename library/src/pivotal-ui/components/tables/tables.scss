@@ -142,6 +142,7 @@
     cursor: pointer;
     &:after {
       margin-left: 4px;
+      position: absolute;
       content: "";
       font-weight: 200;
       font-family: FontAwesome;
