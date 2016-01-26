@@ -20,6 +20,7 @@ gulp.task('sandbox-serve', ['sandbox-build'], () => {
 gulp.task('sandbox-build', ['sandbox-clean'], () =>
     runSequence([
       'sandbox-build-sass',
+      'sandbox-copy-font-awesome-stylesheet',
       'sandbox-build-js',
       'sandbox-copy-fonts',
       'sandbox-copy-html'
@@ -41,6 +42,11 @@ gulp.task('sandbox-build-js', () =>
       .pipe(gulp.dest(SANDBOX_BUILD_DIR))
 );
 
+gulp.task('sandbox-copy-font-awesome-stylesheet', () => {
+  gulp.src('node_modules/font-awesome/css/font-awesome.css')
+    .pipe(gulp.dest(SANDBOX_BUILD_DIR));
+});
+
 gulp.task('sandbox-build-sass', () =>
     gulp.src('src/pivotal-ui/components/**/*.scss')
       .pipe(plugins.plumber())
@@ -51,6 +57,6 @@ gulp.task('sandbox-build-sass', () =>
 );
 
 gulp.task('sandbox-copy-fonts', () =>
-    gulp.src('src/pivotal-ui/components/typography/fonts/*')
+    gulp.src(['src/pivotal-ui/components/typography/fonts/*', 'src/pivotal-ui/components/iconography/fonts/*'])
       .pipe(gulp.dest(`${SANDBOX_BUILD_DIR}/fonts`))
 );
