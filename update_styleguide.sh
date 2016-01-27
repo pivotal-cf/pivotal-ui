@@ -8,6 +8,6 @@ popd
 
 pushd styleguide
   rm -rf node_modules/pui-*
-  npm i
+  npm i --no-progress
 popd
 
