@@ -16,7 +16,7 @@ $(document).ready(() => {
     var IntroPage = require('./intro-page');
 
     ReactDOM.render(
-      <IntroPage> I'm the react intro </IntroPage>,
+      <IntroPage/>,
       introNode
     );
   }

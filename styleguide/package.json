@@ -111,7 +111,7 @@
     "gulp-open": "^0.3.2",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.1.0",
+    "gulp-sass": "^2.1.1",
     "gulp-util": "^3.0.7",
     "imports-loader": "^0.6.5",
     "jasmine_dom_matchers": "^1.0.0",
