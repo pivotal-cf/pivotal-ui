@@ -69,7 +69,7 @@ export function publishPackages(registry) {
         await npmPublish([packageInfo.dir]);
 
         if (!registry) { //sinopia doesn't seem to support maintainers
-          const owners = ['stubbornella', 'ctaymor', 'atomanyih', 'kennyw1019', 'd-reinhold', 'cthompson'];
+          const owners = ['charleshansen', 'atomanyih', 'kennyw1019', 'd-reinhold'];
           for (const owner of owners) {
             await npmOwner(['add', owner, packageInfo.name]);
           }

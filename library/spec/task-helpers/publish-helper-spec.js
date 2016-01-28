@@ -103,8 +103,8 @@ describe('publishPackages', () => {
       await publishPackages()(
         packages
       );
-      expect(npmOwner).toHaveBeenCalledWith(['add', 'stubbornella', 'hamburger']);
-      expect(npmOwner).toHaveBeenCalledWith(['add', 'stubbornella', 'hotdog']);
+      expect(npmOwner).toHaveBeenCalledWith(['add', 'charleshansen', 'hamburger']);
+      expect(npmOwner).toHaveBeenCalledWith(['add', 'charleshansen', 'hotdog']);
       done();
     });
   });
