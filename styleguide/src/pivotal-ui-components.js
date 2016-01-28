@@ -38,6 +38,6 @@ assignToGlobal([
   require('pui-react-sortable-table'),
   require('pui-react-stream-list'),
   require('pui-react-tabs'),
-  {TileLayout: require('pui-react-tile-layout')},
+  require('pui-react-tile-layout'),
   require('pui-react-tooltip')
 ]);

@@ -16,7 +16,7 @@
  Require the subcomponent:
 
  ```
- var Autocomplete = require('pui-react-autocomplete');
+ var Autocomplete = require('pui-react-autocomplete').Autocomplete;
  ```
 
  ```jsx_example

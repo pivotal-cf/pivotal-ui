@@ -2,7 +2,7 @@ require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('TileLayout', () => {
-  const TileLayout = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
+  const {TileLayout} = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
 
   it('creates tile-layout', () => {
     ReactDOM.render(<TileLayout></TileLayout>, root);

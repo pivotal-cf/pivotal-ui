@@ -51,4 +51,4 @@ TileLayout.Item = React.createClass({
   }
 });
 
-export default TileLayout;
+export default {TileLayout};

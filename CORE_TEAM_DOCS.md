@@ -42,7 +42,7 @@ Once we merge in a PR, it is our responsibility to properly publish new componen
 4. Publish the module to NPM (see below)
 5. Add the newly published component as a dependency in the top-level `package.json`.
 6. Add new css modules as dependencies to the `all` css component.
-7. Require/export any new react components in `library/src/pivotal-ui/javascripts/components.js`.
+7. Require/export any new react components in `styleguide/src/pivotal-ui-components.js`.
 
 ### Publishing new modules
 
