@@ -12,7 +12,6 @@
 - Add to github, ADT CLA google group, tracker, google drive folder, and calendar invites (ipm, retro, standup, feedback time)
 - Add new member's NPM login to the publish helper in `tasks/helpers/publish-helper.js`
 - Add new member as owner of dr-frankenstyle or gulp-dr-frankenstyle
-- Add github username to the external PR signature (above)
 - Add to ~/.gitauthors file on all PUI computers
 
 ## Setting up your environment
@@ -29,22 +28,21 @@ We use
 ## Deploying the styleguide
 
 The staging styleguide deploys automatically when your changes are merged into
-master on github and all the tests go green on CI.  The production
+development on github and all the tests go green on CI.  The production
 styleguide deploys as part of the release process (see below).
 
 ## New components
 
 Once we merge in a PR, it is our responsibility to properly publish new components.
 
-1. Ensure that there is an appropriate example in the README, and that all
-   dependencies are listed in the component's `package.json`
-3. Ensure that there is an example in the styleguide
-1. It can be helpful to set the version number in the `package.json` files to `0.0.1`
+1. Ensure that all dependencies are listed in the component's `package.json`
+2. Ensure that there is an example in the styleguide
+3. It can be helpful to set the version number in the `package.json` files to `0.0.1`
    so there is room to fix any errors after first publishing the module
-6. Publish the module to NPM (see below)
+4. Publish the module to NPM (see below)
 5. Add the newly published component as a dependency in the top-level `package.json`.
-q. Add new css modules as dependencies to the `all` css component.
-8. Require/export any new react components in `library/src/pivotal-ui/javascripts/components.js`.
+6. Add new css modules as dependencies to the `all` css component.
+7. Require/export any new react components in `library/src/pivotal-ui/javascripts/components.js`.
 
 ### Publishing new modules
 

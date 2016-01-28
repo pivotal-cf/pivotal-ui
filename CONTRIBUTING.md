@@ -625,49 +625,7 @@ E.g. for iconography:
 
 ### README documentation - React components
 
-This documentation will show up in the README of the component npm packages.
-We generate README documentation from "javadocs" in the components' source
-code. There should a javadoc for each React class exported by the
-package. Each javadoc should have the following:
-
-- `@component` - the name of the React class
-- `@description` - keep it short
-- `@priperty` **for each property** - required for every public-facing property
-  that can be passed into the component
-- `@example` - should show a basic use case. Include multiple if necessary
-
-For example, the draggable list package, which exports `DraggableList` and
-`DraggableListItem` has the following javadocs:
-
-```js
-/**
- * @component DraggableList
- * @description A list that can be re-ordered via drag-drop
- *
- * @property onDrop {Function} A callback called when the user re-orders list items
- *
- * @example ```js
- * var DraggableList = require('pui-react-draggable-list').DraggableList;
- * var DraggableListItem = require('pui-react-draggable-list').DraggableListItem;
- * var MyComponent = React.createClass({
- *   render() {
- *     return (
- *       <DraggableList onDrop={draggableListDropCallback}>
- *         <DraggableListItem>Get me out of here!</DraggableListItem>
- *         <DraggableListItem>LOL</DraggableListItem>
- *         <DraggableListItem>Can't stop</DraggableListItem>
- *       </DraggableList>
- *     );
- *   }
- * });
- * ```
- */
-
-/**
- * @component DraggableListItem
- * @description Denotes list items of a DraggableList
- */
-```
+The `README` files for React components are auto-generated and simply point back to the styleguide; you do not need to write these.
 
 ## Code guidelines
 
