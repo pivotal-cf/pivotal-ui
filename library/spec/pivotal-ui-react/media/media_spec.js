@@ -30,7 +30,7 @@ describe('Media', function() {
   describe('when media is left aligned', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>);
-      ReactDOM.render((<Media image={image} hAlign="left">fop</Media>), root);
+      ReactDOM.render((<Media image={image} placement="left">fop</Media>), root);
     });
 
     it('displays the media-left link with an image inside', function() {
@@ -50,13 +50,13 @@ describe('Media', function() {
     describe('When default image padding is modified to large', function() {
       it('adds the prl class to the left aligned image', function() {
         var image = (<img src="http://placehold.it/20x20"/>);
-        ReactDOM.render((<Media image={image} hAlign="left" mediaSpacing="large">fop</Media>), root);
+        ReactDOM.render((<Media image={image} placement="left" mediaSpacing="large">fop</Media>), root);
         expect('.media .media-left').toHaveClass('prl');
       });
 
       it('adds the pll class to the right image', function() {
         var image = (<img src="http://placehold.it/20x20"/>);
-        ReactDOM.render((<Media image={image} hAlign="right" mediaSpacing="large">fop</Media>), root);
+        ReactDOM.render((<Media image={image} placement="right" mediaSpacing="large">fop</Media>), root);
         expect('.media .media-right').toHaveClass('pll');
       });
     });
@@ -65,7 +65,7 @@ describe('Media', function() {
   describe('when media is right aligned', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      ReactDOM.render((<Media image={image} hAlign="right">fop</Media>), root);
+      ReactDOM.render((<Media image={image} placement="right">fop</Media>), root);
     });
 
     it('displays the media-right with an image inside', function() {
@@ -75,7 +75,7 @@ describe('Media', function() {
     describe('When default image padding is modified to large', function() {
       it('adds the pll class to the right image', function(){
         var image = (<img src="http://placehold.it/20x20"/>);
-        ReactDOM.render((<Media image={image} hAlign="right" mediaSpacing="large">fop</Media>), root);
+        ReactDOM.render((<Media image={image} placement="right" mediaSpacing="large">fop</Media>), root);
         expect('.media .media-right').toHaveClass('pll');
       });
     });
@@ -84,7 +84,7 @@ describe('Media', function() {
   describe('when image alignment is set to middle', function() {
     beforeEach(function() {
       var image = (<img src="http://placehold.it/20x20"/>);
-      ReactDOM.render((<Media image={image} hAlign="left" vAlign="middle">fop</Media>), root);
+      ReactDOM.render((<Media image={image} placement="left" vAlign="middle">fop</Media>), root);
     });
 
     it('displays the media-middle class', function() {

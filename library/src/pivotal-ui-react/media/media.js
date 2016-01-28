@@ -12,18 +12,18 @@ var Media = React.createClass({
     mediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
     stackSize: React.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
     vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
-    hAlign: React.PropTypes.oneOf(['left', 'right']),
+    placement: React.PropTypes.oneOf(['left', 'right']),
     className: React.PropTypes.string
   },
 
   getDefaultProps() {
     return {
-      hAlign: 'left'
+      placement: 'left'
     };
   },
 
   render() {
-    var {className, innerClassName, image, mediaSpacing, stackSize, vAlign, hAlign, children, ...other} = this.props;
+    var {className, innerClassName, image, mediaSpacing, stackSize, vAlign, placement, children, ...other} = this.props;
 
     var vAlignClass = vAlign && `media-${vAlign}`;
 
@@ -40,9 +40,9 @@ var Media = React.createClass({
     );
 
     var mediaClasses = classnames(
-      `media-${hAlign}`,
+      `media-${placement}`,
       vAlignClass,
-      `p${paddingDirection[hAlign]}${charSizes[mediaSpacing]}`
+      `p${paddingDirection[placement]}${charSizes[mediaSpacing]}`
     );
 
     var content = [
@@ -50,7 +50,7 @@ var Media = React.createClass({
       <div key={1} className={bodyClasses}>{children}</div>
     ];
 
-    if(hAlign === 'right') {
+    if(placement === 'right') {
       content.reverse();
     }
 

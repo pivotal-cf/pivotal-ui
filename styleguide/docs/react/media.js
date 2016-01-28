@@ -29,7 +29,7 @@ A Flag is a special type of media that is vAlign='middle'.
 
 Media Modifiers     | Options                                        | Description
 ------------------- | ---------------------------------------------- | --------------------------------------------------------------------------
-`hAlign`            | "left" (default), "right"                      | Horizontal alignment of the media
+`placement`         | "left" (default), "right"                      | Horizontal placement of the media
 `vAlign`            | top (default), "middle", "bottom"              | Vertical alignment of the body (used for large images with small content next to it, usually centered)
 `stackSize`         | "xsmall", "small", "medium", "large"           | At what breakpoint should the media object stack
 `mediaSpacing`      | "small", "medium", "large", "xlarge"           | Amount of whitespace between media and body
@@ -49,7 +49,7 @@ var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://
 </Media>
 
 <Media image={mediaBasicLinkedImage}
-       hAlign='right'>
+       placement='right'>
   We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 </Media>
 ```
