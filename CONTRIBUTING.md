@@ -50,20 +50,26 @@ system already, but many of them are preinstalled on a Pivotal dev box.
 
 (Run all of these commands from the project root)
 
-ruby 2.1.2
+1. ruby 2.1.2
 
-bundler
+2. bundler
 
   `$ gem install bundler`
 
-node and npm (at this time `nodejs` version `0.12` is required. Install
-[nvm](https://github.com/creationix/nvm) then use it to install node and npm.)
+3. node 4+
 
-  `$ nvm install 0.12`
+	If you are on a mac and `node -v` returns a version less than 4, `brew upgrade node`
 
-the gulp cli
+	If your project requires an older version of node, you may want to use
+	[nvm](https://github.com/creationix/nvm) to manage node versions)
+
+4. the gulp cli
 
   `$ npm install gulp -g`
+  
+  OR
+  
+  add `./node_modules/.bin/` to your PATH
 
 ### Build the Projects
 
@@ -80,19 +86,9 @@ npm install
 
 #### Styleguide
 
-First, build the library (above) and then compile the library:
-
+To build the styleguide
 ```sh
-gulp react-build
-gulp css-build
-```
-
-Then build the styleguide
-
-```sh
-cd ../styleguide
-bundle install
-npm install
+./update_styleguide.sh
 ```
 
 ### Development
@@ -101,7 +97,7 @@ npm install
 
 To work on components for the library, build the library and then start the sandbox server
 
-`$ gulp`
+`$ gulp sandbox`
 
 Create a `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
 
@@ -119,17 +115,15 @@ To run all tests:
 
 To work on documentation in the styleguide, first build the library and then
 
-`$ gulp`
-
-The styleguide will be served at [http://localhost:8000](http://localhost:8000).
-
-Note that if you update components, you must rebuild them in the library and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not be good enough to get the new changes.
-
-then visit [http://localhost:8000](http://localhost:8000)
+`$ gulp dev`
 
 This will generate a local version of the styleguide and start up the
 styleguide development server. It also sets up some watchers to regenerate the
 styleguide pages and styles when you change a PUI scss file or a JS documentation file.
+
+The styleguide will be served at [http://localhost:8000](http://localhost:8000).
+
+Note that if you update components, you must rebuild them in the library and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not be good enough to get the new changes.
 
 
 ## Pull requests
@@ -173,7 +167,7 @@ This will ensure our conversation doesn't get lost in email or slack.
    [component dependencies](#component-dependencies) for more info).
 
 1. For CSS components: if you add any new image or font assets to any CSS
-   packages, you will need to restart your development server (rerun `gulp`) to
+   packages, you will need to restart your development server (rerun `gulp dev`) to
    see those additions.
 
 1. [Document your component](#documenting-components) in the styleguide and the
@@ -243,11 +237,8 @@ Iconography's package json has the following:
 }
 ```
 
-Because typography relies on bootstrap, we don't need to list it as a dependency
-for bootstrap.
-
-We like the versions of dependecies to be exact, not fuzzy (e.g. "1.9.3", not
-"^1.9.3").
+Because typography relies on bootstrap, we don't need to list bootstrap as a dependency
+for iconography.
 
 #### React components
 
@@ -274,9 +265,6 @@ So alert's package json has the following:
   "react-bootstrap": "^0.23.3"
 }
 ```
-
-We like the versions of any `pui-*` dependecies to be exact, not fuzzy (e.g.
-"1.9.3", not "^1.9.3"). For non-pui modules, use your best judgement :grin:
 
 ### Adding new components
 _We are still refining this process! If you find any of this confusing, let us know!_
@@ -315,8 +303,15 @@ In the styleguide top-level `package.json`, include a dependency on your new **u
 If you are adding a new React component, please modify the files in
 `src/pivotal-ui-react/[component name]`.
 
-Write your components and javadocs in `styleguide/src/pivotal-ui-react/[component name]/[component name].js`.
-Write your hologram docs and any css in `styleguide/src/pivotal-ui/components/[component name]/[component name].scss`.
+Write your components in `library/src/pivotal-ui-react/[component name]/[component name].js`.
+
+Write your hologram docs for React in `styleguide/docs/react/[component name]/[component name].js`.
+
+Many components do not have new css, if they do:
+
+Write css for your components in `library/src/pivotal-ui/components/[component name]/[component name].js`.
+
+Write hologram docs for your css in `styleguide/docs/css/[component name]/[component name].scss`.
 
 Write your tests in `library/spec/pivotal-ui-react/[component name]/[component name]_spec.js`. In the library folder, run
 `gulp jasmine-react` to test in the browser or `gulp jasmine-react-ci` to test headlessly with PhantomJS.
@@ -346,10 +341,6 @@ Please let us know the priority level in your bug report.
 
 ### Guidelines for bug reports:
 
-0. **Validate and lint your code** &mdash; If you're working with the HTML/CSS
-   library, [validate your HTML](http://html5.validator.nu) and [lint your
-   HTML](https://github.com/twbs/bootlint) to ensure your problem isn't caused
-   by a simple error in your own code.
 
 1. **Use the GitHub issue search** &mdash; check if the issue has already been
    reported.

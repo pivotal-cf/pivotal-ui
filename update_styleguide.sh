@@ -7,6 +7,7 @@ pushd library
 popd
 
 pushd styleguide
+  bundle
   rm -rf node_modules/pui-*
   npm i --no-progress
 popd
