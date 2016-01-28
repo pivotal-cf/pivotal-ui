@@ -91,6 +91,7 @@ again.
 	3. `rm -rf old_styleguides/x.x` where `x.x` is the major and minor version of your release (e.g. 3.0)
 	4. `cp -r build/ old_styleguides/x.x`
 	5. `rm -rf old_styleguides/x.x/*.*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
+	5. If you are releasing a new major or minor version, add a link in `docs/other-versions.scss`
 	6. `gulp ci`
 	7. `cd ../library`
 
@@ -102,6 +103,8 @@ again.
   - Creates a tag for the new version
   - Pushes version bump and new tag to github
   - Publishes all of the updated node packages to npm
+  
+99. From the `styleguide` directory: `gulp push-styleguide` will push to production. Make sure you are targeting the correct space on CF
 
 100. Merge `master` back into `development`
 
