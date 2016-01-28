@@ -84,6 +84,15 @@ again.
 
 1. If you want to make any changes (e.g. add more docs to the changelog, modify
    a version number, etc.), do that now.
+   
+5. Put a copy of the current styleguide in `old_styleguides`
+	1. `cd ../styleguide`
+	2. `gulp styleguide-build`
+	3. `rm -rf old_styleguides/x.x` where `x.x` is the major and minor version of your release (e.g. 3.0)
+	4. `cp -r build/ old_styleguides/x.x`
+	5. `rm -rf old_styleguides/x.x/*.*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
+	6. `gulp ci`
+	7. `cd ../library`
 
 1. Run `gulp ci` - one final check!
 
