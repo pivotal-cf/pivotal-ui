@@ -282,13 +282,13 @@ describe('updatePackageJsons', () => {
     expect(result['src/pivotal-ui/components/back-to-top/package.json'].version).toEqual(version);
 
     expect(result['src/pivotal-ui/components/all/package.json'].version).toEqual(version);
-    expect(result['src/pivotal-ui/components/all/package.json'].dependencies['pui-css-back-to-top']).toEqual(version);
+    expect(result['src/pivotal-ui/components/all/package.json'].dependencies['pui-css-back-to-top']).toEqual(`^${version}`);
 
     expect(result['src/pivotal-ui-react/back-to-top/package.json'].version).toEqual(version);
-    expect(result['src/pivotal-ui-react/back-to-top/package.json'].dependencies['pui-css-back-to-top']).toEqual(version);
+    expect(result['src/pivotal-ui-react/back-to-top/package.json'].dependencies['pui-css-back-to-top']).toEqual(`^${version}`);
 
     expect(result['package.json'].version).toEqual(version);
-    expect(result['package.json'].dependencies['pui-css-back-to-top']).toEqual(version);
-    expect(result['package.json'].dependencies['pui-react-back-to-top']).toEqual(version);
+    expect(result['package.json'].dependencies['pui-css-back-to-top']).toEqual(`^${version}`);
+    expect(result['package.json'].dependencies['pui-react-back-to-top']).toEqual(`^${version}`);
   });
 });

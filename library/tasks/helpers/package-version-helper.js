@@ -93,7 +93,7 @@ export function updatePackageJsons() {
       const version = getNewVersion();
       packageJsonContents.version = version;
       for (let dependency of dependencies) {
-        packageJsonContents.dependencies[dependency] = version;
+        packageJsonContents.dependencies[dependency] = `^${version}`;
       }
 
       packageJsonFile.contents = new Buffer(JSON.stringify(packageJsonContents, null, 2));
