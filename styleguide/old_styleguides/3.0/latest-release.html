@@ -74,7 +74,7 @@
           <li><a href="index.html">Introduction</a></li>
           <li><a href="getting-started.html">Get Started</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="latest-release.html">New in 2.0</a></li>
+          <li><a href="latest-release.html">New in 3.0</a></li>
           <li><a href="other-versions.html">Other Versions</a></li>
           <li><a href="http://github.com/pivotal-cf/pivotal-ui">GitHub</a></li>
         </ul>
@@ -92,61 +92,29 @@
       
 
 
-<h1 id="latest-release" class="styleguide">Welcome to the 2.0 release of Pivotal UI!</h1>
+<h1 id="latest-release" class="styleguide">Welcome to the 3.0 release of Pivotal UI!</h1>
 
 <ul class="section-nav">
   <li><a href="#01_goals">Goals</a></li>
-  <li><a href="#02_things">Things You Should Know</a></li>
   <li><a href="#03_changes">The Big Changes</a></li>
   <li><a href="#04_components">New Components</a></li>
-  <li><a href="#05_get-it">How To Get The New Version</a></li>
 </ul>
 
 <h2 id="01_goals" class="styleguide">Goals</h2>
-<p class="styleguide">The goals for the 2.0 release are:</p><ul class="styleguide"><li>Focus on React for cleaner, maintainable style components.</li>
-<li>Update design styles to align with current product.</li>
-<li>Provide 508 accessibility for low-vision or disabled users (JAWS support).</li>
-</ul>
-<h2 id="02_things" class="styleguide">Things You Should Know</h2>
-<ul class="styleguide"><li>The design crew has changed a lot of the colors (see changelog).</li>
-<li>There are other breaking changes you should review (see changelog)</li>
-<li>npm modules are the supported method for installing Pivotal UI (vs. monolith)</li>
-<li>We favor and focus our efforts for using React components over HTML/CSS.</li>
+<p class="styleguide">The goals for the 3.0 release are:</p><ul class="styleguide"><li>Upgrade to React 0.14</li>
+<li>Polish React Components based on feedback from 2.0</li>
 </ul>
 <h2 id="03_changes" class="styleguide">The Big Changes</h2>
-<ul class="styleguide"><li>Many design updates.</li>
-<li>New components based on your feedback (below).</li>
-<li>508 Accessibility for low-vision or disabled users (JAWS support).</li>
-<li>Internal formatting: We now pass className, id and style so you can format your internal content.</li>
-<li>Tabs are now responsive.</li>
-<li>Support for Tabs on the left hand side.</li>
-<li>Colors have been updated (see CHANGELOG for details).</li>
-<li>Priority of React components over HTML/CSS components.</li>
-<li>Components now include the needed dependencies instead of failing in browser.</li>
-</ul><p class="styleguide">Full list: <a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md" title="https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md">https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md</a></p>
-<h2 id="04_components" class="styleguide">New Components</h2>
-<ul class="styleguide"><li>Flexible tile layout.</li>
-<li>Autocomplete.</li>
-<li>Select (now fancy!)</li>
-<li>Stream list: Twitter-like feed for incoming notifications.</li>
-<li>Traffic lights: display the status of services.</li>
+<ul class="styleguide"><li>Pivotal UI 3.0 does not work with React &lt; 0.14</li>
+<li><code class="styleguide">SortableTables</code> React Component is completely different</li>
+<li><code class="styleguide">Panels</code> React component now supports custom headers, subtitles, footers, and actions</li>
+<li><code class="styleguide">Media</code> React component API has changed slightly</li>
+<li><code class="styleguide">Modal</code> React component now internally uses the React Bootstrap Modal</li>
+<li>React Bootstrap version is bumped to 0.28.2</li>
 </ul>
-<h2 id="05_get-it" class="styleguide">How To Get The New Version</h2>
-
-<h3><em>I want to play with this new version first:</em></h3>
-<p class="styleguide">We have a sandbox project just for you. Follow the <a class="styleguide" href="https://github.com/pivotal-cf/pui-starter-project" title="https://github.com/pivotal-cf/pui-starter-project">instructions here</a></p>
-<h3><em>I&#39;m starting on a new project:</em></h3>
-<p class="styleguide">Install the styleguide elements you want using the npm commands in the styleguide. For example, try a <a class="styleguide" href="http://styleguide.cfapps.io/react_base_tooltips.html" title="http://styleguide.cfapps.io/react_base_tooltips.html">sharp looking Tooltip.</a></p>
-<h3><em>I have an existing project and want to update:</em></h3>
-
-<h4>If you&#39;re using npm modules already:</h4>
-<p class="styleguide">Run <code class="styleguide">npm install</code> to upgrade.</p>
-<h4>If you were using the monolith (.zip):</h4>
-<ul class="styleguide"><li>Remove all the past PUI files that you had.</li>
-<li>Install the required modules, using the same syntax in the style guide: <code class="styleguide">npm install &lt;PUI module&gt; --save</code>. You can specify multiple modules with this command.</li>
-</ul>        </section>
+<h2 id="04_components" class="styleguide">New Components</h2>
+<p class="styleguide">There are no new components in this release</p>        </section>
         <footer>
-          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
           <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
         </footer>
         <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>

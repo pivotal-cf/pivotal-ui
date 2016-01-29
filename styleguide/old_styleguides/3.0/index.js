@@ -53467,7 +53467,7 @@
 	  }
 	});
 
-	exports['default'] = TileLayout;
+	exports['default'] = { TileLayout: TileLayout };
 	module.exports = exports['default'];
 
 /***/ },
@@ -53486,7 +53486,7 @@
 	  });
 	}
 
-	assignToGlobal([__webpack_require__(442), __webpack_require__(445), __webpack_require__(558), __webpack_require__(439), __webpack_require__(433), __webpack_require__(579), __webpack_require__(580), __webpack_require__(582), __webpack_require__(583), __webpack_require__(673), __webpack_require__(674), __webpack_require__(676), __webpack_require__(679), __webpack_require__(680), __webpack_require__(681), __webpack_require__(444), __webpack_require__(682), __webpack_require__(710), __webpack_require__(712), __webpack_require__(723), __webpack_require__(438), __webpack_require__(725), __webpack_require__(727), __webpack_require__(728), __webpack_require__(729), __webpack_require__(730), __webpack_require__(731), __webpack_require__(747), __webpack_require__(371), { TileLayout: __webpack_require__(440) }, __webpack_require__(751)]);
+	assignToGlobal([__webpack_require__(442), __webpack_require__(445), __webpack_require__(558), __webpack_require__(439), __webpack_require__(433), __webpack_require__(579), __webpack_require__(580), __webpack_require__(582), __webpack_require__(583), __webpack_require__(673), __webpack_require__(674), __webpack_require__(676), __webpack_require__(679), __webpack_require__(680), __webpack_require__(681), __webpack_require__(444), __webpack_require__(682), __webpack_require__(710), __webpack_require__(712), __webpack_require__(723), __webpack_require__(438), __webpack_require__(725), __webpack_require__(727), __webpack_require__(728), __webpack_require__(729), __webpack_require__(730), __webpack_require__(731), __webpack_require__(747), __webpack_require__(371), __webpack_require__(440), __webpack_require__(751)]);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
@@ -53731,13 +53731,13 @@
 	    mediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
 	    stackSize: React.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
 	    vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
-	    hAlign: React.PropTypes.oneOf(['left', 'right']),
+	    placement: React.PropTypes.oneOf(['left', 'right']),
 	    className: React.PropTypes.string
 	  },
 
 	  getDefaultProps: function getDefaultProps() {
 	    return {
-	      hAlign: 'left'
+	      placement: 'left'
 	    };
 	  },
 
@@ -53749,10 +53749,10 @@
 	    var mediaSpacing = _props.mediaSpacing;
 	    var stackSize = _props.stackSize;
 	    var vAlign = _props.vAlign;
-	    var hAlign = _props.hAlign;
+	    var placement = _props.placement;
 	    var children = _props.children;
 
-	    var other = _objectWithoutProperties(_props, ['className', 'innerClassName', 'image', 'mediaSpacing', 'stackSize', 'vAlign', 'hAlign', 'children']);
+	    var other = _objectWithoutProperties(_props, ['className', 'innerClassName', 'image', 'mediaSpacing', 'stackSize', 'vAlign', 'placement', 'children']);
 
 	    var vAlignClass = vAlign && 'media-' + vAlign;
 
@@ -53760,7 +53760,7 @@
 
 	    var bodyClasses = classnames('media-body', vAlignClass, innerClassName);
 
-	    var mediaClasses = classnames('media-' + hAlign, vAlignClass, 'p' + paddingDirection[hAlign] + charSizes[mediaSpacing]);
+	    var mediaClasses = classnames('media-' + placement, vAlignClass, 'p' + paddingDirection[placement] + charSizes[mediaSpacing]);
 
 	    var content = [React.createElement(
 	      'div',
@@ -53772,7 +53772,7 @@
 	      children
 	    )];
 
-	    if (hAlign === 'right') {
+	    if (placement === 'right') {
 	      content.reverse();
 	    }
 

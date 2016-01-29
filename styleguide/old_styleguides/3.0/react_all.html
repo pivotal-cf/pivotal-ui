@@ -74,7 +74,7 @@
           <li><a href="index.html">Introduction</a></li>
           <li><a href="getting-started.html">Get Started</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="latest-release.html">New in 2.0</a></li>
+          <li><a href="latest-release.html">New in 3.0</a></li>
           <li><a href="other-versions.html">Other Versions</a></li>
           <li><a href="http://github.com/pivotal-cf/pivotal-ui">GitHub</a></li>
         </ul>
@@ -469,7 +469,7 @@ var callback = function callback() {
  </i>
  </code></p><p class="styleguide"> Require the subcomponent:</p><div class="codeBlock">
   <div class="highlight">
-    <pre>var Autocomplete = require('pui-react-autocomplete');</pre>
+    <pre>var Autocomplete = require('pui-react-autocomplete').Autocomplete;</pre>
   </div>
 </div><script>'use strict';
 
@@ -1757,8 +1757,8 @@ npm install pui-react-radio pui-react-radio-group --save
 </i>
 </code></p><p class="styleguide">For the example, you also need to install <a class="styleguide" href="#grid_react" title="#grid_react">Grids</a> and require <code class="styleguide">Col</code> from it.</p><p class="styleguide">Require the subcomponents:</p><div class="codeBlock">
   <div class="highlight">
-    <pre>var RadioGroup = require('pui-react-radio-groups');
-var Radio = require('pui-react-radio');</pre>
+    <pre>var RadioGroup = require('pui-react-radio-groups').RadioGroup;
+var Radio = require('pui-react-radio').Radio;</pre>
   </div>
 </div><p class="styleguide">Using React radio buttons in a form is fairly straightforward.</p><div class="codeExample">
   <div class="exampleOutput">      <div id="react-example-54"></div>
@@ -2737,7 +2737,7 @@ npm install pui-react-images --save
 </i>
 </code></p><p class="styleguide">Require the subcomponent:</p><div class="codeBlock">
   <div class="highlight">
-    <pre>var Image = require('pui-react-images');</pre>
+    <pre>var Image = require('pui-react-images').Image;</pre>
   </div>
 </div><p class="styleguide">Images in react can be responsive and/or wrapped in a link.</p><div class="codeExample">
   <div class="exampleOutput">      <div id="react-example-77"></div>
@@ -2768,7 +2768,7 @@ npm install pui-react-images --save
  </i>
  </code></p><p class="styleguide">For the example, you also need to install <a class="styleguide" href="react_all.html#type_react" title="react_all.html#type_react">Typography</a> and require <code class="styleguide">DefaultH3</code> from it.</p><p class="styleguide">Require the subcomponent:</p><div class="codeBlock">
   <div class="highlight">
-    <pre>var Label = require('pui-react-labels');</pre>
+    <pre>var Label = require('pui-react-labels').Label;</pre>
   </div>
 </div><p class="styleguide">Labels are a straightforward implementation of the <a class="styleguide" href="css_all.html#label" title="css_all.html#label">Label</a> style.</p><p class="styleguide">Labels can be used on their own:</p><div class="codeExample">
   <div class="exampleOutput">      <div id="react-example-78"></div>
@@ -3633,9 +3633,9 @@ var Flag = require('pui-react-media').Flag;</pre>
 <th>Description</th>
 </tr>
  <tr>
-<td><code class="styleguide">hAlign</code></td>
+<td><code class="styleguide">placement</code></td>
 <td>&quot;left&quot; (default), &quot;right&quot;</td>
-<td>Horizontal alignment of the media</td>
+<td>Horizontal placement of the media</td>
 </tr>
 <tr>
 <td><code class="styleguide">vAlign</code></td>
@@ -3707,7 +3707,7 @@ var mediaBasicLinkedImage = React.createElement(Image, { src: 'http://placehold.
           (function() {
             ReactDOM.render(
               <Media image={mediaBasicLinkedImage}
-       hAlign='right'>
+       placement='right'>
   We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 </Media>,
               document.getElementById('react-example-96')
@@ -3721,7 +3721,7 @@ var mediaBasicLinkedImage = React.createElement(Image, { src: 'http://placehold.
             <div class="codeBlock" aria-hidden="true">
               <div class="highlight" data-code-to-copy>
                 <pre><span class="nt">&lt;Media</span> <span class="na">image=</span><span class="s">{mediaBasicLinkedImage}</span>
-       <span class="na">hAlign=</span><span class="s">'right'</span><span class="nt">&gt;</span>
+       <span class="na">placement=</span><span class="s">'right'</span><span class="nt">&gt;</span>
   We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 <span class="nt">&lt;/Media&gt;</span></pre>
               </div>
@@ -6229,8 +6229,8 @@ for uniquely identifying this tab to its parent component.</p><table class="styl
  </i>
  </code></p><p class="styleguide"> Require the component:</p><div class="codeBlock">
   <div class="highlight">
-    <pre>var TileLayout = require('pui-react-tile-layout');
-var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;</pre>
+    <pre>var TileLayout = require('pui-react-tile-layout').TileLayout;
+ var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;</pre>
   </div>
 </div><p class="styleguide"> For the example, you also need to require <code class="styleguide">ClickableAltPanel</code> from <a class="styleguide" href="/react_components_panels.html" title="/react_components_panels.html">Panels</a>.</p><div class="codeExample">
   <div class="exampleOutput">      <div id="react-example-151"></div>
@@ -7021,7 +7021,6 @@ and see if it still looks ok. If it doesn&#39;t (this should be rare!) you can u
 </div>
         </section>
         <footer>
-          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
           <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
         </footer>
         <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>

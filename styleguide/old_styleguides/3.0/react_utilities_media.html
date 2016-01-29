@@ -74,7 +74,7 @@
           <li><a href="index.html">Introduction</a></li>
           <li><a href="getting-started.html">Get Started</a></li>
           <li><a href="faq.html">FAQ</a></li>
-          <li><a href="latest-release.html">New in 2.0</a></li>
+          <li><a href="latest-release.html">New in 3.0</a></li>
           <li><a href="other-versions.html">Other Versions</a></li>
           <li><a href="http://github.com/pivotal-cf/pivotal-ui">GitHub</a></li>
         </ul>
@@ -115,9 +115,9 @@ var Flag = require('pui-react-media').Flag;</pre>
 <th>Description</th>
 </tr>
  <tr>
-<td><code class="styleguide">hAlign</code></td>
+<td><code class="styleguide">placement</code></td>
 <td>&quot;left&quot; (default), &quot;right&quot;</td>
-<td>Horizontal alignment of the media</td>
+<td>Horizontal placement of the media</td>
 </tr>
 <tr>
 <td><code class="styleguide">vAlign</code></td>
@@ -189,7 +189,7 @@ var mediaBasicLinkedImage = React.createElement(Image, { src: 'http://placehold.
           (function() {
             ReactDOM.render(
               <Media image={mediaBasicLinkedImage}
-       hAlign='right'>
+       placement='right'>
   We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 </Media>,
               document.getElementById('react-example-252')
@@ -203,7 +203,7 @@ var mediaBasicLinkedImage = React.createElement(Image, { src: 'http://placehold.
             <div class="codeBlock" aria-hidden="true">
               <div class="highlight" data-code-to-copy>
                 <pre><span class="nt">&lt;Media</span> <span class="na">image=</span><span class="s">{mediaBasicLinkedImage}</span>
-       <span class="na">hAlign=</span><span class="s">'right'</span><span class="nt">&gt;</span>
+       <span class="na">placement=</span><span class="s">'right'</span><span class="nt">&gt;</span>
   We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
 <span class="nt">&lt;/Media&gt;</span></pre>
               </div>
@@ -471,7 +471,6 @@ var mediaSpacingImage = React.createElement(Image, { href: 'http://www.google.co
 
         </section>
         <footer>
-          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
           <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
         </footer>
         <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
