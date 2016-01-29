@@ -1,6 +1,6 @@
 /*doc
 ---
-title: Welcome to the 2.0 release of Pivotal UI!
+title: Welcome to the 3.0 release of Pivotal UI!
 name: latest-release
 category: latest-release
 ---
@@ -13,24 +13,11 @@ name: 01_goals
 parent: latest-release
 ---
 
-The goals for the 2.0 release are:
+The goals for the 3.0 release are:
 
-- Focus on React for cleaner, maintainable style components.
-- Update design styles to align with current product.
-- Provide 508 accessibility for low-vision or disabled users (JAWS support).
-*/
+- Upgrade to React 0.14
+- Polish React Components based on feedback from 2.0
 
-/*doc
----
-title: Things You Should Know
-name: 02_things
-parent: latest-release
----
-
-- The design crew has changed a lot of the colors (see changelog).
-- There are other breaking changes you should review (see changelog)
-- npm modules are the supported method for installing Pivotal UI (vs. monolith)
-- We favor and focus our efforts for using React components over HTML/CSS.
 */
 
 /*doc
@@ -40,17 +27,12 @@ name: 03_changes
 parent: latest-release
 ---
 
-- Many design updates.
-- New components based on your feedback (below).
-- 508 Accessibility for low-vision or disabled users (JAWS support).
-- Internal formatting: We now pass className, id and style so you can format your internal content.
-- Tabs are now responsive.
-- Support for Tabs on the left hand side.
-- Colors have been updated (see CHANGELOG for details).
-- Priority of React components over HTML/CSS components.
-- Components now include the needed dependencies instead of failing in browser.
-
-Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md)
+- Pivotal UI 3.0 does not work with React < 0.14
+- `SortableTables` React Component is completely different
+- `Panels` React component now supports custom headers, subtitles, footers, and actions
+- `Media` React component API has changed slightly
+- `Modal` React component now internally uses the React Bootstrap Modal
+- React Bootstrap version is bumped to 0.28.2
 */
 
 /*doc
@@ -60,32 +42,5 @@ name: 04_components
 parent: latest-release
 ---
 
-- Flexible tile layout.
-- Autocomplete.
-- Select (now fancy!)
-- Stream list: Twitter-like feed for incoming notifications.
-- Traffic lights: display the status of services.
-*/
-
-/*doc
----
-title: How To Get The New Version
-name: 05_get-it
-parent: latest-release
----
-
-### _I want to play with this new version first:_
-We have a sandbox project just for you. Follow the [instructions here](https://github.com/pivotal-cf/pui-starter-project)
-
-### _I'm starting on a new project:_
-Install the styleguide elements you want using the npm commands in the styleguide. For example, try a [sharp looking Tooltip.](http://styleguide.cfapps.io/react_base_tooltips.html)
-
-### _I have an existing project and want to update:_
-#### If you're using npm modules already:
-Run `npm install` to upgrade.
-
-#### If you were using the monolith (.zip):
-- Remove all the past PUI files that you had.
-- Install the required modules, using the same syntax in the style guide: `npm install <PUI module> --save`. You can specify multiple modules with this command.
-
+There are no new components in this release
 */
