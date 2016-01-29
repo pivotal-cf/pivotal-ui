@@ -82,8 +82,7 @@ again.
   - Update `LATEST_CHANGES.md` with auto-generated release notes for the most
     recent change only
 
-1. If you want to make any changes (e.g. add more docs to the changelog, modify
-   a version number, etc.), do that now.
+1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
    
 5. Put a copy of the current styleguide in `old_styleguides`
 	1. `cd ../styleguide`
