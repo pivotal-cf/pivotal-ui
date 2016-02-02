@@ -6,7 +6,7 @@ import {log, colors} from 'gulp-util';
 import webpack from 'webpack-stream';
 import waitTillListening from 'strong-wait-till-listening';
 import {spawn} from 'child_process';
-import phantomjs from 'phantomjs';
+import phantomjs from 'phantomjs-prebuilt';
 import webpackConfig from '../config/webpack';
 
 gulp.task('set-accessibility-ci-port', (done) => {
