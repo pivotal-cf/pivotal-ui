@@ -1,3 +1,6 @@
+require('babel-polyfill');
+require('./support/set_immediate');
+
 require('jasmine_dom_matchers');
 require('phantomjs-polyfill');
 
@@ -37,8 +40,8 @@ global.shallowRender = function shallowRender(jsx) {
 };
 
 beforeEach(function() {
-  jasmine.clock().install();
   $('body').find('#root').remove().end().append('<main id="root"/>');
+  jasmine.clock().install();
 });
 
 beforeEach(function() {
@@ -58,7 +61,9 @@ beforeEach(function() {
 });
 
 afterEach(function() {
+  ReactDOM.unmountComponentAtNode(root);
+  jasmine.clock().tick(1);
+  jasmine.clock().uninstall();
   MockNow.reset();
   MockRaf.reset();
-  jasmine.clock().uninstall();
 });

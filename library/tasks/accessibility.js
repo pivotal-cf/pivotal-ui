@@ -66,7 +66,7 @@ gulp.task('accessibility-a11y', async () => {
   //const pages = ['index', 'layout', 'elements', 'objects', 'utilities', 'forms', 'react', 'faq', 'all'];
   const pages = ['css_all', 'react_all'];
 
-  await* pages.map(function(page) {
+  await Promise.all(pages.map(function(page) {
     const url = `http://localhost:${port}/${page}.html`;
 
     return new Promise(function(resolve) {
@@ -109,7 +109,7 @@ gulp.task('accessibility-a11y', async () => {
         resolve();
       });
     });
-  });
+  }));
 });
 
 gulp.task('accessibility-ci', (done) => runSequence(

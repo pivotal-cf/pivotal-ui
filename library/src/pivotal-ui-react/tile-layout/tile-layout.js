@@ -34,7 +34,7 @@ const TileLayout = React.createClass({
       noGutter ? null : 'tile-gutter',
       'tile-layout'
     );
-    const props = mergeProps({className: classes}, ...others);
+    const props = mergeProps({className: classes}, others);
     return (
       <div {...props}>
         {children}
@@ -51,4 +51,4 @@ TileLayout.Item = React.createClass({
   }
 });
 
-export default {TileLayout};
+module.exports = {TileLayout};

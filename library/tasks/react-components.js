@@ -15,7 +15,7 @@ const buildFolder = 'dist/react';
 gulp.task('react-build-src', function() {
   return gulp.src('src/pivotal-ui-react/**/*.js')
     .pipe(plugins.plumber())
-    .pipe(plugins.babel({stage: 0, optional: ['runtime'], loose: true}))
+    .pipe(plugins.babel())
     .pipe(plugins.header(COPYRIGHT))
     .pipe(gulp.dest(buildFolder));
 });

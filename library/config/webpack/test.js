@@ -1,17 +1,21 @@
 import puiAliases from '../../helpers/pui-aliases';
+import NoErrorsPlugin from 'webpack/lib/NoErrorsPlugin';
 
-export default {
+module.exports = {
   devtool: 'eval',
+  entry: null,
+  externals: null,
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader?stage=0&optional[]=runtime&loose=true'
+        test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?sourceMaps=true'
       }
     ]
   },
   output: {filename: 'spec.js' },
+  plugins: [
+    new NoErrorsPlugin()
+  ],
   quiet: true,
   resolve: {
     alias: Object.assign({
@@ -19,5 +23,6 @@ export default {
       'performance-now': `${__dirname}/../../spec/pivotal-ui-react/support/mock_performance_now.js`,
       'lodash.throttle': `${__dirname}/../../spec/pivotal-ui-react/support/mock_throttle.js`
     }, puiAliases)
-  }
-};
+  },
+  watch: true
+}

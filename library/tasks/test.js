@@ -14,26 +14,14 @@ gulp.task('ci', callback => runSequence(
 ));
 
 gulp.task('lint', function() {
-  const srcLintStream = gulp.src(['src/pivotal-ui-react/**/*.js'])
-    .pipe(plugins.plumber())
-    .pipe(plugins.eslint({
-      rulePaths: ['config/eslint-rules/'],
-      rules: {
-        'no-object-assign': 2,
-        'no-relative-cross-package-imports': 2,
-        'no-console-log': 2
-      }
-    }));
-
-  const otherLintStream = gulp.src([
+  return gulp.src([
+      'src/pivotal-ui-react/**/*.js',
       'tasks/**/*.js',
       'spec/pivotal-ui-react/**/*.js',
       'spec/task-helpers/**/*.js',
       'phantomjs/*.js'])
     .pipe(plugins.plumber())
-    .pipe(plugins.eslint());
-
-  return merge(srcLintStream, otherLintStream)
+    .pipe(plugins.eslint())
     .pipe(plugins.eslint.format('stylish'))
     .pipe(plugins.eslint.failOnError());
 });
@@ -44,21 +32,23 @@ gulp.task('jasmine-task-helpers', function() {
     .pipe(plugins.jasmine({includeStackTrace: true}));
 });
 
-function reactTestAssets(sourcePath, options = {}) {
-  return gulp.src(sourcePath)
+function reactTestAssets(options = {}) {
+  const config = Object.assign(require('../config/webpack.config')('test'), options);
+
+  return gulp.src(['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'])
     .pipe(plugins.plumber())
-    .pipe(webpack(webpackConfig({nodeEnv: 'test', ...options})));
+    .pipe(webpack(config));
 }
 
 gulp.task('jasmine-react-ci', function() {
-  return reactTestAssets( ['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'], {watch: false})
+  return reactTestAssets({watch: false})
     .pipe(plugins.jasmineBrowser.specRunner({console: true}))
     .pipe(plugins.jasmineBrowser.phantomjs());
 });
 
 gulp.task('jasmine-react', function() {
   var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
-  return reactTestAssets(['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'], {watch: true, plugins: [plugin]})
+  return reactTestAssets({plugins: [plugin]})
     .pipe(plugins.jasmineBrowser.specRunner())
     .pipe(plugins.jasmineBrowser.server({whenReady: plugin.whenReady}));
 });

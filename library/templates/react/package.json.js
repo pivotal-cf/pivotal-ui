@@ -24,7 +24,7 @@ var packageTemplate = function(name, {dependencies: dependencyOverrides, ...over
       react: '^0.14.0'
     },
     dependencies: {
-      'babel-runtime': '^5.8.3',
+      'babel-runtime': '^6.1.18',
       ...dependencyOverrides
     },
     ...overrides

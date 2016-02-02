@@ -8,6 +8,7 @@ function defDropdown(props) {
   return React.createClass({
     propTypes: {
       id: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.number]),
+      bsStyle: React.PropTypes.any,
       buttonClassName: React.PropTypes.string,
       style: React.PropTypes.any,
       title: React.PropTypes.any,

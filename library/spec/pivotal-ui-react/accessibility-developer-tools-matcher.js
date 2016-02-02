@@ -8,7 +8,7 @@ function failureMessageForAdtResult(result) {
   ].join('\n    ');
 }
 
-export default function toPassADT() {
+module.exports = function toPassADT() {
   return {
     compare(node) {
       let result = {};
@@ -34,4 +34,4 @@ export default function toPassADT() {
       return result;
     }
   };
-}
+};
