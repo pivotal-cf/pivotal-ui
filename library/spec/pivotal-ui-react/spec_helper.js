@@ -2,7 +2,6 @@ require('babel-polyfill');
 require('./support/set_immediate');
 
 require('jasmine_dom_matchers');
-require('phantomjs-polyfill');
 
 global.React = require('react');
 global.ReactDOM = require('react-dom');
