@@ -73,7 +73,7 @@
     "pui-react-radio": "file:../library/dist/react/radio",
     "pui-react-radio-group": "file:../library/dist/react/radio-group",
     "pui-react-ribbons": "file:../library/dist/react/ribbons",
-    "pui-react-inputs": "file:../library/dist/react/inputs",
+    "pui-react-search-input": "file:../library/dist/react/search-input",
     "pui-react-sortable-table": "file:../library/dist/react/sortable-table",
     "pui-react-stream-list": "file:../library/dist/react/stream-list",
     "pui-react-tabs": "file:../library/dist/react/tabs",

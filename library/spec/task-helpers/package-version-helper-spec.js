@@ -137,6 +137,7 @@ describe('componentsToUpdate', function() {
         'src/pivotal-ui-react/notifications/',
         'src/pivotal-ui-react/radio-group/',
         'src/pivotal-ui-react/ribbons/',
+        'src/pivotal-ui-react/search-input/',
         'src/pivotal-ui-react/inputs/',
         'src/pivotal-ui/components/colors/',
         'src/pivotal-ui/components/dropdowns/',
@@ -206,6 +207,10 @@ describe('componentsToUpdate', function() {
         dependencies: ['pui-css-iconography']
       }));
       expect(result).toContain(jasmine.objectContaining({
+        component: 'src/pivotal-ui-react/search-input/',
+        dependencies: ['pui-css-iconography']
+      }));
+      expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/inputs/',
         dependencies: ['pui-css-iconography']
       }));
@@ -234,7 +239,7 @@ describe('componentsToUpdate', function() {
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
       expect(result).toContain(jasmine.objectContaining({ component: './' }));
-      expect(result.length).toEqual(24);
+      expect(result.length).toEqual(25);
     });
   });
 });
