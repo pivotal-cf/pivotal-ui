@@ -35,11 +35,7 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/alerts/',
         dependencies: []
       }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: './',
-        dependencies: ['pui-react-alerts']
-      }));
-      expect(result.length).toEqual(2);
+      expect(result.length).toEqual(1);
     });
   });
 
@@ -59,11 +55,7 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/alerts/',
         dependencies: ['pui-react-media']
       }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: './',
-        dependencies: ['pui-react-media', 'pui-react-alerts']
-      }));
-      expect(result.length).toEqual(3);
+      expect(result.length).toEqual(2);
     });
   });
 
@@ -88,11 +80,7 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/notifications/',
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: './',
-        dependencies: ['pui-react-dropdowns', 'pui-react-iconography', 'pui-react-notifications']
-      }));
-      expect(result.length).toEqual(4);
+      expect(result.length).toEqual(3);
     });
   });
 
@@ -120,11 +108,7 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui/components/all/',
         dependencies: ['pui-css-links', 'pui-css-back-to-top']
       }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: './',
-        dependencies: ['pui-css-links', 'pui-css-back-to-top', 'pui-react-back-to-top']
-      }));
-      expect(result.length).toEqual(5);
+      expect(result.length).toEqual(4);
     });
   });
 
@@ -238,8 +222,7 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/notifications/',
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
-      expect(result).toContain(jasmine.objectContaining({ component: './' }));
-      expect(result.length).toEqual(25);
+      expect(result.length).toEqual(24);
     });
   });
 });
@@ -274,12 +257,11 @@ describe('updatePackageJsons', () => {
   });
 
   it('updates each package marked to update', () => {
-    expect(Object.keys(result).length).toEqual(4);
+    expect(Object.keys(result).length).toEqual(3);
     expect(Object.keys(result)).toEqual(jasmine.arrayContaining([
       'src/pivotal-ui-react/back-to-top/package.json',
       'src/pivotal-ui/components/back-to-top/package.json',
-      'src/pivotal-ui/components/all/package.json',
-      'package.json'
+      'src/pivotal-ui/components/all/package.json'
     ]));
   });
 
@@ -291,9 +273,5 @@ describe('updatePackageJsons', () => {
 
     expect(result['src/pivotal-ui-react/back-to-top/package.json'].version).toEqual(version);
     expect(result['src/pivotal-ui-react/back-to-top/package.json'].dependencies['pui-css-back-to-top']).toEqual(`^${version}`);
-
-    expect(result['package.json'].version).toEqual(version);
-    expect(result['package.json'].dependencies['pui-css-back-to-top']).toEqual(`^${version}`);
-    expect(result['package.json'].dependencies['pui-react-back-to-top']).toEqual(`^${version}`);
   });
 });
