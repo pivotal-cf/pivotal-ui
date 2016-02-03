@@ -1,6 +1,6 @@
 {
   "version": "3.0.0",
-  "description": "A React component that provides a styled text input for inputting search queries",
+  "description": "A collection of React components providing styled inputs",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^1.2.0",

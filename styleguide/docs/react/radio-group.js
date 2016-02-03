@@ -12,7 +12,7 @@ categories:
 /*doc
 ---
 title: Radio Inputs
-name: form_radio_input_react
+name: 02_form_radio_input_react
 parent: form_react
 ---
 

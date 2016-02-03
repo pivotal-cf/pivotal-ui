@@ -34,7 +34,7 @@ assignToGlobal([
   require('pui-react-radio-group'),
   require('pui-react-radio'),
   require('pui-react-ribbons'),
-  require('pui-react-search-input'),
+  require('pui-react-inputs'),
   require('pui-react-sortable-table'),
   require('pui-react-stream-list'),
   require('pui-react-tabs'),

@@ -4,7 +4,7 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 describe('SearchInput', function() {
   var SearchInput;
   beforeEach(function() {
-    SearchInput = require('../../../src/pivotal-ui-react/search-input/search-input').SearchInput;
+    SearchInput = require('../../../src/pivotal-ui-react/input/inputs').SearchInput;
     ReactDOM.render((<SearchInput className="foo myClass" id="bar" style={{opacity: '0.5'}}/>), root);
   });
 

@@ -1,6 +1,6 @@
 import puiAliases from '../../helpers/pui-aliases';
 
-export default {
+module.exports = {
   devtool: 'inline-source-map',
   module: {
     loaders: [

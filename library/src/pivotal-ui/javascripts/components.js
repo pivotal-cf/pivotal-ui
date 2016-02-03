@@ -37,7 +37,8 @@ module.exports = {
   HighlightButton: require('pui-react-buttons').HighlightButton,
   HighlightAltButton: require('pui-react-buttons').HighlightAltButton,
 
-  SearchInput: require('pui-react-search-input').SearchInput,
+  SearchInput: require('pui-react-inputs').SearchInput,
+  BasicInput: require('pui-react-inputs').BasicInput,
 
   Divider: require('pui-react-dividers').Divider,
   InverseDivider: require('pui-react-dividers').InverseDivider,
