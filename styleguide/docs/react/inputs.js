@@ -21,17 +21,20 @@ var BasicInput = require('pui-react-inputs').BasicInput;
 Input components can be used on their own as inputs. They accept standard
 text input properties (such as `placeholder`).
 
+Basic Inputs will render a label if given `label`. If given `id`, clicking on the label
+will focus the input.
+
 ```react_example
-<BasicInput placeholder="Enter text here if you dare"/>
+<BasicInput label="Label" id="theInput" placeholder="Enter text here if you dare"/>
 ```
 
-Basic Inputs displays a custom error message when the `displayError` parameter is provided.
+Basic Inputs display a custom `errorMessage` when the `displayError` parameter is truthy.
 
 ```react_example
 <BasicInput
   label="Label!"
   labelClassName="hello"
-  displayError
+  displayError={true}
   errorMessage="Try Again, Fool"
   inputClassName="hey"
 />
