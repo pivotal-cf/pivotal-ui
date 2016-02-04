@@ -28,7 +28,6 @@
   &:focus {
     color: lighten($color, 5%);
     background-color: lighten($background, 6%);
-    outline: none;
   }
   .btn-group & {
     &:active,
