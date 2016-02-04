@@ -247,9 +247,6 @@ select.form-control {
     width: 100%;
     cursor: pointer;
   }
-  select:focus {
-    outline: none;
-  }
   input {
     $input-margin: 5px;
     height: $input-height-base - 2*$input-margin;
