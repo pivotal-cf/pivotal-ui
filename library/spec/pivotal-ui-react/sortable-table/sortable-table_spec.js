@@ -257,7 +257,7 @@ describe('SortableTable', function() {
         {
           attribute: 'title',
           displayName: 'Title',
-          CustomCell: ({value, index}) => <td className="custom">{`${index}: ${value}`}</td>
+          CustomCell: ({value, index, rowDatum}) => <td className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>
         },
         {
           attribute: 'instances',
@@ -288,9 +288,9 @@ describe('SortableTable', function() {
     });
 
     it('uses custom for the column', function() {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('0: foo');
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('1-0: foo');
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toHaveClass('custom');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('1: sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('3-1: sup');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toHaveClass('custom');
     });
   });

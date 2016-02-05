@@ -73,7 +73,7 @@ export const SortableTable = React.createClass({
     return sortedData.map((datum, rowKey) => {
       const cells = columns.map(({attribute, CustomCell}, key) => {
         const Cell = CustomCell || TableCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]}>{datum[attribute]}</Cell>;
+        return <Cell key={key} index={rowKey} value={datum[attribute]} rowDatum={datum}>{datum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || TableRow;

@@ -135,7 +135,7 @@ var CustomRow = React.createClass({
  The `TableCell` component is provided for users who wish to customize their cells
  with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that
  component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index`
- representing the (zero-indexed) row number.
+ representing the (zero-indexed) row number. For more advanced use cases, the `rowDatum` prop is also passed into the custom cell.
 
  Note that sorting occurs on the actual data.
  Changing the presentation of the data does not affect the sort behavior.
@@ -145,7 +145,7 @@ var CustomRow = React.createClass({
    render() {
      return (
        <TableCell>
-         {this.props.index}: {this.props.value}
+         {this.props.index}: {this.props.value} - {this.props.rowDatum.bar}
        </TableCell>
      );
    }
