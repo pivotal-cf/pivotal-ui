@@ -145,18 +145,22 @@ var CustomRow = React.createClass({
    render() {
      return (
        <TableCell>
-         {this.props.index}: {this.props.value} - {this.props.rowDatum.bar}
+         {this.props.index}: {this.props.value}, Bar value {this.props.rowDatum.bar}
        </TableCell>
      );
    }
  });
 
- var newColumns = [
+ var customCellColumns = [
    {
      attribute: 'title',
      displayName: 'Title',
      sortable: false,
      CustomCell: CustomCell
+   },
+   {
+     attribute: 'bar',
+     sortable: true
    },
    {
      attribute: 'instances',
@@ -167,7 +171,7 @@ var CustomRow = React.createClass({
  ```
 
  ```react_example
- <SortableTable columns={newColumns} data={data}/>
+ <SortableTable columns={customCellColumns} data={data}/>
  ```
 
 */
