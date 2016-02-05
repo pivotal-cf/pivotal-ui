@@ -23,8 +23,10 @@ started building UI at Pivotal.
 
 # Starting with Pivotal UI 
 
-We've created a [starter project](https://github.com/pivotal-cf/pui-starter-project) for you to get acclimated before integrating into your project. Use this project to test out examples from
-the styleguide or rapid prototyping.
+We've created two starter projects to help transitioning to Pivotal UI and React.
+
+- If you want to quickly try out some Pivotal UI components, try [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project).
+- If you want to skip directly to building a full React application, try [React Starter](https://github.com/pivotal-cf/react-starter).
 
 Once you've played around with some examples and feel comfortable integrating into your project, jump to the next step below.
 
@@ -47,29 +49,37 @@ If you don't know what React, Bootstrap, babel or a transpiler is, follow the li
 - [Bootstrap Overview](http://getbootstrap.com/)
 - [Overall workflow](http://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/)
 
-1. Ready? We're assuming that you have the following setup on your project:
+Ready? We're assuming that you have the following setup on your project:
 
- - **node**  
- `brew install node`
- - **node package manager**  
- `brew install npm`
+ - **node**
 
- - **Browserify or Webpack** - Our React modules follow the CommonJS module
+    ```
+    brew install node
+    ```
+ - **node package manager**
+
+    npm will be installed as part of node
+
+ - **Webpack or Browserify** - Our React modules follow the CommonJS module
     pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
     [Browserify](http://browserify.org/) to compile your javascript for use
-    in the browser.**
+    in the browser.
 
-`npm install webpack-stream --save-dev`
+    We use [Gulp](http://gulpjs.com/) and [Webpack Stream](https://github.com/shama/webpack-stream).
 
-  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
+ - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
     for use in the browser. We recommend [Babel](https://babeljs.io/).
+    If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
 
-    `npm install babel --save-dev`
-  - **React**
+    Getting Babel working can be complicated. To see a sample project with Babel integrated,
+    look at [React Starter](https://github.com/pivotal-cf/react-starter) or [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project)
 
- `npm install react --save-dev`
-
+ - **React**
+ 
+    ```
+    npm install react react-dom --save-dev
+    ```
 
 Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on how to hook this into your project.
 

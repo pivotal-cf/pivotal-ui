@@ -15,8 +15,10 @@ name: 01_starting-with-pivotal-ui
 parent:  getting-started
 ---
 
-We've created a [starter project](https://github.com/pivotal-cf/pui-starter-project) for you to get acclimated before integrating into your project. Use this project to test out examples from
-the styleguide or rapid prototyping.
+We've created two starter projects to help transitioning to Pivotal UI and React.
+
+- If you want to quickly try out some Pivotal UI components, try [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project).
+- If you want to skip directly to building a full React application, try [React Starter](https://github.com/pivotal-cf/react-starter).
 
 Once you've played around with some examples and feel comfortable integrating into your project, jump to the next step below.
 
@@ -54,31 +56,27 @@ Ready? We're assuming that you have the following setup on your project:
     ```
  - **node package manager**
 
-    ```
-    brew install npm
-    ```
+    npm will be installed as part of node
 
- - **Browserify or Webpack** - Our React modules follow the CommonJS module
+ - **Webpack or Browserify** - Our React modules follow the CommonJS module
     pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
     [Browserify](http://browserify.org/) to compile your javascript for use
     in the browser.
 
-    ```
-    npm install webpack-gulp --save-dev
-    ```
+    We use [Gulp](http://gulpjs.com/) and [Webpack Stream](https://github.com/shama/webpack-stream).
 
  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
     for use in the browser. We recommend [Babel](https://babeljs.io/).
+    If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
 
-    ```
-    npm install babel --save-dev
-    ```
+    Getting Babel working can be complicated. To see a sample project with Babel integrated,
+    look at [React Starter](https://github.com/pivotal-cf/react-starter) or [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project)
 
  - **React**
  
     ```
-    npm install react --save-dev
+    npm install react react-dom --save-dev
     ```
 
 
