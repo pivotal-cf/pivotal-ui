@@ -1,11 +1,11 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A collection of React components providing styled inputs",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^1.2.0",
-    "pui-css-forms": "3.0.0",
-    "pui-css-iconography": "3.0.0",
-    "pui-react-helpers": "3.0.0"
+    "pui-css-forms": "^3.1.0",
+    "pui-css-iconography": "^3.1.0",
+    "pui-react-helpers": "^3.1.0"
   }
 }

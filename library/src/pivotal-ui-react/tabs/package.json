@@ -1,12 +1,12 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "React components for tab-based content toggling",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^1.2.0",
     "lodash.uniqueid": "^3.0.0",
-    "pui-css-collapse": "3.0.0",
-    "pui-css-tabs": "3.0.0",
+    "pui-css-collapse": "^3.1.0",
+    "pui-css-tabs": "^3.1.0",
     "raf": "^3.1.0",
     "react-bootstrap": "0.28.2"
   }
