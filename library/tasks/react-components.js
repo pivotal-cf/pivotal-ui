@@ -1,6 +1,7 @@
 import license from './helpers/license-helper';
 import del from 'del';
 import gulp from 'gulp';
+import path from 'path';
 import runSequence from 'run-sequence';
 import {packageJson, readme} from './helpers/react-components-helper';
 import {publishPackages} from './helpers/publish-helper';
