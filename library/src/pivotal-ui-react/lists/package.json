@@ -4,6 +4,6 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-lists": "^3.1.0",
-    "classnames": "^1.2.0"
+    "classnames": "^2.2.0"
   }
 }

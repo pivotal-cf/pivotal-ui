@@ -4,7 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-dom": "^0.14.0",
-    "classnames": "^1.2.0",
+    "classnames": "^2.2.0",
     "event-stream": "^3.3.1",
     "pui-cursor": "^2.0.4",
     "scroll-into-view": "^1.3.0",
