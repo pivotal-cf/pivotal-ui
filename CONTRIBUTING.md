@@ -77,7 +77,7 @@ The Pivotal UI repo is split into two distinct projects, `library` and `stylegui
 
 #### Library
 
-To build the library
+To build the library, starting in the repository root:
 
 ```sh
 cd library
@@ -86,7 +86,7 @@ npm install
 
 #### Styleguide
 
-To build the styleguide
+To build the styleguide, starting in the repository root:
 ```sh
 ./update_styleguide.sh
 ```
@@ -97,7 +97,10 @@ To build the styleguide
 
 To work on components for the library, build the library and then start the sandbox server
 
-`$ gulp sandbox`
+```sh
+cd library
+gulp sandbox
+```
 
 Create a `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
 
@@ -113,7 +116,14 @@ To run all tests:
 
 #### Styleguide
 
-To work on documentation in the styleguide, first build the library and then
+To work on documentation in the styleguide, first build the library:
+
+```sh
+cd <repository-root>
+./update_styleguide.sh
+```
+
+Then run the doc server:
 
 `$ gulp dev`
 
@@ -123,7 +133,9 @@ styleguide pages and styles when you change a PUI scss file or a JS documentatio
 
 The styleguide will be served at [http://localhost:8000](http://localhost:8000).
 
-Note that if you update components, you must rebuild them in the library and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not be good enough to get the new changes.
+Note that if you update components, you must rebuild them in the library (`update_styleguide.sh`)
+and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not
+be good enough to get the new changes.
 
 
 ## Pull requests
