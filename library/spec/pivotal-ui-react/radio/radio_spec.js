@@ -69,4 +69,23 @@ describe('Radio', function() {
     });
   });
 
+  describe('when disabled property is passed', () => {
+    beforeEach(() => {
+      ReactDOM.render(
+        <Radio
+          value="a value we do not care about"
+          disabled>
+          A label we do not care about
+        </Radio>, root);
+    });
+
+    it('disables the radio button', () => {
+      expect('#root .radio label :radio').toHaveAttr('disabled');
+      expect('#root .radio label :radio').toHaveAttr('aria-disabled');
+    });
+
+    it('gets the disabled class on the label', () => {
+      expect('#root .radio label').toHaveClass('disabled');
+    });
+  });
 });
