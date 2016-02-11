@@ -25,6 +25,7 @@
     "pui-css-collapse": "file:../library/dist/css/collapse",
     "pui-css-colors": "file:../library/dist/css/colors",
     "pui-css-dropdowns": "file:../library/dist/css/dropdowns",
+    "pui-css-ellipsis": "file:../library/dist/css/ellipsis",
     "pui-css-forms": "file:../library/dist/css/forms",
     "pui-css-google-maps": "file:../library/dist/css/google-maps",
     "pui-css-grids": "file:../library/dist/css/grids",
