@@ -37,6 +37,7 @@ Using React radio buttons in a form is fairly straightforward.
 <RadioGroup name="field_name">
   <Radio value="firstValue">You could click this radio button</Radio>
   <Radio value="SecondValue" defaultChecked>This is also a radio button</Radio>
+  <Radio value="ThirdValue" disabled>This is a disabled radio button</Radio>
 </RadioGroup>
 ```
 

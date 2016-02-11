@@ -10,16 +10,26 @@ var Radio = React.createClass({
     onChange: React.PropTypes.func,
     id: React.PropTypes.string,
     className: React.PropTypes.string,
-    style: React.PropTypes.object
+    style: React.PropTypes.object,
+    disabled: React.PropTypes.bool
   },
 
   render: function() {
-    const {className, style, children, ...others} = this.props;
+    const {className, style, children, disabled, ...others} = this.props;
     const props = mergeProps({className: className, style: style}, {className: 'radio'});
+
     return (
       <div {...props}>
-        <label>
-          <input type="radio" {...others}/>
+        <label
+          className={disabled ? 'type-neutral-5' : ''}
+          style={disabled ? {cursor: 'not-allowed'} : undefined}
+        >
+          <input
+            type="radio"
+            disabled={disabled}
+            aria-disabled={disabled}
+            {...others}
+          />
           {children}
         </label>
       </div>
