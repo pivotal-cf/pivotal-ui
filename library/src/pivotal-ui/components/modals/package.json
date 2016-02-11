@@ -1,7 +1,7 @@
 {
-  "version": "3.1.1",
+  "version": "3.1.2",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "^3.1.1"
+    "pui-css-bootstrap": "^3.1.2"
   }
 }

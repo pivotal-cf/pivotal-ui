@@ -1,6 +1,8 @@
-<a name="3.1.1"></a>
-## 3.1.1 (2016-02-10)
+<a name="3.1.2"></a>
+## 3.1.2 (2016-02-11)
+
 
 ### Bug Fixes
 
-* **dependencies:** Update classnames dependencies ([4e240c9](https://github.com/pivotal-cf/pivotal-ui/commit/4e240c9)), closes [#113259049](https://github.com/pivotal-cf/pivotal-ui/issues/113259049)
+* **radio:** add disabled class to radio label ([4c1a4d2](https://github.com/pivotal-cf/pivotal-ui/commit/4c1a4d2))
+
