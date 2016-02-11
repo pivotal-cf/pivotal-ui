@@ -350,8 +350,8 @@ input[type="radio"] {
   }
 
   .disabled {
-    color: $gray-5;
-    cursor: default;
+    color: $neutral-5;
+    cursor: not-allowed;
   }
 }
 
