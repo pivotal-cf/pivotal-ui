@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "font-awesome": "^4.4.0",
     "lodash": "^3.10.1",
     "pui-css-alignment": "file:../library/dist/css/alignment",
     "pui-css-avatars": "file:../library/dist/css/avatars",
