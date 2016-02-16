@@ -1,3 +1,5 @@
+// DEPRECATED: MOVED INTO RADIO
+
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 

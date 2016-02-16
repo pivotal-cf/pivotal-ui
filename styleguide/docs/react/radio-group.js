@@ -27,7 +27,7 @@ For the example, you also need to install [Grids](#grid_react) and require `Col`
 Require the subcomponents:
 
 ```
-var RadioGroup = require('pui-react-radio-groups').RadioGroup;
+var RadioGroup = require('pui-react-radio').RadioGroup;
 var Radio = require('pui-react-radio').Radio;
 ```
 
