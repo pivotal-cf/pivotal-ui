@@ -14,12 +14,12 @@
 
  Require the subcomponents:
 
- ```
- var SuccessAlert = require('pui-react-alerts').SuccessAlert;
- var InfoAlert = require('pui-react-alerts').InfoAlert;
- var WarningAlert = require('pui-react-alerts').WarningAlert;
- var ErrorAlert = require('pui-react-alerts').ErrorAlert;
- ```
+```
+var SuccessAlert = require('pui-react-alerts').SuccessAlert;
+var InfoAlert = require('pui-react-alerts').InfoAlert;
+var WarningAlert = require('pui-react-alerts').WarningAlert;
+var ErrorAlert = require('pui-react-alerts').ErrorAlert;
+```
 
 
  ```react_example_table
