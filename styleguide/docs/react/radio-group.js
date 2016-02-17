@@ -18,7 +18,7 @@ parent: form_react
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-radio pui-react-radio-group --save
+npm install pui-react-radio --save
 </i>
 </code>
 
