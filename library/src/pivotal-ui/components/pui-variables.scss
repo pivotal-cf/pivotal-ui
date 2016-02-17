@@ -739,7 +739,7 @@ $tab-responsive-bg:             $shadow-4;
 $tab-responsive-color:          $neutral-3;
 $tab-responsive-active-color:   $brand-5;
 $tab-responsive-radius:         $border-radius-large;
-$tab-responsive-pane-padding:   15px;
+$tab-responsive-pane-padding:   10px;
 
 // Left tabs
 $tab-left-bg:             $tab-responsive-bg;
@@ -938,7 +938,7 @@ $label-link-hover-color:      $neutral-11;
 // -------------------------
 $modal-inner-padding:         30px !default;
 
-$modal-title-padding:         15px !default;
+$modal-title-padding:         10px !default;
 $modal-title-line-height:     $line-height-base !default;
 
 $modal-content-bg:                             $neutral-9 !default;
@@ -968,7 +968,7 @@ $modal-alt-title-color:               $neutral-10;
 // Alerts
 // -------------------------
 $alert-border-radius:         0px;
-$alert-padding:               15px;
+$alert-padding:               10px;
 $alert-close-size:            16px;
 $alert-border-radius:         0px;
 $alert-link-font-weight:      inherit !default;
@@ -1055,8 +1055,8 @@ $timeline-point-color: $neutral-7;
 // Panels
 // -------------------------
 $panel-bg:                    null;
-$panel-body-padding:          15px !default;
-$panel-heading-padding:       10px 15px !default;
+$panel-body-padding:          10px !default;
+$panel-heading-padding:       10px 10px !default;
 $panel-footer-padding:        $panel-heading-padding !default;
 
 $panel-inner-border:          transparent !default;

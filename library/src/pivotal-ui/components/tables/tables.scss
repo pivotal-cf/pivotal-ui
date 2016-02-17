@@ -5,13 +5,13 @@
 // Terrible terrible code
 .table-hack {
   .thead, .tbody {
-    padding: 0 15px;
+    padding: 0 $whitespace-l;
   }
   .th {
-    padding: 8px 15px;
+    padding: 8px $whitespace-l;
   }
   .td {
-    padding: 20px 15px;
+    padding: 20px $whitespace-l;
   }
   .tbody {
 
@@ -29,7 +29,7 @@
         border-bottom: none;
         border-color: $gray-7;
         border-right: 1px solid $gray-7;
-        padding: 15px 10px;
+        padding: $whitespace-l;
         font-size: 13px;
         font-weight: 900;
         letter-spacing: 0.3px;
