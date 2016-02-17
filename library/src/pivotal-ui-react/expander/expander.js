@@ -33,6 +33,12 @@ var ExpanderContent = React.createClass({
     return {expanded: this.props.expanded};
   },
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.expanded !== this.props.expanded) {
+      this.setState({expanded: nextProps.expanded});
+    }
+  },
+
   toggle() {
     this.setState({expanded: !this.state.expanded});
   },

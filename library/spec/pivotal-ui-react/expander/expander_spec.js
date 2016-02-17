@@ -80,6 +80,19 @@ describe('ExpanderContent', function() {
       expect('.collapse').not.toHaveClass('in');
     });
   });
+  describe('when toggling expanded prop', function() {
+    beforeEach(function() {
+      renderComponent.call(this, {expanded: true});
+      jasmine.clock().tick(1000);
+    });
+
+    it('toggles open/closed', function() {
+      expect('.collapse').toHaveClass('in');
+      renderComponent.call(this, {expanded: false});
+      jasmine.clock().tick(1000);
+      expect('.collapse').not.toHaveClass('in');
+    })
+  })
 });
 
 describe('ExpanderTrigger', function() {

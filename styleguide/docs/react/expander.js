@@ -18,7 +18,6 @@ Require the subcomponents:
 
 ```
 var ExpanderContent = require('pui-react-expander').ExpanderContent;
-var ExpanderTrigger = require('pui-react-expander').ExpanderTrigger;
 ```
 
 
@@ -34,22 +33,26 @@ See the example below for how to use these components in your own application.
 
 ```jsx_example
 var MoreInfo = React.createClass({
-  componentDidMount: function () {
-    this.refs.infoTrigger.setTarget(this.refs.infoContent);
-  },
-  render: function() {
-    return (
-      <main>
-        <ExpanderContent ref="infoContent">
-          <p className='h1 bg-neutral-2 type-neutral-9'>Content in expander</p>
-        </ExpanderContent>
-        <br/>
-        <ExpanderTrigger ref="infoTrigger">
-          <button className='btn btn-highlight'>Toggle Content</button>
-        </ExpanderTrigger>
-      </main>
-    )
-  }
+ getInitialState() {
+   return {expanded: false};
+ },
+
+ toggleContent() {
+   this.setState({expanded: !this.state.expanded});
+ },
+
+ render: function() {
+   return (
+     <main>
+       <ExpanderContent expanded={this.state.expanded}>
+         <p className='h1 bg-neutral-2 type-neutral-9'>Content in expander</p>
+       </ExpanderContent>
+       <button className='btn btn-highlight' onClick={this.toggleContent}>
+         Toggle Content
+       </button>
+     </main>
+   );
+ }
 });
 ```
 
