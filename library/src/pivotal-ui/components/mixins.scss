@@ -4,12 +4,17 @@
   -webkit-transition: $type $speed $ease;
   -moz-transition: $type $speed $ease;
   transition: $type $speed $ease;
+  @if($type == all) {
+    -webkit-transition-property: background-color, color, opacity;
+    -moz-transition-property: background-color, color, opacity;
+    transition-property: background-color, color, opacity;
+  }
 }
 
-@mixin no-transition(){ //TODO: is there a transition: none?
-  -webkit-transition: all 0ms ease-out;
-  -moz-transition: all 0ms ease-out;
-  transition: all 0ms ease-out;
+@mixin no-transition(){
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  transition-property: none;
 }
 
 /* Button Mixins */
