@@ -84,13 +84,13 @@ again.
 
 1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
    
-5. Put a copy of the current styleguide in `old_styleguides`
+5. Put a copy of the most current major release in `old_styleguides`
 	1. `cd ../styleguide`
 	2. `gulp styleguide-build`
-	3. `rm -rf old_styleguides/x.x` where `x.x` is the major and minor version of your release (e.g. 3.0)
-	4. `cp -r build/ old_styleguides/x.x`
-	5. `rm -rf old_styleguides/x.x/*.*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
-	5. If you are releasing a new major or minor version, add a link in `docs/other-versions.scss`
+	3. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
+	4. `cp -r build/ old_styleguides/x`
+	5. `rm -rf old_styleguides/x/*.*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
+	5. If you are releasing a new major version, add a link in `docs/other-versions.scss` in the format of 'version x'
 	6. `gulp ci`
 	7. `cd ../library`
 
