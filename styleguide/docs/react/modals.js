@@ -29,15 +29,17 @@ We provide 3 components that can be used to assemble modals:
 * `ModalBody`
 * `ModalFooter`
 
-Relevant Properties:
+**Relevant Properties**
 
- `show`: a boolean; whether the modal should be opened or closed
+* `show`: a boolean; whether the modal should be opened or closed
+* `onHide`: a function; called when the modal is signaled to close in one of these ways:
+  * Clicking the "x" button
+  * Clicking on the modal backdrop
+  * Clicking the esc key
 
- `onHide`: a function; called when the modal is signaled to close in one of these ways:
-
- * Clicking the "x" button
- * Clicking on the modal backdrop
- * Clicking the esc key
+**Note**: A modal will be rendered at the end of `body` instead of the DOM node it is given. This makes positioning
+work regardless of where you render the modal. One side effect is `ReactDOM.findDOMNode`does not
+actually find the modal DOM node.
 
  ```jsx_example
 
