@@ -44,38 +44,55 @@ describe('ExpanderContent', function() {
   });
 
   describe('#toggle', function() {
+    let onExitedSpy, onEnteredSpy;
+
     describe('when the content was already visible', function() {
       beforeEach(function() {
-        let expanderContent = renderComponent.call(this, {expanded: true});
+        onExitedSpy = jasmine.createSpy('onExited');
+        let expanderContent = renderComponent.call(this, {expanded: true, onExited: onExitedSpy});
         expanderContent.toggle();
+        jasmine.clock().tick(5);
+        expect(onExitedSpy).not.toHaveBeenCalled();
         jasmine.clock().tick(1000);
       });
 
       it('hides the content', function() {
         expect('.collapse').not.toHaveClass('in');
       });
+
+      it('calls the onExited callback', function() {
+        expect(onExitedSpy).toHaveBeenCalled();
+      });
     });
 
     describe('when the content is not visible', function() {
       beforeEach(function() {
-        this.expanderContent = renderComponent.call(this, {expanded: false});
-        this.expanderContent.toggle();
+        onEnteredSpy = jasmine.createSpy('onEntered');
+        let expanderContent = renderComponent.call(this, {expanded: false, onEntered: onEnteredSpy});
+
+        expanderContent.toggle();
+        jasmine.clock().tick(5);
+        expect(onEnteredSpy).not.toHaveBeenCalled();
         jasmine.clock().tick(1000);
       });
 
       it('shows the content', function() {
         expect('.collapse').toHaveClass('in');
       });
+
+      it('calls the onEntered callback', function() {
+        expect(onEnteredSpy).toHaveBeenCalled();
+      });
     });
 
     it('can be invoked ad nauseum', function() {
-      this.expanderContent = renderComponent.call(this);
+      const expanderContent = renderComponent.call(this);
 
-      this.expanderContent.toggle();
+      expanderContent.toggle();
       jasmine.clock().tick(1000);
       expect('.collapse').toHaveClass('in');
 
-      this.expanderContent.toggle();
+      expanderContent.toggle();
       jasmine.clock().tick(1000);
       expect('.collapse').not.toHaveClass('in');
     });

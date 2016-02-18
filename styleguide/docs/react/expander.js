@@ -17,42 +17,53 @@ npm install pui-react-expander --save
 Require the subcomponents:
 
 ```
-var ExpanderContent = require('pui-react-expander').ExpanderContent;
+const ExpanderContent = require('pui-react-expander').ExpanderContent;
 ```
 
-
-Expanders are collapsable content areas which are unlike their accordion counterparts in that they do not require a
+Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
 else within the DOM.
 
-The expander pattern requires two components -- the ExpanderContent and the ExpanderTrigger. You will need to implement a
-component which handles the communication between these two components so the Trigger knows which Content to toggle. This is done
-through the setTarget method exposed on the ExpanderTrigger. *Note that the contents of the ExpanderTrigger component must be a button or link.*
+The Expander component accepts an "onEntered" and an "onExited" callback that triggers after animation is complete.
 
 See the example below for how to use these components in your own application.
 
 ```jsx_example
-var MoreInfo = React.createClass({
- getInitialState() {
-   return {expanded: false};
- },
+const MoreInfo = React.createClass({
+  getInitialState() {
+    return {expanded: false};
+  },
 
- toggleContent() {
-   this.setState({expanded: !this.state.expanded});
- },
+  toggleContent() {
+    this.setState({expanded: !this.state.expanded});
+  },
 
- render: function() {
-   return (
-     <main>
-       <ExpanderContent expanded={this.state.expanded}>
-         <p className='h1 bg-neutral-2 type-neutral-9'>Content in expander</p>
-       </ExpanderContent>
-       <button className='btn btn-highlight' onClick={this.toggleContent}>
-         Toggle Content
-       </button>
-     </main>
-   );
- }
+  onSomething(something) {
+    return () => console.log('triggered ', something)
+  },
+
+  render: function() {
+     const callbacks = {
+       onEntered: this.onSomething('onEntered'),
+       onExited: this.onSomething('onExited')
+     };
+
+    return (
+      <main>
+        <ExpanderContent
+          expanded={this.state.expanded}
+          onEntered={callbacks.onEntered}
+          onExited={callbacks.onExited}>
+            <p className='h1 bg-neutral-2 type-neutral-9'>
+              Content in expander
+            </p>
+        </ExpanderContent>
+        <button className='btn btn-highlight' onClick={this.toggleContent}>
+          Toggle Content
+        </button>
+      </main>
+    )
+  }
 });
 ```
 

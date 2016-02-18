@@ -1,7 +1,7 @@
-var React = require('react');
-var Collapse = require('react-bootstrap/lib/Collapse');
+const React = require('react');
+const Collapse = require('react-bootstrap/lib/Collapse');
 
-var ExpanderTrigger = React.createClass({
+const ExpanderTrigger = React.createClass({
   getInitialState() {
     return {};
   },
@@ -24,7 +24,7 @@ var ExpanderTrigger = React.createClass({
   }
 });
 
-var ExpanderContent = React.createClass({
+const ExpanderContent = React.createClass({
   propTypes: {
     expanded: React.PropTypes.bool
   },
@@ -44,10 +44,11 @@ var ExpanderContent = React.createClass({
   },
 
   render() {
+    const {children, ...props} = this.props;
     return (
-      <Collapse in={this.state.expanded}>
+      <Collapse {...{'in': this.state.expanded, ...props}}>
         <div style={{overflow: 'hidden'}}>
-          {this.props.children}
+          {children}
         </div>
       </Collapse>
     );
