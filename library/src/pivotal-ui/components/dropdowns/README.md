@@ -15,7 +15,7 @@ Note that this requires the Bootstrap JavaScript.
       <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
     </li>
     <li class="divider mvn"></li>
-    </li><li role="presentation">
+    <li role="presentation">
       <a href="http://www.aol.com" role="menuitem">Aol</a>
     </li>
   </ul>
