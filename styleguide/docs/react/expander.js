@@ -38,22 +38,13 @@ const MoreInfo = React.createClass({
     this.setState({expanded: !this.state.expanded});
   },
 
-  onSomething(something) {
-    return () => console.log('triggered ', something)
-  },
-
   render: function() {
-     const callbacks = {
-       onEntered: this.onSomething('onEntered'),
-       onExited: this.onSomething('onExited')
-     };
-
     return (
       <main>
         <ExpanderContent
           expanded={this.state.expanded}
-          onEntered={callbacks.onEntered}
-          onExited={callbacks.onExited}>
+          onEntered={() => {console.log('onEntered')}}
+          onExited={() => {console.log('onExited')}}>
             <p className='h1 bg-neutral-2 type-neutral-9'>
               Content in expander
             </p>
