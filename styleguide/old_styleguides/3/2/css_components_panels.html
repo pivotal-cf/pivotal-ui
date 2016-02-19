@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Panels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="panel" class="styleguide">Panels</h1>
+
+<ul class="section-nav">
+  <li><a href="#panel_simple">Simple</a></li>
+  <li><a href="#panel_basic">Basic</a></li>
+  <li><a href="#panel_basic_alt">Basic Alternate</a></li>
+  <li><a href="#panel_flex">Flex (Panel with Footer)</a></li>
+  <li><a href="#panel_tile">Panel Tile</a></li>
+  <li><a href="#panel_scrollable">Scrollable</a></li>
+  <li><a href="#panel_highlight">Highlight</a></li>
+  <li><a href="#panel_alt">Alternate</a></li>
+  <li><a href="#panel_shadow">Shadow</a></li>
+  <li><a href="#panel_card">Card</a></li>
+  <li><a href="#panel_clickable">Clickable</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-panels --save
+</i>
+</code></p><p class="styleguide">Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.</p><p class="styleguide">Panels are typically a combination of contours, backgrounds, and content including headers and footers. This section describes the contours.</p>
+<h2 id="panel_alt" class="styleguide">Alternate</h2>
+<p class="styleguide">Alternate panels can be in a default, off, or danger state.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-alt">
+  <div class="panel-body">
+    Alternate Panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-alt"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Alternate Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-alt panel-danger">
+  <div class="panel-body">
+    Danger alternate panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-alt panel-danger"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Danger alternate panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-alt panel-off">
+  <div class="panel-body">
+    Stopped alternate panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-alt panel-off"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Stopped alternate panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-alt panel-empty">
+  <div class="panel-body">
+    Off alternate panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-alt panel-empty"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Off alternate panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-alt panel-editing">
+  <div class="panel-body">
+    Editing alternate panel
+  </div>
+</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-alt panel-editing"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Editing alternate panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="panel_basic" class="styleguide">Basic</h2>
+<p class="styleguide">By default, all the .panel does is apply a basic shadow and padding to contain some content. You can have it with or without a title.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-basic bg-neutral-11">
+  <div class="panel-header">
+    <h5 class="panel-title-alt">Basic Title</h5>
+  </div>
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+
+<div class="panel panel-basic bg-neutral-11">
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-basic bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-header"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"panel-title-alt"</span><span class="nt">&gt;</span>Basic Title<span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Basic Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-basic bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Basic Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_basic_alt" class="styleguide">Basic Alternate</h2>
+<p class="styleguide">Basic alternate panels are panels with a border and shadow. You can have a panel-basic-alt with or without a title.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-basic-alt">
+  <div class="panel-header">
+    <h5 class="panel-title-alt">Basic Title Alt</h5>
+  </div>
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+
+<div class="panel panel-basic-alt">
+  <div class="panel-body">
+    Basic Panel
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-basic-alt"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-header"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"panel-title-alt"</span><span class="nt">&gt;</span>Basic Title Alt<span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Basic Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-basic-alt"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Basic Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_card" class="styleguide">Card</h2>
+<p class="styleguide">Using panels with <a class="styleguide" href="css_all.html#list_cards" title="css_all.html#list_cards">card lists</a> makes any <code class="styleguide">.panel-body</code> have a minimum &quot;card&quot; height.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-cards list-cards-sm list-card-2">
+  <li class="panel panel-clickable-alt bg-neutral-11">
+    <div class="panel-body">
+      Card Panel
+    </div>
+  </li>
+  <li class="panel panel-clickable-alt bg-neutral-11">
+    <div class="panel-body">
+      Card Panel
+    </div>
+  </li>
+  <li class="panel panel-clickable-alt bg-neutral-11">
+    <div class="panel-body">
+      Card Panel
+    </div>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-cards-sm list-card-2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-clickable-alt bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+      Card Panel
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-clickable-alt bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+      Card Panel
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-clickable-alt bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+      Card Panel
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_clickable" class="styleguide">Clickable</h2>
+<p class="styleguide">These panels lighten on hover to indicate that they are clickable.
+Please use them when a click on the panel triggers an action.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-clickable">
+  <div class="panel-body">
+    Panel Clickable
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-clickable"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Panel Clickable
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-clickable-alt">
+  <div class="panel-body">
+    Panel Clickable Alt
+  </div>
+</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-clickable-alt"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Panel Clickable Alt
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">Sometimes you&#39;ll also want to adapt the way child elements look
+based on a hover on the parent element. There are a few
+helper classes for that.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><a class="panel panel-clickable">
+  <div class="panel-body">
+    <p class="hover-target-1">
+      hover-target-1 - default text color => link color
+    </p>
+  </div>
+</a></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"panel panel-clickable"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hover-target-1"</span><span class="nt">&gt;</span>
+      hover-target-1 - default text color =&gt; link color
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><a class="panel panel-clickable">
+  <div class="panel-body">
+    <p class="hover-target-2">
+      hover-target-2 - light gray text => default text color
+    </p>
+  </div>
+</a></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"panel panel-clickable"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hover-target-2"</span><span class="nt">&gt;</span>
+      hover-target-2 - light gray text =&gt; default text color
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><a class="panel panel-clickable">
+  <div class="panel-body">
+    <p class="hover-target-3">
+      hover-target-3 - $gray-9 background => white background
+    </p>
+  </div>
+</a>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"panel panel-clickable"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hover-target-3"</span><span class="nt">&gt;</span>
+      hover-target-3 - $gray-9 background =&gt; white background
+    <span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="panel_flex" class="styleguide">Flex (Panel with Footer)</h2>
+<p class="styleguide">Flex panels let us put a footer at the bottom of a fixed-height panel. Any panel can flex. In browsers that don&#39;t
+support flexbox, the footer will appear where it would naturally, likely right below the panel-body content.</p><p class="styleguide">By default, flex panels have no height. You must use an inline style to set the height.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-flex bg-neutral-11" style="height:200px">
+  <div class="panel-body">Body Content</div>
+  <div class="panel-footer">Footer Content</div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span> <span class="na">style=</span><span class="s">"height:200px"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Body Content<span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<div class="alert alert-info mbxl">
+  <h5 class="em-high mtn">
+    Flex panels and list cards
+  </h5>
+  <p>
+    Flex panels are often used with <a class="alert-link" href="/elements.html#list_cards">list cards</a>
+    as a way to give list cards footers.
+    Add the class <code>list-card-wrapper</code> on any flex panels inside list cards.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><ul class="list-cards list-card-2 list-cards-sm">
+  <li class="panel panel-flex bg-neutral-11">
+    <div class="list-card-wrapper panel panel-flex">
+      <div class="panel-body">Body Content</div>
+      <div class="panel-footer">Footer Content</div>
+    </div>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <form>
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">
+          <p>
+            It even works if your <code>list-card-wrapper</code> is nested in a form
+          </p>
+          <div class="form-group">
+            <input class="form-control" placeholder="Email">
+          </div>
+        </div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </form>
+  </li>
+
+  <li class="panel panel-flex bg-neutral-11">
+    <a class="list-card-link" href="http://wrd.cm/1e2A8uU">
+      <div class="list-card-wrapper panel panel-flex">
+        <div class="panel-body">Or in a link!</div>
+        <div class="panel-footer">Footer Content</div>
+      </div>
+    </a>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-2 list-cards-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Body Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;form&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p&gt;</span>
+            It even works if your <span class="nt">&lt;code&gt;</span>list-card-wrapper<span class="nt">&lt;/code&gt;</span> is nested in a form
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">placeholder=</span><span class="s">"Email"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"panel panel-flex bg-neutral-11"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link"</span> <span class="na">href=</span><span class="s">"http://wrd.cm/1e2A8uU"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"list-card-wrapper panel panel-flex"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>Or in a link!<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>Footer Content<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_highlight" class="styleguide">Highlight</h2>
+<p class="styleguide">This panel is used to highlight more important parts of the page.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-highlight">
+  <div class="panel-body">
+    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-highlight"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_scrollable" class="styleguide">Scrollable</h2>
+<p class="styleguide">The scrollable panel sets a fixed height of 183px and scrolls any content that is larger. If you want a different size, set an inline style on the <code class="styleguide">.panel-scrollable</code>.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-scrollable bg-neutral-11">
+  <div class="panel-body">
+    <p>Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.</p>
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-scrollable bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_shadow" class="styleguide">Shadow</h2>
+<p class="styleguide">Shadow panels add a bottom shadow to the panel.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-shadow-1 bg-neutral-11">
+  <div class="panel-body">
+    Shadow Panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-shadow-1 bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Shadow Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-shadow-2 bg-neutral-11">
+  <div class="panel-body">
+    Shadow Panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-shadow-2 bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Shadow Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-shadow-3 bg-neutral-11">
+  <div class="panel-body">
+    Shadow Panel
+  </div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-shadow-3 bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Shadow Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="panel panel-shadow-4 bg-neutral-11">
+  <div class="panel-body">
+    Shadow Panel
+  </div>
+</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-shadow-4 bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Shadow Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="panel_simple" class="styleguide">Simple</h2>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="panel panel-simple bg-neutral-11">
+  <div class="panel-body">
+    Simple Panel
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel panel-simple bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body"</span><span class="nt">&gt;</span>
+    Simple Panel
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="panel_tile" class="styleguide">Panel Tile</h2>
+<p class="styleguide">Tile panels extend the behavior of flex panels. They provide an animated footer on hover, at the bottom of a fixed-height panel.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-cards list-card-1 list-cards-lg">
+  <li>
+    <a class="list-card-link panel panel-flex panel-tile bg-neutral-11" href="http://www.google.com/">
+      <div class="panel-body list-card-wrapper">
+        Hover to see secondary state.
+      </div>
+      <div class="panel-footer">
+        This is the footer
+      </div>
+    </a>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-1 list-cards-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link panel panel-flex panel-tile bg-neutral-11"</span> <span class="na">href=</span><span class="s">"http://www.google.com/"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body list-card-wrapper"</span><span class="nt">&gt;</span>
+        Hover to see secondary state.
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-footer"</span><span class="nt">&gt;</span>
+        This is the footer
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

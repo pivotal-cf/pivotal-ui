@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="table" class="styleguide">Tables</h1>
+
+<ul class="section-nav">
+  <li><a href="#table_alignment">Alignment</a></li>
+  <li><a href="#table_data">Data</a></li>
+  <li><a href="#table_key_value">Key-Value</a></li>
+  <li><a href="#scrollable_table">Scrollable</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-tables --save
+</i>
+</code></p><table class="styleguide"> <tr>
+<th>Class</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">.table</code></td>
+<td>Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-hover</code></td>
+<td>Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-striped</code></td>
+<td>Applies zebra striping to a table.</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-light</code></td>
+<td>Lightens the table background.</td>
+</tr>
+ </table>
+<h2 id="scrollable_table" class="styleguide">Scrollable</h2>
+<p class="styleguide">Table with borders where the contents of the table scroll but the header does not.
+The default height of the scrollable table is 183px. There are four other sizes provided
+which you can use by adding the following classes to the <code class="styleguide">.table-scrollable</code> element.</p><table class="styleguide"> <tr>
+<th>Table Scrollable sizes</th>
+<th>Height</th>
+</tr>
+ <tr>
+<td>default</td>
+<td>183px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-sm</code></td>
+<td>300px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-md</code></td>
+<td>600px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.table-scrollable-lg</code></td>
+<td>900px</td>
+</tr>
+ </table><p class="styleguide">If you would like a custom size, please add an inline style to the <code class="styleguide">.table-scrollable-body</code> element.</p><p class="styleguide">Design Note: The <code class="styleguide">table-scrollable</code> is often paired with <code class="styleguide">table-data</code> and <code class="styleguide">table-light</code> as in our example.</p>
+<div class="alert alert-info alert-dismissable">
+  <p class="em-high">
+    You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
+    the first row of the <code>tbody</code>. You can do this with inline width attributes.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="table-scrollable table-scrollable-sm">
+  <div class="table-scrollable-header">
+    <table class="table table-data table-light">
+      <thead>
+        <tr>
+          <th width="10%">#</th>
+          <th width="16%">Status</th>
+          <th width="12%">CPU</th>
+          <th width="16%">Memory</th>
+          <th width="16%">Disk</th>
+          <th width="30%">Uptime</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <div class="table-scrollable-body">
+    <table class="table table-data table-light">
+      <tbody>
+        <tr>
+          <td width="10%">0</td>
+          <td width="16%">Running</td>
+          <td width="12%">0%</td>
+          <td width="16%">4.16 MB</td>
+          <td width="16%">6.75 MB</td>
+          <td width="30%">27 min</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>27 min</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.14 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.08 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.16 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.03 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Running</td>
+          <td>0%</td>
+          <td>4.07 MB</td>
+          <td>6.75 MB</td>
+          <td>25 min</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable table-scrollable-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable-header"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-data table-light"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;thead&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"10%"</span><span class="nt">&gt;</span>#<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Status<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"12%"</span><span class="nt">&gt;</span>CPU<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Memory<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Disk<span class="nt">&lt;/th&gt;</span>
+          <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"30%"</span><span class="nt">&gt;</span>Uptime<span class="nt">&lt;/th&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/thead&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"table-scrollable-body"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-data table-light"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;tbody&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"10%"</span><span class="nt">&gt;</span>0<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"12%"</span><span class="nt">&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>4.16 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"16%"</span><span class="nt">&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td</span> <span class="na">width=</span><span class="s">"30%"</span><span class="nt">&gt;</span>27 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>1<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>27 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>2<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>3<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.14 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.08 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>5<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.16 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>7<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>8<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.03 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+        <span class="nt">&lt;tr&gt;</span>
+          <span class="nt">&lt;td&gt;</span>9<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>Running<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>0%<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>4.07 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>6.75 MB<span class="nt">&lt;/td&gt;</span>
+          <span class="nt">&lt;td&gt;</span>25 min<span class="nt">&lt;/td&gt;</span>
+        <span class="nt">&lt;/tr&gt;</span>
+      <span class="nt">&lt;/tbody&gt;</span>
+    <span class="nt">&lt;/table&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="table_alignment" class="styleguide">Alignment</h2>
+<p class="styleguide">See the <a class="styleguide" href="css_all.html#alignment" title="css_all.html#alignment">alignment component</a> for classes to use for table text alignment.</p>
+<h2 id="table_data" class="styleguide">Data</h2>
+<p class="styleguide">This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.</p><p class="styleguide">Design Note: The <code class="styleguide">table-data</code> is often paired with <code class="styleguide">table-light</code> as in our example.</p><div class="codeExample">
+  <div class="exampleOutput"><table class="table table-data table-light">
+  <thead>
+    <tr>
+      <th>Service Instance</th>
+      <th>Service Plan</th>
+      <th>Bound Apps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>oracle-db-sct</td>
+      <td>Oracle DB</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-data table-light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;thead&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Service Instance<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Service Plan<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;th&gt;</span>Bound Apps<span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/thead&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>oracle-db-sct<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Oracle DB<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>12<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>oracle-db-sct<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Oracle DB<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>12<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>oracle-db-sct<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Oracle DB<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>12<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;td&gt;</span>oracle-db-sct<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>Oracle DB<span class="nt">&lt;/td&gt;</span>
+      <span class="nt">&lt;td&gt;</span>12<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="table_key_value" class="styleguide">Key-Value</h2>
+<p class="styleguide">This table is used when the table headings are on the left. It looks better when you
+specify column widths for the th/tds.</p><div class="codeExample">
+  <div class="exampleOutput"><table class="table table-key-value">
+  <tbody>
+    <tr>
+      <th class="col-md-8">Email</th>
+      <td class="col-md-16">joe@example.com</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Current Password</th>
+      <td class="col-md-16">*******</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">First Name</th>
+      <td class="col-md-16">Joe</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Last Name</th>
+      <td class="col-md-16">Bobs</td>
+    </tr>
+    <tr>
+      <th class="col-md-8">Phone</th>
+      <td class="col-md-16">415-555-0000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-key-value"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;tbody&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;</span>joe@example.com<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>Current Password<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;</span>*******<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>First Name<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;</span>Joe<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>Last Name<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;</span>Bobs<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+    <span class="nt">&lt;tr&gt;</span>
+      <span class="nt">&lt;th</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>Phone<span class="nt">&lt;/th&gt;</span>
+      <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;</span>415-555-0000<span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;/tr&gt;</span>
+  <span class="nt">&lt;/tbody&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

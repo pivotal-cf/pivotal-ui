@@ -349,6 +349,8 @@ table.styleguide {
       background-color: rgba(255, 255, 255, 0.4);
       -webkit-transition: all 300ms ease-out;
       transition: all 300ms ease-out;
+      -webkit-transition-property: background-color, color, opacity;
+      transition-property: background-color, color, opacity;
       border-radius: 3px; }
       .section-nav li a:hover {
         background-color: white; }
