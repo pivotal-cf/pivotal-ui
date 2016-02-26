@@ -33,13 +33,15 @@ class PanelHeader extends React.Component {
 
   render() {
     const {actions, header, subtitle} = this.props;
-    if(header) {
+    if (header) {
       const titleNode = header.constructor === String ?
         (<PanelTitle>{header}</PanelTitle>) :
         header;
 
       const headerNode = subtitle ?
-        (<div>{titleNode}<div className="panel-subtitle">{subtitle}</div></div>) :
+        (<div>{titleNode}
+          <div className="panel-subtitle">{subtitle}</div>
+        </div>) :
         titleNode;
 
       const actionsNode = actions ? <div className="panel-actions">{actions}</div> : null;
@@ -64,7 +66,7 @@ class PanelFooter extends React.Component {
   render() {
     const {footer} = this.props;
 
-    if(footer) {
+    if (footer) {
       return (
         <div className="panel-footer">
           {footer}
@@ -104,14 +106,18 @@ class Panel extends React.Component {
     });
 
     return (
-      <div {...props}>
+      <div>
         <PanelHeader {...{actions, header, subtitle}}/>
-        <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
-        <PanelFooter footer={footer}/>
+        <div {...props}>
+          <div className={classnames('panel-body', padding, innerClassName)}>{children}</div>
+          <PanelFooter footer={footer}/>
+        </div>
       </div>
     );
   }
 }
+
+
 
 class ShadowPanel extends Panel {
   constructor(props) {

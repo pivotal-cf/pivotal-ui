@@ -26,7 +26,7 @@ describe('Panel', function() {
       });
 
       it('sets the header to the panel', function() {
-        expect('.panel .panel-header .panel-title-alt').toContainText('This is a title');
+        expect('.panel-header .panel-title-alt').toContainText('This is a title');
       });
     });
 
@@ -37,8 +37,8 @@ describe('Panel', function() {
       });
 
       it('renders the contents without .panel-title-alt', function() {
-        expect('.panel .panel-header .hey').toContainText('HEY');
-        expect('.panel .panel-header .panel-title-alt').not.toExist();
+        expect('.panel-header .hey').toContainText('HEY');
+        expect('.panel-header .panel-title-alt').not.toExist();
       });
     });
 
@@ -157,6 +157,16 @@ describe('Panel', function() {
       it('sets the max-height of the panel-body to to the supplied numerical value', function() {
         expect('.panel').toHaveCss({maxHeight: '1337px'});
       });
+    });
+  });
+
+  describe('when scrollable is true and a header is set', function() {
+    beforeEach(function() {
+      ReactDOM.render(<Panel header="hey hey hey hey hey"scrollable>HEYYYYY</Panel>, root);
+    });
+
+    it('does not scroll the header', function() {
+      expect('.panel .panel-header').not.toExist();
     });
   });
 
