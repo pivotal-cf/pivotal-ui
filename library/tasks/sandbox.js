@@ -51,7 +51,9 @@ gulp.task('sandbox-build-sass', () =>
     gulp.src('src/pivotal-ui/components/**/*.scss')
       .pipe(plugins.plumber())
       .pipe(plugins.sass())
-      .pipe(plugins.cssnext())
+      .pipe(plugins.postcss([
+        require('postcss-cssnext')()
+      ]))
       .pipe(concat('pivotal-ui.css'))
       .pipe(gulp.dest(SANDBOX_BUILD_DIR))
 );

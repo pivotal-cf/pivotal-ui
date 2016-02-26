@@ -13,7 +13,7 @@ const SearchInput = React.createClass({
     return (
       <div className="form-group form-group-search">
         <input {...props}/>
-        <i className="fa fa-search"/>
+        <i className='search-icon'/>
       </div>
     );
   }

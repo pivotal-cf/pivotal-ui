@@ -34,7 +34,9 @@ gulp.task('css-build-readme', () =>
 gulp.task('css-build-src', function() {
   return gulp.src(['src/pivotal-ui/components/**/*.scss', '!src/pivotal-ui/components/*.scss'])
     .pipe(plugins.sass({outputStyle: 'compressed'}))
-    .pipe(plugins.cssnext())
+    .pipe(plugins.postcss([
+      require('postcss-cssnext')()
+    ]))
     .pipe(gulp.dest(buildFolder));
 });
 

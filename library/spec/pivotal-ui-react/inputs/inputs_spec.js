@@ -14,8 +14,7 @@ describe('inputs', function() {
 
       expect('.form-group input').toHaveClass('form-control');
 
-      expect('.form-group i').toHaveClass('fa');
-      expect('.form-group i').toHaveClass('fa-search');
+      expect('.form-group i').toHaveClass('search-icon');
     });
 
     describe('when a placeholder is provided', function() {

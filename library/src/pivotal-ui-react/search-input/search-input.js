@@ -1,3 +1,5 @@
+//DEPRECATED; USE INPUTS COMPONENT
+
 var React = require('react');
 var types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';

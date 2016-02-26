@@ -21,9 +21,6 @@ categories:
 This section contains different list behaviors. See [lists][list] to see different list styles.
 */
 
-
-
-
 //Bootstrap
 @mixin list-unstyled {
   padding-left: 0;
@@ -222,11 +219,12 @@ This section contains different list behaviors. See [lists][list] to see differe
   padding-left: 20px;
 
   > li:before {
-    font-family: 'FontAwesome';
-    // Font Awesome unicode for fa-check
-    content: '\f00c';
-    margin: 0 5px 0 -15px;
-    color: $teal-2;
+    content: '';
+    background-image: url('images/check.svg');
+    float: left;
+    height: 16px;
+    width: 16px;
+    margin: 3px 5px 0 -15px;
   }
 }
 

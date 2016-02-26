@@ -5,7 +5,6 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "pui-css-forms": "^3.2.0",
-    "pui-css-iconography": "^3.2.0",
     "pui-react-helpers": "^3.2.0"
   }
 }

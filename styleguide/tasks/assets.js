@@ -14,6 +14,7 @@ gulp.task('hologram', callback => exec('bundle exec hologram', callback));
 
 gulp.task('build-component-css', function() {
   return drF()
+    .pipe(plugins.plumber())
     .pipe(gulp.dest('build/'));
 });
 

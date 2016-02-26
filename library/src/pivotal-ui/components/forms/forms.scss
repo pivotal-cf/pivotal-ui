@@ -125,15 +125,21 @@ This is a fancy number input!
   }
 }
 
-
+@svg-load search url(../../images/search.svg) {
+  fill: $gray-3;
+}
 
 .form-group-search {
   position: relative;
 
-  i {
+  .search-icon {
     position: absolute;
     left: 12px;
     top: 12px;
+    content: '';
+    background-image: url('images/search.svg');
+    height: 16px;
+    width: 16px;
   }
 
   input {
@@ -314,22 +320,14 @@ input[type="radio"] {
 .has-success {
   position: relative;
   &:after {
-    content: "\f00c";
+    content: "";
+    background-image: url("images/check.svg");
     display: block;
     position: absolute;
-    bottom: 0;
-    right: 0;
-    height: $input-height-base;
-    width: $input-height-base;
-    line-height: $input-height-base;
-    border-top-right-radius: $input-border-radius;
-    border-bottom-right-radius: $input-border-radius;
-    color: $teal-3;
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: inherit;
-    text-align: center;
+    bottom: 15px;
+    right: 12px;
+    height: 16px;
+    width: 16px;
   }
   @include validation-label-color()
 }
