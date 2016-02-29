@@ -3,6 +3,7 @@ var packageTemplate = function(name, overrides) {
     name: `pui-css-${name}`,
     style: `${name}.css`,
     version: '0.0.1',
+    main: 'index.js',
     description: `${name} css component for Pivotal UI based on Bootstrap`,
     repository: {
       type: 'git',
