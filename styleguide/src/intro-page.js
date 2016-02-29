@@ -16,35 +16,12 @@ const IntroPage = React.createClass({
               <h1 className="title styleguide-title"> Ship Better UI, Faster</h1>
 
               <p className="styleguide-subtitle">
-                Pivotal UI is a collection of React Components that are styled for the Pivotal brand.
+                Pivotal UI is a collection of React and CSS components styled for the Pivotal brand.
               </p>
               <Button href="/getting-started.html" className="styleguide-btn-primary" large>Get Started</Button>
             </div>
           </div>
         </BasePane>
-        <TileLayout columns={{lg: 3, xs: 1}} noGutter>
-          <TileLayout.Item>
-            <IntroTile category="Base">
-              Discrete elements such as buttons, lists and
-              images. Also includes iconography and typography guidelines.
-            </IntroTile>
-          </TileLayout.Item>
-          <TileLayout.Item>
-            <IntroTile category="Components">
-              Groups of elements that comprise a unit. Elements
-              such as a form label, text input and autocomplete
-              can create a form.
-            </IntroTile>
-          </TileLayout.Item>
-          <TileLayout.Item>
-            <IntroTile category="Utilities">
-              Simple typographic, layout and color utilities.
-              Layout your pages with clean grids and whitespace
-              that are also responsive.
-            </IntroTile>
-          </TileLayout.Item>
-        </TileLayout>
-
         <div className="paxxl mbxxl">
           <h2 className="type-dark-2 h1">Examples Using Pivotal UI</h2>
           <TileLayout columns={{xl: 4, lg: 3, xs: 1}}>

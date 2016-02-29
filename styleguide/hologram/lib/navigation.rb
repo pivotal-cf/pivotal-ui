@@ -29,10 +29,10 @@ def generate_nav_from_categories(categories)
 
   categories.each do |category, page|
     nav_path = NavPath.from_category(category)
+
     if nav_path
       nav_tree[nav_path.language] ||= {}
-      nav_tree[nav_path.language][nav_path.component_type] ||= {}
-      nav_tree[nav_path.language][nav_path.component_type][nav_path.component] = page
+      nav_tree[nav_path.language][nav_path.component] ||= page
     end
   end
 

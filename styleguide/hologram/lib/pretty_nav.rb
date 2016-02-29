@@ -17,23 +17,16 @@ class PrettyNav
 
   def to_hash
     new_hash = {}
+    @nav_hash.each do |language, components|
+      pretty_components = {}
 
-    @nav_hash.each do |language, categories|
-      pretty_categories = {}
-
-      categories.each do |category, components|
-        pretty_components = {}
-
-        components.each do |component, path|
-          pretty_components[prettify(component)] = path
-        end
-
-        pretty_categories[prettify(category)] = pretty_components
+      components.each do |component, path|
+	      pretty_components[prettify(component)] = path
       end
 
       pretty_language = prettify_language(language)
 
-      new_hash[pretty_language] = pretty_categories
+      new_hash[pretty_language] = pretty_components
     end
 
     new_hash

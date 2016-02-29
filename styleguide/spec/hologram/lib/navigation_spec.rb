@@ -29,13 +29,10 @@ describe 'generate_nav_from_categories' do
     }
 
     expect(generate_nav_from_categories(categories)).to eq({
-          'react' => {
-            'objects' => {
-              'bagel' => 'react_objects_bagel.html',
-            }
-          }
-        }
-      )
+      'react' => {
+        'bagel' => 'react_objects_bagel.html',
+      }
+    })
   end
 
   it 'maps components to their urls' do
@@ -45,14 +42,11 @@ describe 'generate_nav_from_categories' do
     }
 
     expect(generate_nav_from_categories(categories)).to eq({
-          'react' => {
-            'objects' => {
-              'bagel' => 'react_objects_bagel.html',
-              'candle' => 'react_objects_candle.html',
-            }
-          }
-        }
-      )
+      'react' => {
+	      'bagel' => 'react_objects_bagel.html',
+	      'candle' => 'react_objects_candle.html',
+      }
+    })
   end
 
   it 'separates components by component type' do
@@ -62,16 +56,11 @@ describe 'generate_nav_from_categories' do
     }
 
     expect(generate_nav_from_categories(categories)).to eq({
-          'react' => {
-            'objects' => {
-              'bagel' => 'react_objects_bagel.html',
-            },
-            'bandolier' => {
-              'keyboard' => 'react_bandolier_keyboard.html',
-            },
-          },
-        }
-      )
+      'react' => {
+	      'bagel' => 'react_objects_bagel.html',
+	      'keyboard' => 'react_bandolier_keyboard.html',
+      },
+     })
   end
 
   it 'separates component types by language' do
@@ -81,17 +70,12 @@ describe 'generate_nav_from_categories' do
     }
 
     expect(generate_nav_from_categories(categories)).to eq({
-          'react' => {
-            'objects' => {
-              'bagel' => 'react_objects_bagel.html',
-            },
-          },
-          'css' => {
-            'guilt' => {
-              'skateboard' => 'css_guilt_skateboard.html',
-            },
-          },
-        }
-      )
+      'react' => {
+	      'bagel' => 'react_objects_bagel.html',
+      },
+      'css' => {
+	      'skateboard' => 'css_guilt_skateboard.html',
+      }
+    })
   end
 end

@@ -6,3 +6,5 @@ gem 'rspec'
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'babel-transpiler'
+gem 'awesome_print'
+

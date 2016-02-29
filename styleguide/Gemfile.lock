@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    awesome_print (1.6.1)
     babel-source (5.8.19)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -58,9 +59,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   babel-transpiler
   capybara
   hologram (~> 1.4.0)
   pry
   rspec
   selenium-webdriver
+
+BUNDLED WITH
+   1.10.5
