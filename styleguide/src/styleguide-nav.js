@@ -22,7 +22,7 @@ const StyleguideNav = React.createClass({
         const componentPage = components[componentLink];
         return (
         <div key={key}>
-          <a className='paxl' href={componentPage}>{componentLink}</a>
+          <a className='maxl' href={componentPage}>{componentLink}</a>
         </div>
         );
       });
