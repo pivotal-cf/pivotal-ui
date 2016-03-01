@@ -141,6 +141,17 @@ describe('OverlayTrigger', function() {
         jasmine.clock().tick(3000);
         expect('.tooltip-text').not.toExist();
       });
+
+      it('only waits for the most recent action', () => {
+        subject::setProps({delay: 3000});
+        subject::setProps({display: true});
+        expect('.tooltip-text').not.toExist();
+        jasmine.clock().tick(1000);
+        subject::setProps({display: false});
+        expect('.tooltip-text').not.toExist();
+        jasmine.clock().tick(2000);
+        expect('.tooltip-text').not.toExist();
+      });
     });
   });
 
@@ -283,6 +294,15 @@ describe('OverlayTrigger', function() {
         const evt = document.createEvent('HTMLEvents');
         evt.initEvent('click', true, true );
         document.documentElement.dispatchEvent(evt);
+        expect('.tooltip-text').toExist();
+      });
+
+      it('does not close when clicking on the launcher', () => {
+        subject::setProps({trigger: 'manual', display: true});
+        expect('.tooltip-text').toExist();
+        const evt = document.createEvent('HTMLEvents');
+        evt.initEvent('click', true, true );
+        $('.launcher')[0].dispatchEvent(evt);
         expect('.tooltip-text').toExist();
       });
     });

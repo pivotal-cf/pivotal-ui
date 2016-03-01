@@ -2,6 +2,8 @@ import React from 'react';
 import uniqueid from 'lodash.uniqueid';
 import TetherComponent from 'react-tether';
 
+import ReactDOM from 'react-dom';
+
 const types = React.PropTypes;
 
 const TETHER_PLACEMENTS = {
@@ -10,6 +12,8 @@ const TETHER_PLACEMENTS = {
   left:   'middle right',
   right:  'middle left'
 };
+
+const privates = new WeakMap();
 
 const OverlayTrigger = React.createClass({
   propTypes: {
@@ -37,6 +41,7 @@ const OverlayTrigger = React.createClass({
   },
 
   getInitialState() {
+    privates.set(this, {});
     return {
       display: this.props.display
     }
@@ -46,21 +51,21 @@ const OverlayTrigger = React.createClass({
     if(display !== this.props.display) this.setDisplay(display);
     if(rootClose !== this.props.rootClose) {
       if (rootClose) {
-        document.documentElement.addEventListener('click', this.hide);
+        document.documentElement.addEventListener('click', this.rootClick);
       } else {
-        document.documentElement.removeEventListener('click', this.hide);
+        document.documentElement.removeEventListener('click', this.rootClick);
       }
     }
   },
 
   componentDidMount() {
     if (!this.props.rootClose) return;
-    document.documentElement.addEventListener('click', this.hide);
+    document.documentElement.addEventListener('click', this.rootClick);
   },
 
   componentWillUnmount() {
     if (!this.props.rootClose) return;
-    document.documentElement.removeEventListener('click', this.hide);
+    document.documentElement.removeEventListener('click', this.rootClick);
   },
 
   componentDidUpdate(prevProps, prevState) {
@@ -87,19 +92,30 @@ const OverlayTrigger = React.createClass({
     }
   },
 
-  setDisplay(display) {
+  getDelay(display) {
     const {delay, delayHide, delayShow} = this.props;
-    if(display && delayShow) {
-      return setTimeout(() => {this.setState({display})}, delayShow);
-    }
-    if (!display && delayHide) {
-      return setTimeout(() => {this.setState({display})}, delayHide);
-    }
+    if (display && delayShow) return delayShow;
+    if (!display && delayHide) return delayHide;
+    return delay;
+  },
+
+  rootClick(e) {
+    if (ReactDOM.findDOMNode(this).contains(e.target)) return;
+    this.hide();
+  },
+
+  setDisplay(display) {
+    clearTimeout(privates.get(this).timeout);
+    if(display === this.state.display) return;
+    const delay = this.getDelay(display);
+    let timeout;
     if(delay) {
-      return setTimeout(() => {this.setState({display})}, delay);
+      timeout = setTimeout(() => {this.setState({display})}, delay);
+    } else {
+      this.setState({display});
     }
 
-    return this.setState({display});
+    privates.set(this, {timeout});
   },
 
   click(...args) {
