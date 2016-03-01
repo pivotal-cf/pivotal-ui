@@ -3,6 +3,7 @@ var types = React.PropTypes;
 var classnames = require('classnames');
 var move = require('./move_helper');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-lists';
 
 var HoverMixin = {
   getInitialState() {

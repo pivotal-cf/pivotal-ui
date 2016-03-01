@@ -3,6 +3,7 @@ var AnimationMixin = require('pui-react-animation');
 var throttle = require('lodash.throttle');
 var {getScrollTop, setScrollTop} = require('./scroll-top');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-back-to-top';
 
 var BackToTop = React.createClass({
   mixins: [AnimationMixin],

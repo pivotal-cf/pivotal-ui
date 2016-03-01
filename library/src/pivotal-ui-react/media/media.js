@@ -1,5 +1,6 @@
 var React = require('react');
 var classnames = require('classnames');
+import 'pui-css-media';
 
 const shortSizes = {xsmall: 'xs', small: 'sm', medium: 'md', large: 'lg', xlarge: 'xl'};
 const charSizes = {small: 's', medium: 'm', large: 'l', xlarge: 'xl'};

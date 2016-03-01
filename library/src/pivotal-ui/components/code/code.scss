@@ -30,7 +30,7 @@
   box-shadow: 0 2px 0 $shadow-1;
 
   &::before {
-    content: '\F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111 \0000a0 \0000a0 \0000a0 \0000a0 \F111';
+    content: '\F111 \a0 \a0 \F111 \a0 \a0 \F111';
     color: $gray-4;
     font-size: 13px;
     font-family: FontAwesome;

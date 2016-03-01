@@ -1,6 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-panes';
 
 var BasePane = React.createClass({
   propTypes: {

@@ -3,6 +3,7 @@ const {PropTypes} = React;
 const ReactFaIcon = require('react-fa/lib/Icon');
 const objectAssign = require('object-assign');
 const classnames = require('classnames');
+import 'pui-css-iconography';
 
 class Icon extends React.Component {
   render() {

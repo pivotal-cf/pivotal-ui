@@ -1,5 +1,6 @@
 const React = require('react');
 const Collapse = require('react-bootstrap/lib/Collapse');
+import 'pui-css-bootstrap';
 
 const ExpanderTrigger = React.createClass({
   getInitialState() {

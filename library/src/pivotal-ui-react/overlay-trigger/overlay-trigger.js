@@ -1,6 +1,7 @@
 import BsOverlayTrigger from 'react-bootstrap/lib/OverlayTrigger';
 import React from 'react';
 import uniqueid from 'lodash.uniqueid';
+import 'pui-css-bootstrap';
 
 const OverlayTrigger = React.createClass({
   propTypes: {
