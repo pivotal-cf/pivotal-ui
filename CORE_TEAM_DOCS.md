@@ -73,7 +73,7 @@ again.
 
 1. Switch to `master` branch
 2. Merge in changes from `development`
-1. Run `gulp release-prepare`. This will:
+1. In library, run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
   - Update the version in `package.json`
   - Update the version in `package.json` for all changed pui modules, and all
@@ -83,9 +83,11 @@ again.
     recent change only
 
 1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
+
+1. From root, run `./update_styleguide` to update local versions of components
    
 5. Put a copy of the most current major release in `old_styleguides`
-	1. `cd ../styleguide`
+	1. `cd styleguide`
 	2. `gulp styleguide-build`
 	3. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
 	4. `cp -r build/ old_styleguides/x`
