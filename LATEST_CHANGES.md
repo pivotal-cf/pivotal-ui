@@ -1,16 +1,13 @@
-<a name="3.2.0"></a>
-# 3.2.0 (2016-02-19)
-
-
-### Bug Fixes
-
-* **dropdown:** remove typo in css dropdown li ([8cab87f](https://github.com/pivotal-cf/pivotal-ui/commit/8cab87f))
-* **expander:** Manual triggers work in expanders ([a44bb0b](https://github.com/pivotal-cf/pivotal-ui/commit/a44bb0b))
-* **transitions:** Default css transitions are color and opacity instead of ([ae02704](https://github.com/pivotal-cf/pivotal-ui/commit/ae02704))
+<a name="3.3.0"></a>
+# 3.3.0 (2016-03-02)
 
 ### Features
 
-* **Expander:** Expander accepts callbacks ([84828d2](https://github.com/pivotal-cf/pivotal-ui/commit/84828d2))
-* **padding:** change containery paddings ([e2fba9a](https://github.com/pivotal-cf/pivotal-ui/commit/e2fba9a))
-* **RadioGroup:** consolidate radio components ([2889887](https://github.com/pivotal-cf/pivotal-ui/commit/2889887))
+* **styleguide:** require components documentation is more consistent ([a09733f](https://github.com/pivotal-cf/pivotal-ui/commit/a09733f))
+
+### Bug Fixes
+
+* **panels:** panel headers don't scroll on scrollable panels([17c1697](https://github.com/pivotal-cf/pivotal-ui/commit/17c1697))
+* **styleguide:** adjust margin so links don't overlap ([1bf322e](https://github.com/pivotal-cf/pivotal-ui/commit/1bf322e))
+
 

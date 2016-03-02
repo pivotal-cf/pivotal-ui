@@ -1,11 +1,11 @@
 {
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "React components for opening and closing modal windows",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-modals": "^3.2.0",
-    "pui-react-typography": "^3.2.0",
-    "pui-react-helpers": "^3.2.0",
+    "pui-css-modals": "^3.3.0",
+    "pui-react-typography": "^3.3.0",
+    "pui-react-helpers": "^3.3.0",
     "react-bootstrap": "0.28.2"
   }
 }
