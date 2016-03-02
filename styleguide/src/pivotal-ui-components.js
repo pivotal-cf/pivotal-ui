@@ -8,6 +8,8 @@ function assignToGlobal(modules) {
   });
 }
 
+require('pui-css-all');
+
 assignToGlobal([
   require('pui-react-alerts'),
   require('pui-react-autocomplete'),

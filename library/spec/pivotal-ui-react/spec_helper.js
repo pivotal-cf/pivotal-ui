@@ -39,6 +39,11 @@ global.shallowRender = function shallowRender(jsx) {
   return shallowRenderer.getRenderOutput();
 };
 
+global.setProps = function setProps(props, node = root) {
+  const Component = this.constructor;
+  ReactDOM.render(<Component {...this.props} {...props}/>, node);
+};
+
 beforeEach(function() {
   $('body').find('#root').remove().end().append('<main id="root"/>');
   jasmine.clock().install();

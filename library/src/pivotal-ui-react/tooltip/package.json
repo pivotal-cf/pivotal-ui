@@ -3,7 +3,6 @@
   "description": "A React component that provides styled tooltips",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "react-bootstrap": "0.28.2",
     "pui-css-tooltips": "^3.3.0"
   }
 }

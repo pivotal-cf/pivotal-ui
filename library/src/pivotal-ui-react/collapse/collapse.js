@@ -2,6 +2,9 @@ var React = require('react');
 var types = React.PropTypes;
 var BsPanel = require('react-bootstrap/lib/Panel');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-collapse';
+import 'pui-css-iconography';
+import 'pui-css-dividers';
 
 var BaseCollapse = React.createClass({
   propTypes: {

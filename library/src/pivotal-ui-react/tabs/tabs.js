@@ -7,6 +7,8 @@ import uniqueid from 'lodash.uniqueid';
 import classnames from 'classnames';
 import raf from 'raf';
 import MediaSize from './media-size';
+import 'pui-css-collapse';
+import 'pui-css-tabs';
 
 const BaseTabs = React.createClass({
   propTypes: {

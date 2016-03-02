@@ -1,6 +1,7 @@
 import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 import React from 'react';
+import 'pui-css-forms';
 
 const types = React.PropTypes;
 

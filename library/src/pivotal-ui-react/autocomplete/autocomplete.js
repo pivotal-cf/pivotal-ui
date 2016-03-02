@@ -7,6 +7,7 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var scrollIntoView = require('scroll-into-view');
 var TrieSearch = require('trie-search');
+import 'pui-css-autocomplete';
 
 var types = React.PropTypes;
 

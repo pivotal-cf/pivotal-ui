@@ -1,6 +1,7 @@
 var React = require('react');
 var {DefaultH4} = require('pui-react-typography');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-modals';
 
 const BsModal = require('react-bootstrap/lib/Modal');
 const BsModalHeader = require('react-bootstrap/lib/ModalHeader');

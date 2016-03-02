@@ -20,7 +20,6 @@ var Tooltip = require('pui-react-tooltip').Tooltip;
 var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
 ```
 
-
 Tooltips are used to display extra information on hover.
 To make an element show a tooltip, wrap it in an `OverlayTrigger`.
 If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover,
@@ -57,4 +56,26 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", 
   </p>
 </div>
 ```
+
+The `OverlayTrigger` component accepts the following properties:
+
+| Property | Type | Default | Description |
+| --- | --- | --- | --- |
+| `delay` | Number | none | number of milliseconds to delay show and hide |
+| `delayHide` | Number | none | number of milliseconds to delay hide |
+| `delayShow` | Number | none | number of milliseconds to delay show |
+| `display` | Boolean | false | whether or not to show the overlay |
+| `onEntered` | Function | none | callback that is called after the overlay is shown |
+| `onExited` | Function | none | callback that is called after the overlay is hidden |
+| `overlay` | node | - | an element or text to overlay next to the target |
+| `pin` | Boolean | true | whether or not to reposition overlays to stay in the window |
+| `placement` | one of `top`, `bottom`, `left`, `right` | `right` | placement of overlay in relation to target |
+| `rootClose` | Boolean | true | whether or not to hide the overlay when clicking outside |
+| `trigger` | one of `hover`, `click`, `focus`, `manual` | `hover` | action to trigger showing overlay |
+
+
+If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
+which is controlled by the end user and not by `OverlayTrigger`.
 */
+
+

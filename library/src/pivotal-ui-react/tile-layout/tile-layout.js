@@ -1,6 +1,7 @@
 const React = require('react');
 const classnames = require('classnames');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-tile-layout';
 
 const TileLayout = React.createClass({
   propTypes: {

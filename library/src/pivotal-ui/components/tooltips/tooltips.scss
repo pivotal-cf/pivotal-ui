@@ -21,3 +21,79 @@
     color: darken($link-color, 6%);
   }
 }
+
+.pui-tooltip {
+  position: relative;
+  z-index: $zindex-tooltip;
+  font-size: $font-size-small;
+
+  .overlay-placement-top & {
+    margin-bottom: 3px;
+    padding: 5px 0;
+  }
+
+  .overlay-placement-bottom & {
+    margin-top: 3px;
+    padding: 5px 0;
+  }
+
+  .overlay-placement-right & {
+    margin-left: 3px;
+    padding: 0 5px;
+  }
+
+  .overlay-placement-left & {
+    margin-right: 3px;
+    padding: 0 5px;
+  }
+}
+
+.pui-tooltip-inner {
+  background-color: $tooltip-bg;
+  color: $tooltip-color;
+  max-width: $tooltip-max-width;
+  padding: 3px 8px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.pui-tooltip-caret {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: $tooltip-arrow-width solid transparent;
+
+  .overlay-placement-bottom & {
+    left: 50%;
+    top: 0;
+    margin-left: -$tooltip-arrow-width;
+    border-bottom: $tooltip-arrow-width solid $tooltip-bg;
+    border-top: none;
+  }
+
+  .overlay-placement-top & {
+    left: 50%;
+    bottom: 0;
+    margin-left: -$tooltip-arrow-width;
+    border-top: $tooltip-arrow-width solid $tooltip-bg;
+    border-bottom: none;
+  }
+
+  .overlay-placement-left & {
+    top: 50%;
+    right: 0;
+    margin-top: -$tooltip-arrow-width;
+    border-left: $tooltip-arrow-width solid $tooltip-bg;
+    border-right: none;
+  }
+
+  .overlay-placement-right & {
+    top: 50%;
+    left: 0;
+    margin-top: -$tooltip-arrow-width;
+    border-right: $tooltip-arrow-width solid $tooltip-bg;
+    border-left: none;
+  }
+}
+
+

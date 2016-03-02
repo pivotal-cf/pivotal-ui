@@ -2,6 +2,7 @@ var React = require('react');
 var types = React.PropTypes;
 var BootstrapRow = require('react-bootstrap/lib/Row');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-grids';
 
 var Row = React.createClass({
   propTypes: {

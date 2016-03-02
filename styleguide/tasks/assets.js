@@ -7,65 +7,70 @@ import {exec} from 'child_process';
 
 const plugins = loadPlugins();
 const runSequence = require('run-sequence').use(gulp);
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 gulp.task('styleguide-clean', callback => del(['build'], callback));
 
 gulp.task('hologram', callback => exec('bundle exec hologram', callback));
 
-gulp.task('build-component-css', function() {
-  return drF()
-    .pipe(plugins.plumber())
-    .pipe(gulp.dest('build/'));
-});
-
 gulp.task('build-sass', () =>
-    gulp.src('src/styleguide.scss')
-      .pipe(plugins.sass())
-      .pipe(plugins.cssnext())
-      .pipe(gulp.dest('build/styleguide'))
+  gulp.src('src/styleguide.scss')
+    .pipe(plugins.sass())
+    .pipe(plugins.cssnext())
+    .pipe(gulp.dest('build/styleguide'))
 );
 
 gulp.task('build-js', function() {
   return gulp.src('src/index.js')
     .pipe(webpack({
+      bail: false,
       module: {
         loaders: [
+          {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/, /\.jpg?(\?|$)/], loader: 'url?name=[name].[ext]'},
+          {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
           {
             test: /\.js$/,
             exclude: /node_modules/,
-            loader: 'babel-loader',
+            loader: 'babel-loader'
           },
           {
-            test: /bootstrap/,
+            test: /bootstrap.js/,
             loader: 'imports?jQuery=jquery'
           }
-        ],
+        ]
       },
+      plugins: [
+        new ExtractTextPlugin('components.css', {
+          allChunks: true
+        })
+      ],
+      output: {
+        filename: 'index.js'
+      }
     }))
-    .pipe(plugins.rename('index.js'))
     .pipe(gulp.dest('build/'));
 });
 
 gulp.task('styleguide-assets', () =>
-    gulp.src([
-      'src/github.css',
-      'src/images/*'
-    ]).pipe(gulp.dest('build/styleguide'))
+  gulp.src([
+    'src/github.css',
+    'src/images/*'
+  ]).pipe(gulp.dest('build/styleguide'))
 );
 
 gulp.task('prism-assets', () =>
-    gulp.src('node_modules/prismjs/themes/{prism,prism-okaidia}.css')
-      .pipe(gulp.dest('build/prismjs'))
+  gulp.src('node_modules/prismjs/themes/{prism,prism-okaidia}.css')
+    .pipe(gulp.dest('build/prismjs'))
 );
 
 gulp.task('import-bootstrap-js', () =>
-    gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.js')
-      .pipe(gulp.dest('build/'))
+  gulp.src('node_modules/bootstrap-sass/assets/javascripts/bootstrap.js')
+    .pipe(gulp.dest('build/'))
 );
 
 gulp.task('import-zeroclipboard-assets', () =>
-    gulp.src('node_modules/zeroclipboard/dist/ZeroClipboard.{js,swf}')
-      .pipe(gulp.dest('build/zeroclipboard'))
+  gulp.src('node_modules/zeroclipboard/dist/ZeroClipboard.{js,swf}')
+    .pipe(gulp.dest('build/zeroclipboard'))
 );
 
 gulp.task('copy-old-styleguides', () => {
@@ -77,7 +82,6 @@ gulp.task('styleguide-build', callback => runSequence('styleguide-clean', [
   'hologram',
   'build-sass',
   'build-js',
-  'build-component-css',
   'import-bootstrap-js',
   'import-zeroclipboard-assets',
   'styleguide-assets',

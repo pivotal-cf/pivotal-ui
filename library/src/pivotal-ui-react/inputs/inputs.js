@@ -2,6 +2,7 @@ const React = require('react');
 const types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
 import classnames from 'classnames';
+import 'pui-css-forms';
 
 const SearchInput = React.createClass({
   propTypes: {

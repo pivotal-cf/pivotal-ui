@@ -1,5 +1,6 @@
 var React = require('react');
 import classnames from 'classnames';
+import 'pui-css-lists';
 
 var ListItem = React.createClass({
   render: function() {

@@ -2,6 +2,7 @@ const React = require('react');
 const types = React.PropTypes;
 const classnames = require('classnames');
 import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-panels';
 
 const paddingTypes = [];
 ['p', 'm'].forEach(type => {
