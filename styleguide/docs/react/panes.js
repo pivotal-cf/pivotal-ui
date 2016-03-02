@@ -13,13 +13,14 @@ npm install pui-react-panes --save
 </i>
 </code>
 
-For the example, you also need to install [Typography](#type_react) and require `DefaultH1` from it.
-
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Pane = require('pui-react-panes').Pane;
 var BasePane = require('pui-react-panes').BasePane;
+
+// for the example
+var DefaultH1 = require('pui-react-typography').DefaultH1;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

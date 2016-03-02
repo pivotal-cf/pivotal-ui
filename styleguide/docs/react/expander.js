@@ -14,10 +14,10 @@ npm install pui-react-expander --save
 </i>
 </code>
 
-Require the subcomponents:
+Require the subcomponent:
 
 ```
-const ExpanderContent = require('pui-react-expander').ExpanderContent;
+var ExpanderContent = require('pui-react-expander').ExpanderContent;
 ```
 
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a

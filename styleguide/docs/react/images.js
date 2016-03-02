@@ -21,7 +21,7 @@ var Image = require('pui-react-images').Image;
 ```
 
 
-Images in react can be responsive and/or wrapped in a link.
+Images in React can be responsive and/or wrapped in a link.
 
 ```react_example
 <Image src="http://placehold.it/1000x100" responsive={true} href="http://google.com" alt="A beautiful placeholder"/>

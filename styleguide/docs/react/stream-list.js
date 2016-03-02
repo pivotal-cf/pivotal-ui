@@ -11,13 +11,14 @@ npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 </i>
 </code>
 
-For the example, you also need to install [Buttons](#button_react) and require `DefaultButton` from it.
-
 Require the subcomponents:
 
 ```js
 var StreamList = require('pui-react-stream-list').StreamList;
 var StreamListItem = require('pui-react-stream-list').StreamListItem;
+
+// for the example
+var DefaultButton = require('pui-react-buttons').DefaultButton
 ```
 
 Use this component when you have streaming/polling data that you want to

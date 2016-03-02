@@ -13,15 +13,19 @@ npm install pui-react-notifications --save
 </i>
 </code>
 
-For the examples, you also need to require `Flag` from [Media](#media_react), `Label` from [Labels](#label_react),
-`Icon` from [Iconography](#iconography_react), and `DefaultH3` and `DefaultH5` from [Typography](#type_react).
-
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Notifications = require('pui-react-notifications').Notifications;
 var AlertNotifications = require('pui-react-notifications').AlertNotifications;
 var NotificationItem = require('pui-react-notifications').NotificationItem;
+
+// for the example
+var Flag = require('pui-react-media').Flag;
+var Label = require('pui-react-labels').Label;
+var Icon = require('pui-react-iconography').Icon;
+var DefaultH3 = require('pui-react-typography').DefaultH3;
+var DefaultH5 = require('pui-react-typography').DefaultH5;
 ```
 
 Here's an example if there are no notifications:

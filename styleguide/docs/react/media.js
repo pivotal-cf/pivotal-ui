@@ -13,14 +13,14 @@ npm install pui-react-media --save
 </i>
 </code>
 
-For the example, you also need to install [Images][image_react] and require `Image` from it.
-
-
 Require the subcomponents:
 
 ```
 var Media = require('pui-react-media').Media;
 var Flag = require('pui-react-media').Flag;
+
+// for the example
+var Image = require('pui-react-images').Image;
 ```
 
 A Flag is a special type of media that is vAlign='middle'.

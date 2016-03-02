@@ -13,15 +13,14 @@
  </i>
  </code>
 
- Require the component:
+ Require the subcomponents:
 
- ```
- var TileLayout = require('pui-react-tile-layout').TileLayout;
- var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
- ```
+```
+var TileLayout = require('pui-react-tile-layout').TileLayout;
 
- For the example, you also need to require `ClickableAltPanel` from [Panels](/react_components_panels.html).
-
+// for the example
+var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
+```
 
  ```react_example
  <TileLayout columns={3}>

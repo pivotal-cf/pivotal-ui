@@ -11,10 +11,9 @@ npm install pui-react-inputs --save
 </i>
 </code>
 
-Require the subcomponents:
+Require the subcomponent:
 
 ```
-var SearchInput = require('pui-react-inputs').SearchInput;
 var BasicInput = require('pui-react-inputs').BasicInput;
 ```
 
@@ -47,6 +46,12 @@ title: Search Inputs
 name: 01_form_search_input_react
 parent: form_react
 ---
+
+Require the subcomponent:
+
+```
+var SearchInput = require('pui-react-inputs').SearchInput;
+```
 
 ```react_example
 <SearchInput placeholder="Search..."/>

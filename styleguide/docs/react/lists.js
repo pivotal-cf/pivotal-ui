@@ -61,40 +61,7 @@ var ListItem = require('pui-react-lists').ListItem;
 
 */
 
-/*doc
----
-title: Configuring Spacing
-name: 04_list_spacing_react
-parent: list_react
----
 
-List Spacing can be changed setting the size of the spacing property.
-
-|Options|Values       | Pixels
-|-------|-------------|-------
-|`n`    |none         |0px
-|`s`    |small        |5px
-|`m`    |medium       |7px
-|`l`    |large        |10px
-|`xl`   |extra large  |21px
-
-```react_example
-<StepList spacing="n">
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem className="current">Item 3</ListItem>
-</StepList>
-```
-
-```react_example
-<UnorderedList spacing="xl">
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem className="current">Item 3</ListItem>
-</UnorderedList>
-```
-
-*/
 
 /*doc
  ---
@@ -260,3 +227,38 @@ var ListItem = require('pui-react-lists').ListItem;
 ```
 
 */
+
+/*doc
+---
+title: Configuring Spacing
+name: 14_list_spacing_react
+parent: list_react
+---
+
+List Spacing can be changed setting the size of the spacing property.
+
+|Options|Values       | Pixels
+|-------|-------------|-------
+|`n`    |none         |0px
+|`s`    |small        |5px
+|`m`    |medium       |7px
+|`l`    |large        |10px
+|`xl`   |extra large  |21px
+
+```react_example
+<StepList spacing="n">
+<ListItem>Item 1</ListItem>
+<ListItem>Item 2</ListItem>
+<ListItem className="current">Item 3</ListItem>
+</StepList>
+```
+
+```react_example
+<UnorderedList spacing="xl">
+<ListItem>Item 1</ListItem>
+<ListItem>Item 2</ListItem>
+<ListItem className="current">Item 3</ListItem>
+</UnorderedList>
+```
+
+ */

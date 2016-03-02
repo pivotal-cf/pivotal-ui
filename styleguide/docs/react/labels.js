@@ -13,12 +13,13 @@ categories:
  </i>
  </code>
 
-For the example, you also need to install [Typography][type_react] and require `DefaultH3` from it.
-
-Require the subcomponent:
+Require the subcomponents:
 
 ```
 var Label = require('pui-react-labels').Label;
+
+// for the example
+var DefaultH3 = require('pui-react-typography').DefaultH3;
 ```
 
 Labels are a straightforward implementation of the [Label][label] style.

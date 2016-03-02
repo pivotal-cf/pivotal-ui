@@ -17,20 +17,13 @@ Require the subcomponents:
 
 ```
 var Panel = require('pui-react-panels').Panel;
-var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
-var BasicPanel = require('pui-react-panels').BasicPanel;
-var ClickablePanel = require('pui-react-panels').ClickablePanel;
-var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
-var HighlightPanel = require('pui-react-panels').HighlightPanel;
-var PanelTitle = require('pui-react-panels').PanelTitle;
-var ScrollablePanel = require('pui-react-panels').ScrollablePanel;
-var ShadowPanel = require('pui-react-panels').ShadowPanel;
-var SimplePanel = require('pui-react-panels').SimplePanel;
 ```
-
 
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
 is the base, and there are many different flavors of Panels which all construct a particularly styled `Panel`.
+
+A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
+property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
 
 See examples below.
 
@@ -64,20 +57,10 @@ See examples below.
  Base Panel with footer
 </Panel>
 
-```
-*/
+<Panel className="bg-neutral-8" padding="paxxl">
+ <p>Base Panel</p>
+</Panel>
 
-/*doc
----
-title: Scrolling
-name: panel_scroll_react
-parent: panel_react
----
-
-A ScrollingPanel is created by using a `Panel` component and including a true value for the `scrollable`
-property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels!
-
-```react_example_table
 <Panel className="bg-neutral-8" scrollable={100}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -102,28 +85,14 @@ property. Alternatively, if this value is a number, it will become the height of
 
 /*doc
 ---
-title: Padding
-name: panel_padding_react
+title: Simple
+name: 01_panel_simple_react
 parent: panel_react
 ---
-
-Add a "padding" attribute (i.e. `pal`, `pbn`, etc.) to change the padding on the `panel-body`.
-
-```react_example_table
-<Panel className="bg-neutral-8" padding="paxxl">
-  <p>Base Panel</p>
-</Panel>
 
 ```
-
-*/
-
-/*doc
----
-title: Simple
-name: panel_simple_react
-parent: panel_react
----
+var SimplePanel = require('pui-react-panels').SimplePanel;
+```
 
 ```react_example_table
 <SimplePanel>
@@ -135,9 +104,13 @@ parent: panel_react
 /*doc
 ---
 title: Basic
-name: panel_basic_react
+name: 02_panel_basic_react
 parent: panel_react
 ---
+
+```
+var BasicPanel = require('pui-react-panels').BasicPanel;
+```
 
 ```react_example_table
 <BasicPanel>
@@ -154,9 +127,13 @@ parent: panel_react
 /*doc
 ---
 title: Basic Panel Alt
-name: panel_basic_alt_react
+name: 03_panel_basic_alt_react
 parent: panel_react
 ---
+
+```
+var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
+```
 
 ```react_example_table
 <BasicPanelAlt>
@@ -172,9 +149,14 @@ parent: panel_react
 /*doc
 ---
 title: Panel Title
-name: panel_title_react
+name: 00_panel_title_react
 parent: panel_react
 ---
+
+```
+var PanelTitle = require('pui-react-panels').PanelTitle;
+var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
+```
 
 All Panels accept a `header` property. If `header` is a string, it will render a panel title with some
 default styling using the `PanelTitle` component internally. If `header` is a react component,
@@ -195,9 +177,13 @@ To create a header with some default title styling, use the `PanelTitle` compone
 /*doc
 ---
 title: Shadow
-name: panel_shadow_react
+name: 06_panel_shadow_react
 parent: panel_react
 ---
+
+```
+var ShadowPanel = require('pui-react-panels').ShadowPanel;
+```
 
 `ShadowPanels` accept a `shadowLevel` property between 1 and 4 (darkest to lightest).
 If no `shadowLevel` is set, a default value of 3 is applied.
@@ -219,9 +205,14 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 /*doc
 ---
 title: Clickable
-name: panel_clickable_react
+name: 05_panel_clickable_react
 parent: panel_react
 ---
+
+```
+var ClickablePanel = require('pui-react-panels').ClickablePanel;
+var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
+```
 
 ```react_example_table
 <ClickablePanel>Clickable Panel</ClickablePanel>
@@ -233,9 +224,13 @@ parent: panel_react
 /*doc
 ---
 title: Highlight
-name: panel_highlight_react
+name: 04_panel_highlight_react
 parent: panel_react
 ---
+
+```
+var HighlightPanel = require('pui-react-panels').HighlightPanel;
+```
 
 ```react_example_table
 <HighlightPanel>
