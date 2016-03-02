@@ -89,7 +89,7 @@ again.
 	2. `gulp styleguide-build`
 	3. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
 	4. `cp -r build/ old_styleguides/x`
-	5. `rm -rf old_styleguides/x/*.*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
+	5. `rm -rf old_styleguides/x/*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
 	5. If you are releasing a new major version, add a link in `docs/other-versions.scss` in the format of 'version x'
 	6. `gulp ci`
 	7. `cd ../library`
