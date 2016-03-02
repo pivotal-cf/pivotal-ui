@@ -36695,6 +36695,7 @@
 	 */
 	var EventInterface = {
 	  type: null,
+	  target: null,
 	  // currentTarget is set when dispatching; no use in copying it here
 	  currentTarget: emptyFunction.thatReturnsNull,
 	  eventPhase: null,
@@ -36728,8 +36729,6 @@
 	  this.dispatchConfig = dispatchConfig;
 	  this.dispatchMarker = dispatchMarker;
 	  this.nativeEvent = nativeEvent;
-	  this.target = nativeEventTarget;
-	  this.currentTarget = nativeEventTarget;
 
 	  var Interface = this.constructor.Interface;
 	  for (var propName in Interface) {
@@ -36740,7 +36739,11 @@
 	    if (normalize) {
 	      this[propName] = normalize(nativeEvent);
 	    } else {
-	      this[propName] = nativeEvent[propName];
+	      if (propName === 'target') {
+	        this.target = nativeEventTarget;
+	      } else {
+	        this[propName] = nativeEvent[propName];
+	      }
 	    }
 	  }
 
@@ -40589,7 +40592,10 @@
 	      }
 	    });
 
-	    nativeProps.children = content;
+	    if (content) {
+	      nativeProps.children = content;
+	    }
+
 	    return nativeProps;
 	  }
 
@@ -46062,7 +46068,7 @@
 
 	'use strict';
 
-	module.exports = '0.14.6';
+	module.exports = '0.14.7';
 
 /***/ },
 /* 339 */
@@ -52949,7 +52955,6 @@
 	var React = __webpack_require__(194);
 	var types = React.PropTypes;
 
-
 	var BasePane = React.createClass({
 	  displayName: 'BasePane',
 
@@ -53004,12 +53009,11 @@
 	/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 	exports.mergeProps = mergeProps;
 
 	var _classnames = __webpack_require__(429);
@@ -53087,7 +53091,6 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(194);
-
 
 	var UIButton = React.createClass({
 	  displayName: 'UIButton',
@@ -53172,7 +53175,6 @@
 
 	var React = __webpack_require__(194);
 	var classnames = __webpack_require__(429);
-
 
 	var TileLayout = React.createClass({
 	  displayName: 'TileLayout',
@@ -53261,7 +53263,6 @@
 
 	var Media = _require.Media;
 
-
 	var Alert = React.createClass({
 	  displayName: 'Alert',
 
@@ -53312,7 +53313,6 @@
 
 	    return React.createElement('span', null);
 	  },
-
 
 	  handleAlertDismiss: function handleAlertDismiss() {
 	    var dismissable = this.props.dismissable;
@@ -53916,7 +53916,6 @@
 	    return { autoFocus: null };
 	  },
 
-
 	  blur: withRelatedTarget(function (_ref) {
 	    var relatedTarget = _ref.relatedTarget;
 
@@ -53947,7 +53946,6 @@
 	    var onPicking = _props$onPicking === undefined ? function () {
 	      return suggestedValues;
 	    } : _props$onPicking;
-
 
 	    var pickItem = function pickItem() {
 	      var selectableSuggestions = onPicking(suggestedValues);
@@ -62829,7 +62827,6 @@
 	var getScrollTop = _require.getScrollTop;
 	var setScrollTop = _require.setScrollTop;
 
-
 	var BackToTop = React.createClass({
 	  displayName: 'BackToTop',
 
@@ -64499,7 +64496,6 @@
 	var types = React.PropTypes;
 	var BsPanel = __webpack_require__(427);
 
-
 	var BaseCollapse = React.createClass({
 	  displayName: 'BaseCollapse',
 
@@ -64622,7 +64618,6 @@
 	var React = __webpack_require__(194);
 	var types = React.PropTypes;
 
-
 	var DividerProps = {
 	  propTypes: {
 	    inverse: types.bool,
@@ -64689,7 +64684,6 @@
 	var types = React.PropTypes;
 	var classnames = __webpack_require__(429);
 	var move = __webpack_require__(641);
-
 
 	var HoverMixin = {
 	  getInitialState: function getInitialState() {
@@ -64904,7 +64898,6 @@
 
 	var React = __webpack_require__(194);
 
-
 	var ListItem = React.createClass({
 	  displayName: 'ListItem',
 
@@ -65016,7 +65009,6 @@
 
 	var React = __webpack_require__(194);
 
-
 	var BsDropdown = __webpack_require__(644);
 
 	function defDropdown(props) {
@@ -65043,7 +65035,6 @@
 	      var id = _others.id;
 	      var defaultBtnClassName = props.buttonClassName;
 	      var bsStyle = props.bsStyle;
-
 
 	      var btnClass = (0, _classnames2.default)(buttonClassName, defaultBtnClassName);
 	      var borderClass = border ? 'dropdown-border' : null;
@@ -69752,7 +69743,6 @@
 	var types = React.PropTypes;
 	var BootstrapRow = __webpack_require__(734);
 
-
 	var Row = React.createClass({
 	  displayName: 'Row',
 
@@ -70115,7 +70105,6 @@
 	var React = __webpack_require__(194);
 	var types = React.PropTypes;
 
-
 	var Image = React.createClass({
 	  displayName: 'Image',
 
@@ -70172,7 +70161,6 @@
 
 	var React = __webpack_require__(194);
 	var types = React.PropTypes;
-
 
 	var SearchInput = React.createClass({
 	  displayName: 'SearchInput',
@@ -70254,7 +70242,6 @@
 
 	var React = __webpack_require__(194);
 
-
 	var Label = React.createClass({
 	  displayName: 'Label',
 	  render: function render() {
@@ -70291,7 +70278,6 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(194);
-
 
 	var TypographyMixin = {
 	  propTypes: {
@@ -70422,7 +70408,6 @@
 	var _require = __webpack_require__(741);
 
 	var DefaultH4 = _require.DefaultH4;
-
 
 	var BsModal = __webpack_require__(743);
 	var BsModalHeader = __webpack_require__(751);
@@ -72556,7 +72541,6 @@
 
 	var mergeProps = _require3.mergeProps;
 
-
 	var Notifications = React.createClass({
 	  displayName: 'Notifications',
 
@@ -73925,7 +73909,6 @@
 	var types = React.PropTypes;
 	var classnames = __webpack_require__(429);
 
-
 	var paddingTypes = [];
 	['p', 'm'].forEach(function (type) {
 	  ['l', 'r', 't', 'b', 'h', 'v', 'a'].forEach(function (location) {
@@ -74028,7 +74011,6 @@
 	    key: 'render',
 	    value: function render() {
 	      var footer = this.props.footer;
-
 
 	      if (footer) {
 	        return React.createElement(
@@ -74693,7 +74675,6 @@
 
 	var React = __webpack_require__(194);
 
-
 	var RadioGroup = React.createClass({
 	  displayName: 'RadioGroup',
 
@@ -74741,7 +74722,6 @@
 	function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
 	var React = __webpack_require__(194);
-
 
 	var Radio = React.createClass({
 	  displayName: 'Radio',
@@ -74828,7 +74808,6 @@
 
 	var React = __webpack_require__(194);
 
-
 	var Ribbon = React.createClass({
 	  displayName: 'Ribbon',
 	  render: function render() {
@@ -74889,12 +74868,12 @@
 	/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/
 	'use strict';
 
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	exports.SortableTable = exports.TableRow = exports.TableCell = exports.TableHeader = undefined;
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	var _puiReactHelpers = __webpack_require__(436);
 
@@ -74968,7 +74947,6 @@
 	    var columns = _props3.columns;
 	    var defaultSort = _props3.defaultSort;
 
-
 	    var sortCol = (0, _lodash2.default)(columns, function (_ref) {
 	      var sortable = _ref.sortable;
 	      var attribute = _ref.attribute;
@@ -74990,7 +74968,6 @@
 	    var columns = _props4.columns;
 	    var data = _props4.data;
 	    var CustomRow = _props4.CustomRow;
-
 
 	    var sortedData = sortBy(data, function (datum) {
 	      var column = columns[sortColumn];
@@ -75028,7 +75005,6 @@
 	    var _state2 = this.state;
 	    var sortColumn = _state2.sortColumn;
 	    var sortAscending = _state2.sortAscending;
-
 
 	    return this.props.columns.map(function (_ref3, index) {
 	      var attribute = _ref3.attribute;

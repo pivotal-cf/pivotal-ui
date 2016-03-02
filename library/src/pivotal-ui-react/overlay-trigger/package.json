@@ -1,5 +1,5 @@
 {
-  "version": "3.3.0",
+  "version": "3.3.1",
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
     "lodash.uniqueid": "^3.0.0",
