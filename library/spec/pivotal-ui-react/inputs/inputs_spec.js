@@ -64,7 +64,7 @@ describe('inputs', function() {
     beforeEach(function () {
       BasicInput = require('../../../src/pivotal-ui-react/inputs/inputs').BasicInput;
       changeSpy = jasmine.createSpy('change');
-      ReactDOM.render(<BasicInput {...{className: 'input-class', label, id, onChange: changeSpy}}/>, root);
+      ReactDOM.render(<BasicInput success {...{className: 'input-class', label, id, onChange: changeSpy}}/>, root);
     });
 
     it('renders an input with the label', function() {
@@ -79,6 +79,10 @@ describe('inputs', function() {
     it('passes properties to the input', function() {
       $('.form-group input').simulate('change');
       expect(changeSpy).toHaveBeenCalled();
+    });
+
+    it('displays a checkmark when success prop is true', () => {
+      expect('.has-success').toExist();
     });
 
     it('merges classnames', function() {

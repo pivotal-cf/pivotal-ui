@@ -27,22 +27,26 @@ const BasicInput = React.createClass({
     labelClassName: types.string,
     displayError: types.bool,
     errorMessage: types.node,
-    inputClassName: types.string
+    inputClassName: types.string,
+    success: types.bool
   },
 
   render() {
-    const {className, label, labelClassName, displayError, errorMessage, inputClassName, ...inputProps} = this.props;
+    const {className, label, labelClassName, displayError, errorMessage, inputClassName, success, ...inputProps} = this.props;
     const {id} = inputProps;
-    inputProps.className = classnames(inputClassName, 'form-control');
-    const formClasses = classnames('form-group', className, {'has-error': displayError});
+    const successClassName = success ? 'has-success' : '';
+    const formClasses = classnames('form-group', className, successClassName, {'has-error': displayError});
     const labelClasses = classnames('control-label', labelClassName);
+    inputProps.className = classnames(inputClassName, 'form-control');
     return (
-      <div className={formClasses}>
+      <div>
         <label htmlFor={id} className={labelClasses}>{label}</label>
-        <input {...inputProps}/>
-        {displayError && <div className="error-text help-block">
-          {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
-        </div>}
+        <div className={formClasses}>
+          <input {...inputProps} />
+          {displayError && <div className="error-text help-block">
+            {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
+          </div>}
+        </div>
       </div>
     );
   }

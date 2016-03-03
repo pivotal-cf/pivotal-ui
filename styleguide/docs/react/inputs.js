@@ -37,6 +37,16 @@ Basic Inputs display a custom `errorMessage` when the `displayError` parameter i
   errorMessage="Try Again, Fool"
   inputClassName="hey"
 />
+
+```
+Basic Inputs display a checkmark when the `success` prop is given.
+
+```react_example
+<BasicInput
+ success
+ label="Great Label for a Great Job!"
+ placeholder="YOU ARE SO COOL"
+/>
 ```
 */
 
