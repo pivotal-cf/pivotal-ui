@@ -2,7 +2,7 @@ require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 describe('TileLayout', () => {
-  const {TileLayout} = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
+  const {TileLayout, TileLayoutItem} = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
 
   it('creates tile-layout', () => {
     ReactDOM.render(<TileLayout></TileLayout>, root);
@@ -11,12 +11,12 @@ describe('TileLayout', () => {
   it('creates tile-items', () => {
     ReactDOM.render(
       <TileLayout>
-        <TileLayout.Item>
+        <TileLayoutItem>
           Item 1
-        </TileLayout.Item>
-        <TileLayout.Item>
+        </TileLayoutItem>
+        <TileLayoutItem>
           Item 2
-        </TileLayout.Item>
+        </TileLayoutItem>
       </TileLayout>,
       root
     );
@@ -61,9 +61,9 @@ describe('TileLayout', () => {
     beforeEach(() => {
       ReactDOM.render(
         <TileLayout className="outer-class" id="outer-id" style={{opacity: '0.5'}}>
-          <TileLayout.Item className="inner-class" id="inner-id" style={{opacity: '0'}}>
+          <TileLayoutItem className="inner-class" id="inner-id" style={{opacity: '0'}}>
             Item 1
-          </TileLayout.Item>
+          </TileLayoutItem>
         </TileLayout>,
         root);
     });

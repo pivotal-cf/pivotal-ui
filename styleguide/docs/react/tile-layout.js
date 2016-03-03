@@ -17,6 +17,7 @@
 
 ```
 var TileLayout = require('pui-react-tile-layout').TileLayout;
+var TileLayoutItem = require('pui-react-tile-layout').TileLayoutItem;
 
 // for the example
 var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
@@ -24,18 +25,18 @@ var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
 
  ```react_example
  <TileLayout columns={3}>
-   <TileLayout.Item>
+   <TileLayoutItem>
      <ClickableAltPanel>Hey</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>What</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>Hello</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>What</ClickableAltPanel>
-   </TileLayout.Item>
+   </TileLayoutItem>
  </TileLayout>
  ```
 */
@@ -53,18 +54,18 @@ var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
 
  ```react_example
  <TileLayout columns={{xs: 1, sm: 2, md: 3}}>
-   <TileLayout.Item>
+   <TileLayoutItem>
      <ClickableAltPanel>Hey</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>What</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>Hello</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
      <ClickableAltPanel>What</ClickableAltPanel>
-   </TileLayout.Item>
+   </TileLayoutItem>
  </TileLayout>
  ```
 
@@ -81,15 +82,15 @@ var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
 
  ```react_example
  <TileLayout noGutter columns={3}>
-   <TileLayout.Item>
+   <TileLayoutItem>
     <ClickableAltPanel>Hey</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
     <ClickableAltPanel>What</ClickableAltPanel>
-   </TileLayout.Item>
-   <TileLayout.Item>
+   </TileLayoutItem>
+   <TileLayoutItem>
     <ClickableAltPanel>Hello</ClickableAltPanel>
-   </TileLayout.Item>
+   </TileLayoutItem>
  </TileLayout>
  ```
 

@@ -2,6 +2,7 @@ const React = global.React || require('react');
 const BasePane = global.BasePane || require('pui-react-panes').BasePane;
 const Button = global.DefaultButton || require('pui-react-buttons').DefaultButton;
 const TileLayout = global.TileLayout || require('pui-react-tile-layout');
+const TileLayoutItem = global.TileLayout || require('pui-react-tile-layout');
 
 const IntroPage = React.createClass({
   render() {
@@ -25,18 +26,18 @@ const IntroPage = React.createClass({
         <div className="paxxl mbxxl">
           <h2 className="type-dark-2 h1">Examples Using Pivotal UI</h2>
           <TileLayout columns={{xl: 4, lg: 3, xs: 1}}>
-            <TileLayout.Item>
+            <TileLayoutItem>
               <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/gary" exampleImage="styleguide/img--examplesGary.png"></ExampleTile>
-            </TileLayout.Item>
-            <TileLayout.Item>
+            </TileLayoutItem>
+            <TileLayoutItem>
               <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/todd" exampleImage="styleguide/img--examplesTodd.png"></ExampleTile>
-            </TileLayout.Item>
-            <TileLayout.Item>
+            </TileLayoutItem>
+            <TileLayoutItem>
               <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/kelly" exampleImage="styleguide/img--examplesKelly.png"></ExampleTile>
-            </TileLayout.Item>
-            <TileLayout.Item>
+            </TileLayoutItem>
+            <TileLayoutItem>
               <ExampleTile exampleLink="http://pivotalui-examples.cfapps.io/debra" exampleImage="styleguide/img--examplesDebra.png"></ExampleTile>
-            </TileLayout.Item>
+            </TileLayoutItem>
           </TileLayout>
         </div>
       </div>

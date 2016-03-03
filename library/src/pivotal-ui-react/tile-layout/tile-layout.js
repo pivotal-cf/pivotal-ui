@@ -44,7 +44,7 @@ const TileLayout = React.createClass({
   }
 });
 
-TileLayout.Item = React.createClass({
+const TileLayoutItem = React.createClass({
   render() {
     return (
       <div {...mergeProps({className: 'tile-item'}, this.props)}></div>
@@ -52,4 +52,4 @@ TileLayout.Item = React.createClass({
   }
 });
 
-module.exports = {TileLayout};
+module.exports = {TileLayout, TileLayoutItem};
