@@ -119,7 +119,7 @@
     "gulp-eslint": "^2.0.0",
     "gulp-jasmine-browser": "^1.0.1",
     "gulp-load-plugins": "^1.1.0",
-    "gulp-open": "^1.0.0",
+    "gulp-open": "^0.3.2",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.1.1",
