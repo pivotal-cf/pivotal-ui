@@ -68,11 +68,11 @@ describe('inputs', function() {
     });
 
     it('renders an input with the label', function() {
-      expect('.form-group label').toContainText('First Name');
+      expect('.control-label').toContainText('First Name');
     });
 
     it('attaches the label to the input', function() {
-      expect('.form-group label').toHaveAttr('for', id);
+      expect('.control-label').toHaveAttr('for', id);
       expect('.form-group input').toHaveAttr('id', id);
     });
 
