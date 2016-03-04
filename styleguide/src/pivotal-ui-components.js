@@ -41,5 +41,6 @@ assignToGlobal([
   require('pui-react-stream-list'),
   require('pui-react-tabs'),
   require('pui-react-tile-layout'),
+  require('pui-react-toggle'),
   require('pui-react-tooltip')
 ]);

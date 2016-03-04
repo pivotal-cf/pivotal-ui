@@ -2,7 +2,6 @@
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import "../mixins";
 
-
 .form-group {
   abbr {
     float: right;
@@ -40,7 +39,7 @@ label {
   font-weight: 400;
 }
 
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder { /* Firefox 19+ */
   font-weight: 400;
 }
 
@@ -146,13 +145,9 @@ This is a fancy number input!
   }
 }
 
-
-
 .form-control[readonly] {
   background-color: $input-bg-disabled; //override bootstrap
 }
-
-
 
 .form-control {
   padding: 8px 14px; // override bootstrap
@@ -185,7 +180,6 @@ select.form-control {
     color: $input-color;
   }
 }
-
 
 .fancy-form-element {
   box-shadow: 0 3px 0 $neutral-7;
@@ -227,15 +221,15 @@ select.form-control {
   @extend .fancy-form-element;
 
   &:after {
-   z-index: 2;
-   content: "\f107";
-   font-family: FontAwesome;
-   position: absolute;
-   right: 10px;
-   top: 4px;
-   font-size: 22px;
-   color: $blue-4;
-   @include transition-pui(all, 150ms);
+    z-index: 2;
+    content: "\f107";
+    font-family: FontAwesome;
+    position: absolute;
+    right: 10px;
+    top: 4px;
+    font-size: 22px;
+    color: $blue-4;
+    @include transition-pui(all, 150ms);
   }
 
   &:hover {
@@ -245,7 +239,7 @@ select.form-control {
   }
 
   select {
-    -moz-appearance:window;
+    -moz-appearance: window;
     position: relative;
     z-index: 3;
     padding: 5px 8px;
@@ -293,12 +287,9 @@ select.form-control {
   }
 }
 
-
 input[type="radio"] {
   margin-top: 2px; // bootstrap override: make radios line up with our small font.
 }
-
-
 
 .form-inline.inline-labels {
   .form-group {
@@ -307,7 +298,6 @@ input[type="radio"] {
     }
   }
 }
-
 
 /* overrides bootstrap colors */
 @mixin validation-label-color() {
@@ -361,7 +351,6 @@ input[type="radio"] {
 @include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 
 @include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
-
 
 p.form-control-static {
   color: $neutral-3;
@@ -423,7 +412,7 @@ This form looks and behaves mostly like a content editable field
     padding: 0;
     border: 1px solid transparent;
     border-radius: 3px;
-    text-overflow:ellipsis;
+    text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
     line-height: 1.2;
@@ -462,8 +451,6 @@ This form looks and behaves mostly like a content editable field
   }
 }
 
-
-
 .toggle-switch {
   position: absolute;
   visibility: hidden;
@@ -477,16 +464,22 @@ This form looks and behaves mostly like a content editable field
     cursor: pointer;
     outline: none;
     text-indent: -99999px;
+    width: 40px;
+    height: 20px;
+    border-radius: 40px;
 
     &:after {
       position: absolute;
-      top: 4px;
-      left: 4px;
+      top: 2px;
+      left: 3px;
       bottom: 4px;
       display: block;
       background-color: $neutral-11;
       transition: margin 0.4s, background 0.4s;
       content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: 10px;
     }
   }
 
@@ -498,6 +491,10 @@ This form looks and behaves mostly like a content editable field
     @include opacity(.5);
   }
 
+  &:checked + label:after {
+    margin-left: 18px;
+  }
+
   &.toggle-switch-lg {
     + label {
       width: 80px;
@@ -505,13 +502,16 @@ This form looks and behaves mostly like a content editable field
       border-radius: 40px;
 
       &:after {
+        top: 5px;
+        left: 5px;
         width: 30px;
+        height: 30px;
         border-radius: 15px;
       }
     }
 
     &:checked + label:after {
-      margin-left: 42px;
+      margin-left: 40px;
     }
   }
 }

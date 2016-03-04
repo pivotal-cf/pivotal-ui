@@ -85,6 +85,7 @@
     "pui-react-stream-list": "file:../library/dist/react/stream-list",
     "pui-react-tabs": "file:../library/dist/react/tabs",
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",
+    "pui-react-toggle": "file:../library/dist/react/toggle",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "pui-react-typography": "file:../library/dist/react/typography",
     "react": "^0.14.2",
