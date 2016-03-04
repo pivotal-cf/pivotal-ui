@@ -14,9 +14,6 @@
       margin-right: 2px;
     }
   }
-  .form-control {
-    padding-right: 38px;
-  }
 }
 
 .unstyled {
@@ -317,6 +314,10 @@ input[type="radio"] {
     right: 12px;
     height: 16px;
     width: 16px;
+  }
+
+  .form-control {
+    padding-right: 38px;
   }
   @include validation-label-color()
 }
