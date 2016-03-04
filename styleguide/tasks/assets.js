@@ -1,7 +1,6 @@
 import gulp from 'gulp';
 import loadPlugins from 'gulp-load-plugins';
 import del from 'del';
-import drF from 'dr-frankenstyle';
 import webpack from 'webpack-stream';
 import {exec} from 'child_process';
 

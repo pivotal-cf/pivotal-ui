@@ -108,7 +108,6 @@
     "css-loader": "^0.23.1",
     "csscritic": "file:./vendor/csscritic",
     "del": "^2.0.2",
-    "dr-frankenstyle": "^0.2.7",
     "es6-promisify": "^3.0.0",
     "eslint-plugin-react": "^4.1.0",
     "event-stream": "^3.3.2",
