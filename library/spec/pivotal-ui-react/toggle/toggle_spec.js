@@ -1,7 +1,7 @@
 require('../spec_helper');
 var Toggle = require('../../../src/pivotal-ui-react/toggle/toggle').Toggle;
 
-fdescribe('Toggle', () => {
+describe('Toggle', () => {
   const onChangeSpy = jasmine.createSpy('onChange');
   beforeEach(function() {
     ReactDOM.render(<Toggle id='boggle' onChange={onChangeSpy}/>, root);
