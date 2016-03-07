@@ -4,6 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-forms": "^3.3.2",
-    "pui-react-helpers": "^3.3.2"
+    "pui-react-helpers": "^3.3.2",
+    "lodash.uniqueid": "^3.0.0"
   }
 }

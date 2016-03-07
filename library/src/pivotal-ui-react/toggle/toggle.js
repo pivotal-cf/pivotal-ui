@@ -1,19 +1,23 @@
 const React = require('react');
+import uniqueid from 'lodash.uniqueid';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-forms';
 const types = React.PropTypes;
 
 const Toggle = React.createClass({
   propTypes: {
+    id: types.string,
     onChange: types.func
   },
 
   render() {
-    const {onChange, children, ...others} = this.props;
+    const {onChange, children, id, ...others} = this.props;
+    const toggleId = id || uniqueid('toggle');
+
     const props = mergeProps(others,
       {
         className: 'toggle-switch',
-        id: 'toggleSwitch',
+        id: toggleId,
         type: 'checkbox',
         onChange: onChange
       }
@@ -22,7 +26,7 @@ const Toggle = React.createClass({
     return (
       <div className='form-group'>
         <input {...props}/>
-        <label htmlFor='toggleSwitch'>{children}</label>
+        <label htmlFor={toggleId}>{children}</label>
       </div>
     )
   }
