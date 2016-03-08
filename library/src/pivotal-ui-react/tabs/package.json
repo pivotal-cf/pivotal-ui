@@ -8,6 +8,6 @@
     "pui-css-collapse": "^3.3.2",
     "pui-css-tabs": "^3.3.2",
     "raf": "^3.1.0",
-    "react-bootstrap": "0.28.2"
+    "react-bootstrap": "0.28.3"
   }
 }
