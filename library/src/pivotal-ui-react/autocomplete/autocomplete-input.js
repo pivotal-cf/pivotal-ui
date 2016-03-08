@@ -27,8 +27,11 @@ function withRelatedTarget(callback) {
   };
 }
 
-var AutocompleteInput = React.createClass({
-  propTypes: {
+class AutocompleteInput extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+  }
+  static propTypes = {
     $autocomplete: types.object,
     autoFocus: types.bool,
     children(props, name) {
@@ -42,33 +45,31 @@ var AutocompleteInput = React.createClass({
     onPicking: types.func,
     onSearch: types.func,
     scrollIntoView: types.func
-  },
+  };
 
-  statics: {
-    DOWN_KEY,
-    ENTER_KEY,
-    ESC_KEY,
-    TAB_KEY,
-    UP_KEY
-  },
+  static defaultProps = {
+    autoFocus: null
+  };
 
-  getDefaultProps() {
-    return {autoFocus: null};
-  },
+  static DOWN_KEY = DOWN_KEY;
+  static ENTER_KEY = ENTER_KEY;
+  static ESC_KEY = ESC_KEY;
+  static TAB_KEY = TAB_KEY;
+  static UP_KEY = UP_KEY;
 
-  blur: withRelatedTarget(function({relatedTarget}) {
+  blur = withRelatedTarget(function({relatedTarget}) {
     if (relatedTarget && relatedTarget.classList && relatedTarget.classList.contains('autocomplete-item')) return;
     this.props.hideList();
-  }),
+  }).bind(this);
 
-  change(e) {
+  change = (e) => {
     var {value} = e.currentTarget;
     this.props.onSearch(value, (suggestedValues) => {
       this.props.$autocomplete.merge({hidden: false, highlightedSuggestion: 0, value, suggestedValues}).flush();
     });
-  },
+  };
 
-  keyDown(e) {
+  keyDown = (e) => {
     var {keyCode} = e;
     var {highlightedSuggestion, suggestedValues} = this.props.$autocomplete.get();
     var {onPicking = () => suggestedValues} = this.props;
@@ -104,11 +105,11 @@ var AutocompleteInput = React.createClass({
     };
 
     keyCodes[keyCode in keyCodes ? keyCode : 'noop']();
-  },
+  };
 
   renderDefault(props) {
     return (<input {...props} className={classnames('autocomplete-input', 'form-control', props.className)} type="search" value={props.value} aria-label={props.placeholder}/>);
-  },
+  }
 
   render() {
     var {autoFocus, children, $autocomplete, ...props} = this.props;
@@ -120,6 +121,6 @@ var AutocompleteInput = React.createClass({
     children = React.Children.map(children, e => React.cloneElement(e, props));
     return (<div>{children}</div>);
   }
-});
+}
 
 module.exports = AutocompleteInput;

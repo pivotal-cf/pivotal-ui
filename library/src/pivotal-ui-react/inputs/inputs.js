@@ -4,10 +4,10 @@ import {mergeProps} from 'pui-react-helpers';
 import classnames from 'classnames';
 import 'pui-css-forms';
 
-const SearchInput = React.createClass({
-  propTypes: {
+class SearchInput extends React.Component {
+  static propTypes = {
     placeholder: types.string
-  },
+  };
 
   render() {
     const props = mergeProps(this.props, {className: 'form-control', type: 'text', 'aria-label': this.props.placeholder});
@@ -18,10 +18,10 @@ const SearchInput = React.createClass({
       </div>
     );
   }
-});
+}
 
-const BasicInput = React.createClass({
-  propTypes: {
+class BasicInput extends React.Component {
+  static propTypes = {
     displayError: types.bool,
     errorMessage: types.node,
     id: types.string,
@@ -29,7 +29,7 @@ const BasicInput = React.createClass({
     label: types.node,
     labelClassName: types.string,
     success: types.bool
-  },
+  };
 
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, success, ...inputProps} = this.props;
@@ -48,18 +48,18 @@ const BasicInput = React.createClass({
       </div>
     );
   }
-});
+}
 
 
-const Checkbox = React.createClass({
-  propTypes: {
+class Checkbox extends React.Component {
+  static propTypes = {
     displayError: types.bool,
     errorMessage: types.node,
     inputClassName: types.string,
     id: types.string,
     label: types.node,
     labelClassName: types.string
-  },
+  };
 
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, ...inputProps} = this.props;
@@ -81,6 +81,6 @@ const Checkbox = React.createClass({
       </div>
     );
   }
-});
+}
 
 module.exports = {BasicInput, Checkbox, SearchInput};

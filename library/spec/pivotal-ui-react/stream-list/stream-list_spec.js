@@ -50,24 +50,25 @@ describe('StreamList', () => {
     beforeEach(() => {
       addData = new EventEmitter();
 
-      const StreamListExample = React.createClass({
+      class StreamListExample extends React.Component {
+        constructor(props, context) {
+          super(props, context);
+          this.state = {data: ['Item a', 'Item b', 'Item c']};
+        }
+
         componentDidMount() {
           addData.on('data', datum => {
             const newData = this.state.data.concat([datum]);
             this.setState({data: newData});
           });
-        },
-
-        getInitialState() {
-          return {data: ['Item a', 'Item b', 'Item c']};
-        },
+        }
 
         render() {
           return (<StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
             {this.state.data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
           </StreamList>);
         }
-      });
+      }
 
       streamListExample = <StreamListExample/>;
       ReactDOM.render(streamListExample, root);

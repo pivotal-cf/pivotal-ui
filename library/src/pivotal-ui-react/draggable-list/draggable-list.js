@@ -1,23 +1,9 @@
-var React = require('react');
-var types = React.PropTypes;
-var classnames = require('classnames');
-var move = require('./move_helper');
+const React = require('react');
+const types = React.PropTypes;
+const classnames = require('classnames');
+const move = require('./move_helper');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-lists';
-
-var HoverMixin = {
-  getInitialState() {
-    return {hover: false};
-  },
-
-  onMouseEnter() {
-    this.setState({hover: true});
-  },
-
-  onMouseLeave() {
-    this.setState({hover: false});
-  }
-};
 
 function preventDefault(e) {
   e.preventDefault();
@@ -27,18 +13,19 @@ function childrenIndices(children) {
   return children.map((child, i) => i);
 }
 
-var DraggableList = React.createClass({
-  propTypes: {
-    onDragEnd: types.func,
-    innerClassName: types.string
-  },
-
-  getInitialState() {
-    return {
+class DraggableList extends React.Component{
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
       itemIndices: childrenIndices(this.props.children),
       draggingId: null
-    };
-  },
+    }
+  }
+
+  static propTypes = {
+    onDragEnd: types.func,
+    innerClassName: types.string
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.children) {
@@ -47,21 +34,21 @@ var DraggableList = React.createClass({
         draggingId: null
       });
     }
-  },
+  }
 
-  dragStart(draggingId, {dataTransfer}) {
+  dragStart = (draggingId, {dataTransfer}) => {
     dataTransfer.effectAllowed = 'move';
     dataTransfer.dropEffect = 'move';
     dataTransfer.setData('text/plain', '');
-    setTimeout(function() { this.setState({draggingId}); }.bind(this), 0);
-  },
+    setTimeout(() => this.setState({draggingId}), 0);
+  };
 
-  dragEnd() {
+  dragEnd = () => {
     this.setState({draggingId: null});
     this.props.onDragEnd && this.props.onDragEnd(this.state.itemIndices);
-  },
+  };
 
-  dragEnter(e) {
+  dragEnter = (e) => {
     var {draggingId, itemIndices} = this.state;
     var endDraggingId = Number(e.currentTarget.dataset.draggingId);
     if (draggingId === null || Number.isNaN(endDraggingId)) return;
@@ -71,7 +58,7 @@ var DraggableList = React.createClass({
 
     move(itemIndices, startIndex, endIndex);
     this.setState({itemIndices});
-  },
+  };
 
   render() {
     var grabbed, items = [];
@@ -96,12 +83,15 @@ var DraggableList = React.createClass({
       </ul>
     );
   }
-});
+}
 
-var DraggableListItem = React.createClass({
-  mixins: [HoverMixin],
+class DraggableListItem extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {hover: false};
+  }
 
-  propTypes: {
+  static propTypes = {
     draggingId: types.number,
     onMouseEnter: types.func,
     onMouseLeave: types.func,
@@ -110,7 +100,15 @@ var DraggableListItem = React.createClass({
     onDragEnd: types.func,
     grabbed: types.bool,
     className: types.string
-  },
+  };
+
+  onMouseEnter = () => {
+    this.setState({hover: true});
+  };
+
+  onMouseLeave = () => {
+    this.setState({hover: false});
+  };
 
   render() {
     var {hover} = this.state;
@@ -137,6 +135,6 @@ var DraggableListItem = React.createClass({
       </li>
     );
   }
-});
+}
 
 module.exports = {DraggableList, DraggableListItem};

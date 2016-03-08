@@ -2,8 +2,8 @@ var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-buttons';
 
-var UIButton = React.createClass({
-  propTypes: {
+class UIButton extends React.Component{
+  static propTypes = {
     block: React.PropTypes.bool,
     href: React.PropTypes.string,
     kind: React.PropTypes.oneOf([
@@ -15,9 +15,9 @@ var UIButton = React.createClass({
       'highlight-alt'
     ]),
     large: React.PropTypes.bool
-  },
+  };
 
-  render: function () {
+  render() {
     var {block, large, kind='default', children, ...others} = this.props;
 
     let defaultProps = {
@@ -36,11 +36,11 @@ var UIButton = React.createClass({
       <a {...props}>{children}</a> :
       <button {...props}>{children}</button>;
   }
-});
+}
 
 function defButton(propOverrides) {
-  return React.createClass({
-    propTypes: {
+  return class extends React.Component {
+    static propTypes = {
       block: React.PropTypes.bool,
       href: React.PropTypes.string,
       kind: React.PropTypes.oneOf([
@@ -52,11 +52,12 @@ function defButton(propOverrides) {
         'highlight-alt'
       ]),
       large: React.PropTypes.bool
-    },
-    render: function() {
+    };
+
+    render() {
       return <UIButton {...this.props} {...propOverrides}/>;
     }
-  });
+  }
 }
 
 module.exports = {

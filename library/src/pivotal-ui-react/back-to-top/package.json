@@ -4,8 +4,8 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-back-to-top": "^3.3.2",
-    "pui-react-animation": "^0.0.5",
     "pui-react-helpers": "^3.3.2",
+    "pui-react-mixins": "^3.3.2",
     "lodash.throttle": "^3.0.2"
   }
 }

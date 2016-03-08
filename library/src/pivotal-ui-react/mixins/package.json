@@ -1,0 +1,8 @@
+{
+  "version": "3.3.2",
+  "description": "Mixins for use in Pivotal UI Components",
+  "dependencies": {
+    "pui-react-animation": "^0.2.0"
+  },
+  "homepage": "http://styleguide.pivotal.io/react.html"
+}

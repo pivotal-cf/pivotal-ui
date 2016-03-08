@@ -3,14 +3,17 @@ const classnames = require('classnames');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-tile-layout';
 
-const TileLayout = React.createClass({
-  propTypes: {
-    columns: React.PropTypes.oneOfType([
-      React.PropTypes.number,
-      React.PropTypes.object
+var types = React.PropTypes;
+
+class TileLayout extends React.Component {
+  static propTypes = {
+    columns: types.oneOfType([
+      types.number,
+      types.object
     ]),
-    noGutter: React.PropTypes.bool
-  },
+    noGutter: types.bool
+  };
+
   getColumnClasses(columns) {
     if (columns instanceof Object) {
       const classes = [];
@@ -25,10 +28,10 @@ const TileLayout = React.createClass({
     } else {
       return `tile-layout-xs-${columns}`;
     }
-  },
+  }
+
   render() {
     const {children, columns, noGutter, ...others} = this.props;
-
 
     const classes = classnames(
       this.getColumnClasses(columns),
@@ -42,14 +45,14 @@ const TileLayout = React.createClass({
       </div>
     );
   }
-});
+}
 
-const TileLayoutItem = React.createClass({
+class TileLayoutItem extends React.Component {
   render() {
     return (
       <div {...mergeProps({className: 'tile-item'}, this.props)}></div>
     );
   }
-});
+}
 
 module.exports = {TileLayout, TileLayoutItem};

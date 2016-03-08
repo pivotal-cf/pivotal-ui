@@ -6,23 +6,22 @@ import 'pui-css-collapse';
 import 'pui-css-iconography';
 import 'pui-css-dividers';
 
-var BaseCollapse = React.createClass({
-  propTypes: {
+class BaseCollapse extends React.Component{
+  static propTypes = {
     divider: types.bool,
     header: types.node.isRequired,
     defaultExpanded: types.bool
-  },
+  };
 
-  getInitialState() {
-    return {
-      expanded: this.props.defaultExpanded
-    };
-  },
+  constructor(props, context) {
+    super(props, context);
+    this.state = {expanded: this.props.defaultExpanded};
+  }
 
-  handleSelect(e) {
+  handleSelect = (e) => {
     e.preventDefault();
     this.setState({expanded: !this.state.expanded});
-  },
+  };
 
   render() {
     var {divider, header, children, ...others} = this.props;
@@ -34,13 +33,13 @@ var BaseCollapse = React.createClass({
       </BsPanel>
     );
   }
-});
+}
 
-var Collapse = React.createClass({
-  propTypes: {
+class Collapse extends React.Component {
+  static propTypes = {
     divider: types.bool,
     header: types.node.isRequired
-  },
+  };
 
   render() {
     var {header, ...others} = this.props;
@@ -59,13 +58,13 @@ var Collapse = React.createClass({
 
     return <BaseCollapse {...others} header={header} />;
   }
-});
+}
 
-var AltCollapse = React.createClass({
-  propTypes: {
+class AltCollapse extends React.Component {
+  static propTypes = {
     divider: types.bool,
     header: types.node.isRequired
-  },
+  };
 
   render() {
     var {header, ...others} = this.props;
@@ -84,6 +83,6 @@ var AltCollapse = React.createClass({
 
     return <BaseCollapse {...others} header={header}/>;
   }
-});
+}
 
 module.exports = {BaseCollapse, Collapse, AltCollapse};

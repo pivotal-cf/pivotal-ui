@@ -1,17 +1,20 @@
 require('../spec_helper');
 
 describe('Portals', function() {
-  var PortalSource, PortalDestination, Potato;
+  let PortalSource, PortalDestination, Potato;
   beforeEach(function() {
     PortalSource = require('../../../src/pivotal-ui-react/portals/portals').PortalSource;
     PortalDestination = require('../../../src/pivotal-ui-react/portals/portals').PortalDestination;
-    Potato = React.createClass({
-      getInitialState() { return {}; },
+    Potato = class extends React.Component {
+      constructor(props, context) {
+        super(props, context);
+        this.state = {};
+      }
       render() {
         var {cake} = this.state;
         return (<div className="potato">{cake ? 'cake is a lie' : 'Potato'}</div>);
       }
-    });
+    }
   });
 
   afterEach(function() {
@@ -75,8 +78,12 @@ describe('Portals', function() {
   describe('when the portals are rendered source first then destination', function() {
     var potato, context;
     beforeEach(function() {
-      var Context = React.createClass({
-        getInitialState() { return {visible: true}; },
+      class Context extends React.Component {
+        constructor(props, context) {
+          super(props, context);
+          this.state = {visible: true};
+        }
+
         render() {
           return (
             <div>
@@ -91,7 +98,7 @@ describe('Portals', function() {
             </div>
           );
         }
-      });
+      }
       context = ReactDOM.render(<Context/>, root);
       potato = context.refs.potato;
     });

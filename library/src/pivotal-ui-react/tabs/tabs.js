@@ -5,13 +5,22 @@ import Accordion from 'react-bootstrap/lib/Accordion';
 import Panel from 'react-bootstrap/lib/Panel';
 import uniqueid from 'lodash.uniqueid';
 import classnames from 'classnames';
-import raf from 'raf';
 import MediaSize from './media-size';
 import 'pui-css-collapse';
 import 'pui-css-tabs';
 
-const BaseTabs = React.createClass({
-  propTypes: {
+class BaseTabs extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      activeKey: this.props.defaultActiveKey,
+      smallScreen: false,
+      id: uniqueid('pui-react-tabs-')
+    };
+  }
+
+  static propTypes = {
     defaultActiveKey: React.PropTypes.any,
     tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt', 'tab-left']),
     responsiveBreakpoint: React.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
@@ -22,21 +31,26 @@ const BaseTabs = React.createClass({
     tabWidth: React.PropTypes.number,
     paneWidth: React.PropTypes.number,
     id: React.PropTypes.string
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      responsiveBreakpoint: 'xs'
-    };
-  },
+  static defaultProps = {
+    responsiveBreakpoint: 'xs'
+  };
 
-  getInitialState() {
-    return {
-      activeKey: this.props.defaultActiveKey,
-      smallScreen: false,
-      id: uniqueid('pui-react-tabs-')
-    };
-  },
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
+      this.setActiveKey(nextProps.defaultActiveKey);
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('resize', this.checkScreenSize);
+    this.checkScreenSize();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.checkScreenSize);
+  }
 
   setActiveKey(key) {
     const previousActiveKey = this.state.activeKey;
@@ -44,39 +58,23 @@ const BaseTabs = React.createClass({
       activeKey: key,
       previousActiveKey
     });
-  },
+  }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
-      this.setActiveKey(nextProps.defaultActiveKey);
-    }
-  },
-
-  componentDidMount() {
-    raf(this.checkScreenSize);
-  },
-
-  checkScreenSize() {
-    if(!this.isMounted()) {
-      return;
+  checkScreenSize = () => {
+    if(MediaSize.matches(this.props.responsiveBreakpoint)) {
+      this.setState({smallScreen: false});
     } else {
-      if(MediaSize.matches(this.props.responsiveBreakpoint)) {
-        this.setState({smallScreen: false});
-      } else {
-        this.setState({smallScreen: true});
-      }
-
-      raf(this.checkScreenSize);
+      this.setState({smallScreen: true});
     }
-  },
+  };
 
-  handleSelect(key) {
+  handleSelect = (key) => {
     if (!this.props.onSelect) {
       this.setActiveKey(key);
     } else {
       this.props.onSelect(key);
     }
-  },
+  };
 
   render() {
     const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName,
@@ -120,36 +118,36 @@ const BaseTabs = React.createClass({
       </div>
     );
   }
-});
+}
 
-const SimpleTabs = React.createClass({
+class SimpleTabs extends React.Component {
   render() {
     return (
       <BaseTabs {...this.props} tabType="tab-simple"/>
     );
   }
-});
+}
 
-const SimpleAltTabs = React.createClass({
+class SimpleAltTabs extends React.Component {
   render() {
     return (
       <BaseTabs {...this.props} tabType="tab-simple-alt"/>
     );
   }
-});
+}
 
-const LeftTabs = React.createClass({
-  propTypes: {
+class LeftTabs extends React.Component {
+  static propTypes = {
     position: React.PropTypes.oneOf(['top', 'left']),
     tabWidth: React.PropTypes.number,
     paneWidth: React.PropTypes.number
-  },
-  getDefaultProps() {
-    return {
-      position: 'left',
-      tabWidth: 6
-    };
-  },
+  };
+
+  static defaultProps = {
+    position: 'left',
+    tabWidth: 6
+  };
+
   render() {
     let {tabWidth, paneWidth, ...props} = this.props;
     if (!paneWidth) {
@@ -159,7 +157,7 @@ const LeftTabs = React.createClass({
       <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-left"/>
     );
   }
-});
+}
 
 let Tab = BsTab;
 

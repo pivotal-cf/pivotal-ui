@@ -4,10 +4,10 @@ var BootstrapRow = require('react-bootstrap/lib/Row');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-grids';
 
-var Row = React.createClass({
-  propTypes: {
+class Row extends React.Component{
+  static propTypes = {
     gutter: types.oneOf(['sm', 'md', 'lg'])
-  },
+  };
 
   render() {
     const {gutter, children, ...other} = this.props;
@@ -18,7 +18,7 @@ var Row = React.createClass({
     const props = mergeProps(other, {className: gutterClass});
     return (<BootstrapRow {...props}>{children}</BootstrapRow>);
   }
-});
+}
 
 var Col = require('react-bootstrap/lib/Col');
 

@@ -6,10 +6,11 @@ var classnames = require('classnames');
 var {mergeProps} = require('pui-react-helpers');
 
 
-var Notifications = React.createClass({
-  propTypes: {
+class Notifications extends React.Component {
+  static propTypes = {
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  },
+  };
+
   render() {
     var {size, children, ...others} = this.props;
     var props = mergeProps(others, {className: 'dropdown-notifications'});
@@ -32,12 +33,13 @@ var Notifications = React.createClass({
     );
     return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
   }
-});
+}
 
-var AlertNotifications = React.createClass({
-  propTypes: {
+class AlertNotifications extends React.Component {
+  static propTypes = {
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  },
+  };
+
   render() {
     var {size, children, ...others} = this.props;
     var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert"></Icon> : null;
@@ -59,17 +61,17 @@ var AlertNotifications = React.createClass({
     var props = mergeProps(others, {className: 'dropdown-notifications'});
     return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
   }
-});
+}
 
-var NotificationItem = React.createClass({
-  propTypes: {
+class NotificationItem extends React.Component {
+  static propTypes = {
     href: types.string
-  },
+  };
 
   render() {
     var {href, children, ...props} = this.props;
     return <DropdownItem href={href} {...props}>{children}</DropdownItem>;
   }
-});
+}
 
 module.exports = {Notifications, AlertNotifications, NotificationItem};

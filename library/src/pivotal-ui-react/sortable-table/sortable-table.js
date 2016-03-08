@@ -7,24 +7,24 @@ import findindex from 'lodash.findindex';
 import 'pui-css-iconography';
 import 'pui-css-tables';
 
-export const TableHeader = React.createClass({
-  propTypes: {
+export class TableHeader extends React.Component {
+  static propTypes = {
     onClick: types.func,
     onSortableTableHeaderClick: types.func,
     sortable: types.bool
-  },
+  };
 
-  handleActivate(event) {
+  handleActivate = (event) => {
     var {sortable, onClick, onSortableTableHeaderClick} = this.props;
     if (sortable) onSortableTableHeaderClick(event);
     if (onClick) onClick(event);
-  },
+  };
 
-  handleKeyDown(event) {
+  handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       this.handleActivate(event);
     }
-  },
+  };
 
   render() {
     const {sortable, ...others} = this.props;
@@ -32,21 +32,15 @@ export const TableHeader = React.createClass({
 
     return <th {...props} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} tabIndex="0" role="button" disabled={ !sortable }/>;
   }
-});
+}
 
 export const TableCell = (props) => <td {...props}/>;
 
 export const TableRow = (props) => <tr {...props}/>;
 
-export const SortableTable = React.createClass({
-  propTypes: {
-    columns: types.array.isRequired,
-    CustomRow: types.func,
-    data: types.array.isRequired,
-    defaultSort: types.string
-  },
-
-  getInitialState() {
+export class SortableTable extends React.Component {
+  constructor(props, context) {
+    super(props, context);
     const {columns, defaultSort} = this.props;
 
     const sortCol = findindex(columns, ({sortable, attribute}) => {
@@ -54,12 +48,19 @@ export const SortableTable = React.createClass({
     });
 
     // If none of the columns are sortable we default to the 0th column
-    return {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
-  },
+    this.state = {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
+  }
 
-  setSortedColumn(sortColumn, sortAscending) {
+  static propTypes = {
+    columns: types.array.isRequired,
+    CustomRow: types.func,
+    data: types.array.isRequired,
+    defaultSort: types.string
+  };
+
+  setSortedColumn = (sortColumn, sortAscending) => {
     this.setState({sortColumn, sortAscending});
-  },
+  };
 
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
@@ -81,7 +82,7 @@ export const SortableTable = React.createClass({
       const Row = CustomRow || TableRow;
       return <Row key={rowKey} index={rowKey}>{cells}</Row>;
     });
-  },
+  }
 
   renderHeaders() {
     const {sortColumn, sortAscending} = this.state;
@@ -105,7 +106,7 @@ export const SortableTable = React.createClass({
 
       return <TableHeader {...headerProps}>{displayName || attribute}</TableHeader>;
     });
-  },
+  }
 
   render() {
     const props = mergeProps(this.props, {className: ['table', 'table-sortable', 'table-data']});
@@ -121,4 +122,4 @@ export const SortableTable = React.createClass({
       </table>
     );
   }
-});
+}

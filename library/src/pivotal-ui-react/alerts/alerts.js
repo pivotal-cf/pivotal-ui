@@ -5,26 +5,23 @@ var {Media} = require('pui-react-media');
 import 'pui-css-alerts';
 import 'pui-css-iconography';
 
-var Alert = React.createClass({
-  propTypes: {
+class Alert extends React.Component{
+  constructor(props, context) {
+    super(props, context);
+    this.state = {alertVisible: true};
+  }
+
+  static propTypes = {
     bsStyle: types.string,
     dismissable: types.oneOfType([types.bool, types.func]),
     withIcon: types.bool,
     alertIcon: types.string
-  },
+  };
 
-  getDefaultProps() {
-    return {
-      dismissable: false,
-      withIcon: false
-    };
-  },
-
-  getInitialState() {
-    return {
-      alertVisible: true
-    };
-  },
+  static defaultProps = {
+    dismissable: false,
+    withIcon: false
+  };
 
   render() {
     var {dismissable, withIcon, alertIcon, children, ...others} = this.props;
@@ -40,21 +37,22 @@ var Alert = React.createClass({
     }
 
     return <span/>;
-  },
+  }
 
-  handleAlertDismiss: function() {
+  handleAlertDismiss = () => {
     var {dismissable} = this.props;
     if (typeof dismissable === 'function') dismissable();
     this.setState({alertVisible: false});
   }
-});
+}
 
 function defAlert(props) {
-  return React.createClass({
-    propTypes: {
+  return class extends React.Component {
+    static propTypes = {
       dismissable: types.oneOfType([types.bool, types.func]),
       withIcon: types.bool
-    },
+    };
+
     render() {
       const {children, ...others} = this.props;
       return (
@@ -66,7 +64,7 @@ function defAlert(props) {
         </Alert>
       );
     }
-  });
+  }
 }
 
 module.exports = {

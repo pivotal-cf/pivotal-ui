@@ -1,7 +1,6 @@
 require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
-
 describe('Grid', function() {
   beforeEach(function() {
     var {Row, Col} = require('../../../src/pivotal-ui-react/grids/grids');

@@ -5,6 +5,6 @@
   "dependencies": {
     "pui-react-buttons": "^3.3.2",
     "pui-react-lists": "^3.3.2",
-    "pui-react-animation": "0.0.7"
+    "pui-react-mixins": "^3.3.2"
   }
 }

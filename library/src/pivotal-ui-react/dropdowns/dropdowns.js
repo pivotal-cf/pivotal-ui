@@ -10,16 +10,17 @@ const types = React.PropTypes;
 var BsDropdown = require('react-bootstrap/lib/Dropdown');
 
 function defDropdown(props) {
-  return React.createClass({
-    propTypes: {
+  return class extends React.Component {
+    static propTypes = {
       id: types.oneOfType([types.string, types.number]),
       bsStyle: types.any,
       buttonClassName: types.string,
       style: types.any,
       title: types.any,
       border: types.bool
-    },
-    render: function render() {
+    };
+
+    render = function render() {
       const {buttonClassName, style, title, children, border, ...others} = this.props;
       let {id} = others;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;
@@ -39,12 +40,12 @@ function defDropdown(props) {
           </BsDropdown.Menu>
         </BsDropdown>
       );
-    }
-  });
+    };
+  }
 }
 
-const DropdownItem = React.createClass({
-  propTypes: {
+class DropdownItem extends React.Component {
+  static propTypes = {
     className: types.string,
     style: types.object,
     href: types.string,
@@ -54,9 +55,9 @@ const DropdownItem = React.createClass({
     disabled: types.bool,
     eventKey: types.string,
     onSelect: types.func
-  },
+  };
 
-  handleClick(event) {
+  handleClick = (event) => {
     const {href, disabled, onSelect, eventKey} = this.props;
 
     if (!href || disabled) {
@@ -68,7 +69,7 @@ const DropdownItem = React.createClass({
     if (onSelect) {
       onSelect(event, eventKey);
     }
-  },
+  };
 
   render() {
     const {children, className, style, href, id, header, divider, disabled} = this.props;
@@ -91,7 +92,7 @@ const DropdownItem = React.createClass({
       </li>
     );
   }
-});
+}
 
 module.exports = {
   Dropdown: defDropdown({}),

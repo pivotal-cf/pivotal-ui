@@ -43,18 +43,18 @@ describe('Autocomplete', function() {
     var context;
 
     beforeEach(function() {
-      var Context = React.createClass({
-        getInitialState() {
-          return {
-            onInitializeItems
-          };
-        },
+      class Context extends React.Component {
+        constructor(props, context) {
+          super(props, context);
+          this.state = {onInitializeItems};
+        }
+
         render() {
           return (
             <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}/>
           );
         }
-      });
+      }
 
       context = ReactDOM.render(<Context/>, root);
       jasmine.clock().tick(1);

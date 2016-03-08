@@ -2,26 +2,26 @@ var React = require('react');
 var classnames = require('classnames');
 import 'pui-css-media';
 
+var types = React.PropTypes;
+
 const shortSizes = {xsmall: 'xs', small: 'sm', medium: 'md', large: 'lg', xlarge: 'xl'};
 const charSizes = {small: 's', medium: 'm', large: 'l', xlarge: 'xl'};
 const paddingDirection = {left: 'r', right: 'l'};
 
-var Media = React.createClass({
-  propTypes: {
-    image: React.PropTypes.node.isRequired,
-    innerClassName: React.PropTypes.string,
-    mediaSpacing: React.PropTypes.oneOf(['small', 'medium', 'large', 'xlarge']),
-    stackSize: React.PropTypes.oneOf(['xsmall', 'small', 'medium', 'large']),
-    vAlign: React.PropTypes.oneOf(['middle', 'bottom']),
-    placement: React.PropTypes.oneOf(['left', 'right']),
-    className: React.PropTypes.string
-  },
+class Media extends React.Component {
+  static propTypes = {
+    image: types.node.isRequired,
+    innerClassName: types.string,
+    mediaSpacing: types.oneOf(['small', 'medium', 'large', 'xlarge']),
+    stackSize: types.oneOf(['xsmall', 'small', 'medium', 'large']),
+    vAlign: types.oneOf(['middle', 'bottom']),
+    placement: types.oneOf(['left', 'right']),
+    className: types.string
+  };
 
-  getDefaultProps() {
-    return {
-      placement: 'left'
-    };
-  },
+  static defaultProps = {
+    placement: 'left'
+  };
 
   render() {
     var {className, innerClassName, image, mediaSpacing, stackSize, vAlign, placement, children, ...other} = this.props;
@@ -61,12 +61,12 @@ var Media = React.createClass({
       </div>
     );
   }
-});
+}
 
-var Flag = React.createClass({
+class Flag extends React.Component {
   render() {
     return <Media {...this.props} vAlign="middle"/>;
   }
-});
+}
 
 module.exports = {Media, Flag};

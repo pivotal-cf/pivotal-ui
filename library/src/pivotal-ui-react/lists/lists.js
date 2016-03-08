@@ -2,18 +2,19 @@ var React = require('react');
 import classnames from 'classnames';
 import 'pui-css-lists';
 
-var ListItem = React.createClass({
-  render: function() {
+class ListItem extends React.Component {
+  render() {
     return <li {...this.props}/>;
   }
-});
+}
 
 function defList(tagName, spacingType, classNames, childClassNames) {
-  return React.createClass({
-    propTypes: {
+  return class extends React.Component {
+    static propTypes = {
       spacing: React.PropTypes.oneOf(['n', 's', 'm', 'l', 'xl']),
       className: React.PropTypes.string
-    },
+    };
+
     render() {
       var {className, spacing, children, ...others} = this.props;
       var classes = classnames(classNames(this.props), className, spacing && `${spacingType}${spacing}`);
@@ -26,7 +27,7 @@ function defList(tagName, spacingType, classNames, childClassNames) {
         null
       );
     }
-  });
+  }
 }
 
 var UnorderedList = defList(

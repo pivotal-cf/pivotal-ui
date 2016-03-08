@@ -23,8 +23,14 @@ function trieFromSearchableItems(searchableItems) {
   return trie;
 }
 
-var Autocomplete = React.createClass({
-  propTypes: {
+class Autocomplete extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    var value = this.props.value || '';
+    this.state = {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
+  }
+
+  static propTypes = {
     className: types.string,
     disabled: types.bool,
     input: types.object,
@@ -38,31 +44,26 @@ var Autocomplete = React.createClass({
     placeholder: types.string,
     selectedSuggestion: types.any,
     value: types.string
-  },
+  };
 
-  getDefaultProps() {
-    return {maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>), placeholder: 'Search'};
-  },
-
-  getInitialState() {
-    var value = this.props.value || '';
-    return {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
-  },
+  static defaultProps = {
+    maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>), placeholder: 'Search'
+  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.props.value) {
       this.setState({value: nextProps.value});
     }
-  },
+  }
 
   componentDidMount() {
     this.props.onInitializeItems((searchableItems = []) => {
       const trie = trieFromSearchableItems(searchableItems);
       this.setState({searchableItems, trie});
     });
-  },
+  }
 
-  onSearch(value, callback) {
+  onSearch = (value, callback) => {
     if (this.props.onSearch) return this.props.onSearch(value, callback);
     var {maxItems} = this.props;
     var {trie} = this.state;
@@ -71,27 +72,27 @@ var Autocomplete = React.createClass({
     var result = trie.get(value || '');
     if (this.props.onFilter) { result = this.props.onFilter(result); }
     callback(result.slice(0, maxItems));
-  },
+  };
 
-  showList(defaultValue = null) {
+  showList = (defaultValue = null) => {
     var value = defaultValue === null ? this.state.value : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({hidden: false, suggestedValues: suggestedValues});
     });
-  },
+  };
 
-  onPick(value) {
+  onPick = (value) => {
     this.props.onPick && this.props.onPick(value);
     this.hideList();
-  },
+  };
 
-  hideList() {
+  hideList = () => {
     this.setState({hidden: true});
-  },
+  };
 
-  scrollIntoView() {
+  scrollIntoView = () => {
     Array.from(ReactDOM.findDOMNode(this).querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
-  },
+  };
 
   render() {
     var $autocomplete = new Cursor(this.state, state => this.setState(state));
@@ -105,7 +106,7 @@ var Autocomplete = React.createClass({
       </div>
     );
   }
-});
+}
 
 module.exports = {
   Autocomplete,

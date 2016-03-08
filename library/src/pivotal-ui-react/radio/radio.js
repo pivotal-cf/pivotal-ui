@@ -2,8 +2,8 @@ var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-forms';
 
-var Radio = React.createClass({
-  propTypes: {
+class Radio extends React.Component {
+  static propTypes = {
     checked: React.PropTypes.bool,
     defaultChecked: React.PropTypes.bool,
     name: React.PropTypes.string,
@@ -13,9 +13,9 @@ var Radio = React.createClass({
     className: React.PropTypes.string,
     style: React.PropTypes.object,
     disabled: React.PropTypes.bool
-  },
+  };
 
-  render: function() {
+  render() {
     const {className, style, children, disabled, ...others} = this.props;
     const props = mergeProps({className: className, style: style}, {className: 'radio'});
 
@@ -28,16 +28,16 @@ var Radio = React.createClass({
       </div>
     );
   }
-});
+}
 
-var RadioGroup = React.createClass({
-  propTypes: {
+class RadioGroup extends React.Component {
+  static propTypes = {
     id: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func
-  },
+  };
 
-  render: function() {
+  render() {
     var {name, children, onChange, ...others} = this.props;
 
     children = React.Children.map(children,
@@ -46,9 +46,8 @@ var RadioGroup = React.createClass({
 
     var props = mergeProps(others, {className: 'radio-group'});
 
-
     return <div {...props} >{children}</div>;
   }
-});
+}
 
 module.exports = {Radio, RadioGroup};

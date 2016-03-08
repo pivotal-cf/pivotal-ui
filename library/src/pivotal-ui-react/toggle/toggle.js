@@ -4,11 +4,11 @@ import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-forms';
 const types = React.PropTypes;
 
-const Toggle = React.createClass({
-  propTypes: {
+class Toggle extends React.Component {
+  static propTypes = {
     id: types.string,
     onChange: types.func
-  },
+  };
 
   render() {
     const {onChange, children, id, ...others} = this.props;
@@ -30,6 +30,6 @@ const Toggle = React.createClass({
       </div>
     )
   }
-});
+}
 
 module.exports = {Toggle};

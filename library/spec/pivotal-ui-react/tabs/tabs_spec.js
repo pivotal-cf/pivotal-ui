@@ -13,6 +13,12 @@ describe('Tabs', function() {
     // nothing about SimpleTabs is being used, and any string would work, were it valid.
     const tabType = 'tab-simple';
 
+    const triggerResize = function() {
+      const evt = document.createEvent('HTMLEvents');
+      evt.initEvent('resize', true, true );
+      window.dispatchEvent(evt);
+    };
+
     let MediaSize;
 
     beforeEach(function() {
@@ -35,15 +41,13 @@ describe('Tabs', function() {
         });
 
         it('checks media', function() {
-          MockRaf.next();
-
           expect(MediaSize.matches).toHaveBeenCalledWith('xs');
         });
 
         describe('when screen size is less than breakpoint', function() {
           beforeEach(function() {
             MediaSize.matches.and.returnValue(false);
-            MockRaf.next();
+            triggerResize();
           });
 
           it('renders an accordion', function() {
@@ -59,7 +63,7 @@ describe('Tabs', function() {
         describe('when screen size is greater than breakpoint', function() {
           beforeEach(function() {
             MediaSize.matches.and.returnValue(true);
-            MockRaf.next();
+            triggerResize();
           });
 
           it('renders a tabs', function() {
@@ -90,7 +94,7 @@ describe('Tabs', function() {
 
         it('uses the supplied onSelect method when clicking on large-screen tabs', function() {
           MediaSize.matches.and.returnValue(true);
-          MockRaf.next();
+          triggerResize();
 
           $(`.${tabType} li a:eq(0)`).simulate('click');
           expect(onSelectSpy).toHaveBeenCalled();
@@ -98,7 +102,7 @@ describe('Tabs', function() {
 
         it('uses the supplied onSelect method when clicking on small-screen tabs', function() {
           MediaSize.matches.and.returnValue(false);
-          MockRaf.next();
+          triggerResize();
 
           $(`.tab-title a:eq(0)`).simulate('click');
           expect(onSelectSpy).toHaveBeenCalled();
@@ -119,7 +123,7 @@ describe('Tabs', function() {
 
         it('keeps id on rerender', function() {
           const firstId = $(`.${tabType}`).attr('id');
-          MockRaf.next();
+          triggerResize();
 
           const nextId = $(`.${tabType}`).attr('id');
 
@@ -149,14 +153,15 @@ describe('Tabs', function() {
       beforeEach(function() {
         emitter = new EventEmitter();
 
-        const TestComponent = React.createClass({
-          getInitialState() {
-            return {defaultActiveKey: 2};
-          },
+        class TestComponent extends React.Component {
+          constructor(props, context) {
+            super(props, context);
+            this.state = {defaultActiveKey: 2};
+          }
 
           componentDidMount() {
             emitter.on('changeActiveKey', (key) => this.setState({defaultActiveKey: key}));
-          },
+          }
 
           render() {
             return (
@@ -166,7 +171,7 @@ describe('Tabs', function() {
               </BaseTabs>
             );
           }
-        });
+        }
 
         ReactDOM.render(<TestComponent />, root);
       });
@@ -179,7 +184,7 @@ describe('Tabs', function() {
       describe('for screens greater than the responsiveBreakpoint', function() {
         beforeEach(function() {
           MediaSize.matches.and.returnValue(true);
-          MockRaf.next();
+          triggerResize();
         });
         it('displays tabs in a simple tab container', function() {
           expect(`.${tabType} .nav li.active`).toContainText('Tab2');
@@ -207,7 +212,7 @@ describe('Tabs', function() {
       describe('for screens smaller than the responsiveBreakpoint', function() {
         beforeEach(function() {
           MediaSize.matches.and.returnValue(false);
-          MockRaf.next();
+          triggerResize();
         });
 
         it('renders an accordion', function() {

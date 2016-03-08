@@ -13,17 +13,17 @@ const paddingTypes = [];
   })
 });
 
-const PanelTitle = React.createClass({
-  propTypes: {
+class PanelTitle extends React.Component {
+  static propTypes = {
     className: types.string
-  },
+  };
 
   render() {
     let {className, ...other} = this.props;
     className = classnames('panel-title-alt', className);
     return <div {...{className}} {...other}/>;
   }
-});
+}
 
 class PanelHeader extends React.Component {
   static propTypes = {
@@ -79,7 +79,6 @@ class PanelFooter extends React.Component {
   }
 }
 
-
 class Panel extends React.Component {
   static propTypes = {
     header: types.node,
@@ -117,8 +116,6 @@ class Panel extends React.Component {
     );
   }
 }
-
-
 
 class ShadowPanel extends Panel {
   constructor(props) {

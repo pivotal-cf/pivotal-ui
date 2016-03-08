@@ -2,28 +2,28 @@ var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-ribbons';
 
-var Ribbon = React.createClass({
+class Ribbon extends React.Component {
   render() {
     var {children, ...others} = this.props;
     var props = mergeProps(others, {className: 'ribbon'});
     return <div {...props}>{children}</div>;
   }
-});
+}
 
-var PrimaryRibbon = React.createClass({
+class PrimaryRibbon extends React.Component {
   render() {
     var {children, ...others} = this.props;
     var props = mergeProps(others, {className: ['ribbon', 'ribbon-primary']});
     return <div {...props}>{children}</div>;
   }
-});
+}
 
-var Banner = React.createClass({
+class Banner extends React.Component {
   render() {
     var {children, ...others} = this.props;
     var props = mergeProps(others, {className: 'ribbon-banner'});
     return <div {...props}>{children}</div>;
   }
-});
+}
 
 module.exports = {Ribbon, PrimaryRibbon, Banner};

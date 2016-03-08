@@ -2,7 +2,7 @@ var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-labels';
 
-var Label = React.createClass({
+class Label extends React.Component {
   render() {
     let defaultProps = {
       className: ['label', 'label-primary']
@@ -11,6 +11,6 @@ var Label = React.createClass({
     let props = mergeProps(others, defaultProps);
     return <span {...props}>{children}</span>;
   }
-});
+}
 
 module.exports = {Label};

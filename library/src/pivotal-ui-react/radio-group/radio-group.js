@@ -3,14 +3,14 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 
-var RadioGroup = React.createClass({
-  propTypes: {
+class RadioGroup extends React.Component {
+  static propTypes = {
     id: React.PropTypes.string,
     name: React.PropTypes.string.isRequired,
     onChange: React.PropTypes.func
-  },
+  };
 
-  render: function() {
+  render() {
     var {name, children, onChange, ...others} = this.props;
 
     children = React.Children.map(children,
@@ -22,6 +22,6 @@ var RadioGroup = React.createClass({
 
     return <div {...props} >{children}</div>;
   }
-});
+}
 
 module.exports = {RadioGroup};

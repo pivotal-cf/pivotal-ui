@@ -72,6 +72,7 @@
     "pui-react-labels": "file:../library/dist/react/labels",
     "pui-react-lists": "file:../library/dist/react/lists",
     "pui-react-media": "file:../library/dist/react/media",
+    "pui-react-mixins": "file:../library/dist/react/mixins",
     "pui-react-modals": "file:../library/dist/react/modals",
     "pui-react-notifications": "file:../library/dist/react/notifications",
     "pui-react-overlay-trigger": "file:../library/dist/react/overlay-trigger",

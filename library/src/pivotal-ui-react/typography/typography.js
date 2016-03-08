@@ -1,25 +1,15 @@
-var React = require('react');
+const React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-typography';
 
-var TypographyMixin = {
-  propTypes: {
+class Heading extends React.Component {
+  static propTypes = {
     allCaps: React.PropTypes.bool,
     bold: React.PropTypes.oneOf(['low', 'default', 'high', 'max']),
     color: React.PropTypes.string,
     element: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
     size: React.PropTypes.oneOf(['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'small'])
-  }
-};
-
-var Heading = React.createClass({
-  propTypes: {
-    allCaps: React.PropTypes.bool,
-    bold: React.PropTypes.oneOf(['low', 'default', 'high', 'max']),
-    color: React.PropTypes.string,
-    element: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
-    size: React.PropTypes.oneOf(['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'small'])
-  },
+  };
 
   render() {
     var {size, bold, allCaps, color, element = 'p', children, ...other} = this.props;
@@ -37,15 +27,22 @@ var Heading = React.createClass({
     var Klass = element;
     return <Klass {...props}>{children}</Klass>;
   }
-});
+}
 
 function defHeader(props) {
-  return React.createClass({
-    mixins: [TypographyMixin],
+  return class extends React.Component {
+    static propTypes = {
+      allCaps: React.PropTypes.bool,
+      bold: React.PropTypes.oneOf(['low', 'default', 'high', 'max']),
+      color: React.PropTypes.string,
+      element: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p']),
+      size: React.PropTypes.oneOf(['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'small'])
+    };
+
     render() {
       return (<Heading {...this.props} {...props}/>);
     }
-  });
+  }
 }
 
 var DefaultH1 = defHeader({element: 'h1'});
