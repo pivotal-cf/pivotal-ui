@@ -23,8 +23,7 @@ var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
 Tooltips are used to display extra information on hover.
 To make an element show a tooltip, wrap it in an `OverlayTrigger`.
 If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover,
-this is where the `Tooltip` can be used. The is currently a thin wrapper around
-React Bootstrap.
+this is where the `Tooltip` can be used.
 
 Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", "right", "bottom", "top".
 
