@@ -102,7 +102,9 @@ cd library
 gulp sandbox
 ```
 
-Create a `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes
+Create a `sandbox.js` file and go to [http://localhost:8001](http://localhost:8001) to see your changes.
+
+**Note**: After running `gulp sandbox`, copy any images used by the CSS into your 'sandbox/build' directory.
 
 To run unit tests:
 
