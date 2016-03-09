@@ -125,7 +125,8 @@ describe('Panel', function() {
     });
 
     it('renders the correct style', function() {
-      expect('.panel').toHaveCss({color: 'rgb(255, 0, 0)', maxHeight: '1337px'});
+      expect('.panel').toHaveCss({color: 'rgb(255, 0, 0)'});
+      expect('.panel-scrollable').toHaveCss({maxHeight: '1337px'});
     });
   });
 
@@ -146,7 +147,7 @@ describe('Panel', function() {
     });
 
     it('adds the class "panel-scrollable"', function() {
-      expect('.panel').toHaveClass('panel-scrollable');
+      expect('.panel-body').toHaveClass('panel-scrollable');
     });
 
     describe('when it is set to a number', function() {
@@ -155,7 +156,7 @@ describe('Panel', function() {
       });
 
       it('sets the max-height of the panel-body to to the supplied numerical value', function() {
-        expect('.panel').toHaveCss({maxHeight: '1337px'});
+        expect('.panel-body').toHaveCss({maxHeight: '1337px'});
       });
     });
   });
@@ -166,7 +167,9 @@ describe('Panel', function() {
     });
 
     it('does not scroll the header', function() {
-      expect('.panel .panel-header').not.toExist();
+      expect('.panel-scrollable').toExist();
+      expect('.panel-header').toExist();
+      expect('.panel-scrollable .panel-header').not.toExist();
     });
   });
 
