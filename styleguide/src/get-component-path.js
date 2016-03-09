@@ -1,19 +1,11 @@
 function getComponentPath(path) {
-  const navPathRegEx = /\/(\w*)_(\w*)_[\w\-]*.html/;
+  const navPathRegEx = /\/([^_]*)_.*.html/;
 
   const match = navPathRegEx.exec(path);
 
-  if (match) {
-    return {
-      language: match[1],
-      componentType: match[2]
-    }
-  }
+  const language = match ? match[1] : 'react';
 
-  return {
-    language: 'react',
-    componentType: 'base'
-  }
+  return { language };
 }
 
 module.exports = getComponentPath;
