@@ -2,7 +2,7 @@ var AutocompleteList = require('./autocomplete-list');
 var AutocompleteInput = require('./autocomplete-input');
 var classnames = require('classnames');
 var Cursor = require('pui-cursor');
-var es = require('event-stream');
+var {map, readable} = require('event-stream');
 var React = require('react');
 var ReactDOM = require('react-dom');
 var scrollIntoView = require('scroll-into-view');
@@ -12,15 +12,23 @@ import 'pui-css-autocomplete';
 var types = React.PropTypes;
 
 function trieFromSearchableItems(searchableItems) {
-  var trie = new TrieSearch('value');
-  if(!searchableItems) { return trie; }
-
-  es.readable(function(count, callback) {
-    if(count >= searchableItems.length) this.emit('end');
-    callback(null, searchableItems[count]);
-  }).pipe(es.map(value => trie.add({value})));
-
-  return trie;
+  return new Promise(resolve => {
+    let trie;
+    readable(function(count, callback) {
+      if(searchableItems && count >= searchableItems.length) this.emit('end');
+      callback(null, searchableItems[count]);
+    }).pipe(map(value => {
+      if (typeof value === 'object') {
+        if (!trie) trie = new TrieSearch();
+        trie.addFromObject(value);
+        resolve(trie);
+        return;
+      }
+      if (!trie) trie = new TrieSearch('value');
+      trie.add({value});
+      resolve(trie);
+    }));
+  });
 }
 
 class Autocomplete extends React.Component {
@@ -57,8 +65,8 @@ class Autocomplete extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onInitializeItems((searchableItems = []) => {
-      const trie = trieFromSearchableItems(searchableItems);
+    this.props.onInitializeItems(async (searchableItems = []) => {
+      const trie = await trieFromSearchableItems(searchableItems);
       this.setState({searchableItems, trie});
     });
   }

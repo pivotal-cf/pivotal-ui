@@ -27,10 +27,11 @@ class AutocompleteList extends React.Component {
     var {className} = this.props;
     var suggestedValues = this.props.$autocomplete.get('suggestedValues');
     var suggestions = suggestedValues.map((suggestion, key) => {
-      var className = classnames('autocomplete-item', {highlighted: key === this.props.$autocomplete.get('highlightedSuggestion')}, {selected: suggestion.value === this.props.selectedSuggestion});
+      const value = '_key_' in suggestion ?  suggestion._key_: suggestion.value;
+      var className = classnames('autocomplete-item', {highlighted: key === this.props.$autocomplete.get('highlightedSuggestion')}, {selected: value === this.props.selectedSuggestion});
       return (
         <li key={key}>
-          <a href="#" onClick={onClick.bind(this, suggestion)} role="button" title={suggestion.value} className={className}>{suggestion.value}</a>
+          <a href="#" onClick={onClick.bind(this, suggestion)} role="button" title={suggestion.value} className={className}>{value}</a>
         </li>
       );
     });
