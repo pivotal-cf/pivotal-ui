@@ -18,7 +18,7 @@ describe('StyleguideNav', () => {
     ReactDOM.render(
       <StyleguideNav navTree={navTree}
                      defaultLanguage={'react'}
-                     defaultComponentType={'objects'}/>,
+                     />,
       root
     );
   });

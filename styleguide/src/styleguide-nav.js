@@ -7,7 +7,6 @@ const types = React.PropTypes;
 const StyleguideNav = React.createClass({
   propTypes: {
     defaultLanguage: types.string.isRequired,
-    defaultComponentType: types.string.isRequired,
     navTree: types.object.isRequired
   },
   render() {
