@@ -1,6 +1,6 @@
 require('babel-polyfill');
 require('phantomjs-polyfill');
-
+require('./support/bluebird');
 require('./support/set_immediate');
 require('jasmine_dom_matchers');
 
@@ -11,12 +11,14 @@ global.TestUtils = require('react-addons-test-utils');
 var jQuery = require('jquery');
 var MockNow = require('performance-now');
 var MockRaf = require('raf');
+const MockPromises = require('mock-promises');
 
 Object.assign(global, {
   jQuery,
   MockNow,
-  MockRaf,
-  $: jQuery
+  MockPromises,
+  $: jQuery,
+  MockRaf
 });
 
 $.fn.simulate = function(eventName, ...args) {
@@ -42,6 +44,7 @@ global.shallowRender = function shallowRender(jsx) {
 beforeEach(function() {
   $('body').find('#root').remove().end().append('<main id="root"/>');
   jasmine.clock().install();
+  MockPromises.install(Promise);
 });
 
 beforeEach(function() {
@@ -64,6 +67,8 @@ afterEach(function() {
   ReactDOM.unmountComponentAtNode(root);
   jasmine.clock().tick(1);
   jasmine.clock().uninstall();
+  MockPromises.contracts.reset();
+  MockPromises.uninstall();
   MockNow.reset();
   MockRaf.reset();
 });
