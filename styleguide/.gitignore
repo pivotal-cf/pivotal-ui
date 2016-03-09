@@ -15,6 +15,7 @@ node_modules/
 /build/
 /dist/
 *.zip
+npm-debug.log
 
 ## CssCritic
 
