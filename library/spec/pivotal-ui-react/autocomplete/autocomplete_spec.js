@@ -1,9 +1,9 @@
 require('../spec_helper');
 
-describe('Autocomplete', function() {
-  var Autocomplete, AutocompleteInput, pickSpy, subject, onInitializeItems;
-  beforeEach(function() {
-    var Cursor = require('pui-cursor');
+describe('Autocomplete', () => {
+  let Autocomplete, AutocompleteInput, pickSpy, subject, onInitializeItems;
+  beforeEach(() => {
+    const Cursor = require('pui-cursor');
     Cursor.async = false;
 
     Autocomplete = require('../../../src/pivotal-ui-react/autocomplete/autocomplete').Autocomplete;
@@ -11,7 +11,7 @@ describe('Autocomplete', function() {
     pickSpy = jasmine.createSpy('pick');
   });
 
-  afterEach(function() {
+  afterEach(() => {
     ReactDOM.unmountComponentAtNode(root);
     jasmine.clock().tick(1);
   });
@@ -28,15 +28,15 @@ describe('Autocomplete', function() {
       };
     });
 
-    it('renders', function() {
+    it('renders', () => {
       ReactDOM.render(<Autocomplete />, root);
       expect('.autocomplete').toExist();
     });
 
-    describe('when the user starts to type into the input', function() {
-      var context;
+    describe('when the user starts to type into the input', () => {
+      let context;
 
-      beforeEach(function() {
+      beforeEach(() => {
         class Context extends React.Component {
           constructor(props, context) {
             super(props, context);
@@ -57,10 +57,47 @@ describe('Autocomplete', function() {
         $('.autocomplete input').val('wat').simulate('change');
       });
 
-      it('renders the list', function() {
+      it('renders the list', () => {
         expect('.autocomplete-list').toExist();
         expect('.autocomplete-list').toContainText('watson');
         expect('.autocomplete-list').toContainText('water lilies');
+      });
+
+      describe('when the enter key is pressed', () => {
+        beforeEach(() => {
+          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
+        });
+
+        it('hides the list', () => {
+          expect('.autocomplete-list').not.toExist();
+        });
+
+        it('calls the autocomplete callback', () => {
+          expect(pickSpy).toHaveBeenCalledWith({_key_: 'watson', value: {name: 'watson', age: 4}});
+        });
+      });
+    });
+
+    describe('when a custom filter function is provided', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(
+          <Autocomplete {...{
+            onPick: pickSpy,
+            onInitializeItems,
+            onFilter: (stuffs) => stuffs.filter((stuff) => stuff.value.name.indexOf('e') !== -1 )
+          } }/>,
+          root
+        );
+        jasmine.clock().tick(1);
+        MockPromises.tick();
+
+        subject.showList();
+      });
+
+      it('filters results', () => {
+        expect('.autocomplete-list').not.toContainText('advil');
+        expect('.autocomplete-list').toContainText('water lilies');
+        expect('.autocomplete-list').toContainText('coffee');
       });
     });
   });
@@ -70,13 +107,13 @@ describe('Autocomplete', function() {
       onInitializeItems = (cb) => { cb(['watson', 'coffee', 'advil', 'water lilies']); };
     });
 
-    it('renders', function() {
+    it('renders', () => {
       ReactDOM.render(<Autocomplete />, root);
       expect('.autocomplete').toExist();
     });
 
-    describe('when maxItems is provided', function() {
-      it('caps length of displayed list', function() {
+    describe('when maxItems is provided', () => {
+      it('caps length of displayed list', () => {
         subject = ReactDOM.render(
           <Autocomplete {...{
             onPick: pickSpy,
@@ -93,10 +130,10 @@ describe('Autocomplete', function() {
       });
     });
 
-    describe('when the user starts to type into the input', function() {
-      var context;
+    describe('when the user starts to type into the input', () => {
+      let context;
 
-      beforeEach(function() {
+      beforeEach(() => {
         class Context extends React.Component {
           constructor(props, context) {
             super(props, context);
@@ -117,22 +154,22 @@ describe('Autocomplete', function() {
         $('.autocomplete input').val('wat').simulate('change');
       });
 
-      it('renders the list', function() {
+      it('renders the list', () => {
         expect('.autocomplete-list').toExist();
         expect('.autocomplete-list').toContainText('watson');
         expect('.autocomplete-list').toContainText('water lilies');
       });
 
-      it('auto-selects the first item', function() {
+      it('auto-selects the first item', () => {
         expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
       });
 
-      describe('when the user attempts to re-initialize the searchable items', function() {
-        beforeEach(function() {
+      describe('when the user attempts to re-initialize the searchable items', () => {
+        beforeEach(() => {
           context.setState({onInitializeItems: (done) => done([])});
         });
 
-        it('does not actually let you change the list', function() {
+        it('does not actually let you change the list', () => {
           expect('.autocomplete-list').toContainText('watson');
           expect('.autocomplete-list').toContainText('water lilies');
           expect('.autocomplete-list').not.toContainText('coffee');
@@ -142,63 +179,63 @@ describe('Autocomplete', function() {
         });
       });
 
-      describe('when the blur event is triggered', function() {
+      describe('when the blur event is triggered', () => {
         beforeEach(function(done) {
           jasmine.clock().uninstall();
           $('.autocomplete input').simulate('blur');
-          setTimeout(function() { done(); }, 100);
+          setTimeout(() => { done(); }, 100);
         });
 
-        afterEach(function() {
+        afterEach(() => {
           jasmine.clock().install();
         });
 
-        it('hides the list', function() {
+        it('hides the list', () => {
           MockPromises.tick();
           expect('.autocomplete-list').not.toExist();
         });
       });
 
-      describe('when the tab key is pressed', function() {
-        beforeEach(function() {
+      describe('when the tab key is pressed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.TAB_KEY});
         });
 
-        it('hides the list', function() {
+        it('hides the list', () => {
           expect('.autocomplete-list').not.toExist();
         });
 
-        it('calls the autocomplete callback', function() {
+        it('calls the autocomplete callback', () => {
           expect(pickSpy).toHaveBeenCalledWith({value: 'watson'});
         });
       });
 
-      describe('when the enter key is pressed', function() {
-        beforeEach(function() {
+      describe('when the enter key is pressed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
         });
 
-        it('hides the list', function() {
+        it('hides the list', () => {
           expect('.autocomplete-list').not.toExist();
         });
 
-        it('calls the autocomplete callback', function() {
+        it('calls the autocomplete callback', () => {
           expect(pickSpy).toHaveBeenCalledWith({value: 'watson'});
         });
       });
 
-      describe('when the user tries to apply a selection that is not in the list', function() {
-        beforeEach(function() {
+      describe('when the user tries to apply a selection that is not in the list', () => {
+        beforeEach(() => {
           $('.autocomplete input').val('does not exist').simulate('change').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
         });
 
-        it('calls autocomplete callback with the value of the input', function() {
+        it('calls autocomplete callback with the value of the input', () => {
           expect(pickSpy).toHaveBeenCalledWith({value: 'does not exist'});
         });
       });
 
-      describe('when one of the autocomplete items is the currently selected option', function() {
-        beforeEach(function() {
+      describe('when one of the autocomplete items is the currently selected option', () => {
+        beforeEach(() => {
           subject = ReactDOM.render(
             <Autocomplete {...{
               onPick: pickSpy,
@@ -214,88 +251,88 @@ describe('Autocomplete', function() {
           $('.autocomplete input').val('wat').simulate('change');
         });
 
-        it('sets the selected class to the autocomplete item', function() {
+        it('sets the selected class to the autocomplete item', () => {
           expect('.autocomplete-item:eq(0)').toHaveClass('selected');
         });
       });
 
-      describe('when the escape key is pressed', function() {
-        beforeEach(function() {
+      describe('when the escape key is pressed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
         });
 
-        it('hides the list', function() {
+        it('hides the list', () => {
           expect('.autocomplete-list').not.toExist();
         });
       });
 
-      describe('when the down key is pressed', function() {
-        beforeEach(function() {
+      describe('when the down key is pressed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
         });
 
-        it('adds highlighted class to the next autocomplete item', function() {
+        it('adds highlighted class to the next autocomplete item', () => {
           expect('.autocomplete-item:eq(0)').not.toHaveClass('highlighted');
           expect('.autocomplete-item:eq(1)').toHaveClass('highlighted');
         });
 
-        describe('when the up key is pressed', function() {
-          beforeEach(function() {
+        describe('when the up key is pressed', () => {
+          beforeEach(() => {
             $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
           });
 
-          it('adds highlighted class to the first autocomplete item', function() {
+          it('adds highlighted class to the first autocomplete item', () => {
             expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
             expect('.autocomplete-item:eq(1)').not.toHaveClass('highlighted');
           });
 
-          describe('when the up key is pressed again', function() {
-            beforeEach(function() {
+          describe('when the up key is pressed again', () => {
+            beforeEach(() => {
               $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
             });
 
-            it('unhighlights any autocomplete suggestions', function() {
+            it('unhighlights any autocomplete suggestions', () => {
               expect('.autocomplete-item.highlighted').not.toExist();
             });
           });
         });
       });
 
-      describe('when the up key is pressed', function() {
-        beforeEach(function() {
+      describe('when the up key is pressed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
         });
 
-        it('clears the selection', function() {
+        it('clears the selection', () => {
           expect('.autocomplete-item.highlighted').not.toExist();
         });
 
-        describe('when the up key is pressed again', function() {
-          beforeEach(function() {
+        describe('when the up key is pressed again', () => {
+          beforeEach(() => {
             $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
           });
 
-          it('does not break the down key', function() {
+          it('does not break the down key', () => {
             $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
             expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
           });
         });
       });
 
-      describe('when the down key is pressed while the list is closed', function() {
-        beforeEach(function() {
+      describe('when the down key is pressed while the list is closed', () => {
+        beforeEach(() => {
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
           $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
         });
 
-        it('opens the list', function() {
+        it('opens the list', () => {
           expect('.autocomplete-list').toExist();
         });
       });
     });
 
-    describe('when a initial value is provided', function() {
-      beforeEach(function() {
+    describe('when a initial value is provided', () => {
+      beforeEach(() => {
         subject = ReactDOM.render(
           <Autocomplete {...{
             onPick: pickSpy,
@@ -306,15 +343,15 @@ describe('Autocomplete', function() {
         );
       });
 
-      it('defaults to that value being selected', function() {
+      it('defaults to that value being selected', () => {
         expect(subject.state.value).toBe('advil');
       });
     });
 
-    describe('when a custom (possibly asynchronous) search function is provided', function() {
-      var cb;
-      beforeEach(function() {
-        var search = (value, callback) => { cb = callback; };
+    describe('when a custom (possibly asynchronous) search function is provided', () => {
+      let cb;
+      beforeEach(() => {
+        const search = (value, callback) => { cb = callback; };
         subject = ReactDOM.render(
           <Autocomplete {...{
             onPick: pickSpy,
@@ -327,14 +364,18 @@ describe('Autocomplete', function() {
         $('.autocomplete input').val('zo').simulate('change');
       });
 
-      it('uses the custom search instead of the trie', function() {
+      it('uses the custom search instead of the trie', () => {
         cb([{value: 'gonzo'}, {value: 'zonk'}, {value: 'zoo'}, {value: 'zoology'}]);
         expect('.autocomplete-list').toContainText('gonzo');
       });
+
+      it('does not set a trie', () => {
+        expect(subject.state.trie).toBe(null);
+      });
     });
 
-    describe('when custom props are provided', function() {
-      beforeEach(function() {
+    describe('when custom props are provided', () => {
+      beforeEach(() => {
         ReactDOM.unmountComponentAtNode(root);
         subject = ReactDOM.render(
           <Autocomplete {...{
@@ -349,7 +390,7 @@ describe('Autocomplete', function() {
         subject.showList();
       });
 
-      it('does the right things', function() {
+      it('does the right things', () => {
         expect($('.autocomplete input').attr('disabled')).toBe('disabled');
         expect($('.autocomplete input').attr('placeholder')).toBe('Best autocomplete ever...');
         expect('.autocomplete input').toHaveClass('input-thing');
@@ -358,8 +399,8 @@ describe('Autocomplete', function() {
       });
     });
 
-    describe('when a custom filter function is provided', function() {
-      beforeEach(function() {
+    describe('when a custom filter function is provided', () => {
+      beforeEach(() => {
         subject = ReactDOM.render(
           <Autocomplete {...{
             onPick: pickSpy,
@@ -374,22 +415,22 @@ describe('Autocomplete', function() {
         subject.showList();
       });
 
-      it('filters results', function() {
+      it('filters results', () => {
         expect('.autocomplete-list').not.toContainText('advil');
         expect('.autocomplete-list').toContainText('water lilies');
         expect('.autocomplete-list').toContainText('coffee');
       });
     });
 
-    describe('when an asynchronous onInitializeItems is provided', function() {
-      var cb;
-      beforeEach(function() {
+    describe('when an asynchronous onInitializeItems is provided', () => {
+      let cb;
+      beforeEach(() => {
         ReactDOM.unmountComponentAtNode(root);
         onInitializeItems = (callback) => { cb = callback; };
         subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}}/>, root);
       });
 
-      it('still populates the list properly', function() {
+      it('still populates the list properly', () => {
         cb(['a', 'betty', 'c']);
         jasmine.clock().tick(1);
         MockPromises.tick();
