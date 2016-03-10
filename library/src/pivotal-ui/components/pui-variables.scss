@@ -260,7 +260,7 @@ $navbar-width:              210px;
 
 $html-bg:               $neutral-11;
 $body-bg:               transparent;
-$text-color:            $neutral-3 !default;
+$text-color:            $dark-2 !default;
 
 // Links
 // -------------------------
@@ -501,7 +501,7 @@ $input-bg-disabled:              $gray-lighter !default;
 $progress-border-radius:         $border-radius-base !default;
 $input-font-weight:              $font-weight-em-high;
 
-$input-color:                    $neutral-3 !default;
+$input-color:                    $text-color !default;
 $input-color-hover:              $accent-5;
 $input-color-active:             $accent-3;
 $input-border:                   $neutral-7 !default;
@@ -514,7 +514,7 @@ $input-border-width:             1px !default;
 
 $input-color-placeholder:        $neutral-5 !default;
 
-$form-label-color:               $neutral-3 !default;
+$form-label-color:               $text-color !default;
 
 $input-height-base:              ($line-height-computed + ($padding-base-vertical * 2) + 2) !default;
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
@@ -736,7 +736,7 @@ $nav-tabs-title-font-size:                  16px;
 
 // Responsive tabs
 $tab-responsive-bg:             $shadow-4;
-$tab-responsive-color:          $neutral-3;
+$tab-responsive-color:          $text-color;
 $tab-responsive-active-color:   $brand-5;
 $tab-responsive-radius:         $border-radius-large;
 $tab-responsive-pane-padding:   10px;
@@ -1111,7 +1111,7 @@ $panel-title-border:           3px solid rgba(0,0,0,.1);
 // Panel Headings
 // -------------------------
 $panel-heading-basic-bg:             $neutral-9;
-$panel-heading-basic-text:           $neutral-3;
+$panel-heading-basic-text:           $text-color;
 $panel-heading-basic-font-size:      22px; //TODO: once typography is solidified this should use heading vars
 
 $panel-heading-simple-text:            $neutral-5;
