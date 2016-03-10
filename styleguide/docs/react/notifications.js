@@ -43,7 +43,7 @@ var newLabel = <DefaultH3 className="mvn"><Label>New</Label></DefaultH3>;
 ```react_example_table
 <Notifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <Flag leftImage={newLabel}>
+    <Flag image={newLabel}>
       <DefaultH5 className="media-heading mbn type-dark-2">Notification</DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
@@ -120,7 +120,7 @@ var alertImage = <Icon name="exclamation-triangle" className="h4 type-warn-3 mrm
 ```react_example_table
 <AlertNotifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <Flag leftImage={alertImage}>
+    <Flag image={alertImage}>
       <DefaultH5 className="media-heading mbn type-dark-2">WARNING</DefaultH5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
