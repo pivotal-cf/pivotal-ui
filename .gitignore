@@ -12,6 +12,7 @@ node_modules/
 build/
 dist/
 *.zip
+npm-debug.log
 
 library/sandbox/sandbox.js
 

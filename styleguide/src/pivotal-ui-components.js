@@ -34,7 +34,6 @@ assignToGlobal([
   require('pui-react-panels'),
   require('pui-react-panes'),
   require('pui-react-portals'),
-  require('pui-react-radio-group'),
   require('pui-react-radio'),
   require('pui-react-ribbons'),
   require('pui-react-sortable-table'),
