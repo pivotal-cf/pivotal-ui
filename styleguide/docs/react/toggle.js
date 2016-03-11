@@ -24,6 +24,7 @@ The Toggle component takes an `onChange` callback.
 ```
 
 Toggles accept a `checked` prop that turns on the switch.
+Note that you must handle the addition and removal of the `checked` property yourself.
 
 ```react_example
 <Toggle checked onChange={() => console.log('I should handle check changes!')}/>
