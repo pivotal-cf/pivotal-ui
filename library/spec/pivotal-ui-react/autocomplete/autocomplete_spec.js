@@ -61,6 +61,7 @@ describe('Autocomplete', () => {
         expect('.autocomplete-list').toExist();
         expect('.autocomplete-list').toContainText('watson');
         expect('.autocomplete-list').toContainText('water lilies');
+        expect($('.autocomplete-item').map(function() { return $(this).attr('title'); }).toArray()).toEqual(['watson', 'water lilies']);
       });
 
       describe('when the enter key is pressed', () => {
