@@ -130,7 +130,7 @@ This is a fancy number input!
   .search-icon {
     position: absolute;
     left: 12px;
-    top: 12px;
+    bottom: $form-group-margin-bottom;
     content: '';
     background-image: url('images/search.svg');
     height: 16px;
