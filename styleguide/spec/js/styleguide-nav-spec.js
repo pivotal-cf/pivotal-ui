@@ -39,15 +39,10 @@ describe('StyleguideNav', () => {
   it('creates second-level links', () => {
     expect(".tab-pane:eq(0)").toContainText('apples');
     expect(".tab-pane:eq(0)").toContainText('carrots');
-    expect(".tab-pane:eq(1)").toContainText('eggplants');
-    expect(".tab-pane:eq(1)").toContainText('apples');
   });
 
   it('creates component links', () => {
     expect(".tab-pane:eq(0) a:eq(0)")
       .toHaveAttr('href', 'red.html');
-
-    expect(".tab-pane:eq(1) a:eq(1)")
-      .toHaveAttr('href', 'purple.html');
   });
 });
