@@ -1,41 +1,128 @@
 import React from 'react';
-import Tabs from 'react-bootstrap/lib/Tabs';
 import BsTab from 'react-bootstrap/lib/Tab';
-import Accordion from 'react-bootstrap/lib/Accordion';
-import Panel from 'react-bootstrap/lib/Panel';
 import uniqueid from 'lodash.uniqueid';
 import classnames from 'classnames';
 import MediaSize from './media-size';
 import 'pui-css-collapse';
 import 'pui-css-tabs';
+import {mixin, Animation} from 'pui-react-mixins';
 
-class BaseTabs extends React.Component {
+const types = React.PropTypes;
+
+class SmallTab extends React.Component {
+  static propTypes = {
+    expanded: types.bool,
+    header: types.node,
+    onClick: types.func,
+    paneId: types.string,
+    transitionProgress: types.number
+  };
+
+  render() {
+    const {className, children, expanded, header, onClick, paneId, transitionProgress, ...props} = this.props;
+    const style = transitionProgress < 1 ? {opacity: Math.abs(1 - 2 * transitionProgress)} : {};
+
+    return (
+      <div>
+        <div className="tab-heading">
+          <h4 className="tab-title" role="presentation">
+            <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded} role="tab" onClick={onClick}>{header}</a>
+          </h4>
+        </div>
+        <div className={classnames(className, 'tab-collapse', 'collapse', {'in': expanded})} aria-hidden={!expanded} role="tabpanel" {...props}>
+          <div className="tab-body">
+            <div style={style}>{children}</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+class SmallTabs extends React.Component {
+  static propTypes = {
+    activeKey: types.number,
+    id: types.string,
+    handleClick: types.func,
+    onSelect: types.func,
+    previousActiveKey: types.number,
+    smallScreenClassName: types.string,
+    tabType: types.string,
+    transitionProgress: types.number
+  };
+
+  render() {
+    const {
+      activeKey,
+      children,
+      className,
+      id,
+      handleClick,
+      onSelect,
+      previousActiveKey,
+      smallScreenClassName,
+      tabType,
+      transitionProgress
+      } = this.props;
+    const smallScreenClasses = classnames([`tab-${tabType}-small-screen`, 'panel-group', smallScreenClassName, className]);
+    const childArray = React.Children.toArray(children);
+    const animatedActiveKey = transitionProgress >= 0.5 ? activeKey : previousActiveKey;
+    const childrenAsPanels = childArray.map((child, key) => {
+      const {title, eventKey, children} = child.props;
+      const isActive = (eventKey === animatedActiveKey);
+      const paneId = `${id}-pane-${key}`;
+      const myProps = {
+        expanded: isActive,
+        header: title,
+        key,
+        onClick: (e) => handleClick(e, eventKey, onSelect),
+        paneId,
+        transitionProgress
+      };
+      return <SmallTab {...myProps}>{isActive && children}</SmallTab>;
+    });
+
+    return (
+      <div className={smallScreenClasses}>{childrenAsPanels}</div>
+    );
+  }
+}
+
+class Tabs extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
 
+    let {id} = this.props;
+    if (typeof id === 'undefined') {
+      id = uniqueid('pui-react-tabs-');
+    }
     this.state = {
       activeKey: this.props.defaultActiveKey,
       smallScreen: false,
-      id: uniqueid('pui-react-tabs-')
+      id
     };
   }
 
   static propTypes = {
-    defaultActiveKey: React.PropTypes.any,
-    tabType: React.PropTypes.oneOf(['tab-simple', 'tab-simple-alt', 'tab-left']),
-    responsiveBreakpoint: React.PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
-    largeScreenClassName: React.PropTypes.string,
-    smallScreenClassName: React.PropTypes.string,
-    onSelect: React.PropTypes.func,
-    position: React.PropTypes.oneOf(['top', 'left']),
-    tabWidth: React.PropTypes.number,
-    paneWidth: React.PropTypes.number,
-    id: React.PropTypes.string
+    activeKey: types.number,
+    defaultActiveKey: types.any,
+    id: types.string,
+    largeScreenClassName: types.string,
+    onSelect: types.func,
+    paneWidth: types.number,
+    position: types.oneOf(['top', 'left']),
+    responsiveBreakpoint: types.oneOf(['xs', 'sm', 'md', 'lg']),
+    smallScreenClassName: types.string,
+    tabType: types.oneOf(['simple', 'simple-alt', 'left']),
+    tabWidth: types.number
   };
 
   static defaultProps = {
-    responsiveBreakpoint: 'xs'
+    responsiveBreakpoint: 'xs',
+    tabType: 'simple'
   };
+
+  static ANIMATION_TIME = 500;
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
@@ -58,94 +145,110 @@ class BaseTabs extends React.Component {
       activeKey: key,
       previousActiveKey
     });
+    if (key !== previousActiveKey) this.animate('transitionProgress', 0);
   }
 
   checkScreenSize = () => {
-    if(MediaSize.matches(this.props.responsiveBreakpoint)) {
+    if (MediaSize.matches(this.props.responsiveBreakpoint)) {
       this.setState({smallScreen: false});
     } else {
       this.setState({smallScreen: true});
     }
   };
 
-  handleSelect = (key) => {
-    if (!this.props.onSelect) {
-      this.setActiveKey(key);
+  handleClick = (e, eventKey, callback) => {
+    if (callback) {
+      (callback(e, eventKey));
     } else {
-      this.props.onSelect(key);
+      this.setActiveKey(eventKey);
     }
   };
 
   render() {
-    const {defaultActiveKey, children, responsiveBreakpoint, tabType, largeScreenClassName,
-      smallScreenClassName, onSelect, position, tabWidth, paneWidth, className, ...props} = this.props;
-    const largeScreenClasses = classnames([tabType, largeScreenClassName, className]);
-    const smallScreenClasses = classnames([`${tabType}-small-screen`, smallScreenClassName, className]);
+    const {
+      children,
+      className,
+      defaultActiveKey,
+      id = this.state.id,
+      largeScreenClassName,
+      onSelect,
+      paneWidth,
+      position,
+      tabType,
+      tabWidth,
+      responsiveBreakpoint,
+      ...props} = this.props;
+    const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
 
-    let tabs;
+    const transitionProgress = this.animate('transitionProgress', 1, Tabs.ANIMATION_TIME);
 
-    if(this.state.smallScreen) {
-      const childrenAsPanels = React.Children.map(children, (child) => {
-        const {title, ...childProps} = child.props;
-        return <Panel header={title} {...childProps}/>;
-      });
+    const childArray = React.Children.toArray(children);
 
-      tabs = (
-        <Accordion className={smallScreenClasses}
-                   activeKey={this.state.activeKey}
-                   onSelect={this.handleSelect}
-                  {...props}>
-          {childrenAsPanels}
-        </Accordion>
-      );
-    } else {
-      tabs = (
-        <Tabs position={position}
-              tabWidth={tabWidth}
-              paneWidth={paneWidth}
-              activeKey={this.state.activeKey}
-              onSelect={this.handleSelect}
-              className={largeScreenClasses}
-              {...{id: this.state.id, ...props}}>
-          {children}
-        </Tabs>
+    if (this.state.smallScreen) {
+      return (
+        <SmallTabs {...this.state} {...this.props} {...{transitionProgress, handleClick: this.handleClick}}/>
       );
     }
 
+    const listChildren = childArray.map((child, key) => {
+      const {eventKey} = child.props;
+      const paneId = `${id}-pane-${key}`;
+      const tabId = `${id}-tab-${key}`;
+      const isActive = (eventKey === this.state.activeKey);
+
+      return (
+        <li key={key} role='presentation' className={classnames({active: isActive})}>
+          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{child.props.title}</a>
+        </li>
+      )
+    });
+
+    const isLeft = position === 'left';
+    const leftPaneClasses = `col-xs-${paneWidth}`;
+    const leftTabClasses = `col-xs-${tabWidth} nav-pills nav-stacked`;
+
+    let tabContent = null;
+    const activeKey = transitionProgress >= 0.5 ? this.state.activeKey : this.state.previousActiveKey;
+    childArray.forEach((child, key) => {
+      const {eventKey, children} = child.props;
+      const paneId = `${id}-pane-${key}`;
+      const tabId = `${id}-tab-${key}`;
+      const isActive = (eventKey === activeKey);
+      const style = transitionProgress < 1 ? {opacity: Math.abs(1 - 2 * transitionProgress)} : {};
+
+      if (!isActive) return false;
+      tabContent = (
+        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})} style={style}>
+          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId} aria-hidden='false'>
+            {children}
+          </div>
+        </div>
+      );
+    });
+
     return (
-      <div>
-        {tabs}
+      <div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
+        <ul role='tablist'
+            className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
+          {listChildren}
+        </ul>
+        {tabContent}
       </div>
-    );
-  }
-}
-
-class SimpleTabs extends React.Component {
-  render() {
-    return (
-      <BaseTabs {...this.props} tabType="tab-simple"/>
-    );
-  }
-}
-
-class SimpleAltTabs extends React.Component {
-  render() {
-    return (
-      <BaseTabs {...this.props} tabType="tab-simple-alt"/>
     );
   }
 }
 
 class LeftTabs extends React.Component {
   static propTypes = {
-    position: React.PropTypes.oneOf(['top', 'left']),
-    tabWidth: React.PropTypes.number,
-    paneWidth: React.PropTypes.number
+    position: types.oneOf(['top', 'left']),
+    tabWidth: types.number,
+    paneWidth: types.number
   };
 
   static defaultProps = {
     position: 'left',
-    tabWidth: 6
+    tabWidth: 6,
+    tabType: 'left'
   };
 
   render() {
@@ -154,7 +257,7 @@ class LeftTabs extends React.Component {
       paneWidth = 24 - tabWidth;
     }
     return (
-      <BaseTabs {...props} tabWidth={tabWidth} paneWidth={paneWidth} tabType="tab-left"/>
+      <Tabs {...props} tabWidth={tabWidth} paneWidth={paneWidth}/>
     );
   }
 }
@@ -162,9 +265,7 @@ class LeftTabs extends React.Component {
 let Tab = BsTab;
 
 module.exports = {
-  BaseTabs,
-  SimpleTabs,
-  SimpleAltTabs,
+  Tabs,
   Tab,
   LeftTabs
 };

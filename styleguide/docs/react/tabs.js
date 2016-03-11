@@ -16,15 +16,14 @@ npm install pui-react-tabs --save
 Require the subcomponents:
 
 ```
-var SimpleTabs = require('pui-react-tabs').SimpleTabs;
-var SimpleAltTabs = require('pui-react-tabs').SimpleAltTabs;
+var Tabs = require('pui-react-tabs').Tabs;
 var LeftTabs = require('pui-react-tabs').LeftTabs;
 var Tab = require('pui-react-tabs').Tab;
 ```
 
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
-`SimpleTabs` or `SimpleAltTabs`). Each `Tab` is a child of this and has a `tab` property for the
+`Tabs` or `LeftTabs`). Each `Tab` is a child of this and has a `tab` property for the
 string value a Tab should display. Additionally, each `Tab` must define an `eventKey` property
 for uniquely identifying this tab to its parent component.
 
@@ -35,24 +34,25 @@ Property   | Required? | Type             | Description
 `smallScreenClassName` | no  | css class | Will be applied to small screen tabs only
 `largeScreenClassName` | no  | css class | Will be applied to large screen tabs only
 `onSelect` | no | function | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
+`tabType` | no | one of: `"simple"`, `"simple-alt"` | Change the styling of your tabs, mostly whether the selected tab is transparent
 
 */
 
 /*doc
 ---
-title: Simple
-name: 01_simple_tabs_react
+title: Tabs
+name: 01_tabs_react
 parent: tabs_react
 ---
 
 ```react_example
-<SimpleTabs defaultActiveKey={1}>
+<Tabs defaultActiveKey={1}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>
     <span>So much content.</span>
   </Tab>
-</SimpleTabs>
+</Tabs>
 ```
 */
 
@@ -64,13 +64,13 @@ parent: tabs_react
 ---
 
 ```react_example
-<SimpleAltTabs defaultActiveKey={2}>
+<Tabs tabType="simple-alt" defaultActiveKey={2}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>
     <span>So much content.</span>
   </Tab>
-</SimpleAltTabs>
+</Tabs>
 ```
 */
 
@@ -83,7 +83,7 @@ parent: tabs_react
  ---
 
  `LeftTabs` can be used to create tabs where the nav is stacked on the left. They
- take a few optional special properties in addition to the same properties as SimpleTabs and SimpleAltTabs.
+ take a few optional special properties in addition to the properties in Tabs.
 
  Property   | Required? | Type             | Description                                  | Default
  -----------| ----------|------------------| ---------------------------------------------|------------------------
@@ -113,10 +113,10 @@ parent: tabs_react
  screens.
 
 ```react_example
-<SimpleTabs defaultActiveKey={1} responsiveBreakpoint="md">
+<Tabs defaultActiveKey={1} responsiveBreakpoint="md">
   <Tab eventKey={1} title="Tab 1"> I'm so responsive </Tab>
   <Tab eventKey={2} title="Tab 2"> Me too </Tab>
-</SimpleTabs>
+</Tabs>
 ```
 
  */

@@ -1,5 +1,5 @@
 const React = global.React || require('react');
-const SimpleTabs = global.SimpleTabs || require('pui-react-tabs').SimpleTabs;
+const Tabs = global.Tabs || require('pui-react-tabs').Tabs;
 const Tab = global.Tab || require('pui-react-tabs').Tab;
 
 const types = React.PropTypes;
@@ -34,9 +34,9 @@ const StyleguideNav = React.createClass({
     });
 
     return (
-      <SimpleTabs defaultActiveKey={defaultLanguage.toLowerCase()}>
+      <Tabs defaultActiveKey={defaultLanguage.toLowerCase()}>
         {tabs}
-      </SimpleTabs>
+      </Tabs>
     );
   }
 });

@@ -75,8 +75,7 @@ module.exports = {
   Banner: require('pui-react-ribbons').Banner,
 
   Tab: require('pui-react-tabs').Tab,
-  SimpleTabs: require('pui-react-tabs').SimpleTabs,
-  SimpleAltTabs: require('pui-react-tabs').SimpleAltTabs,
+  Tabs: require('pui-react-tabs').Tabs,
   LeftTabs: require('pui-react-tabs').LeftTabs,
 
   UnorderedList: require('pui-react-lists').UnorderedList,
