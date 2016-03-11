@@ -41,6 +41,7 @@ class SmallTab extends React.Component {
 
 class SmallTabs extends React.Component {
   static propTypes = {
+    actions: types.node,
     activeKey: types.number,
     id: types.string,
     handleClick: types.func,
@@ -53,6 +54,7 @@ class SmallTabs extends React.Component {
 
   render() {
     const {
+      actions,
       activeKey,
       children,
       className,
@@ -82,8 +84,13 @@ class SmallTabs extends React.Component {
       return <SmallTab {...myProps}>{isActive && children}</SmallTab>;
     });
 
+    const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
+
     return (
-      <div className={smallScreenClasses}>{childrenAsPanels}</div>
+      <div className={smallScreenClasses}>
+        {actionsNode}
+        {childrenAsPanels}
+      </div>
     );
   }
 }
@@ -104,6 +111,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
   }
 
   static propTypes = {
+    actions: types.node,
     activeKey: types.number,
     defaultActiveKey: types.any,
     id: types.string,
@@ -166,6 +174,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
   render() {
     const {
+      actions,
       children,
       className,
       defaultActiveKey,
@@ -226,8 +235,11 @@ class Tabs extends mixin(React.Component).with(Animation) {
       );
     });
 
+    const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
+
     return (
       <div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
+        {actionsNode}
         <ul role='tablist'
             className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
           {listChildren}

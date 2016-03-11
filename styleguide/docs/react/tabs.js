@@ -35,6 +35,7 @@ Property   | Required? | Type             | Description
 `largeScreenClassName` | no  | css class | Will be applied to large screen tabs only
 `onSelect` | no | function | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
 `tabType` | no | one of: `"simple"`, `"simple-alt"` | Change the styling of your tabs, mostly whether the selected tab is transparent
+`actions` | no | node | an element or text that will display in the upper right
 
 */
 
@@ -46,7 +47,7 @@ parent: tabs_react
 ---
 
 ```react_example
-<Tabs defaultActiveKey={1}>
+<Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>

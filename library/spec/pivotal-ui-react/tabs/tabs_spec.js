@@ -14,7 +14,7 @@ describe('Tabs', function() {
 
   const triggerResize = function() {
     const evt = document.createEvent('HTMLEvents');
-    evt.initEvent('resize', true, true );
+    evt.initEvent('resize', true, true);
     window.dispatchEvent(evt);
   };
 
@@ -111,26 +111,36 @@ describe('Tabs', function() {
       });
     });
 
-    xdescribe('actions', () => {
+    describe('actions', () => {
       beforeEach(() => {
+        const actions = (
+          <div>
+            <button>=)</button>
+            <button>=|</button>
+            <button>=(</button>
+          </div>
+        );
         ReactDOM.render(
-          <Tabs>
-            tabType={tabType}
-            actions={
-              <div>
-                <button>=)</button>
-                <button>=|</button>
-                <button>=(</button>
-              </div>}
+          <Tabs tabType={tabType} actions={actions}>
+            <Tab eventKey={1} title="Tab1">Content1</Tab>
+            <Tab eventKey={2} title="Tab2">Content2</Tab>
           </Tabs>,
           root
         );
       });
 
-      it('renders the actions', () => {
-        expect($('.nav-tabs .actions')).toContain('=)');
-        expect($('.nav-tabs .actions')).toContain('=|');
-        expect($('.nav-tabs .actions')).toContain('=(');
+      it('renders the actions for large screens', () => {
+        expect('.tab-simple .tabs-action').toContainText('=)');
+        expect('.tab-simple .tabs-action').toContainText('=|');
+        expect('.tab-simple .tabs-action').toContainText('=(');
+      });
+
+      it('renders the actions for small screens', () => {
+        MediaSize.matches.and.returnValue(false);
+        triggerResize();
+        expect('.tab-simple-small-screen .tabs-action').toContainText('=)');
+        expect('.tab-simple-small-screen .tabs-action').toContainText('=|');
+        expect('.tab-simple-small-screen .tabs-action').toContainText('=(');
       });
     });
 
@@ -138,9 +148,9 @@ describe('Tabs', function() {
       beforeEach(function() {
         ReactDOM.render(
           <Tabs defaultActiveKey={2}
-                    tabType={tabType}
-                    className="test-class"
-                    style={{opacity: 0.5}}/>,
+                tabType={tabType}
+                className="test-class"
+                style={{opacity: 0.5}}/>,
           root
         );
 
