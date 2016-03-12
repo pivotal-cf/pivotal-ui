@@ -26,7 +26,6 @@ assignToGlobal([
   require('pui-react-images'),
   require('pui-react-inputs'),
   require('pui-react-labels'),
-  require('pui-react-typography'),
   require('pui-react-media'),
   require('pui-react-modals'),
   require('pui-react-notifications'),

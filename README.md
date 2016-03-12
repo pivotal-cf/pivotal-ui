@@ -103,7 +103,6 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
    For example, to create a button:
 
    ```
-   npm install --save pui-react-typography
    npm install --save pui-react-buttons
    ```
 
@@ -135,7 +134,6 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
    Javascript:
    ```jsx
    var React = require('react');
-   var DefaultH1 = require('pui-react-typography').DefaultH1;
    var DefaultButton = require('pui-react-buttons').DefaultButton;
 
    var MyTestPage = React.createClass({
@@ -151,7 +149,7 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
        return (
          <div className="container">
        <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
-       { this.state.showMessage ? <DefaultH1>Hello world!</DefaultH1> : null }
+       { this.state.showMessage ? <h1>Hello world!</h1> : null }
      </div>
        );
      }

@@ -24,8 +24,6 @@ var NotificationItem = require('pui-react-notifications').NotificationItem;
 var Flag = require('pui-react-media').Flag;
 var Label = require('pui-react-labels').Label;
 var Icon = require('pui-react-iconography').Icon;
-var DefaultH3 = require('pui-react-typography').DefaultH3;
-var DefaultH5 = require('pui-react-typography').DefaultH5;
 ```
 
 Here's an example if there are no notifications:
@@ -37,14 +35,14 @@ Here's an example if there are no notifications:
 Here's an example if there are notifications:
 
 ```jsx_example
-var newLabel = <DefaultH3 className="mvn"><Label>New</Label></DefaultH3>;
+var newLabel = <h3 className="mvn"><Label>New</Label></h3>;
 ```
 
 ```react_example_table
 <Notifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
     <Flag image={newLabel}>
-      <DefaultH5 className="media-heading mbn type-dark-2">Notification</DefaultH5>
+      <h5 className="media-heading mbn type-dark-2">Notification</h5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
   </NotificationItem>
@@ -121,7 +119,7 @@ var alertImage = <Icon name="exclamation-triangle" className="h4 type-warn-3 mrm
 <AlertNotifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
     <Flag image={alertImage}>
-      <DefaultH5 className="media-heading mbn type-dark-2">WARNING</DefaultH5>
+      <h5 className="media-heading mbn type-dark-2">WARNING</h5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
   </NotificationItem>

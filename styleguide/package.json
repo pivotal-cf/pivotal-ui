@@ -87,7 +87,6 @@
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",
     "pui-react-toggle": "file:../library/dist/react/toggle",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
-    "pui-react-typography": "file:../library/dist/react/typography",
     "react": "^0.14.2",
     "zeroclipboard": "^2.1.6"
   },

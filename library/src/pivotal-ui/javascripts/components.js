@@ -3,29 +3,6 @@ import autocomplete from 'pui-react-autocomplete';
 import TileLayout from 'pui-react-tile-layout';
 
 module.exports = {
-  DefaultH1: require('pui-react-typography').DefaultH1,
-  DefaultH2: require('pui-react-typography').DefaultH2,
-  DefaultH3: require('pui-react-typography').DefaultH3,
-  DefaultH4: require('pui-react-typography').DefaultH4,
-  DefaultH5: require('pui-react-typography').DefaultH5,
-  DefaultH6: require('pui-react-typography').DefaultH6,
-
-  AlternateH1: require('pui-react-typography').AlternateH1,
-  AlternateH2: require('pui-react-typography').AlternateH2,
-  AlternateH3: require('pui-react-typography').AlternateH3,
-  AlternateH4: require('pui-react-typography').AlternateH4,
-  AlternateH5: require('pui-react-typography').AlternateH5,
-  AlternateH6: require('pui-react-typography').AlternateH6,
-
-  MarketingH1: require('pui-react-typography').MarketingH1,
-  MarketingH2: require('pui-react-typography').MarketingH2,
-  MarketingH3: require('pui-react-typography').MarketingH3,
-  MarketingH4: require('pui-react-typography').MarketingH4,
-  MarketingH5: require('pui-react-typography').MarketingH5,
-  MarketingH6: require('pui-react-typography').MarketingH6,
-
-  Heading: require('pui-react-typography').Heading,
-
   BasePane: require('pui-react-panes').BasePane,
   Pane: require('pui-react-panes').Pane,
 

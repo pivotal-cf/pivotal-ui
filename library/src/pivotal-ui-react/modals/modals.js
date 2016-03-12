@@ -1,7 +1,7 @@
 var React = require('react');
-var {DefaultH4} = require('pui-react-typography');
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-modals';
+import 'pui-css-typography';
 
 const BsModal = require('react-bootstrap/lib/Modal');
 const BsModalHeader = require('react-bootstrap/lib/ModalHeader');
@@ -24,7 +24,7 @@ class BaseModal extends React.Component {
     return (
       <BsModal show={show} onHide={onHide} {...mergeProps(modalProps, {className: 'modal-basic'})}>
         <BsModalHeader className="modal-header" closeButton>
-          <DefaultH4 className="modal-title" id="modalTitle">{title}</DefaultH4>
+          <h4 className="modal-title" id="modalTitle">{title}</h4>
         </BsModalHeader>
         {children}
       </BsModal>

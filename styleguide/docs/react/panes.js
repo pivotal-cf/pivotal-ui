@@ -18,9 +18,6 @@ Require the subcomponents:
 ```
 var Pane = require('pui-react-panes').Pane;
 var BasePane = require('pui-react-panes').BasePane;
-
-// for the example
-var DefaultH1 = require('pui-react-typography').DefaultH1;
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
@@ -28,7 +25,7 @@ Any className values passed through are passed to the underlying `.pane`.
 
 ```react_example
 <Pane className="bg-neutral-10">
-  <DefaultH1>This is a pane</DefaultH1>
+  <h1>This is a pane</h1>
 </Pane>
 ```
 
@@ -39,7 +36,7 @@ These values are added to the class name of the `.pane` and the `.container` res
 
 ```react_example
 <BasePane className="bg-dark-2" innerClassName="bg-glow">
-  <DefaultH1 color="type-neutral-9">This is a pane (configurable)</DefaultH1>
+  <h1 color="type-neutral-9">This is a pane (configurable)</h1>
 </BasePane>
 ```
 */

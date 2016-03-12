@@ -17,9 +17,6 @@ Require the subcomponents:
 
 ```
 var Label = require('pui-react-labels').Label;
-
-// for the example
-var DefaultH3 = require('pui-react-typography').DefaultH3;
 ```
 
 Labels are a straightforward implementation of the [Label][label] style.
@@ -32,8 +29,8 @@ Labels can be used on their own:
 Labels used within an element which already has font modifier styles will use the parents' styling. For example:
 
 ```react_example
-<DefaultH3>
+<h3>
   Now the label is in a typography component <Label>yeah</Label>
-</DefaultH3>
+</h3>
 ```
 */
