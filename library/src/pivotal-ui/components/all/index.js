@@ -33,7 +33,6 @@ try {
   require('pui-css-tabs');
   require('pui-css-tile-layout');
   require('pui-css-tooltips');
-  require('pui-css-traffic-lights');
   require('pui-css-typography');
   require('pui-css-vertical-alignment');
   require('pui-css-whitespace');

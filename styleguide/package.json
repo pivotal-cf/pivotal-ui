@@ -51,7 +51,6 @@
     "pui-css-tabs": "file:../library/dist/css/tabs",
     "pui-css-tile-layout": "file:../library/dist/css/tile-layout",
     "pui-css-tooltips": "file:../library/dist/css/tooltips",
-    "pui-css-traffic-lights": "file:../library/dist/css/traffic-lights",
     "pui-css-typography": "file:../library/dist/css/typography",
     "pui-css-vertical-alignment": "file:../library/dist/css/vertical-alignment",
     "pui-css-whitespace": "file:../library/dist/css/whitespace",
