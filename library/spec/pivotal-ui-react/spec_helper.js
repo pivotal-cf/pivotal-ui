@@ -18,7 +18,8 @@ Object.assign(global, {
   MockNow,
   MockPromises,
   $: jQuery,
-  MockRaf
+  MockRaf,
+  ...require('./support/react_matchers')
 });
 
 $.fn.simulate = function(eventName, ...args) {

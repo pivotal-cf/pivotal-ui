@@ -180,6 +180,7 @@ describe('Tabs', function() {
 
   describe('tab behavior', function() {
     let emitter;
+    const tabHeight = 24;
 
     beforeEach(function() {
       emitter = new EventEmitter();
@@ -197,8 +198,8 @@ describe('Tabs', function() {
         render() {
           return (
             <Tabs defaultActiveKey={this.state.defaultActiveKey} tabType={tabType}>
-              <Tab eventKey={1} title="Tab1">Content1</Tab>
-              <Tab eventKey={2} title="Tab2">Content2</Tab>
+              <Tab eventKey={1} title="Tab1"><div style={{height: tabHeight}}>Content1</div></Tab>
+              <Tab eventKey={2} title="Tab2"><div style={{height: tabHeight}}>Content2</div></Tab>
             </Tabs>
           );
         }
@@ -287,6 +288,8 @@ describe('Tabs', function() {
         MockNow.tick(Tabs.ANIMATION_TIME / 4);
         MockRaf.next();
         expect(`.tab-${tabType}-small-screen`).toContainText('Content2');
+        expect(`.tab-${tabType}-small-screen .tab-body:eq(0)`).toHaveCss({height: `${tabHeight * 0.25}px`});
+        expect(`.tab-${tabType}-small-screen .tab-body:eq(1)`).toHaveCss({height: `${tabHeight * 0.75}px`});
 
         MockNow.tick(Tabs.ANIMATION_TIME / 2);
         MockRaf.next();

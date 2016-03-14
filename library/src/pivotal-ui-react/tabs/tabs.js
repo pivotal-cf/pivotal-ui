@@ -7,12 +7,35 @@ import 'pui-css-collapse';
 import 'pui-css-tabs';
 import mixin from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
+import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect'
 
 const types = React.PropTypes;
+
+class SmallTabBaseContent extends React.Component {
+  static propTypes = {
+    boundingClientRect: types.object,
+    expanded: types.bool,
+    transitionProgress: types.number
+  };
+
+  render() {
+    let {boundingClientRect: {height = 0}, children, expanded, transitionProgress} = this.props;
+    const percentage = expanded ? 1 - transitionProgress : transitionProgress;
+    const style = (height && transitionProgress < 1) ? {marginBottom: - height * percentage} : {};
+    return (
+      <div style={style}>
+        {children}
+      </div>
+    )
+  }
+}
+
+const SmallTabContent = useBoundingClientRect(SmallTabBaseContent);
 
 class SmallTab extends React.Component {
   static propTypes = {
     expanded: types.bool,
+    wasExpanded: types.bool,
     header: types.node,
     onClick: types.func,
     paneId: types.string,
@@ -20,19 +43,22 @@ class SmallTab extends React.Component {
   };
 
   render() {
-    const {className, children, expanded, header, onClick, paneId, transitionProgress, ...props} = this.props;
-    const style = transitionProgress < 1 ? {opacity: Math.abs(1 - 2 * transitionProgress)} : {};
+    const {className, children, expanded, wasExpanded, header, onClick, paneId, transitionProgress, ...props} = this.props;
 
     return (
       <div>
         <div className="tab-heading">
           <h4 className="tab-title" role="presentation">
-            <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded} role="tab" onClick={onClick}>{header}</a>
+            <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded} role="tab"
+               onClick={onClick}>{header}</a>
           </h4>
         </div>
-        <div className={classnames(className, 'tab-collapse', 'collapse', {'in': expanded})} aria-hidden={!expanded} role="tabpanel" {...props}>
-          <div className="tab-body">
-            <div style={style}>{children}</div>
+        <div className={classnames(className, 'tab-collapse', 'collapse', {'in': expanded || wasExpanded})}
+             aria-hidden={!expanded}
+             role="tabpanel" {...props}>
+          <div className="tab-body" style={{overflow: 'hidden'}}>
+            <SmallTabContent expanded={expanded}
+                             transitionProgress={transitionProgress}>{children}</SmallTabContent>
           </div>
         </div>
       </div>
@@ -69,20 +95,19 @@ class SmallTabs extends React.Component {
       } = this.props;
     const smallScreenClasses = classnames([`tab-${tabType}-small-screen`, 'panel-group', smallScreenClassName, className]);
     const childArray = React.Children.toArray(children);
-    const animatedActiveKey = transitionProgress >= 0.5 ? activeKey : previousActiveKey;
     const childrenAsPanels = childArray.map((child, key) => {
       const {title, eventKey, children} = child.props;
-      const isActive = (eventKey === animatedActiveKey);
       const paneId = `${id}-pane-${key}`;
       const myProps = {
-        expanded: isActive,
+        expanded: eventKey === activeKey,
+        wasExpanded: transitionProgress < 1 && eventKey === previousActiveKey,
         header: title,
         key,
         onClick: (e) => handleClick(e, eventKey, onSelect),
         paneId,
         transitionProgress
       };
-      return <SmallTab {...myProps}>{isActive && children}</SmallTab>;
+      return <SmallTab {...myProps}>{children}</SmallTab>;
     });
 
     const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
@@ -131,7 +156,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
     tabType: 'simple'
   };
 
-  static ANIMATION_TIME = 500;
+  static ANIMATION_TIME = 400;
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
@@ -194,7 +219,15 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
     if (this.state.smallScreen) {
       return (
-        <SmallTabs {...this.state} {...this.props} {...{transitionProgress, handleClick: this.handleClick}}/>
+        <SmallTabs
+          {...this.state}
+          {...this.props}
+          {...{
+            transitionProgress,
+            handleClick: this.handleClick
+          }}
+
+        />
       );
     }
 
@@ -206,7 +239,8 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
       return (
         <li key={key} role='presentation' className={classnames({active: isActive})}>
-          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{child.props.title}</a>
+          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab"
+             onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{child.props.title}</a>
         </li>
       )
     });
@@ -226,8 +260,9 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
       if (!isActive) return false;
       tabContent = (
-        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})} >
-          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId} aria-hidden='false' style={style}>
+        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})}>
+          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId}
+               aria-hidden='false' style={style}>
             {children}
           </div>
         </div>
