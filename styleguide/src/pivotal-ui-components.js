@@ -15,6 +15,7 @@ assignToGlobal([
   require('pui-react-autocomplete'),
   require('pui-react-back-to-top'),
   require('pui-react-buttons'),
+  require('pui-react-checkbox'),
   require('pui-react-collapse'),
   require('pui-react-dividers'),
   require('pui-react-draggable-list'),

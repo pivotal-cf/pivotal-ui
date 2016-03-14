@@ -56,6 +56,7 @@
     "pui-react-autocomplete": "file:../library/dist/react/autocomplete",
     "pui-react-back-to-top": "file:../library/dist/react/back-to-top",
     "pui-react-buttons": "file:../library/dist/react/buttons",
+    "pui-react-checkbox": "file:../library/dist/react/checkbox",
     "pui-react-collapse": "file:../library/dist/react/collapse",
     "pui-react-dividers": "file:../library/dist/react/dividers",
     "pui-react-draggable-list": "file:../library/dist/react/draggable-list",

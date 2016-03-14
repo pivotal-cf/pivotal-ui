@@ -14,6 +14,7 @@ module.exports = {
   HighlightButton: require('pui-react-buttons').HighlightButton,
   HighlightAltButton: require('pui-react-buttons').HighlightAltButton,
 
+  Checkbox: require('pui-react-checkbox').Checkbox,
   Input: require('pui-react-inputs').Input,
 
   Divider: require('pui-react-dividers').Divider,
