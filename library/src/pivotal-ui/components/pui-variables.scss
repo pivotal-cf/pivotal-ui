@@ -797,19 +797,17 @@ $logo-width:                           177px;
 // -------------------------
 
 $pagination-color:                     $link-color !default;
-$pagination-bg:                        #fff !default;
-$pagination-border:                    #ddd !default;
+$pagination-bg:                        $neutral-11 !default;
+$pagination-border:                    $neutral-7;
 
 $pagination-hover-color:               $link-hover-color !default;
-$pagination-hover-bg:                  $gray-lighter !default;
-$pagination-hover-border:              #ddd !default;
+$pagination-hover-bg:                  $neutral-9 !default;
 
-$pagination-active-color:              #fff !default;
-$pagination-active-bg:                 $brand-primary !default;
-$pagination-active-border:             $brand-primary !default;
+$pagination-active-color:              $neutral-11 !default;
+$pagination-active-bg:                 $accent-4 !default;
 
 $pagination-disabled-color:            $gray-light !default;
-$pagination-disabled-bg:               #fff !default;
+$pagination-disabled-bg:               $neutral-11 !default;
 $pagination-disabled-border:           #ddd !default;
 
 // Pager

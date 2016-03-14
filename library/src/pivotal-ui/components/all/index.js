@@ -23,6 +23,7 @@ try {
   require('pui-css-lists');
   require('pui-css-media');
   require('pui-css-modals');
+  require('pui-css-pagination');
   require('pui-css-panels');
   require('pui-css-panes');
   require('pui-css-progress-bars');

@@ -40,6 +40,7 @@
     "pui-css-lists": "file:../library/dist/css/lists",
     "pui-css-media": "file:../library/dist/css/media",
     "pui-css-modals": "file:../library/dist/css/modals",
+    "pui-css-pagination": "file:../library/dist/css/pagination",
     "pui-css-panels": "file:../library/dist/css/panels",
     "pui-css-panes": "file:../library/dist/css/panes",
     "pui-css-progress-bars": "file:../library/dist/css/progress-bars",
