@@ -1,4 +1,3 @@
-import selectFancy from 'pui-react-select-fancy';
 import autocomplete from 'pui-react-autocomplete';
 import TileLayout from 'pui-react-tile-layout';
 

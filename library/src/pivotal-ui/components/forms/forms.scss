@@ -214,75 +214,7 @@ select.form-control {
   margin-left: 7px;
 }
 
-.select-fancy {
-  @extend .fancy-form-element;
 
-  &:after {
-    z-index: 2;
-    content: "\f107";
-    font-family: FontAwesome;
-    position: absolute;
-    right: 10px;
-    top: 4px;
-    font-size: 22px;
-    color: $blue-4;
-    @include transition-pui(all, 150ms);
-  }
-
-  &:hover {
-    &:after, select {
-      color: $blue-2;
-    }
-  }
-
-  select {
-    -moz-appearance: window;
-    position: relative;
-    z-index: 3;
-    padding: 5px 8px;
-    width: 100%;
-    cursor: pointer;
-  }
-  input {
-    $input-margin: 5px;
-    height: $input-height-base - 2*$input-margin;
-    margin: $input-margin;
-    width: 75%;
-    padding: 0 5px;
-    display: inline;
-    border-radius: 4px;
-
-    &:hover {
-      background-color: $neutral-9;
-    }
-  }
-
-  .form-inline.inline-labels .form-group & select {
-    width: 100% !important; // Fancy select needs to override the size when inline because it is in a wrapping element
-  }
-
-  &.disabled {
-    box-shadow: none;
-    background-color: $neutral-10;
-
-    select {
-      &[disabled] {
-        color: $neutral-5;
-        background-color: transparent;
-        cursor: default; // Bootstrap fix https://github.com/twbs/bootstrap-sass/issues/881
-      }
-    }
-
-    &:hover {
-      color: $neutral-8;
-      background-color: $neutral-10;
-    }
-
-    &:after {
-      display: none;
-    }
-  }
-}
 
 input[type="radio"] {
   margin-top: 2px; // bootstrap override: make radios line up with our small font.

@@ -462,28 +462,6 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 
 */
 
-/*doc
----
-title: Fancy Selects
-name: 02_form_fancy_select
-parent: form_selects
----
-
-This is a fancy select!
-
-```html_example
-<form class="styleguide-form" role="form" style="width: 200px">
-  <label for="fancy-select">Description</label>
-  <div class="select-fancy">
-    <select class="form-control">
-      <option>Fancy Option 1</option>
-      <option>Fancy Option 2</option>
-    </select>
-  </div>
-</form>
-```
-
-*/
 
 /*doc
 ---
