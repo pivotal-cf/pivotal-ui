@@ -38,7 +38,7 @@ export const TableCell = (props) => <td {...props}/>;
 
 export const TableRow = (props) => <tr {...props}/>;
 
-export class SortableTable extends React.Component {
+export class Table extends React.Component {
   constructor(props, context) {
     super(props, context);
     const {columns, defaultSort} = this.props;
@@ -47,8 +47,7 @@ export class SortableTable extends React.Component {
       return defaultSort ? attribute === defaultSort : sortable;
     });
 
-    // If none of the columns are sortable we default to the 0th column
-    this.state = {sortColumn: sortCol === -1 ? 0 : sortCol, sortAscending: true};
+    this.state = {sortColumn: sortCol, sortAscending: true};
   }
 
   static propTypes = {
@@ -64,7 +63,7 @@ export class SortableTable extends React.Component {
 
   sortedRows() {
     const {sortColumn, sortAscending} = this.state;
-    const {columns, data, CustomRow} = this.props;
+    const {columns, data} = this.props;
 
     const sortedData = sortBy(data, (datum) => {
       const column = columns[sortColumn];
@@ -73,7 +72,14 @@ export class SortableTable extends React.Component {
     });
 
     if(!sortAscending) sortedData.reverse();
-    return sortedData.map((datum, rowKey) => {
+
+    return this.rows(sortedData);
+  }
+
+  rows(data) {
+    const {columns, CustomRow} = this.props;
+
+    return data.map((datum, rowKey) => {
       const cells = columns.map(({attribute, CustomCell}, key) => {
         const Cell = CustomCell || TableCell;
         return <Cell key={key} index={rowKey} value={datum[attribute]} rowDatum={datum}>{datum[attribute]}</Cell>;
@@ -109,7 +115,11 @@ export class SortableTable extends React.Component {
   }
 
   render() {
+    const {sortColumn} = this.state;
+    const {data} = this.props;
     const props = mergeProps(this.props, {className: ['table', 'table-sortable', 'table-data']});
+
+    const rows = (sortColumn === -1) ? this.rows(data) : this.sortedRows();
 
     return (
       <table {...props} >
@@ -117,7 +127,7 @@ export class SortableTable extends React.Component {
           <tr>{this.renderHeaders()}</tr>
         </thead>
         <tbody>
-          {this.sortedRows()}
+          {rows}
         </tbody>
       </table>
     );

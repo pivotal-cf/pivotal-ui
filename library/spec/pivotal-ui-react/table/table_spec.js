@@ -1,7 +1,7 @@
 require('../spec_helper');
-import {SortableTable, TableCell, TableHeader, TableRow} from '../../../src/pivotal-ui-react/sortable-table/sortable-table';
+import {Table, TableCell, TableHeader, TableRow} from '../../../src/pivotal-ui-react/table/table';
 
-describe('SortableTable', function() {
+describe('Table', function() {
   let clickSpy;
   describe('with multiple columns', function() {
     clickSpy = jasmine.createSpy('click');
@@ -55,7 +55,7 @@ describe('SortableTable', function() {
 
     function renderSortableTable(data, props = {}) {
       ReactDOM.render((
-          <SortableTable columns={columns} data={data} {...props}/>
+          <Table columns={columns} data={data} {...props}/>
         ),
         root
       );
@@ -240,7 +240,7 @@ describe('SortableTable', function() {
       const data = [{title: 'foo'}, { title: 'sup'}, { title: 'yee'}];
 
       ReactDOM.render((
-          <SortableTable columns={columns} data={data} />
+          <Table columns={columns} data={data} />
         ),
         root
       );
@@ -282,7 +282,7 @@ describe('SortableTable', function() {
       ];
 
       ReactDOM.render(
-        <SortableTable columns={columns} data={data}/>,
+        <Table columns={columns} data={data}/>,
         root
       );
     });
@@ -326,7 +326,7 @@ describe('SortableTable', function() {
       ];
 
       ReactDOM.render(
-        <SortableTable columns={columns} data={data}/>,
+        <Table columns={columns} data={data}/>,
         root
       );
     });
@@ -368,7 +368,7 @@ describe('SortableTable', function() {
       ];
 
       ReactDOM.render((
-          <SortableTable columns={columns} data={data} CustomRow={CustomRow}/>
+          <Table columns={columns} data={data} CustomRow={CustomRow}/>
         ),
         root
       );
@@ -387,6 +387,29 @@ describe('SortableTable', function() {
     it('respects properties on the custom row', function() {
       expect('tbody tr:eq(0)').toHaveClass('row-0');
       expect('tbody tr:eq(1)').toHaveClass('row-1');
+    });
+  });
+
+  describe('with no sortable columns', function() {
+    it('does not assign sorted-asc or sorted-des to a column', function() {
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title',
+          sortable: false
+        }
+      ];
+
+      const data = [{title: 'foo'}, { title: 'sup'}, { title: 'yee'}];
+
+      ReactDOM.render((
+          <Table columns={columns} data={data} />
+        ),
+        root
+      );
+
+      expect('th').not.toHaveClass('sorted-asc');
+      expect('th').not.toHaveClass('sorted-desc')
     });
   });
 
@@ -416,7 +439,7 @@ describe('SortableTable', function() {
     ];
 
     ReactDOM.render((
-        <SortableTable columns={columns} data={data} defaultSort='theDefault'/>
+        <Table columns={columns} data={data} defaultSort='theDefault'/>
       ),
       root
     );

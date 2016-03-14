@@ -79,7 +79,7 @@
     "pui-react-portals": "file:../library/dist/react/portals",
     "pui-react-radio": "file:../library/dist/react/radio",
     "pui-react-ribbons": "file:../library/dist/react/ribbons",
-    "pui-react-sortable-table": "file:../library/dist/react/sortable-table",
+    "pui-react-table": "file:../library/dist/react/table",
     "pui-react-stream-list": "file:../library/dist/react/stream-list",
     "pui-react-tabs": "file:../library/dist/react/tabs",
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",

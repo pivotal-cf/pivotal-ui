@@ -6,35 +6,26 @@ categories:
  - react_base_tables
  - react_all
 ---
-*/
-
-/*doc
 
 <code class="pam">
 <i class="fa fa-download" alt="Install the Component">
-npm install pui-react-sortable-table --save
+npm install pui-react-table --save
 </i>
 </code>
 
 Require the subcomponents:
 
 ```
-var SortableTable = require('pui-react-sortable-table').SortableTable;
-var TableHeader = require('pui-react-sortable-table').TableHeader;
-var TableRow = require('pui-react-sortable-table').TableRow;
-var TableCell = require('pui-react-sortable-table').TableCell;
+var Table = require('pui-react-table').Table;
+var TableHeader = require('pui-react-table').TableHeader;
+var TableRow = require('pui-react-table').TableRow;
+var TableCell = require('pui-react-table').TableCell;
 ```
 
----
-title: Sortable
-name: table_sortable_react
-parent: table_react
----
-
-The `SortableTable` component is a robust component that offers a styled table with fully
+The `Table` component is a robust component that offers a styled table with fully
 functioning sort. If the rows change, the content on the page will update.
 
-The `SortableTable` expects the following properties:
+The `Table` expects the following properties:
 
 Property     | Required? | Type             | Description
 -------------| ----------| -----------------| --------------------------------------------------------------------------
@@ -105,11 +96,11 @@ var data = [
 ```
 
 ```react_example
-<SortableTable columns={columns} data={data} defaultSort='instances'/>
+<Table columns={columns} data={data} defaultSort='instances'/>
 ```
 
 The `TableRow` component is provided for users who wish to customize their rows
-with the `CustomRow` prop to `SortableTable`. If a custom row is provided, the table will use that
+with the `CustomRow` prop to `Table`. If a custom row is provided, the table will use that
 component to render each row, giving it a `children` prop representing the cells for that row and `index`
 representing the (zero-indexed) row number.
 
@@ -129,7 +120,7 @@ var CustomRow = React.createClass({
 ```
 
 ```react_example
-<SortableTable columns={columns} data={data} CustomRow={CustomRow}/>
+<Table columns={columns} data={data} CustomRow={CustomRow}/>
 ```
 
  The `TableCell` component is provided for users who wish to customize their cells
@@ -171,7 +162,7 @@ var CustomRow = React.createClass({
  ```
 
  ```react_example
- <SortableTable columns={customCellColumns} data={data}/>
+ <Table columns={customCellColumns} data={data}/>
  ```
 
 */
