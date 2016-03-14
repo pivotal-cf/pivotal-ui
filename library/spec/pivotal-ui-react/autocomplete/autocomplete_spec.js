@@ -180,15 +180,11 @@ describe('Autocomplete', () => {
         });
       });
 
-      describe('when the blur event is triggered', () => {
-        beforeEach(function(done) {
-          jasmine.clock().uninstall();
-          $('.autocomplete input').simulate('blur');
-          setTimeout(() => { done(); }, 100);
-        });
-
-        afterEach(() => {
-          jasmine.clock().install();
+      describe('when a click is triggered on the body', () => {
+        beforeEach(() => {
+          const evt = document.createEvent('HTMLEvents');
+          evt.initEvent('click', true, true );
+          document.documentElement.dispatchEvent(evt);
         });
 
         it('hides the list', () => {

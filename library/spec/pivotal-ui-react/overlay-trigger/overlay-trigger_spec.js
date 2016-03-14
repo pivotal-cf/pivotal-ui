@@ -268,9 +268,9 @@ describe('OverlayTrigger', function() {
       expect('.tooltip-text').not.toExist();
     });
 
-    describe('root close', () => {
+    describe('disableScrim', () => {
       beforeEach(() => {
-        subject::setProps({trigger: 'click', rootClose: true});
+        subject::setProps({trigger: 'click', disableScrim: false});
       });
 
       it('allows clicking on the trigger to still work', () => {
@@ -287,8 +287,8 @@ describe('OverlayTrigger', function() {
         expect('.tooltip-text').not.toExist();
       });
 
-      it('does not close if rootClose is false', () => {
-        subject::setProps({rootClose: false});
+      it('does not close if disableScrim is true', () => {
+        subject::setProps({disableScrim: true});
         $('.launcher').simulate('click');
         expect('.tooltip-text').toExist();
         const evt = document.createEvent('HTMLEvents');

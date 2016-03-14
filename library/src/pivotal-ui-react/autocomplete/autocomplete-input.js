@@ -9,28 +9,7 @@ const ESC_KEY = 27;
 const TAB_KEY = 9;
 const UP_KEY = 38;
 
-function waitForRelatedTarget() {
-  return new Promise(function(resolve) {
-    setImmediate(() => {
-      resolve(document.activeElement);
-    });
-  });
-}
-
-function withRelatedTarget(callback) {
-  return async function(e) {
-    if (!e.relatedTarget) {
-      e = {...e};
-      e.relatedTarget = await waitForRelatedTarget.call(this);
-    }
-    return callback.call(this, e);
-  };
-}
-
 class AutocompleteInput extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
   static propTypes = {
     $autocomplete: types.object,
     autoFocus: types.bool,
@@ -38,7 +17,6 @@ class AutocompleteInput extends React.Component {
       if (props[name] && props[name].length) return new Error('AutocompleteInput can only wrap one element');
     },
     disabled: types.bool,
-    hideList: types.func,
     onClick: types.func,
     onFocus: types.func,
     onPick: types.func,
@@ -56,11 +34,6 @@ class AutocompleteInput extends React.Component {
   static ESC_KEY = ESC_KEY;
   static TAB_KEY = TAB_KEY;
   static UP_KEY = UP_KEY;
-
-  blur = withRelatedTarget(function({relatedTarget}) {
-    if (relatedTarget && relatedTarget.classList && relatedTarget.classList.contains('autocomplete-item')) return;
-    this.props.hideList();
-  }).bind(this);
 
   change = (e) => {
     var {value} = e.currentTarget;
@@ -115,7 +88,7 @@ class AutocompleteInput extends React.Component {
     var {autoFocus, children, $autocomplete, ...props} = this.props;
     if (!$autocomplete) return null;
     var {value} = $autocomplete.get();
-    var otherProps = {autoFocus, value, onBlur: this.blur, onChange: this.change, onKeyDown: this.keyDown};
+    var otherProps = {autoFocus, value, onChange: this.change, onKeyDown: this.keyDown};
     props = {...props, ...otherProps};
     if (!children) return this.renderDefault(props);
     children = React.Children.map(children, e => React.cloneElement(e, props));

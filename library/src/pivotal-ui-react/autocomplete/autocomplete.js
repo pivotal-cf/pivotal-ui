@@ -3,10 +3,13 @@ var AutocompleteInput = require('./autocomplete-input');
 var classnames = require('classnames');
 var Cursor = require('pui-cursor');
 var {map, readable} = require('event-stream');
+import mixin from 'pui-react-mixins';
 var React = require('react');
 var ReactDOM = require('react-dom');
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 var scrollIntoView = require('scroll-into-view');
 var TrieSearch = require('trie-search');
+
 import 'pui-css-autocomplete';
 
 var types = React.PropTypes;
@@ -31,7 +34,7 @@ function trieFromSearchableItems(searchableItems) {
   });
 }
 
-class Autocomplete extends React.Component {
+class Autocomplete extends mixin(React.Component).with(Scrim) {
   constructor(props, context) {
     super(props, context);
     var value = this.props.value || '';
@@ -58,13 +61,14 @@ class Autocomplete extends React.Component {
     maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>), placeholder: 'Search'
   };
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.value !== this.props.value) {
-      this.setState({value: nextProps.value});
+  componentWillReceiveProps({value}) {
+    if (value !== this.props.value) {
+      this.setState({value});
     }
   }
 
   componentDidMount() {
+    super.componentDidMount();
     this.props.onInitializeItems(async (searchableItems = []) => {
       const trie = await trieFromSearchableItems(searchableItems);
       this.setState({searchableItems, trie});
@@ -98,6 +102,10 @@ class Autocomplete extends React.Component {
     this.setState({hidden: true});
   };
 
+  scrimClick = () => {
+    this.hideList();
+  };
+
   scrollIntoView = () => {
     Array.from(ReactDOM.findDOMNode(this).querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
   };
@@ -105,8 +113,8 @@ class Autocomplete extends React.Component {
   render() {
     var $autocomplete = new Cursor(this.state, state => this.setState(state));
     var {className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children, ...props} = this.props;
-    var {hideList, scrollIntoView, onPick, onSearch} = this;
-    input = React.cloneElement(input, {$autocomplete, onPick, hideList, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder});
+    var {scrollIntoView, onPick, onSearch} = this;
+    input = React.cloneElement(input, {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder});
     return (
       <div className={classnames('autocomplete', 'mhs', className)} {...props} >
         {input}

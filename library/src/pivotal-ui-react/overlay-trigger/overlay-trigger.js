@@ -3,6 +3,8 @@ import uniqueid from 'lodash.uniqueid';
 import TetherComponent from 'react-tether';
 
 import ReactDOM from 'react-dom';
+import mixin from 'pui-react-mixins';
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 
 const types = React.PropTypes;
 
@@ -15,7 +17,7 @@ const TETHER_PLACEMENTS = {
 
 const privates = new WeakMap();
 
-class OverlayTrigger extends React.Component {
+class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   constructor(props, context) {
     super(props, context);
     privates.set(this, {});
@@ -34,7 +36,7 @@ class OverlayTrigger extends React.Component {
     overlay: types.element,
     pin: types.bool,
     placement: types.oneOf(['top', 'bottom', 'left', 'right']),
-    rootClose: types.bool,
+    disableScrim: types.bool,
     trigger: types.oneOf(['hover', 'click', 'focus', 'manual'])
   };
 
@@ -42,29 +44,11 @@ class OverlayTrigger extends React.Component {
     display: false,
     pin: true,
     placement: 'right',
-    rootClose: true,
     trigger: 'hover'
   };
 
-  componentWillReceiveProps({display, rootClose}) {
+  componentWillReceiveProps({display}) {
     if(display !== this.props.display) this.setDisplay(display);
-    if(rootClose !== this.props.rootClose) {
-      if (rootClose) {
-        document.documentElement.addEventListener('click', this.rootClick);
-      } else {
-        document.documentElement.removeEventListener('click', this.rootClick);
-      }
-    }
-  }
-
-  componentDidMount() {
-    if (!this.props.rootClose) return;
-    document.documentElement.addEventListener('click', this.rootClick);
-  }
-
-  componentWillUnmount() {
-    if (!this.props.rootClose) return;
-    document.documentElement.removeEventListener('click', this.rootClick);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -98,8 +82,7 @@ class OverlayTrigger extends React.Component {
     return delay;
   };
 
-  rootClick = (e) => {
-    if (ReactDOM.findDOMNode(this).contains(e.target)) return;
+  scrimClick = () => {
     this.hide();
   };
 

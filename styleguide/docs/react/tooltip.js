@@ -69,7 +69,7 @@ The `OverlayTrigger` component accepts the following properties:
 | `overlay` | node | - | an element or text to overlay next to the target |
 | `pin` | Boolean | true | whether or not to reposition overlays to stay in the window |
 | `placement` | one of `top`, `bottom`, `left`, `right` | `right` | placement of overlay in relation to target |
-| `rootClose` | Boolean | true | whether or not to hide the overlay when clicking outside |
+| `disableScrim` | Boolean | false | Set to `true` to make tooltips stay open when clicking outside |
 | `trigger` | one of `hover`, `click`, `focus`, `manual` | `hover` | action to trigger showing overlay |
 
 

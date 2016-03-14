@@ -5,7 +5,8 @@ import classnames from 'classnames';
 import MediaSize from './media-size';
 import 'pui-css-collapse';
 import 'pui-css-tabs';
-import {mixin, Animation} from 'pui-react-mixins';
+import mixin from 'pui-react-mixins';
+import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
 const types = React.PropTypes;
 

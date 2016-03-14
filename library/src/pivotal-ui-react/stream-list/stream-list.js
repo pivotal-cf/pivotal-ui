@@ -1,7 +1,8 @@
 import React from 'react';
 import {UIButton} from 'pui-react-buttons';
 import {GroupList, ListItem} from 'pui-react-lists';
-import {mixin, Animation} from 'pui-react-mixins';
+import mixin from 'pui-react-mixins';
+import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
 class StreamListNewItemsButton extends React.Component {
   static propTypes = {
