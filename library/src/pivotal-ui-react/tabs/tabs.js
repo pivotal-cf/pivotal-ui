@@ -228,8 +228,8 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
       if (!isActive) return false;
       tabContent = (
-        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})} style={style}>
-          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId} aria-hidden='false'>
+        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})} >
+          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId} aria-hidden='false' style={style}>
             {children}
           </div>
         </div>

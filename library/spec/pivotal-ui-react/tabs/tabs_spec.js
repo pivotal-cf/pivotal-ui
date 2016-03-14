@@ -229,17 +229,17 @@ describe('Tabs', function() {
         MockNow.tick(Tabs.ANIMATION_TIME / 4);
         MockRaf.next();
         expect(`.tab-${tabType} .tab-content`).toContainText('Content2');
-        expect(`.tab-${tabType} .tab-content`).toHaveCss({opacity: 0.5});
+        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 0.5});
 
         MockNow.tick(Tabs.ANIMATION_TIME / 2);
         MockRaf.next();
         expect(`.tab-${tabType} .tab-content`).toContainText('Content1');
-        expect(`.tab-${tabType} .tab-content`).toHaveCss({opacity: 0.5});
+        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 0.5});
 
         MockNow.tick(Tabs.ANIMATION_TIME / 4);
         MockRaf.next();
         expect(`.tab-${tabType} .tab-content`).toContainText('Content1');
-        expect(`.tab-${tabType} .tab-content`).toHaveCss({opacity: 1.0});
+        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 1.0});
 
         $('.nav li:eq(1) a').simulate('click');
         expect('li.active').toContainText('Tab2');
