@@ -178,7 +178,6 @@ class Tabs extends mixin(React.Component).with(Animation) {
       actions,
       children,
       className,
-      defaultActiveKey,
       id = this.state.id,
       largeScreenClassName,
       onSelect,
@@ -186,7 +185,6 @@ class Tabs extends mixin(React.Component).with(Animation) {
       position,
       tabType,
       tabWidth,
-      responsiveBreakpoint,
       ...props} = this.props;
     const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
 
