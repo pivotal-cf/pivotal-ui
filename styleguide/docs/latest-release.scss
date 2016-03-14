@@ -1,6 +1,6 @@
 /*doc
 ---
-title: Welcome to the 3.0 release of Pivotal UI!
+title: Welcome to the 4.0 release of Pivotal UI!
 name: latest-release
 category: latest-release
 ---
@@ -13,10 +13,12 @@ name: 01_goals
 parent: latest-release
 ---
 
-The goals for the 3.0 release are:
+The goals for the 4.0 release are:
 
-- Upgrade to React 0.14
-- Polish React Components based on feedback from 2.0
+- Add and improve React components as needed by teams
+- Consolidate similar React components
+- Consolidate some styles
+- Improved css building
 
 */
 
@@ -27,12 +29,18 @@ name: 03_changes
 parent: latest-release
 ---
 
-- Pivotal UI 3.0 does not work with React < 0.14
-- `SortableTables` React Component is completely different
-- `Panels` React component now supports custom headers, subtitles, footers, and actions
-- `Media` React component API has changed slightly
-- `Modal` React component now internally uses the React Bootstrap Modal
-- React Bootstrap version is bumped to 0.28.2
+- The `typography` react component has been removed in favor of native headers
+- Header font weights defaults to normal, base text color has been darkened to improve contrast
+- `OverlayTrigger` now supports manual mode and does not use React Bootstrap
+- `OverlayTrigger` `trigger` prop is now a string and not an array
+- `Tooltip` is all new in order to work with new `OverlayTrigger`
+- Some components have been renamed, see [conversion guide](#05_conversion)
+- css scales, traffic-lights, and fancy select are removed
+- React components are all ES6 classes for easier subclassing
+- pui css node modules can be directly imported with Webpack loaders
+
+Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md)
+
 */
 
 /*doc
@@ -42,5 +50,46 @@ name: 04_components
 parent: latest-release
 ---
 
-There are no new components in this release
+- `Checkbox`
+- `Toggle`
+
+*/
+
+/*doc
+---
+title: Conversion Guide
+name: 05_conversion
+parent: latest-release
+---
+
+### Typography
+
+pui-react-typography is no longer supported.
+Replace `<DefaultH2>`, `<AlternateH2>` or `<MarketingH2>` with `<h2>`.
+The headers will now be less bold. This is intended by the designers.
+If your application want headers to be bigger and bolder, add css in your own application.
+
+### Renames
+
+- `<BasicInput>` becomes `<Input>`
+- `<SearchInput>` becomes `<Input search>`
+- `<SimpleTabs>` becomes `<Tabs>`
+- `<SimpleTabsAlt>` becomes `<Tabs tabType="simple-alt">`
+- `<SortableTable>` becomes `<Table>`
+- `<OverlayTrigger trigger={['hover']}>` becomes `<OverlayTrigger trigger="hover">`
+- Use `TileLayoutItem` instead of `TileLayout.Item`
+- Look for `RadioGroup` in `pui-react-radio`
+- Stop using the `fancy-select` css class, just use regular selects.
+If you want a fancy chooser, consider dropdowns.
+
+### CSS Compiling
+
+We would like to deprecate Dr Frankenstyle due to its performance issues and maintenence cost.
+In PUI 4.0, you can use Webpack loaders instead.
+The combination of `css-loader`, `file-loader` and `extract-text-webpack-plugin`
+recreates the functionality of Dr Frankenstyle in much less time.
+See the [Webpack Config](https://github.com/pivotal-cf/react-starter/blob/master/config/webpack.config.js) in React Starter.
+In React Starter `NODE_ENV=production gulp assets` will output a `components.css` file
+in addition to any fonts and images needed by that css into `public`.
+
 */
