@@ -47,6 +47,16 @@ const PaginationAdvanced = React.createClass({
   },
 
   handleSelect(event, selectedEvent) {
+    var eventKey = selectedEvent.eventKey;
+    var activePage = this.state.activePage;
+
+    if(eventKey === 'next') {
+      return this.setState({activePage: activePage + 1});
+    }
+    if(eventKey === 'prev') {
+      return this.setState({activePage: activePage - 1});
+    }
+
     this.setState({
       activePage: selectedEvent.eventKey
     });

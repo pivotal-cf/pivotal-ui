@@ -60,14 +60,14 @@ class Pagination extends React.Component {
       )
     });
 
-    const nextButton = <PaginationButton eventKey='next' content="&lsaquo;"></PaginationButton>
-    const prevButton = <PaginationButton eventKey='prev' content="&rsaquo;"></PaginationButton>
+    const prevButton = <PaginationButton onSelect={onSelect} eventKey='prev' content="&lsaquo;"></PaginationButton>
+    const nextButton = <PaginationButton onSelect={onSelect} eventKey='next' content="&rsaquo;"></PaginationButton>
 
     return (
       <ul className='pagination'>
-        {next ? nextButton : null}
-        {paginationButtons}
         {prev ? prevButton : null}
+        {paginationButtons}
+        {next ? nextButton : null}
       </ul>
     )
   }

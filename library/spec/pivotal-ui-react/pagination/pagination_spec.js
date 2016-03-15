@@ -46,5 +46,12 @@ describe('Pagination', () => {
       $('.pagination li:eq(1)').simulate('click');
       expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 1});
     });
+
+    it('calls onSelect callback on next click', () => {
+      const onSelectSpy = jasmine.createSpy('onSelect');
+      ReactDOM.render(<Pagination items={5} onSelect={onSelectSpy}></Pagination>, root);
+      $('.pagination li:eq(6)').simulate('click');
+      expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'});
+    });
   });
 });
