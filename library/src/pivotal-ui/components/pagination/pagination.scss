@@ -13,14 +13,17 @@
     border-right: 1px solid $pagination-border;
     border-top: 1px solid $pagination-border;
     border-bottom: 1px solid $pagination-border;
+    background-color: $pagination-bg;
+    cursor: pointer;
 
     a {
-      background-color: $pagination-bg;
       display: block;
       padding: 6px 12px;
 
-      &:hover {
-        background-color: $pagination-hover-bg;
+    }
+    &:hover {
+      background-color: $pagination-hover-bg;
+      a {
         color: $pagination-hover-color;
       }
     }
@@ -36,16 +39,22 @@
       border-top-right-radius: 4px;
     }
 
-    &.disabled a {
+    &.disabled {
       background-color: $pagination-disabled-bg;
-      color: $pagination-disabled-color;
       cursor: default;
+      a {
+        cursor: default;
+        color: $pagination-disabled-color;
+      }
     }
 
-    &.selected a {
+    &.selected {
       background-color: $pagination-hover-color;
-      color: $neutral-11;
       cursor: default;
+      a {
+        cursor: default;
+        color: $neutral-11;
+      }
     }
   }
 }
