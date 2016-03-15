@@ -18,7 +18,7 @@ The goals for the 4.0 release are:
 - Add and improve React components as needed by teams
 - Consolidate similar React components
 - Consolidate some styles
-- Improved css building
+- Improved CSS building
 
 */
 
@@ -29,15 +29,16 @@ name: 03_changes
 parent: latest-release
 ---
 
-- The `typography` react component has been removed in favor of native headers
-- Header font weights defaults to normal, base text color has been darkened to improve contrast
+- The `typography` React component has been removed in favor of native headers
+- Header font weights default to normal
+- base text color has been darkened to improve contrast
 - `OverlayTrigger` now supports manual mode and does not use React Bootstrap
 - `OverlayTrigger` `trigger` prop is now a string and not an array
 - `Tooltip` is all new in order to work with new `OverlayTrigger`
 - Some components have been renamed, see [conversion guide](#05_conversion)
-- css scales, traffic-lights, and fancy select are removed
+- CSS scales, traffic lights, and fancy select have been removed
 - React components are all ES6 classes for easier subclassing
-- pui css node modules can be directly imported with Webpack loaders
+- pui CSS node modules can be directly imported with Webpack loaders
 
 Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md)
 
@@ -67,7 +68,7 @@ parent: latest-release
 pui-react-typography is no longer supported.
 Replace `<DefaultH2>`, `<AlternateH2>` or `<MarketingH2>` with `<h2>`.
 The headers will now be less bold. This is intended by the designers.
-If your application want headers to be bigger and bolder, add css in your own application.
+If your application wants headers to be bigger and bolder, add CSS in your own application.
 
 ### Renames
 
@@ -79,17 +80,18 @@ If your application want headers to be bigger and bolder, add css in your own ap
 - `<OverlayTrigger trigger={['hover']}>` becomes `<OverlayTrigger trigger="hover">`
 - Use `TileLayoutItem` instead of `TileLayout.Item`
 - Look for `RadioGroup` in `pui-react-radio`
-- Stop using the `fancy-select` css class, just use regular selects.
+- Stop using the `fancy-select` CSS class, just use regular selects.
 If you want a fancy chooser, consider dropdowns.
 
 ### CSS Compiling
 
-We would like to deprecate Dr Frankenstyle due to its performance issues and maintenence cost.
+We would like to deprecate Dr Frankenstyle due to its performance issues and maintenance cost.
 In PUI 4.0, you can use Webpack loaders instead.
 The combination of `css-loader`, `file-loader` and `extract-text-webpack-plugin`
 recreates the functionality of Dr Frankenstyle in much less time.
+
 See the [Webpack Config](https://github.com/pivotal-cf/react-starter/blob/master/config/webpack.config.js) in React Starter.
 In React Starter `NODE_ENV=production gulp assets` will output a `components.css` file
-in addition to any fonts and images needed by that css into `public`.
+in addition to any fonts and images needed by that CSS into `public`.
 
 */
