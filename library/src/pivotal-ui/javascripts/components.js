@@ -106,4 +106,6 @@ module.exports = {
   TableRow: require('pui-react-table').TableRow,
   ...autocomplete,
   ...selectFancy,
-  TileLayout: TileLayout};
+  TileLayout: TileLayout,
+
+  Pagination: require('pui-react-pagination').Pagination};

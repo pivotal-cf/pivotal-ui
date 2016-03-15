@@ -49,7 +49,7 @@
       }
     }
 
-    &.selected {
+    &.active {
       background-color: $pagination-hover-color;
       cursor: default;
       a {
