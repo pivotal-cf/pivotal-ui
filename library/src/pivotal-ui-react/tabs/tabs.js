@@ -1,125 +1,14 @@
-import React from 'react';
-import BsTab from 'react-bootstrap/lib/Tab';
-import uniqueid from 'lodash.uniqueid';
-import classnames from 'classnames';
-import MediaSize from './media-size';
-import 'pui-css-collapse';
-import 'pui-css-tabs';
-import mixin from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
-import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect'
+import BsTab from 'react-bootstrap/lib/Tab';
+import classnames from 'classnames';
+import {SmallTabs} from './small_tabs';
+import MediaSize from './media-size';
+import mixin from 'pui-react-mixins';
+import 'pui-css-tabs';
+import React from 'react';
+import uniqueid from 'lodash.uniqueid';
 
 const types = React.PropTypes;
-
-class SmallTabBaseContent extends React.Component {
-  static propTypes = {
-    boundingClientRect: types.object,
-    expanded: types.bool,
-    transitionProgress: types.number
-  };
-
-  render() {
-    let {boundingClientRect: {height = 0}, children, expanded, transitionProgress} = this.props;
-    const percentage = expanded ? 1 - transitionProgress : transitionProgress;
-    const style = (height && transitionProgress < 1) ? {marginBottom: - height * percentage} : {};
-    return (
-      <div style={style}>
-        {children}
-      </div>
-    )
-  }
-}
-
-const SmallTabContent = useBoundingClientRect(SmallTabBaseContent);
-
-class SmallTab extends React.Component {
-  static propTypes = {
-    expanded: types.bool,
-    wasExpanded: types.bool,
-    header: types.node,
-    onClick: types.func,
-    paneId: types.string,
-    transitionProgress: types.number
-  };
-
-  render() {
-    const {className, children, expanded, wasExpanded, header, onClick, paneId, transitionProgress, ...props} = this.props;
-
-    return (
-      <div>
-        <div className="tab-heading">
-          <h4 className="tab-title" role="presentation">
-            <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded} role="tab"
-               onClick={onClick}>{header}</a>
-          </h4>
-        </div>
-        <div className={classnames(className, 'tab-collapse', 'collapse', {'in': expanded || wasExpanded})}
-             aria-hidden={!expanded}
-             role="tabpanel" {...props}>
-          <div className="tab-body" style={{overflow: 'hidden'}}>
-            <SmallTabContent expanded={expanded}
-                             transitionProgress={transitionProgress}>{children}</SmallTabContent>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-class SmallTabs extends React.Component {
-  static propTypes = {
-    actions: types.node,
-    activeKey: types.number,
-    id: types.string,
-    handleClick: types.func,
-    onSelect: types.func,
-    previousActiveKey: types.number,
-    smallScreenClassName: types.string,
-    tabType: types.string,
-    transitionProgress: types.number
-  };
-
-  render() {
-    const {
-      actions,
-      activeKey,
-      children,
-      className,
-      id,
-      handleClick,
-      onSelect,
-      previousActiveKey,
-      smallScreenClassName,
-      tabType,
-      transitionProgress
-      } = this.props;
-    const smallScreenClasses = classnames([`tab-${tabType}-small-screen`, 'panel-group', smallScreenClassName, className]);
-    const childArray = React.Children.toArray(children);
-    const childrenAsPanels = childArray.map((child, key) => {
-      const {title, eventKey, children} = child.props;
-      const paneId = `${id}-pane-${key}`;
-      const myProps = {
-        expanded: eventKey === activeKey,
-        wasExpanded: transitionProgress < 1 && eventKey === previousActiveKey,
-        header: title,
-        key,
-        onClick: (e) => handleClick(e, eventKey, onSelect),
-        paneId,
-        transitionProgress
-      };
-      return <SmallTab {...myProps}>{children}</SmallTab>;
-    });
-
-    const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
-
-    return (
-      <div className={smallScreenClasses}>
-        {actionsNode}
-        {childrenAsPanels}
-      </div>
-    );
-  }
-}
 
 class Tabs extends mixin(React.Component).with(Animation) {
   constructor(props, context) {

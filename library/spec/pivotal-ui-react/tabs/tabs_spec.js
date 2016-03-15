@@ -5,6 +5,17 @@ describe('Tabs', function() {
 
   let Tab, Tabs, LeftTabs, EventEmitter, itPropagatesAttributes;
   beforeEach(() => {
+    const Collapsible = require('../../../src/pivotal-ui-react/collapsible/collapsible').Collapsible;
+    const classnames = require('classnames');
+
+    spyOn(Collapsible.prototype, 'render').and.callFake(function() {
+      const {children, expanded} = this.props;
+      return (
+        <div className={classnames('collapsible-stub', {expanded})}>
+          {children}
+        </div>
+      );
+    });
     Tab = require('../../../src/pivotal-ui-react/tabs/tabs').Tab;
     Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
     LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
@@ -278,31 +289,22 @@ describe('Tabs', function() {
       });
 
       it('renders content for the active tab', function() {
-        expect('.panel-group .tab-collapse:eq(1)').toContainText('Content2');
-        expect('.panel-group .tab-collapse:eq(1)').toHaveClass('in');
+        expect('.panel-group .collapsible-stub:eq(1)').toContainText('Content2');
+        expect('.panel-group .collapsible-stub:eq(1)').toHaveClass('expanded');
       });
 
       it('switches tabs on click with animation', function() {
         $('.tab-heading:eq(0) a').simulate('click');
 
-        MockNow.tick(Tabs.ANIMATION_TIME / 4);
-        MockRaf.next();
-        expect(`.tab-${tabType}-small-screen`).toContainText('Content2');
-        expect(`.tab-${tabType}-small-screen .tab-body:eq(0)`).toHaveCss({height: `${tabHeight * 0.25}px`});
-        expect(`.tab-${tabType}-small-screen .tab-body:eq(1)`).toHaveCss({height: `${tabHeight * 0.75}px`});
-
-        MockNow.tick(Tabs.ANIMATION_TIME / 2);
-        MockRaf.next();
         expect(`.tab-${tabType}-small-screen`).toContainText('Content1');
-        expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
-
-        MockNow.tick(Tabs.ANIMATION_TIME / 4);
-        MockRaf.next();
-        expect(`.tab-${tabType}-small-screen`).toContainText('Content1');
+        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(0)`).toHaveClass('expanded');
+        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(1)`).not.toHaveClass('expanded');
 
         $('.tab-heading:eq(1) a').simulate('click');
-        MockNow.tick(Tabs.ANIMATION_TIME);
-        MockRaf.next();
+        expect(`.tab-${tabType}-small-screen`).toContainText('Content2');
+        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(0)`).not.toHaveClass('expanded');
+        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(1)`).toHaveClass('expanded');
+
         expect('.tab-heading a[aria-expanded=true]').toContainText('Tab2');
 
       });

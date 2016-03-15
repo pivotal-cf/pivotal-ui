@@ -59,6 +59,7 @@
     "pui-react-buttons": "file:../library/dist/react/buttons",
     "pui-react-checkbox": "file:../library/dist/react/checkbox",
     "pui-react-collapse": "file:../library/dist/react/collapse",
+    "pui-react-collapsible": "file:../library/dist/react/collapsible",
     "pui-react-dividers": "file:../library/dist/react/dividers",
     "pui-react-draggable-list": "file:../library/dist/react/draggable-list",
     "pui-react-dropdowns": "file:../library/dist/react/dropdowns",

@@ -52,7 +52,8 @@ class Collapsible extends mixin(React.Component).with(Animation) {
 
     var props = mergeProps(others, {
       className: ['collapse', {'in': expanded || isAnimating}],
-      style: isAnimating ? {overflow: 'hidden'} : {}
+      style: isAnimating ? {overflow: 'hidden'} : {},
+      'aria-hidden': !expanded
     });
 
     return (
