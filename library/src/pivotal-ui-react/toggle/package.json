@@ -1,10 +1,10 @@
 {
-  "version": "3.4.2",
+  "version": "4.0.0",
   "description": "React components that provide informational text callouts",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-forms": "^3.4.2",
-    "pui-react-helpers": "^3.4.2",
+    "pui-css-forms": "^4.0.0",
+    "pui-react-helpers": "^4.0.0",
     "lodash.uniqueid": "^3.0.0"
   }
 }
