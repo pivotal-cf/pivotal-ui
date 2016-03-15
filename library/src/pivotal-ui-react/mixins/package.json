@@ -2,7 +2,11 @@
   "version": "3.4.2",
   "description": "Mixins for use in Pivotal UI Components",
   "dependencies": {
-    "pui-react-animation": "^0.2.0"
+    "fbjs": "^0.7.2",
+    "pui-react-animation": "^0.2.0",
+    "pui-react-animation": "^0.2.0",
+    "raf": "^3.1.0",
+    "react-addons-shallow-compare": "^0.14.7"
   },
   "homepage": "http://styleguide.pivotal.io/react.html"
 }
