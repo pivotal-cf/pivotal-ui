@@ -106,6 +106,7 @@
     "pui-react-animation": "^0.2.0",
     "raf": "^3.1.0",
     "react-addons-clone-with-props": "^0.14.2",
+    "react-addons-shallow-compare": "^0.14.7",
     "react-addons-test-utils": "^0.14.2",
     "react-dom": "^0.14.2"
   },
