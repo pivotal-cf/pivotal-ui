@@ -1,6 +1,5 @@
 const React = require('react');
-const Collapse = require('react-bootstrap/lib/Collapse');
-import 'pui-css-bootstrap';
+import {Collapsible} from 'pui-react-collapsible';
 
 class ExpanderTrigger extends React.Component {
   constructor(props, context) {
@@ -47,13 +46,9 @@ class ExpanderContent extends React.Component {
   }
 
   render() {
-    const {children, ...props} = this.props;
+    const {expanded} = this.state;
     return (
-      <Collapse {...{'in': this.state.expanded, ...props}}>
-        <div style={{overflow: 'hidden'}}>
-          {children}
-        </div>
-      </Collapse>
+      <Collapsible {...{...this.props, expanded}}/>
     );
   }
 }

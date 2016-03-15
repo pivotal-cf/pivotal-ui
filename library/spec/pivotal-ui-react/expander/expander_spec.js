@@ -1,6 +1,14 @@
 require('../spec_helper');
 
 describe('ExpanderContent', function() {
+  const delay = 200;
+  let Collapsible;
+
+  beforeEach(() => {
+    Collapsible = require('../../../src/pivotal-ui-react/collapsible/collapsible').Collapsible;
+    spyOn(Collapsible.prototype, 'render').and.callThrough();
+  });
+
   afterEach(function() {
     ReactDOM.unmountComponentAtNode(root);
   });
@@ -9,6 +17,7 @@ describe('ExpanderContent', function() {
     var ExpanderContent = require('../../../src/pivotal-ui-react/expander/expander').ExpanderContent;
 
     props = Object.assign({
+      delay,
       expanded: false
     }, props);
 
@@ -48,20 +57,12 @@ describe('ExpanderContent', function() {
 
     describe('when the content was already visible', function() {
       beforeEach(function() {
-        onExitedSpy = jasmine.createSpy('onExited');
         let expanderContent = renderComponent.call(this, {expanded: true, onExited: onExitedSpy});
         expanderContent.toggle();
-        jasmine.clock().tick(5);
-        expect(onExitedSpy).not.toHaveBeenCalled();
-        jasmine.clock().tick(1000);
       });
 
       it('hides the content', function() {
-        expect('.collapse').not.toHaveClass('in');
-      });
-
-      it('calls the onExited callback', function() {
-        expect(onExitedSpy).toHaveBeenCalled();
+        expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false, onExited: onExitedSpy});
       });
     });
 
@@ -71,43 +72,29 @@ describe('ExpanderContent', function() {
         let expanderContent = renderComponent.call(this, {expanded: false, onEntered: onEnteredSpy});
 
         expanderContent.toggle();
-        jasmine.clock().tick(5);
-        expect(onEnteredSpy).not.toHaveBeenCalled();
-        jasmine.clock().tick(1000);
       });
 
       it('shows the content', function() {
-        expect('.collapse').toHaveClass('in');
-      });
-
-      it('calls the onEntered callback', function() {
-        expect(onEnteredSpy).toHaveBeenCalled();
+        expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true, onEntered: onEnteredSpy});
       });
     });
 
     it('can be invoked ad nauseum', function() {
       const expanderContent = renderComponent.call(this);
-
       expanderContent.toggle();
-      jasmine.clock().tick(1000);
-      expect('.collapse').toHaveClass('in');
-
       expanderContent.toggle();
-      jasmine.clock().tick(1000);
-      expect('.collapse').not.toHaveClass('in');
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
     });
   });
   describe('when toggling expanded prop', function() {
     beforeEach(function() {
       renderComponent.call(this, {expanded: true});
-      jasmine.clock().tick(1000);
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
     });
 
     it('toggles open/closed', function() {
-      expect('.collapse').toHaveClass('in');
       renderComponent.call(this, {expanded: false});
-      jasmine.clock().tick(1000);
-      expect('.collapse').not.toHaveClass('in');
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
     })
   })
 });
