@@ -7,6 +7,7 @@
     "lodash.uniqueid": "^3.0.0",
     "pui-css-collapse": "^3.4.2",
     "pui-css-tabs": "^3.4.2",
+    "pui-react-mixins": "^3.4.2",
     "raf": "^3.1.0",
     "react-bootstrap": "0.28.3"
   }
