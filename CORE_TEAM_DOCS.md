@@ -72,7 +72,7 @@ again.
 ## Creating a new release
 
 1. Switch to `master` branch
-2. Merge in changes from `development`
+1. Merge in changes from `development`
 1. In library, run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
   - Update the version in `package.json`
@@ -86,28 +86,28 @@ again.
 
 1. From root, run `./update_styleguide` to update local versions of components
    
-5. Put a copy of the most current major release in `old_styleguides`
+1. Put a copy of the most current major release in `old_styleguides`
 	1. `cd styleguide`
-	2. `gulp styleguide-build`
-	3. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
-	4. `cp -r build/ old_styleguides/x`
-	5. `rm -rf old_styleguides/x/*/` this will remove copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`
-	5. If you are releasing a new major version, add a link in `docs/other-versions.scss` in the format of 'version x'
-	6. `gulp ci`
-	7. `cd ../library`
+	1. If you are releasing a new major version, add a link in `docs/other-versions.scss` in the format of 'version x'
+	1. `gulp styleguide-build`
+	1. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
+	1. `cp -r build/ old_styleguides/x`
+	1. `rm -rf old_styleguides/x/y/`, where y is a previous major release, for all previous major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
+	1. `gulp ci`
+	1. `cd ../library`
 
 1. Run `gulp ci` - one final check!
 
-9. Run `gulp release-commit` to commit the release.
+1. Run `gulp release-commit` to commit the release.
 
 1. Run `gulp release-push-packages`. This will:
   - Creates a tag for the new version
   - Pushes version bump and new tag to github
   - Publishes all of the updated node packages to npm
   
-99. From the `styleguide` directory: `gulp push-styleguide` will push to production. Make sure you are targeting the correct space on CF
+1. From the `styleguide` directory: `gulp push-styleguide` will push to production. Make sure you are targeting the correct space on CF
 
-100. Merge `master` back into `development`
+1. Merge `master` back into `development`
 
 ## Setting up a new pairing station:
 
