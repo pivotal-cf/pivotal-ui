@@ -17,4 +17,9 @@ describe('getComponentPath', () => {
     const path = getComponentPath('/css_all.html');
     expect(path.language).toEqual('css');
   });
+
+  it('handles old styleguides', () => {
+    const path = getComponentPath('/3/css_hamster_beignet.html');
+    expect(path.language).toEqual('css');
+  });
 });

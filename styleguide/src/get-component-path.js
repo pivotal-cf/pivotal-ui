@@ -1,5 +1,5 @@
 function getComponentPath(path) {
-  const navPathRegEx = /\/([^_]*)_.*.html/;
+  const navPathRegEx = /\/([^_^\/]*)_.*.html/;
 
   const match = navPathRegEx.exec(path);
 
