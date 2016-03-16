@@ -1,12 +1,15 @@
-var React = require('react');
-var types = React.PropTypes;
-var BsPanel = require('react-bootstrap/lib/Panel');
+import {Collapsible} from 'pui-react-collapsible';
+import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
+import {Panel} from 'pui-react-panels';
+const React = require('react');
 import 'pui-css-collapse';
 import 'pui-css-iconography';
 import 'pui-css-dividers';
 
-class BaseCollapse extends React.Component{
+const types = React.PropTypes;
+
+class BaseCollapse extends React.Component {
   static propTypes = {
     divider: types.bool,
     header: types.node.isRequired,
@@ -15,7 +18,7 @@ class BaseCollapse extends React.Component{
 
   constructor(props, context) {
     super(props, context);
-    this.state = {expanded: this.props.defaultExpanded};
+    this.state = {expanded: !!this.props.defaultExpanded};
   }
 
   handleSelect = (e) => {
@@ -23,65 +26,61 @@ class BaseCollapse extends React.Component{
     this.setState({expanded: !this.state.expanded});
   };
 
+  renderHeader() {
+    const {header} = this.props;
+    const {expanded} = this.state;
+    return <a href="#" aria-expanded={expanded} aria-selected={expanded}>{header}</a>
+
+  }
+
   render() {
-    var {divider, header, children, ...others} = this.props;
-    var props = mergeProps(others, {className: {'panel-divider': divider}});
+    var {divider, children, ...others} = this.props;
+    var props = mergeProps(others, {className: ['panel', {'panel-divider': divider}]});
+
+    var {expanded} = this.state;
 
     return (
-      <BsPanel {...props} collapsible expanded={this.state.expanded} onSelect={this.handleSelect} header={header}>
-        {children}
-      </BsPanel>
+      <div {...props}>
+        <div className="panel-heading" onClick={this.handleSelect}>
+          <div className="panel-title" role="presentation">
+            {this.renderHeader()}
+          </div>
+        </div>
+        <div className="panel-collapse">
+          <Collapsible className="panel-body" expanded={expanded} delay={200}>
+            {children}
+          </Collapsible>
+        </div>
+      </div>
     );
   }
 }
 
-class Collapse extends React.Component {
-  static propTypes = {
-    divider: types.bool,
-    header: types.node.isRequired
-  };
-
-  render() {
-    var {header, ...others} = this.props;
-
-    header = (
+class Collapse extends BaseCollapse {
+  renderHeader() {
+    const {header} = this.props;
+    const {expanded} = this.state;
+    const iconClass = expanded ? 'fa fa-caret-down' : 'fa fa-caret-right';
+    return (
       <div className="collapse-trigger">
-        <div className="when-collapsed-inline">
-          <i className="fa fa-caret-right collapse-icon"></i>
-        </div>
-        <div className="when-expanded-inline">
-          <i className="fa fa-caret-down collapse-icon"></i>
-        </div>
+        <i className={classnames(iconClass, 'collapse-icon')}/>
         {header}
       </div>
     );
-
-    return <BaseCollapse {...others} header={header} />;
   }
 }
 
-class AltCollapse extends React.Component {
-  static propTypes = {
-    divider: types.bool,
-    header: types.node.isRequired
-  };
-
-  render() {
-    var {header, ...others} = this.props;
-
-    header = (
+class AltCollapse extends BaseCollapse {
+  renderHeader() {
+    const {header} = this.props;
+    const {expanded} = this.state;
+    const iconClass = expanded ? 'fa fa-minus-square' : 'fa fa-plus-square';
+    return (
       <div className="collapse-trigger">
-        <div className="when-collapsed-inline">
-          <i className="fa fa-plus-square collapse-icon"></i>
-        </div>
-        <div className="when-expanded-inline">
-          <i className="fa fa-minus-square collapse-icon"></i>
-        </div>
+        <i className={classnames(iconClass, 'collapse-icon')}/>
         {header}
       </div>
     );
-
-    return <BaseCollapse {...others} header={header}/>;
   }
 }
 
