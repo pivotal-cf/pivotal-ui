@@ -83,34 +83,6 @@ describe('componentsToUpdate', function() {
       expect(result.length).toEqual(3);
     });
   });
-
-  describe('input: a component with css and react dependents', () => {
-    beforeEach(done => {
-      getComponentsToUpdate([
-        'src/pivotal-ui/components/links/'
-      ], done);
-    });
-
-    it('outputs itself and all dependents, and dependents of dependents', () => {
-      expect(result).toContain(jasmine.objectContaining({
-        component: 'src/pivotal-ui/components/links/',
-        dependencies: []
-      }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: 'src/pivotal-ui/components/back-to-top/',
-        dependencies: ['pui-css-links']
-      }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: 'src/pivotal-ui-react/back-to-top/',
-        dependencies: ['pui-css-back-to-top']
-      }));
-      expect(result).toContain(jasmine.objectContaining({
-        component: 'src/pivotal-ui/components/all/',
-        dependencies: ['pui-css-links', 'pui-css-back-to-top']
-      }));
-      expect(result.length).toEqual(4);
-    });
-  });
 });
 
 describe('updatePackageJsons', () => {
