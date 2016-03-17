@@ -12,28 +12,44 @@ var BsDropdown = require('react-bootstrap/lib/Dropdown');
 function defDropdown(props) {
   return class extends React.Component {
     static propTypes = {
-      id: types.oneOfType([types.string, types.number]),
+      border: types.bool,
       bsStyle: types.any,
       buttonClassName: types.string,
+      id: types.oneOfType([types.string, types.number]),
+      split: types.bool,
       style: types.any,
-      title: types.any,
-      border: types.bool
+      title: types.node,
+      toggle: types.node
     };
 
     render = function render() {
-      const {buttonClassName, style, title, children, border, ...others} = this.props;
+      const {border, buttonClassName, children, style, title, split, toggle, ...others} = this.props;
       let {id} = others;
       const {buttonClassName: defaultBtnClassName, bsStyle} = props;
 
-      const btnClass = classnames(buttonClassName, defaultBtnClassName);
+      const bsClass = bsStyle ? `btn-${bsStyle}` : null;
+      const btnClass = classnames(buttonClassName, defaultBtnClassName, 'btn', bsClass);
       const borderClass = border ? 'dropdown-border' : null;
       if (!id) {
         id = uniqueid('dropdown');
       }
+
+      let dropdownLabel, dropdownToggleContent;
+
+      if (split || toggle) {
+        dropdownLabel = (
+          <div className={classnames('dropdown-label', btnClass)}>{title}</div>
+        );
+        dropdownToggleContent = toggle;
+      } else {
+        dropdownToggleContent = title;
+      }
+
       return (
         <BsDropdown {...others} id={id}>
-          <BsDropdown.Toggle className={btnClass} bsStyle={bsStyle} style={style}>
-            {title}
+          {dropdownLabel}
+          <BsDropdown.Toggle className={btnClass} noCaret={!!toggle} bsStyle={bsStyle} style={style}>
+            {dropdownToggleContent}
           </BsDropdown.Toggle>
           <BsDropdown.Menu className={borderClass}>
             {children}
@@ -95,7 +111,7 @@ class DropdownItem extends React.Component {
 }
 
 module.exports = {
-  Dropdown: defDropdown({}),
+  Dropdown: defDropdown({buttonClassName: 'btn-default'}),
 
   DropdownItem: DropdownItem,
 

@@ -26,16 +26,19 @@ describe('Dropdowns', function() {
   }
 
   describe('Dropdown', function() {
-    var props = {
-      className: 'test-class',
-      id: 'test-id',
-      style: {
-        opacity: '0.5'
-      }
-    };
+    let subject
 
     beforeEach(function() {
-      ReactDOM.render(
+      const props = {
+        className: 'test-class',
+        id: 'test-id',
+        style: {
+          opacity: '0.5'
+        }
+      };
+
+
+      subject = ReactDOM.render(
         <Dropdown title="Dropping" {...props} buttonClassName="test-btn-class">
           <DropdownItem href="test">Item #1</DropdownItem>
         </Dropdown>, root);
@@ -45,16 +48,16 @@ describe('Dropdowns', function() {
       ReactDOM.unmountComponentAtNode(root);
     });
 
-    it('passes through className to the btn-group ', function() {
-      expect('#root .btn-group').toHaveClass(props.className);
+    it('passes through className to the dropdown', function() {
+      expect('.dropdown').toHaveClass('test-class');
     });
 
     it('passes through style to the button', function() {
-      expect('#root .btn').toHaveCss(props.style);
+      expect('.dropdown-toggle').toHaveCss({opacity: '0.5'});
     });
 
     it('passes through id to the button', function() {
-      expect('#root .btn#test-id').toExist();
+      expect('.dropdown-toggle#test-id').toExist();
     });
 
     it('creates a dropdown-toggle', () => {
@@ -64,8 +67,37 @@ describe('Dropdowns', function() {
     });
 
     it('renders all children DropdownItems', function() {
-      expect('#root .dropdown-menu li').toHaveLength(1);
-      expect('#root .dropdown-menu li').toHaveText('Item #1');
+      expect('.dropdown-menu li').toHaveLength(1);
+      expect('.dropdown-menu li').toHaveText('Item #1');
+    });
+
+    describe('split', () => {
+      it('puts the title in the dropdown label when split is true', () => {
+        subject::setProps({split: true});
+        expect('.dropdown-label').toHaveText('Dropping');
+        expect('.dropdown-toggle').not.toHaveText('Dropping');
+      });
+
+      it('puts the title in the dropdown toggle when split is false', () => {
+        subject::setProps({split: false});
+        expect('.dropdown-toggle').toHaveText('Dropping');
+      });
+    });
+
+    describe('toggle', () => {
+      beforeEach(() => {
+        subject::setProps({title: 'Dropping', toggle: <div className="foo">Toggle!</div>});
+      });
+
+      it('puts the title in the dropdown label', () => {
+        expect('.dropdown-label').toHaveText('Dropping');
+        expect('.dropdown-toggle').not.toHaveText('Dropping');
+      });
+
+      it('puts the custom toggle in the dropdown toggle', () => {
+        expect('.dropdown-label').not.toHaveText('Toggle!');
+        expect('.dropdown-toggle').toHaveText('Toggle!');
+      });
     });
   });
 

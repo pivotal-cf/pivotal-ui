@@ -75,6 +75,28 @@ using the `buttonClassName` property. `id` and `style` will also be applied to t
 </DefaultAltDropdown>
 ```
 
+If you want to separate your dropdown label from the toggle trigger, you can pass a `split` attribute.
+
+```react_example
+<DefaultAltDropdown split title='DropDown'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
+If you want a custom toggle trigger, you can pass the `toggle` attribute.
+
+```react_example
+<DefaultAltDropdown toggle={<div style={{color: 'darkgoldenrod'}}>O</div>} title='DropDown'>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+</DefaultAltDropdown>
+```
+
 If you want to add borders between items, you can pass a `border` attribute to any of our Dropdowns.
 
 ```react_example
