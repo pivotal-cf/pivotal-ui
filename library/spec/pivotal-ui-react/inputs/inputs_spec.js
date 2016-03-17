@@ -34,6 +34,16 @@ describe('Input', function() {
     expect('.form-group').toHaveClass('input-class');
   });
 
+  describe('when label is undefined', () => {
+    beforeEach(() => {
+      subject::setProps({label: undefined});
+    });
+
+    it('does not render label', () => {
+      expect('label').not.toExist();
+    });
+  });
+
   describe('Validation', function() {
     it('does not show error messages when displayError is false', function() {
       expect('.error-text').not.toExist();

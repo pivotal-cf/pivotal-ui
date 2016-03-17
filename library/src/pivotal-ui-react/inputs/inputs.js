@@ -34,7 +34,7 @@ class Input extends React.Component {
     const inputProps = mergeProps(props, {className: inputClassNames, 'aria-label': placeholder})
     return (
       <div className={formClasses}>
-        <label htmlFor={id} className={labelClasses}>{label}</label>
+        {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
         <input {...inputProps} />
         {search && <i className='search-icon'/>}
         {displayError && <div className="error-text help-block">
