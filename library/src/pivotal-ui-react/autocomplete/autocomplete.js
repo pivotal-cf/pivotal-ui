@@ -116,7 +116,7 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
     var {scrollIntoView, onPick, onSearch} = this;
     input = React.cloneElement(input, {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder});
     return (
-      <div className={classnames('autocomplete', 'mhs', className)} {...props} >
+      <div className={classnames('autocomplete', className)} {...props} >
         {input}
         <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
       </div>
