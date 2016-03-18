@@ -73,7 +73,8 @@ again.
 
 1. Switch to `master` branch
 1. Merge in changes from `development`
-1. In library, run `gulp release-prepare`. This will:
+1. In library, run `npm i`
+1. Run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
   - Update the version in `package.json`
   - Update the version in `package.json` for all changed pui modules, and all
@@ -92,7 +93,7 @@ again.
 	1. `gulp styleguide-build`
 	1. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
 	1. `cp -r build/ old_styleguides/x`
-	1. `rm -rf old_styleguides/x/y/`, where y is a previous major release, for all previous major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
+	1. `rm -rf old_styleguides/x/y/`, where y is a major release, for all major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
 	1. `gulp ci`
 	1. `cd ../library`
 
