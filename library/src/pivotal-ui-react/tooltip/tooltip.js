@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import 'pui-css-tooltips';
+require('pui-css-tooltips');
 
 class Tooltip extends React.Component {
   render() {

@@ -1,7 +1,7 @@
 const React = require('react');
 const types = React.PropTypes;
 import classnames from 'classnames';
-import 'pui-css-forms';
+require('pui-css-forms');
 
 class Checkbox extends React.Component {
   static propTypes = {

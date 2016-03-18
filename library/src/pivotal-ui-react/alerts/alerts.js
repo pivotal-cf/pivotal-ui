@@ -2,8 +2,7 @@ var React = require('react');
 var types = React.PropTypes;
 var BsAlert = require('react-bootstrap/lib/Alert');
 var {Media} = require('pui-react-media');
-import 'pui-css-alerts';
-import 'pui-css-iconography';
+require('pui-css-alerts');
 
 class Alert extends React.Component{
   constructor(props, context) {

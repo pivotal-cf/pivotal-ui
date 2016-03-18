@@ -3,7 +3,7 @@ import React from 'react';
 import mixin from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
 import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect'
-import 'pui-css-collapse';
+require('pui-css-collapse');
 
 const types = React.PropTypes;
 

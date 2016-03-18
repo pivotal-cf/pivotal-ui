@@ -1,7 +1,7 @@
 var React = require('react');
 import classnames from 'classnames';
 import uniqueid from 'lodash.uniqueid';
-import 'pui-css-dropdowns';
+require('pui-css-dropdowns');
 
 const types = React.PropTypes;
 

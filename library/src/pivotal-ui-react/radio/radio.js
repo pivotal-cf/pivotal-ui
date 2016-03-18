@@ -1,6 +1,6 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-forms';
+require('pui-css-forms');
 
 class Radio extends React.Component {
   static propTypes = {

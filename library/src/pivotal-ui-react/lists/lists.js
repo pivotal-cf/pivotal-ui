@@ -1,6 +1,6 @@
 var React = require('react');
 import classnames from 'classnames';
-import 'pui-css-lists';
+require('pui-css-lists');
 
 class ListItem extends React.Component {
   render() {

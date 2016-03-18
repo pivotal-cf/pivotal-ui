@@ -3,9 +3,7 @@ import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 import {Panel} from 'pui-react-panels';
 const React = require('react');
-import 'pui-css-collapse';
-import 'pui-css-iconography';
-import 'pui-css-dividers';
+require('pui-css-collapse');
 
 const types = React.PropTypes;
 

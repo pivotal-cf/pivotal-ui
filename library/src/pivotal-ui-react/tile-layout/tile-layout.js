@@ -1,7 +1,7 @@
 const React = require('react');
 const classnames = require('classnames');
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-tile-layout';
+require('pui-css-tile-layout');
 
 var types = React.PropTypes;
 

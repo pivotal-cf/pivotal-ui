@@ -10,7 +10,7 @@ import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 var scrollIntoView = require('scroll-into-view');
 var TrieSearch = require('trie-search');
 
-import 'pui-css-autocomplete';
+require('pui-css-autocomplete');
 
 var types = React.PropTypes;
 

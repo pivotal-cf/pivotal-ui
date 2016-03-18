@@ -1,7 +1,7 @@
 const React = require('react');
 import uniqueid from 'lodash.uniqueid';
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-forms';
+require('pui-css-forms');
 const types = React.PropTypes;
 
 class Toggle extends React.Component {

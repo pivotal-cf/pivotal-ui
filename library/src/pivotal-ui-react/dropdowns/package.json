@@ -5,9 +5,6 @@
   "dependencies": {
     "react-bootstrap": "0.28.3",
     "pui-css-dropdowns": "^4.0.1",
-    "pui-css-iconography": "^4.0.1",
-    "pui-css-buttons": "^4.0.1",
-    "pui-css-button-group": "^4.0.1",
     "classnames": "^2.1.2",
     "lodash.uniqueid": "^3.0.0"
   }

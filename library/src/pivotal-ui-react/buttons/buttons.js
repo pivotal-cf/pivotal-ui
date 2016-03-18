@@ -1,6 +1,6 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-buttons';
+require('pui-css-buttons');
 
 class UIButton extends React.Component{
   static propTypes = {

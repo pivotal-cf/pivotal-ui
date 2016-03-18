@@ -4,8 +4,7 @@ const sortBy = require('lodash.sortby');
 const types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
 import findindex from 'lodash.findindex';
-import 'pui-css-iconography';
-import 'pui-css-tables';
+require('pui-css-tables');
 
 export class TableHeader extends React.Component {
   static propTypes = {

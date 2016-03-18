@@ -1,7 +1,7 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
 const types = React.PropTypes;
-import 'pui-css-pagination';
+require('pui-css-pagination');
 
 class PaginationButton extends React.Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 var React = require('react');
 var classnames = require('classnames');
-import 'pui-css-media';
+require('pui-css-media');
 
 var types = React.PropTypes;
 

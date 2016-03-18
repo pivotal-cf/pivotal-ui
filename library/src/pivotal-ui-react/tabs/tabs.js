@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {SmallTabs} from './small_tabs';
 import MediaSize from './media-size';
 import mixin from 'pui-react-mixins';
-import 'pui-css-tabs';
+require('pui-css-tabs');
 import React from 'react';
 import uniqueid from 'lodash.uniqueid';
 

@@ -4,7 +4,7 @@ var {getScrollTop, setScrollTop} = require('./scroll-top');
 import {mergeProps} from 'pui-react-helpers';
 import mixin from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
-import 'pui-css-back-to-top';
+require('pui-css-back-to-top');
 
 class BackToTop extends mixin(React.Component).with(Animation) {
   constructor(props, context) {

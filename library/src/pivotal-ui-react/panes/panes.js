@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-panes';
+require('pui-css-panes');
 
 class BasePane extends React.Component {
   static propTypes = {

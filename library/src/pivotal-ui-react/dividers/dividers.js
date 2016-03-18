@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-dividers';
+require('pui-css-dividers');
 
 
 

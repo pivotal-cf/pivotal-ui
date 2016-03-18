@@ -3,7 +3,7 @@ const types = React.PropTypes;
 const classnames = require('classnames');
 const move = require('./move_helper');
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-lists';
+require('pui-css-lists');
 
 function preventDefault(e) {
   e.preventDefault();

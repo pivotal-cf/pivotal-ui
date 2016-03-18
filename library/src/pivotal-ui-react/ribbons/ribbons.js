@@ -1,6 +1,6 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
-import 'pui-css-ribbons';
+require('pui-css-ribbons');
 
 class Ribbon extends React.Component {
   render() {
