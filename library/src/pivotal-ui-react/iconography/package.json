@@ -1,11 +1,11 @@
 {
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "A React component for rendering Font Awesome icons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
     "react-fa": "^4.0.0",
-    "pui-css-iconography": "^4.0.0",
+    "pui-css-iconography": "^4.0.1",
     "object-assign": "^2.0.0"
   }
 }
