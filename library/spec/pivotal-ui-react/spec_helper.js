@@ -2,7 +2,7 @@ require('babel-polyfill');
 require('phantomjs-polyfill');
 require('./support/bluebird');
 require('./support/set_immediate');
-require('jasmine_dom_matchers');
+require('pivotal-js-jasmine-matchers');
 
 global.React = require('react');
 global.ReactDOM = require('react-dom');
@@ -19,22 +19,8 @@ Object.assign(global, {
   MockPromises,
   $: jQuery,
   MockRaf,
-  ...require('./support/react_matchers')
+  ...require('pivotal-js-react-test-helpers')
 });
-
-$.fn.simulate = function(eventName, ...args) {
-  if (!this.length) {
-    throw new Error(`jQuery Simulate has an empty selection for '${this.selector}'`);
-  }
-  $.each(this, function() {
-    if (['mouseOver', 'mouseOut', 'click'].indexOf(eventName) !== -1) {
-      TestUtils.SimulateNative[eventName](this, ...args);
-    } else {
-      TestUtils.Simulate[eventName](this, ...args);
-    }
-  });
-  return this;
-};
 
 global.shallowRender = function shallowRender(jsx) {
   const shallowRenderer = TestUtils.createRenderer();

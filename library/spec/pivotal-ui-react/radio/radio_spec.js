@@ -1,4 +1,5 @@
 require('../spec_helper');
+const TestUtils = require('react-addons-test-utils');
 
 describe('Radio', function() {
   let Radio;
@@ -50,7 +51,7 @@ describe('Radio', function() {
 
     describe('changing the value of the radio button', function() {
       it('triggers the onChange callback', function() {
-        $('#root .radio label :radio').simulate('click');
+        TestUtils.SimulateNative.click($('.radio label :radio')[0]);
         expect(changeSpy).toHaveBeenCalled();
       });
     });
@@ -131,7 +132,7 @@ describe('RadioGroup', function() {
 
     describe('when the radio button is changed', function() {
       beforeEach(function() {
-        $('.radio-group :radio:eq(0)').simulate('click');
+        TestUtils.SimulateNative.click($('.radio-group :radio')[0]);
       });
 
       it('calls the change callback', function() {

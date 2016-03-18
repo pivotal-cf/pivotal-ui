@@ -1,5 +1,6 @@
 require('../spec_helper');
 var Toggle = require('../../../src/pivotal-ui-react/toggle/toggle').Toggle;
+const TestUtils = require('react-addons-test-utils');
 
 describe('Toggle', () => {
   const onChangeSpy = jasmine.createSpy('onChange');
@@ -16,7 +17,7 @@ describe('Toggle', () => {
   });
 
   it('calls the onChange callback on click', () => {
-    $('#boggle').simulate('click');
+    TestUtils.SimulateNative.click($('#boggle')[0]);
     expect(onChangeSpy).toHaveBeenCalled();
   });
 
@@ -51,10 +52,10 @@ describe('Toggle', () => {
       const switch1 = $('.toggle-switch')[0].id;
       const switch2 = $('.toggle-switch')[1].id;
 
-      $(`#${switch1}`).simulate('click');
+      TestUtils.SimulateNative.click($(`#${switch1}`)[0]);
       expect(onChangeSpy1).toHaveBeenCalled();
 
-      $(`#${switch2}`).simulate('click');
+      TestUtils.SimulateNative.click($(`#${switch2}`)[0]);
       expect(onChangeSpy2).toHaveBeenCalled();
     });
   });
