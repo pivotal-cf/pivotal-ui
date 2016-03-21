@@ -17,7 +17,7 @@ describe('Toggle', () => {
   });
 
   it('calls the onChange callback on click', () => {
-    TestUtils.SimulateNative.click($('#boggle')[0]);
+    $('#boggle').simulateNative('click');
     expect(onChangeSpy).toHaveBeenCalled();
   });
 
@@ -52,10 +52,10 @@ describe('Toggle', () => {
       const switch1 = $('.toggle-switch')[0].id;
       const switch2 = $('.toggle-switch')[1].id;
 
-      TestUtils.SimulateNative.click($(`#${switch1}`)[0]);
+      $(`#${switch1}`).simulateNative('click');
       expect(onChangeSpy1).toHaveBeenCalled();
 
-      TestUtils.SimulateNative.click($(`#${switch2}`)[0]);
+      $(`#${switch2}`).simulateNative('click');
       expect(onChangeSpy2).toHaveBeenCalled();
     });
   });

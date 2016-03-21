@@ -51,7 +51,7 @@ describe('Radio', function() {
 
     describe('changing the value of the radio button', function() {
       it('triggers the onChange callback', function() {
-        TestUtils.SimulateNative.click($('.radio label :radio')[0]);
+        $('.radio label :radio').simulateNative('click');
         expect(changeSpy).toHaveBeenCalled();
       });
     });
@@ -132,7 +132,7 @@ describe('RadioGroup', function() {
 
     describe('when the radio button is changed', function() {
       beforeEach(function() {
-        TestUtils.SimulateNative.click($('.radio-group :radio')[0]);
+        $('.radio-group :radio:eq(0)').simulateNative('click');
       });
 
       it('calls the change callback', function() {
