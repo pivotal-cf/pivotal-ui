@@ -1,9 +1,9 @@
 {
-  "version": "4.0.2",
+  "version": "4.0.3",
   "description": "A React component that provides styled radio buttons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-forms": "^4.0.2",
-    "pui-react-helpers": "^4.0.2"
+    "pui-css-forms": "^4.0.3",
+    "pui-react-helpers": "^4.0.3"
   }
 }

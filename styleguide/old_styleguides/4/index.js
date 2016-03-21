@@ -57519,7 +57519,7 @@
 	var BasePane = global.BasePane || __webpack_require__(610).BasePane;
 	var Button = global.DefaultButton || __webpack_require__(613).DefaultButton;
 	var TileLayout = global.TileLayout || __webpack_require__(618);
-	var TileLayoutItem = global.TileLayout || __webpack_require__(618);
+	var TileLayoutItem = global.TileLayoutItem || __webpack_require__(618);
 
 	var IntroPage = React.createClass({
 	                displayName: 'IntroPage',
