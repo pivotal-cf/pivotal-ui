@@ -1,17 +1,13 @@
 import autocomplete from 'pui-react-autocomplete';
-import TileLayout from 'pui-react-tile-layout';
+import buttons from 'pui-react-buttons';
+import dropdowns from 'pui-react-dropdowns';
+import lists from 'pui-react-lists';
+import panels from 'pui-react-panels';
+import tileLayout from 'pui-react-tile-layout';
 
 module.exports = {
   BasePane: require('pui-react-panes').BasePane,
   Pane: require('pui-react-panes').Pane,
-
-  UIButton: require('pui-react-buttons').UIButton,
-  DefaultButton: require('pui-react-buttons').DefaultButton,
-  DefaultAltButton: require('pui-react-buttons').DefaultAltButton,
-  LowlightButton: require('pui-react-buttons').LowlightButton,
-  DangerButton: require('pui-react-buttons').DangerButton,
-  HighlightButton: require('pui-react-buttons').HighlightButton,
-  HighlightAltButton: require('pui-react-buttons').HighlightAltButton,
 
   Checkbox: require('pui-react-checkbox').Checkbox,
   Input: require('pui-react-inputs').Input,
@@ -27,15 +23,6 @@ module.exports = {
 
   Radio: require('pui-react-radio').Radio,
   RadioGroup: require('pui-react-radio').RadioGroup,
-
-  Panel: require('pui-react-panels').Panel,
-  SimplePanel: require('pui-react-panels').SimplePanel,
-  ClickablePanel: require('pui-react-panels').ClickablePanel,
-  ClickableAltPanel: require('pui-react-panels').ClickableAltPanel,
-  BasicPanel: require('pui-react-panels').BasicPanel,
-  BasicPanelAlt: require('pui-react-panels').BasicPanelAlt,
-  ShadowPanel: require('pui-react-panels').ShadowPanel,
-  HighlightPanel: require('pui-react-panels').HighlightPanel,
 
   Image: require('pui-react-images').Image,
 
@@ -53,26 +40,6 @@ module.exports = {
   Tab: require('pui-react-tabs').Tab,
   Tabs: require('pui-react-tabs').Tabs,
   LeftTabs: require('pui-react-tabs').LeftTabs,
-
-  UnorderedList: require('pui-react-lists').UnorderedList,
-  OrderedList: require('pui-react-lists').OrderedList,
-  InlineList: require('pui-react-lists').InlineList,
-  GroupList: require('pui-react-lists').GroupList,
-  GroupListInverse: require('pui-react-lists').GroupListInverse,
-  StepList: require('pui-react-lists').StepList,
-  BreadcrumbList: require('pui-react-lists').BreadcrumbList,
-  ListItem: require('pui-react-lists').ListItem,
-  DraggableList: require('pui-react-draggable-list').DraggableList,
-  DraggableListItem: require('pui-react-draggable-list').DraggableListItem,
-
-  Dropdown: require('pui-react-dropdowns').Dropdown,
-  DropdownItem: require('pui-react-dropdowns').DropdownItem,
-  LinkDropdown: require('pui-react-dropdowns').LinkDropdown,
-  DefaultAltDropdown: require('pui-react-dropdowns').DefaultAltDropdown,
-  DangerDropdown: require('pui-react-dropdowns').DangerDropdown,
-  HighlightAltDropdown: require('pui-react-dropdowns').HighlightAltDropdown,
-  HighlightDropdown: require('pui-react-dropdowns').HighlightDropdown,
-  LowlightDropdown: require('pui-react-dropdowns').LowlightDropdown,
 
   Notifications: require('pui-react-notifications').Notifications,
   AlertNotifications: require('pui-react-notifications').AlertNotifications,
@@ -105,7 +72,11 @@ module.exports = {
   TableCell: require('pui-react-table').TableCell,
   TableRow: require('pui-react-table').TableRow,
   ...autocomplete,
+  ...buttons,
+  ...dropdowns,
+  ...lists,
+  ...panels,
   ...selectFancy,
-  TileLayout: TileLayout,
+  ...tileLayout,
 
   Pagination: require('pui-react-pagination').Pagination};
