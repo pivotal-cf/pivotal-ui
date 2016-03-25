@@ -1,11 +1,11 @@
 {
-  "version": "4.0.4",
+  "version": "4.0.5",
   "description": "React components to display flash messages to the user",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-bootstrap": "0.28.3",
-    "pui-css-alerts": "^4.0.4",
-    "pui-css-iconography": "^4.0.4",
-    "pui-react-media": "^4.0.4"
+    "pui-css-alerts": "^4.0.5",
+    "pui-css-iconography": "^4.0.5",
+    "pui-react-media": "^4.0.5"
   }
 }
