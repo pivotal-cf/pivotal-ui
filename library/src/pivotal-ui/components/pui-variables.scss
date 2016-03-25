@@ -302,7 +302,7 @@ $headings-font-weight:    400 !default;
 $former-headings-line-height: 1.5;
 $headings-line-height:    1.286 !default;
 $headings-padding:        1em * ($former-headings-line-height - $headings-line-height) / 2;
-$headings-color:          $dark-2;
+$headings-color:          null;
 
 //TODO: create a mixin that will determine multiplers based on px-size
 $font-size-h1:            31px;
