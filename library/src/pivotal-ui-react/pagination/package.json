@@ -1,9 +1,9 @@
 {
-  "version": "4.0.5",
+  "version": "4.0.6",
   "description": "React components that provide pagination buttons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-pagination": "^4.0.5",
-    "pui-react-helpers": "^4.0.5"
+    "pui-css-pagination": "^4.0.6",
+    "pui-react-helpers": "^4.0.6"
   }
 }
