@@ -145,6 +145,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     const tetherProps = {
       attachment: TETHER_PLACEMENTS[placement],
       constraints: pin ? [{ to: 'window', attachment: 'together' }] : [],
+      optimizations: pin ? {} : {gpu: false},
       classes: {'target-attached': 'overlay-placement'}
     };
 
