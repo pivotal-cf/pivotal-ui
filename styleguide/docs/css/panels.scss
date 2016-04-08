@@ -159,11 +159,11 @@ parent: panel
 /*doc
 ---
 title: Panel with Loading Animation
-name: 04_panel_loading
+name: 04_panel_loading_indicator
 parent: panel
 ---
 
-Add a loading animation to a panel with the class `panel-loading`. The animation is intended for panels that utilize
+Add a loading animation to a panel with the class `panel-loading-indicator`. The animation is intended for panels that utilize
 `panel-header` and `panel-body`.
 
 ```html_example
@@ -172,8 +172,8 @@ Add a loading animation to a panel with the class `panel-loading`. The animation
     <div class="panel-title-alt">Basic Title Alt</div>
   </div>
   <div class="panel-body">
-    <div class="panel-loading"></div>
-    Basic Panel
+    <div class="panel-loading-indicator"></div>
+    Look, I'm loading!
   </div>
 </div>
 ```
