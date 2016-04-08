@@ -61,6 +61,7 @@ gulp.task('css-build-variables-and-mixins-package', function() {
         'pivotal ui',
         'pivotal ui modularized'
       ],
+      license: 'MIT',
       author: 'Pivotal Software, Inc',
       bugs: {
         url: 'https://github.com/pivotal-cf/pivotal-ui/issues'
