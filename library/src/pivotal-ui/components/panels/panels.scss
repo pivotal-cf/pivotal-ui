@@ -18,6 +18,8 @@
 .panel-body {
   flex: 1 0 auto;
   align-self: auto;
+  min-height: 40px;
+  position: relative;
 }
 
 .panel-footer {
@@ -115,7 +117,48 @@
   }
 }
 
+//Animation Panel Loading
+.panel-loading {
+  position: absolute;
+  top: -3px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  overflow: hidden;
+  &:after {
+    content: "";
+    position: absolute;
+    right: 100%;
+    width: 40%;
+    height: 3px;
+    background-color: $navy-7;
+    animation: panel-loading-slide 1s infinite ease-out;
+  }
+  &:before {
+    content: "";
+    position: absolute;
+    right: 100%;
+    width: 40%;
+    height: 3px;
+    background-color: $navy-7;
+    animation: panel-loading-slide 1s infinite ease-out;
+    animation-delay: .4s;
+  }
+}
 
+@keyframes panel-loading-slide {
+  0% {
+    right: 100%;
+    width: 40%;
+    opacity:1;
+  }
+  100% {
+    right: -2%;
+    width: 2%;
+    opacity:.2;
+  }
+}
 
 .panel-scrollable {
   max-height: 183px;

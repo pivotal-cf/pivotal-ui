@@ -24,7 +24,7 @@ Panels are typically a combination of contours, backgrounds, and content includi
 /*doc
 ---
 title: Simple
-name: panel_simple
+name: 00_panel_simple
 parent: panel
 ---
 
@@ -41,7 +41,7 @@ parent: panel
 /*doc
 ---
 title: Basic
-name: panel_basic
+name: 01_panel_basic
 parent: panel
 ---
 
@@ -69,7 +69,7 @@ By default, all the .panel does is apply a basic shadow and padding to contain s
 /*doc
 ---
 title: Basic Alternate
-name: panel_basic_alt
+name: 02_panel_basic_alt
 parent: panel
 ---
 
@@ -97,7 +97,7 @@ Basic alternate panels are panels with a border and shadow. You can have a panel
 /*doc
 ---
 title: Panel with Footer
-name: panel_footer
+name: 03_panel_footer
 parent: panel
 ---
 
@@ -158,8 +158,32 @@ parent: panel
 
 /*doc
 ---
+title: Panel with Loading Animation
+name: 04_panel_loading
+parent: panel
+---
+
+Add a loading animation to a panel with the class `panel-loading`. The animation is intended for panels that utilize
+`panel-header` and `panel-body`.
+
+```html_example
+<div class="panel panel-basic-alt">
+  <div class="panel-header">
+    <div class="panel-title-alt">Basic Title Alt</div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-loading"></div>
+    Basic Panel
+  </div>
+</div>
+```
+
+*/
+
+/*doc
+---
 title: Panel Tile
-name: panel_tile
+name: 05_panel_tile
 parent: panel
 ---
 
@@ -186,7 +210,7 @@ Tile panels provide an animated footer on hover, at the bottom of a fixed-height
 /*doc
 ---
 title: Scrollable
-name: panel_scrollable
+name: 06_panel_scrollable
 parent: panel
 ---
 
@@ -205,7 +229,7 @@ The scrollable panel sets a fixed height of 183px and scrolls any content that i
 /*doc
 ---
 title: Highlight
-name: panel_highlight
+name: 07_panel_highlight
 parent: panel
 ---
 
@@ -224,7 +248,7 @@ This panel is used to highlight more important parts of the page.
 /*doc
 ---
 title: Alternate
-name: panel_alt
+name: 08_panel_alt
 parent: panel
 ---
 
@@ -267,7 +291,7 @@ Alternate panels can be in a default, off, or danger state.
 /*doc
 ---
 title: Shadow
-name: panel_shadow
+name: 09_panel_shadow
 parent: panel
 ---
 
@@ -304,7 +328,7 @@ Shadow panels add a bottom shadow to the panel.
 /*doc
 ---
 title: Card
-name: panel_card
+name: 10_panel_card
 parent: panel
 ---
 
@@ -336,7 +360,7 @@ Using panels with [card lists][list_cards] makes any `.panel-body` have a minimu
 /*doc
 ---
 title: Clickable
-name: panel_clickable
+name: 11_panel_clickable
 parent: panel
 ---
 
