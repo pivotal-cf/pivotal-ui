@@ -1,10 +1,10 @@
 {
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "A React component for showing a dynamically growing list of items",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-react-buttons": "^4.0.6",
-    "pui-react-lists": "^4.0.6",
-    "pui-react-mixins": "^4.0.6"
+    "pui-react-buttons": "^4.0.7",
+    "pui-react-lists": "^4.0.7",
+    "pui-react-mixins": "^4.0.7"
   }
 }

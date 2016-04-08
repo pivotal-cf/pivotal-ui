@@ -1,10 +1,10 @@
 {
-  "version": "4.0.6",
+  "version": "4.0.7",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "react-bootstrap": "0.28.3",
-    "pui-css-dropdowns": "^4.0.6",
+    "pui-css-dropdowns": "^4.0.7",
     "classnames": "^2.1.2",
     "lodash.uniqueid": "^3.0.0"
   }
