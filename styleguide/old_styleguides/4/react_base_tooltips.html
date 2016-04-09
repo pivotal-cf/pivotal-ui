@@ -251,7 +251,9 @@ this is where the <code class="styleguide">Tooltip</code> can be used.</p><p cla
 <td>action to trigger showing overlay</td>
 </tr>
  </table><p class="styleguide">If <code class="styleguide">trigger</code> is set to <code class="styleguide">manual</code>, display of the tooltip is entirely determined by the <code class="styleguide">display</code> prop,
-which is controlled by the end user and not by <code class="styleguide">OverlayTrigger</code>.</p>        </section>
+which is controlled by the end user and not by <code class="styleguide">OverlayTrigger</code>.</p><p class="styleguide"><strong>Note</strong> <code class="styleguide">OverlayTrigger</code> will automatically move your tooltip if it is being rendered off the window.
+This has the side effect of rendering tooltips behind modals.
+If you want a tooltip to be rendered above a modal, you must set the <code class="styleguide">pin</code> prop to <code class="styleguide">false</code></p>        </section>
         <footer>
           <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
         </footer>

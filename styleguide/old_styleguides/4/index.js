@@ -77995,6 +77995,7 @@
 	      var tetherProps = {
 	        attachment: TETHER_PLACEMENTS[placement],
 	        constraints: pin ? [{ to: 'window', attachment: 'together' }] : [],
+	        optimizations: pin ? {} : { gpu: false },
 	        classes: { 'target-attached': 'overlay-placement' }
 	      };
 

@@ -1,11 +1,11 @@
 {
-  "version": "4.0.7",
+  "version": "4.0.8",
   "description": "React Back to Top component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-back-to-top": "^4.0.7",
-    "pui-react-helpers": "^4.0.7",
-    "pui-react-mixins": "^4.0.7",
+    "pui-css-back-to-top": "^4.0.8",
+    "pui-react-helpers": "^4.0.8",
+    "pui-react-mixins": "^4.0.8",
     "lodash.throttle": "^3.0.2"
   }
 }
