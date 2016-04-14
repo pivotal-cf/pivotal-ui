@@ -48,7 +48,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   componentWillReceiveProps({display}) {
-    if(display !== this.props.display) this.setDisplay(display);
+    if (display !== this.props.display) this.setDisplay(display);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -144,8 +144,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
     const tetherProps = {
       attachment: TETHER_PLACEMENTS[placement],
-      constraints: pin ? [{ to: 'window', attachment: 'together' }] : [],
-      optimizations: pin ? {} : {gpu: false},
+      constraints: pin ? [{to: 'window', attachment: 'together'}] : [],
       classes: {'target-attached': 'overlay-placement'}
     };
 

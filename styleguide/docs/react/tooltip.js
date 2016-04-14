@@ -76,10 +76,6 @@ The `OverlayTrigger` component accepts the following properties:
 If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
 which is controlled by the end user and not by `OverlayTrigger`.
 
-**Note** `OverlayTrigger` will automatically move your tooltip if it is being rendered off the window.
-This has the side effect of rendering tooltips behind modals.
-If you want a tooltip to be rendered above a modal, you must set the `pin` prop to `false`
-
 */
 
 

@@ -22,9 +22,12 @@
   }
 }
 
+.tether-element {
+  z-index: $zindex-tooltip;
+}
+
 .pui-tooltip {
   position: relative;
-  z-index: $zindex-tooltip;
   font-size: $font-size-small;
 
   .overlay-placement-top & {

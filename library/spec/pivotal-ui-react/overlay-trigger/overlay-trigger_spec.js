@@ -72,9 +72,6 @@ describe('OverlayTrigger', function() {
         subject::setProps({placement: 'right'});
         expect('.launcher').toHaveClass('overlay-placement-right');
       });
-      it('does not use transforms for positioning if pin is false', () => {
-        expect('.tether-element').toHaveCss({transform: 'none'})
-      });
     });
 
     describe('callbacks', () => {
