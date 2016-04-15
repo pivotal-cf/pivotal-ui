@@ -1,10 +1,26 @@
 @import "../pui-variables";
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
-
-
 .dropdown {
   display: inline-block;
+
+  &.split .caret {
+    margin-left: 0;
+  }
+
+  .caret {
+    margin-left: 3px;
+  }
+
+  &, &.open {
+    .dropdown-label.btn-danger, .dropdown-toggle.btn-danger {
+      border-color: transparent;
+
+      &:hover, &:active {
+        border-color: transparent;
+      }
+    }
+  }
 }
 
 .dropdown-menu {
@@ -33,7 +49,6 @@
     }
   }
 }
-
 
 .dropdown-notifications-none {
   width: 200px;

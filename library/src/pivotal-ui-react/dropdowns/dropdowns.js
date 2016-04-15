@@ -1,61 +1,113 @@
-var React = require('react');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import classnames from 'classnames';
 import uniqueid from 'lodash.uniqueid';
+
+import mixin from 'pui-react-mixins';
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
+
 require('pui-css-dropdowns');
 
 const types = React.PropTypes;
 
-var BsDropdown = require('react-bootstrap/lib/Dropdown');
+const DEFAULT_KIND = 'btn-default';
+const DEFAULT_TOGGLE = <span className="caret"/>;
 
-function defDropdown(props) {
-  return class extends React.Component {
-    static propTypes = {
-      border: types.bool,
-      bsStyle: types.any,
-      buttonClassName: types.string,
-      id: types.oneOfType([types.string, types.number]),
-      split: types.bool,
-      style: types.any,
-      title: types.node,
-      toggle: types.node
-    };
-
-    render = function render() {
-      const {border, buttonClassName, children, style, title, split, toggle, ...others} = this.props;
-      let {id} = others;
-      const {buttonClassName: defaultBtnClassName, bsStyle} = props;
-
-      const bsClass = bsStyle ? `btn-${bsStyle}` : null;
-      const btnClass = classnames(buttonClassName, defaultBtnClassName, 'btn', bsClass);
-      const borderClass = border ? 'dropdown-border' : null;
-      if (!id) {
-        id = uniqueid('dropdown');
-      }
-
-      let dropdownLabel, dropdownToggleContent;
-
-      if (split || toggle) {
-        dropdownLabel = (
-          <div className={classnames('dropdown-label', btnClass)}>{title}</div>
-        );
-        dropdownToggleContent = toggle;
-      } else {
-        dropdownToggleContent = title;
-      }
-
-      return (
-        <BsDropdown {...others} id={id}>
-          {dropdownLabel}
-          <BsDropdown.Toggle className={btnClass} noCaret={!!toggle} bsStyle={bsStyle} style={style}>
-            {dropdownToggleContent}
-          </BsDropdown.Toggle>
-          <BsDropdown.Menu className={borderClass}>
-            {children}
-          </BsDropdown.Menu>
-        </BsDropdown>
-      );
+class Dropdown extends mixin(React.Component).with(Scrim) {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      isOpen: false
     };
   }
+
+  static propTypes = {
+    buttonClassName: types.string,
+    disableScrim: types.bool,
+    id: types.oneOfType([types.string, types.number]),
+    split: types.bool,
+    style: types.any,
+    title: types.node,
+    toggle: types.node
+  };
+
+  static defaultProps = {
+    disableScrim: false
+  };
+
+  click = () => {
+    this.setState({isOpen: !this.state.isOpen});
+  };
+
+  scrimClick = () => {
+    this.setState({isOpen: false});
+  };
+
+  render() {
+    const {buttonClassName, children, className, id, kind, split, style, title, toggle} = this.props;
+    const {isOpen} = this.state;
+
+    let buttonKind, dropdownLabel, dropdownToggle, dropdownMenu, toggleNode;
+
+    buttonKind = kind ? `btn-${kind}` : DEFAULT_KIND;
+    toggleNode = toggle ? toggle : DEFAULT_TOGGLE;
+
+    const buttonStyleClasses = classnames('btn', buttonKind, buttonClassName);
+    dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
+    dropdownToggle = (
+      <button id={id} style={style} onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+        {!split ? title : null}
+        {toggleNode}
+      </button>
+    );
+
+    dropdownMenu = isOpen ? <ul className="dropdown-menu">{children}</ul> : null;
+
+    const dropdownClasses = classnames('dropdown', 'btn-group', {open: isOpen}, {split: split}, className);
+    return (
+      <div className={dropdownClasses}>
+        {dropdownLabel}
+        {dropdownToggle}
+        {dropdownMenu}
+      </div>
+    );
+  };
+}
+
+class LinkDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'link'
+  };
+}
+
+class DefaultAltDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'default-alt'
+  };
+}
+
+class LowlightDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'lowlight'
+  };
+}
+
+class DangerDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'danger'
+  };
+}
+
+class HighlightDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'highlight'
+  };
+}
+
+class HighlightAltDropdown extends Dropdown {
+  static defaultProps = {
+    kind: 'highlight-alt'
+  };
 }
 
 class DropdownItem extends React.Component {
@@ -109,19 +161,12 @@ class DropdownItem extends React.Component {
 }
 
 module.exports = {
-  Dropdown: defDropdown({buttonClassName: 'btn-default'}),
-
-  DropdownItem: DropdownItem,
-
-  LinkDropdown: defDropdown({bsStyle: 'link'}),
-
-  DefaultAltDropdown: defDropdown({buttonClassName: 'btn-default-alt', bsStyle: null}),
-
-  LowlightDropdown: defDropdown({buttonClassName: 'btn-lowlight', bsStyle: null}),
-
-  DangerDropdown: defDropdown({bsStyle: 'danger'}),
-
-  HighlightDropdown: defDropdown({buttonClassName: 'btn-highlight', bsStyle: null}),
-
-  HighlightAltDropdown: defDropdown({buttonClassName: 'btn-highlight-alt', bsStyle: null})
+  Dropdown,
+  DropdownItem,
+  LinkDropdown,
+  DefaultAltDropdown,
+  HighlightAltDropdown,
+  HighlightDropdown,
+  DangerDropdown,
+  LowlightDropdown
 };
