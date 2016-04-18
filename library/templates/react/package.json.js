@@ -21,7 +21,7 @@ var packageTemplate = function(name, {dependencies: dependencyOverrides, ...over
     },
     homepage: "https://github.com/pivotal-cf/pivotal-ui",
     peerDependencies: {
-      react: '^0.14.0'
+      react: '>=0.14.0'
     },
     dependencies: {
       'babel-runtime': '^6.1.18',

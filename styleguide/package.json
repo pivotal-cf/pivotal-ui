@@ -88,7 +88,7 @@
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",
     "pui-react-toggle": "file:../library/dist/react/toggle",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
-    "react": "^0.14.2",
+    "react": "^15.0.1",
     "zeroclipboard": "^2.1.6"
   },
   "devDependencies": {
@@ -130,7 +130,7 @@
     "phantomjs": "^1.9.17",
     "phantomjs-polyfill": "0.0.2",
     "prismjs": "^1.3.0",
-    "react-dom": "^0.14.2",
+    "react-dom": "^15.0.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
     "stream-reduce": "^1.0.3",
@@ -139,8 +139,5 @@
     "vinyl-file": "^2.0.0",
     "webpack": "^1.12.2",
     "webpack-stream": "^3.1.0"
-  },
-  "peerDependencies": {
-    "react": "^0.14.0"
   }
 }

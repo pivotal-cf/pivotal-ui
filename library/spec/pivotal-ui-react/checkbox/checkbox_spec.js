@@ -25,7 +25,8 @@ describe('Checkbox', function() {
   });
 
   it('passes properties through to the input', () => {
-    subject::setProps({checked: true});
+    ReactDOM.unmountComponentAtNode(root);
+    subject::setProps({checked: true, onChange: () => {}});
     expect(inputPath).toBeChecked();
   });
 

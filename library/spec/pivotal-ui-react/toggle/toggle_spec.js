@@ -62,7 +62,8 @@ describe('Toggle', () => {
 
   describe('when the checked property is passed', function() {
     beforeEach(function() {
-      ReactDOM.render(<Toggle id='toggle-switch' checked/>, root);
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render(<Toggle id='toggle-switch' checked onChange={() => {}}/>, root);
     });
 
     it('renders a checked toggle switch', function() {

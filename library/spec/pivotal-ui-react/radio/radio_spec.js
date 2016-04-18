@@ -22,25 +22,12 @@ describe('Radio', function() {
   });
 
   describe('when the checked property is passed', function() {
-    beforeEach(function() {
-      ReactDOM.render(
-        <Radio value="1" name="bananas" checked onChange={jasmine.createSpy('change')}>
-          One!!!
-        </Radio>, root);
-    });
-
-    it('renders a checked radio', function() {
-      expect('#root .radio label :radio[name=bananas]').toBeChecked();
-    });
-  });
-
-  describe('when the defaultChecked property is passed', function() {
-    var changeSpy;
+    let changeSpy;
 
     beforeEach(function() {
       changeSpy = jasmine.createSpy('change');
       ReactDOM.render(
-        <Radio value="1" name="bananas" onChange={changeSpy} defaultChecked>
+        <Radio value="1" name="bananas" checked onChange={changeSpy}>
           One!!!
         </Radio>, root);
     });
@@ -55,6 +42,22 @@ describe('Radio', function() {
         expect(changeSpy).toHaveBeenCalled();
       });
     });
+  });
+
+  describe('when the defaultChecked property is passed', function() {
+
+    beforeEach(function() {
+      ReactDOM.render(
+        <Radio value="1" name="bananas" defaultChecked>
+          One!!!
+        </Radio>, root);
+    });
+
+    it('renders a checked radio', function() {
+      expect('#root .radio label :radio[name=bananas]').toBeChecked();
+    });
+
+
   });
 
   describe('when className and style are passed', () => {
