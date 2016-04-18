@@ -1,8 +1,7 @@
-<a name="4.0.8"></a>
-## 4.0.8 (2016-04-09)
+<a name="4.0.9"></a>
+## 4.0.9 (2016-04-18)
 
 
-### Features
+### Bug Fixes
 
-* **panels:** Add panel loading animation, using panel-loading-indicator class ([d9d58f1](https://github.com/pivotal-cf/pivotal-ui/commit/d9d58f1cc8df65f24e5a7f62465b26c36cca4200)) ([89e5938](https://github.com/pivotal-cf/pivotal-ui/commit/89e5938))
-
+* **Tooltip:** Fix Tooltips in Modals again ([c3f259f](https://github.com/pivotal-cf/pivotal-ui/commit/c3f259f)), closes [#116982039](https://github.com/pivotal-cf/pivotal-ui/issues/116982039)

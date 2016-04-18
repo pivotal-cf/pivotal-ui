@@ -1,8 +1,8 @@
 {
-  "version": "4.0.8",
+  "version": "4.0.9",
   "description": "A React component that provides an accordion for showing and hiding content where the toggle and the content can be in separate places",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-react-collapsible": "^4.0.8"
+    "pui-react-collapsible": "^4.0.9"
   }
 }
