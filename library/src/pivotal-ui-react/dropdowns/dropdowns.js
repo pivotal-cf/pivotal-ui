@@ -47,7 +47,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     const {buttonClassName, children, className, id, kind, split, style, title, toggle} = this.props;
     const {isOpen} = this.state;
 
-    let buttonKind, dropdownLabel, dropdownToggle, dropdownMenu, toggleNode;
+    let buttonKind, dropdownLabel, dropdownToggle, toggleNode;
 
     buttonKind = kind ? `btn-${kind}` : DEFAULT_KIND;
     toggleNode = toggle ? toggle : DEFAULT_TOGGLE;
@@ -61,14 +61,12 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
       </button>
     );
 
-    dropdownMenu = isOpen ? <ul className="dropdown-menu">{children}</ul> : null;
-
     const dropdownClasses = classnames('dropdown', 'btn-group', {open: isOpen}, {split: split}, className);
     return (
       <div className={dropdownClasses}>
         {dropdownLabel}
         {dropdownToggle}
-        {dropdownMenu}
+        <ul className="dropdown-menu">{children}</ul>
       </div>
     );
   };

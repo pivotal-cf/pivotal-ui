@@ -66,27 +66,26 @@ describe('Dropdowns', () => {
 
     describe('dropdown menu', () => {
       it('shows the children on click', () => {
-        expect('.dropdown-menu').not.toExist();
+        expect('.open .dropdown-menu').not.toExist();
         $('.dropdown-toggle').simulate('click');
-        expect('.dropdown-menu li').toHaveLength(1);
-        expect('.dropdown-menu li').toHaveText('Item #1');
+        expect('.open .dropdown-menu').toExist();
       });
 
       describe('hiding children', () => {
         it('hides when the toggle is clicked', () => {
           $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu').toExist();
+          expect('.open .dropdown-menu').toExist();
           $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu').not.toExist();
+          expect('.open .dropdown-menu').not.toExist();
         });
 
         it('hides when clicking outside the dropdown', () => {
           $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu').toExist();
+          expect('.open .dropdown-menu').toExist();
           const evt = document.createEvent('HTMLEvents');
           evt.initEvent('click', true, true );
           document.documentElement.dispatchEvent(evt);
-          expect('.dropdown-menu').not.toExist();
+          expect('.open .dropdown-menu').not.toExist();
         });
 
         describe('when scrim is disabled', () => {
@@ -94,11 +93,11 @@ describe('Dropdowns', () => {
             subject::setProps({disableScrim: true});
 
             $('.dropdown-toggle').simulate('click');
-            expect('.dropdown-menu').toExist();
+            expect('.open .dropdown-menu').toExist();
             const evt = document.createEvent('HTMLEvents');
             evt.initEvent('click', true, true );
             document.documentElement.dispatchEvent(evt);
-            expect('.dropdown-menu').toExist();
+            expect('.open .dropdown-menu').toExist();
           });
         });
       });
