@@ -22,9 +22,11 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   }
 
   static propTypes = {
+    border: types.bool,
     buttonClassName: types.string,
     disableScrim: types.bool,
     id: types.oneOfType([types.string, types.number]),
+    pullRight: types.bool,
     split: types.bool,
     style: types.any,
     title: types.node,
@@ -44,7 +46,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   };
 
   render() {
-    const {buttonClassName, children, className, id, kind, split, style, title, toggle} = this.props;
+    const {border, buttonClassName, children, className, id, kind, pullRight, split, style, title, toggle} = this.props;
     const {isOpen} = this.state;
 
     let buttonKind, dropdownLabel, dropdownToggle, toggleNode;
@@ -62,11 +64,12 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     );
 
     const dropdownClasses = classnames('dropdown', 'btn-group', {open: isOpen}, {split: split}, className);
+    const dropdownMenuClasses = classnames('dropdown-menu', {'dropdown-border': border}, {'dropdown-menu-right': pullRight});
     return (
       <div className={dropdownClasses}>
         {dropdownLabel}
         {dropdownToggle}
-        <ul className="dropdown-menu">{children}</ul>
+        <ul className={dropdownMenuClasses}>{children}</ul>
       </div>
     );
   };

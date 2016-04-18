@@ -101,6 +101,22 @@ describe('Dropdowns', () => {
           });
         });
       });
+
+      describe('when border is provided', () => {
+        it('has the border class', () => {
+          subject::setProps({border: true});
+          $('.dropdown-toggle').simulate('click');
+          expect('.dropdown-menu.dropdown-border').toExist();
+        });
+      });
+
+      describe('when pullRight is provided', () => {
+        it('has the pull right class', () => {
+          subject::setProps({pullRight: true});
+          $('.dropdown-toggle').simulate('click');
+          expect('.dropdown-menu.dropdown-menu-right').toExist();
+        })
+      })
     });
 
     describe('when title is provided', () => {

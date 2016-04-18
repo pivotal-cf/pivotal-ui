@@ -100,7 +100,7 @@ If you want a dropdown without a label, you can omit the `title` attribute.
 If you want a custom toggle trigger, you can pass the `toggle` attribute.
 
 ```react_example
-<DefaultAltDropdown split toggle={<div style={{color: 'darkgoldenrod'}}>&#9733;</div>} title='DropDown'>
+<DefaultAltDropdown toggle={<span style={{color: 'darkgoldenrod'}}>&#9733;</span>} title='DropDown'>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
   <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
