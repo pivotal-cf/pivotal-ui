@@ -59,6 +59,11 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     }
   }
 
+  componentWillUnmount() {
+    if(super.componentWillUnmount) super.componentWillUnmount();
+    clearTimeout(privates.get(this).timeout);
+  }
+
   triggerShow = (eventType) => {
     return (...args) => {
       this.show();

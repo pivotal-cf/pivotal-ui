@@ -152,6 +152,15 @@ describe('OverlayTrigger', function() {
         jasmine.clock().tick(2000);
         expect('.tooltip-text').not.toExist();
       });
+
+      it('cleans up callbacks when unmounted', () => {
+        subject::setProps({delay: 3000});
+        subject::setProps({display: true});
+        spyOn(subject, 'setState');
+        ReactDOM.unmountComponentAtNode(root);
+        jasmine.clock().tick(3000);
+        expect(subject.setState).not.toHaveBeenCalled();
+      });
     });
   });
 
