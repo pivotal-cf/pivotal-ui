@@ -6,6 +6,6 @@
     "pui-css-modals": "^4.0.9",
     "pui-css-typography": "^4.0.9",
     "pui-react-helpers": "^4.0.9",
-    "react-bootstrap": "0.28.3"
+    "react-bootstrap": "0.29.0"
   }
 }

@@ -6,6 +6,6 @@
     "classnames": "^2.2.0",
     "react-fa": "^4.0.0",
     "pui-css-iconography": "^4.0.9",
-    "object-assign": "^2.0.0"
+    "object-assign": "^4.0.0"
   }
 }

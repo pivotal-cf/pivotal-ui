@@ -4,7 +4,7 @@
   "dependencies": {
     "pui-react-mixins": "^4.0.9",
     "lodash.uniqueid": "^3.0.0",
-    "react-tether": "^0.3.3"
+    "react-tether": "^0.5.1"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react"
 }

@@ -5,7 +5,7 @@
     "fbjs": "^0.7.2",
     "pui-react-animation": "^0.2.0",
     "raf": "^3.1.0",
-    "react-addons-shallow-compare": "^0.14.7"
+    "react-addons-shallow-compare": ">=0.14.0"
   },
   "homepage": "http://styleguide.pivotal.io/react.html"
 }

@@ -9,6 +9,6 @@
     "pui-react-mixins": "^4.0.9",
     "pui-react-collapsible": "^4.0.9",
     "raf": "^3.1.0",
-    "react-bootstrap": "0.28.3"
+    "react-bootstrap": "0.29.0"
   }
 }
