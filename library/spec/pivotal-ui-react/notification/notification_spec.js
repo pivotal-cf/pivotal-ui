@@ -34,6 +34,8 @@ describe('Notification', function() {
           <NotificationItem href="my-fo-link">fo</NotificationItem>
           <NotificationItem href="my-fum-link">fum</NotificationItem>
         </Notifications>), root);
+
+      $('.dropdown-toggle').simulate('click');
     });
 
     it('passes through the className to the btn-group', function() {
@@ -85,7 +87,9 @@ describe('Notification', function() {
       expect('.dropdown-notifications-title .dropdown-notifications-badge').not.toExist();
     });
 
-    it('renders the no notification message', function() {
+    it('renders the no notification message on click', function() {
+      $('.dropdown-toggle').simulate('click');
+
       expect('.dropdown-menu .dropdown-notifications-none').toContainText('no notifications');
     });
   });
@@ -134,7 +138,9 @@ describe('Alert Notifications', function() {
       expect('.dropdown-notifications-title .dropdown-notifications-alert').toHaveClass('fa-exclamation-triangle');
     });
 
-    it('renders the children in a dropdown menu', function() {
+    it('renders the children in a dropdown menu on click', function() {
+      $('.dropdown-toggle').simulate('click');
+
       expect('.dropdown-menu a:eq(0)').toContainText('fee');
       expect('.dropdown-menu a:eq(0)').toHaveAttr('href', 'my-fee-link');
 
@@ -166,7 +172,9 @@ describe('Alert Notifications', function() {
       expect('.dropdown-notifications-title .dropdown-notifications-alert').not.toExist();
     });
 
-    it('renders the no notification message', function() {
+    it('renders the no notification message on click', function() {
+      $('.dropdown-toggle').simulate('click');
+
       expect('.dropdown-menu .dropdown-notifications-none').toContainText('no alerts');
     });
   });
