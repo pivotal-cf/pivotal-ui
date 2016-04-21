@@ -30,15 +30,17 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     split: types.bool,
     style: types.any,
     title: types.node,
-    toggle: types.node
+    toggle: types.node,
+    onClick: types.func
   };
 
   static defaultProps = {
     disableScrim: false
   };
 
-  click = () => {
+  click = (event) => {
     this.setState({isOpen: !this.state.isOpen});
+    this.props.onClick && this.props.onClick(event);
   };
 
   scrimClick = () => {
