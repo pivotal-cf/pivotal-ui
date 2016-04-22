@@ -1,5 +1,7 @@
 var React = require('react');
 import {mergeProps} from 'pui-react-helpers';
+import classnames from 'classnames';
+import uniqueId from 'lodash.uniqueid';
 require('pui-css-forms');
 
 class Radio extends React.Component {
@@ -16,15 +18,11 @@ class Radio extends React.Component {
   };
 
   render() {
-    const {className, style, children, disabled, ...others} = this.props;
-    const props = mergeProps({className: className, style: style}, {className: 'radio'});
-
+    const {className, style, children, disabled, id = uniqueId('radio'), ...others} = this.props;
     return (
-      <div {...props}>
-        <label className={disabled ? 'disabled' : ''}>
-          <input type="radio" disabled={disabled} aria-disabled={disabled} {...others} />
-          {children}
-        </label>
+      <div {...{className: classnames('radio', className), style}}>
+        <input type="radio" disabled={disabled} aria-disabled={disabled} {...{id}} {...others}/>
+        <label htmlFor={id} className={classnames({disabled})}>{children}</label>
       </div>
     );
   }

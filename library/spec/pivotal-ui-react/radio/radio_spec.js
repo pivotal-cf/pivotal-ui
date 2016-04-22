@@ -16,10 +16,20 @@ describe('Radio', function() {
       <Radio value="1" name="bananas" id="npr">
         One!!!
       </Radio>, root);
-    expect('#root .radio label :radio[name=bananas]').toHaveValue('1');
-    expect('#root .radio label').toContainText('One!!!');
-    expect('#root #npr:radio').toExist();
+    expect('.radio :radio[name=bananas]').toHaveValue('1');
+    expect('.radio label').toContainText('One!!!');
+    expect('#npr:radio').toExist();
   });
+
+  it('adds an id and sets the label for', () => {
+    ReactDOM.render(
+      <Radio value="1" name="bananas" id="npr">
+        One!!!
+      </Radio>, root);
+    expect('.radio :radio').toHaveAttr('id');
+    expect('.radio :radio + label').toHaveAttr('for', $('.radio').attr('id'));
+  });
+
 
   describe('when the checked property is passed', function() {
     let changeSpy;
@@ -33,12 +43,12 @@ describe('Radio', function() {
     });
 
     it('renders a checked radio', function() {
-      expect('#root .radio label :radio[name=bananas]').toBeChecked();
+      expect('.radio :radio[name=bananas]').toBeChecked();
     });
 
     describe('changing the value of the radio button', function() {
       it('triggers the onChange callback', function() {
-        $('.radio label :radio').simulateNative('click');
+        $('.radio :radio').simulateNative('click');
         expect(changeSpy).toHaveBeenCalled();
       });
     });
@@ -54,7 +64,7 @@ describe('Radio', function() {
     });
 
     it('renders a checked radio', function() {
-      expect('#root .radio label :radio[name=bananas]').toBeChecked();
+      expect('.radio :radio[name=bananas]').toBeChecked();
     });
 
 
@@ -68,8 +78,8 @@ describe('Radio', function() {
         </Radio>, root);
     });
     it('passes through className and style', () => {
-      expect('#root .radio').toHaveClass('radio-class');
-      expect('#root .radio').toHaveCss({opacity: '0.5'});
+      expect('.radio').toHaveClass('radio-class');
+      expect('.radio').toHaveCss({opacity: '0.5'});
     });
   });
 
@@ -84,12 +94,12 @@ describe('Radio', function() {
     });
 
     it('disables the radio button', () => {
-      expect('#root .radio label :radio').toHaveAttr('disabled');
-      expect('#root .radio label :radio').toHaveAttr('aria-disabled');
+      expect('.radio :radio').toHaveAttr('disabled');
+      expect('.radio :radio').toHaveAttr('aria-disabled');
     });
 
     it('gets the disabled class on the label', () => {
-      expect('#root .radio label').toHaveClass('disabled');
+      expect('.radio label').toHaveClass('disabled');
     });
   });
 });
@@ -127,10 +137,10 @@ describe('RadioGroup', function() {
     });
 
     it('renders 3 radiobuttons', function() {
-      expect('.radio-group .radio label :radio[name=bananas]').toHaveLength(3);
-      expect('.radio-group .radio label :radio[name=bananas]:eq(0)').toHaveValue('1');
-      expect('.radio-group .radio label :radio[name=bananas]:eq(1)').toHaveValue('2');
-      expect('.radio-group .radio label :radio[name=bananas]:eq(2)').toHaveValue('3');
+      expect('.radio-group .radio :radio[name=bananas]').toHaveLength(3);
+      expect('.radio-group .radio :radio[name=bananas]:eq(0)').toHaveValue('1');
+      expect('.radio-group .radio :radio[name=bananas]:eq(1)').toHaveValue('2');
+      expect('.radio-group .radio :radio[name=bananas]:eq(2)').toHaveValue('3');
     });
 
     describe('when the radio button is changed', function() {
