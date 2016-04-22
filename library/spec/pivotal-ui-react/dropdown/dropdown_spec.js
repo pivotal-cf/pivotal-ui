@@ -64,6 +64,26 @@ describe('Dropdowns', () => {
       expect('.dropdown-toggle').toHaveClass('test-btn-class');
     });
 
+    describe('when onClick is provided', () => {
+      let onClickSpy;
+      beforeEach(() => {
+        onClickSpy = jasmine.createSpy('onClick');
+        subject = ReactDOM.render(
+          <Dropdown onClick={onClickSpy} title="Dropping" buttonClassName="test-btn-class">
+            <DropdownItem href="test">Item #1</DropdownItem>
+          </Dropdown>, root);
+      });
+
+      it('gets called when dropdown toggle is clicked', () => {
+        const event = {
+          type: 'click',
+          other_event_stuff: 'wat'
+        };
+        $('.dropdown-toggle').simulate('click', event);
+        expect(onClickSpy).toHaveBeenCalledWith(jasmine.objectContaining(event));
+      });
+    });
+
     describe('dropdown menu', () => {
       it('shows the children on click', () => {
         expect('.open .dropdown-menu').not.toExist();
