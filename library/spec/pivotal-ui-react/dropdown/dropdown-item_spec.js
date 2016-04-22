@@ -42,11 +42,28 @@ describe('DropdownItem', () => {
   });
 
   describe('href', () => {
-    it('passes through id to the anchor', () => {
+    it('passes through id and href to the anchor', () => {
       ReactDOM.render(
         <DropdownItem href='test' {...props}>Item</DropdownItem>,
         root);
       expect('#root li a#test-item-id').toExist();
+      expect('#root li a#test-item-id').toHaveAttr('href', 'test');
+    });
+
+    describe('target', () => {
+      it('passes through target to the anchor when provided', () => {
+        ReactDOM.render(
+          <DropdownItem href='test' target="_blank" {...props}>Item</DropdownItem>,
+          root);
+        expect('#root li a#test-item-id').toHaveAttr('target', '_blank');
+      });
+
+      it('does not pass through target to the anchor when provided', () => {
+        ReactDOM.render(
+          <DropdownItem href='test' {...props}>Item</DropdownItem>,
+          root);
+        expect('#root li a#test-item-id').not.toHaveAttr('target');
+      });
     });
   });
 

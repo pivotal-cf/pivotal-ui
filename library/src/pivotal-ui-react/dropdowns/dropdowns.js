@@ -123,7 +123,8 @@ class DropdownItem extends React.Component {
     divider: types.bool,
     disabled: types.bool,
     eventKey: types.string,
-    onSelect: types.func
+    onSelect: types.func,
+    target: types.string
   };
 
   handleClick = (event) => {
@@ -141,14 +142,14 @@ class DropdownItem extends React.Component {
   };
 
   render() {
-    const {children, className, style, href, id, header, divider, disabled} = this.props;
+    const {children, className, style, href, header, divider, disabled, ...anchorProps} = this.props;
 
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
     if (divider) return (<li role="separator" className="divider"/>);
 
     let anchor;
     if (href) {
-      anchor = <a {...{href, id}} disabled={disabled} onClick={this.handleClick}>{children}</a>;
+      anchor = <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a>;
     } else {
       anchor = children;
     }
