@@ -1,7 +1,20 @@
 /*doc
 ---
-title: Welcome to the 4.0 release of Pivotal UI!
+title: Welcome to the 5.0 release of Pivotal UI!
 name: latest-release
+category: latest-release
+---
+
+- The 5.0 release is a bump from React 14 to React 15.
+- If you have no warning messages in React 14, the React 15 upgrade should be simple.
+- All of the newest features in Pivotal UI are in the 4.0 release.
+*/
+
+
+/*doc
+---
+title: The 4.0 release of Pivotal UI
+name: latest-release-4
 category: latest-release
 ---
 */
@@ -10,7 +23,7 @@ category: latest-release
 ---
 title: Goals
 name: 01_goals
-parent: latest-release
+parent: latest-release-4
 ---
 
 The goals for the 4.0 release are:
@@ -26,7 +39,7 @@ The goals for the 4.0 release are:
 ---
 title: The Big Changes
 name: 03_changes
-parent: latest-release
+parent: latest-release-4
 ---
 
 - The `typography` React component has been removed in favor of native headers
@@ -48,7 +61,7 @@ Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](h
 ---
 title: New Components
 name: 04_components
-parent: latest-release
+parent: latest-release-4
 ---
 
 - `Checkbox`
@@ -61,7 +74,7 @@ parent: latest-release
 ---
 title: Conversion Guide
 name: 05_conversion
-parent: latest-release
+parent: latest-release-4
 ---
 
 ### Typography
