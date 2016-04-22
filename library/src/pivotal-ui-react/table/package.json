@@ -1,13 +1,13 @@
 {
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "A React component that provides a table that can be sorted by column",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash.findindex": "^3.2.1",
     "lodash.sortby": "^3.1.1",
-    "pui-css-iconography": "^5.0.0",
-    "pui-css-tables": "^5.0.0",
-    "pui-react-helpers": "^5.0.0"
+    "pui-css-iconography": "^5.0.1",
+    "pui-css-tables": "^5.0.1",
+    "pui-react-helpers": "^5.0.1"
   }
 }

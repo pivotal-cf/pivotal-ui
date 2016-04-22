@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Forms</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="00_form_introduction" class="styleguide">Introduction</h1>
+
+<ul class="section-nav">
+  <li><a href="#0a_form_basic">Basic Forms</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-forms --save
+</i>
+</code></p><p class="styleguide">Individual form controls automatically receive some global styling.
+All textual <code class="styleguide">&lt;input&gt;</code>, <code class="styleguide">&lt;textarea&gt;</code>, and <code class="styleguide">&lt;select&gt;</code> elements with
+<code class="styleguide">.form-control</code> are set to <code class="styleguide">width: 100</code>%; by default.</p>
+<div class="alert alert-info">
+  <p class="em-high">
+    Wrap labels and controls in <code>.form-group</code> for optimum spacing.
+  </p>
+</div>
+
+<h2 id="0a_form_basic" class="styleguide">Basic Forms</h2>
+<div class="codeExample">
+  <div class="exampleOutput"><form role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail1"</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail1"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputPassword1"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword1"</span> <span class="na">placeholder=</span><span class="s">"Password"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span> Check me out
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span> <span class="na">class=</span><span class="s">"btn btn-default"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_autoselect_text_input" class="styleguide">Autoselect Text Inputs</h1>
+<p class="styleguide">This form is used to show information that a user may wish to copy and paste somewhere.</p><div class="codeExample">
+  <div class="exampleOutput"><label for="readonlyautoselect"></label>
+<input class="auto-select form-control" id="readonlyautoselect" data-behavior="AutoSelect" readonly="readonly" value="This should auto highlight">
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"readonlyautoselect"</span><span class="nt">&gt;&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"auto-select form-control"</span> <span class="na">id=</span><span class="s">"readonlyautoselect"</span> <span class="na">data-behavior=</span><span class="s">"AutoSelect"</span> <span class="na">readonly=</span><span class="s">"readonly"</span> <span class="na">value=</span><span class="s">"This should auto highlight"</span><span class="nt">&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_checkboxes" class="styleguide">Checkboxes &amp; Radios</h1>
+
+<ul class="section-nav">
+  <li><a href="#form_checkboxes_inline">Inline Checkboxes &amp; Radios</a></li>
+</ul>
+<p class="styleguide">Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.</p>
+<h3>Default (stacked)</h3>
+<div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios1" name="optionsRadios" type="radio" value="option1" checked>
+      Option one is this and that&mdash;be sure to include why it's great
+    </label>
+  </div>
+  <div class="radio">
+    <label>
+      <input id="optionsRadios2" name="optionsRadios" type="radio" value="option2">
+      Option two can be something else and selecting it will deselect option one
+    </label>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+      Option one is this and that<span class="ni">&amp;mdash;</span>be sure to include why it's great
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"radio"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"optionsRadios1"</span> <span class="na">name=</span><span class="s">"optionsRadios"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"option1"</span> <span class="na">checked</span><span class="nt">&gt;</span>
+      Option one is this and that<span class="ni">&amp;mdash;</span>be sure to include why it's great
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"radio"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"optionsRadios2"</span> <span class="na">name=</span><span class="s">"optionsRadios"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"option2"</span><span class="nt">&gt;</span>
+      Option two can be something else and selecting it will deselect option one
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="form_checkboxes_inline" class="styleguide">Inline Checkboxes &amp; Radios</h2>
+<p class="styleguide">Use <code class="styleguide">.checkbox-inline</code> or <code class="styleguide">.radio-inline</code> class to a series of checkboxes or radios for controls appear on the same line.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox1" type="checkbox" value="option1">
+      1
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox2" type="checkbox" value="option2">
+      2
+    </label>
+    <label class="checkbox-inline">
+      <input id="inlineCheckbox3" type="checkbox" value="option3">
+      3
+    </label>
+  </div>
+  <div class="form-group">
+    <label class="radio-inline">
+      <input id="inlineradio1" type="radio" value="option1">
+      1
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio2" type="radio" value="option2">
+      2
+    </label>
+    <label class="radio-inline">
+      <input id="inlineradio3" type="radio" value="option3">
+      3
+    </label>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"checkbox-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineCheckbox1"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>
+      1
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"checkbox-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineCheckbox2"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"option2"</span><span class="nt">&gt;</span>
+      2
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"checkbox-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineCheckbox3"</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">"option3"</span><span class="nt">&gt;</span>
+      3
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"radio-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineradio1"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"option1"</span><span class="nt">&gt;</span>
+      1
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"radio-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineradio2"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"option2"</span><span class="nt">&gt;</span>
+      2
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"radio-inline"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inlineradio3"</span> <span class="na">type=</span><span class="s">"radio"</span> <span class="na">value=</span><span class="s">"option3"</span><span class="nt">&gt;</span>
+      3
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_disabled_controls" class="styleguide">Disabled Controls</h1>
+<p class="styleguide">Controls will occasionally need to be disabled.
+You can do that by adding the <code class="styleguide">disabled</code> attribute.
+Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all be disabled.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><input class="form-control" type="text" placeholder="Disabled input here" disabled></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">placeholder=</span><span class="s">"Disabled input here"</span> <span class="na">disabled</span><span class="nt">&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><select class="form-control" disabled>
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 1<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 2<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><label>
+  <input type="checkbox" disabled>
+  I'm disabled!
+</label></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  I'm disabled!
+<span class="nt">&lt;/label&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><button class="btn" disabled>
+  Hi
+</button>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn"</span> <span class="na">disabled</span><span class="nt">&gt;</span>
+  Hi
+<span class="nt">&lt;/button&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h1 id="form_help_text" class="styleguide">Help Text</h1>
+<p class="styleguide">Help text
+Block level help text for form controls.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="demohelp"/>
+  <input class="form-control" id="demohelp" type="text">
+  <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"demohelp"</span><span class="nt">/&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"demohelp"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"help-block"</span><span class="nt">&gt;</span>A block of help text that breaks onto a new line and may extend beyond one line.<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_inline" class="styleguide">Inline Forms</h1>
+
+<ul class="section-nav">
+  <li><a href="#form_inline_with_labels">Inline Forms with Labels</a></li>
+</ul>
+<p class="styleguide">Add <code class="styleguide">.form-inline</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls.
+This only applies to forms within viewports that are at least 768px wide.</p>
+<div class="alert alert-info">
+  <h5 class="em-high mtn">
+    Always add labels to every input.
+  </h5>
+  <p>
+    Screen readers will have trouble with your forms if you don't.
+    You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form form-inline" role="form">
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputEmail5">Email address</label>
+    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
+  </div>
+  <div class="form-group">
+    <label class="sr-only" for="exampleInputPassword2">Password</label>
+    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Remember me
+    </label>
+  </div>
+  <button class="btn btn-default" type="submit">Sign in</button>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form form-inline"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"sr-only"</span> <span class="na">for=</span><span class="s">"exampleInputEmail5"</span><span class="nt">&gt;</span>Email address<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail5"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"sr-only"</span> <span class="na">for=</span><span class="s">"exampleInputPassword2"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputPassword2"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">type=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+      Remember me
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Sign in<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="form_inline_with_labels" class="styleguide">Inline Forms with Labels</h2>
+<p class="styleguide">Add <code class="styleguide">.form-inline.inline-labels</code> to your <code class="styleguide">&lt;form&gt;</code> for left-aligned and inline-block controls with labels inline with inputs.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form form-inline inline-labels" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail6">Write a thing</label>
+    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email">
+  </div>
+  <div class="form-group">
+    <label for="exampleSelect">Choose a thing</label>
+    <select class="form-control" id="exampleSelect">
+      <option>thing</option>
+    </select>
+  </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox">
+      Remember me
+    </label>
+  </div>
+  <button class="btn btn-default" type="submit">Sign in</button>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form form-inline inline-labels"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail6"</span><span class="nt">&gt;</span>Write a thing<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail6"</span> <span class="na">placeholder=</span><span class="s">"Write a thing"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleSelect"</span><span class="nt">&gt;</span>Choose a thing<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleSelect"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option&gt;</span>thing<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+      Remember me
+    <span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Sign in<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_inputs" class="styleguide">Inputs &amp; Labels</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_form_html5_controls">HTML5 Controls</a></li>
+  <li><a href="#02_form_inputs_sizing">Sizing</a></li>
+  <li><a href="#04_form_search_input">Search Inputs</a></li>
+  <li><a href="#05_form_inputs_read_only">Read-Only Inputs</a></li>
+</ul>
+<p class="styleguide">An input with the label top aligned (this is the default layout).</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleInputEmail7">
+      <abbr title="required">*</abbr>
+      Email address
+    </label>
+    <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email">
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleInputEmail7"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"required"</span><span class="nt">&gt;</span>*<span class="nt">&lt;/abbr&gt;</span>
+      Email address
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">aria-required=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail7"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span> <span class="na">required=</span><span class="s">"required"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Use Bootstrap&#39;s predefined grid classes to align labels and groups of form controls in a horizontal
+layout by adding <code class="styleguide">.form-horizontal</code> to the form. Doing so changes <code class="styleguide">.form-groups</code> to behave as grid rows, so no need for <code class="styleguide">.row</code>.</p><p class="styleguide">An input with the label left aligned</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <div class="col-md-6">
+      <label class="control-label" for="exampleInputEmail3">
+        <abbr title="required">*</abbr>
+        Email address
+      </label>
+    </div>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
+    </div>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form form-horizontal"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"exampleInputEmail3"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"required"</span><span class="nt">&gt;</span>*<span class="nt">&lt;/abbr&gt;</span>
+        Email address
+      <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-18"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">aria-required=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail3"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span> <span class="na">required=</span><span class="s">"required"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">An input with the label right aligned (N.B., control-label class provides the right alignment):</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form form-horizontal" role="form">
+  <div class="form-group">
+    <label class="col-md-6 control-label" for="exampleInputEmail4">
+      <abbr title="required">*</abbr>
+      Email address
+    </label>
+    <div class="col-md-18">
+      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email">
+    </div>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form form-horizontal"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-md-6 control-label"</span> <span class="na">for=</span><span class="s">"exampleInputEmail4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;abbr</span> <span class="na">title=</span><span class="s">"required"</span><span class="nt">&gt;</span>*<span class="nt">&lt;/abbr&gt;</span>
+      Email address
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-18"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">aria-required=</span><span class="s">"true"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleInputEmail4"</span> <span class="na">placeholder=</span><span class="s">"Enter email"</span> <span class="na">required=</span><span class="s">"required"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">An unstyled input that doesn&#39;t have any of the default input styles</p><div class="codeExample">
+  <div class="exampleOutput"><form role="form">
+  <label for="unstyledInput">Text Input</label>
+  <input class="unstyled" id="unstyledInput" placeholder="This is a text input">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"unstyledInput"</span><span class="nt">&gt;</span>Text Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"unstyled"</span> <span class="na">id=</span><span class="s">"unstyledInput"</span> <span class="na">placeholder=</span><span class="s">"This is a text input"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="01_form_html5_controls" class="styleguide">HTML5 Controls</h2>
+<p class="styleguide">Examples of standard form controls supported in an example form layout.</p><p class="styleguide">Inputs
+Most common form control, text-based input fields. Includes support for
+all HTML5 types: <code class="styleguide">text</code>, <code class="styleguide">password</code>, <code class="styleguide">datetime</code>, <code class="styleguide">datetime-local</code>,
+<code class="styleguide">date</code>, <code class="styleguide">month</code>, <code class="styleguide">time</code>, <code class="styleguide">week</code>, <code class="styleguide">number</code>, <code class="styleguide">email</code>, <code class="styleguide">url</code>, <code class="styleguide">search</code>,
+<code class="styleguide">tel</code>, and <code class="styleguide">color</code>.</p>
+<div class="alert alert-warning">
+  <p class="em-high">
+    Inputs will only be fully styled if their type is properly declared.
+  </p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5TextInput">Text Input</label>
+  <input class="form-control" id="html5TextInput" placeholder="Text input" type="text">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5TextInput"</span><span class="nt">&gt;</span>Text Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5TextInput"</span> <span class="na">placeholder=</span><span class="s">"Text input"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Password field</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5PasswordInput">Password Input</label>
+  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5PasswordInput"</span><span class="nt">&gt;</span>Password Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5PasswordInput"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">type=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Date</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5DateInput">Date Input</label>
+  <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5DateInput"</span><span class="nt">&gt;</span>Date Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5DateInput"</span> <span class="na">placeholder=</span><span class="s">"Date"</span> <span class="na">type=</span><span class="s">"date"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Number</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5NumberInput">Number Input</label>
+  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5NumberInput"</span><span class="nt">&gt;</span>Number Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5NumberInput"</span> <span class="na">placeholder=</span><span class="s">"Number"</span> <span class="na">type=</span><span class="s">"number"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">With a min/max and default starting value</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5MinMaxInput">Min/Max Input</label>
+  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5MinMaxInput"</span><span class="nt">&gt;</span>Min/Max Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5MinMaxInput"</span> <span class="na">placeholder=</span><span class="s">"Number"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">min=</span><span class="s">0</span> <span class="na">max=</span><span class="s">2</span> <span class="na">value=</span><span class="s">1</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">With a different increment value</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5StepInput">Step Input</label>
+  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5StepInput"</span><span class="nt">&gt;</span>Step Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5StepInput"</span> <span class="na">placeholder=</span><span class="s">"Number"</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">step=</span><span class="s">5</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Email</p><p class="styleguide">Use this with fields that require email addresses to pop up the correct keyboard on mobile</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5EmailInput">Email Input</label>
+  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5EmailInput"</span><span class="nt">&gt;</span>Email Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5EmailInput"</span> <span class="na">placeholder=</span><span class="s">"Email"</span> <span class="na">type=</span><span class="s">"email"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">URL</p><p class="styleguide">Use this with fields that require urls to pop up the correct keyboard on mobile</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5URLInput">URL Input</label>
+  <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5URLInput"</span><span class="nt">&gt;</span>URL Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5URLInput"</span> <span class="na">placeholder=</span><span class="s">"URL"</span> <span class="na">type=</span><span class="s">"url"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Telephone</p><p class="styleguide">Use this with fields that require telephone numbers to pop up the dialpad on mobile</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <label for="html5PhoneInput">Phone Input</label>
+  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"html5PhoneInput"</span><span class="nt">&gt;</span>Phone Input<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"html5PhoneInput"</span> <span class="na">placeholder=</span><span class="s">"Telephone"</span> <span class="na">type=</span><span class="s">"tel"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="02_form_inputs_sizing" class="styleguide">Sizing</h2>
+<p class="styleguide">Set heights using the form control classes <code class="styleguide">.input-lg</code> and <code class="styleguide">.input-sm</code>.
+Create larger or smaller form controls that match button sizes.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><label for="LargeInput">Large Input</label>
+<input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text"></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"LargeInput"</span><span class="nt">&gt;</span>Large Input<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control input-lg"</span> <span class="na">id=</span><span class="s">"LargeInput"</span> <span class="na">placeholder=</span><span class="s">".input-lg"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><label for="DefaultInput">Default Input</label>
+<input class="form-control" id="DefaultInput" placeholder="Default Input" type="text"></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"DefaultInput"</span><span class="nt">&gt;</span>Default Input<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"DefaultInput"</span> <span class="na">placeholder=</span><span class="s">"Default Input"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><label for="SmallInput">Small Input</label>
+<input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"SmallInput"</span><span class="nt">&gt;</span>Small Input<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control input-sm"</span> <span class="na">id=</span><span class="s">"SmallInput"</span> <span class="na">placeholder=</span><span class="s">".input-sm"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">Set widths using grid column classes like <code class="styleguide">.col-lg-*</code>.
+Wrap selects in grid columns, or any custom parent element, to easily enforce desired widths.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="Small2WidthInput">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text">
+    </div>
+    <div class="col-md-6">
+      <label for="Small3WidthInput">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text">
+    </div>
+    <div class="col-md-8">
+      <label for="Small4WidthInput">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text">
+    </div>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small2WidthInput"</span><span class="nt">&gt;</span>Small 2 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small2WidthInput"</span> <span class="na">placeholder=</span><span class="s">".col-xs-2"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small3WidthInput"</span><span class="nt">&gt;</span>Small 3 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small3WidthInput"</span> <span class="na">placeholder=</span><span class="s">".col-xs-3"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small4WidthInput"</span><span class="nt">&gt;</span>Small 4 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small4WidthInput"</span> <span class="na">placeholder=</span><span class="s">".col-xs-4"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="04_form_search_input" class="styleguide">Search Inputs</h2>
+<p class="styleguide">Use this input when creating a search component.</p><div class="codeExample">
+  <div class="exampleOutput"><label for="searchInput">Search</label>
+<div class="form-group form-group-search">
+  <input class="form-control" id="searchInput" placeholder="This is a searchbox">
+  <i class="fa fa-search"></i>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"searchInput"</span><span class="nt">&gt;</span>Search<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group form-group-search"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"searchInput"</span> <span class="na">placeholder=</span><span class="s">"This is a searchbox"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-search"</span><span class="nt">&gt;&lt;/i&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="05_form_inputs_read_only" class="styleguide">Read-Only Inputs</h2>
+<p class="styleguide">Add the <code class="styleguide">readonly</code> boolean attribute on an input to prevent user input and style the input as disabled.</p><div class="codeExample">
+  <div class="exampleOutput"><label for="ReadOnlyInput">ReadOnly</label>
+<input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"ReadOnlyInput"</span><span class="nt">&gt;</span>ReadOnly<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"ReadOnlyInput"</span> <span class="na">placeholder=</span><span class="s">"Readonly input here..."</span> <span class="na">readonly</span><span class="nt">&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_selects" class="styleguide">Selects</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_form_select_sizing">Sizing</a></li>
+  <li><a href="#02_form_fancy_select">Fancy Selects</a></li>
+</ul>
+<p class="styleguide">Selects are excellent to use because they will automatically
+behave as expected cross browser on different devices. Prefer
+them over a custom dropdown whenever possible.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <select class="form-control">
+    <option>default option</option>
+    <option>an option</option>
+    <option>another option</option>
+  </select>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option&gt;</span>default option<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>an option<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option&gt;</span>another option<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="01_form_select_sizing" class="styleguide">Sizing</h2>
+<p class="styleguide">Set heights using the form control classes <code class="styleguide">.input-lg</code> and <code class="styleguide">.input-sm</code>.
+Create larger or smaller form controls that match button sizes.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><select class="form-control input-lg">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control input-lg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 1<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 2<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><select class="form-control">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 1<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 2<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><select class="form-control input-sm">
+  <option>Option 1</option>
+  <option>Option 2</option>
+</select>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control input-sm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 1<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;option&gt;</span>Option 2<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">Set widths using grid column classes like <code class="styleguide">.col-lg-*</code>.
+Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="Small2WidthInput2">Small 2 Width Input</label>
+      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text">
+    </div>
+    <div class="col-md-6">
+      <label for="Small3WidthInput2">Small 3 Width Input</label>
+      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text">
+    </div>
+    <div class="col-md-8">
+      <label for="Small4WidthInput2">Small 4 Width Input</label>
+      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text">
+    </div>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-4"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small2WidthInput2"</span><span class="nt">&gt;</span>Small 2 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small2WidthInput2"</span> <span class="na">placeholder=</span><span class="s">".col-xs-2"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small3WidthInput2"</span><span class="nt">&gt;</span>Small 3 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small3WidthInput2"</span> <span class="na">placeholder=</span><span class="s">".col-xs-3"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"Small4WidthInput2"</span><span class="nt">&gt;</span>Small 4 Width Input<span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"Small4WidthInput2"</span> <span class="na">placeholder=</span><span class="s">".col-xs-4"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="02_form_fancy_select" class="styleguide">Fancy Selects</h2>
+<p class="styleguide">This is a fancy select!</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form" style="width: 200px">
+  <label for="fancy-select">Description</label>
+  <div class="select-fancy">
+    <select class="form-control">
+      <option>Fancy Option 1</option>
+      <option>Fancy Option 2</option>
+    </select>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span> <span class="na">style=</span><span class="s">"width: 200px"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"fancy-select"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"select-fancy"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;select</span> <span class="na">class=</span><span class="s">"form-control"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;option&gt;</span>Fancy Option 1<span class="nt">&lt;/option&gt;</span>
+      <span class="nt">&lt;option&gt;</span>Fancy Option 2<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;/select&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_static_control" class="styleguide">Static Controls</h1>
+<p class="styleguide">When you need to place plain text next to a form label within a form,
+use the <code class="styleguide">.form-control-static</code> class on a <code class="styleguide">&lt;p&gt;</code>.</p><p class="styleguide">Here&#39;s an example in a horizontal form:</p><div class="codeExample">
+  <div class="exampleOutput"><form class="form-horizontal styleguide-form" role="form">
+  <div class="form-group">
+    <label class="col-md-4 control-label">Email</label>
+    <div class="col-sm-10">
+      <p class="form-control-static">email@example.com</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="inputPassword">Password</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="inputPassword" placeholder="Password" type="password">
+    </div>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"form-horizontal styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-md-4 control-label"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"form-control-static"</span><span class="nt">&gt;</span>email@example.com<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"col-md-4 control-label"</span> <span class="na">for=</span><span class="s">"inputPassword"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-sm-10"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"inputPassword"</span> <span class="na">placeholder=</span><span class="s">"Password"</span> <span class="na">type=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Here&#39;s an example in a vertical form:</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label class="control-label">Email</label>
+    <p class="form-control-static">someguy@test.com</p>
+  </div>
+  <div class="form-group">
+    <label class="control-label" for="name">Name</label>
+    <input class="form-control" id="name" placeholder="name">
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span><span class="nt">&gt;</span>Email<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"form-control-static"</span><span class="nt">&gt;</span>someguy@test.com<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="na">placeholder=</span><span class="s">"name"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_textarea" class="styleguide">Text Areas</h1>
+<p class="styleguide">Text areas are used for larger amounts of input.</p><div class="codeExample">
+  <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group">
+    <label for="exampleTextAreaId">Description</label>
+    <textarea class="form-control" id="exampleTextAreaId" rows="3"></textarea>
+  </div>
+</form>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"exampleTextAreaId"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;textarea</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">id=</span><span class="s">"exampleTextAreaId"</span> <span class="na">rows=</span><span class="s">"3"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_toggle_switch" class="styleguide">Toggle Switches</h1>
+<p class="styleguide">A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="form-group">
+  <input id="toggleSwitch" class="toggle-switch toggle-switch-lg" type="checkbox">
+  <label for="toggleSwitch">Toggle Switch</label>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"toggleSwitch"</span> <span class="na">class=</span><span class="s">"toggle-switch toggle-switch-lg"</span> <span class="na">type=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"toggleSwitch"</span><span class="nt">&gt;</span>Toggle Switch<span class="nt">&lt;/label&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h1 id="form_validation" class="styleguide">Validations</h1>
+<p class="styleguide">To show validation errors on a field, add <code class="styleguide">.has-error</code> to the field&#39;s form group.
+This class can be used for all types of inputs.</p><p class="styleguide">Error messages should use the classes <code class="styleguide">.help-block.has-error</code>.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <label class="control-label" for="inputError">
+      Input with error
+    </label>
+    <input id="inputError" class="form-control" type="text">
+    <span class="help-block has-error">
+      Error help text
+    </span>
+  </div>
+</form></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-error"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputError"</span><span class="nt">&gt;</span>
+      Input with error
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inputError"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"help-block has-error"</span><span class="nt">&gt;</span>
+      Error help text
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group has-error">
+    <div class="checkbox">
+      <label class="control-label">
+        <input type="checkbox" value="">
+        Checkbox which needs to be checked
+      </label>
+      <span class="help-block has-error">
+        Error help text
+      </span>
+    </div>
+  </div>
+</form>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-error"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"checkbox"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"checkbox"</span> <span class="na">value=</span><span class="s">""</span><span class="nt">&gt;</span>
+        Checkbox which needs to be checked
+      <span class="nt">&lt;/label&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"help-block has-error"</span><span class="nt">&gt;</span>
+        Error help text
+      <span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">If you&#39;re doing client-side validation and want to show successful validation of a field,
+add <code class="styleguide">.has-success</code> to the field&#39;s form group.</p>
+<div class="alert alert-info mbxl">
+  <p class="em-high">
+    The <code>.has-success</code> class can only be used on inputs that have a text-box.
+  </p>
+</div>
+<div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><form class="styleguide-form" role="form">
+  <div class="form-group has-success">
+    <label class="control-label" for="inputSuccess">
+      Input with success
+    </label>
+    <input id="inputSuccess" class="form-control" type="text">
+  </div>
+</form>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;form</span> <span class="na">class=</span><span class="s">"styleguide-form"</span> <span class="na">role=</span><span class="s">"form"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"form-group has-success"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;label</span> <span class="na">class=</span><span class="s">"control-label"</span> <span class="na">for=</span><span class="s">"inputSuccess"</span><span class="nt">&gt;</span>
+      Input with success
+    <span class="nt">&lt;/label&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"inputSuccess"</span> <span class="na">class=</span><span class="s">"form-control"</span> <span class="na">type=</span><span class="s">"text"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

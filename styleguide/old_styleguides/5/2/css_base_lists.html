@@ -1,0 +1,1277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Lists</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="list" class="styleguide">Lists</h1>
+
+<ul class="section-nav">
+  <li><a href="#list_inline">Inline</a></li>
+  <li><a href="#list_ordered">Ordered</a></li>
+  <li><a href="#list_unordered">Unordered</a></li>
+  <li><a href="#list_unstyled">Unstyled</a></li>
+  <li><a href="#list_inline_divider">Inline Divider</a></li>
+  <li><a href="#list_breadcrumb">Breadcrumb</a></li>
+  <li><a href="#list_group">Group</a></li>
+  <li><a href="#list_group_inverse">Group Inverse</a></li>
+  <li><a href="#list_vertical_divider">Vertical Divider</a></li>
+  <li><a href="#list_steps">Steps</a></li>
+  <li><a href="#list_checked">Checked</a></li>
+  <li><a href="#list_cards">Cards</a></li>
+  <li><a href="#time_line">Timeline</a></li>
+  <li><a href="#list_whitespace">List Spacing</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-lists --save
+</i>
+</code></p><p class="styleguide">This section contains different list styles.</p>
+<h2 id="list_breadcrumb" class="styleguide">Breadcrumb</h2>
+<p class="styleguide">The <code class="styleguide">.list-breadcrumb</code> can be used to provide additional page navigation.</p><p class="styleguide">Breadcrumbs use their own monospace font-family.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-breadcrumb">
+  <li>
+    <a href="http://google.com">Parent</a>
+  </li>
+  <li>
+    <a href="http://google.com">Child</a>
+  </li>
+  <li class="current">
+    <span>Current Page</span>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-breadcrumb"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Parent<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Child<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"current"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;span&gt;</span>Current Page<span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_cards" class="styleguide">Cards</h2>
+<p class="styleguide">As the browser width changes, list-cards fill in one after another. There are two card types, <code class="styleguide">type-card-1</code> and
+<code class="styleguide">type-card-2</code>. For this example, we&#39;ve set both of them to stack on mobile sized screens.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-cards list-card-1 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>list-card-1</p>
+  </li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-1 list-cards-xs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>list-card-1<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-cards list-card-2 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>list-card-2</p>
+  </li>
+</ul>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-2 list-cards-xs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>list-card-2<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">You can specify the breakpoint in which the cards stack by using the <code class="styleguide">list-card-*</code> classes. If the breakpoint is not
+specified, the cards fill 100% of the <code class="styleguide">list-cards</code> width.</p><table class="styleguide"> <tr>
+<th>List Card Breakpoints</th>
+<th>Class Names</th>
+</tr>
+ <tr>
+<td>extra-small</td>
+<td><code class="styleguide">.list-card-xs</code></td>
+</tr>
+<tr>
+<td>small</td>
+<td><code class="styleguide">.list-card-sm</code></td>
+</tr>
+<tr>
+<td>medium</td>
+<td><code class="styleguide">.list-card-md</code></td>
+</tr>
+<tr>
+<td>large</td>
+<td><code class="styleguide">.list-card-lg</code></td>
+</tr>
+<tr>
+<td>extra-large</td>
+<td><code class="styleguide">.list-card-xl</code></td>
+</tr>
+ </table>
+<div class="alert alert-info mbxl">
+  <p class="em-high">The cards list should only be used in fully liquid layouts, otherwise grids are a better choice.</p>
+</div>
+<p class="styleguide">This is an example of a card list with the <code class="styleguide">list-cards-xs</code> stack point applied.
+Resize the browser to see how cards stack on desktop sizes and expand on mobile sizes.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-cards list-card-2 list-cards-xs">
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 1</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 2</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 3</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 4</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 5</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 6</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 7</p>
+  </li>
+  <li class="bg-neutral-7">
+    <p>lorem ipsum 8</p>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-2 list-cards-xs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 1<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 2<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 3<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 4<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 5<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 6<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 7<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;p&gt;</span>lorem ipsum 8<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">If you would like custom card dimensions, in your sass include the makeCard mixin, like so: <code class="styleguide">@include makeCard(height, width, name);</code>
+You can then access the class via <code class="styleguide">.list-card-#{name}</code>.</p>
+<h3 class="styleguide">Clickable List Cards</h3>
+<p class="styleguide">If you want your list cards to function as links (i.e. be clickable),
+wrap all the inner content in <code class="styleguide">a</code> with class <code class="styleguide">list-card-link</code>.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-cards list-card-1 list-cards-xs">
+  <li class="bg-neutral-7">
+    <a class="list-card-link" href="http://bit.ly/1sEyvH5">
+      <p>This entire list card is clickable!</p>
+    </a>
+  </li>
+  <li class="bg-neutral-7">
+    <a class="list-card-link" href="http://bit.ly/1sFaArX">
+      <p>This entire list card is clickable as well!</p>
+    </a>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-cards list-card-1 list-cards-xs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1sEyvH5"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>This entire list card is clickable!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"bg-neutral-7"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"list-card-link"</span> <span class="na">href=</span><span class="s">"http://bit.ly/1sFaArX"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>This entire list card is clickable as well!<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_checked" class="styleguide">Checked</h2>
+<p class="styleguide">Replaces the default bullet image with the font awesome checkmark.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-checked">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-checked"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    feep
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    fop
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    meep
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_group" class="styleguide">Group</h2>
+<p class="styleguide">Use this list when you need simple gray borders between items</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-group">
+  <li class="list-group-item">
+    item 1
+  </li>
+  <li class="list-group-item">
+    item 2
+  </li>
+  <li class="list-group-item">
+    item 3
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 1
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 2
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 3
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">The &quot;event list&quot; from AppsManager can be built with a group list:</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-group">
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-exclamation-circle type-error-4 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          app crashed
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 4:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-stop type-neutral-5 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          stopped app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 3:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+
+  <li class="list-group-item pln">
+    <div class="media">
+      <div class="media-left media-middle phxxl">
+        <i class="fa-play type-brand-8 fa h2 man"></i>
+      </div>
+      <div class="media-body pbn">
+        <div class="type-neutral-2 mbs">
+          started app
+        </div>
+        <div class="type-neutral-4 small">
+          <span>user@example.com</span>
+          <span>11/14/2014 at 2:00 PM UTC</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item pln"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle phxxl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-exclamation-circle type-error-4 fa h2 man"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body pbn"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-2 mbs"</span><span class="nt">&gt;</span>
+          app crashed
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-4 small"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span&gt;</span>user@example.com<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;span&gt;</span>11/14/2014 at 4:00 PM UTC<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item pln"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle phxxl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-stop type-neutral-5 fa h2 man"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body pbn"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-2 mbs"</span><span class="nt">&gt;</span>
+          stopped app
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-4 small"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span&gt;</span>user@example.com<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;span&gt;</span>11/14/2014 at 3:00 PM UTC<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item pln"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-left media-middle phxxl"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa-play type-brand-8 fa h2 man"</span><span class="nt">&gt;&lt;/i&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"media-body pbn"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-2 mbs"</span><span class="nt">&gt;</span>
+          started app
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"type-neutral-4 small"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;span&gt;</span>user@example.com<span class="nt">&lt;/span&gt;</span>
+          <span class="nt">&lt;span&gt;</span>11/14/2014 at 2:00 PM UTC<span class="nt">&lt;/span&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_group_inverse" class="styleguide">Group Inverse</h2>
+<p class="styleguide">Use this list when you need simple gray borders between items on a dark background. It is very subtle.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-group-inverse">
+  <li class="list-group-item">
+    item 1
+  </li>
+  <li class="list-group-item">
+    item 2
+  </li>
+  <li class="list-group-item">
+    item 3
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-group-inverse"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 1
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 2
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-group-item"</span><span class="nt">&gt;</span>
+    item 3
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_inline" class="styleguide">Inline</h2>
+<p class="styleguide">An inline list is one of the three methods for laying out content (including grids and the media block).</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-inline">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    feep
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    fop
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    meep
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">You can use inline lists to lay out elements. Here&#39;s an example of a header next to a button:</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-inline lhxl">
+  <li class="txt-m">
+    <h5 class="em-alt em-max">Bound Services</h5>
+  </li>
+  <li class="txt-m">
+    <a class="btn btn-default" target="_blank">Add from Marketplace</a>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhxl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"txt-m"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"em-alt em-max"</span><span class="nt">&gt;</span>Bound Services<span class="nt">&lt;/h5&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"txt-m"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn-default"</span> <span class="na">target=</span><span class="s">"_blank"</span><span class="nt">&gt;</span>Add from Marketplace<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_inline_divider" class="styleguide">Inline Divider</h2>
+<p class="styleguide">Places all list items on a single line with <code class="styleguide">display: inline-block;</code> and some light padding. The <code class="styleguide">.list-inline-divider</code>
+also adds a simple gray border.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-inline-divider">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline-divider"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">"type-em-1"</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">"type-em-1"</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Invite<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Here&#39;s an example on a dark background (add <code class="styleguide">.list-inline-divider-light</code> to make the border white):</p><div class="codeExample">
+  <div class="exampleOutput inverse"><ul class="list-inline-divider list-inline-divider-light">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline-divider list-inline-divider-light"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">"type-em-1"</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Edit<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">class=</span><span class="s">"type-em-1"</span> <span class="na">href=</span><span class="s">"http://google.com"</span><span class="nt">&gt;</span>Invite<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_ordered" class="styleguide">Ordered</h2>
+<div class="codeExample">
+  <div class="exampleOutput"><ol>
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ol>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    feep
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    fop
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    meep
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_steps" class="styleguide">Steps</h2>
+<p class="styleguide">Use this list when you need to show the steps in a flow.</p><div class="codeExample">
+  <div class="exampleOutput"><ol class="list-steps">
+  <li>
+    Sign up Account
+  </li>
+  <li class="current">
+    Create Organization
+  </li>
+  <li>
+    Do other things
+  </li>
+  <li>
+    And more things
+  </li>
+</ol>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"list-steps"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    Sign up Account
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"current"</span><span class="nt">&gt;</span>
+    Create Organization
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    Do other things
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    And more things
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_unordered" class="styleguide">Unordered</h2>
+<div class="codeExample">
+  <div class="exampleOutput"><ul class="list-unordered">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-unordered"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    feep
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    fop
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    meep
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_unstyled" class="styleguide">Unstyled</h2>
+<p class="styleguide">Places all list items on a single line with <code class="styleguide">display: inline-block;</code> and some light padding. The <code class="styleguide">.list-unstyled</code> class can be applied to either a <code class="styleguide">&lt;ul&gt;</code> or and <code class="styleguide">&lt;ol&gt;</code>.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-unstyled">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-unstyled"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    feep
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    fop
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>
+    meep
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_vertical_divider" class="styleguide">Vertical Divider</h2>
+<p class="styleguide">Use this list when you need larger gray borders between
+items. It should be used in concert with grid column
+sizes when you want the items to take a particular width.</p><p class="styleguide">We achieve equal height columns using the padding/margin hack,
+so we need an additional <code class="styleguide">.height-enforcer</code> element to get the
+right min-height.</p><div class="codeExample">
+  <div class="exampleOutput"><ul class="list-vertical-divider">
+  <li class="col-md-8">
+    <div class="height-enforcer">
+      item 1
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer">
+      item 2
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer" style="height: 200px">
+      item 3, which is taller
+    </div>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-vertical-divider"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span><span class="nt">&gt;</span>
+      item 1
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span><span class="nt">&gt;</span>
+      item 2
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span> <span class="na">style=</span><span class="s">"height: 200px"</span><span class="nt">&gt;</span>
+      item 3, which is taller
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><ul class="list-vertical-divider-2">
+  <li class="col-md-8">
+    <div class="height-enforcer">
+      item 1
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer">
+      item 2
+    </div>
+  </li>
+  <li class="col-md-8">
+    <div class="height-enforcer" style="height: 200px">
+      item 3, which is taller
+    </div>
+  </li>
+</ul>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-vertical-divider-2"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span><span class="nt">&gt;</span>
+      item 1
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span><span class="nt">&gt;</span>
+      item 2
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"height-enforcer"</span> <span class="na">style=</span><span class="s">"height: 200px"</span><span class="nt">&gt;</span>
+      item 3, which is taller
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="list_whitespace" class="styleguide">List Spacing</h2>
+<p class="styleguide">Most lists come with built in default spacing that should work for you. However, if you find yourself needing to modify the spacing, you should do that with list spacing classes rather than whitespace classes. A single class can be applied to the list and all direct children will be modified.
+The classes are constructed by specifying <code class="styleguide">&lt;type&gt;&lt;location&gt;&lt;size&gt;</code>.</p>
+<table class="styleguide">
+  <tbody>
+    <tr>
+      <th scope="col" colspan="3" class="txtL"><strong>Type:</strong></th>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">l</code></th>
+      <td>list</td>
+      <td>Space on the inside of each of the li direct children of the element</td>
+    </tr>
+    <tr>
+      <th scope="col" colspan="3" class="txtL"><strong>Location:</strong></th>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">h</code></th>
+      <td>horizontal</td>
+      <td>Adds spacing to the left and right of the <code class="sg-code">li</code>.</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">v</code></th>
+      <td>vertical</td>
+      <td>Adds spacing to the top and bottom of the <code class="sg-code">li</code>.</td>
+    </tr>
+    <tr>
+      <th scope="col" colspan="3" class="txtL"><strong>Size:</strong></th>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">xl</code></th>
+      <td>extra large</td>
+      <td>Adds 21 pixels of space</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">l</code></th>
+      <td>large</td>
+      <td>Adds 10 pixels of space</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">m</code></th>
+      <td>medium</td>
+      <td>Adds 7 pixels of space</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">s</code></th>
+      <td>small</td>
+      <td>Adds 5 pixels of space</td>
+    </tr>
+    <tr>
+      <th scope="row"><code class="sg-code">n</code></th>
+      <td>none</td>
+      <td>Sets any existing space to 0</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Vertical Spacing Options (<code class="styleguide">n</code> -&gt; <code class="styleguide">xl</code>)</h3>
+<div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="lvn">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"lvn"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="lvs">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"lvs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="lvm">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"lvm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="lvl">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"lvl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="lvxl">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"lvxl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h3>Horizontal Spacing Options (<code class="styleguide">n</code> -&gt; <code class="styleguide">xl</code>)</h3>
+<div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-inline lhn">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhn"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-inline lhs">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhs"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-inline lhm">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhm"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-inline lhl">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><ul class="list-inline lhxl">
+  <li>feep</li>
+  <li>fop</li>
+  <li>meep</li>
+</ul>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"list-inline lhxl"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li&gt;</span>feep<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>fop<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>meep<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="time_line" class="styleguide">Timeline</h2>
+<p class="styleguide">A Timeline is a graphical representation of sequenced events. The Timeline list components are used to order list items by timestamp.</p><p class="styleguide">We achieve equal width columns for the time stamp by using a display table hack, so we need an additional inline style on the first <code class="styleguide">list-timeline-date</code> to specify the desired width.</p><div class="codeExample">
+  <div class="exampleOutput"><ol class="list-timeline">
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date" style="width: 150px;">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+  <li class="list-timeline-item">
+    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
+    <span class="list-timeline-title">
+      java buildpack (offline) (2.5)
+      <span class="list-timeline-subtitle">a minor release</span>
+    </span>
+  </li>
+</ol>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;ol</span> <span class="na">class=</span><span class="s">"list-timeline"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-timeline-item"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2014-07-04"</span> <span class="na">class=</span><span class="s">"list-timeline-date"</span> <span class="na">style=</span><span class="s">"width: 150px;"</span><span class="nt">&gt;</span>1 day ago<span class="nt">&lt;/time&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-title"</span><span class="nt">&gt;</span>
+      java buildpack (offline) (2.5)
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-subtitle"</span><span class="nt">&gt;</span>a minor release<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-timeline-item"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2014-07-04"</span> <span class="na">class=</span><span class="s">"list-timeline-date"</span><span class="nt">&gt;</span>1 day ago<span class="nt">&lt;/time&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-title"</span><span class="nt">&gt;</span>
+      java buildpack (offline) (2.5)
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-subtitle"</span><span class="nt">&gt;</span>a minor release<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"list-timeline-item"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;time</span> <span class="na">datetime=</span><span class="s">"2014-07-04"</span> <span class="na">class=</span><span class="s">"list-timeline-date"</span><span class="nt">&gt;</span>1 day ago<span class="nt">&lt;/time&gt;</span>
+    <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-title"</span><span class="nt">&gt;</span>
+      java buildpack (offline) (2.5)
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"list-timeline-subtitle"</span><span class="nt">&gt;</span>a minor release<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/span&gt;</span>
+  <span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>
