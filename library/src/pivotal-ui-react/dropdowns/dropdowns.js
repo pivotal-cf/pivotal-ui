@@ -118,13 +118,11 @@ class DropdownItem extends React.Component {
     className: types.string,
     style: types.object,
     href: types.string,
-    id: types.string,
     header: types.bool,
     divider: types.bool,
     disabled: types.bool,
     eventKey: types.string,
-    onSelect: types.func,
-    target: types.string
+    onSelect: types.func
   };
 
   handleClick = (event) => {
