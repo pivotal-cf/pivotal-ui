@@ -108,6 +108,13 @@ describe('Dropdowns', () => {
           expect('.open .dropdown-menu').not.toExist();
         });
 
+        it('hides when a menu item is selected', () => {
+          $('.dropdown-toggle').simulate('click');
+          expect('.open .dropdown-menu').toExist();
+          $('li:contains(Item #1)').simulate('click');
+          expect('.open .dropdown-menu').not.toExist();
+        });
+
         describe('when scrim is disabled', () => {
           it('does not hide the dropdown menu when clicking outside of the dropdown', () => {
             subject::setProps({disableScrim: true});
