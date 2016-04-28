@@ -71,7 +71,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
       <div className={dropdownClasses}>
         {dropdownLabel}
         {dropdownToggle}
-        <ul className={dropdownMenuClasses}>{children}</ul>
+        <ul className={dropdownMenuClasses} onClick={this.scrimClick}>{children}</ul>
       </div>
     );
   };
