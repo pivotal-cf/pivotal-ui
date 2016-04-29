@@ -141,4 +141,13 @@ If you want to divide the dropdown menu with dividers, you can pass a `divider` 
 </DefaultAltDropdown>
 ```
 
+A DropdownItem renders as a link inside an if given an `href` prop. For more control, do not give the `href` prop
+
+```react_example
+<Dropdown title='DropDown'>
+  <DropdownItem className="pam"><div onClick={function(){alert('You clicked Booyeah!')}}>Booyeah</div></DropdownItem>
+  <DropdownItem className="pam"><div onClick={function(){alert('You clicked Adorable!')}}>Adorable</div></DropdownItem>
+</Dropdown>
+```
+
 */
