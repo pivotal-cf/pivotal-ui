@@ -9,6 +9,7 @@ function assignToGlobal(modules) {
 }
 
 require('pui-css-all');
+require('pui-prismjs');
 
 assignToGlobal([
   require('pui-react-alerts'),
