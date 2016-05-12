@@ -17,6 +17,10 @@ describe('Dropdowns', () => {
         expect('button.dropdown-toggle').toContainText('Dropping');
       });
 
+      it('set the button type', () => {
+        expect('button.dropdown-toggle').toHaveAttr('type', 'button');
+      });
+
       it('adds the appropriate button classes (merging in buttonClassName) to the dropdown toggle', () => {
         expect('button.dropdown-toggle').toHaveClass(dropdownClassName);
         expect('button.dropdown-toggle').not.toHaveClass('btn-default');

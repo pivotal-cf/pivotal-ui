@@ -59,7 +59,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     const buttonStyleClasses = classnames('btn', buttonKind, buttonClassName);
     dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
     dropdownToggle = (
-      <button id={id} style={style} onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+      <button id={id} style={style} type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
         {!split ? title : null}
         {toggleNode}
       </button>
