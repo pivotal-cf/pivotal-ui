@@ -1,9 +1,9 @@
 {
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "A React component that provides styled tooltips",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-tooltips": "^5.0.2"
+    "pui-css-tooltips": "^5.0.3"
   }
 }
