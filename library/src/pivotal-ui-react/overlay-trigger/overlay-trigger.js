@@ -2,7 +2,6 @@ import React from 'react';
 import uniqueid from 'lodash.uniqueid';
 import TetherComponent from 'react-tether';
 
-import ReactDOM from 'react-dom';
 import mixin from 'pui-react-mixins';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 

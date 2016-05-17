@@ -1,4 +1,4 @@
-var EventEmitter = require('node-event-emitter');
+const {EventEmitter} = require('events');
 var React = require('react');
 var ReactDOM = require('react-dom');
 
