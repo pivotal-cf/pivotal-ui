@@ -103,11 +103,13 @@ main {
     line-height: 1; }
   .styleguide-header #styleguide-navbar .nav {
     display: -webkit-box;
+    display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
     text-align: center; }
     .styleguide-header #styleguide-navbar .nav > li {
       -webkit-box-flex: 1;
+      -webkit-flex: 1;
           -ms-flex: 1;
               flex: 1; }
   .styleguide-header #styleguide-navbar .nav-component-type {
@@ -129,6 +131,7 @@ main {
 
 .color-chip-row {
   display: -webkit-box;
+  display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px; }
@@ -136,6 +139,7 @@ main {
 .chip {
   margin-top: 5px;
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   padding: 0 5px; }
@@ -370,6 +374,7 @@ h1#intro.styleguide {
 
 .aligned-item {
   -webkit-box-flex: 1;
+  -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
   background-color: transparent; }

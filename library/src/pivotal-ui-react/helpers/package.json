@@ -1,5 +1,5 @@
 {
-  "version": "5.0.3",
+  "version": "5.1.0",
   "description": "A collection of helpers used by pivotal-ui-react components",
   "dependencies": {
     "classnames": "^2.1.2"

@@ -1527,7 +1527,52 @@ var HighlightAltDropdown = require('pui-react-dropdowns').HighlightAltDropdown;<
   </table>
 </div>
 
-<p class="styleguide">If you want to customize the dropdown, you can use <code class="styleguide">className</code> to add a modifier class to the <code class="styleguide">btn-group</code>.</p><p class="styleguide">To customize the dropdown button, you can add modifier classes to it
+<p class="styleguide"> The <code class="styleguide">Dropdown</code> component accepts the following optional properties:</p><table class="styleguide"> <tr>
+<th>Property</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">border</code></td>
+<td>Boolean</td>
+<td>If true, adds a border between menu items</td>
+</tr>
+<tr>
+<td><code class="styleguide">buttonClassName</code></td>
+<td>String</td>
+<td>Classname to add to the button</td>
+</tr>
+<tr>
+<td><code class="styleguide">closeOnMenuClick</code></td>
+<td>Boolean</td>
+<td>If false, do not close the menu when clicking in the dropdown menu</td>
+</tr>
+<tr>
+<td><code class="styleguide">disableScrim</code></td>
+<td>Boolean</td>
+<td>If true, do not close the menu when clicking outside the dropdown</td>
+</tr>
+<tr>
+<td><code class="styleguide">pullRight</code></td>
+<td>Boolean</td>
+<td>If true, right align the menu with the button</td>
+</tr>
+<tr>
+<td><code class="styleguide">split</code></td>
+<td>Boolean</td>
+<td>If true, separates the button text from the toggle</td>
+</tr>
+<tr>
+<td><code class="styleguide">title</code></td>
+<td>Node</td>
+<td>The button contents</td>
+</tr>
+<tr>
+<td><code class="styleguide">toggle</code></td>
+<td>Node</td>
+<td>The toggle contents</td>
+</tr>
+ </table><p class="styleguide"> If you want to customize the dropdown, you can use <code class="styleguide">className</code> to add a modifier class to the <code class="styleguide">btn-group</code>.</p><p class="styleguide">To customize the dropdown button, you can add modifier classes to it
 using the <code class="styleguide">buttonClassName</code> property. <code class="styleguide">id</code> and <code class="styleguide">style</code> will also be applied to the dropdown button.</p><div class="codeExample">
   <div class="exampleOutput">      <div id="react-example-49"></div>
               <script type="text/jsx">
