@@ -131,6 +131,19 @@ describe('Dropdowns', () => {
             expect('.open .dropdown-menu').toExist();
           });
         });
+
+        describe('when closeOnMenuClick is false', () => {
+          beforeEach(() => {
+            subject::setProps({closeOnMenuClick: false});
+          });
+
+          it('does not close when the menu is clicked', () => {
+            $('.dropdown-toggle').simulate('click');
+            expect('.open .dropdown-menu').toExist();
+            $('li:contains(Item #1)').simulate('click');
+            expect('.open .dropdown-menu').toExist();
+          });
+        });
       });
 
       describe('when border is provided', () => {

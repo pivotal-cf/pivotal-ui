@@ -63,7 +63,21 @@ Here are all the different dropdown styles:
 </HighlightAltDropdown>
 ```
 
-If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
+ The `Dropdown` component accepts the following optional properties:
+
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `border`           | Boolean       | If true, adds a border between menu items
+ `buttonClassName`  | String        | Classname to add to the button
+ `closeOnMenuClick` | Boolean       | If false, do not close the menu when clicking in the dropdown menu
+ `disableScrim`     | Boolean       | If true, do not close the menu when clicking outside the dropdown
+ `pullRight`        | Boolean       | If true, right align the menu with the button
+ `split`            | Boolean       | If true, separates the button text from the toggle
+ `title`            | Node          | The button contents
+ `toggle`           | Node          | The toggle contents
+
+
+ If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
 
 To customize the dropdown button, you can add modifier classes to it
 using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.

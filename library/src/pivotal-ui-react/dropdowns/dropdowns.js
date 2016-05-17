@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import classnames from 'classnames';
-import uniqueid from 'lodash.uniqueid';
 
 import mixin from 'pui-react-mixins';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
@@ -24,17 +22,17 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   static propTypes = {
     border: types.bool,
     buttonClassName: types.string,
+    closeOnMenuClick: types.bool,
     disableScrim: types.bool,
-    id: types.oneOfType([types.string, types.number]),
     pullRight: types.bool,
     split: types.bool,
-    style: types.any,
     title: types.node,
     toggle: types.node,
     onClick: types.func
   };
 
   static defaultProps = {
+    closeOnMenuClick: true,
     disableScrim: false
   };
 
@@ -47,8 +45,13 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     this.setState({isOpen: false});
   };
 
+  menuClick = () => {
+    if (!this.props.closeOnMenuClick) return;
+    this.setState({isOpen: false});
+  };
+
   render() {
-    const {border, buttonClassName, children, className, id, kind, pullRight, split, style, title, toggle} = this.props;
+    const {border, buttonClassName, children, className, kind, pullRight, split, title, toggle, ...props} = this.props;
     const {isOpen} = this.state;
 
     let buttonKind, dropdownLabel, dropdownToggle, toggleNode;
@@ -59,7 +62,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     const buttonStyleClasses = classnames('btn', buttonKind, buttonClassName);
     dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
     dropdownToggle = (
-      <button id={id} style={style} type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+      <button type="button" {...props} onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
         {!split ? title : null}
         {toggleNode}
       </button>
@@ -71,7 +74,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
       <div className={dropdownClasses}>
         {dropdownLabel}
         {dropdownToggle}
-        <ul className={dropdownMenuClasses} onClick={this.scrimClick}>{children}</ul>
+        <ul className={dropdownMenuClasses} onClick={this.menuClick}>{children}</ul>
       </div>
     );
   };
