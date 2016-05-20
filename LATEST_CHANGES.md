@@ -1,8 +1,7 @@
-<a name="5.1.0"></a>
-# 5.1.0 (2016-05-17)
+<a name="5.1.1"></a>
+## 5.1.1 (2016-05-20)
 
 
-### Features
+### Bug Fixes
 
-* **Dropdown:** Allow dropdowns to remain open when clicking in the menu ([208197f](https://github.com/pivotal-cf/pivotal-ui/commit/208197f))
-
+* **Dropdowns:** All dropdowns should close on menu click by default ([6f2f7d9](https://github.com/pivotal-cf/pivotal-ui/commit/6f2f7d9))

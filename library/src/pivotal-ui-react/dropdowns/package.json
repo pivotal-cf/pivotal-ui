@@ -1,9 +1,9 @@
 {
-  "version": "5.1.0",
+  "version": "5.1.1",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-dropdowns": "^5.1.0",
+    "pui-css-dropdowns": "^5.1.1",
     "classnames": "^2.1.2"
   }
 }
