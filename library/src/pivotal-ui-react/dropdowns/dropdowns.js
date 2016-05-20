@@ -82,36 +82,42 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
 
 class LinkDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'link'
   };
 }
 
 class DefaultAltDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'default-alt'
   };
 }
 
 class LowlightDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'lowlight'
   };
 }
 
 class DangerDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'danger'
   };
 }
 
 class HighlightDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'highlight'
   };
 }
 
 class HighlightAltDropdown extends Dropdown {
   static defaultProps = {
+    ...Dropdown.defaultProps,
     kind: 'highlight-alt'
   };
 }

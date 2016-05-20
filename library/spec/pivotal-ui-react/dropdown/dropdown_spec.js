@@ -6,7 +6,11 @@ describe('Dropdowns', () => {
     describe(dropdownComponentName, () => {
       beforeEach(() => {
         var DropdownClass = require('../../../src/pivotal-ui-react/dropdowns/dropdowns')[dropdownComponentName];
-        ReactDOM.render(<DropdownClass title="Dropping" buttonClassName="test-btn-class"/>, root);
+        ReactDOM.render(
+          <DropdownClass title="Dropping" buttonClassName="test-btn-class">
+            <DropdownItem href="test">Item #1</DropdownItem>
+          </DropdownClass>
+          , root);
       });
 
       afterEach(() => {
@@ -25,6 +29,13 @@ describe('Dropdowns', () => {
         expect('button.dropdown-toggle').toHaveClass(dropdownClassName);
         expect('button.dropdown-toggle').not.toHaveClass('btn-default');
         expect('.dropdown-toggle').toHaveClass('test-btn-class');
+      });
+
+      it('hides when a menu item is selected', () => {
+        $('.dropdown-toggle').simulate('click');
+        expect('.open .dropdown-menu').toExist();
+        $('li:contains(Item #1)').simulate('click');
+        expect('.open .dropdown-menu').not.toExist();
       });
     });
   }
