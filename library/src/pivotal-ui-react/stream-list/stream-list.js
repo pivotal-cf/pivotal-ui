@@ -26,7 +26,7 @@ class StreamListNewItemsButton extends React.Component {
 export class StreamList extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
-    this.state = {numRenderedItems: this.numTotalItems()};
+    this.state = {numRenderedItems: this.numTotalItems(props)};
   }
 
   static propTypes = {
@@ -39,16 +39,16 @@ export class StreamList extends mixin(React.Component).with(Animation) {
     pluralNewItemsText: 'new items'
   };
 
-  numTotalItems = () => {
-    return React.Children.count(this.props.children);
+  numTotalItems = (props) => {
+    return React.Children.count(props.children);
   };
 
   numNewItems = () => {
-    return this.numTotalItems() - this.state.numRenderedItems;
+    return this.numTotalItems(this.props) - this.state.numRenderedItems;
   };
 
   showNewItems = () => {
-    this.setState({numRenderedItems: this.numTotalItems()});
+    this.setState({numRenderedItems: this.numTotalItems(this.props)});
   };
 
   render() {

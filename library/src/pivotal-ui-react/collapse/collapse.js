@@ -16,7 +16,7 @@ class BaseCollapse extends React.Component {
 
   constructor(props, context) {
     super(props, context);
-    this.state = {expanded: !!this.props.defaultExpanded};
+    this.state = {expanded: !!props.defaultExpanded};
   }
 
   handleSelect = (e) => {

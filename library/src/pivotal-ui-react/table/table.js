@@ -40,7 +40,7 @@ export const TableRow = (props) => <tr {...props}/>;
 export class Table extends React.Component {
   constructor(props, context) {
     super(props, context);
-    const {columns, defaultSort} = this.props;
+    const {columns, defaultSort} = props;
 
     const sortCol = findindex(columns, ({sortable, attribute}) => {
       return defaultSort ? attribute === defaultSort : sortable;

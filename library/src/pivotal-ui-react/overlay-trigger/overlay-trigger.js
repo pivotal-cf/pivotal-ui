@@ -21,7 +21,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     super(props, context);
     privates.set(this, {});
     this.state = {
-      display: this.props.display
+      display: props.display
     }
   }
 
