@@ -17,7 +17,7 @@ class DraggableList extends React.Component{
   constructor(props, context) {
     super(props, context);
     this.state = {
-      itemIndices: childrenIndices(this.props.children),
+      itemIndices: childrenIndices(props.children),
       draggingId: null
     }
   }
@@ -54,11 +54,7 @@ class DraggableList extends React.Component{
 
   dragEnter = (e) => {
     var {draggingId, itemIndices} = this.state;
-    try{
-      var endDraggingId = Number(e.currentTarget.dataset.draggingId);
-    }catch (err){
-      var endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
-    }
+    var endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
     if (draggingId === null || Number.isNaN(endDraggingId)) return;
 
     var startIndex = itemIndices.indexOf(draggingId);
