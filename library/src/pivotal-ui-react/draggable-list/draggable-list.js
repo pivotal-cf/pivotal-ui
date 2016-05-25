@@ -38,8 +38,12 @@ class DraggableList extends React.Component{
 
   dragStart = (draggingId, {dataTransfer}) => {
     dataTransfer.effectAllowed = 'move';
-    dataTransfer.dropEffect = 'move';
-    dataTransfer.setData('text/plain', '');
+    try {
+      dataTransfer.dropEffect = 'move';
+      dataTransfer.setData('text/plain', '');
+    } catch (err) {
+      dataTransfer.setData('text', '');
+    }
     setTimeout(() => this.setState({draggingId}), 0);
   };
 
@@ -50,7 +54,11 @@ class DraggableList extends React.Component{
 
   dragEnter = (e) => {
     var {draggingId, itemIndices} = this.state;
-    var endDraggingId = Number(e.currentTarget.dataset.draggingId);
+    try{
+      var endDraggingId = Number(e.currentTarget.dataset.draggingId);
+    }catch (err){
+      var endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
+    }
     if (draggingId === null || Number.isNaN(endDraggingId)) return;
 
     var startIndex = itemIndices.indexOf(draggingId);
