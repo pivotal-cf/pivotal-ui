@@ -115,13 +115,13 @@ export class Table extends React.Component {
 
   render() {
     const {sortColumn} = this.state;
-    const {data} = this.props;
-    const props = mergeProps(this.props, {className: ['table', 'table-sortable', 'table-data']});
+    let {data, ...props} = this.props;
+    props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = (sortColumn === -1) ? this.rows(data) : this.sortedRows();
 
     return (
-      <table {...props} >
+      <table {...props}>
         <thead>
           <tr>{this.renderHeaders()}</tr>
         </thead>
