@@ -448,6 +448,36 @@ describe('Table', function() {
     expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
     expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
   });
+
+  it('does not render the data as an attribute', () => {
+    const columns = [
+      {
+        attribute: 'title',
+        displayName: 'Title',
+        sortable: true
+      },
+      {
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
+      },
+      {
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
+      }
+    ];
+
+    const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    ReactDOM.render(<Table columns={columns} data={data}/>, root);
+
+    expect('table').not.toHaveAttr('data');
+  });
 });
 
 describe('TableHeader', function() {
