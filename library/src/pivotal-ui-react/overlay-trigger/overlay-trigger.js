@@ -119,9 +119,8 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   render() {
-    const {pin, placement, trigger} = this.props;
+    let {children, overlay, pin, placement, trigger, ...props} = this.props;
     const {display} = this.state;
-    let {children, overlay} = this.props;
 
     const overlayId = overlay.props.id || uniqueid('overlay');
     overlay = React.cloneElement(overlay, {id: overlayId});
@@ -148,8 +147,9 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
     const tetherProps = {
       attachment: TETHER_PLACEMENTS[placement],
-      constraints: pin ? [{to: 'window', attachment: 'together'}] : [],
-      classes: {'target-attached': 'overlay-placement'}
+      constraints: pin ? [{to: 'window', attachment: 'together', pin: true}] : [],
+      classes: {'target-attached': 'overlay-placement'},
+      ...props
     };
 
     return (

@@ -87,7 +87,7 @@
     "react-addons-test-utils": "^15.0.1",
     "react-bootstrap": "^0.29.0",
     "react-fa": "^4.0.0",
-    "react-tether": "^0.5.1",
+    "react-tether": "^0.5.2",
     "require-dir": "^0.3.0",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.0.2",
