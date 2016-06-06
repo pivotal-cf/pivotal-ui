@@ -1,7 +1,8 @@
-<a name="5.1.1"></a>
-## 5.1.1 (2016-05-20)
+<a name="5.1.2"></a>
+## 5.1.2 (2016-05-26)
 
 
 ### Bug Fixes
 
-* **Dropdowns:** All dropdowns should close on menu click by default ([6f2f7d9](https://github.com/pivotal-cf/pivotal-ui/commit/6f2f7d9))
+* **DraggableList :** DraggableList fix for IE 10, 11 and Edge ([dc66875](https://github.com/pivotal-cf/pivotal-ui/commit/dc66875))
+
