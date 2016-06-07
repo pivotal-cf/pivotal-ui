@@ -1,8 +1,9 @@
-<a name="5.1.2"></a>
-## 5.1.2 (2016-05-26)
+<a name="5.1.3"></a>
+## 5.1.3 (2016-06-07)
 
 
 ### Bug Fixes
 
-* **DraggableList :** DraggableList fix for IE 10, 11 and Edge ([dc66875](https://github.com/pivotal-cf/pivotal-ui/commit/dc66875))
+* **Table:** do not allow the data property to be added to the table element itself ([efd651b](https://github.com/pivotal-cf/pivotal-ui/commit/efd651b))
+* **Tooltips:** Pin tooltips within window if positioned on top/bottom ([d744297](https://github.com/pivotal-cf/pivotal-ui/commit/d744297))
 
