@@ -15,8 +15,8 @@
 @include font-helper('sourcesanspro-light-webfont', 200, normal);
 @include font-helper('sourcesanspro-regular-webfont', 400, normal);
 @include font-helper('sourcesanspro-it-webfont', 400, italic);
-@include font-helper('sourcesanspro-bold-webfont', 600, normal);
-@include font-helper('sourcesanspro-black-webfont', 900, normal);
+@include font-helper('sourcesanspro-semibold-webfont', 600, normal);
+@include font-helper('sourcesanspro-bold-webfont', 700, normal);
 
 
 * {
