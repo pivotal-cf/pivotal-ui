@@ -132,31 +132,24 @@
     right: 100%;
     width: 40%;
     height: 3px;
-    background-color: $navy-7;
-    animation: panel-loading-slide 1s infinite ease-out;
-  }
-  &:before {
-    content: "";
-    position: absolute;
-    right: 100%;
-    width: 40%;
-    height: 3px;
-    background-color: $navy-7;
-    animation: panel-loading-slide 1s infinite ease-out;
-    animation-delay: .4s;
+    background-color: $blue-3;
+    animation: panel-loading-slide 1s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
   }
 }
 
 @keyframes panel-loading-slide {
   0% {
     right: 100%;
-    width: 40%;
+    width: 100%;
     opacity:1;
   }
+  85% {
+    opacity:.15;
+  }
   100% {
-    right: -2%;
-    width: 2%;
-    opacity:.2;
+    right: 0%;
+    width: 100%;
+    opacity:.05;
   }
 }
 
