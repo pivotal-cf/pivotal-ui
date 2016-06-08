@@ -21,6 +21,7 @@
     "pui-css-back-to-top": "file:../library/dist/css/back-to-top",
     "pui-css-backgrounds": "file:../library/dist/css/backgrounds",
     "pui-css-bootstrap": "file:../library/dist/css/bootstrap",
+    "pui-css-box-shadows": "file:../library/dist/css/box-shadows",
     "pui-css-button-group": "file:../library/dist/css/button-group",
     "pui-css-buttons": "file:../library/dist/css/buttons",
     "pui-css-code": "file:../library/dist/css/code",

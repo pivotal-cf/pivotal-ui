@@ -56,6 +56,18 @@ $glow-3 : rgba(255,255,255,0.4);
 $glow-4 : rgba(255,255,255,0.6);
 $glow-5 : rgba(255,255,255,1);
 
+// Box Shadows
+// -------------------------
+// Box Shadow - key light
+$box-shadow-key-1: 0px 2px 2px 0px rgba(36,54,65,0.1);
+$box-shadow-key-2: 0px 4px 4px 0px rgba(36,54,65,0.1);
+$box-shadow-key-3: 0px 8px 8px 0px rgba(36,54,65,0.1);
+
+// Box Shadow - ambient light
+$box-shadow-amb-1: 0px 0px 2px 0px rgba(36,54,65,0.1);
+$box-shadow-amb-2: 0px 0px 4px 1px rgba(36,54,65,0.1);
+$box-shadow-amb-3: 0px 0px 8px 1px rgba(36,54,65,0.1);
+
 // Blue
 // -------------------------
 
