@@ -5,6 +5,7 @@ try {
   require('pui-css-back-to-top');
   require('pui-css-backgrounds');
   require('pui-css-bootstrap');
+  require('pui-css-box-shadows');
   require('pui-css-buttons');
   require('pui-css-code');
   require('pui-css-collapse');
