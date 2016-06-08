@@ -1,16 +1,20 @@
 @import "../pui-variables";
 
 .progress {
-  background-color: $shadow-3;
+  background-color: $navy-9;
 
   overflow: hidden;
+
+  min-height: 10px;
 }
 
 .progress-bar {
   -webkit-transition: width .6s ease;
   transition: width .6s ease;
 
-  background: $gray-5;
+  background: $blue-3;
+
+  min-height: 10px;
 
   .label {
     margin-left: 7px;
@@ -28,8 +32,4 @@
   color: $text-color;
   min-width: 3%;
   background: transparent;
-}
-
-.progress-bar[aria-valuenow^="9"]:not([aria-valuenow="9"]), .progress-bar[aria-valuenow="100"] {
-  background: $red-3;
 }
