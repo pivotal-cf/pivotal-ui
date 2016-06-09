@@ -21,7 +21,7 @@ class BaseModal extends React.Component {
     const {show, title, children, onHide, ...modalProps} = this.props;
 
     return (
-      <BsModal show={show} onHide={onHide} {...mergeProps(modalProps, {className: 'modal-basic'})}>
+      <BsModal show={show} onHide={onHide} {...modalProps}>
         <BsModalHeader className="modal-header" closeButton>
           <h4 className="modal-title" id="modalTitle">{title}</h4>
         </BsModalHeader>
