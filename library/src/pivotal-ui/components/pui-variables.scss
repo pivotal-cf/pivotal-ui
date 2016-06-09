@@ -962,11 +962,10 @@ $modal-md:                    600px !default;
 $modal-sm:                    300px !default;
 
 // Modal basic
-$modal-basic-title-color:             $text-color;
-$modal-basic-content-border-radius:   $border-radius-none;
-$modal-basic-content-border-width:    2px;
-$modal-basic-header-bg:               $neutral-9;
-$modal-basic-footer-bg:               $neutral-9;
+$modal-title-color:             $text-color;
+$modal-content-border-radius:   $border-radius-none;
+$modal-content-border-width:    2px;
+$modal-bg-color:                white;
 
 // Modal Alt
 $modal-alt-header-bg:                 $dark-2;

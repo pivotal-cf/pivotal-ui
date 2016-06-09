@@ -38,37 +38,38 @@
 
 
 .modal {
-
   .modal-dialog {
     margin-top: 50px;
+    box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
   }
+
   .modal-content {
-    border-radius: $modal-basic-content-border-radius;
+    border-radius: $modal-content-border-radius;
     border-width: 0;
     box-shadow: none;
     -webkit-box-shadow:none;
+    background-color: $modal-bg-color;
   }
 
   .modal-header {
-    padding: $modal-inner-padding/2;
+    padding: $modal-inner-padding/2 $modal-inner-padding;
+    border-bottom: 1px solid $navy-9;
+
+    .modal-title {
+      color: $modal-title-color;
+      font-weight: 600;
+      padding: 0;
+    }
+
+    .close {
+      line-height: 30px;
+    }
   }
 
   .modal-footer {
-    padding: $modal-inner-padding/2;
-    background-color: $modal-basic-footer-bg;
+    padding: 0 $modal-inner-padding $modal-inner-padding $modal-inner-padding;
     text-align: right;
-    border-top:0px;
-  }
-}
-
-.modal.modal-basic {
-  .modal-header {
-    background-color: $modal-basic-header-bg;
-    .modal-title{
-      color: $modal-basic-title-color;
-      text-transform:uppercase;
-      font-weight:900;
-    }
+    border-top: 0;
   }
 }
 
