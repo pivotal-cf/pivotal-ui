@@ -14,6 +14,7 @@ describe('Autocomplete', () => {
   afterEach(() => {
     ReactDOM.unmountComponentAtNode(root);
     jasmine.clock().tick(1);
+    MockNextTick.next();
   });
 
   describe('when the values are objects', () => {
@@ -31,6 +32,9 @@ describe('Autocomplete', () => {
     it('renders', () => {
       ReactDOM.render(<Autocomplete />, root);
       expect('.autocomplete').toExist();
+      jasmine.clock().tick(1);
+      MockNextTick.next();
+      MockPromises.tick();
     });
 
     describe('when the user starts to type into the input', () => {
@@ -51,6 +55,7 @@ describe('Autocomplete', () => {
         }
 
         context = ReactDOM.render(<Context/>, root);
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
 
@@ -89,6 +94,7 @@ describe('Autocomplete', () => {
           } }/>,
           root
         );
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
 
@@ -123,6 +129,7 @@ describe('Autocomplete', () => {
           } }/>,
           root
         );
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
 
@@ -149,6 +156,7 @@ describe('Autocomplete', () => {
         }
 
         context = ReactDOM.render(<Context/>, root);
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
 
@@ -242,6 +250,7 @@ describe('Autocomplete', () => {
             root
           );
 
+          MockNextTick.next();
           jasmine.clock().tick(1);
           MockPromises.tick();
 
@@ -383,6 +392,7 @@ describe('Autocomplete', () => {
             placeholder: 'Best autocomplete ever...'} }>
             <ul className="my-custom-list"/>
           </Autocomplete>, root);
+        MockNextTick.next();
         jasmine.clock().tick(1);
         subject.showList();
       });
@@ -406,6 +416,7 @@ describe('Autocomplete', () => {
           } }/>,
           root
         );
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
 
@@ -429,6 +440,7 @@ describe('Autocomplete', () => {
 
       it('still populates the list properly', () => {
         cb(['a', 'betty', 'c']);
+        MockNextTick.next();
         jasmine.clock().tick(1);
         MockPromises.tick();
         subject.showList();

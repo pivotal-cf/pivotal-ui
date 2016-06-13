@@ -25,7 +25,7 @@ describe('BoundingClientRect', () => {
   describe('containerReady', () => {
     describe('when some time has passed', () => {
       beforeEach(() => {
-        jasmine.clock().tick(1);
+        MockNextTick.next();
       });
 
       it('returns a promise with the container', () => {

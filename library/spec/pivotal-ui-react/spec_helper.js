@@ -1,3 +1,6 @@
+const MockNextTick = require('./support/mock_next_tick');
+MockNextTick.install();
+
 require('babel-polyfill');
 require('phantomjs-polyfill');
 require('./support/bluebird');
@@ -15,6 +18,7 @@ const MockPromises = require('mock-promises');
 
 Object.assign(global, {
   jQuery,
+  MockNextTick,
   MockNow,
   MockPromises,
   $: jQuery,
@@ -57,6 +61,7 @@ beforeEach(function() {
 
 afterEach(function() {
   ReactDOM.unmountComponentAtNode(root);
+  MockNextTick.next();
   jasmine.clock().tick(1);
   jasmine.clock().uninstall();
   MockPromises.contracts.reset();
