@@ -8,6 +8,7 @@
     "pui-css-collapse": "^5.1.3",
     "pui-css-iconography": "^5.1.3",
     "pui-css-dividers": "^5.1.3",
+    "pui-react-collapsible": "^5.1.3",
     "pui-react-helpers": "^5.1.3"
   }
 }
