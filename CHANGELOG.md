@@ -1,3 +1,30 @@
+<a name="5.2.0"></a>
+# 5.2.0 (2016-06-14)
+
+### Features
+* **box-shadows:** Add new box-shadow styles
+* **modals:** improved style
+* **panels:** improved loading animation
+* **progress-bars:** improve default style
+* **progress-bars:** improve default style and remove automatic red background at 90%
+
+### Bug Fixes
+
+* **collapse:** Add collapsible dependency ([5963f1f](https://github.com/pivotal-cf/pivotal-ui/commit/5963f1f))
+* **typography:** include semibold and fix font-weight for bold fonts ([20c14bc](https://github.com/pivotal-cf/pivotal-ui/commit/20c14bc))
+
+
+<a name="5.1.3"></a>
+## 5.1.3 (2016-06-07)
+
+
+### Bug Fixes
+
+* **table:** do not allow the data property to be added to the table element itself ([efd651b](https://github.com/pivotal-cf/pivotal-ui/commit/efd651b))
+* **Tooltips:** Pin tooltips within window if positioned on top/bottom ([d744297](https://github.com/pivotal-cf/pivotal-ui/commit/d744297))
+
+
+
 <a name="5.1.3"></a>
 ## 5.1.3 (2016-06-07)
 
