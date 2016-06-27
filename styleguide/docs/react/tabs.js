@@ -27,15 +27,27 @@ Using Tab components in React consists of a parent element for the desired Tab t
 string value a Tab should display. Additionally, each `Tab` must define an `eventKey` property
 for uniquely identifying this tab to its parent component.
 
+##Tabs Properties
+
 Property   | Required? | Type             | Description
 -----------| ----------|------------------| --------------------------------------------------------------------------
-`responsiveBreakpoint` | no        | one of: `"xs"`, `"sm"`, `"md"`, `lg`,          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
+`actions` | no | node | an element or text that will display in the upper right
+`animation` | no | boolean | Whether to animate when moving between tabs, defaults to true
 `defaultActiveKey` | no            | should equal one of your tab's event keys | The tab which will start out open
-`smallScreenClassName` | no  | css class | Will be applied to small screen tabs only
 `largeScreenClassName` | no  | css class | Will be applied to large screen tabs only
 `onSelect` | no | function | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
+`responsiveBreakpoint` | no        | one of: `"xs"`, `"sm"`, `"md"`, `lg`,          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
+`smallScreenClassName` | no  | css class | Will be applied to small screen tabs only
 `tabType` | no | one of: `"simple"`, `"simple-alt"` | Change the styling of your tabs, mostly whether the selected tab is transparent
-`actions` | no | node | an element or text that will display in the upper right
+
+##Tab Properties
+ Property   | Required? | Type             | Description
+ -----------| ----------|------------------| --------------------------------------------------------------------------
+ `eventKey` | no | anything | data representing the tab, to be used with `defaultActiveKey` or `onSelect`
+ `title` | yes | node | Html rendered in the tab link
+ `tabClassName` | no | string | optional className to add to the tab link
+
+
 
 */
 
