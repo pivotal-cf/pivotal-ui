@@ -41,6 +41,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
   };
 
   static defaultProps = {
+    animation: true,
     responsiveBreakpoint: 'xs',
     tabType: 'simple'
   };
@@ -90,6 +91,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
   render() {
     const {
       actions,
+      animation,
       children,
       className,
       id = this.state.id,
@@ -102,7 +104,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
       ...props} = this.props;
     const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
 
-    const transitionProgress = this.animate('transitionProgress', 1, Tabs.ANIMATION_TIME);
+    const transitionProgress = this.animate('transitionProgress', 1, animation ? Tabs.ANIMATION_TIME : 0);
 
     const childArray = React.Children.toArray(children);
 
@@ -121,15 +123,15 @@ class Tabs extends mixin(React.Component).with(Animation) {
     }
 
     const listChildren = childArray.map((child, key) => {
-      const {eventKey} = child.props;
+      const {eventKey, tabClassName, title} = child.props;
       const paneId = `${id}-pane-${key}`;
       const tabId = `${id}-tab-${key}`;
       const isActive = (eventKey === this.state.activeKey);
 
       return (
         <li key={key} role='presentation' className={classnames({active: isActive})}>
-          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab"
-             onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{child.props.title}</a>
+          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName}
+             onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{title}</a>
         </li>
       )
     });
@@ -141,7 +143,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
     let tabContent = null;
     const activeKey = transitionProgress >= 0.5 ? this.state.activeKey : this.state.previousActiveKey;
     childArray.forEach((child, key) => {
-      const {eventKey, children} = child.props;
+      const {eventKey, children, className, ...props} = child.props;
       const paneId = `${id}-pane-${key}`;
       const tabId = `${id}-tab-${key}`;
       const isActive = (eventKey === activeKey);
@@ -149,7 +151,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
 
       if (!isActive) return false;
       tabContent = (
-        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft})}>
+        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft}, className)} {...props}>
           <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId}
                aria-hidden='false' style={style}>
             {children}

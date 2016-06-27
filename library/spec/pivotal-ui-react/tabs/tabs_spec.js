@@ -186,7 +186,27 @@ describe('Tabs', function() {
       it('attaches it as a class to the tabs', () => {
         expect('.tab-simple-alt ul').toExist();
       });
-    })
+    });
+
+    describe('tabClassName', () => {
+      beforeEach(function() {
+        ReactDOM.render(
+          <Tabs tabType={tabType} defaultActiveKey={1}>
+            <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class">Content1</Tab>
+            <Tab eventKey={2} title="Tab2">Content2</Tab>
+          </Tabs>,
+          root
+        );
+      });
+
+      it('moves the tabClassName to the tab', () => {
+        expect('.nav-tabs li:eq(0) a').toHaveClass('tab-class');
+      });
+
+      it('preserves the tab className in the tab content', () => {
+        expect('.tab-content-class').toHaveText('Content1');
+      });
+    });
   });
 
   describe('tab behavior', function() {
