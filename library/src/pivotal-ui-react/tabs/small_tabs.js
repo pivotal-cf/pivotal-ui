@@ -6,6 +6,7 @@ const types = React.PropTypes;
 
 class SmallTab extends React.Component {
   static propTypes = {
+    animation: types.bool,
     expanded: types.bool,
     header: types.node,
     onClick: types.func,
@@ -13,8 +14,9 @@ class SmallTab extends React.Component {
   };
 
   render() {
-    const {children, expanded, header, onClick, paneId} = this.props;
-
+    const {animation, children, expanded, header, onClick, paneId} = this.props;
+    let delay
+    if(!animation) delay = 0;
     return (
       <div>
         <div className="tab-heading">
@@ -23,7 +25,7 @@ class SmallTab extends React.Component {
                onClick={onClick}>{header}</a>
           </h4>
         </div>
-        <Collapsible expanded={expanded} role="tabpanel">
+        <Collapsible expanded={expanded} delay={delay} role="tabpanel">
           {children}
         </Collapsible>
       </div>
@@ -35,6 +37,7 @@ class SmallTabs extends React.Component {
   static propTypes = {
     actions: types.node,
     activeKey: types.number,
+    animation: types.bool,
     id: types.string,
     handleClick: types.func,
     onSelect: types.func,
@@ -46,6 +49,7 @@ class SmallTabs extends React.Component {
     const {
       actions,
       activeKey,
+      animation,
       children,
       className,
       id,
@@ -60,6 +64,7 @@ class SmallTabs extends React.Component {
       const {title, eventKey, children} = child.props;
       const paneId = `${id}-pane-${key}`;
       const myProps = {
+        animation,
         expanded: eventKey === activeKey,
         header: title,
         key,
