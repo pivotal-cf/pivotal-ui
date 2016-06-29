@@ -1,9 +1,9 @@
 {
-  "version": "5.2.0",
+  "version": "5.2.1",
   "description": "A React Checkbox component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-forms": "^5.2.0"
+    "pui-css-forms": "^5.2.1"
   }
 }
