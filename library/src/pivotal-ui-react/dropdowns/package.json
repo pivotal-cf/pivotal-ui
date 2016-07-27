@@ -3,7 +3,8 @@
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "classnames": "^2.1.2",
     "pui-css-dropdowns": "^5.2.1",
-    "classnames": "^2.1.2"
+    "pui-react-mixins": "^5.2.1"
   }
 }
