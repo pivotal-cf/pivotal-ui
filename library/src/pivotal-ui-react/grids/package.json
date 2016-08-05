@@ -4,7 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "pui-css-grids": "^5.2.1",
-    "react-bootstrap": "0.29.0",
+    "react-bootstrap": "0.30.2",
     "pui-react-helpers": "^5.2.1"
   }
 }
