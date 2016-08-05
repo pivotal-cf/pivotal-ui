@@ -38,9 +38,10 @@ class BackToTop extends mixin(React.Component).with(Animation) {
   };
 
   render() {
+    const {alwaysVisible, ...others} = this.props;
     var {visible: visibleState} = this.state;
-    var visible = this.props.alwaysVisible || visibleState;
-    var props = mergeProps(this.props,
+    var visible = alwaysVisible || visibleState;
+    var props = mergeProps(others,
       {
         className: 'back-to-top',
         style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
