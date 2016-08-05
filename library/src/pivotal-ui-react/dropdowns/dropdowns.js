@@ -51,7 +51,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   };
 
   render() {
-    const {border, buttonClassName, children, className, kind, pullRight, split, title, toggle, ...props} = this.props;
+    const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, kind, pullRight, onClick, split, title, toggle, ...props} = this.props;
     const {isOpen} = this.state;
 
     let buttonKind, dropdownLabel, dropdownToggle, toggleNode;
@@ -149,7 +149,7 @@ class DropdownItem extends React.Component {
   };
 
   render() {
-    const {children, className, style, href, header, divider, disabled, ...anchorProps} = this.props;
+    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props;
 
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
     if (divider) return (<li role="separator" className="divider"/>);

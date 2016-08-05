@@ -112,7 +112,7 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
 
   render() {
     var $autocomplete = new Cursor(this.state, state => this.setState(state));
-    var {className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children, ...props} = this.props;
+    var {className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children, onInitializeItems, onFilter, onPick, onSearch, ...props} = this.props;
     var {scrollIntoView, onPick, onSearch} = this;
     input = React.cloneElement(input, {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder});
     return (

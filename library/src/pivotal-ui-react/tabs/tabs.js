@@ -94,11 +94,14 @@ class Tabs extends mixin(React.Component).with(Animation) {
       animation,
       children,
       className,
+      defaultActiveKey,
       id = this.state.id,
       largeScreenClassName,
       onSelect,
       paneWidth,
       position,
+      responsiveBreakpoint,
+      smallScreenClassName,
       tabType,
       tabWidth,
       ...props} = this.props;
@@ -143,7 +146,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
     let tabContent = null;
     const activeKey = transitionProgress >= 0.5 ? this.state.activeKey : this.state.previousActiveKey;
     childArray.forEach((child, key) => {
-      const {eventKey, children, className, ...props} = child.props;
+      const {eventKey, children, className, tabClassName, ...props} = child.props;
       const paneId = `${id}-pane-${key}`;
       const tabId = `${id}-tab-${key}`;
       const isActive = (eventKey === activeKey);

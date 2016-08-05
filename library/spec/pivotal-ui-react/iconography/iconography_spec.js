@@ -2,7 +2,6 @@ require('../spec_helper');
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 var Icon = require('../../../src/pivotal-ui-react/iconography/iconography').Icon;
-var {toBeValid} = require('../support/matchers');
 
 describe('iconography', function() {
   afterEach(function() {
@@ -25,16 +24,6 @@ describe('iconography', function() {
   });
 
   describe('when a size is given', function() {
-    beforeEach(function() {
-      jasmine.addMatchers({toBeValid});
-    });
-
-    it('does not fail prop-validation', function() {
-      for (var size of ['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'sm', 'xs', 'lg', '2x', '3x', '4x', '5x']) {
-        expect(<Icon name='plus' size={size}/>, root).toBeValid();
-      }
-    });
-
     it('adds the size class to the icon', function() {
       for (var size of ['title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'sm', 'xs', 'lg', '2x', '3x', '4x', '5x']) {
         ReactDOM.render(<Icon name='plus' size={size}/>, root);

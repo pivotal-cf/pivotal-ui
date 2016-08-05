@@ -1,5 +1,6 @@
 var React = require('react');
 import classnames from 'classnames';
+const types = React.PropTypes;
 require('pui-css-lists');
 
 class ListItem extends React.Component {
@@ -11,12 +12,15 @@ class ListItem extends React.Component {
 function defList(tagName, spacingType, classNames, childClassNames) {
   return class extends React.Component {
     static propTypes = {
-      spacing: React.PropTypes.oneOf(['n', 's', 'm', 'l', 'xl']),
-      className: React.PropTypes.string
+      spacing: types.oneOf(['n', 's', 'm', 'l', 'xl']),
+      className: types.string,
+      checked: types.bool,
+      unstyled: types.bool,
+      divider: types.bool
     };
 
     render() {
-      var {className, spacing, children, ...others} = this.props;
+      var {className, spacing, children, checked, unstyled, divider, ...others} = this.props;
       var classes = classnames(classNames(this.props), className, spacing && `${spacingType}${spacing}`);
       if (childClassNames) {
         children = React.Children.map(children, child => React.cloneElement(child, {className: childClassNames}));

@@ -4,9 +4,11 @@
   "description": "***",
   "version": "5.2.1",
   "main": "gulpfile.js",
+  "optionalDependencies": {
+    "accessibility-developer-tools": "pivotal-cf/accessibility-developer-tools#dist"
+  },
   "devDependencies": {
     "a11y": "^0.3.3",
-    "accessibility-developer-tools": "pivotal-cf/accessibility-developer-tools#dist",
     "axios": "^0.5.4",
     "babel": "^6.1.18",
     "babel-core": "^6.1.21",
@@ -81,11 +83,11 @@
     "postcss-cssnext": "^2.4.0",
     "proxyquire": "^1.5.0",
     "pui-cursor": "^3.0.4",
-    "react": "^15.0.1",
+    "react": "^15.3.0",
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
     "react-addons-shallow-compare": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
-    "react-bootstrap": "^0.29.0",
+    "react-bootstrap": "^0.30.1",
     "react-fa": "^4.0.0",
     "react-tether": "^0.5.2",
     "require-dir": "^0.3.0",

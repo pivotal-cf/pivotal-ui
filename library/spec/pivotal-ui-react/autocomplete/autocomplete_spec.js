@@ -382,15 +382,18 @@ describe('Autocomplete', () => {
 
     describe('when custom props are provided', () => {
       beforeEach(() => {
+        const CustomInput = ({disabled, placeholder}) => (<input className="input-thing" {...{disabled, placeholder}}/>);
+        const CustomList = () => (<ul className="my-custom-list"/>);
+
         ReactDOM.unmountComponentAtNode(root);
         subject = ReactDOM.render(
           <Autocomplete {...{
             onPick: pickSpy,
             onInitializeItems,
-            input: (<input className="input-thing"/>),
+            input: (<CustomInput/>),
             disabled: true,
             placeholder: 'Best autocomplete ever...'} }>
-            <ul className="my-custom-list"/>
+            <CustomList/>
           </Autocomplete>, root);
         MockNextTick.next();
         jasmine.clock().tick(1);

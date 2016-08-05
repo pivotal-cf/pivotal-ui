@@ -98,7 +98,7 @@ class Panel extends React.Component {
   };
 
   render() {
-    const {actions, children, footer, header, innerClassName, padding, scrollable, subtitle, ...other} = this.props;
+    const {actions, children, footer, header, innerClassName, padding, scrollable, shadowLevel, subtitle, ...other} = this.props;
     const scrollableStyle = (typeof scrollable === 'number') ? {maxHeight: `${scrollable}px`} : null;
     const props = mergeProps(other, {
       className: ['panel', this.kind]

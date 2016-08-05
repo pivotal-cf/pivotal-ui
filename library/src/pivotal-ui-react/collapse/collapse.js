@@ -32,7 +32,7 @@ class BaseCollapse extends React.Component {
   }
 
   render() {
-    var {divider, children, ...others} = this.props;
+    var {children, defaultExpanded, divider, header, ...others} = this.props;
     var props = mergeProps(others, {className: ['panel', {'panel-divider': divider}]});
 
     var {expanded} = this.state;

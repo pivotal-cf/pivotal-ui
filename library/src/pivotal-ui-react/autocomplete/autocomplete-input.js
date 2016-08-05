@@ -85,7 +85,7 @@ class AutocompleteInput extends React.Component {
   }
 
   render() {
-    var {autoFocus, children, $autocomplete, ...props} = this.props;
+    var {autoFocus, children, $autocomplete, onPick, onPicking, onSearch, scrollIntoView, ...props} = this.props;
     if (!$autocomplete) return null;
     var {value} = $autocomplete.get();
     var otherProps = {autoFocus, value, onChange: this.change, onKeyDown: this.keyDown};
