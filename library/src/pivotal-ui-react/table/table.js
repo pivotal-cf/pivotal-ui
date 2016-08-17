@@ -3,7 +3,6 @@ const React = require('react');
 const sortBy = require('lodash.sortby');
 const types = React.PropTypes;
 import {mergeProps} from 'pui-react-helpers';
-import findindex from 'lodash.findindex';
 require('pui-css-tables');
 
 export class TableHeader extends React.Component {
@@ -42,11 +41,11 @@ export class Table extends React.Component {
     super(props, context);
     const {columns, defaultSort} = props;
 
-    const sortCol = findindex(columns, ({sortable, attribute}) => {
+    const sortCol = columns.find(({sortable, attribute}) => {
       return defaultSort ? attribute === defaultSort : sortable;
-    });
+    }) || {};
 
-    this.state = {sortColumn: sortCol, sortAscending: true};
+    this.state = {sortColumnAttribute: sortCol.attribute, sortAscending: true};
   }
 
   static propTypes = {
@@ -56,18 +55,18 @@ export class Table extends React.Component {
     defaultSort: types.string
   };
 
-  setSortedColumn = (sortColumn, sortAscending) => {
-    this.setState({sortColumn, sortAscending});
+  setSortedColumn = (sortColumnAttribute, sortAscending) => {
+    this.setState({sortColumnAttribute, sortAscending});
   };
 
   sortedRows() {
-    const {sortColumn, sortAscending} = this.state;
+    const {sortColumnAttribute, sortAscending} = this.state;
     const {columns, data} = this.props;
 
     const sortedData = sortBy(data, (datum) => {
-      const column = columns[sortColumn];
+      const column = columns.find(({attribute}) => sortColumnAttribute === attribute);
       const rankFunction = column.sortBy || (i => i);
-      return rankFunction(datum[column.attribute]);
+      return rankFunction(datum[sortColumnAttribute]);
     });
 
     if(!sortAscending) sortedData.reverse();
@@ -90,12 +89,12 @@ export class Table extends React.Component {
   }
 
   renderHeaders() {
-    const {sortColumn, sortAscending} = this.state;
+    const {sortColumnAttribute, sortAscending} = this.state;
 
     return this.props.columns.map(({attribute, sortable, displayName, headerProps}, index) => {
       headerProps = headerProps || {};
 
-      const isSortColumn = (sortColumn === index);
+      const isSortColumn = (sortColumnAttribute === attribute);
       let className;
       if ( isSortColumn ) {
         className = sortAscending ? 'sorted-asc' : 'sorted-desc';
@@ -106,7 +105,7 @@ export class Table extends React.Component {
         className,
         sortable,
         key: index,
-        onSortableTableHeaderClick: () => this.setSortedColumn(index, isSortColumn ? !sortAscending : true)
+        onSortableTableHeaderClick: () => this.setSortedColumn(attribute, isSortColumn ? !sortAscending : true)
       };
 
       return <TableHeader {...headerProps}>{displayName || attribute}</TableHeader>;
@@ -114,11 +113,11 @@ export class Table extends React.Component {
   }
 
   render() {
-    const {sortColumn} = this.state;
+    const {sortColumnAttribute} = this.state;
     let {columns, CustomRow, data, defaultSort, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
-    const rows = (sortColumn === -1) ? this.rows(data) : this.sortedRows();
+    const rows = sortColumnAttribute ? this.sortedRows() : this.rows(data);
 
     return (
       <table {...props}>

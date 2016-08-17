@@ -66,7 +66,6 @@
     "js-yaml": "^3.4.0",
     "jsonfile": "^2.2.3",
     "lodash": "^2.4.1",
-    "lodash.findindex": "^3.2.1",
     "lodash.sortby": "^3.1.1",
     "lodash.throttle": "^3.0.2",
     "lodash.uniqueid": "^3.0.0",

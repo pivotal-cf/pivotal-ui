@@ -449,6 +449,43 @@ describe('Table', function() {
     expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
   });
 
+  it('retains the sorted column even when columns are removed', () => {
+    const columns = [
+      {
+        attribute: 'title',
+        displayName: 'Title',
+        sortable: true
+      },
+      {
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
+      },
+      {
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
+      }
+    ];
+
+    const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    const subject = ReactDOM.render((
+        <Table columns={columns} data={data} defaultSort='theDefault'/>
+      ),
+      root
+    );
+
+    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
+
+    subject::setProps({columns: [columns[1], columns[2]]});
+    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
+  });
+
   it('does not render the data as an attribute', () => {
     const columns = [
       {
