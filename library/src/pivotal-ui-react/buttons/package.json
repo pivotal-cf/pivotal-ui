@@ -1,9 +1,9 @@
 {
-  "version": "5.3.0",
+  "version": "5.3.1",
   "description": "A collection of React components providing styled buttons and links",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-buttons": "^5.3.0",
-    "pui-react-helpers": "^5.3.0"
+    "pui-css-buttons": "^5.3.1",
+    "pui-react-helpers": "^5.3.1"
   }
 }
