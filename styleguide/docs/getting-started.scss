@@ -196,7 +196,7 @@ parent: getting-started
 
 React is the recommended approach (see reasons above), but some elements are available in HTML/CSS.
 If you just want all of the Pivotal UI css right now, you can download
-<a href=http://styleguide.pivotal.io/components.css download=http://styleguide.pivotal.io/components.css>components.css</a>.
+<a href=components.css download=components.css>components.css</a>.
 Note that all assets (including fonts) are inlined into the css, creating a large file. This isn't 100% ideal, but is fine for most webistes.
 
 The prefered way to consume Pivotal UI is through NPM, even for Rails
