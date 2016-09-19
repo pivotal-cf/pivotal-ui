@@ -1,7 +1,8 @@
-var React = require('react');
-var types = React.PropTypes;
-var BsAlert = require('react-bootstrap/lib/Alert');
-var {Media} = require('pui-react-media');
+const classnames = require('classnames');
+const React = require('react');
+const types = React.PropTypes;
+const {Media} = require('pui-react-media');
+const {mergeProps} = require('pui-react-helpers');
 require('pui-css-alerts');
 
 class Alert extends React.Component{
@@ -11,36 +12,60 @@ class Alert extends React.Component{
   }
 
   static propTypes = {
+    alertIcon: types.string,
     bsStyle: types.string,
-    dismissable: types.oneOfType([types.bool, types.func]),
-    withIcon: types.bool,
-    alertIcon: types.string
+    closeLabel: types.node,
+    dismissable: types.bool,
+    onDismiss: types.func,
+    show: types.bool,
+    withIcon: types.bool
   };
 
   static defaultProps = {
+    closeLabel: 'Close alert',
     dismissable: false,
     withIcon: false
   };
 
   render() {
-    var {dismissable, withIcon, alertIcon, children, ...others} = this.props;
+    let {
+      alertIcon,
+      bsStyle,
+      children,
+      closeLabel,
+      dismissable,
+      onDismiss: __ignore,
+      show,
+      withIcon,
+      ...others
+    } = this.props;
 
-    if (this.state.alertVisible) {
-      var onDismiss = dismissable ? this.handleAlertDismiss : null;
+    const props = mergeProps(others, {role: 'alert',
+      className: classnames('alert', `alert-${bsStyle}`, {'alert-dismissable': dismissable})});
 
-      if (withIcon) {
-        var icon = <i className={`fa ${alertIcon}`}></i>;
-        children = <Media className={'mtn'} image={icon}>{children}</Media>;
-      }
-      return <BsAlert {...others} onDismiss={onDismiss}>{children}</BsAlert>;
+    const visible = typeof show === 'undefined' ? this.state.alertVisible : show;
+
+    if (!visible) {
+      return <span/>;
     }
 
-    return <span/>;
+    if (withIcon) {
+      const icon = <i className={`fa ${alertIcon}`}></i>;
+      children = <Media className={'mtn'} image={icon}>{children}</Media>;
+    }
+    return (
+      <div {...props}>
+        {dismissable && <button type="button" className="close" aria-hidden={true} onClick={this.handleAlertDismiss}><span>&times;</span></button>}
+        {children}
+        {dismissable && <button type="button" className="close sr-only">{closeLabel}</button>}
+      </div>
+    );
+
   }
 
   handleAlertDismiss = () => {
-    var {dismissable} = this.props;
-    if (typeof dismissable === 'function') dismissable();
+    var {onDismiss} = this.props;
+    if (onDismiss) this::onDismiss();
     this.setState({alertVisible: false});
   }
 }

@@ -31,6 +31,17 @@ var ErrorAlert = require('pui-react-alerts').ErrorAlert;
 
  <ErrorAlert>Something has gone horribly awry</ErrorAlert>
  ```
+
+ The Alert components accept the following optional properties:
+
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `closeLabel`       | String        | Screen reader label attached to close button
+ `dismissable`      | Boolean       | If true, render a close button
+ `onDismiss`        | Function      | Callback that is called when the user clicks the close button
+ `show`             | Boolean       | If set, overrides the close button. True shows the alert, false hides the alert.
+ `withIcon`         | Boolean       | If true, render alert with an icon
+
  */
 
 /*doc
@@ -47,7 +58,7 @@ var ErrorAlert = require('pui-react-alerts').ErrorAlert;
  ```
 
  If you want a callback to be called when the close button is
- clicked, set the `dismissable` property to that callback.
+ clicked, set the `onDismiss` property to that callback.
 
  ```jsx_example
  var callback = function() {
@@ -56,7 +67,7 @@ var ErrorAlert = require('pui-react-alerts').ErrorAlert;
  ```
 
  ```react_example_table
- <InfoAlert dismissable={callback}>with callback</InfoAlert>
+ <InfoAlert onDismiss={callback} dismissable>with callback</InfoAlert>
  ```
 
  */

@@ -19,43 +19,72 @@ describe('Alert', function() {
     expect('#root .alert').toHaveCss({'font-size': '200px'});
   });
 
+  it('renders a sr-only alert description', () => {
+    ReactDOM.render(<SuccessAlert withIcon>alert body</SuccessAlert>, root);
+    expect('.alert span.sr-only').toContainText('success alert message,');
+  });
+
   describe('when dismissable is set to true', function() {
+    let subject;
     beforeEach(function() {
-      ReactDOM.render(<SuccessAlert dismissable={true}>alert body</SuccessAlert>, root);
+      subject = ReactDOM.render(<SuccessAlert dismissable={true}>alert body</SuccessAlert>, root);
+    });
+
+    it('adds the alert-dismissable class', () => {
+      expect('.alert').toHaveClass('alert-dismissable');
     });
 
     it('has a close button', function() {
       expect('button.close').toExist();
+    });
+
+    it('has an sr-only close button', () => {
+      expect('button.close:not(".sr-only")').toHaveAttr('aria-hidden', 'true');
+      expect('button.sr-only').toHaveText('Close alert');
+    });
+
+    it('adds the closeLabel to the close button', () => {
+      subject::setProps({closeLabel: 'click to close the alert'});
+      expect('button.sr-only').toHaveText('click to close the alert');
     });
 
     it('disappears when close button is clicked', function() {
       $('button.close').simulate('click');
       expect('#root .alert').not.toExist();
     });
-  });
 
-  describe('when dismissable is set to a callback', function() {
-    beforeEach(function() {
-      this.callback = jasmine.createSpy('dismissable callback');
-      ReactDOM.render(<SuccessAlert dismissable={this.callback}>alert body</SuccessAlert>, root);
-    });
+    describe('when onDismiss is given', () => {
+      let onDismissSpy;
 
-    it('has a close button', function() {
-      expect('button.close').toExist();
-    });
-
-    describe('when close button is clicked', function() {
-      beforeEach(function() {
-        $('button.close').simulate('click');
+      beforeEach(() => {
+        onDismissSpy = jasmine.createSpy('dismissable callback');
+        subject::setProps({onDismiss: onDismissSpy});
       });
 
-      it('disappears', function() {
+      it('calls onDismiss when the close button is clicked', function() {
+        $('button.close').simulate('click');
+        expect(onDismissSpy).toHaveBeenCalled();
         expect('#root .alert').not.toExist();
       });
+    });
+  });
 
-      it('calls the callback passed in', function() {
-        expect(this.callback).toHaveBeenCalled();
-      });
+  describe('when show is true', () => {
+    let onDismissSpy, subject;
+    beforeEach(() => {
+      onDismissSpy = jasmine.createSpy('dismissable callback');
+      subject = ReactDOM.render(<SuccessAlert dismissable={true} onDismiss={onDismissSpy} show={true}>alert body</SuccessAlert>, root);
+    });
+
+    it('renders the alert even after the close button is clicked', () => {
+      $('button.close').simulate('click');
+      expect(onDismissSpy).toHaveBeenCalled();
+      expect('#root .alert').toExist();
+    });
+
+    it('hides the alert when show is set to false', () => {
+      subject::setProps({show: false});
+      expect('#root .alert').not.toExist();
     });
   });
 
@@ -85,6 +114,10 @@ describe('SuccessAlert', function() {
       ReactDOM.unmountComponentAtNode(root);
     });
 
+    it('renders a success alert', () => {
+      expect('.alert').toHaveClass('alert-success');
+    });
+
     it('renders an icon in the alert', function() {
       expect('i').toHaveClass('fa-check-circle');
     });
@@ -104,6 +137,10 @@ describe('InfoAlert', function() {
 
     afterEach(function() {
       ReactDOM.unmountComponentAtNode(root);
+    });
+
+    it('renders an info alert', () => {
+      expect('.alert').toHaveClass('alert-info');
     });
 
     it('renders an icon in the alert', function() {
@@ -127,6 +164,10 @@ describe('WarningAlert', function() {
        ReactDOM.unmountComponentAtNode(root);
      });
 
+     it('renders an warning alert', () => {
+       expect('.alert').toHaveClass('alert-warning');
+     });
+
      it('renders an icon in the alert', function() {
        expect('i').toHaveClass('fa-exclamation-triangle');
      });
@@ -146,6 +187,10 @@ describe('ErrorAlert', function() {
 
      afterEach(function() {
        ReactDOM.unmountComponentAtNode(root);
+     });
+
+     it('renders a danger alert', () => {
+       expect('.alert').toHaveClass('alert-danger');
      });
 
      it('renders an icon in the alert', function() {

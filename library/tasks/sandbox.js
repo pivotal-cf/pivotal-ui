@@ -48,7 +48,7 @@ gulp.task('sandbox-copy-font-awesome-stylesheet', () => {
 });
 
 gulp.task('sandbox-build-sass', () =>
-    gulp.src('src/pivotal-ui/components/**/*.scss')
+    gulp.src(['src/pivotal-ui/components/**/*.scss', '!src/pivotal-ui/components/*.scss'])
       .pipe(plugins.plumber())
       .pipe(plugins.sass())
       .pipe(plugins.postcss([

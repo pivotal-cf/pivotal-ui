@@ -50,5 +50,5 @@ gulp.task('jasmine-react', function() {
   var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
   return reactTestAssets({plugins: [plugin]})
     .pipe(plugins.jasmineBrowser.specRunner())
-    .pipe(plugins.jasmineBrowser.server({whenReady: plugin.whenReady}));
+    .pipe(plugins.jasmineBrowser.server({sourcemappedStacktrace: true, whenReady: plugin.whenReady}));
 });
