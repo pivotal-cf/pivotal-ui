@@ -65,7 +65,7 @@ class Alert extends React.Component{
 
   handleAlertDismiss = () => {
     var {onDismiss} = this.props;
-    if (onDismiss) this::onDismiss();
+    if (onDismiss) onDismiss();
     this.setState({alertVisible: false});
   }
 }
