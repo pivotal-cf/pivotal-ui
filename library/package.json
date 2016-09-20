@@ -73,7 +73,7 @@
     "mock-promises": "^0.6.0",
     "node-event-emitter": "0.0.1",
     "node-sass": "^3.4.2",
-    "npm": "^2.7.5",
+    "npm": "3.5.0",
     "object-assign": "^4.0.1",
     "phantomjs": "^1.9.16",
     "phantomjs-polyfill": "0.0.1",
