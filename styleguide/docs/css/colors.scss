@@ -454,8 +454,8 @@ title: Shadows & Glows
 name: color_shadows_glows
 parent: color
 ---
-<div class="contrast-bar">
-  <div class="color-chip-row" style="position: relative; top: 65px; margin-bottom: 0;">
+<div class="contrast-bar" style="background-image: linear-gradient(-180deg, #788E9A 0%, #243641 37%, #788E9A 38%, #243641 100%);">
+  <div class="color-chip-row">
       <div class="chip">
         <div class="chip-color bg-shadow-1"></div>
         <div class="chip-color-name">$shadow-1</div>
@@ -492,8 +492,6 @@ parent: color
         <div class="chip-color bg-glow-5"></div>
         <div class="chip-color-name">$glow-5</div>
       </div>
-      <div class="chip"></div>
-      <div class="chip"></div>
   </div>
 </div>
 */
