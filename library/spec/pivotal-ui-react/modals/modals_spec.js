@@ -250,28 +250,28 @@ describe('BaseModal', function() {
   describe('sizing', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
-        <BaseModal show id="ms-modal" animation={false}/>,
+        <BaseModal show id='ms-modal' animation={false}/>,
         root
       );
     });
 
     it('can set the small (sm) size', () => {
-      subject::setProps({bsSize: "sm"});
+      subject::setProps({bsSize: 'sm'});
       expect('.modal-dialog').toHaveClass('modal-sm');
     });
 
     it('can set the small size', () => {
-      subject::setProps({bsSize: "small"});
+      subject::setProps({bsSize: 'small'});
       expect('.modal-dialog').toHaveClass('modal-sm');
     });
 
     it('can set the large (lg) size', () => {
-      subject::setProps({bsSize: "lg"});
+      subject::setProps({bsSize: 'lg'});
       expect('.modal-dialog').toHaveClass('modal-lg');
     });
 
     it('can set the large size', () => {
-      subject::setProps({bsSize: "large"});
+      subject::setProps({bsSize: 'large'});
       expect('.modal-dialog').toHaveClass('modal-lg');
     });
   });
