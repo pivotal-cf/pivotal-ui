@@ -256,22 +256,22 @@ describe('BaseModal', function() {
     });
 
     it('can set the small (sm) size', () => {
-      subject::setProps({bsSize: 'sm'});
+      subject::setProps({size: 'sm'});
       expect('.modal-dialog').toHaveClass('modal-sm');
     });
 
     it('can set the small size', () => {
-      subject::setProps({bsSize: 'small'});
+      subject::setProps({size: 'small'});
       expect('.modal-dialog').toHaveClass('modal-sm');
     });
 
     it('can set the large (lg) size', () => {
-      subject::setProps({bsSize: 'lg'});
+      subject::setProps({size: 'lg'});
       expect('.modal-dialog').toHaveClass('modal-lg');
     });
 
     it('can set the large size', () => {
-      subject::setProps({bsSize: 'large'});
+      subject::setProps({size: 'large'});
       expect('.modal-dialog').toHaveClass('modal-lg');
     });
   });

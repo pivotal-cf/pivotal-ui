@@ -35,14 +35,14 @@ We provide 3 components that can be used to assemble modals:
  Property           |  Type         | Description
  -------------      | --------------| --------------------------------------------------------------------------
  `animation`        | Boolean       | Opens and closes the modal widow with sliding and fading animations.
- `bsSize`           | String        | Size variations. Can be `lg`, `large`, `sm`, or `small`.
+ `size`             | String        | Size variations. Can be `lg`, `large`, `sm`, or `small`.
  `dialogClassName`  | String        | A CSS class to apply to the modal dialog.
  `keyboard`         | Boolean       | Set to false to prevent escape from closing the modal dialog.
  `onEntered`        | Function      | Callback that fires after the modal has finished animating in.
  `onExited`         | Function      | Callback that fires after the modal has finished animating out.
  `onHide`           | Function      | Callback that fires as soon as the modal begins closing.
  `show`             | Boolean       | Whether the modal should be opened or closed.
- `title`            | String        | Title of the modal, shown at the top of the modal.
+ `title`            | Node          | Title of the modal, shown at the top of the modal.
 
 **Note**: A modal will be rendered at the end of `body` instead of the DOM node it is given. This makes positioning
 work regardless of where you render the modal. One side effect is `ReactDOM.findDOMNode`does not

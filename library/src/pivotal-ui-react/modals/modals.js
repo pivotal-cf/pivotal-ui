@@ -15,14 +15,14 @@ const privates = new WeakMap();
 class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
     animation: types.bool,
-    bsSize: types.string,
+    size: types.string,
     dialogClassName: types.string,
     keyboard: types.bool,
     onEntered: types.func,
     onExited: types.func,
     onHide: types.func,
     show: types.bool,
-    title: types.string
+    title: types.node
   };
 
   static defaultProps = {
@@ -69,7 +69,7 @@ class BaseModal extends mixin(React.Component).with(Animation) {
   render() {
     const {
       animation,
-      bsSize,
+      size,
       children,
       dialogClassName,
       keyboard: __ignore,
@@ -111,7 +111,7 @@ class BaseModal extends mixin(React.Component).with(Animation) {
       marginTop: `${50 * fractionShown}px`
     };
 
-    const modalSize = {small: 'sm', sm: 'sm', large: 'lg', lg: 'lg'}[bsSize];
+    const modalSize = {small: 'sm', sm: 'sm', large: 'lg', lg: 'lg'}[size];
     const modalSizeClass = `modal-${modalSize}`;
 
     return (
