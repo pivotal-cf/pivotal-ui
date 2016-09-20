@@ -1,14 +1,26 @@
-import Animation from 'pui-react-mixins/mixins/animation_mixin';
-import BsTab from 'react-bootstrap/lib/Tab';
-import classnames from 'classnames';
-import {SmallTabs} from './small_tabs';
-import MediaSize from './media-size';
-import mixin from 'pui-react-mixins';
+const Animation = require('pui-react-mixins/mixins/animation_mixin');
+const {LargeTabs} = require('./large_tabs');
+const mixin = require('pui-react-mixins');
+const Tab = require('./tab');
+const MediaSize = require('./media-size');
+const {SmallTabs} = require('./small_tabs');
 require('pui-css-tabs');
-import React from 'react';
-import uniqueid from 'lodash.uniqueid';
+const React = require('react');
+const uniqueid = require('lodash.uniqueid');
 
 const types = React.PropTypes;
+
+const privates = new WeakMap();
+
+function triggerEnteredAndExitedCallbacks(childArray, {enteredKey, exitedKey}) {
+  childArray.forEach(({props: {eventKey, onEntered, onExited}}) => {
+    if(eventKey === enteredKey) {
+      onEntered(eventKey);
+    } else if (eventKey === exitedKey) {
+      onExited(eventKey);
+    }
+  });
+}
 
 class Tabs extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
@@ -23,11 +35,13 @@ class Tabs extends mixin(React.Component).with(Animation) {
       smallScreen: false,
       id
     };
+    privates.set(this, 0);
   }
 
   static propTypes = {
     actions: types.node,
     activeKey: types.number,
+    animation: types.bool,
     defaultActiveKey: types.any,
     id: types.string,
     largeScreenClassName: types.string,
@@ -69,7 +83,10 @@ class Tabs extends mixin(React.Component).with(Animation) {
       activeKey: key,
       previousActiveKey
     });
-    if (key !== previousActiveKey) this.animate('transitionProgress', 0);
+    if (key !== previousActiveKey) {
+      this.animate('transitionProgress', 0);
+      privates.set(this, 0);
+    }
   }
 
   checkScreenSize = () => {
@@ -77,6 +94,24 @@ class Tabs extends mixin(React.Component).with(Animation) {
       this.setState({smallScreen: false});
     } else {
       this.setState({smallScreen: true});
+    }
+  };
+
+  updateTransitionProgressAndTriggerCallbacks = (childArray) => {
+    const {animation} = this.props;
+    const oldTransitionProgress = privates.get(this);
+    const transitionProgress = this.animate('transitionProgress', 1, animation ? Tabs.ANIMATION_TIME : 0);
+    this.triggerTransitionCallbacks({childArray, oldTransitionProgress, transitionProgress});
+
+    privates.set(this, transitionProgress);
+    return transitionProgress;
+  };
+
+  triggerTransitionCallbacks = ({childArray, oldTransitionProgress, transitionProgress}) => {
+    if(oldTransitionProgress < 1 && transitionProgress === 1) {
+      const exitedKey = this.state.previousActiveKey;
+      const enteredKey = this.state.activeKey;
+      triggerEnteredAndExitedCallbacks(childArray, {enteredKey, exitedKey})
     }
   };
 
@@ -89,27 +124,9 @@ class Tabs extends mixin(React.Component).with(Animation) {
   };
 
   render() {
-    const {
-      actions,
-      animation,
-      children,
-      className,
-      defaultActiveKey,
-      id = this.state.id,
-      largeScreenClassName,
-      onSelect,
-      paneWidth,
-      position,
-      responsiveBreakpoint,
-      smallScreenClassName,
-      tabType,
-      tabWidth,
-      ...props} = this.props;
-    const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
-
-    const transitionProgress = this.animate('transitionProgress', 1, animation ? Tabs.ANIMATION_TIME : 0);
-
+    const {children} = this.props;
     const childArray = React.Children.toArray(children);
+    const transitionProgress = this.updateTransitionProgressAndTriggerCallbacks(childArray);
 
     if (this.state.smallScreen) {
       return (
@@ -125,55 +142,20 @@ class Tabs extends mixin(React.Component).with(Animation) {
       );
     }
 
-    const listChildren = childArray.map((child, key) => {
-      const {eventKey, tabClassName, title} = child.props;
-      const paneId = `${id}-pane-${key}`;
-      const tabId = `${id}-tab-${key}`;
-      const isActive = (eventKey === this.state.activeKey);
-
-      return (
-        <li key={key} role='presentation' className={classnames({active: isActive})}>
-          <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName}
-             onClick={(e) => this.handleClick(e, eventKey, onSelect)}>{title}</a>
-        </li>
-      )
-    });
-
-    const isLeft = position === 'left';
-    const leftPaneClasses = `col-xs-${paneWidth}`;
-    const leftTabClasses = `col-xs-${tabWidth} nav-pills nav-stacked`;
-
-    let tabContent = null;
-    const activeKey = transitionProgress >= 0.5 ? this.state.activeKey : this.state.previousActiveKey;
-    childArray.forEach((child, key) => {
-      const {eventKey, children, className, tabClassName, ...props} = child.props;
-      const paneId = `${id}-pane-${key}`;
-      const tabId = `${id}-tab-${key}`;
-      const isActive = (eventKey === activeKey);
-      const style = transitionProgress < 1 ? {opacity: Math.abs(1 - 2 * transitionProgress)} : {};
-
-      if (!isActive) return false;
-      tabContent = (
-        <div className={classnames('tab-content', {[leftPaneClasses]: isLeft}, className)} {...props}>
-          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={tabId}
-               aria-hidden='false' style={style}>
-            {children}
-          </div>
-        </div>
-      );
-    });
-
-    const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
+    const {
+      animation: __ignore1,
+      children: _ignore2,
+      defaultActiveKey: __ignore3,
+      id = this.state.id,
+      responsiveBreakpoint: __ignore4,
+      smallScreenClassName: __ignore5,
+      ...props} = this.props;
+      const {activeKey, previousActiveKey} = this.state;
 
     return (
-      <div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
-        {actionsNode}
-        <ul role='tablist'
-            className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
-          {listChildren}
-        </ul>
-        {tabContent}
-      </div>
+      <LargeTabs
+        {...{...props, childArray, activeKey, previousActiveKey, id,
+          handleClick: this.handleClick, transitionProgress}}/>
     );
   }
 }
@@ -201,8 +183,6 @@ class LeftTabs extends React.Component {
     );
   }
 }
-
-let Tab = BsTab;
 
 module.exports = {
   Tabs,

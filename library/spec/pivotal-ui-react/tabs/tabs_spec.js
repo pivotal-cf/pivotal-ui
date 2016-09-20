@@ -3,19 +3,9 @@ require('../spec_helper');
 describe('Tabs', function() {
   const tabType = 'simple';
 
-  let Tab, Tabs, LeftTabs, EventEmitter, itPropagatesAttributes;
+  let subject, Collapsible, Tab, Tabs, LeftTabs, EventEmitter, itPropagatesAttributes;
   beforeEach(() => {
-    const Collapsible = require('../../../src/pivotal-ui-react/collapsible/collapsible').Collapsible;
-    const classnames = require('classnames');
-
-    spyOn(Collapsible.prototype, 'render').and.callFake(function() {
-      const {children, expanded} = this.props;
-      return (
-        <div className={classnames('collapsible-stub', {expanded})}>
-          {children}
-        </div>
-      );
-    });
+    Collapsible = require('../../../src/pivotal-ui-react/collapse/collapse').Collapse;
     Tab = require('../../../src/pivotal-ui-react/tabs/tabs').Tab;
     Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
     LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
@@ -207,6 +197,26 @@ describe('Tabs', function() {
         expect('.tab-content-class').toHaveText('Content1');
       });
     });
+
+    describe('animation: false', () => {
+      beforeEach(() => {
+        ReactDOM.render(
+          <Tabs tabType={tabType} defaultActiveKey={1} animation={false}>
+            <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class">Content1</Tab>
+            <Tab eventKey={2} title="Tab2">Content2</Tab>
+          </Tabs>,
+          root
+        );
+      });
+
+      it('changes tabs immediately, without animation', () => {
+        expect('li.active').toContainText('Tab1');
+        $('.nav li:eq(1) a').simulate('click');
+        expect('li.active').toContainText('Tab2');
+        expect('.tab-content').toContainText('Content2');
+        expect('.tab-content .tab-pane').toHaveCss({opacity: 1.0});
+      });
+    });
   });
 
   describe('tab behavior', function() {
@@ -309,21 +319,25 @@ describe('Tabs', function() {
       });
 
       it('renders content for the active tab', function() {
-        expect('.panel-group .collapsible-stub:eq(1)').toContainText('Content2');
-        expect('.panel-group .collapsible-stub:eq(1)').toHaveClass('expanded');
+        expect('.panel-group .tab-content.in').toContainText('Content2');
       });
 
       it('switches tabs on click with animation', function() {
         $('.tab-heading:eq(0) a').simulate('click');
+        MockNow.tick(Collapsible.ANIMATION_TIME);
+        MockRaf.next();
 
         expect(`.tab-${tabType}-small-screen`).toContainText('Content1');
-        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(0)`).toHaveClass('expanded');
-        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(1)`).not.toHaveClass('expanded');
+        expect(`.tab-${tabType}-small-screen .tab-content:eq(0)`).toHaveClass('in');
+        expect(`.tab-${tabType}-small-screen .tab-content:eq(1)`).not.toHaveClass('in');
 
         $('.tab-heading:eq(1) a').simulate('click');
+        MockNow.tick(Collapsible.ANIMATION_TIME);
+        MockRaf.next();
+
         expect(`.tab-${tabType}-small-screen`).toContainText('Content2');
-        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(0)`).not.toHaveClass('expanded');
-        expect(`.tab-${tabType}-small-screen .collapsible-stub:eq(1)`).toHaveClass('expanded');
+        expect(`.tab-${tabType}-small-screen .tab-content:eq(0)`).not.toHaveClass('in');
+        expect(`.tab-${tabType}-small-screen .tab-content:eq(1)`).toHaveClass('in');
 
         expect('.tab-heading a[aria-expanded=true]').toContainText('Tab2');
 
@@ -338,6 +352,84 @@ describe('Tabs', function() {
 
         it('updates the current open tab', function() {
           expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
+        });
+      });
+
+      describe('Tab props', () => {
+        it('respects disabled tabs', () => {
+          ReactDOM.render(
+            <Tabs tabType={tabType} defaultActiveKey={1}>
+              <Tab eventKey={1} title="Tab1">Content1</Tab>
+              <Tab eventKey={2} title="Tab2" disabled>Content2</Tab>
+            </Tabs>,
+            root
+          );
+
+          expect('.tab-title:eq(1) > a').toHaveClass('disabled');
+          $('.tab-title a:eq(1)').simulate('click');
+          MockNow.tick(Tabs.ANIMATION_TIME);
+          MockRaf.next();
+          expect('.tab-title [aria-expanded="true"]').toContainText('Tab1');
+          expect('.tab-content.in').toContainText('Content1');
+        });
+
+        it('uses custom aria-labelledby', () => {
+          ReactDOM.render(
+            <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
+              <Tab eventKey={1} title="Tab1" aria-labelledby="custom-aria-label">Content1</Tab>
+              <Tab eventKey={2} title="Tab2">Content2</Tab>
+            </Tabs>,
+            root
+          );
+          expect('.tab-content.in').toHaveAttr('aria-labelledby', 'custom-aria-label');
+        });
+
+        it('generates aria-labelledby for the tab pane if not given one', () => {
+          ReactDOM.render(
+            <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
+              <Tab eventKey={1} title="Tab1">Content1</Tab>
+              <Tab eventKey={2} title="Tab2">Content2</Tab>
+            </Tabs>,
+            root
+          );
+          expect('.tab-content.in').toHaveAttr('aria-labelledby', 'foo-tab-0');
+        });
+
+        describe('onEntered/onExited', () => {
+          let onEnterSpy, onExitSpy;
+          beforeEach(() => {
+            onEnterSpy = jasmine.createSpy('onEnter');
+            onExitSpy = jasmine.createSpy('onExit');
+            subject = ReactDOM.render(
+              <Tabs tabType={tabType} defaultActiveKey={1}>
+                <Tab eventKey={1} title="Tab1" onExited={onExitSpy}>Content1</Tab>
+                <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy}>Content2</Tab>
+              </Tabs>,
+              root
+            );
+          });
+
+          it('calls onEntered and onExited when the animation is done', () => {
+            $(`.tab-title a:eq(1)`).simulate('click');
+            expect(onEnterSpy).not.toHaveBeenCalled();
+            expect(onExitSpy).not.toHaveBeenCalled();
+            MockNow.tick(Tabs.ANIMATION_TIME);
+            MockRaf.next();
+            expect(onEnterSpy).toHaveBeenCalledWith(2);
+            expect(onExitSpy).toHaveBeenCalledWith(1);
+          });
+
+          describe('with animation false', () => {
+            beforeEach(() => {
+              subject::setProps({animation: false});
+            });
+
+            it('calls onEntered and onExited immediately', () => {
+              $(`.tab-title a:eq(1)`).simulate('click');
+              expect(onEnterSpy).toHaveBeenCalledWith(2);
+              expect(onExitSpy).toHaveBeenCalledWith(1);
+            });
+          });
         });
       });
     });
@@ -364,6 +456,84 @@ describe('Tabs', function() {
     it('should render tabs stacked on the left', function() {
       renderTabs({position: 'left', tabWidth: 2, paneWidth: 7});
       expect('ul.nav').toHaveClass('nav-stacked');
+    });
+  });
+
+  describe('Tab props', () => {
+    it('respects disabled tabs', () => {
+      ReactDOM.render(
+        <Tabs tabType={tabType} defaultActiveKey={1}>
+          <Tab eventKey={1} title="Tab1">Content1</Tab>
+          <Tab eventKey={2} title="Tab2" disabled>Content2</Tab>
+        </Tabs>,
+        root
+      );
+
+      expect('.nav-tabs li:eq(1)').toHaveClass('disabled');
+      $(`.tab-${tabType} li a:eq(1)`).simulate('click');
+      MockNow.tick(Tabs.ANIMATION_TIME);
+      MockRaf.next();
+      expect('li.active').toContainText('Tab1');
+      expect('.tab-content').toContainText('Content1');
+    });
+
+    it('uses custom aria-labelledby', () => {
+      ReactDOM.render(
+        <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
+          <Tab eventKey={1} title="Tab1" aria-labelledby="custom-aria-label">Content1</Tab>
+          <Tab eventKey={2} title="Tab2">Content2</Tab>
+        </Tabs>,
+        root
+      );
+      expect('.tab-pane').toHaveAttr('aria-labelledby', 'custom-aria-label');
+    });
+
+    it('generates aria-labelledby for the tab pane if not given one', () => {
+      ReactDOM.render(
+        <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
+          <Tab eventKey={1} title="Tab1">Content1</Tab>
+          <Tab eventKey={2} title="Tab2">Content2</Tab>
+        </Tabs>,
+        root
+      );
+      expect('.tab-pane').toHaveAttr('aria-labelledby', 'foo-tab-0');
+    });
+
+    describe('onEntered/onExited', () => {
+      let onEnterSpy, onExitSpy;
+      beforeEach(() => {
+        onEnterSpy = jasmine.createSpy('onEnter');
+        onExitSpy = jasmine.createSpy('onExit');
+        subject = ReactDOM.render(
+          <Tabs tabType={tabType} defaultActiveKey={1}>
+            <Tab eventKey={1} title="Tab1" onExited={onExitSpy}>Content1</Tab>
+            <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy}>Content2</Tab>
+          </Tabs>,
+          root
+        );
+      });
+
+      it('calls onEntered and onExited when the animation is done', () => {
+        $(`.tab-${tabType} li a:eq(1)`).simulate('click');
+        expect(onEnterSpy).not.toHaveBeenCalled();
+        expect(onExitSpy).not.toHaveBeenCalled();
+        MockNow.tick(Tabs.ANIMATION_TIME);
+        MockRaf.next();
+        expect(onEnterSpy).toHaveBeenCalledWith(2);
+        expect(onExitSpy).toHaveBeenCalledWith(1);
+      });
+
+      describe('with animation false', () => {
+        beforeEach(() => {
+          subject::setProps({animation: false});
+        });
+
+        it('calls onEntered and onExited immediately', () => {
+          $(`.tab-${tabType} li a:eq(1)`).simulate('click');
+          expect(onEnterSpy).toHaveBeenCalledWith(2);
+          expect(onExitSpy).toHaveBeenCalledWith(1);
+        });
+      });
     });
   });
 });

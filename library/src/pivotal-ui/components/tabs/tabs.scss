@@ -98,6 +98,14 @@ $tab-padding: 6px 19px;
       }
     }
 
+    > li.disabled {
+      > a:hover {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
     > li:hover {
       cursor: pointer;
       @include transition-pui();
@@ -283,38 +291,15 @@ $tab-padding: 6px 19px;
 }
 
 .tab-simple-small-screen, .tab-simple-alt-small-screen, .tab-left-small-screen {
-  .panel {
-    border: none;
-  }
+  .tab-title > a.disabled {
+    color: $nav-disabled-link-color;
 
-  .panel-heading {
-    padding: 0;
-  }
-
-  .panel-title {
-    padding: 0;
-  }
-
-  .panel-title a {
-    padding: 11px 10px;
-    color: $tab-responsive-color;
-    border-radius: $tab-responsive-radius;
-    @include transition-pui();
-  }
-
-  .panel-title a[aria-expanded=true],
-  .panel-title a:hover,
-  .panel-title a:focus {
-    background-color: $tab-responsive-bg;
-    color: $tab-responsive-active-color;
-  }
-
-  .panel-title a {
-    background-color: $tab-responsive-bg;
-    color: $tab-responsive-active-color;
-  }
-
-  .panel-body {
-    padding: $tab-responsive-pane-padding;
+    &:hover,
+    &:focus {
+      color: $nav-disabled-link-hover-color;
+      text-decoration: none;
+      background-color: transparent;
+      cursor: $cursor-disabled;
+    }
   }
 }

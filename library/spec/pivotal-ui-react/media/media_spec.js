@@ -142,24 +142,4 @@ describe('Media', function() {
       expect('.media').toHaveCss({opacity: '0.5'});
     });
   });
-
-  xdescribe('Flag', function() {
-    beforeEach(function() {
-      var image = (<img src="http://placehold.it/20x20"/>);
-      ReactDOM.render((<Flag image={image} rightImage={image} innerClassName="inner-test-class" className="test-class" id="test-id" style={{opacity: 0.5}}>fop</Flag>), root);
-    });
-
-    it('adds the class media-middle to the media-body, media-left, and media-right', function() {
-      expect('.media-body').toHaveClass('media-middle');
-      expect('.media-left').toHaveClass('media-middle');
-      expect('.media-right').toHaveClass('media-middle');
-    });
-
-    it('the class, id, and style are passed through', function() {
-      expect('.media').toHaveClass('test-class');
-      expect('.media-body').toHaveClass('inner-test-class');
-      expect('.media').toHaveAttr('id', 'test-id');
-      expect('.media').toHaveCss({opacity: '0.5'});
-    });
-  });
 });

@@ -4,7 +4,8 @@ describe('Collapsible', () => {
   const height = 24;
   const delay = 200;
   let Collapsible, onEnteredSpy, onExitedSpy;
-  beforeEach(() => {
+
+  function render({delay}) {
     Collapsible = require('../../../src/pivotal-ui-react/collapsible/collapsible').Collapsible;
     onEnteredSpy = jasmine.createSpy('onEntered');
     onExitedSpy = jasmine.createSpy('onExited');
@@ -29,7 +30,12 @@ describe('Collapsible', () => {
         )
       }
     }
-    ReactDOM.render(<Klass/>, root);
+
+    ReactDOM.render(<Klass />, root);
+  }
+
+  beforeEach(() => {
+    render({delay});
   });
 
   afterEach(() => {
@@ -80,5 +86,31 @@ describe('Collapsible', () => {
     MockRaf.next();
     expect(onExitedSpy).toHaveBeenCalled();
     expect(onEnteredSpy).not.toHaveBeenCalled();
+  });
+
+  describe('when there is no delay', () => {
+    const delay = 0;
+    beforeEach(() => {
+      render({delay});
+    });
+
+    it('expands instantly', () => {
+      $('.collapse-toggle').simulate('click');
+      expect('.collapse-shield').toHaveCss({marginBottom: '0px'});
+    });
+
+    it('calls onEntered when done opening', () => {
+      $('.collapse-toggle').simulate('click');
+      expect(onEnteredSpy).toHaveBeenCalled();
+      expect(onExitedSpy).not.toHaveBeenCalled();
+    });
+
+    it('calls onExited when done closing', () => {
+      $('.collapse-toggle').simulate('click');
+      onEnteredSpy.calls.reset();
+      $('.collapse-toggle').simulate('click');
+      expect(onExitedSpy).toHaveBeenCalled();
+      expect(onEnteredSpy).not.toHaveBeenCalled();
+    });
   });
 });

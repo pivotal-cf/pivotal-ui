@@ -12,7 +12,7 @@ const privates = new WeakMap();
 class Collapsible extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
-    privates.set(this, {isAnimating: false});
+    privates.set(this, {isAnimating: false, expanded: props.expanded});
   }
 
   static propTypes = {
@@ -32,13 +32,15 @@ class Collapsible extends mixin(React.Component).with(Animation) {
   };
 
   toggleAnimation(isAnimating) {
-    const {expanded, onEntered, onExited} = this.props;
-    if(!isAnimating) {
-      expanded && onEntered && onEntered();
-      !expanded && onExited && onExited();
-    }
-
     privates.set(this, {isAnimating});
+  }
+
+  triggerExpansionCallbacks(isAnimating) {
+    if (isAnimating) { return; }
+    const {expanded, onEntered, onExited} = this.props;
+    expanded && onEntered && onEntered();
+    !expanded && onExited && onExited();
+    privates.set(this, {expanded});
   }
 
   render() {
@@ -51,6 +53,10 @@ class Collapsible extends mixin(React.Component).with(Animation) {
 
     if(privates.get(this).isAnimating !== isAnimating) {
       this.toggleAnimation(isAnimating);
+    }
+
+    if(privates.get(this).expanded !== expanded) {
+      this.triggerExpansionCallbacks(isAnimating);
     }
 
     var props = mergeProps(others, {

@@ -31,22 +31,26 @@ for uniquely identifying this tab to its parent component.
 
 Property   | Required? | Type             | Description
 -----------| ----------|------------------| --------------------------------------------------------------------------
-`actions` | no | node | an element or text that will display in the upper right
-`animation` | no | boolean | Whether to animate when moving between tabs, defaults to true
-`defaultActiveKey` | no            | should equal one of your tab's event keys | The tab which will start out open
-`largeScreenClassName` | no  | css class | Will be applied to large screen tabs only
-`onSelect` | no | function | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
+`actions` | no | Node | an element or text that will display in the upper right
+`animation` | no | Boolean | Whether to animate when moving between tabs, defaults to true
+`defaultActiveKey` | no            | anything | The tab which will start out open. This should equal one of your tab's event keys.
+`largeScreenClassName` | no  | String | Will be applied to large screen tabs only
+`onSelect` | no | Function | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
 `responsiveBreakpoint` | no        | one of: `"xs"`, `"sm"`, `"md"`, `lg`,          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
-`smallScreenClassName` | no  | css class | Will be applied to small screen tabs only
+`smallScreenClassName` | no  | String | Will be applied to small screen tabs only
 `tabType` | no | one of: `"simple"`, `"simple-alt"` | Change the styling of your tabs, mostly whether the selected tab is transparent
 
 ##Tab Properties
  Property   | Required? | Type             | Description
  -----------| ----------|------------------| --------------------------------------------------------------------------
+ `aria-labelledby` | no | String | overwrite the default `aria-labelledby` for the tab for more specific accessibility information
+ `className` | no | String | className to add to the tab content
+ `disabled` | no | Boolean | If true, disable the tab
  `eventKey` | no | anything | data representing the tab, to be used with `defaultActiveKey` or `onSelect`
- `title` | yes | node | Html rendered in the tab link
- `tabClassName` | no | string | optional className to add to the tab link
-
+ `onEntered` | no | Function | a function that gets called with the `eventKey` on entering a tab once animations have finished
+ `onExited` | no | Function | a function that gets called with the `eventKey` on exiting a tab once animations have finished
+ `title` | yes | Node | Text or an element rendered in the tab link
+ `tabClassName` | no | String | className to add to the tab link
 
 
 */
