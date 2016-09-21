@@ -35,8 +35,10 @@ class Input extends React.Component {
     return (
       <div className={formClasses}>
         {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
-        <input {...inputProps} />
-        {search && <i className='search-icon'/>}
+        <div className="input-wrapper">
+          <input {...inputProps} />
+          {search && <i className='search-icon'/>}
+        </div>
         {displayError && <div className="error-text help-block">
           {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
         </div>}
