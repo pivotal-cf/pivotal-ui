@@ -10,7 +10,7 @@ const types = React.PropTypes;
 class LargeTabs extends mixin(React.Component).with(Animation) {
   static propTypes = {
     actions: types.node,
-    activeKey: types.number,
+    activeKey: types.any,
     childArray: types.array,
     handleClick: types.func,
     id: types.string,
