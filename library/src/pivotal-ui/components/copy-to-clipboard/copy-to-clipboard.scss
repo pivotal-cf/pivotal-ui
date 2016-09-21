@@ -1,0 +1,16 @@
+@import "../pui-variables";
+
+.copy-to-clipboard-image {
+  path {
+    fill: $gray-3;
+  }
+}
+
+.clipboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $gray-2;
+  height: $input-height-base;
+  width: $input-height-base;
+}

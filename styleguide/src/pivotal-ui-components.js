@@ -18,6 +18,7 @@ assignToGlobal([
   require('pui-react-buttons'),
   require('pui-react-checkbox'),
   require('pui-react-collapse'),
+  require('pui-react-copy-to-clipboard'),
   require('pui-react-dividers'),
   require('pui-react-draggable-list'),
   require('pui-react-lists'),
