@@ -96,6 +96,7 @@
     "stream-reduce": "^1.0.3",
     "stream-series": "^0.1.1",
     "strong-wait-till-listening": "^1.0.1",
+    "svg-react-loader": "^0.3.7",
     "through2": "^0.6.3",
     "trie-search": "^0.1.1",
     "vinyl": "^0.4.6",
