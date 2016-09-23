@@ -41,6 +41,7 @@ assignToGlobal([
   require('pui-react-ribbons'),
   require('pui-react-table'),
   require('pui-react-stream-list'),
+  require('pui-react-svg'),
   require('pui-react-tabs'),
   require('pui-react-tile-layout'),
   require('pui-react-toggle'),
