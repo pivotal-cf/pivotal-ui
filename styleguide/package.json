@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "from": "^0.1.3",
     "lodash": "^4.6.1",
     "pui-css-alerts": "file:../library/dist/css/alerts",
     "pui-css-alignment": "file:../library/dist/css/alignment",
@@ -27,6 +28,7 @@
     "pui-css-code": "file:../library/dist/css/code",
     "pui-css-collapse": "file:../library/dist/css/collapse",
     "pui-css-colors": "file:../library/dist/css/colors",
+    "pui-css-copy-to-clipboard": "file:../library/dist/css/copy-to-clipboard",
     "pui-css-dividers": "file:../library/dist/css/dividers",
     "pui-css-dropdowns": "file:../library/dist/css/dropdowns",
     "pui-css-ellipsis": "file:../library/dist/css/ellipsis",
@@ -91,6 +93,7 @@
     "pui-react-toggle": "file:../library/dist/react/toggle",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "react": "^15.3.0",
+    "through": "^2.3.8",
     "zeroclipboard": "^2.1.6"
   },
   "devDependencies": {
@@ -112,7 +115,6 @@
     "del": "^2.0.2",
     "es6-promisify": "^3.0.0",
     "eslint-plugin-react": "^4.1.0",
-    "event-stream": "^3.3.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.0",
