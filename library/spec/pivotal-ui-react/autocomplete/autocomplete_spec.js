@@ -13,7 +13,6 @@ describe('Autocomplete', () => {
 
   afterEach(() => {
     ReactDOM.unmountComponentAtNode(root);
-    jasmine.clock().tick(1);
     MockNextTick.next();
   });
 
@@ -32,7 +31,6 @@ describe('Autocomplete', () => {
     it('renders', () => {
       ReactDOM.render(<Autocomplete />, root);
       expect('.autocomplete').toExist();
-      jasmine.clock().tick(1);
       MockNextTick.next();
       MockPromises.tick();
     });
@@ -56,7 +54,6 @@ describe('Autocomplete', () => {
 
         context = ReactDOM.render(<Context/>, root);
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
 
         $('.autocomplete input').val('wat').simulate('change');
@@ -95,7 +92,6 @@ describe('Autocomplete', () => {
           root
         );
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
 
         subject.showList();
@@ -105,6 +101,64 @@ describe('Autocomplete', () => {
         expect('.autocomplete-list').not.toContainText('advil');
         expect('.autocomplete-list').toContainText('water lilies');
         expect('.autocomplete-list').toContainText('coffee');
+      });
+    });
+  });
+
+  describe('when custom trieOptions are provided', () => {
+    let context;
+
+    beforeEach(() => {
+      onInitializeItems = (cb) => {
+        cb([
+          {list: {name: 'list', age: 4}},
+          {coffee: {name: 'coffee', age: 2}},
+          {advil: {name: 'advil', age: 5}},
+          {'water-lilies': {name: 'water-lilies', age: 4}},
+          {'water_lilies': {name: 'water_lilies', age: 3}},
+          {'water.lilies': {name: 'water.lilies', age: 8}},
+          {'water lilies': {name: 'water lilies', age: 6}}
+        ]);
+      };
+
+      class Context extends React.Component {
+        constructor(props, context) {
+          super(props, context);
+          this.state = {onInitializeItems};
+        }
+
+        render() {
+          return (
+            <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}
+                          trieOptions={{splitOnRegEx: /\./}}/>
+          );
+        }
+      }
+
+      context = ReactDOM.render(<Context/>, root);
+      MockNextTick.next();
+      MockPromises.tick();
+
+      $('.autocomplete input').val('li').simulate('change');
+    });
+
+    it('uses the trieOptions to render the list', () => {
+      expect('.autocomplete-item').toHaveLength(2);
+      expect('.autocomplete-item:eq(0)').toContainText('list');
+      expect('.autocomplete-item:eq(1)').toContainText('water.lilies');
+    });
+
+    describe('when the enter key is pressed', () => {
+      beforeEach(() => {
+        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
+      });
+
+      it('hides the list', () => {
+        expect('.autocomplete-list').not.toExist();
+      });
+
+      it('calls the autocomplete callback', () => {
+        expect(pickSpy).toHaveBeenCalledWith({_key_: 'list', value: {name: 'list', age: 4}});
       });
     });
   });
@@ -130,7 +184,6 @@ describe('Autocomplete', () => {
           root
         );
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
 
         subject.showList();
@@ -157,7 +210,6 @@ describe('Autocomplete', () => {
 
         context = ReactDOM.render(<Context/>, root);
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
 
         $('.autocomplete input').val('wat').simulate('change');
@@ -251,7 +303,6 @@ describe('Autocomplete', () => {
           );
 
           MockNextTick.next();
-          jasmine.clock().tick(1);
           MockPromises.tick();
 
           $('.autocomplete input').val('wat').simulate('change');
@@ -396,7 +447,6 @@ describe('Autocomplete', () => {
             <CustomList/>
           </Autocomplete>, root);
         MockNextTick.next();
-        jasmine.clock().tick(1);
         subject.showList();
       });
 
@@ -420,7 +470,6 @@ describe('Autocomplete', () => {
           root
         );
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
 
         subject.showList();
@@ -444,7 +493,6 @@ describe('Autocomplete', () => {
       it('still populates the list properly', () => {
         cb(['a', 'betty', 'c']);
         MockNextTick.next();
-        jasmine.clock().tick(1);
         MockPromises.tick();
         subject.showList();
         expect('.autocomplete-list').toContainText('betty');
