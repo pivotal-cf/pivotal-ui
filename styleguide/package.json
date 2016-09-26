@@ -95,8 +95,7 @@
     "pui-react-toggle": "file:../library/dist/react/toggle",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "react": "^15.3.0",
-    "through": "^2.3.8",
-    "zeroclipboard": "^2.1.6"
+    "through": "^2.3.8"
   },
   "devDependencies": {
     "babel": "^6.2.4",

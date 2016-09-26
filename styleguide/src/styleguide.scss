@@ -243,10 +243,7 @@ blockquote {
     display: none;
     border-left: 1px solid $shadow-3;
     border-bottom: 1px solid $shadow-3;
-
-    &.zeroclipboard-is-hover {
-      display: block;
-    }
+    padding: 0;
   }
 
   &:hover .btn-copy {
@@ -325,10 +322,7 @@ blockquote {
       display: none;
       border-left: 1px solid $shadow-2;
       border-bottom: 1px solid $shadow-2;
-
-      &.zeroclipboard-is-hover {
-        display: block;
-      }
+      padding: 0;
     }
 
     &:hover .btn-copy {
@@ -380,10 +374,6 @@ table.styleguide {
   right: 0;
   padding: 7px 20px;
   border-radius: 0;
-
-  &.zeroclipboard-is-hover {
-    background-color: $neutral-11;
-  }
 }
 
 // make the grid visible

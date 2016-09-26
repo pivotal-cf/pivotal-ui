@@ -6,6 +6,10 @@
   }
 }
 
+.copy-to-clipboard .sr-only {
+  user-select: text;
+}
+
 .clipboard-button {
   display: flex;
   align-items: center;
