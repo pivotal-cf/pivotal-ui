@@ -78,7 +78,7 @@ const DeathStar = React.createClass({
   render() {
     return (
       <svg version="1.1" width="150px" x="0px" y="0px" viewBox="0 0 161.8 185.7"
-           enable-background="new 0 0 161.8 185.7" preserveAspectRatio="xMinYMin meet">
+           enableBackground="new 0 0 161.8 185.7" preserveAspectRatio="xMinYMin meet">
         <defs>
         </defs>
         <polygon fill="#1A84C7" points="147.1,118.8 142.2,123.9 137.4,128.9 135.2,131.2 135.1,131.2 135.1,131.2 134.4,129.4 134,128.4
