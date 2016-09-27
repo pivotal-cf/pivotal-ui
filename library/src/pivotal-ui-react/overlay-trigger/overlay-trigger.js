@@ -91,12 +91,24 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   setDisplay = (display) => {
-    clearTimeout(privates.get(this).timeout);
-    if(display === this.state.display) return;
+    const oldTimeout = privates.get(this).timeout;
+
+    if(display === this.state.display) {
+      clearTimeout(oldTimeout);
+      privates.set(this, {timeout: null});
+      return;
+    }
+
     const delay = this.getDelay(display);
+
+    if(oldTimeout && delay) return;
+
     let timeout;
     if(delay) {
-      timeout = setTimeout(() => {this.setState({display})}, delay);
+      timeout = setTimeout(() => {
+        privates.set(this, {timeout: null});
+        this.setState({display})
+      }, delay);
     } else {
       this.setState({display});
     }
