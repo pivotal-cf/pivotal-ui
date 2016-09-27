@@ -161,6 +161,17 @@ describe('OverlayTrigger', function() {
         jasmine.clock().tick(3000);
         expect(subject.setState).not.toHaveBeenCalled();
       });
+
+      it('does not delay an action if it happens repeatedly', () => {
+        subject::setProps({delay: 3000});
+        subject.show();
+        expect('.tooltip-text').not.toExist();
+        jasmine.clock().tick(1000);
+        subject.show();
+        expect('.tooltip-text').not.toExist();
+        jasmine.clock().tick(2000);
+        expect('.tooltip-text').toExist();
+      });
     });
   });
 
