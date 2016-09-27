@@ -376,6 +376,26 @@ table.styleguide {
   border-radius: 0;
 }
 
+// copy input example
+.copy-input {
+  position: relative;
+
+  .form-control[readonly], .copy-to-clipboard {
+    background-color: $kbd-color;
+  }
+
+  .copy-to-clipboard {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    .clipboard-button {
+      border-color: #d4d9d9;
+    }
+  }
+}
+
+
 // make the grid visible
 
 .grid-show {

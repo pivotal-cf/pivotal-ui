@@ -21,9 +21,9 @@ var CopyToClipboardButton = require('pui-react-copy-to-clipboard').CopyToClipboa
 
 
  ```react_example_table
-<CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
+ <CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
 
-<CopyToClipboardButton text="I got copied by a good looking button"/>
+ <CopyToClipboardButton text="I got copied by a good looking button"/>
  ```
 
  The CopyToClipboard Components require the following property:
@@ -31,5 +31,22 @@ var CopyToClipboardButton = require('pui-react-copy-to-clipboard').CopyToClipboa
  Property           |  Type         | Description
  -------------      | --------------| --------------------------------------------------------------------------
  `text`       | String        | Text that is copied when the user clicks
+
+
+Below is a common example combining a readonly input and a copy button:
+
+```
+var Input = require('pui-react-inputs').Input
+```
+
+ ```react_example_table
+<div className="copy-input">
+   <Input label="shareable link" value="bar.com/1234.jpg" readOnly />
+   <CopyToClipboardButton text="bar.com/1234.jpg"/>
+</div>
+
+ ```
+
+
 
  */
