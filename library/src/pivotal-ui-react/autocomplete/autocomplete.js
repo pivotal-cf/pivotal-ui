@@ -1,33 +1,35 @@
-var AutocompleteList = require('./autocomplete-list');
-var AutocompleteInput = require('./autocomplete-input');
-var classnames = require('classnames');
-var Cursor = require('pui-cursor');
-var {map, readable} = require('event-stream');
-import mixin from 'pui-react-mixins';
-var React = require('react');
-var ReactDOM = require('react-dom');
-import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
-var scrollIntoView = require('scroll-into-view');
-var TrieSearch = require('trie-search');
+const AutocompleteList = require('./autocomplete-list');
+const AutocompleteInput = require('./autocomplete-input');
+const classnames = require('classnames');
+const Cursor = require('pui-cursor');
+const from = require('from');
+const mixin = require('pui-react-mixins');
+const React = require('react');
+const ReactDOM = require('react-dom');
+const Scrim = require('pui-react-mixins/mixins/scrim_mixin');
+const scrollIntoView = require('scroll-into-view');
+const through = require('through');
+const TrieSearch = require('trie-search');
 
 require('pui-css-autocomplete');
 
-var types = React.PropTypes;
+const types = React.PropTypes;
 
-function trieFromSearchableItems(searchableItems) {
+function trieFromSearchableItems(searchableItems, trieOptions) {
   return new Promise(resolve => {
     let trie;
-    readable(function(count, callback) {
-      if(searchableItems && count >= searchableItems.length) this.emit('end');
-      callback(null, searchableItems[count]);
-    }).pipe(map(value => {
+    from(function (count, callback) {
+      if (searchableItems && count >= searchableItems.length) this.emit('end');
+      this.emit('data', searchableItems[count]);
+      callback();
+    }).pipe(through(value => {
       if (typeof value === 'object') {
-        if (!trie) trie = new TrieSearch();
+        if (!trie) trie = new TrieSearch(null, trieOptions);
         trie.addFromObject(value);
         resolve(trie);
         return;
       }
-      if (!trie) trie = new TrieSearch('value');
+      if (!trie) trie = new TrieSearch('value', trieOptions);
       trie.add({value});
       resolve(trie);
     }));
@@ -37,7 +39,7 @@ function trieFromSearchableItems(searchableItems) {
 class Autocomplete extends mixin(React.Component).with(Scrim) {
   constructor(props, context) {
     super(props, context);
-    var value = this.props.value || '';
+    const value = this.props.value || '';
     this.state = {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
   }
 
@@ -54,6 +56,7 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
     onSearch: types.func,
     placeholder: types.string,
     selectedSuggestion: types.any,
+    trieOptions: types.object,
     value: types.string
   };
 
@@ -69,25 +72,28 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
 
   componentDidMount() {
     super.componentDidMount();
-    this.props.onInitializeItems(async (searchableItems = []) => {
-      const trie = await trieFromSearchableItems(searchableItems);
-      this.setState({searchableItems, trie});
+    this.props.onInitializeItems((searchableItems = []) => {
+      trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
+        this.setState({searchableItems, trie});
+      });
     });
   }
 
   onSearch = (value, callback) => {
     if (this.props.onSearch) return this.props.onSearch(value, callback);
-    var {maxItems} = this.props;
-    var {trie} = this.state;
+    const {maxItems} = this.props;
+    const {trie} = this.state;
     if (!trie) return callback([]);
     value = value.trim();
-    var result = trie.get(value || '');
-    if (this.props.onFilter) { result = this.props.onFilter(result); }
+    let result = trie.get(value || '');
+    if (this.props.onFilter) {
+      result = this.props.onFilter(result);
+    }
     callback(result.slice(0, maxItems));
   };
 
   showList = (defaultValue = null) => {
-    var value = defaultValue === null ? this.state.value : defaultValue;
+    const value = defaultValue === null ? this.state.value : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({hidden: false, suggestedValues: suggestedValues});
     });
@@ -111,13 +117,20 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
   };
 
   render() {
-    var $autocomplete = new Cursor(this.state, state => this.setState(state));
-    var {className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children, onInitializeItems, onFilter, onPick, onSearch, ...props} = this.props;
-    var {scrollIntoView, onPick, onSearch} = this;
-    input = React.cloneElement(input, {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder});
+    const $autocomplete = new Cursor(this.state, state => this.setState(state));
+    const {
+      className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children,
+      onInitializeItems: __IGNORE1, onFilter: __IGNORE2, onPick: __IGNORE3, onSearch: __IGNORE4,
+      trieOptions: __IGNORE5, ...props
+    } = this.props;
+    const {scrollIntoView, onPick, onSearch} = this;
+    const clonedInput = React.cloneElement(
+      input,
+      {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder}
+    );
     return (
       <div className={classnames('autocomplete', className)} {...props} >
-        {input}
+        {clonedInput}
         <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
       </div>
     );
