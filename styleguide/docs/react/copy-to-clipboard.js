@@ -33,7 +33,8 @@ var CopyToClipboardButton = require('pui-react-copy-to-clipboard').CopyToClipboa
  `text`       | String        | Text that is copied when the user clicks
 
 
-Below is a common example combining a readonly input and a copy button:
+Below is a common example combining a readonly input and a copy button.
+Note that there is custom css on the styleguide to get the positioning right.
 
 ```
 var Input = require('pui-react-inputs').Input
