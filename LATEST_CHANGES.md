@@ -1,8 +1,12 @@
-<a name="5.3.1"></a>
-## 5.3.1 (2016-08-19)
+<a name="5.4.0"></a>
+# 5.4.0 (2016-09-27)
 
 
 ### Bug Fixes
 
-* **dependencies:** Add pui-css-iconography dependency to pui-css-collapse ([b47e53c](https://github.com/pivotal-cf/pivotal-ui/commit/b47e53c))
-* **Tables:** Do not change sorted column when adding or removing columns ([e8244ec](https://github.com/pivotal-cf/pivotal-ui/commit/e8244ec)), closes [#128398259](https://github.com/pivotal-cf/pivotal-ui/issues/128398259)
+* **Input:** Fix centering of search icon ([43ac690](https://github.com/pivotal-cf/pivotal-ui/commit/43ac690)), closes [#117112819](https://github.com/pivotal-cf/pivotal-ui/issues/117112819)
+* **OverlayTrigger:** Do not increase delay of hiding/showing if asked to ([c08e13e](https://github.com/pivotal-cf/pivotal-ui/commit/c08e13e)), closes [#131134283](https://github.com/pivotal-cf/pivotal-ui/issues/131134283)
+
+### Features
+
+* **Autocomplete:** Allow trieOptions to be passed into autocomplete ([17057c1](https://github.com/pivotal-cf/pivotal-ui/commit/17057c1))
