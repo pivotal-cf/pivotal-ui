@@ -21,8 +21,24 @@ var Row = require('pui-react-grids').Row;
 var Col = require('pui-react-grids').Col;
 ```
 
-The react grids depend on [React-Bootstrap](http://react-bootstrap.github.io/components.html#grids). Check out their docs
-for advanced stuff like pushing, pulling, and offsets.
+## Row Properties
+
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `componentClass`       | String or Component class  | The component to render the row. Defaults to "div"
+ `gutter` | one of: `"sm"`, `"md"`, `"lg"` | sets the size of the gutter. Defaults to "lg"
+
+
+## Col Properties
+
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `componentClass`       | String or Component class  | The component to render the row. Defaults to "div"
+ `xs`, `sm`, `md`, `lg` | Number | Width of the column (out of 24) at the xs, sm, md, or lg screen width.
+ `xsHidden`, `smHidden`, `mdHidden`, `lgHidden` | Boolean | If true, hide the column at the relevant screen width
+ `xsOffset`, `smOffset`, `mdOffset`, `lgOffset` | Number | Offset of the column (out of 24)
+ `xsPush`, `smPush`, `mdPush`, `lgPush` | Number | Offset to change the order of grid columns to the right with
+ `xsPull`, `smPull`, `mdPull`, `lgPull` | Number | Offset to change the order of grid columns to the left with
 
 */
 

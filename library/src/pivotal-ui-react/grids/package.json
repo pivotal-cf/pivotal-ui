@@ -3,8 +3,8 @@
   "description": "React components for laying-out content in a grid",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "classnames": "^2.2.3",
     "pui-css-grids": "^5.3.0",
-    "react-bootstrap": "0.30.2",
     "pui-react-helpers": "^5.3.0"
   }
 }
