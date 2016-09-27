@@ -83,7 +83,7 @@
       </div>
       <hr class="mvn">
       <script>
-        nav = {"CSS":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Alignment":"css_utilities_alignment.html","Avatars":"css_base_avatars.html","Back To Top":"css_components_back-to-top.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Code":"css_components_code.html","Colors":"css_utilities_colors.html","Dividers":"css_base_dividers.html","Dropdowns":"css_components_dropdowns.html","Ellipsis":"css_utilities_ellipsis.html","Embeds":"css_base_embeds.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Layout Lists":"css_utilities_layout-lists.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Maps":"css_components_maps.html","Media":"css_utilities_media.html","Modals":"css_components_modals.html","Pagination":"css_base_pagination.html","Panes":"css_utilities_panes.html","Panels":"css_components_panels.html","Print":"css_utilities_print.html","Progress Bar":"css_components_progress-bar.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Ribbons":"css_base_ribbons.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tile Layout":"css_utilities_tile-layout.html","Tooltips":"css_components_tooltips.html","Typography":"css_base_typography.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"React":{"Alerts":"react_components_alerts.html","Alignment":"react_utilities_alignment.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Buttons":"react_base_buttons.html","Collapse":"react_components_collapse.html","Colors":"react_utilities_colors.html","Dividers":"react_base_dividers.html","Dropdowns":"react_components_dropdowns.html","Ellipsis":"react_utilities_ellipsis.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Media":"react_utilities_media.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Pagination":"react_base_pagination.html","Panes":"react_utilities_panes.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tabs":"react_components_tabs.html","Tile Layout":"react_utilities_tile-layout.html","Tooltips":"react_base_tooltips.html","Whitespace":"react_utilities_whitespace.html"}};
+        nav = {"CSS":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Alignment":"css_utilities_alignment.html","Avatars":"css_base_avatars.html","Back To Top":"css_components_back-to-top.html","Backgrounds":"css_base_backgrounds.html","Box Shadows":"css_utilities_box-shadows.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Code":"css_components_code.html","Colors":"css_utilities_colors.html","Dividers":"css_base_dividers.html","Dropdowns":"css_components_dropdowns.html","Ellipsis":"css_utilities_ellipsis.html","Embeds":"css_base_embeds.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Layout Lists":"css_utilities_layout-lists.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Maps":"css_components_maps.html","Media":"css_utilities_media.html","Modals":"css_components_modals.html","Pagination":"css_base_pagination.html","Panes":"css_utilities_panes.html","Panels":"css_components_panels.html","Print":"css_utilities_print.html","Progress Bar":"css_components_progress-bar.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Ribbons":"css_base_ribbons.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tile Layout":"css_utilities_tile-layout.html","Tooltips":"css_components_tooltips.html","Typography":"css_base_typography.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"React":{"Alerts":"react_components_alerts.html","Alignment":"react_utilities_alignment.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Buttons":"react_base_buttons.html","Collapse":"react_components_collapse.html","Colors":"react_utilities_colors.html","Dividers":"react_base_dividers.html","Dropdowns":"react_components_dropdowns.html","Ellipsis":"react_utilities_ellipsis.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Media":"react_utilities_media.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Pagination":"react_base_pagination.html","Panes":"react_utilities_panes.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tabs":"react_components_tabs.html","Tile Layout":"react_utilities_tile-layout.html","Tooltips":"react_base_tooltips.html","Whitespace":"react_utilities_whitespace.html"}};
       </script>
       <div id="styleguide-navbar"></div>
     </nav>
@@ -544,6 +544,92 @@ var AutocompleteExample = React.createClass({
 </div>
 
 
+<h2>Autocomplete Properties</h2>
+<table class="styleguide"> <tr>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">className</code></td>
+<td>no</td>
+<td>String</td>
+<td><code class="styleguide">className</code> to add to autocomplete</td>
+</tr>
+<tr>
+<td><code class="styleguide">disabled</code></td>
+<td>no</td>
+<td>Boolean</td>
+<td>whether the input is disabled</td>
+</tr>
+<tr>
+<td><code class="styleguide">input</code></td>
+<td>no</td>
+<td>Object</td>
+<td>overrides the input for autocomplete</td>
+</tr>
+<tr>
+<td><code class="styleguide">maxItems</code></td>
+<td>no</td>
+<td>Number</td>
+<td>the maximum number of items in the autocomplete list</td>
+</tr>
+<tr>
+<td><code class="styleguide">onClick</code></td>
+<td>no</td>
+<td>Function</td>
+<td><code class="styleguide">onClick</code> to add to the input</td>
+</tr>
+<tr>
+<td><code class="styleguide">onFilter</code></td>
+<td>no</td>
+<td>Function</td>
+<td>lets you apply an additional filter to the autocomplete list</td>
+</tr>
+<tr>
+<td><code class="styleguide">onFocus</code></td>
+<td>no</td>
+<td>Function</td>
+<td><code class="styleguide">onFocus</code> to add to the input</td>
+</tr>
+<tr>
+<td><code class="styleguide">onInitializeItems</code></td>
+<td>no</td>
+<td>Function</td>
+<td>returns the values to initially populate the autocomplete list</td>
+</tr>
+<tr>
+<td><code class="styleguide">onPick</code></td>
+<td>no</td>
+<td>Function</td>
+<td>callback when something is picked from the list</td>
+</tr>
+<tr>
+<td><code class="styleguide">onSearch</code></td>
+<td>no</td>
+<td>Function</td>
+<td>To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.</td>
+</tr>
+<tr>
+<td><code class="styleguide">placeholder</code></td>
+<td>no</td>
+<td>String</td>
+<td>placeholder text for the input</td>
+</tr>
+<tr>
+<td><code class="styleguide">trieOptions</code></td>
+<td>no</td>
+<td>Object</td>
+<td>Options for the default TrieSearch algorithm (e.g. <code class="styleguide">ignoreCase</code>: a boolean is set to true by default, <code class="styleguide">splitOnRegEx</code>: a RegEx)</td>
+</tr>
+<tr>
+<td><code class="styleguide">value</code></td>
+<td>no</td>
+<td>String</td>
+<td>used when the input is a controlled input</td>
+</tr>
+ </table>
 <h2 id="autocomplete_oninitializeitems" class="styleguide">onInitializeItems</h2>
 <p class="styleguide"> The callback passed to this function should return the values to initially populate the list of items.</p><p class="styleguide"> It&#39;s designed to be able to be used asynchronously:</p><div class="codeBlock">
   <div class="highlight">
@@ -6601,29 +6687,31 @@ var Tab = require('pui-react-tabs').Tab;</pre>
 </div><p class="styleguide">Using Tab components in React consists of a parent element for the desired Tab type (for example,
 <code class="styleguide">Tabs</code> or <code class="styleguide">LeftTabs</code>). Each <code class="styleguide">Tab</code> is a child of this and has a <code class="styleguide">tab</code> property for the
 string value a Tab should display. Additionally, each <code class="styleguide">Tab</code> must define an <code class="styleguide">eventKey</code> property
-for uniquely identifying this tab to its parent component.</p><table class="styleguide"> <tr>
+for uniquely identifying this tab to its parent component.</p>
+<h2>Tabs Properties</h2>
+<table class="styleguide"> <tr>
 <th>Property</th>
 <th>Required?</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
  <tr>
-<td><code class="styleguide">responsiveBreakpoint</code></td>
+<td><code class="styleguide">actions</code></td>
 <td>no</td>
-<td>one of: <code class="styleguide">&quot;xs&quot;</code>, <code class="styleguide">&quot;sm&quot;</code>, <code class="styleguide">&quot;md&quot;</code>, <code class="styleguide">lg</code>,</td>
-<td>The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)</td>
+<td>node</td>
+<td>an element or text that will display in the upper right</td>
+</tr>
+<tr>
+<td><code class="styleguide">animation</code></td>
+<td>no</td>
+<td>boolean</td>
+<td>Whether to animate when moving between tabs, defaults to true</td>
 </tr>
 <tr>
 <td><code class="styleguide">defaultActiveKey</code></td>
 <td>no</td>
 <td>should equal one of your tab&#39;s event keys</td>
 <td>The tab which will start out open</td>
-</tr>
-<tr>
-<td><code class="styleguide">smallScreenClassName</code></td>
-<td>no</td>
-<td>css class</td>
-<td>Will be applied to small screen tabs only</td>
 </tr>
 <tr>
 <td><code class="styleguide">largeScreenClassName</code></td>
@@ -6638,16 +6726,48 @@ for uniquely identifying this tab to its parent component.</p><table class="styl
 <td>Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide</td>
 </tr>
 <tr>
+<td><code class="styleguide">responsiveBreakpoint</code></td>
+<td>no</td>
+<td>one of: <code class="styleguide">&quot;xs&quot;</code>, <code class="styleguide">&quot;sm&quot;</code>, <code class="styleguide">&quot;md&quot;</code>, <code class="styleguide">lg</code>,</td>
+<td>The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)</td>
+</tr>
+<tr>
+<td><code class="styleguide">smallScreenClassName</code></td>
+<td>no</td>
+<td>css class</td>
+<td>Will be applied to small screen tabs only</td>
+</tr>
+<tr>
 <td><code class="styleguide">tabType</code></td>
 <td>no</td>
 <td>one of: <code class="styleguide">&quot;simple&quot;</code>, <code class="styleguide">&quot;simple-alt&quot;</code></td>
 <td>Change the styling of your tabs, mostly whether the selected tab is transparent</td>
 </tr>
-<tr>
-<td><code class="styleguide">actions</code></td>
+ </table>
+<h2>Tab Properties</h2>
+<table class="styleguide"> <tr>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">eventKey</code></td>
 <td>no</td>
+<td>anything</td>
+<td>data representing the tab, to be used with <code class="styleguide">defaultActiveKey</code> or <code class="styleguide">onSelect</code></td>
+</tr>
+<tr>
+<td><code class="styleguide">title</code></td>
+<td>yes</td>
 <td>node</td>
-<td>an element or text that will display in the upper right</td>
+<td>Html rendered in the tab link</td>
+</tr>
+<tr>
+<td><code class="styleguide">tabClassName</code></td>
+<td>no</td>
+<td>string</td>
+<td>optional className to add to the tab link</td>
 </tr>
  </table>
 <h2 id="01_tabs_react" class="styleguide">Tabs</h2>
