@@ -28,7 +28,6 @@
     "pui-css-code": "file:../library/dist/css/code",
     "pui-css-collapse": "file:../library/dist/css/collapse",
     "pui-css-colors": "file:../library/dist/css/colors",
-    "pui-css-copy-to-clipboard": "file:../library/dist/css/copy-to-clipboard",
     "pui-css-dividers": "file:../library/dist/css/dividers",
     "pui-css-dropdowns": "file:../library/dist/css/dropdowns",
     "pui-css-ellipsis": "file:../library/dist/css/ellipsis",
