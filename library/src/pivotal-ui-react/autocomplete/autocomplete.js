@@ -5,7 +5,6 @@ const Cursor = require('pui-cursor');
 const from = require('from');
 const mixin = require('pui-react-mixins');
 const React = require('react');
-const ReactDOM = require('react-dom');
 const Scrim = require('pui-react-mixins/mixins/scrim_mixin');
 const scrollIntoView = require('scroll-into-view');
 const through = require('through');
@@ -113,7 +112,8 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
   };
 
   scrollIntoView = () => {
-    Array.from(ReactDOM.findDOMNode(this).querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
+    if (!this.autocomplete) return;
+    Array.from(this.autocomplete.querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
   };
 
   render() {
@@ -129,7 +129,7 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
       {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder}
     );
     return (
-      <div className={classnames('autocomplete', className)} {...props} >
+      <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
         {clonedInput}
         <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
       </div>
