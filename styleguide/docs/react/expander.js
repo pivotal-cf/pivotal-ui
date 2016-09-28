@@ -49,7 +49,7 @@ const MoreInfo = React.createClass({
               Content in expander
             </p>
         </ExpanderContent>
-        <button className='btn btn-highlight' onClick={this.toggleContent}>
+        <button className='btn-highlight' onClick={this.toggleContent}>
           Toggle Content
         </button>
       </main>

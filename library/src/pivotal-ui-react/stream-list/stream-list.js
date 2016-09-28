@@ -14,7 +14,7 @@ class StreamListNewItemsButton extends React.Component {
 
   render() {
     return (
-      <UIButton className="btn btn-default list-stream-new-items-btn"
+      <UIButton className="btn-default list-stream-new-items-btn"
                 onClick={this.props.showNewItems}>
         {`${this.props.numNewItems} ${this.props.numNewItems === 1 ?
           this.props.singularNewItemText : this.props.pluralNewItemsText}`}

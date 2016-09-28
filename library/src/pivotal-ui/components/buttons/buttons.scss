@@ -1,57 +1,841 @@
 @import "../pui-variables";
-@import '../mixins';
-@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
-.btn {
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  display: inline-flex;
+  position: relative;
+  height: ($btn-spacing-base*4);
+  padding: 0 ($btn-spacing-base*2);
+  vertical-align: middle;
+  color: $btn-default-color;
+  text-align: center;
+  font-size: $btn-font-size;
   font-weight: $btn-font-weight;
-  padding: 5px 15px;
-
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    cursor: not-allowed;
-    pointer-events: none; // Future-proof disabling of clicks
+  line-height: ($btn-spacing-base*4 - 2 * $btn-border-width);
+  letter-spacing: .05rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: transparent;
+  border-radius: $btn-border-radius;
+  border: $btn-border-width solid transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  //Transitions
+  -webkit-transition: all 200ms ease-out;
+  transition: all 200ms ease-out;
+  -webkit-transition-property: background-color, color, opacity, border;
+  transition-property: background-color, color, opacity, border;
+  .svgicon {
+    font-size: 18px;
+    padding: 2px;
+    fill: $btn-default-color;
+  }
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    margin-right: 2px;
+    padding: 2px;
+  }
+  &:hover,
+  &:focus {
+    color: $btn-default-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-default-color-focus;
+    }
   }
 }
 
-.btn-default {
-  @include button-skin($btn-default-color, $btn-default-bg, $btn-default-border);
-}
-
-.btn-default-alt {
-  @include button-skin($btn-default-alt-color, $btn-default-alt-bg, $btn-default-alt-border);
-  @include button-shadow;
-  &:hover, &:focus {
-    border-color: $btn-default-border-hover;
-  }
-}
-
-.btn-link {
-  @include button-skin($btn-link-color, $btn-link-bg);
-}
-
-.btn-lowlight {
-   @include button-skin($btn-lowlight-color, $btn-lowlight-bg);
- }
-
-// Danger and error appear as red
-.btn-danger {
-  @include button-skin($btn-danger-color, $btn-danger-bg, $border: null, $color-disabled: $btn-danger-color-disabled);
-  @include button-shadow;
-}
-
-.btn-highlight {
-  @include button-skin($btn-highlight-color, $btn-highlight-bg, $border: null, $color-disabled: $btn-highlight-color-disabled);
-  @include button-shadow;
-}
-
-.btn-highlight-alt {
-  @include button-skin($btn-highlight-alt-color, $btn-highlight-alt-bg, $border: null, $color-disabled: $btn-highlight-alt-color-disabled);
-  @include button-shadow;
+button.btn-icon {
+  padding: 0 3px;
 }
 
 .btn-lg {
-  // line-height: ensure even-numbered height of button next to large input
-  @include button-size($padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
+  height: ($btn-spacing-base*5);
+  line-height: ($btn-spacing-base*5 - 2 * $btn-border-width);
+  font-size: $btn-lg-font-size;
+  &.btn-icon {
+    padding: 0 6px;
+  }
+  .svgicon {
+    font-size: 20px;
+  }
 }
 
+.btn-sm {
+  height: ($btn-spacing-base*3);
+  line-height: ($btn-spacing-base*3 - 2 * $btn-border-width);
+  font-size: $btn-sm-font-size;
+  &.btn-icon {
+    padding: 0;
+  }
+  .svgicon {
+    font-size: 14px;
+  }
+}
+
+button.disabled,
+.button.disabled {
+  opacity: .5;
+  cursor: default;
+  pointer-events: none;
+}
+
+button[disabled], .button[disabled] {
+  pointer-events: none;
+  cursor: default;
+}
+
+//Default Button
+//---------------------------------------
+button.btn-default,
+.button.btn-default,
+input[type="submit"].btn-default,
+input[type="reset"].btn-default,
+input[type="button"].btn-default {
+  background-color: $btn-default-color;
+  color: $btn-light;
+  border-color: $btn-default-color;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-default:focus,
+button.btn-default:focus,
+input[type="submit"].btn-default:focus,
+input[type="reset"].btn-default:focus,
+input[type="button"].btn-default:focus {
+  background-color: $btn-default-color-focus;
+  border-color: $btn-default-color-focus;
+  outline: none;
+}
+
+.button.btn-default:hover,
+.button.btn-default:focus:hover,
+button.btn-default:hover,
+button.btn-default:focus:hover,
+input[type="submit"].btn-default:hover,
+input[type="submit"].btn-default:focus:hover,
+input[type="reset"].btn-default:hover,
+input[type="reset"].btn-default:focus:hover,
+input[type="button"].btn-default:hover,
+input[type="button"].btn-default:focus:hover {
+  background-color: $btn-default-color-hover;
+  border-color: $btn-default-color-hover;
+  outline: none;
+}
+
+//Spinner
+button.btn-default,
+.button.btn-default,
+input[type="submit"].btn-default,
+input[type="reset"].btn-default,
+input[type="button"].btn-default {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+
+//Default Alt Button
+//---------------------------------------
+button.btn-default-alt,
+.button.btn-default-alt,
+input[type="submit"].btn-default-alt,
+input[type="reset"].btn-default-alt,
+input[type="button"].btn-default-alt
+{
+  background-color: transparent;
+  color: $btn-default-color;
+  border-color: $btn-default-color;
+  .svgicon {
+    fill: $btn-default-color;
+  }
+}
+
+.button.btn-default-alt:focus,
+button.btn-default-alt:focus,
+input[type="submit"].btn-default-alt:focus,
+input[type="reset"].btn-default-alt:focus,
+input[type="button"].btn-default-alt:focus {
+  background-color: transparent;
+  color: $btn-default-color-focus;
+  border-color: $btn-default-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-default-color-focus;
+  }
+}
+
+.button.btn-default-alt:hover,
+.button.btn-default-alt:focus:hover,
+button.btn-default-alt:hover,
+button.btn-default-alt:focus:hover,
+input[type="submit"].btn-default-alt:hover,
+input[type="submit"].btn-default-alt:focus:hover,
+input[type="reset"].btn-default-alt:hover,
+input[type="reset"].btn-default-alt:focus:hover,
+input[type="button"].btn-default-alt:hover,
+input[type="button"].btn-default-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-default-color-hover;
+  border-color: $btn-default-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-default-color-hover;
+  }
+}
+
+//Spinner
+button.btn-default-alt,
+.button.btn-default-alt,
+input[type="submit"].btn-default-alt,
+input[type="reset"].btn-default-alt,
+input[type="button"].btn-default-alt {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-default-color;
+    }
+    .path {
+      stroke: $btn-default-color;
+    }
+  }
+}
+
+//Default Alt Button WHITE
+//---------------------------------------
+button.btn-default-alt-wh,
+.button.btn-default-alt-wh,
+input[type="submit"].btn-default-alt-wh,
+input[type="reset"].btn-default-alt-wh,
+input[type="button"].btn-default-alt-wh {
+  background-color: transparent;
+  color: $btn-light;
+  border-color: $btn-light;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-default-alt-wh:focus,
+button.btn-default-alt-wh:focus,
+input[type="submit"].btn-default-alt-wh:focus,
+input[type="reset"].btn-default-alt-wh:focus,
+input[type="button"].btn-default-alt-wh:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $btn-light;
+  border-color: $btn-light;
+  outline: none;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-default-alt-wh:hover,
+.button.btn-default-alt-wh:focus:hover,
+button.btn-default-alt-wh:hover,
+button.btn-default-alt-wh:focus:hover,
+input[type="submit"].btn-default-alt-wh:hover,
+input[type="submit"].btn-default-alt-wh:focus:hover,
+input[type="reset"].btn-default-alt-wh:hover,
+input[type="reset"].btn-default-alt-wh:focus:hover,
+input[type="button"].btn-default-alt-wh:hover,
+input[type="button"].btn-default-alt-wh:focus:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $btn-light;
+  border-color: $btn-light;
+  outline: none;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+//Spinner
+button.btn-default-alt-wh,
+.button.btn-default-alt-wh,
+input[type="submit"].btn-default-alt-wh,
+input[type="reset"].btn-default-alt-wh,
+input[type="button"].btn-default-alt-wh {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+
+//Highlight Button
+//---------------------------------------
+button.btn-highlight,
+.button.btn-highlight,
+input[type="submit"].btn-highlight,
+input[type="reset"].btn-highlight,
+input[type="button"].btn-highlight {
+  background-color: $btn-highlight-color;
+  color: $btn-light;
+  border-color: $btn-highlight-color;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-highlight:focus,
+button.btn-highlight:focus,
+input[type="submit"].btn-highlight:focus,
+input[type="reset"].btn-highlight:focus,
+input[type="button"].btn-highlight:focus {
+  background-color: $btn-highlight-color-focus;
+  border-color: $btn-highlight-color-focus;
+  outline: none;
+}
+
+.button.btn-highlight:hover,
+.button.btn-highlight:focus:hover,
+button.btn-highlight:hover,
+button.btn-highlight:focus:hover,
+input[type="submit"].btn-highlight:hover,
+input[type="submit"].btn-highlight:focus:hover,
+input[type="reset"].btn-highlight:hover,
+input[type="reset"].btn-highlight:focus:hover,
+input[type="button"].btn-highlight:hover,
+input[type="button"].btn-highlight:focus:hover {
+  background-color: $btn-highlight-color-hover;
+  border-color: $btn-highlight-color-hover;
+  outline: none;
+}
+
+//Spinner
+button.btn-highlight,
+.button.btn-highlight,
+input[type="submit"].btn-highlight,
+input[type="reset"].btn-highlight,
+input[type="button"].btn-highlight {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+
+//Flat Highlight
+.btn-highlight-flat {
+  color: $btn-highlight-color;
+  .svgicon {
+    fill: $btn-highlight-color;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $btn-highlight-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-highlight-color-focus;
+    }
+  }
+}
+
+//Highlight Alt Button
+//---------------------------------------
+button.btn-highlight-alt,
+.button.btn-highlight-alt,
+input[type="submit"].btn-highlight-alt,
+input[type="reset"].btn-highlight-alt,
+input[type="button"].btn-highlight-alt {
+  background-color: transparent;
+  color: $btn-highlight-color;
+  border-color: $btn-highlight-color;
+  .svgicon {
+    fill: $btn-highlight-color;
+  }
+}
+
+.button.btn-highlight-alt:focus,
+button.btn-highlight-alt:focus,
+input[type="submit"].btn-highlight-alt:focus,
+input[type="reset"].btn-highlight-alt:focus,
+input[type="button"].btn-highlight-alt:focus {
+  background-color: transparent;
+  color: $btn-highlight-color-focus;
+  border-color: $btn-highlight-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-highlight-color-focus;
+  }
+}
+
+.button.btn-highlight-alt:hover,
+.button.btn-highlight-alt:focus:hover,
+button.btn-highlight-alt:hover,
+button.btn-highlight-alt:focus:hover,
+input[type="submit"].btn-highlight-alt:hover,
+input[type="submit"].btn-highlight-alt:focus:hover,
+input[type="reset"].btn-highlight-alt:hover,
+input[type="reset"].btn-highlight-alt:focus:hover,
+input[type="button"].btn-highlight-alt:hover,
+input[type="button"].btn-highlight-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-highlight-color-hover;
+  border-color: $btn-highlight-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-highlight-color-hover;
+  }
+}
+
+//Spinner
+button.btn-highlight-alt,
+.button.btn-highlight-alt,
+input[type="submit"].btn-highlight-alt,
+input[type="reset"].btn-highlight-alt,
+input[type="button"].btn-highlight-alt {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-highlight-color;
+    }
+    .path {
+      stroke: $btn-highlight-color;
+    }
+  }
+}
+
+//Success Button
+//---------------------------------------
+button.btn-success,
+.button.btn-success,
+input[type="submit"].btn-success,
+input[type="reset"].btn-success,
+input[type="button"].btn-success {
+  background-color: $btn-success-color;
+  color: $btn-light;
+  border-color: $btn-success-color;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-success:focus,
+button.btn-success:focus,
+input[type="submit"].btn-success:focus,
+input[type="reset"].btn-success:focus,
+input[type="button"].btn-success:focus {
+  background-color: $btn-success-color-focus;
+  border-color: $btn-success-color-focus;
+  outline: none;
+}
+
+.button.btn-success:hover,
+.button.btn-success:focus:hover,
+button.btn-success:hover,
+button.btn-success:focus:hover,
+input[type="submit"].btn-success:hover,
+input[type="submit"].btn-success:focus:hover,
+input[type="reset"].btn-success:hover,
+input[type="reset"].btn-success:focus:hover,
+input[type="button"].btn-success:hover,
+input[type="button"].btn-success:focus:hover {
+  background-color: $btn-success-color-hover;
+  border-color: $btn-success-color-hover;
+  outline: none;
+}
+
+button.btn-success,
+.button.btn-success,
+input[type="submit"].btn-success,
+input[type="reset"].btn-success,
+input[type="button"].btn-success {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+//Flat Success
+.btn-success-flat {
+  color: $btn-success-color;
+  .svgicon {
+    fill: $btn-success-color;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $btn-success-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-success-color-focus;
+    }
+  }
+}
+//Success Alt Button
+//---------------------------------------
+button.btn-success-alt,
+.button.btn-success-alt,
+input[type="submit"].btn-success-alt,
+input[type="reset"].btn-success-alt,
+input[type="button"].btn-success-alt {
+  background-color: transparent;
+  color: $btn-success-color;
+  border-color: $btn-success-color;
+  .svgicon {
+    fill: $btn-success-color;
+  }
+}
+
+.button.btn-success-alt:focus,
+button.btn-success-alt:focus,
+input[type="submit"].btn-success-alt:focus,
+input[type="reset"].btn-success-alt:focus,
+input[type="button"].btn-success-alt:focus {
+  background-color: transparent;
+  color: $btn-success-color-focus;
+  border-color: $btn-success-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-success-color-focus;
+  }
+}
+
+.button.btn-success-alt:hover,
+.button.btn-success-alt:focus:hover,
+button.btn-success-alt:hover,
+button.btn-success-alt:focus:hover,
+input[type="submit"].btn-success-alt:hover,
+input[type="submit"].btn-success-alt:focus:hover,
+input[type="reset"].btn-success-alt:hover,
+input[type="reset"].btn-success-alt:focus:hover,
+input[type="button"].btn-success-alt:hover,
+input[type="button"].btn-success-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-success-color-hover;
+  border-color: $btn-success-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-success-color-hover;
+  }
+}
+
+button.btn-success-alt,
+.button.btn-success-alt,
+input[type="submit"].btn-success-alt,
+input[type="reset"].btn-success-alt,
+input[type="button"].btn-success-alt {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-success-color;
+    }
+    .path {
+      stroke: $btn-success-color;
+    }
+  }
+}
+
+//Danger Button
+//---------------------------------------
+button.btn-danger,
+.button.btn-danger,
+input[type="submit"].btn-danger,
+input[type="reset"].btn-danger,
+input[type="button"].btn-danger {
+  background-color: $btn-danger-color;
+  color: $btn-light;
+  border-color: $btn-danger-color;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-danger:focus,
+button.btn-danger:focus,
+input[type="submit"].btn-danger:focus,
+input[type="reset"].btn-danger:focus,
+input[type="button"].btn-danger:focus {
+  background-color: $btn-danger-color-focus;
+  border-color: $btn-danger-color-focus;
+  outline: none;
+}
+
+.button.btn-danger:hover,
+.button.btn-danger:focus:hover,
+button.btn-danger:hover,
+button.btn-danger:focus:hover,
+input[type="submit"].btn-danger:hover,
+input[type="submit"].btn-danger:focus:hover,
+input[type="reset"].btn-danger:hover,
+input[type="reset"].btn-danger:focus:hover,
+input[type="button"].btn-danger:hover,
+input[type="button"].btn-danger:focus:hover {
+  background-color: $btn-danger-color-hover;
+  border-color: $btn-danger-color-hover;
+  outline: none;
+}
+
+button.btn-danger,
+.button.btn-danger,
+input[type="submit"].btn-danger,
+input[type="reset"].btn-danger,
+input[type="button"].btn-danger {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+//Flat danger
+.btn-danger-flat {
+  color: $btn-danger-color;
+  .svgicon {
+    fill: $btn-danger-color;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $btn-danger-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-danger-color-focus;
+    }
+  }
+}
+//danger Alt Button
+//---------------------------------------
+button.btn-danger-alt,
+.button.btn-danger-alt,
+input[type="submit"].btn-danger-alt,
+input[type="reset"].btn-danger-alt,
+input[type="button"].btn-danger-alt {
+  background-color: transparent;
+  color: $btn-danger-color;
+  border-color: $btn-danger-color;
+  .svgicon {
+    fill: $btn-danger-color;
+  }
+}
+
+.button.btn-danger-alt:focus,
+button.btn-danger-alt:focus,
+input[type="submit"].btn-danger-alt:focus,
+input[type="reset"].btn-danger-alt:focus,
+input[type="button"].btn-danger-alt:focus {
+  background-color: transparent;
+  color: $btn-danger-color-focus;
+  border-color: $btn-danger-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-danger-color-focus;
+  }
+}
+
+.button.btn-danger-alt:hover,
+.button.btn-danger-alt:focus:hover,
+button.btn-danger-alt:hover,
+button.btn-danger-alt:focus:hover,
+input[type="submit"].btn-danger-alt:hover,
+input[type="submit"].btn-danger-alt:focus:hover,
+input[type="reset"].btn-danger-alt:hover,
+input[type="reset"].btn-danger-alt:focus:hover,
+input[type="button"].btn-danger-alt:hover,
+input[type="button"].btn-danger-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-danger-color-hover;
+  border-color: $btn-danger-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-danger-color-hover;
+  }
+}
+
+button.btn-danger-alt,
+.button.btn-danger-alt,
+input[type="submit"].btn-danger-alt,
+input[type="reset"].btn-danger-alt,
+input[type="button"].btn-danger-alt {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-danger-color;
+    }
+    .path {
+      stroke: $btn-danger-color;
+    }
+  }
+}
+
+//Brand Button
+//---------------------------------------
+button.btn-brand,
+.button.btn-brand,
+input[type="submit"].btn-brand,
+input[type="reset"].btn-brand,
+input[type="button"].btn-brand {
+  background-color: $btn-brand-color;
+  color: $btn-light;
+  border-color: $btn-brand-color;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.button.btn-brand:focus,
+button.btn-brand:focus,
+input[type="submit"].btn-brand:focus,
+input[type="reset"].btn-brand:focus,
+input[type="button"].btn-brand:focus {
+  background-color: $btn-brand-color-focus;
+  border-color: $btn-brand-color-focus;
+  outline: none;
+}
+
+.button.btn-brand:hover,
+.button.btn-brand:focus:hover,
+button.btn-brand:hover,
+button.btn-brand:focus:hover,
+input[type="submit"].btn-brand:hover,
+input[type="submit"].btn-brand:focus:hover,
+input[type="reset"].btn-brand:hover,
+input[type="reset"].btn-brand:focus:hover,
+input[type="button"].btn-brand:hover,
+input[type="button"].btn-brand:focus:hover {
+  background-color: $btn-brand-color-hover;
+  border-color: $btn-brand-color-hover;
+  outline: none;
+}
+
+//Spinner
+button.btn-brand,
+.button.btn-brand,
+input[type="submit"].btn-brand,
+input[type="reset"].btn-brand,
+input[type="button"].btn-brand {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-light;
+    }
+    .path {
+      stroke: $btn-light;
+    }
+  }
+}
+
+//Flat Brand
+.btn-brand-flat {
+  color: $btn-brand-color;
+  .svgicon {
+    fill: $btn-brand-color;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $btn-brand-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-brand-color-focus;
+    }
+  }
+}
+
+//Brand Alt Button
+//---------------------------------------
+button.btn-brand-alt,
+.button.btn-brand-alt,
+input[type="submit"].btn-brand-alt,
+input[type="reset"].btn-brand-alt,
+input[type="button"].btn-brand-alt {
+  background-color: transparent;
+  color: $btn-brand-color;
+  border-color: $btn-brand-color;
+  .svgicon {
+    fill: $btn-brand-color;
+  }
+}
+
+.button.btn-brand-alt:focus,
+button.btn-brand-alt:focus,
+input[type="submit"].btn-brand-alt:focus,
+input[type="reset"].btn-brand-alt:focus,
+input[type="button"].btn-brand-alt:focus {
+  background-color: transparent;
+  color: $btn-brand-color-focus;
+  border-color: $btn-brand-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-brand-color-focus;
+  }
+}
+
+.button.btn-brand-alt:hover,
+.button.btn-brand-alt:focus:hover,
+button.btn-brand-alt:hover,
+button.btn-brand-alt:focus:hover,
+input[type="submit"].btn-brand-alt:hover,
+input[type="submit"].btn-brand-alt:focus:hover,
+input[type="reset"].btn-brand-alt:hover,
+input[type="reset"].btn-brand-alt:focus:hover,
+input[type="button"].btn-brand-alt:hover,
+input[type="button"].btn-brand-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-brand-color-hover;
+  border-color: $btn-brand-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-brand-color-hover;
+  }
+}
+
+//Spinner
+button.btn-brand-alt,
+.button.btn-brand-alt,
+input[type="submit"].btn-brand-alt,
+input[type="reset"].btn-brand-alt,
+input[type="button"].btn-brand-alt {
+  .spinner,
+  .spinner-md,
+  .spinner-sm {
+    .ring {
+      stroke: $btn-brand-color;
+    }
+    .path {
+      stroke: $btn-brand-color;
+    }
+  }
+}
