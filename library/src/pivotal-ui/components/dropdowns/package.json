@@ -1,10 +1,10 @@
 {
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "^6.0.0",
-    "pui-css-buttons": "^6.0.0",
-    "pui-css-button-group": "^6.0.0",
-    "pui-css-links": "^6.0.0"
+    "pui-css-bootstrap": "^6.0.1",
+    "pui-css-buttons": "^6.0.1",
+    "pui-css-button-group": "^6.0.1",
+    "pui-css-links": "^6.0.1"
   },
-  "version": "6.0.0"
+  "version": "6.0.1"
 }
