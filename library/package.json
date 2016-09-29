@@ -85,7 +85,6 @@
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
     "react-addons-shallow-compare": "^15.0.1",
     "react-addons-test-utils": "^15.0.1",
-    "react-bootstrap": "^0.30.1",
     "react-fa": "^4.0.0",
     "react-tether": "^0.5.2",
     "require-dir": "^0.3.0",

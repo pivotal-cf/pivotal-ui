@@ -5,7 +5,6 @@
   "dependencies": {
     "pui-css-modals": "^6.0.0",
     "pui-css-typography": "^6.0.0",
-    "pui-react-helpers": "^6.0.0",
-    "react-bootstrap": "0.30.2"
+    "pui-react-helpers": "^6.0.0"
   }
 }

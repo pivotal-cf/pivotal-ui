@@ -4,7 +4,6 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "2.2.5",
-    "react-bootstrap": "0.30.2",
     "pui-css-alerts": "^6.0.0",
     "pui-css-iconography": "^6.0.0",
     "pui-react-media": "^6.0.0"
