@@ -3,6 +3,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const shallowEqual = require('fbjs/lib/shallowEqual');
 import mixin from '../mixins';
+const Mounted = require('../mixins/mounted_mixin');
 const ShallowCompare = require('../mixins/shallow_compare_mixin');
 const Component = mixin(React.Component).with(ShallowCompare);
 
@@ -18,7 +19,7 @@ const properties = ['width', 'height', 'top', 'right', 'bottom', 'left'];
 
 module.exports = {
   useBoundingClientRect(Klass) {
-    return class BoundingClientRect extends Component {
+    return class BoundingClientRect extends mixin(Component).with(Mounted) {
       constructor(props, context) {
         super(props, context);
         let resolver;
@@ -32,6 +33,7 @@ module.exports = {
       }
 
       componentDidMount() {
+        super.componentDidMount();
         privates.set(this, {resize: this.resize});
         window.addEventListener('resize', this.resize);
         this.setState({container: ReactDOM.findDOMNode(this.component)});
@@ -39,6 +41,7 @@ module.exports = {
       }
 
       componentWillUnmount() {
+        super.componentWillUnmount();
         const {resize} = privates.get(this) || {};
         window.removeEventListener('resize', resize);
         privates.delete(this);
@@ -56,7 +59,9 @@ module.exports = {
         const {boundingClientRect: prevBoundingClientRect} = privates.get(this) || {};
         const boundingClientRect = this.getBoundingClientRect();
         const isNotEqual = property => boundingClientRect[property] !== prevBoundingClientRect[property];
-        if (!prevBoundingClientRect || properties.some(isNotEqual)) this.forceUpdate();
+        if (!prevBoundingClientRect || properties.some(isNotEqual)) {
+          this.mounted() && this.forceUpdate();
+        }
       };
 
       render() {

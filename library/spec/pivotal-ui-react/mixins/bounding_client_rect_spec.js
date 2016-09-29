@@ -45,6 +45,11 @@ describe('BoundingClientRect', () => {
     it('calls resize', () => {
       expect(resizeSpy).toHaveBeenCalled();
     });
+
+    it('does not do call forceUpdate if unmounted', () => {
+      ReactDOM.render(<div/>, root);
+      expect(() => MockRaf.next()).not.toThrow();
+    });
   });
 
   describe('when a window resize event is triggered', () => {
