@@ -4,36 +4,29 @@ require('pui-css-buttons');
 
 class UIButton extends React.Component{
   static propTypes = {
-    alt: React.PropTypes.bool,
-    flat: React.PropTypes.bool,
+    block: React.PropTypes.bool,
     href: React.PropTypes.string,
     kind: React.PropTypes.oneOf([
       'default',
+      'default-alt',
+      'lowlight',
       'danger',
       'highlight',
-      'success',
-      'brand'
+      'highlight-alt'
     ]),
-    large: React.PropTypes.bool,
-    small: React.PropTypes.bool
-  };
-
-  static defaultProps = {
-    kind: 'default'
+    large: React.PropTypes.bool
   };
 
   render() {
-    const {alt, flat, large, small, kind, children, ...others} = this.props;
+    var {block, large, kind='default', children, ...others} = this.props;
 
     let defaultProps = {
       className: [
+          'btn',
+          `btn-${kind}`,
           {
-            'button': this.props.href,
-            [`btn-${kind}-alt`]: alt,
-            [`btn-${kind}-flat`]: flat,
-            [`btn-${kind}`]: !alt && !flat,
-            'btn-lg': large,
-            'btn-sm': small
+            'btn-block': block,
+            'btn-lg': large
           }
       ]
     };
@@ -48,11 +41,17 @@ class UIButton extends React.Component{
 function defButton(propOverrides) {
   return class extends React.Component {
     static propTypes = {
-      alt: React.PropTypes.bool,
-      flat: React.PropTypes.bool,
+      block: React.PropTypes.bool,
       href: React.PropTypes.string,
-      large: React.PropTypes.bool,
-      small: React.PropTypes.bool
+      kind: React.PropTypes.oneOf([
+        'default',
+        'default-alt',
+        'lowlight',
+        'danger',
+        'highlight',
+        'highlight-alt'
+      ]),
+      large: React.PropTypes.bool
     };
 
     render() {
@@ -66,11 +65,13 @@ module.exports = {
 
   DefaultButton: defButton({kind: 'default'}),
 
+  DefaultAltButton: defButton({kind: 'default-alt'}),
+
+  LowlightButton: defButton({kind: 'lowlight'}),
+
   DangerButton: defButton({kind: 'danger'}),
 
   HighlightButton: defButton({kind: 'highlight'}),
 
-  SuccessButton: defButton({kind: 'success'}),
-
-  BrandButton: defButton({kind: 'brand'})
+  HighlightAltButton: defButton({kind: 'highlight-alt'})
 };

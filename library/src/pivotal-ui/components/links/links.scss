@@ -63,7 +63,7 @@ a `data-behavior: GentleScroll` to the trigger element as well as an `href` for 
 id of the target it will scroll to.
 
 ```html_example
-<a class="btn-default" data-behavior="GentleScroll" href="#scroll-target">Scroll Trigger</a>
+<a class="btn btn-default" data-behavior="GentleScroll" href="#scroll-target">Scroll Trigger</a>
 ```
 
 It can scroll to anything, in this case, we'll use a text input.

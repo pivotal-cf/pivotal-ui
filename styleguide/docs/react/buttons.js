@@ -17,86 +17,72 @@ Require the subcomponents:
 
 ```
 var DefaultButton = require('pui-react-buttons').DefaultButton;
-var HighlightButton = require('pui-react-buttons').HighlightButton;
+var DefaultAltButton = require('pui-react-buttons').DefaultAltButton;
+var LowlightButton = require('pui-react-buttons').LowlightButton;
 var DangerButton = require('pui-react-buttons').DangerButton;
-var SuccessButton = require('pui-react-buttons').SuccessButton;
-var BrandButton = require('pui-react-buttons').Brand;
+var HighlightButton = require('pui-react-buttons').HighlightButton;
+var HighlightAltButton = require('pui-react-buttons').HighlightAltButton;
+var UIButton = require('pui-react-buttons').UIButton;
 ```
 
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 
 ```react_example_table
-<DefaultButton>
-  Button
-</DefaultButton>
-
 <DefaultButton href="http://example.com">
-  Link
+  Default
 </DefaultButton>
 ```
 
-## Styles
+To make a button large, set the `large` property to true.
 
-There are 4 main button color schemes: Default, Highlight, Danger, and Success. There is also Brand, but this should only be used for marketing.
+```react_example_table
+<HighlightButton large={true}>
+  Big Button
+</HighlightButton>
+```
+
+To make a button full-width, set the `block` property to true.
+
+```react_example
+<DangerButton block={true} >
+  Danger Zone
+</DangerButton>
+```
+
+Specific button types.
 
 ```react_example_table
 <DefaultButton>
   Default
 </DefaultButton>
 
-<HighlightButton>
-  Highlight
-</HighlightButton>
+<DefaultAltButton>
+  Default alternate
+</DefaultAltButton>
+
+<LowlightButton>
+  Lowlight
+</LowlightButton>
 
 <DangerButton>
   Danger
 </DangerButton>
 
-<SuccessButton>
-  Success
-</SuccessButton>
+<HighlightButton>
+  Highlight
+</HighlightButton>
 
-<BrandButton>
-  Brand
-</BrandButton>
+<HighlightAltButton>
+  Highlight alternate
+</HighlightAltButton>
 ```
 
-For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders).
-To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop
-
+The base button renderer. You won't really interact with this directly.
 
 ```react_example_table
-<DefaultButton alt>
-  Alt
-</DefaultButton>
-
-<DefaultButton flat>
-  Flat
-</DefaultButton>
-
-<HighlightButton alt>
-  Highlight Alt
-</HighlightButton>
-
-<SuccessButton flat>
-  Success Flat
-</SuccessButton>
+<UIButton>
+  I'm a button
+</UIButton>
 ```
-
-
-## Sizing
-
-To make a button large, set the `large` property to true, to make it small, set `small` to true.
-
-```react_example_table
-<HighlightButton large>
-  Big Button
-</HighlightButton>
-
-<HighlightButton small>
-  Small Button
-</HighlightButton>
-```
-
 */

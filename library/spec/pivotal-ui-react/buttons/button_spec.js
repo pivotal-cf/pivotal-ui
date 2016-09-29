@@ -12,7 +12,7 @@ describe('UIButton', function() {
   });
 
   it('creates a button', function() {
-    expect('#root button.btn-default').toContainText('Click here');
+    expect('#root button.btn.btn-default').toContainText('Click here');
   });
 
   describe('when href attribute is set', function() {
@@ -21,8 +21,8 @@ describe('UIButton', function() {
     });
 
     it('creates a link', function() {
-      expect('#root a.button.btn-default').toContainText('Click here');
-      expect('#root a.button').toHaveAttr('href', 'http://example.com');
+      expect('#root a.btn.btn-default').toContainText('Click here');
+      expect('#root a.btn').toHaveAttr('href', 'http://example.com');
     });
   });
 
@@ -32,28 +32,28 @@ describe('UIButton', function() {
     });
 
     it('adds the type class to the button', function() {
-      expect('#root button').not.toHaveClass('btn-default');
-      expect('#root button').toHaveClass('btn-danger');
+      expect('#root button.btn').not.toHaveClass('btn-default');
+      expect('#root button.btn').toHaveClass('btn-danger');
+    });
+  });
+
+  describe('when block is true', function() {
+    beforeEach(function() {
+      ReactDOM.render(<UIButton block={true}>Click here</UIButton>, root);
+    });
+
+    it('adds the block class', function() {
+      expect('#root button.btn').toHaveClass('btn-block');
     });
   });
 
   describe('when large is true', function() {
     beforeEach(function() {
-      ReactDOM.render(<UIButton large>Click here</UIButton>, root);
+      ReactDOM.render(<UIButton large={true}>Click here</UIButton>, root);
     });
 
     it('adds the large button class', function() {
-      expect('#root button').toHaveClass('btn-lg');
-    });
-  });
-
-  describe('when small is true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<UIButton small>Click here</UIButton>, root);
-    });
-
-    it('adds the small button class', function() {
-      expect('#root button').toHaveClass('btn-sm');
+      expect('#root button.btn').toHaveClass('btn-lg');
     });
   });
 
@@ -72,7 +72,7 @@ describe('UIButton', function() {
       });
 
       it('includes the default button classes', function() {
-        expect('#root button').toHaveClass(['btn-default']);
+        expect('#root button').toHaveClass(['btn', 'btn-default']);
       });
     });
 
@@ -81,7 +81,8 @@ describe('UIButton', function() {
       beforeEach(function() {
         renderButton({
           className: 'custom-class-1 custom-class-2',
-          kind: 'highlight',
+          kind: 'lowlight',
+          block: true,
           large: true
         });
       });
@@ -91,7 +92,7 @@ describe('UIButton', function() {
       });
 
       it('includes the button classes set by the other options', function() {
-        expect('#root button').toHaveClass(['btn-highlight', 'btn-lg']);
+        expect('#root button').toHaveClass(['btn', 'btn-lowlight', 'btn-block', 'btn-lg']);
       });
     });
   });
@@ -106,65 +107,28 @@ describe('UIButton', function() {
     });
 
     it('passes through the data-attributes', function() {
-      expect('#root button').toHaveAttr('data-click', 'myFunction');
-      expect('#root button').toHaveAttr('data-foo', 'bar');
-    });
-  });
-
-  describe('DefaultButton', () => {
-    let Button;
-    beforeEach(() => {
-      Button = require('../../../src/pivotal-ui-react/buttons/buttons').DefaultButton;
-    });
-
-    describe('when there are flags', () => {
-      it('renders with the alt classname when there is an alt flag', () => {
-        ReactDOM.render(<Button alt>Click here</Button>, root);
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass('btn-default-alt');
-      });
-
-      it('renders with the flat classname when there is an flat flag', () => {
-        ReactDOM.render(<Button flat>Click here</Button>, root);
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass('btn-default-flat');
-      });
+      expect('#root button.btn').toHaveAttr('data-click', 'myFunction');
+      expect('#root button.btn').toHaveAttr('data-foo', 'bar');
     });
   });
 
   [
-    {name: 'SuccessButton', btnClass: 'btn-success'},
+    {name: 'DefaultAltButton', btnClass: 'btn-default-alt'},
+    {name: 'LowlightButton', btnClass: 'btn-lowlight'},
     {name: 'DangerButton', btnClass: 'btn-danger'},
     {name: 'HighlightButton', btnClass: 'btn-highlight'},
-    {name: 'BrandButton', btnClass: 'btn-brand'},
+    {name: 'HighlightAltButton', btnClass: 'btn-highlight-alt'}
   ].forEach(function({name, btnClass}) {
-    describe(name, function() {
-      let Button;
-      beforeEach(function() {
-        Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
-        ReactDOM.render(<Button>Click here</Button>, root);
-      });
-
-      it(`renders with the ${btnClass} class`, function() {
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass(btnClass);
-      });
-
-      describe('when there are flags', () => {
-        it('renders with the alt classname when there is an alt flag', () => {
-          ReactDOM.render(<Button alt>Click here</Button>, root);
-          expect('#root button').not.toHaveClass('btn-default');
-          expect('#root button').not.toHaveClass(btnClass);
-          expect('#root button').toHaveClass(`${btnClass}-alt`);
+      describe(name, function() {
+        beforeEach(function() {
+          var Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
+          ReactDOM.render(<Button>Click here</Button>, root);
         });
 
-        it('renders with the flat classname when there is an flat flag', () => {
-          ReactDOM.render(<Button flat>Click here</Button>, root);
-          expect('#root button').not.toHaveClass('btn-default');
-          expect('#root button').not.toHaveClass(btnClass);
-          expect('#root button').toHaveClass(`${btnClass}-flat`);
+        it('renders with the btn-default class', function() {
+          expect('button.btn').not.toHaveClass('btn-default');
+          expect('button.btn').toHaveClass(btnClass);
         });
       });
     });
-  });
 });

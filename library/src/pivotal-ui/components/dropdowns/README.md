@@ -2,7 +2,7 @@ Note that this requires the Bootstrap JavaScript.
 
 ```html
 <div class="dropdown btn-group">
-  <button id="dropdown-button-1" class="dropdown-toggle btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>

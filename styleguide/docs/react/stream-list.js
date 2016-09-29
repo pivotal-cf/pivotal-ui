@@ -49,7 +49,7 @@ var StreamListExample = React.createClass({
   render: function() {
     return (
       <div>
-        <DefaultButton onClick={this.simulateIncomingData}>
+        <DefaultButton className="btn btn-default" onClick={this.simulateIncomingData}>
           Simulate Incoming Data
         </DefaultButton>
         <StreamList singularNewItemText="new thing" pluralNewItemsText="new things">

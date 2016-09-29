@@ -12,8 +12,8 @@ Note that this requires Bootstrap's JavaScript.
         ...
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn-default-alt" data-dismiss="modal">Close</button>
-        <button type="button" class="btn-highlight">Save changes</button>
+        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-highlight">Save changes</button>
       </div>
     </div>
   </div>

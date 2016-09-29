@@ -1,52 +1,10 @@
 @import "../pui-variables";
 
-//Button Groups
-//---------------------------------------
 .btn-group {
-  display: inline-block;
-
-  > .button, > button {
-    float:left;
-  }
-  .button:hover,
-  button:hover {
-    z-index: 2;
-  }
-  .button+ .button,
-  button+ button {
-    margin-left: -2px;
-  }
-  .button:not(:first-child):not(:last-child):not(.dropdown-toggle),
-  button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
-    border-radius: 0;
-  }
-  //First Btn
-  .button:first-child,
-  button:first-child {
-    border-bottom-left-radius: $btn-border-radius;
-    border-top-left-radius: $btn-border-radius;
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-  }
-  //Last Btn
-  .button:last-child:not(:first-child),
-  button:last-child:not(:first-child),
-  .dropdown-toggle:not(:first-child) {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-bottom-right-radius: $btn-border-radius;
-    border-top-right-radius: $btn-border-radius;
-  }
-}
-
-.btn-group-flat {
-  display: inline-block;
-  > button,
-  > .button {
-    padding: 0 $btn-spacing-base;
-    float:left;
-  }
-  .btn-icon {
-    padding: 0 3px;
+  .btn {
+    &.selected  {
+      color: $neutral-11;
+      background-color: $btn-default-color;
+    }
   }
 }

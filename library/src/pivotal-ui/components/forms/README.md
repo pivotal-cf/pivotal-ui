@@ -13,6 +13,6 @@
       <input type="checkbox"> Check me out
     </label>
   </div>
-  <button type="submit" class="btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 ```
