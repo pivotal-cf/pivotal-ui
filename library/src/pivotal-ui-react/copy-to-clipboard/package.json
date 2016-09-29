@@ -3,6 +3,8 @@
   "description": "React copy component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "pui-css-copy-to-clipboard": "^6.0.1",
+    "pui-react-helpers": "^6.0.1",
     "pui-react-overlay-trigger": "^6.0.1",
     "pui-react-tooltip": "^6.0.1"
   }
