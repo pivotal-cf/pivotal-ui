@@ -1,7 +1,61 @@
 /*doc
 ---
-title: Welcome to the 5.0 release of Pivotal UI!
-name: latest-release
+title: PUI 6.0 Release
+name: x-latest-release-6
+category: latest-release
+---
+
+*/
+
+
+/*doc
+---
+title: Goals
+name: 01_goals-6
+parent: x-latest-release-6
+---
+
+The goals for the 6.0 release are:
+
+- Remove React Bootstrap Dependency
+  - This should make it much easier for teams to choose their version of React without causing dependency conflicts.
+  - This will also make it easier in the future to use non-Bootstrap designs.
+- Add a couple new React Components
+*/
+
+/*doc
+---
+title: New Components
+name: 04_components-6
+parent: x-latest-release-6
+---
+
+- `CopyToClipboard`
+- `CopyToClipboardButton`
+- `Svg`
+*/
+
+
+/*doc
+---
+title: The Big Changes
+name: 03_changes-6
+parent: x-latest-release-6
+---
+
+- Alert: The `dismissable` prop is now just a boolean. If you want a function that is called on dismissal, use the `onDimiss` prop.
+- Modals: The `bsSize` prop has been renamed to `size`.
+- React Bootstrap: Alerts, Grids, Modals and Tabs are now entirely different code paths. The goal was to replace all old functionality, but undocumented behavior may have changed.
+
+Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md)
+
+*/
+
+
+/*doc
+---
+title: PUI 5.0 Release
+name: y-latest-release-5
 category: latest-release
 ---
 
@@ -13,8 +67,8 @@ category: latest-release
 
 /*doc
 ---
-title: The 4.0 release of Pivotal UI
-name: latest-release-4
+title: PUI 4.0 Release
+name: z-latest-release-4
 category: latest-release
 ---
 */
@@ -23,7 +77,7 @@ category: latest-release
 ---
 title: Goals
 name: 01_goals
-parent: latest-release-4
+parent: z-latest-release-4
 ---
 
 The goals for the 4.0 release are:
@@ -39,7 +93,7 @@ The goals for the 4.0 release are:
 ---
 title: The Big Changes
 name: 03_changes
-parent: latest-release-4
+parent: z-latest-release-4
 ---
 
 - The `typography` React component has been removed in favor of native headers
@@ -61,7 +115,7 @@ Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](h
 ---
 title: New Components
 name: 04_components
-parent: latest-release-4
+parent: z-latest-release-4
 ---
 
 - `Checkbox`
@@ -74,7 +128,7 @@ parent: latest-release-4
 ---
 title: Conversion Guide
 name: 05_conversion
-parent: latest-release-4
+parent: z-latest-release-4
 ---
 
 ### Typography
