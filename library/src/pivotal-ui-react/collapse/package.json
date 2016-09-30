@@ -1,13 +1,13 @@
 {
-  "version": "6.0.1",
+  "version": "6.0.2",
   "description": "React components providing accordions for showing and hiding content",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-collapse": "^6.0.1",
-    "pui-css-iconography": "^6.0.1",
-    "pui-css-dividers": "^6.0.1",
-    "pui-react-collapsible": "^6.0.1",
-    "pui-react-helpers": "^6.0.1"
+    "pui-css-collapse": "^6.0.2",
+    "pui-css-iconography": "^6.0.2",
+    "pui-css-dividers": "^6.0.2",
+    "pui-react-collapsible": "^6.0.2",
+    "pui-react-helpers": "^6.0.2"
   }
 }
