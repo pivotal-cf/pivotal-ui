@@ -38,6 +38,10 @@ describe('Notification', function() {
       $('.dropdown-toggle').simulate('click');
     });
 
+    it('renders the bell', () => {
+      expect('.dropdown-notifications-title svg.icon-notifications').toExist();
+    });
+
     it('passes through the className to the btn-group', function() {
       expect('#root .btn-group').toHaveClass(props.className);
     });
@@ -135,7 +139,7 @@ describe('Alert Notifications', function() {
     });
 
     it('renders a notification alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert').toHaveClass('fa-exclamation-triangle');
+      expect('.dropdown-notifications-title .dropdown-notifications-alert svg').toHaveClass('icon-warning');
     });
 
     it('renders the children in a dropdown menu on click', function() {

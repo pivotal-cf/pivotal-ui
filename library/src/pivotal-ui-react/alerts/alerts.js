@@ -3,6 +3,7 @@ const React = require('react');
 const types = React.PropTypes;
 const {Media} = require('pui-react-media');
 const {mergeProps} = require('pui-react-helpers');
+const {Icon} = require('pui-react-iconography');
 require('pui-css-alerts');
 
 class Alert extends React.Component{
@@ -50,7 +51,7 @@ class Alert extends React.Component{
     }
 
     if (withIcon) {
-      const icon = <i className={`fa ${alertIcon}`}></i>;
+      const icon = <Icon src={alertIcon}></Icon>;
       children = <Media className={'mtn'} image={icon}>{children}</Media>;
     }
     return (
@@ -92,8 +93,8 @@ function defAlert(props) {
 }
 
 module.exports = {
-  SuccessAlert: defAlert({bsStyle: 'success', alertIcon: 'fa-check-circle'}),
-  InfoAlert: defAlert({bsStyle: 'info', alertIcon: 'fa-info-circle'}),
-  WarningAlert: defAlert({bsStyle: 'warning', alertIcon: 'fa-exclamation-triangle'}),
-  ErrorAlert: defAlert({bsStyle: 'danger', alertIcon: 'fa-exclamation-triangle'})
+  SuccessAlert: defAlert({bsStyle: 'success', alertIcon: 'check_circle'}),
+  InfoAlert: defAlert({bsStyle: 'info', alertIcon: 'info'}),
+  WarningAlert: defAlert({bsStyle: 'warning', alertIcon: 'warning'}),
+  ErrorAlert: defAlert({bsStyle: 'danger', alertIcon: 'warning'})
 };

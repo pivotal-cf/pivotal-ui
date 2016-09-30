@@ -1,11 +1,5 @@
 @import "../pui-variables";
 
-.copy-to-clipboard-image {
-  path {
-    fill: $gray-3;
-  }
-}
-
 .copy-to-clipboard .sr-only {
   user-select: text;
 }
@@ -14,7 +8,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid $gray-2;
+  border: 1px solid $neutral-3;
   height: $input-height-base;
   width: $input-height-base;
+  font-size: 24px;
+  fill: $neutral-3;
 }

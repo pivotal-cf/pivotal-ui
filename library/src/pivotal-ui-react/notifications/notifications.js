@@ -19,14 +19,14 @@ class Notifications extends React.Component {
     var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
       <div className={dropdownTitleClasses}>
-        <i className="fa fa-bell"></i>
+        <Icon src="notifications"/>
         {badge}
       </div>
     );
     children = children || (
       <li role="presentation">
         <div className="dropdown-notifications-none">
-          <Icon name="bell"/>
+          <Icon src="add"/>
           <p className="type-neutral-4 em-alt mbn">no notifications</p>
         </div>
       </li>
@@ -42,18 +42,18 @@ class AlertNotifications extends React.Component {
 
   render() {
     var {size, children, ...others} = this.props;
-    var badge = children ? <Icon name="exclamation-triangle" className="dropdown-notifications-alert"></Icon> : null;
+    var badge = children && <Icon src="warning" className="dropdown-notifications-alert"></Icon>;
     var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
       <div className={dropdownTitleClasses}>
-        <i className="fa fa-bell"></i>
+        <Icon src="notifications"/>
         {badge}
       </div>
     );
     children = children || (
       <li role="presentation">
         <div className="dropdown-notifications-none">
-          <Icon name="bell"/>
+          <Icon src="notifications"/>
           <p className="type-neutral-4 em-alt mbn">no alerts</p>
         </div>
       </li>

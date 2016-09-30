@@ -52,6 +52,10 @@ describe('BackToTop', function() {
     expect('.back-to-top').toExist();
   });
 
+  it('renders a arrow upward icon', () => {
+    expect('svg.icon-arrow_upward').toExist();
+  });
+
   it('fades in the button', function() {
     expect('.back-to-top').toHaveCss({opacity: '0'});
     MockNow.tick(BackToTop.FADE_DURATION / 2);

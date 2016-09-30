@@ -307,7 +307,7 @@ This section contains different list behaviors. See [lists][list] to see differe
 
   .draggable-grip {
     display: inline-block;
-    color: $list-draggable-grip;
+    fill: $list-draggable-grip;
   }
 
   > li {
@@ -322,7 +322,7 @@ This section contains different list behaviors. See [lists][list] to see differe
       cursor: move;
 
       .draggable-grip {
-        color: $list-draggable-grip-active;
+        fill: $list-draggable-grip-active;
       }
     }
 

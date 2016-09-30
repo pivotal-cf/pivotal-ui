@@ -53,7 +53,7 @@ describe('CopyToClipboard', () => {
       beforeEach(() => {
         Tooltip = require('pui-react-tooltip').Tooltip;
         spyOn(Tooltip.prototype, 'render').and.callThrough();
-        $('.copy-to-clipboard-image').simulate('click');
+        $('svg.icon-copy').simulate('click');
       });
 
       it('renders a tooltip that says "Copied"', () => {

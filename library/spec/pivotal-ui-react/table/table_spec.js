@@ -111,6 +111,7 @@ describe('Table', function() {
 
       it('reverses the sort order', function() {
         expect('th:contains("instances")').toHaveClass('sorted-desc');
+        expect('th:contains("instances") .svgicon .icon-arrow_drop_down').toExist();
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -128,6 +129,8 @@ describe('Table', function() {
 
         it('reverses the sort order', function() {
           expect('th:contains("instances")').toHaveClass('sorted-asc');
+          expect('th:contains("instances") .svgicon .icon-arrow_drop_up').toExist();
+
 
           expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
           expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');

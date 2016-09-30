@@ -25,7 +25,7 @@ gulp.task('build-js', function() {
       bail: false,
       module: {
         loaders: [
-          {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/, /\.jpg?(\?|$)/], loader: 'url?name=[name].[ext]'},
+          {test: [/\.svg(\?|$)/, /\.png(\?|$)/, /\.eot(\?|$)/, /\.ttf(\?|$)/, /\.woff2?(\?|$)/, /\.jpg?(\?|$)/], exclude: /iconography/, loader: 'url?name=[name].[ext]'},
           {test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader')},
           {
             test: /\.js$/,

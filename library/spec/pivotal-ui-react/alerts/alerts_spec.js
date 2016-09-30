@@ -119,7 +119,7 @@ describe('SuccessAlert', function() {
     });
 
     it('renders an icon in the alert', function() {
-      expect('i').toHaveClass('fa-check-circle');
+      expect('svg').toHaveClass('icon-check_circle');
     });
 
     it('has a "success alert" label', function() {
@@ -144,7 +144,7 @@ describe('InfoAlert', function() {
     });
 
     it('renders an icon in the alert', function() {
-      expect('i').toHaveClass('fa-info-circle');
+      expect('svg').toHaveClass('icon-info');
     });
 
     it('has a "info alert" label', function() {
@@ -169,7 +169,7 @@ describe('WarningAlert', function() {
      });
 
      it('renders an icon in the alert', function() {
-       expect('i').toHaveClass('fa-exclamation-triangle');
+       expect('svg').toHaveClass('icon-warning');
      });
 
      it('has a "warning alert" label', function() {
@@ -194,7 +194,7 @@ describe('ErrorAlert', function() {
      });
 
      it('renders an icon in the alert', function() {
-       expect('i').toHaveClass('fa-exclamation-triangle');
+       expect('svg').toHaveClass('icon-warning');
      });
 
      it('has an "error alert" label', function() {

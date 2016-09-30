@@ -5,7 +5,7 @@
   "dependencies": {
     "classnames": "2.2.5",
     "pui-css-alerts": "^6.0.2",
-    "pui-css-iconography": "^6.0.2",
+    "pui-react-iconography": "^6.0.2",
     "pui-react-media": "^6.0.2"
   }
 }

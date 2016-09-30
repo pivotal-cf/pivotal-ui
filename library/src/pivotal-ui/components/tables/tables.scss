@@ -129,48 +129,14 @@
 }
 
 .table-sortable {
-  th.sorted-desc {
-    color: $navy-1;
-    &:after {
-      content: "\f0d7";
-      color: $navy-1;
-    }
-  }
-
-  .sortable, [sortable] { // latter selector is angular only
+  .sortable {
     @include no-select;
     cursor: pointer;
-    &:after {
-      margin-left: 4px;
-      position: absolute;
-      content: "";
-      font-weight: 200;
-      font-family: FontAwesome;
-    }
     &:hover {
       background-color: white;
       -webkit-transition: background-color 300ms ease-out;
       -moz-transition: background-color 300ms ease-out;
       transition: background-color 300ms ease-out;
-    }
-  }
-
-  th.sorted-none {
-    &:hover:after {
-      visibility: visible;
-    }
-    &:after {
-      content: "\f0dc";
-      color: $gray-7;
-      visibility: hidden;
-    }
-  }
-
-  th.sorted-asc {
-    color: $navy-1;
-    &:after {
-      content: "\f0d8";
-      color: $navy-1;
     }
   }
 }
