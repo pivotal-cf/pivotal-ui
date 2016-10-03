@@ -11,11 +11,11 @@
  ***It requires the webpack loaders babel-loader and svg-react-loader.***
 
  <code class="pam">
- <i class="fa fa-download" alt="Install the Component">
+ <img src="/styleguide/download.svg" width="16" height="16"/>
  npm install pui-react-svg  --save
 
+ <img src="/styleguide/download.svg" width="16" height="16"/>
  npm install babel-loader svg-react-loader --save-dev
- </i>
  </code>
 
  Require the subcomponents:

@@ -6,9 +6,8 @@ parent: form_react
 ---
 
 <code class="pam">
-  <i class="fa fa-download" alt="Install the Component">
-    npm install pui-react-toggle --save
-  </i>
+  <img src="/styleguide/download.svg" width="16" height="16"/>
+  npm install pui-react-toggle --save
 </code>
 
 Require the subcomponent:

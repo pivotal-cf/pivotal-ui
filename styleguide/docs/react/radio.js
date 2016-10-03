@@ -17,9 +17,8 @@ parent: form_react
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-radio --save
-</i>
 </code>
 
 For the example, you also need to install [Grids](#grid_react) and require `Col` from it.

@@ -6,9 +6,8 @@ parent: list_react
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
-</i>
 </code>
 
 Require the subcomponents:
