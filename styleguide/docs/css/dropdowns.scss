@@ -19,7 +19,7 @@ This is the basic bootstrap dropdown.
 
 ```html_example
 <div class="dropdown">
-  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-1" class="dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -49,7 +49,7 @@ This is the basic bootstrap dropdown.
 
 ```html_example
 <div class="dropdown">
-  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle btn-link" type="button">
     <span>Link Dropdown</span>
     <span class="caret"></span>
   </button>
@@ -80,7 +80,7 @@ This is the basic bootstrap dropdown.
 
 ```html_example
 <div class="dropdown">
-  <button id="dropdown-button-1" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-1" class="dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -112,7 +112,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 
 ```html_example
 <div class="dropdown btn-group">
-  <button id="dropdown-button-2" class="dropdown-toggle btn btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-2" class="dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     dropdown trigger
     <span class="caret"></span>
   </button>
@@ -174,7 +174,7 @@ This is a notification dropdown with no notifications.
 
 ```html_example
 <div class="dropdown-notifications btn-group">
-  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+  <button data-toggle="dropdown" class="dropdown-toggle btn-link" type="button">
     <div class="dropdown-notifications-title">
       <img src="/styleguide/notifications.svg" />
     </div>
@@ -194,7 +194,7 @@ This is a notification dropdown with notifications.
 
 ```html_example
 <div class="dropdown-notifications btn-group">
-  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+  <button data-toggle="dropdown" class="dropdown-toggle btn-link" type="button">
     <div class="dropdown-notifications-title">
       <img src="/styleguide/notifications.svg" />
       <span class="dropdown-notifications-badge">2</span>
@@ -239,7 +239,7 @@ Here's an example modifiying the size and the color of the bell
 
 ```html_example
 <div class="dropdown-notifications btn-group">
-  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+  <button data-toggle="dropdown" class="dropdown-toggle btn-link" type="button">
     <div class="dropdown-notifications-title h1">
       <img src="/styleguide/notifications.svg" />
       <span class="dropdown-notifications-badge">42</span>
@@ -263,7 +263,7 @@ This is a notification dropdown with alerts.
 
 ```html_example
 <div class="dropdown-notifications btn-group">
-  <button data-toggle="dropdown" class="dropdown-toggle btn btn-link" type="button">
+  <button data-toggle="dropdown" class="dropdown-toggle btn-link" type="button">
     <div class="dropdown-notifications-title">
       <img src="/styleguide/notifications.svg" />
       <img src="/styleguide/warning.svg" width="16" height="16" class="dropdown-notifications-alert"/>

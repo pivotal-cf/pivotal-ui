@@ -41,13 +41,13 @@ If `data-placement` is not specified, the tooltip is placed on top by default.
 </p>
 
 <p>
-  <button id="button-with-tooltip-1" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="I should be on the top">
+  <button id="button-with-tooltip-1" class="btn-default" data-toggle="tooltip" data-placement="top" title="I should be on the top">
     Check out this tooltip on the top!
   </button>
 </p>
 
 <p>
-  <button id="button-with-tooltip-2" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="I should be on the bottom">
+  <button id="button-with-tooltip-2" class="btn-default" data-toggle="tooltip" data-placement="bottom" title="I should be on the bottom">
     Check out this tooltip on the bottom!
   </button>
 </p>
@@ -68,7 +68,7 @@ $('#button-with-tooltip-2').tooltip();
 
 ```html_example
 <div id="disabled-button-with-tooltip" class="button-with-tooltip-wrapper" data-toggle="tooltip" data-placement="right" title="This button is totally disabled!">
-  <button type="button" class="btn btn-default" disabled=true>
+  <button type="button" class="btn-default" disabled=true>
     Disabled button
   </button>
 </div>

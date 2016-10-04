@@ -438,71 +438,36 @@ $table-scrollable-body-border:   3px solid $neutral-9;
 // -------------------------
 
 $btn-font-weight:                600 !default;
-$btn-border-width:               0;
+$btn-light: $neutral-11;
+$btn-spacing-base: 10px;
 
-$btn-default-color:              $link-color !default;
-$btn-default-bg:                 $neutral-11 !default;
-$btn-default-border:             $neutral-7 !default; // not currently used, but bootstrap relies on this value
-$btn-default-border-hover:       $neutral-5;
+//default
+$btn-default-color:$dark-5;
+$btn-default-color-hover:$dark-3;
+$btn-default-color-focus:$dark-3;
+//highlight
+$btn-highlight-color:$accent-3;
+$btn-highlight-color-hover:$accent-2;
+$btn-highlight-color-focus:$accent-2;
+//brand
+$btn-brand-color:$brand-6;
+$btn-brand-color-hover:$brand-4;
+$btn-brand-color-focus:$brand-4;
+//success
+$btn-success-color:$success-2;
+$btn-success-color-hover:$success-1;
+$btn-success-color-focus:$success-1;
+//danger
+$btn-danger-color:$error-3;
+$btn-danger-color-hover:$error-2;
+$btn-danger-color-focus:$error-2;
 
-$btn-default-alt-color:          $link-color;
-$btn-default-alt-bg:             $neutral-11;
-$btn-default-alt-border:         $neutral-7;
+$btn-border-width: 2px;
+$btn-border-radius: 2px;
 
-$btn-primary-color:              $accent-3; // not currently used, but bootstrap relies on this value
-$btn-primary-bg:                 white;     // not currently used, but bootstrap relies on this value
-$btn-primary-border:             #49A8D5 !default; // not currently used, but bootstrap relies on this value
-
-$btn-link-color:                 $link-color !default;
-$btn-link-bg:                    transparent !default;
-
-$btn-lowlight-color:             $dark-5;
-$btn-lowlight-bg:                $glow-4;
-
-$btn-highlight-color:             $neutral-11;
-$btn-highlight-color-disabled:    $accent-6;
-$btn-highlight-bg:                $accent-3;
-
-$btn-highlight-alt-color:         $neutral-11;
-$btn-highlight-alt-color-disabled:$brand-11;
-$btn-highlight-alt-bg:            $brand-6;
-
-
-// alternate is only used on login pages
-$btn-alternate-color:            #eee !default;
-$btn-alternate-bg:               $brand-primary !default;
-$btn-alternate-border:           darken($neutral-11, 5%) !default;
-
-$btn-success-color:              transparent !default;
-$btn-success-bg:                 transparent !default;
-$btn-success-bg-hover:           transparent;
-$btn-success-border:             transparent !default;
-
-$btn-warning-color:              transparent !default;
-$btn-warning-bg:                 transparent !default;
-$btn-warning-bg-hover:           transparent;
-$btn-warning-border:             transparent !default;
-
-$btn-danger-color:               $neutral-11;
-$btn-danger-color-disabled:      $error-6;
-$btn-danger-bg:                  $error-4 !default;
-$btn-danger-bg-hover:            $error-5 !default;
-$btn-danger-border:              $brand-danger !default;
-
-$btn-info-color:                 transparent !default;
-$btn-info-bg:                    transparent !default;
-$btn-info-bg-hover:              transparent !default;
-$btn-info-border:                transparent !default;
-
-$btn-disabled-bg:                $neutral-9;
-$btn-disabled-color:             $neutral-5;
-
-$btn-link-disabled-color:        $gray-light !default;
-
-$btn-border-radius-base:         $border-radius-base;
-$btn-border-radius-large:        $border-radius-large;
-$btn-border-radius-small:        $border-radius-small;
-
+$btn-font-size: 15px;
+$btn-lg-font-size: 18px;
+$btn-sm-font-size: 13px;
 
 // Forms
 // -------------------------
@@ -1287,3 +1252,7 @@ $baseGutter:                $grid-gutter-width;
 $bg-color-example-output: $neutral-11;
 $bg-color-inverse-example-output: $navy-1;
 $bg-color-example-code: $neutral-10;
+
+
+// New Button Stuff
+
