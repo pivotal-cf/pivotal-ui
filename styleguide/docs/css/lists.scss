@@ -206,62 +206,6 @@ Use this list when you need simple gray borders between items
 </ul>
 ```
 
-The "event list" from AppsManager can be built with a group list:
-
-```html_example
-<ul class="list-group">
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-exclamation-circle type-error-4 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          app crashed
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 4:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-stop type-neutral-5 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          stopped app
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 3:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-play type-brand-8 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          started app
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 2:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-```
 */
 
 /*doc

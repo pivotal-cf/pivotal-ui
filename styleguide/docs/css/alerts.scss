@@ -60,9 +60,6 @@ Our 4 alert types are:
 ```html_example_table
 <div class="alert alert-success">
   <div class="media mtn">
-    <div class="media-left">
-      <i class="fa alert-icon fa-check-circle"></i>
-    </div>
     <div class="media-body em-high">
       Everything is wonderful.
       <a class="alert-link" href="http://bit.ly/QCMZM5">Be happy.</a>
@@ -72,9 +69,6 @@ Our 4 alert types are:
 
 <div class="alert alert-info">
   <div class="media mtn">
-    <div class="media-left">
-      <i class="fa alert-icon fa-info-circle"></i>
-    </div>
     <div class="media-body em-high">
       Info for you.
       <a class="alert-link" href="http://bit.ly/1DFns8H">Tell me more.</a>
@@ -84,9 +78,6 @@ Our 4 alert types are:
 
 <div class="alert alert-warning">
   <div class="media mtn">
-    <div class="media-left">
-      <i class="fa alert-icon fa-exclamation-triangle"></i>
-    </div>
     <div class="media-body em-high">
       Warning: There is no parking on the dancefloor.
       <a class="alert-link" href="http://bit.ly/1uM05DJ">Be alert.</a>
@@ -96,9 +87,6 @@ Our 4 alert types are:
 
 <div class="alert alert-error">
   <div class="media mtn">
-    <div class="media-left">
-      <i class="fa alert-icon fa-exclamation-triangle"></i>
-    </div>
     <div class="media-body em-high">
       Something has gone horribly awry.
       <a class="alert-link" href="http://bit.ly/1rooFJV">You've made a huge mistake.</a>
@@ -121,7 +109,7 @@ By adding `.alert-dismissable` and a button, you can also make alerts dismissabl
 ```html_example
 <div class="alert alert-success alert-dismissable">
   <button class="close" data-dismiss="alert">
-    <i class="fa fa-times"></i>
+    <img src="/styleguide/close.svg" width="24" height="24"/>
   </button>
   <p class="em-high">Click the 'X' over there------> </p>
 </div>
@@ -137,12 +125,9 @@ other content inside a container on the page (of a width 500px for this example)
   <div class="container pan" style="width:500px">
     <div class="alert alert-info mtn">
       <button class="close" data-dismiss="alert">
-        <i class="fa fa-times"></i>
+        <img src="/styleguide/close.svg" width="24" height="24"/>
       </button>
       <div class="media mtn">
-        <div class="media-left">
-          <i class="fa alert-icon fa-info-circle"></i>
-        </div>
         <div class="media-body em-high">
           3 new files available for Pivotal CF.
           <a class="type-sm alert-link" href="http://bit.ly/1DFns8H">Mark all as viewed.</a>

@@ -71,7 +71,7 @@ parent: code
       <p>Install <code>pui-prismjs</code>. This package provides the code parsing magic.</p>
       <div class="mbl">
         <code class="pam">
-          <i class="fa fa-download" alt="Install Prismjs"></i>
+          <img src="/styleguide/download.svg" width="16" height="16" alt="Install Prismjs"/>
           npm install pui-prismjs --save
         </code>
       </div>
@@ -90,7 +90,7 @@ parent: code
       <p>Install a PrismJs theme. This makes the code look pretty.</p>
       <div class="mbl">
         <code class="pam">
-          <i class="fa fa-download" alt="Install Prismjs"></i>
+          <img src="/styleguide/download.svg" width="16" height="16" alt="Install Prismjs"/>
           npm install prismjs-&lt;theme&gt;-theme --save
         </code>
       </div>
@@ -195,10 +195,9 @@ parent: code
   </p>
 </div>
 
-<label>Alternate CSS <input type='checkbox' name='stylesheet' class='alternate-css'/></label>
-
 ```html_example
 <div class="terminal">
+  <ul class="terminal-dots"><li/><li/><li/></ul>
   <pre><code class="language-ruby">class Foo
   def bar
     puts 'hi'

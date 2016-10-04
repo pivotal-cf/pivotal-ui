@@ -38,6 +38,6 @@ Icons by default will be sized based on the local font size. You can override th
  `src`       | String  | Name of the svg to load
  `style` | Object | React Style Object
 
-For a full list of available icons, go to (placeholder for svg-lib).
+For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
 */

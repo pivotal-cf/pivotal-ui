@@ -56,17 +56,15 @@ Accordion with plus/minus icon:
 <div class="panel" id="accordion-3">
   <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
     <div class="row">
-      <div class="col-md-23">
-        <a aria-label="trigger accordion">
-          <div class="when-collapsed-inline">
-            <i class="fa fa-plus-square collapse-icon"></i>
-          </div>
-          <div class="when-expanded-inline">
-            <i class="fa fa-minus-square collapse-icon"></i>
-          </div>
-        </a>
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
+      <a aria-label="trigger accordion">
+        <div class="when-collapsed-inline">
+          <img src="/styleguide/add_circle.svg" width="16" height="16"/>
+        </div>
+        <div class="when-expanded-inline">
+          <img src="/styleguide/remove_circle.svg" width="16" height="16"/>
+        </div>
+      </a>
+      <span class="h5 mtn collapse-title type-em-1 type-primary-2">My fancy application</span>
     </div>
   </div>
   <div class="panel-collapse collapse" id="myCollapse-3">
@@ -77,32 +75,6 @@ Accordion with plus/minus icon:
 </div>
 ```
 
-Accordion with caret right/down icon:
-
-```html_example
-<div class="panel" id="accordion-4">
-  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-4">
-    <div class="row">
-      <div class="col-md-23">
-        <a aria-label="trigger accordion">
-          <div class="when-collapsed-inline">
-            <i class="fa fa-caret-right collapse-icon"></i>
-          </div>
-          <div class="when-expanded-inline">
-            <i class="fa fa-caret-down collapse-icon"></i>
-          </div>
-        </a>
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
-    </div>
-  </div>
-  <div class="panel-collapse collapse" id="myCollapse-4">
-    <div class="panel-body-accordion bg-neutral-11">
-      This content should hide and show when the trigger is clicked.
-    </div>
-  </div>
-</div>
-```
 */
 
 /*doc
@@ -120,17 +92,7 @@ This adds a divider between the accordion header and accordion body.
 <div class="panel" id="accordion-5">
   <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-5">
     <div class="row">
-      <div class="col-md-23">
-        <a aria-label="trigger accordion">
-          <div class="when-collapsed-inline">
-            <i class="fa fa-caret-right collapse-icon"></i>
-          </div>
-          <div class="when-expanded-inline">
-            <i class="fa fa-caret-down collapse-icon"></i>
-          </div>
-        </a>
-        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
-      </div>
+      <div class="h5 collapse-title type-em-1 type-primary-2">My fancy application</div>
     </div>
   </div>
   <div class="panel-collapse collapse" id="myCollapse-5">
