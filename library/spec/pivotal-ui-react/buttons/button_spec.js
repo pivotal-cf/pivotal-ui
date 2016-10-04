@@ -81,7 +81,7 @@ describe('UIButton', function() {
       beforeEach(function() {
         renderButton({
           className: 'custom-class-1 custom-class-2',
-          kind: 'highlight',
+          kind: 'primary',
           large: true
         });
       });
@@ -91,7 +91,7 @@ describe('UIButton', function() {
       });
 
       it('includes the button classes set by the other options', function() {
-        expect('#root button').toHaveClass(['btn-highlight', 'btn-lg']);
+        expect('#root button').toHaveClass(['btn-primary', 'btn-lg']);
       });
     });
   });
@@ -135,7 +135,7 @@ describe('UIButton', function() {
   [
     {name: 'SuccessButton', btnClass: 'btn-success'},
     {name: 'DangerButton', btnClass: 'btn-danger'},
-    {name: 'HighlightButton', btnClass: 'btn-highlight'},
+    {name: 'PrimaryButton', btnClass: 'btn-primary'},
     {name: 'BrandButton', btnClass: 'btn-brand'},
   ].forEach(function({name, btnClass}) {
     describe(name, function() {

@@ -32,7 +32,7 @@ Every button type has a default style, an alt style (with inverted colors and a 
 Button                                           | Button Alt                                               | Button Flat                                                | Description
 -------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
 <button class="btn-default">Default</button>     |<button class="btn-default-alt">Default Alt</button>      | <button>Default Flat</button>                              | This the default button style.
-<button class="btn-highlight">Highlight</button> |<button class="btn-highlight-alt">Highlight Alt</button>  | <button class="btn-highlight-flat">Highlight Flat</button> | Use this button for primary actions.
+<button class="btn-primary">Primary</button> |<button class="btn-primary-alt">Primary Alt</button>  | <button class="btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
 <button class="btn-danger">Danger</button>       |<button class="btn-danger-alt">Danger Alt</button>        | <button class="btn-danger-flat">Danger Flat</button>       | This button is for delete actions, these actions should also have a confirmation dialog
 <button class="btn-success">Success</button>     |<button class="btn-success-alt">Success Alt</button>      | <button class="btn-success-flat">Success Flat</button>     | Use this button to promote action (e.g. sign up, begin)
 <button class="btn-brand">Brand</button>         |<button class="btn-brand-alt">Brand Alt</button>          | <button class="btn-brand-flat">Brand Flat</button>         | This button is for marketing purposes only
@@ -44,11 +44,11 @@ The most common button examples are below:
 
 <button class="btn-default-alt">Default Alt</button>
 
-<button class="btn-highlight">Highlight</button>
+<button class="btn-primary">Primary</button>
 
-<button class="btn-highlight-alt">Highlight Alt</button>
+<button class="btn-primary-alt">Primary Alt</button>
 
-<button class="btn-highlight-flat">Highlight Flat</button>
+<button class="btn-primary-flat">Primary Flat</button>
 
 <button class="btn-danger">Danger</button>
 ```
@@ -77,7 +77,7 @@ If given the disabled class, a button will be functionally disabled, and will al
 
 <button class="disabled">Flat Disabled</button>
 
-<button class="btn-highlight disabled">Highlight Disabled</button>
+<button class="btn-primary disabled">Primary Disabled</button>
 
 ```
 

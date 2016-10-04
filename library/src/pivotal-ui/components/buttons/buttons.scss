@@ -284,52 +284,52 @@ input[type="button"].btn-default-alt-wh {
   }
 }
 
-//Highlight Button
+//Primary Button
 //---------------------------------------
-button.btn-highlight,
-.button.btn-highlight,
-input[type="submit"].btn-highlight,
-input[type="reset"].btn-highlight,
-input[type="button"].btn-highlight {
-  background-color: $btn-highlight-color;
+button.btn-primary,
+.button.btn-primary,
+input[type="submit"].btn-primary,
+input[type="reset"].btn-primary,
+input[type="button"].btn-primary {
+  background-color: $btn-primary-color;
   color: $btn-light;
-  border-color: $btn-highlight-color;
+  border-color: $btn-primary-color;
   .svgicon {
     fill: $btn-light;
   }
 }
 
-.button.btn-highlight:focus,
-button.btn-highlight:focus,
-input[type="submit"].btn-highlight:focus,
-input[type="reset"].btn-highlight:focus,
-input[type="button"].btn-highlight:focus {
-  background-color: $btn-highlight-color-focus;
-  border-color: $btn-highlight-color-focus;
+.button.btn-primary:focus,
+button.btn-primary:focus,
+input[type="submit"].btn-primary:focus,
+input[type="reset"].btn-primary:focus,
+input[type="button"].btn-primary:focus {
+  background-color: $btn-primary-color-focus;
+  border-color: $btn-primary-color-focus;
   outline: none;
 }
 
-.button.btn-highlight:hover,
-.button.btn-highlight:focus:hover,
-button.btn-highlight:hover,
-button.btn-highlight:focus:hover,
-input[type="submit"].btn-highlight:hover,
-input[type="submit"].btn-highlight:focus:hover,
-input[type="reset"].btn-highlight:hover,
-input[type="reset"].btn-highlight:focus:hover,
-input[type="button"].btn-highlight:hover,
-input[type="button"].btn-highlight:focus:hover {
-  background-color: $btn-highlight-color-hover;
-  border-color: $btn-highlight-color-hover;
+.button.btn-primary:hover,
+.button.btn-primary:focus:hover,
+button.btn-primary:hover,
+button.btn-primary:focus:hover,
+input[type="submit"].btn-primary:hover,
+input[type="submit"].btn-primary:focus:hover,
+input[type="reset"].btn-primary:hover,
+input[type="reset"].btn-primary:focus:hover,
+input[type="button"].btn-primary:hover,
+input[type="button"].btn-primary:focus:hover {
+  background-color: $btn-primary-color-hover;
+  border-color: $btn-primary-color-hover;
   outline: none;
 }
 
 //Spinner
-button.btn-highlight,
-.button.btn-highlight,
-input[type="submit"].btn-highlight,
-input[type="reset"].btn-highlight,
-input[type="button"].btn-highlight {
+button.btn-primary,
+.button.btn-primary,
+input[type="submit"].btn-primary,
+input[type="reset"].btn-primary,
+input[type="button"].btn-primary {
   .spinner,
   .spinner-md,
   .spinner-sm {
@@ -342,85 +342,85 @@ input[type="button"].btn-highlight {
   }
 }
 
-//Flat Highlight
-.btn-highlight-flat {
-  color: $btn-highlight-color;
+//Flat Primary
+.btn-primary-flat {
+  color: $btn-primary-color;
   .svgicon {
-    fill: $btn-highlight-color;
+    fill: $btn-primary-color;
   }
   &:hover,
   &:focus,
   &:hover:focus {
-    color: $btn-highlight-color-focus;
+    color: $btn-primary-color-focus;
     outline: none;
     .svgicon {
-      fill: $btn-highlight-color-focus;
+      fill: $btn-primary-color-focus;
     }
   }
 }
 
-//Highlight Alt Button
+//Primary Alt Button
 //---------------------------------------
-button.btn-highlight-alt,
-.button.btn-highlight-alt,
-input[type="submit"].btn-highlight-alt,
-input[type="reset"].btn-highlight-alt,
-input[type="button"].btn-highlight-alt {
+button.btn-primary-alt,
+.button.btn-primary-alt,
+input[type="submit"].btn-primary-alt,
+input[type="reset"].btn-primary-alt,
+input[type="button"].btn-primary-alt {
   background-color: transparent;
-  color: $btn-highlight-color;
-  border-color: $btn-highlight-color;
+  color: $btn-primary-color;
+  border-color: $btn-primary-color;
   .svgicon {
-    fill: $btn-highlight-color;
+    fill: $btn-primary-color;
   }
 }
 
-.button.btn-highlight-alt:focus,
-button.btn-highlight-alt:focus,
-input[type="submit"].btn-highlight-alt:focus,
-input[type="reset"].btn-highlight-alt:focus,
-input[type="button"].btn-highlight-alt:focus {
+.button.btn-primary-alt:focus,
+button.btn-primary-alt:focus,
+input[type="submit"].btn-primary-alt:focus,
+input[type="reset"].btn-primary-alt:focus,
+input[type="button"].btn-primary-alt:focus {
   background-color: transparent;
-  color: $btn-highlight-color-focus;
-  border-color: $btn-highlight-color-focus;
+  color: $btn-primary-color-focus;
+  border-color: $btn-primary-color-focus;
   outline: none;
   .svgicon {
-    fill: $btn-highlight-color-focus;
+    fill: $btn-primary-color-focus;
   }
 }
 
-.button.btn-highlight-alt:hover,
-.button.btn-highlight-alt:focus:hover,
-button.btn-highlight-alt:hover,
-button.btn-highlight-alt:focus:hover,
-input[type="submit"].btn-highlight-alt:hover,
-input[type="submit"].btn-highlight-alt:focus:hover,
-input[type="reset"].btn-highlight-alt:hover,
-input[type="reset"].btn-highlight-alt:focus:hover,
-input[type="button"].btn-highlight-alt:hover,
-input[type="button"].btn-highlight-alt:focus:hover {
+.button.btn-primary-alt:hover,
+.button.btn-primary-alt:focus:hover,
+button.btn-primary-alt:hover,
+button.btn-primary-alt:focus:hover,
+input[type="submit"].btn-primary-alt:hover,
+input[type="submit"].btn-primary-alt:focus:hover,
+input[type="reset"].btn-primary-alt:hover,
+input[type="reset"].btn-primary-alt:focus:hover,
+input[type="button"].btn-primary-alt:hover,
+input[type="button"].btn-primary-alt:focus:hover {
   background-color: transparent;
-  color: $btn-highlight-color-hover;
-  border-color: $btn-highlight-color-hover;
+  color: $btn-primary-color-hover;
+  border-color: $btn-primary-color-hover;
   outline: none;
   .svgicon {
-    fill: $btn-highlight-color-hover;
+    fill: $btn-primary-color-hover;
   }
 }
 
 //Spinner
-button.btn-highlight-alt,
-.button.btn-highlight-alt,
-input[type="submit"].btn-highlight-alt,
-input[type="reset"].btn-highlight-alt,
-input[type="button"].btn-highlight-alt {
+button.btn-primary-alt,
+.button.btn-primary-alt,
+input[type="submit"].btn-primary-alt,
+input[type="reset"].btn-primary-alt,
+input[type="button"].btn-primary-alt {
   .spinner,
   .spinner-md,
   .spinner-sm {
     .ring {
-      stroke: $btn-highlight-color;
+      stroke: $btn-primary-color;
     }
     .path {
-      stroke: $btn-highlight-color;
+      stroke: $btn-primary-color;
     }
   }
 }

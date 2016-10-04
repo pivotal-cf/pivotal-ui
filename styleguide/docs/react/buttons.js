@@ -16,7 +16,7 @@ Require the subcomponents:
 
 ```
 var DefaultButton = require('pui-react-buttons').DefaultButton;
-var HighlightButton = require('pui-react-buttons').HighlightButton;
+var PrimaryButton = require('pui-react-buttons').PrimaryButton;
 var DangerButton = require('pui-react-buttons').DangerButton;
 var SuccessButton = require('pui-react-buttons').SuccessButton;
 var BrandButton = require('pui-react-buttons').Brand;
@@ -37,16 +37,16 @@ Buttons use the button tag by default. If you'd like a link rather than a button
 
 ## Styles
 
-There are 4 main button color schemes: Default, Highlight, Danger, and Success. There is also Brand, but this should only be used for marketing.
+There are 4 main button color schemes: Default, Primary, Danger, and Success. There is also Brand, but this should only be used for marketing.
 
 ```react_example_table
 <DefaultButton>
   Default
 </DefaultButton>
 
-<HighlightButton>
-  Highlight
-</HighlightButton>
+<PrimaryButton>
+  Primary
+</PrimaryButton>
 
 <DangerButton>
   Danger
@@ -74,9 +74,9 @@ To use the alt style, set the `alt` prop, to use the flat style, use the `flat` 
   Flat
 </DefaultButton>
 
-<HighlightButton alt>
-  Highlight Alt
-</HighlightButton>
+<PrimaryButton alt>
+  Primary Alt
+</PrimaryButton>
 
 <SuccessButton flat>
   Success Flat
@@ -89,13 +89,13 @@ To use the alt style, set the `alt` prop, to use the flat style, use the `flat` 
 To make a button large, set the `large` property to true, to make it small, set `small` to true.
 
 ```react_example_table
-<HighlightButton large>
+<PrimaryButton large>
   Big Button
-</HighlightButton>
+</PrimaryButton>
 
-<HighlightButton small>
+<PrimaryButton small>
   Small Button
-</HighlightButton>
+</PrimaryButton>
 ```
 
 */

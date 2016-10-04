@@ -10,7 +10,7 @@ class UIButton extends React.Component{
     kind: React.PropTypes.oneOf([
       'default',
       'danger',
-      'highlight',
+      'primary',
       'success',
       'brand'
     ]),
@@ -68,7 +68,7 @@ module.exports = {
 
   DangerButton: defButton({kind: 'danger'}),
 
-  HighlightButton: defButton({kind: 'highlight'}),
+  PrimaryButton: defButton({kind: 'primary'}),
 
   SuccessButton: defButton({kind: 'success'}),
 
