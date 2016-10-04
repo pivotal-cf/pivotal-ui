@@ -354,24 +354,6 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 
 /*doc
 ---
-title: Search Inputs
-name: 04_form_search_input
-parent: form_inputs
----
-
-Use this input when creating a search component.
-
-```html_example
-<label for="searchInput">Search</label>
-<div class="form-group form-group-search">
-  <input class="form-control" id="searchInput" placeholder="This is a searchbox">
-  <i class='search-icon'></i>
-</div>
-```
-*/
-
-/*doc
----
 title: Read-Only Inputs
 name: 05_form_inputs_read_only
 parent: form_inputs
@@ -625,26 +607,6 @@ Error messages should use the classes `.help-block.has-error`.
         Error help text
       </span>
     </div>
-  </div>
-</form>
-```
-
-If you're doing client-side validation and want to show successful validation of a field,
-add `.has-success` to the field's form group.
-
-<div class="alert alert-info mbxl">
-  <p class="em-high">
-    The <code>.has-success</code> class can only be used on inputs that have a text-box.
-  </p>
-</div>
-
-```html_example_table
-<form class="styleguide-form" role="form">
-  <div class="form-group has-success">
-    <label class="control-label" for="inputSuccess">
-      Input with success
-    </label>
-    <input id="inputSuccess" class="form-control" type="text">
   </div>
 </form>
 ```

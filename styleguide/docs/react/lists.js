@@ -37,32 +37,6 @@ var ListItem = require('pui-react-lists').ListItem;
 */
 
 /*doc
----
-title: Checked
-name: 03_list_checked_react
-parent: list_react
----
-
-Require the subcomponents:
-
-```
-var UnorderedList = require('pui-react-lists').UnorderedList;
-var ListItem = require('pui-react-lists').ListItem;
-```
-
-```react_example
-<UnorderedList checked>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem>Item 3</ListItem>
-</UnorderedList>
-```
-
-*/
-
-
-
-/*doc
  ---
  title: Group
  name: 06_list_group_react

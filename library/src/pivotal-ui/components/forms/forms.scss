@@ -124,20 +124,21 @@ This is a fancy number input!
   }
 }
 
-.form-group-search {
-  .input-wrapper {
-    position: relative;
-  }
+.form-group .input-wrapper {
+  position: relative;
+  display: inline-block;
+}
 
-  .search-icon {
+.form-group-search {
+  .svgicon.search {
     position: absolute;
-    left: 12px;
+    left: 8px;
     top: 50%;
     transform: translate(0, -50%);
-    content: '';
-    background-image: url('images/search.svg');
-    height: 16px;
-    width: 16px;
+    height: $input-icon-size;
+    width: $input-icon-size;
+    font-size: $input-icon-size;
+    fill: $neutral-3;
   }
 
   input {
@@ -240,15 +241,16 @@ input[type="radio"] {
 
 .has-success {
   position: relative;
-  &:after {
-    content: "";
-    background-image: url("images/check.svg");
-    display: block;
+  .svgicon.success {
     position: absolute;
-    bottom: 15px;
-    right: 12px;
-    height: 16px;
-    width: 16px;
+    right: 8px;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: $input-icon-size;
+    width: $input-icon-size;
+    font-size: $input-icon-size;
+    stroke: $success-1;
+    fill: $success-1;
   }
 
   .form-control {

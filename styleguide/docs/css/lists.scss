@@ -319,31 +319,6 @@ Use this list when you need to show the steps in a flow.
 
 /*doc
 ---
-title: Checked
-name: list_checked
-parent: list
----
-
-Replaces the default bullet image with the font awesome checkmark.
-
-```html_example
-<ul class="list-checked">
-  <li>
-    feep
-  </li>
-  <li>
-    fop
-  </li>
-  <li>
-    meep
-  </li>
-</ul>
-```
-
-*/
-
-/*doc
----
 title: Cards
 name: list_cards
 parent: list
