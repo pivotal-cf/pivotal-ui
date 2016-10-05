@@ -1,49 +1,13 @@
 require('../spec_helper');
-import {Dropdown, DropdownItem} from '../../../src/pivotal-ui-react/dropdowns/dropdowns';
 
 describe('Dropdowns', () => {
-  function dropdownTestFor(dropdownComponentName, dropdownClassName) {
-    describe(dropdownComponentName, () => {
-      beforeEach(() => {
-        var DropdownClass = require('../../../src/pivotal-ui-react/dropdowns/dropdowns')[dropdownComponentName];
-        ReactDOM.render(
-          <DropdownClass title="Dropping" buttonClassName="test-btn-class">
-            <DropdownItem href="test">Item #1</DropdownItem>
-          </DropdownClass>
-          , root);
-      });
-
-      afterEach(() => {
-        ReactDOM.unmountComponentAtNode(root);
-      });
-
-      it('creates a dropdown', () => {
-        expect('button.dropdown-toggle').toContainText('Dropping');
-      });
-
-      it('set the button type', () => {
-        expect('button.dropdown-toggle').toHaveAttr('type', 'button');
-      });
-
-      it('adds the appropriate button classes (merging in buttonClassName) to the dropdown toggle', () => {
-        expect('button.dropdown-toggle').toHaveClass(dropdownClassName);
-        expect('button.dropdown-toggle').not.toHaveClass('btn-default');
-        expect('.dropdown-toggle').toHaveClass('test-btn-class');
-      });
-
-      it('hides when a menu item is selected', () => {
-        $('.dropdown-toggle').simulate('click');
-        expect('.open .dropdown-menu').toExist();
-        $('li:contains(Item #1)').simulate('click');
-        expect('.open .dropdown-menu').not.toExist();
-      });
-    });
-  }
-
   describe('Dropdown', () => {
-    let subject;
+    let subject, Dropdown, DropdownItem;
 
     beforeEach(() => {
+      Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').Dropdown;
+      DropdownItem = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').DropdownItem;
+
       const props = {
         className: 'test-class',
         id: 'test-id',
@@ -67,16 +31,17 @@ describe('Dropdowns', () => {
     });
 
     it('passes through style to the button', () => {
-      expect('.dropdown-toggle').toHaveCss({opacity: '0.5'});
+      expect('.dropdown').toHaveCss({opacity: '0.5'});
     });
 
     it('passes through id to the button', () => {
-      expect('.dropdown-toggle#test-id').toExist();
+      expect('.dropdown#test-id').toExist();
     });
 
-    it('creates a dropdown-toggle', () => {
+    it('creates a dropdown-toggle with a caret', () => {
       expect('.dropdown-toggle').toContainText('Dropping');
       expect('.dropdown-toggle').toHaveClass('test-btn-class');
+      expect('.dropdown-toggle .icon-chevron_down').toExist();
     });
 
     describe('when onClick is provided', () => {
@@ -104,6 +69,16 @@ describe('Dropdowns', () => {
         expect('.open .dropdown-menu').not.toExist();
         $('.dropdown-toggle').simulate('click');
         expect('.open .dropdown-menu').toExist();
+      });
+
+      describe('when the menuCaret is in the props', () => {
+        beforeEach(() => {
+          subject::setProps({menuCaret: true});
+        });
+
+        it('renders the caret in the menu', () => {
+          expect('.dropdown-menu').toHaveClass('dropdown-menu-caret');
+        });
       });
 
       describe('hiding children', () => {
@@ -257,17 +232,35 @@ describe('Dropdowns', () => {
         });
       });
     });
+
+    describe('when flat is set in the props', () => {
+      beforeEach(() => {
+        subject::setProps({flat: true});
+      });
+
+      it('renders the link styled dropdown', () => {
+        expect('.dropdown').toHaveClass('dropdown-flat');
+      })
+    });
+
+    describe('when dropCaret is false', () => {
+      beforeEach(() => {
+        subject::setProps({dropCaret: false});
+      });
+
+      it('does not render the drop caret', () => {
+        expect('.dropdown-toggle .icon-chevron_down').not.toExist();
+      });
+    });
+
+    describe('when link prop is true', () => {
+      beforeEach(() => {
+        subject::setProps({link: true});
+      });
+
+      it('adds the dropdown-link class to make everything link colors', () => {
+        expect('.dropdown').toHaveClass('dropdown-link');
+      });
+    })
   });
-
-  dropdownTestFor('LinkDropdown', 'btn-link');
-
-  dropdownTestFor('DefaultAltDropdown', 'btn-default-alt');
-
-  dropdownTestFor('LowlightDropdown', 'btn-lowlight');
-
-  dropdownTestFor('DangerDropdown', 'btn-danger');
-
-  dropdownTestFor('HighlightDropdown', 'btn-highlight');
-
-  dropdownTestFor('HighlightAltDropdown', 'btn-highlight-alt');
 });

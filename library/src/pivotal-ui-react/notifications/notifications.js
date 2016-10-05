@@ -1,7 +1,7 @@
 var React = require('react');
 var types = React.PropTypes;
 var {Icon} = require('pui-react-iconography');
-var {LinkDropdown, DropdownItem} = require('pui-react-dropdowns');
+var {Dropdown, DropdownItem} = require('pui-react-dropdowns');
 var classnames = require('classnames');
 var {mergeProps} = require('pui-react-helpers');
 
@@ -31,7 +31,7 @@ class Notifications extends React.Component {
         </div>
       </li>
     );
-    return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
+    return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 
@@ -59,7 +59,7 @@ class AlertNotifications extends React.Component {
       </li>
     );
     var props = mergeProps(others, {className: 'dropdown-notifications'});
-    return <LinkDropdown title={dropdownTitle} {...props}>{children}</LinkDropdown>;
+    return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 

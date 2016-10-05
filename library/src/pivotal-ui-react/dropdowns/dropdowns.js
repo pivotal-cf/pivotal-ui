@@ -4,12 +4,14 @@ import classnames from 'classnames';
 import mixin from 'pui-react-mixins';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 
+const {Icon} = require('pui-react-iconography');
 require('pui-css-dropdowns');
 
 const types = React.PropTypes;
 
-const DEFAULT_KIND = 'btn-default';
-const DEFAULT_TOGGLE = <span className="caret"/>;
+function defaultToggleNode(dropCaret) {
+  if (dropCaret) return <Icon src="chevron_down"/>;
+}
 
 class Dropdown extends mixin(React.Component).with(Scrim) {
   constructor(props, context) {
@@ -24,8 +26,12 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     buttonClassName: types.string,
     closeOnMenuClick: types.bool,
     disableScrim: types.bool,
+    dropCaret: types.bool,
+    flat: types.bool,
+    link: types.bool,
     pullRight: types.bool,
     split: types.bool,
+    menuCaret: types.bool,
     title: types.node,
     toggle: types.node,
     onClick: types.func
@@ -33,7 +39,8 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
 
   static defaultProps = {
     closeOnMenuClick: true,
-    disableScrim: false
+    disableScrim: false,
+    dropCaret: true
   };
 
   click = (event) => {
@@ -51,74 +58,40 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   };
 
   render() {
-    const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, kind, pullRight, onClick, split, title, toggle, ...props} = this.props;
+    const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret, flat, link, pullRight, onClick, split, title, toggle, menuCaret, ...props} = this.props;
     const {isOpen} = this.state;
 
-    let buttonKind, dropdownLabel, dropdownToggle, toggleNode;
+    let dropdownLabel, dropdownToggle, toggleNode;
 
-    buttonKind = kind ? `btn-${kind}` : DEFAULT_KIND;
-    toggleNode = toggle ? toggle : DEFAULT_TOGGLE;
+    toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
 
-    const buttonStyleClasses = classnames('btn', buttonKind, buttonClassName);
+    const buttonStyleClasses = classnames('btn-default', buttonClassName);
     dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
     dropdownToggle = (
-      <button type="button" {...props} onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+      <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
         {!split ? title : null}
         {toggleNode}
       </button>
     );
 
-    const dropdownClasses = classnames('dropdown', 'btn-group', {open: isOpen}, {split: split}, className);
-    const dropdownMenuClasses = classnames('dropdown-menu', {'dropdown-border': border}, {'dropdown-menu-right': pullRight});
+    const dropdownClasses = classnames('dropdown', {
+      'dropdown-flat': flat, open: isOpen, split, 'dropdown-link': link
+    }, className);
+    const dropdownMenuClasses = classnames('dropdown-menu',
+      {
+        'dropdown-border': border,
+        'dropdown-menu-right': pullRight,
+        'dropdown-menu-float': split || flat || menuCaret,
+        'dropdown-menu-caret': menuCaret
+      }
+    );
     return (
-      <div className={dropdownClasses}>
-        {dropdownLabel}
-        {dropdownToggle}
-        <ul className={dropdownMenuClasses} onClick={this.menuClick}>{children}</ul>
+      <div className={dropdownClasses} {...props}>
+          {dropdownLabel}
+          {dropdownToggle}
+        <div className={dropdownMenuClasses}><ul onClick={this.menuClick}>{children}</ul></div>
       </div>
     );
-  };
-}
-
-class LinkDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'link'
-  };
-}
-
-class DefaultAltDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'default-alt'
-  };
-}
-
-class LowlightDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'lowlight'
-  };
-}
-
-class DangerDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'danger'
-  };
-}
-
-class HighlightDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'highlight'
-  };
-}
-
-class HighlightAltDropdown extends Dropdown {
-  static defaultProps = {
-    ...Dropdown.defaultProps,
-    kind: 'highlight-alt'
   };
 }
 
@@ -173,11 +146,5 @@ class DropdownItem extends React.Component {
 
 module.exports = {
   Dropdown,
-  DropdownItem,
-  LinkDropdown,
-  DefaultAltDropdown,
-  HighlightAltDropdown,
-  HighlightDropdown,
-  DangerDropdown,
-  LowlightDropdown
+  DropdownItem
 };
