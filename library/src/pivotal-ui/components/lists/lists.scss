@@ -213,23 +213,6 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-
-.list-checked {
-  list-style: none;
-  padding-left: 20px;
-
-  > li:before {
-    content: '';
-    background-image: url('images/check.svg');
-    float: left;
-    height: 16px;
-    width: 16px;
-    margin: 3px 5px 0 -15px;
-  }
-}
-
-
-
 @include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
 
 

@@ -53,14 +53,6 @@ describe('lists', function() {
     itRenders(OrderedList, '#root ol');
   });
 
-  describe('Checked List', function(){
-    itRenders(UnorderedList, '#root ul', {'checked': true});
-
-    it('adds list-checked class', function() {
-      expect('#root ul').toHaveClass('list-checked');
-    });
-  });
-
   describe('Unstyled List', function(){
     itRenders(UnorderedList, '#root ul', {'unstyled': true});
 

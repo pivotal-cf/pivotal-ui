@@ -14,13 +14,12 @@ function defList(tagName, spacingType, classNames, childClassNames) {
     static propTypes = {
       spacing: types.oneOf(['n', 's', 'm', 'l', 'xl']),
       className: types.string,
-      checked: types.bool,
       unstyled: types.bool,
       divider: types.bool
     };
 
     render() {
-      var {className, spacing, children, checked, unstyled, divider, ...others} = this.props;
+      var {className, spacing, children, unstyled, divider, ...others} = this.props;
       var classes = classnames(classNames(this.props), className, spacing && `${spacingType}${spacing}`);
       if (childClassNames) {
         children = React.Children.map(children, child => React.cloneElement(child, {className: childClassNames}));
@@ -36,10 +35,9 @@ function defList(tagName, spacingType, classNames, childClassNames) {
 
 var UnorderedList = defList(
   'ul', 'lv',
-  ({unstyled, checked}) => classnames({
-    'list-unordered': !unstyled && !checked,
+  ({unstyled}) => classnames({
+    'list-unordered': !unstyled,
     'list-unstyled': unstyled,
-    'list-checked': checked
   })
 );
 
