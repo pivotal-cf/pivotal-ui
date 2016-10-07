@@ -56,9 +56,9 @@ class Alert extends React.Component{
     }
     return (
       <div {...props}>
-        {dismissable && <button type="button" className="close" aria-hidden={true} onClick={this.handleAlertDismiss}><span>&times;</span></button>}
         {children}
         {dismissable && <button type="button" className="close sr-only">{closeLabel}</button>}
+        {dismissable && <button type="button" className="close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon src="close"/></button>}
       </div>
     );
 
