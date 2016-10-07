@@ -278,6 +278,7 @@ This section contains different list behaviors. See [lists][list] to see differe
   border-radius: 0;
   border-top: 1px solid $list-group-border;
   box-shadow: 0px -1px $shadow-4;
+  justify-content: center;
 
   &:hover {
     background-color: darken($neutral-10, 20%);
