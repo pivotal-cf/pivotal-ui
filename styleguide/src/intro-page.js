@@ -1,6 +1,6 @@
 const React = global.React || require('react');
 const BasePane = global.BasePane || require('pui-react-panes').BasePane;
-const Button = global.DefaultButton || require('pui-react-buttons').DefaultButton;
+const Button = global.PrimaryButton || require('pui-react-buttons').PrimaryButton;
 const TileLayout = global.TileLayout || require('pui-react-tile-layout');
 const TileLayoutItem = global.TileLayoutItem || require('pui-react-tile-layout');
 
