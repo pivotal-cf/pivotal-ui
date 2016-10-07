@@ -15,8 +15,6 @@
     color: $gray-3;
     font-weight: normal;
 
-    height: 40px;
-
     padding-left: $whitespace-l;
     padding-right: $whitespace-l;
 
@@ -193,6 +191,7 @@ $dropdown-caret-horizontal-padding: 16px;
 
   .dropdown-toggle {
     background-color: transparent;
+    text-transform: uppercase;
   }
 
   &.split {
@@ -201,6 +200,7 @@ $dropdown-caret-horizontal-padding: 16px;
       display: flex;
       padding-left: $whitespace-l;
       padding-right: 0;
+      text-transform: uppercase;
       flex: 1;
       align-items: center;
     }
