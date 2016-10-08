@@ -139,6 +139,13 @@
       transition: background-color 300ms ease-out;
     }
   }
+
+  .icon-arrow_drop_up, .icon-arrow_drop_down {
+    width: 1.5em;
+    height: 1.5em;
+    position: relative;
+    top: 3px;
+  }
 }
 
 .editing {
