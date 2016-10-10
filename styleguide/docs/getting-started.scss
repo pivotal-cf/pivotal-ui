@@ -41,11 +41,10 @@ Using the React components is the recommended approach over CSS/HTML because:
 - It's the future.
 
 **However, you'll need to know a few more technologies. Not enough to write a PHD thesis, but mostly in case things go wrong.
-If you don't know what React, Bootstrap, babel or a transpiler is, follow the links below and then return**
+If you don't know what React, Babel or a transpiler is, follow the links below and then return**
 
 - [React Overview](http://facebook.github.io/react/)
-- [Bootstrap Overview](http://getbootstrap.com/)
-- [Overall workflow](http://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/)
+- [Babel](https://babeljs.io/)
 
 Ready? We're assuming that you have the following setup on your project:
 
@@ -87,46 +86,18 @@ Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on
 1. Create a package.json file that will include the PUI modules you'll be using
     `npm init`
 
-1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
-   This tool looks at your PUI modules and compiles the CSS required by these packages.(those added with --save, **NOT**
-   --save-dev),
-
-    ```
-npm install -g dr-frankenstyle
-    ```
+1. Install [PUI React Tools](http://github.com/pivotal-cf/pui-react-tools).
+   This set of tools includes an asset pipeline for including css and svg assets in your JavaScript.
+   Usage is somewhat complicated, [React Starter](http://github.com/pivotal-cf/react-starter) is a sample project with everything set up.
 
 1. Install a PUI module for the components you need. No need to install
-   additional CSS packages. Our React packages tell Dr. Frankenstyle what
-   CSS is needed for each component.
+   additional CSS packages for React components.
 
     For example, to create a button:
 
     ```
 npm install --save pui-react-buttons
     ```
-
-1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project).
-
-    Writes the compiled css to <path-to-your-asset-build-folder>/components.css
-
-    `dr-frankenstyle <path-to-your-asset-build-folder>`
-
-1. Add the compiled css to your html template
-
-     ```html
-   <!doctype html>
-   <html>
-     <head>
-       <title>...</title>
-       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
-
-     </head>
-     <body>
-       <!-- ... -->
-       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
-     </body>
-   </html>
-     ```
 
 1. Write some React!
 
@@ -173,16 +144,22 @@ npm install --save pui-react-buttons
      <!-- ... -->
     ```
 
+1. Require any css-only components in your javascript
 
-1. Every time you install a new PUI React module, you will need to rerun
-   Dr. Frankenstyle to update your compiled CSS.
+```
+require('pui-css-alignment');
+require('pui-css-whitespace');
+```
 
-    ```
-npm install --save pui-react-alerts
-dr-frankenstyle <path-to-your-asset-build-folder>
-    ```
+These will be included in the built css artifact, in addition to any css internally required by your PUI React Components.
 
-    See the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle) for more information
+
+1. Use the asset pipeline from pui-react-tools.
+
+In development mode, this will inject PUI css directly into your page.
+In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
+If you are using react-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
+
 
 */
 
@@ -285,7 +262,7 @@ dr-frankenstyle <path-to-your-asset-build-folder>
 
 /*doc
 ---
-title: Customizing your PUI build
+title: Customizing your PUI build (without React)
 name: 04_customize
 parent: getting-started
 ---
@@ -327,45 +304,10 @@ app that only has typography and buttons.
 
 */
 
-/*doc
----
-title: Using the Pivotal UI Monolith (legacy)
-name: 05_monolith
-parent: getting-started
----
-
-If you really don't want to use NPM, you can use our compiled PUI monolith.
-Be warned, you will have to manage updates and dependencies yourself.
-
-1. [Download the latest release](https://github.com/pivotal-cf/pivotal-ui/releases).
-1. Unzip the release archive and move the resulting directory into your project.
-1. Link to the css file in your html template to include the styles.
-1. Add a script tag to your html template to use the javascript.
-1. Use the css classes (reference the [styleguide](https://github.com/pivotal-cf/pivotal-ui#styleguide) for examples and usage)
-
-```html
-<html>
-  <head>
-    <title>...</title>
-    <link rel="stylesheet" href="/path/to/release/pivotal-ui.css">
-    <script src="/path/to/release/pivotal-ui.js"></script>
-  </head>
-  <body>
-    <p class='type-brand-1'>Hello, world!</p>
-  </body>
-</html>
-```
-
-You'll need to maintain the structure in the release directory to have fonts
-and assets work properly. **Do not modify the release files directly**. If you
-need a component and you cannot find it in the styleguide, write your own
-styles and javascript separately. Doing so will make it easier to update to
-newer versions.
-*/
 
 /*
 ---
-title: Including SCSS variables and mixins (optional, beta)
+title: Including SCSS variables and mixins (optional)
 name: 06_variables-and-mixins
 parent: getting-started
 ---
