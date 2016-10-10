@@ -7,10 +7,15 @@ categories:
  - react_all
 ---
 
+***This component is limited to projects that use Webpack.***
+***It requires the webpack loaders babel-loader and svg-react-loader.***
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-iconography --save
+
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
 </code>
 
 Require the subcomponent:

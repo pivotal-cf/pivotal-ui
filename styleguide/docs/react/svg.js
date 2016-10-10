@@ -53,4 +53,7 @@ class MySvg extends PuiSvg {
 
 The path is relative to the file where you subclass the Svg component.
 
+Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
+For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+
  */
