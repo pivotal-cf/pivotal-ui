@@ -58,6 +58,7 @@ parent: code
 ---
 
 <div class="alert alert-info mbxl">
+<div>
   <h5 class="em-high mtn">
     Special installation instructions
   </h5>
@@ -101,6 +102,7 @@ parent: code
       </ul>
     </li>
   </ol>
+</div>
 </div>
 
 In order to show syntax-highlighted code, you will need to apply a language specific class to the code tag. For example, `.language-ruby`.
@@ -186,6 +188,7 @@ parent: code
 ---
 
 <div class="alert alert-info mbxl">
+<div>
   <h5 class="em-high mtn">
     Special installation instructions
   </h5>
@@ -193,6 +196,7 @@ parent: code
     You will need to follow the PrismJS installation instructions in
     the <a href="#code_styled">styled code</a> section.
   </p>
+</div>
 </div>
 
 ```html_example

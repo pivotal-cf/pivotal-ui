@@ -26,12 +26,14 @@ is a little more complicated, we would recommend using headings coupled with the
 
 ```html_example
 <div class="alert alert-info">
-  <h5 class="em-high mtn">You should know...</h5>
-  <p>There are some things you should note. Just in case you didn't figure it out already.</p>
-  <ul>
-    <li>thing 1</li>
-    <li>thing 2</li>
-  </ul>
+  <div>
+    <h5 class="em-high mtn">You should know...</h5>
+    <p>There are some things you should note. Just in case you didn't figure it out already.</p>
+    <ul>
+      <li>thing 1</li>
+      <li>thing 2</li>
+    </ul>
+  </div>
 </div>
 ```
 
@@ -39,11 +41,13 @@ If you want to include a link in your alert, use the class `alert-link`.
 
 ```html_example
 <div class="alert alert-warning">
-  <h5 class="em-high mtn">Important Link</h5>
-  <p>
-    It is very important that you
-    <a class="alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
-  </p>
+  <div>
+    <h5 class="em-high mtn">Important Link</h5>
+    <p>
+      It is very important that you
+      <a class="alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
+    </p>
+  </div>
 </div>
 ```
 */
@@ -108,35 +112,13 @@ By adding `.alert-dismissable` and a button, you can also make alerts dismissabl
 
 ```html_example
 <div class="alert alert-success alert-dismissable">
+  <p class="em-high">Click the 'X' over there------> </p>
   <button class="close" data-dismiss="alert">
     <img src="/styleguide/close.svg" width="24" height="24"/>
   </button>
-  <p class="em-high">Click the 'X' over there------> </p>
 </div>
 
 ```
 
-If a full-width dismissable alert is desired, but the content needs to be aligned with
-other content inside a container on the page (of a width 500px for this example), you might consider doing the following:
-
-```html_example
-
-<div class="pane bg-accent-6">
-  <div class="container pan" style="width:500px">
-    <div class="alert alert-info mtn">
-      <button class="close" data-dismiss="alert">
-        <img src="/styleguide/close.svg" width="24" height="24"/>
-      </button>
-      <div class="media mtn">
-        <div class="media-body em-high">
-          3 new files available for Pivotal CF.
-          <a class="type-sm alert-link" href="http://bit.ly/1DFns8H">Mark all as viewed.</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-```
 
 */

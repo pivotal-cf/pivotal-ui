@@ -77,6 +77,11 @@ If you would like to use an icon, you can use the SVGs directly from the node mo
 If you do not mind black icons, you can serve up the SVGs and use them inside of `img` tags.
 If you need to color your icons, you need to copy the content of the SVG and put it directly into your html. CSS can then be used for colors.
 
+### CSS Alerts
+
+Alerts look the same, but the css has changed. You may need to add an extra div inside of a multi-line alert.
+Also, the close button is no longer float: right, so it needs to be at the end of your alert html.
+
 */
 
 
