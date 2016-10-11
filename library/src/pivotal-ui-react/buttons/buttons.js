@@ -11,7 +11,6 @@ class UIButton extends React.Component{
       'default',
       'danger',
       'primary',
-      'success',
       'brand'
     ]),
     large: React.PropTypes.bool,
@@ -69,8 +68,6 @@ module.exports = {
   DangerButton: defButton({kind: 'danger'}),
 
   PrimaryButton: defButton({kind: 'primary'}),
-
-  SuccessButton: defButton({kind: 'success'}),
 
   BrandButton: defButton({kind: 'brand'})
 };

@@ -18,7 +18,6 @@ Require the subcomponents:
 var DefaultButton = require('pui-react-buttons').DefaultButton;
 var PrimaryButton = require('pui-react-buttons').PrimaryButton;
 var DangerButton = require('pui-react-buttons').DangerButton;
-var SuccessButton = require('pui-react-buttons').SuccessButton;
 var BrandButton = require('pui-react-buttons').Brand;
 ```
 
@@ -37,7 +36,7 @@ Buttons use the button tag by default. If you'd like a link rather than a button
 
 ## Styles
 
-There are 4 main button color schemes: Default, Primary, Danger, and Success. There is also Brand, but this should only be used for marketing.
+There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing.
 
 ```react_example_table
 <DefaultButton>
@@ -51,10 +50,6 @@ There are 4 main button color schemes: Default, Primary, Danger, and Success. Th
 <DangerButton>
   Danger
 </DangerButton>
-
-<SuccessButton>
-  Success
-</SuccessButton>
 
 <BrandButton>
   Brand
@@ -77,10 +72,6 @@ To use the alt style, set the `alt` prop, to use the flat style, use the `flat` 
 <PrimaryButton alt>
   Primary Alt
 </PrimaryButton>
-
-<SuccessButton flat>
-  Success Flat
-</SuccessButton>
 ```
 
 

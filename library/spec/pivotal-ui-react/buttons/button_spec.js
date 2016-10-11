@@ -133,7 +133,6 @@ describe('UIButton', function() {
   });
 
   [
-    {name: 'SuccessButton', btnClass: 'btn-success'},
     {name: 'DangerButton', btnClass: 'btn-danger'},
     {name: 'PrimaryButton', btnClass: 'btn-primary'},
     {name: 'BrandButton', btnClass: 'btn-brand'},
