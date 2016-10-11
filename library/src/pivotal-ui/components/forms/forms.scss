@@ -44,86 +44,6 @@ label {
   font-weight: 400;
 }
 
-/*pending
----
-title: Fancy Number Inputs
-name: 03_form_fancy_number
-parent: form_inputs
----
-
-This is a fancy number input!
-
-```html_example
-<form class="styleguide-form" role="form">
-  <label>Instances</label>
-  <div class="number-fancy">
-    <input class="form-control" />
-    <ul class="list-unstyled buttons">
-      <li class="btn-plus">
-        <i class="fa fa-plus"></i>
-      </li>
-      <li class="btn-minus">
-        <i class="fa fa-minus"></i>
-      </li>
-    </ul>
-  </div>
-</form>
-
-
-```
-*/
-
-.number-fancy {
-  @extend .fancy-form-element;
-  @include user-select(none);
-  $button-width: 30px;
-  padding-right: $button-width + 6px;
-
-  .buttons {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    height: 100%;
-    li {
-      @include transition-pui(all, 150ms);
-      font-size: 12px;
-      background-color: white;
-      border: none;
-      width: $button-width;
-      height: 50%;
-      color: $blue-4;
-      text-align: center;
-      line-height: 20px;
-      &:hover {
-        color: $blue-2;
-        background-color: $neutral-9;
-        cursor: pointer;
-      }
-
-      &.btn-minus {
-        border-bottom-right-radius: 4px;
-      }
-
-      &.btn-plus {
-        border-top-right-radius: 4px;
-      }
-    }
-  }
-
-  input {
-    $input-margin: 5px;
-    height: $input-height-base - 2*$input-margin;
-    margin: $input-margin;
-    padding: 0 5px;
-    display: inline;
-    border-radius: 4px;
-
-    &:hover {
-      background-color: $neutral-9;
-    }
-  }
-}
-
 .form-group .input-wrapper {
   position: relative;
 }
@@ -180,44 +100,6 @@ select.form-control {
     color: $input-color;
   }
 }
-
-.fancy-form-element {
-  box-shadow: 0 3px 0 $neutral-7;
-  background-color: white;
-  @include transition-pui();
-  border-radius: 4px;
-  position: relative;
-
-  &:hover {
-    box-shadow: 0 3px 0 $neutral-5;
-    cursor: pointer;
-  }
-
-  .form-control {
-    border: none;
-    box-shadow: none;
-    background: transparent;
-    background-image: none;
-    -webkit-appearance: none;
-    @include transition-pui(all, 150ms);
-    font-size: 16px;
-    font-weight: 900;
-    &.has-error {
-      border-radius: 3px;
-      border: 1px solid $red-3;
-    }
-  }
-}
-
-.fancy-form-element-disabled {
-  font-size: 16px;
-  font-weight: 900;
-  height: 30px;
-  margin-top: 7px;
-  margin-left: 7px;
-}
-
-
 
 input[type="radio"] {
   margin-top: 2px; // bootstrap override: make radios line up with our small font.

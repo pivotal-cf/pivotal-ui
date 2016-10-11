@@ -197,23 +197,6 @@
     }
   }
 
-  .fa-check-success {
-    color: $teal-3;
-    font-size: 12px;
-    margin-right: 5px;
-
-    -webkit-transition: opacity 300ms ease-out;
-    -moz-transition: opacity 300ms ease-out;
-    transition: opacity 300ms ease-out;
-
-    opacity: 1;
-  }
-
-  .fa-check-success.ng-hide {
-    display: inline-block !important;
-    opacity: 0;
-  }
-
   .saveRequested {
     opacity: 0.3;
   }
