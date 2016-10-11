@@ -1,20 +1,6 @@
 @import "../pui-variables";
 
 .back-to-top {
-  //Font Awesome .fa
-  //display: inline-block;
-  font: normal normal normal 14px/1 FontAwesome;
-  //font-size: inherit;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  transform: translate(0, 0);
-
-  //Font Awesome .fa-arrow-up
-  &:before {
-    content: "\f062";
-  }
-
   color: $neutral-11;
   text-align: center;
   font-size: $font-size-h3;
@@ -36,5 +22,13 @@
   &:hover {
     background: $brand-5;
     color: $neutral-11;
+  }
+
+  .svgicon {
+    font-size: 20px;
+    stroke: $neutral-11;
+    path {
+      stroke-width: 5;
+    }
   }
 }

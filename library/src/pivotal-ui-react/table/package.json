@@ -5,8 +5,8 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash.sortby": "^3.1.1",
-    "pui-css-iconography": "^6.0.2",
     "pui-css-tables": "^6.0.2",
-    "pui-react-helpers": "^6.0.2"
+    "pui-react-helpers": "^6.0.2",
+    "pui-react-iconography": "^6.0.2"
   }
 }

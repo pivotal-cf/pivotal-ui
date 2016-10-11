@@ -1,4 +1,5 @@
 const classnames = require('classnames');
+const {Icon} = require('pui-react-iconography');
 const React = require('react');
 const sortBy = require('lodash.sortby');
 const types = React.PropTypes;
@@ -95,10 +96,12 @@ export class Table extends React.Component {
       headerProps = headerProps || {};
 
       const isSortColumn = (sortColumnAttribute === attribute);
-      let className;
+      let className, icon;
       if ( isSortColumn ) {
         className = sortAscending ? 'sorted-asc' : 'sorted-desc';
+        icon = sortAscending ? <Icon src="arrow_drop_up"/> : <Icon src="arrow_drop_down"/>;
       }
+
       className = classnames(className, headerProps.className);
 
       headerProps = {...headerProps,
@@ -108,7 +111,7 @@ export class Table extends React.Component {
         onSortableTableHeaderClick: () => this.setSortedColumn(attribute, isSortColumn ? !sortAscending : true)
       };
 
-      return <TableHeader {...headerProps}>{displayName || attribute}</TableHeader>;
+      return <TableHeader {...headerProps}>{displayName || attribute}{icon}</TableHeader>;
     });
   }
 

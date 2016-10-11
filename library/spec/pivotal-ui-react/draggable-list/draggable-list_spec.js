@@ -38,17 +38,19 @@ describe('DraggableList', function() {
     ReactDOM.unmountComponentAtNode(root);
   });
 
-
   it('passes through innerClassName to item content', function() {
     expect('.draggable-item-content:first').toHaveClass('inner-test-class');
   });
-
 
   function getListItemText() {
     return $('li.list-group-item .draggable-item-content').map(function() {
       return $('> span', this).text();
     }).toArray();
   }
+
+  it('renders icons for the grip', () => {
+    expect('svg.icon-grip').toExist();
+  });
 
   it('renders a list group of all items', function() {
     expect('ul.list-group').toHaveClass('list-draggable');

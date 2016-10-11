@@ -8,9 +8,8 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-labels --save
-</i>
 </code>
 
 
@@ -50,7 +49,9 @@ Removable labels are used as tags in an editable list. The user will either ente
 
 ```html_example
 <span class="label-removable">Removable
-  <a class="close-btn fa fa-close" aria-label="Remove label"></a>
+  <a class="close-btn" aria-label="Remove label">
+    <img src="/styleguide/close.svg" height="15" width="15"/>
+  </a>
 </span>
 ```
 */

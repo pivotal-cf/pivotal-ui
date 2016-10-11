@@ -9,84 +9,22 @@ categories:
 
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-iconography --save
-</i>
 </code>
 
-
-We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/) for scalable vector icons that can be customized - size, color, drop shadow,
-and anything that can be done with CSS. These icons will always match the font color.
-
-Here are some commonly used icons:
-
-Button                                             | Class                  | Description
--------------------------------------------------- | ---------------------- | -----------
-<i class="fa fa-plus"></i>                         | `.fa.fa-plus`          | Renders our plus icon
-<i class="fa fa-user"></i>                         | `.fa.fa-user`          | Renders our person icon
-<i class="fa fa-sort-down"></i>                    | `.fa.fa-sort-down`     | Renders our triangle icon
-<i class="fa fa-cog"></i>                          | `.fa.fa-cog`           | Renders our gear icon
-<i class="fa fa-times"></i>                        | `.fa.fa-times`         | Renders our 'x' icon
-<i class="fa fa-check"></i>                        | `.fa.fa-check`         | Renders our check icon
-<i class="fa fa-chevron-right"></i>                | `.fa.fa-chevron-right` | Renders our right chevron icon
-<i class="fa fa-chevron-up"></i>                   | `.fa.fa-chevron-up`    | Renders our down chevron icon
-<i class="fa fa-chevron-down"></i>                 | `.fa.fa-chevron-down`  | Renders our down chevron icon
-<i class="fa fa-windows"></i>                      | `.fa.fa-windows`       | Renders our Windows icon
-<i class="fa fa-apple"></i>                        | `.fa.fa-apple`         | Renders our Apple icon
-<i class="fa fa-linux"></i>                        | `.fa.fa-linux`         | Renders our Linux icon
-<i class="fa fa-pencil"></i>                       | `.fa.fa-pencil`        | Renders our edit icon
-<i class="fa fa-plus-circle"></i>                  | `.fa.fa-plus-circle`   | Renders our second add icon
-<i class="fa fa-trash-o"></i>                      | `.fa.fa-trash-o`       | Renders our delete icon
-<i class="fa fa-square"></i>                       | `.fa.fa-square`        | Renders our square icon
-<i class="fa fa-repeat"></i>                       | `.fa.fa-repeat`        | Renders our refresh/restart icon
-<i class="fa fa-play"></i>                         | `.fa.fa-play`          | Renders our start icon
-<i class="fa fa-download"></i>                     | `.fa.fa-download`      | Renders our download icon
-
-```html_example
-<i class="fa fa-download type-brand-8"></i>
-```
-
-*/
-
-/*doc
----
-title: Iconography Sizing
-name: iconography_sizing
-parent: iconography
----
-
-To vary the size of the icons, use the .fa-h1 through .fa-h6 classes, .fa-title, .fa-sm, or .fa-xs
-Don't use the typography size modifier classes (e.g. .title, .h1, .type-sm)
+We use custom SVG icons, available at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+We recommend using the React Iconography component if you are using icons. We do provide all icons as svgs
+inside of the pui-css-iconography node module (inside `node_moduldes/pui-css-iconography/svgs/`).
+If you are not using JavaScript and would like to use a Pivotal UI Icon,
+you can copy these svgs directly, either with an img tag or as inlined svg.
+When styling the svgs, remember to use the `fill` or `stroke` attributes instead of `color`.
 
 ```html_example_table
-<i class="fa fa-plus fa-title"></i>
-<span class="title">Add Stuff</span>
+<img src="/styleguide/download.svg" width="16" height="16"/>
 
-<i class="fa fa-plus fa-h1"></i>
-<span class="h1">Add Stuff</span>
-
-<i class="fa fa-plus fa-h2"></i>
-<span class="h2">Add Stuff</span>
-
-<i class="fa fa-plus fa-h3"></i>
-<span class="h3">Add Stuff</span>
-
-<i class="fa fa-plus fa-h4"></i>
-<span class="h4">Add Stuff</span>
-
-<i class="fa fa-plus fa-h5"></i>
-<span class="h5">Add Stuff</span>
-
-<i class="fa fa-plus fa-h6"></i>
-<span class="h6">Add Stuff</span>
-
-<i class="fa fa-plus"></i>
-<span>Add Stuff</span>
-
-<i class="fa fa-plus fa-sm"></i>
-<span class="text-sm">Add Stuff</span>
-
-<i class="fa fa-plus fa-xs"></i>
-<span class="text-xs">Add Stuff</span>
+<svg fill="#5C9917" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+  <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
+</svg>
 ```
 */

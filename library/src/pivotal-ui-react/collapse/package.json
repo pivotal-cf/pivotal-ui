@@ -5,9 +5,9 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "pui-css-collapse": "^6.0.2",
-    "pui-css-iconography": "^6.0.2",
     "pui-css-dividers": "^6.0.2",
     "pui-react-collapsible": "^6.0.2",
-    "pui-react-helpers": "^6.0.2"
+    "pui-react-helpers": "^6.0.2",
+    "pui-react-iconography": "^6.0.2"
   }
 }

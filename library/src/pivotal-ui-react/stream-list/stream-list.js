@@ -1,5 +1,5 @@
 import React from 'react';
-import {UIButton} from 'pui-react-buttons';
+import {DefaultButton} from 'pui-react-buttons';
 import {GroupList, ListItem} from 'pui-react-lists';
 import mixin from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
@@ -14,11 +14,11 @@ class StreamListNewItemsButton extends React.Component {
 
   render() {
     return (
-      <UIButton className="btn btn-default list-stream-new-items-btn"
+      <DefaultButton flat className="list-stream-new-items-btn"
                 onClick={this.props.showNewItems}>
         {`${this.props.numNewItems} ${this.props.numNewItems === 1 ?
           this.props.singularNewItemText : this.props.pluralNewItemsText}`}
-      </UIButton>
+      </DefaultButton>
     );
   }
 }

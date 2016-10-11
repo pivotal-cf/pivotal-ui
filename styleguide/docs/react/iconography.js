@@ -7,11 +7,16 @@ categories:
  - react_all
 ---
 
+***This component is limited to projects that use Webpack.***
+***It requires the webpack loaders babel-loader and svg-react-loader.***
+***If you are using pui-react-tools, this also requires version 2 or higher.***
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-iconography --save
-</i>
+
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
 </code>
 
 Require the subcomponent:
@@ -20,60 +25,25 @@ Require the subcomponent:
 var Icon = require('pui-react-iconography').Icon;
 ```
 
-
-
-We use [Font Awesome](http://fortawesome.github.io/Font-Awesome/icons/).
-Specify the icon by changing the name. The name is the font-awesome class sans the `fa-`.
-To spin the icon, add `spin` to the Icon.
+Svgs do not render on the styleguide because it does a lot of work client-side. In a normal application, this code would work.
 
 ```react_example_table
-<Icon name="plus" />
+<Icon src="add"/>
 
-<Icon spin name="angellist" />
-```
-*/
-
-/*doc
----
-title: React Iconography Sizing
-name: iconography_sizing_react
-parent: iconography_react
----
-
-Pass in any PUI typography size modifier in the size attribute.
-These are useful if you want your icon to match the size of a text element.
-
-```react_example_table
-<Icon name="plus" size="title" />
-
-<Icon name="plus" size="h1" />
-
-<Icon name="plus" size="h2" />
-
-<Icon name="plus" size="h3" />
-
-<Icon name="plus" size="h4" />
-
-<Icon name="plus" size="h5" />
-
-<Icon name="plus" size="h6" />
-
-<Icon name="plus" size="sm" />
-
-<Icon name="plus" size="xs" />
+<Icon src="check"/>
 ```
 
-You can also pass in any FontAwesome size modifier as well.
+Icons by default will be sized based on the local font size. You can override the size of the icon with the style prop
 
-```react_example_table
-<Icon name="plus" size="lg" />
-
-<Icon name="plus" size="2x" />
-
-<Icon name="plus" size="3x" />
-
-<Icon name="plus" size="4x" />
-
-<Icon name="plus" size="5x" />
+```react_example
+<Icon src="add" style={{width: 100, height: 100}}/>
 ```
+
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `src`       | String  | Name of the svg to load
+ `style` | Object | React Style Object
+
+For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+
 */

@@ -8,63 +8,80 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-buttons --save
-</i>
 </code>
 
 Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
 ```html_example_table
-<button class="btn btn-default">Button</button>
+<button class="btn-default">Button</button>
 
-<a class="btn btn-default" aria-label="Trulia homepage" href="http://trulia.com">Link</a>
+<a class="button btn-default" aria-label="Example Website" href="http://example.com">Link</a>
 ```
 
 If your button is actually a link to another page, please use the
 `<a>` element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a `<button>` element.
 
+## Styles
+
+Every button type has a default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders).
+
+Button                                           | Button Alt                                               | Button Flat                                                | Description
+-------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
+<button class="btn-default">Default</button>     |<button class="btn-default-alt">Default Alt</button>      | <button>Default Flat</button>                              | This the default button style.
+<button class="btn-primary">Primary</button> |<button class="btn-primary-alt">Primary Alt</button>  | <button class="btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
+<button class="btn-danger">Danger</button>       |<button class="btn-danger-alt">Danger Alt</button>        | <button class="btn-danger-flat">Danger Flat</button>       | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn-brand">Brand</button>         |<button class="btn-brand-alt">Brand Alt</button>          | <button class="btn-brand-flat">Brand Flat</button>         | This button is for marketing purposes only
+
+The most common button examples are below:
+
+```html_example_table
+<button class="btn-default">Default</button>
+
+<button class="btn-default-alt">Default Alt</button>
+
+<button class="btn-primary">Primary</button>
+
+<button class="btn-primary-alt">Primary Alt</button>
+
+<button class="btn-primary-flat">Primary Flat</button>
+
+<button class="btn-danger">Danger</button>
+```
+
+
 */
 
 
 /*doc
 ---
-title: Full Width
-name: button_full_width
+title: Disabling
+name: button_disabling
 parent: button
 ---
 
-There is an additional modifier that will make the button take the
-full width of the container. It may be used with the any of the button
-size and style modifiers.
+Buttons can be disabled.
+If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
+If given the disabled class, a button will be functionally disabled, and will also change visually.
 
-Create block level buttons - those that span the full width of a parent - by adding `.btn-block`.
+```html_example_table
+<button class="btn-default" disabled>Disabled Functionally</button>
 
-```html_example
-<button class="btn btn-default btn-block">Full width button</button>
+<button class="btn-default disabled">Disabled Visually</button>
+
+<button class="btn-default-alt disabled">Alt Disabled</button>
+
+<button class="disabled">Flat Disabled</button>
+
+<button class="btn-primary disabled">Primary Disabled</button>
+
 ```
 
 */
 
-
-/*doc
----
-title: Styles
-name: button_styles
-parent: button
----
-
-Button                                                             | Disabled                                                                    | Class                   | Description
------------------------------------------------------------------- | --------------------------------------------------------------------------  | ----------------------- | -----------
-<button class="btn btn-default">Default</button>                   |<button class="btn btn-default" disabled>Default</button>                    | `btn btn-default`       | This is what buttons look like, this is the go to button style.
-<button class="btn btn-default-alt">Default alternate</button>     |<button class="btn btn-default-alt" disabled>Default alternate</button>      | `btn btn-default-alt`   | This is what buttons look like, this is the go to button style (on white backgrounds).
-<button class="btn btn-lowlight">Lowlight</button>                 |<button class="btn btn-lowlight" disabled>Lowlight</button>                  | `btn btn-lowlight`      | Use this button for other actions, like cancel/dismiss
-<button class="btn btn-danger">Delete</button>                     |<button class="btn btn-danger" disabled>Delete</button>                      | `btn btn-danger`        | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn btn-highlight">Highlight</button>               |<button class="btn btn-highlight" disabled>Highlight</button>               | `btn btn-highlight`      | Use this button for other important actions, e.g. restarting apps
-<button class="btn btn-highlight-alt">Highlight alternate</button> |<button class="btn btn-highlight-alt" disabled>Highlight alternate</button> | `btn btn-highlight-alt`  | Use this button for other important actions, e.g. marketing call to actions
-*/
 
 /*doc
 ---
@@ -73,13 +90,15 @@ name: button_sizes
 parent: button
 ---
 
-There are two sizes for buttons: Large and default. Simply apply the
+There are three sizes for buttons: Large, small, and default. Simply apply the
 size modifier class for the desired size.
 
 ```html_example_table
-<button class="btn btn-default btn-lg">Large</button>
+<button class="btn-default btn-lg">Large</button>
 
-<button class="btn btn-default">Default</button>
+<button class="btn-default">Default</button>
+
+<button class="btn-default btn-sm">Small</button>
 ```
 
 */

@@ -6,8 +6,7 @@
     src: url("fonts/#{$name}.eot");
     src: url("fonts/#{$name}.eot?#iefix") format("embedded-opentype"),
     url("fonts/#{$name}.woff") format("woff"),
-    url("fonts/#{$name}.ttf") format("truetype"),
-    url("fonts/#{$name}.svg##{$name}") format("svg");
+    url("fonts/#{$name}.ttf") format("truetype");
     font-weight: $weight;
     font-style: $style;
   }

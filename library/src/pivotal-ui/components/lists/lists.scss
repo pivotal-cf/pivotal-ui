@@ -213,23 +213,6 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-
-.list-checked {
-  list-style: none;
-  padding-left: 20px;
-
-  > li:before {
-    content: '';
-    background-image: url('images/check.svg');
-    float: left;
-    height: 16px;
-    width: 16px;
-    margin: 3px 5px 0 -15px;
-  }
-}
-
-
-
 @include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
 
 
@@ -295,6 +278,7 @@ This section contains different list behaviors. See [lists][list] to see differe
   border-radius: 0;
   border-top: 1px solid $list-group-border;
   box-shadow: 0px -1px $shadow-4;
+  justify-content: center;
 
   &:hover {
     background-color: darken($neutral-10, 20%);
@@ -307,7 +291,7 @@ This section contains different list behaviors. See [lists][list] to see differe
 
   .draggable-grip {
     display: inline-block;
-    color: $list-draggable-grip;
+    fill: $list-draggable-grip;
   }
 
   > li {
@@ -322,7 +306,7 @@ This section contains different list behaviors. See [lists][list] to see differe
       cursor: move;
 
       .draggable-grip {
-        color: $list-draggable-grip-active;
+        fill: $list-draggable-grip-active;
       }
     }
 

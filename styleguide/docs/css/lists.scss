@@ -8,9 +8,8 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-lists --save
-</i>
 </code>
 
 
@@ -48,7 +47,7 @@ You can use inline lists to lay out elements. Here's an example of a header next
     <h5 class="em-alt em-max">Bound Services</h5>
   </li>
   <li class="txt-m">
-    <a class="btn btn-default" target="_blank">Add from Marketplace</a>
+    <a class="btn-default" target="_blank">Add from Marketplace</a>
   </li>
 </ul>
 ```
@@ -207,62 +206,6 @@ Use this list when you need simple gray borders between items
 </ul>
 ```
 
-The "event list" from AppsManager can be built with a group list:
-
-```html_example
-<ul class="list-group">
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-exclamation-circle type-error-4 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          app crashed
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 4:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-stop type-neutral-5 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          stopped app
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 3:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-
-  <li class="list-group-item pln">
-    <div class="media">
-      <div class="media-left media-middle phxxl">
-        <i class="fa-play type-brand-8 fa h2 man"></i>
-      </div>
-      <div class="media-body pbn">
-        <div class="type-neutral-2 mbs">
-          started app
-        </div>
-        <div class="type-neutral-4 small">
-          <span>user@example.com</span>
-          <span>11/14/2014 at 2:00 PM UTC</span>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-```
 */
 
 /*doc
@@ -370,31 +313,6 @@ Use this list when you need to show the steps in a flow.
     And more things
   </li>
 </ol>
-```
-
-*/
-
-/*doc
----
-title: Checked
-name: list_checked
-parent: list
----
-
-Replaces the default bullet image with the font awesome checkmark.
-
-```html_example
-<ul class="list-checked">
-  <li>
-    feep
-  </li>
-  <li>
-    fop
-  </li>
-  <li>
-    meep
-  </li>
-</ul>
 ```
 
 */

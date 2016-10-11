@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 import {Panel} from 'pui-react-panels';
 const React = require('react');
+const {Icon} = require('pui-react-iconography');
 require('pui-css-collapse');
 
 const types = React.PropTypes;
@@ -58,10 +59,10 @@ class Collapse extends BaseCollapse {
   renderHeader() {
     const {header} = this.props;
     const {expanded} = this.state;
-    const iconClass = expanded ? 'fa fa-caret-down' : 'fa fa-caret-right';
+    const iconSrc = expanded ? 'arrow_drop_down' : 'arrow_drop_right';
     return (
       <div className="collapse-trigger">
-        <i className={classnames(iconClass, 'collapse-icon')}/>
+        <Icon className="collapse-icon" src={iconSrc}/>
         {header}
       </div>
     );
@@ -72,10 +73,10 @@ class AltCollapse extends BaseCollapse {
   renderHeader() {
     const {header} = this.props;
     const {expanded} = this.state;
-    const iconClass = expanded ? 'fa fa-minus-square' : 'fa fa-plus-square';
+    const iconSrc = expanded ? 'remove_circle' : 'add_circle';
     return (
       <div className="collapse-trigger">
-        <i className={classnames(iconClass, 'collapse-icon')}/>
+        <Icon className="collapse-icon" src={iconSrc}/>
         {header}
       </div>
     );

@@ -9,12 +9,12 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-whitespace --save
-</i>
 </code>
 
 <div class="alert alert-warning alert-dismissable">
+<div>
   <h5 class="em-high mtn">
     Sass variables should only be used in variables.css.scss.
   </h5>
@@ -29,10 +29,10 @@ npm install pui-css-whitespace --save
   </p>
 
   <code>
-    <i class="fa fa-download" alt="Install the Component">
+    <img src="/styleguide/download.svg" width="16" height="16"/>
      npm install pui-css-variables-and-mixins
-    </i>
   </code>
+</div>
 </div>
 
 */

@@ -8,9 +8,8 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-lists --save
-</i>
 </code>
 
 */
@@ -36,32 +35,6 @@ var ListItem = require('pui-react-lists').ListItem;
 </BreadcrumbList>
 ```
 */
-
-/*doc
----
-title: Checked
-name: 03_list_checked_react
-parent: list_react
----
-
-Require the subcomponents:
-
-```
-var UnorderedList = require('pui-react-lists').UnorderedList;
-var ListItem = require('pui-react-lists').ListItem;
-```
-
-```react_example
-<UnorderedList checked>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem>Item 3</ListItem>
-</UnorderedList>
-```
-
-*/
-
-
 
 /*doc
  ---

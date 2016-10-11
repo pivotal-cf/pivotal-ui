@@ -9,9 +9,8 @@ categories:
 
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-forms --save
-</i>
 </code>
 
 
@@ -49,7 +48,7 @@ parent: 00_form_introduction
       <input type="checkbox"> Check me out
     </label>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn-default">Submit</button>
 </form>
 ```
 
@@ -68,6 +67,7 @@ Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
 This only applies to forms within viewports that are at least 768px wide.
 
 <div class="alert alert-info">
+<div>
   <h5 class="em-high mtn">
     Always add labels to every input.
   </h5>
@@ -75,6 +75,7 @@ This only applies to forms within viewports that are at least 768px wide.
     Screen readers will have trouble with your forms if you don't.
     You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
   </p>
+</div>
 </div>
 
 ```html_example
@@ -93,7 +94,7 @@ This only applies to forms within viewports that are at least 768px wide.
       Remember me
     </label>
   </div>
-  <button class="btn btn-default" type="submit">Sign in</button>
+  <button class="btn-default" type="submit">Sign in</button>
 </form>
 ```
 */
@@ -126,7 +127,7 @@ Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-bl
       Remember me
     </label>
   </div>
-  <button class="btn btn-default" type="submit">Sign in</button>
+  <button class="btn-default" type="submit">Sign in</button>
 </form>
 ```
 */
@@ -351,24 +352,6 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 </form>
 ```
 
-*/
-
-/*doc
----
-title: Search Inputs
-name: 04_form_search_input
-parent: form_inputs
----
-
-Use this input when creating a search component.
-
-```html_example
-<label for="searchInput">Search</label>
-<div class="form-group form-group-search">
-  <input class="form-control" id="searchInput" placeholder="This is a searchbox">
-  <i class='search-icon'></i>
-</div>
-```
 */
 
 /*doc
@@ -626,26 +609,6 @@ Error messages should use the classes `.help-block.has-error`.
         Error help text
       </span>
     </div>
-  </div>
-</form>
-```
-
-If you're doing client-side validation and want to show successful validation of a field,
-add `.has-success` to the field's form group.
-
-<div class="alert alert-info mbxl">
-  <p class="em-high">
-    The <code>.has-success</code> class can only be used on inputs that have a text-box.
-  </p>
-</div>
-
-```html_example_table
-<form class="styleguide-form" role="form">
-  <div class="form-group has-success">
-    <label class="control-label" for="inputSuccess">
-      Input with success
-    </label>
-    <input id="inputSuccess" class="form-control" type="text">
   </div>
 </form>
 ```

@@ -9,13 +9,14 @@
 
  ***This component is limited to projects that use Webpack.***
  ***It requires the webpack loaders babel-loader and svg-react-loader.***
+ ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
  <code class="pam">
- <i class="fa fa-download" alt="Install the Component">
+ <img src="/styleguide/download.svg" width="16" height="16"/>
  npm install pui-react-svg  --save
 
+ <img src="/styleguide/download.svg" width="16" height="16"/>
  npm install babel-loader svg-react-loader --save-dev
- </i>
  </code>
 
  Require the subcomponents:
@@ -52,5 +53,8 @@ class MySvg extends PuiSvg {
 ```
 
 The path is relative to the file where you subclass the Svg component.
+
+Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
+For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
  */

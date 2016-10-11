@@ -55,7 +55,6 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/alerts/',
         dependencies: ['pui-react-media']
       }));
-      expect(result.length).toEqual(2);
     });
   });
 
@@ -67,7 +66,7 @@ describe('componentsToUpdate', function() {
       ], done);
     });
 
-    it('outputs itself and all dependents, no duplicates', () => {
+    it('outputs itself and all dependents', () => {
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/dropdowns/',
         dependencies: []
@@ -80,7 +79,6 @@ describe('componentsToUpdate', function() {
         component: 'src/pivotal-ui-react/notifications/',
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
       }));
-      expect(result.length).toEqual(3);
     });
   });
 });

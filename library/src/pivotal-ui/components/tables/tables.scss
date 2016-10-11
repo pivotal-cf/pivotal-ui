@@ -129,24 +129,9 @@
 }
 
 .table-sortable {
-  th.sorted-desc {
-    color: $navy-1;
-    &:after {
-      content: "\f0d7";
-      color: $navy-1;
-    }
-  }
-
-  .sortable, [sortable] { // latter selector is angular only
+  .sortable {
     @include no-select;
     cursor: pointer;
-    &:after {
-      margin-left: 4px;
-      position: absolute;
-      content: "";
-      font-weight: 200;
-      font-family: FontAwesome;
-    }
     &:hover {
       background-color: white;
       -webkit-transition: background-color 300ms ease-out;
@@ -155,23 +140,11 @@
     }
   }
 
-  th.sorted-none {
-    &:hover:after {
-      visibility: visible;
-    }
-    &:after {
-      content: "\f0dc";
-      color: $gray-7;
-      visibility: hidden;
-    }
-  }
-
-  th.sorted-asc {
-    color: $navy-1;
-    &:after {
-      content: "\f0d8";
-      color: $navy-1;
-    }
+  .icon-arrow_drop_up, .icon-arrow_drop_down {
+    width: 1.5em;
+    height: 1.5em;
+    position: relative;
+    top: 3px;
   }
 }
 
@@ -222,23 +195,6 @@
     .addedConfirmation {
       color: forestgreen;
     }
-  }
-
-  .fa-check-success {
-    color: $teal-3;
-    font-size: 12px;
-    margin-right: 5px;
-
-    -webkit-transition: opacity 300ms ease-out;
-    -moz-transition: opacity 300ms ease-out;
-    transition: opacity 300ms ease-out;
-
-    opacity: 1;
-  }
-
-  .fa-check-success.ng-hide {
-    display: inline-block !important;
-    opacity: 0;
   }
 
   .saveRequested {

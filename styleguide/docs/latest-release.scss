@@ -1,5 +1,97 @@
 /*doc
 ---
+title: PUI 7.0 Release
+name: w-latest-release-7
+category: latest-release
+---
+
+*/
+
+/*doc
+---
+title: Goals
+name: 01_goals-7
+parent: w-latest-release-7
+---
+
+The goals for the 7.0 release are:
+
+- Update and consolidate Buttons and Dropdowns
+- Replace Font Awesome Icons with SVGs
+- Make it easier for people to use SVGs
+
+*/
+
+/*doc
+---
+title: The Big Changes
+name: 03_changes-7
+parent: w-latest-release-7
+---
+
+- Buttons and Dropdowns are visually redesigned
+- Button and Dropdown React Components are all new, see the conversion guide below
+- Iconography React component now uses SVGs instead of Font Awesome
+- Deprecated Gravatars, Checked Lists, and non-React Back To Top Component
+- Deprecate current spinners component. New spinners are waiting to be prioritized.
+
+Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md)
+
+*/
+
+/*doc
+---
+title: Conversion Guide
+name: 05_conversion-7
+parent: w-latest-release-7
+---
+
+### Buttons
+
+The buttons all have updated styles, and there are fewer of them.
+
+- `DefaultAltButton` is removed. Use `DefaultButton` instead. You may want to set the `alt` prop to true. If you still want the shadows, use [box shadows](/css_utilities_box-shadows.html)
+- `LowlightButton` is removed. It can be approximated with `DefaultButton` with `flat` set to true
+- `HighlightButton` is renamed to `PrimaryButton`
+- `HighlightAltButton` is removed, just use `PrimaryButton`. Marketing sites may want to use `BrandButton`. Web apps are discouraged from using `BrandButton`.
+
+
+### Dropdowns
+
+There are no longer 7 dropdown components (`LinkDropdown`, `DefaultDropdown`, `HighlightDropdown`, etc). There is only `Dropdown`.
+The `Dropdown` component takes many React props. To recreate the old `LinkDropdown`, you can use `Dropdown` with `flat` and `link` props set to true.
+Most of the other old dropdown styles have been removed. There are basically only three launcher styles now: default, flat, and split.
+
+### React Iconography
+
+- Use the `src` prop instead of the `name` prop
+- The `Icon` component will inline SVGs instead of using Font Awesome. Many of the icons may have different names and different layout properties.
+- Webpack svg-react-loader is now required for iconography. If you are using pui-react-tools, you will need to `npm install` the webpack loaders and upgrade pui-react-tools to version ^2.0.0.
+- Icons no longer take the `size` prop. Instead, they are sized at the local font size.
+If you want an icon with a different size, you can change the font size around that icon. For example, if you set the font size to 24px, the SVG should be 24px wide and 24px tall.
+You can also provide a `style` prop with `width` and `height` if that is more appropriate.
+
+### CSS Iconography
+
+If you are using iconography, but not using React, it will be more difficult to use. All of the SVGs are inside of the `pui-css-iconography` node module.
+If you would like to use an icon, you can use the SVGs directly from the node module.
+If you do not mind black icons, you can serve up the SVGs and use them inside of `img` tags.
+If you need to color your icons, you need to copy the content of the SVG and put it directly into your html. CSS can then be used for colors.
+
+### CSS Alerts
+
+Alerts look the same, but the css has changed from float to flexbox. If you have a multi-line alert, you may need to add an extra div directly inside of your alert wrapping your old contents.
+Also, the close button is no longer float: right, so it needs to be at the end of your alert html.
+
+### General
+
+There are more breaking changes than usual in this release, it is possible we missed something. Please file issues on github or ask questions on the pivotal-ui slack channel.
+
+*/
+
+
+/*doc
+---
 title: PUI 6.0 Release
 name: x-latest-release-6
 category: latest-release

@@ -29,11 +29,18 @@
   border-radius: $code-chrome-border-radius;
   box-shadow: 0 2px 0 $shadow-1;
 
-  &::before {
-    content: '\F111 \a0 \a0 \F111 \a0 \a0 \F111';
-    color: $gray-4;
-    font-size: 13px;
-    font-family: FontAwesome;
+  .terminal-dots {
+    margin-bottom: 0;
+    padding: 0;
+
+    li{
+      border-radius: 6px;
+      width: 12px;
+      height: 12px;
+      background-color: $gray-4;
+      display: inline-block;
+      margin-right: 15px;
+    }
   }
 
   pre[class*="language-"] {

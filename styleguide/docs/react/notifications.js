@@ -8,9 +8,8 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-notifications --save
-</i>
 </code>
 
 Require the subcomponents:
@@ -82,16 +81,8 @@ parent: notifications_react
  <NotificationItem key={5}>Stuff</NotificationItem>
 </Notifications>
 
-<Notifications size="h5">
+<AlertNotifications size="h5">
   <NotificationItem>Stuff</NotificationItem>
-</Notifications>
-
-<AlertNotifications size="h6">
- <NotificationItem key={1}>Stuff</NotificationItem>
- <NotificationItem key={2}>Stuff</NotificationItem>
- <NotificationItem key={3}>Stuff</NotificationItem>
- <NotificationItem key={4}>Stuff</NotificationItem>
- <NotificationItem key={5}>Stuff</NotificationItem>
 </AlertNotifications>
 ```
 */
@@ -112,7 +103,7 @@ Here's an example if there are no alerts:
 Here's an example if there are alerts:
 
 ```jsx_example
-var alertImage = <Icon name="exclamation-triangle" className="h4 type-warn-3 mrm" />;
+var alertImage = <Icon src="warning" className="h4 mrm" style={{fill: '#B38F1B'}}/>;
 ```
 
 ```react_example_table

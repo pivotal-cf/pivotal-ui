@@ -8,7 +8,7 @@
  ---
 
  <code class="pam">
- <i class="fa fa-download" alt="Install the Component"></i>
+  <img src="/styleguide/download.svg" width="16" height="16"/>
  npm install pui-react-copy-to-clipboard --save
  </code>
 

@@ -38,16 +38,20 @@ describe('Notification', function() {
       $('.dropdown-toggle').simulate('click');
     });
 
+    it('renders the bell', () => {
+      expect('.dropdown-notifications-title svg.icon-notifications').toExist();
+    });
+
     it('passes through the className to the btn-group', function() {
-      expect('#root .btn-group').toHaveClass(props.className);
+      expect('.dropdown').toHaveClass(props.className);
     });
 
     it('passes through style to the button', function() {
-      expect('#root .btn').toHaveCss(props.style);
+      expect('.dropdown').toHaveCss(props.style);
     });
 
     it('passes through id to the button', function() {
-      expect('#root .btn#test-id').toExist();
+      expect('.dropdown').toHaveAttr('id', 'test-id');
     });
 
     it('renders a notification count badge', function() {
@@ -135,7 +139,7 @@ describe('Alert Notifications', function() {
     });
 
     it('renders a notification alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert').toHaveClass('fa-exclamation-triangle');
+      expect('.dropdown-notifications-title .dropdown-notifications-alert svg').toHaveClass('icon-warning');
     });
 
     it('renders the children in a dropdown menu on click', function() {
@@ -150,18 +154,17 @@ describe('Alert Notifications', function() {
     });
 
     it('passes through the className to the btn-group', function() {
-      expect('#root .btn-group').toHaveClass(props.className);
+      expect('.dropdown').toHaveClass(props.className);
     });
 
     it('passes through style to the button', function() {
-      expect('#root .btn').toHaveCss(props.style);
+      expect('.dropdown').toHaveCss(props.style);
     });
 
     it('passes through id to the button', function() {
-      expect('#root .btn#test-id').toExist();
+      expect('.dropdown').toHaveAttr('id', 'test-id')
     });
   });
-
 
   describe('when there are no children', function() {
     beforeEach(function() {

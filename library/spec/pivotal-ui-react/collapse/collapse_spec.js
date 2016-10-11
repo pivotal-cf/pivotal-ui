@@ -77,12 +77,12 @@ describe('Collapse', function() {
   });
 
   it('contains a right-caret as its collapsed icon when closed', function() {
-    expect('.panel-title i').toHaveClass('fa-caret-right');
+    expect('svg').toHaveClass('icon-arrow_drop_right');
   });
 
   it('contains a down-caret as its collapsed icon when open', function() {
-    $('.panel-title i').simulate('click');
-    expect('.panel-title i').toHaveClass('fa-caret-down');
+    $('.panel-title svg').simulate('click');
+    expect('svg').toHaveClass('icon-arrow_drop_down');
   });
 });
 
@@ -98,11 +98,11 @@ describe('AltCollapse', function() {
   });
 
   it('contains a right-caret as its collapsed icon when closed', function() {
-    expect('.panel-title i').toHaveClass('fa-plus-square');
+    expect('svg').toHaveClass('icon-add_circle');
   });
 
   it('contains a down-caret as its collapsed icon when open', function() {
-    $('.panel-title i').simulate('click');
-    expect('.panel-title i').toHaveClass('fa-minus-square');
+    $('.panel-title svg').simulate('click');
+    expect('svg').toHaveClass('icon-remove_circle');
   });
 });

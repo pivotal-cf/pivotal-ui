@@ -1,7 +1,8 @@
+const classnames = require('classnames');
+const {Icon} = require('pui-react-iconography');
+const {mergeProps} = require('pui-react-helpers');
 const React = require('react');
 const types = React.PropTypes;
-import {mergeProps} from 'pui-react-helpers';
-import classnames from 'classnames';
 require('pui-css-forms');
 
 class Input extends React.Component {
@@ -37,7 +38,8 @@ class Input extends React.Component {
         {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
         <div className="input-wrapper">
           <input {...inputProps} />
-          {search && <i className='search-icon'/>}
+          {search && <Icon className="search" src="search"/>}
+          {success && <Icon className="success" src="check"/>}
         </div>
         {displayError && <div className="error-text help-block">
           {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}

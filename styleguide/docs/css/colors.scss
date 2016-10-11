@@ -9,9 +9,8 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-colors --save
-</i>
 </code>
 
 
@@ -21,6 +20,7 @@ evolution of our design and likely includes old and new colors. Whenever possibl
 colors rather than adding new ones.
 
 <div class="alert alert-warning alert-dismissable">
+<div>
   <h5 class="em-high mtn">
     Sass variables should only be used in variables.css.scss.
   </h5>
@@ -36,10 +36,10 @@ colors rather than adding new ones.
   </p>
 
   <code>
-    <i class="fa fa-download" alt="Install the Component">
+    <img src="/styleguide/download.svg" width="16" height="16"/>
      npm install pui-css-variables-and-mixins
-    </i>
   </code>
+</div>
 </div>
 
 

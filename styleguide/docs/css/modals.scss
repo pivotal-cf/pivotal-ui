@@ -8,16 +8,15 @@ categories:
 ---
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-css-modals --save
-</i>
 </code>
 
 Modals bring desired content to the foreground and de-emphasize the rest of the page.
 
 ```html_example
 <!-- Button trigger modal -->
-<button class="btn btn-default" data-toggle="modal" data-target="#myModal">
+<button class="btn-default" data-toggle="modal" data-target="#myModal">
   Launch modal
 </button>
 
@@ -33,8 +32,8 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
         Here is some interesting text in the modal body.
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-lowlight" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-highlight">Save changes</button>
+        <button type="button" class="btn-default-alt" data-dismiss="modal">Close</button>
+        <button type="button" class="btn-primary">Save changes</button>
       </div>
     </div>
   </div>

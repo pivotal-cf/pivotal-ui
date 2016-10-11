@@ -7,10 +7,10 @@
  - react_all
  ---
 
- <code class="pam">
- <i class="fa fa-download" alt="Install the Component"></i>
- npm install pui-react-alerts --save
- </code>
+<code class="pam">
+  <img src="/styleguide/download.svg" width="16" height="16"/>
+  npm install pui-react-alerts --save
+</code>
 
  Require the subcomponents:
 

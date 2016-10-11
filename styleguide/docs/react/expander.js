@@ -9,9 +9,8 @@ categories:
 
 
 <code class="pam">
-<i class="fa fa-download" alt="Install the Component">
+<img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-expander --save
-</i>
 </code>
 
 Require the subcomponent:
@@ -49,7 +48,7 @@ const MoreInfo = React.createClass({
               Content in expander
             </p>
         </ExpanderContent>
-        <button className='btn btn-highlight' onClick={this.toggleContent}>
+        <button className='btn-primary' onClick={this.toggleContent}>
           Toggle Content
         </button>
       </main>

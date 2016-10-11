@@ -2,6 +2,7 @@ const React = require('react');
 const types = React.PropTypes;
 const classnames = require('classnames');
 const move = require('./move_helper');
+const {Icon} = require('pui-react-iconography');
 import {mergeProps} from 'pui-react-helpers';
 require('pui-css-lists');
 
@@ -129,9 +130,8 @@ class DraggableListItem extends React.Component {
     return (
       <li {...props} aria-dropeffect="move">
         <div className={innerClassName}>
-          <div className="draggable-grip mhl" aria-grabbed={grabbed} role="button">
-            <i className="fa fa-ellipsis-v mrs"/>
-            <i className="fa fa-ellipsis-v"/>
+          <div className="draggable-grip mhs" aria-grabbed={grabbed} role="button">
+            <Icon src="grip"/>
             <span className="sr-only">Drag to reorder</span>
           </div>
           <span>{this.props.children}</span>

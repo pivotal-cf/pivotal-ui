@@ -5,6 +5,10 @@
   border: none;
   margin: 0;
 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   a.alert-link {
     color: inherit;
     text-decoration: underline;
@@ -19,10 +23,27 @@
   }
 }
 
-.alert-icon {
-  font-size: $font-size-h3 !important;
-  line-height: $headings-line-height;
-  opacity: 0.3;
+.alert {
+  .svgicon {
+    font-size: $font-size-h3 !important;
+    line-height: $headings-line-height;
+  }
+}
+
+.alert-success svg {
+  fill: $alert-success-text;
+}
+
+.alert-info svg {
+  fill: $alert-info-text;
+}
+
+.alert-warning svg {
+  fill: $alert-warning-text;
+}
+
+.alert-danger svg {
+  fill: $alert-danger-text;
 }
 
 .alert-success .alert-link:hover {

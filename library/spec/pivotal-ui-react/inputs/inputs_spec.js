@@ -27,6 +27,7 @@ describe('Input', function() {
 
   it('displays a checkmark when success prop is true', () => {
     expect('.has-success').toExist();
+    expect('.form-group svg').toHaveClass('icon-check');
   });
 
   it('merges classnames', function() {
@@ -57,7 +58,7 @@ describe('Input', function() {
 
   describe('search', () => {
     beforeEach(() => {
-      subject::setProps({search: true});
+      subject::setProps({success: false, search: true});
     });
 
     it('renders a form group with the search classes', function() {
@@ -65,7 +66,7 @@ describe('Input', function() {
 
       expect('.form-group input').toHaveClass('form-control');
 
-      expect('.form-group i').toHaveClass('search-icon');
+      expect('.form-group svg').toHaveClass('icon-search');
     });
   });
 
