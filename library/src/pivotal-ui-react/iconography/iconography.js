@@ -7,7 +7,7 @@ const types = React.PropTypes;
 
 class SvgIcon extends Svg {
   svgPathLoader(src) {
-    return require(`babel!svg-react!pui-css-iconography/svgs/${src}.svg`);
+    return require(`!!babel!svg-react!pui-css-iconography/svgs/${src}.svg`);
   }
 }
 

@@ -47,7 +47,7 @@ const PuiSvg = require('pui-react-svg').Svg;
 
 class MySvg extends PuiSvg {
  svgPathLoader(src) {
-   return require(`babel!svg-react!./path/to/svgs/${src}.svg`);
+   return require(`!!babel!svg-react!./path/to/svgs/${src}.svg`);
  }
 }
 ```

@@ -9,7 +9,6 @@ categories:
 
 ***This component is limited to projects that use Webpack.***
 ***It requires the webpack loaders babel-loader and svg-react-loader.***
-***If you are using pui-react-tools, this also requires version 2 or higher.***
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>

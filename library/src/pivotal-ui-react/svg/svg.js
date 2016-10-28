@@ -14,7 +14,7 @@ class Svg extends React.Component  {
 
   svgPathLoader(src) {
     try {
-      return require(`babel!svg-react!../../app/svg/${src}.svg`);
+      return require(`!!babel!svg-react!../../app/svg/${src}.svg`);
     } catch(e) {
     }
   }
