@@ -1,9 +1,9 @@
 {
-  "version": "7.0.1",
+  "version": "7.0.2",
   "description": "A React component for showing a colored pill of text",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-labels": "^7.0.1",
-    "pui-react-helpers": "^7.0.1"
+    "pui-css-labels": "^7.0.2",
+    "pui-react-helpers": "^7.0.2"
   }
 }

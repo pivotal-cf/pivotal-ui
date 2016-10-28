@@ -69,7 +69,7 @@ describe('componentsToUpdate', function() {
     it('outputs itself and all dependents', () => {
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/dropdowns/',
-        dependencies: []
+        dependencies: ['pui-react-iconography']
       }));
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/iconography/',
