@@ -7,10 +7,18 @@
  - react_all
  ---
 
- <code class="pam">
-  <img src="/styleguide/download.svg" width="16" height="16"/>
- npm install pui-react-copy-to-clipboard --save
- </code>
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-react-copy-to-clipboard --save
+</code>
+
+`CopyToClipboardButton` uses the [Iconography](/react_base_iconography.html) component.
+You will need to add an svg loader:
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
+</code>
 
  Require the subcomponents:
 

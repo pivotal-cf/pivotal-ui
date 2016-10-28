@@ -12,6 +12,16 @@
   npm install pui-react-alerts --save
 </code>
 
+
+Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`.
+If you use those props, you will need to add an svg loader:
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
+</code>
+
+
  Require the subcomponents:
 
 ```

@@ -10,7 +10,16 @@ parent: form_react
 npm install pui-react-inputs --save
 </code>
 
-Require the subcomponent:
+`Input` uses the [Iconography](/react_base_iconography.html) component for `search` and `success`.
+If you use those props, you will need to add an svg loader:
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
+</code>
+
+
+ Require the subcomponent:
 
 ```
 var Input = require('pui-react-inputs').Input;

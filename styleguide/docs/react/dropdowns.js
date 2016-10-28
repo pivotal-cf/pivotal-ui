@@ -10,7 +10,12 @@ categories:
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-dropdowns --save
+
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
 </code>
+
+(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 Require the subcomponents:
 
