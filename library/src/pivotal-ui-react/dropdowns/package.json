@@ -1,10 +1,10 @@
 {
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.1.2",
-    "pui-css-dropdowns": "^7.0.0",
-    "pui-react-mixins": "^7.0.0"
+    "pui-css-dropdowns": "^7.0.1",
+    "pui-react-mixins": "^7.0.1"
   }
 }

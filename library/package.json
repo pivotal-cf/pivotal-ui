@@ -2,7 +2,7 @@
   "name": "pivotal-ui",
   "private": true,
   "description": "***",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "main": "gulpfile.js",
   "optionalDependencies": {
     "accessibility-developer-tools": "pivotal-cf/accessibility-developer-tools#dist"
