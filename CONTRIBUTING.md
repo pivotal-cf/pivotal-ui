@@ -397,7 +397,7 @@ what you are trying to achieve and the best way to do that.
 We use CSSCritic for visual-diff regression testing. To test:
 
 #### Set a baseline to test against (before making any changes!!)
-1. Run `gulp css-critic`. This will open up Firefox and show all rendered test
+1. Run `./css_critic.sh` from the root of Pivotal UI. This will open up Firefox and show all rendered test
    files in a "yellow" state.
 1. Click "Accept All".
 
@@ -406,11 +406,11 @@ We use CSSCritic for visual-diff regression testing. To test:
 Test fixtures are automatically created every time you create a `html_example`
 or `html_example_table` in the styleguide documentation.
 
-If you create a new component, re-run `gulp css-critic` to load the component in
+If you create a new component, re-run `./css_critic.sh` to load the component in
 CssCritic, and set a baseline for it when you are happy with how it looks.
 
 #### Rerun the test suite for regressions (before you commit/make a pull request)
-1. Run `gulp css-critic`. This will open up Firefox.
+1. Run `./css_critic.sh`. This will open up Firefox.
 1. If there are no regressions, all components will be green.
 1. If you added any components, you'll have to click "Accept the rendered page"
    for that component.
