@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.1.2",
     "pui-css-dropdowns": "^7.0.1",
+    "pui-react-iconography": "^7.0.1",
     "pui-react-mixins": "^7.0.1"
   }
 }
