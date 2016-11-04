@@ -170,8 +170,7 @@ The prefered way to consume Pivotal UI is through NPM, even for Rails
 projects. Using NPM to install PUI will ensure proper dependency management on
 your project.
 
-1. `npm install --save pui-css-all jquery bootstrap`
-1. `cat node_modules/pui*/*.css > <path-to-your-asset-build-folder>/components.css`
+1. `curl http://styleguide.pivotal.io/components.css > <path-to-your-asset-build-folder>/components.css`
 1. Add the css and javascript files to your html template
 
    ```html
