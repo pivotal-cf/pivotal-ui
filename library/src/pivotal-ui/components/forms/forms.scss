@@ -49,17 +49,21 @@ label {
 }
 
 .form-group-left-icon {
-  .input-left-icon {
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translate(0, -50%);
-    font-size: $input-icon-size;
-    fill: $neutral-3;
-  }
-
   input {
     padding-left: 34px;
+  }
+}
+
+.input-left-icon {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: $input-icon-size;
+  fill: $neutral-3;
+
+  svg {
+    vertical-align: middle;
   }
 }
 
