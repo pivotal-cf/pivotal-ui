@@ -1,7 +1,7 @@
-<a name="7.0.2"></a>
-## 7.0.2 (2016-10-28)
+<a name="7.1.0"></a>
+# 7.1.0 (2016-11-08)
 
+### Features
 
-### Bug Fixes
+* **Input:** input accepts custom left icon ([24e61b7](https://github.com/pivotal-cf/pivotal-ui/commit/24e61b7))
 
-* **Dropdowns:** Add missing pui-react-iconography dependency to ([709cd4e](https://github.com/pivotal-cf/pivotal-ui/commit/709cd4e))
