@@ -66,6 +66,25 @@ Inputs have a magnifying glass when the `search` prop is true
  placeholder="Why does Pivotal UI..."
 />
 ```
+
+Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will override the `search` prop if both are provided.
+
+```react_example
+<Input
+leftIcon="add"
+label="Add something here"
+placeholder="Why does Pivotal UI..."
+/>
+```
+
+```react_example
+<Input
+leftIcon={<img src="/styleguide/add_circle.svg" width="20" height="20"/>}
+label="This has an custom icon"
+placeholder="Why does Pivotal UI..."
+/>
+```
+
 To demonstrate how to use an Input in a more complex example, let's say
 we want to filter a list based on the user's input. We can accomplish this
 by creating a stateful component which is composed of the Input and the

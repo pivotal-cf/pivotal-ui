@@ -48,14 +48,12 @@ label {
   position: relative;
 }
 
-.form-group-search {
-  .svgicon.search {
+.form-group-left-icon {
+  .input-left-icon {
     position: absolute;
     left: 8px;
     top: 50%;
     transform: translate(0, -50%);
-    height: $input-icon-size;
-    width: $input-icon-size;
     font-size: $input-icon-size;
     fill: $neutral-3;
   }

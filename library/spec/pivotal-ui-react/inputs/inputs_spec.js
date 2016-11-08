@@ -62,11 +62,49 @@ describe('Input', function() {
     });
 
     it('renders a form group with the search classes', function() {
-      expect('.form-group').toHaveClass('form-group-search');
+      expect('.form-group').toHaveClass('form-group-left-icon');
 
       expect('.form-group input').toHaveClass('form-control');
 
       expect('.form-group svg').toHaveClass('icon-search');
+    });
+  });
+
+  describe('leftIcon', () => {
+    beforeEach(() => {
+      subject::setProps({leftIcon: 'add', success: true, search: true});
+    });
+
+    it('renders a form group with custom icon', function() {
+      expect('.form-group').toHaveClass('form-group-left-icon');
+      expect('.form-group input').toHaveClass('form-control');
+      expect('.form-group svg:eq(0)').toHaveClass('icon-add');
+    });
+
+    it('overrides search option', () => {
+      expect('.form-group svg.icon-search').not.toExist();
+    });
+
+    it('can be used simultaneously with success', () => {
+      expect('.form-group svg:eq(1)').toHaveClass('icon-check');
+    });
+
+    describe('when leftIcon is a node', () => {
+      beforeEach(() => {
+        subject::setProps({leftIcon: <div className="custom" />, success: true, search: true});
+      });
+
+      it('renders the node', () => {
+        expect('.form-group .custom').toExist();
+      });
+
+      it('overrides search option', () => {
+        expect('.form-group svg.icon-search').not.toExist();
+      });
+
+      it('can be used simultaneously with success', () => {
+        expect('.form-group svg.icon-check').toExist();
+      });
     });
   });
 
