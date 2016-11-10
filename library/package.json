@@ -4,9 +4,6 @@
   "description": "***",
   "version": "7.1.0",
   "main": "gulpfile.js",
-  "optionalDependencies": {
-    "accessibility-developer-tools": "pivotal-cf/accessibility-developer-tools#dist"
-  },
   "devDependencies": {
     "a11y": "^0.3.3",
     "axios": "^0.5.4",

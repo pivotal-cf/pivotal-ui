@@ -328,22 +328,4 @@ describe('OverlayTrigger', function() {
     });
 
   });
-
-  describe('accessibility', function() {
-    it('passes ADT', function() {
-      const tooltip = (
-        <Tooltip className="tooltip-text" id="tooltip3">Hello World</Tooltip>
-      );
-      const launcher = (<span className="launcher">Hover For Tooltip</span>);
-
-      const overlays = (
-        <OverlayTrigger display={true} placement="top" overlay={tooltip} container={root}>
-          {launcher}
-        </OverlayTrigger>
-      );
-      ReactDOM.render(overlays, root);
-
-      expect(root).toPassADT();
-    });
-  });
 });
