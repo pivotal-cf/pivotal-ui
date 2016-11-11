@@ -34,7 +34,9 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     menuCaret: types.bool,
     title: types.node,
     toggle: types.node,
-    onClick: types.func
+    onClick: types.func,
+    onEntered: types.func,
+    onExited: types.func
   };
 
   static defaultProps = {
@@ -44,21 +46,32 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   };
 
   click = (event) => {
-    this.setState({isOpen: !this.state.isOpen});
+    this.setOpen(!this.state.isOpen);
     this.props.onClick && this.props.onClick(event);
   };
 
   scrimClick = () => {
-    this.setState({isOpen: false});
+    this.setOpen(false);
   };
 
   menuClick = () => {
     if (!this.props.closeOnMenuClick) return;
-    this.setState({isOpen: false});
+    this.setOpen(false);
+  };
+
+  setOpen = (isOpen) => {
+    const {onEntered, onExited} = this.props;
+
+    const transitionCallback = isOpen ? onEntered : onExited;
+    const transitioning = (isOpen !== this.state.isOpen);
+    if(transitioning) transitionCallback && transitionCallback();
+
+    this.setState({isOpen});
   };
 
   render() {
-    const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret, flat, link, pullRight, onClick, split, title, toggle, menuCaret, ...props} = this.props;
+    const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
+      flat, link, pullRight, onClick, onEntered, onExited, split, title, toggle, menuCaret, ...props} = this.props;
     const {isOpen} = this.state;
 
     let dropdownLabel, dropdownToggle, toggleNode;

@@ -45,6 +45,8 @@ This is the basic bootstrap dropdown:
  `flat`             | Boolean       | If true, dropdown toggle has no borders and is transparent
  `link`             | Boolean       | If true, color the dropdown toggle like a link
  `menuCaret`        | Boolean       | If true, render a caret in the menu pointing at the toggle
+ `onEntered`        | Function      | Callback that fires after opening the dropdown
+ `onExited`         | Function      | Callback that fires after closing the dropdown
  `pullRight`        | Boolean       | If true, right align the menu with the button
  `split`            | Boolean       | If true, separates the button text from the toggle
  `title`            | Node          | The button contents

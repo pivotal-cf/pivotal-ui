@@ -64,6 +64,22 @@ describe('Dropdowns', () => {
       });
     });
 
+    it('calls onEntered when opening', () => {
+      const onEnteredSpy = jasmine.createSpy('onEnter');
+      subject::setProps({onEntered: onEnteredSpy});
+      $('.dropdown-toggle').simulate('click');
+
+      expect(onEnteredSpy).toHaveBeenCalled();
+    });
+
+    it('calls onExited when opening', () => {
+      const onExitedSpy = jasmine.createSpy('onExit');
+      subject::setProps({onExited: onExitedSpy});
+      $('.dropdown-toggle').simulate('click');
+      $('.dropdown-toggle').simulate('click');
+      expect(onExitedSpy).toHaveBeenCalled();
+    });
+    
     describe('dropdown menu', () => {
       it('shows the children on click', () => {
         expect('.open .dropdown-menu').not.toExist();
