@@ -111,4 +111,11 @@ git push origin <your branch name>
 # Submit branch as PR: https://help.github.com/articles/using-pull-requests/
 ```
 
-Once your PR is submitted, we'll take care of publishing it to NPM.
+Once your PR is submitted, we'll take care of publishing it to NPM. You can begin using your changes immediately by
+vendoring the appropriate package with:
+
+- React components: `gulp vendor-package --type=react --component=alerts --dest=<your-project-folder>`
+- CSS components: `gulp vendor-package --type=css --component=typography --dest=<your-project-folder>`
+
+This creates a vendored version of your modified components (`pui-react-alerts` or `pui-css-typography`) in your
+project, and points your project's package json to these vendored versions.
