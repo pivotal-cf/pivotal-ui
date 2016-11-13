@@ -29,4 +29,15 @@ Note that you must handle the addition and removal of the `checked` property you
 <Toggle checked onChange={() => console.log('I should handle check changes!')}/>
 ```
 
+Toggle has a `size` attribute that takes three options; small, medium (default), and large.
+
+ ```react_example
+ <div>
+     <Toggle size='small'/>
+     <Toggle size='medium'/>
+     <Toggle/>
+     <Toggle size='large'/>
+ </div>
+ ```
+
 */
