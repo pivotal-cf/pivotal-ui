@@ -43,7 +43,7 @@ making any changes. See the section on **Testing** for more details.
 1. `gulp sandbox`
 1. Open a new session
 1. `touch library/sandbox/sandbox.js`
-1. Test your components in `library/sandbox/sandbox.js` with something like:
+1. Build test components in `library/sandbox/sandbox.js` with something like:
 
     ```
     import React from 'react'
@@ -55,6 +55,8 @@ making any changes. See the section on **Testing** for more details.
       </div>
     )
     ```
+    
+1. Navigate to http://localhost:8001/
 
 **Note**: After running `gulp sandbox`, copy any images used by the CSS into your 'sandbox/build' directory.
 
