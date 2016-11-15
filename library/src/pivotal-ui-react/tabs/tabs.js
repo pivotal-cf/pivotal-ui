@@ -111,7 +111,7 @@ class Tabs extends mixin(React.Component).with(Animation) {
     if(oldTransitionProgress < 1 && transitionProgress === 1) {
       const exitedKey = this.state.previousActiveKey;
       const enteredKey = this.state.activeKey;
-      triggerEnteredAndExitedCallbacks(childArray, {enteredKey, exitedKey})
+      triggerEnteredAndExitedCallbacks(childArray, {enteredKey, exitedKey});
     }
   };
 

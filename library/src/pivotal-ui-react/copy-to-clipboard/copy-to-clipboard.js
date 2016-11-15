@@ -57,7 +57,7 @@ class CopyToClipboardButton extends React.Component {
     if (!this.state.display) this.setState({display: true}, () => {
       this.setState({display: false});
     });
-    this.props.onClick(e)
+    this.props.onClick(e);
   };
 
   render() {

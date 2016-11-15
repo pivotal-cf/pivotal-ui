@@ -15,18 +15,18 @@ function childrenIndices(children) {
 }
 
 class DraggableList extends React.Component{
+  static propTypes = {
+    onDragEnd: types.func,
+    innerClassName: types.string
+  };
+
   constructor(props, context) {
     super(props, context);
     this.state = {
       itemIndices: childrenIndices(props.children),
       draggingId: null
-    }
+    };
   }
-
-  static propTypes = {
-    onDragEnd: types.func,
-    innerClassName: types.string
-  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.children) {
@@ -91,11 +91,6 @@ class DraggableList extends React.Component{
 }
 
 class DraggableListItem extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {hover: false};
-  }
-
   static propTypes = {
     draggingId: types.number,
     onMouseEnter: types.func,
@@ -106,6 +101,11 @@ class DraggableListItem extends React.Component {
     grabbed: types.bool,
     className: types.string
   };
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = {hover: false};
+  }
 
   onMouseEnter = () => {
     this.setState({hover: true});

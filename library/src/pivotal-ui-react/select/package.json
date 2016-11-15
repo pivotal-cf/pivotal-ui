@@ -1,0 +1,12 @@
+{
+  "version": "7.1.0",
+  "description": "A React dropdown component",
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "pui-css-select": "^7.1.0",
+    "pui-react-buttons": "^7.1.0",
+    "pui-react-helpers": "^7.1.0",
+    "pui-react-iconography": "^7.1.0",
+    "pui-react-mixins": "^7.1.0"
+  }
+}

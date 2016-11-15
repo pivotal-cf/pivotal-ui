@@ -30,7 +30,7 @@ function defList(tagName, spacingType, classNames, childClassNames) {
         null
       );
     }
-  }
+  };
 }
 
 var UnorderedList = defList(

@@ -30,7 +30,7 @@ class TabHeaders extends React.Component {
           <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName}
              onClick={onClick}>{title}</a>
         </li>
-      )
+      );
     });
 
     return (

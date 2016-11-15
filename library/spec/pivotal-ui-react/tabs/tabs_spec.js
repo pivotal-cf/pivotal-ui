@@ -10,7 +10,7 @@ describe('Tabs', function() {
     Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
     LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
     EventEmitter = require('node-event-emitter');
-    itPropagatesAttributes = require('../support/shared_examples')
+    itPropagatesAttributes = require('../support/shared_examples');
   });
 
   const triggerResize = function() {
@@ -38,8 +38,7 @@ describe('Tabs', function() {
                 tabType={tabType}
                 responsiveBreakpoint="xs"
                 smallScreenClassName="small-class"
-                largeScreenClassName="large-class">
-          </Tabs>,
+                largeScreenClassName="large-class"/>,
           root
         );
       });
@@ -107,7 +106,7 @@ describe('Tabs', function() {
       it('uses the supplied onSelect method when clicking on small-screen tabs', function() {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
-        $(`.tab-title a:eq(0)`).simulate('click');
+        $('.tab-title a:eq(0)').simulate('click');
         expect(onSelectSpy).toHaveBeenCalled();
       });
     });
@@ -410,7 +409,7 @@ describe('Tabs', function() {
           });
 
           it('calls onEntered and onExited when the animation is done', () => {
-            $(`.tab-title a:eq(1)`).simulate('click');
+            $('.tab-title a:eq(1)').simulate('click');
             expect(onEnterSpy).not.toHaveBeenCalled();
             expect(onExitSpy).not.toHaveBeenCalled();
             MockNow.tick(Tabs.ANIMATION_TIME);
@@ -425,7 +424,7 @@ describe('Tabs', function() {
             });
 
             it('calls onEntered and onExited immediately', () => {
-              $(`.tab-title a:eq(1)`).simulate('click');
+              $('.tab-title a:eq(1)').simulate('click');
               expect(onEnterSpy).toHaveBeenCalledWith(2);
               expect(onExitSpy).toHaveBeenCalledWith(1);
             });
@@ -565,8 +564,7 @@ describe('LeftTabs', function() {
                 responsiveBreakpoint="sm"
                 largeScreenClassName="lgclass"
                 smallScreenClassName="smclass"
-                onSelect={onSelect}>
-      </LeftTabs>
+                onSelect={onSelect}/>
     );
     expect(result.props.defaultActiveKey).toEqual(1);
     expect(result.props.responsiveBreakpoint).toEqual('sm');

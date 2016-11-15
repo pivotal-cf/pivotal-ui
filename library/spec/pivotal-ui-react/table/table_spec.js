@@ -256,11 +256,13 @@ describe('Table', function() {
 
   describe('with custom column cells', function() {
     beforeEach(function() {
+      const CustomCell = ({value, index, rowDatum}) => <td className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
+      CustomCell.propTypes = {value: React.PropTypes.any, index: React.PropTypes.number, rowDatum: React.PropTypes.object};
       const columns = [
         {
           attribute: 'title',
           displayName: 'Title',
-          CustomCell: ({value, index, rowDatum}) => <td className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>
+          CustomCell
         },
         {
           attribute: 'instances',
@@ -347,6 +349,12 @@ describe('Table', function() {
           <TableRow className={`row-${index}`}>{children}</TableRow>
         );
       };
+      CustomRow.propTypes = {index: React.PropTypes.number};
+
+      const CustomCell = ({value}) => (
+        <TableCell>Days since Sunday: {(new Date(value)).getDay()}</TableCell>
+      );
+      CustomCell.propTypes = {value: React.PropTypes.any};
 
       const columns = [
         {
@@ -358,9 +366,7 @@ describe('Table', function() {
           attribute: 'time',
           displayName: 'Time of Day',
           sortable: true,
-          CustomCell: ({value}) => (
-            <TableCell>Days since Sunday: {(new Date(value)).getDay()}</TableCell>
-          )
+          CustomCell
         }
       ];
 
@@ -412,7 +418,7 @@ describe('Table', function() {
       );
 
       expect('th').not.toHaveClass('sorted-asc');
-      expect('th').not.toHaveClass('sorted-desc')
+      expect('th').not.toHaveClass('sorted-desc');
     });
   });
 
@@ -538,7 +544,7 @@ describe('TableHeader', function() {
   }
 
   it('contains the given children', function() {
-    renderTableHeader({children: (<p id={'header-id'}></p>)});
+    renderTableHeader({children: (<p id={'header-id'}/>)});
     expect('th').toExist();
     expect('th > p#header-id').toExist();
   });
@@ -592,7 +598,7 @@ describe('TableHeader', function() {
 });
 
 describe('TableRow', function() {
-  function renderTableRow({children=(<td></td>), ...props}) {
+  function renderTableRow({children=(<td/>), ...props}) {
     return ReactDOM.render((
         <table>
           <tbody>
@@ -606,7 +612,7 @@ describe('TableRow', function() {
 
   }
   it('contains the given children', function() {
-    renderTableRow({children: (<td id={'cell-id'}></td>)});
+    renderTableRow({children: (<td id={'cell-id'}/>)});
     expect('tr').toExist();
     expect('tr > td#cell-id').toExist();
   });

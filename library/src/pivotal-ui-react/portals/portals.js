@@ -19,18 +19,23 @@ function reset() {
 }
 
 class PortalSource extends React.Component {
+  static propTypes = {
+    name: types.string.isRequired
+  };
+
   constructor(props, context) {
     super(props, context);
     this.state = {destination: null};
   }
 
-  static propTypes = {
-    name: types.string.isRequired
-  };
-
   componentWillMount() {
     emitter.on('destination', this.setDestination);
     this.componentDidUpdate();
+  }
+
+  componentDidUpdate() {
+    var {root} = this.state.destination || {};
+    if (root) ReactDOM.render(<div>{this.props.children}</div>, root);
   }
 
   componentWillUnmount() {
@@ -39,11 +44,6 @@ class PortalSource extends React.Component {
     if(root) {
       root.parentNode.removeChild(root);
     }
-  }
-
-  componentDidUpdate() {
-    var {root} = this.state.destination || {};
-    if (root) ReactDOM.render(<div>{this.props.children}</div>, root);
   }
 
   setDestination = () => {

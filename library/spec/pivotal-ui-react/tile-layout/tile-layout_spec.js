@@ -5,7 +5,7 @@ describe('TileLayout', () => {
   const {TileLayout, TileLayoutItem} = require('../../../src/pivotal-ui-react/tile-layout/tile-layout');
 
   it('creates tile-layout', () => {
-    ReactDOM.render(<TileLayout></TileLayout>, root);
+    ReactDOM.render(<TileLayout/>, root);
     expect('#root .tile-layout').toExist();
   });
   it('creates tile-items', () => {
@@ -28,13 +28,13 @@ describe('TileLayout', () => {
   });
   describe('columns', () => {
     it('supports setting number of columns', () => {
-      ReactDOM.render(<TileLayout columns={4}></TileLayout>, root);
+      ReactDOM.render(<TileLayout columns={4}/>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-layout-xs-4');
     });
 
     it('supports supports setting number of columns for different screen sizes', () => {
-      ReactDOM.render(<TileLayout columns={{sm: 4, md: 3, lg: 2, xl: 1}}></TileLayout>, root);
+      ReactDOM.render(<TileLayout columns={{sm: 4, md: 3, lg: 2, xl: 1}}/>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-layout-sm-4');
       expect('#root .tile-layout').toHaveClass('tile-layout-md-3');
@@ -45,13 +45,13 @@ describe('TileLayout', () => {
 
   describe('gutters', () => {
     it('supports no gutter', () => {
-      ReactDOM.render(<TileLayout noGutter></TileLayout>, root);
+      ReactDOM.render(<TileLayout noGutter/>, root);
 
       expect('#root .tile-layout').not.toHaveClass('tile-gutter');
     });
 
     it('supports gutter', () => {
-      ReactDOM.render(<TileLayout></TileLayout>, root);
+      ReactDOM.render(<TileLayout/>, root);
 
       expect('#root .tile-layout').toHaveClass('tile-gutter');
     });

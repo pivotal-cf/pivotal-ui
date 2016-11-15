@@ -7,11 +7,6 @@ const {Icon} = require('pui-react-iconography');
 require('pui-css-alerts');
 
 class Alert extends React.Component{
-  constructor(props, context) {
-    super(props, context);
-    this.state = {alertVisible: true};
-  }
-
   static propTypes = {
     alertIcon: types.string,
     bsStyle: types.string,
@@ -26,6 +21,17 @@ class Alert extends React.Component{
     closeLabel: 'Close alert',
     dismissable: false,
     withIcon: false
+  };
+
+  constructor(props, context) {
+    super(props, context);
+    this.state = {alertVisible: true};
+  }
+
+  handleAlertDismiss = () => {
+    var {onDismiss} = this.props;
+    if (onDismiss) onDismiss();
+    this.setState({alertVisible: false});
   };
 
   render() {
@@ -51,7 +57,7 @@ class Alert extends React.Component{
     }
 
     if (withIcon) {
-      const icon = <Icon src={alertIcon}></Icon>;
+      const icon = <Icon src={alertIcon}/>;
       children = <Media className={'mtn'} image={icon}>{children}</Media>;
     }
     return (
@@ -61,13 +67,6 @@ class Alert extends React.Component{
         {dismissable && <button type="button" className="close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon src="close"/></button>}
       </div>
     );
-
-  }
-
-  handleAlertDismiss = () => {
-    var {onDismiss} = this.props;
-    if (onDismiss) onDismiss();
-    this.setState({alertVisible: false});
   }
 }
 
@@ -89,7 +88,7 @@ function defAlert(props) {
         </Alert>
       );
     }
-  }
+  };
 }
 
 module.exports = {

@@ -216,8 +216,8 @@ describe('BaseModal', function() {
       let delay, onEnterSpy, onExitSpy;
       beforeEach(() => {
         delay = BaseModal.ANIMATION_TIME;
-        onEnterSpy = jasmine.createSpy('onEnter')
-        onExitSpy = jasmine.createSpy('onExit')
+        onEnterSpy = jasmine.createSpy('onEnter');
+        onExitSpy = jasmine.createSpy('onExit');
         subject = ReactDOM.render(
           <BaseModal show id="mr-modal" title="hey mr modal" animation={true} onExited={onExitSpy}
                      onEntered={onEnterSpy}/>,
@@ -282,5 +282,5 @@ describe('BaseModal', function() {
       root
     );
     expect('.modal-dialog').toHaveClass('some-class-name');
-  })
+  });
 });

@@ -28,7 +28,7 @@ class Toggle extends React.Component {
         <input {...props}/>
         <label htmlFor={toggleId}>{children}</label>
       </div>
-    )
+    );
   }
 }
 

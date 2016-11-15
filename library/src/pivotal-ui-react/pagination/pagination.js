@@ -13,7 +13,7 @@ class PaginationButton extends React.Component {
 
   click = (e) => {
     const {eventKey, onSelect} = this.props;
-    onSelect && onSelect(e, {eventKey})
+    onSelect && onSelect(e, {eventKey});
   };
 
   render() {
@@ -25,7 +25,7 @@ class PaginationButton extends React.Component {
           {content}
         </a>
       </li>
-    )
+    );
   }
 }
 
@@ -55,13 +55,12 @@ class Pagination extends React.Component {
           active={isActive}
           onSelect={onSelect}
           eventKey={index + 1}
-          {...props}>
-        </PaginationButton>
-      )
+          {...props}/>
+      );
     });
 
-    const prevButton = <PaginationButton onSelect={onSelect} eventKey='prev' content="&lsaquo;"></PaginationButton>
-    const nextButton = <PaginationButton onSelect={onSelect} eventKey='next' content="&rsaquo;"></PaginationButton>
+    const prevButton = <PaginationButton onSelect={onSelect} eventKey='prev' content="&lsaquo;"/>;
+    const nextButton = <PaginationButton onSelect={onSelect} eventKey='next' content="&rsaquo;"/>;
 
     return (
       <ul className='pagination'>
@@ -69,7 +68,7 @@ class Pagination extends React.Component {
         {paginationButtons}
         {next ? nextButton : null}
       </ul>
-    )
+    );
   }
 }
 

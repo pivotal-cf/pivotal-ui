@@ -3,6 +3,7 @@ import classnames from 'classnames';
 
 import mixin from 'pui-react-mixins';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
+import Transition from 'pui-react-mixins/mixins/transition_mixin';
 
 const {Icon} = require('pui-react-iconography');
 require('pui-css-dropdowns');
@@ -13,11 +14,11 @@ function defaultToggleNode(dropCaret) {
   if (dropCaret) return <Icon src="chevron_down"/>;
 }
 
-class Dropdown extends mixin(React.Component).with(Scrim) {
+class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      isOpen: false
+      open: false
     };
   }
 
@@ -46,33 +47,23 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
   };
 
   click = (event) => {
-    this.setOpen(!this.state.isOpen);
+    this.setState({open: !this.state.open});
     this.props.onClick && this.props.onClick(event);
   };
 
   scrimClick = () => {
-    this.setOpen(false);
+    this.setState({open: false});
   };
 
   menuClick = () => {
     if (!this.props.closeOnMenuClick) return;
-    this.setOpen(false);
-  };
-
-  setOpen = (isOpen) => {
-    const {onEntered, onExited} = this.props;
-
-    const transitionCallback = isOpen ? onEntered : onExited;
-    const transitioning = (isOpen !== this.state.isOpen);
-    if(transitioning) transitionCallback && transitionCallback();
-
-    this.setState({isOpen});
+    this.setState({open: false});
   };
 
   render() {
     const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
       flat, link, pullRight, onClick, onEntered, onExited, split, title, toggle, menuCaret, ...props} = this.props;
-    const {isOpen} = this.state;
+    const {open} = this.state;
 
     let dropdownLabel, dropdownToggle, toggleNode;
 
@@ -88,7 +79,7 @@ class Dropdown extends mixin(React.Component).with(Scrim) {
     );
 
     const dropdownClasses = classnames('dropdown', {
-      'dropdown-flat': flat, open: isOpen, split, 'dropdown-link': link
+      'dropdown-flat': flat, open, split, 'dropdown-link': link
     }, className);
     const dropdownMenuClasses = classnames('dropdown-menu',
       {

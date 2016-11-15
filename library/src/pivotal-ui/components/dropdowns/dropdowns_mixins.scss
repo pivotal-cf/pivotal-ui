@@ -1,0 +1,89 @@
+@import "../pui-variables";
+
+%dropdown {
+  background-color: $neutral-11;
+  border: 1px solid $gray-6;
+  border-bottom: 1px solid $gray-6;
+  border-radius: 2px;
+  display: inline-flex;
+  position: relative;
+
+  &.open, &:hover, &:focus, &:focus:hover {
+    border-color: $gray-3;
+  }
+}
+
+%dropdown-toggle {
+  background-color: transparent;
+  border: 0;
+  color: $gray-3;
+  font-weight: normal;
+
+  padding-left: $whitespace-l;
+  padding-right: $whitespace-l;
+
+  text-transform: none;
+  width: 100%;
+
+  justify-content: space-between;
+
+  .svgicon {
+    fill: $gray-6;
+  }
+
+  &:hover, &:focus, &:focus:hover {
+    background-color: transparent;
+
+    .svgicon {
+      fill: $gray-3;
+    }
+  }
+}
+
+%dropdown-menu {
+  box-shadow: none;
+  display: none;
+  left: -1px;
+  margin-top: -1px;
+
+  position: absolute;
+  right: -1px;
+  top: 100%;
+  z-index: $zindex-dropdown;
+
+  > ul {
+    background-color: $neutral-11;
+    border: 1px solid $gray-3;
+    border-radius: 0 0 2px 2px;
+    border-top: none;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+
+    > li > a {
+      color: $gray-2;
+      display: block;
+      padding: 2px $whitespace-l;
+      &:hover {
+        background-color: darken($neutral-11, 6%);
+      }
+    }
+  }
+}
+
+%dropdown-menu-open {
+  display: block;
+}
+
+%dropdown-toggle-open {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  &:hover {
+    border-bottom: none;
+  }
+
+  .svgicon {
+    fill: $gray-3;
+  }
+}

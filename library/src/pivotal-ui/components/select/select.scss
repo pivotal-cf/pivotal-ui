@@ -1,0 +1,40 @@
+@import "../dropdowns/dropdowns_mixins";
+
+.select {
+  @extend %dropdown;
+  flex-direction: column;
+
+  .select-toggle {
+    @extend %dropdown-toggle;
+  }
+
+  &.open {
+    .select-menu {
+      visibility: visible;
+      height: auto;
+    }
+
+    .select-toggle {
+      @extend %dropdown-toggle-open;
+    }
+  }
+}
+
+.select-menu {
+  @extend %dropdown-menu;
+
+  position: static;
+  display: block;
+  visibility: hidden;
+  height: 0;
+  margin-top: 0;
+
+  > ul {
+    border: none;
+  }
+
+  .option {
+    display: block;
+    padding-right: 18px + 2 * $whitespace-l;
+  }
+}

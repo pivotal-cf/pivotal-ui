@@ -162,7 +162,7 @@ describe('Alert Notifications', function() {
     });
 
     it('passes through id to the button', function() {
-      expect('.dropdown').toHaveAttr('id', 'test-id')
+      expect('.dropdown').toHaveAttr('id', 'test-id');
     });
   });
 

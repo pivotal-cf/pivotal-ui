@@ -32,5 +32,5 @@ module.exports = function(ParentClass) {
       if(super.componentWillUnmount) super.componentWillUnmount(...args);
       document.documentElement.removeEventListener('click', privates.get(this));
     }
-  }
+  };
 };

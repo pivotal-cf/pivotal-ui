@@ -434,6 +434,7 @@ describe('Autocomplete', () => {
     describe('when custom props are provided', () => {
       beforeEach(() => {
         const CustomInput = ({disabled, placeholder}) => (<input className="input-thing" {...{disabled, placeholder}}/>);
+        CustomInput.propTypes = {disabled: React.PropTypes.bool, placeholder: React.PropTypes.string};
         const CustomList = () => (<ul className="my-custom-list"/>);
 
         ReactDOM.unmountComponentAtNode(root);

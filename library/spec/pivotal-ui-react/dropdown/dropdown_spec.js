@@ -72,11 +72,10 @@ describe('Dropdowns', () => {
       expect(onEnteredSpy).toHaveBeenCalled();
     });
 
-    it('calls onExited when opening', () => {
+    it('calls onExited when closing', () => {
       const onExitedSpy = jasmine.createSpy('onExit');
       subject::setProps({onExited: onExitedSpy});
-      $('.dropdown-toggle').simulate('click');
-      $('.dropdown-toggle').simulate('click');
+      $('.dropdown-toggle').simulate('click').simulate('click');
       expect(onExitedSpy).toHaveBeenCalled();
     });
     
@@ -161,8 +160,8 @@ describe('Dropdowns', () => {
           subject::setProps({pullRight: true});
           $('.dropdown-toggle').simulate('click');
           expect('.dropdown-menu.dropdown-menu-right').toExist();
-        })
-      })
+        });
+      });
     });
 
     describe('when title is provided', () => {
@@ -256,7 +255,7 @@ describe('Dropdowns', () => {
 
       it('renders the link styled dropdown', () => {
         expect('.dropdown').toHaveClass('dropdown-flat');
-      })
+      });
     });
 
     describe('when dropCaret is false', () => {
@@ -277,6 +276,6 @@ describe('Dropdowns', () => {
       it('adds the dropdown-link class to make everything link colors', () => {
         expect('.dropdown').toHaveClass('dropdown-link');
       });
-    })
+    });
   });
 });

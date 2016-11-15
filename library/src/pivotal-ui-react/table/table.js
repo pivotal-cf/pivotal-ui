@@ -35,26 +35,35 @@ export class TableHeader extends React.Component {
 
 export const TableCell = ({rowDatum, index, ...props}) => <td {...props}/>;
 
+TableCell.propTypes = {
+  index: types.number,
+  rowDatum: types.any
+};
+
 export const TableRow = ({index, ...props}) => <tr {...props}/>;
 
+TableRow.propTypes = {
+  index: types.number
+};
+
 export class Table extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    const {columns, defaultSort} = props;
-
-    const sortCol = columns.find(({sortable, attribute}) => {
-      return defaultSort ? attribute === defaultSort : sortable;
-    }) || {};
-
-    this.state = {sortColumnAttribute: sortCol.attribute, sortAscending: true};
-  }
-
   static propTypes = {
     columns: types.array.isRequired,
     CustomRow: types.func,
     data: types.array.isRequired,
     defaultSort: types.string
   };
+
+  constructor(props, context) {
+    super(props, context);
+    const {columns, defaultSort} = props;
+
+    const sortCol = columns.find(({sortable, attribute}) => {
+        return defaultSort ? attribute === defaultSort : sortable;
+      }) || {};
+
+    this.state = {sortColumnAttribute: sortCol.attribute, sortAscending: true};
+  }
 
   setSortedColumn = (sortColumnAttribute, sortAscending) => {
     this.setState({sortColumnAttribute, sortAscending});

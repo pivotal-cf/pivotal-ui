@@ -26,14 +26,14 @@ class ExpanderTrigger extends React.Component {
 }
 
 class ExpanderContent extends React.Component {
+  static propTypes = {
+    expanded: React.PropTypes.bool
+  };
+
   constructor(props, context) {
     super(props, context);
     this.state = {expanded: this.props.expanded};
   }
-
-  static propTypes = {
-    expanded: React.PropTypes.bool
-  };
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.expanded !== this.props.expanded) {

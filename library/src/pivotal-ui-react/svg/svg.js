@@ -12,16 +12,16 @@ class Svg extends React.Component  {
     this.state = {Component: null};
   }
 
+  componentDidMount() {
+    const {src} = this.props;
+    this.setState({Component: this.svgPathLoader(src)});
+  }
+
   svgPathLoader(src) {
     try {
       return require(`!!babel!svg-react!../../app/svg/${src}.svg`);
     } catch(e) {
     }
-  }
-
-  componentDidMount() {
-    const {src} = this.props;
-    this.setState({Component: this.svgPathLoader(src)});
   }
 
   render() {

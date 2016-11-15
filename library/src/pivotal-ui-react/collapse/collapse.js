@@ -28,7 +28,7 @@ class BaseCollapse extends React.Component {
   renderHeader() {
     const {header} = this.props;
     const {expanded} = this.state;
-    return <a href="#" aria-expanded={expanded} aria-selected={expanded}>{header}</a>
+    return <a href="#" aria-expanded={expanded} aria-selected={expanded}>{header}</a>;
 
   }
 

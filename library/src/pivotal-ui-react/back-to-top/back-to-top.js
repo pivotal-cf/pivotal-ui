@@ -51,7 +51,7 @@ class BackToTop extends mixin(React.Component).with(Animation) {
 
     return (
       <a {...props} onClick={this.scrollToTop} href="#top" aria-label="Back to top"><Icon style={{strokeWidth: 100}} src="arrow_upward"/></a>
-    )
+    );
   }
 }
 

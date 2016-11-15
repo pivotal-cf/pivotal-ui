@@ -42,7 +42,7 @@ class AlertNotifications extends React.Component {
 
   render() {
     var {size, children, ...others} = this.props;
-    var badge = children && <Icon src="warning" className="dropdown-notifications-alert"></Icon>;
+    var badge = children && <Icon src="warning" className="dropdown-notifications-alert"/>;
     var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
     var dropdownTitle = (
       <div className={dropdownTitleClasses}>

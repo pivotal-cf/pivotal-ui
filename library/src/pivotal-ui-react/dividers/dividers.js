@@ -37,7 +37,7 @@ function defDivider(props) {
     render() {
       return <Divider {...props} {...this.props} />;
     }
-  }
+  };
 }
 
 module.exports = {

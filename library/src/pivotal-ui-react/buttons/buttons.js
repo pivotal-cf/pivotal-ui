@@ -57,7 +57,7 @@ function defButton(propOverrides) {
     render() {
       return <UIButton {...this.props} {...propOverrides}/>;
     }
-  }
+  };
 }
 
 module.exports = {

@@ -4,11 +4,12 @@ const Tab = global.Tab || require('pui-react-tabs').Tab;
 
 const types = React.PropTypes;
 
-const StyleguideNav = React.createClass({
-  propTypes: {
+class StyleguideNav extends React.Component {
+  static propTypes = {
     defaultLanguage: types.string.isRequired,
     navTree: types.object.isRequired
-  },
+  };
+
   render() {
     const {navTree, defaultLanguage} = this.props;
 
@@ -30,7 +31,7 @@ const StyleguideNav = React.createClass({
         <Tab eventKey={language.toLowerCase()} key={`nav-tab-${language}`} title={language} className="pvl phn">
           {links}
         </Tab>
-      )
+      );
     });
 
     return (
@@ -39,6 +40,6 @@ const StyleguideNav = React.createClass({
       </Tabs>
     );
   }
-});
+};
 
 module.exports = StyleguideNav;

@@ -14,6 +14,8 @@ $(function() {
   $('[data-code-to-copy]').each(function() {
     var $el = $(this);
     var copyText = $el.find('pre').text();
+    /* eslint-disable react/jsx-no-undef */
     ReactDOM.render(<CopyToClipboardButton {...{text: copyText}}/>, $el.parent().find('.btn-copy')[0]);
+    /* eslint-enable react/jsx-no-undef */
   });
 });

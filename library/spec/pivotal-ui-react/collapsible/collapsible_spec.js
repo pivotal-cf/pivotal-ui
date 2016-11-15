@@ -12,7 +12,7 @@ describe('Collapsible', () => {
     class Klass extends React.Component {
       constructor(props, context) {
         super(props, context);
-        this.state = {expanded: false}
+        this.state = {expanded: false};
       }
 
       toggle = () => {
@@ -27,7 +27,7 @@ describe('Collapsible', () => {
               <div style={{height}} className="maybe">cat</div>
             </Collapsible>
           </div>
-        )
+        );
       }
     }
 

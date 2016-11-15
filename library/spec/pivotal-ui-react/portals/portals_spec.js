@@ -14,7 +14,7 @@ describe('Portals', function() {
         var {cake} = this.state;
         return (<div className="potato">{cake ? 'cake is a lie' : 'Potato'}</div>);
       }
-    }
+    };
   });
 
   afterEach(function() {

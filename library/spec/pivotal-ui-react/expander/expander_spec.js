@@ -95,8 +95,8 @@ describe('ExpanderContent', function() {
     it('toggles open/closed', function() {
       renderComponent.call(this, {expanded: false});
       expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
-    })
-  })
+    });
+  });
 });
 
 describe('ExpanderTrigger', function() {

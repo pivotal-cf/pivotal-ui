@@ -2,7 +2,7 @@ import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import React from 'react';
 import mixin from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
-import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect'
+import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect';
 require('pui-css-collapse');
 
 const types = React.PropTypes;
@@ -71,7 +71,7 @@ class Collapsible extends mixin(React.Component).with(Animation) {
           {children}
         </div>
       </div>
-    )
+    );
   }
 }
 

@@ -93,7 +93,7 @@ describe('OverlayTrigger', function() {
       it('calls onExited upon tooltip display', () => {
         subject::setProps({display: true});
         subject::setProps({display: false});
-        expect(onExitedSpy).toHaveBeenCalled()
+        expect(onExitedSpy).toHaveBeenCalled();
       });
 
       it('does not call the callbacks when not changing', () => {

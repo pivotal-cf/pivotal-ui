@@ -29,7 +29,7 @@ describe('Grid', function() {
   });
 
   it('uses row componentClass', () => {
-    const CustomFunctionalClass = (props) => <a {...props}/>
+    const CustomFunctionalClass = (props) => <a {...props}/>;
     class CustomNormalClass extends React.Component {
       render() {
         return (<article {...this.props}/>);
@@ -62,7 +62,7 @@ describe('Grid', function() {
   });
 
   it('uses col componentClass', () => {
-    const CustomFunctionalClass = (props) => <a {...props}/>
+    const CustomFunctionalClass = (props) => <a {...props}/>;
     class CustomNormalClass extends React.Component {
       render() {
         return (<article {...this.props}/>);

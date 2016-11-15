@@ -50,7 +50,7 @@ class TileLayout extends React.Component {
 class TileLayoutItem extends React.Component {
   render() {
     return (
-      <div {...mergeProps({className: 'tile-item'}, this.props)}></div>
+      <div {...mergeProps({className: 'tile-item'}, this.props)}/>
     );
   }
 }

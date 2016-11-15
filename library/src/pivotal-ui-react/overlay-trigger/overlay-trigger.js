@@ -22,7 +22,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     privates.set(this, {});
     this.state = {
       display: props.display
-    }
+    };
   }
 
   static propTypes = {
@@ -68,7 +68,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       this.show();
       const userCallback = this.props.children.props[eventType];
       userCallback && userCallback(...args);
-    }
+    };
   };
 
   triggerHide = (eventType) => {
@@ -76,7 +76,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       this.hide();
       const userCallback = this.props.children.props[eventType];
       userCallback && userCallback(...args);
-    }
+    };
   };
 
   getDelay = (display) => {
@@ -107,7 +107,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     if(delay) {
       timeout = setTimeout(() => {
         privates.set(this, {timeout: null});
-        this.setState({display})
+        this.setState({display});
       }, delay);
     } else {
       this.setState({display});
@@ -127,7 +127,7 @@ class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   hide = () => {
-    this.setDisplay(false)
+    this.setDisplay(false);
   };
 
   render() {

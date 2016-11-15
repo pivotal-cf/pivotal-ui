@@ -10,7 +10,7 @@ const paddingTypes = [];
     ['n', 's', 'm', 'l', 'xl', 'xxl', 'xxxl', 'xxxxl'].forEach(size => {
       paddingTypes.push(`${type}${location}${size}`);
     });
-  })
+  });
 });
 
 class PanelTitle extends React.Component {
