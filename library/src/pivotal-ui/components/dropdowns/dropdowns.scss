@@ -2,6 +2,7 @@
 
 .dropdown {
   @extend %dropdown;
+  display: inline-flex;
 
   .dropdown-toggle {
     @extend %dropdown-toggle;

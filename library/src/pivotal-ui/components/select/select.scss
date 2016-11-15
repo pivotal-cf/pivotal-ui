@@ -2,16 +2,26 @@
 
 .select {
   @extend %dropdown;
-  flex-direction: column;
+  display: inline-block;
 
   .select-toggle {
     @extend %dropdown-toggle;
+
+    & + ul {
+      height: 0;
+      overflow: hidden;
+      list-style-type: none;
+      padding: 0 18px + 2 + 3 * $whitespace-l 0 0;
+      margin: 0;
+      li {
+        visibility: hidden;
+      }
+    }
   }
 
   &.open {
     .select-menu {
-      visibility: visible;
-      height: auto;
+      @extend %dropdown-menu-open;
     }
 
     .select-toggle {
@@ -23,18 +33,11 @@
 .select-menu {
   @extend %dropdown-menu;
 
-  position: static;
-  display: block;
-  visibility: hidden;
-  height: 0;
-  margin-top: 0;
-
-  > ul {
-    border: none;
-  }
-
   .option {
     display: block;
-    padding-right: 18px + 2 * $whitespace-l;
+  }
+
+  .selected {
+    font-weight: $font-weight-em-high;
   }
 }

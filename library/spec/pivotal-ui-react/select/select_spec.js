@@ -28,6 +28,13 @@ describe('Selects', () => {
       expect('input[type=hidden]').toHaveAttr('name', name);
     });
 
+    it('renders a hidden list with all the options so that select is as wide as the largest option', () => {
+      expect('.select-toggle + ul').toExist();
+      expect($('.select-toggle + ul li').map(function() { return $(this).text(); }).toArray()).toEqual([
+        defaultValue, 'one', 'two'
+      ]);
+    });
+
     it('passes through className to the select', () => {
       expect('.select').toHaveClass(className);
     });
@@ -80,7 +87,7 @@ describe('Selects', () => {
       });
 
       it('sets the value of the select and the label of the toggle', () => {
-        expect('.select-toggle').toHaveText('the default');
+        expect('.select-toggle-label').toHaveText('the default');
         expect('input[type=hidden]').toHaveValue(defaultValue);
       });
 
@@ -98,7 +105,7 @@ describe('Selects', () => {
       });
 
       it('sets the value of the select and the label of the toggle', () => {
-        expect('.select-toggle').toHaveText('Please select an item');
+        expect('.select-toggle-label').toHaveText('Please select an item');
         expect('input[type=hidden]').toHaveValue('');
       });
 
@@ -117,7 +124,7 @@ describe('Selects', () => {
       });
 
       it('show the value', () => {
-        expect('.select-toggle').toHaveText(value);
+        expect('.select-toggle-label').toHaveText(value);
       });
 
       describe('when the value changes', () => {
@@ -128,7 +135,7 @@ describe('Selects', () => {
         });
 
         it('shows the new value', () => {
-          expect('.select-toggle').toHaveText(value);
+          expect('.select-toggle-label').toHaveText(value);
         });
       });
 
@@ -148,7 +155,7 @@ describe('Selects', () => {
           });
 
           it('updates the selected value', () => {
-            expect('.select-toggle').toHaveText('one');
+            expect('.select-toggle-label').toHaveText('one');
             expect('input[type=hidden]').toHaveValue('one');
           });
 
@@ -162,6 +169,10 @@ describe('Selects', () => {
     describe('when clicking on the select toggle', () => {
       beforeEach(() => {
         $('.select-toggle').simulate('click');
+      });
+
+      it('display the selected option', () => {
+        expect('.select-menu .selected').toHaveText(defaultValue);
       });
 
       it('adds the open class to the select', () => {
@@ -194,7 +205,7 @@ describe('Selects', () => {
         });
 
         it('updates the selected value', () => {
-          expect('.select-toggle').toHaveText('one');
+          expect('.select-toggle-label').toHaveText('one');
           expect('input[type=hidden]').toHaveValue('one');
         });
 

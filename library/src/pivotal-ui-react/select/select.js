@@ -5,6 +5,7 @@ const {Icon} = require('pui-react-iconography');
 const mixin = require('pui-react-mixins');
 const Scrim = require('pui-react-mixins/mixins/scrim_mixin');
 const Transition = require('pui-react-mixins/mixins/transition_mixin');
+const classnames = require('classnames');
 
 require('pui-css-select');
 
@@ -49,10 +50,13 @@ class Select extends mixin(React.Component).with(Scrim, Transition) {
 
     const {toggleLabel, selectOptions} = options.reduce((memo, option) => {
       const {value, label} = typeof option === 'object' ? option: {value: option, label: option};
-      if(value === toggleValue) memo.toggleLabel = label;
-      memo.selectOptions.push(<li key={value}><a className="option" role="button" onClick={this.select(value)}>{label}</a></li>);
+      const selected = value === toggleValue;
+      if (selected) memo.toggleLabel = label;
+      const className = classnames({selected: value === toggleValue});
+      memo.selectOptions.push(<li {...{className, key: value}}><a className="option" role="button" onClick={this.select(value)}>{label}</a></li>);
       return memo;
     }, {toggleLabel: toggleValue, selectOptions: []});
+    const list = <ul>{selectOptions}</ul>;
 
     return (
       <div {...props}>
@@ -61,7 +65,8 @@ class Select extends mixin(React.Component).with(Scrim, Transition) {
           <span className="select-toggle-label">{toggleLabel}</span>
           <Icon src="select_chevrons"/>
         </DefaultButton>
-        <div className="select-menu"><ul>{selectOptions}</ul></div>
+        {list}
+        <div className="select-menu">{list}</div>
       </div>
     );
   };
