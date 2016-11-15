@@ -27,6 +27,7 @@ class Select extends mixin(React.Component).with(Scrim, Transition) {
   static propTypes = {
     defaultValue: types.any,
     name: types.string,
+    onChange: types.func,
     onEntered: types.func,
     onExited: types.func,
     options: types.array.isRequired,

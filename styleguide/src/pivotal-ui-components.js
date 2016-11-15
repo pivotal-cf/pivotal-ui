@@ -40,6 +40,7 @@ assignToGlobal([
   require('pui-react-radio'),
   require('pui-react-ribbons'),
   require('pui-react-table'),
+  require('pui-react-select'),
   require('pui-react-stream-list'),
   require('pui-react-svg'),
   require('pui-react-tabs'),
