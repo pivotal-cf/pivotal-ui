@@ -13,8 +13,7 @@ gulp.task('vendor-package', ['css-build', 'react-build'], (callback) => {
 
     exec(`npm install --save ${path.join('pui-vendor', componentType, componentName)}`, (error) => {
       if (error) {
-        const error = new gutil.PluginError('vendor-package', {message: error});
-        gutil.log(error);
+        return callback(error);
       }
       process.chdir(originalDirectory);
       callback();
