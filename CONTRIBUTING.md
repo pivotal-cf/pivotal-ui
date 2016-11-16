@@ -12,7 +12,6 @@ components, or create new ones. Feel free to [email us](mailto:pivotal-ui@pivota
     1. ruby 2.1.2 (e.g. `rbenv install 2.1.2`)
     1. bundler (`gem install bundler`)
     1. node 4+ ([install instructions](https://nodejs.org/en/))
-    1. gulp (`npm install gulp -g`)
 
 ## Build the projects
 
@@ -23,7 +22,6 @@ Pivotal UI is split into two projects:
     ```
     cd library
     npm install
-    gulp build
     ```
 - Styleguide: documentation and tools for building [styleguide.cfapps.io](http://styleguide.cfapps.io/). Styleguide
 depends on library
@@ -40,7 +38,7 @@ making any changes. See the section on **Testing** for more details.
 ### Library
 
 1. `cd library`
-1. `gulp sandbox`
+1. `./node_modules/.bin/gulp sandbox`
 1. Open a new session
 1. `touch library/sandbox/sandbox.js`
 1. Build test components in `library/sandbox/sandbox.js` with something like:
@@ -58,27 +56,27 @@ making any changes. See the section on **Testing** for more details.
     
 1. Navigate to http://localhost:8001/
 
-**Note**: After running `gulp sandbox`, copy any images used by the CSS into your 'sandbox/build' directory.
+**Note**: After running `./node_modules/.bin/gulp sandbox`, copy any images used by the CSS into your 'sandbox/build' directory.
 
 ### Styleguide
 
 1. `./update_styleguide.sh`
 1. `cd styleguide`
-1. `gulp dev`
+1. `./node_modules/.bin/gulp dev`
 1. Navigate to [http://localhost:8000](http://localhost:8000)
 
 **Note**: If you update components, you must rebuild them in the library (`update_styleguide.sh`)
 and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not
 be good enough to get the new changes.
 
-**Note**: If you add any new image or font assets to any CSS packages, you will need to rerun `gulp dev` to see those
+**Note**: If you add any new image or font assets to any CSS packages, you will need to rerun `./node_modules/.bin/gulp dev` to see those
 additions.
 
 ## Testing
 
 1. `cd library`
-1. Run tests in terminal: `gulp ci`
-1. Run tests in browser: `gulp jasmine-react` and navigate to [http://localhost:8888](http://localhost:8888)
+1. Run tests in terminal: `./node_modules/.bin/gulp ci`
+1. Run tests in browser: `./node_modules/.bin/gulp jasmine-react` and navigate to [http://localhost:8888](http://localhost:8888)
 
 #### Visual-diff regression testing
 
@@ -116,8 +114,8 @@ git push origin <your branch name>
 Once your PR is submitted, we'll take care of publishing it to NPM. You can begin using your changes immediately by
 vendoring the appropriate package with:
 
-- CSS components: `gulp vendor-package --type=css --component=typography --dest=<your-project-folder>`
-- React components: `gulp vendor-package --type=react --component=alerts --dest=<your-project-folder>`
+- CSS components: `./node_modules/.bin/gulp vendor-package --type=css --component=typography --dest=<your-project-folder>`
+- React components: `./node_modules/.bin/gulp vendor-package --type=react --component=alerts --dest=<your-project-folder>`
 
 This creates a vendored version of your modified components (`pui-react-alerts` or `pui-css-typography`) in your
 project, and points your project's package json to these vendored versions.

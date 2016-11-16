@@ -5,6 +5,6 @@ set -ex
 source ./update_styleguide.sh
 
 pushd styleguide
-  gulp
+  ./node_modules/.bin/gulp
 popd
 

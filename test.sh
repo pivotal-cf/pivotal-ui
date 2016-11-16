@@ -2,7 +2,10 @@
 
 set -ex
 
-cd library
-gulp ci
-cd ../styleguide
-gulp ci
+pushd library
+    ./node_modules/.bin/gulp ci
+popd
+
+pushd styleguide
+    ./node_modules/.bin/gulp ci
+popd

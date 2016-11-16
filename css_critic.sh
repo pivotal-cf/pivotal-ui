@@ -5,5 +5,5 @@ set -ex
 source ./update_styleguide.sh
 
 pushd styleguide
-  gulp css-critic
+  ./node_modules/.bin/gulp css-critic
 popd
