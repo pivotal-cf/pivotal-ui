@@ -37,8 +37,7 @@ class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     toggle: types.node,
     onClick: types.func,
     onEntered: types.func,
-    onExited: types.func,
-    scrimInterceptClick: types.bool
+    onExited: types.func
   };
 
   static defaultProps = {
@@ -63,7 +62,7 @@ class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
   render() {
     const {border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
-      flat, link, pullRight, onClick, onEntered, onExited, split, title, toggle, menuCaret, scrimInterceptClick, ...props} = this.props;
+      flat, link, pullRight, onClick, onEntered, onExited, split, title, toggle, menuCaret, ...props} = this.props;
     const {open} = this.state;
 
     let dropdownLabel, dropdownToggle, toggleNode;

@@ -6,7 +6,6 @@ const types = React.PropTypes;
 function rootClick(e) {
   if (this.props.disableScrim || ReactDOM.findDOMNode(this).contains(e.target)) return;
   this.scrimClick(e);
-  if (this.props.scrimInterceptClick) e.stopPropagation();
 }
 
 const privates = new WeakMap();
@@ -14,8 +13,7 @@ const privates = new WeakMap();
 module.exports = function(ParentClass) {
   return class Scrim extends ParentClass {
     static propTypes = {
-      disableScrim: types.bool,
-      scrimInterceptClick: types.bool
+      disableScrim: types.bool
     };
 
     constructor(props, context) {

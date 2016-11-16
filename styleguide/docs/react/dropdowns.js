@@ -35,23 +35,22 @@ This is the basic bootstrap dropdown:
 
  The `Dropdown` component accepts the following optional properties:
 
- Property                        |  Type            | Description
- ------------------------------- | ---------------- | --------------------------------------------------------------------------
- `border`                        | Boolean          | If true, adds a border between menu items
- `buttonClassName`               | String           | Classname to add to the button
- `closeOnMenuClick`              | Boolean          | If false, do not close the menu when clicking in the dropdown menu
- `disableScrim`                  | Boolean          | If true, do not close the menu when clicking outside the dropdown
- `dropCaret`                     | Boolean          | If false, do not render the caret in the dropdown toggle
- `flat`                          | Boolean          | If true, dropdown toggle has no borders and is transparent
- `link`                          | Boolean          | If true, color the dropdown toggle like a link
- `menuCaret`                     | Boolean          | If true, render a caret in the menu pointing at the toggle
- `onEntered`                     | Function         | Callback that fires after opening the dropdown
- `onExited`                      | Function         | Callback that fires after closing the dropdown
- `pullRight`                     | Boolean          | If true, right align the menu with the button
- `split`                         | Boolean          | If true, separates the button text from the toggle
- `title`                         | Node             | The button contents
- `toggle`                        | Node             | The toggle contents
- `scrimInterceptClick`           | Boolean          | Cancel any click outside the component while it is open
+ Property           |  Type         | Description
+ -------------      | --------------| --------------------------------------------------------------------------
+ `border`           | Boolean       | If true, adds a border between menu items
+ `buttonClassName`  | String        | Classname to add to the button
+ `closeOnMenuClick` | Boolean       | If false, do not close the menu when clicking in the dropdown menu
+ `disableScrim`     | Boolean       | If true, do not close the menu when clicking outside the dropdown
+ `dropCaret`        | Boolean       | If false, do not render the caret in the dropdown toggle
+ `flat`             | Boolean       | If true, dropdown toggle has no borders and is transparent
+ `link`             | Boolean       | If true, color the dropdown toggle like a link
+ `menuCaret`        | Boolean       | If true, render a caret in the menu pointing at the toggle
+ `onEntered`        | Function      | Callback that fires after opening the dropdown
+ `onExited`         | Function      | Callback that fires after closing the dropdown
+ `pullRight`        | Boolean       | If true, right align the menu with the button
+ `split`            | Boolean       | If true, separates the button text from the toggle
+ `title`            | Node          | The button contents
+ `toggle`           | Node          | The toggle contents
 
 
 

@@ -32,7 +32,6 @@ class Select extends mixin(React.Component).with(Scrim, Transition) {
     onEntered: types.func,
     onExited: types.func,
     options: types.array.isRequired,
-    scrimInterceptClick: types.bool,
     value: types.any
   };
 
@@ -46,7 +45,7 @@ class Select extends mixin(React.Component).with(Scrim, Transition) {
 
   render() {
     const {open, uncontrolledValue} = this.state;
-    const {value: controlledValue, defaultValue: __IGNORE2, onChange, name, options, onEntered, onExited, scrimInterceptClick, ...props} = mergeProps(this.props, {className: ['select', {open}]});
+    const {value: controlledValue, defaultValue: __IGNORE2, onChange, name, options, onEntered, onExited, ...props} = mergeProps(this.props, {className: ['select', {open}]});
     const toggleValue = isBlank(controlledValue) ? uncontrolledValue : controlledValue;
 
     const {toggleLabel, selectOptions} = options.reduce((memo, option) => {

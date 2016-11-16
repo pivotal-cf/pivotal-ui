@@ -1,13 +1,6 @@
 require('../spec_helper');
 
 describe('Dropdowns', () => {
-  function click(element) {
-    const event = document.createEvent('HTMLEvents');
-    event.initEvent('click', true, true);
-    element.dispatchEvent(event);
-    return event;
-  }
-
   describe('Dropdown', () => {
     let subject, Dropdown, DropdownItem;
 
@@ -114,7 +107,9 @@ describe('Dropdowns', () => {
         it('hides when clicking outside the dropdown', () => {
           $('.dropdown-toggle').simulate('click');
           expect('.open .dropdown-menu').toExist();
-          click(document.documentElement);
+          const evt = document.createEvent('HTMLEvents');
+          evt.initEvent('click', true, true );
+          document.documentElement.dispatchEvent(evt);
           expect('.open .dropdown-menu').not.toExist();
         });
 
@@ -131,7 +126,9 @@ describe('Dropdowns', () => {
 
             $('.dropdown-toggle').simulate('click');
             expect('.open .dropdown-menu').toExist();
-            click(document.documentElement);
+            const evt = document.createEvent('HTMLEvents');
+            evt.initEvent('click', true, true );
+            document.documentElement.dispatchEvent(evt);
             expect('.open .dropdown-menu').toExist();
           });
         });
@@ -278,20 +275,6 @@ describe('Dropdowns', () => {
 
       it('adds the dropdown-link class to make everything link colors', () => {
         expect('.dropdown').toHaveClass('dropdown-link');
-      });
-    });
-
-    describe('when scrimInterceptClick is true and clicking on the scrim', () => {
-      let stopPropagationSpy;
-      beforeEach(() => {
-        stopPropagationSpy = spyOn(Event.prototype, 'stopPropagation').and.callThrough();
-        subject::setProps({scrimInterceptClick: true});
-        $('.dropdown-toggle').simulate('click');
-        click(document.documentElement);
-      });
-
-      it('calls stop propagation', () => {
-        expect(stopPropagationSpy).toHaveBeenCalled();
       });
     });
   });
