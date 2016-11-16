@@ -1,6 +1,13 @@
 require('../spec_helper');
 
 describe('Selects', () => {
+  function click(element) {
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent('click', true, true);
+    element.dispatchEvent(event);
+    return event;
+  }
+
   describe('Select', () => {
     const className = 'select-me';
     const defaultValue = 'default here';
@@ -59,9 +66,7 @@ describe('Selects', () => {
     it('hides when clicking outside the select', () => {
       $('.select-toggle').simulate('click');
       expect('.open .select-menu').toExist();
-      const evt = document.createEvent('HTMLEvents');
-      evt.initEvent('click', true, true );
-      document.documentElement.dispatchEvent(evt);
+      click(document.documentElement);
       expect('.open .select-menu').not.toExist();
     });
 
@@ -212,6 +217,20 @@ describe('Selects', () => {
         it('closes the menu', () => {
           expect('.select').not.toHaveClass('open');
         });
+      });
+    });
+
+    describe('when scrimInterceptClick is true and clicking on the scrim', () => {
+      let stopPropagationSpy;
+      beforeEach(() => {
+        stopPropagationSpy = spyOn(Event.prototype, 'stopPropagation').and.callThrough();
+        subject::setProps({scrimInterceptClick: true});
+        $('.select-toggle').simulate('click');
+        click(document.documentElement);
+      });
+
+      it('calls stop propagation', () => {
+        expect(stopPropagationSpy).toHaveBeenCalled();
       });
     });
   });
