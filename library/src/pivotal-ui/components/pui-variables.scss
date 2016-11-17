@@ -504,9 +504,20 @@ $input-group-addon-bg:           $gray-lighter !default;
 $input-group-addon-border-color: $input-border !default;
 $cursor-disabled:                not-allowed !default;
 
-$toggle-bg-width:                22px;
-$toggle-bg-height:               12px;
-$toggle-diameter:                10px;
+$toggle-small-width: 26px;
+$toggle-small-height: 14px;
+$toggle-small-circle-size: 12px;
+$toggle-small-circle-spacing: 1px;
+
+$toggle-medium-width: 33px;
+$toggle-medium-height: 18px;
+$toggle-medium-circle-size: 14px;
+$toggle-medium-circle-spacing: 2px;
+
+$toggle-large-width: 43px;
+$toggle-large-height: 24px;
+$toggle-large-circle-size: 19px;
+$toggle-large-circle-spacing: 3px;
 
 // Dropdowns
 // -------------------------

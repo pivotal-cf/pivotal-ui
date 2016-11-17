@@ -70,4 +70,30 @@ describe('Toggle', () => {
       expect('.toggle-switch').toBeChecked();
     });
   });
+
+  describe('size attribute', function() {
+    beforeEach(function() {
+      ReactDOM.unmountComponentAtNode(root);
+    });
+
+    it('renders with size=medium by default', function() {
+      ReactDOM.render(<Toggle id='boggle' />, root);
+      expect($('label').attr('class')).toContain('medium');
+    });
+
+    it('uses size=small class on label', function() {
+      ReactDOM.render(<Toggle id='boggle' size='small' />, root);
+      expect($('label').attr('class')).toContain('small');
+    });
+
+    it('uses size=medium class on label', function() {
+      ReactDOM.render(<Toggle id='boggle' size='medium' />, root);
+      expect($('label').attr('class')).toContain('medium');
+    });
+
+    it('uses size=large class on label', function() {
+      ReactDOM.render(<Toggle id='boggle' size='large' />, root);
+      expect($('label').attr('class')).toContain('large');
+    });
+  });
 });

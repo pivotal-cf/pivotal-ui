@@ -7,14 +7,19 @@ const types = React.PropTypes;
 class Toggle extends React.Component {
   static propTypes = {
     id: types.string,
-    onChange: types.func
+    onChange: types.func,
+    size: React.PropTypes.oneOf(['small', 'medium', 'large'])
+  };
+
+  static defaultProps = {
+    size: 'medium'
   };
 
   render() {
-    const {onChange, children, id, ...others} = this.props;
+    const {onChange, children, id, size, ...others} = this.props;
     const toggleId = id || uniqueid('toggle');
 
-    const props = mergeProps(others,
+    const inputProps = mergeProps(others,
       {
         className: 'toggle-switch',
         id: toggleId,
@@ -25,8 +30,8 @@ class Toggle extends React.Component {
 
     return (
       <div className='form-group'>
-        <input {...props}/>
-        <label htmlFor={toggleId}>{children}</label>
+        <input {...inputProps}/>
+        <label htmlFor={toggleId} className={size}>{children}</label>
       </div>
     );
   }

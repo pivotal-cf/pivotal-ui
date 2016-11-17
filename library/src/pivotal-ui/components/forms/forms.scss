@@ -285,22 +285,59 @@ This form looks and behaves mostly like a content editable field
     cursor: pointer;
     outline: none;
     text-indent: -99999px;
-    width: $toggle-bg-width;
-    height: $toggle-bg-height;
-    border-radius: $toggle-bg-height;
+
+    &.small {
+      height: $toggle-small-height;
+      width: $toggle-small-width;
+      border-radius: $toggle-small-height;
+
+      &:after {
+        height: $toggle-small-circle-size;
+        width: $toggle-small-circle-size;
+
+        top: $toggle-small-circle-spacing;
+        left: $toggle-small-circle-spacing;
+        bottom: $toggle-small-circle-spacing;
+      }
+    }
+
+    &.medium {
+      height: $toggle-medium-height;
+      width: $toggle-medium-width;
+      border-radius: $toggle-medium-height;
+
+      &:after {
+        height: $toggle-medium-circle-size;
+        width: $toggle-medium-circle-size;
+
+        top: $toggle-medium-circle-spacing;
+        left: $toggle-medium-circle-spacing;
+        bottom: $toggle-medium-circle-spacing;
+      }
+    }
+
+    &.large {
+      height: $toggle-large-height;
+      width: $toggle-large-width;
+      border-radius: $toggle-large-height;
+
+      &:after {
+        height: $toggle-large-circle-size;
+        width: $toggle-large-circle-size;
+
+        top: $toggle-large-circle-spacing;
+        left: $toggle-large-circle-spacing;
+        bottom: $toggle-large-circle-spacing;
+      }
+    }
 
     &:after {
       position: absolute;
-      top: 1px;
-      left: 1px;
-      bottom: 1px;
       display: block;
       background-color: $neutral-11;
       transition: margin 0.4s, background 0.4s;
       content: "";
-      width: $toggle-diameter;
-      height: $toggle-diameter;
-      border-radius: $toggle-diameter / 2;
+      border-radius: 50%;
     }
   }
 
@@ -308,53 +345,19 @@ This form looks and behaves mostly like a content editable field
     background-color: $blue-2;
   }
 
+  &:checked + label.small:after {
+    margin-left: $toggle-small-circle-size;
+  }
+
+  &:checked + label.medium:after {
+    margin-left: $toggle-medium-circle-size;
+  }
+
+  &:checked + label.large:after {
+    margin-left: $toggle-large-circle-size;
+  }
+
   &[disabled] + label {
     @include opacity(.5);
   }
-
-  &:checked + label:after {
-    margin-left: $toggle-bg-width - $toggle-diameter - 2;
-  }
-
-  &.toggle-switch-lg {
-    + label {
-      width: 80px;
-      height: 40px;
-      border-radius: 40px;
-
-      &:after {
-        top: 5px;
-        left: 5px;
-        width: 30px;
-        height: 30px;
-        border-radius: 15px;
-      }
-    }
-
-    &:checked + label:after {
-      margin-left: 40px;
-    }
-  }
 }
-
-/*pending
----
-title: Focus Inputs
-name: form_focus_input
-categories:
-  - Forms
-  - All
----
-
-Add the focus-input directive to an element that should be focused if the focus-input expression changes such that it evalutes as true.
-
-```html_example
-<a ng-click="focus_input1=true; focus_input2=false;">Focus input 1</a>
-<br/>
-<a ng-click="focus_input2=true; focus_input1=false;">Focus input 2</a>
-<br/>
-<input focus-input="focus_input1"></input>
-<input focus-input="focus_input2"></input>
-```
-*/
-
