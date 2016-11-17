@@ -3,7 +3,7 @@
 set -ex
 
 pushd library
-  gulp build
+  ./node_modules/.bin/gulp build
 popd
 
 pushd styleguide
