@@ -7,11 +7,20 @@
   .select-toggle {
     @extend %dropdown-toggle;
 
+    .select-toggle-label {
+      float: left;
+    }
+
+    .svgicon {
+      float: right;
+      padding-top: $whitespace-m;
+    }
+
     & + ul {
       height: 0;
       overflow: hidden;
       list-style-type: none;
-      padding: 0 18px + 2 + 3 * $whitespace-l 0 0;
+      padding-right: 50px;
       margin: 0;
       li {
         visibility: hidden;

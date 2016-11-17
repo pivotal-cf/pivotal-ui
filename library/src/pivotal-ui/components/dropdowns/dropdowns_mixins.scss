@@ -17,6 +17,7 @@
   border: 0;
   color: $gray-3;
   font-weight: normal;
+  display: inline;
 
   padding-left: $whitespace-l;
   padding-right: $whitespace-l;
@@ -27,6 +28,7 @@
   justify-content: space-between;
 
   .svgicon {
+    vertical-align: middle;
     fill: $gray-6;
   }
 
