@@ -287,52 +287,52 @@ This form looks and behaves mostly like a content editable field
     text-indent: -99999px;
 
     &.small {
-      height: 14px;
-      width: 26px;
-      border-radius: 14px;
+      height: $toggle-small-height;
+      width: $toggle-small-width;
+      border-radius: $toggle-small-height;
 
       &:after {
-        height: 12px;
-        width: 12px;
+        height: $toggle-small-circle-size;
+        width: $toggle-small-circle-size;
 
-        top: 1px;
-        left: 1px;
+        top: $toggle-small-circle-spacing;
+        left: $toggle-small-circle-spacing;
+        bottom: $toggle-small-circle-spacing;
       }
     }
 
     &.medium {
-      height: 18px;
-      width: 33px;
-      border-radius: 18px;
+      height: $toggle-medium-height;
+      width: $toggle-medium-width;
+      border-radius: $toggle-medium-height;
 
       &:after {
-        height: 14px;
-        width: 14px;
+        height: $toggle-medium-circle-size;
+        width: $toggle-medium-circle-size;
 
-        top: 2px;
-        left: 2px;
+        top: $toggle-medium-circle-spacing;
+        left: $toggle-medium-circle-spacing;
+        bottom: $toggle-medium-circle-spacing;
       }
     }
 
     &.large {
-      height: 24px;
-      width: 43px;
-      border-radius: 24px;
+      height: $toggle-large-height;
+      width: $toggle-large-width;
+      border-radius: $toggle-large-height;
 
       &:after {
-        height: 18px;
-        width: 18px;
+        height: $toggle-large-circle-size;
+        width: $toggle-large-circle-size;
 
-        top: 3px;
-        left: 3px;
+        top: $toggle-large-circle-spacing;
+        left: $toggle-large-circle-spacing;
+        bottom: $toggle-large-circle-spacing;
       }
     }
 
     &:after {
       position: absolute;
-      top: 1px;
-      left: 1px;
-      bottom: 1px;
       display: block;
       background-color: $neutral-11;
       transition: margin 0.4s, background 0.4s;
@@ -346,15 +346,15 @@ This form looks and behaves mostly like a content editable field
   }
 
   &:checked + label.small:after {
-    margin-left: 12px;
+    margin-left: $toggle-small-circle-size;
   }
 
   &:checked + label.medium:after {
-    margin-left: 15px;
+    margin-left: $toggle-medium-circle-size;
   }
 
   &:checked + label.large:after {
-    margin-left: 19px;
+    margin-left: $toggle-large-circle-size;
   }
 
   &[disabled] + label {
