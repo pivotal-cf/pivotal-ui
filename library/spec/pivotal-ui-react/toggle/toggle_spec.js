@@ -95,10 +95,5 @@ describe('Toggle', () => {
       ReactDOM.render(<Toggle id='boggle' size='large' />, root);
       expect($('label').attr('class')).toContain('large');
     });
-
-    it('defaults to medium when size=some-random-string', function() {
-      ReactDOM.render(<Toggle id='boggle' size='some-random-string' />, root);
-      expect($('label').attr('class')).toContain('medium');
-    });
   });
 });
