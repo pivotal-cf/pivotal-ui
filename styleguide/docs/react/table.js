@@ -81,7 +81,7 @@ var data = [
      instances: '1',
      bar: 11,
      title: 'foo',
-     unsortable: '14',
+     unsortable: '14'
    },
    {
      instances: '3',
