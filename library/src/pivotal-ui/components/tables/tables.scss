@@ -13,11 +13,6 @@
   .td {
     padding: 20px $whitespace-l;
   }
-  .tbody {
-
-    .tr:nth-child(odd) {
-    }
-  }
 }
 
 .table-data {
@@ -138,6 +133,11 @@
       -moz-transition: background-color 300ms ease-out;
       transition: background-color 300ms ease-out;
     }
+  }
+
+  .svgicon {
+    position: absolute;
+    margin-top: -5px;
   }
 
   .icon-arrow_drop_up, .icon-arrow_drop_down {
