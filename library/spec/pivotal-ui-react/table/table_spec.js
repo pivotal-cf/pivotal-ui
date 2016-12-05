@@ -106,9 +106,9 @@ describe('Table', function() {
   });
 
   describe('with multiple columns', function() {
-    function renderSortableTable(data, props = {}) {
+    function renderSortableTable(columns, data, props = {}) {
       ReactDOM.render((
-          <Table columns={columns} data={data} {...props}/>
+          <Table {...{columns, data}} {...props}/>
         ),
         root
       );
@@ -163,7 +163,7 @@ describe('Table', function() {
           unsortable: '1'
         }
       ];
-      renderSortableTable(data);
+      renderSortableTable(columns, data);
     });
 
     afterEach(function() {
@@ -177,7 +177,7 @@ describe('Table', function() {
     });
 
     it('adds the additional classes, id and styles to the table', function() {
-      renderSortableTable(data, {className: ['table-light'], id: 'table-id', style: {opacity: '0.5'}});
+      renderSortableTable(columns, data, {className: ['table-light'], id: 'table-id', style: {opacity: '0.5'}});
       expect('table.table-sortable').toHaveClass('table');
       expect('table.table-sortable').toHaveClass('table-sortable');
       expect('table.table-sortable').toHaveClass('table-light');
@@ -250,6 +250,7 @@ describe('Table', function() {
 
       it('renders in same order that it was passed in when "unsorted"', () => {
         renderSortableTable(
+          columns,
           [
             {
               title: 'yee1',
@@ -337,19 +338,45 @@ describe('Table', function() {
 
     describe('when the rows change', function() {
       beforeEach(function() {
-        var newData = data.concat({
+        const newData = data.concat({
           title: 'new title',
           instances: '1.5',
           unsortable: '1',
           bar: '123'
         });
-        renderSortableTable(newData);
+        renderSortableTable(columns, newData);
       });
 
       it('shows the new rows in the correct sort order', function() {
         expect('tbody tr').toHaveLength(4);
         var instances = $('tbody tr > td:nth-of-type(2)').map(function() {return $(this).text(); }).toArray();
         expect(instances).toEqual(['1', '1.5', '2', '3']);
+      });
+    });
+
+    describe('when a column is added', () => {
+      beforeEach(() => {
+        renderSortableTable([...columns, {attribute: 'newField', displayName: 'new field', sortable: true}], data.map((d, i) => ({...d, newField: i})));
+      });
+
+      it('allows sorting on new columns', () => {
+        $('th:contains("Foo")').simulate('click');
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-desc');
+        $('th:contains("new field")').simulate('click');
+        expect('th:contains("new field")').toHaveClass('sorted-asc');
+      });
+    });
+
+    describe('when a column is removed', () => {
+      beforeEach(() => {
+        renderSortableTable(columns.filter(c => c.attribute != 'instances'), data);
+      });
+
+      it('allows sorting on new columns', () => {
+        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
+        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
+        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
       });
     });
   });

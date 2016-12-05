@@ -71,6 +71,15 @@ export class Table extends React.Component {
     this.state = {sortColumn, sortOrder: SORT_ORDER.asc};
   }
 
+  componentWillReceiveProps({columns, defaultSort}) {
+    if (columns) {
+      const sortColumn = columns.find(({sortable, attribute}) => {
+        return defaultSort ? attribute === defaultSort : sortable;
+      });
+      this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
+    }
+  }
+
   updateSort(sortColumn, isSortColumn) {
     if(isSortColumn) {
       return this.setState({sortOrder: ++this.state.sortOrder % Object.keys(SORT_ORDER).length});
