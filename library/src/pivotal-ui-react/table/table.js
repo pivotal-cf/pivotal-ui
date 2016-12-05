@@ -65,31 +65,26 @@ export class Table extends React.Component {
     super(props, context);
     const {columns, defaultSort} = props;
 
-    const sortCol = columns.find(({sortable, attribute}) => {
-        return defaultSort ? attribute === defaultSort : sortable;
-      }) || {};
-
-    this.state = {sortColumnAttribute: sortCol.attribute, sortOrder: SORT_ORDER.asc};
+    const sortColumn = columns.find(({sortable, attribute}) => {
+      return defaultSort ? attribute === defaultSort : sortable;
+    });
+    this.state = {sortColumn, sortOrder: SORT_ORDER.asc};
   }
 
-  updateSort = (attribute, isSortColumn) => {
+  updateSort(sortColumn, isSortColumn) {
     if(isSortColumn) {
       return this.setState({sortOrder: ++this.state.sortOrder % Object.keys(SORT_ORDER).length});
     }
 
-    this.setState({sortColumnAttribute: attribute, sortOrder: SORT_ORDER.asc});
-  };
+    this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
+  }
 
-  sortedRows() {
-    const {sortColumnAttribute, sortOrder} = this.state;
-    const {columns, data} = this.props;
-
+  sortedRows(data) {
+    const {sortColumn, sortOrder} = this.state;
     if (sortOrder === SORT_ORDER.none) return this.rows(data);
-
-    const column = columns.find(({attribute}) => sortColumnAttribute === attribute);
     const sortedData = sortBy(data, datum => {
-      const rankFunction = column.sortBy || (i => i);
-      return rankFunction(datum[sortColumnAttribute]);
+      const rankFunction = sortColumn.sortBy || (i => i);
+      return rankFunction(datum[sortColumn.attribute]);
     });
 
     if(sortOrder === SORT_ORDER.desc) sortedData.reverse();
@@ -112,10 +107,10 @@ export class Table extends React.Component {
   }
 
   renderHeaders() {
-    const {sortColumnAttribute, sortOrder} = this.state;
-
-    return this.props.columns.map(({attribute, sortable, displayName, headerProps = {}}, index) => {
-      const isSortColumn = (sortColumnAttribute === attribute);
+    const {sortColumn, sortOrder} = this.state;
+    return this.props.columns.map((column, index) => {
+      let {attribute, sortable, displayName, headerProps = {}} = column;
+      const isSortColumn = column === sortColumn;
       let className, icon;
       if (isSortColumn) {
         className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
@@ -128,7 +123,7 @@ export class Table extends React.Component {
         className,
         sortable,
         key: index,
-        onSortableTableHeaderClick: () => this.updateSort(attribute, isSortColumn)
+        onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
 
       return <TableHeader {...headerProps}>{displayName || attribute}{icon}</TableHeader>;
@@ -136,11 +131,11 @@ export class Table extends React.Component {
   }
 
   render() {
-    const {sortColumnAttribute} = this.state;
+    const {sortColumn} = this.state;
     let {columns, CustomRow, data, defaultSort, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
-    const rows = sortColumnAttribute ? this.sortedRows() : this.rows(data);
+    const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (
       <table {...props}>

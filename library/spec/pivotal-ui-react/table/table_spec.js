@@ -2,57 +2,110 @@ require('../spec_helper');
 import {Table, TableCell, TableHeader, TableRow} from '../../../src/pivotal-ui-react/table/table';
 
 describe('Table', function() {
-  let clickSpy;
-  describe('with multiple columns', function() {
-    clickSpy = jasmine.createSpy('click');
+  it('respects default sort', function() {
     const columns = [
       {
         attribute: 'title',
-        displayName: 'Title'
-      },
-      {
-        attribute: 'instances',
-        sortable: true,
-        headerProps: {
-          className: 'instance-header',
-          onClick: clickSpy,
-          id: 'instanceId'
-        }
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Foo',
+        displayName: 'Title',
         sortable: true
       },
       {
-        attribute: 'unsortable',
-        displayName: 'Unsortable',
-        sortable: false
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
+      },
+      {
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
       }
     ];
 
     const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    ReactDOM.render((
+        <Table columns={columns} data={data} defaultSort='theDefault'/>
+      ),
+      root
+    );
+
+    expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText(1);
+    expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
+    expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
+  });
+
+  it('retains the sorted column even when columns are removed', () => {
+    const columns = [
       {
-        instances: '1',
-        bar: 11,
-        title: 'foo',
-        unsortable: '14',
-        notUsed: true
+        attribute: 'title',
+        displayName: 'Title',
+        sortable: true
       },
       {
-        instances: '3',
-        bar: 7,
-        title: 'sup',
-        unsortable: '22'
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
       },
       {
-        title: 'yee',
-        instances: '2',
-        bar: 8,
-        unsortable: '1'
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
       }
     ];
 
+    const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    const subject = ReactDOM.render((
+        <Table columns={columns} data={data} defaultSort='theDefault'/>
+      ),
+      root
+    );
+
+    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
+
+    subject::setProps({columns: [columns[1], columns[2]]});
+    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
+  });
+
+  it('does not render the data as an attribute', () => {
+    const columns = [
+      {
+        attribute: 'title',
+        displayName: 'Title',
+        sortable: true
+      },
+      {
+        attribute: 'bar',
+        displayName: 'Bar',
+        sortable: true
+      },
+      {
+        attribute: 'theDefault',
+        displayName: 'DefaultSort',
+        sortable: true
+      }
+    ];
+
+    const data = [
+      { title: 'foo', bar: 'a', theDefault: 3},
+      { title: 'sup', bar: 'c', theDefault: 2},
+      { title: 'yee', bar: 'b', theDefault: 1}
+    ];
+
+    ReactDOM.render(<Table columns={columns} data={data}/>, root);
+
+    expect('table').not.toHaveAttr('data');
+  });
+
+  describe('with multiple columns', function() {
     function renderSortableTable(data, props = {}) {
       ReactDOM.render((
           <Table columns={columns} data={data} {...props}/>
@@ -60,8 +113,56 @@ describe('Table', function() {
         root
       );
     }
-
+    let data, columns, clickSpy;
     beforeEach(function() {
+      clickSpy = jasmine.createSpy('click');
+      columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title'
+        },
+        {
+          attribute: 'instances',
+          sortable: true,
+          headerProps: {
+            className: 'instance-header',
+            onClick: clickSpy,
+            id: 'instanceId'
+          }
+        },
+        {
+          attribute: 'bar',
+          displayName: 'Foo',
+          sortable: true
+        },
+        {
+          attribute: 'unsortable',
+          displayName: 'Unsortable',
+          sortable: false
+        }
+      ];
+
+      data = [
+        {
+          instances: '1',
+          bar: 11,
+          title: 'foo',
+          unsortable: '14',
+          notUsed: true
+        },
+        {
+          instances: '3',
+          bar: 7,
+          title: 'sup',
+          unsortable: '22'
+        },
+        {
+          title: 'yee',
+          instances: '2',
+          bar: 8,
+          unsortable: '1'
+        }
+      ];
       renderSortableTable(data);
     });
 
@@ -99,7 +200,6 @@ describe('Table', function() {
     it('passes header props into the headers', function() {
       expect('th:contains("instances")').toHaveClass('instance-header');
       expect('th:contains("instances")').toHaveAttr('id', 'instanceId');
-      clickSpy.calls.reset();
       $('th:contains("instances")').simulate('click');
       expect(clickSpy).toHaveBeenCalled();
     });
@@ -445,109 +545,6 @@ describe('Table', function() {
       expect('th').not.toHaveClass('sorted-desc');
     });
   });
-
-  it('respects default sort', function() {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
-
-    const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
-    ];
-
-    ReactDOM.render((
-        <Table columns={columns} data={data} defaultSort='theDefault'/>
-      ),
-      root
-    );
-
-    expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText(1);
-    expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
-    expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
-  });
-
-  it('retains the sorted column even when columns are removed', () => {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
-
-    const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
-    ];
-
-    const subject = ReactDOM.render((
-        <Table columns={columns} data={data} defaultSort='theDefault'/>
-      ),
-      root
-    );
-
-    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
-
-    subject::setProps({columns: [columns[1], columns[2]]});
-    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
-  });
-
-  it('does not render the data as an attribute', () => {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
-
-    const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
-    ];
-
-    ReactDOM.render(<Table columns={columns} data={data}/>, root);
-
-    expect('table').not.toHaveAttr('data');
-  });
 });
 
 describe('TableHeader', function() {
@@ -590,7 +587,7 @@ describe('TableHeader', function() {
     });
 
     describe('when there is an onSortableTableHeaderClick provided', function() {
-      var onSortableTableHeaderClickSpy;
+      let onSortableTableHeaderClickSpy;
       beforeEach(function() {
         onSortableTableHeaderClickSpy = jasmine.createSpy('onSortableTableHeaderClick');
         renderTableHeader({onSortableTableHeaderClick: onSortableTableHeaderClickSpy, ...props});
