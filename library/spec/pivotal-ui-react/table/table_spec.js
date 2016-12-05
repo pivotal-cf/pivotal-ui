@@ -570,6 +570,7 @@ describe('Table', function() {
 
       expect('th').not.toHaveClass('sorted-asc');
       expect('th').not.toHaveClass('sorted-desc');
+      expect('th').not.toHaveAttr('role', 'button');
     });
   });
 });

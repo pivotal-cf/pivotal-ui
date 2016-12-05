@@ -36,7 +36,12 @@ export class TableHeader extends React.Component {
     const {onSortableTableHeaderClick, sortable, ...others} = this.props;
     const props = mergeProps(others, {className: {'sortable': sortable}});
 
-    return <th {...props} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} tabIndex="0" role="button" disabled={ !sortable }/>;
+    const thProps = {...props, tabIndex: 0, disabled: !sortable};
+    if (sortable) {
+      return <th {...thProps} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
+    } else {
+      return <th {...thProps}/>;
+    }
   }
 }
 
@@ -81,7 +86,7 @@ export class Table extends React.Component {
   }
 
   updateSort(sortColumn, isSortColumn) {
-    if(isSortColumn) {
+    if (isSortColumn) {
       return this.setState({sortOrder: ++this.state.sortOrder % Object.keys(SORT_ORDER).length});
     }
 
@@ -96,7 +101,7 @@ export class Table extends React.Component {
       return rankFunction(datum[sortColumn.attribute]);
     });
 
-    if(sortOrder === SORT_ORDER.desc) sortedData.reverse();
+    if (sortOrder === SORT_ORDER.desc) sortedData.reverse();
 
     return this.rows(sortedData);
   }
@@ -123,12 +128,13 @@ export class Table extends React.Component {
       let className, icon;
       if (isSortColumn) {
         className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-        icon = [<Icon src="arrow_drop_up"/>,<Icon src="arrow_drop_down"/>,null][sortOrder];
+        icon = [<Icon src="arrow_drop_up"/>, <Icon src="arrow_drop_down"/>, null][sortOrder];
       }
 
       className = classnames(className, headerProps.className);
 
-      headerProps = {...headerProps,
+      headerProps = {
+        ...headerProps,
         className,
         sortable,
         key: index,
@@ -149,10 +155,10 @@ export class Table extends React.Component {
     return (
       <table {...props}>
         <thead>
-          <tr>{this.renderHeaders()}</tr>
+        <tr>{this.renderHeaders()}</tr>
         </thead>
         <tbody>
-          {rows}
+        {rows}
         </tbody>
       </table>
     );
