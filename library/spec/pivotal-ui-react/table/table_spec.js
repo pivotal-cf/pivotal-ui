@@ -104,53 +104,14 @@ describe('Table', function() {
       expect(clickSpy).toHaveBeenCalled();
     });
 
-    describe('clicking on the already asc-sorted column that has an existing onClick function', function() {
-      beforeEach(function() {
-        $('th:contains("instances")').simulate('click');
-      });
-
-      it('reverses the sort order', function() {
-        expect('th:contains("instances")').toHaveClass('sorted-desc');
-        expect('th:contains("instances") .svgicon .icon-arrow_drop_down').toExist();
-
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('3');
-        expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
-        expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('1');
-      });
-
-      describe('clicking on the already desc-sorted column', function() {
-        beforeEach(function() {
-          $('th:contains("instances")').simulate('click');
-        });
-
-        it('reverses the sort order', function() {
-          expect('th:contains("instances")').toHaveClass('sorted-asc');
-          expect('th:contains("instances") .svgicon .icon-arrow_drop_up').toExist();
-
-
-          expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-          expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-          expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
-
-          expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-          expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
-          expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
-        });
-      });
-    });
-
     describe('clicking on a sortable column', function() {
-      beforeEach(function() {
-        $('th:contains("Foo")').simulate('click');
-      });
-
       it('sorts table rows by that column', function() {
+        $('th:contains("Foo")').simulate('click');
+
         expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
         expect('th:contains("instances")').not.toHaveClass('sorted-asc');
+
 
         expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
         expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
@@ -159,6 +120,69 @@ describe('Table', function() {
         expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
         expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
         expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('11');
+      });
+
+      it('sorts first by ASC, then DESC, then no sort', () => {
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
+
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-desc');
+        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_down');
+
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
+        expect('th:contains("Foo")').not.toHaveClass('sorted-desc');
+        expect('th:contains("Foo") svg').not.toExist();
+      });
+
+      it('wraps sorting options when clicking many times', () => {
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
+        $('th:contains("Foo")').simulate('click');
+        $('th:contains("Foo")').simulate('click');
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
+      });
+
+      it('renders in same order that it was passed in when "unsorted"', () => {
+        renderSortableTable(
+          [
+            {
+              title: 'yee1',
+              instances: '2',
+              bar: 4,
+              unsortable: '1'
+            },
+            {
+              title: 'yee4',
+              instances: '2',
+              bar: 8,
+              unsortable: '1'
+            },
+            {
+              title: 'yee3',
+              instances: '2',
+              bar: 6,
+              unsortable: '1'
+            }
+          ]
+        );
+
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-asc');
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').toHaveClass('sorted-desc');
+        $('th:contains("Foo")').simulate('click');
+        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
+        expect('th:contains("Foo")').not.toHaveClass('sorted-desc');
+
+        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee1');
+        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee4');
+        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('yee3');
       });
     });
 
