@@ -21,6 +21,18 @@ var Panel = require('pui-react-panels').Panel;
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
 is the base, and there are many different flavors of Panels which all construct a particularly styled `Panel`.
 
+The `Panel` expects the following properties:
+
+Property        | Required? | Type              | Description
+----------------| ----------| ------------------| --------------------------------------------------------------------------
+`header`        | **no**    | Component         | Component to use for the header
+`footer`        | **no**    | Component         | Component to use for the footer
+`actions`       | **no**    | Component         | Component to represent the actions in the header
+`subtitle`      | **no**    | Component         | The name of the column to use for sorting before user input
+`innerClassName`| **no**    | String            | The className to be added on the panel body
+`padding`       | **no**    | String            | Padding to use on the panel body using OOCSS naming convention (e.g pam, pan, phl, ptl)
+`scrollable`    | **no**    | Boolean or Number | Use default scrolling height when boolean or a specified scrolling height
+
 A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
 
