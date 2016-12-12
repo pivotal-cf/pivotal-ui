@@ -1,12 +1,12 @@
-<a name="7.2.0"></a>
-# 7.2.0 (2016-11-18)
+<a name="7.3.0"></a>
+# 7.3.0 (2016-12-12)
 
 ### Bug Fixes
 
-* **Dropdowns:** Fix styling in Firefox
+* **Tables:** Fix column resize on sort change ([7546e1d](https://github.com/pivotal-cf/pivotal-ui/commit/7546e1d))
+* **Tables:** Remove role=button for unsortable headers ([7f1a2d6](https://github.com/pivotal-cf/pivotal-ui/commit/7f1a2d6))
 
 ### Features
 
-* **Dropdowns:** Add onEntered and onExited callbacks ([aa40a21](https://github.com/pivotal-cf/pivotal-ui/commit/aa40a21))
-* **Select:** Create Select component ([2f8ba4a](https://github.com/pivotal-cf/pivotal-ui/commit/2f8ba4a))
-* **Toggle:** add size attribute ([440884c](https://github.com/pivotal-cf/pivotal-ui/commit/440884c))
+* **Iconography:** Add new icons ([67f8178](https://github.com/pivotal-cf/pivotal-ui/commit/67f8178))
+* **Tables:** Support sort order none ([afba011](https://github.com/pivotal-cf/pivotal-ui/commit/afba011))

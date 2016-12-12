@@ -1,12 +1,12 @@
 {
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "React copy component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-copy-to-clipboard": "^7.2.0",
-    "pui-react-helpers": "^7.2.0",
-    "pui-react-iconography": "^7.2.0",
-    "pui-react-overlay-trigger": "^7.2.0",
-    "pui-react-tooltip": "^7.2.0"
+    "pui-css-copy-to-clipboard": "^7.3.0",
+    "pui-react-helpers": "^7.3.0",
+    "pui-react-iconography": "^7.3.0",
+    "pui-react-overlay-trigger": "^7.3.0",
+    "pui-react-tooltip": "^7.3.0"
   }
 }
