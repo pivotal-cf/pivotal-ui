@@ -25,10 +25,10 @@ The `Panel` expects the following properties:
 
 Property        | Required? | Type              | Description
 ----------------| ----------| ------------------| --------------------------------------------------------------------------
-`header`        | **no**    | Component         | Component to use for the header
-`footer`        | **no**    | Component         | Component to use for the footer
-`actions`       | **no**    | Component         | Component to represent the actions in the header
-`subtitle`      | **no**    | Component         | The name of the column to use for sorting before user input
+`header`        | **no**    | Node         | An element or text to render in the header
+`footer`        | **no**    | Node         | An element or text to render in the footer
+`actions`       | **no**    | Node         | An array of elements or text to render as actions in the header
+`subtitle`      | **no**    | Node         | An element or text to render as the subtitle in the header (only works if header is a string)
 `innerClassName`| **no**    | String            | The className to be added on the panel body
 `padding`       | **no**    | String            | Padding to use on the panel body using OOCSS naming convention (e.g pam, pan, phl, ptl)
 `scrollable`    | **no**    | Boolean or Number | Use default scrolling height when boolean or a specified scrolling height
