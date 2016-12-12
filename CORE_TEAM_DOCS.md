@@ -73,6 +73,17 @@ again.
 
 1. Switch to `master` branch
 1. Merge in changes from `development`
+
+1. If you are publishing a major version, Put a copy of the most current major release in `old_styleguides`. Otherwise skip to the next step.
+	1. `cd styleguide`
+	1. Add a link in `docs/other-versions.scss` in the format of 'version x'
+	1. `gulp styleguide-build`
+	1. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
+	1. `cp -r build/ old_styleguides/x`
+	1. `rm -rf old_styleguides/x/y/`, where y is a major release, for all major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
+	1. `gulp ci`
+	1. `cd ../library`
+
 1. In library, run `npm i`
 1. Run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
@@ -82,21 +93,10 @@ again.
   - Update `CHANGELOG.md` with auto-generated release notes
   - Update `LATEST_CHANGES.md` with auto-generated release notes for the most
     recent change only
-
+    
 1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
-
 1. From root, run `./update_styleguide` to update local versions of components
    
-1. Put a copy of the most current major release in `old_styleguides`
-	1. `cd styleguide`
-	1. If you are releasing a new major version, add a link in `docs/other-versions.scss` in the format of 'version x'
-	1. `gulp styleguide-build`
-	1. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
-	1. `cp -r build/ old_styleguides/x`
-	1. `rm -rf old_styleguides/x/y/`, where y is a major release, for all major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
-	1. `gulp ci`
-	1. `cd ../library`
-
 1. Run `gulp ci` - one final check!
 
 1. Run `gulp release-commit` to commit the release.
