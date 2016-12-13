@@ -10,10 +10,10 @@ parent: form_react
   npm install pui-react-toggle --save
 </code>
 
-Require the subcomponent:
+Import the subcomponent:
 
 ```
-var Toggle = require('pui-react-toggle').Toggle;
+import {Toggle} from 'pui-react-toggle';
 ```
 
 The Toggle component takes an `onChange` callback.
@@ -31,13 +31,12 @@ Note that you must handle the addition and removal of the `checked` property you
 
 Toggle has a `size` attribute that takes three options; small, medium (default), and large.
 
- ```react_example
- <div>
-     <Toggle size='small'/>
-     <Toggle size='medium'/>
-     <Toggle/>
-     <Toggle size='large'/>
- </div>
- ```
-
+```react_example
+<div>
+  <Toggle size='small'/>
+  <Toggle size='medium'/>
+  <Toggle/>
+  <Toggle size='large'/>
+</div>
+```
 */

@@ -3,8 +3,8 @@
 title: Notifications
 name: notifications_react
 categories:
- - react_components_notifications
- - react_all
+- react_components_notifications
+- react_all
 ---
 
 <code class="pam">
@@ -17,17 +17,17 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Notifications = require('pui-react-notifications').Notifications;
-var AlertNotifications = require('pui-react-notifications').AlertNotifications;
-var NotificationItem = require('pui-react-notifications').NotificationItem;
+import {Notifications} from 'pui-react-notifications';
+import {AlertNotifications} from 'pui-react-notifications';
+import {NotificationItem} from 'pui-react-notifications';
 
 // for the example
-var Flag = require('pui-react-media').Flag;
-var Label = require('pui-react-labels').Label;
-var Icon = require('pui-react-iconography').Icon;
+import {Flag} from 'pui-react-media';
+import {Label} from 'pui-react-labels';
+import {Icon} from 'pui-react-iconography';
 ```
 
 Here's an example if there are no notifications:
@@ -38,14 +38,10 @@ Here's an example if there are no notifications:
 
 Here's an example if there are notifications:
 
-```jsx_example
-var newLabel = <h3 className="mvn"><Label>New</Label></h3>;
-```
-
 ```react_example_table
 <Notifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <Flag image={newLabel}>
+    <Flag image={<h3 className="mvn"><Label>New</Label></h3>}>
       <h5 className="media-heading mbn type-dark-2">Notification</h5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
@@ -107,14 +103,10 @@ Here's an example if there are no alerts:
 
 Here's an example if there are alerts:
 
-```jsx_example
-var alertImage = <Icon src="warning" className="h4 mrm" style={{fill: '#B38F1B'}}/>;
-```
-
 ```react_example_table
 <AlertNotifications>
   <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">
-    <Flag image={alertImage}>
+    <Flag image={<Icon src="warning" className="h4 mrm" style={{fill: '#B38F1B'}}/>}>
       <h5 className="media-heading mbn type-dark-2">WARNING</h5>
       <p className="type-sm type-neutral-5 mvn">Click for Cute Gif</p>
     </Flag>
@@ -122,6 +114,7 @@ var alertImage = <Icon src="warning" className="h4 mrm" style={{fill: '#B38F1B'}
 </AlertNotifications>
 ```
 
-If you want to customize the notification dropdown, you can use `className` to add a modifier class to the `btn-group`. `id` and `style` will be applied to the notfication button.
-
+If you want to customize the notification dropdown, you can use `className` to
+add a modifier class to the `btn-group`. `id` and `style` will be applied to
+the notfication button.
 */

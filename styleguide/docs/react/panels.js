@@ -12,14 +12,15 @@ categories:
 npm install pui-react-panels --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Panel = require('pui-react-panels').Panel;
+import {Panel} from 'pui-react-panels';
 ```
 
-Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself
-is the base, and there are many different flavors of Panels which all construct a particularly styled `Panel`.
+Panel components are straightforward implementations of the [Panel][panel]
+styling. The `Panel` component itself is the base, and there are many different
+flavors of Panels which all construct a particularly styled `Panel`.
 
 The `Panel` expects the following properties:
 
@@ -43,13 +44,12 @@ See examples below.
   <p>Base Panel</p>
 </Panel>
 
-<Panel className="bg-neutral-10 optional-class"
-  innerClassName="opt-inner-class">
+<Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
   <p>Base Panel</p>
 </Panel>
 
 <Panel className="bg-neutral-10" header='header'>
- Base Panel with base header
+  Base Panel with base header
 </Panel>
 
 <Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
@@ -57,19 +57,19 @@ See examples below.
 </Panel>
 
 <Panel className="bg-neutral-10" header={<h2>Custom Title</h2>}>
- Base Panel with custom header
+  Base Panel with custom header
 </Panel>
 
 <Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={<div><button>Go</button><button>Stop</button></div>}>
- Base Panel with custom header and actions
+  Base Panel with custom header and actions
 </Panel>
 
 <Panel className="bg-neutral-10" footer='footer'>
- Base Panel with footer
+  Base Panel with footer
 </Panel>
 
 <Panel className="bg-neutral-8" padding="paxxl">
- <p>Base Panel</p>
+  <p>Base Panel</p>
 </Panel>
 
 <Panel className="bg-neutral-8" scrollable={100}>
@@ -102,7 +102,7 @@ parent: panel_react
 ---
 
 ```
-var SimplePanel = require('pui-react-panels').SimplePanel;
+import {SimplePanel} from 'pui-react-panels';
 ```
 
 ```react_example_table
@@ -120,7 +120,7 @@ parent: panel_react
 ---
 
 ```
-var BasicPanel = require('pui-react-panels').BasicPanel;
+import {BasicPanel} from 'pui-react-panels';
 ```
 
 ```react_example_table
@@ -143,7 +143,7 @@ parent: panel_react
 ---
 
 ```
-var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
+import {BasicPanelAlt} from 'pui-react-panels';
 ```
 
 ```react_example_table
@@ -165,21 +165,18 @@ parent: panel_react
 ---
 
 ```
-var PanelTitle = require('pui-react-panels').PanelTitle;
-var BasicPanelAlt = require('pui-react-panels').BasicPanelAlt;
+import {PanelTitle} from 'pui-react-panels';
+import {BasicPanelAlt} from 'pui-react-panels';
 ```
 
-All Panels accept a `header` property. If `header` is a string, it will render a panel title with some
-default styling using the `PanelTitle` component internally. If `header` is a react component,
-it will render the component without additional style.
-To create a header with some default title styling, use the `PanelTitle` component.
+All Panels accept a `header` property. If `header` is a string, it will render
+a panel title with some default styling using the `PanelTitle` component
+internally. If `header` is a react component, it will render the component
+without additional style. To create a header with some default title styling,
+use the `PanelTitle` component.
 
 ```react_example_table
-<BasicPanelAlt header={
-      <div>
-        <PanelTitle>Panel Title</PanelTitle>subtitle
-      </div>
-    }>
+<BasicPanelAlt header={<div><PanelTitle>Panel Title</PanelTitle>subtitle</div>}>
   Basic Panel With Custom Title
 </BasicPanelAlt>
 ```
@@ -193,7 +190,7 @@ parent: panel_react
 ---
 
 ```
-var ShadowPanel = require('pui-react-panels').ShadowPanel;
+import {ShadowPanel} from 'pui-react-panels';
 ```
 
 `ShadowPanels` accept a `shadowLevel` property between 1 and 4 (darkest to lightest).
@@ -201,13 +198,9 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 
 ```react_example_table
 <ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>
-
 <ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</ShadowPanel>
-
 <ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</ShadowPanel>
-
 <ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</ShadowPanel>
-
 <ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</ShadowPanel>
 ```
 
@@ -221,13 +214,12 @@ parent: panel_react
 ---
 
 ```
-var ClickablePanel = require('pui-react-panels').ClickablePanel;
-var ClickableAltPanel = require('pui-react-panels').ClickableAltPanel;
+import {ClickablePanel} from 'pui-react-panels';
+import {ClickableAltPanel} from 'pui-react-panels';
 ```
 
 ```react_example_table
 <ClickablePanel>Clickable Panel</ClickablePanel>
-
 <ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>
 ```
 */
@@ -240,7 +232,7 @@ parent: panel_react
 ---
 
 ```
-var HighlightPanel = require('pui-react-panels').HighlightPanel;
+import {HighlightPanel} from 'pui-react-panels';
 ```
 
 ```react_example_table

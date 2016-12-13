@@ -12,11 +12,11 @@ categories:
 npm install pui-react-panes --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Pane = require('pui-react-panes').Pane;
-var BasePane = require('pui-react-panes').BasePane;
+import {Pane} from 'pui-react-panes';
+import {BasePane} from 'pui-react-panes';
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

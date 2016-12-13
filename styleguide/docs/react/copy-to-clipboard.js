@@ -1,11 +1,11 @@
 /*doc
- ---
- title: Copy To Clipboard
- name: copy_to_clipboard_react
- categories:
- - react_components_copy-to-clipboard
- - react_all
- ---
+---
+title: Copy To Clipboard
+name: copy_to_clipboard_react
+categories:
+- react_components_copy-to-clipboard
+- react_all
+---
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
@@ -20,42 +20,36 @@ You will need to add an svg loader:
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
- Require the subcomponents:
+Import the subcomponents:
 
- ```
-var CopyToClipboard = require('pui-react-copy-to-clipboard').CopyToClipboard;
-var CopyToClipboardButton = require('pui-react-copy-to-clipboard').CopyToClipboardButton;
- ```
+```
+import {CopyToClipboard} from 'pui-react-copy-to-clipboard';
+import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
+```
 
+```react_example_table
+<CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
 
- ```react_example_table
- <CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
+<CopyToClipboardButton text="I got copied by a good looking button"/>
+```
 
- <CopyToClipboardButton text="I got copied by a good looking button"/>
- ```
+The CopyToClipboard Components require the following property:
 
- The CopyToClipboard Components require the following property:
-
- Property           |  Type         | Description
- -------------      | --------------| --------------------------------------------------------------------------
- `text`       | String        | Text that is copied when the user clicks
-
+Property           |  Type         | Description
+-------------      | --------------| --------------------------------------------------------------------------
+`text`       | String        | Text that is copied when the user clicks
 
 Below is a common example combining a readonly input and a copy button.
 Note that there is custom css on the styleguide to get the positioning right.
 
 ```
-var Input = require('pui-react-inputs').Input
+import {Input} from 'pui-react-inputs';
 ```
 
- ```react_example_table
+```react_example_table
 <div className="copy-input">
-   <Input label="shareable link" value="bar.com/1234.jpg" readOnly />
-   <CopyToClipboardButton text="bar.com/1234.jpg"/>
+  <Input label="shareable link" value="bar.com/1234.jpg" readOnly />
+  <CopyToClipboardButton text="bar.com/1234.jpg" />
 </div>
-
- ```
-
-
-
- */
+```
+*/

@@ -17,14 +17,13 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var BaseCollapse = require('pui-react-collapse').BaseCollapse;
-var AltCollapse = require('pui-react-collapse').AltCollapse;
-var Collapse = require('pui-react-collapse').Collapse;
+import {BaseCollapse} from 'pui-react-collapse';
+import {AltCollapse} from 'pui-react-collapse';
+import {Collapse} from 'pui-react-collapse';
 ```
-
 
 Collapse components are implementations of the [Accordion][accordion] style. In
 all `Collapse` component variations, the `header` prop describes the text

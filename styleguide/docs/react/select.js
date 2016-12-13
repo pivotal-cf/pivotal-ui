@@ -17,12 +17,11 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Select = require('pui-react-select').Select;
+import {Select} from 'pui-react-select';
 ```
-
 
 This is the basic select:
 
@@ -41,6 +40,4 @@ onEntered          | Func          | Callback that fires after opening the selec
 onExited           | Func          | Callback that fires after closing the select.
 options            | Array         | Options for the select, can be string or numbers or an object with label and value (e.g. `['one', 'two', 'three']`, `[1, 2, 3]`, `[{label: 'yes', value: 1}, {label: 'no', value: 0}]`).
 value              | Any           | The value for the select when it is controlled, must be used with an `onChange` function to update the value of the select.
-
  */
-
