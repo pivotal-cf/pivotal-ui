@@ -97,15 +97,15 @@ describe('BaseModal', function() {
 
     it('animates the modal in (with easeOutQuad)', () => {
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 0px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 0;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0;/);
       MockNow.tick(delay / 2);
       MockRaf.next();
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 37\.5px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 0.75;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0.6/);
       MockNow.tick(delay / 2);
       MockRaf.next();
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 50px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 1;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0.8;/);
     });
 
     it('animates the modal out', () => {
@@ -113,24 +113,24 @@ describe('BaseModal', function() {
       MockRaf.next();
       subject::setProps({show: false});
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 50px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 1;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0.8;/);
       MockNow.tick(delay / 2);
       MockRaf.next();
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 12\.5px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 0.25;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0.2;/);
       MockNow.tick(delay / 2);
       MockRaf.next();
       expect('.modal-dialog').not.toExist();
-      expect('.modal-wrapper').not.toExist();
+      expect('.modal-backdrop').not.toExist();
     });
 
     it('does not animate if animation is false', () => {
       subject::setProps({animation: false});
       expect('.modal-dialog').toHaveAttr('style', /margin-top: 50px;/);
-      expect('.modal-wrapper').toHaveAttr('style', /opacity: 1;/);
+      expect('.modal-backdrop').toHaveAttr('style', /opacity: 0.8;/);
       subject::setProps({show: false});
       expect('.modal-dialog').not.toExist();
-      expect('.modal-wrapper').not.toExist();
+      expect('.modal-backdrop').not.toExist();
     });
   });
 

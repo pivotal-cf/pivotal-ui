@@ -115,8 +115,8 @@ class BaseModal extends mixin(React.Component).with(Animation) {
     const modalSizeClass = `modal-${modalSize}`;
 
     return (
-      <div className="modal-wrapper" role="dialog" style={{opacity: fractionShown}}>
-        <div className="modal-backdrop fade in" onClick={onHide}/>
+      <div className="modal-wrapper" role="dialog">
+        <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
         <div {...props} ref={(ref) => {this.modal = ref;}}>
           <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={(ref) => {this.dialog = ref;}}>
             <div className="modal-content">
