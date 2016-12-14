@@ -1,13 +1,13 @@
 {
-  "version": "7.3.0",
+  "version": "7.3.1",
   "description": "React components for tab-based content toggling",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash.uniqueid": "^3.0.0",
-    "pui-css-tabs": "^7.3.0",
-    "pui-react-mixins": "^7.3.0",
-    "pui-react-collapsible": "^7.3.0",
+    "pui-css-tabs": "^7.3.1",
+    "pui-react-mixins": "^7.3.1",
+    "pui-react-collapsible": "^7.3.1",
     "raf": "^3.1.0"
   }
 }

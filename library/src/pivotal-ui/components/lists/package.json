@@ -1,7 +1,7 @@
 {
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-typography": "^7.3.0"
+    "pui-css-typography": "^7.3.1"
   },
-  "version": "7.3.0"
+  "version": "7.3.1"
 }
