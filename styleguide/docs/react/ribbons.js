@@ -15,9 +15,7 @@ npm install pui-react-ribbons --save
 Import the subcomponents:
 
 ```
-import {Ribbon} from 'pui-react-ribbons';
-import {PrimaryRibbon} from 'pui-react-ribbons';
-import {Banner} from 'pui-react-ribbons';
+import {Ribbon, PrimaryRibbon, Banner} from 'pui-react-ribbons';
 ```
 
 `Ribbon` components are straightforward implementations of the [Ribbon][ribbon] styles.
@@ -25,6 +23,7 @@ They should be used to call out access, status, environment, etc.
 
 ```react_example_table
 <Ribbon> British </Ribbon>
+
 <PrimaryRibbon> English-British </PrimaryRibbon>
 ```
 */

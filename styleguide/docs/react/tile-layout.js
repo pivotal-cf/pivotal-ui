@@ -15,8 +15,7 @@ npm install pui-react-tile-layout pui-react-panels --save
 Import the subcomponents:
 
 ```
-import {TileLayout} from 'pui-react-tile-layout';
-import {TileLayoutItem} from 'pui-react-tile-layout';
+import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';
 
 // for the example
 import {ClickableAltPanel} from 'pui-react-panels';

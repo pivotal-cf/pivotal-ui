@@ -20,9 +20,7 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {Notifications} from 'pui-react-notifications';
-import {AlertNotifications} from 'pui-react-notifications';
-import {NotificationItem} from 'pui-react-notifications';
+import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';
 
 // for the example
 import {Flag} from 'pui-react-media';

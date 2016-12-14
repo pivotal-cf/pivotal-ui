@@ -15,8 +15,7 @@ npm install pui-react-dividers --save
 Import the subcomponents:
 
 ```
-import {Divider} from 'pui-react-dividers';
-import {InverseDivider} from 'pui-react-dividers';
+import {Divider, InverseDivider} from 'pui-react-dividers';
 ```
 
 Dividers draw horizontal lines between different content groupings.

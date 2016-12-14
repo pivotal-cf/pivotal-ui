@@ -15,10 +15,7 @@ npm install pui-react-buttons --save
 Import the subcomponents:
 
 ```
-import {DefaultButton} from 'pui-react-buttons';
-import {PrimaryButton} from 'pui-react-buttons';
-import {DangerButton} from 'pui-react-buttons';
-import {BrandButton} from 'pui-react-buttons';
+import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';
 ```
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.

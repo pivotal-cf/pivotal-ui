@@ -40,4 +40,4 @@ onEntered          | Func          | Callback that fires after opening the selec
 onExited           | Func          | Callback that fires after closing the select.
 options            | Array         | Options for the select, can be string or numbers or an object with label and value (e.g. `['one', 'two', 'three']`, `[1, 2, 3]`, `[{label: 'yes', value: 1}, {label: 'no', value: 0}]`).
 value              | Any           | The value for the select when it is controlled, must be used with an `onChange` function to update the value of the select.
- */
+*/

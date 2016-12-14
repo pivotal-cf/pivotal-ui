@@ -15,9 +15,7 @@ npm install pui-react-modals --save
 Import the subcomponents:
 
 ```
-import {BaseModal} from 'pui-react-modals';
-import {ModalBody} from 'pui-react-modals';
-import {ModalFooter} from 'pui-react-modals';
+import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';
 
 // for the example
 import {DefaultButton} from 'pui-react-buttons';
@@ -63,7 +61,7 @@ class MyModal extends React.Component {
         </DefaultButton>
         <BaseModal title='What a Header!'
                    className='optional-custom-class'
-                   show={() => this.setState({modalOpen: true})}
+                   show={this.state.modalOpen}
                    onHide={() => this.setState({modalOpen: false})}>
           <ModalBody>Text in a body</ModalBody>
           <ModalFooter>

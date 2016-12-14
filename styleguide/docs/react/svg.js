@@ -43,9 +43,9 @@ By default, the Svg component will look in the `app/svg` folder at the root of y
 
 
 ```js
-const PuiSvg = require('pui-react-svg').Svg;
+import {Svg} from 'pui-react-svg';
 
-class MySvg extends PuiSvg {
+class MySvg extends Svg {
   svgPathLoader(src) {
     return require(`!!babel!svg-react!./path/to/svgs/${src}.svg`);
   }

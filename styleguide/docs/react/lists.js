@@ -24,8 +24,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {BreadcrumbList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {BreadcrumbList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -47,8 +46,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {GroupList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {GroupList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -70,8 +68,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {GroupListInverse} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {GroupListInverse, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -94,8 +91,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {InlineList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {InlineList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example_table
@@ -126,8 +122,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {OrderedList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {OrderedList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example_table
@@ -157,8 +152,7 @@ parent: list_react
 Import the subcomponent:
 
 ```
-import {StepList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {StepList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -180,8 +174,7 @@ parent: list_react
 Import the subcomponents:
 
 ```
-import {UnorderedList} from 'pui-react-lists';
-import {ListItem} from 'pui-react-lists';
+import {UnorderedList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example_table

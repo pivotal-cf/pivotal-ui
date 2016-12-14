@@ -29,6 +29,7 @@ In a normal application, this code would work.
 
 ```react_example_table
 <Icon src="add"/>
+
 <Icon src="check"/>
 ```
 

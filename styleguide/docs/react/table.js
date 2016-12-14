@@ -20,10 +20,7 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {Table} from 'pui-react-table';
-import {TableHeader} from 'pui-react-table';
-import {TableRow} from 'pui-react-table';
-import {TableCell} from 'pui-react-table';
+import {Table, TableHeader, TableRow, TableCell} from 'pui-react-table';
 ```
 
 The `Table` component is a robust component that offers a styled table with fully

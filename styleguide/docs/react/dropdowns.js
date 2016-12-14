@@ -20,8 +20,7 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {Dropdown} from 'pui-react-dropdowns';
-import {DropdownItem} from 'pui-react-dropdowns';
+import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
 ```
 
 This is the basic bootstrap dropdown:

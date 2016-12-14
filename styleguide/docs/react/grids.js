@@ -15,8 +15,7 @@ npm install pui-react-grids --save
 Import the subcomponents:
 
 ```
-import {Row} from 'pui-react-grids';
-import {Col} from 'pui-react-grids';
+import {Row, Col} from 'pui-react-grids';
 ```
 
 ## Row Properties

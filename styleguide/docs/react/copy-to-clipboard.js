@@ -23,8 +23,7 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {CopyToClipboard} from 'pui-react-copy-to-clipboard';
-import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
+import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
 ```
 
 ```react_example_table

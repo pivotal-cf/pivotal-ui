@@ -26,8 +26,7 @@ For the example, you also need to install [Grids](#grid_react) and require `Col`
 Import the subcomponents:
 
 ```
-import {RadioGroup} from 'pui-react-radio';
-import {Radio} from 'pui-react-radio';
+import {RadioGroup, Radio} from 'pui-react-radio';
 ```
 
 Using React radio buttons in a form is fairly straightforward.

@@ -165,8 +165,7 @@ parent: panel_react
 ---
 
 ```
-import {PanelTitle} from 'pui-react-panels';
-import {BasicPanelAlt} from 'pui-react-panels';
+import {PanelTitle, BasicPanelAlt} from 'pui-react-panels';
 ```
 
 All Panels accept a `header` property. If `header` is a string, it will render
@@ -198,9 +197,13 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 
 ```react_example_table
 <ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>
+
 <ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</ShadowPanel>
+
 <ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</ShadowPanel>
+
 <ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</ShadowPanel>
+
 <ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</ShadowPanel>
 ```
 
@@ -214,12 +217,12 @@ parent: panel_react
 ---
 
 ```
-import {ClickablePanel} from 'pui-react-panels';
-import {ClickableAltPanel} from 'pui-react-panels';
+import {ClickablePanel, ClickableAltPanel} from 'pui-react-panels';
 ```
 
 ```react_example_table
 <ClickablePanel>Clickable Panel</ClickablePanel>
+
 <ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>
 ```
 */

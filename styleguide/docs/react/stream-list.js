@@ -13,8 +13,7 @@ npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 Import the subcomponents:
 
 ```js
-import {StreamList} from 'pui-react-stream-list';
-import {StreamListItem} from 'pui-react-stream-list';
+import {StreamList, StreamListItem} from 'pui-react-stream-list';
 
 // for the example
 import {DefaultButton} from 'pui-react-buttons'

@@ -15,8 +15,7 @@ npm install pui-react-panes --save
 Import the subcomponents:
 
 ```
-import {Pane} from 'pui-react-panes';
-import {BasePane} from 'pui-react-panes';
+import {Pane, BasePane} from 'pui-react-panes';
 ```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.

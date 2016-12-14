@@ -20,9 +20,7 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {BaseCollapse} from 'pui-react-collapse';
-import {AltCollapse} from 'pui-react-collapse';
-import {Collapse} from 'pui-react-collapse';
+import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';
 ```
 
 Collapse components are implementations of the [Accordion][accordion] style. In

@@ -36,7 +36,7 @@ class MoreInfo extends React.Component {
   render() {
     return (
       <main>
-        <ExpanderContent expanded={true}
+        <ExpanderContent expanded={this.state.expanded}
                          onEntered={() => console.log('onEntered')}
                          onExited={() => console.log('onExited')}>
           <p className="h1 bg-neutral-2 type-neutral-9">

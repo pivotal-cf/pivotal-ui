@@ -15,8 +15,7 @@ npm install pui-react-media --save
 Import the subcomponents:
 
 ```
-import {Media} from 'pui-react-media';
-import {Flag} from 'pui-react-media';
+import {Media, Flag} from 'pui-react-media';
 
 // for the example
 import {Image} from 'pui-react-images';

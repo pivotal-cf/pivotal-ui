@@ -25,16 +25,16 @@ npm install babel-loader svg-react-loader --save-dev
 Import the subcomponents:
 
 ```
-import {SuccessAlert} from 'pui-react-alerts';
-import {InfoAlert} from 'pui-react-alerts';
-import {WarningAlert} from 'pui-react-alerts';
-import {ErrorAlert} from 'pui-react-alerts';
+import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';
 ```
 
 ```react_example_table
 <SuccessAlert>Everything is wonderful</SuccessAlert>
+
 <InfoAlert>Here's some information for you</InfoAlert>
+
 <WarningAlert>There is no parking on the dancefloor</WarningAlert>
+
 <ErrorAlert>Something has gone horribly awry</ErrorAlert>
 ```
 
@@ -87,8 +87,11 @@ If you want an icon to be displayed, set the `withIcon` property.
 
 ```react_example_table
 <SuccessAlert withIcon>success</SuccessAlert>
+
 <InfoAlert withIcon>info</InfoAlert>
+
 <WarningAlert withIcon>warning</WarningAlert>
+
 <ErrorAlert withIcon>error</ErrorAlert>
 ```
 

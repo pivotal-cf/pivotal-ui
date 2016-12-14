@@ -15,9 +15,7 @@ npm install pui-react-tabs --save
 Import the subcomponents:
 
 ```
-import {Tabs} from 'pui-react-tabs';
-import {LeftTabs} from 'pui-react-tabs';
-import {Tab} from 'pui-react-tabs';
+import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';
 ```
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
