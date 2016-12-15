@@ -14,18 +14,20 @@ class SvgIcon extends Svg {
 class Icon extends React.Component {
   static propTypes = {
     src: types.string.isRequired,
-    style: types.object
+    style: types.object,
+    verticalAlign: types.oneOf(['middle', 'baseline'])
   };
 
   static defaultProps = {
     size: 'inherit',
-    style: {}
+    style: {},
+    verticalAlign: 'middle'
   };
 
   render() {
-    const {src, style, ...others} = this.props;
+    const {src, style, verticalAlign, ...others} = this.props;
 
-    const props = mergeProps(others, {className: 'svgicon'});
+    const props = mergeProps(others, {className: `svgicon svg-${verticalAlign}`});
     return (
       <span {...props}>
         <SvgIcon {...{src, style, className: `icon-${src}`, key: src}}/>

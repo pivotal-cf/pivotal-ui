@@ -2,9 +2,17 @@
   display: inline-flex;
   line-height: inherit;
   align-self: center;
+  position: relative;
+  height: 1em;
+  width: 1em;
 }
 
 .svgicon svg {
   height: 1em;
   width: 1em;
+}
+
+.svgicon.svg-baseline svg {
+  bottom: -0.15em;
+  position: absolute;
 }

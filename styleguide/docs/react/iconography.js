@@ -42,6 +42,7 @@ Icons by default will be sized based on the local font size. You can override th
  -------------      | --------------| --------------------------------------------------------------------------
  `src`       | String  | Name of the svg to load
  `style` | Object | React Style Object
+ `verticalAlign` | Optional enum | Alignment of icon. Options: ['middle', 'baseline']. Defaults to 'middle' if nothing provided
 
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
