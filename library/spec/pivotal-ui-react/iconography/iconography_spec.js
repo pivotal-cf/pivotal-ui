@@ -24,4 +24,21 @@ describe('iconography', function() {
     expect('.svgicon').toHaveClass('foo');
     expect('.svgicon').toHaveAttr('id', 'bar');
   });
+
+  describe('verticalAlign', () => {
+    it('if verticalAlign is not specified it applies the .svg-middle', () => {
+      ReactDOM.render(<Icon src='add'/>, root);
+      expect('.svgicon').toHaveClass('svg-middle');
+    });
+
+    it('if verticalAlign=baseline it applies the .svg-middle class', () => {
+      ReactDOM.render(<Icon src='add' verticalAlign='middle'/>, root);
+      expect('.svgicon').toHaveClass('svg-middle');
+    });
+
+    it('if verticalAlign=baseline it applies the .svg-baseline class', () => {
+      ReactDOM.render(<Icon src='add' verticalAlign='baseline'/>, root);
+      expect('.svgicon').toHaveClass('svg-baseline');
+    });
+  });
 });
