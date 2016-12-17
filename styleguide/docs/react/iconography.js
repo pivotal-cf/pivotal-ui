@@ -40,7 +40,6 @@ the size of the icon with the style prop
 <Icon src="add" style={{width: 100, height: 100}}/>
 ```
 
-
 Icons can be vertically aligned with either 'middle' or 'baseline'. The default is 'middle':
 
 ```react_example
@@ -56,6 +55,13 @@ Property           |  Type         | Description
 `src`       | String  | Name of the svg to load
 `style` | Object | React Style Object
 `verticalAlign` | Optional enum | Alignment of icon. Options: ['middle', 'baseline']. Defaults to 'middle' if nothing provided
+
+Note that for the spinner icons (`spinner`, `spinner-md`, `spinner-sm`) we recommend:
+
+- Spinner used for the 80px+ range. Loading a page front and center, nothing else displayed
+- Spinner-md used for the 80px-25px range. Loading a panel or larger component
+- Spinner-sm used for the 24px-10px range. Loading inside a button or form element
+
 
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 */
