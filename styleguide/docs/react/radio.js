@@ -23,11 +23,10 @@ npm install pui-react-radio --save
 
 For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var RadioGroup = require('pui-react-radio').RadioGroup;
-var Radio = require('pui-react-radio').Radio;
+import {RadioGroup, Radio} from 'pui-react-radio';
 ```
 
 Using React radio buttons in a form is fairly straightforward.
@@ -49,14 +48,13 @@ when the user selects the third radio button.
 Similar to the `name` property, the `onChange` handlers is passed down to all child components.
 
 ```jsx_example
-var MyComponent = React.createClass({
-  getInitialState: function() { return {selection: null}; },
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {selection: null};
+  }
 
-  change: function(e) {
-    this.setState({selection: e.target.value});
-  },
-
-  render: function() {
+  render() {
     return (
       <form role="form" className="form-horizontal">
         <div className="form-group">
@@ -64,7 +62,7 @@ var MyComponent = React.createClass({
             <label>Options</label>
           </Col>
           <Col md={21}>
-            <RadioGroup name="stuff" onChange={this.change}>
+            <RadioGroup name="stuff" onChange={event => this.setState({selection: event.target.value})}>
               <Radio value="others">Others</Radio>
               <Radio value="others1" defaultChecked>More others</Radio>
               <Radio value="special">Click for more!</Radio>
@@ -72,7 +70,6 @@ var MyComponent = React.createClass({
           </Col>
         </div>
         {this.state.selection === 'special' && (
-
           <div className="form-group">
             <Col md={3}>
               <label>Stuff that appears</label>
@@ -82,16 +79,14 @@ var MyComponent = React.createClass({
               <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
             </Col>
           </div>
-
         )}
       </form>
     );
   }
-});
+}
 ```
 
 ```react_example
 <MyComponent />
 ```
-
 */

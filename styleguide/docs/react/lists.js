@@ -3,8 +3,8 @@
 title: Lists
 name: list_react
 categories:
- - react_base_lists
- - react_all
+- react_base_lists
+- react_all
 ---
 
 <code class="pam">
@@ -13,6 +13,7 @@ npm install pui-react-lists --save
 </code>
 
 */
+
 /*doc
 ---
 title: Breadcrumb
@@ -20,11 +21,10 @@ name: 02_list_breadcrumb_react
 parent: list_react
 ---
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var BreadcrumbList = require('pui-react-lists').BreadcrumbList;
-var ListItem = require('pui-react-lists').ListItem;
+import {BreadcrumbList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -37,27 +37,26 @@ var ListItem = require('pui-react-lists').ListItem;
 */
 
 /*doc
- ---
- title: Group
- name: 06_list_group_react
- parent: list_react
- ---
+---
+title: Group
+name: 06_list_group_react
+parent: list_react
+---
 
- Require the subcomponents:
+Import the subcomponents:
 
- ```
-var GroupList = require('pui-react-lists').GroupList;
-var ListItem = require('pui-react-lists').ListItem;
- ```
+```
+import {GroupList, ListItem} from 'pui-react-lists';
+```
 
- ```react_example
- <GroupList>
-   <ListItem>Item 1</ListItem>
-   <ListItem>Item 2</ListItem>
-   <ListItem>Item 3</ListItem>
- </GroupList>
- ```
- */
+```react_example
+<GroupList>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</GroupList>
+```
+*/
 
 /*doc
 ---
@@ -66,12 +65,11 @@ name: 07_list_group_inverse_react
 parent: list_react
 ---
 
- Require the subcomponents:
+Import the subcomponents:
 
- ```
-var GroupListInverse = require('pui-react-lists').GroupListInverse;
-var ListItem = require('pui-react-lists').ListItem;
- ```
+```
+import {GroupListInverse, ListItem} from 'pui-react-lists';
+```
 
 ```react_example
 <GroupListInverse>
@@ -90,12 +88,11 @@ name: 08_list_inline_react
 parent: list_react
 ---
 
- Require the subcomponents:
+Import the subcomponents:
 
- ```
-var InlineList = require('pui-react-lists').InlineList;
-var ListItem = require('pui-react-lists').ListItem;
- ```
+```
+import {InlineList, ListItem} from 'pui-react-lists';
+```
 
 ```react_example_table
 <InlineList>
@@ -122,11 +119,10 @@ name: 10_list_ordered_react
 parent: list_react
 ---
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var OrderedList = require('pui-react-lists').OrderedList;
-var ListItem = require('pui-react-lists').ListItem;
+import {OrderedList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example_table
@@ -153,11 +149,10 @@ name: 11_list_steps_react
 parent: list_react
 ---
 
-Require the subcomponent:
+Import the subcomponent:
 
 ```
-var StepList = require('pui-react-lists').StepList;
-var ListItem = require('pui-react-lists').ListItem;
+import {StepList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example
@@ -176,11 +171,10 @@ name: 13_list_unordered_react
 parent: list_react
 ---
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var UnorderedList = require('pui-react-lists').UnorderedList;
-var ListItem = require('pui-react-lists').ListItem;
+import {UnorderedList, ListItem} from 'pui-react-lists';
 ```
 
 ```react_example_table
@@ -220,18 +214,17 @@ List Spacing can be changed setting the size of the spacing property.
 
 ```react_example
 <StepList spacing="n">
-<ListItem>Item 1</ListItem>
-<ListItem>Item 2</ListItem>
-<ListItem className="current">Item 3</ListItem>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem className="current">Item 3</ListItem>
 </StepList>
 ```
 
 ```react_example
 <UnorderedList spacing="xl">
-<ListItem>Item 1</ListItem>
-<ListItem>Item 2</ListItem>
-<ListItem className="current">Item 3</ListItem>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem className="current">Item 3</ListItem>
 </UnorderedList>
 ```
-
- */
+*/

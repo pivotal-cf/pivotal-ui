@@ -12,10 +12,10 @@ categories:
 npm install pui-react-pagination --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Pagination = require('pui-react-pagination').Pagination;
+import {Pagination} from 'pui-react-pagination';
 ```
 
 The Pagination component provides a styled list of links used to navigate through a paginated list.  By default,
@@ -38,40 +38,35 @@ The Pagination component accepts the following properties:
 The following is an example of pagination with extra props:
 
 ```jsx_example
-const PaginationAdvanced = React.createClass({
-  getInitialState() {
-   return {
-     activePage: 1
-   };
-  },
+class PaginationAdvanced extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {activePage: 1};
+  }
 
   handleSelect(event, selectedEvent) {
-    var eventKey = selectedEvent.eventKey;
-    var activePage = this.state.activePage;
+    const eventKey = selectedEvent.eventKey;
+    const activePage = this.state.activePage;
 
     if(eventKey === 'next') {
       return this.setState({activePage: activePage + 1});
     }
+
     if(eventKey === 'prev') {
       return this.setState({activePage: activePage - 1});
     }
 
-    this.setState({
-      activePage: selectedEvent.eventKey
-    });
-  },
+    this.setState({activePage: selectedEvent.eventKey});
+  }
 
   render() {
     return (
-      <Pagination
-       items={7}
-       activePage={this.state.activePage}
-       onSelect={this.handleSelect}
-     />
-   );
+      <Pagination items={7}
+                  activePage={this.state.activePage}
+                  onSelect={this.handleSelect.bind(this)} />
+    );
   }
-});
-
+}
 ```
 
 ```react_example

@@ -12,15 +12,11 @@ categories:
 npm install pui-react-buttons --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var DefaultButton = require('pui-react-buttons').DefaultButton;
-var PrimaryButton = require('pui-react-buttons').PrimaryButton;
-var DangerButton = require('pui-react-buttons').DangerButton;
-var BrandButton = require('pui-react-buttons').Brand;
+import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';
 ```
-
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 
@@ -59,7 +55,6 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders).
 To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop
 
-
 ```react_example_table
 <DefaultButton alt>
   Alt
@@ -74,7 +69,6 @@ To use the alt style, set the `alt` prop, to use the flat style, use the `flat` 
 </PrimaryButton>
 ```
 
-
 ## Sizing
 
 To make a button large, set the `large` property to true, to make it small, set `small` to true.
@@ -88,5 +82,4 @@ To make a button large, set the `large` property to true, to make it small, set 
   Small Button
 </PrimaryButton>
 ```
-
 */

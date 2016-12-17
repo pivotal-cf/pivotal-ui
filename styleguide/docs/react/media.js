@@ -3,8 +3,8 @@
 title: Media
 name: media_react
 categories:
- - react_utilities_media
- - react_all
+- react_utilities_media
+- react_all
 ---
 
 <code class="pam">
@@ -12,14 +12,13 @@ categories:
 npm install pui-react-media --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Media = require('pui-react-media').Media;
-var Flag = require('pui-react-media').Flag;
+import {Media, Flag} from 'pui-react-media';
 
 // for the example
-var Image = require('pui-react-images').Image;
+import {Image} from 'pui-react-images';
 ```
 
 A Flag is a special type of media that is vAlign='middle'.
@@ -38,18 +37,19 @@ The images or other media can be aligned top, middle, or bottom. The default is 
 The base button renderer. You won't really interact with this directly.
 
 ```jsx_example
-var mediaBasicImage = <Image src='http://placehold.it/50x50' alt='A sample media object'/>;
-var mediaBasicLinkedImage = <Image src='http://placehold.it/50x50' href="http://google.com" alt='A sample media object'/>;
+const mediaBasicImage = <Image src="http://placehold.it/50x50" alt="A sample media object"/>;
+const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
 ```
 
 ```react_example_table
 <Media image={mediaBasicImage}>
-  Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next 10.
+  Science has not yet mastered prophecy. We predict too much for the next year
+  and yet far too little for the next 10.
 </Media>
 
-<Media image={mediaBasicLinkedImage}
-       placement='right'>
-  We are all connected; To each other, biologically. To the earth, chemically. To the rest of the universe atomically.
+<Media image={mediaBasicLinkedImage} placement="right">
+  We are all connected; To each other, biologically. To the earth, chemically.
+  To the rest of the universe atomically.
 </Media>
 ```
 
@@ -63,23 +63,39 @@ parent: media_react
 ---
 
 ```jsx_example
-var mediaAlignmentImage = <Image href='http://www.google.com' src='http://placehold.it/50x50'  alt='A sample media object'/>;
+const mediaAlignmentImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
 ```
 
 ```react_example
 <div>
   <Media image={mediaAlignmentImage}>
-    Media: top aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Media: top aligned image - Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.
   </Media>
 
   <Flag image={mediaAlignmentImage}>
-    Flag: middle aligned image - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    Flag: middle aligned image - Lorem ipsum dolor sit amet, consectetur
+    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+    qui officia deserunt mollit anim id est laborum.
   </Flag>
 
-  <Media
-    image={mediaAlignmentImage}
-    vAlign='bottom'>
-    Media: bottom aligned - This is rarely, if ever, used. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <Media image={mediaAlignmentImage} vAlign='bottom'>
+    Media: bottom aligned - This is rarely, if ever, used. Lorem ipsum dolor
+    sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+    aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
+    in culpa qui officia deserunt mollit anim id est laborum.
   </Media>
 </div>
 ```
@@ -92,11 +108,10 @@ name: media_spacing_react
 parent: media_react
 ---
 
-
 Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
 
 ```jsx_example
-var mediaSpacingImage = <Image href='http://www.google.com' src='http://placehold.it/50x50' alt='A sample media object'/>;
+const mediaSpacingImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
 ```
 
 ```react_example_table
@@ -104,29 +119,20 @@ var mediaSpacingImage = <Image href='http://www.google.com' src='http://placehol
   default image spacing media
 </Media>
 
-<Media
-  image={mediaSpacingImage}
-  mediaSpacing='small'>
+<Media image={mediaSpacingImage} mediaSpacing="small">
   small image spacing media
 </Media>
 
-<Media
-  image={mediaSpacingImage}
-  mediaSpacing='medium'>
+<Media image={mediaSpacingImage} mediaSpacing="medium">
   medium image spacing media
 </Media>
 
-<Media
-  image={mediaSpacingImage}
-  mediaSpacing='large'>
+<Media image={mediaSpacingImage} mediaSpacing="large">
   large image spacing media
 </Media>
 
-<Media
-  image={mediaSpacingImage}
-  mediaSpacing='xlarge'>
+<Media image={mediaSpacingImage} mediaSpacing="xlarge">
   xlarge image spacing media
 </Media>
 ```
-
- */
+*/

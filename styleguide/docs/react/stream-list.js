@@ -10,14 +10,13 @@ parent: list_react
 npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```js
-var StreamList = require('pui-react-stream-list').StreamList;
-var StreamListItem = require('pui-react-stream-list').StreamListItem;
+import {StreamList, StreamListItem} from 'pui-react-stream-list';
 
 // for the example
-var DefaultButton = require('pui-react-buttons').DefaultButton
+import {DefaultButton} from 'pui-react-buttons'
 ```
 
 Use this component when you have streaming/polling data that you want to
@@ -28,42 +27,40 @@ appear in the list.
 
 
 ```jsx_example
-var counter = (function() {
-  var i = 4;
-  return function() {
-    return i++;
-  }
+const counter = (() => {
+  let i = 4;
+  return () => i++;
 })();
 
-var StreamListExample = React.createClass({
-  simulateIncomingData: function() {
-    var newData = this.state.data.concat(['Event ' + counter()]);
+class StreamListExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {data: ['Event 1', 'Event 2', 'Event 3']};
+  }
+
+  simulateIncomingData() {
+    const newData = this.state.data.concat(['Event ' + counter()]);
     this.setState({data: newData});
-  },
+  }
 
-  getInitialState: function() {
-    return {data: ['Event 1', 'Event 2', 'Event 3']};
-  },
-
-  render: function() {
+  render() {
     return (
       <div>
-        <DefaultButton onClick={this.simulateIncomingData}>
+        <DefaultButton onClick={this.simulateIncomingData.bind(this)}>
           Simulate Incoming Data
         </DefaultButton>
         <StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
-          {this.state.data.map(function(datum, i) {
+          {this.state.data.map((datum, i) => {
             return <StreamListItem key={i}>{datum}</StreamListItem>
           })}
         </StreamList>
       </div>
     );
   }
-});
+}
 ```
 
 ```react_example_table
 <StreamListExample />
 ```
-
 */

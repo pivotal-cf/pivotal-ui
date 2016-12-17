@@ -3,8 +3,8 @@
 title: Tooltips
 name: tooltips_react
 categories:
- - react_base_tooltips
- - react_all
+- react_base_tooltips
+- react_all
 ---
 
 <code class="pam">
@@ -12,19 +12,20 @@ categories:
 npm install pui-react-tooltip pui-react-overlay-trigger --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Tooltip = require('pui-react-tooltip').Tooltip;
-var OverlayTrigger = require('pui-react-overlay-trigger').OverlayTrigger;
+import {Tooltip} from 'pui-react-tooltip';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
 ```
 
-Tooltips are used to display extra information on hover.
-To make an element show a tooltip, wrap it in an `OverlayTrigger`.
-If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover,
-this is where the `Tooltip` can be used.
+Tooltips are used to display extra information on hover. To make an element show
+a tooltip, wrap it in an `OverlayTrigger`. If the `overlay` property passed into
+the `OverlayTrigger` will be displayed on hover, this is where the `Tooltip`
+can be used.
 
-Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", "right", "bottom", "top".
+Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
+"right", "bottom", "top".
 
 ```react_example
 <div>
@@ -71,10 +72,6 @@ The `OverlayTrigger` component accepts the following properties:
 | `disableScrim` | Boolean | false | Set to `true` to make tooltips stay open when clicking outside |
 | `trigger` | one of `hover`, `click`, `focus`, `manual` | `hover` | action to trigger showing overlay |
 
-
 If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
 which is controlled by the end user and not by `OverlayTrigger`.
-
 */
-
-

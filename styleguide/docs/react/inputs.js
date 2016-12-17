@@ -18,11 +18,10 @@ If you use those props, you will need to add an svg loader:
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
-
- Require the subcomponent:
+Import the subcomponent:
 
 ```
-var Input = require('pui-react-inputs').Input;
+import {Input} from 'pui-react-inputs';
 ```
 
 Input components can be used on their own as inputs. They accept standard
@@ -38,51 +37,42 @@ will focus the input.
 Inputs display a custom `errorMessage` when the `displayError` parameter is truthy.
 
 ```react_example
-<Input
-  label="Label!"
-  labelClassName="hello"
-  displayError={true}
-  errorMessage="Try Again, Fool"
-  inputClassName="hey"
+<Input label="Label!"
+       labelClassName="hello"
+       displayError={true}
+       errorMessage="Try Again, Fool"
+       inputClassName="hey"
 />
 
 ```
 Inputs display a checkmark when the `success` prop is true.
 
 ```react_example
-<Input
- success
- label="Great Label for a Great Job!"
- placeholder="YOU ARE SO COOL"
-/>
+<Input success
+       label="Great Label for a Great Job!"
+       placeholder="YOU ARE SO COOL" />
 ```
 
 Inputs have a magnifying glass when the `search` prop is true
 
 ```react_example
-<Input
- search
- label="Search For Answers"
- placeholder="Why does Pivotal UI..."
-/>
+<Input search
+       label="Search For Answers"
+       placeholder="Why does Pivotal UI..." />
 ```
 
 Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will override the `search` prop if both are provided.
 
 ```react_example
-<Input
-leftIcon="add"
-label="Add something here"
-placeholder="Why does Pivotal UI..."
-/>
+<Input leftIcon="add"
+       label="Add something here"
+       placeholder="Why does Pivotal UI..." />
 ```
 
 ```react_example
-<Input
-leftIcon={<img src="/styleguide/add_circle.svg" width="20" height="20"/>}
-label="This has an custom icon"
-placeholder="Why does Pivotal UI..."
-/>
+<Input leftIcon={<img src="/styleguide/add_circle.svg" width="20" height="20"/>}
+       label="This has an custom icon"
+       placeholder="Why does Pivotal UI..." />
 ```
 
 To demonstrate how to use an Input in a more complex example, let's say
@@ -91,38 +81,33 @@ by creating a stateful component which is composed of the Input and the
 list to filter.
 
 ```jsx_example
-var FilteringSearchExample = React.createClass({
-  getInitialState: function () {
-    return {
+class FilteringSearchExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       filter: "",
       items: ['Apple', 'Banana', 'Orange']
-    }
-  },
+    };
+  }
 
-  updateFilter: function (event) {
-    this.setState({ filter: event.target.value });
-  },
-
-  render: function () {
-    var filterRegex = new RegExp(this.state.filter, "i");
-    var listItems = this.state.items.map(function (item) {
-      return item.match(filterRegex) && <li key={item}>{item}</li>;
-    });
+  render() {
+    const filterRegex = new RegExp(this.state.filter, "i");
+    const listItems = this.state.items
+      .map(item => item.match(filterRegex) && <li key={item}>{item}</li>);
 
     return (
       <div>
-        <Input search placeholder='Filter by...' onChange={this.updateFilter}/>
+        <Input search placeholder="Filter by..." onChange={event => this.setState({ filter: event.target.value })}/>
         <ul>
           {listItems}
         </ul>
       </div>
     );
   }
-});
+}
 ```
 
 ```react_example
- <FilteringSearchExample />
+<FilteringSearchExample />
 ```
-
 */
