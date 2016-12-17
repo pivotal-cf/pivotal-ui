@@ -3,8 +3,8 @@
 title: Tables
 name: table_react
 categories:
- - react_base_tables
- - react_all
+- react_base_tables
+- react_all
 ---
 
 <code class="pam">
@@ -17,13 +17,10 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Table = require('pui-react-table').Table;
-var TableHeader = require('pui-react-table').TableHeader;
-var TableRow = require('pui-react-table').TableRow;
-var TableCell = require('pui-react-table').TableCell;
+import {Table, TableHeader, TableRow, TableCell} from 'pui-react-table';
 ```
 
 The `Table` component is a robust component that offers a styled table with fully
@@ -51,52 +48,51 @@ Property     | Required? | Type             | Description
 
 
 ```jsx_example
-var columns = [
-   {
-     attribute: 'title',
-     displayName: 'Title',
-     sortable: false
-   },
-   {
-     attribute: 'instances',
-     sortable: true
-   },
-   {
-     attribute: 'bar',
-     displayName: 'Bar',
-     sortable: true,
-     headerProps: {
-       className: 'bar-header',
-       id: 'barId'
-     },
-     sortBy: function(value) { return -value; }
-   },
-   {
-     attribute: 'unsortable',
-     sortable: false
-   }
- ];
-var data = [
-   {
-     instances: '1',
-     bar: 11,
-     title: 'foo',
-     unsortable: '14'
-   },
-   {
-     instances: '3',
-     bar: 7,
-     title: 'sup',
-     unsortable: '22'
-   },
-   {
-     title: 'yee',
-     instances: '2',
-     bar: 8,
-     unsortable: '1'
-   }
- ];
-
+const columns = [
+  {
+    attribute: 'title',
+    displayName: 'Title',
+    sortable: false
+  },
+  {
+    attribute: 'instances',
+    sortable: true
+  },
+  {
+    attribute: 'bar',
+    displayName: 'Bar',
+    sortable: true,
+    headerProps: {
+      className: 'bar-header',
+      id: 'barId'
+    },
+    sortBy: function(value) { return -value; }
+  },
+  {
+    attribute: 'unsortable',
+    sortable: false
+  }
+];
+const data = [
+  {
+    instances: '1',
+    bar: 11,
+    title: 'foo',
+    unsortable: '14'
+  },
+  {
+    instances: '3',
+    bar: 7,
+    title: 'sup',
+    unsortable: '22'
+  },
+  {
+    title: 'yee',
+    instances: '2',
+    bar: 8,
+    unsortable: '1'
+  }
+];
 ```
 
 ```react_example
@@ -112,7 +108,7 @@ Note that sorting occurs on the actual data.
 Changing the presentation of the data does not affect the sort behavior.
 
 ```jsx_example
-var CustomRow = React.createClass({
+class CustomRow extends React.Component {
   render() {
     return (
       <TableRow className={"row-number"+this.props.index}>
@@ -120,53 +116,51 @@ var CustomRow = React.createClass({
       </TableRow>
     );
   }
-});
+}
 ```
 
 ```react_example
 <Table columns={columns} data={data} CustomRow={CustomRow}/>
 ```
 
- The `TableCell` component is provided for users who wish to customize their cells
- with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that
- component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index`
- representing the (zero-indexed) row number. For more advanced use cases, the `rowDatum` prop is also passed into the custom cell.
+The `TableCell` component is provided for users who wish to customize their cells
+with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that
+component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index`
+representing the (zero-indexed) row number. For more advanced use cases, the `rowDatum` prop is also passed into the custom cell.
 
- Note that sorting occurs on the actual data.
- Changing the presentation of the data does not affect the sort behavior.
+Note that sorting occurs on the actual data.
+Changing the presentation of the data does not affect the sort behavior.
 
- ```jsx_example
- var CustomCell = React.createClass({
-   render() {
-     return (
-       <TableCell>
-         {this.props.index}: {this.props.value}, Bar value {this.props.rowDatum.bar}
-       </TableCell>
-     );
-   }
- });
+```jsx_example
+class CustomCell extends React.Component {
+  render() {
+    return (
+      <TableCell>
+        {this.props.index}: {this.props.value}, Bar value {this.props.rowDatum.bar}
+      </TableCell>
+    );
+  }
+}
 
- var customCellColumns = [
-   {
-     attribute: 'title',
-     displayName: 'Title',
-     sortable: false,
-     CustomCell: CustomCell
-   },
-   {
-     attribute: 'bar',
-     sortable: true
-   },
-   {
-     attribute: 'instances',
-     sortable: true
-   }
- ];
+const customCellColumns = [
+  {
+    attribute: 'title',
+    displayName: 'Title',
+    sortable: false,
+    CustomCell: CustomCell
+  },
+  {
+    attribute: 'bar',
+    sortable: true
+  },
+  {
+    attribute: 'instances',
+    sortable: true
+  }
+];
+```
 
- ```
-
- ```react_example
- <Table columns={customCellColumns} data={data}/>
- ```
-
+```react_example
+<Table columns={customCellColumns} data={data}/>
+```
 */

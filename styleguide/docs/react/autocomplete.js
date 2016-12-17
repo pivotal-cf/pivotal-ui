@@ -1,43 +1,32 @@
 /*doc
- ---
- title: Autocomplete
- name: autocomplete_react
- categories:
- - react_components_autocomplete
- - react_all
- ---
+---
+title: Autocomplete
+name: autocomplete_react
+categories:
+- react_components_autocomplete
+- react_all
+---
 
- <code class="pam">
- <img src="/styleguide/download.svg" width="16" height="16"/>
- npm install pui-react-autocomplete --save
- </code>
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-react-autocomplete --save
+</code>
 
- Require the subcomponent:
+Import the subcomponent:
 
- ```
- var Autocomplete = require('pui-react-autocomplete').Autocomplete;
- ```
+```
+import {Autocomplete} from 'pui-react-autocomplete';
+```
 
- ```jsx_example
-var AutocompleteExample = React.createClass({
-  onInitializeItems: function(callback) {
-    callback(['foo', 'food', 'bar']);
-  },
-  onPick: function(item) {
-    alert('You selected ' + item.value);
-  },
-  render: function() {
-    return (
-      <Autocomplete onInitializeItems={this.onInitializeItems} onPick={this.onPick}/>
-    );
-  }
-});
+```jsx_example
+const onPick = item => alert('You selected ' + item.value);
+const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
+const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeItems} onPick={onPick}/>;
+```
 
- ```
-
- ```react_example_table
- <AutocompleteExample/>
- ```
+```react_example_table
+<AutocompleteExample/>
+```
 
 ##Autocomplete Properties
 
@@ -59,85 +48,76 @@ Property   | Required? | Type             | Description
 */
 
 /*doc
- ---
- title: onInitializeItems
- name: autocomplete_oninitializeitems
- parent: autocomplete_react
- ---
+---
+title: onInitializeItems
+name: autocomplete_oninitializeitems
+parent: autocomplete_react
+---
 
- The callback passed to this function should return the values to initially populate the list of items.
+The callback passed to this function should return the values to initially populate the list of items.
 
- It's designed to be able to be used asynchronously:
+It's designed to be able to be used asynchronously:
 
- ```js
-function onInitializeItems(callback) {
-  $.get('example.com/autocomplete_items').then(function(items) {
-    callback(items);
-  });
+```js
+const onInitializeItems = callback => {
+  $.get('example.com/autocomplete_items').then(items => callback(items));
 };
- ```
+```
 
- But it can also just be used synchronously:
+But it can also just be used synchronously:
 
- ```js
-function onInitializeItems(callback) {
-  callback(['foo', 'food', 'bar']);
-};
- ```
+```js
+const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
+```
 
- */
+*/
 
 /*doc
- ---
- title: onPick
- name: autocomplete_onpick
- parent: autocomplete_react
- ---
+---
+title: onPick
+name: autocomplete_onpick
+parent: autocomplete_react
+---
 
- By default, when a user selects a list item, nothing happens except hiding the list.
+By default, when a user selects a list item, nothing happens except hiding the list.
 
- ```js
-function onPick(value) {
+```js
+const onPick = value => {
   $.post('example.com/add_to_cart?thing=' + value);
 };
- ```
+```
 
- */
+*/
 
 /*doc
- ---
- title: onSearch
- name: autocomplete_onsearch
- parent: autocomplete_react
- ---
+---
+title: onSearch
+name: autocomplete_onsearch
+parent: autocomplete_react
+---
 
- To override the default search algorithm, pass your custom function to the Autocomplete as the prop onSearch.
+To override the default search algorithm, pass your custom function to the Autocomplete as the prop onSearch.
 
- onSearch is given the current value of the input and a callback.
+onSearch is given the current value of the input and a callback.
 
- The callback should return the items that should be shown in the list given that input value.
+The callback should return the items that should be shown in the list given that input value.
 
- The list should be an array of objects with the `value` key e.g.
- `[{value: 'foo'}, {value: 'food'}, {value: 'foe'}]`
+The list should be an array of objects with the `value` key e.g.
+`[{value: 'foo'}, {value: 'food'}, {value: 'foe'}]`
 
- It's designed to be able to be used asynchronously:
+It's designed to be able to be used asynchronously:
 
- ```js
-function onSearch(value, callback) {
-  $.get('example.com/autocomplete_results?value=' + value).then(function(results) {
-    callback(results);
-  });
+```js
+const onSearch = (value, callback) => {
+  $.get('example.com/autocomplete_results?value=' + value).then(results => callback(results));
 };
- ```
+```
 
- But it can also just be used synchronously:
+But it can also just be used synchronously:
 
- ```js
-function onSearch(value, callback) {
-  callback(myCustomList.filter(function(entry) {
-    return entry.includes('foo-' + value + '-bar');
-  }));
+```js
+const onSearch = (value, callback) => {
+  callback(myCustomList.filter(entry => entry.includes('foo-' + value + '-bar'));
 };
- ```
-
- */
+```
+*/

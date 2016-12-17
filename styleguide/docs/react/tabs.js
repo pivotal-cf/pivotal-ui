@@ -3,8 +3,8 @@
 title: Tabs
 name: tabs_react
 categories:
- - react_components_tabs
- - react_all
+- react_components_tabs
+- react_all
 ---
 
 <code class="pam">
@@ -12,14 +12,11 @@ categories:
 npm install pui-react-tabs --save
 </code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Tabs = require('pui-react-tabs').Tabs;
-var LeftTabs = require('pui-react-tabs').LeftTabs;
-var Tab = require('pui-react-tabs').Tab;
+import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';
 ```
-
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
 `Tabs` or `LeftTabs`). Each `Tab` is a child of this and has a `tab` property for the
@@ -40,17 +37,16 @@ Property   | Required? | Type             | Description
 `tabType` | no | one of: `"simple"`, `"simple-alt"` | Change the styling of your tabs, mostly whether the selected tab is transparent
 
 ##Tab Properties
- Property   | Required? | Type             | Description
- -----------| ----------|------------------| --------------------------------------------------------------------------
- `aria-labelledby` | no | String | overwrite the default `aria-labelledby` for the tab for more specific accessibility information
- `className` | no | String | className to add to the tab content
- `disabled` | no | Boolean | If true, disable the tab
- `eventKey` | no | anything | data representing the tab, to be used with `defaultActiveKey` or `onSelect`
- `onEntered` | no | Function | a function that gets called with the `eventKey` on entering a tab once animations have finished
- `onExited` | no | Function | a function that gets called with the `eventKey` on exiting a tab once animations have finished
- `title` | yes | Node | Text or an element rendered in the tab link
- `tabClassName` | no | String | className to add to the tab link
-
+Property   | Required? | Type             | Description
+-----------| ----------|------------------| --------------------------------------------------------------------------
+`aria-labelledby` | no | String | overwrite the default `aria-labelledby` for the tab for more specific accessibility information
+`className` | no | String | className to add to the tab content
+`disabled` | no | Boolean | If true, disable the tab
+`eventKey` | no | anything | data representing the tab, to be used with `defaultActiveKey` or `onSelect`
+`onEntered` | no | Function | a function that gets called with the `eventKey` on entering a tab once animations have finished
+`onExited` | no | Function | a function that gets called with the `eventKey` on exiting a tab once animations have finished
+`title` | yes | Node | Text or an element rendered in the tab link
+`tabClassName` | no | String | className to add to the tab link
 
 */
 
@@ -90,21 +86,20 @@ parent: tabs_react
 ```
 */
 
-
 /*doc
- ---
- title: Left
- name: 03_left_tabs_react
- parent: tabs_react
- ---
+---
+title: Left
+name: 03_left_tabs_react
+parent: tabs_react
+---
 
- `LeftTabs` can be used to create tabs where the nav is stacked on the left. They
- take a few optional special properties in addition to the properties in Tabs.
+`LeftTabs` can be used to create tabs where the nav is stacked on the left. They
+take a few optional special properties in addition to the properties in Tabs.
 
- Property   | Required? | Type             | Description                                  | Default
- -----------| ----------|------------------| ---------------------------------------------|------------------------
- `tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 6
- `paneWidth` | no       | `number`         | The number of bs columns for the tab content | 24 - `tabWidth`
+Property   | Required? | Type             | Description                                  | Default
+-----------| ----------|------------------| ---------------------------------------------|------------------------
+`tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 6
+`paneWidth` | no       | `number`         | The number of bs columns for the tab content | 24 - `tabWidth`
 
 ```react_example
 <LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
@@ -115,8 +110,7 @@ parent: tabs_react
   </Tab>
 </LeftTabs>
 ```
-
- */
+*/
 
 /*doc
 ---
@@ -125,8 +119,8 @@ name: 04_responsive_tabs_react
 parent: tabs_react
 ---
 
- Tabs can be responsive, and will display accordion-style on small screens and folder-style on large
- screens.
+Tabs can be responsive, and will display accordion-style on small screens and folder-style on large
+screens.
 
 ```react_example
 <Tabs defaultActiveKey={1} responsiveBreakpoint="md">
@@ -134,5 +128,4 @@ parent: tabs_react
   <Tab eventKey={2} title="Tab 2"> Me too </Tab>
 </Tabs>
 ```
-
- */
+*/

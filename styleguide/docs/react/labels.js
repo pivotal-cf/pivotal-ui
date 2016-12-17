@@ -3,19 +3,19 @@
 title: Labels
 name: label_react
 categories:
- - react_base_labels
- - react_all
+- react_base_labels
+- react_all
 ---
 
 <code class="pam">
- <img src="/styleguide/download.svg" width="16" height="16"/>
- npm install pui-react-labels --save
- </code>
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-react-labels --save
+</code>
 
-Require the subcomponents:
+Import the subcomponents:
 
 ```
-var Label = require('pui-react-labels').Label;
+import {Label} from 'pui-react-labels';
 ```
 
 Labels are a straightforward implementation of the [Label][label] style.
@@ -25,7 +25,9 @@ Labels can be used on their own:
 ```react_example
 <Label>yeah</Label>
 ```
-Labels used within an element which already has font modifier styles will use the parents' styling. For example:
+
+Labels used within an element which already has font modifier styles will use
+the parents' styling. For example:
 
 ```react_example
 <h3>
