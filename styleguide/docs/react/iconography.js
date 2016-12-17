@@ -38,6 +38,16 @@ Icons by default will be sized based on the local font size. You can override th
 <Icon src="add" style={{width: 100, height: 100}}/>
 ```
 
+Icons can be vertically aligned with either 'middle' or 'baseline'. The default is 'middle':
+
+```react_example
+<div>
+  <div>some text <Icon src="add"/> some text</div>
+  <div>some text <Icon src="add" verticalAlign="middle"/> some text</div>
+  <div>some text <Icon src="add" verticalAlign="baseline"/> some text</div>
+</div>
+```
+
  Property           |  Type         | Description
  -------------      | --------------| --------------------------------------------------------------------------
  `src`       | String  | Name of the svg to load
