@@ -76,7 +76,6 @@ describe('UIButton', function() {
       });
     });
 
-
     describe('when options that add class names are given', function() {
       beforeEach(function() {
         renderButton({
@@ -166,4 +165,19 @@ describe('UIButton', function() {
       });
     });
   });
+
+  describe('button with icons', () => {
+    const {Icon} = require('../../../src/pivotal-ui-react/iconography/iconography');
+    const {DefaultButton} = require('../../../src/pivotal-ui-react/buttons/buttons');
+
+    it('renders with an icon if an icon node is passed through props', () => {
+      ReactDOM.render(<DefaultButton icon={<Icon src="add" />}>Click here</DefaultButton>, root);
+      expect('#root button .svgicon').toExist();
+    });
+
+    it('renders with an icon if it is a link', () => {
+      ReactDOM.render(<DefaultButton href="whatever" icon={<Icon src="add" />}>Click here</DefaultButton>, root);
+      expect('#root a.button .svgicon').toExist();
+    });
+  })
 });
