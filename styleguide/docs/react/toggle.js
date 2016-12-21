@@ -10,6 +10,16 @@ parent: form_react
   npm install pui-react-toggle --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+id       | no | String                            | | The id of the element
+onChange | no | Function                          | | Callback that gets fired when toggle occurs
+size     | no | oneOf('small', 'medium', 'large') | | Size variations
+
+## Basic usage
+
 Import the subcomponent:
 
 ```

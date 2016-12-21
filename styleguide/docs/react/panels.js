@@ -12,6 +12,20 @@ categories:
 npm install pui-react-panels --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+header         | no | Node                   | | Node to render in the header
+footer         | no | Node                   | | Node to render in the footer
+actions        | no | Node                   | | Node to render as actions in the header (recommended: array of nodes)
+subtitle       | no | Node                   | | An element or text to render as the subtitle in the header (only works if header is a string)
+innerClassName | no | String                 | | The className to be added on the panel body
+padding        | no | String                 | | Padding to use on the panel body using OOCSS naming convention (e.g pam, pan, phl, ptl)
+scrollable     | no | oneOf(Boolean, Number) | | Use default scrolling height when boolean or a specified scrolling height
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -21,18 +35,6 @@ import {Panel} from 'pui-react-panels';
 Panel components are straightforward implementations of the [Panel][panel]
 styling. The `Panel` component itself is the base, and there are many different
 flavors of Panels which all construct a particularly styled `Panel`.
-
-The `Panel` expects the following properties:
-
-Property        | Required? | Type              | Description
-----------------| ----------| ------------------| --------------------------------------------------------------------------
-`header`        | **no**    | Node         | An element or text to render in the header
-`footer`        | **no**    | Node         | An element or text to render in the footer
-`actions`       | **no**    | Node         | An array of elements or text to render as actions in the header
-`subtitle`      | **no**    | Node         | An element or text to render as the subtitle in the header (only works if header is a string)
-`innerClassName`| **no**    | String            | The className to be added on the panel body
-`padding`       | **no**    | String            | Padding to use on the panel body using OOCSS naming convention (e.g pam, pan, phl, ptl)
-`scrollable`    | **no**    | Boolean or Number | Use default scrolling height when boolean or a specified scrolling height
 
 A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
@@ -92,14 +94,8 @@ See examples below.
   <p>Scrollable Panel</p>
 </Panel>
 ```
-*/
 
-/*doc
----
-title: Simple
-name: 01_panel_simple_react
-parent: panel_react
----
+## Simple
 
 ```
 import {SimplePanel} from 'pui-react-panels';
@@ -110,14 +106,8 @@ import {SimplePanel} from 'pui-react-panels';
   Simple Panel
 </SimplePanel>
 ```
-*/
 
-/*doc
----
-title: Basic
-name: 02_panel_basic_react
-parent: panel_react
----
+## Basic
 
 ```
 import {BasicPanel} from 'pui-react-panels';
@@ -132,15 +122,8 @@ import {BasicPanel} from 'pui-react-panels';
   Basic Panel
 </BasicPanel>
 ```
-*/
 
-
-/*doc
----
-title: Basic Panel Alt
-name: 03_panel_basic_alt_react
-parent: panel_react
----
+## Basic Panel Alt
 
 ```
 import {BasicPanelAlt} from 'pui-react-panels';
@@ -155,14 +138,8 @@ import {BasicPanelAlt} from 'pui-react-panels';
   Basic Panel
 </BasicPanelAlt>
 ```
-*/
 
-/*doc
----
-title: Panel Title
-name: 00_panel_title_react
-parent: panel_react
----
+## Panel Title
 
 ```
 import {PanelTitle, BasicPanelAlt} from 'pui-react-panels';
@@ -179,14 +156,8 @@ use the `PanelTitle` component.
   Basic Panel With Custom Title
 </BasicPanelAlt>
 ```
-*/
 
-/*doc
----
-title: Shadow
-name: 06_panel_shadow_react
-parent: panel_react
----
+## Shadow
 
 ```
 import {ShadowPanel} from 'pui-react-panels';
@@ -207,14 +178,7 @@ If no `shadowLevel` is set, a default value of 3 is applied.
 <ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</ShadowPanel>
 ```
 
-*/
-
-/*doc
----
-title: Clickable
-name: 05_panel_clickable_react
-parent: panel_react
----
+## Clickable
 
 ```
 import {ClickablePanel, ClickableAltPanel} from 'pui-react-panels';
@@ -225,14 +189,8 @@ import {ClickablePanel, ClickableAltPanel} from 'pui-react-panels';
 
 <ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>
 ```
-*/
 
-/*doc
----
-title: Highlight
-name: 04_panel_highlight_react
-parent: panel_react
----
+## Highlight
 
 ```
 import {HighlightPanel} from 'pui-react-panels';

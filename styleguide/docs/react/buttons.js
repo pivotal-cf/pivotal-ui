@@ -12,6 +12,19 @@ categories:
 npm install pui-react-buttons --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+alt   | no | Boolean                                        | false     | Whether to render as 'alternate' button
+flat  | no | Boolean                                        | false     | Whether to render as a 'flat' button
+href  | no | String                                         |           | If specified, button clicks will redirect to this href
+kind  | no | oneOf('default', 'danger', 'primary', 'brand') | 'default' | Button theme
+large | no | Boolean                                        | false     | Whether to render the button large
+small | no | Boolean                                        | false     | Whether to render teh button small
+
+## Basic usage
+
 Import the subcomponents:
 
 ```

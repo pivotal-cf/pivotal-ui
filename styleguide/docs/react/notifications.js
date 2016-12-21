@@ -17,6 +17,14 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+size | no | oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6') | | Size of the notification
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -46,14 +54,8 @@ Here's an example if there are notifications:
   </NotificationItem>
 </Notifications>
 ```
-*/
 
-/*doc
----
-title: Notification Sizing
-name: notifications_react_sizing
-parent: notifications_react
----
+## Notification Sizing
 
 ```react_example_table
 <Notifications size="h1">
@@ -84,14 +86,8 @@ parent: notifications_react
   <NotificationItem>Stuff</NotificationItem>
 </AlertNotifications>
 ```
-*/
 
-/*doc
----
-title: Alerts
-name: alert_notifications_react
-parent: notifications_react
----
+## Alerts
 
 Here's an example if there are no alerts:
 

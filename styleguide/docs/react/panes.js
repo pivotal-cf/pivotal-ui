@@ -12,6 +12,15 @@ categories:
 npm install pui-react-panes --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+className      | no | String | | Classname of the element
+innerClassName | no | String | | Classname of the inner element
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
