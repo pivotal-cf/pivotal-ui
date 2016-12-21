@@ -3,9 +3,9 @@
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import '../../frameworks/oocss/whitespace';
 
-@include whitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl, $whitespace-xxl, $whitespace-xxxl, $whitespace-xxxxl));
+@include whitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl, $whitespace-xxl, $whitespace-xxxl));
 
 @media all and (max-width: $screen-sm) {
-  @include whitespace(($whitespace-screen-sm-s, $whitespace-screen-sm-m, $whitespace-screen-sm-l, $whitespace-screen-sm-xl, $whitespace-screen-sm-xxl, $whitespace-screen-sm-xxxl, $whitespace-screen-sm-xxxxl));
+  @include whitespace(($whitespace-screen-sm-s, $whitespace-screen-sm-m, $whitespace-screen-sm-l, $whitespace-screen-sm-xl, $whitespace-screen-sm-xxl, $whitespace-screen-sm-xxxl));
 }
 

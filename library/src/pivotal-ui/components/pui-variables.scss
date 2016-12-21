@@ -339,25 +339,24 @@ $line-height-computed:        20px;
 
 $font-size-title:             42px;
 
+$base-size: 8px;
+
 // Whitespace
 // -------------------------
-
-$whitespace-s:        5px;
-$whitespace-m:        7px;
-$whitespace-l:        10px;
-$whitespace-xl:       20px;
-$whitespace-xxl:      40px;
-$whitespace-xxxl:     120px;
-$whitespace-xxxxl:    140px;
+$whitespace-s:        $base-size / 4;
+$whitespace-m:        $base-size / 2;
+$whitespace-l:        $base-size;
+$whitespace-xl:       $base-size * 2;
+$whitespace-xxl:      $base-size * 3;
+$whitespace-xxxl:     $base-size * 4;
 
 // mobile screen whitespace
-$whitespace-screen-sm-s:     5px;
-$whitespace-screen-sm-m:     7px;
-$whitespace-screen-sm-l:     10px;
-$whitespace-screen-sm-xl:    15px;
-$whitespace-screen-sm-xxl:   20px;
-$whitespace-screen-sm-xxxl:  30px;
-$whitespace-screen-sm-xxxxl: 30px;
+$whitespace-screen-sm-s:        $base-size / 4;
+$whitespace-screen-sm-m:        $base-size / 2;
+$whitespace-screen-sm-l:        $base-size;
+$whitespace-screen-sm-xl:       $base-size * 2;
+$whitespace-screen-sm-xxl:      $base-size * 3;
+$whitespace-screen-sm-xxxl:     $base-size * 4;
 
 // Iconography
 // -------------------------
@@ -379,27 +378,27 @@ $avatar-border: 4px solid $dark-2;
 // Components
 // -------------------------
 
-$padding-base-vertical:    8px !default;
-$padding-base-horizontal:  20px !default;
+$padding-base-vertical:          $base-size / 4 !default;
+$padding-base-horizontal:        $base-size !default;
 
-$padding-large-vertical:   10px !default;
-$padding-large-horizontal: 26px !default;
+$padding-large-vertical:         $base-size / 4 !default;
+$padding-large-horizontal:       $base-size !default;
 
-$padding-small-vertical:   2px !default;
-$padding-small-horizontal: 10px !default;
+$padding-small-vertical:         $base-size / 4 !default;
+$padding-small-horizontal:       $base-size !default;
 
-$padding-xs-vertical:      1px !default;
-$padding-xs-horizontal:    5px !default;
+$padding-xs-vertical:            $base-size / 4 !default;
+$padding-xs-horizontal:          $base-size !default;
 
-$line-height-extra-large:  2.48 !default;
-$line-height-large:        1.33 !default;
-$line-height-small:        1.5 !default;
+$line-height-extra-large:        1.5 !default;
+$line-height-large:              1.5 !default;
+$line-height-small:              1.5 !default;
 
-$border-radius-base:       4px !default;
-$border-radius-medium:     5px !default;
-$border-radius-large:      6px !default;
-$border-radius-small:      3px !default;
-$border-radius-none:       0;
+$border-radius-base:             $base-size / 4 !default;
+$border-radius-medium:           $base-size / 4 !default;
+$border-radius-large:            $base-size / 4 !default;
+$border-radius-small:            $base-size / 4 !default;
+$border-radius-none:             0;
 
 $component-active-color:   #fff !default;
 $component-active-bg:      $brand-primary !default;
@@ -438,9 +437,9 @@ $table-scrollable-body-border:    3px solid $neutral-9;
 // Buttons
 // -------------------------
 
-$btn-font-weight:         600 !default;
-$btn-light:               $neutral-11;
-$btn-spacing-base:        10px;
+$btn-font-weight:                600 !default;
+$btn-light: $neutral-11;
+$btn-spacing-base: $base-size;
 
 $btn-default-color:       $dark-5;
 $btn-default-color-hover: $dark-3;
@@ -461,9 +460,9 @@ $btn-danger-color-focus:  $error-2;
 $btn-border-width: 2px;
 $btn-border-radius: 2px;
 
-$btn-font-size: 15px;
-$btn-lg-font-size: 18px;
-$btn-sm-font-size: 13px;
+$btn-font-size: 14px;
+$btn-lg-font-size: 16px;
+$btn-sm-font-size: 12px;
 
 // Forms
 // -------------------------
@@ -489,13 +488,13 @@ $input-color-placeholder:        $neutral-5 !default;
 
 $form-label-color:               $text-color !default;
 
-$input-height-base:              42px;
-$input-height-large:             42px;
-$input-height-small:             42px;
+$input-height-base:              $base-size * 4 !default;
+$input-height-large:             $base-size * 5 !default;
+$input-height-small:             $base-size * 3 !default;
 
-$input-icon-size:                16px;
+$input-icon-size:                $base-size * 2;
 
-$form-group-margin-bottom:       15px;
+$form-group-margin-bottom: $base-size;
 
 $legend-color:                   $gray-dark !default;
 $legend-border-color:            #e5e5e5 !default;
@@ -1028,11 +1027,10 @@ $list-card-margin: 16px !default;
 
 // Panels
 // -------------------------
-
-$panel-bg:                      null;
-$panel-body-padding:            8px !default;
-$panel-heading-padding:         8px !default;
-$panel-footer-padding:          8px !default;
+$panel-bg:                    null;
+$panel-body-padding:          $base-size !default;
+$panel-heading-padding:       $base-size $base-size !default;
+$panel-footer-padding:        $panel-heading-padding !default;
 
 $panel-inner-border:            transparent !default;
 $panel-border-radius:           $border-radius-none !default;

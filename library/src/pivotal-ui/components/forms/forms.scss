@@ -23,9 +23,11 @@
 }
 
 label {
-  font-weight: 400;
-  color: $neutral-3;
-  font-size: $font-size-medium;
+  font-weight: 600;
+  font-size: $font-size-small;
+  color: $neutral-3; //override bootstrap
+  line-height: 4 * $base-size;
+  margin-bottom: 0; //override bootstrap
 }
 
 // do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
@@ -51,7 +53,7 @@ label {
 
 .form-group-left-icon {
   input {
-    padding-left: 34px;
+    padding-left: $base-size * 4;
   }
 }
 
@@ -73,8 +75,9 @@ label {
 }
 
 .form-control {
-  padding: 8px 14px; // override bootstrap
-  //-webkit-appearance: none;
+  padding: ($base-size/2) ($base-size); // override bootstrap
+  font-size: $font-size-small;
+
   position: relative;
   &:hover, &:focus {
     border-color: $input-border-color-hover;
@@ -127,7 +130,7 @@ input[type="radio"] {
   position: relative;
   .svgicon.success {
     position: absolute;
-    right: 8px;
+    right: $base-size;
     top: 50%;
     transform: translate(0, -50%);
     height: $input-icon-size;
@@ -138,7 +141,7 @@ input[type="radio"] {
   }
 
   .form-control {
-    padding-right: 38px;
+    padding-right: $base-size * 4;
   }
   @include validation-label-color()
 }
@@ -153,16 +156,40 @@ input[type="radio"] {
 // align bootstrap errors for checkboxes and radio buttons
 .radio,
 .checkbox {
-  padding-left: 20px;
+  margin-top:0;
+  margin-bottom:0;
 
   label {
     padding-left: 0;
+
   }
 
   .disabled {
     color: $neutral-5;
     cursor: not-allowed;
   }
+}
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: relative; // override bootstrap
+  margin-left: 0; // override bootstrap
+  margin-top: 0; // override bootstrap
+  display: inline-block;
+  height: $font-size-small;
+  width: $font-size-small;
+  margin-right: $base-size / 2;
+}
+
+.radio-inline,
+.checkbox-inline {
+  padding-left: 0; //override bootstrap
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-left: $base-size;
 }
 
 .help-block {
@@ -182,7 +209,6 @@ input {
 p.form-control-static {
   color: $neutral-3;
 }
-
 .form-contenteditable {
   position: relative;
 
