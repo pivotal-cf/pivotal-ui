@@ -10,16 +10,13 @@ class StreamListNewItemsButton extends React.Component {
     singularNewItemText: React.PropTypes.string,
     pluralNewItemsText: React.PropTypes.string,
     numNewItems: React.PropTypes.number.isRequired
-  };
+  }
 
   render() {
-    return (
-      <DefaultButton flat className="list-stream-new-items-btn"
-                onClick={this.props.showNewItems}>
-        {`${this.props.numNewItems} ${this.props.numNewItems === 1 ?
-          this.props.singularNewItemText : this.props.pluralNewItemsText}`}
-      </DefaultButton>
-    );
+    return (<DefaultButton flat className="list-stream-new-items-btn" onClick={this.props.showNewItems}>
+      {`${this.props.numNewItems} ${this.props.numNewItems === 1 ?
+        this.props.singularNewItemText : this.props.pluralNewItemsText}`}
+    </DefaultButton>);
   }
 }
 
@@ -32,24 +29,18 @@ export class StreamList extends mixin(React.Component).with(Animation) {
   static propTypes = {
     singularNewItemText: React.PropTypes.string.isRequired,
     pluralNewItemsText: React.PropTypes.string.isRequired
-  };
+  }
 
   static defaultProps = {
     singularNewItemText: 'new item',
     pluralNewItemsText: 'new items'
-  };
+  }
 
-  numTotalItems = (props) => {
-    return React.Children.count(props.children);
-  };
+  numTotalItems = props => React.Children.count(props.children)
 
-  numNewItems = () => {
-    return this.numTotalItems(this.props) - this.state.numRenderedItems;
-  };
+  numNewItems = () => this.numTotalItems(this.props) - this.state.numRenderedItems
 
-  showNewItems = () => {
-    this.setState({numRenderedItems: this.numTotalItems(this.props)});
-  };
+  showNewItems = () => this.setState({numRenderedItems: this.numTotalItems(this.props)})
 
   render() {
     const {children, singularNewItemText, pluralNewItemsText, ...others} = this.props;
@@ -71,12 +62,10 @@ export class StreamList extends mixin(React.Component).with(Animation) {
       height = this.animate(`list-stream-btn-key-${this.state.numRenderedItems}`, 45, 150, {startValue: 0});
       // animating using `numRenderedItems` makes a new animation every time the button appears
     }
-    return (
-      <div>
-        <div className="list-stream-new-items-btn-wrapper" style={{height}}>{newItemsButton}</div>
-        <GroupList {...others}>{updatedChildren}</GroupList>
-      </div>
-    );
+    return (<div>
+      <div className="list-stream-new-items-btn-wrapper" style={{height}}>{newItemsButton}</div>
+      <GroupList {...others}>{updatedChildren}</GroupList>
+    </div>);
   }
 }
 

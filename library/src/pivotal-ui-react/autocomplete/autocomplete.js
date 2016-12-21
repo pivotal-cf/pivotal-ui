@@ -1,20 +1,21 @@
-const AutocompleteList = require('./autocomplete-list');
-const AutocompleteInput = require('./autocomplete-input');
-const classnames = require('classnames');
-const Cursor = require('pui-cursor');
-const from = require('from');
-const mixin = require('pui-react-mixins');
-const React = require('react');
-const Scrim = require('pui-react-mixins/mixins/scrim_mixin');
-const scrollIntoView = require('scroll-into-view');
-const through = require('through');
-const TrieSearch = require('trie-search');
+import {AutocompleteList} from './autocomplete-list';
+import {AutocompleteInput} from './autocomplete-input';
+import classnames from 'classnames';
+import Cursor from 'pui-cursor';
+import from from 'from';
+import mixin from 'pui-react-mixins';
+import React from 'react';
+import scrollIntoView from 'scroll-into-view';
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
+import through from 'through';
+import TrieSearch from 'trie-search';
+import 'pui-css-autocomplete';
 
-require('pui-css-autocomplete');
+export {AutocompleteList, AutocompleteInput};
 
 const types = React.PropTypes;
 
-function trieFromSearchableItems(searchableItems, trieOptions) {
+const trieFromSearchableItems = (searchableItems, trieOptions) => {
   return new Promise(resolve => {
     let trie;
     from(function (count, callback) {
@@ -33,9 +34,9 @@ function trieFromSearchableItems(searchableItems, trieOptions) {
       resolve(trie);
     }));
   });
-}
+};
 
-class Autocomplete extends mixin(React.Component).with(Scrim) {
+export class Autocomplete extends mixin(React.Component).with(Scrim) {
   constructor(props, context) {
     super(props, context);
     const value = this.props.value || '';
@@ -57,11 +58,14 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
     selectedSuggestion: types.any,
     trieOptions: types.object,
     value: types.string
-  };
+  }
 
   static defaultProps = {
-    maxItems: 50, onInitializeItems: (done) => done([]), input: (<AutocompleteInput/>), placeholder: 'Search'
-  };
+    maxItems: 50,
+    onInitializeItems: done => done([]),
+    input: <AutocompleteInput/>,
+    placeholder: 'Search'
+  }
 
   componentWillReceiveProps({value}) {
     if (value !== this.props.value) {
@@ -89,19 +93,25 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
       result = this.props.onFilter(result);
     }
     callback(result.slice(0, maxItems));
-  };
+  }
 
   showList = (defaultValue = null) => {
     const value = defaultValue === null ? this.state.value : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({hidden: false, suggestedValues: suggestedValues});
     });
-  };
+  }
 
-  onPick = (value) => {
+  onPick = value => {
     this.props.onPick && this.props.onPick(value);
     this.hideList();
-  };
+  }
+
+  scrollIntoViewFn = () => {
+    if (!this.autocomplete) return;
+    Array.from(this.autocomplete.querySelectorAll('.highlighted'))
+      .map(el => scrollIntoView(el, {validTarget: target => target !== window}));
+  }
 
   hideList = () => {
     this.setState({hidden: true});
@@ -111,11 +121,6 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
     this.hideList();
   };
 
-  scrollIntoView = () => {
-    if (!this.autocomplete) return;
-    Array.from(this.autocomplete.querySelectorAll('.highlighted')).map((el) => scrollIntoView(el, {validTarget: target => target !== window}));
-  };
-
   render() {
     const $autocomplete = new Cursor(this.state, state => this.setState(state));
     const {
@@ -123,22 +128,15 @@ class Autocomplete extends mixin(React.Component).with(Scrim) {
       onInitializeItems: __IGNORE1, onFilter: __IGNORE2, onPick: __IGNORE3, onSearch: __IGNORE4,
       trieOptions: __IGNORE5, ...props
     } = this.props;
-    const {scrollIntoView, onPick, onSearch} = this;
+    const {scrollIntoViewFn, onPick, onSearch} = this;
     const clonedInput = React.cloneElement(
       input,
-      {$autocomplete, onPick, scrollIntoView, onSearch, disabled, onFocus, onClick, placeholder}
+      {$autocomplete, onPick, scrollIntoView: scrollIntoViewFn, onSearch, disabled, onFocus, onClick, placeholder}
     );
-    return (
-      <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
-        {clonedInput}
-        <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
-      </div>
-    );
+
+    return (<div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
+      {clonedInput}
+      <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
+    </div>);
   }
 }
-
-module.exports = {
-  Autocomplete,
-  AutocompleteInput,
-  AutocompleteList
-};

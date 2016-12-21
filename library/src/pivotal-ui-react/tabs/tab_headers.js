@@ -1,9 +1,9 @@
-const classnames = require('classnames');
-const React = require('react');
+import classnames from 'classnames';
+import React from 'react';
 
 const types = React.PropTypes;
 
-class TabHeaders extends React.Component {
+export default class TabHeaders extends React.Component {
   static propTypes = {
     activeKey: types.any,
     childArray: types.array,
@@ -12,7 +12,7 @@ class TabHeaders extends React.Component {
     id: types.string.isRequired,
     onSelect: types.func,
     tabWidth: types.number
-  };
+  }
 
   render() {
     const {childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth} = this.props;
@@ -24,7 +24,8 @@ class TabHeaders extends React.Component {
       const tabId = `${id}-tab-${key}`;
       const isActive = (eventKey === activeKey);
 
-      const onClick = disabled ? () => {} : (e) => handleClick(e, eventKey, onSelect);
+      const onClick = disabled ? () => {
+      } : (e) => handleClick(e, eventKey, onSelect);
       return (
         <li key={key} role='presentation' className={classnames({active: isActive, disabled})}>
           <a id={tabId} aria-controls={paneId} aria-selected={isActive} role="tab" className={tabClassName}
@@ -33,13 +34,8 @@ class TabHeaders extends React.Component {
       );
     });
 
-    return (
-      <ul role='tablist'
-          className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
-        {listChildren}
-      </ul>
-    );
+    return (<ul role='tablist' className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
+      {listChildren}
+    </ul>);
   }
 }
-
-module.exports = TabHeaders;

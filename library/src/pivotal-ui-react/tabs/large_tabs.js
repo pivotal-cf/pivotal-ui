@@ -1,13 +1,13 @@
-const Animation = require('pui-react-mixins/mixins/animation_mixin');
-const TabContent = require('./tab_content');
-const TabHeaders = require('./tab_headers');
-const classnames = require('classnames');
-const mixin = require('pui-react-mixins');
-const React = require('react');
+import React from 'react';
+import Animation from 'pui-react-mixins/mixins/animation_mixin';
+import TabContent from './tab_content';
+import TabHeaders from './tab_headers';
+import classnames from 'classnames';
+import mixin from 'pui-react-mixins';
 
 const types = React.PropTypes;
 
-class LargeTabs extends mixin(React.Component).with(Animation) {
+export class LargeTabs extends mixin(React.Component).with(Animation) {
   static propTypes = {
     actions: types.node,
     activeKey: types.any,
@@ -21,7 +21,7 @@ class LargeTabs extends mixin(React.Component).with(Animation) {
     previouslyActiveKey: types.any,
     tabType: types.oneOf(['simple', 'simple-alt', 'left']),
     tabWidth: types.number
-  };
+  }
 
   render() {
     const {
@@ -39,21 +39,18 @@ class LargeTabs extends mixin(React.Component).with(Animation) {
       tabType,
       tabWidth,
       transitionProgress,
-      ...props} = this.props;
+      ...props
+    } = this.props;
 
     const currentActiveKey = transitionProgress >= 0.5 ? activeKey : previousActiveKey;
     const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
     const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
     const isLeft = position === 'left';
-
-    return (
-      <div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
-        {actionsNode}
-        <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth}} />
-        <TabContent {...{childArray, activeKey: currentActiveKey, id, isLeft, paneWidth, transitionProgress}}/>
-      </div>
-    );
+    
+    return (<div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
+      {actionsNode}
+      <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth}} />
+      <TabContent {...{childArray, activeKey: currentActiveKey, id, isLeft, paneWidth, transitionProgress}}/>
+    </div>);
   }
 }
-
-module.exports = {LargeTabs};

@@ -1,11 +1,12 @@
-const classnames = require('classnames');
-const {Icon} = require('pui-react-iconography');
-const {mergeProps} = require('pui-react-helpers');
-const React = require('react');
-const types = React.PropTypes;
-require('pui-css-forms');
+import classnames from 'classnames';
+import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
+import React from 'react';
+import 'pui-css-forms';
 
-class Input extends React.Component {
+const types = React.PropTypes;
+
+export class Input extends React.Component {
   static propTypes = {
     displayError: types.bool,
     errorMessage: types.node,
@@ -20,7 +21,7 @@ class Input extends React.Component {
       types.string,
       types.element
     ])
-  };
+  }
 
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, search, success, leftIcon, ...props} = this.props;
@@ -40,20 +41,17 @@ class Input extends React.Component {
     const leftIconClass = 'input-left-icon';
     const customLeftIcon = typeof leftIconSrc === 'string' ?
       <Icon className={leftIconClass} src={leftIconSrc}/> : <span className={leftIconClass}>{leftIconSrc}</span>;
-    return (
-      <div className={formClasses}>
-        {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
-        <div className="input-wrapper">
-          <input {...inputProps} />
-          {leftIconSrc && customLeftIcon}
-          {success && <Icon className="success" src="check"/>}
-        </div>
-        {displayError && <div className="error-text help-block">
-          {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
-        </div>}
+
+    return (<div className={formClasses}>
+      {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
+      <div className="input-wrapper">
+        <input {...inputProps} />
+        {leftIconSrc && customLeftIcon}
+        {success && <Icon className="success" src="check"/>}
       </div>
-    );
+      {displayError && <div className="error-text help-block">
+        {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
+      </div>}
+    </div>);
   }
 }
-
-module.exports = {Input};

@@ -1,16 +1,14 @@
-var React = require('react');
+import React from 'react';
 import {mergeProps} from 'pui-react-helpers';
-require('pui-css-labels');
+import 'pui-css-labels';
 
-class Label extends React.Component {
+export class Label extends React.Component {
+  static defaultProps = {
+    className: 'label label-primary'
+  }
+
   render() {
-    let defaultProps = {
-      className: ['label', 'label-primary']
-    };
-    let {children, ...others} = this.props;
-    let props = mergeProps(others, defaultProps);
+    const {children, ...props} = this.props;
     return <span {...props}>{children}</span>;
   }
 }
-
-module.exports = {Label};

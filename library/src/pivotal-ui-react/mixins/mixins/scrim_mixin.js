@@ -10,26 +10,27 @@ function rootClick(e) {
 
 const privates = new WeakMap();
 
-module.exports = function(ParentClass) {
+export default ParentClass => {
   return class Scrim extends ParentClass {
     static propTypes = {
       disableScrim: types.bool
-    };
+    }
 
     constructor(props, context) {
       super(props, context);
       privates.set(this, rootClick.bind(this));
     }
 
-    scrimClick() {}
+    scrimClick() {
+    }
 
     componentDidMount(...args) {
-      if(super.componentDidMount) super.componentDidMount(...args);
+      if (super.componentDidMount) super.componentDidMount(...args);
       document.documentElement.addEventListener('click', privates.get(this));
     }
 
     componentWillUnmount(...args) {
-      if(super.componentWillUnmount) super.componentWillUnmount(...args);
+      if (super.componentWillUnmount) super.componentWillUnmount(...args);
       document.documentElement.removeEventListener('click', privates.get(this));
     }
   };

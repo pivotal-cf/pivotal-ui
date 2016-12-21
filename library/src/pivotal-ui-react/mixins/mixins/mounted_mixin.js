@@ -1,6 +1,6 @@
 const privates = new WeakMap();
 
-module.exports = function(ParentClass) {
+export default ParentClass => {
   return class Mounted extends ParentClass {
     componentDidMount() {
       privates.set(this, {isMounted: true});

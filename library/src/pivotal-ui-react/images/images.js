@@ -1,15 +1,16 @@
-var React = require('react');
-var types = React.PropTypes;
+import React from 'react';
 import {mergeProps} from 'pui-react-helpers';
-require('pui-css-images');
+import 'pui-css-images';
 
-class Image extends React.Component {
+const types = React.PropTypes;
+
+export class Image extends React.Component {
   static propTypes = {
     responsive: types.bool,
     href: types.string,
     alt: types.string,
     src: types.string.isRequired
-  };
+  }
 
   render() {
     let {responsive, href, children, ...props} = this.props;
@@ -21,5 +22,3 @@ class Image extends React.Component {
     return href ? <a {...{href}}>{image}</a> : image;
   }
 }
-
-module.exports = {Image};

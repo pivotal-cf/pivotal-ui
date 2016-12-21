@@ -1,43 +1,43 @@
-const {copy} = require('./clipboard-helper');
-const {mergeProps} = require('pui-react-helpers');
-const {Icon} = require('pui-react-iconography');
-const {OverlayTrigger} = require('pui-react-overlay-trigger');
-const React = require('react');
-const {Tooltip} = require('pui-react-tooltip');
-require('pui-css-copy-to-clipboard');
+import React from 'react';
+import {copy} from './clipboard-helper';
+import {mergeProps} from 'pui-react-helpers';
+import {Icon} from 'pui-react-iconography';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
+import {Tooltip} from 'pui-react-tooltip';
+import 'pui-css-copy-to-clipboard';
 
 const types = React.PropTypes;
 
-function click({props, text}, e) {
-  copy(window, document, text);
-  const {onClick} = props;
-  if (onClick) onClick(e);
-}
+export class CopyToClipboard extends React.Component {
+  static propTypes = {
+    text: types.string.isRequired,
+    onClick: types.func
+  };
 
-function CopyToClipboard(props) {
-  const {children, text, onClick, ...others} = props;
-  const obj = {props, text: null};
+  click = ({props, text}, e) => {
+    copy(window, document, text);
+    const {onClick} = props;
+    if (onClick) onClick(e);
+  }
 
-  const anchorProps = mergeProps(others, {
-    className: 'copy-to-clipboard',
-    onClick: click.bind(undefined, obj),
-    role: 'button'
-  });
+  render() {
+    const {children, text, onClick, ...others} = this.props;
+    const obj = {props: this.props, text: null};
 
-  return (
-    <a {...anchorProps}>
+    const anchorProps = mergeProps(others, {
+      className: 'copy-to-clipboard',
+      onClick: this.click.bind(undefined, obj),
+      role: 'button'
+    });
+
+    return (<a {...anchorProps}>
       <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
       {children}
-    </a>
-  );
+    </a>);
+  }
 }
 
-CopyToClipboard.propTypes = {
-  text: types.string.isRequired,
-  onClick: types.func
-};
-
-class CopyToClipboardButton extends React.Component {
+export class CopyToClipboardButton extends React.Component {
   static propTypes = {
     text: types.string,
     onClick: types.func
@@ -53,7 +53,7 @@ class CopyToClipboardButton extends React.Component {
     this.state = {display: false};
   }
 
-  click = (e) => {
+  click = e => {
     if (!this.state.display) this.setState({display: true}, () => {
       this.setState({display: false});
     });
@@ -68,17 +68,14 @@ class CopyToClipboardButton extends React.Component {
       className: 'copy-to-clipboard-button',
       onClick: this.click
     });
+    const overlay = <Tooltip id="copy-to-clipboard">Copied</Tooltip>;
 
-    return (
-        <CopyToClipboard {...copyProps}>
-          <OverlayTrigger trigger="manual" delayHide={3000} placement="top" overlay={<Tooltip id="copy-to-clipboard">Copied</Tooltip>} {...{display}}>
-            <div className="clipboard-button">
-              <Icon src="copy"/>
-            </div>
-          </OverlayTrigger>
-        </CopyToClipboard>
-    );
+    return (<CopyToClipboard {...copyProps}>
+      <OverlayTrigger trigger="manual" delayHide={3000} placement="top" overlay={overlay} {...{display}}>
+        <div className="clipboard-button">
+          <Icon src="copy"/>
+        </div>
+      </OverlayTrigger>
+    </CopyToClipboard>);
   }
 }
-
-module.exports = {CopyToClipboard, CopyToClipboardButton};

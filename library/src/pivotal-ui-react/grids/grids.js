@@ -1,19 +1,19 @@
-const classnames = require('classnames');
-const React = require('react');
+import classnames from 'classnames';
+import React from 'react';
+import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-grids';
+
 const types = React.PropTypes;
-const {mergeProps} = require('pui-react-helpers');
 
-require('pui-css-grids');
-
-class Row extends React.Component{
+export class Row extends React.Component {
   static propTypes = {
     componentClass: types.oneOfType([types.string, types.func]),
     gutter: types.oneOf(['sm', 'md', 'lg'])
-  };
+  }
 
   static defaultProps = {
     componentClass: 'div'
-  };
+  }
 
   render() {
     const {componentClass: Component, gutter, ...other} = this.props;
@@ -22,11 +22,11 @@ class Row extends React.Component{
       'row-gutter-sm': gutter === 'sm'
     };
     const props = mergeProps(other, {className: classnames('row', gutterClass)});
-    return (<Component {...props}/>);
+    return <Component {...props}/>;
   }
 }
 
-class Col extends React.Component {
+export class Col extends React.Component {
   static propTypes = {
     componentClass: types.oneOfType([types.string, types.func]),
     xs: types.number,
@@ -49,11 +49,11 @@ class Col extends React.Component {
     smPull: types.number,
     mdPull: types.number,
     lgPull: types.number
-  };
+  }
 
   static defaultProps = {
     componentClass: 'div'
-  };
+  }
 
   render() {
     const {
@@ -105,9 +105,6 @@ class Col extends React.Component {
       className: classnames(sizeClassName, hiddenClassName, offsetClassName, pushClassName, pullClassName)
     });
 
-    return (<Component {...props}/>);
+    return <Component {...props}/>;
   }
 }
-
-
-module.exports = {Row, Col};
