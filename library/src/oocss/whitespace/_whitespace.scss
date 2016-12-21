@@ -86,7 +86,7 @@ $whitespace-keys: (p padding, m margin, a '', v -top -bottom, h -left -right, t 
  *
  */
 @mixin whitespace($units: (), $sizes: 4) {
-  $tShirtSizes: (n,s,m,l,xl,xxl,xxxl,xxxxl);
+  $tShirtSizes: (n,s,m,l,xl,xxl,xxxl);
   $types: (p,m);
   $locations: (a, v, h, t, r, b, l);
   $fontHeight: ($baseFontSize/1px) * $baseLineHeight;
