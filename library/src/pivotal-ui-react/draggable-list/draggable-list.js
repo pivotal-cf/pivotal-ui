@@ -1,24 +1,19 @@
-const React = require('react');
-const types = React.PropTypes;
-const classnames = require('classnames');
-const move = require('./move_helper');
-const {Icon} = require('pui-react-iconography');
+import React from 'react';
+import classnames from 'classnames';
+import move from './move_helper';
+import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
-require('pui-css-lists');
+import 'pui-css-lists';
 
-function preventDefault(e) {
-  e.preventDefault();
-}
+const types = React.PropTypes;
 
-function childrenIndices(children) {
-  return children.map((child, i) => i);
-}
+const childrenIndices = children => children.map((child, i) => i);
 
-class DraggableList extends React.Component{
+export class DraggableList extends React.Component {
   static propTypes = {
     onDragEnd: types.func,
     innerClassName: types.string
-  };
+  }
 
   constructor(props, context) {
     super(props, context);
@@ -46,28 +41,29 @@ class DraggableList extends React.Component{
       dataTransfer.setData('text', '');
     }
     setTimeout(() => this.setState({draggingId}), 0);
-  };
+  }
 
   dragEnd = () => {
     this.setState({draggingId: null});
     this.props.onDragEnd && this.props.onDragEnd(this.state.itemIndices);
-  };
+  }
 
-  dragEnter = (e) => {
-    var {draggingId, itemIndices} = this.state;
-    var endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
+  dragEnter = e => {
+    const {draggingId, itemIndices} = this.state;
+    const endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
     if (draggingId === null || Number.isNaN(endDraggingId)) return;
 
-    var startIndex = itemIndices.indexOf(draggingId);
-    var endIndex = itemIndices.indexOf(endDraggingId);
+    const startIndex = itemIndices.indexOf(draggingId);
+    const endIndex = itemIndices.indexOf(endDraggingId);
 
     move(itemIndices, startIndex, endIndex);
     this.setState({itemIndices});
-  };
+  }
 
   render() {
-    var grabbed, items = [];
-    var {children, innerClassName, onDragEnd, ...others} = this.props;
+    const items = [];
+    let grabbed;
+    const {children, innerClassName, onDragEnd, ...others} = this.props;
     React.Children.forEach(children, function(child, draggingId) {
       grabbed = this.state.draggingId === draggingId;
       items.push(React.cloneElement(child, {
@@ -80,17 +76,18 @@ class DraggableList extends React.Component{
         className: innerClassName
       }));
     }, this);
-    var sortedItems = this.state.itemIndices.map(i => items[i]);
-    var props = mergeProps(others, {className: {'list-group list-draggable': true, dragging: this.state.draggingId !== null}});
-    return (
-      <ul {...props}>
-        {sortedItems}
-      </ul>
-    );
+    const sortedItems = this.state.itemIndices.map(i => items[i]);
+    const props = mergeProps(others, {
+      className: {
+        'list-group list-draggable': true,
+        dragging: this.state.draggingId !== null
+      }
+    });
+    return <ul {...props}>{sortedItems}</ul>;
   }
 }
 
-class DraggableListItem extends React.Component {
+export class DraggableListItem extends React.Component {
   static propTypes = {
     draggingId: types.number,
     onMouseEnter: types.func,
@@ -100,45 +97,38 @@ class DraggableListItem extends React.Component {
     onDragEnd: types.func,
     grabbed: types.bool,
     className: types.string
-  };
+  }
 
   constructor(props, context) {
     super(props, context);
     this.state = {hover: false};
   }
 
-  onMouseEnter = () => {
-    this.setState({hover: true});
-  };
+  onMouseEnter = () => this.setState({hover: true})
 
-  onMouseLeave = () => {
-    this.setState({hover: false});
-  };
+  onMouseLeave = () => this.setState({hover: false})
 
   render() {
-    var {hover} = this.state;
-    var {grabbed, onDragStart, onDragEnd, onDragEnter, draggingId} = this.props;
-    var {onMouseEnter, onMouseLeave} = this;
-    var className = classnames({'list-group-item pan': true, grabbed, hover});
-    var innerClassName = classnames(this.props.className, 'draggable-item-content');
-    var props = {
+    const {hover} = this.state;
+    const {grabbed, onDragStart, onDragEnd, onDragEnter, draggingId, children} = this.props;
+    const {onMouseEnter, onMouseLeave} = this;
+    const className = classnames({'list-group-item pan': true, grabbed, hover});
+    const innerClassName = classnames(this.props.className, 'draggable-item-content');
+    const props = {
       className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter,
-      onDragOver: preventDefault,
+      onDragOver: e => e.preventDefault(),
       draggable: !grabbed,
       'data-dragging-id': draggingId
     };
-    return (
-      <li {...props} aria-dropeffect="move">
-        <div className={innerClassName}>
-          <div className="draggable-grip mhs" aria-grabbed={grabbed} role="button">
-            <Icon src="grip"/>
-            <span className="sr-only">Drag to reorder</span>
-          </div>
-          <span>{this.props.children}</span>
+    
+    return (<li {...props} aria-dropeffect="move">
+      <div className={innerClassName}>
+        <div className="draggable-grip mhs" aria-grabbed={grabbed} role="button">
+          <Icon src="grip"/>
+          <span className="sr-only">Drag to reorder</span>
         </div>
-      </li>
-    );
+        <span>{children}</span>
+      </div>
+    </li>);
   }
 }
-
-module.exports = {DraggableList, DraggableListItem};

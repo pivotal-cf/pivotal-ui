@@ -16,12 +16,12 @@ import classnames from 'classnames';
  * the two style hashes, with precedence given to `reactInstanceProps`'s style.
  *
  * @example ```js
- * var {mergeProps} = require('pui-react-helpers');
+ * import {mergeProps} from 'pui-react-helpers';
  *
  * class Ribbon extends React.Component {
  *   render() {
- *     var {children, ...others} = this.props;
- *     var props = mergeProps(others, {className: 'ribbon', style: {height: '50px', color: 'blue'}, id: 'default-ribbon-id'});
+ *     const {children, ...others} = this.props;
+ *     const props = mergeProps(others, {className: 'ribbon', style: {height: '50px', color: 'blue'}, id: 'default-ribbon-id'});
  *     return <div {...props}>{children}</div>;
  *   }
  * }
@@ -31,7 +31,7 @@ import classnames from 'classnames';
  * ```
  */
 
-export function mergeProps(reactInstanceProps, defaultProps) {
+export const mergeProps = (reactInstanceProps, defaultProps) => {
   let {className, id, style, ...remainingProps} = reactInstanceProps;
   let {
     className: defaultClassName,
@@ -46,4 +46,4 @@ export function mergeProps(reactInstanceProps, defaultProps) {
   remainingProps = {...remainingDefaultProps, ...remainingProps};
 
   return {className, id, style, ...remainingProps};
-}
+};

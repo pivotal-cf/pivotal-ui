@@ -1,20 +1,16 @@
-const ClipboardHelper = {
-  select(window, document, element) {
-    window.getSelection().removeAllRanges();
-    const range = document.createRange();
-    range.selectNode(element);
-    window.getSelection().addRange(range);
-  },
-
-  copy(window, document, element) {
-    ClipboardHelper.select(window, document, element);
-    try {
-      document.execCommand('copy');
-    } catch (e) {
-    } finally {
-      window.getSelection().removeAllRanges();
-    }
-  }
+export const select = (window, document, element) => {
+  window.getSelection().removeAllRanges();
+  const range = document.createRange();
+  range.selectNode(element);
+  window.getSelection().addRange(range);
 };
 
-module.exports = ClipboardHelper;
+export const copy = (window, document, element) => {
+  select(window, document, element);
+  try {
+    document.execCommand('copy');
+  } catch (e) {
+  } finally {
+    window.getSelection().removeAllRanges();
+  }
+};

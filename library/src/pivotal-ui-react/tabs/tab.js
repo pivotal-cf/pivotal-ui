@@ -1,7 +1,8 @@
-const React = require('react');
+import React from 'react';
+
 const types = React.PropTypes;
 
-class Tab extends React.Component {
+export class Tab extends React.Component {
   static propTypes = {
     'aria-labelledby': types.string,
     className: types.string,
@@ -11,16 +12,14 @@ class Tab extends React.Component {
     onExited: types.func,
     tabClassName: types.string,
     title: types.node.isRequired
-  };
+  }
 
   static defaultProps = {
     onEntered() {},
     onExited() {}
-  };
+  }
 
   render() {
     return null;
   }
 }
-
-module.exports = Tab;

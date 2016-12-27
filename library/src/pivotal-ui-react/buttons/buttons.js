@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 import {mergeProps} from 'pui-react-helpers';
-require('pui-css-buttons');
+import 'pui-css-buttons';
 
-class UIButton extends React.Component {
+export class UIButton extends React.Component {
   static propTypes = {
     alt: React.PropTypes.bool,
     flat: React.PropTypes.bool,
@@ -20,7 +20,7 @@ class UIButton extends React.Component {
 
   static defaultProps = {
     kind: 'default'
-  };
+  }
 
   render() {
     const {alt, flat, large, small, kind, children, icon, ...others} = this.props;
@@ -45,7 +45,7 @@ class UIButton extends React.Component {
   }
 }
 
-function defButton(propOverrides) {
+const defButton = propOverrides => {
   return class extends React.Component {
     static propTypes = {
       alt: React.PropTypes.bool,
@@ -61,10 +61,7 @@ function defButton(propOverrides) {
   };
 }
 
-module.exports = {
-  UIButton,
-  DefaultButton: defButton({kind: 'default'}),
-  DangerButton: defButton({kind: 'danger'}),
-  PrimaryButton: defButton({kind: 'primary'}),
-  BrandButton: defButton({kind: 'brand'})
-};
+export const DefaultButton = defButton({kind: 'default'});
+export const PrimaryButton = defButton({kind: 'primary'});
+export const DangerButton = defButton({kind: 'danger'});
+export const BrandButton = defButton({kind: 'brand'});
