@@ -16,6 +16,7 @@ Import the subcomponents:
 
 ```
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';
+import {Icon} from 'pui-react-iconography';
 ```
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
@@ -80,6 +81,16 @@ To make a button large, set the `large` property to true, to make it small, set 
 
 <PrimaryButton small>
   Small Button
+</PrimaryButton>
+```
+
+## Icons
+
+Buttons can have icons by specifying the `icon` prop and giving it a node:
+
+```react_example_table
+<PrimaryButton icon={<Icon src="add"/>}>
+  Icon button
 </PrimaryButton>
 ```
 */
