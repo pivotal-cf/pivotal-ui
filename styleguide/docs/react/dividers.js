@@ -12,6 +12,15 @@ categories:
 npm install pui-react-dividers --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+inverse | no | Boolean        | | Specifying this prop inverses the divider (you can also use InverseDivider)
+size    | no | oneOf('large') | | Changes the size of the component
+
+## Basic usage
+
 Import the subcomponents:
 
 ```

@@ -8,19 +8,29 @@ categories:
 ---
 
 <code class="pam">
-  <img src="/styleguide/download.svg" width="16" height="16"/>
-  npm install pui-react-alerts --save
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-react-alerts --save
 </code>
-
-
-Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`.
-If you use those props, you will need to add an svg loader:
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+closeLabel  | no | Node     | 'Close alert' | Screen reader label attached to close button
+dismissable | no | Boolean  | false         | If true, render a close button
+onDismiss   | no | Function |               | Callback that is called when the user clicks the close button
+show        | no | Boolean  |               | If set, overrides the close button. True shows the alert, false hides the alert.
+withIcon    | no | Boolean  | false         | If true, render alert with an icon
+
+## Basic usage
+
+Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`.
+If you use those props, you will need to add an svg loader:
 
 Import the subcomponents:
 
@@ -38,24 +48,7 @@ import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alert
 <ErrorAlert>Something has gone horribly awry</ErrorAlert>
 ```
 
-The Alert components accept the following optional properties:
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`closeLabel`       | String        | Screen reader label attached to close button
-`dismissable`      | Boolean       | If true, render a close button
-`onDismiss`        | Function      | Callback that is called when the user clicks the close button
-`show`             | Boolean       | If set, overrides the close button. True shows the alert, false hides the alert.
-`withIcon`         | Boolean       | If true, render alert with an icon
-
-*/
-
-/*doc
----
-title: Dismissable
-name: alerts_dismissable_react
-parent: alerts_react
----
+## Dismissable
 
 Add the `dismissable` property to add a close button to the alert.
 
@@ -74,14 +67,7 @@ const callback = () => alert('Dismissed!');
 <InfoAlert onDismiss={callback} dismissable>with callback</InfoAlert>
 ```
 
-*/
-
-/*doc
----
-title: Alerts with Icons
-name: alerts_icon_react
-parent: alerts_react
----
+## Alerts with Icons
 
 If you want an icon to be displayed, set the `withIcon` property.
 

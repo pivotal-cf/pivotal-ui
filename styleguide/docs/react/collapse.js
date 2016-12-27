@@ -15,6 +15,16 @@ npm install pui-react-collapse --save
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+divider         | no  | Boolean |       | Specifying this property adds a divider between the clickable region and the expanded content region
+header          | yes | Node    |       | The text of the clickable region to toggle the expand/collapse states
+defaultExpanded | no  | Boolean | false | Setting this to true will make the component start expanded when the page loads
+
+## Basic usage
+
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 Import the subcomponents:
@@ -27,14 +37,6 @@ Collapse components are implementations of the [Accordion][accordion] style. In
 all `Collapse` component variations, the `header` prop describes the text
 of the clickable region to toggle the expand/collapse states. You can pass `defaultExpanded`
 as a prop to the `Collapse` and it will start expanded when the page loads.
-*/
-
-/*doc
----
-title: Base
-name: 01_base_collapse_react
-parent: collapse_react
----
 
 This is a basic collapse with no additional styles.
 
@@ -52,14 +54,8 @@ This is a basic collapse with no additional styles.
   <p>Panel 1 content</p>
 </BaseCollapse>
 ```
-*/
 
-/*doc
----
-title: Alt
-name: 02_alt_collapse_react
-parent: collapse_react
----
+## Alt
 
 This is a basic collapse with an +/- icon in the clickable region.
 
@@ -72,14 +68,8 @@ This is a basic collapse with an +/- icon in the clickable region.
   <p>Content!</p>
 </AltCollapse>
 ```
-*/
 
-/*doc
----
-title: Arrows
-name: 03_arrow_collapse_react
-parent: collapse_react
----
+## Arrows
 
 This is a basic collapse with an arrow icon in the clickable region.
 
@@ -92,14 +82,8 @@ This is a basic collapse with an arrow icon in the clickable region.
   <p>Content!</p>
 </Collapse>
 ```
-*/
 
-/*doc
----
-title: Adding Dividers
-name: 04_collapse_dividers_react
-parent: collapse_react
----
+## Adding Dividers
 
 To add a divider between the clickable region and the expanded content region,
 simply set the `divider` property to be true.

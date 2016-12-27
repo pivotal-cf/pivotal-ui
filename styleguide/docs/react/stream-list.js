@@ -10,6 +10,17 @@ parent: list_react
 npm install pui-react-lists pui-react-stream-list pui-react-buttons --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+showNewItems        | yes | Function | | Callback that fires when new items button is clicked
+singularNewItemText | no  | String   | | Text to display when there is one new item
+pluralNewItemsText  | no  | String   | | Text to display when there are many new items
+numNewItems         | yes | Number   | | Number of new items
+
+## Basic usage
+
 Import the subcomponents:
 
 ```js

@@ -15,6 +15,27 @@ npm install pui-react-dropdowns --save
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+border           | no | Boolean  |       | If true, adds a border between menu items
+buttonClassName  | no | String   |       | Classname to add to the button
+closeOnMenuClick | no | Boolean  | true  | If false, do not close the menu when clicking in the dropdown menu
+disableScrim     | no | Boolean  | false | If true, do not close the menu when clicking outside the dropdown
+dropCaret        | no | Boolean  | true  | If false, do not render the caret in the dropdown toggle
+flat             | no | Boolean  |       | If true, dropdown toggle has no borders and is transparent
+link             | no | Boolean  |       | If true, color the dropdown toggle like a link
+menuCaret        | no | Boolean  |       | If true, render a caret in the menu pointing at the toggle
+onEntered        | no | Function |       | Callback that fires after opening the dropdown
+onExited         | no | Function |       | Callback that fires after closing the dropdown
+pullRight        | no | Boolean  |       | If true, right align the menu with the button
+split            | no | Boolean  |       | If true, separates the button text from the toggle
+title            | no | Node     |       | The button contents
+toggle           | no | Node     |       | The toggle contents
+
+## Basic usage
+
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 Import the subcomponents:
@@ -31,25 +52,6 @@ This is the basic bootstrap dropdown:
   <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
 </Dropdown>
 ```
-
-The `Dropdown` component accepts the following optional properties:
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`border`           | Boolean       | If true, adds a border between menu items
-`buttonClassName`  | String        | Classname to add to the button
-`closeOnMenuClick` | Boolean       | If false, do not close the menu when clicking in the dropdown menu
-`disableScrim`     | Boolean       | If true, do not close the menu when clicking outside the dropdown
-`dropCaret`        | Boolean       | If false, do not render the caret in the dropdown toggle
-`flat`             | Boolean       | If true, dropdown toggle has no borders and is transparent
-`link`             | Boolean       | If true, color the dropdown toggle like a link
-`menuCaret`        | Boolean       | If true, render a caret in the menu pointing at the toggle
-`onEntered`        | Function      | Callback that fires after opening the dropdown
-`onExited`         | Function      | Callback that fires after closing the dropdown
-`pullRight`        | Boolean       | If true, right align the menu with the button
-`split`            | Boolean       | If true, separates the button text from the toggle
-`title`            | Node          | The button contents
-`toggle`           | Node          | The toggle contents
 
 Here are some examples:
 

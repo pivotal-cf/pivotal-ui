@@ -14,15 +14,16 @@ export class UIButton extends React.Component {
       'brand'
     ]),
     large: React.PropTypes.bool,
-    small: React.PropTypes.bool
-  }
+    small: React.PropTypes.bool,
+    icon: React.PropTypes.node
+  };
 
   static defaultProps = {
     kind: 'default'
   }
 
   render() {
-    const {alt, flat, large, small, kind, children, ...others} = this.props;
+    const {alt, flat, large, small, kind, children, icon, ...others} = this.props;
 
     const defaultProps = {
       className: [
@@ -39,8 +40,8 @@ export class UIButton extends React.Component {
     const props = mergeProps(others, defaultProps);
 
     return this.props.href ?
-      <a {...props}>{children}</a> :
-      <button {...props}>{children}</button>;
+      <a {...props}>{icon} {children}</a> :
+      <button {...props}>{icon} {children}</button>;
   }
 }
 
@@ -58,7 +59,7 @@ const defButton = propOverrides => {
       return <UIButton {...this.props} {...propOverrides}/>;
     }
   };
-};
+}
 
 export const DefaultButton = defButton({kind: 'default'});
 export const PrimaryButton = defButton({kind: 'primary'});

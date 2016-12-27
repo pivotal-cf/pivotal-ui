@@ -12,10 +12,24 @@ categories:
 npm install pui-react-buttons --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+alt   | no | Boolean                                        | false     | Whether to render as 'alternate' button
+flat  | no | Boolean                                        | false     | Whether to render as a 'flat' button
+href  | no | String                                         |           | If specified, button clicks will redirect to this href
+kind  | no | oneOf('default', 'danger', 'primary', 'brand') | 'default' | Button theme
+large | no | Boolean                                        | false     | Whether to render the button large
+small | no | Boolean                                        | false     | Whether to render teh button small
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
 import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';
+import {Icon} from 'pui-react-iconography';
 ```
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
@@ -80,6 +94,16 @@ To make a button large, set the `large` property to true, to make it small, set 
 
 <PrimaryButton small>
   Small Button
+</PrimaryButton>
+```
+
+## Icons
+
+Buttons can have icons by specifying the `icon` prop and giving it a node:
+
+```react_example_table
+<PrimaryButton icon={<Icon src="add"/>}>
+  Icon button
 </PrimaryButton>
 ```
 */

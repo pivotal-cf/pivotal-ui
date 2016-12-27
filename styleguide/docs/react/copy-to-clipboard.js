@@ -12,6 +12,15 @@ categories:
 npm install pui-react-copy-to-clipboard --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+text    | yes| String   |          | Text that is copied when the user clicks 
+onClick | no | Function | () => () | Click handler
+
+## Basic usage
+
 `CopyToClipboardButton` uses the [Iconography](/react_base_iconography.html) component.
 You will need to add an svg loader:
 
@@ -31,12 +40,6 @@ import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboar
 
 <CopyToClipboardButton text="I got copied by a good looking button"/>
 ```
-
-The CopyToClipboard Components require the following property:
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`text`       | String        | Text that is copied when the user clicks
 
 Below is a common example combining a readonly input and a copy button.
 Note that there is custom css on the styleguide to get the positioning right.

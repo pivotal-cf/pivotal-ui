@@ -12,6 +12,16 @@ categories:
 npm install pui-react-portals --save
 </code>
 
+## Props
+
+PortalSource/PortalDestination
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+name | yes | String | | Use same name to connect sources and destinations
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
