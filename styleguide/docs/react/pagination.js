@@ -12,6 +12,18 @@ categories:
 npm install pui-react-pagination --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+items      | Number   | 1    | The number of page links displayed
+next       | Boolean  | true | Option to display a 'next page' button
+prev       | Boolean  | true | Option to display a 'previous page' button
+activePage | Function |      | Option to make a link styled as 'active'
+onSelect   | Function |      | Callback that is called on click of a link
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -24,16 +36,6 @@ the component includes a 'previous page' button, a 'next page' button, and one l
 ```react_example
 <Pagination/>
 ```
-
-The Pagination component accepts the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `items` | Number | 1 | the number of page links displayed |
-| `next` | Boolean | true | option to display a 'next page' button |
-| `prev` | Boolean | true | option to display a 'previous page' button |
-| `activePage` | Number | none | option to make a link styled as 'active' |
-| `onSelect` | Function | none | callback that is called on click of a link |
 
 The following is an example of pagination with extra props:
 

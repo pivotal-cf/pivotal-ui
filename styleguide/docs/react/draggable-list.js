@@ -13,6 +13,15 @@ npm install pui-react-draggable-list --save
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+onDragEnd      | no | Function | | Callback when a drag event has completed
+innerClassName | no | String   | | Use this to specify the classname of the inner div
+
+## Basic usage
+
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 Import the subcomponents:

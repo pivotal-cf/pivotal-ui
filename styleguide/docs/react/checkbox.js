@@ -10,6 +10,19 @@ parent: form_react
 npm install pui-react-checkbox --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+displayError   | no | Boolean | false | Displays the error message when true
+errorMessage   | no | Node    |       | Message that gets displayed when displayError is true
+inputClassName | no | String  |       | Classname of the inner input element
+id             | no | String  |       | The inner label will specify htmlFor=id
+label          | no | Node    |       | The content of this label
+labelClassName | no | String  |       | Sets the wrapping label classname
+
+## Basic usage
+
 Import the subcomponent:
 
 ```

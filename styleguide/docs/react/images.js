@@ -12,6 +12,17 @@ categories:
 npm install pui-react-images --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+responsive | no  | Boolean | false | Whether this image should resize responsively
+href       | no  | String  |       | If set, image becomes a link
+alt        | no  | String  |       | Alt text
+src        | yes | String  |       | Image src
+
+## Basic usage
+
 Import the subcomponent:
 
 ```

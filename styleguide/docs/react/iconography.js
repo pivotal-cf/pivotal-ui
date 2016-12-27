@@ -18,6 +18,16 @@ npm install pui-react-iconography --save
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+src           | no | String                      |          | Name of the svg to load
+style         | no | Object                      |          | React Style Object
+verticalAlign | no | oneOf('middle', 'baseline') | 'middle' | Alignment of icon
+
+## Basic usage
+
 Import the subcomponent:
 
 ```
@@ -50,18 +60,11 @@ Icons can be vertically aligned with either 'middle' or 'baseline'. The default 
 </div>
 ```
 
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`src`       | String  | Name of the svg to load
-`style` | Object | React Style Object
-`verticalAlign` | Optional enum | Alignment of icon. Options: ['middle', 'baseline']. Defaults to 'middle' if nothing provided
-
 Note that for the spinner icons (`spinner`, `spinner-md`, `spinner-sm`) we recommend:
 
 - Spinner used for the 80px+ range. Loading a page front and center, nothing else displayed
 - Spinner-md used for the 80px-25px range. Loading a panel or larger component
 - Spinner-sm used for the 24px-10px range. Loading inside a button or form element
-
 
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 */

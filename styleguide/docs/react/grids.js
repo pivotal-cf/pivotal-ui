@@ -12,39 +12,35 @@ categories:
 npm install pui-react-grids --save
 </code>
 
+## Props
+
+Row properties:
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+componentClass | Node                    | no | div  | The component to render the row
+gutter         | oneOf('sm', 'md', 'lg') | no | 'lg' | Sets the size of the gutter
+
+Col Properties
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+componentClass                         | no | div | Node    | The component to render the row
+xs, sm, md, lg                         | no |     | Number  | Width of the column (out of 24) at the xs, sm, md, or lg screen width
+xsHidden, smHidden, mdHidden, lgHidden | no |     | Boolean | If true, hide the column at the relevant screen width
+xsOffset, smOffset, mdOffset, lgOffset | no |     | Number  | Offset of the column (out of 24)
+xsPush, smPush, mdPush, lgPush         | no |     | Number  | Offset to change the order of grid columns to the right with
+xsPull, smPull, mdPull, lgPull         | no |     | Number  | Offset to change the order of grid columns to the left with
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
 import {Row, Col} from 'pui-react-grids';
 ```
 
-## Row Properties
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`componentClass`       | String or Component class  | The component to render the row. Defaults to "div"
-`gutter` | one of: `"sm"`, `"md"`, `"lg"` | sets the size of the gutter. Defaults to "lg"
-
-
-## Col Properties
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`componentClass`       | String or Component class  | The component to render the row. Defaults to "div"
-`xs`, `sm`, `md`, `lg` | Number | Width of the column (out of 24) at the xs, sm, md, or lg screen width.
-`xsHidden`, `smHidden`, `mdHidden`, `lgHidden` | Boolean | If true, hide the column at the relevant screen width
-`xsOffset`, `smOffset`, `mdOffset`, `lgOffset` | Number | Offset of the column (out of 24)
-`xsPush`, `smPush`, `mdPush`, `lgPush` | Number | Offset to change the order of grid columns to the right with
-`xsPull`, `smPull`, `mdPull`, `lgPull` | Number | Offset to change the order of grid columns to the left with
-
-*/
-
-/*doc
----
-title: Examples
-name: 04_grid_examples_react
-parent: grid_react
----
+## Examples
 
 ```react_example
 <div>
@@ -79,15 +75,10 @@ parent: grid_react
     <Col md={12}></Col>
   </Row>
 </div>
- ```
- */
+```
 
-/*doc
----
-title: "Example: Mobile and Desktop"
-name: 04_a_grid_mobile_and_desktop_react
-parent: 04_grid_examples_react
----
+## Example: Mobile and Desktop
+
 Don't want your columns to simply stack in smaller devices?
 Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns.
 See the example below for a better idea of how it all works.
@@ -109,14 +100,8 @@ See the example below for a better idea of how it all works.
   </Row>
 </div>
 ```
-*/
 
-/*doc
----
-title: Gutter Sizes
-name: 04_grid_gutter_sizes_react
-parent: grid_react
----
+## Gutter Sizes
 
 ```react_example
 <div>

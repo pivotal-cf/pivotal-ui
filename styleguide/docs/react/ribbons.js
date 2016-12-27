@@ -12,6 +12,12 @@ categories:
 npm install pui-react-ribbons --save
 </code>
 
+## Props
+
+N/A for this component
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -26,14 +32,8 @@ They should be used to call out access, status, environment, etc.
 
 <PrimaryRibbon> English-British </PrimaryRibbon>
 ```
-*/
 
-/*doc
----
-title: Banners
-name: banner_ribbons_react
-parent: ribbons_react
----
+## Banners
 
 ```react_wrapped_example_table
 <Banner> British </Banner>

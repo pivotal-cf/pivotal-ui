@@ -1,18 +1,7 @@
 /*doc
 ---
-title: Forms
-name: form_react
-categories:
- - react_components_forms
- - react_all
----
-*/
-
-
-/*doc
----
-title: Radio Inputs
-name: 02_form_radio_input_react
+title: Radio
+name: 00_form_radio_react
 parent: form_react
 ---
 
@@ -20,6 +9,30 @@ parent: form_react
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-radio --save
 </code>
+
+## Props
+
+RadioGroup
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+id       | no  | String   | | The id of the element
+name     | yes | String   | | This name is passed to all children, so you don't have to specify name manually each time
+onChange | no  | Function | | Callback that fires each time selection is changed
+
+Radio
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+defaultChecked | no  | Boolean  | false | Whether this element is default checked
+value          | yes | String   |       | Value of the radio element
+onChange       | no  | Function |       | Callback that fires when this element selection is changed
+id             | no  | String   |       | The id of the element
+className      | no  | String   |       | The classname of the element
+style          | no  | Object   |       | Individual styling of the element
+disabled       | no  | Boolean  | false | Whether the radio is disabled
+
+## Basic usage
 
 For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
 

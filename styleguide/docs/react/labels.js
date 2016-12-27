@@ -12,6 +12,14 @@ categories:
 npm install pui-react-labels --save
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+className | no | String | 'label label-primary' | Classname of the label
+
+## Basic usage
+
 Import the subcomponents:
 
 ```

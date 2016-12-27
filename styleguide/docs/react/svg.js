@@ -19,6 +19,14 @@ npm install pui-react-svg  --save
 npm install babel-loader svg-react-loader --save-dev
 </code>
 
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+src | yes | String | | Name of the svg (excluding the .svg extension)
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -32,15 +40,8 @@ The example below will render the file `app/svg/search.svg`.
 <Svg src="search" width="20" height="20" />
 ```
 
-The Svg Components require the following property:
-
-Property           |  Type         | Description
--------------      | --------------| --------------------------------------------------------------------------
-`src`       | String        | Name of the svg (excluding the .svg extension)
-
 By default, the Svg component will look in the `app/svg` folder at the root of your project
 (defined here as the location of your package.json). If you have svg files in other folders, you can subclass the Svg component as follows
-
 
 ```js
 import {Svg} from 'pui-react-svg';
