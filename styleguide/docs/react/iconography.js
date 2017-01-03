@@ -50,13 +50,16 @@ the size of the icon with the style prop
 <Icon src="add" style={{width: 100, height: 100}}/>
 ```
 
-Icons can be vertically aligned with either 'middle' or 'baseline'. The default is 'middle':
+Icons by default are vertically aligned 'middle'.
+This should align with most html elements except for text.
+Text in html has different alignment, so the default Icon alignment will look wrong.
+To align an Icon with text, set `verticalAlign` to 'baseline'
 
 ```react_example
-<div>
-  <div>some text <Icon src="add"/> some text</div>
-  <div>some text <Icon src="add" verticalAlign="middle"/> some text</div>
-  <div>some text <Icon src="add" verticalAlign="baseline"/> some text</div>
+<div style={{fontSize: 24}}>
+  <div><Icon src="add"/><div className="example-square"/><Icon src="check"/><div className="example-square"/> Icons with the default (middle) alignment next to divs</div>
+  <div><Icon src="add"/>some text<Icon src="check"/> with with the default (middle) icon alignment</div>
+  <div><Icon src="add" verticalAlign="baseline"/>some text<Icon src="check" verticalAlign="baseline"/> with baseline icon alignment</div>
 </div>
 ```
 
