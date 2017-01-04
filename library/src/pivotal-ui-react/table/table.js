@@ -1,9 +1,9 @@
-const classnames = require('classnames');
-const {Icon} = require('pui-react-iconography');
-const React = require('react');
-const sortBy = require('lodash.sortby');
-const {mergeProps} = require('pui-react-helpers');
-require('pui-css-tables');
+import classnames from 'classnames';
+import {Icon} from 'pui-react-iconography';
+import React from 'react';
+import sortBy from 'lodash.sortby';
+import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-tables';
 
 const types = React.PropTypes;
 
@@ -18,19 +18,19 @@ export class TableHeader extends React.Component {
     onClick: types.func,
     onSortableTableHeaderClick: types.func,
     sortable: types.bool
-  };
+  }
 
-  handleActivate = (event) => {
+  handleActivate = event => {
     const {sortable, onClick, onSortableTableHeaderClick} = this.props;
     if (sortable) onSortableTableHeaderClick(event);
     if (onClick) onClick(event);
-  };
+  }
 
-  handleKeyDown = (event) => {
+  handleKeyDown = event => {
     if (event.key === 'Enter') {
       this.handleActivate(event);
     }
-  };
+  }
 
   render() {
     const {onSortableTableHeaderClick, sortable, ...others} = this.props;
@@ -64,7 +64,7 @@ export class Table extends React.Component {
     CustomRow: types.func,
     data: types.array.isRequired,
     defaultSort: types.string
-  };
+  }
 
   constructor(props, context) {
     super(props, context);
@@ -85,7 +85,7 @@ export class Table extends React.Component {
     }
   }
 
-  updateSort(sortColumn, isSortColumn) {
+  updateSort = (sortColumn, isSortColumn) => {
     if (isSortColumn) {
       return this.setState({sortOrder: ++this.state.sortOrder % Object.keys(SORT_ORDER).length});
     }
@@ -93,7 +93,7 @@ export class Table extends React.Component {
     this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
   }
 
-  sortedRows(data) {
+  sortedRows = data => {
     const {sortColumn, sortOrder} = this.state;
     if (sortOrder === SORT_ORDER.none) return this.rows(data);
     const sortedData = sortBy(data, datum => {
@@ -106,7 +106,7 @@ export class Table extends React.Component {
     return this.rows(sortedData);
   }
 
-  rows(data) {
+  rows = data => {
     const {columns, CustomRow} = this.props;
 
     return data.map((datum, rowKey) => {
@@ -120,7 +120,7 @@ export class Table extends React.Component {
     });
   }
 
-  renderHeaders() {
+  renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
     return this.props.columns.map((column, index) => {
       let {attribute, sortable, displayName, headerProps = {}} = column;
@@ -152,15 +152,13 @@ export class Table extends React.Component {
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
-    return (
-      <table {...props}>
-        <thead>
-        <tr>{this.renderHeaders()}</tr>
-        </thead>
-        <tbody>
-        {rows}
-        </tbody>
-      </table>
-    );
+    return (<table {...props}>
+      <thead>
+      <tr>{this.renderHeaders()}</tr>
+      </thead>
+      <tbody>
+      {rows}
+      </tbody>
+    </table>);
   }
 }

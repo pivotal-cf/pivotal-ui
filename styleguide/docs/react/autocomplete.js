@@ -12,7 +12,25 @@ categories:
 npm install pui-react-autocomplete --save
 </code>
 
-Import the subcomponent:
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+className         | no | String   |    | `className` to add to autocomplete
+disabled          | no | Boolean  |    | whether the input is disabled
+input             | no | Object   |    | overrides the input for autocomplete
+maxItems          | no | Number   | 50 | the maximum number of items in the autocomplete list
+onClick           | no | Function |    | `onClick` to add to the input
+onFilter          | no | Function |    | lets you apply an additional filter to the autocomplete list
+onFocus           | no | Function |    | `onFocus` to add to the input
+onInitializeItems | no | Function |    | returns the values to initially populate the autocomplete list
+onPick            | no | Function |    | callback when something is picked from the list
+onSearch          | no | Function |    | To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.
+placeholder       | no | String   |    | placeholder text for the input
+trieOptions       | no | Object   |    | Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
+value             | no | String   |    | used when the input is a controlled input
+
+## Basic usage
 
 ```
 import {Autocomplete} from 'pui-react-autocomplete';
@@ -28,31 +46,7 @@ const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeI
 <AutocompleteExample/>
 ```
 
-##Autocomplete Properties
-
-Property   | Required? | Type             | Description
------------| ----------|------------------| --------------------------------------------------------------------------
-`className` | no | String | `className` to add to autocomplete
-`disabled` | no | Boolean | whether the input is disabled
-`input` | no | Object | overrides the input for autocomplete
-`maxItems` | no  | Number | the maximum number of items in the autocomplete list
-`onClick` | no | Function | `onClick` to add to the input
-`onFilter` | no | Function | lets you apply an additional filter to the autocomplete list
-`onFocus` | no  | Function | `onFocus` to add to the input
-`onInitializeItems` | no | Function | returns the values to initially populate the autocomplete list
-`onPick` | no | Function | callback when something is picked from the list
-`onSearch` | no | Function | To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.
-`placeholder` | no | String | placeholder text for the input
-`trieOptions` | no | Object | Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
-`value` | no | String | used when the input is a controlled input
-*/
-
-/*doc
----
-title: onInitializeItems
-name: autocomplete_oninitializeitems
-parent: autocomplete_react
----
+## onInitializeItems
 
 The callback passed to this function should return the values to initially populate the list of items.
 
@@ -70,14 +64,7 @@ But it can also just be used synchronously:
 const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
 ```
 
-*/
-
-/*doc
----
-title: onPick
-name: autocomplete_onpick
-parent: autocomplete_react
----
+## onPick
 
 By default, when a user selects a list item, nothing happens except hiding the list.
 
@@ -87,14 +74,7 @@ const onPick = value => {
 };
 ```
 
-*/
-
-/*doc
----
-title: onSearch
-name: autocomplete_onsearch
-parent: autocomplete_react
----
+## onSearch
 
 To override the default search algorithm, pass your custom function to the Autocomplete as the prop onSearch.
 

@@ -1,6 +1,6 @@
 require('../spec_helper');
 
-describe('Tabs', function() {
+describe('Tabs', function () {
   const tabType = 'simple';
 
   let subject, Collapsible, Tab, Tabs, LeftTabs, EventEmitter, itPropagatesAttributes;
@@ -13,7 +13,7 @@ describe('Tabs', function() {
     itPropagatesAttributes = require('../support/shared_examples');
   });
 
-  const triggerResize = function() {
+  const triggerResize = function () {
     const evt = document.createEvent('HTMLEvents');
     evt.initEvent('resize', true, true);
     window.dispatchEvent(evt);
@@ -21,69 +21,66 @@ describe('Tabs', function() {
 
   let MediaSize;
 
-  beforeEach(function() {
+  beforeEach(function () {
     MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size');
     spyOn(MediaSize, 'matches').and.returnValue(true);
   });
 
-  afterEach(function() {
+  afterEach(function () {
     ReactDOM.unmountComponentAtNode(root);
   });
 
-  describe('props', function() {
-    describe('responsiveBreakpoint', function() {
-      beforeEach(function() {
-        ReactDOM.render(
-          <Tabs defaultActiveKey={2}
-                tabType={tabType}
-                responsiveBreakpoint="xs"
-                smallScreenClassName="small-class"
-                largeScreenClassName="large-class"/>,
-          root
-        );
+  describe('props', function () {
+    describe('responsiveBreakpoint', function () {
+      beforeEach(function () {
+        ReactDOM.render(<Tabs defaultActiveKey={2}
+                              tabType={tabType}
+                              responsiveBreakpoint="xs"
+                              smallScreenClassName="small-class"
+                              largeScreenClassName="large-class"/>, root);
       });
 
-      it('checks media', function() {
+      it('checks media', function () {
         expect(MediaSize.matches).toHaveBeenCalledWith('xs');
       });
 
-      describe('when screen size is less than breakpoint', function() {
-        beforeEach(function() {
+      describe('when screen size is less than breakpoint', function () {
+        beforeEach(function () {
           MediaSize.matches.and.returnValue(false);
           triggerResize();
         });
 
-        it('renders an accordion', function() {
+        it('renders an accordion', function () {
           expect('.panel-group').toExist();
           expect('.tab-simple').not.toExist();
         });
 
-        it('passes small-screen classes', function() {
+        it('passes small-screen classes', function () {
           expect('.panel-group').toHaveClass('small-class');
         });
       });
 
-      describe('when screen size is greater than breakpoint', function() {
-        beforeEach(function() {
+      describe('when screen size is greater than breakpoint', function () {
+        beforeEach(function () {
           MediaSize.matches.and.returnValue(true);
           triggerResize();
         });
 
-        it('renders a tabs', function() {
+        it('renders a tabs', function () {
           expect('.panel-group').not.toExist();
           expect('.tab-simple').toExist();
         });
 
-        it('passes large-screen classes', function() {
+        it('passes large-screen classes', function () {
           expect('.tab-simple').toHaveClass('large-class');
         });
       });
     });
 
-    describe('onSelect', function() {
+    describe('onSelect', function () {
       let onSelectSpy;
 
-      beforeEach(function() {
+      beforeEach(function () {
         onSelectSpy = jasmine.createSpy('onSelectSpy');
 
         ReactDOM.render(
@@ -95,7 +92,7 @@ describe('Tabs', function() {
         );
       });
 
-      it('uses the supplied onSelect method when clicking on large-screen tabs', function() {
+      it('uses the supplied onSelect method when clicking on large-screen tabs', function () {
         MediaSize.matches.and.returnValue(true);
         triggerResize();
 
@@ -103,7 +100,7 @@ describe('Tabs', function() {
         expect(onSelectSpy).toHaveBeenCalled();
       });
 
-      it('uses the supplied onSelect method when clicking on small-screen tabs', function() {
+      it('uses the supplied onSelect method when clicking on small-screen tabs', function () {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
         $('.tab-title a:eq(0)').simulate('click');
@@ -144,8 +141,8 @@ describe('Tabs', function() {
       });
     });
 
-    describe('passthroughs', function() {
-      beforeEach(function() {
+    describe('passthroughs', function () {
+      beforeEach(function () {
         ReactDOM.render(
           <Tabs defaultActiveKey={2}
                 tabType={tabType}
@@ -162,7 +159,7 @@ describe('Tabs', function() {
     });
 
     describe('tabType', () => {
-      beforeEach(function() {
+      beforeEach(function () {
         ReactDOM.render(
           <Tabs defaultActiveKey={2}
                 tabType="simple-alt"
@@ -178,7 +175,7 @@ describe('Tabs', function() {
     });
 
     describe('tabClassName', () => {
-      beforeEach(function() {
+      beforeEach(function () {
         ReactDOM.render(
           <Tabs tabType={tabType} defaultActiveKey={1}>
             <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class">Content1</Tab>
@@ -218,11 +215,11 @@ describe('Tabs', function() {
     });
   });
 
-  describe('tab behavior', function() {
+  describe('tab behavior', function () {
     let emitter;
     const tabHeight = 24;
 
-    beforeEach(function() {
+    beforeEach(function () {
       emitter = new EventEmitter();
 
       class TestComponent extends React.Component {
@@ -238,8 +235,12 @@ describe('Tabs', function() {
         render() {
           return (
             <Tabs defaultActiveKey={this.state.defaultActiveKey} tabType={tabType}>
-              <Tab eventKey={1} title="Tab1"><div style={{height: tabHeight}}>Content1</div></Tab>
-              <Tab eventKey={2} title="Tab2"><div style={{height: tabHeight}}>Content2</div></Tab>
+              <Tab eventKey={1} title="Tab1">
+                <div style={{height: tabHeight}}>Content1</div>
+              </Tab>
+              <Tab eventKey={2} title="Tab2">
+                <div style={{height: tabHeight}}>Content2</div>
+              </Tab>
             </Tabs>
           );
         }
@@ -248,22 +249,22 @@ describe('Tabs', function() {
       ReactDOM.render(<TestComponent />, root);
     });
 
-    it('creates tabs in the correct container', function() {
+    it('creates tabs in the correct container', function () {
       expect(`.tab-${tabType} ul.nav.nav-tabs li.active`).toContainText('Tab2');
       expect(`.tab-${tabType} .tab-content .tab-pane.fade.active.in`).toContainText('Content2');
     });
 
-    describe('for screens greater than the responsiveBreakpoint', function() {
-      beforeEach(function() {
+    describe('for screens greater than the responsiveBreakpoint', function () {
+      beforeEach(function () {
         MediaSize.matches.and.returnValue(true);
         triggerResize();
       });
-      it('displays tabs in a simple tab container', function() {
+      it('displays tabs in a simple tab container', function () {
         expect(`.tab-${tabType} .nav li.active`).toContainText('Tab2');
         expect(`.tab-${tabType} .tab-content`).toContainText('Content2');
       });
 
-      it('switches tabs on click with animation', function() {
+      it('switches tabs on click with animation', function () {
         $('.nav li:eq(0) a').simulate('click');
         expect('li.active').toContainText('Tab1');
 
@@ -286,42 +287,42 @@ describe('Tabs', function() {
         expect('li.active').toContainText('Tab2');
       });
 
-      describe('changing the defaultActiveKey props', function() {
-        beforeEach(function() {
+      describe('changing the defaultActiveKey props', function () {
+        beforeEach(function () {
           emitter.emit('changeActiveKey', 1);
         });
 
-        it('updates the current open tab', function() {
+        it('updates the current open tab', function () {
           expect('.nav li.active').toContainText('Tab1');
         });
       });
     });
 
-    describe('for screens smaller than the responsiveBreakpoint', function() {
-      beforeEach(function() {
+    describe('for screens smaller than the responsiveBreakpoint', function () {
+      beforeEach(function () {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
       });
 
-      afterEach(function() {
+      afterEach(function () {
         MockRaf.next();
       });
 
-      it('renders an accordion', function() {
+      it('renders an accordion', function () {
         expect('.panel-group').toExist();
       });
 
-      it('renders headers for each tab', function() {
+      it('renders headers for each tab', function () {
         expect('.panel-group .tab-heading:eq(0)').toContainText('Tab1');
         expect('.panel-group .tab-heading:eq(1)').toContainText('Tab2');
         expect('.panel-group .tab-heading a:eq(1)').toHaveAttr('aria-expanded', 'true');
       });
 
-      it('renders content for the active tab', function() {
+      it('renders content for the active tab', function () {
         expect('.panel-group .tab-content.in').toContainText('Content2');
       });
 
-      it('switches tabs on click with animation', function() {
+      it('switches tabs on click with animation', function () {
         $('.tab-heading:eq(0) a').simulate('click');
         MockNow.tick(Collapsible.ANIMATION_TIME);
         MockRaf.next();
@@ -342,14 +343,14 @@ describe('Tabs', function() {
 
       });
 
-      describe('changing the defaultActiveKey props', function() {
-        beforeEach(function() {
+      describe('changing the defaultActiveKey props', function () {
+        beforeEach(function () {
           emitter.emit('changeActiveKey', 1);
           MockNow.tick(Tabs.ANIMATION_TIME);
           MockRaf.next();
         });
 
-        it('updates the current open tab', function() {
+        it('updates the current open tab', function () {
           expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
         });
       });
@@ -433,7 +434,7 @@ describe('Tabs', function() {
       });
     });
 
-    it('sets up the correct aria-controls relationship', function() {
+    it('sets up the correct aria-controls relationship', function () {
       let pane1 = $(root).find(`.tab-${tabType} .tab-pane:first`);
       expect(pane1.length).toEqual(1);
       expect(pane1.attr('id')).toBeTruthy();
@@ -441,7 +442,7 @@ describe('Tabs', function() {
     });
   });
 
-  describe('positioning', function() {
+  describe('positioning', function () {
     function renderTabs(props = {}) {
       ReactDOM.render(
         <LeftTabs defaultActiveKey={1} {...props}>
@@ -452,7 +453,7 @@ describe('Tabs', function() {
       );
     }
 
-    it('should render tabs stacked on the left', function() {
+    it('should render tabs stacked on the left', function () {
       renderTabs({position: 'left', tabWidth: 2, paneWidth: 7});
       expect('ul.nav').toHaveClass('nav-stacked');
     });
@@ -537,7 +538,7 @@ describe('Tabs', function() {
   });
 });
 
-describe('LeftTabs', function() {
+describe('LeftTabs', function () {
   let LeftTabs, Tab, Tabs;
   beforeEach(() => {
     LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
@@ -545,7 +546,7 @@ describe('LeftTabs', function() {
     Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
 
   });
-  it('renders the Tabs component with tabType="left"', function() {
+  it('renders the Tabs component with tabType="left"', function () {
     const result = shallowRender(
       <LeftTabs>
         I am children
@@ -557,7 +558,7 @@ describe('LeftTabs', function() {
     expect(result.props.children).toEqual('I am children');
   });
 
-  it('passes all properties', function() {
+  it('passes all properties', function () {
     const onSelect = jasmine.createSpy();
     const result = shallowRender(
       <LeftTabs defaultActiveKey={1}
@@ -573,8 +574,8 @@ describe('LeftTabs', function() {
     expect(result.props.onSelect).toEqual(onSelect);
   });
 
-  describe('when props are passed for tabWidth and paneWidth', function() {
-    it('passes the provided column sizes tp Tabs', function() {
+  describe('when props are passed for tabWidth and paneWidth', function () {
+    it('passes the provided column sizes tp Tabs', function () {
       const result = shallowRender(
         <LeftTabs tabWidth={4} paneWidth={6}/>
       );
@@ -583,8 +584,8 @@ describe('LeftTabs', function() {
     });
   });
 
-  describe('when tabWidth is passed and paneWidth is not', function() {
-    it('passes the correct column sizes to Tabs', function() {
+  describe('when tabWidth is passed and paneWidth is not', function () {
+    it('passes the correct column sizes to Tabs', function () {
       const result = shallowRender(
         <LeftTabs tabWidth={4}/>
       );
@@ -593,8 +594,8 @@ describe('LeftTabs', function() {
     });
   });
 
-  describe('when neither tabWidth nor paneWidth are passed', function() {
-    it('passes the correct column sizes to Tabs', function() {
+  describe('when neither tabWidth nor paneWidth are passed', function () {
+    it('passes the correct column sizes to Tabs', function () {
       const result = shallowRender(
         <LeftTabs />
       );

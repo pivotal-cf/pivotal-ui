@@ -1,27 +1,27 @@
-const {EventEmitter} = require('events');
-var React = require('react');
-var ReactDOM = require('react-dom');
+import {EventEmitter} from 'events';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-var types = React.PropTypes;
+const types = React.PropTypes;
 
-var destinationPortals = {};
-var emitter = new EventEmitter();
+let destinationPortals = {};
+const emitter = new EventEmitter();
 
-function createRoot(reactElement) {
-  var destination = document.createElement('div');
+const createRoot = reactElement => {
+  const destination = document.createElement('div');
   ReactDOM.findDOMNode(reactElement).appendChild(destination);
   return destination;
-}
+};
 
-function reset() {
+export const reset = () => {
   emitter.removeAllListeners();
   destinationPortals = {};
-}
+};
 
-class PortalSource extends React.Component {
+export class PortalSource extends React.Component {
   static propTypes = {
     name: types.string.isRequired
-  };
+  }
 
   constructor(props, context) {
     super(props, context);
@@ -34,37 +34,37 @@ class PortalSource extends React.Component {
   }
 
   componentDidUpdate() {
-    var {root} = this.state.destination || {};
+    const {root} = this.state.destination || {};
     if (root) ReactDOM.render(<div>{this.props.children}</div>, root);
   }
 
   componentWillUnmount() {
     emitter.removeListener('destination', this.setDestination);
-    var {root} = this.state.destination || {};
+    const {root} = this.state.destination || {};
     if(root) {
       root.parentNode.removeChild(root);
     }
   }
 
   setDestination = () => {
-    var {destination} = this.state;
-    var destinationPortal = destinationPortals[this.props.name];
+    const {destination} = this.state;
+    const destinationPortal = destinationPortals[this.props.name];
     if (destination && destination.portal === destinationPortal) return;
     this.setState({destination: destinationPortal && {portal: destinationPortal, root: createRoot(destinationPortal)}});
-  };
+  }
 
   render() {
     return null;
   }
 }
 
-class PortalDestination extends React.Component {
+export class PortalDestination extends React.Component {
   static propTypes = {
     name: types.string.isRequired
-  };
+  }
 
   componentDidMount() {
-    var {name} = this.props;
+    const {name} = this.props;
     if (name in destinationPortals) {
       console.warn(`Warning: Multiple destination portals with the same name "${name}" detected.`);
     }
@@ -79,12 +79,6 @@ class PortalDestination extends React.Component {
   }
 
   render() {
-    return (<div/>);
+    return <div/>;
   }
 }
-
-module.exports = {
-  PortalSource,
-  PortalDestination,
-  reset
-};

@@ -12,6 +12,26 @@ categories:
 npm install pui-react-tooltip pui-react-overlay-trigger --save
 </code>
 
+## Props
+
+OverlayTrigger
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+delay        | no | Number                                     |         | Number of milliseconds to delay show and hide
+delayHide    | no | Number                                     |         | Number of milliseconds to delay hide
+delayShow    | no | Number                                     |         | Number of milliseconds to delay show
+display      | no | Boolean                                    | false   | Whether or not to show the overlay
+onEntered    | no | Function                                   |         | Callback that is called after the overlay is shown
+onExited     | no | Function                                   |         | Callback that is called after the overlay is hidden
+overlay      | no | Node                                       |         | An element or text to overlay next to the target
+pin          | no | Boolean                                    | true    | Whether or not to reposition overlays to stay in the window
+placement    | no | oneOf('top', 'bottom', 'left', 'right')    | 'right' | Placement of overlay in relation to target
+disableScrim | no | Boolean                                    | false   | Set to true to make tooltips stay open when clicking outside
+trigger      | no | oneOf('hover', 'click', 'focus', 'manual') | 'hover' | Action to trigger showing overlay
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -55,22 +75,6 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
   </p>
 </div>
 ```
-
-The `OverlayTrigger` component accepts the following properties:
-
-| Property | Type | Default | Description |
-| --- | --- | --- | --- |
-| `delay` | Number | none | number of milliseconds to delay show and hide |
-| `delayHide` | Number | none | number of milliseconds to delay hide |
-| `delayShow` | Number | none | number of milliseconds to delay show |
-| `display` | Boolean | false | whether or not to show the overlay |
-| `onEntered` | Function | none | callback that is called after the overlay is shown |
-| `onExited` | Function | none | callback that is called after the overlay is hidden |
-| `overlay` | node | - | an element or text to overlay next to the target |
-| `pin` | Boolean | true | whether or not to reposition overlays to stay in the window |
-| `placement` | one of `top`, `bottom`, `left`, `right` | `right` | placement of overlay in relation to target |
-| `disableScrim` | Boolean | false | Set to `true` to make tooltips stay open when clicking outside |
-| `trigger` | one of `hover`, `click`, `focus`, `manual` | `hover` | action to trigger showing overlay |
 
 If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
 which is controlled by the end user and not by `OverlayTrigger`.

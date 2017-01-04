@@ -555,3 +555,10 @@ h1#intro.styleguide {
   width: 32vw;
   margin: 0 auto 0 auto;
 }
+
+.example-square {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: bisque;
+}

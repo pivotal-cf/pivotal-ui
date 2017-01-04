@@ -17,6 +17,30 @@ npm install babel-loader svg-react-loader --save-dev
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
+## Props
+
+Table
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+columns     | yes | Array     | | Metadata about columns
+CustomRow   | no  | Component | | The component to use when rendering table rows
+data        | yes | Array     | | The data to display in the table
+defaultSort | no  | String    | | The name of the column to use for sorting before user input
+
+Items in 'Column'
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+attribute   | yes | String    |       | The key to use in the data prop to get data for that column
+CustomCell  | no  | Component |       | Component to use when rendering cells, defaults to TableCell
+displayName | no  | String    |       | The text in the TableHeader for that column
+headerProps | no  | Object    |       | React props that will be passed through to that column
+sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
+sortBy      | no  | Function  |       | Function to transform data before sorting
+
+## Basic usage
+
 Import the subcomponents:
 
 ```
@@ -25,26 +49,6 @@ import {Table, TableHeader, TableRow, TableCell} from 'pui-react-table';
 
 The `Table` component is a robust component that offers a styled table with fully
 functioning sort. If the rows change, the content on the page will update.
-
-The `Table` expects the following properties:
-
-Property     | Required? | Type             | Description
--------------| ----------| -----------------| --------------------------------------------------------------------------
-`columns`    | **yes**   | Array of Objects | Metadata about columns
-`CustomRow`  | **no**    | Component        | The Component to use when rendering table rows
-`data`       | **yes**   | Array of Objects | The data to display in the table
-`defaultSort`| **no**    | String           | The name of the column to use for sorting before user input
-
-The objects in `columns` expect the following properties:
-
-Property     | Required? | Type             | Description
--------------| ----------|------------------| --------------------------------------------------------------------------
-`attribute`  | **yes**   | String           | The key to use in the `data` prop to get data for that column
-`CustomCell` | **no**    | Component        | Component to use when rendering cells, defaults to `TableCell`
-`displayName`| **no**    | String           | The text in the TableHeader for that column
-`headerProps`| **no**    | Object           | React props that will be passed through to that column
-`sortable`   | **no**    | Boolean          | Is this column sortable? Defaults to false
-`sortBy`     | **no**    | Function         | Function to transform data before sorting
 
 
 ```jsx_example

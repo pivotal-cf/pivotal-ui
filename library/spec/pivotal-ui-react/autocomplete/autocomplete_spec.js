@@ -243,7 +243,7 @@ describe('Autocomplete', () => {
       describe('when a click is triggered on the body', () => {
         beforeEach(() => {
           const evt = document.createEvent('HTMLEvents');
-          evt.initEvent('click', true, true );
+          evt.initEvent('click', true, true);
           document.documentElement.dispatchEvent(evt);
         });
 

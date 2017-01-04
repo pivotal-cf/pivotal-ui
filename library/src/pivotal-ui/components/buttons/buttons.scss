@@ -37,7 +37,12 @@ input[type="button"] {
     margin: 0 5px 0 0;
     fill: $btn-default-color;
   }
-
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    margin-right: 2px;
+    padding: 2px;
+  }
   &:hover,
   &:focus {
     outline: none;
@@ -140,9 +145,9 @@ button.btn-default,
 input[type="submit"].btn-default,
 input[type="reset"].btn-default,
 input[type="button"].btn-default {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-light;
     }
@@ -206,9 +211,9 @@ button.btn-default-alt,
 input[type="submit"].btn-default-alt,
 input[type="reset"].btn-default-alt,
 input[type="button"].btn-default-alt {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-default-color;
     }
@@ -272,9 +277,9 @@ button.btn-default-alt-wh,
 input[type="submit"].btn-default-alt-wh,
 input[type="reset"].btn-default-alt-wh,
 input[type="button"].btn-default-alt-wh {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-light;
     }
@@ -330,9 +335,9 @@ button.btn-primary,
 input[type="submit"].btn-primary,
 input[type="reset"].btn-primary,
 input[type="button"].btn-primary {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-light;
     }
@@ -413,9 +418,9 @@ button.btn-primary-alt,
 input[type="submit"].btn-primary-alt,
 input[type="reset"].btn-primary-alt,
 input[type="button"].btn-primary-alt {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-primary-color;
     }
@@ -470,9 +475,9 @@ button.btn-danger,
 input[type="submit"].btn-danger,
 input[type="reset"].btn-danger,
 input[type="button"].btn-danger {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-light;
     }
@@ -552,9 +557,9 @@ button.btn-danger-alt,
 input[type="submit"].btn-danger-alt,
 input[type="reset"].btn-danger-alt,
 input[type="button"].btn-danger-alt {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-danger-color;
     }
@@ -610,9 +615,9 @@ button.btn-brand,
 input[type="submit"].btn-brand,
 input[type="reset"].btn-brand,
 input[type="button"].btn-brand {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-light;
     }
@@ -693,9 +698,9 @@ button.btn-brand-alt,
 input[type="submit"].btn-brand-alt,
 input[type="reset"].btn-brand-alt,
 input[type="button"].btn-brand-alt {
-  .spinner,
-  .spinner-md,
-  .spinner-sm {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
     .ring {
       stroke: $btn-brand-color;
     }

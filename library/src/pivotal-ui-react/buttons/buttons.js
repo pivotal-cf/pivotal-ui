@@ -1,8 +1,8 @@
-var React = require('react');
+import React from 'react';
 import {mergeProps} from 'pui-react-helpers';
-require('pui-css-buttons');
+import 'pui-css-buttons';
 
-class UIButton extends React.Component{
+export class UIButton extends React.Component {
   static propTypes = {
     alt: React.PropTypes.bool,
     flat: React.PropTypes.bool,
@@ -14,37 +14,38 @@ class UIButton extends React.Component{
       'brand'
     ]),
     large: React.PropTypes.bool,
-    small: React.PropTypes.bool
+    small: React.PropTypes.bool,
+    icon: React.PropTypes.node
   };
 
   static defaultProps = {
     kind: 'default'
-  };
+  }
 
   render() {
-    const {alt, flat, large, small, kind, children, ...others} = this.props;
+    const {alt, flat, large, small, kind, children, icon, ...others} = this.props;
 
-    let defaultProps = {
+    const defaultProps = {
       className: [
-          {
-            'button': this.props.href,
-            [`btn-${kind}-alt`]: alt,
-            [`btn-${kind}-flat`]: flat,
-            [`btn-${kind}`]: !alt && !flat,
-            'btn-lg': large,
-            'btn-sm': small
-          }
+        {
+          'button': this.props.href,
+          [`btn-${kind}-alt`]: alt,
+          [`btn-${kind}-flat`]: flat,
+          [`btn-${kind}`]: !alt && !flat,
+          'btn-lg': large,
+          'btn-sm': small
+        }
       ]
     };
-    let props = mergeProps(others, defaultProps);
+    const props = mergeProps(others, defaultProps);
 
     return this.props.href ?
-      <a {...props}>{children}</a> :
-      <button {...props}>{children}</button>;
+      <a {...props}>{icon} {children}</a> :
+      <button {...props}>{icon} {children}</button>;
   }
 }
 
-function defButton(propOverrides) {
+const defButton = propOverrides => {
   return class extends React.Component {
     static propTypes = {
       alt: React.PropTypes.bool,
@@ -60,14 +61,7 @@ function defButton(propOverrides) {
   };
 }
 
-module.exports = {
-  UIButton,
-
-  DefaultButton: defButton({kind: 'default'}),
-
-  DangerButton: defButton({kind: 'danger'}),
-
-  PrimaryButton: defButton({kind: 'primary'}),
-
-  BrandButton: defButton({kind: 'brand'})
-};
+export const DefaultButton = defButton({kind: 'default'});
+export const PrimaryButton = defButton({kind: 'primary'});
+export const DangerButton = defButton({kind: 'danger'});
+export const BrandButton = defButton({kind: 'brand'});

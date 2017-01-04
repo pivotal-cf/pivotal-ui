@@ -13,12 +13,12 @@ class SmallTab extends React.Component {
     header: types.node,
     onClick: types.func,
     paneId: types.string
-  };
+  }
 
   render() {
     const {animation, ariaLabelledBy, children, disabled, expanded, header, onClick, paneId} = this.props;
     let delay;
-    if(!animation) delay = 0;
+    if (!animation) delay = 0;
 
     const collapsibleProps = {
       'aria-labelledby': ariaLabelledBy,
@@ -27,23 +27,22 @@ class SmallTab extends React.Component {
       expanded,
       role: 'tabpanel'
     };
-    return (
-      <div>
-        <div className="tab-heading">
-          <h4 className="tab-title" role="presentation">
-            <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded}
-               className={classnames({disabled})} role="tab" onClick={onClick}>{header}</a>
-          </h4>
-        </div>
-        <Collapsible {...collapsibleProps}>
-          {children}
-        </Collapsible>
+
+    return (<div>
+      <div className="tab-heading">
+        <h4 className="tab-title" role="presentation">
+          <a aria-expanded={expanded} aria-controls={paneId} aria-selected={expanded}
+             className={classnames({disabled})} role="tab" onClick={onClick}>{header}</a>
+        </h4>
       </div>
-    );
+      <Collapsible {...collapsibleProps}>
+        {children}
+      </Collapsible>
+    </div>);
   }
 }
 
-class SmallTabs extends React.Component {
+export class SmallTabs extends React.Component {
   static propTypes = {
     actions: types.node,
     activeKey: types.number,
@@ -53,7 +52,7 @@ class SmallTabs extends React.Component {
     onSelect: types.func,
     smallScreenClassName: types.string,
     tabType: types.string
-  };
+  }
 
   render() {
     const {
@@ -67,14 +66,15 @@ class SmallTabs extends React.Component {
       onSelect,
       smallScreenClassName,
       tabType
-      } = this.props;
+    } = this.props;
     const smallScreenClasses = classnames([`tab-${tabType}-small-screen`, 'panel-group', smallScreenClassName, className]);
     const childArray = React.Children.toArray(children);
     const childrenAsPanels = childArray.map((child, key) => {
       const {['aria-labelledby']: ariaLabelledBy, disabled, title, eventKey, children} = child.props;
       const paneId = `${id}-pane-${key}`;
       const tabId = `${id}-tab-${key}`;
-      const onClick = disabled ? () => {} : (e) => handleClick(e, eventKey, onSelect);
+      const onClick = disabled ? () => {
+      } : (e) => handleClick(e, eventKey, onSelect);
       const myProps = {
         animation,
         ariaLabelledBy: ariaLabelledBy || tabId,
@@ -90,13 +90,9 @@ class SmallTabs extends React.Component {
 
     const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
 
-    return (
-      <div className={smallScreenClasses}>
-        {actionsNode}
-        {childrenAsPanels}
-      </div>
-    );
+    return (<div className={smallScreenClasses}>
+      {actionsNode}
+      {childrenAsPanels}
+    </div>);
   }
 }
-
-module.exports = {SmallTabs};

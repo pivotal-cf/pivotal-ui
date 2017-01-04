@@ -1,77 +1,80 @@
-var React = require('react');
-var types = React.PropTypes;
-var {Icon} = require('pui-react-iconography');
-var {Dropdown, DropdownItem} = require('pui-react-dropdowns');
-var classnames = require('classnames');
-var {mergeProps} = require('pui-react-helpers');
+import React from 'react';
+import {Icon} from 'pui-react-iconography';
+import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
+import classnames from 'classnames';
+import {mergeProps} from 'pui-react-helpers';
 
+const types = React.PropTypes;
 
-class Notifications extends React.Component {
+export class Notifications extends React.Component {
   static propTypes = {
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  };
+  }
+
+  static defaultProps = {
+    children: <li role="presentation">
+      <div className="dropdown-notifications-none">
+        <Icon src="add"/>
+        <p className="type-neutral-4 em-alt mbn">no notifications</p>
+      </div>
+    </li>
+  }
 
   render() {
-    var {size, children, ...others} = this.props;
-    var props = mergeProps(others, {className: 'dropdown-notifications'});
-    var numChildren = React.Children.count(children);
-    var badge = children ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
-    var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
-    var dropdownTitle = (
+    const {size, children, ...others} = this.props;
+    const props = mergeProps(others, {className: 'dropdown-notifications'});
+    const numChildren = React.Children.count(children);
+    const badge = numChildren > 1 ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
+    const dropdownTitleClasses = classnames('dropdown-notifications-title', size);
+    const dropdownTitle = (
       <div className={dropdownTitleClasses}>
         <Icon src="notifications"/>
         {badge}
       </div>
     );
-    children = children || (
-      <li role="presentation">
-        <div className="dropdown-notifications-none">
-          <Icon src="add"/>
-          <p className="type-neutral-4 em-alt mbn">no notifications</p>
-        </div>
-      </li>
-    );
+    
     return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 
-class AlertNotifications extends React.Component {
+export class AlertNotifications extends React.Component {
   static propTypes = {
     size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  };
+  }
+  
+  static defaultProps = {
+    children: <li role="presentation">
+      <div className="dropdown-notifications-none">
+        <Icon src="notifications"/>
+        <p className="type-neutral-4 em-alt mbn">no alerts</p>
+      </div>
+    </li>
+  }
 
   render() {
-    var {size, children, ...others} = this.props;
-    var badge = children && <Icon src="warning" className="dropdown-notifications-alert"/>;
-    var dropdownTitleClasses = classnames('dropdown-notifications-title', size);
-    var dropdownTitle = (
+    const {size, children, ...others} = this.props;
+    const numChildren = React.Children.count(children);
+    const badge = numChildren > 1 && <Icon src="warning" className="dropdown-notifications-alert"/>;
+    const dropdownTitleClasses = classnames('dropdown-notifications-title', size);
+    const dropdownTitle = (
       <div className={dropdownTitleClasses}>
         <Icon src="notifications"/>
         {badge}
       </div>
     );
-    children = children || (
-      <li role="presentation">
-        <div className="dropdown-notifications-none">
-          <Icon src="notifications"/>
-          <p className="type-neutral-4 em-alt mbn">no alerts</p>
-        </div>
-      </li>
-    );
-    var props = mergeProps(others, {className: 'dropdown-notifications'});
+    const props = mergeProps(others, {className: 'dropdown-notifications'});
+    
     return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 
-class NotificationItem extends React.Component {
+export class NotificationItem extends React.Component {
   static propTypes = {
     href: types.string
-  };
+  }
 
   render() {
-    var {href, children, ...props} = this.props;
+    const {href, children, ...props} = this.props;
     return <DropdownItem href={href} {...props}>{children}</DropdownItem>;
   }
 }
-
-module.exports = {Notifications, AlertNotifications, NotificationItem};

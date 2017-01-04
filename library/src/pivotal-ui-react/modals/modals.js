@@ -1,18 +1,15 @@
-const Animation = require('pui-react-mixins/mixins/animation_mixin');
-const classnames = require('classnames');
-const React = require('react');
-const mixin = require('pui-react-mixins');
-const {mergeProps} = require('pui-react-helpers');
-
-require('pui-css-modals');
+import Animation from 'pui-react-mixins/mixins/animation_mixin';
+import classnames from 'classnames';
+import React from 'react';
+import mixin from 'pui-react-mixins';
+import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-modals';
 
 const types = React.PropTypes;
-
 const ESC_KEY = 27;
-
 const privates = new WeakMap();
 
-class BaseModal extends mixin(React.Component).with(Animation) {
+export class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
     animation: types.bool,
     size: types.string,
@@ -23,14 +20,13 @@ class BaseModal extends mixin(React.Component).with(Animation) {
     onHide: types.func,
     show: types.bool,
     title: types.node
-  };
+  }
 
   static defaultProps = {
     animation: true,
     keyboard: true,
-    onHide() {
-    }
-  };
+    onHide: () => {}
+  }
 
   static ANIMATION_TIME = 300;
   static ESC_KEY = ESC_KEY;
@@ -40,17 +36,17 @@ class BaseModal extends mixin(React.Component).with(Animation) {
     privates.set(this, {fractionShown: 0});
   }
 
-  modalClicked = (e) => {
-    if(!this.dialog) return;
-    if(this.dialog.contains(e.target)) return;
+  modalClicked = e => {
+    if (!this.dialog) return;
+    if (this.dialog.contains(e.target)) return;
     this.props.onHide();
-  };
+  }
 
-  onKeyDown = (e) => {
-    if(this.props.keyboard && e.keyCode === ESC_KEY){
+  onKeyDown = e => {
+    if (this.props.keyboard && e.keyCode === ESC_KEY) {
       this.props.onHide();
     }
-  };
+  }
 
   componentDidMount() {
     document.addEventListener('keydown', this.onKeyDown);
@@ -60,11 +56,9 @@ class BaseModal extends mixin(React.Component).with(Animation) {
     document.removeEventListener('keydown', this.onKeyDown);
   }
 
-  focus() {
-    setTimeout(() => {
-      this.modal && this.modal.focus();
-    }, 1);
-  }
+  focus = () => setTimeout(() => {
+    this.modal && this.modal.focus();
+  }, 1)
 
   render() {
     const {
@@ -81,11 +75,14 @@ class BaseModal extends mixin(React.Component).with(Animation) {
       ...modalProps
     } = this.props;
 
-    const animationTime = animation ?  BaseModal.ANIMATION_TIME : 0;
-
+    const animationTime = animation ? BaseModal.ANIMATION_TIME : 0;
     const fractionDestination = show ? 1 : 0;
     const {fractionShown: oldFractionShown} = privates.get(this);
-    const fractionShown = this.animate('fractionShown', fractionDestination, animationTime, {startValue: 0, easing: 'easeOutQuad'});
+    const fractionShown = this.animate('fractionShown', fractionDestination, animationTime, {
+      startValue: 0,
+      easing: 'easeOutQuad'
+    });
+
     privates.set(this, {...privates.get(this), fractionShown});
 
     if (oldFractionShown < 1 && fractionShown === 1) {
@@ -114,58 +111,48 @@ class BaseModal extends mixin(React.Component).with(Animation) {
     const modalSize = {small: 'sm', sm: 'sm', large: 'lg', lg: 'lg'}[size];
     const modalSizeClass = `modal-${modalSize}`;
 
-    return (
-      <div className="modal-wrapper" role="dialog">
-        <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
-        <div {...props} ref={(ref) => {this.modal = ref;}}>
-          <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={(ref) => {this.dialog = ref;}}>
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" aria-label="close" onClick={onHide}>
-                  <span aria-hidden="true">&times;</span>
-                </button>
-                <h4 className="modal-title">{title}</h4>
-              </div>
-              {children}
+    return (<div className="modal-wrapper" role="dialog">
+      <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
+      <div {...props} ref={(ref) => {this.modal = ref;}}>
+        <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})}
+             style={dialogStyle} ref={(ref) => {this.dialog = ref;}}>
+          <div className="modal-content">
+            <div className="modal-header">
+              <button type="button" className="close" aria-label="close" onClick={onHide}>
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 className="modal-title">{title}</h4>
             </div>
+            {children}
           </div>
         </div>
       </div>
-    );
+    </div>);
   }
 }
 
-class Modal extends React.Component {
+export class Modal extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {isVisible: false};
   }
 
-  open = () => {
-    this.setState({isVisible: true});
-  };
-
-  close = () => {
-    this.setState({isVisible: false});
-  };
+  open = () => this.setState({isVisible: true})
+  close = () => this.setState({isVisible: false})
 
   render() {
-    return (
-      <BaseModal show={this.state.isVisible} onHide={this.close} {...this.props} />
-    );
+    return <BaseModal show={this.state.isVisible} onHide={this.close} {...this.props} />;
   }
 }
 
-class ModalBody extends React.Component {
+export class ModalBody extends React.Component {
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
   }
 }
 
-class ModalFooter extends React.Component {
+export class ModalFooter extends React.Component {
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-footer'})}>{this.props.children}</div>;
   }
 }
-
-module.exports = {Modal, ModalBody, ModalFooter, BaseModal};

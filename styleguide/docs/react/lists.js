@@ -12,14 +12,16 @@ categories:
 npm install pui-react-lists --save
 </code>
 
-*/
+## Props
 
-/*doc
----
-title: Breadcrumb
-name: 02_list_breadcrumb_react
-parent: list_react
----
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+spacing   | no | oneOf('n', 's', 'm', 'l', 'xl') |       | Spacing between items
+className | no | String                          |       | Classname of the list
+unstyled  | no | Boolean                         | false | Whether to style the list
+divider   | no | Boolean                         | false | Whether to include a divider between items
+
+## Breadcrumb
 
 Import the subcomponents:
 
@@ -56,14 +58,8 @@ import {GroupList, ListItem} from 'pui-react-lists';
   <ListItem>Item 3</ListItem>
 </GroupList>
 ```
-*/
 
-/*doc
----
-title: Group Inverse
-name: 07_list_group_inverse_react
-parent: list_react
----
+## Group Inverse
 
 Import the subcomponents:
 
@@ -79,14 +75,7 @@ import {GroupListInverse, ListItem} from 'pui-react-lists';
 </GroupListInverse>
 ```
 
-*/
-
-/*doc
----
-title: Inline
-name: 08_list_inline_react
-parent: list_react
----
+## Inline
 
 Import the subcomponents:
 
@@ -110,14 +99,7 @@ import {InlineList, ListItem} from 'pui-react-lists';
 </InlineList>
 ```
 
-*/
-
-/*doc
----
-title: Ordered
-name: 10_list_ordered_react
-parent: list_react
----
+## Ordered
 
 Import the subcomponents:
 
@@ -140,14 +122,8 @@ import {OrderedList, ListItem} from 'pui-react-lists';
   <ListItem>Item 3</ListItem>
 </OrderedList>
 ```
-*/
 
-/*doc
----
-title: Steps
-name: 11_list_steps_react
-parent: list_react
----
+## Steps
 
 Import the subcomponent:
 
@@ -162,14 +138,8 @@ import {StepList, ListItem} from 'pui-react-lists';
   <ListItem className="current">Item 3</ListItem>
 </StepList>
 ```
-*/
 
-/*doc
----
-title: Unordered
-name: 13_list_unordered_react
-parent: list_react
----
+## Unordered
 
 Import the subcomponents:
 
@@ -193,14 +163,7 @@ import {UnorderedList, ListItem} from 'pui-react-lists';
 </UnorderedList>
 ```
 
-*/
-
-/*doc
----
-title: Configuring Spacing
-name: 14_list_spacing_react
-parent: list_react
----
+## Configuring
 
 List Spacing can be changed setting the size of the spacing property.
 

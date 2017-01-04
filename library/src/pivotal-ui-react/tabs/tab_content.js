@@ -1,9 +1,9 @@
-const classnames = require('classnames');
-const React = require('react');
+import classnames from 'classnames';
+import React from 'react';
 
 const types = React.PropTypes;
 
-class TabContent extends React.Component {
+export default class TabContent extends React.Component {
   static propTypes = {
     activeKey: types.any,
     childArray: types.array,
@@ -11,7 +11,7 @@ class TabContent extends React.Component {
     isLeft: types.bool,
     paneWidth: types.number,
     transitionProgress: types.number
-  };
+  }
 
   render() {
     const {activeKey, childArray, id, isLeft, paneWidth, transitionProgress} = this.props;
@@ -49,5 +49,3 @@ class TabContent extends React.Component {
     return tabContent;
   }
 }
-
-module.exports = TabContent;
