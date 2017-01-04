@@ -4,6 +4,16 @@
   @extend %dropdown;
   display: inline-flex;
 
+  .dropdown-menu {
+    font-size: $btn-font-size;
+  }
+  .btn-sm + .dropdown-menu {
+    font-size: $btn-sm-font-size;
+  }
+  .btn-lg + .dropdown-menu {
+    font-size: $btn-lg-font-size;
+  }
+
   .dropdown-toggle {
     @extend %dropdown-toggle;
   }

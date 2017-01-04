@@ -1,20 +1,6 @@
 @import "../pui-variables";
 @import "../mixins";
 
-
-// Terrible terrible code
-.table-hack {
-  .thead, .tbody {
-    padding: 0 $whitespace-l;
-  }
-  .th {
-    padding: 8px $whitespace-l;
-  }
-  .td {
-    padding: 20px $whitespace-l;
-  }
-}
-
 .table-data {
   border: none;
   tbody, thead, .tbody, .thead {
@@ -25,7 +11,7 @@
         border-color: $gray-7;
         border-right: 1px solid $gray-7;
         padding: $whitespace-l;
-        font-size: 13px;
+        font-size: $font-size-small;
         font-weight: 900;
         letter-spacing: 0.3px;
         &:first-child {
@@ -37,7 +23,8 @@
         background-color: $gray-9;
       }
       td, .td {
-        padding: 10px 10px;
+        font-size: $font-size-small;
+        padding: $base-size $base-size;
         border: none; // overwriting bootstrap default values which are too specific
       }
     }
@@ -53,7 +40,7 @@
         background-color: $gray-10;
       }
       &:last-child {
-        border-bottom: 2px solid $shadow-3;
+        border-bottom: $base-size/4 solid $shadow-3;
       }
     }
   }

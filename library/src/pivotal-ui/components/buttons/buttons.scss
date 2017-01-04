@@ -18,7 +18,7 @@ input[type="button"] {
   font-size: $btn-font-size;
   font-weight: $btn-font-weight;
   line-height: ($btn-spacing-base*4 - 2 * $btn-border-width);
-  letter-spacing: .05rem;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -34,7 +34,7 @@ input[type="button"] {
   transition-property: background-color, color, opacity, border;
   .svgicon {
     font-size: 18px;
-    padding: 2px;
+    margin: 0 5px 0 0;
     fill: $btn-default-color;
   }
   .icon-spinner,
@@ -45,24 +45,33 @@ input[type="button"] {
   }
   &:hover,
   &:focus {
-    color: $btn-default-color-focus;
     outline: none;
-    .svgicon {
-      fill: $btn-default-color-focus;
-    }
   }
 }
 
-button.btn-icon {
-  padding: 0 3px;
+button.btn-icon, .button.btn-icon {
+  padding: 0;
+
+  .svgicon {
+    margin: 5px;
+  }
+}
+
+button.dropdown-toggle .svgicon {
+  margin: 0 0 0 5px;
 }
 
 .btn-lg {
   height: ($btn-spacing-base*5);
   line-height: ($btn-spacing-base*5 - 2 * $btn-border-width);
   font-size: $btn-lg-font-size;
+
   &.btn-icon {
-    padding: 0 6px;
+    padding: 0;
+
+    .svgicon {
+      margin: 8px;
+    }
   }
   .svgicon {
     font-size: 20px;
@@ -75,22 +84,19 @@ button.btn-icon {
   font-size: $btn-sm-font-size;
   &.btn-icon {
     padding: 0;
+    .svgicon {
+      margin: 3px;
+    }
   }
   .svgicon {
     font-size: 14px;
   }
 }
 
-button.disabled,
-.button.disabled {
+button.disabled, .button.disabled, button[disabled], .button[disabled] {
   opacity: .5;
   cursor: default;
   pointer-events: none;
-}
-
-button[disabled], .button[disabled] {
-  pointer-events: none;
-  cursor: default;
 }
 
 //Default Button
@@ -157,8 +163,7 @@ button.btn-default-alt,
 .button.btn-default-alt,
 input[type="submit"].btn-default-alt,
 input[type="reset"].btn-default-alt,
-input[type="button"].btn-default-alt
-{
+input[type="button"].btn-default-alt {
   background-color: transparent;
   color: $btn-default-color;
   border-color: $btn-default-color;
@@ -425,7 +430,6 @@ input[type="button"].btn-primary-alt {
   }
 }
 
-
 //Danger Button
 //---------------------------------------
 button.btn-danger,
@@ -482,6 +486,7 @@ input[type="button"].btn-danger {
     }
   }
 }
+
 //Flat danger
 .btn-danger-flat {
   color: $btn-danger-color;
@@ -498,6 +503,7 @@ input[type="button"].btn-danger {
     }
   }
 }
+
 //danger Alt Button
 //---------------------------------------
 button.btn-danger-alt,
