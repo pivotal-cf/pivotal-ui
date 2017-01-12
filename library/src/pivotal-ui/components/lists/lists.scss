@@ -1,8 +1,8 @@
 @import "../pui-variables";
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
-@import '../../../../src/oocss/utils/clearfix-me';
-@import '../../../../src/oocss/list/listWhitespace';
+@import '../../frameworks/oocss/clearfix-me';
+@import '../../frameworks/oocss/listWhitespace';
 
 @import "../mixins";
 
