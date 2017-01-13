@@ -49,7 +49,7 @@
     "gulp-load-plugins": "^0.8.1",
     "gulp-open": "^0.3.2",
     "gulp-plumber": "^0.6.6",
-    "gulp-postcss": "^6.1.0",
+    "gulp-postcss": "^6.2.0",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.3",
     "gulp-sass": "^2.1.1",

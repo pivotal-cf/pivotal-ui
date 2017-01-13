@@ -15,7 +15,7 @@ gulp.task('hologram', callback => exec('bundle exec hologram', callback));
 gulp.task('build-sass', () =>
   gulp.src('src/styleguide.scss')
     .pipe(plugins.sass())
-    .pipe(plugins.cssnext())
+    .pipe(plugins.postcss([require("postcss-cssnext")()]))
     .pipe(gulp.dest('build/styleguide'))
 );
 
