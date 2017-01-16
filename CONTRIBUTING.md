@@ -82,6 +82,7 @@ additions.
 
 We use [css-critic](https://github.com/cburgmer/csscritic) for visual-diff regression testing. The workflow is:
 
+1. Install firefox
 1. `./css_critic.sh`
 1. Click 'Accept All' once processing is done (everything should be yellow)
 1. Develop
