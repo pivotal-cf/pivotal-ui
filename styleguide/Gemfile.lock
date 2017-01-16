@@ -20,7 +20,7 @@ GEM
     coderay (1.1.1)
     diff-lcs (1.2.5)
     execjs (2.7.0)
-    ffi (1.9.14)
+    ffi (1.9.17)
     hologram (1.4.0)
       redcarpet (>= 2.2, < 4.0)
       rouge (>= 1.5)
@@ -29,17 +29,17 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    nokogiri (1.6.8.1)
+    nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    public_suffix (2.0.4)
-    rack (1.5.2)
-    rack-test (0.6.2)
+    public_suffix (2.0.5)
+    rack (2.0.1)
+    rack-test (0.6.3)
       rack (>= 1.0)
-    redcarpet (3.3.4)
+    redcarpet (3.4.0)
     rouge (2.0.7)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
@@ -55,7 +55,7 @@ GEM
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
     rubyzip (1.2.0)
-    selenium-webdriver (3.0.4)
+    selenium-webdriver (3.0.5)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
@@ -73,6 +73,7 @@ DEPENDENCIES
   capybara
   hologram (~> 1.4.0)
   pry
+  rouge (>= 2.0.6)
   rspec
   selenium-webdriver
 
