@@ -179,5 +179,5 @@ describe('UIButton', function() {
       ReactDOM.render(<DefaultButton href="whatever" icon={<Icon src="add" />}>Click here</DefaultButton>, root);
       expect('#root a.button .svgicon').toExist();
     });
-  })
+  });
 });

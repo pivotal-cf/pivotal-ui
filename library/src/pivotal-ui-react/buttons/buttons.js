@@ -59,7 +59,7 @@ const defButton = propOverrides => {
       return <UIButton {...this.props} {...propOverrides}/>;
     }
   };
-}
+};
 
 export const DefaultButton = defButton({kind: 'default'});
 export const PrimaryButton = defButton({kind: 'primary'});
