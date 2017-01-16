@@ -12,8 +12,6 @@ class CssCriticTestGenerator < Hologram::Plugin
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="styleguide/styleguide.css">
     <link rel="stylesheet" href="styleguide/github.css">
-    <link rel="stylesheet" disabled href="prismjs/prism.css">
-    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
   </head>
   <body class="pam">
   eos
