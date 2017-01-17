@@ -68,6 +68,22 @@ $base-unit: 8px;
     }
   }
 
+  .col-align-top {
+    -webkit-align-self: flex-start;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+
+  .col-align-bottom {
+    align-self: flex-end;
+  }
+
+  .col-align-middle {
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+  }
+
   @media only screen and (max-width: $screen-sm) {
     .col-sm {
       flex: 100%;
