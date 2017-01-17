@@ -25,6 +25,7 @@ assignToGlobal([
   require('pui-react-dropdowns'),
   require('pui-react-expander'),
   require('pui-react-grids'),
+  require('pui-react-flex-grids'),
   require('pui-react-iconography'),
   require('pui-react-images'),
   require('pui-react-inputs'),

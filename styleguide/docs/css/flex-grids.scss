@@ -1,0 +1,44 @@
+/*doc
+---
+title: Flex Grids
+name: 11_grid_flex
+categories:
+- css_utilities_grids
+- css_all
+parent: grid
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-flex-grids --save
+</code>
+
+# Examples
+
+```html_example
+<div class='grid'>
+  <div class='col'>
+    <div style="background-color:orange">Column</div>
+  </div>
+  <div class='col'>
+    <div style="background-color:teal">Column</div>
+  </div>
+  <div class='col'>
+    <div style="background-color:purple">Column</div>
+  </div>
+</div>
+
+<div class='grid grid-nogutter'>
+  <div class='col'>
+    <div style="background-color:red">Column</div>
+  </div>
+  <div class='col'>
+    <div style="background-color:blue">Column</div>
+  </div>
+  <div class='col'>
+    <div style="background-color:green">Column</div>
+  </div>
+</div>
+```
+
+*/
