@@ -1,9 +1,11 @@
-const React = require('react');
+import React from 'react';
+import {mergeProps} from 'pui-react-helpers';
+import classnames from 'classnames';
+import 'pui-css-flex-grids';
+
 const types = React.PropTypes;
 
-require('pui-css-flex-grids');
-
-class Grid extends React.Component {
+export class Grid extends React.Component {
   static propTypes = {
     gutter: types.bool
   }
@@ -14,21 +16,16 @@ class Grid extends React.Component {
 
   render() {
     const {gutter, children, ...props} = this.props
-    const gutterClass = gutter ? '' : 'grid-nogutter'
-    return <div className={`grid ${gutterClass}`} {...props}>
+    const newProps = mergeProps(props, {className: classnames('grid', gutter ? '' : 'grid-nogutter')})
+    return <div {...newProps}>
       {children}
     </div>
   }
 }
 
-class Col extends React.Component {
-  render() {
-    const {children, ...props} = this.props
-    return <div className="col" {...props}>
-      {children}
-    </div>
-  }
+export const Col = ({children, ...props}) => {
+  const newProps = mergeProps(props, {className: 'col'})
+  return <div {...newProps}>
+    {children}
+  </div>
 }
-
-
-module.exports = {Grid, Col};

@@ -88,4 +88,28 @@ You can fix the width of a column by using the `.col-fixed` class.
   <div class='col'></div>
 </div>
 ```
+
+### Break Points
+
+You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
+
+```html_example
+<div class='grid grid-show'>
+  <div class='col col-sm' style="width: 150px;"></div>
+  <div class='col col-sm'></div>
+  <div class='col col-sm'></div>
+</div>
+
+<div class='grid grid-show'>
+  <div class='col col-md' style="width: 150px;"></div>
+  <div class='col col-md'></div>
+  <div class='col col-md'></div>
+</div>
+
+<div class='grid grid-show'>
+  <div class='col col-lg' style="width: 150px;"></div>
+  <div class='col col-lg'></div>
+  <div class='col col-lg'></div>
+</div>
+```
 */

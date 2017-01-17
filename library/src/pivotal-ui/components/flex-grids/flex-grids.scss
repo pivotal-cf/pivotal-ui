@@ -67,4 +67,26 @@ $base-unit: 8px;
       max-width: (100% / 24) * $i;
     }
   }
+
+  @media only screen and (max-width: $screen-sm) {
+    .col-sm {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: $screen-md) {
+    .col-md {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (max-width: $screen-lg) {
+    .col-lg {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
 }
+
