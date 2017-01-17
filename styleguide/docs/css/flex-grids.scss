@@ -16,7 +16,7 @@ npm install pui-css-flex-grids --save
 ## Examples
 
 <div class="alert alert-warning mbxl">
-  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don't use it IRL.</p>
+  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don"t use it IRL.</p>
 </div>
 
 ### Gutters
@@ -24,16 +24,16 @@ npm install pui-css-flex-grids --save
 You can create a flex grid with and without gutters. Here are examples of what each would look like.
 
 ```html_example
-<div class='grid grid-show'>
-  <div class='col'></div>
-  <div class='col'></div>
-  <div class='col'></div>
+<div class="grid grid-show">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
 </div>
 
-<div class='grid grid-nogutter grid-show'>
-  <div class='col'></div>
-  <div class='col'></div>
-  <div class='col'></div>
+<div class="grid grid-nogutter grid-show">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
 </div>
 ```
 
@@ -82,10 +82,10 @@ Place grid columns in any `.grid`.
 You can fix the width of a column by using the `.col-fixed` class.
 
 ```html_example
-<div class='grid grid-show'>
-  <div class='col col-fixed' style="width: 150px;"></div>
-  <div class='col'></div>
-  <div class='col'></div>
+<div class="grid grid-show">
+  <div class="col col-fixed" style="width: 150px;"></div>
+  <div class="col"></div>
+  <div class="col"></div>
 </div>
 ```
 
@@ -94,22 +94,33 @@ You can fix the width of a column by using the `.col-fixed` class.
 You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
 
 ```html_example
-<div class='grid grid-show'>
-  <div class='col col-sm' style="width: 150px;"></div>
-  <div class='col col-sm'></div>
-  <div class='col col-sm'></div>
+<div class="grid grid-show">
+  <div class="col col-sm" style="width: 150px;"></div>
+  <div class="col col-sm"></div>
+  <div class="col col-sm"></div>
 </div>
 
-<div class='grid grid-show'>
-  <div class='col col-md' style="width: 150px;"></div>
-  <div class='col col-md'></div>
-  <div class='col col-md'></div>
+<div class="grid grid-show">
+  <div class="col col-md" style="width: 150px;"></div>
+  <div class="col col-md"></div>
+  <div class="col col-md"></div>
 </div>
 
-<div class='grid grid-show'>
-  <div class='col col-lg' style="width: 150px;"></div>
-  <div class='col col-lg'></div>
-  <div class='col col-lg'></div>
+<div class="grid grid-show">
+  <div class="col col-lg" style="width: 150px;"></div>
+  <div class="col col-lg"></div>
+  <div class="col col-lg"></div>
 </div>
 ```
+
+### Alignment
+
+```html_example
+<div class="grid grid-show" style="height:200px">
+  <div class="col col-align-top"></div>
+  <div class="col col-align-middle"></div>
+  <div class="col col-align-bottom"></div>
+</div>
+```
+
 */
