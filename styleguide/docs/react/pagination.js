@@ -16,11 +16,11 @@ npm install pui-react-pagination --save
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-items      | Number   | 1    | The number of page links displayed
-next       | Boolean  | true | Option to display a 'next page' button
-prev       | Boolean  | true | Option to display a 'previous page' button
-activePage | Function |      | Option to make a link styled as 'active'
-onSelect   | Function |      | Callback that is called on click of a link
+items      | no | Number   | 1    | The number of page links displayed
+next       | no | Boolean  | true | Option to display a 'next page' button
+prev       | no | Boolean  | true | Option to display a 'previous page' button
+activePage | no | Function |      | Option to make a link styled as 'active'
+onSelect   | no | Function |      | Callback that is called on click of a link
 
 ## Basic usage
 

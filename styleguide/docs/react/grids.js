@@ -18,19 +18,19 @@ Row properties:
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-componentClass | Node                    | no | div  | The component to render the row
-gutter         | oneOf('sm', 'md', 'lg') | no | 'lg' | Sets the size of the gutter
+componentClass | no | Node                    | div  | The component to render the row
+gutter         | no | oneOf('sm', 'md', 'lg') | 'lg' | Sets the size of the gutter
 
 Col Properties
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-componentClass                         | no | div | Node    | The component to render the row
-xs, sm, md, lg                         | no |     | Number  | Width of the column (out of 24) at the xs, sm, md, or lg screen width
-xsHidden, smHidden, mdHidden, lgHidden | no |     | Boolean | If true, hide the column at the relevant screen width
-xsOffset, smOffset, mdOffset, lgOffset | no |     | Number  | Offset of the column (out of 24)
-xsPush, smPush, mdPush, lgPush         | no |     | Number  | Offset to change the order of grid columns to the right with
-xsPull, smPull, mdPull, lgPull         | no |     | Number  | Offset to change the order of grid columns to the left with
+componentClass                         | no | Node    | div | The component to render the row
+xs, sm, md, lg                         | no | Number  |     | Width of the column (out of 24) at the xs, sm, md, or lg screen width
+xsHidden, smHidden, mdHidden, lgHidden | no | Boolean |     | If true, hide the column at the relevant screen width
+xsOffset, smOffset, mdOffset, lgOffset | no | Number  |     | Offset of the column (out of 24)
+xsPush, smPush, mdPush, lgPush         | no | Number  |     | Offset to change the order of grid columns to the right with
+xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change the order of grid columns to the left with
 
 ## Basic usage
 
