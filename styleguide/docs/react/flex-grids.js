@@ -37,16 +37,16 @@ import {Grid, Col} from 'pui-react-flex-grids';
 
 ```react_example
 <div>
-  <Grid>
-    <Col><div style={{backgroundColor: 'red'}}>Column 1</div></Col>
-    <Col><div style={{backgroundColor: 'green'}}>Column 2</div></Col>
-    <Col><div style={{backgroundColor: 'blue'}}>Column 3</div></Col>
+  <Grid className="grid-show">
+    <Col></Col>
+    <Col></Col>
+    <Col></Col>
   </Grid>
 
- <Grid gutter={false}>
-   <Col><div style={{backgroundColor: 'red'}}>Column 1</div></Col>
-   <Col><div style={{backgroundColor: 'green'}}>Column 2</div></Col>
-   <Col><div style={{backgroundColor: 'blue'}}>Column 3</div></Col>
+ <Grid className="grid-show" gutter={false}>
+   <Col></Col>
+   <Col></Col>
+   <Col></Col>
  </Grid>
 </div>
 ```
