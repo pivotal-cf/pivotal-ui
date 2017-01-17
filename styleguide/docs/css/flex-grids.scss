@@ -13,32 +13,79 @@ parent: grid
 npm install pui-css-flex-grids --save
 </code>
 
-# Examples
+## Examples
 
-```html_example
-<div class='grid'>
-  <div class='col'>
-    <div style="background-color:orange">Column</div>
-  </div>
-  <div class='col'>
-    <div style="background-color:teal">Column</div>
-  </div>
-  <div class='col'>
-    <div style="background-color:purple">Column</div>
-  </div>
+<div class="alert alert-warning mbxl">
+  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don't use it IRL.</p>
 </div>
 
-<div class='grid grid-nogutter'>
-  <div class='col'>
-    <div style="background-color:red">Column</div>
-  </div>
-  <div class='col'>
-    <div style="background-color:blue">Column</div>
-  </div>
-  <div class='col'>
-    <div style="background-color:green">Column</div>
-  </div>
+### Gutters
+
+You can create a flex grid with and without gutters. Here are examples of what each would look like.
+
+```html_example
+<div class='grid grid-show'>
+  <div class='col'></div>
+  <div class='col'></div>
+  <div class='col'></div>
+</div>
+
+<div class='grid grid-nogutter grid-show'>
+  <div class='col'></div>
+  <div class='col'></div>
+  <div class='col'></div>
 </div>
 ```
 
+### Sizing
+
+Using a single set of `.col-*` grid classes,
+you can create a basic grid system that starts out stacked on mobile devices and tablet devices
+(the extra small to small range) before becoming horizontal on desktop (medium) devices.
+Place grid columns in any `.grid`.
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-16"></div>
+  <div class="col col-8"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-8"></div>
+  <div class="col col-8"></div>
+  <div class="col col-8"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-12"></div>
+  <div class="col col-12"></div>
+</div>
+```
+
+### Fixing Column Size
+
+You can fix the width of a column by using the `.col-fixed` class.
+
+```html_example
+<div class='grid grid-show'>
+  <div class='col col-fixed' style="width: 150px;"></div>
+  <div class='col'></div>
+  <div class='col'></div>
+</div>
+```
 */
