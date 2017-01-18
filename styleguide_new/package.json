@@ -1,4 +1,5 @@
 {
+  "main": "index.js",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -6,14 +7,25 @@
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
+    "file-loader": "^0.9.0",
+    "graceful-fs": "^4.1.11",
     "gulp": "^3.9.1",
     "gutil": "^1.6.4",
+    "json-loader": "^0.5.4",
+    "module": "^1.2.5",
+    "net": "^1.0.2",
     "node-sass": "^4.3.0",
     "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
     "through2": "^2.0.3",
     "webpack": "^2.2.0"
   },
   "dependencies": {
+    "pui-react-helpers": "file:../library/dist/react/helpers",
+    "pui-react-buttons": "file:../library/dist/react/buttons",
+    "pui-css-buttons": "file:../library/dist/css/buttons",
+    "babel-standalone": "^6.21.1",
+    "codemirror": "^5.22.2",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "showdown": "^1.6.0"
