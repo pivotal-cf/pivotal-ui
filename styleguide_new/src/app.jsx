@@ -1,27 +1,65 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import {DefaultButton} from 'pui-react-buttons'
+import ButtonStuff from '../docs/Button.md'
+import {DefaultButton, PrimaryButton} from 'pui-react-buttons'
+import * as Babel from 'babel-standalone'
+import {AllHtmlEntities} from 'html-entities'
 
 window.DefaultButton = DefaultButton
+window.PrimaryButton = PrimaryButton
 
-import * as Babel from 'babel-standalone'
+class CodeEditor extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {
+      code: props.code
+    }
+  }
 
-const handleClick = () => {
-  console.log(Babel)
+  changeHandler(event) {
+    this.setState({code: AllHtmlEntities.decode(event.target.value)})
+  }
 
-  const input = `
-<DefaultButton>yo</DefaultButton>
-`;
+  render() {
+    const {code} = this.state
+    const transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
 
-  const output = Babel.transform(input, { presets: ['es2015', 'react'] }).code;
-  console.log(output)
+    return <div>
+      <pre>
+        {code}
+      </pre>
+      <form>
+        <textarea onChange={this.changeHandler.bind(this)} defaultValue={code}/>
+      </form>
+      <div>
+        {eval(transpiledCode)}
+      </div>
+    </div>
+  }
+}
 
-  ReactDOM.render(eval(output), document.getElementById('outputArea'))
+class MarkdownViewer extends React.Component {
+  static renderEditableArea(codeElement) {
+    const code = AllHtmlEntities.decode(codeElement.innerHTML)
+    ReactDOM.render(<CodeEditor code={code}/>, codeElement)
+  }
+
+  static renderEditableAreas(element) {
+    for(let i = 0; element.getElementsByTagName("code").length > i; i++) {
+      const codeElement = element.getElementsByTagName('code')[i]
+      MarkdownViewer.renderEditableArea(codeElement)
+    }
+  }
+
+  render() {
+    return <div id="markdown-viewer"
+                ref={MarkdownViewer.renderEditableAreas}
+                dangerouslySetInnerHTML={{__html: this.props.html}}></div>
+  }
 }
 
 const app = <div>
-  <button onClick={handleClick}> click me</button>
-  <div id="outputArea" style={{backgroundColor: 'red'}}>output area</div>
+  <MarkdownViewer html={ButtonStuff}/>
 </div>
 
 ReactDOM.render(app, document.getElementById('root'))

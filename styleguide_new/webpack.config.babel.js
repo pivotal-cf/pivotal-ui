@@ -24,7 +24,11 @@ export default {
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader'
-      }
+      },
+      {
+        test: /\.md$/,
+        loader: 'html-loader!markdown-loader'
+      },
     ]
   },
   node: {
