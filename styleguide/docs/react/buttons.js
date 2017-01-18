@@ -95,14 +95,4 @@ To make a button large, set the `large` property to true, to make it small, set 
   Small Button
 </PrimaryButton>
 ```
-
-## Icons
-
-Buttons can have icons by specifying the `icon` prop and giving it a node:
-
-```react_example_table
-<PrimaryButton icon={<Icon src="add"/>}>
-  Icon button
-</PrimaryButton>
-```
 */
