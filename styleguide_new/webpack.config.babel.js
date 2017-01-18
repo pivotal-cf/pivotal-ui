@@ -1,4 +1,5 @@
 import path from 'path'
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
   entry: './src/app.jsx',
@@ -29,8 +30,18 @@ export default {
         test: /\.md$/,
         loader: 'html-loader!markdown-loader'
       },
-    ]
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          loader: "css-loader!sass-loader",
+        })
+      }
+    ],
   },
+  plugins: [
+    new ExtractTextPlugin('app.css')
+  ],
   node: {
     fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
   },
