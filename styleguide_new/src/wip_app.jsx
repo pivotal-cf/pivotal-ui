@@ -5,6 +5,8 @@ import {DefaultButton, PrimaryButton} from 'pui-react-buttons'
 import * as Babel from 'babel-standalone'
 import {AllHtmlEntities} from 'html-entities'
 
+window.React = React
+window.ReactDOM = ReactDOM
 window.DefaultButton = DefaultButton
 window.PrimaryButton = PrimaryButton
 

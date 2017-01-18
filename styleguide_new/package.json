@@ -27,6 +27,7 @@
     "codemirror": "^5.22.2",
     "html-entities": "^1.2.0",
     "pui-css-buttons": "file:../library/dist/css/buttons",
+    "pui-css-colors": "file:../library/dist/css/colors",
     "pui-react-buttons": "file:../library/dist/react/buttons",
     "pui-react-helpers": "file:../library/dist/react/helpers",
     "react": "^15.4.2",
