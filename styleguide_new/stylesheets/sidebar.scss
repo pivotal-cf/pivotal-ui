@@ -25,4 +25,18 @@
 .sidebar--item {
   padding: 10px 0;
   border-bottom: 1px solid $navy-3;
+  display: block;
+  color: white;
+  width: 100%;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
 }

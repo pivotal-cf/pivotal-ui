@@ -2,7 +2,7 @@ import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 export default {
-  entry: './src/app.jsx',
+  entry: './src/App.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
