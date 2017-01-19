@@ -1,6 +1,28 @@
 .sidebar {
-  background-color: $gray-2;
+  background-color: $navy-2;
   width: 300px;
   flex: initial;
   height: 100%;
+  color: white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.sidebar--search {
+  width: 100%
+}
+
+.sidebar--content {
+  padding: 0 20px;
+
+  h2 {
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 0;
+  }
+}
+
+.sidebar--item {
+  padding: 10px 0;
+  border-bottom: 1px solid $navy-3;
 }
