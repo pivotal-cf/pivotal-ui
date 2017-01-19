@@ -36,10 +36,10 @@
     "pui-css-buttons": "file:../library/dist/css/buttons",
     "pui-css-colors": "file:../library/dist/css/colors",
     "pui-react-buttons": "file:../library/dist/react/buttons",
+    "pui-react-ribbons": "file:../library/dist/react/ribbons",
     "pui-react-helpers": "file:../library/dist/react/helpers",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router": "^3.0.2"
+    "react-dom": "^15.4.2"
   },
   "engines": {
     "node": "6.9.x",
