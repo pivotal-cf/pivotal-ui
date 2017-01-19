@@ -1,5 +1,10 @@
 {
-  "main": "index.js",
+  "name": "styleguide-redesign",
+  "license": "ISC",
+  "version": "0.0.0",
+  "description": "",
+  "repository": "https://github.com/pivotal-cf/pivotal-ui",
+  "main": "server.js",
   "devDependencies": {
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
@@ -13,7 +18,6 @@
     "gutil": "^1.6.4",
     "html-loader": "^0.4.4",
     "json-loader": "^0.5.4",
-    "markdown-loader": "^0.1.7",
     "module": "^1.2.5",
     "net": "^1.0.2",
     "node-sass": "^4.3.0",
@@ -25,12 +29,20 @@
   "dependencies": {
     "babel-standalone": "^6.21.1",
     "codemirror": "^5.22.2",
+    "express": "^4.14.0",
     "html-entities": "^1.2.0",
+    "markdown-loader": "^0.1.7",
+    "path": "^0.12.7",
     "pui-css-buttons": "file:../library/dist/css/buttons",
     "pui-css-colors": "file:../library/dist/css/colors",
     "pui-react-buttons": "file:../library/dist/react/buttons",
     "pui-react-helpers": "file:../library/dist/react/helpers",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.2"
+  },
+  "engines": {
+    "node": "6.9.x",
+    "npm": "3.10.x"
   }
 }
