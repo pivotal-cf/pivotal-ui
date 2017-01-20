@@ -5,7 +5,9 @@
 - c
 
 ```jsx
-<DefaultButton>yo</DefaultButton>
+<DefaultButton>
+  yo
+</DefaultButton>
 ```
 
 1. c
@@ -13,5 +15,7 @@
 1. e
 
 ```jsx
-<PrimaryButton>hello world</PrimaryButton>
+<PrimaryButton>
+  hello world
+</PrimaryButton>
 ```

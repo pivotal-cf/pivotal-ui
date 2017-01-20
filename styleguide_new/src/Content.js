@@ -1,5 +1,5 @@
 import React from 'react'
-import MarkdownViewer from './MarkdownViewer'
+import MarkdownViewer from './code_area/MarkdownViewer'
 
 import ButtonStuff from '../docs/Buttons.md'
 import RibbonStuff from '../docs/Ribbons.md'

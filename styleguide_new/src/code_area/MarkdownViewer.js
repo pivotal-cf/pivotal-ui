@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import CodeEditor from './CodeEditor'
+import CodeArea from './CodeArea'
 import {AllHtmlEntities} from 'html-entities'
 
 export default class MarkdownViewer extends React.Component {
   static renderEditableArea(codeElement) {
     const code = AllHtmlEntities.decode(codeElement.innerHTML)
-    ReactDOM.render(<CodeEditor code={code}/>, codeElement)
+    ReactDOM.render(<CodeArea code={code}/>, codeElement)
   }
 
   static renderEditableAreas(element) {
