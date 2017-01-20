@@ -6,6 +6,10 @@ import {DefaultButton, PrimaryButton} from 'pui-react-buttons'
 import {Ribbon, PrimaryRibbon} from 'pui-react-ribbons'
 import {Panel, BasicPanel, BasicPanelAlt, ShadowPanel, ClickablePanel, HighlightPanel} from 'pui-react-panels'
 import {AllHtmlEntities} from 'html-entities'
+import AceEditor from 'react-ace'
+
+import 'brace/mode/jsx'
+import 'brace/theme/github'
 
 window.React = React
 window.ReactDOM = ReactDOM
@@ -20,7 +24,7 @@ window.ShadowPanel = ShadowPanel
 window.ClickablePanel = ClickablePanel
 window.HighlightPanel = HighlightPanel
 
-export default class CodeEditor extends React.PureComponent {
+export default class CodeArea extends React.PureComponent {
   constructor(props, context) {
     super(props, context)
     this.state = {
@@ -29,8 +33,8 @@ export default class CodeEditor extends React.PureComponent {
     }
   }
 
-  changeHandler(event) {
-    this.setState({code: AllHtmlEntities.decode(event.target.value)})
+  changeHandler(value) {
+    this.setState({code: AllHtmlEntities.decode(value)})
   }
 
   static stripHtmlComments(htmlCode) {
@@ -38,7 +42,7 @@ export default class CodeEditor extends React.PureComponent {
   }
 
   grabCodePreviewHtml(element) {
-    if (element === null) {
+    if(element === null) {
       return
     }
 
@@ -47,18 +51,25 @@ export default class CodeEditor extends React.PureComponent {
 
   render() {
     const {code} = this.state
-    const transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code
 
-    return <div className="code-editor">
-      <div className="code-preview" ref={this.grabCodePreviewHtml.bind(this)}>
+    let transpiledCode
+
+    try {
+      transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code
+    } catch (error) {
+      console.log('error!')
+      console.log(error)
+    }
+
+    return <div className="code-editor--">
+      <div className="code-editor--live-preview" ref={this.grabCodePreviewHtml.bind(this)}>
         {eval(transpiledCode)}
       </div>
-      <div className="code-panel">
-        <form className="code-edit">
-          <textarea className="code-area" onChange={this.changeHandler.bind(this)} defaultValue={code}/>
-        </form>
-        <pre className="code-rendered">
-          {CodeEditor.stripHtmlComments(this.state.codePreviewHtml)}
+      <div className="code-editor--panel">
+        <AceEditor className="code-editor--edit" mode="jsx"
+                   theme="github" value={code} onChange={this.changeHandler.bind(this)}/>
+        <pre className="code-editor--html-preview">
+          {CodeArea.stripHtmlComments(this.state.codePreviewHtml)}
         </pre>
       </div>
     </div>
