@@ -8,7 +8,7 @@ rm -rf $TMP_DEPLOY_DIR || true
 cf login -a api.run.pivotal.io -o pivotal -s pivotal-ui-staging -u pivotal-ui@pivotal.io
 npm install
 npm prune
-./node_modules/.bin/webpack --progress
+./node_modules/.bin/webpack --progress -p
 
 mkdir -p $TMP_DEPLOY_DIR
 

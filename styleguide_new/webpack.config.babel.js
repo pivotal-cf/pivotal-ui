@@ -1,5 +1,6 @@
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+const prod = process.argv.indexOf('-p') !== -1
 
 export default {
   entry: './src/App.jsx',
@@ -40,10 +41,10 @@ export default {
     ],
   },
   plugins: [
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('app.css'),
   ],
   node: {
     fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
   },
-  devtool: 'inline-source-map'
+  devtool: prod ? false : 'inline-source-map'
 }
