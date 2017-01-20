@@ -37,6 +37,7 @@
     "pui-css-colors": "file:../library/dist/css/colors",
     "pui-react-buttons": "file:../library/dist/react/buttons",
     "pui-react-ribbons": "file:../library/dist/react/ribbons",
+    "pui-react-panels": "file:../library/dist/react/panels",
     "pui-react-helpers": "file:../library/dist/react/helpers",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
