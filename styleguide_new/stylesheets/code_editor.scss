@@ -3,25 +3,23 @@
   width: 100%;
 }
 
-.code-preview {
+.code-editor--live-preview {
   padding: 20px;
 }
 
-.code-panel {
+.code-editor--panel {
   display: flex;
-  flex-direction: row;
 }
 
-.code-edit {
-  flex: 1;
+.code-editor--edit {
   align-content: stretch;
   display: flex;
+
+  textarea {
+    flex: 1;
+  }
 }
 
-.code-rendered {
+.code-editor--edit, .code-editor--html-preview {
   flex: 1;
-}
-
-.code-area {
-  width: 100%;
 }
