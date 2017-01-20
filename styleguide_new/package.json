@@ -35,6 +35,7 @@
     "html-entities": "^1.2.0",
     "markdown-loader": "^0.1.7",
     "path": "^0.12.7",
+    "pretty": "^1.0.0",
     "pui-css-buttons": "file:../library/dist/css/buttons",
     "pui-css-colors": "file:../library/dist/css/colors",
     "pui-react-buttons": "file:../library/dist/react/buttons",
