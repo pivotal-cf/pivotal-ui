@@ -24,7 +24,8 @@
     "sass-loader": "^4.1.1",
     "style-loader": "^0.13.1",
     "through2": "^2.0.3",
-    "webpack": "^2.2.0"
+    "webpack": "^2.2.0",
+    "webpack-uglify-js-plugin": "^1.1.9"
   },
   "dependencies": {
     "babel-standalone": "^6.21.1",
