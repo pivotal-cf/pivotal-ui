@@ -1,0 +1,27 @@
+.code-editor {
+  background-color: white;
+  width: 100%;
+}
+
+.code-preview {
+  padding: 20px;
+}
+
+.code-panel {
+  display: flex;
+  flex-direction: row;
+}
+
+.code-edit {
+  flex: 1;
+  align-content: stretch;
+  display: flex;
+}
+
+.code-rendered {
+  flex: 1;
+}
+
+.code-area {
+  width: 100%;
+}

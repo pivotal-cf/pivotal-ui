@@ -1,14 +1,11 @@
 @import '../../library/src/pivotal-ui/components/pui-variables';
 @import './sidebar';
 @import './content';
+@import './code_editor';
 
 #app {
   display: flex;
   height: 100%;
-}
-
-html {
-  background: teal;
 }
 
 body {

@@ -10,7 +10,7 @@ const componentItems = [
   {text: "Alerts", link: "alerts"},
   {text: "Alignment", link: "alignment"},
   {text: "Autocomplete", link: "autocomplete"},
-  {text: "Buttons", link: "button"},
+  {text: "Buttons", link: "buttons"},
   {text: "Collapse", link: "collapse"},
   {text: "Copy To Clipboard", link: "copy_to_clipboard"},
   {text: "Dividers", link: "dividers"},
@@ -28,10 +28,11 @@ const componentItems = [
   {text: "Notifications", link: "notifications"},
   {text: "Pagination", link: "pagination"},
   {text: "Tooltips", link: "tooltips"},
+  {text: "Panels", link: "panels"},
   {text: "Panes", link: "panes"},
   {text: "Portals", link: "portals"},
   {text: "Responsive Utilities", link: "responsive_utilities"},
-  {text: "Ribbons", link: "ribbon"},
+  {text: "Ribbons", link: "ribbons"},
   {text: "Select", link: "select"},
   {text: "Svg", link: "svg"},
   {text: "Tables", link: "tables"},
@@ -41,10 +42,10 @@ const componentItems = [
 
 export default () => {
   const styles = styleItems
-    .map(style => <a href={style.link} className="sidebar--item">{style.text}</a>)
+    .map((style, i) => <a key={i} href={style.link} className="sidebar--item">{style.text}</a>)
 
   const components = componentItems
-    .map(component => <a href={component.link} className="sidebar--item">{component.text}</a>)
+    .map((component, i) => <a key={i} href={component.link} className="sidebar--item">{component.text}</a>)
 
   return <div className="sidebar">
     <input className="sidebar--search" placeholder="search by component name"/>

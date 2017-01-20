@@ -1,12 +1,14 @@
 import React from 'react'
 import MarkdownViewer from './MarkdownViewer'
 
-import ButtonStuff from '../docs/Button.md'
-import RibbonStuff from '../docs/Ribbon.md'
+import ButtonStuff from '../docs/Buttons.md'
+import RibbonStuff from '../docs/Ribbons.md'
+import PanelStuff from '../docs/Panels.md'
 
 const content = {
-  "/button": ButtonStuff,
-  "/ribbon": RibbonStuff,
+  "/buttons": ButtonStuff,
+  "/ribbons": RibbonStuff,
+  "/panels": PanelStuff,
 }
 
 const homepage = <div className="content">
