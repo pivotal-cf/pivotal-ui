@@ -24,8 +24,8 @@ export default {
         use: 'json-loader'
       },
       {
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'file-loader'
+        test: /\.(eot|ttf|woff)$/,
+        loader: 'url-loader',
       },
       {
         test: /\.md$/,
