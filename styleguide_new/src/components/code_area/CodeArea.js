@@ -1,29 +1,15 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import * as Babel from 'babel-standalone'
-import {DefaultButton, PrimaryButton} from 'pui-react-buttons'
-import {Ribbon, PrimaryRibbon} from 'pui-react-ribbons'
-import {Panel, BasicPanel, BasicPanelAlt, ShadowPanel, ClickablePanel, HighlightPanel} from 'pui-react-panels'
 import {AllHtmlEntities} from 'html-entities'
 import AceEditor from 'react-ace'
 import pretty from 'pretty'
+import attachLocalImportsToWindow from '../../helpers/local_imports_helper'
 
 import 'brace/mode/jsx'
 import 'brace/mode/html'
 import 'brace/theme/crimson_editor'
 
-window.React = React
-window.ReactDOM = ReactDOM
-window.DefaultButton = DefaultButton
-window.PrimaryButton = PrimaryButton
-window.Ribbon = Ribbon
-window.PrimaryRibbon = PrimaryRibbon
-window.Panel = Panel
-window.BasicPanel = BasicPanel
-window.BasicPanelAlt = BasicPanelAlt
-window.ShadowPanel = ShadowPanel
-window.ClickablePanel = ClickablePanel
-window.HighlightPanel = HighlightPanel
+attachLocalImportsToWindow()
 
 export default class CodeArea extends React.PureComponent {
   constructor(props, context) {
@@ -69,13 +55,15 @@ export default class CodeArea extends React.PureComponent {
                    mode="jsx"
                    theme="crimson_editor"
                    value={code}
-                   onChange={this.changeHandler.bind(this)}/>
+                   onChange={this.changeHandler.bind(this)}
+                   editorProps={{$blockScrolling: Infinity}}/>
         <AceEditor className="code-editor--html-preview"
                    mode="html"
                    readOnly={true}
                    theme="crimson_editor"
                    wrap={true}
-                   value={pretty(CodeArea.stripHtmlComments(this.state.codePreviewHtml))}/>
+                   value={pretty(CodeArea.stripHtmlComments(this.state.codePreviewHtml))}
+                   editorProps={{$blockScrolling: Infinity}}/>
       </div>
     </div>
   }

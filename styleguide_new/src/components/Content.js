@@ -1,9 +1,9 @@
 import React from 'react'
 import MarkdownViewer from './code_area/MarkdownViewer'
 
-import ButtonStuff from '../docs/Buttons.md'
-import RibbonStuff from '../docs/Ribbons.md'
-import PanelStuff from '../docs/Panels.md'
+import ButtonStuff from '../../docs/Buttons.md'
+import RibbonStuff from '../../docs/Ribbons.md'
+import PanelStuff from '../../docs/Panels.md'
 
 const content = {
   "/buttons": ButtonStuff,
