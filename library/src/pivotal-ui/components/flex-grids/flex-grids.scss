@@ -75,6 +75,24 @@ $base-unit: 8px;
     align-self: center;
   }
 
+  .col-top {
+    justify-content: flex-start;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .col-bottom {
+    justify-content: flex-end;
+    flex-direction: column;
+    display: flex;
+  }
+
+  .col-middle {
+    justify-content: center;
+    flex-direction: column;
+    display: flex;
+  }
+
   @media only screen and (max-width: $screen-sm) {
     .col-sm {
       flex: 100%;

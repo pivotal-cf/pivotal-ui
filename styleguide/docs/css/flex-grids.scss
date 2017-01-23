@@ -115,11 +115,23 @@ You can specify three different media breakpoints with the `.col-sm, .col-md, an
 
 ### Alignment
 
+Aligning columns relative to the grid:
+
 ```html_example
 <div class="grid grid-show" style="height:200px">
   <div class="col col-align-top"></div>
   <div class="col col-align-middle"></div>
   <div class="col col-align-bottom"></div>
+</div>
+```
+
+Aligning content relative to the column it is in:
+
+```html_example
+<div class="grid">
+  <div class="col col-top" style="height:100px; border: 1px solid gray;">Some content that sits at the top of the column</div>
+  <div class="col col-middle" style="height:100px; border: 1px solid gray;">Some content that sits in the middle of the column</div>
+  <div class="col col-bottom" style="height:100px; border: 1px solid gray;">Some content that sits at the bottom of the column</div>
 </div>
 ```
 
