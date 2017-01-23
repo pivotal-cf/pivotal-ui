@@ -52,12 +52,14 @@ export default class CodeArea extends React.PureComponent {
       </div>
       <div className="code-editor--panel">
         <AceEditor className="code-editor--edit"
+                   height="100px"
                    mode="jsx"
                    theme="crimson_editor"
                    value={code}
                    onChange={this.changeHandler.bind(this)}
                    editorProps={{$blockScrolling: Infinity}}/>
         <AceEditor className="code-editor--html-preview"
+                   height="100px"
                    mode="html"
                    readOnly={true}
                    theme="crimson_editor"
