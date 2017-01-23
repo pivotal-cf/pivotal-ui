@@ -39,10 +39,9 @@ You can create a flex grid with and without gutters. Here are examples of what e
 
 ### Sizing
 
-Using a single set of `.col-*` grid classes,
-you can create a basic grid system that starts out stacked on mobile devices and tablet devices
-(the extra small to small range) before becoming horizontal on desktop (medium) devices.
-Place grid columns in any `.grid`.
+Using a single set of `.col-n` grid classes, you can create a basic grid system that starts
+out stacked on mobile devices and tablet devices (the extra small to small range) before
+becoming horizontal on desktop (medium) devices. Place grid columns in any `.grid`:
 
 ```html_example
 <div class="grid grid-show">
@@ -74,6 +73,27 @@ Place grid columns in any `.grid`.
 <div class="grid grid-show">
   <div class="col col-12"></div>
   <div class="col col-12"></div>
+</div>
+```
+
+You can also specify how the columns grow with `.col-grow-n` (n = 2 - 11). These columns will
+attempt to respect their given ratio until the content of the column exceeds their parameters,
+after which the column will drop onto another row:
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-grow-2"></div>
+  <div class="col col-grow-3"></div>
+  <div class="col col-grow-4"></div>
+  <div class="col col-grow-5"></div>
+  <div class="col col-grow-6"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-grow-8"></div>
+  <div class="col col-grow-9"></div>
+  <div class="col col-grow-10"></div>
+  <div class="col col-grow-11"></div>
 </div>
 ```
 
