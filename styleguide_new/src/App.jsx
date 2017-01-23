@@ -22,19 +22,23 @@ const homepage = <div className="content">
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {content: false}
+    this.state = {content: App.currentContent()}
   }
 
   updateContent(event) {
     event.preventDefault()
     window.history.pushState({}, '', event.target.href)
+    this.setState({content: App.currentContent()})
+  }
+
+  static currentContent() {
     const path = window.location.pathname
 
     if(path === "/" || !content[path]) {
-      this.setState({content: false})
+      return false
     }
 
-    this.setState({content: content[path]})
+    return content[path]
   }
 
   render() {
