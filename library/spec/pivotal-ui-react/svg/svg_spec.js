@@ -8,7 +8,7 @@ describe('Svg', () => {
 
     class MySvg extends Svg {
       svgPathLoader(src) {
-        return require(`!!babel!svg-react!./${src}.svg`);
+        return require(`!!babel-loader!svg-react-loader!./${src}.svg`);
       }
     }
     subject = ReactDOM.render(<MySvg src="search"/>, root);

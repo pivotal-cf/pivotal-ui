@@ -6,7 +6,7 @@ import 'pui-css-iconography';
 const types = React.PropTypes;
 
 class SvgIcon extends Svg {
-  svgPathLoader = src => require(`!!babel!svg-react!pui-css-iconography/svgs/${src}.svg`)
+  svgPathLoader = src => require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
 }
 
 export class Icon extends React.Component {

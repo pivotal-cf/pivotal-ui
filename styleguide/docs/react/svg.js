@@ -48,7 +48,7 @@ import {Svg} from 'pui-react-svg';
 
 class MySvg extends Svg {
   svgPathLoader(src) {
-    return require(`!!babel!svg-react!./path/to/svgs/${src}.svg`);
+    return require(`!!babel-loader!svg-react!./path/to/svgs/${src}.svg`);
   }
 }
 ```
