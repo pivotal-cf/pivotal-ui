@@ -13,3 +13,18 @@ body {
   font-family: $font-family-base;
   font-size: $font-size-base;
 }
+
+// make the grid visible
+
+.grid-show {
+  margin-bottom: $grid-gutter-width;
+  text-align: center;
+  [class*=col]:before {
+    content: attr(class) '\a' attr(grid-content);
+    white-space: pre;
+    display: block;
+    background-color: $neutral-10;
+    padding: 10px 0;
+    outline: 1px solid $neutral-5;
+  }
+}

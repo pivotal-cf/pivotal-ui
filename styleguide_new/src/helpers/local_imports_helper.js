@@ -2,22 +2,26 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import * as Alerts from 'pui-react-alerts'
+import * as Alignment from 'pui-css-alignment'
 import * as Autocomplete from 'pui-react-autocomplete'
 import * as Top from 'pui-react-back-to-top'
+import * as Bootstrap from 'pui-css-bootstrap'
 import * as Buttons from 'pui-react-buttons'
 import * as Checkbox from 'pui-react-checkbox'
 import * as Collapse from 'pui-react-collapse'
 import * as Clipboard from 'pui-react-copy-to-clipboard'
 import * as Dividers from 'pui-react-dividers'
 import * as DraggableList from 'pui-react-draggable-list'
-import * as Lists from 'pui-react-lists'
+import * as Ellipsis from 'pui-css-ellipsis'
 import * as Dropdowns from 'pui-react-dropdowns'
 import * as Expander from 'pui-react-expander'
 import * as Grids from 'pui-react-grids'
+import * as Hoverable from 'pui-css-hoverable'
 import * as Iconography from 'pui-react-iconography'
 import * as Images from 'pui-react-images'
 import * as Inputs from 'pui-react-inputs'
 import * as Labels from 'pui-react-labels'
+import * as Lists from 'pui-react-lists'
 import * as Media from 'pui-react-media'
 import * as Modals from 'pui-react-modals'
 import * as Notifications from 'pui-react-notifications'
@@ -49,22 +53,26 @@ export default () => {
 
   const packages = [
     Alerts,
+    Alignment,
     Autocomplete,
     Top,
+    Bootstrap,
     Buttons,
     Checkbox,
     Collapse,
     Clipboard,
     Dividers,
     DraggableList,
-    Lists,
+    Ellipsis,
     Dropdowns,
     Expander,
     Grids,
+    Hoverable,
     Iconography,
     Images,
     Inputs,
     Labels,
+    Lists,
     Media,
     Modals,
     Notifications,
