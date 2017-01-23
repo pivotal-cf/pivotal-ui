@@ -29,11 +29,20 @@ export default class CodeArea extends React.PureComponent {
   }
 
   grabCodePreviewHtml(element) {
-    if(element === null) {
-      return
+    if(!element) {
+      return // component was unmounted
     }
 
-    this.setState({codePreviewHtml: AllHtmlEntities.decode(element.innerHTML)})
+    const code = element.innerHTML
+    const unescapedCode = AllHtmlEntities.decode(code)
+
+    // we MUST strip comments because react will add counters (e.g. <-- react-empty: 4) on each
+    // render; setting codePreviewHtml will cause a re-render, which will increase the counter,
+    // which will trigger grabPreviewHtml again, which would get html with a new counter, etc.
+    // causing an infinite loop!
+    const codeWithoutComments = CodeArea.stripHtmlComments(unescapedCode)
+
+    this.setState({codePreviewHtml: pretty(codeWithoutComments)})
   }
 
   render() {
@@ -64,7 +73,7 @@ export default class CodeArea extends React.PureComponent {
                    readOnly={true}
                    theme="crimson_editor"
                    wrap={true}
-                   value={pretty(CodeArea.stripHtmlComments(this.state.codePreviewHtml))}
+                   value={this.state.codePreviewHtml}
                    editorProps={{$blockScrolling: Infinity}}/>
       </div>
     </div>
