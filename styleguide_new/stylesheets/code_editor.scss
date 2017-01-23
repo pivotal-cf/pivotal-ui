@@ -4,11 +4,13 @@
 }
 
 .code-editor--live-preview {
-  padding: 20px;
+  padding: 20px 10px 10px 10px;
 }
 
 .code-editor--panel {
   display: flex;
+  border-top: 1px solid $dark-8;
+  padding: 10px;
 }
 
 .code-editor--edit {
@@ -22,4 +24,14 @@
 
 .code-editor--edit, .code-editor--html-preview {
   flex: 1;
+}
+
+// reset
+.markdown-viewer {
+  pre {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+  }
 }

@@ -21,7 +21,7 @@ export default class MarkdownViewer extends React.Component {
   }
 
   render() {
-    return <div id="markdown-viewer"
+    return <div className="markdown-viewer"
                 ref={MarkdownViewer.renderEditableAreas}
                 dangerouslySetInnerHTML={{__html: this.props.html}}></div>
   }
