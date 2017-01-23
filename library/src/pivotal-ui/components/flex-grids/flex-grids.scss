@@ -21,21 +21,12 @@ $base-unit: 8px;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
 
-  margin: 0 0 $base-unit*2 0;
+  margin: 0 ($base-unit * -1) 0 ($base-unit * -1);
 
   &.grid-nogutter {
     margin: 0;
     & > .col {
       padding: 0;
-    }
-  }
-
-  & > .col {
-    &:first-child {
-      padding-left: 0;
-    }
-    &:last-child {
-      padding-right: 0;
     }
   }
 
