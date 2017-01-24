@@ -1,5 +1,9 @@
 # Styleguide
 
+### First time setup
+
+1. `bin/hard-build.sh` (fresh reset of project)
+
 ### Running
 
 1. `npm install`
