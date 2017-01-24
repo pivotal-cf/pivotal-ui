@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <BaseCollapse header="Panel 1">
       <p>Panel 1 content</p>

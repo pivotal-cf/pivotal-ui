@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>	
     <Divider />
     <Divider size="large" />

@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <Checkbox label="Label"/>
     <br/>

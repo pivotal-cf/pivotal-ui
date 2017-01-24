@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
   <Row className="grid-show">
     <Col md={2}></Col>

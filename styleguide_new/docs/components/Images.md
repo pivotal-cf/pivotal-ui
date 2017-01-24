@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <Image src="http://placehold.it/1000x100"
            responsive={true}

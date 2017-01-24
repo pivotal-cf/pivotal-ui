@@ -33,7 +33,7 @@ contextual to the information contained within the panel body.
 
 ## Variants
 
-```jsx_example
+```jsx
 <div>
     <Panel> Panel </Panel>
     <br/>

@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
         I got copied by a good looking button

@@ -8,7 +8,7 @@
 
 ### Breadcrumb
  
-```jsx_example
+```jsx
 <div>
     <BreadcrumbList>
       <ListItem><a href="/">Home</a></ListItem>
@@ -20,7 +20,7 @@
 
 ### Draggable
 
-```jsx_example
+```jsx
 <div>
     <DraggableList className="my-list-class" innerClassName="my-item-class">
       <DraggableListItem>
@@ -51,7 +51,7 @@
 ```
 
 ### Group
-```jsx_example
+```jsx
 <div>
     <GroupList>
       <ListItem>Item 1</ListItem>
@@ -69,7 +69,7 @@
 
 ### Inline
 
-```jsx_example
+```jsx
 <div>
     <InlineList>
       <ListItem>Item 1</ListItem>
@@ -81,7 +81,7 @@
 
 ### Ordered
 
-```jsx_example
+```jsx
 <div>
     <OrderedList>
      <ListItem>Item 1</ListItem>
@@ -93,7 +93,7 @@
 
 ### Steps
 
-```jsx_example
+```jsx
 <div>
     <StepList>
       <ListItem>Item 1</ListItem>
@@ -105,7 +105,7 @@
 
 ### Unordered
 
-```jsx_example
+```jsx
 <div>
     <UnorderedList>
       <ListItem>feep</ListItem>

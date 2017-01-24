@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <SuccessAlert>Everything is wonderful</SuccessAlert>
     <InfoAlert>Here's some information for you</InfoAlert>

@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
       <Tab eventKey={1} title="Tab 1">Wow!</Tab>

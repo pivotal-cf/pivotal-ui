@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 const mediaBasicImage = <Image src="http://placehold.it/50x50" alt="A sample media object"/>;
 const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
 

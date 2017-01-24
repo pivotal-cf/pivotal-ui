@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
   <h1 class="visible-xs">XS</h1>
   <h1 class="hidden-xs type-neutral-5">XS</h1>
