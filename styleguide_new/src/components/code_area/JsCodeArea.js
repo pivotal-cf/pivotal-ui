@@ -21,12 +21,14 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    // We must make sure not to use codePreviewHtml because react injects counters such as
+    const firstCodepreviewLoad = this.state.codePreviewHtml === defaultLoadingMessage
+      && nextState.codePreviewHtml !== defaultLoadingMessage
+
+    // We can't use codePreviewHtml beyond the first time because react injects counters such as
     // <label for="radio81"> and <!-- react-text: 784 -->. If codePreviewHtml triggered
     // a redraw, the counters in the rendered jsx would increase, which would cause the
     // codePreviewHtml to be different, causing a re-render, etc, infinite loop
-    return this.state.code != nextState.code ||
-      (this.state.codePreviewHtml === defaultLoadingMessage && nextState.codePreviewHtml !== defaultLoadingMessage)
+    return this.state.code != nextState.code || firstCodepreviewLoad
   }
 
   changeHandler(value) {
