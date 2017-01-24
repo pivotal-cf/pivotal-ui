@@ -2,7 +2,7 @@
 
 ### First time setup
 
-1. `bin/hard-build.sh` (fresh reset of project)
+1. `./bin/hard-build.sh` (fresh reset of project)
 
 ### Running
 
