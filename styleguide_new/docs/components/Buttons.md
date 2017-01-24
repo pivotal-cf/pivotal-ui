@@ -1,8 +1,7 @@
 # Buttons
 
-- a
-- b
-- c
+- Some list item
+- Another list item
 
 ```jsx
 <DefaultButton>
@@ -10,12 +9,20 @@
 </DefaultButton>
 ```
 
-1. c
-1. d
-1. e
-
 ```jsx
 <PrimaryButton>
   hello world
 </PrimaryButton>
+```
+
+```jsx
+<DangerButton>
+  Danger
+</DangerButton>
+```
+
+```jsx
+<BrandButton>
+  Brand
+</BrandButton>
 ```
