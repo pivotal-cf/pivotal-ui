@@ -1,42 +1,57 @@
 .sidebar {
-  background-color: $navy-2;
-  width: 300px;
+  padding: 0 8px 0 16px;
+  background-color: $navy-11;
+  width: 208px;
   flex: initial;
   height: 100%;
-  color: white;
-  overflow-y: scroll;
+  color: $gray-3;
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
-.sidebar--search {
-  width: 100%
-}
+.sidebar--header {
+  padding: 16px 0;
+  display: flex;
 
-.sidebar--content {
-  padding: 0 20px;
+  .sidebar--icon {
+    padding: 8px;
+    background-color: $brand-7;
+    border-radius: 2px;
+    height: 40px;
+    width: 40px;
 
-  h2 {
-    font-weight: normal;
-    margin: 0;
-    padding: 10px 0;
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  .sidebar--title {
+    display: inline;
+    color: $navy-1;
+    font-size: 18px;
+    padding-left: 12px;
+    align-self: center;
   }
 }
 
+.sidebar--items {
+  padding-top: 16px;
+}
+
 .sidebar--item {
-  padding: 10px 0;
-  border-bottom: 1px solid $navy-3;
+  color: $gray-3;
+  padding: 8px 0;
   display: block;
-  color: white;
-  width: 100%;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: white;
-    text-decoration: none;
+    color: $gray-3;
   }
 
-  &:last-child {
-    border-bottom: 0;
+  // TODO: remove me when accordion can be in sidebars
+  .panel-heading {
+    padding: 0;
   }
 }
