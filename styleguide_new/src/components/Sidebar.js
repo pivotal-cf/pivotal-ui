@@ -27,17 +27,14 @@ const componentItems = [
   {text: "Modals", link: "modals"},
   {text: "Notifications", link: "notifications"},
   {text: "Pagination", link: "pagination"},
-  {text: "Tooltips", link: "tooltips"},
   {text: "Panels", link: "panels"},
   {text: "Panes", link: "panes"},
   {text: "Portals", link: "portals"},
-  {text: "Responsive Utilities", link: "responsive_utilities"},
   {text: "Ribbons", link: "ribbons"},
   {text: "Select", link: "select"},
   {text: "Svg", link: "svg"},
   {text: "Tables", link: "tables"},
   {text: "Tabs", link: "tabs"},
-  {text: "Tile Layout", link: "tile_layout"},
   {text: "Tooltips", link: "tooltips"},
 ]
 

@@ -25,7 +25,6 @@ import PaginationStuff from '../../docs/components/Pagination.md'
 import PanesStuff from '../../docs/components/Panes.md'
 import PanelsStuff from '../../docs/components/Panels.md'
 import PortalsStuff from '../../docs/components/Portals.md'
-import ResponsiveUtilitiesStuff from '../../docs/components/ResponsiveUtilities.md'
 import RibbonStuff from '../../docs/components/Ribbons.md'
 import SelectStuff from '../../docs/components/Select.md'
 import SvgStuff from '../../docs/components/Svg.md'
@@ -61,8 +60,7 @@ export default {
   '/panes': PanesStuff,
   '/panels': PanelsStuff,
   '/portals': PortalsStuff,
-  '/responsive_utilities': ResponsiveUtilitiesStuff,
-  '/ribbon': RibbonStuff,
+  '/ribbons': RibbonStuff,
   '/select': SelectStuff,
   '/svg': SvgStuff,
   '/tables': TablesStuff,
