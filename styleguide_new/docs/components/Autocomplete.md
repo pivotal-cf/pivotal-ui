@@ -5,7 +5,6 @@
 ## Props
 
 ## Basic Usage
-TODO: Get autocomplete example working
 
 ```jsx
 const onPick = item => alert('You selected ' + item.value);
