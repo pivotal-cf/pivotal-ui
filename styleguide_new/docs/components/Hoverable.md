@@ -5,7 +5,6 @@
 ## Props
 
 ## Basic Usage
-TODO: Figure out way to get hoverable working
 
 ```html
 <div>
