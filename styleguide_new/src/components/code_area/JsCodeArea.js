@@ -57,25 +57,25 @@ export default class JsCodeArea extends React.PureComponent {
     }
 
     return <div className="code-editor">
+      <AceEditor className="code-editor--edit"
+                 width="100%"
+                 height="200px"
+                 mode="jsx"
+                 theme="crimson_editor"
+                 value={code}
+                 onChange={this.changeHandler.bind(this)}
+                 editorProps={{$blockScrolling: Infinity}}/>
+      <AceEditor className="code-editor--html-preview"
+                 width="100%"
+                 height="200px"
+                 mode="html"
+                 readOnly={true}
+                 theme="crimson_editor"
+                 wrap={true}
+                 value={this.state.codePreviewHtml}
+                 editorProps={{$blockScrolling: Infinity}}/>
       <div className="code-editor--live-preview" ref={this.grabCodePreviewHtml.bind(this)}>
         {eval(transpiledCode)}
-      </div>
-      <div className="code-editor--panel">
-        <AceEditor className="code-editor--edit"
-                   height="100px"
-                   mode="jsx"
-                   theme="crimson_editor"
-                   value={code}
-                   onChange={this.changeHandler.bind(this)}
-                   editorProps={{$blockScrolling: Infinity}}/>
-        <AceEditor className="code-editor--html-preview"
-                   height="100px"
-                   mode="html"
-                   readOnly={true}
-                   theme="crimson_editor"
-                   wrap={true}
-                   value={this.state.codePreviewHtml}
-                   editorProps={{$blockScrolling: Infinity}}/>
       </div>
     </div>
   }

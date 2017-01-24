@@ -18,24 +18,15 @@ export default class HtmlCodeArea extends React.PureComponent {
     const {code} = this.state
 
     return <div className="code-editor">
+      <AceEditor className="code-editor--edit"
+                 width="100%"
+                 height="200px"
+                 mode="html"
+                 theme="crimson_editor"
+                 value={code}
+                 onChange={this.changeHandler.bind(this)}
+                 editorProps={{$blockScrolling: Infinity}}/>
       <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}}></div>
-      <div className="code-editor--panel">
-        <AceEditor className="code-editor--edit"
-                   height="100px"
-                   mode="jsx"
-                   theme="crimson_editor"
-                   value={code}
-                   onChange={this.changeHandler.bind(this)}
-                   editorProps={{$blockScrolling: Infinity}}/>
-        <AceEditor className="code-editor--html-preview"
-                   height="100px"
-                   mode="html"
-                   readOnly={true}
-                   theme="crimson_editor"
-                   wrap={true}
-                   value={code}
-                   editorProps={{$blockScrolling: Infinity}}/>
-      </div>
     </div>
   }
 }
