@@ -9,14 +9,24 @@ import 'brace/mode/html'
 import 'brace/theme/crimson_editor'
 
 const stripHtmlComments = htmlCode => htmlCode.replace(/<!-- .+?(?= -->) --> ?/g, '')
+const defaultLoadingMessage = 'loading code preview'
 
 export default class JsCodeArea extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
       code: props.code,
-      codePreviewHtml: 'loading code preview'
+      codePreviewHtml: defaultLoadingMessage
     }
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    // We must make sure not to use codePreviewHtml because react injects counters such as
+    // <label for="radio81"> and <!-- react-text: 784 -->. If codePreviewHtml triggered
+    // a redraw, the counters in the rendered jsx would increase, which would cause the
+    // codePreviewHtml to be different, causing a re-render, etc, infinite loop
+    return this.state.code != nextState.code ||
+      (this.state.codePreviewHtml === defaultLoadingMessage && nextState.codePreviewHtml !== defaultLoadingMessage)
   }
 
   changeHandler(value) {
@@ -30,13 +40,7 @@ export default class JsCodeArea extends React.PureComponent {
 
     const code = element.innerHTML
     const unescapedCode = AllHtmlEntities.decode(code)
-
-    // we MUST strip comments because react will add counters (e.g. <-- react-empty: 4) on each
-    // render; setting codePreviewHtml will cause a re-render, which will increase the counter,
-    // which will trigger grabPreviewHtml again, which would get html with a new counter, etc.
-    // causing an infinite loop!
     const codeWithoutComments = stripHtmlComments(unescapedCode)
-
     this.setState({codePreviewHtml: pretty(codeWithoutComments)})
   }
 
