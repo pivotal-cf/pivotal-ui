@@ -35,9 +35,35 @@ contextual to the information contained within the panel body.
 
 ```jsx
 <div>
-    <Panel> Panel </Panel>
-    <br/>
-    <BasicPanel> BasicPanel </BasicPanel>
-    <br />
+    <Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
+      <p>Base Panel</p>
+    </Panel>
 </div>
+```
+
+```jsx
+<div>
+    <Panel className="bg-neutral-10" header='header'>
+      Base Panel with base header
+    </Panel>
+</div>
+```
+
+```jsx
+<div>
+    <Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
+      Base Panel with subtitle
+    </Panel>
+</div>
+```
+
+```jsx
+<Panel className="bg-neutral-8" scrollable={100}>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+</Panel>
 ```
