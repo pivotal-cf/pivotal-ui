@@ -1,6 +1,6 @@
 # Ribbons
 
-```jsx_example
+```jsx
 <div>
     <Ribbon> British </Ribbon>
     <br />

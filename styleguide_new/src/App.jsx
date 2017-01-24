@@ -6,6 +6,9 @@ import '../stylesheets/app.scss'
 import SideBar from './components/Sidebar'
 import Content from './components/Content'
 import contentMap from './helpers/content'
+import attachLocalImportsToWindow from './helpers/local_imports_helper'
+
+attachLocalImportsToWindow()
 
 const homepage = <div className="content">
   Make a selection on the left

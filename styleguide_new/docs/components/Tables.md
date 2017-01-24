@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 const columns = [
   {
     attribute: 'title',

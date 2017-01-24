@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
     <Svg src="search" width="20" height="20" />
 </div>

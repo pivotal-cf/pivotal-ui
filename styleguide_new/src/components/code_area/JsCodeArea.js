@@ -3,17 +3,16 @@ import * as Babel from 'babel-standalone'
 import {AllHtmlEntities} from 'html-entities'
 import AceEditor from 'react-ace'
 import pretty from 'pretty'
-import attachLocalImportsToWindow from '../../helpers/local_imports_helper'
 
 import 'brace/mode/jsx'
 import 'brace/mode/html'
 import 'brace/theme/crimson_editor'
 
-attachLocalImportsToWindow()
+const stripHtmlComments = htmlCode => htmlCode.replace(/<!-- .+?(?= -->) --> ?/g, '')
 
-export default class CodeArea extends React.PureComponent {
-  constructor(props, context) {
-    super(props, context)
+export default class JsCodeArea extends React.PureComponent {
+  constructor(props) {
+    super(props)
     this.state = {
       code: props.code,
       codePreviewHtml: 'loading code preview'
@@ -22,10 +21,6 @@ export default class CodeArea extends React.PureComponent {
 
   changeHandler(value) {
     this.setState({code: AllHtmlEntities.decode(value)})
-  }
-
-  static stripHtmlComments(htmlCode) {
-    return htmlCode.replace(/<!-- .+?(?= -->) --> ?/g, '')
   }
 
   grabCodePreviewHtml(element) {
@@ -40,7 +35,7 @@ export default class CodeArea extends React.PureComponent {
     // render; setting codePreviewHtml will cause a re-render, which will increase the counter,
     // which will trigger grabPreviewHtml again, which would get html with a new counter, etc.
     // causing an infinite loop!
-    const codeWithoutComments = CodeArea.stripHtmlComments(unescapedCode)
+    const codeWithoutComments = stripHtmlComments(unescapedCode)
 
     this.setState({codePreviewHtml: pretty(codeWithoutComments)})
   }

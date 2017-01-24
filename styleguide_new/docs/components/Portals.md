@@ -6,7 +6,7 @@
 
 ## Basic Usage
 
-```jsx_example
+```jsx
 <div>
   <section>
     <span>Content will be transported from here:</span>
