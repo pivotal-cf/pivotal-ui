@@ -1,4 +1,7 @@
 import React from 'react'
+import {Autocomplete} from 'pui-react-autocomplete'
+import {Iconography} from 'pui-react-iconography'
+import {Collapse} from 'pui-react-collapse'
 
 const styleItems = [
   {text: 'Icons', link: 'icons'},
@@ -38,6 +41,12 @@ const componentItems = [
   {text: 'Tooltips', link: 'tooltips'},
 ]
 
+const onPick = item => console.log('You selected ' + item.value)
+const onInitializeItems = callback => callback(['foo', 'food', 'bar'])
+const SearchBar = () => <Autocomplete onInitializeItems={onInitializeItems}
+                                      placeholder="Search"
+                                      onPick={onPick}/>
+
 export default class Sidebar extends React.PureComponent {
   render() {
     const styles = styleItems
@@ -53,12 +62,23 @@ export default class Sidebar extends React.PureComponent {
                                 className="sidebar--item">{component.text}</a>)
 
     return <div className="sidebar">
-      <input className="sidebar--search" placeholder="search by component name"/>
-      <div className="sidebar--content">
-        <h2>Styles</h2>
-        {styles}
-        <h2>Components</h2>
-        {components}
+      <div className="sidebar--header">
+        <Icon className="sidebar--icon" src="pivotal_ui_white"/>
+        <div className="sidebar--title">Pivotal UI</div>
+      </div>
+      <SearchBar/>
+      <div className="sidebar--items">
+        <a className="sidebar--item" href="">Get Started</a>
+        <Collapse className="sidebar--item" header="Styles">
+          {styles}
+        </Collapse>
+        <Collapse className="sidebar--item" header="Components">
+          {components}
+        </Collapse>
+        <a className="sidebar--item" href="">Upgrade Guide</a>
+        <a className="sidebar--item" href="">Contribute</a>
+        <a className="sidebar--item" href="">Downloads</a>
+        <a className="sidebar--item" href="">Github</a>
       </div>
     </div>
   }
