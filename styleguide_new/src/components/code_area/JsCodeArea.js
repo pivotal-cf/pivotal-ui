@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOMServer from 'react-dom/server'
 import * as Babel from 'babel-standalone'
 import {AllHtmlEntities} from 'html-entities'
 import AceEditor from 'react-ace'
@@ -8,7 +9,6 @@ import 'brace/mode/jsx'
 import 'brace/mode/html'
 import 'brace/theme/crimson_editor'
 
-const stripHtmlComments = htmlCode => htmlCode.replace(/<!-- .+?(?= -->) --> ?/g, '')
 const defaultLoadingMessage = 'loading code preview'
 
 export default class JsCodeArea extends React.PureComponent {
@@ -35,19 +35,17 @@ export default class JsCodeArea extends React.PureComponent {
     this.setState({code: AllHtmlEntities.decode(value)})
   }
 
-  grabCodePreviewHtml(element) {
-    if(!element) {
-      return // component was unmounted
-    }
+  static getRenderedReact(code) {
+    const tempElem = React.createElement('div', {}, eval(code))
+    const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem)
+    const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '')
 
-    const code = element.innerHTML
-    const unescapedCode = AllHtmlEntities.decode(code)
-    const codeWithoutComments = stripHtmlComments(unescapedCode)
-    this.setState({codePreviewHtml: pretty(codeWithoutComments)})
+    return pretty(strippedCode)
   }
 
   render() {
     const {code} = this.state
+
     let transpiledCode
 
     try {
@@ -72,9 +70,9 @@ export default class JsCodeArea extends React.PureComponent {
                  readOnly={true}
                  theme="crimson_editor"
                  wrap={true}
-                 value={this.state.codePreviewHtml}
+                 value={JsCodeArea.getRenderedReact(transpiledCode)}
                  editorProps={{$blockScrolling: Infinity}}/>
-      <div className="code-editor--live-preview" ref={this.grabCodePreviewHtml.bind(this)}>
+      <div className="code-editor--live-preview">
         {eval(transpiledCode)}
       </div>
     </div>
