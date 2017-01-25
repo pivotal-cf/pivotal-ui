@@ -32,14 +32,25 @@
 .code-editor--toolbar {
   text-align: right;
   margin: 2px 0px;
-}
-
-.code-editor--toolbar--toggle-open {
-  background-color: $teal-10;
 
   svg {
     fill: white;
   }
+}
+
+.code-editor--toolbar--open {
+  background-color: $teal-10;
+  border: 0px;
+}
+
+.code-editor--toolbar--close {
+  background-color: white;
+  border: 1px solid black;
+}
+
+.code-editor--toolbar--open, .code-editor--toolbar--close {
+  vertical-align: middle;
+  margin-bottom: 3px;
 }
 
 .code-editor--toolbar--item {

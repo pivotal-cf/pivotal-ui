@@ -66,12 +66,12 @@ export default class JsCodeArea extends React.PureComponent {
     return <div className="code-editor">
       <InlineList className="code-editor--toolbar">
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
-          <Icon className={this.state.showReact ? "code-editor--toolbar--toggle-open" : ""}
+          <Icon className={this.state.showReact ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
                 src="check"/>
           <div className="code-editor--toolbar--label">React</div>
         </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleHTMLPreview.bind(this)}>
-          <Icon className={this.state.showHTMLPreview ? "code-editor--toolbar--toggle-open" : ""}
+          <Icon className={this.state.showHTMLPreview ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
                 src="check"/>
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>

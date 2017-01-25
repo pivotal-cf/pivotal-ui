@@ -31,7 +31,7 @@ export default class HtmlCodeArea extends React.PureComponent {
     return <div className="code-editor">
       <InlineList className="code-editor--toolbar">
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
-          <Icon className={this.state.showEditor ? "code-editor--toolbar--toggle-open" : ""}
+          <Icon className={this.state.showEditor ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
                 src="check"/>
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>
