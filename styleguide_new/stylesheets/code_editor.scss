@@ -18,11 +18,6 @@
 
 .code-editor--edit {
   align-content: stretch;
-  display: flex;
-
-  textarea {
-    flex: 1;
-  }
 }
 
 .code-editor--html-preview {
@@ -56,4 +51,26 @@
 .code-editor--toolbar--label {
   display: inline;
   margin-left: 5px;
+}
+
+.code-editor--titlebar {
+  margin: 10px 5px;
+  color: $gray-4;
+
+  svg {
+    transform: scale(1.5);
+    fill: $gray-4;
+  }
+
+  .clipboard-button {
+    background-color: inherit;
+    border: 0px;
+    display: inline;
+    position: fixed;
+    right: 25px;
+
+    svg {
+      transform: scale(.75);
+    }
+  }
 }
