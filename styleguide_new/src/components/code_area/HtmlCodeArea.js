@@ -4,6 +4,8 @@ import AceEditor from 'react-ace'
 import {Icon} from 'pui-react-iconography'
 import {InlineList, ListItem} from 'pui-react-lists'
 
+import HtmlEditor from './HtmlEditor'
+
 import 'brace/mode/html'
 
 export default class HtmlCodeArea extends React.PureComponent {
@@ -34,14 +36,8 @@ export default class HtmlCodeArea extends React.PureComponent {
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>
       </InlineList>
-      {this.state.showEditor && <AceEditor className="code-editor--edit"
-                                           width="100%"
-                                           height="200px"
-                                           mode="html"
-                                           theme="crimson_editor"
-                                           value={code}
-                                           onChange={this.changeHandler.bind(this)}
-                                           editorProps={{$blockScrolling: Infinity}}/>}
+      {this.state.showEditor &&
+        <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
       <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}}></div>
     </div>
   }

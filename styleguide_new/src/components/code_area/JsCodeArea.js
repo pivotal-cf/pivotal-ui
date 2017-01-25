@@ -2,10 +2,13 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import * as Babel from 'babel-standalone'
 import {AllHtmlEntities} from 'html-entities'
-import AceEditor from 'react-ace'
 import pretty from 'pretty'
 import {Icon} from 'pui-react-iconography'
 import {InlineList, ListItem} from 'pui-react-lists'
+import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
+
+import ReactEditor from './ReactEditor'
+import HtmlEditor from './HtmlEditor'
 
 import 'brace/mode/jsx'
 import 'brace/mode/html'
@@ -18,22 +21,15 @@ export default class JsCodeArea extends React.PureComponent {
     super(props)
     this.state = {
       code: props.code,
-      codePreviewHtml: defaultLoadingMessage,
       showReact: false,
       showHTMLPreview: false
     }
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    const firstCodepreviewLoad = this.state.codePreviewHtml === defaultLoadingMessage
-      && nextState.codePreviewHtml !== defaultLoadingMessage
-
-    // We can't use codePreviewHtml beyond the first time because react injects counters such as
-    // <label for="radio81"> and <!-- react-text: 784 -->. If codePreviewHtml triggered
-    // a redraw, the counters in the rendered jsx would increase, which would cause the
-    // codePreviewHtml to be different, causing a re-render, etc, infinite loop
-    return this.state.code != nextState.code || firstCodepreviewLoad ||
-              this.state.showReact != nextState.showReact || this.state.showHTMLPreview != nextState.showHTMLPreview
+    return this.state.code != nextState.code ||
+            this.state.showReact != nextState.showReact ||
+            this.state.showHTMLPreview != nextState.showHTMLPreview
   }
 
   changeHandler(value) {
@@ -80,23 +76,10 @@ export default class JsCodeArea extends React.PureComponent {
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>
       </InlineList>
-      {this.state.showReact && <AceEditor className="code-editor--edit"
-                 width="100%"
-                 height="200px"
-                 mode="jsx"
-                 theme="crimson_editor"
-                 value={code}
-                 onChange={this.changeHandler.bind(this)}
-                 editorProps={{$blockScrolling: Infinity}}/>}
-      {this.state.showHTMLPreview && <AceEditor className="code-editor--html-preview"
-                 width="100%"
-                 height="200px"
-                 mode="html"
-                 readOnly={true}
-                 theme="crimson_editor"
-                 wrap={true}
-                 value={JsCodeArea.getRenderedReact(transpiledCode)}
-                 editorProps={{$blockScrolling: Infinity}}/>}
+      {this.state.showReact &&
+        <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
+      {this.state.showHTMLPreview &&
+        <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
       <div className="code-editor--live-preview">
         {eval(transpiledCode)}
       </div>
