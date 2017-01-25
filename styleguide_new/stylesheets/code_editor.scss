@@ -33,3 +33,27 @@
   border: 1px solid $dark-9;
   padding: 5px;
 }
+
+.code-editor--toolbar {
+  text-align: right;
+  margin: 2px 0px;
+}
+
+.code-editor--toolbar--toggle-open {
+  background-color: $teal-10;
+
+  svg {
+    fill: white;
+  }
+}
+
+.code-editor--toolbar--item {
+  margin: 0px 10px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+.code-editor--toolbar--label {
+  display: inline;
+  margin-left: 5px;
+}
