@@ -62,7 +62,7 @@ export default class Sidebar extends React.PureComponent {
 
     const styles = styleItems
       .map((style, i) => <a key={i}
-                            onClick={this.props.clickHandler}
+                            onClick={this.handleClick.bind(this)}
                             href={style.link}
                             className="sidebar--item">{style.text}</a>)
 
