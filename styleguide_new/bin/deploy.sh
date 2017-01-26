@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 set -ex
 
+if [ -z "$1" ]; then
+    echo "Usage: bin/deploy.sh <password-to-cf>"
+    exit 1
+fi
+
 TMP_DEPLOY_DIR=/tmp/deploy_styleguide
 
 rm -rf $TMP_DEPLOY_DIR || true
 
-cf login -a api.run.pivotal.io -o pivotal -s pivotal-ui-staging -u pivotal-ui@pivotal.io
+cf api api.run.pivotal.io
+cf auth pivotal-ui@pivotal.io $1
+cf target -o pivotal -s pivotal-ui-staging
 npm install
 npm prune
 ./node_modules/.bin/webpack --progress -p
