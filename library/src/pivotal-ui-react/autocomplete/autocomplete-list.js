@@ -1,18 +1,13 @@
-import classnames from 'classnames';
 import React from 'react';
+import classnames from 'classnames';
 
 const types = React.PropTypes;
-
-const onClick = (value, e) => {
-  e.preventDefault();
-  this.props.onPick(value);
-};
 
 export class AutocompleteList extends React.Component {
   static propTypes = {
     $autocomplete: types.object,
     children(props, name) {
-      if (props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
+      if(props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
     },
     className: types.string,
     minSearchTerm: types.number,
@@ -24,6 +19,11 @@ export class AutocompleteList extends React.Component {
     minSearchTerm: 0
   }
 
+  onClick = (value, e) => {
+    e.preventDefault();
+    this.props.onPick(value);
+  }
+
   renderSuggestionList() {
     const {className} = this.props;
     const suggestedValues = this.props.$autocomplete.get('suggestedValues');
@@ -31,35 +31,35 @@ export class AutocompleteList extends React.Component {
       const value = '_key_' in suggestion ? suggestion._key_ : suggestion.value;
       const className = classnames('autocomplete-item', {highlighted: key === this.props.$autocomplete.get('highlightedSuggestion')}, {selected: value === this.props.selectedSuggestion});
       return (<li key={key}>
-        <a href="#" onClick={onClick.bind(this, suggestion)} role="button" title={value}
+        <a href="#" onClick={this.onClick.bind(this, suggestion)} role="button" title={value}
            className={className}>{value}</a>
       </li>);
     });
-    if (!suggestions.length) return null;
+    if(!suggestions.length) return null;
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
 
   renderDefault = () => {
     const {$autocomplete, minSearchTerm} = this.props;
     const {hidden, value} = $autocomplete.get();
-    if (hidden || (value.length < minSearchTerm)) return null;
+    if(hidden || (value.length < minSearchTerm)) return null;
     return this.renderSuggestionList();
   }
 
   render() {
     let {children, $autocomplete, ...props} = this.props;
-    if (!$autocomplete) return null;
-    if (!children) return this.renderDefault();
+    if(!$autocomplete) return null;
+    if(!children) return this.renderDefault();
     const {hidden, value, highlightedSuggestion, suggestedValues} = $autocomplete.get();
-    if (hidden) return null;
-    
+    if(hidden) return null;
+
     children = React.Children.map(children, e => React.cloneElement(e, {
       value,
       suggestedValues,
       highlightedSuggestion,
-      onClick, ...props
+      ...props
     }));
-    
+
     return <div>{children}</div>;
   }
 }
