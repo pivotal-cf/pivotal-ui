@@ -2,22 +2,7 @@
 
 ## Description
 
-Using Panel, you can organize information collections into logical groups, aggregate your
-content and show it context specific. A selective content can be easily gathered together and
-redistributed as a “deck” of related information. See it in action here:
-
-## Anatomy
-
-1. *Panel Header:* The panel header should be used to identify the grouped content within the panel body. It can
-contain actions and metadata that are contextual to the information presented.
-    1. *Panel Header Left:* Typically reserved for a header and subheader. Can be wider than 50%.
-    1. *Panel Header Right:* Typically reserved for metadata or CTAs. Can be wider than 50%.
-1. *Panel Body:* The panel body has no opinion on style or layout. You can put in there anything you'd
-like, though be mindful of length and complexity of content, as a table layout / list-group might work better.
-1. *Panel Footer:* The panel footer should be used to contain secondary or tertiary metadata that is
-contextual to the information contained within the panel body.
-    1. *Panel Footer Left:* Typically reserved for metadata or CTAs. Can be wider than 50%.
-    1. *Panel Footer Right:* Typically reserved for metadata or CTAs. Can be wider than 50%.
+Using Panels, you can organize information collections into logical groups, aggregate your content and show it to be context specific. They include box headers, footers, and can be combined with any background. See it in action [here](https://pui-pivots.cfapps.io/).
 
 ## Do's
 
