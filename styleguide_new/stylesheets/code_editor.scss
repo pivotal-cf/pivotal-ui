@@ -4,11 +4,12 @@
     margin: 0 0 16px 0;
     border: 0;
     border-radius: 0;
+    background-color: white;
   }
 }
 
 .code-editor {
-  background-color: $dark-11;
+  background-color: white;
   margin: 0 20px;
 }
 
@@ -32,25 +33,33 @@
 .code-editor--toolbar {
   text-align: right;
   margin: 2px 0px;
+}
+
+.code-editor--toolbar--icon {
+  vertical-align: middle;
+  margin-bottom: 3px;
 
   svg {
-    fill: white;
+    fill: $gray-4;
   }
 }
 
 .code-editor--toolbar--open {
   background-color: $teal-10;
   border: 0px;
+
+  svg {
+    fill: white;
+  }
 }
 
 .code-editor--toolbar--close {
   background-color: white;
   border: 1px solid black;
-}
 
-.code-editor--toolbar--open, .code-editor--toolbar--close {
-  vertical-align: middle;
-  margin-bottom: 3px;
+  svg {
+    fill: white;
+  }
 }
 
 .code-editor--toolbar--item {
