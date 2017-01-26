@@ -13,7 +13,8 @@ export default class HtmlCodeArea extends React.PureComponent {
     super(props)
     this.state = {
       code: props.code,
-      showEditor: false
+      showEditor: false,
+      file: props.file
     }
   }
 
@@ -25,13 +26,26 @@ export default class HtmlCodeArea extends React.PureComponent {
     this.setState({showEditor: this.state.showEditor ? false : true})
   }
 
+  editGithub() {
+    console.log(this.state)
+    const url="https://github.com/pivotal-cf/pivotal-ui/edit/styleguide_new/styleguide_new/docs/" + this.state.file
+    window.open(url, "_blank")
+  }
+
   render() {
     const {code} = this.state
 
+    let editorClasses = "code-editor--toolbar--icon "
+    editorClasses = editorClasses + (this.state.showEditor ? "code-editor--toolbar--open" : "code-editor--toolbar--close")
+
     return <div className="code-editor">
       <InlineList className="code-editor--toolbar">
+        <ListItem className="code-editor--toolbar--item" onClick={this.editGithub.bind(this)}>
+          <Icon src="github" className="code-editor--toolbar--icon"/>
+          <div className="code-editor--toolbar--label">Edit</div>
+        </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
-          <Icon className={this.state.showEditor ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
+          <Icon className={editorClasses}
                 src="check"/>
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>

@@ -22,7 +22,8 @@ export default class JsCodeArea extends React.PureComponent {
     this.state = {
       code: props.code,
       showReact: false,
-      showHTMLPreview: false
+      showHTMLPreview: false,
+      file: props.file
     }
   }
 
@@ -44,6 +45,12 @@ export default class JsCodeArea extends React.PureComponent {
     this.setState({showHTMLPreview: this.state.showHTMLPreview ? false : true})
   }
 
+  editGithub() {
+    console.log(this.state)
+    const url="https://github.com/pivotal-cf/pivotal-ui/edit/styleguide_new/styleguide_new/docs/" + this.state.file
+    window.open(url, "_blank")
+  }
+
   static getRenderedReact(code) {
     const tempElem = React.createElement('div', {}, eval(code))
     const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem)
@@ -63,15 +70,25 @@ export default class JsCodeArea extends React.PureComponent {
       // TODO: display on page or something?
     }
 
+    let reactClasses = "code-editor--toolbar--icon "
+    reactClasses = reactClasses + (this.state.showReact ? "code-editor--toolbar--open" : "code-editor--toolbar--close")
+
+    let htmlClasses = "code-editor--toolbar--icon "
+    htmlClasses = htmlClasses + (this.state.showHTMLPreview ? "code-editor--toolbar--open" : "code-editor--toolbar--close")
+
     return <div className="code-editor">
       <InlineList className="code-editor--toolbar">
+        <ListItem className="code-editor--toolbar--item" onClick={this.editGithub.bind(this)}>
+          <Icon src="github" className="code-editor--toolbar--icon"/>
+          <div className="code-editor--toolbar--label">Edit</div>
+        </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
-          <Icon className={this.state.showReact ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
+          <Icon className={reactClasses}
                 src="check"/>
           <div className="code-editor--toolbar--label">React</div>
         </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleHTMLPreview.bind(this)}>
-          <Icon className={this.state.showHTMLPreview ? "code-editor--toolbar--open" : "code-editor--toolbar--close"}
+          <Icon className={htmlClasses}
                 src="check"/>
           <div className="code-editor--toolbar--label">HTML</div>
         </ListItem>
