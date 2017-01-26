@@ -9,6 +9,7 @@ import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
 
 import ReactEditor from './ReactEditor'
 import HtmlEditor from './HtmlEditor'
+import {githubRepo, githubBranch, issueUrl} from '../../helpers/constants'
 
 import 'brace/mode/jsx'
 import 'brace/mode/html'
@@ -22,8 +23,7 @@ export default class JsCodeArea extends React.PureComponent {
     this.state = {
       code: props.code,
       showReact: false,
-      showHTMLPreview: false,
-      file: props.file
+      showHTMLPreview: false
     }
   }
 
@@ -46,9 +46,13 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   editGithub() {
-    console.log(this.state)
-    const url="https://github.com/pivotal-cf/pivotal-ui/edit/styleguide_new/styleguide_new/docs/" + this.state.file
-    window.open(url, "_blank")
+    const url=`${githubRepo}/edit/${githubBranch}/styleguide_new/docs/${this.props.file}`
+    window.open(url, '_blank')
+  }
+
+  fileIssue() {
+    const url = issueUrl(this.props.name)
+    window.open(url, '_blank')
   }
 
   static getRenderedReact(code) {
@@ -81,6 +85,10 @@ export default class JsCodeArea extends React.PureComponent {
         <ListItem className="code-editor--toolbar--item" onClick={this.editGithub.bind(this)}>
           <Icon src="github" className="code-editor--toolbar--icon"/>
           <div className="code-editor--toolbar--label">Edit</div>
+        </ListItem>
+        <ListItem className="code-editor--toolbar--item" onClick={this.fileIssue.bind(this)}>
+          <Icon src="help" className="code-editor--toolbar--icon"/>
+          <div className="code-editor--toolbar--label">Issues</div>
         </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
           <Icon className={reactClasses}
