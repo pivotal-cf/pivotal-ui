@@ -48,7 +48,7 @@ export default class HtmlCodeArea extends React.PureComponent {
           <div className="code-editor--toolbar--label">Edit</div>
         </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.fileIssue.bind(this)}>
-          <Icon src="help" className="code-editor--toolbar--icon"/>
+          <Icon src="info_outline" className="code-editor--toolbar--icon"/>
           <div className="code-editor--toolbar--label">Issues</div>
         </ListItem>
         <ListItem className="code-editor--toolbar--item" onClick={this.toggleEditor.bind(this)}>
