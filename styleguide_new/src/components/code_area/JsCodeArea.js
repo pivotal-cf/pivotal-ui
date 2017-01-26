@@ -38,11 +38,11 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   toggleEditor() {
-    this.setState({showReact: this.state.showReact ? false : true})
+    this.setState({showReact: !this.state.showReact})
   }
 
   toggleHTMLPreview() {
-    this.setState({showHTMLPreview: this.state.showHTMLPreview ? false : true})
+    this.setState({showHTMLPreview: !this.state.showHTMLPreview})
   }
 
   editGithub() {

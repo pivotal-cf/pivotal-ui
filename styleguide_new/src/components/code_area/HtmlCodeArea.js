@@ -23,13 +23,13 @@ export default class HtmlCodeArea extends React.PureComponent {
   }
 
   toggleEditor() {
-    this.setState({showEditor: this.state.showEditor ? false : true})
+    this.setState({showEditor: !this.state.showEditor})
   }
 
   editGithub() {
     console.log(this.state)
-    const url="https://github.com/pivotal-cf/pivotal-ui/edit/styleguide_new/styleguide_new/docs/" + this.state.file
-    window.open(url, "_blank")
+    const url = `https://github.com/pivotal-cf/pivotal-ui/edit/styleguide_new/styleguide_new/docs/${this.state.file}`
+    window.open(url, '_blank')
   }
 
   render() {
@@ -51,7 +51,7 @@ export default class HtmlCodeArea extends React.PureComponent {
         </ListItem>
       </InlineList>
       {this.state.showEditor &&
-        <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
+      <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
       <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}}></div>
     </div>
   }

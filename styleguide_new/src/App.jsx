@@ -20,9 +20,8 @@ class App extends React.Component {
     this.state = {content: App.currentContent()}
   }
 
-  updateContent(event) {
-    event.preventDefault()
-    window.history.pushState({}, '', event.target.href)
+  updateContent(href) {
+    window.history.pushState({}, '', href)
     this.setState({content: App.currentContent()})
   }
 
@@ -38,7 +37,7 @@ class App extends React.Component {
 
   render() {
     return <div id="app">
-      <SideBar clickHandler={this.updateContent.bind(this)}/>
+      <SideBar updateContent={this.updateContent.bind(this)} />
       {this.state.content ? <Content content={this.state.content}/> : homepage}
     </div>
   }
