@@ -9,6 +9,14 @@ const types = React.PropTypes;
 const ESC_KEY = 27;
 const privates = new WeakMap();
 
+const bodyNotAllowedToScroll = () => {
+  const body = document.getElementsByTagName('body')[0];
+  if (!body.classList.contains('pui-no-scroll')) {
+    body.classList.add('pui-no-scroll');
+  }
+};
+const bodyIsAllowedToScroll = () => document.getElementsByTagName('body')[0].classList.remove('pui-no-scroll');
+
 export class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
     animation: types.bool,
@@ -25,7 +33,8 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   static defaultProps = {
     animation: true,
     keyboard: true,
-    onHide: () => {}
+    onHide: () => {
+    }
   }
 
   static ANIMATION_TIME = 300;
@@ -34,16 +43,18 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
     privates.set(this, {fractionShown: 0});
+
+    this.props.show ? bodyNotAllowedToScroll() : bodyIsAllowedToScroll();
   }
 
   modalClicked = e => {
-    if (!this.dialog) return;
-    if (this.dialog.contains(e.target)) return;
+    if(!this.dialog) return;
+    if(this.dialog.contains(e.target)) return;
     this.props.onHide();
   }
 
   onKeyDown = e => {
-    if (this.props.keyboard && e.keyCode === ESC_KEY) {
+    if(this.props.keyboard && e.keyCode === ESC_KEY) {
       this.props.onHide();
     }
   }
@@ -54,6 +65,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
 
   componentWillUnmount() {
     document.removeEventListener('keydown', this.onKeyDown);
+    bodyIsAllowedToScroll();
   }
 
   focus = () => setTimeout(() => {
@@ -74,6 +86,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
       title,
       ...modalProps
     } = this.props;
+    this.props.show ? bodyNotAllowedToScroll() : bodyIsAllowedToScroll();
 
     const animationTime = animation ? BaseModal.ANIMATION_TIME : 0;
     const fractionDestination = show ? 1 : 0;
@@ -85,16 +98,16 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
 
     privates.set(this, {...privates.get(this), fractionShown});
 
-    if (oldFractionShown < 1 && fractionShown === 1) {
+    if(oldFractionShown < 1 && fractionShown === 1) {
       this.focus();
       onEntered && onEntered();
     }
 
-    if (oldFractionShown > 0 && fractionShown === 0) {
+    if(oldFractionShown > 0 && fractionShown === 0) {
       onExited && onExited();
     }
 
-    if (fractionShown === 0 && !show) return null;
+    if(fractionShown === 0 && !show) return null;
 
     const props = mergeProps(modalProps, {
       className: 'modal fade in',
@@ -113,9 +126,13 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
 
     return (<div className="modal-wrapper" role="dialog">
       <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
-      <div {...props} ref={(ref) => {this.modal = ref;}}>
+      <div {...props} ref={(ref) => {
+        this.modal = ref;
+      }}>
         <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})}
-             style={dialogStyle} ref={(ref) => {this.dialog = ref;}}>
+             style={dialogStyle} ref={(ref) => {
+          this.dialog = ref;
+        }}>
           <div className="modal-content">
             <div className="modal-header">
               <button type="button" className="close" aria-label="close" onClick={onHide}>
@@ -137,11 +154,8 @@ export class Modal extends React.Component {
     this.state = {isVisible: false};
   }
 
-  open = () => this.setState({isVisible: true})
-  close = () => this.setState({isVisible: false})
-
   render() {
-    return <BaseModal show={this.state.isVisible} onHide={this.close} {...this.props} />;
+    return <BaseModal show={this.state.isVisible} onHide={() => this.setState({isVisible: false})} {...this.props} />;
   }
 }
 
