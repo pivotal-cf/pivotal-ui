@@ -43,6 +43,10 @@ const componentItems = [
 
 const searchItems = componentItems.concat(styleItems)
 
+const ContentLink = ({onClick, link, text}) => <a onClick={onClick}
+                                                  href={link}
+                                                  className="sidebar--item">{text}</a>
+
 export default class Sidebar extends React.PureComponent {
   handleClick(event) {
     event.preventDefault()
@@ -61,16 +65,16 @@ export default class Sidebar extends React.PureComponent {
                                           onPick={this.handlePick.bind(this)}/>
 
     const styles = styleItems
-      .map((style, i) => <a key={i}
-                            onClick={this.handleClick.bind(this)}
-                            href={style.link}
-                            className="sidebar--item">{style.text}</a>)
+      .map((style, i) => <ContentLink key={i}
+                                      onClick={this.handleClick.bind(this)}
+                                      link={style.link}
+                                      text={style.text}/>)
 
     const components = componentItems
-      .map((component, i) => <a key={i}
-                                onClick={this.handleClick.bind(this)}
-                                href={component.link}
-                                className="sidebar--item">{component.text}</a>)
+      .map((component, i) => <ContentLink key={i}
+                                          onClick={this.handleClick.bind(this)}
+                                          link={component.link}
+                                          text={component.text}/>)
 
     return <div className="sidebar">
       <div className="sidebar--header">
@@ -79,17 +83,17 @@ export default class Sidebar extends React.PureComponent {
       </div>
       <SearchBar/>
       <div className="sidebar--items">
-        <a className="sidebar--item" href="">Get Started</a>
+        <ContentLink onClick={this.handleClick.bind(this)} link="getstarted" text="Get Started"/>
         <Collapse className="sidebar--item" header="Styles">
           {styles}
         </Collapse>
         <Collapse className="sidebar--item" header="Components">
           {components}
         </Collapse>
-        <a className="sidebar--item" href="">Upgrade Guide</a>
-        <a className="sidebar--item" href="">Contribute</a>
-        <a className="sidebar--item" href="">Downloads</a>
-        <a className="sidebar--item" href="">Github</a>
+        <ContentLink onClick={this.handleClick.bind(this)} link="upgradeguide" text="Upgrade Guide"/>
+        <ContentLink onClick={this.handleClick.bind(this)} link="contribute" text="Contribute"/>
+        <ContentLink onClick={this.handleClick.bind(this)} link="downloads" text="Downloads"/>
+        <a className="sidebar--item" href="github.com/pivotal-cf/pivotal-ui">Github</a>
       </div>
     </div>
   }

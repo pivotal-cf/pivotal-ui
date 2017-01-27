@@ -1,3 +1,10 @@
+import Contribute from '../../docs/Contribute.md'
+import Downloads from '../../docs/Downloads.md'
+import GetStarted from '../../docs/GetStarted.md'
+import Homepage from '../../docs/Homepage.md'
+import UpgradeGuide from '../../docs/UpgradeGuide.md'
+import NotFound from '../../docs/404.md'
+
 import ColorsStuff from '../../docs/styles/Colors.md'
 import GridcssStuff from '../../docs/styles/Grid.md'
 import IconsStuff from '../../docs/styles/Icons.md'
@@ -33,6 +40,13 @@ import TabsStuff from '../../docs/components/Tabs.md'
 import TooltipsStuff from '../../docs/components/Tooltips.md'
 
 export default {
+  '/': {html: Homepage, file: 'Homepage.md', name: 'Homepage'},
+  '/getstarted': {html: GetStarted, file: 'GetStarted.md', name: 'Get Started'},
+  '/upgradeguide': {html: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide'},
+  '/contribute': {html: Contribute, file: 'Contribute.md', name: 'Contribute'},
+  '/downloads': {html: Downloads, file: 'Downloads.md', name: 'Downloads'},
+  '/404': {html: NotFound, file: '404.md', name: '404 Not Found'},
+
   '/colors': {html: ColorsStuff, file: 'styles/Colors.md', name: 'Colors'},
   '/gridcss': {html: GridcssStuff, file: 'styles/Grid.md', name: 'Gridcss'},
   '/icons': {html: IconsStuff, file: 'styles/Icons.md', name: 'Icons'},
