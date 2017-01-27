@@ -81,7 +81,6 @@ export default () => {
     Panes,
     Portals,
     Radio,
-    Ribbons,
     Table,
     Select,
     StreamList,
