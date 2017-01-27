@@ -1,6 +1,31 @@
+sudo: required
+dist: trusty
 language: node_js
 node_js:
   - "6.9"
+env:
+  global:
+    - CXX=g++-4.8
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      # nodejs >v4 compiler requirements
+      - g++-4.8
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+  - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+  - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+  - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+  - git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+  - echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+  - source ~/.bashrc
+  - rbenv install 2.3.1
+  - rbenv global 2.3.1
+  - gem install bundler rspec
+  - rbenv rehash
 before_script:
   - npm install -g gulp
 script:
@@ -9,6 +34,7 @@ script:
   - gulp build
   - gulp ci
   - cd ../styleguide
+  - bundle install
   - npm install
   - gulp build
   - gulp ci
