@@ -11,7 +11,7 @@ describe('iconography', function() {
     ReactDOM.render(<Icon src='add'/>, root);
     expect('.svgicon svg').toExist();
   });
-  
+
   it('propagates className and id to the span', () => {
     ReactDOM.render(<Icon src='add' className="foo" id="bar"/>, root);
     expect('.svgicon').toHaveClass('foo');

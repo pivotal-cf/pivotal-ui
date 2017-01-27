@@ -32,7 +32,6 @@ import PaginationStuff from '../../docs/components/Pagination.md'
 import PanesStuff from '../../docs/components/Panes.md'
 import PanelsStuff from '../../docs/components/Panels.md'
 import PortalsStuff from '../../docs/components/Portals.md'
-import RibbonStuff from '../../docs/components/Ribbons.md'
 import SelectStuff from '../../docs/components/Select.md'
 import SvgStuff from '../../docs/components/Svg.md'
 import TablesStuff from '../../docs/components/Tables.md'
@@ -74,7 +73,6 @@ export default {
   '/panes': {html: PanesStuff, file: 'components/Panes.md', name: 'Panes'},
   '/panels': {html: PanelsStuff, file: 'components/Panels.md', name: 'Panels'},
   '/portals': {html: PortalsStuff, file: 'components/Portals.md', name: 'Portals'},
-  '/ribbons': {html: RibbonStuff, file: 'components/Ribbons.md', name: 'Ribbons'},
   '/select': {html: SelectStuff, file: 'components/Select.md', name: 'Select'},
   '/svg': {html: SvgStuff, file: 'components/Svg.md', name: 'Svg'},
   '/tables': {html: TablesStuff, file: 'components/Tables.md', name: 'Tables'},

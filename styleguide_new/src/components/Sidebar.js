@@ -33,7 +33,6 @@ const componentItems = [
   {text: 'Panels', link: 'panels'},
   {text: 'Panes', link: 'panes'},
   {text: 'Portals', link: 'portals'},
-  {text: 'Ribbons', link: 'ribbons'},
   {text: 'Select', link: 'select'},
   {text: 'Svg', link: 'svg'},
   {text: 'Tables', link: 'tables'},
