@@ -11,7 +11,7 @@ const privates = new WeakMap();
 
 const bodyNotAllowedToScroll = () => {
   const body = document.getElementsByTagName('body')[0];
-  if (!body.classList.contains('pui-no-scroll')) {
+  if(!body.classList.contains('pui-no-scroll')) {
     body.classList.add('pui-no-scroll');
   }
 };
@@ -154,8 +154,11 @@ export class Modal extends React.Component {
     this.state = {isVisible: false};
   }
 
+  open = () => this.setState({isVisible: true})   // This is required for testing
+  close = () => this.setState({isVisible: false}) // This is required for testing
+
   render() {
-    return <BaseModal show={this.state.isVisible} onHide={() => this.setState({isVisible: false})} {...this.props} />;
+    return <BaseModal show={this.state.isVisible} onHide={this.close.bind(this)} {...this.props} />;
   }
 }
 
