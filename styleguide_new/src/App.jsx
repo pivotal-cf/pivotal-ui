@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import 'pui-css-all'
 import '../stylesheets/app.scss'
 
 import SideBar from './components/Sidebar'

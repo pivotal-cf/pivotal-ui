@@ -18,6 +18,7 @@
     "gulp": "^3.9.1",
     "gutil": "^1.6.4",
     "html-loader": "^0.4.4",
+    "image-webpack-loader": "^3.2.0",
     "json-loader": "^0.5.4",
     "module": "^1.2.5",
     "net": "^1.0.2",

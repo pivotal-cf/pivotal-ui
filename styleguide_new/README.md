@@ -2,6 +2,7 @@
 
 ### First time setup
 
+1. `brew install libpng`
 1. `./bin/hard-build.sh` (fresh reset of project)
 
 ### Running

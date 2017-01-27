@@ -16,10 +16,6 @@ export default {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
         test: /\.json$/,
         use: 'json-loader'
       },
@@ -32,11 +28,15 @@ export default {
         loader: 'html-loader!markdown-loader'
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loader: ExtractTextPlugin.extract({
-          fallbackLoader: "style-loader",
-          loader: "css-loader!sass-loader",
+          fallbackLoader: 'style-loader',
+          loader: 'css-loader!sass-loader',
         })
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader!image-webpack-loader'
       }
     ],
   },
