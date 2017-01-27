@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - "6.9"
+before_script:
+  - npm install -g gulp
+script:
+  - cd library
+  - npm install
+  - gulp build
+  - gulp ci
+  - cd ../styleguide
+  - npm install
+  - gulp build
+  - gulp ci
