@@ -23,11 +23,11 @@ export class Icon extends React.Component {
   }
 
   render() {
-    const {src, style, verticalAlign, ...others} = this.props;
+    const {src, verticalAlign, ...others} = this.props;
     const props = mergeProps(others, {className: `svgicon svg-${verticalAlign}`});
-    
+
     return (<span {...props}>
-      <SvgIcon {...{src, style, className: `icon-${src}`, key: src}}/>
+      <SvgIcon {...{src, className: `icon-${src}`, key: src}}/>
     </span>);
   }
 }

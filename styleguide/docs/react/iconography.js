@@ -43,11 +43,11 @@ In a normal application, this code would work.
 <Icon src="check"/>
 ```
 
-Icons by default will be sized based on the local font size. You can override
-the size of the icon with the style prop
+ Icons by default will be sized based on the local font size. You can override the size of the icon by changing the
+ font-size in the style prop:
 
 ```react_example
-<Icon src="add" style={{width: 100, height: 100}}/>
+ <Icon src="add" style={{fontSize: 100}}/>
 ```
 
 Icons by default are vertically aligned 'middle'.
