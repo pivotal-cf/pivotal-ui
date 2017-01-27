@@ -2,44 +2,49 @@ sudo: required
 dist: trusty
 language: node_js
 node_js:
-  - "6.9"
+- '6.9'
 env:
   global:
-    - CXX=g++-4.8
+  - CXX=g++-4.8
+  CF_PASSWORD:
+    secure: CGKQ5bbgJSByDoEAO4EzIQg9n7Ybh784j67ZIhdbojIuyI8yYIW68sncAji8AxMLmitX1mQ5aJa6JvCAMbFfVKZ3MyeqXYX8LTqvw4GOxsf5lJMqm+ecApoWETXVHxOuhT9XlnfFigtAPRE3Ms2xBEaE9t6vx15JvybJi9RT/Bdoe5G2boE5SqO+7bymFJMAYUTIFAmif9xosi8y70Rei3o3gdxb1g5PRtxBDRt11+6ZGRmsJIiEb2q2853lISXO4QUROkD3VMgTopE72/7srrIJpwSrW4nezxrE6SS8s/sxWqWlk5UZi6mkErB7R0qBSxbDGM+Zesh2uUrcV0b29lSZVHp4xFXauQt750AsT3C0GTE6o5IBndnN/0MSN3LkBFv3y2j6iG2a6G2WCd4cJ64KPmG95IbN7CXz4SWCZZ1YUnNECWZqpiRzOSZ7PdE/6ILlfwtGy+/ROEu3LxU7uAm8Asmc6y7RgeTYLxRnzLX+csT+onQGJwgtiPKDyIvIFwtElX7jDG0SkYzbUl0zAZmKoMjlplj4oR/zRgNsf7/1ICweT/jPLw45u0wrL9i3Kp2Y9WnC41FUzk9+AJqPizQ6WFHOSEs0CQruwdmO5a0FiEPp+ntlqldM3aiiks20xLm7vvf09K+BBVg/z04dsTWYTYFVALCYnTPjBZ6R+CM=
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      # nodejs >v4 compiler requirements
-      - g++-4.8
+    - g++-4.8
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
-  - git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-  - echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-  - echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-  - git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-  - echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
-  - source ~/.bashrc
-  - rbenv install 2.3.1
-  - rbenv global 2.3.1
-  - gem install bundler rspec
-  - rbenv rehash
+- sudo apt-get update
+- sudo apt-get install cf-cli
+- sudo apt-get -y install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev
+  libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev
+  python-software-properties libffi-dev
+- git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+- echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+- echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+- git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+- echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+- source ~/.bashrc
+- rbenv install 2.3.1
+- rbenv global 2.3.1
+- gem install bundler rspec
+- rbenv rehash
 before_script:
-  - npm install -g gulp
+- npm install -g gulp
 script:
-  - set -ex
-  - cd library
-  - npm install
-  - gulp build
-  - gulp ci
-  - cd ../styleguide
-  - bundle install
-  - npm install
-  - gulp styleguide-build
-  - gulp build-app-config
-  - gulp ci
-  - cd ../styleguide_new
-  - npm install
-  - ./node_modules/.bin/webpack --progress
+- set -ex
+- cd library
+- npm install
+- gulp build
+- gulp ci
+- cd ../styleguide
+- bundle install
+- npm install
+- gulp styleguide-build
+- gulp build-app-config
+- gulp ci
+- cd ../styleguide_new
+- npm install
+- "./node_modules/.bin/webpack --progress"
+- bin/deploy.sh $CF_PASSWORD
