@@ -29,6 +29,7 @@ before_install:
 before_script:
   - npm install -g gulp
 script:
+  - set -ex
   - cd library
   - npm install
   - gulp build
@@ -36,5 +37,9 @@ script:
   - cd ../styleguide
   - bundle install
   - npm install
-  - gulp build
+  - gulp styleguide-build
+  - gulp build-app-config
   - gulp ci
+  - cd ../styleguide_new
+  - npm install
+  - ./node_modules/.bin/webpack --progress
