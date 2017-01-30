@@ -6,10 +6,9 @@ import '../stylesheets/app.scss'
 
 import SideBar from './components/Sidebar'
 import Content from './components/Content'
-import contentMap from './helpers/content'
-import attachLocalImportsToWindow from './helpers/local_imports_helper'
+import contentMap, {attachPackagesToWindow} from './helpers/content'
 
-attachLocalImportsToWindow()
+attachPackagesToWindow()
 
 class App extends React.Component {
   constructor(props) {
