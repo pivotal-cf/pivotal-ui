@@ -1,13 +1,14 @@
-const path = require('path')
-  , express = require('express')
-  , app = express()
-  , React = require('react')
-  , ReactDOMServer = require('react-dom/server')
-  , SideBar = require('./src/components/Sidebar').default
+import Path from 'path'
+import Express from 'express'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import SideBar from './src/components/Sidebar'
+
+const app = Express()
 
 app.get('/dist/:file', function(req, res) {
   const file = req.params['file']
-  res.sendFile(path.join(`${__dirname}/dist/${file}`))
+  res.sendFile(Path.join(`${__dirname}/dist/${file}`))
 })
 
 app.get('/', function(req, res) {
@@ -26,7 +27,7 @@ function renderPage() {
   const SideBarFactory = React.createFactory(SideBar)
   const sideBar = ReactDOMServer.renderToString(SideBarFactory())
 
-  return  `
+  return `
     <html>
       <head>
           <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
@@ -38,5 +39,5 @@ function renderPage() {
         <script src="./dist/bundle.js"></script>
       </body>
     </html>
-    `
+  `
 }
