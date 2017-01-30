@@ -1,14 +1,18 @@
-import Path from 'path'
 import Express from 'express'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+
 import SideBar from './src/components/Sidebar'
 
 const app = Express()
 
 app.get('/dist/:file', function(req, res) {
   const file = req.params['file']
-  res.sendFile(Path.join(`${__dirname}/dist/${file}`))
+  const filepath = `${process.cwd()}/dist/${file}`
+
+  console.log(`Routing request ${file} to ${filepath}`)
+
+  res.sendFile(filepath)
 })
 
 app.get('/', function(req, res) {

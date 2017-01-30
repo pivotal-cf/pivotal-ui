@@ -25,7 +25,6 @@ mv package.json2 package.json
 
 npm install
 npm prune
-./node_modules/.bin/webpack --progress -p
+./node_modules/.bin/webpack --config ./backend-webpack.config.babel.js --progress -p
+./node_modules/.bin/webpack --config ./frontend-webpack.config.babel.js --progress -p
 cf push
-
-finish
