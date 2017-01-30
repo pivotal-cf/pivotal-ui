@@ -2,4 +2,4 @@
 applications:
 - name: styleguide-redesign-staging
   buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
-  command: node server.js
+  command: ./node_modules/.bin/babel-node server.js

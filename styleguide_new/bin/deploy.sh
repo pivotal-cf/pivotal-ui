@@ -6,27 +6,26 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-TMP_DEPLOY_DIR=/tmp/deploy_styleguide
+cp package.json package.json.bak
 
-rm -rf $TMP_DEPLOY_DIR || true
+function finish {
+  cp package.json.bak package.json
+  rm package.json.bak
+}
+
+trap finish EXIT
 
 cf api api.run.pivotal.io
 cf auth pivotal-ui@pivotal.io $1
 cf target -o pivotal -s pivotal-ui-staging
+
+sed 's/\"file:.*/"> 0.0.1",/g' package.json > package.json2
+mv package.json package.json.bak
+mv package.json2 package.json
+
 npm install
 npm prune
 ./node_modules/.bin/webpack --progress -p
+cf push
 
-mkdir -p $TMP_DEPLOY_DIR
-
-for thing in package.json index.html manifest.yml dist server.js; do
-    cp -R $thing $TMP_DEPLOY_DIR/$thing
-done
-
-pushd $TMP_DEPLOY_DIR
-    sed "/file:/d" package.json > package.json2
-    mv package.json2 package.json
-    cf push
-popd
-
-rm -rf $TMP_DEPLOY_DIR
+finish

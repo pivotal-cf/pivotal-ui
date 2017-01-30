@@ -1,6 +1,6 @@
 import React from 'react'
 import {Autocomplete} from 'pui-react-autocomplete'
-import {Iconography} from 'pui-react-iconography'
+import {Iconography, Icon} from 'pui-react-iconography'
 import {Collapse} from 'pui-react-collapse'
 
 const styleItems = [
