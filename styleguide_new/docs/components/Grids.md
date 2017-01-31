@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
   <Row className="grid-show">
     <Col md={2}></Col>

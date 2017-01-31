@@ -1,5 +1,6 @@
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
+
 const prod = process.argv.indexOf('-p') !== -1
 
 export default {
@@ -25,7 +26,7 @@ export default {
       },
       {
         test: /\.md$/,
-        loader: 'html-loader!markdown-loader'
+        loader: 'html-loader!./src/helpers/markdown-loader.js',
       },
       {
         test: /\.s?css$/,

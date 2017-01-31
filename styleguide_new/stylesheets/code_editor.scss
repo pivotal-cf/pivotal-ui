@@ -1,20 +1,15 @@
-.markdown-viewer {
-  pre {
-    padding: 0;
-    margin: 0 0 16px 0;
-    border: 0;
-    border-radius: 0;
-    background-color: white;
-  }
+@import "./toolbar";
+
+.code-editor--toolbar + div {
+  margin-top: 8px;
 }
 
-.code-editor {
-  background-color: white;
-  margin: 0 20px;
+.code-editor > :last-child {
+  margin-top: 8px;
 }
 
 .code-editor--live-preview {
-  padding: 20px 10px 10px 10px;
+  padding: 0 10px 10px 0;
 }
 
 .code-editor--edit {
@@ -26,51 +21,13 @@
 }
 
 .code-editor--edit, .code-editor--html-preview {
-  border: 1px solid $dark-9;
   padding: 5px;
-}
+  border: 1px solid $dark-9;
+  background-color: $dark-11;
 
-.code-editor--toolbar {
-  text-align: right;
-  margin: 2px 0px;
-}
-
-.code-editor--toolbar--icon {
-  vertical-align: middle;
-  margin-bottom: 3px;
-
-  svg {
-    fill: $gray-4;
+  .ace_content {
+    background-color: $dark-11;
   }
-}
-
-.code-editor--toolbar--open {
-  background-color: $teal-10;
-  border: 0px;
-
-  svg {
-    fill: white;
-  }
-}
-
-.code-editor--toolbar--close {
-  background-color: white;
-  border: 1px solid black;
-
-  svg {
-    fill: white;
-  }
-}
-
-.code-editor--toolbar--item {
-  margin: 0px 10px;
-  cursor: pointer;
-  vertical-align: middle;
-}
-
-.code-editor--toolbar--label {
-  display: inline;
-  margin-left: 5px;
 }
 
 .code-editor--titlebar {
@@ -84,7 +41,7 @@
 
   .clipboard-button {
     background-color: inherit;
-    border: 0px;
+    border: 0;
     display: inline;
     position: fixed;
     right: 25px;

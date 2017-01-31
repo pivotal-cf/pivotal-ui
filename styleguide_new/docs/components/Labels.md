@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
     <Label>yeah</Label>
     <br/>

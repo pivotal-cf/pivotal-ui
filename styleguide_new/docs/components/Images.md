@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
     <Image src="http://placehold.it/1000x100"
            responsive={true}

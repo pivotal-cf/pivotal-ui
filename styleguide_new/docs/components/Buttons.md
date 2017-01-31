@@ -3,24 +3,28 @@
 ## Basic Usage
 
 ```jsx
+::title=Default Button
 <DefaultButton>
   yo
 </DefaultButton>
 ```
 
 ```jsx
+::title=Primary Button
 <PrimaryButton>
   hello world
 </PrimaryButton>
 ```
 
 ```jsx
+::title=Danger Button
 <DangerButton>
   Danger
 </DangerButton>
 ```
 
 ```jsx
+::title=Brand Button
 <BrandButton>
   Brand
 </BrandButton>

@@ -6,6 +6,13 @@
   "repository": "https://github.com/pivotal-cf/pivotal-ui",
   "main": "server.js",
   "devDependencies": {
+    "babel-cli": "^6.22.2",
+    "babel-core": "^6.22.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-standalone": "^6.21.1",
+    "marked": "^0.3.6",
     "concurrently": "^3.1.0",
     "css-loader": "^0.26.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
@@ -28,19 +35,10 @@
     "through2": "^2.0.3",
     "url-loader": "^0.5.7",
     "webpack": "^2.2.0",
-    "webpack-uglify-js-plugin": "^1.1.9"
-  },
-  "dependencies": {
-    "babel-cli": "^6.22.2",
-    "babel-core": "^6.22.1",
-    "babel-loader": "^6.2.10",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-standalone": "^6.21.1",
+    "webpack-uglify-js-plugin": "^1.1.9",
     "codemirror": "^5.22.2",
     "express": "^4.14.0",
     "html-entities": "^1.2.0",
-    "markdown-loader": "^0.1.7",
     "path": "^0.12.7",
     "pretty": "^1.0.0",
     "pui-css-alerts": "file:../library/dist/css/alerts",
@@ -133,6 +131,6 @@
     "npm": "3.10.x"
   },
   "scripts": {
-    "watch": "concurrently --kill-others \"webpack --config ./frontend-webpack.config.babel.js --progress --watch\" \"webpack --config ./backend-webpack.config.babel.js --progress --watch\" \"nodemon ./dist/compiled-server.js\""
+    "watch": "concurrently --kill-others \"webpack --config ./frontend-webpack.config.babel.js --watch\" \"webpack --config ./backend-webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
   }
 }

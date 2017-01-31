@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
   <section>
     <span>Content will be transported from here:</span>

@@ -25,6 +25,7 @@ Import the subcomponents:
 Using Tab components in React consists of a parent element for the desired Tab type (for example, Tabs or LeftTabs). Each Tab is a child of this and has a tab property for the string value a Tab should display. Additionally, each Tab must define an eventKey property for uniquely identifying this tab to its parent component.
 
 ```jsx
+::title=Basic Example
 <div>
     <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
       <Tab eventKey={1} title="Tab 1">Wow!</Tab>

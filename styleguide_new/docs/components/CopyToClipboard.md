@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
     <CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
         I got copied by a good looking button

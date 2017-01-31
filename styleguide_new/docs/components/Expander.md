@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 class MoreInfo extends React.Component {
   constructor(props) {
     super(props);

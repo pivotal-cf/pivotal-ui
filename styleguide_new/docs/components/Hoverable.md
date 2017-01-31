@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```html
+::title=Basic Example
 <div>
     <ul className="list-group">
       <li class="list-group-item" hoverable>List Item 1<a class="hovered" href="#">Edit</a></li>

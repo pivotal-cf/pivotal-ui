@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 class MyModal extends React.Component {
   constructor(props) {
     super(props);

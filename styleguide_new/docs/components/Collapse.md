@@ -7,6 +7,7 @@
 ## Basic Usage
 
 ```jsx
+::title=Basic Example
 <div>
     <BaseCollapse header="Panel 1">
       <p>Panel 1 content</p>

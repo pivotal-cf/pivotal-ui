@@ -92,7 +92,7 @@ const routes = {
   '/404': {html: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
 
   '/colors': {html: ColorsStuff, file: 'styles/Colors.md', name: 'Colors', category: 'Styles', packages: [Bootstrap]},
-  '/gridcss': {html: GridcssStuff, file: 'styles/Grid.md', name: 'Grids', category: 'Styles', packages: []},
+  '/gridcss': {html: GridcssStuff, file: 'styles/Grid.md', name: 'Gridcss', category: 'Styles', packages: []},
   '/icons': {html: IconsStuff, file: 'styles/Icons.md', name: 'Icons', category: 'Styles', packages: [Iconography]},
 
   '/alerts': {html: AlertsStuff, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},

@@ -20,6 +20,7 @@ The Pagination component provides a styled list of links used to navigate throug
 ## Props
 
 ```jsx
+::title=Basic Example
 <div>
     <Pagination/>
 </div>
