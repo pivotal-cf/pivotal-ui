@@ -497,7 +497,7 @@ $input-height-base:              ($line-height-computed + ($padding-base-vertica
 $input-height-large:             (floor($font-size-large * $line-height-large) + ($padding-large-vertical * 2) + 2) !default;
 $input-height-small:             (floor($font-size-small * $line-height-small) + ($padding-small-vertical * 2) + 2) !default;
 
-$input-icon-size:                20px;
+$input-icon-size:                16px;
 
 $form-group-margin-bottom: 15px;
 

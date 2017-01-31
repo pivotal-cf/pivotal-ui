@@ -142,10 +142,9 @@ input[type="radio"] {
   @include validation-label-color()
 }
 
-.has-error {
-  .help-block {
-    font-size: $font-size-small;
-  }
+.has-error, .help-block {
+  line-height: 16px;
+  font-size: $font-size-extra-small;
 }
 
 // align bootstrap errors for checkboxes and radio buttons
@@ -202,7 +201,6 @@ p.form-control-static {
     text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
-    line-height: 1.2;
     height: auto; //bootstrap override of fixed height
   }
   .showing-text {
