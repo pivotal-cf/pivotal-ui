@@ -221,7 +221,7 @@ This section contains different list behaviors. See [lists][list] to see differe
   @extend .list-unstyled;
 
   > li {
-    margin-bottom: $grid-gutter-width;
+    margin-bottom: $list-card-margin;
   }
 }
 
@@ -233,7 +233,7 @@ This section contains different list behaviors. See [lists][list] to see differe
         > li {
           width: $width;
           float: left;
-          margin-right: $grid-gutter-width;
+          margin-right: $list-card-margin;
         }
       }
     }
