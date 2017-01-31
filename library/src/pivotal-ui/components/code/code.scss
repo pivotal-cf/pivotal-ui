@@ -1,7 +1,5 @@
 @import "../pui-variables";
 
-
-
 .pre-unstyled {
   background-color: transparent;
   border: none;
@@ -15,13 +13,11 @@
   overflow-y: auto; //bootstrap override
 }
 
-
 .inline-dark {
   background-color: $code-background-dark;
   border-radius: $code-border-radius;
   color: $code-color-dark;
 }
-
 
 .terminal {
   background-color: $gray-7;

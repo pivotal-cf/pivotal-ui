@@ -3,12 +3,15 @@
 .when-collapsed {
   display: none;
 }
+
 .when-expanded {
   display: block;
 }
+
 .when-collapsed-inline {
   display: none;
 }
+
 .when-expanded-inline {
   display: inline;
 }
@@ -28,11 +31,9 @@
   }
 }
 
-
 .collapse-trigger {
   cursor: pointer;
   display: flex;
-
 
   .collapse-title {
     display: inline-block;
@@ -54,8 +55,7 @@
 
 .panel-heading-accordion {
   position: relative;
-  padding: 10px 20px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -65,10 +65,9 @@
 }
 
 .panel-body-accordion {
-  margin: 0px;
-  padding:  30px 20px;
+  margin: 0;
+  padding: 30px 20px;
 }
-
 
 .panel-body-accordion-divider {
   @extend .panel-body-accordion;

@@ -1,9 +1,7 @@
 @import "../pui-variables";
 @import "../mixins";
 
-
-
-a{
+a {
   color: $link-color;
   @include transition-pui();
 
@@ -13,7 +11,7 @@ a{
     color: lighten($link-color, 6%);
   }
 
-  &:active, &.active{
+  &:active, &.active {
     color: darken($link-color, 6%);
   }
 
@@ -21,7 +19,6 @@ a{
     font-weight: $link-lowlight-font-weight;
   }
 }
-
 
 .link-lowlight {
   font-weight: $link-lowlight-font-weight;
@@ -47,30 +44,3 @@ a{
     color: darken($link-inverse-color, 6%);
   }
 }
-
-/*pending
----
-title: Gentle Scroll Links
-name: gentle-scroll
-categories:
-  - Utilities
-  - Objects
-  - All
----
-
-If you want to gently scroll from one part of the page to another, you'll need to add
-a `data-behavior: GentleScroll` to the trigger element as well as an `href` for the
-id of the target it will scroll to.
-
-```html_example
-<a class="btn-default" data-behavior="GentleScroll" href="#scroll-target">Scroll Trigger</a>
-```
-
-It can scroll to anything, in this case, we'll use a text input.
-
-```html_example
-<input class="form-control" id="scroll-target" placeholder="Scroll target" type="text"></input>
-```
-
-*/
-

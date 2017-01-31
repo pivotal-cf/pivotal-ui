@@ -1,20 +1,6 @@
 @import "../pui-variables";
 @import "../mixins";
 
-
-// Terrible terrible code
-.table-hack {
-  .thead, .tbody {
-    padding: 0 $whitespace-l;
-  }
-  .th {
-    padding: 8px $whitespace-l;
-  }
-  .td {
-    padding: 20px $whitespace-l;
-  }
-}
-
 .table-data {
   border: none;
   tbody, thead, .tbody, .thead {

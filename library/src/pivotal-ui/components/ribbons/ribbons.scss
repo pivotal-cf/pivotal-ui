@@ -1,6 +1,5 @@
 @import "../pui-variables";
 
-
 .ribbon {
   position: relative;
   display: inline-block;
@@ -13,7 +12,6 @@
   text-align: center;
   text-transform: uppercase;
   background-color: $ribbon-bg-default;
-
 
   &:before,
   &:after {
@@ -50,7 +48,6 @@
     border-right-color: transparent;
   }
 }
-
 
 .ribbon-banner {
   position: fixed;

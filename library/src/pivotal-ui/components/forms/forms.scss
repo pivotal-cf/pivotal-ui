@@ -177,40 +177,6 @@ p.form-control-static {
   color: $neutral-3;
 }
 
-/*pending
----
-title: Content Editables
-name: form_content_editable
-categories:
-  - Forms
-  - All
----
-
-This form looks and behaves mostly like a content editable field
-
-```html_example
-<form class="form-contenteditable"
-      name="newEditableForm"
-      ng-class="{"saving": editText.saving, "editing": editText.editing}"
-      ng-controller="FormContentEditableController"
-      ng-submit="editText.save()">
-  <label class="txt-c">
-    <div class="form-group mbn">
-      <span class="form-contenteditable-hint link-lowlight">Hover text</span>
-      <h5 class="type-primary-4 showing-text">Default text</h5>
-      <div class="saving-text">Updating Text...</div>
-      <input class="form-control" name="name"
-             ng-blur="editText.save()"
-             ng-focus="editText.enterEditMode()"
-             ng-model="editText.newModel.name"
-             required="required" tabIndex="-1" type="text">
-      </input>
-    </div>
-  </label>
-</form>
-```
-*/
-
 .form-contenteditable {
   position: relative;
 

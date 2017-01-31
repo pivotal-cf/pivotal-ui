@@ -1,7 +1,5 @@
 @import "../pui-variables";
 
-//Button Groups
-//---------------------------------------
 .btn-group {
   display: inline-block;
 
@@ -20,7 +18,7 @@
   button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-radius: 0;
   }
-  //First Btn
+
   .button:first-child,
   button:first-child {
     border-bottom-left-radius: $btn-border-radius;
@@ -28,7 +26,7 @@
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
-  //Last Btn
+
   .button:last-child:not(:first-child),
   button:last-child:not(:first-child),
   .dropdown-toggle:not(:first-child) {

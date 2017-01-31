@@ -1,7 +1,6 @@
 @import "../pui-variables";
 @import "../mixins";
 
-
 .tab-highlight {
   .nav {
     > li {
@@ -15,7 +14,7 @@
       > a {
         padding: 15px;
         color: $tab-highlight-tab-color;
-        background-color:$tab-highlight-bg-color;
+        background-color: $tab-highlight-bg-color;
         transition: background-color 150ms ease-out;
       }
 
@@ -44,7 +43,6 @@
     }
   }
 
-
   //content area of tabs
   .tab-content {
     border-top: $tab-highlight-border-width solid $tab-highlight-border-color;
@@ -52,7 +50,6 @@
     margin-left: -20px;
   }
 }
-
 
 $tab-border-size: 1px;
 $tab-padding: 6px 19px;
@@ -145,11 +142,11 @@ $tab-padding: 6px 19px;
   padding: 20px;
 }
 
-
 .tab-simple-alt {
   position: relative;
   > .nav {
-    &.nav-tabs {}
+    &.nav-tabs {
+    }
     border-bottom: none;
     > li {
       > a {
@@ -193,7 +190,6 @@ $tab-padding: 6px 19px;
     background-color: $tab-alt-active-bg-color;
   }
 }
-
 
 .tab-responsive {
   .tab-content {
@@ -254,7 +250,6 @@ $tab-padding: 6px 19px;
   }
 }
 
-
 .tabs-images {
   .nav-tabs-images {
     text-align: center;
@@ -283,7 +278,7 @@ $tab-padding: 6px 19px;
     &.active a,
     &:hover a,
     &:focus a,
-    &:active a{
+    &:active a {
       background-color: $teal-3;
       color: $neutral-11;
     }

@@ -3,23 +3,7 @@
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
 @import '../../frameworks/oocss/clearfix-me';
 @import '../../frameworks/oocss/listWhitespace';
-
 @import "../mixins";
-
-
-
-
-/*pending
----
-title: JS Lists
-name: lists_js
-categories:
-  - Objects
-  - All
----
-
-This section contains different list behaviors. See [lists][list] to see different list styles.
-*/
 
 //Bootstrap
 @mixin list-unstyled {
@@ -52,14 +36,12 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-
 .list-unordered {
   padding-left: 0;
   > li {
     margin-left: 17px;
   }
 }
-
 
 @mixin list-inline-divider($color: $neutral-5) {
   > li {
@@ -80,8 +62,6 @@ This section contains different list behaviors. See [lists][list] to see differe
 .list-inline-divider-light {
   @include list-inline-divider($list-inline-divider-light-color);
 }
-
-
 
 .list-breadcrumb {
   @extend .list-inline;
@@ -119,7 +99,6 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-
 .list-group-inverse {
   @extend .list-group;
   > li {
@@ -133,16 +112,14 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-.list-notitle{
-  li:first-child{
-    border-top:0;
+.list-notitle {
+  li:first-child {
+    border-top: 0;
   }
-  li:last-child{
-    border-bottom:0;
+  li:last-child {
+    border-bottom: 0;
   }
 }
-
-
 
 .list-vertical-divider {
   @extend .list-inline;
@@ -172,30 +149,28 @@ This section contains different list behaviors. See [lists][list] to see differe
     padding-left: 30px;
     padding-right: 30px;
   }
-  >li:first-child {
+  > li:first-child {
     padding-left: 30px;
   }
 }
-
-
 
 .list-steps {
   @extend .list-inline;
   > li {
     font-size: 14px;
-    text-transform:uppercase;
+    text-transform: uppercase;
     color: $list-steps-color;
     margin-right: 45px;
     padding-left: 0; // overrides .list-inline styles
     margin-bottom: 5px;
     counter-increment: list-steps;
-    font-weight:600;
+    font-weight: 600;
     &:before {
       content: counter(list-steps);
 
       display: block;
       padding: 0px 7px;
-      margin-right:4px;
+      margin-right: 4px;
       text-align: center;
       color: $list-steps-color;
       display: inline-block;
@@ -204,7 +179,7 @@ This section contains different list behaviors. See [lists][list] to see differe
     }
     &.current {
       color: $list-steps-color-current;
-      font-weight:900;
+      font-weight: 900;
       &:before {
         color: $list-steps-color-current;
         border-color: $list-steps-color-current;
@@ -214,7 +189,6 @@ This section contains different list behaviors. See [lists][list] to see differe
 }
 
 @include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
-
 
 .list-cards {
   @include clearfix-micro;
@@ -240,7 +214,7 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-@mixin makeCard($height, $width, $name){
+@mixin makeCard($height, $width, $name) {
   .list-card-#{$name} {
     @include setCardWidthResponsive($width);
     > li {
@@ -262,7 +236,6 @@ This section contains different list behaviors. See [lists][list] to see differe
 
 @include makeCard(126px, 435px, 1);
 @include makeCard(196px, 284px, 2);
-
 
 .list-stream-new-items-btn-wrapper {
   overflow: hidden;
@@ -323,8 +296,6 @@ This section contains different list behaviors. See [lists][list] to see differe
   }
 }
 
-
-
 .list-timeline {
   @extend .list-unstyled;
   display: table;
@@ -359,6 +330,7 @@ This section contains different list behaviors. See [lists][list] to see differe
   vertical-align: middle;
   position: relative;
   padding: $timeline-list-padding 0 $timeline-list-padding $timeline-list-gutter;
+
   &:before {
     content: "";
     display: block;
@@ -368,9 +340,9 @@ This section contains different list behaviors. See [lists][list] to see differe
     top: 0;
     left: 0;
     z-index: 1;
-    top: 0;
     bottom: 0;
   }
+
   &:after {
     height: 20px;
     width: 20px;

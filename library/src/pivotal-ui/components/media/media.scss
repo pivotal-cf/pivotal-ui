@@ -1,6 +1,5 @@
 @import "../pui-variables";
 
-
 .media {
   // Proper spacing between instances of .media
   margin-top: 15px;
@@ -67,7 +66,7 @@
 }
 
 .media {
-  &.media-stackable-xs{
+  &.media-stackable-xs {
     @include media-stackable($screen-xs);
   }
 

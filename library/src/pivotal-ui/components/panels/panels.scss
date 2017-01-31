@@ -2,7 +2,6 @@
 @import "../mixins";
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
-
 .panel { // resets bootstrap default
   display: flex;
   flex-direction: column;
@@ -31,11 +30,9 @@
   font-size: inherit; // Bootstrap Override for React Collapses
 }
 
-
 .panel-simple {
   border: $panel-simple-border;
 }
-
 
 .panel-basic {
   border-radius: $border-radius-medium;
@@ -140,15 +137,15 @@
   0% {
     right: 100%;
     width: 100%;
-    opacity:1;
+    opacity: 1;
   }
   85% {
-    opacity:.15;
+    opacity: .15;
   }
   100% {
     right: 0%;
     width: 100%;
-    opacity:.05;
+    opacity: .05;
   }
 }
 
@@ -158,19 +155,16 @@
   overflow-x: hidden;
 }
 
-
-
 .panel-highlight {
   background-color: $gray-10;
   border-radius: 10px;
   box-shadow: 0 4px 0 0 $shadow-3;
 
-  &.title-panel h1{
+  &.title-panel h1 {
     overflow: hidden;
     @include text-overflow;
   }
 }
-
 
 .panel-alt {
 
@@ -198,17 +192,15 @@
     min-height: 88px;
   }
 
-  // top right corner tabs
-
   &%panel-state {
     position: relative;
     &:before {
       content: "";
       position: absolute;
-      top: 0%;
-      right: 0%;
-      width: 0px;
-      height: 0px;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
       border-left: 25px solid transparent;
     }
 
@@ -226,7 +218,6 @@
     border-top: 25px solid $gray-4;
   }
 }
-
 
 .panel-shadow {
   border: none; //Bootstrap override
@@ -253,7 +244,6 @@
   box-shadow: 0px 4px $shadow-4;
 }
 
-
 .panel-clickable {
   display: block;
   background-color: $gray-9;
@@ -276,7 +266,7 @@
     background-color: $gray-10;
   }
 
-  &:hover{
+  &:hover {
     background-color: $gray-10;
 
     .hover-target-1 { // default text color => link color
@@ -285,7 +275,7 @@
     .hover-target-2 { // light gray => default text color
       color: $text-color;
     }
-    .hover-target-3{
+    .hover-target-3 {
       background-color: $gray-11;
     }
   }

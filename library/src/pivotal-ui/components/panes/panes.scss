@@ -1,7 +1,5 @@
 @import "../pui-variables";
 
-
-
 .pane {
   > .container {
     padding-top: $pane-offset-xs;
@@ -9,7 +7,7 @@
   }
 }
 
-.pane-offset{
+.pane-offset {
   .pane-image {
 
     text-align: center;
@@ -18,7 +16,7 @@
       display: inline-block;
     }
   }
-  &+ .pane .container {
+  & + .pane .container {
     padding-top: 2 * $pane-offset-xs;
   }
 }
@@ -30,11 +28,11 @@
       padding-bottom: $pane-offset-sm;
     }
   }
-  .pane-offset{
+  .pane-offset {
     .pane-image {
       margin-bottom: -2*$pane-offset-sm;
     }
-    &+ .pane .container {
+    & + .pane .container {
       padding-top: 2 * $pane-offset-sm;
     }
   }
@@ -47,11 +45,11 @@
       padding-bottom: $pane-offset-md;
     }
   }
-  .pane-offset{
+  .pane-offset {
     .pane-image {
       margin-bottom: -2*$pane-offset-md;
     }
-    &+ .pane .container {
+    & + .pane .container {
       padding-top: 2 * $pane-offset-md;
     }
   }
