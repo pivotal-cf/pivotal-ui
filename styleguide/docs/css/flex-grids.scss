@@ -1,0 +1,158 @@
+/*doc
+---
+title: Flex Grids
+name: 11_grid_flex
+categories:
+- css_utilities_grids
+- css_all
+parent: grid
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-flex-grids --save
+</code>
+
+## Examples
+
+<div class="alert alert-warning mbxl">
+  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don"t use it IRL.</p>
+</div>
+
+### Gutters
+
+You can create a flex grid with and without gutters. Here are examples of what each would look like.
+
+```html_example
+<div class="grid grid-show">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+
+<div class="grid grid-nogutter grid-show">
+  <div class="col"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+```
+
+### Sizing
+
+Using a single set of `.col-n` grid classes, you can create a basic grid system that starts
+out stacked on mobile devices and tablet devices (the extra small to small range) before
+becoming horizontal on desktop (medium) devices. Place grid columns in any `.grid`:
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+  <div class="col col-2"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-16"></div>
+  <div class="col col-8"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-8"></div>
+  <div class="col col-8"></div>
+  <div class="col col-8"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-12"></div>
+  <div class="col col-12"></div>
+</div>
+```
+
+You can also specify how the columns grow with `.col-grow-n` (n = 2 - 11). These columns will
+attempt to respect their given ratio until the content of the column exceeds their parameters,
+after which the column will drop onto another row:
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-grow-2"></div>
+  <div class="col col-grow-3"></div>
+  <div class="col col-grow-4"></div>
+  <div class="col col-grow-5"></div>
+  <div class="col col-grow-6"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-grow-8"></div>
+  <div class="col col-grow-9"></div>
+  <div class="col col-grow-10"></div>
+  <div class="col col-grow-11"></div>
+</div>
+```
+
+### Fixing Column Size
+
+You can fix the width of a column by using the `.col-fixed` class.
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-fixed" style="width: 150px;"></div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+```
+
+### Break Points
+
+You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
+
+```html_example
+<div class="grid grid-show">
+  <div class="col col-sm" style="width: 150px;"></div>
+  <div class="col col-sm"></div>
+  <div class="col col-sm"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-md" style="width: 150px;"></div>
+  <div class="col col-md"></div>
+  <div class="col col-md"></div>
+</div>
+
+<div class="grid grid-show">
+  <div class="col col-lg" style="width: 150px;"></div>
+  <div class="col col-lg"></div>
+  <div class="col col-lg"></div>
+</div>
+```
+
+### Alignment
+
+Aligning columns relative to the grid:
+
+```html_example
+<div class="grid grid-show" style="height:200px">
+  <div class="col col-align-top"></div>
+  <div class="col col-align-middle"></div>
+  <div class="col col-align-bottom"></div>
+</div>
+```
+
+Aligning content relative to the column it is in:
+
+```html_example
+<div class="grid">
+  <div class="col col-top" style="height:100px; border: 1px solid gray;">Some content that sits at the top of the column</div>
+  <div class="col col-middle" style="height:100px; border: 1px solid gray;">Some content that sits in the middle of the column</div>
+  <div class="col col-bottom" style="height:100px; border: 1px solid gray;">Some content that sits at the bottom of the column</div>
+</div>
+```
+
+*/
