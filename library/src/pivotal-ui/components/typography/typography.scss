@@ -91,14 +91,20 @@ h6, .h6 {
   letter-spacing: .25px;
 }
 
-small, .type-sm {
-  font-size: $font-size-small !important;
+.type-lg {
+  font-size: $font-size-large;
+  line-height: $line-height-medium;
 }
 
-// bootstrap override
+small, .type-sm {
+  font-size: $font-size-small !important;
+  line-height: $line-height-small;
+}
 
 .type-xs {
   font-size: $font-size-extra-small !important;
+  line-height: $line-height-small;
+  letter-spacing: .25px;
 }
 
 // bootstrap override

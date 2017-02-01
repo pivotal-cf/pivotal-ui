@@ -285,9 +285,9 @@ $font-family-monospace:       Menlo, Consolas, "Courier New", monospace !default
 $font-family-base:            $font-family-sans-serif !default;
 
 $font-size-base:              16px !default;
-$font-size-extra-large:       ceil($font-size-base * 1.5) !default; // ~21px
-$font-size-large:             ceil($font-size-base * 1.25) !default; // ~18px
-$font-size-medium:            ceil($font-size-base * 1.14) !default; // ~16px
+$font-size-extra-large:       21px;
+$font-size-large:             18px;
+$font-size-medium:            16px;
 $font-size-small:             14px;
 $font-size-extra-small:       12px;
 
