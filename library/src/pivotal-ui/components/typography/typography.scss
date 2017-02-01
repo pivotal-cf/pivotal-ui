@@ -1,5 +1,10 @@
 @import "../pui-variables";
 
+body {
+  font-size: $font-size-base;
+  line-height: $line-height-medium;
+}
+
 @mixin font-helper($name, $weight, $style) {
   @font-face {
     font-family: 'SourceSansPro';
