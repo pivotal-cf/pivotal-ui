@@ -24,7 +24,7 @@
       }
       td, .td {
         font-size: $font-size-small;
-        padding: $base-size $base-size;
+        padding: $base-unit;
         border: none; // overwriting bootstrap default values which are too specific
       }
     }
@@ -40,7 +40,7 @@
         background-color: $gray-10;
       }
       &:last-child {
-        border-bottom: $base-size/4 solid $shadow-3;
+        border-bottom: $base-unit/4 solid $shadow-3;
       }
     }
   }

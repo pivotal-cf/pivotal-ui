@@ -146,10 +146,7 @@ An input with the label top aligned (this is the default layout).
 ```html_example
 <form class="styleguide-form" role="form">
   <div class="form-group">
-    <label for="exampleInputEmail7">
-      <abbr title="required">*</abbr>
-      Email address
-    </label>
+    <label for="exampleInputEmail7">Email address</label>
     <input aria-required="true" class="form-control" id="exampleInputEmail7" placeholder="Enter email" required="required" type="email">
   </div>
 </form>
@@ -161,17 +158,12 @@ layout by adding `.form-horizontal` to the form. Doing so changes `.form-groups`
 An input with the label left aligned
 
 ```html_example
-<form class="styleguide-form form-horizontal" role="form">
-  <div class="form-group">
-    <div class="col-md-6">
-      <label class="control-label" for="exampleInputEmail3">
-        <abbr title="required">*</abbr>
-        Email address
-      </label>
-    </div>
-    <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
-    </div>
+<form class="styleguide-form form-inline grid grid-nogutter" role="form">
+  <div class="form-group col">
+    <label for="exampleInputEmail3">Email address</label>
+  </div>
+  <div class="form-group col col-grow-2">
+    <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
   </div>
 </form>
 ```
@@ -179,15 +171,12 @@ An input with the label left aligned
 An input with the label right aligned (N.B., control-label class provides the right alignment):
 
 ```html_example
-<form class="styleguide-form form-horizontal" role="form">
-  <div class="form-group">
-    <label class="col-md-6 control-label" for="exampleInputEmail4">
-      <abbr title="required">*</abbr>
-      Email address
-    </label>
-    <div class="col-md-18">
-      <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email">
-    </div>
+<form class="styleguide-form form-inline grid grid-nogutter" role="form">
+  <div class="form-group col txt-r">
+    <label for="exampleInputEmail4">Email address</label>
+  </div>
+  <div class="form-group col col-grow-2">
+    <input aria-required="true" class="form-control" id="exampleInputEmail4" placeholder="Enter email" required="required" type="email">
   </div>
 </form>
 ```
@@ -508,50 +497,6 @@ Checkboxes are for selecting one or several options in a list while radios are f
 
 /*doc
 ---
-title: Inline Checkboxes & Radios
-name: form_checkboxes_inline
-parent: form_checkboxes
----
-
-Use `.checkbox-inline` or `.radio-inline` class to a series of checkboxes or radios for controls appear on the same line.
-
-```html_example
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label class="checkbox-inline">
-      <input id="inlineCheckbox1" type="checkbox" value="option1">
-      1
-    </label>
-    <label class="checkbox-inline">
-      <input id="inlineCheckbox2" type="checkbox" value="option2">
-      2
-    </label>
-    <label class="checkbox-inline">
-      <input id="inlineCheckbox3" type="checkbox" value="option3">
-      3
-    </label>
-  </div>
-  <div class="form-group">
-    <label class="radio-inline">
-      <input id="inlineradio1" type="radio" value="option1">
-      1
-    </label>
-    <label class="radio-inline">
-      <input id="inlineradio2" type="radio" value="option2">
-      2
-    </label>
-    <label class="radio-inline">
-      <input id="inlineradio3" type="radio" value="option3">
-      3
-    </label>
-  </div>
-</form>
-```
-
-*/
-
-/*doc
----
 title: Help Text
 name: form_help_text
 categories:
@@ -563,9 +508,11 @@ Block level help text for form controls.
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="demohelp"/>
-  <input class="form-control" id="demohelp" type="text">
-  <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+  <div class="form-group">
+    <label for="demohelp"/>
+    <input class="form-control" id="demohelp" type="text">
+    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+  </div>
 </form>
 ```
 
@@ -641,10 +588,6 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
   <input type="checkbox" disabled>
   I'm disabled!
 </label>
-
-<button class="btn" disabled>
-  Hi
-</button>
 ```
 
 */

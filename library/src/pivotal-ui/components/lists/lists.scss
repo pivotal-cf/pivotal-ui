@@ -19,12 +19,12 @@
 //Bootstrap
 .list-inline {
   @include list-unstyled;
-  margin-left: $base-size * -1;
+  margin-left: $base-unit * -1;
 
   > li {
     display: inline-block;
-    padding-left: $base-size;
-    padding-right: $base-size;
+    padding-left: $base-unit;
+    padding-right: $base-unit;
   }
 }
 
@@ -90,8 +90,8 @@
       color: $navbar-default-link-color;
       content: ">";
       vertical-align: middle;
-      padding-right: $base-size / 2;
-      padding-left: $base-size / 2;
+      padding-right: $base-unit / 2;
+      padding-left: $base-unit / 2;
     }
     &:first-child:before {
       content: "";

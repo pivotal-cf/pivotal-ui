@@ -1,174 +1,177 @@
 @import "../pui-variables";
-@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
-@import "../mixins";
+
+$input-border: $dark-8;
+$input-border-focus: $dark-5;
+$input-disabled: $gray-9;
+$input-border-invalid: $error-3;
+$input-invalid-text: $error-3;
+$input-border-valid: $success-2;
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
+select,
+.dropdown {
+  display: block;
+  width: 100%;
+  height: ($base-unit*4);
+  padding: 4px $base-unit;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid $input-border;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: $dark-2;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus,
+.dropdown:focus {
+  border: 1px solid $input-border-focus;
+  outline: 0;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 2px;
+}
+
+.form-group-checkbox {
+  label {
+    display: inline-block;
+    font-weight: 400;
+  }
+}
+
+label,
+legend {
+  color: $dark-2;
+}
+
+html body {
+  input, textarea, select {
+    &.disabled, &:disabled {
+      background-color: $input-disabled;
+      cursor: not-allowed;
+      color: $dark-5;
+      border-color: $input-border;
+    }
+  }
+}
+
+//Form Groupings
+//-------------------------------------
 
 .form-group {
-  abbr {
-    float: right;
-    margin-left: 5px;
-    border-bottom: 0;
-  }
-  [class*="col"].control-label {
-    abbr {
-      float: none;
-      margin-right: 2px;
-    }
-  }
-}
-
-.unstyled {
-  background-color: transparent;
-  outline: none;
-  border: none;
-}
-
-label {
-  font-weight: 600;
-  font-size: $font-size-small;
-  color: $neutral-3; //override bootstrap
-  line-height: 4 * $base-size;
-  margin-bottom: 0; //override bootstrap
-}
-
-// do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
-::-webkit-input-placeholder {
-  font-weight: 400;
-}
-
-:-moz-placeholder { /* Firefox 18- */
-  font-weight: 400;
-}
-
-::-moz-placeholder { /* Firefox 19+ */
-  font-weight: 400;
-}
-
-:-ms-input-placeholder {
-  font-weight: 400;
-}
-
-.form-group .input-wrapper {
+  margin-bottom: ($base-unit*2);
+  margin-right: ($base-unit*2);
   position: relative;
-}
-
-.form-group-left-icon {
-  input {
-    padding-left: $base-size * 4;
-  }
-}
-
-.input-left-icon {
-  position: absolute;
-  left: 8px;
-  top: 50%;
-  transform: translate(0, -50%);
-  font-size: $input-icon-size;
-  fill: $neutral-3;
-
-  svg {
-    vertical-align: middle;
-  }
-}
-
-.form-control[readonly] {
-  background-color: $input-bg-disabled; //override bootstrap
-}
-
-.form-control {
-  padding: ($base-size/2) ($base-size); // override bootstrap
-  font-size: $font-size-small;
-
-  position: relative;
-  &:hover, &:focus {
-    border-color: $input-border-color-hover;
-  }
-
-  &.disabled, &:disabled {
-    opacity: 0.5;
-  }
-}
-
-select.form-control {
-  @include button-shadow;
-  color: $link-color;
-  font-weight: $input-font-weight;
-
-  &:hover, &:focus {
-    color: $input-color-hover;
-  }
-
-  &.active, &:active {
-    background-color: $input-bg-active;
-    color: $input-color-active;
-  }
-
-  &.disabled, &:disabled {
-    color: $input-color;
-  }
-}
-
-input[type="radio"] {
-  margin-top: 2px; // bootstrap override: make radios line up with our small font.
-}
-
-.form-inline.inline-labels {
-  .form-group {
-    input, select {
-      width: auto !important;
-    }
-  }
-}
-
-/* overrides bootstrap colors */
-@mixin validation-label-color() {
-  .control-label {
-    color: $neutral-3;
-  }
-}
-
-.has-success {
-  position: relative;
-  .svgicon.success {
-    position: absolute;
-    right: $base-size;
-    top: 50%;
-    transform: translate(0, -50%);
-    height: $input-icon-size;
-    width: $input-icon-size;
-    font-size: $input-icon-size;
-    stroke: $success-1;
-    fill: $success-1;
-  }
-
-  .form-control {
-    padding-right: $base-size * 4;
-  }
-  @include validation-label-color()
-}
-
-.has-error {
-  .help-block {
-    line-height: 16px;
-    font-size: $font-size-extra-small;
-  }
-}
-
-// align bootstrap errors for checkboxes and radio buttons
-.radio,
-.checkbox {
-  margin-top:0;
-  margin-bottom:0;
-
   label {
-    padding-left: 0;
-
+    position: relative;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: ($base-unit*4);
+    margin-bottom: 0;
+    margin-right: $base-unit;
+    .svgicon {
+      pointer-events: initial;
+      position: relative;
+      font-size: 16px;
+      bottom: 0;
+      right: 0;
+      fill: $dark-6;
+    }
   }
 
-  .disabled {
-    color: $neutral-5;
-    cursor: not-allowed;
+  //Validation Icons
+  .svgicon {
+    pointer-events: none;
+    position: absolute;
+    right: $base-unit;
+    bottom: $base-unit;
+    font-size: 16px;
+    &.valid svg {
+      fill: $input-border-valid;
+    }
+    &.invalid svg {
+      fill: $input-border-invalid;
+    }
   }
 }
+
+.form-group-search {
+  position: relative;
+  .svgicon {
+    position: absolute;
+    right: $base-unit;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    fill: $dark-2;
+  }
+  input {
+    padding-left: 32px;
+  }
+}
+
+.form-lg {
+  label {
+    font-size: 16px;
+    line-height: 40;
+  }
+  input {
+    height: ($base-unit*5);
+    font-size: 16px;
+  }
+}
+
 .radio input[type="radio"],
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
@@ -179,7 +182,7 @@ input[type="radio"] {
   display: inline-block;
   height: $font-size-small;
   width: $font-size-small;
-  margin-right: $base-size / 2;
+  margin-right: $base-unit / 2;
 }
 
 .radio-inline,
@@ -189,172 +192,93 @@ input[type="radio"] {
 
 .radio-inline + .radio-inline,
 .checkbox-inline + .checkbox-inline {
-  margin-left: $base-size;
+  margin-left: $base-unit;
+}
+
+.form-inline.form-lg {
+  label {
+    line-height: ($base-unit*5);
+  }
+}
+
+.form-inline {
+  display: flex;
+
+  > {
+    display: inline-block;
+  }
+
+  label {
+    margin-bottom: 0;
+    line-height: ($base-unit*4);
+  }
+
+  button, .button {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
+
+  input, textarea, select {
+    display: inline-flex;
+    margin-bottom: 0;
+  }
+}
+
+//Accept & Error (valid/invalid)
+input[type="email"].invalid,
+input[type="number"].invalid,
+input[type="search"].invalid,
+input[type="text"].invalid,
+input[type="tel"].invalid,
+input[type="url"].invalid,
+input[type="password"].invalid,
+textarea.invalid {
+  border: 1px solid $input-border-invalid;
+}
+
+input[type="email"].valid,
+input[type="number"].valid,
+input[type="search"].valid,
+input[type="text"].valid,
+input[type="tel"].valid,
+input[type="url"].valid,
+input[type="password"].valid,
+textarea.valid {
+  border: 1px solid $input-border-valid;
 }
 
 .help-block {
-  color: $form-label-color;
-}
-
-// Form control sizing
-
-@include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
-
-@include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
-
-input {
-  font-size: $font-size-small;
-}
-
-p.form-control-static {
-  color: $neutral-3;
-}
-.form-contenteditable {
-  position: relative;
-
-  .form-contenteditable-hint {
-    display: none;
-  }
-  label {
-    padding: 5px;
-    cursor: pointer;
-    margin-bottom: 0;
-  }
-  input.form-control {
-    background-color: transparent;
-    outline: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    text-align: center;
-    @include h1();
-    margin: 0;
-    padding: 0;
-    border: 1px solid transparent;
-    border-radius: 3px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    width: 100%;
-    height: auto; //bootstrap override of fixed height
-  }
-  .showing-text {
-    margin: 0;
-  }
-  .saving-text {
-    display: none;
-  }
-
-  &.editing .form-contenteditable-hint {
-    display: none;
-  }
-
-  &:hover .form-contenteditable-hint {
-    display: block;
-  }
-
-  &.saving:hover .form-contenteditable-hint {
-    display: none;
-  }
-
-  &:hover .showing-text {
-    display: none;
-  }
-
-  &.saving {
-    .saving-text {
-      display: block;
-    }
-    .showing-text {
-      display: none;
-    }
-  }
-}
-
-.toggle-switch {
   position: absolute;
-  visibility: hidden;
+  bottom: -16px;
+  font-size: 12px;
+  line-height: 16px;
+}
 
-  + label {
-    position: relative;
-    display: block;
-    background-color: $neutral-7;
-    color: $neutral-1;
-    transition: background 0.4s;
-    cursor: pointer;
-    outline: none;
-    text-indent: -99999px;
+.has-error {
+  .help-block {
+    color: $input-invalid-text;
+  }
 
-    &.small {
-      height: $toggle-small-height;
-      width: $toggle-small-width;
-      border-radius: $toggle-small-height;
+  input, textarea, select {
+    border-color: $input-invalid-text;
+  }
+}
 
-      &:after {
-        height: $toggle-small-circle-size;
-        width: $toggle-small-circle-size;
-
-        top: $toggle-small-circle-spacing;
-        left: $toggle-small-circle-spacing;
-        bottom: $toggle-small-circle-spacing;
-      }
-    }
-
-    &.medium {
-      height: $toggle-medium-height;
-      width: $toggle-medium-width;
-      border-radius: $toggle-medium-height;
-
-      &:after {
-        height: $toggle-medium-circle-size;
-        width: $toggle-medium-circle-size;
-
-        top: $toggle-medium-circle-spacing;
-        left: $toggle-medium-circle-spacing;
-        bottom: $toggle-medium-circle-spacing;
-      }
-    }
-
-    &.large {
-      height: $toggle-large-height;
-      width: $toggle-large-width;
-      border-radius: $toggle-large-height;
-
-      &:after {
-        height: $toggle-large-circle-size;
-        width: $toggle-large-circle-size;
-
-        top: $toggle-large-circle-spacing;
-        left: $toggle-large-circle-spacing;
-        bottom: $toggle-large-circle-spacing;
-      }
-    }
-
-    &:after {
+.form-group {
+  //Validation Icons
+  .svgicon {
+    &.valid,
+    &.invalid {
       position: absolute;
-      display: block;
-      background-color: $neutral-11;
-      transition: margin 0.4s, background 0.4s;
-      content: "";
-      border-radius: 50%;
+      right: $base-unit;
+      top: $base-unit;
+      font-size: 16px;
     }
-  }
-
-  &:checked + label {
-    background-color: $blue-2;
-  }
-
-  &:checked + label.small:after {
-    margin-left: $toggle-small-circle-size;
-  }
-
-  &:checked + label.medium:after {
-    margin-left: $toggle-medium-circle-size;
-  }
-
-  &:checked + label.large:after {
-    margin-left: $toggle-large-circle-size;
-  }
-
-  &[disabled] + label {
-    @include opacity(.5);
+    &.valid svg {
+      fill: $input-border-valid;
+    }
+    &.invalid svg {
+      fill: $input-border-invalid;
+    }
   }
 }
