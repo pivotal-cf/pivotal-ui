@@ -180,15 +180,6 @@ An input with the label right aligned (N.B., control-label class provides the ri
   </div>
 </form>
 ```
-
-An unstyled input that doesn't have any of the default input styles
-
-```html_example
-<form role="form">
-  <label for="unstyledInput">Text Input</label>
-  <input class="unstyled" id="unstyledInput" placeholder="This is a text input">
-</form>
-```
 */
 
 /*doc
