@@ -3,6 +3,8 @@
 // in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
 $bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
 
+$base-unit:8px;
+
 // Accent colors - teal for now
 // -------------------------
 
@@ -906,9 +908,9 @@ $label-link-hover-color: $neutral-11;
 // Modals
 // -------------------------
 
-$modal-inner-padding:                 30px !default;
+$modal-inner-padding:                 32px !default;
 
-$modal-title-padding:                 10px !default;
+$modal-title-padding:                 8px !default;
 $modal-title-line-height:             $line-height-base !default;
 
 $modal-content-bg:                    $neutral-9 !default;

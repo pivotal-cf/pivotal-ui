@@ -3,75 +3,43 @@
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
 
-.modal-fade-enter, .modal-fade-leave {
-  @extend .fade;
-
-  //Base .fade styles from bootstrap
-  @include transition(opacity .15s linear);
-  opacity: 0;
-}
-
-//Class created in React Animations
-.modal-fade-enter-active {
-  @extend .in;
-
-  //Base .in styles from bootstrap
-  opacity: 1;
-}
-
-.modal-backdrop.in {
-  // Bootstrap defines the modal-backdrop opacity on the .modal-backdrop.in rule
-  // so we have to create more specific rules for our React transition group to
-  // actually see a transition :(
-
-  //Class created in React Animations
-  &.modal-backdrop-fade-enter, &.modal-backdrop-fade-leave {
-    @include transition(opacity .15s linear);
-    opacity: 0;
-  }
-
-  //Class created in React Animations
-  &.modal-backdrop-fade-enter-active {
-    opacity: $modal-backdrop-opacity;
-  }
-}
-
 .modal {
-  .modal-dialog {
-    margin-top: 50px;
-    box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
+  box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
+}
+
+.modal-dialog {
+  width: 744px;
+  margin: 40px auto 80px auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+.modal-header {
+  border-bottom: 0;
+  padding: ($base-unit * 2) ($base-unit * 3) 0 ($base-unit * 3);
+}
+
+.modal-body {
+  padding: $base-unit ($base-unit * 3) $base-unit ($base-unit * 3);
+  p {
+    font-size: 18px;
+    line-height: 24px;
   }
+}
 
-  .modal-content {
-    border-radius: $modal-content-border-radius;
-    border-width: 0;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color: $modal-bg-color;
-  }
+.modal-footer {
+  border-top: 0;
+  padding: 0 ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
+}
 
-  .modal-header {
-    padding: $modal-inner-padding/2 $modal-inner-padding;
-    border-bottom: 1px solid $navy-9;
-
-    .modal-title {
-      color: $modal-title-color;
-      font-weight: 600;
-      padding: 0;
-    }
-
-    .close {
-      line-height: 30px;
-    }
-  }
-
-  .modal-footer {
-    padding: 0 $modal-inner-padding $modal-inner-padding $modal-inner-padding;
-    text-align: right;
-    border-top: 0;
-  }
-
-  overflow-y: auto;
+.modal-close {
+  position: absolute;
+  top: ($base-unit * 2);
+  right: ($base-unit * 2.5);
 }
 
 .pui-no-scroll {

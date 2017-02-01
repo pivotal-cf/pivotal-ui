@@ -25,7 +25,9 @@ Modals bring desired content to the foreground and de-emphasize the rest of the 
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <div class="modal-close">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        </div>
         <h4 class="modal-title" id="myModalLabel">Modal Title</h4>
       </div>
       <div class="modal-body">
