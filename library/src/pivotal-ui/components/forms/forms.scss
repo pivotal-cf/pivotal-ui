@@ -23,8 +23,9 @@
 }
 
 label {
-  font-weight: 400; //override bootstrap
-  color: $neutral-3; //override bootstrap
+  font-weight: 400;
+  color: $neutral-3;
+  font-size: $font-size-medium;
 }
 
 // do not simplify placeholder styles, we need a separate line per browser because otherwise browser will invalidate the entire group
@@ -173,6 +174,10 @@ input[type="radio"] {
 @include input-size('.input-sm', $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 
 @include input-size('.input-lg', $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-medium, $line-height-large, $border-radius-small);
+
+input {
+  font-size: $font-size-small;
+}
 
 p.form-control-static {
   color: $neutral-3;
