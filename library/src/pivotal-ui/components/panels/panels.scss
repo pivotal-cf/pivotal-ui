@@ -41,7 +41,7 @@
 }
 
 .panel-header {
-  padding: $panel-title-padding;
+  padding: $panel-heading-padding;
   border-bottom: $panel-title-border;
   display: flex;
   align-items: center;
@@ -72,8 +72,9 @@
   @include background-clip-fix;
 
   .panel-body {
+    padding: $panel-body-padding;
+
     -ms-flex: 1 0 auto;
-    padding: 29px 29px 0 29px;
     -webkit-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
     -moz-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
     transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
@@ -86,7 +87,7 @@
     text-align: center;
     font-size: $panel-tile-font-size;
     border-top: none; // bootstrap override
-    padding: 4px 10px;
+    padding: $panel-footer-padding;
     background: transparent;
     @include transition-pui();
   }
@@ -100,10 +101,6 @@
     color: $text-color;
     cursor: pointer;
 
-    .panel-body {
-      padding-top: 18px;
-      padding-bottom: 11px;
-    }
     .panel-footer {
       opacity: 1;
       background: $panel-tile-hover-border-color;
