@@ -276,7 +276,6 @@ $link-lowlight-font-weight: 600;
 
 $link-inverse-color:        $accent-5;
 
-
 // Typography
 // -------------------------
 
@@ -292,12 +291,14 @@ $font-size-medium:            ceil($font-size-base * 1.14) !default; // ~16px
 $font-size-small:             14px;
 $font-size-extra-small:       12px;
 
-
 $font-weight-em-low:          200;
 $font-weight-em-default:      400;
 $font-weight-em-high:         600;
 $font-weight-em-max:          700;
 
+$line-height-large: 32px;
+$line-height-medium: 24px;
+$line-height-small: 20px;
 
 $headings-font-family:        null;
 $headings-font-weight:        400 !default;
@@ -306,23 +307,29 @@ $headings-line-height:        1.286 !default;
 $headings-padding:            1em * ($former-headings-line-height - $headings-line-height) / 2;
 $headings-color:              null;
 
-$font-size-h1:                31px;
+$font-size-h1:                32px;
 $font-weight-h1:              400;
+$line-height-h1:              1;
 
-$font-size-h2:                25px;
+$font-size-h2:                24px;
 $font-weight-h2:              400;
+$line-height-h2:              $line-height-large;
 
 $font-size-h3:                20px;
 $font-weight-h3:              400;
+$line-height-h3:              $line-height-large;
 
 $font-size-h4:                18px;
 $font-weight-h4:              400;
+$line-height-h4:              $line-height-medium;
 
 $font-size-h5:                16px;
 $font-weight-h5:              400;
+$line-height-h5:              $line-height-medium;
 
 $font-size-h6:                13px;
 $font-weight-h6:              400;
+$line-height-h6:              $line-height-small;
 
 $line-height-base:            1.5;
 $line-height-computed:        20px;
