@@ -223,8 +223,10 @@ Password field
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5PasswordInput">Password Input</label>
-  <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
+  <div class="form-group">
+    <label for="html5PasswordInput">Password Input</label>
+    <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
+  </div>
 </form>
 ```
 
@@ -232,8 +234,10 @@ Date
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5DateInput">Date Input</label>
-  <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
+  <div class="form-group">
+    <label for="html5DateInput">Date Input</label>
+    <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
+  </div>
 </form>
 ```
 
@@ -241,8 +245,10 @@ Number
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5NumberInput">Number Input</label>
-  <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
+  <div class="form-group">
+    <label for="html5NumberInput">Number Input</label>
+    <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
+  </div>
 </form>
 ```
 
@@ -250,8 +256,10 @@ With a min/max and default starting value
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5MinMaxInput">Min/Max Input</label>
-  <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
+  <div class="form-group">
+    <label for="html5MinMaxInput">Min/Max Input</label>
+    <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
+  </div>
 </form>
 ```
 
@@ -259,8 +267,10 @@ With a different increment value
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5StepInput">Step Input</label>
-  <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
+  <div class="form-group">
+    <label for="html5StepInput">Step Input</label>
+    <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
+  </div>
 </form>
 ```
 
@@ -270,8 +280,10 @@ Use this with fields that require email addresses to pop up the correct keyboard
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5EmailInput">Email Input</label>
-  <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
+  <div class="form-group">
+    <label for="html5EmailInput">Email Input</label>
+    <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
+  </div>
 </form>
 ```
 
@@ -281,8 +293,10 @@ Use this with fields that require urls to pop up the correct keyboard on mobile
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5URLInput">URL Input</label>
-  <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
+  <div class="form-group">
+    <label for="html5URLInput">URL Input</label>
+    <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
+  </div>
 </form>
 ```
 
@@ -292,8 +306,10 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <label for="html5PhoneInput">Phone Input</label>
-  <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
+  <div class="form-group">
+    <label for="html5PhoneInput">Phone Input</label>
+    <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
+  </div>
 </form>
 ```
 */

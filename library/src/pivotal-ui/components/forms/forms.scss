@@ -104,6 +104,20 @@ html body {
   }
 }
 
+input {
+  height: $base-unit * 4;
+
+  &.input-lg {
+    height: $base-unit * 5;
+    font-size: $font-size-large;
+  }
+
+  &.input-sm {
+    height: $base-unit * 3;
+    font-size: $font-size-small;
+  }
+}
+
 //Form Groupings
 //-------------------------------------
 
