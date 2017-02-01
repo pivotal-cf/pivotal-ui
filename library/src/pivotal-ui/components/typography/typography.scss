@@ -2,7 +2,7 @@
 
 body {
   font-size: $font-size-base;
-  line-height: $line-height-medium;
+  line-height: $pui-line-height-medium;
 }
 
 @mixin font-helper($name, $weight, $style) {
@@ -93,7 +93,7 @@ h6, .h6 {
 
 .type-lg {
   font-size: $font-size-large;
-  line-height: $line-height-medium;
+  line-height: $pui-line-height-medium;
 }
 
 small, .type-sm {
