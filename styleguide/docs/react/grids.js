@@ -45,34 +45,34 @@ import {Row, Col} from 'pui-react-grids';
 ```react_example
 <div>
   <Row className="grid-show">
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
-    <Col md={2}></Col>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
+    <Col md={2}/>
   </Row>
 
   <Row className="grid-show">
-    <Col md={16}></Col>
-    <Col md={8}></Col>
+    <Col md={16}/>
+    <Col md={8}/>
   </Row>
 
   <Row className="grid-show">
-    <Col md={8}></Col>
-    <Col md={8}></Col>
-    <Col md={8}></Col>
+    <Col md={8}/>
+    <Col md={8}/>
+    <Col md={8}/>
   </Row>
 
   <Row className="grid-show">
-    <Col md={12}></Col>
-    <Col md={12}></Col>
+    <Col md={12}/>
+    <Col md={12}/>
   </Row>
 </div>
 ```
@@ -86,17 +86,17 @@ See the example below for a better idea of how it all works.
 ```react_example
 <div>
   <Row className="grid-show">
-    <Col xs={24} md={16}></Col>
-    <Col xs={12} md={8}></Col>
+    <Col xs={24} md={16}/>
+    <Col xs={12} md={8}/>
   </Row>
   <Row className="grid-show">
-    <Col xs={12} md={8}></Col>
-    <Col xs={12} md={8}></Col>
-    <Col xs={12} md={8}></Col>
+    <Col xs={12} md={8}/>
+    <Col xs={12} md={8}/>
+    <Col xs={12} md={8}/>
   </Row>
   <Row className="grid-show">
-    <Col xs={12}></Col>
-    <Col xs={12}></Col>
+    <Col xs={12}/>
+    <Col xs={12}/>
   </Row>
 </div>
 ```
@@ -106,16 +106,16 @@ See the example below for a better idea of how it all works.
 ```react_example
 <div>
   <Row className="grid-show">
-    <Col md={12}></Col>
-    <Col md={12}></Col>
+    <Col md={12}/>
+    <Col md={12}/>
   </Row>
   <Row className="grid-show" gutter="md">
-    <Col md={12}></Col>
-    <Col md={12}></Col>
+    <Col md={12}/>
+    <Col md={12}/>
   </Row>
   <Row className="grid-show" gutter="sm">
-    <Col md={12}></Col>
-    <Col md={12}></Col>
+    <Col md={12}/>
+    <Col md={12}/>
   </Row>
 </div>
 ```
