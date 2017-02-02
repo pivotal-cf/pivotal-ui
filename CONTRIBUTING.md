@@ -74,6 +74,7 @@ additions.
 
 ## Testing
 
+1. Install [phantomjs](http://phantomjs.org/)
 1. `cd library`
 1. Run tests in terminal: `./node_modules/.bin/gulp ci`
 1. Run tests in browser: `./node_modules/.bin/gulp jasmine-react` and navigate to [http://localhost:8888](http://localhost:8888)
