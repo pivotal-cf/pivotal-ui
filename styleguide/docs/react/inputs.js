@@ -87,7 +87,7 @@ Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will 
 ```
 
 ```react_example
-<Input leftIcon={<img src="/styleguide/add_circle.svg" width="20" height="20"/>}
+<Input leftIcon={<img src="/styleguide/add_circle.svg" width="16" height="16"/>}
        label="This has an custom icon"
        placeholder="Why does Pivotal UI..." />
 ```

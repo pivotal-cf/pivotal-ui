@@ -17,6 +17,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+input:not([type]),
 textarea,
 select,
 .dropdown {
@@ -44,6 +45,7 @@ input[type="text"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
+input:not([type]),
 textarea {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -63,6 +65,7 @@ input[type="text"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
+input:not([type]):focus,
 textarea:focus,
 select:focus,
 .dropdown:focus {
@@ -250,6 +253,7 @@ input[type="text"].invalid,
 input[type="tel"].invalid,
 input[type="url"].invalid,
 input[type="password"].invalid,
+input:not([type]).invalid,
 textarea.invalid {
   border: 1px solid $input-border-invalid;
 }
@@ -261,6 +265,7 @@ input[type="text"].valid,
 input[type="tel"].valid,
 input[type="url"].valid,
 input[type="password"].valid,
+input:not([type]).valid,
 textarea.valid {
   border: 1px solid $input-border-valid;
 }
@@ -300,3 +305,126 @@ textarea.valid {
     }
   }
 }
+
+// Toggle
+//-------------------------------------
+
+.toggle-switch {
+  position: absolute;
+  visibility: hidden;
+
+  + label {
+    position: relative;
+    display: block;
+    background-color: $neutral-7;
+    color: $neutral-1;
+    transition: background 0.4s;
+    cursor: pointer;
+    outline: none;
+    text-indent: -99999px;
+
+    &.small {
+      height: $toggle-small-height;
+      width: $toggle-small-width;
+      border-radius: $toggle-small-height;
+
+      &:after {
+        height: $toggle-small-circle-size;
+        width: $toggle-small-circle-size;
+
+        top: $toggle-small-circle-spacing;
+        left: $toggle-small-circle-spacing;
+        bottom: $toggle-small-circle-spacing;
+      }
+    }
+
+    &.medium {
+      height: $toggle-medium-height;
+      width: $toggle-medium-width;
+      border-radius: $toggle-medium-height;
+
+      &:after {
+        height: $toggle-medium-circle-size;
+        width: $toggle-medium-circle-size;
+
+        top: $toggle-medium-circle-spacing;
+        left: $toggle-medium-circle-spacing;
+        bottom: $toggle-medium-circle-spacing;
+      }
+    }
+
+    &.large {
+      height: $toggle-large-height;
+      width: $toggle-large-width;
+      border-radius: $toggle-large-height;
+
+      &:after {
+        height: $toggle-large-circle-size;
+        width: $toggle-large-circle-size;
+
+        top: $toggle-large-circle-spacing;
+        left: $toggle-large-circle-spacing;
+        bottom: $toggle-large-circle-spacing;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      display: block;
+      background-color: $neutral-11;
+      transition: margin 0.4s, background 0.4s;
+      content: "";
+      border-radius: 50%;
+    }
+  }
+
+  &:checked + label {
+    background-color: $blue-2;
+  }
+
+  &:checked + label.small:after {
+    margin-left: $toggle-small-circle-size;
+  }
+
+  &:checked + label.medium:after {
+    margin-left: $toggle-medium-circle-size;
+  }
+
+  &:checked + label.large:after {
+    margin-left: $toggle-large-circle-size;
+  }
+
+  &[disabled] + label {
+    opacity: .5;
+    
+    // IE8 filter
+    filter: alpha(opacity=50);
+  }
+}
+
+// Input Icons
+//-------------------------------------
+.input-left-icon {
+  input {
+    padding-left: 32px;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+}
+
+.input-right-icon {
+  input {
+    padding-right: 32px;
+  }
+}
+
+.input-wrapper {
+  position: relative
+}
+

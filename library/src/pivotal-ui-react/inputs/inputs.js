@@ -26,21 +26,20 @@ export class Input extends React.Component {
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, search, success, leftIcon, ...props} = this.props;
     const {id, placeholder} = props;
-    const successClassName = success ? 'has-success' : '';
+    const successClassName = success ? 'input-right-icon' : '';
     const formClasses = classnames(
       'form-group',
-      {'form-group-left-icon': search || leftIcon},
+      {'input-left-icon': search || leftIcon},
       className,
       successClassName,
       {'has-error': displayError}
     );
     const labelClasses = classnames('control-label', labelClassName);
-    const inputClassNames = classnames(inputClassName, 'form-control');
+    const inputClassNames = classnames(inputClassName);
     const inputProps = mergeProps(props, {className: inputClassNames, 'aria-label': placeholder});
     const leftIconSrc = leftIcon || (search && 'search');
-    const leftIconClass = 'input-left-icon';
     const customLeftIcon = typeof leftIconSrc === 'string' ?
-      <Icon className={leftIconClass} src={leftIconSrc}/> : <span className={leftIconClass}>{leftIconSrc}</span>;
+      <Icon className="input-icon" src={leftIconSrc}/> : <span className="input-icon">{leftIconSrc}</span>;
 
     return (<div className={formClasses}>
       {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
