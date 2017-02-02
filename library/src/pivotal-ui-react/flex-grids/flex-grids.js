@@ -21,7 +21,7 @@ export class Grid extends React.Component {
   }
 }
 
-export const Col = (props) => {
+export const FlexCol = (props) => {
   const newProps = mergeProps(props, {className: 'col'});
   return <div {...newProps}/>;
 };

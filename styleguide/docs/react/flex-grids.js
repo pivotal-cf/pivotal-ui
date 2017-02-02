@@ -21,7 +21,7 @@ Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 gutter | no | bool | true | Whether to include a gutter between columns or not
 
-Col Properties
+FlexCol Properties
 
 There are none
 
@@ -30,7 +30,7 @@ There are none
 Import the subcomponents:
 
 ```
-import {Grid, Col} from 'pui-react-flex-grids';
+import {Grid, FlexCol} from 'pui-react-flex-grids';
 ```
 
 ## Examples
@@ -38,15 +38,15 @@ import {Grid, Col} from 'pui-react-flex-grids';
 ```react_example
 <div>
   <Grid className="grid-show">
-    <Col></Col>
-    <Col></Col>
-    <Col></Col>
+    <FlexCol></FlexCol>
+    <FlexCol></FlexCol>
+    <FlexCol></FlexCol>
   </Grid>
 
  <Grid className="grid-show" gutter={false}>
-   <Col></Col>
-   <Col></Col>
-   <Col></Col>
+   <FlexCol></FlexCol>
+   <FlexCol></FlexCol>
+   <FlexCol></FlexCol>
  </Grid>
 </div>
 ```
