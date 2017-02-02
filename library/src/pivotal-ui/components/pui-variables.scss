@@ -438,9 +438,20 @@ $table-scrollable-body-border:    3px solid $neutral-9;
 // Buttons
 // -------------------------
 
-$btn-font-weight:         600 !default;
 $btn-light:               $neutral-11;
+
+$btn-border-width:        2px;
+$btn-border-radius:       2px;
+
 $btn-spacing-base:        10px;
+$btn-font-size:           15px;
+$btn-lg-font-size:        18px;
+$btn-sm-font-size:        13px;
+
+$btn-letter-spacing:      0.5px;
+$btn-border-width:        2px;
+$btn-radius:              2px;
+$btn-font-weight:         600;
 
 $btn-default-color:       $dark-5;
 $btn-default-color-hover: $dark-3;
@@ -457,13 +468,6 @@ $btn-brand-color-focus:   $brand-4;
 $btn-danger-color:        $error-3;
 $btn-danger-color-hover:  $error-2;
 $btn-danger-color-focus:  $error-2;
-
-$btn-border-width: 2px;
-$btn-border-radius: 2px;
-
-$btn-font-size: 15px;
-$btn-lg-font-size: 18px;
-$btn-sm-font-size: 13px;
 
 // Forms
 // -------------------------

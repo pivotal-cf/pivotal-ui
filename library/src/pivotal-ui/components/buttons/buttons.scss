@@ -1,5 +1,8 @@
 @import "../pui-variables";
 
+/* Buttons
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .button,
 button,
 input[type="submit"],
@@ -7,20 +10,20 @@ input[type="reset"],
 input[type="button"] {
   display: inline-flex;
   position: relative;
-  height: ($btn-spacing-base*4);
-  padding: 0 ($btn-spacing-base*2);
+  height: ($base-unit*4);
+  padding: 0 ($base-unit*2);
   vertical-align: middle;
   color: $btn-default-color;
   text-align: center;
-  font-size: $btn-font-size;
+  font-size: 14px;
   font-weight: $btn-font-weight;
-  line-height: ($btn-spacing-base*4 - 2 * $btn-border-width);
-  letter-spacing: .05px;
+  line-height: ($base-unit*4) - ($btn-border-width*2); //32px - 4px borders
+  letter-spacing: $btn-letter-spacing;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
   background-color: transparent;
-  border-radius: $btn-border-radius;
+  border-radius: $btn-radius;
   border: $btn-border-width solid transparent;
   cursor: pointer;
   box-sizing: border-box;
@@ -34,38 +37,31 @@ input[type="button"] {
     margin: 0 5px 0 0;
     fill: $btn-default-color;
   }
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    margin-right: 2px;
-    padding: 2px;
-  }
+
   &:hover,
-  &:focus {
+  &:focus,
+  &:hover:focus {
+
     outline: none;
+    .svgicon {
+
+    }
   }
 }
 
 button.btn-icon, .button.btn-icon {
   padding: 0;
-
   .svgicon {
     margin: 5px;
   }
 }
 
-button.dropdown-toggle .svgicon {
-  margin: 0 0 0 5px;
-}
-
 .btn-lg {
-  height: ($btn-spacing-base*5);
-  line-height: ($btn-spacing-base*5 - 2 * $btn-border-width);
-  font-size: $btn-lg-font-size;
-
+  height: ($base-unit*5);
+  line-height: 36px; //40px - 4px borders
+  font-size: 16px;
   &.btn-icon {
     padding: 0;
-
     .svgicon {
       margin: 8px;
     }
@@ -76,9 +72,9 @@ button.dropdown-toggle .svgicon {
 }
 
 .btn-sm {
-  height: ($btn-spacing-base*3);
-  line-height: ($btn-spacing-base*3 - 2 * $btn-border-width);
-  font-size: $btn-sm-font-size;
+  height: ($base-unit*3);
+  line-height: 20px; //24px - 4px borders
+  font-size: 12px;
   &.btn-icon {
     padding: 0;
     .svgicon {
@@ -90,7 +86,8 @@ button.dropdown-toggle .svgicon {
   }
 }
 
-button.disabled, .button.disabled, button[disabled], .button[disabled] {
+button.disabled,
+.button.disabled, button[disabled], .button[disabled] {
   opacity: .5;
   cursor: default;
   pointer-events: none;
@@ -104,10 +101,10 @@ input[type="submit"].btn-default,
 input[type="reset"].btn-default,
 input[type="button"].btn-default {
   background-color: $btn-default-color;
-  color: $btn-light;
+  color: #fff;
   border-color: $btn-default-color;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -146,10 +143,10 @@ input[type="button"].btn-default {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: $btn-light;
+      stroke: #fff;
     }
     .path {
-      stroke: $btn-light;
+      stroke: #fff;
     }
   }
 }
@@ -228,10 +225,10 @@ input[type="submit"].btn-default-alt-wh,
 input[type="reset"].btn-default-alt-wh,
 input[type="button"].btn-default-alt-wh {
   background-color: transparent;
-  color: $btn-light;
-  border-color: $btn-light;
+  color: #fff;
+  border-color: #fff;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -241,11 +238,11 @@ input[type="submit"].btn-default-alt-wh:focus,
 input[type="reset"].btn-default-alt-wh:focus,
 input[type="button"].btn-default-alt-wh:focus {
   background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
+  color: #fff;
+  border-color: #fff;
   outline: none;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -260,11 +257,11 @@ input[type="reset"].btn-default-alt-wh:focus:hover,
 input[type="button"].btn-default-alt-wh:hover,
 input[type="button"].btn-default-alt-wh:focus:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
+  color: #fff;
+  border-color: #fff;
   outline: none;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -278,15 +275,15 @@ input[type="button"].btn-default-alt-wh {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: $btn-light;
+      stroke: #fff;
     }
     .path {
-      stroke: $btn-light;
+      stroke: #fff;
     }
   }
 }
 
-//Primary Button
+//primary Button
 //---------------------------------------
 button.btn-primary,
 .button.btn-primary,
@@ -294,10 +291,10 @@ input[type="submit"].btn-primary,
 input[type="reset"].btn-primary,
 input[type="button"].btn-primary {
   background-color: $btn-primary-color;
-  color: $btn-light;
+  color: #fff;
   border-color: $btn-primary-color;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -336,15 +333,15 @@ input[type="button"].btn-primary {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: $btn-light;
+      stroke: #fff;
     }
     .path {
-      stroke: $btn-light;
+      stroke: #fff;
     }
   }
 }
 
-//Flat Primary
+//Flat primary
 .btn-primary-flat {
   color: $btn-primary-color;
   .svgicon {
@@ -361,7 +358,7 @@ input[type="button"].btn-primary {
   }
 }
 
-//Primary Alt Button
+//primary Alt Button
 //---------------------------------------
 button.btn-primary-alt,
 .button.btn-primary-alt,
@@ -427,7 +424,146 @@ input[type="button"].btn-primary-alt {
   }
 }
 
-//Danger Button
+//brand Button
+//---------------------------------------
+button.btn-brand,
+.button.btn-brand,
+input[type="submit"].btn-brand,
+input[type="reset"].btn-brand,
+input[type="button"].btn-brand {
+  background-color: $btn-brand-color;
+  color: #fff;
+  border-color: $btn-brand-color;
+  .svgicon {
+    fill: #fff;
+  }
+}
+
+.button.btn-brand:focus,
+button.btn-brand:focus,
+input[type="submit"].btn-brand:focus,
+input[type="reset"].btn-brand:focus,
+input[type="button"].btn-brand:focus {
+  background-color: $btn-brand-color-focus;
+  border-color: $btn-brand-color-focus;
+  outline: none;
+}
+
+.button.btn-brand:hover,
+.button.btn-brand:focus:hover,
+button.btn-brand:hover,
+button.btn-brand:focus:hover,
+input[type="submit"].btn-brand:hover,
+input[type="submit"].btn-brand:focus:hover,
+input[type="reset"].btn-brand:hover,
+input[type="reset"].btn-brand:focus:hover,
+input[type="button"].btn-brand:hover,
+input[type="button"].btn-brand:focus:hover {
+  background-color: $btn-brand-color-hover;
+  border-color: $btn-brand-color-hover;
+  outline: none;
+}
+
+button.btn-brand,
+.button.btn-brand,
+input[type="submit"].btn-brand,
+input[type="reset"].btn-brand,
+input[type="button"].btn-brand {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: #fff;
+    }
+    .path {
+      stroke: #fff;
+    }
+  }
+}
+
+//Flat brand
+.btn-brand-flat {
+  color: $btn-brand-color;
+  .svgicon {
+    fill: $btn-brand-color;
+  }
+  &:hover,
+  &:focus,
+  &:hover:focus {
+    color: $btn-brand-color-focus;
+    outline: none;
+    .svgicon {
+      fill: $btn-brand-color-focus;
+    }
+  }
+}
+
+//brand Alt Button
+//---------------------------------------
+button.btn-brand-alt,
+.button.btn-brand-alt,
+input[type="submit"].btn-brand-alt,
+input[type="reset"].btn-brand-alt,
+input[type="button"].btn-brand-alt {
+  background-color: transparent;
+  color: $btn-brand-color;
+  border-color: $btn-brand-color;
+  .svgicon {
+    fill: $btn-brand-color;
+  }
+}
+
+.button.btn-brand-alt:focus,
+button.btn-brand-alt:focus,
+input[type="submit"].btn-brand-alt:focus,
+input[type="reset"].btn-brand-alt:focus,
+input[type="button"].btn-brand-alt:focus {
+  background-color: transparent;
+  color: $btn-brand-color-focus;
+  border-color: $btn-brand-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-brand-color-focus;
+  }
+}
+
+.button.btn-brand-alt:hover,
+.button.btn-brand-alt:focus:hover,
+button.btn-brand-alt:hover,
+button.btn-brand-alt:focus:hover,
+input[type="submit"].btn-brand-alt:hover,
+input[type="submit"].btn-brand-alt:focus:hover,
+input[type="reset"].btn-brand-alt:hover,
+input[type="reset"].btn-brand-alt:focus:hover,
+input[type="button"].btn-brand-alt:hover,
+input[type="button"].btn-brand-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-brand-color-hover;
+  border-color: $btn-brand-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-brand-color-hover;
+  }
+}
+
+button.btn-brand-alt,
+.button.btn-brand-alt,
+input[type="submit"].btn-brand-alt,
+input[type="reset"].btn-brand-alt,
+input[type="button"].btn-brand-alt {
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-brand-color;
+    }
+    .path {
+      stroke: $btn-brand-color;
+    }
+  }
+}
+
+//danger Button
 //---------------------------------------
 button.btn-danger,
 .button.btn-danger,
@@ -435,10 +571,10 @@ input[type="submit"].btn-danger,
 input[type="reset"].btn-danger,
 input[type="button"].btn-danger {
   background-color: $btn-danger-color;
-  color: $btn-light;
+  color: #fff;
   border-color: $btn-danger-color;
   .svgicon {
-    fill: $btn-light;
+    fill: #fff;
   }
 }
 
@@ -476,10 +612,10 @@ input[type="button"].btn-danger {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: $btn-light;
+      stroke: #fff;
     }
     .path {
-      stroke: $btn-light;
+      stroke: #fff;
     }
   }
 }
@@ -562,147 +698,6 @@ input[type="button"].btn-danger-alt {
     }
     .path {
       stroke: $btn-danger-color;
-    }
-  }
-}
-
-//Brand Button
-//---------------------------------------
-button.btn-brand,
-.button.btn-brand,
-input[type="submit"].btn-brand,
-input[type="reset"].btn-brand,
-input[type="button"].btn-brand {
-  background-color: $btn-brand-color;
-  color: $btn-light;
-  border-color: $btn-brand-color;
-  .svgicon {
-    fill: $btn-light;
-  }
-}
-
-.button.btn-brand:focus,
-button.btn-brand:focus,
-input[type="submit"].btn-brand:focus,
-input[type="reset"].btn-brand:focus,
-input[type="button"].btn-brand:focus {
-  background-color: $btn-brand-color-focus;
-  border-color: $btn-brand-color-focus;
-  outline: none;
-}
-
-.button.btn-brand:hover,
-.button.btn-brand:focus:hover,
-button.btn-brand:hover,
-button.btn-brand:focus:hover,
-input[type="submit"].btn-brand:hover,
-input[type="submit"].btn-brand:focus:hover,
-input[type="reset"].btn-brand:hover,
-input[type="reset"].btn-brand:focus:hover,
-input[type="button"].btn-brand:hover,
-input[type="button"].btn-brand:focus:hover {
-  background-color: $btn-brand-color-hover;
-  border-color: $btn-brand-color-hover;
-  outline: none;
-}
-
-//Spinner
-button.btn-brand,
-.button.btn-brand,
-input[type="submit"].btn-brand,
-input[type="reset"].btn-brand,
-input[type="button"].btn-brand {
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-light;
-    }
-    .path {
-      stroke: $btn-light;
-    }
-  }
-}
-
-//Flat Brand
-.btn-brand-flat {
-  color: $btn-brand-color;
-  .svgicon {
-    fill: $btn-brand-color;
-  }
-  &:hover,
-  &:focus,
-  &:hover:focus {
-    color: $btn-brand-color-focus;
-    outline: none;
-    .svgicon {
-      fill: $btn-brand-color-focus;
-    }
-  }
-}
-
-//Brand Alt Button
-//---------------------------------------
-button.btn-brand-alt,
-.button.btn-brand-alt,
-input[type="submit"].btn-brand-alt,
-input[type="reset"].btn-brand-alt,
-input[type="button"].btn-brand-alt {
-  background-color: transparent;
-  color: $btn-brand-color;
-  border-color: $btn-brand-color;
-  .svgicon {
-    fill: $btn-brand-color;
-  }
-}
-
-.button.btn-brand-alt:focus,
-button.btn-brand-alt:focus,
-input[type="submit"].btn-brand-alt:focus,
-input[type="reset"].btn-brand-alt:focus,
-input[type="button"].btn-brand-alt:focus {
-  background-color: transparent;
-  color: $btn-brand-color-focus;
-  border-color: $btn-brand-color-focus;
-  outline: none;
-  .svgicon {
-    fill: $btn-brand-color-focus;
-  }
-}
-
-.button.btn-brand-alt:hover,
-.button.btn-brand-alt:focus:hover,
-button.btn-brand-alt:hover,
-button.btn-brand-alt:focus:hover,
-input[type="submit"].btn-brand-alt:hover,
-input[type="submit"].btn-brand-alt:focus:hover,
-input[type="reset"].btn-brand-alt:hover,
-input[type="reset"].btn-brand-alt:focus:hover,
-input[type="button"].btn-brand-alt:hover,
-input[type="button"].btn-brand-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-brand-color-hover;
-  border-color: $btn-brand-color-hover;
-  outline: none;
-  .svgicon {
-    fill: $btn-brand-color-hover;
-  }
-}
-
-//Spinner
-button.btn-brand-alt,
-.button.btn-brand-alt,
-input[type="submit"].btn-brand-alt,
-input[type="reset"].btn-brand-alt,
-input[type="button"].btn-brand-alt {
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-brand-color;
-    }
-    .path {
-      stroke: $btn-brand-color;
     }
   }
 }
