@@ -104,8 +104,10 @@ html body {
   }
 }
 
-input {
-  height: $base-unit * 4;
+select, input {
+  :not(input[type="radio"], input[type="checkbox"]) {
+    height: $base-unit * 4;
+  }
 
   &.input-lg {
     height: $base-unit * 5;
@@ -113,6 +115,8 @@ input {
   }
 
   &.input-sm {
+    padding-top: 0;
+    padding-bottom: 0;
     height: $base-unit * 3;
     font-size: $font-size-small;
   }
