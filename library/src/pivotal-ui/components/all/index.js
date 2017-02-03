@@ -28,7 +28,6 @@ try {
   require('pui-css-panels');
   require('pui-css-panes');
   require('pui-css-progress-bars');
-  require('pui-css-ribbons');
   require('pui-css-spinners');
   require('pui-css-tables');
   require('pui-css-tabs');

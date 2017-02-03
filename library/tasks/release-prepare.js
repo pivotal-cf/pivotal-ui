@@ -108,7 +108,7 @@ gulp.task('release-commit', () =>
              release/ \
              ../styleguide/old_styleguides \
              ../styleguide/docs/other-versions.scss \
-       && git ci -m "v${getNewVersion()}"`
+       && git commit -m "v${getNewVersion()}"`
     )
 );
 
