@@ -24,6 +24,10 @@ $active-item-border-size: $base-unit / 2;
       }
     }
 
+    .collapse-trigger {
+      cursor: pointer;
+    }
+
     .sidebar--item-wrapper__active .sidebar--item {
       padding-left: 2 * $sidebar-item-left-padding - $active-item-border-size;
     }
