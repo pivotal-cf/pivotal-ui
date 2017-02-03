@@ -1,10 +1,10 @@
 {
-  "version": "7.4.0",
+  "version": "7.5.0",
   "description": "React components for laying-out content in a grid",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.3",
-    "pui-css-grids": "^7.4.0",
-    "pui-react-helpers": "^7.4.0"
+    "pui-css-grids": "^7.5.0",
+    "pui-react-helpers": "^7.5.0"
   }
 }
