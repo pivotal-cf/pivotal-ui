@@ -13,22 +13,25 @@ attachPackagesToWindow()
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {content: App.currentContent()}
+
+    const path = window.location.pathname
+    this.state = {content: App.currentContent(path), path: path}
   }
 
   updateContent(href) {
     window.history.pushState({}, '', href)
-    this.setState({content: App.currentContent()})
+
+    const path = window.location.pathname
+    this.setState({content: App.currentContent(path), path: path})
   }
 
-  static currentContent() {
-    const path = window.location.pathname
+  static currentContent(path) {
     return contentMap[path] ? contentMap[path] : contentMap['/404']
   }
 
   render() {
     return <div id="app">
-      <SideBar updateContent={this.updateContent.bind(this)}/>
+      <SideBar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
       <Content content={this.state.content}/>
     </div>
   }

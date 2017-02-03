@@ -1,5 +1,10 @@
+@import '../../library/src/pivotal-ui/components/pui-variables';
+
+$highlight-background-color: $navy-9;
+$sidebar-item-left-padding: $base-unit * 2;
+$active-item-border-size: $base-unit / 2;
+
 .sidebar {
-  padding: 0 8px 0 16px;
   background-color: $navy-11;
   width: 208px;
   flex: initial;
@@ -7,47 +12,94 @@
   color: $gray-3;
   overflow-y: auto;
   overflow-x: hidden;
+
+  .panel {
+    border: 0;
+
+    &.active {
+      background-color: $highlight-background-color;
+
+      .collapse-trigger {
+        color: $dark-1;
+      }
+    }
+
+    .sidebar--item-wrapper__active .sidebar--item {
+      padding-left: 2 * $sidebar-item-left-padding - $active-item-border-size;
+    }
+
+    .sidebar--item {
+      padding-left: 2 * $sidebar-item-left-padding;
+    }
+  }
+
+  .panel-collapse {
+    .panel-body {
+      padding: 0;
+    }
+  }
+}
+
+.sidebar--search {
+  padding: 0 $base-unit 0 $base-unit * 2;
 }
 
 .sidebar--header {
-  padding: 16px 0;
+  padding: $base-unit * 2 $base-unit $base-unit * 2 $base-unit * 2;
   display: flex;
 
   .sidebar--icon {
-    padding: 8px;
+    padding: $base-unit;
     background-color: $brand-7;
     border-radius: 2px;
-    height: 40px;
-    width: 40px;
+    height: $base-unit * 5;
+    width: $base-unit * 5;
 
     svg {
-      height: 24px;
-      width: 24px;
+      height: $base-unit * 3;
+      width: $base-unit * 3;
     }
   }
 
   .sidebar--title {
     display: inline;
     color: $navy-1;
-    font-size: 18px;
-    padding-left: 12px;
+    font-size: $font-size-large;
+    padding-left: $base-unit * 2;
     align-self: center;
   }
 }
 
 .sidebar--items {
-  padding-top: 16px;
+  padding-top: $base-unit * 2;
+}
+
+.sidebar--item-wrapper {
+  &.sidebar--item-wrapper__active {
+    background-color: $highlight-background-color;
+    border-left: $active-item-border-size solid $btn-brand-color;
+
+    .sidebar--item {
+      color: $dark-1;
+      padding-left: $sidebar-item-left-padding - $active-item-border-size;
+    }
+  }
+
+  .sidebar--item {
+    padding-left: $sidebar-item-left-padding;
+  }
 }
 
 .sidebar--item {
   color: $gray-3;
-  padding: 8px 0;
+  padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
   display: block;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
     color: $gray-3;
+    text-decoration: underline;
   }
 
   // TODO: remove me when accordion can be in sidebars
