@@ -34,7 +34,7 @@
     "svg-react-loader": "^0.3.7",
     "through2": "^2.0.3",
     "url-loader": "^0.5.7",
-    "webpack": "^2.2.0",
+    "webpack": "=2.2.0",
     "webpack-uglify-js-plugin": "^1.1.9",
     "codemirror": "^5.22.2",
     "express": "^4.14.0",
