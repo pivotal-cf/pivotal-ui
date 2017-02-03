@@ -16,11 +16,11 @@ npm install pui-react-buttons --save
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-alt   | no | Boolean                                        | false     | Whether to render as 'alternate' button
-flat  | no | Boolean                                        | false     | Whether to render as a 'flat' button
-href  | no | String                                         |           | If specified, button clicks will redirect to this href
-large | no | Boolean                                        | false     | Whether to render the button large
-small | no | Boolean                                        | false     | Whether to render teh button small
+alt   | no | Boolean | false | Whether to render as 'alternate' button
+flat  | no | Boolean | false | Whether to render as a 'flat' button
+href  | no | String  |       | If specified, button clicks will redirect to this href
+large | no | Boolean | false | Whether to render the button large
+small | no | Boolean | false | Whether to render teh button small
 
 ## Basic usage
 
@@ -94,5 +94,27 @@ To make a button large, set the `large` property to true, to make it small, set 
 <PrimaryButton small>
   Small Button
 </PrimaryButton>
+```
+
+## Icons
+
+Buttons work well with icons!
+
+```react_example_table
+<PrimaryButton>
+  <Icon src="add"/> Some button
+</PrimaryButton>
+
+<PrimaryButton large>
+  <Icon src="add"/> Some button
+</PrimaryButton>
+
+<PrimaryButton small>
+  <Icon src="add"/> Some button
+</PrimaryButton>
+
+<DefaultButton alt>
+  <Icon src="spinner"/>
+</DefaultButton>
 ```
 */
