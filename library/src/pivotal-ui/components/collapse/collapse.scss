@@ -61,12 +61,12 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: 8px 16px;
+  padding: $base-unit ($base-unit * 2);
 }
 
 .panel-body-accordion {
   margin: 0;
-  padding: 30px 20px;
+  padding: ($base-unit * 3) ($base-unit * 2);
 }
 
 .panel-body-accordion-divider {
