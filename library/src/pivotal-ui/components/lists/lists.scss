@@ -28,6 +28,10 @@
   }
 }
 
+ul, ol {
+  margin-bottom: $base-unit;
+}
+
 //PUI
 .list-inline {
   font-size: 0;
