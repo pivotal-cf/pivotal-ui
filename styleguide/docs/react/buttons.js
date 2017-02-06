@@ -114,7 +114,7 @@ Buttons work well with icons!
 </PrimaryButton>
 
 <DefaultButton alt>
-  Loading <Icon src="spinner"/>
+ <Icon src="spinner"/> Loading
 </DefaultButton>
 ```
 */
