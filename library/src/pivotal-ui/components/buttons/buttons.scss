@@ -10,12 +10,12 @@ input[type="reset"],
 input[type="button"] {
   display: inline-flex;
   position: relative;
-  height: ($base-unit*4);
+  height: $base-unit*4;
   padding: 0 ($base-unit*2);
   vertical-align: middle;
   color: $btn-default-color;
   text-align: center;
-  font-size: 14px;
+  font-size: $font-size-small;
   font-weight: $btn-font-weight;
   line-height: ($base-unit*4) - ($btn-border-width*2); //32px - 4px borders
   letter-spacing: $btn-letter-spacing;
@@ -27,13 +27,12 @@ input[type="button"] {
   border: $btn-border-width solid transparent;
   cursor: pointer;
   box-sizing: border-box;
-  //Transitions
   -webkit-transition: all 200ms ease-out;
   transition: all 200ms ease-out;
   -webkit-transition-property: background-color, color, opacity, border;
   transition-property: background-color, color, opacity, border;
   .svgicon {
-    font-size: 18px;
+    font-size: $font-size-large;
     margin: 0 5px 0 0;
     fill: $btn-default-color;
   }
@@ -57,24 +56,24 @@ button.btn-icon, .button.btn-icon {
 }
 
 .btn-lg {
-  height: ($base-unit*5);
-  line-height: 36px; //40px - 4px borders
-  font-size: 16px;
+  height: $base-unit*5;
+  line-height: ($base-unit * 5) - ($base-unit / 2);
+  font-size: $font-size-medium;
   &.btn-icon {
     padding: 0;
     .svgicon {
-      margin: 8px;
+      margin: $base-unit;
     }
   }
   .svgicon {
-    font-size: 20px;
+    font-size: $font-size-extra-large;
   }
 }
 
 .btn-sm {
   height: ($base-unit*3);
-  line-height: 20px; //24px - 4px borders
-  font-size: 12px;
+  line-height: $pui-line-height-small;
+  font-size: $font-size-extra-small;
   &.btn-icon {
     padding: 0;
     .svgicon {
@@ -82,7 +81,7 @@ button.btn-icon, .button.btn-icon {
     }
   }
   .svgicon {
-    font-size: 14px;
+    font-size: $font-size-small;
   }
 }
 
@@ -101,10 +100,10 @@ input[type="submit"].btn-default,
 input[type="reset"].btn-default,
 input[type="button"].btn-default {
   background-color: $btn-default-color;
-  color: #fff;
+  color: $btn-light;
   border-color: $btn-default-color;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -143,10 +142,10 @@ input[type="button"].btn-default {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: #fff;
+      stroke: $btn-light;
     }
     .path {
-      stroke: #fff;
+      stroke: $btn-light;
     }
   }
 }
@@ -225,10 +224,10 @@ input[type="submit"].btn-default-alt-wh,
 input[type="reset"].btn-default-alt-wh,
 input[type="button"].btn-default-alt-wh {
   background-color: transparent;
-  color: #fff;
-  border-color: #fff;
+  color: $btn-light;
+  border-color: $btn-light;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -238,11 +237,11 @@ input[type="submit"].btn-default-alt-wh:focus,
 input[type="reset"].btn-default-alt-wh:focus,
 input[type="button"].btn-default-alt-wh:focus {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-color: #fff;
+  color: $btn-light;
+  border-color: $btn-light;
   outline: none;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -257,11 +256,11 @@ input[type="reset"].btn-default-alt-wh:focus:hover,
 input[type="button"].btn-default-alt-wh:hover,
 input[type="button"].btn-default-alt-wh:focus:hover {
   background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-color: #fff;
+  color: $btn-light;
+  border-color: $btn-light;
   outline: none;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -275,10 +274,10 @@ input[type="button"].btn-default-alt-wh {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: #fff;
+      stroke: $btn-light;
     }
     .path {
-      stroke: #fff;
+      stroke: $btn-light;
     }
   }
 }
@@ -291,10 +290,10 @@ input[type="submit"].btn-primary,
 input[type="reset"].btn-primary,
 input[type="button"].btn-primary {
   background-color: $btn-primary-color;
-  color: #fff;
+  color: $btn-light;
   border-color: $btn-primary-color;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -333,10 +332,10 @@ input[type="button"].btn-primary {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: #fff;
+      stroke: $btn-light;
     }
     .path {
-      stroke: #fff;
+      stroke: $btn-light;
     }
   }
 }
@@ -432,10 +431,10 @@ input[type="submit"].btn-brand,
 input[type="reset"].btn-brand,
 input[type="button"].btn-brand {
   background-color: $btn-brand-color;
-  color: #fff;
+  color: $btn-light;
   border-color: $btn-brand-color;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -473,10 +472,10 @@ input[type="button"].btn-brand {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: #fff;
+      stroke: $btn-light;
     }
     .path {
-      stroke: #fff;
+      stroke: $btn-light;
     }
   }
 }
@@ -571,10 +570,10 @@ input[type="submit"].btn-danger,
 input[type="reset"].btn-danger,
 input[type="button"].btn-danger {
   background-color: $btn-danger-color;
-  color: #fff;
+  color: $btn-light;
   border-color: $btn-danger-color;
   .svgicon {
-    fill: #fff;
+    fill: $btn-light;
   }
 }
 
@@ -612,10 +611,10 @@ input[type="button"].btn-danger {
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
-      stroke: #fff;
+      stroke: $btn-light;
     }
     .path {
-      stroke: #fff;
+      stroke: $btn-light;
     }
   }
 }
