@@ -167,7 +167,7 @@ export class Modal extends React.Component {
 
 export class ModalBody extends React.Component {
   render() {
-    return <p {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</p>;
+    return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
   }
 }
 

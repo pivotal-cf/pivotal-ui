@@ -65,7 +65,7 @@ class MyModal extends React.Component {
                    className='optional-custom-class'
                    show={this.state.modalOpen}
                    onHide={() => this.setState({modalOpen: false})}>
-          <ModalBody>Text in a body</ModalBody>
+          <ModalBody><p>Text in a body</p></ModalBody>
           <ModalFooter>
             <DefaultButton onClick={() => this.setState({modalOpen: false})}>
               Close
