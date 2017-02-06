@@ -103,3 +103,19 @@ size modifier class for the desired size.
 
 */
 
+/*doc
+---
+title: Icons
+name: button_icons
+parent: button
+---
+
+Buttons can be containers for icons:
+
+```html_example_table
+<button class="btn-default-alt btn-icon">
+  <img class="svgicon" src="/styleguide/download.svg" width="16" height="16"/>
+</button>
+```
+
+*/
