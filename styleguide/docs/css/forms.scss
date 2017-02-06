@@ -63,71 +63,27 @@ categories:
  - css_all
 ---
 
-Add `.form-inline` to your `<form>` for left-aligned and inline-block controls.
-This only applies to forms within viewports that are at least 768px wide.
-
-<div class="alert alert-info">
-<div>
-  <h5 class="em-high mtn">
-    Always add labels to every input.
-  </h5>
-  <p>
-    Screen readers will have trouble with your forms if you don't.
-    You can always hide the labels using the <code class="sg-code">.sr-only</code> class.
-  </p>
-</div>
-</div>
+Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls.
 
 ```html_example
-<form class="styleguide-form form-inline" role="form">
-  <div class="form-group">
-    <label class="sr-only" for="exampleInputEmail5">Email address</label>
+<form class="styleguide-form">
+  <div class="form-group form-inline">
+    Email address
     <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
   </div>
-  <div class="form-group">
-    <label class="sr-only" for="exampleInputPassword2">Password</label>
+  <div class="form-group form-inline">
+    Password
     <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
   </div>
-  <div class="checkbox">
+  <div class="form-group form-inline">
     <label>
       <input type="checkbox">
       Remember me
     </label>
   </div>
-  <button class="btn-default" type="submit">Sign in</button>
-</form>
-```
-*/
-
-/*doc
----
-title: Inline Forms with Labels
-name: form_inline_with_labels
-parent: form_inline
----
-
-Add `.form-inline.inline-labels` to your `<form>` for left-aligned and inline-block controls with labels inline with inputs.
-
-
-```html_example
-<form class="styleguide-form form-inline inline-labels" role="form">
-  <div class="form-group">
-    <label for="exampleInputEmail6">Write a thing</label>
-    <input class="form-control" id="exampleInputEmail6" placeholder="Write a thing" type="email">
+  <div class="form-group form-inline">
+    <button class="btn-default" type="submit">Sign in</button>
   </div>
-  <div class="form-group">
-    <label for="exampleSelect">Choose a thing</label>
-    <select class="form-control" id="exampleSelect">
-      <option>thing</option>
-    </select>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox">
-      Remember me
-    </label>
-  </div>
-  <button class="btn-default" type="submit">Sign in</button>
 </form>
 ```
 */

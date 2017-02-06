@@ -223,7 +223,7 @@ select, input {
 }
 
 .form-inline {
-  display: flex;
+  display: inline-flex;
 
   > {
     display: inline-block;
