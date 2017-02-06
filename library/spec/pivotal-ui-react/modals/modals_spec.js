@@ -146,7 +146,7 @@ describe('BaseModal', function() {
     });
 
     it('is triggered when close button is clicked', function() {
-      $('#ms-modal button.close').simulate('click');
+      $('#ms-modal button.btn-icon').simulate('click');
       expect(onHide).toHaveBeenCalled();
     });
 

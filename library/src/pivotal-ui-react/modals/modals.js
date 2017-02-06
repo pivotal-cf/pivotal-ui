@@ -4,6 +4,7 @@ import React from 'react';
 import mixin from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-modals';
+import {Icon} from 'pui-react-iconography';
 
 const types = React.PropTypes;
 const ESC_KEY = 27;
@@ -137,8 +138,8 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
             <div className="modal-header">
               <h4 className="modal-title">{title}</h4>
               <div className="modal-close">
-                <button type="button" className="close" aria-label="close" onClick={onHide}>
-                  <span aria-hidden="true">&times;</span>
+                <button className="btn-icon" onClick={onHide}>
+                  <Icon src="close"/>
                 </button>
               </div>
             </div>
@@ -166,7 +167,7 @@ export class Modal extends React.Component {
 
 export class ModalBody extends React.Component {
   render() {
-    return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
+    return <p {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</p>;
   }
 }
 

@@ -7,12 +7,7 @@ export class UIButton extends React.Component {
     alt: React.PropTypes.bool,
     flat: React.PropTypes.bool,
     href: React.PropTypes.string,
-    kind: React.PropTypes.oneOf([
-      'default',
-      'danger',
-      'primary',
-      'brand'
-    ]),
+    kind: React.PropTypes.oneOf(['default', 'danger', 'primary', 'brand']),
     large: React.PropTypes.bool,
     small: React.PropTypes.bool,
     icon: React.PropTypes.node
