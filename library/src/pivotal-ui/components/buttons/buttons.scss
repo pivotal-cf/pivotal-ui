@@ -57,7 +57,7 @@ button.btn-icon, .button.btn-icon {
 
 .btn-lg {
   height: $base-unit*5;
-  line-height: ($base-unit * 5) - ($base-unit / 2);
+  line-height: ($base-unit*5) - ($btn-border-width*2); //40px - 4px borders
   font-size: $font-size-medium;
   &.btn-icon {
     padding: 0;
@@ -72,7 +72,7 @@ button.btn-icon, .button.btn-icon {
 
 .btn-sm {
   height: ($base-unit*3);
-  line-height: $pui-line-height-small;
+  line-height: ($base-unit*3) - ($btn-border-width*2); //24px - 4px borders
   font-size: $font-size-extra-small;
   &.btn-icon {
     padding: 0;
