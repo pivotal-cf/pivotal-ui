@@ -1,0 +1,26 @@
+resources:
+  - name: pivotal-ui
+    type: git
+    source:
+      uri: git@github.com:pivotal-cf/pivotal-ui.git
+      branch: master
+      private_key: {{pivotal-ui-git-key}}
+
+jobs:
+  - name: library-unit-test
+    plan:
+      - get: pivotal-ui
+      - task: unit
+        config:
+          run:
+            path: sh
+            platform: linux
+            image: docker:///pivotalui/concourse
+            args:
+            - -exc
+            - |
+              whoami
+              env
+              go version
+              find .
+              touch some-output/my-built-artifact
