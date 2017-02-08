@@ -97,7 +97,7 @@ again.
 1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
 1. From root, run `./update_styleguide.sh` to update local versions of components
    
-1. Run `gulp ci` - one final check!
+1. Run `./test.sh` - one final check!
 
 1. Run `gulp release-commit` to commit the release.
 
