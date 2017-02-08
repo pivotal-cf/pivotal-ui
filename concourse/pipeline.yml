@@ -18,11 +18,10 @@ jobs:
           inputs:
           - name: pivotal-ui
           run:
-            path: sh
+            path: bash
             args:
             - -exc
             - |
-              #!/bin/bash
               cd pivotal-ui/library
               npm i
               gulp build
@@ -40,11 +39,10 @@ jobs:
           inputs:
           - name: pivotal-ui
           run:
-            path: sh
+            path: bash
             args:
             - -exc
             - |
-              #!/bin/bash
               cd pivotal-ui/library
               npm i
               gulp build
@@ -66,11 +64,10 @@ jobs:
           inputs:
           - name: pivotal-ui
           run:
-            path: sh
+            path: bash
             args:
             - -exc
             - |
-              #!/bin/bash
               cd pivotal-ui/library
               npm i
               gulp build
@@ -97,11 +94,10 @@ jobs:
           inputs:
           - name: pivotal-ui
           run:
-            path: sh
+            path: bash
             args:
             - -exc
             - |
-              #!/bin/bash
               cd pivotal-ui/library
               npm i
               gulp build
@@ -127,11 +123,10 @@ jobs:
           inputs:
           - name: pivotal-ui
           run:
-            path: sh
+            path: bash
             args:
             - -exc
             - |
-              #!/bin/bash
               cd pivotal-ui/library
               npm i
               gulp build

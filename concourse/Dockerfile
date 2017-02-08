@@ -1,5 +1,7 @@
 FROM ubuntu:14.04
 USER root
+ENV SHELL /bin/bash
+
 RUN apt-get update
 RUN apt-get install -y curl
 RUN apt-get install -y libssl-dev
