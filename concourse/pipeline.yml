@@ -3,24 +3,137 @@ resources:
     type: git
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
-      branch: master
+      branch: development
       private_key: {{pivotal-ui-git-key}}
 
 jobs:
-  - name: library-unit-test
+  - name: library
     plan:
       - get: pivotal-ui
-      - task: unit
+        trigger: true
+      - task: build
         config:
+          platform: linux
+          image: docker:///pivotalui/concourse
+          inputs:
+          - name: pivotal-ui
           run:
             path: sh
-            platform: linux
-            image: docker:///pivotalui/concourse
             args:
             - -exc
             - |
-              whoami
-              env
-              go version
-              find .
-              touch some-output/my-built-artifact
+              #!/bin/bash
+              cd pivotal-ui/library
+              npm i
+              gulp build
+              gulp ci
+
+  - name: styleguide
+    plan:
+      - get: pivotal-ui
+        trigger: true
+        passed: [library]
+      - task: build
+        config:
+          platform: linux
+          image: docker:///pivotalui/concourse
+          inputs:
+          - name: pivotal-ui
+          run:
+            path: sh
+            args:
+            - -exc
+            - |
+              #!/bin/bash
+              cd pivotal-ui/library
+              npm i
+              gulp build
+
+              cd ../styleguide
+              npm i
+              gulp styleguide-build
+              gulp ci
+
+  - name: styleguide-new
+    plan:
+      - get: pivotal-ui
+        trigger: true
+        passed: [library]
+      - task: build
+        config:
+          platform: linux
+          image: docker:///pivotalui/concourse
+          inputs:
+          - name: pivotal-ui
+          run:
+            path: sh
+            args:
+            - -exc
+            - |
+              #!/bin/bash
+              cd pivotal-ui/library
+              npm i
+              gulp build
+
+              cd ../styleguide_new
+              npm i
+              ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
+              ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
+              ./node_modules/.bin/selenium-standalone install
+              ./node_modules/.bin/selenium-standalone start &
+              ./node_modules/.bin/gemini --reporter flat test
+
+  - name: styleguide-deploy
+    plan:
+      - get: pivotal-ui
+        trigger: true
+        passed: [styleguide]
+      - task: build
+        config:
+          platform: linux
+          image: docker:///pivotalui/concourse
+          params:
+            CF_PASSWORD: {{pivotal-ui-cf-password}}
+          inputs:
+          - name: pivotal-ui
+          run:
+            path: sh
+            args:
+            - -exc
+            - |
+              #!/bin/bash
+              cd pivotal-ui/library
+              npm i
+              gulp build
+              cd ../styleguide
+              npm i
+              gulp styleguide-build
+              cf api api.run.pivotal.io
+              cf auth pivotal-ui@pivotal.io $CF_PASSWORD
+              cf target -o pivotal -s pivotal-ui-staging
+              cf push
+
+  - name: styleguide-new-deploy
+    plan:
+      - get: pivotal-ui
+        trigger: true
+        passed: [styleguide-new]
+      - task: build
+        config:
+          platform: linux
+          image: docker:///pivotalui/concourse
+          params:
+            CF_PASSWORD: {{pivotal-ui-cf-password}}
+          inputs:
+          - name: pivotal-ui
+          run:
+            path: sh
+            args:
+            - -exc
+            - |
+              #!/bin/bash
+              cd pivotal-ui/library
+              npm i
+              gulp build
+              cd ../styleguide_new
+              ./bin/deploy.sh $CF_PASSWORD

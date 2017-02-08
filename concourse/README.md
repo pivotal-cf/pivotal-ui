@@ -8,7 +8,7 @@
 1. Download fly from [concourse](https://p-concourse.wings.cf-app.com/teams/system-team-pivotalui-pivui-d6f4/pipelines/pivotal-ui)
 1. `lpass login`
 1. `fly -t wings login -c https://p-concourse.wings.cf-app.com -n system-team-pivotalui-pivui-d6f4`
-1. `fly -t wings set-pipeline -c ./pipeline.yml -p pivotal-ui --load-vars-from <(lpass show --notes "Shared-apm/concourse/credentials.yml")`
+1. `fly -t wings set-pipeline -c ./pipeline.yml -p pivotal-ui --load-vars-from <(lpass show --notes "Shared-Pivotal UI/concourse/credentials.yml")`
 
 ## Build dockerfile
 

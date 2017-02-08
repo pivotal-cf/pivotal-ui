@@ -24,8 +24,12 @@ RUN cd ~/.rbenv && make -C src
 RUN git clone https://github.com/rbenv/ruby-build.git /root/.rbenv/plugins/ruby-build
 ENV rbenvbin /root/.rbenv/bin
 ENV PATH ${PATH}:${rbenvbin}
-RUN eval "$(rbenv init -)"
 RUN ${rbenvbin}/rbenv install 2.3.0
+RUN rbenv global 2.3.0
+RUN echo 'eval "$(rbenv init -)"' >> /root/.bashrc
+RUN eval "$(rbenv init -)" && gem install bundler
+RUN eval "$(rbenv init -)" && gem install rspec
+RUN rbenv rehash
 
 # python
 RUN apt-get install -y python2.7
@@ -53,3 +57,9 @@ RUN apt-get install -y xdg-utils
 RUN apt-get install -y wget
 RUN curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > /tmp/google-chrome-stable_current_amd64.deb
 RUN dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+
+# cf
+RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
+RUN echo "deb http://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+RUN apt-get update
+RUN apt-get install cf-cli
