@@ -1,6 +1,7 @@
-<a name="7.5.1"></a>
-## 7.5.1 (2017-02-07)
+<a name="7.5.2"></a>
+## 7.5.2 (2017-02-08)
 
 ### Bug Fixes
 
-* **collapse:** Re-publish 7.5.0 because 7.5.0 seemed to have missed `collapse.css`
+* **Packaging:** Do not break commonjs ([d52eeed](https://github.com/pivotal-cf/pivotal-ui/commit/d52eeed))
+
