@@ -19,7 +19,12 @@ export class AutocompleteList extends React.Component {
     minSearchTerm: 0
   }
 
-  onClick = (value, e) => {
+  constructor(props, context) {
+    super(props, context);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(value, e) {
     e.preventDefault();
     this.props.onPick(value);
   }
@@ -39,7 +44,7 @@ export class AutocompleteList extends React.Component {
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
 
-  renderDefault = () => {
+  renderDefault() {
     const {$autocomplete, minSearchTerm} = this.props;
     const {hidden, value} = $autocomplete.get();
     if(hidden || (value.length < minSearchTerm)) return null;
@@ -53,10 +58,12 @@ export class AutocompleteList extends React.Component {
     const {hidden, value, highlightedSuggestion, suggestedValues} = $autocomplete.get();
     if(hidden) return null;
 
+
     children = React.Children.map(children, e => React.cloneElement(e, {
       value,
       suggestedValues,
       highlightedSuggestion,
+      onClick: this.onClick,
       ...props
     }));
 
