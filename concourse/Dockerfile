@@ -25,7 +25,7 @@ RUN cd ~/.rbenv && src/configure
 RUN cd ~/.rbenv && make -C src
 RUN git clone https://github.com/rbenv/ruby-build.git /root/.rbenv/plugins/ruby-build
 ENV rbenvbin /root/.rbenv/bin
-ENV PATH ${PATH}:${rbenvbin}
+ENV PATH ${PATH}:${rbenvbin}:/root/.rbenv/shims
 RUN ${rbenvbin}/rbenv install 2.3.0
 RUN rbenv global 2.3.0
 RUN echo 'eval "$(rbenv init -)"' >> /root/.bashrc

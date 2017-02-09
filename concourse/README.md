@@ -17,7 +17,7 @@
 
 1. [Start docker machine](https://docs.docker.com/machine/)
 1. `eval $(docker-machine env default)`
-1. `docker build . -t pivotalui/concourse`
+1. `docker build . -t pivotalui/concourse:v<NEXT_NUMBER>`
 
 ##### Run tests on docker image
 
@@ -43,7 +43,7 @@ npm i
 ##### Publish
 
 1. `docker login` (credentials are in lastpass)
-1. `docker push pivotalui/concourse`
+1. `docker push pivotalui/concourse:v<SOME_NUMBER>`
 
 
 

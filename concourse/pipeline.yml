@@ -14,7 +14,11 @@ jobs:
       - task: build
         config:
           platform: linux
-          image: docker:///pivotalui/concourse
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v1
           inputs:
           - name: pivotal-ui
           run:
@@ -35,7 +39,11 @@ jobs:
       - task: build
         config:
           platform: linux
-          image: docker:///pivotalui/concourse
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v1
           inputs:
           - name: pivotal-ui
           run:
@@ -48,6 +56,7 @@ jobs:
               gulp build
 
               cd ../styleguide
+              bundle
               npm i
               gulp styleguide-build
               gulp ci
@@ -60,7 +69,11 @@ jobs:
       - task: build
         config:
           platform: linux
-          image: docker:///pivotalui/concourse
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v1
           inputs:
           - name: pivotal-ui
           run:
@@ -88,7 +101,11 @@ jobs:
       - task: build
         config:
           platform: linux
-          image: docker:///pivotalui/concourse
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v1
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:
@@ -117,7 +134,11 @@ jobs:
       - task: build
         config:
           platform: linux
-          image: docker:///pivotalui/concourse
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v1
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:

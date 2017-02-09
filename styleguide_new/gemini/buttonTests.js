@@ -5,7 +5,7 @@ gemini.suite('buttons', suite => {
 
   for(let button of buttons) {
     gemini.suite(button, suite => {
-      const selector = `code .${button}`;
+      const selector = `div .${button}`;
 
       suite
         .setCaptureElements([selector])
