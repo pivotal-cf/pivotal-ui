@@ -1,11 +1,11 @@
 {
-  "version": "7.5.2",
+  "version": "7.5.3",
   "description": "A React component that provides styled radio buttons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash.uniqueid": "^4.0.0",
-    "pui-css-forms": "=7.5.2",
-    "pui-react-helpers": "=7.5.2"
+    "pui-css-forms": "=7.5.3",
+    "pui-react-helpers": "=7.5.3"
   }
 }
