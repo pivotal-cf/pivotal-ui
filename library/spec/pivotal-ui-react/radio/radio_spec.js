@@ -1,45 +1,29 @@
 require('../spec_helper');
-const TestUtils = require('react-addons-test-utils');
+
+import {Radio, RadioGroup} from '../../../src/pivotal-ui-react/radio/radio';
 
 describe('Radio', function() {
-  let Radio;
-  beforeEach(() => {
-    Radio = require('../../../src/pivotal-ui-react/radio/radio').Radio;
-  });
-
   afterEach(function() {
     ReactDOM.unmountComponentAtNode(root);
   });
 
   it('renders a radio', function() {
-    ReactDOM.render(
-      <Radio value="1" name="bananas" id="npr">
-        One!!!
-      </Radio>, root);
-    expect('.radio :radio[name=bananas]').toHaveValue('1');
-    expect('.radio label').toContainText('One!!!');
-    expect('#npr:radio').toExist();
+    ReactDOM.render(<Radio value="1" name="bananas" id="npr">One!!!</Radio>, root);
+    expect('.radio input').toHaveValue('1');
+    expect('.radio').toContainText('One!!!');
   });
 
   it('adds an id and sets the label for', () => {
-    ReactDOM.render(
-      <Radio value="1" name="bananas" id="npr">
-        One!!!
-      </Radio>, root);
-    expect('.radio :radio').toHaveAttr('id');
-    expect('.radio :radio + label').toHaveAttr('for', $('.radio').attr('id'));
+    ReactDOM.render(<Radio value="1" name="bananas" id="npr">One!!!</Radio>, root);
+    expect('.radio input').toHaveAttr('id');
   });
-
 
   describe('when the checked property is passed', function() {
     let changeSpy;
 
     beforeEach(function() {
       changeSpy = jasmine.createSpy('change');
-      ReactDOM.render(
-        <Radio value="1" name="bananas" checked onChange={changeSpy}>
-          One!!!
-        </Radio>, root);
+      ReactDOM.render(<Radio value="1" name="bananas" checked onChange={changeSpy}>One!!!</Radio>, root);
     });
 
     it('renders a checked radio', function() {
@@ -55,28 +39,23 @@ describe('Radio', function() {
   });
 
   describe('when the defaultChecked property is passed', function() {
-
     beforeEach(function() {
-      ReactDOM.render(
-        <Radio value="1" name="bananas" defaultChecked>
-          One!!!
-        </Radio>, root);
+      ReactDOM.render(<Radio value="1" name="bananas" defaultChecked>One!!!</Radio>, root);
     });
 
     it('renders a checked radio', function() {
       expect('.radio :radio[name=bananas]').toBeChecked();
     });
-
-
   });
 
   describe('when className and style are passed', () => {
-    beforeEach(() =>{
+    beforeEach(() => {
       ReactDOM.render(
         <Radio value="1" name="bananas" className="radio-class" style={{opacity: '0.5'}} defaultChecked>
           One!!!
         </Radio>, root);
     });
+
     it('passes through className and style', () => {
       expect('.radio').toHaveClass('radio-class');
       expect('.radio').toHaveCss({opacity: '0.5'});
@@ -85,12 +64,7 @@ describe('Radio', function() {
 
   describe('when disabled property is passed', () => {
     beforeEach(() => {
-      ReactDOM.render(
-        <Radio
-          value="a value we do not care about"
-          disabled>
-          A label we do not care about
-        </Radio>, root);
+      ReactDOM.render(<Radio value="a value we do not care about" disabled>A label we do not care about</Radio>, root);
     });
 
     it('disables the radio button', () => {
@@ -99,33 +73,25 @@ describe('Radio', function() {
     });
 
     it('gets the disabled class on the label', () => {
-      expect('.radio label').toHaveClass('disabled');
+      expect('.radio input').toHaveAttr('disabled');
     });
   });
 });
 
 describe('RadioGroup', function() {
-  let Radio, RadioGroup;
-  beforeEach(() => {
-    Radio = require('../../../src/pivotal-ui-react/radio/radio').Radio;
-    RadioGroup = require('../../../src/pivotal-ui-react/radio/radio').RadioGroup;
-  });
-
   describe('basic RadioGroup', function() {
     var changeSpy, callValue;
     beforeEach(function() {
-
       changeSpy = jasmine.createSpy('change').and.callFake(function(e) {
         callValue = e.target.value;
       });
+
       ReactDOM.render(
         <RadioGroup name="bananas" onChange={changeSpy}>
           <Radio value="1">One!!!</Radio>
           <Radio value="2">The two value</Radio>
           <Radio value="3">Three</Radio>
-        </RadioGroup>,
-        root
-      );
+        </RadioGroup>, root);
     });
 
     afterEach(function() {
@@ -162,9 +128,7 @@ describe('RadioGroup', function() {
           <Radio value="1">One!!!</Radio>
           <Radio value="2">The two value</Radio>
           <Radio value="3">Three</Radio>
-        </RadioGroup>,
-        root
-      );
+        </RadioGroup>, root);
     });
 
     it('renders the radio group with the overrides', function() {

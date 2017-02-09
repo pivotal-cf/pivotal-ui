@@ -20,7 +20,7 @@ export class Radio extends React.Component {
   render() {
     const {className, style, children, disabled, id = uniqueId('radio'), ...others} = this.props;
     return (<div {...{className: classnames('radio', className), style}}>
-      <input type="radio" disabled={disabled} aria-disabled={disabled} {...{id}} {...others}/>
+      <input type="radio" disabled={disabled} aria-disabled={disabled} id={id} {...others}/>
       {children}
     </div>);
   }

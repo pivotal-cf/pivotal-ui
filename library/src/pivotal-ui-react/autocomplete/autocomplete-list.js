@@ -39,7 +39,7 @@ export class AutocompleteList extends React.Component {
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
 
-  renderDefault = () => {
+  renderDefault() {
     const {$autocomplete, minSearchTerm} = this.props;
     const {hidden, value} = $autocomplete.get();
     if(hidden || (value.length < minSearchTerm)) return null;
