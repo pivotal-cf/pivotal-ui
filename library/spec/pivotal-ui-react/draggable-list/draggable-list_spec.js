@@ -209,7 +209,7 @@ describe('DraggableList', function() {
 
   describe('move_helper#move', function() {
     it('moves an item at an index in a collection to the specified index', function() {
-      var move = require('../../../src/pivotal-ui-react/draggable-list/move_helper').default;
+      var move = require('../../../src/pivotal-ui-react/draggable-list/move_helper');
       expect(move(['a', 'b', 'c', 'd', 'e'], 0, 4)).toEqual(['b', 'c', 'd', 'e', 'a']);
       expect(move(['a', 'b', 'c', 'd', 'e'], 4, 0)).toEqual(['e', 'a', 'b', 'c', 'd']);
       expect(move(['a', 'b', 'c', 'd', 'e'], 0, 2)).toEqual(['b', 'c', 'a', 'd', 'e']);

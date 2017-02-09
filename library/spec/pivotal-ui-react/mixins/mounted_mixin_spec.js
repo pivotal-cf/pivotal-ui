@@ -3,8 +3,8 @@ require('../spec_helper');
 describe('MountedMixin', () => {
   let Component, subject;
   beforeEach(() => {
-    const mixin = require('pui-react-mixins').default;
-    const Mounted = require('../../../src/pivotal-ui-react/mixins/mixins/mounted_mixin').default;
+    const mixin = require('pui-react-mixins');
+    const Mounted = require('../../../src/pivotal-ui-react/mixins/mixins/mounted_mixin');
     class Klass extends mixin(React.Component).with(Mounted) {
       render() { return null; }
     }
