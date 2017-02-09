@@ -30,7 +30,7 @@ xdescribe('Input', function() {
   });
 
   it('merges classnames', function() {
-    ReactDOM.render(<Input className="foo"/>, root)
+    ReactDOM.render(<Input className="foo"/>, root);
     expect('.form-group').toHaveClass('foo');
   });
 
