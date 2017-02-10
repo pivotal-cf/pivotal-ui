@@ -1,10 +1,10 @@
 {
-  "version": "7.5.2",
+  "version": "7.5.4",
   "description": "React components that provide containers for related content",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-panels": "=7.5.2",
-    "pui-react-helpers": "=7.5.2"
+    "pui-css-panels": "=7.5.4",
+    "pui-react-helpers": "=7.5.4"
   }
 }

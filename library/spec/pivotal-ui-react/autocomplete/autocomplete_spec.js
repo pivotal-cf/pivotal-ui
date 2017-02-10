@@ -500,4 +500,34 @@ describe('Autocomplete', () => {
       });
     });
   });
+
+  describe('when there is a custom list', () => {
+    beforeEach(() => {
+      onInitializeItems = (cb) => {
+        cb([
+          {watson: {name: 'watson', age: 4}},
+          {coffee: {name: 'coffee', age: 2}},
+          {advil: {name: 'advil', age: 5}},
+          {'water lilies': {name: 'water lilies', age: 6}}
+        ]);
+      };
+
+      class CustomList extends React.Component {
+        static propTypes = {onClick: React.PropTypes.func};
+        render() {
+          return <ul className="custom-list" onClick={this.props.onClick}/>;
+        }
+      }
+      ReactDOM.render(<Autocomplete onInitializeItems={onInitializeItems} onPick={pickSpy}><CustomList/></Autocomplete>, root);
+      MockNextTick.next();
+      MockPromises.tick();
+
+      $('.autocomplete input').val('wat').simulate('change');
+    });
+
+    it('supports picking from the list', () => {
+      $('.custom-list').simulateNative('click');
+      expect(pickSpy).toHaveBeenCalled();
+    });
+  });
 });
