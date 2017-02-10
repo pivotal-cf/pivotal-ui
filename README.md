@@ -1,11 +1,8 @@
 # Welcome to Pivotal UI
-[![Build Status](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development/build_image)](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development)
 
+[Build pipeline](https://p-concourse.wings.cf-app.com/teams/system-team-pivotalui-pivui-d6f4/pipelines/pivotal-ui)
 
-Pivotal UI is a collection of React components that are styled for the Pivotal brand. Built on top of Bootstrap and
-React, this library contains everything you need to get started building UI at Pivotal.
-
-[Visit the live styleguide](http://styleguide.pivotal.io)
+Pivotal UI is a collection of React components that are styled for the Pivotal brand. [Visit the live styleguide here.](http://styleguide.pivotal.io)
 
 # Starting with Pivotal UI 
 
