@@ -1,6 +1,6 @@
 require('../spec_helper');
 
-xdescribe('Input', function() {
+describe('Input', function() {
   let changeSpy, Input, subject;
   const id = 'firstNameInput';
   const label = 'First Name';
@@ -62,7 +62,6 @@ xdescribe('Input', function() {
 
     it('renders a form group with the search classes', function() {
       expect('.form-group').toHaveClass('form-group-left-icon');
-      expect('.form-group input').toHaveClass('form-control');
       expect('.form-group svg').toHaveClass('icon-search');
     });
   });
@@ -74,7 +73,6 @@ xdescribe('Input', function() {
 
     it('renders a form group with custom icon', function() {
       expect('.form-group').toHaveClass('form-group-left-icon');
-      expect('.form-group input').toHaveClass('form-control');
       expect('.form-group svg:eq(0)').toHaveClass('icon-add');
     });
 

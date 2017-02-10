@@ -26,10 +26,10 @@ export class Input extends React.Component {
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, search, success, leftIcon, ...props} = this.props;
     const {id, placeholder} = props;
-    const successClassName = success ? 'input-right-icon' : '';
+    const successClassName = success ? 'form-group-right-icon' : '';
     const formClasses = classnames(
       'form-group',
-      {'input-left-icon': search || leftIcon},
+      {'form-group-left-icon': search || leftIcon},
       className,
       successClassName,
       {'has-error': displayError}
