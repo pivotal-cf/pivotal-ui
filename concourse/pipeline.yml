@@ -1,15 +1,21 @@
 resources:
-  - name: pivotal-ui
+  - name: pivotal-ui-development
     type: git
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
       branch: development
       private_key: {{pivotal-ui-git-key}}
+  - name: pivotal-ui-master
+    type: git
+    source:
+      uri: git@github.com:pivotal-cf/pivotal-ui.git
+      branch: master
+      private_key: {{pivotal-ui-git-key}}
 
 jobs:
-  - name: library
+  - name: library-master
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-master
         trigger: true
       - task: build
         config:
@@ -18,24 +24,24 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v1
+              tag: v2
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-master
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-master/library
               npm i
               gulp build
               gulp ci
 
-  - name: styleguide
+  - name: styleguide-master
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-master
         trigger: true
-        passed: [library]
+        passed: [library-master]
       - task: build
         config:
           platform: linux
@@ -43,15 +49,15 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v1
+              tag: v2
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-master
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-master/library
               npm i
               gulp build
 
@@ -61,11 +67,10 @@ jobs:
               gulp styleguide-build
               gulp ci
 
-  - name: styleguide-new
+  - name: library-development
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
-        passed: [library]
       - task: build
         config:
           platform: linux
@@ -73,15 +78,73 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v1
+              tag: v2
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
+              npm i
+              gulp build
+              gulp ci
+
+  - name: styleguide-development
+    plan:
+      - get: pivotal-ui-development
+        trigger: true
+        passed: [library-development]
+      - task: build
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v2
+          inputs:
+          - name: pivotal-ui-development
+          run:
+            path: bash
+            args:
+            - -exc
+            - |
+              cd pivotal-ui-development/library
+              npm i
+              gulp build
+
+              cd ../styleguide
+              bundle
+              npm i
+              gulp styleguide-build
+              gulp ci
+
+  - name: styleguide-new-development
+    plan:
+      - get: pivotal-ui-development
+        trigger: true
+        passed: [library-development]
+      - task: build
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+              tag: v2
+          inputs:
+          - name: pivotal-ui-development
+          run:
+            path: bash
+            args:
+            - -exc
+            - |
+              service dbus restart
+              xvfb-run chromedriver --port=4444 --url-base=wd/hub &
+
+              cd pivotal-ui-development/library
               npm i
               gulp build
 
@@ -89,15 +152,17 @@ jobs:
               npm i
               ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
               ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
-              ./node_modules/.bin/selenium-standalone install
-              ./node_modules/.bin/selenium-standalone start &
+              npm run watch &
+
+              sleep 10
+
               ./node_modules/.bin/gemini --reporter flat test
 
-  - name: styleguide-deploy
+  - name: styleguide-development-deploy
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
-        passed: [styleguide]
+        passed: [styleguide-development]
       - task: build
         config:
           platform: linux
@@ -105,32 +170,34 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v1
+              tag: v2
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
               cd ../styleguide
+
               npm i
+              bundle
               gulp styleguide-build
               cf api api.run.pivotal.io
               cf auth pivotal-ui@pivotal.io $CF_PASSWORD
               cf target -o pivotal -s pivotal-ui-staging
               cf push
 
-  - name: styleguide-new-deploy
+  - name: styleguide-new-development-deploy
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
-        passed: [styleguide-new]
+        passed: [styleguide-new-development]
       - task: build
         config:
           platform: linux
@@ -138,17 +205,17 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v1
+              tag: v2
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
               cd ../styleguide_new

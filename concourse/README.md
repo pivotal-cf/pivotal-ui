@@ -44,6 +44,3 @@ npm i
 
 1. `docker login` (credentials are in lastpass)
 1. `docker push pivotalui/concourse:v<SOME_NUMBER>`
-
-
-

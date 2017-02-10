@@ -3,6 +3,7 @@ USER root
 ENV SHELL /bin/bash
 
 RUN apt-get update
+RUN apt-get install -y wget
 RUN apt-get install -y curl
 RUN apt-get install -y libssl-dev
 RUN apt-get install -y libreadline-dev
@@ -47,21 +48,26 @@ RUN npm install -g gulp
 # java
 RUN apt-get install -y default-jdk
 
-# chrome
-RUN apt-get install -y libxss1
-RUN apt-get install -y libappindicator1
-RUN apt-get install -y libindicator7
-RUN apt-get install -y libpangox-1.0-0
-RUN apt-get install -y libpangoxft-1.0-0
-RUN apt-get install -y libpango1.0-0
-RUN apt-get install -y fonts-liberation
-RUN apt-get install -y xdg-utils
-RUN apt-get install -y wget
-RUN curl https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > /tmp/google-chrome-stable_current_amd64.deb
-RUN dpkg -i /tmp/google-chrome-stable_current_amd64.deb
+# install chrome
+RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+RUN sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+RUN apt-get update
+RUN apt-get -y install google-chrome-stable
+RUN wget -N http://chromedriver.storage.googleapis.com/2.25/chromedriver_linux64.zip
+RUN apt-get install -y unzip
+RUN unzip chromedriver_linux64.zip
+RUN chmod +x chromedriver
+RUN mv -f chromedriver /usr/local/bin/chromedriver
+RUN apt-get -y install xvfb --fix-missing # chrome will use this to run headlessly
 
 # cf
 RUN wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | apt-key add -
 RUN echo "deb http://packages.cloudfoundry.org/debian stable main" | tee /etc/apt/sources.list.d/cloudfoundry-cli.list
 RUN apt-get update
 RUN apt-get install cf-cli
+
+# install dbus - chromedriver needs this to talk to google-chrome
+RUN apt-get -y install dbus --fix-missing
+RUN apt-get -y install dbus-x11 --fix-missing
+RUN ln -s /bin/dbus-daemon /usr/bin/dbus-daemon     # /etc/init.d/dbus has the wrong location
+RUN ln -s /bin/dbus-uuidgen /usr/bin/dbus-uuidgen   # /etc/init.d/dbus has the wrong location
