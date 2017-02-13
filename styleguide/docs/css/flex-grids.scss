@@ -82,18 +82,14 @@ after which the column will drop onto another row:
 
 ```html_example
 <div class="grid grid-show">
+  <div class="col"></div>
   <div class="col col-grow-2"></div>
-  <div class="col col-grow-3"></div>
-  <div class="col col-grow-4"></div>
-  <div class="col col-grow-5"></div>
-  <div class="col col-grow-6"></div>
 </div>
 
 <div class="grid grid-show">
-  <div class="col col-grow-8"></div>
-  <div class="col col-grow-9"></div>
-  <div class="col col-grow-10"></div>
-  <div class="col col-grow-11"></div>
+  <div class="col"></div>
+  <div class="col col-grow-2"></div>
+  <div class="col col-grow-5"></div>
 </div>
 ```
 
