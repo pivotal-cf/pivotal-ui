@@ -152,10 +152,10 @@ jobs:
                 ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
                 npm run watch &
 
-                sleep 10
+                sleep 30
+                ./bin/gemini-in-docker.sh ../
               popd
 
-              ./gemini-in-docker.sh pivotal-ui-development/library
 
   - name: styleguide-development-deploy
     plan:
