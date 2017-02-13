@@ -3,6 +3,7 @@ USER root
 ENV SHELL /bin/bash
 
 RUN apt-get update
+RUN apt-get install -y vim
 RUN apt-get install -y wget
 RUN apt-get install -y curl
 RUN apt-get install -y libssl-dev
@@ -71,3 +72,10 @@ RUN apt-get -y install dbus --fix-missing
 RUN apt-get -y install dbus-x11 --fix-missing
 RUN ln -s /bin/dbus-daemon /usr/bin/dbus-daemon     # /etc/init.d/dbus has the wrong location
 RUN ln -s /bin/dbus-uuidgen /usr/bin/dbus-uuidgen   # /etc/init.d/dbus has the wrong location
+
+# cache npm packages
+RUN git clone https://github.com/pivotal-cf/pivotal-ui /tmp/pivotal-ui
+RUN cd /tmp/pivotal-ui/library && npm i
+RUN cd /tmp/pivotal-ui/library && gulp build
+RUN cd /tmp/pivotal-ui/styleguide && npm i
+RUN cd /tmp/pivotal-ui/styleguide_new && npm i

@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-# LOCAL TEST SCRIPT
-
-set -e
-
 PIVOTAL_UI_LOCATION=/Users/pivotal/workspace/pivotal-ui
 CONTAINER_NAME=pivotalui/concourse:v3
-LOCAL_REPORT_LOCATION=/tmp/gemini-report
-LOCAL_SCREENS_LOCATION=/tmp/gemini-updated-screens
+SCREENS_LOCATION=/tmp/gemini-screens
 
 ## CLEANUP
 function cleanup {
@@ -17,7 +12,7 @@ function cleanup {
       docker rm -f `docker ps -a | grep $CONTAINER_NAME | awk '{print $1}'`
   fi
 }
-trap cleanup EXIT
+#trap cleanup EXIT
 
 cleanup
 
@@ -32,6 +27,6 @@ echo "Using container $CONTAINER_ID. You can manually attach with 'docker exec -
 docker exec $CONTAINER_ID rm -rf /pivotal-ui
 docker exec $CONTAINER_ID mkdir -p /pivotal-ui
 docker cp $PIVOTAL_UI_LOCATION $CONTAINER_ID:/
-echo `docker exec -it $CONTAINER_ID /pivotal-ui/styleguide_new/bin/gemini-in-docker.sh /pivotal-ui test`
-docker cp $CONTAINER_ID:/pivotal-ui/styleguide_new/gemini-report $LOCAL_REPORT_LOCATION
-echo "Your gemini report is located at $LOCAL_REPORT_LOCATION"
+docker exec -it $CONTAINER_ID /pivotal-ui/styleguide_new/bin/gemini-in-docker.sh /pivotal-ui update
+docker cp $CONTAINER_ID:/pivotal-ui/styleguide_new/gemini/screens $SCREENS_LOCATION
+cp -R $SCREENS_LOCATION gemini/screens

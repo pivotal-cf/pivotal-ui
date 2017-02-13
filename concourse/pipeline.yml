@@ -24,7 +24,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           inputs:
           - name: pivotal-ui-master
           run:
@@ -49,7 +49,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           inputs:
           - name: pivotal-ui-master
           run:
@@ -78,7 +78,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -103,7 +103,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -133,7 +133,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -141,7 +141,7 @@ jobs:
             args:
             - -exc
             - |
-              pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development
+              pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
 
   - name: styleguide-development-deploy
     plan:
@@ -155,7 +155,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:
@@ -190,7 +190,7 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v2
+              tag: v3
           params:
             CF_PASSWORD: {{pivotal-ui-cf-password}}
           inputs:
