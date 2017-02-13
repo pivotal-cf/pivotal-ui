@@ -23,7 +23,9 @@ pushd styleguide_new
     ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
     ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
     npm run watch &
-
+    echo "About to sleep"
     sleep 30 # wait for compilation to happen
+    echo "Sleep finished, testing"
     ./node_modules/.bin/gemini test --reporter flat --reporter html
+    echo "Test finished"
 popd

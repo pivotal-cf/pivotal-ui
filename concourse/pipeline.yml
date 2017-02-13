@@ -141,11 +141,6 @@ jobs:
             args:
             - -exc
             - |
-              pushd pivotal-ui-development/library
-                npm i
-                gulp build
-              popd
-
               pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development
 
   - name: styleguide-development-deploy
