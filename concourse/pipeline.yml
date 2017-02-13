@@ -146,14 +146,8 @@ jobs:
                 gulp build
               popd
 
-              pushd pivotal-ui-development/styleguide_new
-                npm i
-                ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
-                ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
-                npm run watch &
-
-                sleep 30
-                ./bin/gemini-in-docker.sh ../
+              pushd pivotal-ui-development
+                ./bin/gemini-in-docker.sh .
               popd
 
 
