@@ -11,8 +11,6 @@ gemini.suite('buttons', suite => {
         .setCaptureElements([selector])
         .before((actions, find) => this.button = find(selector))
         .capture('plain')
-        .capture('pressed', (actions, find) => actions.mouseDown(this.button))
-        .capture('clicked', (actions, find) => actions.mouseUp(this.button))
     })
   }
 });
