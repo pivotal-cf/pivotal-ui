@@ -20,6 +20,8 @@ popd
 pushd styleguide_new
     rm -rf node_modules
     npm i
+    ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
+    ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
     npm run watch &
 
     sleep 30 # wait for compilation to happen
