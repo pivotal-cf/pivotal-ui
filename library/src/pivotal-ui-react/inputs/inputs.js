@@ -48,7 +48,7 @@ export class Input extends React.Component {
         {leftIconSrc && customLeftIcon}
         {success && <Icon className="success" src="check"/>}
       </div>
-      {displayError && <div className="error-text help-block">
+      {displayError && <div className="help-block">
         {errorMessage ? errorMessage : `Please enter your ${label.toLowerCase()}.`}
       </div>}
     </div>);

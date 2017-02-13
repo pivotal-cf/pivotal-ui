@@ -272,9 +272,10 @@ textarea.valid {
 
 .help-block {
   position: absolute;
-  bottom: -16px;
-  font-size: 12px;
-  line-height: 16px;
+  bottom: -$base-unit * 2;
+  font-size: $font-size-extra-small;
+  line-height: $base-unit * 2;
+  color: $error-4;
 }
 
 .has-error {
@@ -288,6 +289,8 @@ textarea.valid {
 }
 
 .form-group {
+  position: relative;
+
   //Validation Icons
   .svgicon {
     &.valid,

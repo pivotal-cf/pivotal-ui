@@ -44,17 +44,6 @@ describe('Input', function() {
     });
   });
 
-  describe('Validation', function() {
-    it('does not show error messages when displayError is false', function() {
-      expect('.error-text').not.toExist();
-    });
-    it('shows error messages when displayError is true', function() {
-      subject::setProps({displayError: true, label});
-      expect('.error-text').toExist();
-      expect('.error-text').toHaveText(`Please enter your ${label.toLowerCase()}.`);
-    });
-  });
-
   describe('search', () => {
     beforeEach(() => {
       subject::setProps({success: false, search: true});
