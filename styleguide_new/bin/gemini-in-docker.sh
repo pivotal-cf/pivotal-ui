@@ -8,7 +8,7 @@ set -ex
 service dbus restart
 xvfb-run chromedriver --port=4444 --url-base=wd/hub &
 
-cd /pivotal-ui
+cd $1
 
 pushd library
     rm -rf node_modules

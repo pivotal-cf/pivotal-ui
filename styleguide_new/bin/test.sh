@@ -22,4 +22,4 @@ echo "Using container $CONTAINER_ID. You can manually attach with 'docker exec -
 docker exec $CONTAINER_ID rm -rf /pivotal-ui
 docker exec $CONTAINER_ID mkdir -p /pivotal-ui
 docker cp $PIVOTAL_UI_LOCATION $CONTAINER_ID:/
-docker exec -it $CONTAINER_ID /pivotal-ui/styleguide_new/bin/gemini-in-docker.sh
+docker exec -it $CONTAINER_ID /pivotal-ui/styleguide_new/bin/gemini-in-docker.sh /pivotal-ui
