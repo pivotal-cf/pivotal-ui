@@ -127,3 +127,43 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+$whitespace-keys: (p padding, m margin, a '', v -top -bottom, h -left -right, t -top, r -right, b -bottom, l -left);
+@function expand-whitespace-key($k) {
+  @each $pair in $whitespace-keys {
+    $short: nth($pair, 1);
+    $long: nth($pair, 2);
+    // v and h need to pass in 2 parameters
+    @if (length($pair) == 3) {
+      $long: (nth($pair, 2) nth($pair, 3))
+    }
+    @if $short == $k {
+      @return $long;
+    }
+  }
+  @warn "Couldn't expand #{$k}";
+  @return $k;
+}
+
+$types: (p, m); // padding,margin
+$locations: (a, v, h, t, r, b, l); // all,top,right,bottom,left,horizontal,vertical
+$tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
+
+@mixin whitespace($units: ()) {
+  $units: join(0, $units);
+
+  @for $i from 1 through length($units) {
+    $tShirtSize: nth($tShirtSizes, $i);
+    $size: nth($units, $i);
+
+    @each $location in $locations {
+      @each $type in $types {
+        .#{$type}#{$location}#{$tShirtSize} {
+          @each $whitespace-location in expand-whitespace-key($location) {
+            #{expand-whitespace-key($type)}#{$whitespace-location}: $size;
+          }
+        }
+      }
+    }
+  }
+}

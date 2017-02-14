@@ -1,8 +1,6 @@
 @import "../pui-variables";
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 @import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
-@import '../../frameworks/oocss/clearfix-me';
-@import '../../frameworks/oocss/listWhitespace';
 @import "../mixins";
 
 //Bootstrap
@@ -127,7 +125,6 @@ ul, ol {
 
 .list-vertical-divider {
   @extend .list-inline;
-  @include clearfix-me(micro);
 
   overflow: hidden;
 
@@ -190,55 +187,6 @@ ul, ol {
     }
   }
 }
-
-@include ooListWhitespace(($whitespace-s, $whitespace-m, $whitespace-l, $whitespace-xl));
-
-.list-cards {
-  @include clearfix-micro;
-  @extend .list-unstyled;
-
-  > li {
-    margin-bottom: $list-card-margin;
-  }
-}
-
-@mixin setCardWidthResponsive($width) {
-  $breakpoints: (xs: $screen-xs-min, sm: $screen-sm-min, md: $screen-md-min, lg: $screen-lg-min, xl: $screen-xl-min);
-  @each $key, $breakpoint in $breakpoints {
-    @media(min-width: $breakpoint) {
-      &.list-cards-#{$key} {
-        > li {
-          width: $width;
-          float: left;
-          margin-right: $list-card-margin;
-        }
-      }
-    }
-  }
-}
-
-@mixin makeCard($height, $width, $name) {
-  .list-card-#{$name} {
-    @include setCardWidthResponsive($width);
-    > li {
-      min-height: $height;
-
-      a.list-cards-link, // deprecated in favor of the singular
-      a.list-card-link {
-        display: block;
-        min-height: $height;
-      }
-
-      .list-card-wrapper {
-        min-height: $height;
-      }
-
-    }
-  }
-}
-
-@include makeCard($base-unit * 16, $base-unit * 54, 1);
-@include makeCard($base-unit * 24, $base-unit * 35, 2);
 
 .list-stream-new-items-btn-wrapper {
   overflow: hidden;
@@ -365,4 +313,68 @@ ul, ol {
     -o-transform: translatey(-50%);
     -webkit-transform: translatey(-50%);
   }
+}
+
+.lvn li:not(:last-child) {
+  margin-bottom: 0;
+}
+
+.lvs li:not(:last-child) {
+  margin-bottom: $whitespace-s;
+}
+
+.lvm li:not(:last-child) {
+  margin-bottom: $whitespace-m;
+}
+
+.lvl li:not(:last-child) {
+  margin-bottom: $whitespace-l;
+}
+
+.lvxl li:not(:last-child) {
+  margin-bottom: $whitespace-xl;
+}
+
+.lvxxl li:not(:last-child) {
+  margin-bottom: $whitespace-xxl;
+}
+
+.lvxxxl li:not(:last-child) {
+  margin-bottom: $whitespace-xxxl;
+}
+
+.lvxxxxl li:not(:last-child) {
+  margin-bottom: $whitespace-xxxxl;
+}
+
+.lhn li:not(:last-child) {
+  margin-right: 0;
+}
+
+.lhs li:not(:last-child) {
+  margin-right: $whitespace-s;
+}
+
+.lhm li:not(:last-child) {
+  margin-right: $whitespace-m;
+}
+
+.lhl li:not(:last-child) {
+  margin-right: $whitespace-l;
+}
+
+.lhxl li:not(:last-child) {
+  margin-right: $whitespace-xl;
+}
+
+.lhxxl li:not(:last-child) {
+  margin-right: $whitespace-xxl;
+}
+
+.lhxxxl li:not(:last-child) {
+  margin-right: $whitespace-xxxl;
+}
+
+.lhxxxxl li:not(:last-child) {
+  margin-right: $whitespace-xxxxl;
 }

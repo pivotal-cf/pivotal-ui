@@ -21,7 +21,7 @@ footer         | no | Node                   | | Node to render in the footer
 actions        | no | Node                   | | Node to render as actions in the header (recommended: array of nodes)
 subtitle       | no | Node                   | | An element or text to render as the subtitle in the header (only works if header is a string)
 innerClassName | no | String                 | | The className to be added on the panel body
-padding        | no | String                 | | Padding to use on the panel body using OOCSS naming convention (e.g pam, pan, phl, ptl)
+padding        | no | String                 | | Padding to use on the panel body (e.g pam, pan, phl, ptl)
 scrollable     | no | oneOf(Boolean, Number) | | Use default scrolling height when boolean or a specified scrolling height
 
 ## Basic usage

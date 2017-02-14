@@ -315,103 +315,6 @@ Use this list when you need to show the steps in a flow.
 </ol>
 ```
 
-*/
-
-/*doc
----
-title: Cards
-name: list_cards
-parent: list
----
-
-As the browser width changes, list-cards fill in one after another. There are two card types, `type-card-1` and
-`type-card-2`. For this example, we've set both of them to stack on mobile sized screens.
-
-```html_example_table
-<ul class="list-cards list-card-1 list-cards-xs">
-  <li class="bg-neutral-7">
-    <p>list-card-1</p>
-  </li>
-</ul>
-
-<ul class="list-cards list-card-2 list-cards-xs">
-  <li class="bg-neutral-7">
-    <p>list-card-2</p>
-  </li>
-</ul>
-```
-
-You can specify the breakpoint in which the cards stack by using the `list-card-*` classes. If the breakpoint is not
-specified, the cards fill 100% of the `list-cards` width.
-
-
-List Card Breakpoints | Class Names
---------------------- | ---------------
-extra-small           | `.list-card-xs`
-small                 | `.list-card-sm`
-medium                | `.list-card-md`
-large                 | `.list-card-lg`
-extra-large           | `.list-card-xl`
-
-<div class="alert alert-info mbxl">
-  <p class="em-high">The cards list should only be used in fully liquid layouts, otherwise grids are a better choice.</p>
-</div>
-
-This is an example of a card list with the `list-cards-xs` stack point applied.
-Resize the browser to see how cards stack on desktop sizes and expand on mobile sizes.
-
-```html_example
-<ul class="list-cards list-card-2 list-cards-xs">
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 1</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 2</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 3</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 4</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 5</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 6</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 7</p>
-  </li>
-  <li class="bg-neutral-7">
-    <p>lorem ipsum 8</p>
-  </li>
-</ul>
-```
-If you would like custom card dimensions, in your sass include the makeCard mixin, like so: `@include makeCard(height, width, name);`
-You can then access the class via `.list-card-#{name}`.
-
-<h3 class="styleguide">Clickable List Cards</h3>
-
-If you want your list cards to function as links (i.e. be clickable),
-wrap all the inner content in `a` with class `list-card-link`.
-
-```html_example
-<ul class="list-cards list-card-1 list-cards-xs">
-  <li class="bg-neutral-7">
-    <a class="list-card-link" href="http://bit.ly/1sEyvH5">
-      <p>This entire list card is clickable!</p>
-    </a>
-  </li>
-  <li class="bg-neutral-7">
-    <a class="list-card-link" href="http://bit.ly/1sFaArX">
-      <p>This entire list card is clickable as well!</p>
-    </a>
-  </li>
-</ul>
-```
-*/
-
 /*doc
 ---
 title: Layout Lists
@@ -426,8 +329,6 @@ Sometimes you might want to use lists to lay out elements on the page.
 [Inline lists][list_inline] and [vertical divider lists][list_vertical_divider]
 are particularly useful when you don't know the width of the element you want to layout,
 or you want to vertically align it.
-
-Use [Card lists][list_cards] if you'd like to make a grid of vertically and horizontally aligned cards.
 
 */
 

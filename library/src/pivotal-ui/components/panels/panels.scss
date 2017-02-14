@@ -62,54 +62,6 @@
   background-color: $panel-basic-alt-background;
 }
 
-.panel-tile {
-  border-bottom: 4px solid $shadow-3;
-  overflow: hidden;
-  color: $text-color;
-  -webkit-transition: border 300ms ease-out;
-  -moz-transition: border 300ms ease-out;
-  transition: border 300ms ease-out;
-  @include background-clip-fix;
-
-  .panel-body {
-    padding: $panel-body-padding;
-
-    -ms-flex: 1 0 auto;
-    -webkit-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
-    -moz-transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
-    transition: padding-top 300ms ease-out, padding-bottom 300ms ease-out;
-  }
-
-  .panel-footer {
-    color: #fff;
-    opacity: 0;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: $panel-tile-font-size;
-    border-top: none; // bootstrap override
-    padding: $panel-footer-padding;
-    background: transparent;
-    @include transition-pui();
-  }
-
-  &:hover,
-  &:focus {
-    @include transition-pui();
-    border-width: 1px;
-    box-shadow: none;
-    background-color: $panel-tile-hover-bg-color;
-    color: $text-color;
-    cursor: pointer;
-
-    .panel-footer {
-      opacity: 1;
-      background: $panel-tile-hover-border-color;
-      color: $panel-footer-tile-text;
-      font-weight: 900;
-    }
-  }
-}
-
 //Animation Panel Loading
 .panel-loading-indicator {
   position: absolute;
@@ -140,7 +92,7 @@
     opacity: .15;
   }
   100% {
-    right: 0%;
+    right: 0;
     width: 100%;
     opacity: .05;
   }
@@ -182,11 +134,11 @@
   }
 
   .aligner {
-    min-height: 190px;
+    min-height: $base-unit * 24;
   }
 
   .panel-basic {
-    min-height: 88px;
+    min-height: $base-unit * 11;
   }
 
   &%panel-state {
@@ -198,9 +150,8 @@
       right: 0;
       width: 0;
       height: 0;
-      border-left: 25px solid transparent;
+      border-left: ($base-unit*3) solid transparent;
     }
-
   }
 
   &.panel-danger, &.panel-off {
@@ -208,11 +159,11 @@
   }
 
   &.panel-danger:before {
-    border-top: 25px solid $red-3;
+    border-top: ($base-unit*3) solid $red-3;
   }
 
   &.panel-off:before {
-    border-top: 25px solid $gray-4;
+    border-top: ($base-unit*3) solid $gray-4;
   }
 }
 

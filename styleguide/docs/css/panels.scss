@@ -106,55 +106,6 @@ parent: panel
   <div class="panel-footer">Footer Content</div>
 </div>
 ```
-
-<div class="alert alert-info mbxl">
-<div>
-  <h5 class="em-high mtn">
-    Panels and list cards
-  </h5>
-  <p>
-    Panels are often used with <a class="alert-link" href="/elements.html#list_cards">list cards</a>
-    as a way to give list cards footers.
-    Add the class <code>list-card-wrapper</code> on any panels inside list cards.
-  </p>
-</div>
-</div>
-
-```html_example
-<ul class="list-cards list-card-2 list-cards-sm">
-  <li class="panel bg-neutral-11">
-    <div class="list-card-wrapper panel">
-      <div class="panel-body">Body Content</div>
-      <div class="panel-footer">Footer Content</div>
-    </div>
-  </li>
-
-  <li class="panel bg-neutral-11">
-    <form>
-      <div class="list-card-wrapper panel">
-        <div class="panel-body">
-          <p>
-            It even works if your <code>list-card-wrapper</code> is nested in a form
-          </p>
-          <div class="form-group">
-            <input class="form-control" placeholder="Email">
-          </div>
-        </div>
-        <div class="panel-footer">Footer Content</div>
-      </div>
-    </form>
-  </li>
-
-  <li class="panel bg-neutral-11">
-    <a class="list-card-link" href="http://wrd.cm/1e2A8uU">
-      <div class="list-card-wrapper panel">
-        <div class="panel-body">Or in a link!</div>
-        <div class="panel-footer">Footer Content</div>
-      </div>
-    </a>
-  </li>
-</ul>
-```
 */
 
 /*doc
@@ -180,33 +131,6 @@ Add a loading animation to a panel with the class `panel-loading-indicator`. The
 ```
 
 */
-
-/*doc
----
-title: Panel Tile
-name: 05_panel_tile
-parent: panel
----
-
-Tile panels provide an animated footer on hover, at the bottom of a fixed-height panel.
-
-```html_example
-<ul class="list-cards list-card-1 list-cards-lg">
-  <li>
-    <a class="list-card-link panel panel-tile bg-neutral-11" href="http://www.google.com/">
-      <div class="panel-body list-card-wrapper">
-        Hover to see secondary state.
-      </div>
-      <div class="panel-footer">
-        This is the footer
-      </div>
-    </a>
-  </li>
-</ul>
-```
-
-*/
-
 
 /*doc
 ---
@@ -322,37 +246,6 @@ Shadow panels add a bottom shadow to the panel.
     Shadow Panel
   </div>
 </div>
-```
-
-*/
-
-/*doc
----
-title: Card
-name: 10_panel_card
-parent: panel
----
-
-Using panels with [card lists][list_cards] makes any `.panel-body` have a minimum "card" height.
-
-```html_example
-<ul class="list-cards list-cards-sm list-card-2">
-  <li class="panel panel-clickable-alt bg-neutral-11">
-    <div class="panel-body">
-      Card Panel
-    </div>
-  </li>
-  <li class="panel panel-clickable-alt bg-neutral-11">
-    <div class="panel-body">
-      Card Panel
-    </div>
-  </li>
-  <li class="panel panel-clickable-alt bg-neutral-11">
-    <div class="panel-body">
-      Card Panel
-    </div>
-  </li>
-</ul>
 ```
 
 */

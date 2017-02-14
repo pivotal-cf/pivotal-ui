@@ -1025,11 +1025,6 @@ $timeline-list-padding: $padding-large-vertical;
 $timeline-axis-color:   $neutral-8;
 $timeline-point-color:  $neutral-7;
 
-// List Card
-// -------------------------
-
-$list-card-margin: 16px !default;
-
 // Panels
 // -------------------------
 
@@ -1227,10 +1222,6 @@ $component-offset-horizontal:     180px !default;
 $pageWidth:                       997px;
 $ie7: false;
 $ie8: false;
-$baseFontSize:                    $font-size-base;
-$baseLineHeight:                  $line-height-base;
-$baseSpacing:                     $line-height-base + em;
-$baseGutter:                      $grid-gutter-width;
 $bg-color-example-output:         $neutral-11;
 $bg-color-inverse-example-output: $navy-1;
 $bg-color-example-code:           $neutral-10;
