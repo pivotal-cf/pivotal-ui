@@ -342,22 +342,13 @@ $font-size-title:             42px;
 // Whitespace
 // -------------------------
 
-$whitespace-s:        5px;
-$whitespace-m:        7px;
-$whitespace-l:        10px;
-$whitespace-xl:       20px;
-$whitespace-xxl:      40px;
-$whitespace-xxxl:     120px;
-$whitespace-xxxxl:    140px;
-
-// mobile screen whitespace
-$whitespace-screen-sm-s:     5px;
-$whitespace-screen-sm-m:     7px;
-$whitespace-screen-sm-l:     10px;
-$whitespace-screen-sm-xl:    15px;
-$whitespace-screen-sm-xxl:   20px;
-$whitespace-screen-sm-xxxl:  30px;
-$whitespace-screen-sm-xxxxl: 30px;
+$whitespace-s:        $base-unit / 4;
+$whitespace-m:        $base-unit / 2;
+$whitespace-l:        $base-unit;
+$whitespace-xl:       $base-unit * 2;
+$whitespace-xxl:      $base-unit * 3;
+$whitespace-xxxl:     $base-unit * 4;
+$whitespace-xxxxl:    $base-unit * 5;
 
 // Iconography
 // -------------------------

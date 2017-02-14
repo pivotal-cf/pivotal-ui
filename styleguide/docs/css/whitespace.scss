@@ -13,28 +13,6 @@ categories:
 npm install pui-css-whitespace --save
 </code>
 
-<div class="alert alert-warning alert-dismissable">
-<div>
-  <h5 class="em-high mtn">
-    Sass variables should only be used in variables.css.scss.
-  </h5>
-  <p>
-    They should never be used directly when building components, because it makes
-    it very hard to change the values later if you can't tell how they might have been used.
-    You should <strong>define your own variables</strong> that use these values in variables.css.scss.
-  </p>
-
-  <p>
-    If you do want to use variables and mixins, install this module:
-  </p>
-
-  <code>
-    <img src="/styleguide/download.svg" width="16" height="16"/>
-     npm install pui-css-variables-and-mixins
-  </code>
-</div>
-</div>
-
 */
 /*doc
 ---
@@ -45,7 +23,6 @@ parent: whitespace
 
 Should be used to modify the default spacing between objects (not between nodes of the same object)
 Please use judiciously. You want to be using defaults most of the time, these are exceptions!
-`<type><location><size>`
 
 Letter                           | Description
 -------------------------------- | ------------------------------------------------------------------
