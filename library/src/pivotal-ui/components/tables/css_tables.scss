@@ -1,0 +1,21 @@
+@import "../pui-variables";
+
+.table {
+  border: 1px solid $table-border-color;
+  font-size: $table-font-size;
+  background-color: $table-bg;
+
+  p {
+    margin: 0;
+  }
+}
+
+.th {
+  font-weight: $table-header-font-weight;
+}
+
+.td {
+  &:hover {
+    background-color: $table-bg-hover;
+  }
+}

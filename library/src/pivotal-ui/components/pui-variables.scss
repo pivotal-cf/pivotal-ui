@@ -378,26 +378,12 @@ $border-radius-none:       0;
 
 // Tables
 // -------------------------
-
-$table-cell-padding:           8px 14px !default;
-$table-condensed-cell-padding: 5px !default;
-
-$table-bg:                     transparent !default; // overall background-color
-$table-bg-accent:              $neutral-10; // for striping
-$table-bg-hover:               transparent; //TODO: this was null, but causes darken() to throw in table-row.scss, could we fix darken?
-$table-bg-active:              $table-bg-hover !default;
-$table-border-color:           #ddd !default; // table and cell border
-
-// Table Scrollable
-
-$table-scrollable-lg:             900px;
-$table-scrollable-md:             600px;
-$table-scrollable-sm:             300px;
-$table-scrollable-default-height: 183px;
-
-$table-scrollable-border:         1px solid $neutral-8;
-$table-scrollable-header-border:  2px solid $neutral-8;
-$table-scrollable-body-border:    3px solid $neutral-9;
+$table-font-size:          $font-size-small;
+$table-header-font-weight: 600;
+$table-bg:                 transparent !default;
+$table-bg-hover:           $dark-11;
+$table-border-color:       $dark-9;
+$table-border-radius:      2px;
 
 // Buttons
 // -------------------------
