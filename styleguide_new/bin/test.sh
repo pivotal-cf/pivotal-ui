@@ -25,7 +25,7 @@ cleanup
 echo "Starting container $CONTAINER_NAME"
 docker run -d $CONTAINER_NAME tail -f /root/.bashrc 1>/dev/null # really hacky way to create a persistent container
 
-CONTAINER_ID=`docker ps | grep pivotalui/concourse:v2 | awk '{print $1}'`
+CONTAINER_ID=`docker ps | grep $CONTAINER_NAME | awk '{print $1}'`
 echo "Using container $CONTAINER_ID. You can manually attach with 'docker exec -it $CONTAINER_ID /bin/bash'"
 
 ## RUN
