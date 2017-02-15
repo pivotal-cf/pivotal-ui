@@ -470,7 +470,7 @@ Block level help text for form controls.
 <form class="styleguide-form" role="form">
   <div class="form-group">
     <input class="form-control" id="demohelp" type="text">
-    <span class="help-block has-error">A block of help text that breaks onto a new line and may extend beyond one line.</span>
+    <span class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</span>
   </div>
 </form>
 ```
@@ -498,7 +498,7 @@ Error messages should use the classes `.help-block.has-error`.
       Input with error
     </label>
     <input id="inputError" class="form-control" type="text">
-    <span class="help-block has-error">
+    <span class="help-block">
       Error help text
     </span>
   </div>
@@ -511,7 +511,7 @@ Error messages should use the classes `.help-block.has-error`.
         <input type="checkbox" value="">
         Checkbox which needs to be checked
       </label>
-      <span class="help-block has-error">
+      <span class="help-block">
         Error help text
       </span>
     </div>
