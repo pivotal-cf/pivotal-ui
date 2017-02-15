@@ -1,204 +1,232 @@
 import '../spec_helper'
-const ReactDOM = require('react-dom');
+import ReactTestUtils from 'react-addons-test-utils'
+import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from '../../../src/pivotal-ui-react/alerts/alerts'
 
-describe('Alert', function() {
-  var SuccessAlert;
-  beforeEach(function() {
-    SuccessAlert = require('../../../src/pivotal-ui-react/alerts/alerts').SuccessAlert;
-  });
+describe('Alert Component', () => {
+  describe('Success Alert', () => {
+    const renderComponent = props => ReactTestUtils.renderIntoDocument(
+      <SuccessAlert {...props}>
+        alert body
+      </SuccessAlert>)
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+    it('renders', () => {
+      const result = renderComponent()
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+      expect(component).not.toBeNull()
+    })
 
-  it('passes down the className, id, and style properties', () => {
-    ReactDOM.render(<SuccessAlert className="foo" id="bar" style={{fontSize: '200px'}}>alert body</SuccessAlert>, root);
+    it('passes down the className, id, and style properties', () => {
+      const result = renderComponent({className: 'foo', id: 'bar', style: {fontSize: '200px'}})
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
 
-    expect('#root .alert').toHaveClass('foo');
-    expect('#root .alert').toHaveProp('id', 'bar');
-    expect('#root .alert').toHaveCss({'font-size': '200px'});
-  });
+      expect(component.className).toContain('foo')
+      expect(component.id).toEqual('bar')
+      expect(component.style.fontSize).toEqual('200px')
+    })
 
-  it('renders a sr-only alert description', () => {
-    ReactDOM.render(<SuccessAlert withIcon>alert body</SuccessAlert>, root);
-    expect('.alert span.sr-only').toContainText('success alert message,');
-  });
+    it('renders a sr-only alert description', () => {
+      const result = renderComponent({withIcon: true})
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
+      expect(component.textContent).toEqual('success alert message,')
+    })
 
-  describe('when dismissable is set to true', function() {
-    let subject;
-    beforeEach(function() {
-      subject = ReactDOM.render(<SuccessAlert dismissable={true}>alert body</SuccessAlert>, root);
-    });
-
-    it('adds the alert-dismissable class', () => {
-      expect('.alert').toHaveClass('alert-dismissable');
-    });
-
-    it('has a close button', function() {
-      expect('button.close').toExist();
-    });
-
-    it('has an sr-only close button', () => {
-      expect('button.close:not(".sr-only")').toHaveAttr('aria-hidden', 'true');
-      expect('button.sr-only').toHaveText('Close alert');
-    });
-
-    it('adds the closeLabel to the close button', () => {
-      subject::setProps({closeLabel: 'click to close the alert'});
-      expect('button.sr-only').toHaveText('click to close the alert');
-    });
-
-    it('disappears when close button is clicked', function() {
-      $('button.close').simulate('click');
-      expect('#root .alert').not.toExist();
-    });
-
-    describe('when onDismiss is given', () => {
-      let onDismissSpy;
+    describe('when dismissable is set to true', () => {
+      let result
 
       beforeEach(() => {
-        onDismissSpy = jasmine.createSpy('dismissable callback');
-        subject::setProps({onDismiss: onDismissSpy});
-      });
+        result = renderComponent({dismissable: true})
+      })
 
-      it('calls onDismiss when the close button is clicked', function() {
-        $('button.close').simulate('click');
-        expect(onDismissSpy).toHaveBeenCalled();
-        expect('#root .alert').not.toExist();
-      });
-    });
-  });
+      it('adds the alert-dismissable class', () => {
+        const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+        expect(component.className).toContain('alert-dismissable')
+      })
 
-  describe('when show is true', () => {
-    let onDismissSpy, subject;
+      it('has a close button', () => {
+        const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+        expect(buttons.length).toEqual(2)
+        expect(buttons[1].className).toContain('close')
+      })
+
+      it('has an sr-only close button', () => {
+        const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+        expect(buttons.length).toEqual(2)
+        expect(buttons[0].hasAttribute('aria-hidden')).toBeFalsy()
+        expect(buttons[0].textContent).toEqual('Close alert')
+        expect(buttons[1].hasAttribute('aria-hidden')).toBeTruthy()
+      })
+
+      it('adds the closeLabel to the close button', () => {
+        result = renderComponent({dismissable: true, closeLabel: 'click to close the alert'})
+        const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+
+        expect(buttons[0].textContent).toEqual('click to close the alert')
+      })
+
+      it('disappears when close button is clicked', () => {
+        result = renderComponent({dismissable: true})
+        const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+        ReactTestUtils.Simulate.click(buttons[1])
+        jasmine.clock().tick(1)
+
+        const components = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'alert')
+        expect(components.length).toEqual(0)
+      })
+
+      describe('when onDismiss is given', () => {
+        let onDismissSpy;
+
+        beforeEach(() => {
+          onDismissSpy = jasmine.createSpy('dismissable callback');
+        });
+
+        it('calls onDismiss when the close button is clicked', () => {
+          result = renderComponent({dismissable: true, onDismiss: onDismissSpy})
+          const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+          ReactTestUtils.Simulate.click(buttons[1])
+          jasmine.clock().tick(1)
+
+          expect(onDismissSpy).toHaveBeenCalled();
+        })
+      })
+
+      describe('when show is true', () => {
+        it('renders the alert even after the close button is clicked', () => {
+          result = renderComponent({dismissable: true, show: true})
+          const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+          ReactTestUtils.Simulate.click(buttons[1])
+          jasmine.clock().tick(1)
+
+          const components = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'alert')
+          expect(components.length).toEqual(1)
+        })
+
+        it('hides the alert when show is set to false', () => {
+          result = renderComponent({dismissable: true, show: false})
+
+          const components = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'alert')
+          expect(components.length).toEqual(0)
+        })
+      })
+    })
+
+    describe('when dismissable is not present', () => {
+      it('does not have a close button', () => {
+        const result = renderComponent()
+        const buttons = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'button')
+        expect(buttons.length).toEqual(0)
+      })
+    })
+
+    describe('when withIcon is set to true', () => {
+      let result
+
+      beforeEach(() => {
+        result = renderComponent({withIcon: true})
+      })
+
+      it('renders a success alert', () => {
+        const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+        expect(component.className).toContain('alert-success')
+      })
+
+      it('renders an icon in the alert', () => {
+        const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
+        expect(component).not.toBeNull()
+        expect(component.className.baseVal).toContain('icon-check_circle')
+      })
+
+      it('has a "success alert" label', () => {
+        const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
+        expect(component.textContent).toContain('success')
+      })
+    })
+  })
+
+  describe('InfoAlert with Icon', () => {
+    const renderComponent = props => ReactTestUtils.renderIntoDocument(
+      <InfoAlert {...props}>
+        alert body
+      </InfoAlert>)
+
+    let result
+
     beforeEach(() => {
-      onDismissSpy = jasmine.createSpy('dismissable callback');
-      subject = ReactDOM.render(<SuccessAlert dismissable={true} onDismiss={onDismissSpy} show={true}>alert body</SuccessAlert>, root);
-    });
-
-    it('renders the alert even after the close button is clicked', () => {
-      $('button.close').simulate('click');
-      expect(onDismissSpy).toHaveBeenCalled();
-      expect('#root .alert').toExist();
-    });
-
-    it('hides the alert when show is set to false', () => {
-      subject::setProps({show: false});
-      expect('#root .alert').not.toExist();
-    });
-  });
-
-  describe('when dismissable is not present', function() {
-    beforeEach(function() {
-      ReactDOM.render(<SuccessAlert>alert body</SuccessAlert>, root);
-    });
-
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
-
-    it('does not have a close button', function() {
-      expect('button.close').not.toExist();
-    });
-  });
-});
-
-describe('SuccessAlert', function() {
-  describe('when withIcon is set to true', function() {
-    beforeEach(function() {
-      var SuccessAlert = require('../../../src/pivotal-ui-react/alerts/alerts').SuccessAlert;
-      ReactDOM.render(<SuccessAlert withIcon>alert body</SuccessAlert>, root);
-    });
-
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
-
-    it('renders a success alert', () => {
-      expect('.alert').toHaveClass('alert-success');
-    });
-
-    it('renders an icon in the alert', function() {
-      expect('svg').toHaveClass('icon-check_circle');
-    });
-
-    it('has a "success alert" label', function() {
-      expect('.alert .sr-only').toContainText('success alert message,');
-    });
-  });
-});
-
-describe('InfoAlert', function() {
-  describe('when withIcon is set to true', function() {
-    beforeEach(function() {
-      var InfoAlert = require('../../../src/pivotal-ui-react/alerts/alerts').InfoAlert;
-      ReactDOM.render(<InfoAlert withIcon>alert body</InfoAlert>, root);
-    });
-
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+      result = renderComponent({withIcon: true})
+    })
 
     it('renders an info alert', () => {
-      expect('.alert').toHaveClass('alert-info');
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+      expect(component.className).toContain('alert-info')
     });
 
-    it('renders an icon in the alert', function() {
-      expect('svg').toHaveClass('icon-info');
+    it('renders an icon in the alert', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
+      expect(component).not.toBeNull()
+      expect(component.className.baseVal).toContain('icon-info')
+    })
+
+    it('has a "info alert" label', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
+      expect(component.textContent).toContain('info')
+    })
+  })
+
+  describe('WarningAlert with Icon', () => {
+    const renderComponent = props => ReactTestUtils.renderIntoDocument(
+      <WarningAlert {...props}>
+        alert body
+      </WarningAlert>)
+
+    let result
+
+    beforeEach(() => {
+      result = renderComponent({withIcon: true})
+    })
+
+    it('renders an warning alert', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+      expect(component.className).toContain('alert-warning')
     });
 
-    it('has a "info alert" label', function() {
-      expect('.alert .sr-only').toContainText('info alert message,');
+    it('renders an icon in the alert', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
+      expect(component).not.toBeNull()
+      expect(component.className.baseVal).toContain('icon-warning')
+    })
+
+    it('has a "warning alert" label', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
+      expect(component.textContent).toContain('warning')
+    })
+  })
+
+  describe('ErrorAlert with Icon', () => {
+    const renderComponent = props => ReactTestUtils.renderIntoDocument(
+      <ErrorAlert {...props}>
+        alert body
+      </ErrorAlert>)
+
+    let result
+
+    beforeEach(() => {
+      result = renderComponent({withIcon: true})
+    })
+
+    it('renders an error alert', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'alert')
+      expect(component.className).toContain('alert-danger')
     });
-  });
-});
 
-describe('WarningAlert', function() {
-   describe('when withIcon is set to true', function() {
-     beforeEach(function() {
-       var WarningAlert = require('../../../src/pivotal-ui-react/alerts/alerts').WarningAlert;
-       ReactDOM.render(<WarningAlert withIcon>alert body</WarningAlert>, root);
-     });
+    it('renders an icon in the alert', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
+      expect(component).not.toBeNull()
+      expect(component.className.baseVal).toContain('icon-warning')
+    })
 
-     afterEach(function() {
-       ReactDOM.unmountComponentAtNode(root);
-     });
-
-     it('renders an warning alert', () => {
-       expect('.alert').toHaveClass('alert-warning');
-     });
-
-     it('renders an icon in the alert', function() {
-       expect('svg').toHaveClass('icon-warning');
-     });
-
-     it('has a "warning alert" label', function() {
-       expect('.alert .sr-only').toContainText('warning alert message,');
-     });
-   });
-});
-
-describe('ErrorAlert', function() {
-   describe('when withIcon is set to true', function() {
-     beforeEach(function() {
-       var ErrorAlert = require('../../../src/pivotal-ui-react/alerts/alerts').ErrorAlert;
-       ReactDOM.render(<ErrorAlert withIcon>alert body</ErrorAlert>, root);
-     });
-
-     afterEach(function() {
-       ReactDOM.unmountComponentAtNode(root);
-     });
-
-     it('renders a danger alert', () => {
-       expect('.alert').toHaveClass('alert-danger');
-     });
-
-     it('renders an icon in the alert', function() {
-       expect('svg').toHaveClass('icon-warning');
-     });
-
-     it('has an "error alert" label', function() {
-       expect('.alert .sr-only').toContainText('error alert message,');
-     });
-   });
-});
+    it('has a "error alert" label', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
+      expect(component.textContent).toContain('error')
+    })
+  })
+})

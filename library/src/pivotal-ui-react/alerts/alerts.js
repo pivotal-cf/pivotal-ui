@@ -51,6 +51,7 @@ class Alert extends React.Component {
       const icon = <Icon src={alertIcon}/>;
       children = <Media className={'mtn'} image={icon}>{children}</Media>;
     }
+
     return (
       <div {...props}>
         {children}

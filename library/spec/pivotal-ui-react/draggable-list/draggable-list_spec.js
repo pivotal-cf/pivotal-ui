@@ -4,15 +4,13 @@ import ReactTestUtils from 'react-addons-test-utils'
 import move from '../../../src/pivotal-ui-react/draggable-list/move_helper'
 
 describe('DraggableList', function() {
-  const renderComponent = props => {
-    return ReactTestUtils.renderIntoDocument(
-      <DraggableList {...props}>
-        <DraggableListItem>Foo</DraggableListItem>
-        <DraggableListItem>Bar</DraggableListItem>
-        <DraggableListItem>Gaz</DraggableListItem>
-      </DraggableList>
-    )
-  }
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+    <DraggableList {...props}>
+      <DraggableListItem>Foo</DraggableListItem>
+      <DraggableListItem>Bar</DraggableListItem>
+      <DraggableListItem>Gaz</DraggableListItem>
+    </DraggableList>
+  )
 
   it('renders', () => {
     const result = renderComponent()
