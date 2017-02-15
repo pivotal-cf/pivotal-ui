@@ -1,5 +1,9 @@
 @import "../pui-variables";
 
+p {
+  margin: 0 0 12px;
+}
+
 body {
   font-size: $font-size-base;
   line-height: $pui-line-height-medium;
@@ -27,11 +31,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-// Override the bootstrap margins to use our margin classes so we can align
-// things. This is necessary because we have to keep the whitespace margins in sync with this
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $headings-font-family;
+  font-weight: $headings-font-weight;
+  line-height: $headings-line-height;
+  color: $headings-color;
+
+  small,
+  .small {
+    font-weight: normal;
+    line-height: 1;
+    color: $headings-small-color;
+  }
+
   padding-top: $headings-padding;
   padding-bottom: $headings-padding;
 }
@@ -39,11 +52,21 @@ h1, h2, h3, h4, h5, h6,
 h1, .h1, h2, .h2, h3, .h3 {
   margin-top: $whitespace-xl;
   margin-bottom: $whitespace-l;
+
+  small,
+  .small {
+    font-size: 65%;
+  }
 }
 
 h4, .h4, h5, .h5, h6, .h6 {
   margin-top: $whitespace-l;
   margin-bottom: $whitespace-l;
+
+  small,
+  .small {
+    font-size: 75%;
+  }
 }
 
 h1, .h1 {
@@ -86,35 +109,33 @@ h6, .h6 {
 
 small, .type-sm {
   font-size: $font-size-small !important;
-  line-height: $line-height-small;
+  line-height: $pui-line-height-small;
 }
 
 .type-xs {
   font-size: $font-size-extra-small !important;
-  line-height: $line-height-small;
+  line-height: $pui-line-height-small;
   letter-spacing: .25px;
 }
 
-// bootstrap override
-
 .title {
-  font-size: $font-size-title !important;
+  font-size: $font-size-title;
 }
 
 .em-low {
-  font-weight: $font-weight-em-low !important;
+  font-weight: $font-weight-em-low;
 }
 
 .em-default {
-  font-weight: $font-weight-em-default !important;
+  font-weight: $font-weight-em-default;
 }
 
 .em-high {
-  font-weight: $font-weight-em-high !important;
+  font-weight: $font-weight-em-high;
 }
 
 .em-max {
-  font-weight: $font-weight-em-max !important;
+  font-weight: $font-weight-em-max;
 }
 
 .em-alt {
@@ -375,3 +396,8 @@ a:hover.type-inverse {
   color: $error-color !important;
 }
 
+address {
+  margin-bottom: 20px;
+  font-style: normal;
+  line-height: $pui-line-height-small;
+}

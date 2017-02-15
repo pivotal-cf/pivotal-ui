@@ -1,13 +1,17 @@
 @import "../pui-variables";
 @import "../mixins";
 
+ul, ol {
+  margin-top: 0;
+  margin-bottom: $base-unit;
+  ul, ol {
+    margin-bottom: 0;
+  }
+}
+
 .list-unstyled {
   padding-left: 0;
   list-style: none;
-}
-
-ul, ol {
-  margin-bottom: $base-unit;
 }
 
 .list-inline {
@@ -17,8 +21,8 @@ ul, ol {
   margin-left: $base-unit * -1;
 
   > li {
-    font-size: $font-size-base;
     display: inline-block;
+    font-size: $font-size-base;
     padding-left: $base-unit;
     padding-right: $base-unit;
   }

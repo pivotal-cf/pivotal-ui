@@ -17,7 +17,7 @@
 .panel-body {
   flex: 1 0 auto;
   align-self: auto;
-  min-height: 40px;
+  min-height: $base-unit * 5;
   position: relative;
 }
 
@@ -99,15 +99,14 @@
 }
 
 .panel-scrollable {
-  max-height: 183px;
-  overflow-y: overlay;
+  max-height: $base-unit * 23;
   overflow-x: hidden;
 }
 
 .panel-highlight {
   background-color: $gray-10;
-  border-radius: 10px;
-  box-shadow: 0 4px 0 0 $shadow-3;
+  border-radius: $base-unit;
+  box-shadow: 0 ($base-unit / 2) 0 0 $shadow-3;
 
   &.title-panel h1 {
     overflow: hidden;
@@ -129,7 +128,7 @@
     &:hover {
       @include transition-pui();
       background-color: $gray-9;
-      border-bottom: 4px solid $shadow-2;
+      border-bottom: ($base-unit / 2) solid $shadow-2;
     }
   }
 
@@ -174,22 +173,22 @@
 
 .panel-shadow-1 {
   @extend .panel-shadow;
-  box-shadow: 0px 4px $shadow-1;
+  box-shadow: 0 ($base-unit / 2) $shadow-1;
 }
 
 .panel-shadow-2 {
   @extend .panel-shadow;
-  box-shadow: 0px 4px $shadow-2;
+  box-shadow: 0 ($base-unit / 2) $shadow-2;
 }
 
 .panel-shadow-3 {
   @extend .panel-shadow;
-  box-shadow: 0px 4px $shadow-3;
+  box-shadow: 0 ($base-unit / 2) $shadow-3;
 }
 
 .panel-shadow-4 {
   @extend .panel-shadow;
-  box-shadow: 0px 4px $shadow-4;
+  box-shadow: 0 ($base-unit / 2) $shadow-4;
 }
 
 .panel-clickable {
@@ -236,6 +235,6 @@
 
   &:hover {
     background-color: $gray-11;
-    box-shadow: 0 4px 0 0 $shadow-2;
+    box-shadow: 0 ($base-unit / 2) 0 0 $shadow-2;
   }
 }

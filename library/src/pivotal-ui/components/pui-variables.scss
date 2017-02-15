@@ -370,33 +370,11 @@ $avatar-border: 4px solid $dark-2;
 // Components
 // -------------------------
 
-$padding-base-vertical:    8px !default;
-$padding-base-horizontal:  20px !default;
-
-$padding-large-vertical:   10px !default;
-$padding-large-horizontal: 26px !default;
-
-$padding-small-vertical:   2px !default;
-$padding-small-horizontal: 10px !default;
-
-$padding-xs-vertical:      1px !default;
-$padding-xs-horizontal:    5px !default;
-
-$line-height-extra-large:  2.48 !default;
-$line-height-large:        1.33 !default;
-$line-height-small:        1.5 !default;
-
-$border-radius-base:       4px !default;
+$border-radius-small:      3px !default;
 $border-radius-medium:     5px !default;
 $border-radius-large:      6px !default;
-$border-radius-small:      3px !default;
+$border-radius-base:       4px !default;
 $border-radius-none:       0;
-
-$component-active-color:   #fff !default;
-$component-active-bg:      $brand-primary !default;
-
-$caret-width-base:         4px !default;
-$caret-width-large:        5px !default;
 
 // Tables
 // -------------------------
@@ -408,12 +386,7 @@ $table-bg:                     transparent !default; // overall background-color
 $table-bg-accent:              $neutral-10; // for striping
 $table-bg-hover:               transparent; //TODO: this was null, but causes darken() to throw in table-row.scss, could we fix darken?
 $table-bg-active:              $table-bg-hover !default;
-
 $table-border-color:           #ddd !default; // table and cell border
-
-$table-standard-header-bg:     $neutral-3;
-$table-standard-border-color:  $neutral-9;
-
 
 // Table Scrollable
 
@@ -521,20 +494,15 @@ $dropdown-bg:                  $neutral-10 !default;
 $dropdown-border:              $neutral-9 !default;
 $dropdown-fallback-border:     transparent !default;
 $dropdown-divider-bg:          #e5e5e5 !default;
+$dropdown-header-color:        $gray-light !default;
+$dropdown-caret-color:         #000 !default;
 
 $dropdown-link-color:          $gray-dark !default;
 $dropdown-link-hover-color:    darken($gray-dark, 5%) !default;
 $dropdown-link-hover-bg:       #f5f5f5 !default;
-
-$dropdown-link-active-color:   $component-active-color !default;
-$dropdown-link-active-bg:      $component-active-bg !default;
-
+$dropdown-link-active-color:   #fff !default;
+$dropdown-link-active-bg:      $brand-primary !default;
 $dropdown-link-disabled-color: $gray-light !default;
-
-$dropdown-header-color:        $gray-light !default;
-
-$dropdown-caret-color:         #000 !default;
-
 
 // Notifications Dropdowns
 // -------------------------
@@ -990,8 +958,8 @@ $list-draggable-item-content-bg:      $neutral-11;
 // -------------------------
 
 $panel-bg:                      null;
-$panel-body-padding:            10px !default;
-$panel-heading-padding:         10px 10px !default;
+$panel-body-padding:            $base-unit !default;
+$panel-heading-padding:         $base-unit $base-unit !default;
 $panel-footer-padding:          $panel-heading-padding !default;
 
 $panel-inner-border:            transparent !default;
@@ -1008,7 +976,7 @@ $panel-primary-heading-bg:      $brand-primary !default;
 
 $panel-simple-border:           1px solid $neutral-5;
 
-$panel-tile-border:             2px solid $neutral-9;
+$panel-tile-border:             ($base-unit / 4) solid $neutral-9;
 $panel-tile-hover-border-color: $accent-3;
 $panel-tile-hover-bg-color:     $neutral-10;
 
@@ -1033,8 +1001,8 @@ $panel-info-heading-bg:         $state-info-bg !default;
 
 $panel-basic-alt-background:    white;
 $panel-basic-alt-border:        1px solid rgba(0,0,0,.1);
-$panel-basic-alt-border-bottom: 2px solid rgba(0,0,0,.1);
-$panel-basic-alt-border-radius: 5px;
+$panel-basic-alt-border-bottom: ($base-unit / 4) solid rgba(0,0,0,.1);
+$panel-basic-alt-border-radius: $base-unit / 2;
 
 // Panel Titles
 // -------------------------
@@ -1050,19 +1018,19 @@ $panel-title-border:      3px solid rgba(0,0,0,.1);
 
 $panel-heading-basic-bg:              $neutral-9;
 $panel-heading-basic-text:            $text-color;
-$panel-heading-basic-font-size:       22px;
+$panel-heading-basic-font-size:       $font-size-extra-large;
 
 $panel-heading-simple-text:           $neutral-5;
 $panel-heading-simple-text-align:     center;
 $panel-heading-simple-font-weight:    600;
-$panel-heading-simple-font-size:      14px;
+$panel-heading-simple-font-size:      $font-size-small;
 $panel-heading-simple-text-transform: uppercase;
 
 // Panel Footers
 // -------------------------
 
 $panel-footer-tile-text: $neutral-10;
-$panel-tile-font-size:   12px;
+$panel-tile-font-size:   $font-size-extra-small;
 
 // Thumbnails
 // -------------------------
@@ -1179,10 +1147,3 @@ $container-xl:                  $container-extra-large-desktop !default;
 // -------------------------
 
 $hr-border:                       $gray-lighter !default;
-$component-offset-horizontal:     180px !default;
-$pageWidth:                       997px;
-$ie7: false;
-$ie8: false;
-$bg-color-example-output:         $neutral-11;
-$bg-color-inverse-example-output: $navy-1;
-$bg-color-example-code:           $neutral-10;

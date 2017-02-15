@@ -137,7 +137,7 @@ main {
 
 // Contrast bar
 .contrast-bar {
-  background-color: $bg-color-inverse-example-output;
+  background-color: $navy-1;
   min-height: 80px;
   padding: 20px;
 }
@@ -253,7 +253,7 @@ blockquote {
 
 .codeExample {
   margin: 10px 0;
-  background-color: $bg-color-example-output;
+  background-color: $neutral-11;
 
   .exampleOutput {
     padding: 20px;
@@ -261,7 +261,7 @@ blockquote {
     border-radius: 5px 5px 0 0;
 
     &.inverse {
-      background-color: $bg-color-inverse-example-output;
+      background-color: $navy-1;
     }
   }
 
@@ -309,14 +309,14 @@ blockquote {
   th {
     padding: 10px 20px;
     vertical-align: middle;
-    background-color: $bg-color-example-output;
+    background-color: $neutral-10;
   }
 
   td {
     position: relative;
     padding: 10px 10px;
     vertical-align: middle;
-    background-color: $bg-color-example-code;
+    background-color: $neutral-10;
 
     .btn-copy {
       display: none;
@@ -332,7 +332,7 @@ blockquote {
 
   &.inverse {
     th {
-      background-color: $bg-color-inverse-example-output;
+      background-color: $navy-1;
     }
   }
 
