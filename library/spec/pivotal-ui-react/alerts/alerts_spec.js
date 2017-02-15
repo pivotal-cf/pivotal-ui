@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper'
 const ReactDOM = require('react-dom');
 
 describe('Alert', function() {
