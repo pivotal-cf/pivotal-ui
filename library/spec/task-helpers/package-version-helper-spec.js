@@ -1,133 +1,133 @@
-import {readArray, writeArray} from 'event-stream';
-import path from 'path';
+import {readArray, writeArray} from 'event-stream'
+import path from 'path'
+import proxyquire from 'proxyquire'
+proxyquire.noPreserveCache()
 
-const proxyquire = require('proxyquire').noPreserveCache();
+describe('componentsToUpdate', function () {
+  let result
 
-describe('componentsToUpdate', function() {
-  let result;
-
-  function getComponentsToUpdate(componentsWithChanges, callback) {
-    const {componentsToUpdate} = require('../../tasks/helpers/package-version-helper');
+  const getComponentsToUpdate = (componentsWithChanges, callback) => {
+    const {componentsToUpdate} = require('../../tasks/helpers/package-version-helper')
     const componentsToUpdateStream = readArray(componentsWithChanges)
-      .pipe(componentsToUpdate());
+      .pipe(componentsToUpdate())
 
     componentsToUpdateStream.on('error', (error) => {
-      console.error(error);
-      callback(error);
-    });
+      console.error(error)
+      callback(error)
+    })
 
     componentsToUpdateStream.pipe(writeArray((err, data) => {
-      if (err) console.error(err);
-      result = data;
-      callback();
-    }));
+      if (err) console.error(err)
+      result = data
+      callback()
+    }))
   }
 
   describe('input: a component with no dependents', () => {
     beforeEach(done => {
       getComponentsToUpdate([
         'src/pivotal-ui-react/alerts/'
-      ], done);
-    });
+      ], done)
+    })
 
     it('outputs itself and the root package json only', () => {
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/alerts/',
         dependencies: []
-      }));
-      expect(result.length).toEqual(1);
-    });
-  });
+      }))
+      expect(result.length).toEqual(1)
+    })
+  })
 
   describe('input: a component with only react dependents', () => {
     beforeEach(done => {
       getComponentsToUpdate([
         'src/pivotal-ui-react/media/'
-      ], done);
-    });
+      ], done)
+    })
 
     it('outputs itself and all dependents', () => {
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/media/',
         dependencies: []
-      }));
+      }))
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/alerts/',
         dependencies: ['pui-react-media']
-      }));
-    });
-  });
+      }))
+    })
+  })
 
   describe('input: 2 or more components that have a common dependent', () => {
     beforeEach(done => {
       getComponentsToUpdate([
         'src/pivotal-ui-react/dropdowns/',
         'src/pivotal-ui-react/iconography/'
-      ], done);
-    });
+      ], done)
+    })
 
     it('outputs itself and all dependents', () => {
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/dropdowns/',
         dependencies: ['pui-react-iconography']
-      }));
+      }))
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/iconography/',
         dependencies: []
-      }));
+      }))
       expect(result).toContain(jasmine.objectContaining({
         component: 'src/pivotal-ui-react/notifications/',
         dependencies: ['pui-react-dropdowns', 'pui-react-iconography']
-      }));
-    });
-  });
-});
+      }))
+    })
+  })
+})
 
 describe('updatePackageJsons', () => {
-  let result;
-  const version = '1.10.10';
+  let result
+  const version = '1.10.10'
 
   beforeEach(done => {
     const {componentsToUpdate, updatePackageJsons} = proxyquire('../../tasks/helpers/package-version-helper', {
       './version-helper': {getNewVersion: () => version}
-    });
+    })
 
     const updatePackageJsonsStream = readArray(['src/pivotal-ui/components/back-to-top/'])
       .pipe(componentsToUpdate())
-      .pipe(updatePackageJsons());
+      .pipe(updatePackageJsons())
 
     updatePackageJsonsStream.on('error', (error) => {
-      console.error(error);
-      callback(error);
-    });
+      console.error(error)
+      callback(error)
+    })
 
     updatePackageJsonsStream.pipe(writeArray((err, data) => {
-      if (err) console.error(err);
-      result = {};
+      if (err) console.error(err)
+      result = {}
       for (let file of data) {
-        const key = path.relative(process.cwd(), file.path);
-        result[key] = JSON.parse(file.contents.toString());
+        const key = path.relative(process.cwd(), file.path)
+        result[key] = JSON.parse(file.contents.toString())
       }
-      done();
-    }));
-  });
+      done()
+    }))
+  })
 
   it('updates each package marked to update', () => {
-    expect(Object.keys(result).length).toEqual(3);
+    expect(Object.keys(result).length).toEqual(3)
     expect(Object.keys(result)).toEqual(jasmine.arrayContaining([
       'src/pivotal-ui-react/back-to-top/package.json',
       'src/pivotal-ui/components/back-to-top/package.json',
       'src/pivotal-ui/components/all/package.json'
-    ]));
-  });
+    ]))
+  })
 
   it("updates each packages' version and the versions of its relevent dependencies", () => {
-    expect(result['src/pivotal-ui/components/back-to-top/package.json'].version).toEqual(version);
+    expect(result['src/pivotal-ui/components/back-to-top/package.json'].version).toEqual(version)
 
-    expect(result['src/pivotal-ui/components/all/package.json'].version).toEqual(version);
-    expect(result['src/pivotal-ui/components/all/package.json'].dependencies['pui-css-back-to-top']).toEqual(`=${version}`);
+    expect(result['src/pivotal-ui/components/all/package.json'].version).toEqual(version)
+    expect(result['src/pivotal-ui/components/all/package.json'].dependencies['pui-css-back-to-top']).toEqual(`=${version}`)
 
-    expect(result['src/pivotal-ui-react/back-to-top/package.json'].version).toEqual(version);
-    expect(result['src/pivotal-ui-react/back-to-top/package.json'].dependencies['pui-css-back-to-top']).toEqual(`=${version}`);
-  });
-});
+    expect(result['src/pivotal-ui-react/back-to-top/package.json'].version).toEqual(version)
+    expect(result['src/pivotal-ui-react/back-to-top/package.json'].dependencies['pui-css-back-to-top']).toEqual(`=${version}`)
+  })
+})

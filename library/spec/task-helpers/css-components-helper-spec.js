@@ -7,7 +7,7 @@ import {packageJson, readme} from '../../tasks/helpers/css-components-helper';
 describe('packageJson', () => {
   let result;
 
-  function generatePackageJson(name, packageJsonOverrides, callback) {
+  const generatePackageJson = (name, packageJsonOverrides, callback) => {
     const readmeStream = readArray([new File({
       path: path.join(__dirname, '..', '..', 'src', 'pivotal-ui', 'components', name, 'package.json'),
       contents: new Buffer(JSON.stringify(packageJsonOverrides, null, 2))
@@ -22,7 +22,7 @@ describe('packageJson', () => {
       result = data;
       callback();
     }));
-  }
+  };
 
   describe('with no overrides', function() {
     beforeEach(done => generatePackageJson('foo', {}, done));
@@ -79,7 +79,7 @@ describe('packageJson', () => {
 describe('readme', () => {
   let result;
 
-  function generateReadme(components, callback) {
+  const generateReadme = (components, callback) => {
     const readmeStream = gulp.src(components)
       .pipe(readme());
 
@@ -92,7 +92,7 @@ describe('readme', () => {
       result = data;
       callback();
     }));
-  }
+  };
 
   describe('general use case', () => {
     beforeEach(done => generateReadme([

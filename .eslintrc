@@ -35,11 +35,10 @@
     "react/prefer-es6-class": 2,
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
-    "react/prop-types": [2, {"ignore": ['children', 'className', 'id', 'style']}],
+    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"]}],
     "react/prefer-stateless-function": 0,
     "react/self-closing-comp": 2,
     "react/sort-comp": 2,
-    "react/jsx-wrap-multilines": 2,
-    "semi": 2
+    "react/jsx-wrap-multilines": 2
   }
 }

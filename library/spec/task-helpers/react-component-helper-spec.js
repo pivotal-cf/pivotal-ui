@@ -6,7 +6,7 @@ import {packageJson} from '../../tasks/helpers/react-components-helper';
 describe('packageJson', () => {
   let result;
 
-  function generatePackageJson(name, packageJsonOverrides, callback) {
+  const generatePackageJson = (name, packageJsonOverrides, callback) => {
     const readmeStream = readArray([new File({
       path: path.join(__dirname, '..', '..', 'src', 'pivotal-ui-react', name, 'package.json'),
       contents: new Buffer(JSON.stringify(packageJsonOverrides, null, 2))
@@ -21,7 +21,7 @@ describe('packageJson', () => {
       result = data;
       callback();
     }));
-  }
+  };
 
   describe('with no overrides', function() {
     beforeEach(done => generatePackageJson('foo', {}, done));
