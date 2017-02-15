@@ -1,99 +1,93 @@
-require('../spec_helper');
-var Toggle = require('../../../src/pivotal-ui-react/toggle/toggle').Toggle;
-const TestUtils = require('react-addons-test-utils');
+import '../spec_helper'
+import ReactTestUtils from 'react-addons-test-utils'
+import {Toggle} from '../../../src/pivotal-ui-react/toggle/toggle'
 
 describe('Toggle', () => {
-  const onChangeSpy = jasmine.createSpy('onChange');
-  beforeEach(function() {
-    ReactDOM.render(<Toggle id='boggle' onChange={onChangeSpy}/>, root);
-  });
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Toggle {...props}/>)
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
-
-  it('renders a toggle switch', () => {
-    expect('.toggle-switch').toExist();
-  });
+  it('renders', () => {
+    const result = renderComponent()
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
+    expect(component).not.toBeUndefined()
+  })
 
   it('calls the onChange callback on click', () => {
-    $('#boggle').simulateNative('click');
-    expect(onChangeSpy).toHaveBeenCalled();
-  });
+    const onChangeSpy = jasmine.createSpy('onChange')
+    const result = renderComponent({onChange: onChangeSpy})
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
 
-  it('uses provided id', function() {
-    expect('.toggle-switch').toHaveAttr('id', 'boggle');
-  });
+    ReactTestUtils.Simulate.change(component)
+    jasmine.clock().tick(1)
 
-  describe('when no id is provided', function() {
-    const onChangeSpy1 = jasmine.createSpy('onChange1');
-    const onChangeSpy2 = jasmine.createSpy('onChange2');
+    expect(onChangeSpy).toHaveBeenCalled()
+  })
 
-    beforeEach(function() {
-      ReactDOM.render(
-        <div>
-          <Toggle onChange={onChangeSpy1}/>
-          <Toggle onChange={onChangeSpy2}/>
-        </div>
-        , root
-      );
-    });
+  it('uses provided id attribute', () => {
+    const result = renderComponent({id: 'foo'})
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
 
-    it('generates an id', function() {
-      expect($('.toggle-switch')[0].id).not.toEqual('');
-      expect($('.toggle-switch')[1].id).not.toEqual('');
-    });
+    expect(component.id).toEqual('foo')
+  })
 
-    it('id is unique', function() {
-      expect($('.toggle-switch')[0].id).not.toEqual($('.toggle-switch')[1].id);
-    });
+  it('uses provided checked attribute', () => {
+    const result = renderComponent({defaultChecked: true})
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
+
+    expect(component.hasAttribute('checked')).toBeFalsy()
+
+    ReactTestUtils.Simulate.change(component)
+    jasmine.clock().tick(1)
+
+    expect(component.hasAttribute('checked')).toBeTruthy()
+  })
+
+  describe('when no id is provided', () => {
+    it('generates a unique id', () => {
+      const result1 = renderComponent()
+      const component1 = ReactTestUtils.findRenderedDOMComponentWithClass(result1, 'toggle-switch')
+
+      const result2 = renderComponent()
+      const component2 = ReactTestUtils.findRenderedDOMComponentWithClass(result2, 'toggle-switch')
+
+      expect(component1.id).not.toEqual('')
+      expect(component2.id).not.toEqual('')
+      expect(component1.id).not.toEqual(component2.id)
+    })
 
     it('calls the onChange callback on click', () => {
-      const switch1 = $('.toggle-switch')[0].id;
-      const switch2 = $('.toggle-switch')[1].id;
+      const onChangeSpy1 = jasmine.createSpy('onChange')
+      const result1 = renderComponent({onChange: onChangeSpy1})
+      const component1 = ReactTestUtils.findRenderedDOMComponentWithClass(result1, 'toggle-switch')
 
-      $(`#${switch1}`).simulateNative('click');
-      expect(onChangeSpy1).toHaveBeenCalled();
+      const onChangeSpy2 = jasmine.createSpy('onChange')
+      const result2 = renderComponent({onChange: onChangeSpy2})
+      const component2 = ReactTestUtils.findRenderedDOMComponentWithClass(result2, 'toggle-switch')
 
-      $(`#${switch2}`).simulateNative('click');
-      expect(onChangeSpy2).toHaveBeenCalled();
-    });
-  });
+      ReactTestUtils.Simulate.change(component1)
+      ReactTestUtils.Simulate.change(component2)
+      jasmine.clock().tick(1)
 
-  describe('when the checked property is passed', function() {
-    beforeEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-      ReactDOM.render(<Toggle id='toggle-switch' checked onChange={() => {}}/>, root);
-    });
+      expect(onChangeSpy1).toHaveBeenCalledTimes(1)
+      expect(onChangeSpy2).toHaveBeenCalledTimes(1)
+    })
+  })
 
-    it('renders a checked toggle switch', function() {
-      expect('.toggle-switch').toBeChecked();
-    });
-  });
+  describe('size attribute', () => {
+    it('renders with size=medium by default', () => {
+      const result = renderComponent()
+      const label = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'label')
+      expect(label.className).toContain('medium')
+    })
 
-  describe('size attribute', function() {
-    beforeEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+    it('respects size attribute', () => {
+      let label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'small'}), 'label')
+      expect(label.className).toContain('small')
 
-    it('renders with size=medium by default', function() {
-      ReactDOM.render(<Toggle id='boggle' />, root);
-      expect($('label').attr('class')).toContain('medium');
-    });
+      label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'medium'}), 'label')
+      expect(label.className).toContain('medium')
 
-    it('uses size=small class on label', function() {
-      ReactDOM.render(<Toggle id='boggle' size='small' />, root);
-      expect($('label').attr('class')).toContain('small');
-    });
-
-    it('uses size=medium class on label', function() {
-      ReactDOM.render(<Toggle id='boggle' size='medium' />, root);
-      expect($('label').attr('class')).toContain('medium');
-    });
-
-    it('uses size=large class on label', function() {
-      ReactDOM.render(<Toggle id='boggle' size='large' />, root);
-      expect($('label').attr('class')).toContain('large');
-    });
-  });
-});
+      label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'large'}), 'label')
+      expect(label.className).toContain('large')
+    })
+  })
+})
