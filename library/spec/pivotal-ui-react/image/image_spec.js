@@ -1,53 +1,52 @@
-require('../spec_helper');
-import {itPropagatesAttributes} from '../support/shared_examples';
+import '../spec_helper';
+import ReactTestUtils from 'react-addons-test-utils'
+import {Image} from '../../../src/pivotal-ui-react/images/images'
+import {reactCompPropagatesAttrs} from '../support/shared_examples';
 
-var Image = require('../../../src/pivotal-ui-react/images/images').Image;
-function renderImage(responsive){
-  ReactDOM.render(
-    <Image
-      src="http://placehold.it/20x20"
-      href="http://google.com"
-      className="my-img-class"
-      id="my-img-id"
-      style={{opacity: '0.5'}}
-      responsive={responsive}/>,
-    root
-  );
-}
-describe('Image', function() {
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+describe('Image', () => {
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Image src="http://placehold.it/20x20" {...props} />)
 
-  describe('when responsive', function() {
-    beforeEach(function() {
-      renderImage(true);
-    });
-  describe('when the href is set', function() {
-    it('wraps the image in an link', function() {
-      expect('a img').toExist();
-    });
-  });
+  describe('when responsive', () => {
+    let result
 
-  it('adds the image-responsive class to the image', function() {
-    expect('img').toHaveClass('img-responsive');
-  });
+    beforeEach(() => {
+      result = renderComponent({responsive: true})
+    })
 
-  itPropagatesAttributes('img', {className: 'my-img-class', id: 'my-img-id', style: {opacity: '0.5'}});
+    it('adds the image-responsive class to the image', () => {
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img')
+      expect(component).not.toBeNull()
+      expect(component.className).toContain('img-responsive')
+    })
 
-  it('adds the gutter class to the row', function() {
-    expect('img').toHaveAttr('src', 'http://placehold.it/20x20');
-  });
-});
+    describe('when the href is set', function() {
+      it('wraps the image in an link', function() {
+        result = renderComponent({responsive: true, href: 'http://google.com'})
+        const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'a')
+        expect(component).not.toBeNull()
+      })
+    })
 
+    reactCompPropagatesAttrs(renderComponent({className: 'foo', id: 'bar', style:{color: 'red'}}), 'foo', 'bar', {color: 'red'})
 
-  describe('when image responsive is not set to true', function() {
-    beforeEach(function() {
-      renderImage(false);
-    });
+    it('adds the gutter class to the row', function() {
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img')
+      expect(component).not.toBeNull()
+      expect(component.hasAttribute('src')).toBe(true)
+      expect(component.getAttribute('src')).toEqual('http://placehold.it/20x20')
+    })
+  })
+
+  describe('when responsive is set to be false', () => {
+    let result
+
+    beforeEach(() => {
+      result = renderComponent({responsive: false})
+    })
 
     it('does not add the image-responsive class to the image', function() {
-      expect('img').not.toHaveClass('img-responsive');
-    });
-  });
-});
+      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img')
+      expect(component.className).not.toContain('img-responsive')
+    })
+  })
+})
