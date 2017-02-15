@@ -1,6 +1,6 @@
 @import "../pui-variables";
 
-table {
+table.table {
   border: 1px solid $table-border-color;
   font-size: $table-font-size;
   background-color: $table-bg;
@@ -8,14 +8,14 @@ table {
   p {
     margin: 0;
   }
-}
 
-th {
-  font-weight: $table-header-font-weight;
-}
+  th {
+    font-weight: $table-header-font-weight;
+  }
 
-td {
-  &:hover {
-    background-color: $table-bg-hover;
+  td {
+    &:hover {
+      background-color: $table-bg-hover;
+    }
   }
 }
