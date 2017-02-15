@@ -30,18 +30,11 @@ describe('StreamList', () => {
     });
 
 
-    it('renders a group list', () => {
-      expect('#root .list-group').toExist();
-      expect('#root .list-group li.list-group-item').toHaveLength(3);
+    it('renders a unordered list', () => {
+      expect('#root .list-unordered').toExist();
     });
 
-    itPropagatesAttributes('#root .list-group', props);
-
-    it('displays the list items in reverse order', () => {
-      expect('#root .list-group li:eq(0)').toHaveText('Item c');
-      expect('#root .list-group li:eq(1)').toHaveText('Item b');
-      expect('#root .list-group li:eq(2)').toHaveText('Item a');
-    });
+    itPropagatesAttributes('#root .list-unordered', props);
   });
 
   describe('when a new item is added to the list', () => {
@@ -86,10 +79,10 @@ describe('StreamList', () => {
 
     it('does not add any lis', () => {
       addData.emit('data', 'Item d');
-      expect('#root .list-group li.list-group-item').toHaveLength(3);
-      expect('#root .list-group li:eq(0)').toHaveText('Item c');
-      expect('#root .list-group li:eq(1)').toHaveText('Item b');
-      expect('#root .list-group li:eq(2)').toHaveText('Item a');
+      expect('#root li').toHaveLength(3);
+      expect('#root li:eq(0)').toHaveText('Item c');
+      expect('#root li:eq(1)').toHaveText('Item b');
+      expect('#root li:eq(2)').toHaveText('Item a');
     });
 
     describe('clicking the New Items button', () => {
@@ -97,22 +90,22 @@ describe('StreamList', () => {
         addData.emit('data', 'Item d');
         expect('#root .list-stream-new-items-btn').toHaveText('1 new thing');
         $('#root .list-stream-new-items-btn').simulate('click');
-        expect('#root .list-group li:eq(0)').toHaveText('Item d');
-        expect('#root .list-group li:eq(1)').toHaveText('Item c');
-        expect('#root .list-group li:eq(2)').toHaveText('Item b');
-        expect('#root .list-group li:eq(3)').toHaveText('Item a');
+        expect('#root li:eq(0)').toHaveText('Item d');
+        expect('#root li:eq(1)').toHaveText('Item c');
+        expect('#root li:eq(2)').toHaveText('Item b');
+        expect('#root li:eq(3)').toHaveText('Item a');
         expect('#root .list-stream-new-items-btn').not.toExist();
 
         addData.emit('data', 'Item e');
         addData.emit('data', 'Item f');
         expect('#root .list-stream-new-items-btn').toHaveText('2 new things');
         $('#root .list-stream-new-items-btn').simulate('click');
-        expect('#root .list-group li:eq(0)').toHaveText('Item f');
-        expect('#root .list-group li:eq(1)').toHaveText('Item e');
-        expect('#root .list-group li:eq(2)').toHaveText('Item d');
-        expect('#root .list-group li:eq(3)').toHaveText('Item c');
-        expect('#root .list-group li:eq(4)').toHaveText('Item b');
-        expect('#root .list-group li:eq(5)').toHaveText('Item a');
+        expect('#root li:eq(0)').toHaveText('Item f');
+        expect('#root li:eq(1)').toHaveText('Item e');
+        expect('#root li:eq(2)').toHaveText('Item d');
+        expect('#root li:eq(3)').toHaveText('Item c');
+        expect('#root li:eq(4)').toHaveText('Item b');
+        expect('#root li:eq(5)').toHaveText('Item a');
         expect('#root .list-stream-new-items-btn').not.toExist();
 
       });

@@ -17,64 +17,6 @@
   transition-property: none;
 }
 
-/* Button Mixins */
-
-@mixin button-skin($color, $background, $border: null, $color-disabled: null) {
-  color: $color;
-  background-color: $background;
-  @if ($border) {
-    border: 1px solid $border;
-  }
-  outline: none;
-
-  @include transition-pui();
-
-  &:hover,
-  &:focus {
-    color: lighten($color, 5%);
-    background-color: lighten($background, 6%);
-  }
-  .btn-group & {
-    &:active,
-    &.active {
-      color: darken($color, 5%);
-      background-color: darken($background, 6%);
-      box-shadow: none;
-      outline: none;
-    }
-  }
-  .open & {
-    &.dropdown-toggle {
-      color: darken($color, 5%);
-      background-color: darken($background, 6%);
-      box-shadow: none;
-      &:hover, &:focus {
-        color: darken($color, 5%);
-        background-color: darken($background, 6%);
-      }
-    }
-  }
-  &:active,
-  &.active {
-    color: darken($color, 5%);
-    background-color: darken($background, 6%);
-    box-shadow: none;
-    outline: none;
-  }
-  &.disabled,
-  &[disabled],
-  fieldset[disabled] & {
-    &,
-    &:hover,
-    &:focus,
-    &:active,
-    &.active {
-      color: $color-disabled;
-      opacity: 0.5;
-    }
-  }
-}
-
 @mixin button-shadow() {
   box-shadow: 0 2px 0 $btn-shadow;
   &:hover,
@@ -98,25 +40,6 @@
   -moz-background-clip: padding;     /* Firefox 3.6 */
   -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
   background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
-}
-
-@mixin h1() {
-  //bootstrap
-  font-family: $headings-font-family;
-  line-height: $headings-line-height;
-  color: $headings-color;
-  font-size: $font-size-h1;
-
-  //pui
-  margin-top: $whitespace-xl;
-  margin-bottom: $whitespace-l;
-
-  @media all and (max-width: $screen-sm) {
-    & {
-      margin-top: $whitespace-screen-sm-xl;
-      margin-bottom: $whitespace-screen-sm-l;
-    }
-  }
 }
 
 @mixin no-select {
@@ -166,4 +89,17 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
       }
     }
   }
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  user-select: $select;
 }

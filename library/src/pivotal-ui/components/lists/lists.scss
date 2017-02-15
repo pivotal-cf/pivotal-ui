@@ -1,40 +1,26 @@
 @import "../pui-variables";
-@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
-@import "../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/list-group";
 @import "../mixins";
 
-//Bootstrap
-@mixin list-unstyled {
+.list-unstyled {
   padding-left: 0;
   list-style: none;
-}
-
-//Bootstrap
-.list-unstyled {
-  @include list-unstyled;
-}
-
-//Bootstrap
-.list-inline {
-  @include list-unstyled;
-  margin-left: $base-unit * -1;
-
-  > li {
-    display: inline-block;
-    padding-left: $base-unit;
-    padding-right: $base-unit;
-  }
 }
 
 ul, ol {
   margin-bottom: $base-unit;
 }
 
-//PUI
 .list-inline {
+  @extend .list-unstyled;
+
   font-size: 0;
+  margin-left: $base-unit * -1;
+
   > li {
     font-size: $font-size-base;
+    display: inline-block;
+    padding-left: $base-unit;
+    padding-right: $base-unit;
   }
 }
 
@@ -47,7 +33,6 @@ ul, ol {
 
 @mixin list-inline-divider($color: $neutral-5) {
   > li {
-
     line-height: 1em;
 
     &:not(:first-child) {
@@ -72,12 +57,16 @@ ul, ol {
   font-family: "Consolas", "Menlo", "Monaco", "Lucida Console", "Liberation Mono", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Courier New", monospace, serif;
 
   > li {
-    font-size: 0; // TODO: remove all font-size hacks from this file when we start minifying our HTML
+    font-size: 0;
+    padding-left: 0;
+    padding-right: 0;
+
     a, &.current span {
+      @include text-overflow;
+
       font-size: $font-size-small;
       display: inline-block;
       max-width: 200px;
-      @include text-overflow;
       vertical-align: middle;
     }
 
@@ -85,8 +74,6 @@ ul, ol {
       color: $navbar-default-link-color;
     }
 
-    padding-left: 0;
-    padding-right: 0;
     &:before {
       font-size: $font-size-base;
       color: $navbar-default-link-color;
@@ -95,22 +82,10 @@ ul, ol {
       padding-right: $base-unit / 2;
       padding-left: $base-unit / 2;
     }
+
     &:first-child:before {
       content: "";
     }
-  }
-}
-
-.list-group-inverse {
-  @extend .list-group;
-  > li {
-    border-color: $neutral-1;
-  }
-}
-
-.list-group {
-  &, > li {
-    border-width: 1px 0;
   }
 }
 
@@ -120,71 +95,6 @@ ul, ol {
   }
   li:last-child {
     border-bottom: 0;
-  }
-}
-
-.list-vertical-divider {
-  @extend .list-inline;
-
-  overflow: hidden;
-
-  > li {
-    &:first-child {
-      border-left: none;
-    }
-    border-left: $list-vertical-divider-border;
-    padding-bottom: 9000px;
-    margin-bottom: -9000px;
-
-    .height-enforcer {
-      min-height: 130px;
-    }
-  }
-}
-
-.list-vertical-divider-2 {
-  @extend .list-vertical-divider;
-  margin-bottom: $base-unit * 5;
-  > li {
-    border-left: $divider-lowlight-border;
-    padding-left: $base-unit * 4;
-    padding-right: $base-unit * 4;
-  }
-  > li:first-child {
-    padding-left: $base-unit * 4;
-  }
-}
-
-.list-steps {
-  @extend .list-inline;
-  > li {
-    font-size: $font-size-small;
-    text-transform: uppercase;
-    color: $list-steps-color;
-    margin-right: $base-unit * 6;
-    padding-left: 0; // overrides .list-inline styles
-    margin-bottom: $base-unit / 2;
-    counter-increment: list-steps;
-    font-weight: 600;
-    &:before {
-      content: counter(list-steps);
-
-      padding: 0 $base-unit;
-      margin-right: $base-unit / 2;
-      text-align: center;
-      color: $list-steps-color;
-      display: inline-block;
-      border: 2px solid $list-steps-color;
-      border-radius: $base-unit * 4; // set to be higher than required so that it will work with larger fonts/paddings.
-    }
-    &.current {
-      color: $list-steps-color-current;
-      font-weight: 900;
-      &:before {
-        color: $list-steps-color-current;
-        border-color: $list-steps-color-current;
-      }
-    }
   }
 }
 
@@ -200,7 +110,7 @@ ul, ol {
   height: $base-unit * 5.5;
   padding: 0;
   border-radius: 0;
-  border-top: 1px solid $list-group-border;
+  border-top: 1px solid #ddd;
   box-shadow: 0 -1px $shadow-4;
   justify-content: center;
 
@@ -212,6 +122,7 @@ ul, ol {
 
 .list-draggable {
   @include user-select(none);
+  padding-left: 0;
 
   .draggable-grip {
     display: inline-block;
@@ -220,6 +131,12 @@ ul, ol {
 
   > li {
     width: 100%;
+    list-style-type: none;
+    border-bottom: 1px solid #ddd;
+
+    &:first-child {
+      border-top: 1px solid #ddd;
+    }
 
     .draggable-item-content {
       padding: $list-draggable-item-content-padding;
@@ -245,136 +162,4 @@ ul, ol {
       visibility: hidden;
     }
   }
-}
-
-.list-timeline {
-  @extend .list-unstyled;
-  display: table;
-  width: 100%;
-}
-
-.list-timeline-item {
-  display: table-row;
-}
-
-.list-timeline-date {
-  font-size: $font-size-small;
-  color: $gray-5;
-  display: table-cell;
-  vertical-align: middle;
-  text-align: right;
-  padding-right: $timeline-list-gutter;
-}
-
-.list-timeline-subtitle {
-  font-size: $font-size-small;
-  color: $gray-5;
-  font-weight: $font-weight-em-default;
-  display: block;
-}
-
-.list-timeline-title {
-  font-size: $font-size-small;
-  color: $gray-2;
-  font-weight: $font-weight-em-high;
-  display: table-cell;
-  vertical-align: middle;
-  position: relative;
-  padding: $timeline-list-padding 0 $timeline-list-padding $timeline-list-gutter;
-
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 1px;
-    background: $timeline-axis-color;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    bottom: 0;
-  }
-
-  &:after {
-    height: 20px;
-    width: 20px;
-    display: block;
-    content: "";
-    border: 2px solid $timeline-point-color;
-    border-radius: 1000px;
-    background: white;
-    box-shadow: 0 0 0 2px white;
-    position: absolute;
-    left: -9px;
-    top: 50%;
-    z-index: 2;
-    transform: translatey(-50%);
-    -moz-transform: translatey(-50%);
-    -ms-transform: translatey(-50%);
-    -o-transform: translatey(-50%);
-    -webkit-transform: translatey(-50%);
-  }
-}
-
-.lvn li:not(:last-child) {
-  margin-bottom: 0;
-}
-
-.lvs li:not(:last-child) {
-  margin-bottom: $whitespace-s;
-}
-
-.lvm li:not(:last-child) {
-  margin-bottom: $whitespace-m;
-}
-
-.lvl li:not(:last-child) {
-  margin-bottom: $whitespace-l;
-}
-
-.lvxl li:not(:last-child) {
-  margin-bottom: $whitespace-xl;
-}
-
-.lvxxl li:not(:last-child) {
-  margin-bottom: $whitespace-xxl;
-}
-
-.lvxxxl li:not(:last-child) {
-  margin-bottom: $whitespace-xxxl;
-}
-
-.lvxxxxl li:not(:last-child) {
-  margin-bottom: $whitespace-xxxxl;
-}
-
-.lhn li:not(:last-child) {
-  margin-right: 0;
-}
-
-.lhs li:not(:last-child) {
-  margin-right: $whitespace-s;
-}
-
-.lhm li:not(:last-child) {
-  margin-right: $whitespace-m;
-}
-
-.lhl li:not(:last-child) {
-  margin-right: $whitespace-l;
-}
-
-.lhxl li:not(:last-child) {
-  margin-right: $whitespace-xl;
-}
-
-.lhxxl li:not(:last-child) {
-  margin-right: $whitespace-xxl;
-}
-
-.lhxxxl li:not(:last-child) {
-  margin-right: $whitespace-xxxl;
-}
-
-.lhxxxxl li:not(:last-child) {
-  margin-right: $whitespace-xxxxl;
 }

@@ -42,7 +42,7 @@ An inline list is one of the three methods for laying out content (including gri
 You can use inline lists to lay out elements. Here's an example of a header next to a button:
 
 ```html_example
-<ul class="list-inline lhxl">
+<ul class="list-inline">
   <li class="txt-m">
     <h5 class="em-alt em-max">Bound Services</h5>
   </li>
@@ -183,137 +183,6 @@ Breadcrumbs use their own monospace font-family.
 ```
 */
 
-/*doc
----
-title: Group
-name: list_group
-parent: list
----
-
-Use this list when you need simple gray borders between items
-
-```html_example
-<ul class="list-group">
-  <li class="list-group-item">
-    item 1
-  </li>
-  <li class="list-group-item">
-    item 2
-  </li>
-  <li class="list-group-item">
-    item 3
-  </li>
-</ul>
-```
-
-*/
-
-/*doc
----
-title: Group Inverse
-name: list_group_inverse
-parent: list
----
-Use this list when you need simple gray borders between items on a dark background. It is very subtle.
-
-```html_example
-<ul class="list-group-inverse">
-  <li class="list-group-item">
-    item 1
-  </li>
-  <li class="list-group-item">
-    item 2
-  </li>
-  <li class="list-group-item">
-    item 3
-  </li>
-</ul>
-```
-*/
-
-
-/*doc
----
-title: Vertical Divider
-name: list_vertical_divider
-parent: list
----
-
-Use this list when you need larger gray borders between
-items. It should be used in concert with grid column
-sizes when you want the items to take a particular width.
-
-We achieve equal height columns using the padding/margin hack,
-so we need an additional `.height-enforcer` element to get the
-right min-height.
-
-```html_example
-<ul class="list-vertical-divider">
-  <li class="col-md-8">
-    <div class="height-enforcer">
-      item 1
-    </div>
-  </li>
-  <li class="col-md-8">
-    <div class="height-enforcer">
-      item 2
-    </div>
-  </li>
-  <li class="col-md-8">
-    <div class="height-enforcer" style="height: 200px">
-      item 3, which is taller
-    </div>
-  </li>
-</ul>
-```
-
-```html_example
-<ul class="list-vertical-divider-2">
-  <li class="col-md-8">
-    <div class="height-enforcer">
-      item 1
-    </div>
-  </li>
-  <li class="col-md-8">
-    <div class="height-enforcer">
-      item 2
-    </div>
-  </li>
-  <li class="col-md-8">
-    <div class="height-enforcer" style="height: 200px">
-      item 3, which is taller
-    </div>
-  </li>
-</ul>
-```
-
-*/
-
-/*doc
----
-title: Steps
-name: list_steps
-parent: list
----
-
-Use this list when you need to show the steps in a flow.
-
-```html_example
-<ol class="list-steps">
-  <li>
-    Sign up Account
-  </li>
-  <li class="current">
-    Create Organization
-  </li>
-  <li>
-    Do other things
-  </li>
-  <li>
-    And more things
-  </li>
-</ol>
-```
 
 /*doc
 ---
@@ -326,47 +195,7 @@ categories:
 
 Sometimes you might want to use lists to lay out elements on the page.
 
-[Inline lists][list_inline] and [vertical divider lists][list_vertical_divider]
-are particularly useful when you don't know the width of the element you want to layout,
-or you want to vertically align it.
+[Inline lists][list_inline] are particularly useful when you don't know the width of
+the element you want to layout, or you want to vertically align it.
 
-*/
-
-
-/*doc
----
-title: Timeline
-name: time_line
-parent: list
----
-
-A Timeline is a graphical representation of sequenced events. The Timeline list components are used to order list items by timestamp.
-
-We achieve equal width columns for the time stamp by using a display table hack, so we need an additional inline style on the first `list-timeline-date` to specify the desired width.
-
-```html_example
-<ol class="list-timeline">
-  <li class="list-timeline-item">
-    <time datetime="2014-07-04" class="list-timeline-date" style="width: 150px;">1 day ago</time>
-    <span class="list-timeline-title">
-      java buildpack (offline) (2.5)
-      <span class="list-timeline-subtitle">a minor release</span>
-    </span>
-  </li>
-  <li class="list-timeline-item">
-    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
-    <span class="list-timeline-title">
-      java buildpack (offline) (2.5)
-      <span class="list-timeline-subtitle">a minor release</span>
-    </span>
-  </li>
-  <li class="list-timeline-item">
-    <time datetime="2014-07-04" class="list-timeline-date">1 day ago</time>
-    <span class="list-timeline-title">
-      java buildpack (offline) (2.5)
-      <span class="list-timeline-subtitle">a minor release</span>
-    </span>
-  </li>
-</ol>
-```
 */

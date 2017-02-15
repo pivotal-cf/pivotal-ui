@@ -1,5 +1,4 @@
 @import "../mixins";
-@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
 .type-ellipsis {
   @include text-overflow;

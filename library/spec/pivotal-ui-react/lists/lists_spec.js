@@ -69,32 +69,6 @@ describe('lists', function() {
     });
   });
 
-  describe('StepList', function(){
-    itRenders(StepList, '#root ol');
-
-    it('adds the list-steps class', function(){
-      expect('#root ol').toHaveClass('list-steps');
-    });
-  });
-
-  describe('GroupList', function(){
-    itRenders(GroupList, '#root ul');
-
-    it('adds the list-group class', function(){
-      expect('#root ul').toHaveClass('list-group');
-      expect('#root ul li:first').toHaveClass('list-group-item');
-    });
-  });
-
-  describe('GroupListInverse', function(){
-    itRenders(GroupListInverse, '#root ul');
-
-    it('adds the list-group-inverse class', function(){
-      expect('#root ul').toHaveClass('list-group-inverse');
-      expect('#root ul li:first').toHaveClass('list-group-item');
-    });
-  });
-
   describe('InlineList without divider', function(){
     itRenders(InlineList, '#root ul');
 
@@ -109,26 +83,6 @@ describe('lists', function() {
 
     it('adds list-inline-divider classes', function(){
       expect('#root ul').toHaveClass('list-inline-divider');
-    });
-  });
-
-  describe('List spacing', function(){
-    ['n', 's', 'm', 'l', 'xl'].forEach(function(size){
-      describe('vertical spacing', function() {
-        itRenders(UnorderedList, '#root ul', {'spacing': size});
-
-        it('adds a' + size + 'vertical spacing class', function(){
-          expect('#root ul').toHaveClass('lv' + size);
-        });
-      });
-
-      describe('horizontal spacing', function() {
-        itRenders(InlineList, '#root ul', {'spacing': size});
-
-        it('adds a' + size + 'horizontal spacing class', function(){
-          expect('#root ul').toHaveClass('lh' + size);
-        });
-      });
     });
   });
 

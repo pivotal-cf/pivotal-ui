@@ -16,10 +16,9 @@ npm install pui-react-lists --save
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-spacing   | no | oneOf('n', 's', 'm', 'l', 'xl') |       | Spacing between items
-className | no | String                          |       | Classname of the list
-unstyled  | no | Boolean                         | false | Whether to style the list
-divider   | no | Boolean                         | false | Whether to include a divider between items
+className | no | String  |       | Classname of the list
+unstyled  | no | Boolean | false | Whether to style the list
+divider   | no | Boolean | false | Whether to include a divider between items
 
 ## Breadcrumb
 
@@ -35,44 +34,6 @@ import {BreadcrumbList, ListItem} from 'pui-react-lists';
   <ListItem><a href="/react.html">React</a></ListItem>
   <ListItem className="current"><span>Lists</span></ListItem>
 </BreadcrumbList>
-```
-*/
-
-/*doc
----
-title: Group
-name: 06_list_group_react
-parent: list_react
----
-
-Import the subcomponents:
-
-```
-import {GroupList, ListItem} from 'pui-react-lists';
-```
-
-```react_example
-<GroupList>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem>Item 3</ListItem>
-</GroupList>
-```
-
-## Group Inverse
-
-Import the subcomponents:
-
-```
-import {GroupListInverse, ListItem} from 'pui-react-lists';
-```
-
-```react_example
-<GroupListInverse>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem>Item 3</ListItem>
-</GroupListInverse>
 ```
 
 ## Inline
@@ -123,22 +84,6 @@ import {OrderedList, ListItem} from 'pui-react-lists';
 </OrderedList>
 ```
 
-## Steps
-
-Import the subcomponent:
-
-```
-import {StepList, ListItem} from 'pui-react-lists';
-```
-
-```react_example
-<StepList>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem className="current">Item 3</ListItem>
-</StepList>
-```
-
 ## Unordered
 
 Import the subcomponents:
@@ -163,31 +108,58 @@ import {UnorderedList, ListItem} from 'pui-react-lists';
 </UnorderedList>
 ```
 
-## Configuring
+*/
 
-List Spacing can be changed setting the size of the spacing property.
+/*doc
+---
+title: Draggable
+name: 05_list_draggable_react
+parent: list_react
+---
 
-|Options|Values       | Pixels
-|-------|-------------|-------
-|`n`    |none         |0px
-|`s`    |small        |5px
-|`m`    |medium       |7px
-|`l`    |large        |10px
-|`xl`   |extra large  |21px
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-react-draggable-list --save
 
-```react_example
-<StepList spacing="n">
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem className="current">Item 3</ListItem>
-</StepList>
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install babel-loader svg-react-loader --save-dev
+</code>
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+onDragEnd      | no | Function | | Callback when a drag event has completed
+innerClassName | no | String   | | Use this to specify the classname of the inner div
+
+## Basic usage
+
+(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+
+Import the subcomponents:
+
+```
+import {DraggableList} from 'pui-react-draggable-list';
+import {DraggableListItem} from 'pui-react-draggable-list';
+```
+
+Creates a draggable list.
+
+The property `onDragEnd` is a callback when a drag event has completed. Use this
+if you need to make an API call to update the order of some elements.
+
+```jsx_example
+const dragEndCallback = data => alert('New item indices order: ' + data);
 ```
 
 ```react_example
-<UnorderedList spacing="xl">
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem className="current">Item 3</ListItem>
-</UnorderedList>
+<DraggableList onDragEnd={dragEndCallback} className="my-list-class" innerClassName="my-item-class">
+  <DraggableListItem>Get me out of here!</DraggableListItem>
+  <DraggableListItem>LOL</DraggableListItem>
+  <DraggableListItem>Can't stop</DraggableListItem>
+  <DraggableListItem>Get me out of here!</DraggableListItem>
+  <DraggableListItem>LOL</DraggableListItem>
+  <DraggableListItem>Can't stop</DraggableListItem>
+</DraggableList>
 ```
 */

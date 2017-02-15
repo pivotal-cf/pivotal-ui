@@ -4,7 +4,6 @@ title: Hoverable
 name: hoverable
 categories:
  - css_utilities_hoverable
- - react_utilities_hoverable
  - css_all
 ---
 
@@ -23,20 +22,20 @@ List example:
 This can be used with any kind of list but the list group style seems to fit this use case best.
 
 ```html_example
-<ul class="list-group">
-  <li class="list-group-item" hoverable="true">
+<ul class="list-unordered">
+  <li hoverable="true">
     List Item 1
     <a class="hovered" href="#">Edit</a>
   </li>
-  <li class="list-group-item" hoverable="true">
+  <li hoverable="true">
     List Item 2
     <a class="hovered" href="#">Edit</a>
   </li>
-  <li class="list-group-item" hoverable="true">
+  <li hoverable="true">
     List Item 3
     <a class="hovered" href="#">Edit</a>
   </li>
-  <li class="list-group-item">
+  <li>
     Not hoverable
   </li>
 </ul>

@@ -1,6 +1,6 @@
 import React from 'react';
 import {DefaultButton} from 'pui-react-buttons';
-import {GroupList, ListItem} from 'pui-react-lists';
+import {UnorderedList, ListItem} from 'pui-react-lists';
 import mixin from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
@@ -64,7 +64,7 @@ export class StreamList extends mixin(React.Component).with(Animation) {
     }
     return (<div>
       <div className="list-stream-new-items-btn-wrapper" style={{height}}>{newItemsButton}</div>
-      <GroupList {...others}>{updatedChildren}</GroupList>
+      <UnorderedList {...others}>{updatedChildren}</UnorderedList>
     </div>);
   }
 }

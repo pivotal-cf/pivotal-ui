@@ -1,219 +1,127 @@
-require('../spec_helper');
-import {itPropagatesAttributes} from '../support/shared_examples';
+import '../spec_helper'
+import {DraggableList, DraggableListItem} from '../../../src/pivotal-ui-react/draggable-list/draggable-list'
+import ReactTestUtils from 'react-addons-test-utils'
+import move from '../../../src/pivotal-ui-react/draggable-list/move_helper'
 
 describe('DraggableList', function() {
-  var DraggableList, DraggableListItem, subject, dragEndSpy, props;
-  beforeEach(function() {
-    DraggableList = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableList;
-    DraggableListItem = require('../../../src/pivotal-ui-react/draggable-list/draggable-list').DraggableListItem;
-
-    dragEndSpy = jasmine.createSpy('dragEnd');
-
-    props = {
-      className: 'test-class',
-      id: 'test-id',
-      style: {
-        opacity: 0.5
-      }
-    };
-
-    subject = ReactDOM.render(
-      <DraggableList onDragEnd={dragEndSpy} {...props} innerClassName='inner-test-class'>
-        <DraggableListItem>
-          Get me out of here!
-        </DraggableListItem>
-        <DraggableListItem>
-          LOL
-        </DraggableListItem>
-        <DraggableListItem>
-          Can't stop
-        </DraggableListItem>
-      </DraggableList>,
-      root
-    );
-    itPropagatesAttributes('.list-group', props);
-  });
-
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
-
-  it('passes through innerClassName to item content', function() {
-    expect('.draggable-item-content:first').toHaveClass('inner-test-class');
-  });
-
-  function getListItemText() {
-    return $('li.list-group-item .draggable-item-content').map(function() {
-      return $('> span', this).text();
-    }).toArray();
+  const renderComponent = props => {
+    return ReactTestUtils.renderIntoDocument(
+      <DraggableList {...props}>
+        <DraggableListItem>Foo</DraggableListItem>
+        <DraggableListItem>Bar</DraggableListItem>
+        <DraggableListItem>Gaz</DraggableListItem>
+      </DraggableList>
+    )
   }
 
-  it('renders icons for the grip', () => {
-    expect('svg.icon-grip').toExist();
-  });
+  it('renders', () => {
+    const result = renderComponent()
+    const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'ul')
+    expect(component.className).toEqual('list-draggable')
+  })
 
-  it('renders a list group of all items', function() {
-    expect('ul.list-group').toHaveClass('list-draggable');
-    expect('li.list-group-item .draggable-grip').toHaveLength(3);
-    expect(getListItemText()).toEqual(['Get me out of here!', 'LOL', 'Can\'t stop']);
-  });
+  it('passes through innerClassName to item content', () => {
+    const result = renderComponent({innerClassName: 'inner-test-class'})
+    const contentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'draggable-item-content')[0]
+    expect(contentItem.className).toContain('inner-test-class')
+  })
 
-  describe('when the children are changed', function() {
-    beforeEach(function() {
-      subject = ReactDOM.render(
-        <DraggableList>
-          <DraggableListItem>
-            Get me out of here!
-          </DraggableListItem>
-          <DraggableListItem>
-            LOL
-          </DraggableListItem>
-          <DraggableListItem>
-            Can't stop
-          </DraggableListItem>
-          <DraggableListItem>
-            One more time
-          </DraggableListItem>
-        </DraggableList>,
-        root
-      );
-    });
+  describe('dragging an item', () => {
+    let dataTransferStub = {
+      setData: () => {
+      }
+    }
+    let dragEndSpy
+    let setDataSpy
 
-    it('updates the list of itemIndices', function() {
-      expect(subject.state.itemIndices.length).toEqual(4);
-    });
+    let renderedComponent
+    let draggableList
+    let draggableContentItem
+    let draggableGrip
 
-    it('renders the items', function() {
-      expect(getListItemText()).toEqual(['Get me out of here!', 'LOL', 'Can\'t stop', 'One more time']);
-    });
-  });
+    beforeEach(() => {
+      setDataSpy = jasmine.createSpy('setData')
+      dataTransferStub.setData = setDataSpy
 
-  describe('when starting to drag an item', function() {
-    var dataTransferSpy;
-    beforeEach(function() {
-      dataTransferSpy = jasmine.createSpyObj('dataTransfer', ['setData', 'getData']);
-      $('li.list-group-item').eq(0).simulate('dragStart', {dataTransfer: dataTransferSpy});
-      jasmine.clock().tick(1);
-    });
+      dragEndSpy = jasmine.createSpy('dragEnd')
+      renderedComponent = renderComponent({onDragEnd: dragEndSpy})
+      draggableList = ReactTestUtils.findRenderedDOMComponentWithTag(renderedComponent, 'ul')
 
-    it('changes the aria-grabbed attribute to true', function() {
-      expect('ul.list-group .draggable-grip:eq(0)').toHaveAttr('aria-grabbed', 'true');
-    });
+      expect(draggableList.className).not.toContain('dragging')
 
-    it('calls setData with text/plain so firefox considers the drag to be valid', function() {
-      expect(dataTransferSpy.setData).toHaveBeenCalledWith('text/plain', '');
-    });
+      draggableGrip = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[1]
+      draggableContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-item-content')[1]
+    })
 
-    it('hides the item', function() {
-      expect('li.list-group-item:eq(0)').toHaveClass('grabbed');
-    });
+    describe('dragStart', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1);
+      })
 
-    it('is not draggable', function() {
-      expect('li.list-group-item:eq(0)').toHaveAttr('draggable', 'false');
-    });
+      it('adds the dragging class', () => {
+        expect(draggableList.className).toContain('dragging')
+      })
 
-    describe('when the children are changed', function() {
-      beforeEach(function() {
-        subject = ReactDOM.render(
-          <DraggableList>
-            <DraggableListItem>
-              Get me out of here!
-            </DraggableListItem>
-            <DraggableListItem>
-              LOL
-            </DraggableListItem>
-            <DraggableListItem>
-              Can't stop
-            </DraggableListItem>
-            <DraggableListItem>
-              One more time
-            </DraggableListItem>
-          </DraggableList>,
-          root
-        );
+      it('adds the aria-grabbed attribute', () => {
+        expect(draggableGrip.hasAttribute('aria-grabbed')).toBe(true)
+        expect(draggableGrip.getAttribute('aria-grabbed')).toEqual('true')
+      })
+
+      it('calls setData with text/plain so firefox considers the drag to be valid', () => {
+        expect(dataTransferStub.setData).toHaveBeenCalledWith('text/plain', '');
       });
+    })
 
-      it('cancels the drag', function() {
-        expect(subject.state.draggingId).toBe(null);
-      });
+    describe('dragEnter', () => {
+      beforeEach(() => {
+        const dragOverContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[0]
 
-      describe('when the drag enter event is triggered', function() {
-        it('does not change the list', function() {
-          var itemIndices = Array.prototype.slice.call(subject.state.itemIndices);
-          $('li.list-group-item:eq(1)').simulate('dragEnter', {dataTransfer: dataTransferSpy});
-          expect(itemIndices).toEqual(subject.state.itemIndices);
-        });
-      });
-    });
+        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1)
 
-    describe('when drag enter event is triggered', function() {
-      beforeEach(function() {
-        $('li.list-group-item:eq(1)').simulate('dragEnter', {dataTransfer: dataTransferSpy});
-      });
+        ReactTestUtils.Simulate.dragEnter(dragOverContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1)
+      })
 
-      it('reorders the list', function() {
-        expect(getListItemText()).toEqual(['LOL', 'Get me out of here!', 'Can\'t stop']);
-      });
+      it('reorders the list', () => {
+        const itemText = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-child')
+          .map(i => i.textContent)
+        expect(itemText).toEqual(['Bar', 'Foo', 'Gaz'])
+      })
+    })
 
-      describe('when the dragEnd event is triggered', function() {
-        beforeEach(function() {
-          $('li.list-group-item:eq(1)').simulate('dragEnd', {dataTransfer: dataTransferSpy});
-        });
+    describe('dragEnd', () => {
+      beforeEach(() => {
+        const dragOverContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[0]
 
-        it('calls the dragEnd callback only once', function() {
-          expect(dragEndSpy).toHaveBeenCalledWith([1, 0, 2]);
-          expect(dragEndSpy.calls.count()).toEqual(1);
-        });
-      });
+        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1)
 
+        ReactTestUtils.Simulate.dragEnter(dragOverContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1)
 
-      describe('when dragging enter event is triggered on the last list item', function() {
-        beforeEach(function() {
-          $('li.list-group-item:eq(2)').simulate('dragEnter', {dataTransfer: dataTransferSpy});
-        });
+        ReactTestUtils.Simulate.dragEnd(dragOverContentItem, {dataTransfer: dataTransferStub})
+        jasmine.clock().tick(1)
+      })
 
-        it('reorders the list', function() {
-          var listItemsText = getListItemText();
-          expect(listItemsText).toEqual(['LOL', 'Can\'t stop', 'Get me out of here!']);
-        });
+      it('calls the callback only once', () => {
+        expect(dragEndSpy).toHaveBeenCalledWith([1, 0, 2])
+        expect(dragEndSpy.calls.count()).toEqual(1)
+      })
 
-        describe('when the drag is ended', function() {
-          beforeEach(function() {
-            $('li.list-group-item:eq(2)').simulate('dragEnd', {dataTransfer: dataTransferSpy});
-          });
+      it('removes the grabbed class', () => {
+        expect(draggableList.className).not.toContain('dragging')
+      })
+    })
+  })
 
-          it('removes the grabbed class', function() {
-            expect('.grabbed').not.toExist();
-          });
-
-          describe('when starting to drag another item', function() {
-            beforeEach(function() {
-              $('li.list-group-item:eq(2)').simulate('dragStart', {dataTransfer: dataTransferSpy});
-              jasmine.clock().tick(1);
-            });
-
-            describe('when dragging enter event is triggered on the first list item', function() {
-              beforeEach(function() {
-                $('li.list-group-item:eq(0)').simulate('dragEnter', {dataTransfer: dataTransferSpy});
-              });
-
-              it('reorders the list', function() {
-                expect(getListItemText()).toEqual(['Get me out of here!', 'LOL', 'Can\'t stop']);
-              });
-            });
-          });
-        });
-      });
-    });
-  });
-
-  describe('move_helper#move', function() {
-    it('moves an item at an index in a collection to the specified index', function() {
-      var move = require('../../../src/pivotal-ui-react/draggable-list/move_helper');
-      expect(move(['a', 'b', 'c', 'd', 'e'], 0, 4)).toEqual(['b', 'c', 'd', 'e', 'a']);
-      expect(move(['a', 'b', 'c', 'd', 'e'], 4, 0)).toEqual(['e', 'a', 'b', 'c', 'd']);
-      expect(move(['a', 'b', 'c', 'd', 'e'], 0, 2)).toEqual(['b', 'c', 'a', 'd', 'e']);
-      expect(move(['a', 'b', 'c', 'd', 'e'], 3, 1)).toEqual(['a', 'd', 'b', 'c', 'e']);
-    });
-  });
-});
+  describe('move_helper#move', () => {
+    it('moves an item at an index in a collection to the specified index', () => {
+      expect(move(['a', 'b', 'c', 'd', 'e'], 0, 4)).toEqual(['b', 'c', 'd', 'e', 'a'])
+      expect(move(['a', 'b', 'c', 'd', 'e'], 4, 0)).toEqual(['e', 'a', 'b', 'c', 'd'])
+      expect(move(['a', 'b', 'c', 'd', 'e'], 0, 2)).toEqual(['b', 'c', 'a', 'd', 'e'])
+      expect(move(['a', 'b', 'c', 'd', 'e'], 3, 1)).toEqual(['a', 'd', 'b', 'c', 'e'])
+    })
+  })
+})

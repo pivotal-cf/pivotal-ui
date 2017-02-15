@@ -24,7 +24,7 @@ export class DraggableList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.children) {
+    if(nextProps.children) {
       this.setState({
         itemIndices: childrenIndices(nextProps.children),
         draggingId: null
@@ -37,7 +37,7 @@ export class DraggableList extends React.Component {
     try {
       dataTransfer.dropEffect = 'move';
       dataTransfer.setData('text/plain', '');
-    } catch (err) {
+    } catch(err) {
       dataTransfer.setData('text', '');
     }
     setTimeout(() => this.setState({draggingId}), 0);
@@ -51,7 +51,7 @@ export class DraggableList extends React.Component {
   dragEnter = e => {
     const {draggingId, itemIndices} = this.state;
     const endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
-    if (draggingId === null || Number.isNaN(endDraggingId)) return;
+    if(draggingId === null || Number.isNaN(endDraggingId)) return;
 
     const startIndex = itemIndices.indexOf(draggingId);
     const endIndex = itemIndices.indexOf(endDraggingId);
@@ -79,7 +79,7 @@ export class DraggableList extends React.Component {
     const sortedItems = this.state.itemIndices.map(i => items[i]);
     const props = mergeProps(others, {
       className: {
-        'list-group list-draggable': true,
+        'list-draggable': true,
         dragging: this.state.draggingId !== null
       }
     });
@@ -112,7 +112,7 @@ export class DraggableListItem extends React.Component {
     const {hover} = this.state;
     const {grabbed, onDragStart, onDragEnd, onDragEnter, draggingId, children} = this.props;
     const {onMouseEnter, onMouseLeave} = this;
-    const className = classnames({'list-group-item pan': true, grabbed, hover});
+    const className = classnames({'pan': true, grabbed, hover});
     const innerClassName = classnames(this.props.className, 'draggable-item-content');
     const props = {
       className, onMouseEnter, onMouseLeave, onDragStart, onDragEnd, onDragEnter,
@@ -120,14 +120,14 @@ export class DraggableListItem extends React.Component {
       draggable: !grabbed,
       'data-dragging-id': draggingId
     };
-    
+
     return (<li {...props} aria-dropeffect="move">
       <div className={innerClassName}>
         <div className="draggable-grip mhs" aria-grabbed={grabbed} role="button">
           <Icon src="grip"/>
           <span className="sr-only">Drag to reorder</span>
         </div>
-        <span>{children}</span>
+        <span className="draggable-child">{children}</span>
       </div>
     </li>);
   }
