@@ -1,6 +1,11 @@
 @import "../pui-variables";
 @import "../mixins";
 
+table p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 .table-data {
   border: none;
   tbody, thead, .tbody, .thead {
@@ -253,4 +258,3 @@
     }
   }
 }
-

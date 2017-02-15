@@ -125,6 +125,11 @@ select, input {
   }
 }
 
+.form-control-static {
+  line-height: $pui-line-height-large;
+  margin: 0;
+}
+
 //Form Groupings
 //-------------------------------------
 
