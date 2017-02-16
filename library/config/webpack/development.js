@@ -12,6 +12,18 @@ module.exports = {
       {
         test: /bootstrap/,
         loader: 'imports?jQuery=jquery'
+      },
+      {
+        test: /\.(eot|ttf|woff)$/,
+        loader: 'url-loader',
+      },
+      {
+        test: /\.s?css$/,
+        loader: 'css-loader!sass-loader',
+      },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loader: 'file-loader!image-webpack-loader'
       }
     ]
   },

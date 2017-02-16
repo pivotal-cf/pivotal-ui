@@ -1,21 +1,47 @@
 @import "../pui-variables";
 
 .table {
-  border: 1px solid $table-border-color;
-  font-size: $table-font-size;
   background-color: $table-bg;
+  font-size: $table-font-size;
+  margin-bottom: ($base-unit*2);
 
   p {
     margin: 0;
   }
-}
 
-.th {
-  font-weight: $table-header-font-weight;
-}
+  .grid {
+    margin: 0;
+  }
 
-.td {
-  &:hover {
-    background-color: $table-bg-hover;
+  .tr {
+    display: flex;
+    border-top: solid 1px $table-border-color;
+    border-left: solid 1px $table-border-color;
+    border-right: solid 1px $table-border-color;
+
+    &:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
+    &.tr-hover:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+  .th {
+    font-weight: $table-header-font-weight;
+    border-bottom: solid 1px $table-border-color;
+  }
+
+  .td, .th {
+    flex: 1;
+    display: flex;
+    border-right: solid 1px $table-border-color;
+    padding: $base-unit;
+    flex-direction: column;
+    justify-content: center;
+
+    &:last-child {
+      border-right: none;
+    }
   }
 }
