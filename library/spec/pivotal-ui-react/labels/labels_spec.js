@@ -1,42 +1,25 @@
-require('../spec_helper');
-describe('Label', function() {
-  var Label;
-  beforeEach(function() {
-    Label = require('../../../src/pivotal-ui-react/labels/labels').Label;
-    ReactDOM.render(<Label>bananas</Label>, root);
-  });
+import '../spec_helper'
+import {Label} from '../../../src/pivotal-ui-react/labels/labels'
+import ReactTestUtils from 'react-addons-test-utils'
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+describe('Label Component', () => {
+  const renderComponent = (props, children) => ReactTestUtils.renderIntoDocument(<Label {...props}>{children}</Label>)
 
-  it('renders a primary colored label', function() {
-    expect('#root span').toHaveClass('label');
-    expect('#root span').toHaveClass('label-primary');
-    expect('#root span').toHaveText('bananas');
-  });
+  it('renders a primary colored label', () => {
+    const result = renderComponent({}, 'bananas')
+    const span = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'span')
 
-  function renderLabel(props) {
-    ReactDOM.render(<Label {...props}>bananas</Label>, root);
-  }
+    expect(span.className).toContain('label')
+    expect(span.className).toContain('label-primary')
+    expect(span.textContent).toEqual('bananas')
+  })
 
-  describe('when custom options are added', function() {
-    beforeEach(function() {
-      renderLabel({
-        title: 'stuff',
-        id: 'things',
-        className: 'foo',
-        style: {
-          color: 'red'
-        }
-      });
-    });
+  it('propagates id, classname, style', () => {
+    const result = renderComponent({id: 'some-id', className: 'some-class', style: {color: 'red'}})
+    const span = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'span')
 
-    it('renders a label with custom options', function() {
-      expect('#root span').toHaveAttr('title', 'stuff');
-      expect('#root span').toHaveAttr('id', 'things');
-      expect('#root span').toHaveClass('foo');
-      expect('#root span').toHaveCss({color: 'rgb(255, 0, 0)'});
-    });
-  });
-});
+    expect(span.id).toEqual('some-id')
+    expect(span.className).toEqual('some-class')
+    expect(span.style.color).toEqual('red')
+  })
+})
