@@ -84,6 +84,26 @@ describe('Tooltip Component', () => {
     expect(exitSpy).toHaveBeenCalled()
   })
 
+  describe('color', () => {
+    it('renders dark version by default', () => {
+      const result = renderComponent()
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toEqual('tooltip')
+    })
+
+    it('allows user to specify color as "dark" (the default) but it doesnt do anything', () => {
+      const result = renderComponent({theme: 'dark'})
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toEqual('tooltip')
+    })
+
+    it('allows user to change color to light', () => {
+      const result = renderComponent({theme: 'light'})
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toContain('tooltip-light')
+    })
+  })
+
   describe('position', () => {
     it('defaults to nothing, which is "top" in css', () => {
       const result = renderComponent()

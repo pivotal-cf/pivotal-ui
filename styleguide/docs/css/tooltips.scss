@@ -44,4 +44,15 @@ Tooltips are used to display extra information on hover. They can be used with a
 </button>
 ```
 
+Tooltips can be light as well as dark (the default):
+
+```html_example_table
+<button class="btn-default tooltip tooltip-light">
+  A light tooltip
+  <div class="tooltip-container">
+    <div class="tooltip-content">a tooltip</div>
+  </div>
+</button>
+```
+
 */

@@ -18,11 +18,12 @@ Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 content        | yes | Element *                                 |          | Content
 tooltipContent | yes | Node                                      |          | Tooltip content
-position       | no  | oneOf(['left', 'right', 'bottom', 'top']) | 'top'    | Tooltip position relative to content
+position       | no  | oneOf(['left', 'right', 'bottom', 'top']) | top      | Tooltip position relative to content
 trigger        | no  | oneOf(['hover', 'click'])                 | hover    | What to trigger on
 clickHideDelay | no  | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
 onEnter        | no  | Func                                      | () => {} | Callback fired when tooltip is shown
 onExit         | no  | Func                                      | () => {} | Callback fired when tooltip is hidden
+theme          | no  | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 
 * See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 

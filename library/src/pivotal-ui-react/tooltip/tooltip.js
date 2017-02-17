@@ -11,14 +11,18 @@ export class Tooltip extends React.Component {
     clickHideDelay: React.PropTypes.number,
     onEnter: React.PropTypes.func,
     onExit: React.PropTypes.func,
+    theme: React.PropTypes.oneOf(['dark', 'light'])
   }
 
   static defaultProps = {
     position: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
-    onEnter: () => {},
-    onExit: () => {},
+    onEnter: () => {
+    },
+    onExit: () => {
+    },
+    theme: 'dark'
   }
 
   constructor(props) {
@@ -32,19 +36,21 @@ export class Tooltip extends React.Component {
 
   clickHandler() {
     this.setState({visible: true})
-    setTimeout(() => {this.setState({visible: false})}, this.props.clickHideDelay)
+    setTimeout(() => {
+      this.setState({visible: false})
+    }, this.props.clickHideDelay)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.visible && !this.state.visible) {
+    if(prevState.visible && !this.state.visible) {
       this.props.onExit()
-    } else if (!prevState.visible && this.state.visible) {
+    } else if(!prevState.visible && this.state.visible) {
       this.props.onEnter()
     }
   }
 
   render() {
-    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, ...others} = this.props
+    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
@@ -72,7 +78,9 @@ export class Tooltip extends React.Component {
         break
     }
 
-    const newClasses = classnames('tooltip', className, positionClass, content.props ? content.props.className : null)
+    const newClasses = classnames('tooltip', className, positionClass,
+      content.props ? content.props.className : null,
+      theme === 'light' ? 'tooltip-light' : null)
     const newProps = Object.assign({className: newClasses}, triggerHandler, others)
 
     return React.cloneElement(content, newProps, content.props.children, newContent)
