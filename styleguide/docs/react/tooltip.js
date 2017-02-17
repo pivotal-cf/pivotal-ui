@@ -24,6 +24,7 @@ clickHideDelay | no  | Number                                    | 1000     | Ho
 onEnter        | no  | Func                                      | () => {} | Callback fired when tooltip is shown
 onExit         | no  | Func                                      | () => {} | Callback fired when tooltip is hidden
 theme          | no  | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
+size           | no  | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 
 * See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 

@@ -11,18 +11,18 @@ export class Tooltip extends React.Component {
     clickHideDelay: React.PropTypes.number,
     onEnter: React.PropTypes.func,
     onExit: React.PropTypes.func,
-    theme: React.PropTypes.oneOf(['dark', 'light'])
+    theme: React.PropTypes.oneOf(['dark', 'light']),
+    size: React.PropTypes.oneOf(['auto', 'sm', 'md', 'lg'])
   }
 
   static defaultProps = {
     position: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
-    onEnter: () => {
-    },
-    onExit: () => {
-    },
-    theme: 'dark'
+    onEnter: () => {},
+    onExit: () => {},
+    theme: 'dark',
+    size: 'auto'
   }
 
   constructor(props) {
@@ -50,7 +50,7 @@ export class Tooltip extends React.Component {
   }
 
   render() {
-    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, ...others} = this.props
+    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
@@ -80,7 +80,8 @@ export class Tooltip extends React.Component {
 
     const newClasses = classnames('tooltip', className, positionClass,
       content.props ? content.props.className : null,
-      theme === 'light' ? 'tooltip-light' : null)
+      theme === 'light' ? 'tooltip-light' : null,
+      size === 'auto' ? null : `tooltip-${size}`)
     const newProps = Object.assign({className: newClasses}, triggerHandler, others)
 
     return React.cloneElement(content, newProps, content.props.children, newContent)

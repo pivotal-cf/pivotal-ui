@@ -104,6 +104,32 @@ describe('Tooltip Component', () => {
     })
   })
 
+  describe('size', () => {
+    it('renders auto width by default', () => {
+      const result = renderComponent()
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toEqual('tooltip')
+    })
+
+    it('renders a small tooltip when small size is specified', () => {
+      const result = renderComponent({size: 'sm'})
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toContain('tooltip-sm')
+    })
+
+    it('renders a medium tooltip when small size is specified', () => {
+      const result = renderComponent({size: 'md'})
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toContain('tooltip-md')
+    })
+
+    it('renders a large tooltip when small size is specified', () => {
+      const result = renderComponent({size: 'lg'})
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      expect(content.className).toContain('tooltip-lg')
+    })
+  })
+
   describe('position', () => {
     it('defaults to nothing, which is "top" in css', () => {
       const result = renderComponent()
