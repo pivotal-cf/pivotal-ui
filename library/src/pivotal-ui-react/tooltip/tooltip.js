@@ -44,7 +44,7 @@ export class Tooltip extends React.Component {
   }
 
   render() {
-    const {position, content, tooltipContent, trigger} = this.props
+    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
@@ -72,8 +72,9 @@ export class Tooltip extends React.Component {
         break
     }
 
-    const newClasses = classnames('tooltip', positionClass, content.props ? content.props.className : null)
-    const newProps = Object.assign({className: newClasses}, triggerHandler)
+    const newClasses = classnames('tooltip', className, positionClass, content.props ? content.props.className : null)
+    const newProps = Object.assign({className: newClasses}, triggerHandler, others)
+
     return React.cloneElement(content, newProps, content.props.children, newContent)
   }
 }
