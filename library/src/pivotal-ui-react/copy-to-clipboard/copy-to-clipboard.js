@@ -2,7 +2,6 @@ import React from 'react';
 import {copy} from './clipboard-helper';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
 import {Tooltip} from 'pui-react-tooltip';
 import 'pui-css-copy-to-clipboard';
 
@@ -17,7 +16,7 @@ export class CopyToClipboard extends React.Component {
   click = ({props, text}, e) => {
     copy(window, document, text);
     const {onClick} = props;
-    if (onClick) onClick(e);
+    if(onClick) onClick(e);
   }
 
   render() {
@@ -54,7 +53,7 @@ export class CopyToClipboardButton extends React.Component {
   }
 
   click = e => {
-    if (!this.state.display) this.setState({display: true}, () => {
+    if(!this.state.display) this.setState({display: true}, () => {
       this.setState({display: false});
     });
     this.props.onClick(e);
@@ -68,14 +67,13 @@ export class CopyToClipboardButton extends React.Component {
       className: 'copy-to-clipboard-button',
       onClick: this.click
     });
-    const overlay = <Tooltip id="copy-to-clipboard">Copied</Tooltip>;
+
+    const button = <div className="clipboard-button">
+      <Icon src="copy"/>
+    </div>
 
     return (<CopyToClipboard {...copyProps}>
-      <OverlayTrigger trigger="manual" delayHide={3000} placement="top" overlay={overlay} {...{display}}>
-        <div className="clipboard-button">
-          <Icon src="copy"/>
-        </div>
-      </OverlayTrigger>
-    </CopyToClipboard>);
+      <Tooltip content={button} tooltipContent="Copied" trigger="click"/>
+    </CopyToClipboard>)
   }
 }

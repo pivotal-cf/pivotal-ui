@@ -33,7 +33,6 @@ assignToGlobal([
   require('pui-react-media'),
   require('pui-react-modals'),
   require('pui-react-notifications'),
-  require('pui-react-overlay-trigger'),
   require('pui-react-pagination'),
   require('pui-react-panels'),
   require('pui-react-panes'),

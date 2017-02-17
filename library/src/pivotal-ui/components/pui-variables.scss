@@ -512,7 +512,6 @@ $zindex-popover:          1010 !default;
 $zindex-navbar-fixed:     1030 !default;
 $zindex-modal-background: 1040 !default;
 $zindex-modal:            1050 !default;
-$zindex-tooltip:          1060 !default;
 
 // Media queries breakpoints
 // --------------------------------------------------
@@ -816,13 +815,28 @@ $state-danger-border:  $error-4;
 // Tooltips
 // -------------------------
 
-$tooltip-max-width:   200px !default;
-$tooltip-color:       $neutral-9 !default;
-$tooltip-bg:          $neutral-2 !default;
-$tooltip-opacity:     1 !default;
+$tooltip-border-radius:      2px;
+$tooltip-font-size:          $font-size-extra-small;
+$tooltip-padding:            ($base-unit / 2) $base-unit;
+$tooltip-margin:             $base-unit;
+$tooltip-container-z:        10;
+$tooltip-arrow-pull:         -4px;
+$tooltip-arrow-z-bottom:     -1;
+$tooltip-arrow-z-top:        1;
+$tooltip-opacity-transition: ease-out .2s;
 
-$tooltip-arrow-width: 5px !default;
-$tooltip-arrow-color: $tooltip-bg !default;
+
+$tooltip-bg:                 $dark-2;
+$tooltip-color:              #fff;
+$tooltip-border-color:       $dark-2;
+
+$tooltip-light-bg:           #fff;
+$tooltip-light-color:        $dark-2;
+$tooltip-light-border-color: $dark-9;
+
+$tooltip-sm-width:           $base-unit * 15;
+$tooltip-md-width:           $base-unit * 30;
+$tooltip-lg-width:           $base-unit * 45;
 
 // Popovers
 // -------------------------

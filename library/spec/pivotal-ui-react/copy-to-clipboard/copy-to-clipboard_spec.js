@@ -57,13 +57,13 @@ describe('CopyToClipboard', () => {
       });
 
       it('renders a tooltip that says "Copied"', () => {
-        expect('.pui-tooltip').toContainText('Copied');
+        expect('.tooltip').toContainText('Copied');
       });
 
-      it('hides tooltip after 3 seconds', () => {
-        expect('.pui-tooltip:visible').toExist();
-        jasmine.clock().tick(3500);
-        expect('.pui-tooltip:visible').not.toExist();
+      it('hides tooltip after 5 seconds', () => {
+        expect('.tooltip-container-visible').toExist();
+        jasmine.clock().tick(6000);
+        expect('.tooltip-container-visible').not.toExist();
       });
 
       it('copies the text to the clipboard', () => {

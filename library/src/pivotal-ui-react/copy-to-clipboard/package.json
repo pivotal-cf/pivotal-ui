@@ -6,7 +6,6 @@
     "pui-css-copy-to-clipboard": "=7.5.4",
     "pui-react-helpers": "=7.5.4",
     "pui-react-iconography": "=7.5.4",
-    "pui-react-overlay-trigger": "=7.5.4",
     "pui-react-tooltip": "=7.5.4"
   }
 }

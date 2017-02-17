@@ -107,7 +107,6 @@
     "pui-react-mixins": "file:../library/dist/react/mixins",
     "pui-react-modals": "file:../library/dist/react/modals",
     "pui-react-notifications": "file:../library/dist/react/notifications",
-    "pui-react-overlay-trigger": "file:../library/dist/react/overlay-trigger",
     "pui-react-pagination": "file:../library/dist/react/pagination",
     "pui-react-panels": "file:../library/dist/react/panels",
     "pui-react-panes": "file:../library/dist/react/panes",
