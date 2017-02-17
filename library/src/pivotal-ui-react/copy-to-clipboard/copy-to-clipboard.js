@@ -68,9 +68,9 @@ export class CopyToClipboardButton extends React.Component {
       onClick: this.click
     });
 
-    const button = <div className="clipboard-button">
+    const button = (<div className="clipboard-button">
       <Icon src="copy"/>
-    </div>
+    </div>)
 
     return (<CopyToClipboard {...copyProps}>
       <Tooltip content={button} tooltipContent="Copied" trigger="click"/>

@@ -53,11 +53,11 @@ export class Tooltip extends React.Component {
     }
 
     const newContentClass = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden')
-    const newContent = <div className={newContentClass}>
+    const newContent = (<div className={newContentClass}>
       <div className="tooltip-content">
         {tooltipContent}
       </div>
-    </div>
+    </div>)
 
     let triggerHandler
     switch(trigger) {

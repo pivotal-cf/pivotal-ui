@@ -9,12 +9,6 @@
     "modules": true,
     "jsx": true
   },
-  "globals": {
-    "React": true
-  },
-  "plugins": [
-    "react"
-  ],
   "rules": {
     "camelcase": 0,
     "curly": 0,
@@ -27,18 +21,5 @@
     "no-unused-expressions": 0,
     "quotes": [2, "single", "avoid-escape"],
     "strict": 0,
-    "react/jsx-uses-vars": 2,
-    "react/jsx-no-undef": 2,
-    "react/jsx-uses-react": 2,
-    "react/no-is-mounted": 2,
-    "react/react-in-jsx-scope": 2,
-    "react/prefer-es6-class": 2,
-    "react/no-did-mount-set-state": 0,
-    "react/no-did-update-set-state": 2,
-    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"]}],
-    "react/prefer-stateless-function": 0,
-    "react/self-closing-comp": 2,
-    "react/sort-comp": 2,
-    "react/jsx-wrap-multilines": 2
   }
 }
