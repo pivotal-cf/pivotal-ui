@@ -9,13 +9,67 @@ table.table {
     margin: 0;
   }
 
-  th {
-    font-weight: $table-header-font-weight;
+  td, th, tr {
+    padding: $base-unit;
+    border: 1px solid $table-border-color;
   }
 
-  td {
-    &:hover {
+  th {
+    font-weight: $table-header-font-weight;
+    border-bottom-width: 2px;
+  }
+
+  tr {
+    &.tr-hover:hover {
       background-color: $table-bg-hover;
+    }
+  }
+
+  &.tr-hover {
+    tr:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+  &.td-hover {
+    tr:hover {
+      background-color: $table-bg;
+    }
+    tr td:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+  &.table-no-ext-borders {
+    border: none;
+    border-radius:0;
+
+    td, th {
+      border-style: solid;
+      border-color: $table-border-color;
+      border-width: 0;
+      border-right-width: 1px;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    td {
+      border-top-width: 1px;
+    }
+
+    th {
+      border-bottom-width: 2px;
+    }
+  }
+
+  &.table-no-borders {
+    border: none;
+
+    tr,
+    tr td,
+    tr th {
+      border: none;
     }
   }
 }

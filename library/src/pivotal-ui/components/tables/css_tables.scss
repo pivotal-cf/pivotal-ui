@@ -58,4 +58,35 @@
       background-color: $table-bg-hover;
     }
   }
+
+  .tr.tr-no-h-borders {
+    .td, .th {
+      border-right: none;
+    }
+  }
+  &.tr-no-h-borders {
+    .td, .th {
+      border-right: none;
+    }
+  }
+
+  &.table-no-ext-borders .tr{
+    border-left:none;
+    border-right:none;
+    border-radius:0;
+    &:first-child {
+      border-top:none;
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+
+  &.table-no-borders {
+    .tr,
+    .tr .td,
+    .tr .th {
+      border: none;
+    }
+  }
 }
