@@ -10,17 +10,22 @@ const types = React.PropTypes;
 export class CopyToClipboard extends React.Component {
   static propTypes = {
     text: types.string.isRequired,
-    onClick: types.func
+    onClick: types.func,
+    copyWindow: types.object
   };
 
+  static defaultProps = {
+    copyWindow: window
+  }
+
   click = ({props, text}, e) => {
-    copy(window, document, text);
+    copy(this.props.copyWindow, document, text);
     const {onClick} = props;
     if(onClick) onClick(e);
   }
 
   render() {
-    const {children, text, onClick, ...others} = this.props;
+    const {children, text, onClick, copyWindow, ...others} = this.props;
     const obj = {props: this.props, text: null};
 
     const anchorProps = mergeProps(others, {
@@ -39,12 +44,14 @@ export class CopyToClipboard extends React.Component {
 export class CopyToClipboardButton extends React.Component {
   static propTypes = {
     text: types.string,
-    onClick: types.func
+    onClick: types.func,
+    copyWindow: types.object
   };
 
   static defaultProps = {
     onClick() {
-    }
+    },
+    copyWindow: window
   };
 
   constructor(props, context) {
@@ -65,7 +72,8 @@ export class CopyToClipboardButton extends React.Component {
 
     const copyProps = mergeProps(props, {
       className: 'copy-to-clipboard-button',
-      onClick: this.click
+      onClick: this.click,
+      copyWindow: this.props.copyWindow
     });
 
     const button = (<div className="clipboard-button">
