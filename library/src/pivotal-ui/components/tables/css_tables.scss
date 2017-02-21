@@ -44,4 +44,18 @@
       border-right: none;
     }
   }
+
+  &.tr-hover {
+    .tr:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+  &.td-hover {
+    .tr:hover {
+      background-color: $table-bg;
+    }
+    .tr .td:hover {
+      background-color: $table-bg-hover;
+    }
+  }
 }
