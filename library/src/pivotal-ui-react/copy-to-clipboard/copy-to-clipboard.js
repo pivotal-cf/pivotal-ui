@@ -11,15 +11,16 @@ export class CopyToClipboard extends React.Component {
   static propTypes = {
     text: types.string.isRequired,
     onClick: types.func,
-    copyWindow: types.object
+    copyWindow: types.object,
   };
 
   static defaultProps = {
-    copyWindow: window
+    copyWindow: window,
   }
 
   click = ({props, text}, e) => {
-    copy(this.props.copyWindow, document, text);
+    const {copyWindow} = this.props
+    copy(copyWindow, copyWindow.document, text);
     const {onClick} = props;
     if(onClick) onClick(e);
   }

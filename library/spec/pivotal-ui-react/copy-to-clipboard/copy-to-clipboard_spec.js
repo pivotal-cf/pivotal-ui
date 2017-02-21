@@ -4,14 +4,17 @@ import {CopyToClipboard, CopyToClipboardButton} from '../../../src/pivotal-ui-re
 
 describe('CopyToClipboard', () => {
   const text = 'some copy text'
-  let onClick, window, range, selection;
+  let onClick, window, document, range, selection;
   beforeEach(() => {
     onClick = jasmine.createSpy('onClick')
-    spyOn(document, 'execCommand')
 
     range = jasmine.createSpyObj('range', ['selectNode']);
     selection = jasmine.createSpyObj('selection', ['removeAllRanges', 'addRange']);
     window = jasmine.createSpyObj('window', ['getSelection']);
+    document = jasmine.createSpyObj('document', ['createRange', 'execCommand']);
+
+    document.createRange.and.returnValue(range);
+    window.document = document
     window.getSelection.and.returnValue(selection);
   })
 
