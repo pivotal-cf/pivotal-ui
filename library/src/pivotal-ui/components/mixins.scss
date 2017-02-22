@@ -83,7 +83,7 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
       @each $type in $types {
         .#{$type}#{$location}#{$tShirtSize} {
           @each $whitespace-location in expand-whitespace-key($location) {
-            #{expand-whitespace-key($type)}#{$whitespace-location}: $size;
+            #{expand-whitespace-key($type)}#{$whitespace-location}: $size !important;
           }
         }
       }

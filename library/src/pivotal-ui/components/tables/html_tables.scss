@@ -1,35 +1,55 @@
 @import "../pui-variables";
 
 table.table {
-  border: 1px solid $table-border-color;
+  width:100%;
   font-size: $table-font-size;
   background-color: $table-bg;
-
+  margin-bottom: ($base-unit*2);
+  //HTML table reset
+  table-layout: fixed;
+  border-collapse: collapse;
+  border-spacing: 0;
   p {
     margin: 0;
   }
 
-  td, th, tr {
-    padding: $base-unit;
-    border: 1px solid $table-border-color;
-  }
-
-  th {
-    font-weight: $table-header-font-weight;
-    border-bottom-width: 2px;
-  }
-
+  //General Row
   tr {
+    border-top: solid 1px $table-border-color;
+    border-left: solid 1px $table-border-color;
+    border-right: solid 1px $table-border-color;
+    &:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
     &.tr-hover:hover {
       background-color: $table-bg-hover;
     }
   }
-
+  //Table Header Cell
+  th {
+    font-weight: $table-header-font-weight;
+    //Borders stack on HTML Tables so this needs to be 2px
+    border-bottom:solid 2px $table-border-color;
+  }
+  //General Cell
+  td, th {
+    border-right: solid 1px $table-border-color;
+    padding: $base-unit;
+    text-align: inherit;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  p {
+    margin:0;
+  }
+  //HTML Hover on Tables
   &.tr-hover {
     tr:hover {
       background-color: $table-bg-hover;
     }
   }
+  //HTML hover table cells
   &.td-hover {
     tr:hover {
       background-color: $table-bg;
@@ -38,38 +58,59 @@ table.table {
       background-color: $table-bg-hover;
     }
   }
-
-  &.table-no-ext-borders {
-    border: none;
-    border-radius:0;
-
+  //Borders
+  //No cell borders in row
+  tr.tr-no-h-borders {
     td, th {
-      border-style: solid;
-      border-color: $table-border-color;
-      border-width: 0;
-      border-right-width: 1px;
-
-      &:last-child {
-        border-right: none;
-      }
-    }
-
-    td {
-      border-top-width: 1px;
-    }
-
-    th {
-      border-bottom-width: 2px;
+      border-right: none;
     }
   }
-
+  //Attached to .table
+  &.tr-no-h-borders {
+    td, th {
+      border-right: none;
+    }
+  }
+  //No External borders to a table
+  &.table-no-ext-borders tr{
+    border-left:none;
+    border-right:none;
+    &:first-child {
+      border-top:none;
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+  tr.table-no-ext-borders {
+    border-left:none;
+    border-right:none;
+    &:first-child {
+      border-top:none;
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+  //No borders on table
   &.table-no-borders {
-    border: none;
-
     tr,
     tr td,
     tr th {
       border: none;
+    }
+  }
+}
+//Table Scrollable
+.table-scrollable {
+  //defined in the CSS Tables
+  table.table {
+    margin-bottom: 0;
+    tr:first-child {
+      border-top: none;
+    }
+    tr:last-child {
+      border-bottom: none;
     }
   }
 }
