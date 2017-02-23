@@ -12,237 +12,392 @@ categories:
 npm install pui-css-tables --save
 </code>
 
-
-
-Class                 | Description
---------------------- | -----------------
-`.table`              | Base table class, applies spacing and cross browser support. Unfortunately inherits some undesirable styles from bootstrap.
-`.table-hover`        | Adds a light blue background color to table rows when the user hovers over them (use to indicate clickability)
-`.table-striped`      | Applies zebra striping to a table.
-`.table-light`        | Lightens the table background.
-`.tr-hover`           | Adds a light grey background color to table rows when the user hovers over them (use to indicate clickability)
-`.td-hover`           | Adds a light grey background color to table cells when the user hovers over them (use to indicate clickability)
+Class                   | Description
+------------------------| -----------------
+`.table`                | Applied to the starting element to define the style standards.
+`.tr-hover`             | Applied to the starting table element or the desired row to add the hover effect.
+`.td-hover`             | Applied to the starting .table element to change the table row hover effect to a table cell hover.
+`.tr-no-h-borders`      | Removes inner horizontal borders from the desired .table or table row element.
+`.table-no-ext-borders` | Removes external borders for the entire table when applied to the .table element.
+`.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
 
 */
 
 /*doc
 ---
-title: Data
-name: table_data
+title: HTML Tables
+name: html_tables
 parent: table
 ---
 
-This is a table used to display many rows of data (it is pretty much the default table). You can use grid column classes on th and td elements. See key-value table for example.
-
-Design Note: The `table-data` is often paired with `table-light` as in our example.
-
-```html_example
-<table class="table table-data table-light">
-  <thead>
-    <tr>
-      <th>Service Instance</th>
-      <th>Service Plan</th>
-      <th>Bound Apps</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>oracle-db-sct</td>
-      <td>Oracle DB</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>oracle-db-sct</td>
-      <td>Oracle DB</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>oracle-db-sct</td>
-      <td>Oracle DB</td>
-      <td>12</td>
-    </tr>
-    <tr>
-      <td>oracle-db-sct</td>
-      <td>Oracle DB</td>
-      <td>12</td>
-    </tr>
-  </tbody>
-</table>
-```
-
+Basic HTML tables are good for traditional data sets with minimal user interaction.
+Both Flex Tables and HTML tables have the same aesthetic styling and similar modifier classes.
 */
 
 /*doc
 ---
-title: Key-Value
-name: table_key_value
-parent: table
+title: Basic Data Table
+name: basic_data_table
+parent: html_tables
 ---
 
-This table is used when the table headings are on the left. It looks better when you
-specify column widths for the th/tds.
-
+This table is used to display many rows of data.
 
 ```html_example
-<table class="table table-key-value">
+<table class="table">
   <tbody>
     <tr>
-      <th class="col-md-8">Email</th>
-      <td class="col-md-16">joe@example.com</td>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
     </tr>
     <tr>
-      <th class="col-md-8">Current Password</th>
-      <td class="col-md-16">*******</td>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
     </tr>
     <tr>
-      <th class="col-md-8">First Name</th>
-      <td class="col-md-16">Joe</td>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+/*doc
+---
+title: Table Row Hover
+name: table_row_hover
+parent: html_tables
+---
+
+Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
+
+```html_example
+<table class="table">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr class="tr-hover">
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
     </tr>
     <tr>
-      <th class="col-md-8">Last Name</th>
-      <td class="col-md-16">Bobs</td>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+/*doc
+---
+title: Table Cell Hover
+name: table_cell_hover
+parent: html_tables
+---
+
+Adding .td-hover to the table element will allow the user to highlight individual cells.
+
+```html_example
+<table class="table td-hover">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
     </tr>
     <tr>
-      <th class="col-md-8">Phone</th>
-      <td class="col-md-16">415-555-0000</td>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+*/
+
+/*doc
+---
+title: Table Border Modifiers
+name: table_border_modifiers
+parent: html_tables
+---
+
+Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
+
+```html_example
+<table class="table tr-no-h-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
     </tr>
   </tbody>
 </table>
 ```
 
+No external borders to rows using class .table-no-ext-borders on the table element.
+
+```html_example
+<table class="table table-no-ext-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+No external borders to rows using class .table-no-borders on the table element.
+
+```html_example
+<table class="table table-no-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
 */
 
 /*doc
 ---
 title: Scrollable
-name: scrollable_table
+name: scrollable_html_table
+parent: html_tables
+---
+
+Table with external borders where the body scrolls but the header does not. The default height of the
+scrollable table is 164px. Modify the max-height of the .table-scrollable element to change this for your layout.
+
+```html_example
+<table class="table mbn">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+  </tbody>
+</table>
+<div class="table-scrollable">
+  <table class="table tr-hover">
+    <tbody>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+      <tr>
+        <td> Cell 1 </td>
+        <td> Cell 2 </td>
+        <td> Cell 3 </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+*/
+
+/*doc
+---
+title: Flex Tables
+name: flex_tables
 parent: table
 ---
 
-Table with borders where the contents of the table scroll but the header does not.
-The default height of the scrollable table is 183px. There are four other sizes provided
-which you can use by adding the following classes to the `.table-scrollable` element.
-
-Table Scrollable sizes | Height
----------------------- | ---------
-default                | 183px
-`.table-scrollable-sm` | 300px
-`.table-scrollable-md` | 600px
-`.table-scrollable-lg` | 900px
-
-If you would like a custom size, please add an inline style to the `.table-scrollable-body` element.
-
-Design Note: The `table-scrollable` is often paired with `table-data` and `table-light` as in our example.
-
-<div class="alert alert-info alert-dismissable">
-  <p class="em-high">
-    You will need to specify the width of <strong>every</strong> column in both the <code>thead</code> and
-    the first row of the <code>tbody</code>. You can do this with inline width attributes.
-  </p>
-</div>
+Flex Tables have the same functionality as HTML tables but allow for more complex interactions like
+links and dynamic column widths. They should be used when crafting intricate components or you are concerned
+about responsive flexibility. Both Flex Tables and HTML tables have the same aesthetic styling and
+similar modifier classes.
 
 ```html_example
-<div class="table-scrollable table-scrollable-sm">
-  <div class="table-scrollable-header">
-    <table class="table table-data table-light">
-      <thead>
-        <tr>
-          <th width="10%">#</th>
-          <th width="16%">Status</th>
-          <th width="12%">CPU</th>
-          <th width="16%">Memory</th>
-          <th width="16%">Disk</th>
-          <th width="30%">Uptime</th>
-        </tr>
-      </thead>
-    </table>
+<div class="table">
+  <div class="tr grid">
+    <div class="th col"> Header 1 </div>
+    <div class="th col"> Header 2 </div>
+    <div class="th col"> Header 3 </div>
   </div>
-  <div class="table-scrollable-body">
-    <table class="table table-data table-light">
-      <tbody>
-        <tr>
-          <td width="10%">0</td>
-          <td width="16%">Running</td>
-          <td width="12%">0%</td>
-          <td width="16%">4.16 MB</td>
-          <td width="16%">6.75 MB</td>
-          <td width="30%">27 min</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.07 MB</td>
-          <td>6.75 MB</td>
-          <td>27 min</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.07 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.14 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.08 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.16 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.07 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.07 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.03 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>Running</td>
-          <td>0%</td>
-          <td>4.07 MB</td>
-          <td>6.75 MB</td>
-          <td>25 min</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="tr grid">
+    <div class="td col"> Cell 1 </div>
+    <div class="td col"> Cell 2 </div>
+    <div class="td col"> Cell 3 </div>
   </div>
+  <div class="tr grid">
+    <div class="td col"> Cell 1 </div>
+    <div class="td col"> Cell 2 </div>
+    <div class="td col"> Cell 3 </div>
+  </div>
+</div>
+```
+
+*/
+
+/*doc
+---
+title: Table Cell Alignment
+name: table_cell_alignment
+parent: flex_tables
+---
+
+Thanks to the power of the flexbox grid you can take advantage of content alignment classes
+like .col-top and .col-bottom to align the content of a column.
+
+```html_example
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-8"> Head </div>
+    <div class="th col col-8"> Head </div>
+    <div class="th col col-8"> Head </div>
+  </div>
+  <div class="tr grid">
+    <div class="td col col-8">
+      <div>Cell 1</div>
+      <div>Cell 1.2</div>
+    </div>
+    <div class="td col col-8 col-top">
+      <code>.col-top</code>
+    </div>
+    <div class="td col col-8 col-bottom">
+      <code>.col-bottom</code>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Dynamic Cell Width
+name: dynamic_cell_width
+parent: flex_tables
+---
+
+The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the
+base .col class for auto widths, .col-1 to .col-24 to define a percentage width between 1/24, .col-fixed to
+define a specific pixel count or just observe the width of it’s children, and finally the .col-grow-2 to
+.col-grow-11 to define a flex-grow column. These can all be used in conjunction. Read more about them here to
+learn their proper use.
+
+Also note that placing a div with .type-ellipsis into any of these cells will truncate your text content.
+
+```html_example
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-fixed"> Fixed Width </div>
+    <div class="th col col-6"> 25% Width </div>
+    <div class="th col"> Auto Width </div>
+    <div class="th col col-grow-2"> Double the Auto Width </div>
+  </div>
+  <div class="tr grid">
+    <div class="th col col-fixed"> .col.col-fixed </div>
+    <div class="th col col-6"> .col.col-6 </div>
+    <div class="th col"> .col </div>
+    <div class="th col col-grow-2"> .col-grow-2 </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Table Linking
+name: table_linking
+parent: flex_tables
+---
+
+The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single
+cell can be made into a link or an entire row.
+
+```html_example
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-2"> Header 1 </div>
+    <div class="th col col-2"> Header 2 </div>
+    <div class="th col col-4"> Header 3 </div>
+    <div class="th col col-8"> Header 4 </div>
+    <div class="th col col-8"> Header 5 </div>
+  </div>
+  <div class="tr grid">
+    <div class="td col col-2"> Cell 1 </div>
+    <div class="td col col-2"> Cell 2 </div>
+    <div class="td col col-4"> Cell 3 </div>
+    <div class="td col col-8"> Cell 4 </div>
+    <a class="td col col-8" href="#tables" title="Everyone Can Read It"> Cell 5 (a tag cell) </a>
+  </div>
+  <a class="tr grid" href="#tables" title="Everyone Can Read It">
+    <div class="td col col-24"> Cell 1-5 (a tag row with div cell) </div>
+  </a>
 </div>
 ```
 */
