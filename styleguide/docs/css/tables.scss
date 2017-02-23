@@ -26,10 +26,9 @@ Class                   | Description
 /*doc
 ---
 title: HTML Tables
-name: html_tables
+name: 0_html_tables
 parent: table
 ---
-
 Basic HTML tables are good for traditional data sets with minimal user interaction.
 Both Flex Tables and HTML tables have the same aesthetic styling and similar modifier classes.
 */
@@ -37,10 +36,9 @@ Both Flex Tables and HTML tables have the same aesthetic styling and similar mod
 /*doc
 ---
 title: Basic Data Table
-name: basic_data_table
-parent: html_tables
+name: 0_basic_data_table
+parent: 0_html_tables
 ---
-
 This table is used to display many rows of data.
 
 ```html_example
@@ -69,8 +67,8 @@ This table is used to display many rows of data.
 /*doc
 ---
 title: Table Row Hover
-name: table_row_hover
-parent: html_tables
+name: 1_table_row_hover
+parent: 0_html_tables
 ---
 
 Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
@@ -101,8 +99,8 @@ Adding .tr-hover to a specific table row or the table element itself will add th
 /*doc
 ---
 title: Table Cell Hover
-name: table_cell_hover
-parent: html_tables
+name: 2_table_cell_hover
+parent: 0_html_tables
 ---
 
 Adding .td-hover to the table element will allow the user to highlight individual cells.
@@ -133,8 +131,8 @@ Adding .td-hover to the table element will allow the user to highlight individua
 /*doc
 ---
 title: Table Border Modifiers
-name: table_border_modifiers
-parent: html_tables
+name: 3_table_border_modifiers
+parent: 0_html_tables
 ---
 
 Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
@@ -213,8 +211,8 @@ No external borders to rows using class .table-no-borders on the table element.
 /*doc
 ---
 title: Scrollable
-name: scrollable_html_table
-parent: html_tables
+name: 4_scrollable_html_table
+parent: 0_html_tables
 ---
 
 Table with external borders where the body scrolls but the header does not. The default height of the
@@ -272,7 +270,7 @@ scrollable table is 164px. Modify the max-height of the .table-scrollable elemen
 /*doc
 ---
 title: Flex Tables
-name: flex_tables
+name: 1_flex_tables
 parent: table
 ---
 
@@ -306,8 +304,8 @@ similar modifier classes.
 /*doc
 ---
 title: Table Cell Alignment
-name: table_cell_alignment
-parent: flex_tables
+name: 0_table_cell_alignment
+parent: 1_flex_tables
 ---
 
 Thanks to the power of the flexbox grid you can take advantage of content alignment classes
@@ -339,8 +337,8 @@ like .col-top and .col-bottom to align the content of a column.
 /*doc
 ---
 title: Dynamic Cell Width
-name: dynamic_cell_width
-parent: flex_tables
+name: 1_dynamic_cell_width
+parent: 1_flex_tables
 ---
 
 The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the
@@ -354,13 +352,13 @@ Also note that placing a div with .type-ellipsis into any of these cells will tr
 ```html_example
 <div class="table">
   <div class="tr grid">
-    <div class="th col col-fixed"> Fixed Width </div>
+    <div class="th col col-fixed" style="width: 100px"> Fixed Width </div>
     <div class="th col col-6"> 25% Width </div>
     <div class="th col"> Auto Width </div>
     <div class="th col col-grow-2"> Double the Auto Width </div>
   </div>
   <div class="tr grid">
-    <div class="th col col-fixed"> .col.col-fixed </div>
+    <div class="th col col-fixed" style="width: 100px"> .col.col-fixed </div>
     <div class="th col col-6"> .col.col-6 </div>
     <div class="th col"> .col </div>
     <div class="th col col-grow-2"> .col-grow-2 </div>
@@ -372,8 +370,8 @@ Also note that placing a div with .type-ellipsis into any of these cells will tr
 /*doc
 ---
 title: Table Linking
-name: table_linking
-parent: flex_tables
+name: 2_table_linking
+parent: 1_flex_tables
 ---
 
 The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single

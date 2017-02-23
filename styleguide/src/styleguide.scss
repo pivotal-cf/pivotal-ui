@@ -562,3 +562,11 @@ h1#intro.styleguide {
   height: 1em;
   background-color: bisque;
 }
+
+.table {
+  .td, .th {
+    &.col {
+      padding: $base-unit;
+    }
+  }
+}
