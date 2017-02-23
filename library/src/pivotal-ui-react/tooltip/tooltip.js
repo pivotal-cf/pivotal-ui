@@ -79,11 +79,16 @@ export class Tooltip extends React.Component {
     }
 
     const newClasses = classnames('tooltip', className, positionClass,
-      content.props ? content.props.className : null,
       theme === 'light' ? 'tooltip-light' : null,
       size === 'auto' ? null : `tooltip-${size}`)
     const newProps = Object.assign({className: newClasses}, triggerHandler, others)
 
-    return React.cloneElement(content, newProps, content.props.children, newContent)
+    return (
+      <div {...newProps}>
+        {content}
+        {newContent}
+      </div>
+    )
+    //return React.cloneElement(content, newProps, content.props.children, newContent)
   }
 }

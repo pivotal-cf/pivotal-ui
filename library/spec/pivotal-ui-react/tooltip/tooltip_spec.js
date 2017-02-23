@@ -33,7 +33,7 @@ describe('Tooltip Component', () => {
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
 
     expect(tooltip.className).toContain('tooltip')
-    expect(tooltip.className).toContain('inner-content')
+    expect(tooltip.getElementsByClassName('inner-content')[0]).toBeDefined()
 
     expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'inner-tooltip-content')).not.toBeUndefined()
   })
@@ -44,7 +44,7 @@ describe('Tooltip Component', () => {
 
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
     expect(tooltip.className).toContain('tooltip')
-    expect(tooltip.className).toContain('inner-content')
+    expect(tooltip.getElementsByClassName('inner-content')[0]).toBeDefined()
   })
 
   it('propagates classname, id, style to the wrapping tooltip', () => {

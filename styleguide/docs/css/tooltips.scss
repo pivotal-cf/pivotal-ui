@@ -15,69 +15,85 @@ npm install pui-css-tooltips --save
 Tooltips are used to display extra information on hover. They can be used with any hoverable element.
 
 ```html_example_table
-<button class="btn-default tooltip">
-  Top
-  <div class="tooltip-container">
-    <div class="tooltip-content">a tooltip</div>
-  </div>
-</button>
+<div class="tooltip">
+  <button class="btn-default">
+    Top
+    <div class="tooltip-container">
+      <div class="tooltip-content">a tooltip</div>
+    </div>
+  </button>
+</div>
 
-<button class="btn-default tooltip tooltip-bottom">
-  Bottom
+<div class="tooltip tooltip-bottom">
+  <button class="btn-default">
+    Bottom
+  </button>
   <div class="tooltip-container">
     <div class="tooltip-content">a tooltip</div>
   </div>
-</button>
+</div>
 
-<button class="btn-default tooltip tooltip-left">
-  Left
+<div class="tooltip tooltip-left">
+  <button class="btn-default">
+    Left
+  </button>
   <div class="tooltip-container">
     <div class="tooltip-content">a tooltip</div>
   </div>
-</button>
+</div>
 
-<button class="btn-default tooltip tooltip-right">
-  Right
+<div class="tooltip tooltip-right">
+  <button class="btn-default">
+    Right
+  </button>
   <div class="tooltip-container">
     <div class="tooltip-content">a tooltip</div>
   </div>
-</button>
+</div>
 ```
 
 Tooltips can be light as well as dark (the default):
 
 ```html_example
-<button class="btn-default tooltip tooltip-light">
-  A light tooltip
+<div class="tooltip tooltip-light">
+  <button class="btn-default">
+    A light tooltip
+  </button>
   <div class="tooltip-container">
     <div class="tooltip-content">a tooltip</div>
   </div>
-</button>
+</div>
 ```
 
 Tooltips can be sized:
 
 ```html_example_table
-<button class="btn-default tooltip tooltip-sm">
-  A small tooltip
+<div class="tooltip tooltip-sm">
+  <button class="btn-default">
+    A small tooltip
+  </button>
   <div class="tooltip-container">
-    <div class="tooltip-content">a tooltip</div>
+    <div class="tooltip-content">Lorem ipsum dolor sit amet, consec</div>
   </div>
-</button>
+</div>
 
-<button class="btn-default tooltip tooltip-md">
-  A medium tooltip
+<div class="tooltip tooltip-md">
+  <button class="btn-default">
+    A medium tooltip
+  </button>
   <div class="tooltip-container">
-    <div class="tooltip-content">a tooltip</div>
+    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
   </div>
-</button>
+</div>
 
-<button class="btn-default tooltip tooltip-lg">
-  A large tooltip
+<div class="tooltip tooltip-lg">
+  <button class="btn-default">
+    A large tooltip
+  </button>
   <div class="tooltip-container">
-    <div class="tooltip-content">a tooltip</div>
+    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
   </div>
-</button>
+</div>
 ```
 
 */

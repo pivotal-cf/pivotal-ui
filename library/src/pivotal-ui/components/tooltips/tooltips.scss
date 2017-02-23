@@ -69,6 +69,7 @@
 
 .tooltip {
   position: relative;
+  display: inline-block;
 
   &.tooltip-light {
     .tooltip-content {
