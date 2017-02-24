@@ -358,10 +358,10 @@ Also note that placing a div with .type-ellipsis into any of these cells will tr
     <div class="th col col-grow-2"> Double the Auto Width </div>
   </div>
   <div class="tr grid">
-    <div class="th col col-fixed" style="width: 100px"> .col.col-fixed </div>
-    <div class="th col col-6"> .col.col-6 </div>
-    <div class="th col"> .col </div>
-    <div class="th col col-grow-2"> .col-grow-2 </div>
+    <div class="td col col-fixed" style="width: 100px"> .col.col-fixed </div>
+    <div class="td col col-6"> .col.col-6 </div>
+    <div class="td col"> .col </div>
+    <div class="td col col-grow-2"> .col-grow-2 </div>
   </div>
 </div>
 ```

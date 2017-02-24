@@ -111,7 +111,7 @@ An input with the label top aligned (this is the default layout).
 An input with the label left aligned
 
 ```html_example
-<form class="styleguide-form form-inline grid grid-nogutter" role="form">
+<form class="styleguide-form grid grid-nogutter" role="form">
   <div class="form-group col">
     <label for="exampleInputEmail3">Email address</label>
   </div>
@@ -124,7 +124,7 @@ An input with the label left aligned
 An input with the label right aligned (N.B., control-label class provides the right alignment):
 
 ```html_example
-<form class="styleguide-form form-inline grid grid-nogutter" role="form">
+<form class="styleguide-form grid grid-nogutter" role="form">
   <div class="form-group col txt-r">
     <label for="exampleInputEmail4">Email address</label>
   </div>

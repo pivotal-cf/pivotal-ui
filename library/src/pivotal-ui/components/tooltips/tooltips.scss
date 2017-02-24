@@ -201,19 +201,34 @@
 
 //Tooltip Sizes
 .tooltip-sm {
-  .tooltip-container {
-    width: $tooltip-sm-width;
-  }
+  width: $tooltip-sm-width;
 }
 
 .tooltip-md {
-  .tooltip-container {
-    width: $tooltip-md-width;
-  }
+  width: $tooltip-md-width;
 }
 
 .tooltip-lg {
-  .tooltip-container {
-    width: $tooltip-lg-width;
+  width: $tooltip-lg-width;
+}
+
+//Overlay
+.tether-element {
+  z-index: 99;
+}
+
+.overlay-trigger {
+  color: $link-color;
+  @include transition-pui();
+
+  &:hover, &:focus {
+    color: lighten($link-color, 6%);
+    cursor: pointer;
+    outline:none;
+    text-decoration: none;
+  }
+
+  &:active, &.active{
+    color: darken($link-color, 6%);
   }
 }

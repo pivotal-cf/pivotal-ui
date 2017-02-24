@@ -2,7 +2,7 @@ import React from 'react';
 import {copy} from './clipboard-helper';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
-import {Tooltip} from 'pui-react-tooltip';
+import {SimpleTooltip} from 'pui-react-tooltip';
 import 'pui-css-copy-to-clipboard';
 
 const types = React.PropTypes;
@@ -82,7 +82,7 @@ export class CopyToClipboardButton extends React.Component {
     </div>)
 
     return (<CopyToClipboard {...copyProps}>
-      <Tooltip content={button} tooltipContent="Copied" trigger="click"/>
+      <SimpleTooltip tooltipContent="Copied" trigger="click">{button}</SimpleTooltip>
     </CopyToClipboard>)
   }
 }

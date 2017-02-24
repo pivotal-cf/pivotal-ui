@@ -68,29 +68,29 @@ Tooltips can be light as well as dark (the default):
 Tooltips can be sized:
 
 ```html_example_table
-<div class="tooltip tooltip-sm">
+<div class="tooltip">
   <button class="btn-default">
     A small tooltip
   </button>
-  <div class="tooltip-container">
+  <div class="tooltip-container tooltip-sm">
     <div class="tooltip-content">Lorem ipsum dolor sit amet, consec</div>
   </div>
 </div>
 
-<div class="tooltip tooltip-md">
+<div class="tooltip">
   <button class="btn-default">
     A medium tooltip
   </button>
-  <div class="tooltip-container">
+  <div class="tooltip-container tooltip-md">
     <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
   </div>
 </div>
 
-<div class="tooltip tooltip-lg">
+<div class="tooltip">
   <button class="btn-default">
     A large tooltip
   </button>
-  <div class="tooltip-container">
+  <div class="tooltip-container tooltip-lg">
     <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
   </div>
 </div>

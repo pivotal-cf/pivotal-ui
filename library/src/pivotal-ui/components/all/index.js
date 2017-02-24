@@ -1,4 +1,6 @@
 try {
+  require('pui-css-grids');
+  require('pui-css-flex-grids');
   require('pui-css-alerts');
   require('pui-css-alignment');
   require('pui-css-avatars');
@@ -15,7 +17,6 @@ try {
   require('pui-css-ellipsis');
   require('pui-css-forms');
   require('pui-css-google-maps');
-  require('pui-css-grids');
   require('pui-css-hoverable');
   require('pui-css-iconography');
   require('pui-css-images');

@@ -2,17 +2,49 @@ import React from 'react'
 import 'pui-css-tooltips'
 import classnames from 'classnames'
 
+const types = React.PropTypes;
+
 export class Tooltip extends React.Component {
   static propTypes = {
-    content: React.PropTypes.element.isRequired,
-    tooltipContent: React.PropTypes.node.isRequired,
-    position: React.PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    trigger: React.PropTypes.oneOf(['hover', 'click']),
-    clickHideDelay: React.PropTypes.number,
-    onEnter: React.PropTypes.func,
-    onExit: React.PropTypes.func,
-    theme: React.PropTypes.oneOf(['dark', 'light']),
-    size: React.PropTypes.oneOf(['auto', 'sm', 'md', 'lg'])
+    content: types.node.isRequired,
+    visible: types.bool,
+    size: types.oneOf(["auto","sm", "md", "lg"])
+  }
+
+  static defaultProps = {
+    visible: true,
+    size: "auto"
+  }
+
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    let {visible, size, className, ...others} = this.props
+
+    const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
+                                  size === 'auto' ? null : `tooltip-${size}`,
+                                  className)
+
+    return (
+      <div className={newClasses} {...others}>
+        <div className="tooltip-content">{this.props.content}</div>
+      </div>
+    )
+  }
+}
+
+export class SimpleTooltip extends React.Component {
+  static propTypes = {
+    tooltipContent: types.node.isRequired,
+    position: types.oneOf(['left', 'right', 'bottom', 'top']),
+    trigger: types.oneOf(['hover', 'click']),
+    clickHideDelay: types.number,
+    onEnter: types.func,
+    onExit: types.func,
+    theme: types.oneOf(['dark', 'light']),
+    size: types.oneOf(['auto', 'sm', 'md', 'lg'])
   }
 
   static defaultProps = {
@@ -50,20 +82,13 @@ export class Tooltip extends React.Component {
   }
 
   render() {
-    const {position, content, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
+    const {position, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
     if(position != 'top') {
       positionClass = `tooltip-${position}`
     }
-
-    const newContentClass = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden')
-    const newContent = (<div className={newContentClass}>
-      <div className="tooltip-content">
-        {tooltipContent}
-      </div>
-    </div>)
 
     let triggerHandler
     switch(trigger) {
@@ -79,16 +104,14 @@ export class Tooltip extends React.Component {
     }
 
     const newClasses = classnames('tooltip', className, positionClass,
-      theme === 'light' ? 'tooltip-light' : null,
-      size === 'auto' ? null : `tooltip-${size}`)
+      theme === 'light' ? 'tooltip-light' : null)
     const newProps = Object.assign({className: newClasses}, triggerHandler, others)
 
     return (
       <div {...newProps}>
-        {content}
-        {newContent}
+        {this.props.children}
+        <Tooltip size={this.props.size} visible={visible} content={tooltipContent}/>
       </div>
     )
-    //return React.cloneElement(content, newProps, content.props.children, newContent)
   }
 }

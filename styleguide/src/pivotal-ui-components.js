@@ -12,6 +12,8 @@ require('pui-css-all');
 require('pui-prismjs');
 
 assignToGlobal([
+  require('pui-react-grids'),
+  require('pui-react-flex-grids'),
   require('pui-react-alerts'),
   require('pui-react-autocomplete'),
   require('pui-react-back-to-top'),
@@ -24,8 +26,6 @@ assignToGlobal([
   require('pui-react-lists'),
   require('pui-react-dropdowns'),
   require('pui-react-expander'),
-  require('pui-react-grids'),
-  require('pui-react-flex-grids'),
   require('pui-react-iconography'),
   require('pui-react-images'),
   require('pui-react-inputs'),
@@ -33,6 +33,7 @@ assignToGlobal([
   require('pui-react-media'),
   require('pui-react-modals'),
   require('pui-react-notifications'),
+  require('pui-react-overlay-trigger'),
   require('pui-react-pagination'),
   require('pui-react-panels'),
   require('pui-react-panes'),
