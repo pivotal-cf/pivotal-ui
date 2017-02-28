@@ -1,5 +1,5 @@
 require('../spec_helper');
-import {Table, TableCell, TableHeader, TableRow} from '../../../src/pivotal-ui-react/table/table';
+import {Table, TableCell, TableRow} from '../../../src/pivotal-ui-react/table/table';
 
 describe('Table', function() {
   it('respects default sort', function() {
@@ -36,43 +36,6 @@ describe('Table', function() {
     expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText(1);
     expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
     expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
-  });
-
-  it('retains the sorted column even when columns are removed', () => {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
-
-    const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
-    ];
-
-    const subject = ReactDOM.render((
-        <Table columns={columns} data={data} defaultSort='theDefault'/>
-      ),
-      root
-    );
-
-    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
-
-    subject::setProps({columns: [columns[1], columns[2]]});
-    expect('th:contains("DefaultSort")').toHaveClass('sorted-asc');
   });
 
   it('does not render the data as an attribute', () => {
@@ -306,17 +269,6 @@ describe('Table', function() {
       });
     });
 
-    describe('pressing <space> on a sortable column', function() {
-      beforeEach(function() {
-        $('th:contains("Foo")').simulate('keyDown', {key: ' '});
-      });
-
-      it('does not sort table rows by that column', function() {
-        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
-        expect('th:contains("instances")').toHaveClass('sorted-asc');
-      });
-    });
-
     describe('clicking on a non-sortable column', function() {
       beforeEach(function() {
         $('th:contains("Unsortable")').simulate('click');
@@ -334,74 +286,6 @@ describe('Table', function() {
         expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
         expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
       });
-    });
-
-    describe('when the rows change', function() {
-      beforeEach(function() {
-        const newData = data.concat({
-          title: 'new title',
-          instances: '1.5',
-          unsortable: '1',
-          bar: '123'
-        });
-        renderSortableTable(columns, newData);
-      });
-
-      it('shows the new rows in the correct sort order', function() {
-        expect('tbody tr').toHaveLength(4);
-        var instances = $('tbody tr > td:nth-of-type(2)').map(function() {return $(this).text(); }).toArray();
-        expect(instances).toEqual(['1', '1.5', '2', '3']);
-      });
-    });
-
-    describe('when a column is added', () => {
-      beforeEach(() => {
-        renderSortableTable([...columns, {attribute: 'newField', displayName: 'new field', sortable: true}], data.map((d, i) => ({...d, newField: i})));
-      });
-
-      it('allows sorting on new columns', () => {
-        $('th:contains("Foo")').simulate('click');
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-desc');
-        $('th:contains("new field")').simulate('click');
-        expect('th:contains("new field")').toHaveClass('sorted-asc');
-      });
-    });
-
-    describe('when a column is removed', () => {
-      beforeEach(() => {
-        renderSortableTable(columns.filter(c => c.attribute != 'instances'), data);
-      });
-
-      it('allows sorting on new columns', () => {
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
-      });
-    });
-  });
-
-  describe('with one column', function() {
-    it('still renders', function() {
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          sortable: false
-        }
-      ];
-
-      const data = [{title: 'foo'}, { title: 'sup'}, { title: 'yee'}];
-
-      ReactDOM.render((
-          <Table columns={columns} data={data} />
-        ),
-        root
-      );
-
-      expect('#root table').toContainText('sup');
-
-      ReactDOM.unmountComponentAtNode(root);
     });
   });
 
@@ -547,101 +431,6 @@ describe('Table', function() {
     it('respects properties on the custom row', function() {
       expect('tbody tr:eq(0)').toHaveClass('row-0');
       expect('tbody tr:eq(1)').toHaveClass('row-1');
-    });
-  });
-
-  describe('with no sortable columns', function() {
-    it('does not assign sorted-asc or sorted-des to a column', function() {
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          sortable: false
-        }
-      ];
-
-      const data = [{title: 'foo'}, { title: 'sup'}, { title: 'yee'}];
-
-      ReactDOM.render((
-          <Table columns={columns} data={data} />
-        ),
-        root
-      );
-
-      expect('th').not.toHaveClass('sorted-asc');
-      expect('th').not.toHaveClass('sorted-desc');
-      expect('th').not.toHaveAttr('role', 'button');
-    });
-  });
-});
-
-describe('TableHeader', function() {
-  function renderTableHeader({children, ...props}) {
-    return ReactDOM.render((
-        <table>
-          <thead>
-            <tr>
-              <TableHeader {...props}>
-                {children}
-              </TableHeader>
-            </tr>
-          </thead>
-        </table>
-      ), root
-    );
-
-  }
-
-  it('contains the given children', function() {
-    renderTableHeader({children: (<p id={'header-id'}/>)});
-    expect('th').toExist();
-    expect('th > p#header-id').toExist();
-  });
-
-  describe('when the header is sortable', function() {
-    const props = {
-      sortable: true,
-      id: 'header-id',
-      className: 'header-light',
-      style: {opacity: '0.5'}
-    };
-
-    it('adds the additional classes, id and styles to the th', function() {
-      renderTableHeader(props);
-      expect('th').toHaveClass('sortable');
-      expect('th').toHaveClass('header-light');
-      expect('th').toHaveProp('id', 'header-id');
-      expect('th').toHaveCss({opacity: '0.5'});
-    });
-
-    describe('when there is an onSortableTableHeaderClick provided', function() {
-      let onSortableTableHeaderClickSpy;
-      beforeEach(function() {
-        onSortableTableHeaderClickSpy = jasmine.createSpy('onSortableTableHeaderClick');
-        renderTableHeader({onSortableTableHeaderClick: onSortableTableHeaderClickSpy, ...props});
-      });
-
-      describe('when clicking on the table header', function() {
-        it('calls the callback', function() {
-          $('th').simulate('click');
-          expect(onSortableTableHeaderClickSpy).toHaveBeenCalled();
-        });
-      });
-    });
-  });
-
-  describe('when the header is not sortable', function() {
-    it('adds the additional classes, id and styles to the th', function() {
-      renderTableHeader({
-        sortable: false,
-        id: 'header-id',
-        className: 'header-light',
-        style: {opacity: '0.5'}
-      });
-      expect('th').not.toHaveClass('sortable');
-      expect('th').toHaveClass('header-light');
-      expect('th').toHaveProp('id', 'header-id');
-      expect('th').toHaveCss({opacity: '0.5'});
     });
   });
 });

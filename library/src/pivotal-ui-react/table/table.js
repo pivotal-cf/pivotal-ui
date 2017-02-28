@@ -13,7 +13,7 @@ const SORT_ORDER = {
   none: 2
 };
 
-export class TableHeader extends React.Component {
+class TableHeader extends React.Component {
   static propTypes = {
     onClick: types.func,
     onSortableTableHeaderClick: types.func,
@@ -147,7 +147,7 @@ export class Table extends React.Component {
       let className, icon;
       if (isSortColumn) {
         className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-        icon = [<Icon src="arrow_drop_up"/>, <Icon src="arrow_drop_down"/>, null][sortOrder];
+        icon = [<Icon verticalAlign='baseline' src="arrow_drop_up"/>, <Icon verticalAlign='baseline' src="arrow_drop_down"/>, null][sortOrder];
       }
 
       className = classnames(className, headerProps.className);
@@ -161,7 +161,7 @@ export class Table extends React.Component {
       };
 
 			const Header = this.defaultHeader
-      return <Header {...headerProps}>{displayName || attribute}{icon}</Header>;
+      return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
     });
   }
 
@@ -184,7 +184,7 @@ export class Table extends React.Component {
 }
 
 // FlexTable
-export class FlexTableHeader extends TableHeader {
+class FlexTableHeader extends TableHeader {
   static propTypes = {
     onClick: types.func,
     onSortableTableHeaderClick: types.func,
