@@ -3,32 +3,27 @@
 .btn-group {
   display: inline-block;
 
-  > .button, > button {
+  > .btn {
     float:left;
   }
-  .button:hover,
-  button:hover {
+  .btn:hover {
     z-index: 2;
   }
-  .button+ .button,
-  button+ button {
+  .btn+ .btn {
     margin-left: -2px;
   }
-  .button:not(:first-child):not(:last-child):not(.dropdown-toggle),
-  button:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-radius: 0;
   }
 
-  .button:first-child,
-  button:first-child {
+  .btn:first-child {
     border-bottom-left-radius: $btn-border-radius;
     border-top-left-radius: $btn-border-radius;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
 
-  .button:last-child:not(:first-child),
-  button:last-child:not(:first-child),
+  .btn:last-child:not(:first-child),
   .dropdown-toggle:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -39,8 +34,7 @@
 
 .btn-group-flat {
   display: inline-block;
-  > button,
-  > .button {
+  > .btn {
     padding: 0 $btn-spacing-base;
     float:left;
   }

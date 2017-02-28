@@ -3,11 +3,7 @@
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+.btn {
   display: inline-flex;
   position: relative;
   height: $base-unit*4;
@@ -48,7 +44,7 @@ input[type="button"] {
   }
 }
 
-button.btn-icon, .button.btn-icon {
+.btn.btn-icon {
   padding: 0;
   .svgicon {
     margin: 5px;
@@ -85,8 +81,7 @@ button.btn-icon, .button.btn-icon {
   }
 }
 
-button.disabled,
-.button.disabled, button[disabled], .button[disabled] {
+.btn.disabled, .btn[disabled] {
   opacity: .5;
   cursor: default;
   pointer-events: none;
@@ -94,50 +89,15 @@ button.disabled,
 
 //Default Button
 //---------------------------------------
-button.btn-default,
-.button.btn-default,
-input[type="submit"].btn-default,
-input[type="reset"].btn-default,
-input[type="button"].btn-default {
+.btn.btn-default {
   background-color: $btn-default-color;
   color: $btn-light;
   border-color: $btn-default-color;
   .svgicon {
     fill: $btn-light;
   }
-}
 
-.button.btn-default:focus,
-button.btn-default:focus,
-input[type="submit"].btn-default:focus,
-input[type="reset"].btn-default:focus,
-input[type="button"].btn-default:focus {
-  background-color: $btn-default-color-focus;
-  border-color: $btn-default-color-focus;
-  outline: none;
-}
-
-.button.btn-default:hover,
-.button.btn-default:focus:hover,
-button.btn-default:hover,
-button.btn-default:focus:hover,
-input[type="submit"].btn-default:hover,
-input[type="submit"].btn-default:focus:hover,
-input[type="reset"].btn-default:hover,
-input[type="reset"].btn-default:focus:hover,
-input[type="button"].btn-default:hover,
-input[type="button"].btn-default:focus:hover {
-  background-color: $btn-default-color-hover;
-  border-color: $btn-default-color-hover;
-  outline: none;
-}
-
-//Spinner
-button.btn-default,
-.button.btn-default,
-input[type="submit"].btn-default,
-input[type="reset"].btn-default,
-input[type="button"].btn-default {
+  //Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -150,26 +110,43 @@ input[type="button"].btn-default {
   }
 }
 
+.btn.btn-default:focus {
+  background-color: $btn-default-color-focus;
+  border-color: $btn-default-color-focus;
+  outline: none;
+}
+
+.btn.btn-default:hover,
+.btn.btn-default:focus:hover {
+  background-color: $btn-default-color-hover;
+  border-color: $btn-default-color-hover;
+  outline: none;
+}
+
 //Default Alt Button
 //---------------------------------------
-button.btn-default-alt,
-.button.btn-default-alt,
-input[type="submit"].btn-default-alt,
-input[type="reset"].btn-default-alt,
-input[type="button"].btn-default-alt {
+.btn.btn-default-alt {
   background-color: transparent;
   color: $btn-default-color;
   border-color: $btn-default-color;
   .svgicon {
     fill: $btn-default-color;
   }
+
+  //Spinner
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-default-color;
+    }
+    .path {
+      stroke: $btn-default-color;
+    }
+  }
 }
 
-.button.btn-default-alt:focus,
-button.btn-default-alt:focus,
-input[type="submit"].btn-default-alt:focus,
-input[type="reset"].btn-default-alt:focus,
-input[type="button"].btn-default-alt:focus {
+.btn.btn-default-alt:focus {
   background-color: transparent;
   color: $btn-default-color-focus;
   border-color: $btn-default-color-focus;
@@ -179,16 +156,8 @@ input[type="button"].btn-default-alt:focus {
   }
 }
 
-.button.btn-default-alt:hover,
-.button.btn-default-alt:focus:hover,
-button.btn-default-alt:hover,
-button.btn-default-alt:focus:hover,
-input[type="submit"].btn-default-alt:hover,
-input[type="submit"].btn-default-alt:focus:hover,
-input[type="reset"].btn-default-alt:hover,
-input[type="reset"].btn-default-alt:focus:hover,
-input[type="button"].btn-default-alt:hover,
-input[type="button"].btn-default-alt:focus:hover {
+.btn.btn-default-alt:hover,
+.btn.btn-default-alt:focus:hover {
   background-color: transparent;
   color: $btn-default-color-hover;
   border-color: $btn-default-color-hover;
@@ -198,78 +167,17 @@ input[type="button"].btn-default-alt:focus:hover {
   }
 }
 
-//Spinner
-button.btn-default-alt,
-.button.btn-default-alt,
-input[type="submit"].btn-default-alt,
-input[type="reset"].btn-default-alt,
-input[type="button"].btn-default-alt {
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-default-color;
-    }
-    .path {
-      stroke: $btn-default-color;
-    }
-  }
-}
-
 //Default Alt Button WHITE
 //---------------------------------------
-button.btn-default-alt-wh,
-.button.btn-default-alt-wh,
-input[type="submit"].btn-default-alt-wh,
-input[type="reset"].btn-default-alt-wh,
-input[type="button"].btn-default-alt-wh {
+.btn.btn-default-alt-wh {
   background-color: transparent;
   color: $btn-light;
   border-color: $btn-light;
   .svgicon {
     fill: $btn-light;
   }
-}
 
-.button.btn-default-alt-wh:focus,
-button.btn-default-alt-wh:focus,
-input[type="submit"].btn-default-alt-wh:focus,
-input[type="reset"].btn-default-alt-wh:focus,
-input[type="button"].btn-default-alt-wh:focus {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
-  outline: none;
-  .svgicon {
-    fill: $btn-light;
-  }
-}
-
-.button.btn-default-alt-wh:hover,
-.button.btn-default-alt-wh:focus:hover,
-button.btn-default-alt-wh:hover,
-button.btn-default-alt-wh:focus:hover,
-input[type="submit"].btn-default-alt-wh:hover,
-input[type="submit"].btn-default-alt-wh:focus:hover,
-input[type="reset"].btn-default-alt-wh:hover,
-input[type="reset"].btn-default-alt-wh:focus:hover,
-input[type="button"].btn-default-alt-wh:hover,
-input[type="button"].btn-default-alt-wh:focus:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: $btn-light;
-  border-color: $btn-light;
-  outline: none;
-  .svgicon {
-    fill: $btn-light;
-  }
-}
-
-//Spinner
-button.btn-default-alt-wh,
-.button.btn-default-alt-wh,
-input[type="submit"].btn-default-alt-wh,
-input[type="reset"].btn-default-alt-wh,
-input[type="button"].btn-default-alt-wh {
+  //Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -282,52 +190,38 @@ input[type="button"].btn-default-alt-wh {
   }
 }
 
+.btn.btn-default-alt-wh:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $btn-light;
+  border-color: $btn-light;
+  outline: none;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
+.btn.btn-default-alt-wh:hover,
+.btn.btn-default-alt-wh:focus:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: $btn-light;
+  border-color: $btn-light;
+  outline: none;
+  .svgicon {
+    fill: $btn-light;
+  }
+}
+
 //primary Button
 //---------------------------------------
-button.btn-primary,
-.button.btn-primary,
-input[type="submit"].btn-primary,
-input[type="reset"].btn-primary,
-input[type="button"].btn-primary {
+.btn.btn-primary {
   background-color: $btn-primary-color;
   color: $btn-light;
   border-color: $btn-primary-color;
   .svgicon {
     fill: $btn-light;
   }
-}
 
-.button.btn-primary:focus,
-button.btn-primary:focus,
-input[type="submit"].btn-primary:focus,
-input[type="reset"].btn-primary:focus,
-input[type="button"].btn-primary:focus {
-  background-color: $btn-primary-color-focus;
-  border-color: $btn-primary-color-focus;
-  outline: none;
-}
-
-.button.btn-primary:hover,
-.button.btn-primary:focus:hover,
-button.btn-primary:hover,
-button.btn-primary:focus:hover,
-input[type="submit"].btn-primary:hover,
-input[type="submit"].btn-primary:focus:hover,
-input[type="reset"].btn-primary:hover,
-input[type="reset"].btn-primary:focus:hover,
-input[type="button"].btn-primary:hover,
-input[type="button"].btn-primary:focus:hover {
-  background-color: $btn-primary-color-hover;
-  border-color: $btn-primary-color-hover;
-  outline: none;
-}
-
-//Spinner
-button.btn-primary,
-.button.btn-primary,
-input[type="submit"].btn-primary,
-input[type="reset"].btn-primary,
-input[type="button"].btn-primary {
+  //Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -338,6 +232,19 @@ input[type="button"].btn-primary {
       stroke: $btn-light;
     }
   }
+}
+
+.btn.btn-primary:focus {
+  background-color: $btn-primary-color-focus;
+  border-color: $btn-primary-color-focus;
+  outline: none;
+}
+
+.btn.btn-primary:hover,
+.btn.btn-primary:focus:hover {
+  background-color: $btn-primary-color-hover;
+  border-color: $btn-primary-color-hover;
+  outline: none;
 }
 
 //Flat primary
@@ -359,24 +266,28 @@ input[type="button"].btn-primary {
 
 //primary Alt Button
 //---------------------------------------
-button.btn-primary-alt,
-.button.btn-primary-alt,
-input[type="submit"].btn-primary-alt,
-input[type="reset"].btn-primary-alt,
-input[type="button"].btn-primary-alt {
+.btn.btn-primary-alt {
   background-color: transparent;
   color: $btn-primary-color;
   border-color: $btn-primary-color;
   .svgicon {
     fill: $btn-primary-color;
   }
+
+  //Spinner
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-primary-color;
+    }
+    .path {
+      stroke: $btn-primary-color;
+    }
+  }
 }
 
-.button.btn-primary-alt:focus,
-button.btn-primary-alt:focus,
-input[type="submit"].btn-primary-alt:focus,
-input[type="reset"].btn-primary-alt:focus,
-input[type="button"].btn-primary-alt:focus {
+.btn.btn-primary-alt:focus {
   background-color: transparent;
   color: $btn-primary-color-focus;
   border-color: $btn-primary-color-focus;
@@ -386,16 +297,8 @@ input[type="button"].btn-primary-alt:focus {
   }
 }
 
-.button.btn-primary-alt:hover,
-.button.btn-primary-alt:focus:hover,
-button.btn-primary-alt:hover,
-button.btn-primary-alt:focus:hover,
-input[type="submit"].btn-primary-alt:hover,
-input[type="submit"].btn-primary-alt:focus:hover,
-input[type="reset"].btn-primary-alt:hover,
-input[type="reset"].btn-primary-alt:focus:hover,
-input[type="button"].btn-primary-alt:hover,
-input[type="button"].btn-primary-alt:focus:hover {
+.btn.btn-primary-alt:hover,
+.btn.btn-primary-alt:focus:hover {
   background-color: transparent;
   color: $btn-primary-color-hover;
   border-color: $btn-primary-color-hover;
@@ -405,69 +308,17 @@ input[type="button"].btn-primary-alt:focus:hover {
   }
 }
 
-//Spinner
-button.btn-primary-alt,
-.button.btn-primary-alt,
-input[type="submit"].btn-primary-alt,
-input[type="reset"].btn-primary-alt,
-input[type="button"].btn-primary-alt {
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-primary-color;
-    }
-    .path {
-      stroke: $btn-primary-color;
-    }
-  }
-}
-
 //brand Button
 //---------------------------------------
-button.btn-brand,
-.button.btn-brand,
-input[type="submit"].btn-brand,
-input[type="reset"].btn-brand,
-input[type="button"].btn-brand {
+.btn.btn-brand {
   background-color: $btn-brand-color;
   color: $btn-light;
   border-color: $btn-brand-color;
   .svgicon {
     fill: $btn-light;
   }
-}
 
-.button.btn-brand:focus,
-button.btn-brand:focus,
-input[type="submit"].btn-brand:focus,
-input[type="reset"].btn-brand:focus,
-input[type="button"].btn-brand:focus {
-  background-color: $btn-brand-color-focus;
-  border-color: $btn-brand-color-focus;
-  outline: none;
-}
-
-.button.btn-brand:hover,
-.button.btn-brand:focus:hover,
-button.btn-brand:hover,
-button.btn-brand:focus:hover,
-input[type="submit"].btn-brand:hover,
-input[type="submit"].btn-brand:focus:hover,
-input[type="reset"].btn-brand:hover,
-input[type="reset"].btn-brand:focus:hover,
-input[type="button"].btn-brand:hover,
-input[type="button"].btn-brand:focus:hover {
-  background-color: $btn-brand-color-hover;
-  border-color: $btn-brand-color-hover;
-  outline: none;
-}
-
-button.btn-brand,
-.button.btn-brand,
-input[type="submit"].btn-brand,
-input[type="reset"].btn-brand,
-input[type="button"].btn-brand {
+  //Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -478,6 +329,19 @@ input[type="button"].btn-brand {
       stroke: $btn-light;
     }
   }
+}
+
+.btn.btn-brand:focus {
+  background-color: $btn-brand-color-focus;
+  border-color: $btn-brand-color-focus;
+  outline: none;
+}
+
+.btn.btn-brand:hover,
+.btn.btn-brand:focus:hover {
+  background-color: $btn-brand-color-hover;
+  border-color: $btn-brand-color-hover;
+  outline: none;
 }
 
 //Flat brand
@@ -499,24 +363,28 @@ input[type="button"].btn-brand {
 
 //brand Alt Button
 //---------------------------------------
-button.btn-brand-alt,
-.button.btn-brand-alt,
-input[type="submit"].btn-brand-alt,
-input[type="reset"].btn-brand-alt,
-input[type="button"].btn-brand-alt {
+.btn.btn-brand-alt {
   background-color: transparent;
   color: $btn-brand-color;
   border-color: $btn-brand-color;
   .svgicon {
     fill: $btn-brand-color;
   }
+
+  //Spinner
+  .icon-spinner,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-brand-color;
+    }
+    .path {
+      stroke: $btn-brand-color;
+    }
+  }
 }
 
-.button.btn-brand-alt:focus,
-button.btn-brand-alt:focus,
-input[type="submit"].btn-brand-alt:focus,
-input[type="reset"].btn-brand-alt:focus,
-input[type="button"].btn-brand-alt:focus {
+.btn.btn-brand-alt:focus {
   background-color: transparent;
   color: $btn-brand-color-focus;
   border-color: $btn-brand-color-focus;
@@ -526,16 +394,8 @@ input[type="button"].btn-brand-alt:focus {
   }
 }
 
-.button.btn-brand-alt:hover,
-.button.btn-brand-alt:focus:hover,
-button.btn-brand-alt:hover,
-button.btn-brand-alt:focus:hover,
-input[type="submit"].btn-brand-alt:hover,
-input[type="submit"].btn-brand-alt:focus:hover,
-input[type="reset"].btn-brand-alt:hover,
-input[type="reset"].btn-brand-alt:focus:hover,
-input[type="button"].btn-brand-alt:hover,
-input[type="button"].btn-brand-alt:focus:hover {
+.btn.btn-brand-alt:hover,
+.btn.btn-brand-alt:focus:hover {
   background-color: transparent;
   color: $btn-brand-color-hover;
   border-color: $btn-brand-color-hover;
@@ -545,68 +405,17 @@ input[type="button"].btn-brand-alt:focus:hover {
   }
 }
 
-button.btn-brand-alt,
-.button.btn-brand-alt,
-input[type="submit"].btn-brand-alt,
-input[type="reset"].btn-brand-alt,
-input[type="button"].btn-brand-alt {
-  .icon-spinner,
-  .icon-spinner-md,
-  .icon-spinner-sm {
-    .ring {
-      stroke: $btn-brand-color;
-    }
-    .path {
-      stroke: $btn-brand-color;
-    }
-  }
-}
-
 //danger Button
 //---------------------------------------
-button.btn-danger,
-.button.btn-danger,
-input[type="submit"].btn-danger,
-input[type="reset"].btn-danger,
-input[type="button"].btn-danger {
+.btn.btn-danger {
   background-color: $btn-danger-color;
   color: $btn-light;
   border-color: $btn-danger-color;
   .svgicon {
     fill: $btn-light;
   }
-}
 
-.button.btn-danger:focus,
-button.btn-danger:focus,
-input[type="submit"].btn-danger:focus,
-input[type="reset"].btn-danger:focus,
-input[type="button"].btn-danger:focus {
-  background-color: $btn-danger-color-focus;
-  border-color: $btn-danger-color-focus;
-  outline: none;
-}
-
-.button.btn-danger:hover,
-.button.btn-danger:focus:hover,
-button.btn-danger:hover,
-button.btn-danger:focus:hover,
-input[type="submit"].btn-danger:hover,
-input[type="submit"].btn-danger:focus:hover,
-input[type="reset"].btn-danger:hover,
-input[type="reset"].btn-danger:focus:hover,
-input[type="button"].btn-danger:hover,
-input[type="button"].btn-danger:focus:hover {
-  background-color: $btn-danger-color-hover;
-  border-color: $btn-danger-color-hover;
-  outline: none;
-}
-
-button.btn-danger,
-.button.btn-danger,
-input[type="submit"].btn-danger,
-input[type="reset"].btn-danger,
-input[type="button"].btn-danger {
+  // Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -617,6 +426,19 @@ input[type="button"].btn-danger {
       stroke: $btn-light;
     }
   }
+}
+
+.btn.btn-danger:focus {
+  background-color: $btn-danger-color-focus;
+  border-color: $btn-danger-color-focus;
+  outline: none;
+}
+
+.btn.btn-danger:hover,
+.btn.btn-danger:focus:hover {
+  background-color: $btn-danger-color-hover;
+  border-color: $btn-danger-color-hover;
+  outline: none;
 }
 
 //Flat danger
@@ -638,57 +460,15 @@ input[type="button"].btn-danger {
 
 //danger Alt Button
 //---------------------------------------
-button.btn-danger-alt,
-.button.btn-danger-alt,
-input[type="submit"].btn-danger-alt,
-input[type="reset"].btn-danger-alt,
-input[type="button"].btn-danger-alt {
+.btn.btn-danger-alt {
   background-color: transparent;
   color: $btn-danger-color;
   border-color: $btn-danger-color;
   .svgicon {
     fill: $btn-danger-color;
   }
-}
 
-.button.btn-danger-alt:focus,
-button.btn-danger-alt:focus,
-input[type="submit"].btn-danger-alt:focus,
-input[type="reset"].btn-danger-alt:focus,
-input[type="button"].btn-danger-alt:focus {
-  background-color: transparent;
-  color: $btn-danger-color-focus;
-  border-color: $btn-danger-color-focus;
-  outline: none;
-  .svgicon {
-    fill: $btn-danger-color-focus;
-  }
-}
-
-.button.btn-danger-alt:hover,
-.button.btn-danger-alt:focus:hover,
-button.btn-danger-alt:hover,
-button.btn-danger-alt:focus:hover,
-input[type="submit"].btn-danger-alt:hover,
-input[type="submit"].btn-danger-alt:focus:hover,
-input[type="reset"].btn-danger-alt:hover,
-input[type="reset"].btn-danger-alt:focus:hover,
-input[type="button"].btn-danger-alt:hover,
-input[type="button"].btn-danger-alt:focus:hover {
-  background-color: transparent;
-  color: $btn-danger-color-hover;
-  border-color: $btn-danger-color-hover;
-  outline: none;
-  .svgicon {
-    fill: $btn-danger-color-hover;
-  }
-}
-
-button.btn-danger-alt,
-.button.btn-danger-alt,
-input[type="submit"].btn-danger-alt,
-input[type="reset"].btn-danger-alt,
-input[type="button"].btn-danger-alt {
+  // Spinner
   .icon-spinner,
   .icon-spinner-md,
   .icon-spinner-sm {
@@ -698,5 +478,26 @@ input[type="button"].btn-danger-alt {
     .path {
       stroke: $btn-danger-color;
     }
+  }
+}
+
+.btn.btn-danger-alt:focus {
+  background-color: transparent;
+  color: $btn-danger-color-focus;
+  border-color: $btn-danger-color-focus;
+  outline: none;
+  .svgicon {
+    fill: $btn-danger-color-focus;
+  }
+}
+
+.btn.btn-danger-alt:hover,
+.btn.btn-danger-alt:focus:hover {
+  background-color: transparent;
+  color: $btn-danger-color-hover;
+  border-color: $btn-danger-color-hover;
+  outline: none;
+  .svgicon {
+    fill: $btn-danger-color-hover;
   }
 }

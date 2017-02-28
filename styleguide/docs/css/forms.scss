@@ -48,7 +48,7 @@ parent: 00_form_introduction
       <input type="checkbox"> Check me out
     </label>
   </div>
-  <button type="submit" class="btn-default">Submit</button>
+  <button type="submit" class="btn btn-default">Submit</button>
 </form>
 ```
 
@@ -82,7 +82,7 @@ Add `.form-inline` to your `.form-group` for left-aligned and inline-block contr
     </label>
   </div>
   <div class="form-group form-inline">
-    <button class="btn-default" type="submit">Sign in</button>
+    <button class="btn btn-default" type="submit">Sign in</button>
   </div>
 </form>
 ```

@@ -23,7 +23,7 @@ export class UIButton extends React.Component {
     const defaultProps = {
       className: [
         {
-          'button': this.props.href,
+          'btn': true,
           [`btn-${kind}-alt`]: alt,
           [`btn-${kind}-flat`]: flat,
           [`btn-${kind}`]: !alt && !flat,

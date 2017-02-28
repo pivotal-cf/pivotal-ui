@@ -138,7 +138,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
             <div className="modal-header">
               <h4 className="modal-title">{title}</h4>
               <div className="modal-close">
-                <button className="btn-icon" onClick={onHide}>
+                <button className="btn btn-icon" onClick={onHide}>
                   <Icon src="close"/>
                 </button>
               </div>

@@ -63,7 +63,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     } = this.props;
     const {open} = this.state;
     const toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
-    const buttonStyleClasses = classnames('btn-default', buttonClassName);
+    const buttonStyleClasses = classnames('btn', 'btn-default', buttonClassName);
     const dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
     const dropdownToggle = (
       <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>

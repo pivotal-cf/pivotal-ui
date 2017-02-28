@@ -16,9 +16,9 @@ Button groups wrap a series of buttons.
 
 ```html_example
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn-default-alt">Left</button>
-  <button type="button" class="btn-default-alt">Middle</button>
-  <button type="button" class="btn-default-alt">Right</button>
+  <button type="button" class="btn btn-default-alt">Left</button>
+  <button type="button" class="btn btn-default-alt">Middle</button>
+  <button type="button" class="btn btn-default-alt">Right</button>
 </div>
 ```
 
@@ -26,9 +26,9 @@ You can also mark buttons in the group as selected by swapping between alt butto
 
 ```html_example
 <div class="btn-group" role="group" aria-label="...">
-  <button type="button" class="btn-default-alt">Left</button>
-  <button type="button" class="btn-default">Middle</button>
-  <button type="button" class="btn-default-alt">Right</button>
+  <button type="button" class="btn btn-default-alt">Left</button>
+  <button type="button" class="btn btn-default">Middle</button>
+  <button type="button" class="btn btn-default-alt">Right</button>
 </div>
 ```
 
@@ -36,9 +36,9 @@ If you are using flat buttons, there is a thinner, flat button group
 
 ```html_example
 <div class="btn-group-flat" role="group" aria-label="...">
-  <button type="button">Left</button>
-  <button type="button">Middle</button>
-  <button type="button" class="btn-default">Right</button>
+  <button type="button" class="btn">Left</button>
+  <button type="button" class="btn">Middle</button>
+  <button type="button" class="btn btn-default">Right</button>
 </div>
 ```
 

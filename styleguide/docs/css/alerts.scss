@@ -113,7 +113,7 @@ By adding `.alert-dismissable` and a button, you can also make alerts dismissabl
 ```html_example
 <div class="alert alert-success alert-dismissable">
   <p class="em-high">Click the 'X' over there------> </p>
-  <button class="close" data-dismiss="alert">
+  <button class="btn close" data-dismiss="alert">
     <img src="/styleguide/close.svg" width="24" height="24"/>
   </button>
 </div>

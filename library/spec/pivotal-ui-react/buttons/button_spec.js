@@ -21,8 +21,8 @@ describe('UIButton', function() {
     });
 
     it('creates a link', function() {
-      expect('#root a.button.btn-default').toContainText('Click here');
-      expect('#root a.button').toHaveAttr('href', 'http://example.com');
+      expect('#root a.btn.btn-default').toContainText('Click here');
+      expect('#root a.btn').toHaveAttr('href', 'http://example.com');
     });
   });
 
@@ -177,7 +177,7 @@ describe('UIButton', function() {
 
     it('renders with an icon if it is a link', () => {
       ReactDOM.render(<DefaultButton href="whatever" icon={<Icon src="add" />}>Click here</DefaultButton>, root);
-      expect('#root a.button .svgicon').toExist();
+      expect('#root a.btn .svgicon').toExist();
     });
   });
 });

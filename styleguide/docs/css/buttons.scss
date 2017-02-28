@@ -16,9 +16,9 @@ Button styles can be applied to any element. Typically you'll want to
 use either a `<button>` or an `<a>` element:
 
 ```html_example_table
-<button class="btn-default">Button</button>
+<button class="btn btn-default">Button</button>
 
-<a class="button btn-default" aria-label="Example Website" href="http://example.com">Link</a>
+<a class="btn btn-default" aria-label="Example Website" href="http://example.com">Link</a>
 ```
 
 If your button is actually a link to another page, please use the
@@ -31,25 +31,25 @@ Every button type has a default style, an alt style (with inverted colors and a 
 
 Button                                           | Button Alt                                               | Button Flat                                                | Description
 -------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
-<button class="btn-default">Default</button>     |<button class="btn-default-alt">Default Alt</button>      | <button>Default Flat</button>                              | This the default button style.
-<button class="btn-primary">Primary</button> |<button class="btn-primary-alt">Primary Alt</button>  | <button class="btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
-<button class="btn-danger">Danger</button>       |<button class="btn-danger-alt">Danger Alt</button>        | <button class="btn-danger-flat">Danger Flat</button>       | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn-brand">Brand</button>         |<button class="btn-brand-alt">Brand Alt</button>          | <button class="btn-brand-flat">Brand Flat</button>         | This button is for marketing purposes only
+<button class="btn btn-default">Default</button> |<button class="btn btn-default-alt">Default Alt</button>  | <button>Default Flat</button>                              | This the default button style.
+<button class="btn btn-primary">Primary</button> |<button class="btn btn-primary-alt">Primary Alt</button>  | <button class="btn btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
+<button class="btn btn-danger">Danger</button>   |<button class="btn btn-danger-alt">Danger Alt</button>    | <button class="btn btn-danger-flat">Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-brand">Brand</button>     |<button class="btn btn-brand-alt">Brand Alt</button>      | <button class="btn btn-brand-flat">Brand Flat</button>     | This button is for marketing purposes only
 
 The most common button examples are below:
 
 ```html_example_table
-<button class="btn-default">Default</button>
+<button class="btn btn-default">Default</button>
 
-<button class="btn-default-alt">Default Alt</button>
+<button class="btn btn-default-alt">Default Alt</button>
 
-<button class="btn-primary">Primary</button>
+<button class="btn btn-primary">Primary</button>
 
-<button class="btn-primary-alt">Primary Alt</button>
+<button class="btn btn-primary-alt">Primary Alt</button>
 
-<button class="btn-primary-flat">Primary Flat</button>
+<button class="btn btn-primary-flat">Primary Flat</button>
 
-<button class="btn-danger">Danger</button>
+<button class="btn btn-danger">Danger</button>
 ```
 
 
@@ -68,15 +68,15 @@ If given the disabled attribute, a button will be functionally disabled, but wil
 If given the disabled class, a button will be functionally disabled, and will also change visually.
 
 ```html_example_table
-<button class="btn-default" disabled>Disabled Functionally</button>
+<button class="btn btn-default" disabled>Disabled Functionally</button>
 
-<button class="btn-default disabled">Disabled Visually</button>
+<button class="btn btn-default disabled">Disabled Visually</button>
 
-<button class="btn-default-alt disabled">Alt Disabled</button>
+<button class="btn btn-default-alt disabled">Alt Disabled</button>
 
-<button class="disabled">Flat Disabled</button>
+<button class="btn disabled">Flat Disabled</button>
 
-<button class="btn-primary disabled">Primary Disabled</button>
+<button class="btn btn-primary disabled">Primary Disabled</button>
 
 ```
 
@@ -94,11 +94,11 @@ There are three sizes for buttons: Large, small, and default. Simply apply the
 size modifier class for the desired size.
 
 ```html_example_table
-<button class="btn-default btn-lg">Large</button>
+<button class="btn btn-default btn-lg">Large</button>
 
-<button class="btn-default">Default</button>
+<button class="btn btn-default">Default</button>
 
-<button class="btn-default btn-sm">Small</button>
+<button class="btn btn-default btn-sm">Small</button>
 ```
 
 */
@@ -113,7 +113,7 @@ parent: button
 Buttons can be containers for icons:
 
 ```html_example_table
-<button class="btn-default-alt btn-icon">
+<button class="btn btn-default-alt btn-icon">
   <span class="svgicon">
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" class="icon-plus" data-src="/static/media/add.45a0a5e5.svg">
       <path d="M38 26H26v12h-4V26H10v-4h12V10h4v12h12v4z" />
