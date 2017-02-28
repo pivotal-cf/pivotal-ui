@@ -38,18 +38,25 @@ displayName | no  | String    |       | The text in the TableHeader for that col
 headerProps | no  | Object    |       | React props that will be passed through to that column
 sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
 sortBy      | no  | Function  |       | Function to transform data before sorting
+*/
+
+/*doc
+---
+title: HTML Tables
+name: 1_html_table
+parent: table_react
+---
+
+The `Table` component is a robust component that offers a styled table with fully
+functioning sort. If the rows change, the content on the page will update.
 
 ## Basic usage
 
 Import the subcomponents:
 
 ```
-import {Table, TableHeader, TableRow, TableCell} from 'pui-react-table';
+import {Table, TableRow, TableCell} from 'pui-react-table';
 ```
-
-The `Table` component is a robust component that offers a styled table with fully
-functioning sort. If the rows change, the content on the page will update.
-
 
 ```jsx_example
 const columns = [
@@ -168,3 +175,131 @@ const customCellColumns = [
 <Table columns={customCellColumns} data={data}/>
 ```
 */
+
+/*doc
+---
+title: Flex Tables
+name: 2_flex_table
+parent: table_react
+---
+
+The `FlexTable` component is similar to the `Table` component except it will build the underlying table
+as a flex grid instead of a traditional html table.
+
+## Basic usage
+
+Import the subcomponents:
+
+```
+import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
+```
+
+```jsx_example
+const columns = [
+  {
+    attribute: 'title',
+    displayName: 'Title',
+    sortable: false
+  },
+  {
+    attribute: 'instances',
+    sortable: true
+  },
+  {
+    attribute: 'bar',
+    displayName: 'Bar',
+    sortable: true,
+    headerProps: {
+      className: 'bar-header',
+      id: 'barId'
+    },
+    sortBy: function(value) { return -value; }
+  },
+  {
+    attribute: 'unsortable',
+    sortable: false
+  }
+];
+const data = [
+  {
+    instances: '1',
+    bar: 11,
+    title: 'foo',
+    unsortable: '14'
+  },
+  {
+    instances: '3',
+    bar: 7,
+    title: 'sup',
+    unsortable: '22'
+  },
+  {
+    title: 'yee',
+    instances: '2',
+    bar: 8,
+    unsortable: '1'
+  }
+];
+```
+
+```react_example
+<FlexTable columns={columns} data={data} defaultSort='instances'/>
+```
+
+The `FlexTableRow` component is provided for users who wish to customize their rows
+with the `CustomRow` prop to `FlexTable`.
+
+
+```jsx_example
+class CustomRow extends React.Component {
+  render() {
+    return (
+      <FlexTableRow className={"tr-hover"}>
+        {this.props.children}
+      </FlexTableRow>
+    );
+  }
+}
+```
+
+```react_example
+<FlexTable columns={columns} data={data} CustomRow={CustomRow}/>
+```
+
+The `FlexTableCell` component is provided for users who wish to customize their cells
+with the `CustomCell` attribute on the `columns` prop.
+
+```jsx_example
+class CustomCell extends React.Component {
+  render() {
+    return (
+      <FlexTableCell>
+        {this.props.index}: {this.props.value}, Bar value {this.props.rowDatum.bar}
+      </FlexTableCell>
+    );
+  }
+}
+
+const customCellColumns = [
+  {
+    attribute: 'title',
+    displayName: 'Title',
+    sortable: false,
+    CustomCell: CustomCell
+  },
+  {
+    attribute: 'bar',
+    sortable: true
+  },
+  {
+    attribute: 'instances',
+    sortable: true
+  }
+];
+```
+
+```react_example
+<FlexTable columns={customCellColumns} data={data}/>
+```
+*/
+
