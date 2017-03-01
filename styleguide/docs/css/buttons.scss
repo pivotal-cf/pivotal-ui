@@ -31,7 +31,7 @@ Every button type has a default style, an alt style (with inverted colors and a 
 
 Button                                           | Button Alt                                               | Button Flat                                                | Description
 -------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
-<button class="btn btn-default">Default</button> |<button class="btn btn-default-alt">Default Alt</button>  | <button>Default Flat</button>                              | This the default button style.
+<button class="btn btn-default">Default</button> |<button class="btn btn-default-alt">Default Alt</button>  | <button class="btn">Default Flat</button>                              | This the default button style.
 <button class="btn btn-primary">Primary</button> |<button class="btn btn-primary-alt">Primary Alt</button>  | <button class="btn btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
 <button class="btn btn-danger">Danger</button>   |<button class="btn btn-danger-alt">Danger Alt</button>    | <button class="btn btn-danger-flat">Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
 <button class="btn btn-brand">Brand</button>     |<button class="btn btn-brand-alt">Brand Alt</button>      | <button class="btn btn-brand-flat">Brand Flat</button>     | This button is for marketing purposes only

@@ -62,7 +62,7 @@ See examples below.
   Base Panel with custom header
 </Panel>
 
-<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={<div><button>Go</button><button>Stop</button></div>}>
+<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={<div><button className="btn">Go</button><button className="btn">Stop</button></div>}>
   Base Panel with custom header and actions
 </Panel>
 

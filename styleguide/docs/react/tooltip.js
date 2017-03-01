@@ -69,10 +69,10 @@ triggering element.
 ```react_example
 <div>
   <SimpleTooltip tooltipContent="Some tooltip" size="sm">
-    <button>Hover over me</button>
+    <button className="btn">Hover over me</button>
   </SimpleTooltip>
   <SimpleTooltip tooltipContent="Some tooltip" trigger="click" size="sm">
-    <button>Click me</button>
+    <button className="btn">Click me</button>
   </SimpleTooltip>
 </div>
 ```

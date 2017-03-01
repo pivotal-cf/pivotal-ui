@@ -36,7 +36,7 @@ import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboar
 ```
 
 ```react_example_table
-<CopyToClipboard text="I got copied by a button"><button>Click Me To Copy</button></CopyToClipboard>
+<CopyToClipboard text="I got copied by a button"><button className="btn">Click Me To Copy</button></CopyToClipboard>
 
 <CopyToClipboardButton text="I got copied by a good looking button"/>
 ```
@@ -49,8 +49,8 @@ import {Input} from 'pui-react-inputs';
 ```
 
 ```react_example_table
-<div className="copy-input">
-  <Input label="shareable link" value="bar.com/1234.jpg" readOnly />
+<div className="copy-input" style={{textAlign: "left"}}>
+  <Input label="shareable link" value="bar.com/1234.jpg" readOnly style={{height: "42px"}}/>
   <CopyToClipboardButton text="bar.com/1234.jpg" />
 </div>
 ```

@@ -55,7 +55,7 @@ class MoreInfo extends React.Component {
             Content in expander
           </p>
         </ExpanderContent>
-        <button className="btn-primary" onClick={() => this.setState({expanded: !this.state.expanded})}>
+        <button className="btn btn-primary" onClick={() => this.setState({expanded: !this.state.expanded})}>
           Toggle Content
         </button>
       </main>

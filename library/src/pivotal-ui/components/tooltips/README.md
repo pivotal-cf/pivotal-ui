@@ -16,13 +16,13 @@ Note: this requires the Bootstrap JavaScript.
 </p>
 
 <p>
-  <button id="button-with-tooltip-1" class="btn-default" data-toggle="tooltip" data-placement="top" title="I should be on the top">
+  <button id="button-with-tooltip-1" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="I should be on the top">
     Check out this tooltip on the top!
   </button>
 </p>
 
 <p>
-  <button id="button-with-tooltip-2" class="btn-default" data-toggle="tooltip" data-placement="bottom" title="I should be on the bottom">
+  <button id="button-with-tooltip-2" class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="I should be on the bottom">
     Check out this tooltip on the bottom!
   </button>
 </p>
