@@ -49,7 +49,7 @@ import {Input} from 'pui-react-inputs';
 ```
 
 ```react_example_table
-<div className="copy-input" style={{textAlign: "left"}}>
+<div className="copy-input">
   <Input label="shareable link" value="bar.com/1234.jpg" readOnly style={{height: "42px"}}/>
   <CopyToClipboardButton text="bar.com/1234.jpg" />
 </div>
