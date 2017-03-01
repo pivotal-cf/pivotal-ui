@@ -83,13 +83,13 @@ $base-unit: 8px;
   }
 
   .col-top {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
     flex-direction: column;
     display: flex;
   }
 
   .col-bottom {
-    justify-content: flex-end;
+    justify-content: flex-end !important;
     flex-direction: column;
     display: flex;
   }
