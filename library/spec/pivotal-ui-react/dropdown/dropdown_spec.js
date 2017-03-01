@@ -81,9 +81,9 @@ describe('Dropdowns', () => {
     
     describe('dropdown menu', () => {
       it('shows the children on click', () => {
-        expect('.open .dropdown-menu').not.toExist();
+        expect('.dropdown-menu-open').not.toExist();
         $('.dropdown-toggle').simulate('click');
-        expect('.open .dropdown-menu').toExist();
+        expect('.dropdown-menu-open').toExist();
       });
 
       describe('when the menuCaret is in the props', () => {
@@ -99,25 +99,25 @@ describe('Dropdowns', () => {
       describe('hiding children', () => {
         it('hides when the toggle is clicked', () => {
           $('.dropdown-toggle').simulate('click');
-          expect('.open .dropdown-menu').toExist();
+          expect('.dropdown-menu-open').toExist();
           $('.dropdown-toggle').simulate('click');
-          expect('.open .dropdown-menu').not.toExist();
+          expect('.dropdown-menu-open').not.toExist();
         });
 
         it('hides when clicking outside the dropdown', () => {
           $('.dropdown-toggle').simulate('click');
-          expect('.open .dropdown-menu').toExist();
+          expect('.dropdown-menu-open').toExist();
           const evt = document.createEvent('HTMLEvents');
           evt.initEvent('click', true, true );
           document.documentElement.dispatchEvent(evt);
-          expect('.open .dropdown-menu').not.toExist();
+          expect('.dropdown-menu-open').not.toExist();
         });
 
         it('hides when a menu item is selected', () => {
           $('.dropdown-toggle').simulate('click');
-          expect('.open .dropdown-menu').toExist();
+          expect('.dropdown-menu-open').toExist();
           $('li:contains(Item #1)').simulate('click');
-          expect('.open .dropdown-menu').not.toExist();
+          expect('.dropdown-menu-open').not.toExist();
         });
 
         describe('when scrim is disabled', () => {
@@ -125,11 +125,11 @@ describe('Dropdowns', () => {
             subject::setProps({disableScrim: true});
 
             $('.dropdown-toggle').simulate('click');
-            expect('.open .dropdown-menu').toExist();
+            expect('.dropdown-menu-open').toExist();
             const evt = document.createEvent('HTMLEvents');
             evt.initEvent('click', true, true );
             document.documentElement.dispatchEvent(evt);
-            expect('.open .dropdown-menu').toExist();
+            expect('.dropdown-menu-open').toExist();
           });
         });
 
@@ -140,9 +140,9 @@ describe('Dropdowns', () => {
 
           it('does not close when the menu is clicked', () => {
             $('.dropdown-toggle').simulate('click');
-            expect('.open .dropdown-menu').toExist();
+            expect('.dropdown-menu-open').toExist();
             $('li:contains(Item #1)').simulate('click');
-            expect('.open .dropdown-menu').toExist();
+            expect('.dropdown-menu-open').toExist();
           });
         });
       });
@@ -209,9 +209,9 @@ describe('Dropdowns', () => {
             subject::setProps({split: true});
           });
 
-          it('puts the title in the dropdown label', () => {
+          it('puts the title in an appropriate place', () => {
             expect('.dropdown-label').toHaveText('Dropping');
-            expect('.dropdown-toggle').toHaveText('★');
+            expect('.dropdown-toggle + div').toHaveText('★');
           });
         });
       });

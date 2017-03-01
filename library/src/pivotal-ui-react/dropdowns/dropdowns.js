@@ -63,32 +63,43 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     } = this.props;
     const {open} = this.state;
     const toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
-    const buttonStyleClasses = classnames('btn', 'btn-default', buttonClassName);
-    const dropdownLabel = split ? <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div> : null;
-    const dropdownToggle = (
-      <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
-        {!split ? title : null}
-        {toggleNode}
-      </button>
-    );
+    const buttonStyleClasses = classnames(buttonClassName);
 
     const dropdownClasses = classnames('dropdown', {
-      'dropdown-flat': flat, open, split, 'dropdown-link': link
+      'dropdown-flat': flat,
+      'dropdown-split': split,
+      'dropdown-icon': split,
+      'dropdown-link': link
     }, className);
-    const dropdownMenuClasses = classnames('dropdown-menu',
+
+    const menuVisibility = open ? 'dropdown-menu-open' : 'dropdown-menu-closed'
+    const dropdownMenuClasses = classnames('dropdown-menu', menuVisibility,
       {
         'dropdown-border': border,
         'dropdown-menu-right': pullRight,
         'dropdown-menu-float': split || flat || menuCaret,
         'dropdown-menu-caret': menuCaret
       }
-    );
+    )
+    const dropdownOptions = <div className={dropdownMenuClasses}>
+      <ul onClick={this.menuClick}>{children}</ul>
+    </div>
+
+    if (split) {
+      return (<div className={dropdownClasses} {...props}>
+        <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div>
+        <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}></button>
+        {toggleNode}
+        {dropdownOptions}
+      </div>)
+    }
+
     return (<div className={dropdownClasses} {...props}>
-      {dropdownLabel}
-      {dropdownToggle}
-      <div className={dropdownMenuClasses}>
-        <ul onClick={this.menuClick}>{children}</ul>
-      </div>
+      <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+        {title}
+        {toggleNode}
+      </button>
+      {dropdownOptions}
     </div>);
   }
 }
@@ -107,12 +118,11 @@ export class DropdownItem extends React.Component {
 
   handleClick = event => {
     const {href, disabled, onSelect, eventKey} = this.props;
+    if (disabled) return;
 
-    if (!href || disabled) {
+    if (!href) {
       event.preventDefault();
     }
-
-    if (disabled) return;
 
     if (onSelect) {
       onSelect(event, eventKey);

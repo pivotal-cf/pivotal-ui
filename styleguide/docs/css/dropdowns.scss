@@ -19,7 +19,7 @@ This is the basic dropdown.
 
 ```html_example
 <div class="dropdown">
-  <button id="dropdown-button-1" class="btn dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-1" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -53,7 +53,7 @@ This is the basic dropdown.
 
 ```html_example
 <div class="dropdown dropdown-flat dropdown-link">
-  <button id="drop3" data-toggle="dropdown" class="btn dropdown-toggle btn-link" type="button">
+  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle" type="button">
     <span>Link Dropdown</span>
     <span class="caret"></span>
   </button>
@@ -87,8 +87,8 @@ This is the basic dropdown.
 </div>
 
 ```html_example
-<div class="dropdown dropdown-flat">
-  <button id="dropdown-button-1" class="btn dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+<div class="dropdown dropdown-flat" style="width: 177px">
+  <button id="dropdown-button-1" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Button Dropdown
     <span class="caret"></span>
   </button>
@@ -124,7 +124,7 @@ Here's a crazy-complex dropdown. Not for the faint of heart.
 
 ```html_example
 <div class="dropdown btn-group">
-  <button id="dropdown-button-2" class="btn dropdown-toggle btn-default-alt" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <button id="dropdown-button-2" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     dropdown trigger
     <span class="caret"></span>
   </button>
