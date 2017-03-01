@@ -25,6 +25,7 @@
   text-align: left;
 
   .tooltip-content {
+    white-space: nowrap;
     padding: $tooltip-padding;
     font-size: $tooltip-font-size;
     line-height: 16px;
@@ -200,16 +201,25 @@
 }
 
 //Tooltip Sizes
-.tooltip-sm {
+.tooltip-sm.tooltip-container {
   width: $tooltip-sm-width;
+  .tooltip-content {
+    white-space: normal;
+  }
 }
 
-.tooltip-md {
+.tooltip-md.tooltip-container {
   width: $tooltip-md-width;
+  .tooltip-content {
+    white-space: normal;
+  }
 }
 
-.tooltip-lg {
+.tooltip-lg.tooltip-container {
   width: $tooltip-lg-width;
+  .tooltip-content {
+    white-space: normal;
+  }
 }
 
 //Overlay

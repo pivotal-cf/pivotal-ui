@@ -68,11 +68,11 @@ triggering element.
 
 ```react_example
 <div>
-  <SimpleTooltip tooltipContent="Some tooltip" size="sm">
-    <button className="btn">Hover over me</button>
+  <SimpleTooltip tooltipContent="Some tooltip" style={{marginRight: "10px"}}>
+    <button className="btn btn-default">Hover over me</button>
   </SimpleTooltip>
-  <SimpleTooltip tooltipContent="Some tooltip" trigger="click" size="sm">
-    <button className="btn">Click me</button>
+  <SimpleTooltip tooltipContent="Some tooltip" trigger="click">
+    <button className="btn btn-default">Click me</button>
   </SimpleTooltip>
 </div>
 ```
@@ -122,25 +122,25 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
 <div>
   <p>
     Check out this
-    <OverlayTrigger placement="left" overlay={<Tooltip content="I should be on the left" size="sm"/>}>
+    <OverlayTrigger placement="left" overlay={<Tooltip content="I should be on the left"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the left.</span>
     </OverlayTrigger>
   </p>
   <p>
     Check out this
-    <OverlayTrigger placement="right" overlay={<Tooltip content="I should be on the right" size="sm"/>}>
+    <OverlayTrigger placement="right" overlay={<Tooltip content="I should be on the right"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the right.</span>
     </OverlayTrigger>
   </p>
   <p>
     Check out this
-    <OverlayTrigger placement="top" overlay={<Tooltip content="I should be on the top" size="sm"/>}>
+    <OverlayTrigger placement="top" overlay={<Tooltip content="I should be on the top"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the top.</span>
     </OverlayTrigger>
   </p>
   <p>
     Check out this
-    <OverlayTrigger placement="bottom" overlay={<Tooltip content="I should be on the bottom" size="sm"/>}>
+    <OverlayTrigger placement="bottom" overlay={<Tooltip content="I should be on the bottom"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the bottom.</span>
     </OverlayTrigger>
   </p>
