@@ -151,7 +151,6 @@ select, input {
       font-size: 16px;
       bottom: 0;
       right: 0;
-      fill: $dark-6;
     }
   }
 
@@ -159,10 +158,12 @@ select, input {
   .icon {
     pointer-events: none;
     position: absolute;
-    right: $base-unit;
-    bottom: $base-unit;
-    font-size: 16px;
-
+    right: 7px;
+    bottom: 7px;
+    font-size: 18px;
+    svg {
+      fill:$dark-5;
+    }
     &.valid,
     &.invalid {
       position: absolute;
@@ -183,12 +184,10 @@ select, input {
   position: relative;
   .icon {
     position: absolute;
-    right: $base-unit;
     top: 50%;
-    left: 8px;
+    left: 7px;
     transform: translateY(-50%);
-    font-size: 20px;
-    fill: $dark-2;
+    font-size: 18px;
   }
   input {
     padding-left: 32px;
@@ -203,6 +202,11 @@ select, input {
   input {
     height: ($base-unit*5);
     font-size: 16px;
+  }
+  .icon {
+    font-size: 20px;
+    right: 10px;
+    bottom: 10px;
   }
 }
 
@@ -408,7 +412,7 @@ textarea.valid {
 
   .input-icon {
     position: absolute;
-    left: 8px;
+    left: 7px;
     top: 50%;
     -webkit-transform: translate(0, -50%);
     transform: translate(0, -50%);
