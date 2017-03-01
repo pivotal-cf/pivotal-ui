@@ -16,7 +16,7 @@ describe('Tooltip Component', () => {
     const tooltipContent = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-content')
 
     expect(tooltipContent).toBeDefined()
-    expect(tooltipContent.textContent).toEqual("Some default tooltip")
+    expect(tooltipContent.textContent).toEqual('Some default tooltip')
   })
 
   it('propagates classname, id, style to the wrapping tooltip', () => {

@@ -145,7 +145,7 @@ select, input {
     line-height: ($base-unit*4);
     margin-bottom: 0;
     margin-right: $base-unit;
-    .svgicon {
+    .icon {
       pointer-events: initial;
       position: relative;
       font-size: 16px;
@@ -156,7 +156,7 @@ select, input {
   }
 
   //Validation Icons
-  .svgicon {
+  .icon {
     pointer-events: none;
     position: absolute;
     right: $base-unit;
@@ -173,7 +173,7 @@ select, input {
 
 .form-group-search {
   position: relative;
-  .svgicon {
+  .icon {
     position: absolute;
     right: $base-unit;
     top: 50%;
@@ -296,7 +296,7 @@ textarea.valid {
   position: relative;
 
   //Validation Icons
-  .svgicon {
+  .icon {
     &.valid,
     &.invalid {
       position: absolute;

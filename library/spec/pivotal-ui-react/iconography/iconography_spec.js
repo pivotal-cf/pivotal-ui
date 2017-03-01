@@ -9,29 +9,29 @@ describe('iconography', function() {
 
   it('works', function() {
     ReactDOM.render(<Icon src='add'/>, root);
-    expect('.svgicon svg').toExist();
+    expect('.icon svg').toExist();
   });
 
   it('propagates className and id to the span', () => {
     ReactDOM.render(<Icon src='add' className="foo" id="bar"/>, root);
-    expect('.svgicon').toHaveClass('foo');
-    expect('.svgicon').toHaveAttr('id', 'bar');
+    expect('.icon').toHaveClass('foo');
+    expect('.icon').toHaveAttr('id', 'bar');
   });
 
   describe('verticalAlign', () => {
-    it('if verticalAlign is not specified it applies the .svg-middle', () => {
+    it('if verticalAlign is not specified it applies the .icon-middle', () => {
       ReactDOM.render(<Icon src='add'/>, root);
-      expect('.svgicon').toHaveClass('svg-middle');
+      expect('.icon').toHaveClass('icon-middle');
     });
 
-    it('if verticalAlign=baseline it applies the .svg-middle class', () => {
+    it('if verticalAlign=baseline it applies the .icon-middle class', () => {
       ReactDOM.render(<Icon src='add' verticalAlign='middle'/>, root);
-      expect('.svgicon').toHaveClass('svg-middle');
+      expect('.icon').toHaveClass('icon-middle');
     });
 
-    it('if verticalAlign=baseline it applies the .svg-baseline class', () => {
+    it('if verticalAlign=baseline it applies the .icon-baseline class', () => {
       ReactDOM.render(<Icon src='add' verticalAlign='baseline'/>, root);
-      expect('.svgicon').toHaveClass('svg-baseline');
+      expect('.icon').toHaveClass('icon-baseline');
     });
   });
 });

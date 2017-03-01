@@ -1,6 +1,6 @@
 @import "./spinner";
 
-.svgicon {
+.icon {
   display: inline-flex;
   align-self: center;
   position: relative;
@@ -8,11 +8,11 @@
   width: 1em;
 }
 
-.svgicon svg, .svgicon img {
+.icon svg, .icon img {
   height: 1em;
   width: 1em;
 }
 
-.svgicon.svg-baseline {
+.icon.icon-baseline {
   top: 0.125em;
 }

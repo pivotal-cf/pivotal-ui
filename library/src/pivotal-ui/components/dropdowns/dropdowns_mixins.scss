@@ -27,7 +27,7 @@
 
   justify-content: space-between;
 
-  .svgicon {
+  .icon {
     vertical-align: sub;
     fill: $gray-6;
   }
@@ -35,7 +35,7 @@
   &:hover, &:focus, &:focus:hover {
     background-color: transparent;
 
-    .svgicon {
+    .icon {
       fill: $gray-3;
     }
   }
@@ -84,7 +84,7 @@
     border-bottom: none;
   }
 
-  .svgicon {
+  .icon {
     fill: $gray-3;
   }
 }

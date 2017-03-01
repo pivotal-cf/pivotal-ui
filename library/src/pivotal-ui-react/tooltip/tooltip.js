@@ -8,12 +8,12 @@ export class Tooltip extends React.Component {
   static propTypes = {
     content: types.node.isRequired,
     visible: types.bool,
-    size: types.oneOf(["auto","sm", "md", "lg"])
+    size: types.oneOf(['auto','sm', 'md', 'lg'])
   }
 
   static defaultProps = {
     visible: true,
-    size: "auto"
+    size: 'auto'
   }
 
   constructor(props) {

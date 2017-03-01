@@ -172,12 +172,12 @@ describe('UIButton', function() {
 
     it('renders with an icon if an icon node is passed through props', () => {
       ReactDOM.render(<DefaultButton icon={<Icon src="add" />}>Click here</DefaultButton>, root);
-      expect('#root button .svgicon').toExist();
+      expect('#root button .icon').toExist();
     });
 
     it('renders with an icon if it is a link', () => {
       ReactDOM.render(<DefaultButton href="whatever" icon={<Icon src="add" />}>Click here</DefaultButton>, root);
-      expect('#root a.btn .svgicon').toExist();
+      expect('#root a.btn .icon').toExist();
     });
   });
 });
