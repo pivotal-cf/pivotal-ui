@@ -19,8 +19,7 @@ input[type="url"],
 input[type="password"],
 input:not([type]),
 textarea,
-select,
-.dropdown {
+select {
   display: block;
   width: 100%;
   height: ($base-unit*4);
@@ -67,8 +66,7 @@ input[type="url"]:focus,
 input[type="password"]:focus,
 input:not([type]):focus,
 textarea:focus,
-select:focus,
-.dropdown:focus {
+select:focus {
   border: 1px solid $input-border-focus;
   outline: 0;
 }
@@ -162,6 +160,14 @@ select, input {
     right: $base-unit;
     bottom: $base-unit;
     font-size: 16px;
+
+    &.valid,
+    &.invalid {
+      position: absolute;
+      right: $base-unit;
+      top: $base-unit;
+      font-size: 16px;
+    }
     &.valid svg {
       fill: $input-border-valid;
     }
@@ -229,6 +235,7 @@ select, input {
 
 .form-inline {
   display: inline-flex;
+  vertical-align: top;
 
   > {
     display: inline-block;
@@ -289,27 +296,6 @@ textarea.valid {
 
   input, textarea, select {
     border-color: $input-invalid-text;
-  }
-}
-
-.form-group {
-  position: relative;
-
-  //Validation Icons
-  .icon {
-    &.valid,
-    &.invalid {
-      position: absolute;
-      right: $base-unit;
-      top: $base-unit;
-      font-size: 16px;
-    }
-    &.valid svg {
-      fill: $input-border-valid;
-    }
-    &.invalid svg {
-      fill: $input-border-invalid;
-    }
   }
 }
 
