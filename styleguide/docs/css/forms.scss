@@ -43,10 +43,12 @@ parent: 00_form_introduction
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
   </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Check me out
-    </label>
+  <div class="form-group">
+   <div class="checkbox">
+     <label>
+       <input type="checkbox"> Check me out
+     </label>
+   </div>
   </div>
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
@@ -68,11 +70,15 @@ Add `.form-inline` to your `.form-group` for left-aligned and inline-block contr
 ```html_example
 <form class="styleguide-form">
   <div class="form-group form-inline">
-    Email address
+    <label for="exampleInputEmail5">
+     Email
+    </label>
     <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
   </div>
   <div class="form-group form-inline">
-    Password
+    <label for="exampleInputPassword2">
+     Password
+    </label>
     <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
   </div>
   <div class="form-group form-inline">
@@ -269,14 +275,20 @@ Set heights using the form control classes `.input-lg` and `.input-sm`.
 Create larger or smaller form controls that match button sizes.
 
 ```html_example_table
-<label for="LargeInput">Large Input</label>
-<input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text">
+<div class="form-group">
+ <label for="LargeInput">Large Input</label>
+ <input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text">
+</div>
 
-<label for="DefaultInput">Default Input</label>
-<input class="form-control" id="DefaultInput" placeholder="Default Input" type="text">
+<div class="form-group">
+ <label for="DefaultInput">Default Input</label>
+ <input class="form-control" id="DefaultInput" placeholder="Default Input" type="text">
+</div>
 
-<label for="SmallInput">Small Input</label>
-<input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
+<div class="form-group">
+ <label for="SmallInput">Small Input</label>
+ <input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
+</div>
 ```
 
 Set widths using grid column classes like `.col-lg-*`.
@@ -285,16 +297,16 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 ```html_example
 <form class="styleguide-form" role="form">
   <div class="row">
-    <div class="col-md-4">
-      <label for="Small2WidthInput">Small 2 Width Input</label>
+    <div class="col-md-4 form-group man">
+      <label for="Small2WidthInput">Small 2 Width</label>
       <input class="form-control" id="Small2WidthInput" placeholder=".col-xs-2" type="text">
     </div>
-    <div class="col-md-6">
-      <label for="Small3WidthInput">Small 3 Width Input</label>
+    <div class="col-md-6 form-group man">
+      <label for="Small3WidthInput">Small 3 Width</label>
       <input class="form-control" id="Small3WidthInput" placeholder=".col-xs-3" type="text">
     </div>
-    <div class="col-md-8">
-      <label for="Small4WidthInput">Small 4 Width Input</label>
+    <div class="col-md-8 form-group man">
+      <label for="Small4WidthInput">Small 4 Width</label>
       <input class="form-control" id="Small4WidthInput" placeholder=".col-xs-4" type="text">
     </div>
   </div>
@@ -313,8 +325,10 @@ parent: form_inputs
 Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
 
 ```html_example
-<label for="ReadOnlyInput">ReadOnly</label>
-<input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
+<div class="form-group">
+ <label for="ReadOnlyInput">ReadOnly</label>
+ <input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
+</div>
 ```
 
 */
@@ -376,16 +390,16 @@ Wrap inputs in grid columns, or any custom parent element, to easily enforce des
 ```html_example
 <form class="styleguide-form" role="form">
   <div class="row">
-    <div class="col-md-4">
-      <label for="Small2WidthInput2">Small 2 Width Input</label>
+    <div class="col-md-4 form-group man">
+      <label for="Small2WidthInput2">Small 2 Width</label>
       <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text">
     </div>
-    <div class="col-md-6">
-      <label for="Small3WidthInput2">Small 3 Width Input</label>
+    <div class="col-md-6 form-group man">
+      <label for="Small3WidthInput2">Small 3 Width</label>
       <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text">
     </div>
-    <div class="col-md-8">
-      <label for="Small4WidthInput2">Small 4 Width Input</label>
+    <div class="col-md-8 form-group man">
+      <label for="Small4WidthInput2">Small 4 Width</label>
       <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text">
     </div>
   </div>
