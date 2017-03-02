@@ -348,11 +348,16 @@ them over a custom dropdown whenever possible.
 
 ```html_example
 <form class="styleguide-form" role="form">
-  <select class="form-control">
-    <option>default option</option>
-    <option>an option</option>
-    <option>another option</option>
-  </select>
+  <div class="form-group">
+    <select class="form-control">
+      <option>default option</option>
+      <option>an option</option>
+      <option>another option</option>
+    </select>
+    <div class="icon">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
+    </div>
+  </div>
 </form>
 ```
 */
@@ -368,20 +373,35 @@ Set heights using the form control classes `.input-lg` and `.input-sm`.
 Create larger or smaller form controls that match button sizes.
 
 ```html_example_table
-<select class="form-control input-lg">
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
+<div class="form-group>
+  <select class="form-control input-lg">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
+  </div>
+</div>
 
-<select class="form-control">
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
+<div class="form-group>
+  <select class="form-control">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
+  </div>
+</div>
 
-<select class="form-control input-sm">
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
+<div class="form-group>
+  <select class="form-control input-sm">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
+  </div>
+</div>
 ```
 
 Set widths using grid column classes like `.col-lg-*`.
@@ -552,10 +572,15 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 ```html_example_table
 <input class="form-control" type="text" placeholder="Disabled input here" disabled>
 
-<select class="form-control" disabled>
-  <option>Option 1</option>
-  <option>Option 2</option>
-</select>
+<div class="form-group>
+  <select class="form-control" disabled>
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
+  </div>
+</div>
 
 <label>
   <input type="checkbox" disabled>
