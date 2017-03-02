@@ -107,6 +107,10 @@ html body {
   }
 }
 
+$icon-size-lg: 20px;
+$icon-padding-lg: (($base-unit*5) - $icon-size-lg) / 2;
+$icon-size-sm: 12px;
+$icon-padding-sm: (($base-unit*3) - $icon-size-sm) / 2;
 select, input {
   :not(input[type="radio"], input[type="checkbox"]) {
     height: $base-unit * 4;
@@ -115,6 +119,11 @@ select, input {
   &.input-lg {
     height: $base-unit * 5;
     font-size: $font-size-large;
+    & ~ .icon {
+      font-size: $icon-size-lg;
+      right: $icon-padding-lg;
+      bottom: $icon-padding-lg;
+    }
   }
 
   &.input-sm {
@@ -122,6 +131,11 @@ select, input {
     padding-bottom: 0;
     height: $base-unit * 3;
     font-size: $font-size-small;
+    & ~ .icon {
+      font-size: $icon-size-sm;
+      right: $icon-padding-sm;
+      bottom: $icon-padding-sm;
+    }
   }
 }
 
@@ -155,12 +169,14 @@ select, input {
   }
 
   //Validation Icons
+  $icon-size: 18px;
+  $icon-padding: (($base-unit*4) - $icon-size) / 2;
   .icon {
     pointer-events: none;
     position: absolute;
-    right: 7px;
-    bottom: 7px;
-    font-size: 18px;
+    right: $icon-padding;
+    bottom: $icon-padding;
+    font-size: $icon-size;
     svg {
       fill:$dark-5;
     }
@@ -204,9 +220,9 @@ select, input {
     font-size: 16px;
   }
   .icon {
-    font-size: 20px;
-    right: 10px;
-    bottom: 10px;
+    font-size: $icon-size-lg;
+    right: $icon-padding-lg;
+    bottom: $icon-padding-lg;
   }
 }
 
