@@ -14,17 +14,47 @@ npm install pui-css-iconography --save
 </code>
 
 We use custom SVG icons, available at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
-We recommend using the React Iconography component if you are using icons. We do provide all icons as svgs
+We recommend using the React Iconography component if you are using icons. We do provide all icons as SVGs
 inside of the pui-css-iconography node module (inside `node_modules/pui-css-iconography/svgs/`).
 If you are not using JavaScript and would like to use a Pivotal UI Icon,
-you can copy these svgs directly, either with an img tag or as inlined svg.
-When styling the svgs, remember to use the `fill` or `stroke` attributes instead of `color`.
+you can copy these SVGs directly, either with an img tag or as inlined SVG.
+
+When styling the SVGs, remember to use the `fill` or `stroke` attributes instead of `color`.
+Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
+example below.
+
+An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
 
 ```html_example_table
-<img src="/styleguide/download.svg" width="16" height="16"/>
+<h1>
+  <div class="icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
+    </svg>
+  </div>
+</h1>
 
-<svg fill="#5C9917" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-  <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
-</svg>
 ```
+
+Align SVG to baseline with `.icon-baseline` modifier class.
+
+```html_example_table
+<h1>
+  Example
+  <div class="icon icon-baseline">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
+    </svg>
+  </div>
+</h1>
+```
+
+Wrap an image tag with `.icon` to get the same sizing functionality.
+
+```html_example_table
+<div class="icon">
+  <img src="styleguide/help.svg">
+</div>
+```
+
 */
