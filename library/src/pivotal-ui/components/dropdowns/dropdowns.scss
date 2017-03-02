@@ -201,35 +201,7 @@
       border-bottom: 1px solid $input-border-focus;
     }
   }
-  //Dropdown Small
-  &.dropdown-sm {
-    .dropdown-toggle {
-      padding:0 (($base-unit*3)- 1px) 0 $base-unit; //24px - 1px
-      height:($base-unit*3);
-      line-height: ($base-unit*3) - 2px;
-      font-size: 12px;
-    }
-    .dropdown-label {
-      height:($base-unit*3);
-      line-height: ($base-unit*3) - 2px;
-      font-size: 12px;
-    }
-    .dropdown-menu {
-      li {
-        line-height: 16px;
-        font-size:12px;
-      }
-    }
-    &.dropdown-icon .dropdown-toggle{
-      width:24px;
-      padding:11px;
-    }
-    .icon {
-      font-size: 14px;
-      right:5px;
-      bottom:5px;
-    }
-  }
+
   //Dropdown Large
   &.dropdown-lg {
     .dropdown-toggle {
