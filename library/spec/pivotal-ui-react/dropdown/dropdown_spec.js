@@ -145,6 +145,17 @@ describe('Dropdowns', () => {
             expect('.dropdown-menu-open').toExist();
           });
         });
+
+        describe('when scroll is true', () => {
+          beforeEach( () => {
+            subject::setProps({scroll: true});
+          });
+
+          it('renders a scrollable menu', () => {
+            $('.dropdown-toggle').simulate('click');
+            expect('.dropdown-menu-scroll').toExist();
+          })
+        })
       });
 
       describe('when border is provided', () => {
@@ -155,11 +166,24 @@ describe('Dropdowns', () => {
         });
       });
 
-      describe('when pullRight is provided', () => {
-        it('has the pull right class', () => {
-          subject::setProps({pullRight: true});
+      describe('when menuAlign is provided', () => {
+        it('can align right', () => {
+          subject::setProps({menuAlign: 'right'});
           $('.dropdown-toggle').simulate('click');
           expect('.dropdown-menu.dropdown-menu-right').toExist();
+        });
+
+        it('can align left', () => {
+          subject::setProps({menuAlign: 'left'});
+          $('.dropdown-toggle').simulate('click');
+          expect('.dropdown-menu.dropdown-menu-left').toExist();
+        });
+
+        it('can align none', () => {
+          subject::setProps({menuAlign: 'none'});
+          $('.dropdown-toggle').simulate('click');
+          expect('.dropdown-menu-right').not.toExist();
+          expect('.dropdown-menu-left').not.toExist();
         });
       });
     });

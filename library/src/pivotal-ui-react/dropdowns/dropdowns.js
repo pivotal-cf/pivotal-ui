@@ -28,20 +28,23 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     dropCaret: types.bool,
     flat: types.bool,
     link: types.bool,
-    pullRight: types.bool,
     split: types.bool,
     menuCaret: types.bool,
     title: types.node,
     toggle: types.node,
     onClick: types.func,
     onEntered: types.func,
-    onExited: types.func
+    onExited: types.func,
+    menuAlign: types.oneOf(['none', 'left', 'right']),
+    scroll: types.bool,
   }
 
   static defaultProps = {
     closeOnMenuClick: true,
     disableScrim: false,
-    dropCaret: true
+    dropCaret: true,
+    menuAlign: 'none',
+    scroll: false
   }
 
   click = event => {
@@ -59,7 +62,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   render() {
     const {
       border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
-      flat, link, pullRight, onClick, onEntered, onExited, split, title, toggle, menuCaret, ...props
+      flat, link, menuAlign, onClick, onEntered, onExited, split, title, toggle, menuCaret, scroll, ...props
     } = this.props;
     const {open} = this.state;
     const toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
@@ -75,10 +78,12 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     const menuVisibility = open ? 'dropdown-menu-open' : 'dropdown-menu-closed'
     const dropdownMenuClasses = classnames('dropdown-menu', menuVisibility,
       {
-        'dropdown-border': border,
-        'dropdown-menu-right': pullRight,
-        'dropdown-menu-float': split || flat || menuCaret,
-        'dropdown-menu-caret': menuCaret
+        'dropdown-border'     : border,
+        'dropdown-menu-right' : (menuAlign === 'right'),
+        'dropdown-menu-left'  : (menuAlign === 'left'),
+        'dropdown-menu-float' : split || flat || link || menuCaret,
+        'dropdown-menu-caret' : menuCaret,
+        'dropdown-menu-scroll': scroll
       }
     )
     const dropdownOptions = <div className={dropdownMenuClasses}>

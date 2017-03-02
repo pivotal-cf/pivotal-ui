@@ -12,166 +12,200 @@ categories:
 npm install pui-css-dropdowns --save
 </code>
 
+A dropdown can be used to hide a list of actions or links under a clickable toggle. A dropdown is
+not part of a form so it does not need to be submitted in order to take effect.
 
-Dropdowns are menus that can be triggered by buttons.
+## Basic Dropdown:
 
-This is the basic dropdown.
+This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```html_example
-<div class="dropdown">
-  <button id="dropdown-button-1" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Button Dropdown
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu">
-    <ul role="menu" aria-labelledby="dropdown-button-1">
-      <li role="presentation">
-        <a href="http://www.google.com" role="menuitem">Google</a>
-      </li>
-      <li class="divider mvn"></li>
-      <li role="presentation">
-        <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
-      </li>
-      <li class="divider mvn"></li>
-      <li role="presentation">
-        <a href="http://www.aol.com" role="menuitem">Aol</a>
-      </li>
-    </ul>
+<div class="form-group">
+  <div class="dropdown form-control">
+    <button class="dropdown-toggle">
+      Basic Dropdown
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
   </div>
 </div>
 ```
 
-<div class="alert alert-info mbxl">
-  <div>
-  <h5 class="em-high">Dropdowns with dividers</h5>
-  <p>
-    If you want to add a divider between items in the dropdown,
-    add a `li.divider` between list items.
-  </p>
-  </div>
-</div>
+## Float Dropdown Menu:
+
+The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
+exceeds the parent dropdown width.
 
 ```html_example
-<div class="dropdown dropdown-flat dropdown-link">
-  <button id="drop3" data-toggle="dropdown" class="dropdown-toggle" type="button">
+<div class="form-group" style="display: flex">
+  <div class="dropdown" style="margin: 0 8px">
+    <button class="dropdown-toggle">
+      Float Dropdown Menu
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dropdown" style="margin: 0 8px">
+    <button class="dropdown-toggle">
+      Pinned Left
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
+      <ul>
+        <li>
+          <a href="#">Note that this option exceeds the width of the parent dropdown toggle</a>
+        </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="dropdown" style="margin: 0 8px">
+    <button class="dropdown-toggle">
+      Pinned Right
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+## Float Scroll Menu:
+
+Lists that are indeterminately long can utilize the float scroll menu. The size is
+fixed so you'll have to customize the fixed height to achieve your desired results.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown">
+    <button class="dropdown-toggle">
+      Scroll List Items
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-scroll">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+## Split Dropdown:
+
+Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown dropdown-split dropdown-icon">
+      <div class="dropdown-label">Split Dropdown</div>
+      <button type="button" class="dropdown-toggle"></button>
+        <span class="icon icon-middle"><svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48"
+                                          height="48" viewBox="0 0 48 48"><path
+              d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path></svg></span>
+      <div class="dropdown-menu dropdown-menu-float">
+          <ul>
+            <li> <a href="#">lorem ipsum</a> </li>
+            <li> <a href="#">lorem ipsum</a> </li>
+            <li> <a href="#">lorem ipsum</a> </li>
+          </ul>
+      </div>
+  </div>
+</div>
+```
+
+## Flat Button Dropdown:
+
+Dropdown with the flat button styling.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown dropdown-flat form-control">
+    <button class="dropdown-toggle">
+      Flat Button Dropdown
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+
+
+## Link Dropdown:
+
+Dropdown with the link styling, retains dropdown padding.
+
+```html_example
+<div class="dropdown dropdown-link">
+  <button class="dropdown-toggle">
     <span>Link Dropdown</span>
     <span class="caret"></span>
   </button>
   <div class="dropdown-menu dropdown-menu-float">
-    <ul role="menu" aria-labelledby="drop3">
-      <li role="presentation">
-        <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Action</a>
-      </li>
-      <li role="presentation">
-        <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Another action</a>
-      </li>
-      <li role="presentation">
-        <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Something else here</a>
-      </li>
-      <li role="presentation">
-        <a role="menuitem" tabindex="-1" href="https://twitter.com/fat">Separated link</a>
-      </li>
+    <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
     </ul>
   </div>
 </div>
 ```
 
-<div class="alert alert-info mbxl">
-  <div>
-    <h5 class="em-high">Alignment</h5>
-    <p>
-      By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent.
-      Add .dropdown-menu-right to a .dropdown-menu to right align the dropdown menu
-    </p>
-  </div>
-</div>
+## Large Dropdowns:
+
+Apply the large class .dropdown-lg to the .dropdown element to change the size of the dropdown.
+These modifiers will apply to all of the variations above.
 
 ```html_example
-<div class="dropdown dropdown-flat" style="width: 177px">
-  <button id="dropdown-button-1" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Button Dropdown
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
-    <ul role="menu" aria-labelledby="dropdown-button-1">
-      <li role="presentation">
-        <a href="http://www.google.com" role="menuitem">Google</a>
-      </li>
-      <li class="divider mvn"></li>
-      <li role="presentation">
-        <a href="http://www.yahoo.com" role="menuitem">Yahoo</a>
-      </li>
-      <li class="divider mvn"></li>
-      <li role="presentation">
-        <a href="http://www.aol.com" role="menuitem">Aol</a>
-      </li>
-    </ul>
+<div class="form-group">
+  <div class="dropdown dropdown-lg">
+    <button class="dropdown-toggle">
+      Large Dropdown
+      <span class="caret"></span>
+    </button>
+    <div class="dropdown-menu">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
   </div>
 </div>
 ```
-
-<div class="alert alert-info mbxl">
-<div>
-  <h5 class="em-high">No links as dropdowns</h5>
-  <p>
-    Instead of using an <code>a</code> tag as a dropdown,
-    use a <code>button.btn.btn-link</code>.
-  </p>
-</div>
-</div>
-
-Here's a crazy-complex dropdown. Not for the faint of heart.
-
-```html_example
-<div class="dropdown btn-group">
-  <button id="dropdown-button-2" class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    dropdown trigger
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu">
-    <ul role="menu" aria-labelledby="dropdown-button-2">
-      <li role="presentation">
-        <a href="#" role="menuitem" class="pvl">
-          <div class="media">
-            <div class="media-left media-middle prxl">
-              <img src="/styleguide/check.svg" class="prxl" />
-            </div>
-            <div class="media-body" style="width: 400px;">
-              <h4 class="media-heading em-high type-neutral-3 mvn h5">updates and alerts</h4>
-              <span class="type-neutral-4">receive all tacos and burritos.</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li role="presentation">
-        <a href="#" role="menuitem" class="pvl">
-          <div class="media">
-            <div class="media-left media-middle prxl">
-              <img src="/styleguide/check.svg" class="prxl" style="visibility: hidden"/>
-            </div>
-            <div class="media-body" style="width: 400px;">
-              <h4 class="media-heading em-high type-neutral-3 mvn h5">alerts only</h4>
-              <span class="type-neutral-4">only receive tacos when burritos are issued for this product and files.</span>
-            </div>
-          </div>
-        </a>
-      </li>
-      <li role="presentation">
-        <a href="#" role="menuitem" class="pvl">
-          <div class="media">
-            <div class="media-left media-middle prxl">
-              <img src="/styleguide/check.svg" class="prxl" style="visibility: hidden"/>
-            </div>
-            <div class="media-body" style="width: 400px;">
-              <h4 class="media-heading em-high type-neutral-3 mvn h5">none</h4>
-              <span class="type-neutral-4">do not receive any mexican food.</span>
-            </div>
-          </div>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
-```
-
 */

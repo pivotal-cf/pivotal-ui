@@ -17,24 +17,23 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-border           | no | Boolean  |       | If true, adds a border between menu items
-buttonClassName  | no | String   |       | Classname to add to the button
-closeOnMenuClick | no | Boolean  | true  | If false, do not close the menu when clicking in the dropdown menu
-disableScrim     | no | Boolean  | false | If true, do not close the menu when clicking outside the dropdown
-dropCaret        | no | Boolean  | true  | If false, do not render the caret in the dropdown toggle
-flat             | no | Boolean  |       | If true, dropdown toggle has no borders and is transparent
-link             | no | Boolean  |       | If true, color the dropdown toggle like a link
-menuCaret        | no | Boolean  |       | If true, render a caret in the menu pointing at the toggle
-onEntered        | no | Function |       | Callback that fires after opening the dropdown
-onExited         | no | Function |       | Callback that fires after closing the dropdown
-pullRight        | no | Boolean  |       | If true, right align the menu with the button
-split            | no | Boolean  |       | If true, separates the button text from the toggle
-title            | no | Node     |       | The button contents
-toggle           | no | Node     |       | The toggle contents
-
-## Basic usage
+Property         | Required | Type                             | Default | Description
+-----------------|----------|----------------------------------|---------|------------
+border           | no       | Boolean                          |         | If true, adds a border between menu items
+buttonClassName  | no       | String                           |         | Classname to add to the button
+closeOnMenuClick | no       | Boolean                          | true    | If false, do not close the menu when clicking in the dropdown menu
+disableScrim     | no       | Boolean                          | false   | If true, do not close the menu when clicking outside the dropdown
+dropCaret        | no       | Boolean                          | true    | If false, do not render the caret in the dropdown toggle
+flat             | no       | Boolean                          |         | If true, dropdown toggle has no borders and is transparent
+link             | no       | Boolean                          |         | If true, color the dropdown toggle like a link
+menuCaret        | no       | Boolean                          |         | If true, render a caret in the menu pointing at the toggle
+onEntered        | no       | Function                         |         | Callback that fires after opening the dropdown
+onExited         | no       | Function                         |         | Callback that fires after closing the dropdown
+split            | no       | Boolean                          |         | If true, separates the button text from the toggle
+title            | no       | Node                             |         | The button contents
+toggle           | no       | Node                             |         | The toggle contents
+menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'  | Sets the alignment of the menu with the button
+scroll           | no       | Boolean                          | false   | Enables scrolling in the dropdown menu when enabled
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
@@ -44,104 +43,120 @@ Import the subcomponents:
 import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
 ```
 
-This is the basic bootstrap dropdown:
+## Basic Dropdown
 
-```react_example_table
-<Dropdown title='DropDown'>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+This is the basic dropdown. It has an attached menu that extends from the bottom.
+
+```react_example
+<Dropdown title='Basic DropDown'>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
 
-Here are some examples:
+## Float Dropdown Menu:
 
-```react_example_table
-<Dropdown flat title="DropDown">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</Dropdown>
+The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
+exceeds the parent dropdown width.
 
-<Dropdown split title="DropDown">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</Dropdown>
+```react_example
+<div className="form-group" style={{display: 'flex'}}>
+ <Dropdown title='Float DropDown Menu' menuCaret style={{marginRight: 32}}>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+ </Dropdown>
 
-<Dropdown flat link title="DropDown">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</Dropdown>
+ <Dropdown title='Pinned Left' menuCaret menuAlign='left' style={{marginRight: 32}}>
+ <DropdownItem href="#">Note that this option exceeds the width of the parent dropdown toggle</DropdownItem>
+ <DropdownItem href="#">lorem ipsum</DropdownItem>
+ <DropdownItem href="#">lorem ipsum</DropdownItem>
+ </Dropdown>
 
-<Dropdown toggle={<Icon src="check_circle"/>} title="DropDown">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</Dropdown>
-
-<div className="contrast-bar">
-  <Dropdown title="DropDown" flat menuCaret>
-    <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-    <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  </Dropdown>
+ <Dropdown title='Pinned Right' menuCaret menuAlign='right'>
+ <DropdownItem href="#">lorem ipsum</DropdownItem>
+ <DropdownItem href="#">lorem ipsum</DropdownItem>
+ <DropdownItem href="#">lorem ipsum</DropdownItem>
+ </Dropdown>
 </div>
+```
 
-<div className="contrast-bar">
-  <Dropdown title="DropDown" pullRight flat menuCaret>
-    <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-    <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  </Dropdown>
-</div>
+## Float Scroll Menu:
 
-<Dropdown title="DropDown" border>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-</Dropdown>
+Lists that are indeterminately long can utilize the float scroll menu. The size is
+fixed so you'll have to customize the fixed height to achieve your desired results.
 
-<Dropdown title="DropDown">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem divider></DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
+```react_example
+<Dropdown title='Float Scroll Menu' scroll menuCaret>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
 
-If you want to customize the dropdown, you can use `className` to add a modifier class to the `btn-group`.
+## Split Dropdown:
 
-To customize the dropdown button, you can add modifier classes to it
-using the `buttonClassName` property. `id` and `style` will also be applied to the dropdown button.
+Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
 
 ```react_example
-<Dropdown title="DropDown" buttonClassName="btn-lg">
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+<Dropdown title='Split Dropdown' split>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
 
-If you want a dropdown without a label, you can omit the `title` attribute.
+## Flat Button Dropdown:
+
+Dropdown with the flat button styling.
 
 ```react_example
-<Dropdown toggle={<div style={{color: 'darkgoldenrod'}}>&#9733;</div>} flat>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/13py6c5BSnBkic/giphy.gif">Booyeah</DropdownItem>
-  <DropdownItem href="http://media.giphy.com/media/TlK63EQERmiAVzMEgO4/giphy.gif">Adorable</DropdownItem>
+<Dropdown title='Flat Button DropDown' flat>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
 
-A DropdownItem renders a link if given an `href` prop. For more control, do not provide an `href` prop to a DropdownItem.
+## Link Dropdown:
+
+Dropdown with the link styling, retains dropdown padding.
 
 ```react_example
-<Dropdown title="DropDown">
-  <DropdownItem className="pam">
-    <div onClick={() => alert('You clicked Booyeah!')}>Booyeah</div>
-  </DropdownItem>
-  <DropdownItem className="pam">
-    <div onClick={() => alert('You clicked Adorable!')}>Adorable</div>
-  </DropdownItem>
+<Dropdown title='Link DropDown' link>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+</Dropdown>
+```
+
+## Icon Dropdown (dropdown with icon toggle):
+
+A dropdown with an icon toggle can be styled like a basic dropdown or a flat button.
+
+### Basic Icon
+```react_example
+<Dropdown toggle={<Icon src='chevron_down'/>}>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+</Dropdown>
+```
+
+### Flat Icon
+```react_example
+<Dropdown toggle={<Icon src='chevron_down'/>} flat>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
+  <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
 */
