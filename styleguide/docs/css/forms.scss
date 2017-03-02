@@ -373,7 +373,7 @@ Set heights using the form control classes `.input-lg` and `.input-sm`.
 Create larger or smaller form controls that match button sizes.
 
 ```html_example_table
-<div class="form-group>
+<div class="form-group">
   <select class="form-control input-lg">
     <option>Option 1</option>
     <option>Option 2</option>
@@ -383,7 +383,7 @@ Create larger or smaller form controls that match button sizes.
   </div>
 </div>
 
-<div class="form-group>
+<div class="form-group">
   <select class="form-control">
     <option>Option 1</option>
     <option>Option 2</option>
@@ -393,7 +393,7 @@ Create larger or smaller form controls that match button sizes.
   </div>
 </div>
 
-<div class="form-group>
+<div class="form-group">
   <select class="form-control input-sm">
     <option>Option 1</option>
     <option>Option 2</option>
@@ -572,7 +572,7 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 ```html_example_table
 <input class="form-control" type="text" placeholder="Disabled input here" disabled>
 
-<div class="form-group>
+<div class="form-group">
   <select class="form-control" disabled>
     <option>Option 1</option>
     <option>Option 2</option>
