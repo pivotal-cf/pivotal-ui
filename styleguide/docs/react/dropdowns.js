@@ -137,26 +137,4 @@ Dropdown with the link styling, retains dropdown padding.
   <DropdownItem href="#">lorem ipsum</DropdownItem>
 </Dropdown>
 ```
-
-## Icon Dropdown (dropdown with icon toggle):
-
-A dropdown with an icon toggle can be styled like a basic dropdown or a flat button.
-
-### Basic Icon
-```react_example
-<Dropdown toggle={<Icon src='chevron_down'/>}>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-</Dropdown>
-```
-
-### Flat Icon
-```react_example
-<Dropdown toggle={<Icon src='chevron_down'/>} flat>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-  <DropdownItem href="#">lorem ipsum</DropdownItem>
-</Dropdown>
-```
 */
