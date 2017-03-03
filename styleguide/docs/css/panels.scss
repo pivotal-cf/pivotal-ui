@@ -22,15 +22,17 @@ Panels are typically a combination of contours, backgrounds, and content includi
 
 /*doc
 ---
-title: Simple
-name: 00_panel_simple
+title: Basic
+name: 01_panel_basic
 parent: panel
 ---
 
+By default, all the `panel` does is apply basic padding to contain some content.
+
 ```html_example
-<div class="panel panel-simple bg-neutral-11">
+<div class="panel panel-basic bg-neutral-11">
   <div class="panel-body">
-    Simple Panel
+    Basic Panel
   </div>
 </div>
 ```
@@ -39,15 +41,15 @@ parent: panel
 
 /*doc
 ---
-title: Basic
-name: 01_panel_basic
+title: Basic with Box-Shadow
+name: 02_panel_box_shadow
 parent: panel
 ---
 
-By default, all the .panel does is apply a basic shadow and padding to contain some content. You can have it with or without a title.
+Adding the `box-shadow-1` to the `panel` lightly pops the panel off of the page. This is the preferred aesthetic instead of a border. This works great for pushing the panel up from the workspace. 
 
 ```html_example
-<div class="panel panel-basic bg-neutral-11">
+<div class="panel panel-basic bg-neutral-11 box-shadow-1">
   <div class="panel-header">
     <div class="panel-title-alt">Basic Title</div>
   </div>
@@ -55,53 +57,24 @@ By default, all the .panel does is apply a basic shadow and padding to contain s
     Basic Panel
   </div>
 </div>
-
-<div class="panel panel-basic bg-neutral-11">
-  <div class="panel-body">
-    Basic Panel
-  </div>
-</div>
 ```
 
 */
 
-/*doc
----
-title: Basic Alternate
-name: 02_panel_basic_alt
-parent: panel
----
 
-Basic alternate panels are panels with a border and shadow. You can have a panel-basic-alt with or without a title.
-
-```html_example
-<div class="panel panel-basic-alt">
-  <div class="panel-header">
-    <div class="panel-title-alt">Basic Title Alt</div>
-  </div>
-  <div class="panel-body">
-    Basic Panel
-  </div>
-</div>
-
-<div class="panel panel-basic-alt">
-  <div class="panel-body">
-    Basic Panel
-  </div>
-</div>
-```
-
-*/
 
 /*doc
 ---
-title: Panel with Footer
-name: 03_panel_footer
+title: Panel with Header and Footer
+name: 03_panel_header_footer
 parent: panel
 ---
 
 ```html_example
 <div class="panel bg-neutral-11" style="height:200px">
+  <div class="panel-header">
+    <div class="panel-title-alt">Basic Title</div>
+  </div>
   <div class="panel-body">Body Content</div>
   <div class="panel-footer">Footer Content</div>
 </div>
@@ -116,7 +89,8 @@ parent: panel
 ---
 
 Add a loading animation to a panel with the class `panel-loading-indicator`. The animation is intended for panels that utilize
-`panel-header` and `panel-body`.
+`panel-header` and `panel-body`. This should be used when the content of the panel is being generated asynchronously and you’d like to communicate to the user that their content is on the way. 
+
 
 ```html_example
 <div class="panel panel-basic-alt">
@@ -135,11 +109,11 @@ Add a loading animation to a panel with the class `panel-loading-indicator`. The
 /*doc
 ---
 title: Scrollable
-name: 06_panel_scrollable
+name: 05_panel_scrollable
 parent: panel
 ---
 
-The scrollable panel sets a fixed height of 183px and scrolls any content that is larger. If you want a different size, set an inline style on the `.panel-scrollable`.
+The scrollable panel sets a fixed height of 184px and scrolls any content that is larger. If you want a different size, set an inline style on the `.panel-scrollable`.
 
 ```html_example
 <div class="panel panel-scrollable bg-neutral-11">
@@ -151,159 +125,3 @@ The scrollable panel sets a fixed height of 183px and scrolls any content that i
 
 */
 
-/*doc
----
-title: Highlight
-name: 07_panel_highlight
-parent: panel
----
-
-This panel is used to highlight more important parts of the page.
-
-```html_example
-<div class="panel panel-highlight">
-  <div class="panel-body">
-    Not Hoverable (use when the panel has no associated action, for instance if the action is disabled due to lack of permissions)
-  </div>
-</div>
-```
-
-*/
-
-/*doc
----
-title: Alternate
-name: 08_panel_alt
-parent: panel
----
-
-Alternate panels can be in a default, off, or danger state.
-
-```html_example_table
-<div class="panel panel-alt">
-  <div class="panel-body">
-    Alternate Panel
-  </div>
-</div>
-
-<div class="panel panel-alt panel-danger">
-  <div class="panel-body">
-    Danger alternate panel
-  </div>
-</div>
-
-<div class="panel panel-alt panel-off">
-  <div class="panel-body">
-    Stopped alternate panel
-  </div>
-</div>
-
-<div class="panel panel-alt panel-empty">
-  <div class="panel-body">
-    Off alternate panel
-  </div>
-</div>
-
-<div class="panel panel-alt panel-editing">
-  <div class="panel-body">
-    Editing alternate panel
-  </div>
-</div>
-```
-
-*/
-
-/*doc
----
-title: Shadow
-name: 09_panel_shadow
-parent: panel
----
-
-Shadow panels add a bottom shadow to the panel.
-
-```html_example_table
-<div class="panel panel-shadow-1 bg-neutral-11">
-  <div class="panel-body">
-    Shadow Panel
-  </div>
-</div>
-
-<div class="panel panel-shadow-2 bg-neutral-11">
-  <div class="panel-body">
-    Shadow Panel
-  </div>
-</div>
-
-<div class="panel panel-shadow-3 bg-neutral-11">
-  <div class="panel-body">
-    Shadow Panel
-  </div>
-</div>
-
-<div class="panel panel-shadow-4 bg-neutral-11">
-  <div class="panel-body">
-    Shadow Panel
-  </div>
-</div>
-```
-
-*/
-
-
-/*doc
----
-title: Clickable
-name: 11_panel_clickable
-parent: panel
----
-
-These panels lighten on hover to indicate that they are clickable.
-Please use them when a click on the panel triggers an action.
-
-```html_example_table
-<div class="panel panel-clickable">
-  <div class="panel-body">
-    Panel Clickable
-  </div>
-</div>
-
-<div class="panel panel-clickable-alt">
-  <div class="panel-body">
-    Panel Clickable Alt
-  </div>
-</div>
-```
-
-Sometimes you'll also want to adapt the way child elements look
-based on a hover on the parent element. There are a few
-helper classes for that.
-
-
-```html_example_table
-<a class="panel panel-clickable">
-  <div class="panel-body">
-    <p class="hover-target-1">
-      hover-target-1 - default text color => link color
-    </p>
-  </div>
-</a>
-
-<a class="panel panel-clickable">
-  <div class="panel-body">
-    <p class="hover-target-2">
-      hover-target-2 - light gray text => default text color
-    </p>
-  </div>
-</a>
-
-<a class="panel panel-clickable">
-  <div class="panel-body">
-    <p class="hover-target-3">
-      hover-target-3 - $gray-9 background => white background
-    </p>
-  </div>
-</a>
-```
-
-*/
