@@ -1,23 +1,23 @@
-import React from 'react';
-import classnames from 'classnames';
-import mixin from 'pui-react-mixins';
-import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
-import Transition from 'pui-react-mixins/mixins/transition_mixin';
-import {Icon} from 'pui-react-iconography';
-import 'pui-css-dropdowns';
+import React from 'react'
+import classnames from 'classnames'
+import mixin from 'pui-react-mixins'
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
+import Transition from 'pui-react-mixins/mixins/transition_mixin'
+import {Icon} from 'pui-react-iconography'
+import 'pui-css-dropdowns'
 
-const types = React.PropTypes;
+const types = React.PropTypes
 
-const defaultToggleNode = dropCaret => {
-  if (dropCaret) return <Icon src="chevron_down"/>;
-};
+const defaultToggleNode = (showIcon, icon) => {
+  if (showIcon) return <Icon src={icon}/>
+}
 
 export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
-    super(props, context);
+    super(props, context)
     this.state = {
       open: false
-    };
+    }
   }
 
   static propTypes = {
@@ -25,58 +25,64 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     buttonClassName: types.string,
     closeOnMenuClick: types.bool,
     disableScrim: types.bool,
-    dropCaret: types.bool,
     flat: types.bool,
+    floatMenu: types.bool,
+    icon: types.string,
     link: types.bool,
-    split: types.bool,
-    menuCaret: types.bool,
-    title: types.node,
-    toggle: types.node,
+    menuAlign: types.oneOf(['none', 'left', 'right']),
     onClick: types.func,
     onEntered: types.func,
     onExited: types.func,
-    menuAlign: types.oneOf(['none', 'left', 'right']),
+    title: types.node,
+    toggle: types.node,
     scroll: types.bool,
-    size: types.oneOf(['normal', 'large'])
+    showIcon: types.bool,
+    size: types.oneOf(['normal', 'large']),
+    split: types.bool
   }
 
   static defaultProps = {
     closeOnMenuClick: true,
     disableScrim: false,
-    dropCaret: true,
+    icon: 'chevron_down',
     menuAlign: 'none',
     scroll: false,
+    showIcon: true,
     size: 'normal'
   }
 
   click = event => {
-    this.setState({open: !this.state.open});
-    this.props.onClick && this.props.onClick(event);
+    this.setState({open: !this.state.open})
+    this.props.onClick && this.props.onClick(event)
   }
 
   scrimClick = () => this.setState({open: false})
 
   menuClick = () => {
-    if (!this.props.closeOnMenuClick) return;
-    this.setState({open: false});
+    if (!this.props.closeOnMenuClick) return
+    this.setState({open: false})
   }
 
   render() {
     const {
-      border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
-      flat, link, menuAlign, size, onClick, onEntered, onExited, split, title, toggle, menuCaret, scroll, ...props
-    } = this.props;
-    const {open} = this.state;
-    const toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
-    const buttonStyleClasses = classnames(buttonClassName);
+      border, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
+      flat, link, menuAlign, size, icon, onClick, onEntered, onExited, split, title, toggle, floatMenu, scroll, ...props
+    } = this.props
+    const {open} = this.state
+    const buttonStyleClasses = classnames(buttonClassName)
+    const noTitle = typeof title === 'undefined' || title === null || title.length === 0
+
+    const forceIcon = noTitle || split
+    const iconVisible = forceIcon || showIcon
+    const toggleNode = toggle ? toggle : defaultToggleNode(iconVisible, icon)
 
     const dropdownClasses = classnames('dropdown', {
       'dropdown-flat': flat,
       'dropdown-split': split,
-      'dropdown-icon': split,
       'dropdown-link': link,
-      'dropdown-lg': (size === 'large')
-    }, className);
+      'dropdown-lg': (size === 'large'),
+      'dropdown-icon-only' : (!split && noTitle)
+    }, className)
 
     const menuVisibility = open ? 'dropdown-menu-open' : 'dropdown-menu-closed'
     const dropdownMenuClasses = classnames('dropdown-menu', menuVisibility,
@@ -84,8 +90,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
         'dropdown-border'     : border,
         'dropdown-menu-right' : (menuAlign === 'right'),
         'dropdown-menu-left'  : (menuAlign === 'left'),
-        'dropdown-menu-float' : split || flat || link || menuCaret,
-        'dropdown-menu-caret' : menuCaret,
+        'dropdown-menu-float' : split || flat || link || floatMenu || noTitle,
         'dropdown-menu-scroll': scroll
       }
     )
@@ -93,22 +98,14 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       <ul onClick={this.menuClick}>{children}</ul>
     </div>
 
-    if (split) {
-      return (<div className={dropdownClasses} {...props}>
-        <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div>
-        <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}></button>
-        {toggleNode}
-        {dropdownOptions}
-      </div>)
-    }
-
     return (<div className={dropdownClasses} {...props}>
+      {split && <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div>}
       <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
-        {title}
-        {toggleNode}
+        {!split && title}
       </button>
+      {toggleNode}
       {dropdownOptions}
-    </div>);
+    </div>)
   }
 }
 
@@ -125,30 +122,30 @@ export class DropdownItem extends React.Component {
   }
 
   handleClick = event => {
-    const {href, disabled, onSelect, eventKey} = this.props;
-    if (disabled) return;
+    const {href, disabled, onSelect, eventKey} = this.props
+    if (disabled) return
 
     if (!href) {
-      event.preventDefault();
+      event.preventDefault()
     }
 
     if (onSelect) {
-      onSelect(event, eventKey);
+      onSelect(event, eventKey)
     }
   }
 
   render() {
-    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props;
+    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props
 
-    if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
-    if (divider) return (<li role="separator" className="divider"/>);
+    if (header) return (<li role="heading" className="dropdown-header">{children}</li>)
+    if (divider) return (<li role="separator" className="divider"/>)
 
-    const anchor = href ? <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a> : children;
-    const disabledClass = disabled ? 'disabled' : '';
-    const dropdownItemClass = classnames(className, disabledClass);
+    const anchor = href ? <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a> : children
+    const disabledClass = disabled ? 'disabled' : ''
+    const dropdownItemClass = classnames(className, disabledClass)
     
     return (<li {...{style}} className={dropdownItemClass} onClick={href ? '' : this.handleClick}>
       {anchor}
-    </li>);
+    </li>)
   }
 }

@@ -26,7 +26,8 @@
     }
   }
 
-  &.dropdown-icon .icon {
+  // TODO: does this apply to icon-only?
+  &.dropdown-split .icon {
     pointer-events: none;
     position: absolute;
     right: 8px;
@@ -40,6 +41,18 @@
 
   .dropdown-toggle:focus {
     border: 1px solid $input-border-focus;
+  }
+
+  &.dropdown-icon-only:not(.dropdown-split) {
+    width:32px;
+
+    .dropdown-toggle {
+      padding: 0 8px;
+    }
+
+    .dropdown-menu {
+      width: initial;
+    }
   }
 
   .icon svg path {
@@ -176,13 +189,11 @@
       fill:$link-color;
     }
   }
-  //Icon only toggle
-  &.dropdown-icon {
-    .dropdown-toggle {
+  &.dropdown-split .dropdown-toggle {
       width:32px;
       padding:($base-unit*2) - 1px; //16px - 1px border
-    }
   }
+
   //Open and Close Dropdown - handled by JS
   &.open {
     .dropdown-menu {
@@ -221,7 +232,7 @@
         font-size:16px;
       }
     }
-    &.dropdown-icon .dropdown-toggle{
+    &.dropdown-split .dropdown-toggle{
       width:40px;
       padding:18px;
     }
@@ -229,6 +240,10 @@
       font-size: 20px;
       right:10px;
       bottom:10px;
+    }
+
+    &.dropdown-icon-only:not(.dropdown-split) {
+      width:40px;
     }
   }
 }
@@ -246,7 +261,7 @@
       }
     }
 
-    .dropdown-menu-caret > ul:before {
+    .dropdown-menu > ul:before {
       left: 22px;
     }
   }

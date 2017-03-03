@@ -17,24 +17,23 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property         | Required | Type                             | Default  | Description
------------------|----------|----------------------------------|----------|------------
-border           | no       | Boolean                          |          | If true, adds a border between menu items
-buttonClassName  | no       | String                           |          | Classname to add to the button
-closeOnMenuClick | no       | Boolean                          | true     | If false, do not close the menu when clicking in the dropdown menu
-disableScrim     | no       | Boolean                          | false    | If true, do not close the menu when clicking outside the dropdown
-dropCaret        | no       | Boolean                          | true     | If false, do not render the caret in the dropdown toggle
-flat             | no       | Boolean                          |          | If true, dropdown toggle has no borders and is transparent
-link             | no       | Boolean                          |          | If true, color the dropdown toggle like a link
-menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'   | Sets the alignment of the menu with the button
-menuCaret        | no       | Boolean                          |          | If true, render a caret in the menu pointing at the toggle
-onEntered        | no       | Function                         |          | Callback that fires after opening the dropdown
-onExited         | no       | Function                         |          | Callback that fires after closing the dropdown
-scroll           | no       | Boolean                          | false    | Enables scrolling in the dropdown menu when enabled
-size             | no       | oneOf(['normal', 'large'])       | 'normal' | Sets the size
-split            | no       | Boolean                          |          | If true, separates the button text from the toggle
-title            | no       | Node                             |          | The button contents
-toggle           | no       | Node                             |          | The toggle contents
+Property         | Required | Type                             | Default        | Description
+-----------------|----------|----------------------------------|----------------|------------
+buttonClassName  | no       | String                           |                | Classname to add to the button
+closeOnMenuClick | no       | Boolean                          | true           | If false, do not close the menu when clicking in the dropdown menu
+disableScrim     | no       | Boolean                          | false          | If true, do not close the menu when clicking outside the dropdown
+flat             | no       | Boolean                          |                | If true, dropdown toggle has no borders and is transparent
+floatMenu        | no       | Boolean                          | false          | If true, float the dropdown menu. This only applies to the basic dropdown
+icon             | no       | String                           | 'chevron_down' | Name of the svg to use for the toggle icon
+link             | no       | Boolean                          |                | If true, color the dropdown toggle like a link
+menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'         | Sets the alignment of the menu with the button
+onEntered        | no       | Function                         |                | Callback that fires after opening the dropdown
+onExited         | no       | Function                         |                | Callback that fires after closing the dropdown
+scroll           | no       | Boolean                          | false          | Enables scrolling in the dropdown menu when enabled
+showIcon         | no       | Boolean                          | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
+size             | no       | oneOf(['normal', 'large'])       | 'normal'       | Sets the size
+split            | no       | Boolean                          |                | If true, separates the button text from the toggle
+title            | no       | Node                             |                | The button contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
@@ -67,6 +66,24 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 
 /*doc
 ---
+title: Basic Dropdown With Custom Icon
+name: custom_icon
+parent: 1_basic_dropdown_react
+---
+
+```react_example
+<div className="form-group">
+  <Dropdown title='Basic DropDown Custom Icon' icon='more_vert'>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+  </Dropdown>
+</div>
+```
+ */
+
+/*doc
+---
 title: Float Dropdown Menu
 name: 2_float_dropdown_menu_react
 parent: dropdown_react
@@ -78,7 +95,7 @@ exceeds the parent dropdown width.
 ```react_example
 <div>
   <div className="form-group form-inline">
-    <Dropdown title='Float DropDown Menu' menuCaret>
+    <Dropdown title='Float DropDown Menu' floatMenu>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -86,7 +103,7 @@ exceeds the parent dropdown width.
   </div>
 
   <div className="form-group form-inline">
-   <Dropdown title='Pinned Left' menuCaret menuAlign='left'>
+   <Dropdown title='Pinned Left' floatMenu menuAlign='left'>
      <DropdownItem href="#">Note that this option exceeds the width of the parent dropdown toggle</DropdownItem>
      <DropdownItem href="#">lorem ipsum</DropdownItem>
      <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -94,7 +111,7 @@ exceeds the parent dropdown width.
   </div>
 
   <div className="form-group form-inline">
-   <Dropdown title='Pinned Right' menuCaret menuAlign='right'>
+   <Dropdown title='Pinned Right' floatMenu menuAlign='right'>
      <DropdownItem href="#">lorem ipsum</DropdownItem>
      <DropdownItem href="#">lorem ipsum</DropdownItem>
      <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -116,7 +133,7 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
 
 ```react_example
 <div className="form-group">
-  <Dropdown title='Float Scroll Menu' scroll menuCaret>
+  <Dropdown title='Float Scroll Menu' scroll floatMenu>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -139,7 +156,7 @@ name: 4_split_dropdown_react
 parent: dropdown_react
 ---
 
-Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
+Action with additional actions hidden in a dropdown. Floating menu only.
 
 ```react_example
 <div className="form-group">
@@ -159,7 +176,7 @@ name: 5_flat_button_dropdown_react
 parent: dropdown_react
 ---
 
-Dropdown with the flat button styling.
+Dropdown with the flat button styling. Floating menu only.
 
 ```react_example
 <div className="form-group">
@@ -179,11 +196,31 @@ name: 6_link_dropdown_react
 parent: dropdown_react
 ---
 
-Dropdown with the link styling, retains dropdown padding.
+Dropdown with the link styling, retains dropdown padding. Floating menu only.
 
 ```react_example
 <div className="form-group">
   <Dropdown title='Link DropDown' link>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+  </Dropdown>
+</div>
+```
+*/
+
+/*doc
+---
+title: Icon Dropdown
+name: 7_icon_dropdown_react
+parent: dropdown_react
+---
+
+Rendered when no title is specified. Floating menu only.
+
+```react_example
+<div className="form-group">
+  <Dropdown icon='more_vert'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>

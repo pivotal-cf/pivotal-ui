@@ -38,10 +38,11 @@ describe('Dropdowns', () => {
       expect('.dropdown#test-id').toExist();
     });
 
-    it('creates a dropdown-toggle with a caret', () => {
+    it('creates a dropdown-toggle with a chevron', () => {
       expect('.dropdown-toggle').toContainText('Dropping');
       expect('.dropdown-toggle').toHaveClass('test-btn-class');
-      expect('.dropdown-toggle .icon-chevron_down').toExist();
+      expect('.dropdown-toggle + .icon').toExist();
+      expect('.icon .icon-chevron_down').toExist();
     });
 
     describe('when onClick is provided', () => {
@@ -86,13 +87,13 @@ describe('Dropdowns', () => {
         expect('.dropdown-menu-open').toExist();
       });
 
-      describe('when the menuCaret is in the props', () => {
+      describe('when floatMenu is in the props', () => {
         beforeEach(() => {
-          subject::setProps({menuCaret: true});
+          subject::setProps({floatMenu: true});
         });
 
-        it('renders the caret in the menu', () => {
-          expect('.dropdown-menu').toHaveClass('dropdown-menu-caret');
+        it('renders a floating menu', () => {
+          expect('.dropdown-menu').toHaveClass('dropdown-menu-float');
         });
       });
 
@@ -196,47 +197,26 @@ describe('Dropdowns', () => {
           </Dropdown>, root);
       });
 
-      describe('when toggle is not set', () => {
-        describe('when split is false', () => {
-          it('puts the title in the dropdown toggle', () => {
-            expect('.dropdown-label').not.toExist();
-            expect('.dropdown-toggle').toHaveText('Dropping');
-          });
-        });
-
-        describe('when split is true', () => {
-          beforeEach(() => {
-            subject::setProps({split: true});
-          });
-
-          it('puts the title in the dropdown label', () => {
-            expect('.dropdown-label').toHaveText('Dropping');
-            expect('.dropdown-toggle').not.toHaveText('Dropping');
-          });
+      describe('when split is false', () => {
+        it('puts the title in the dropdown toggle', () => {
+          expect('.dropdown-label').not.toExist();
+          expect('.dropdown-toggle').toHaveText('Dropping');
         });
       });
 
-      describe('when toggle is set', () => {
+      describe('when split is true', () => {
         beforeEach(() => {
-          subject::setProps({toggle: <div className="foo">★</div>});
+          subject::setProps({split: true});
         });
 
-        describe('when split is false', () => {
-          it('puts the title in the dropdown toggle', () => {
-            expect('.dropdown-label').not.toExist();
-            expect('.dropdown-toggle').toHaveText('Dropping★');
-          });
+        it('puts the title in the dropdown label', () => {
+          expect('.dropdown-label').toHaveText('Dropping');
         });
 
-        describe('when split is true', () => {
-          beforeEach(() => {
-            subject::setProps({split: true});
-          });
+        it('ignores showIcon', () => {
+          subject::setProps({showIcon: false})
 
-          it('puts the title in an appropriate place', () => {
-            expect('.dropdown-label').toHaveText('Dropping');
-            expect('.dropdown-toggle + div').toHaveText('★');
-          });
+          expect('.icon-chevron_down').toExist();
         });
       });
     });
@@ -250,25 +230,17 @@ describe('Dropdowns', () => {
         );
       });
 
-      describe('when toggle is not set', () => {
-        describe('when split is false', () => {
-          it('renders the default toggle with no label', () => {
-            expect('.dropdown-label').not.toExist();
-            expect('.dropdown-toggle').toExist();
-          });
+      describe('when split is false', () => {
+        it('renders an icon-only dropdown', () => {
+          expect('.dropdown-icon-only').toExist();
+          expect('.dropdown-menu.dropdown-menu-float').toExist();
         });
-      });
+      })
 
-      describe('when toggle is set', () => {
-        beforeEach(() => {
-          subject::setProps({toggle: <div className="foo">★</div>});
-        });
-        describe('when split is false', () => {
-          it('renders the custom toggle with no label', () => {
-            expect('.dropdown-label').not.toExist();
-            expect('.dropdown-toggle .foo').toHaveText('★');
-          });
-        });
+      it('ignores showIcon', () => {
+        subject::setProps({showIcon: false});
+
+        expect('.icon-chevron_down').toExist();
       });
     });
 
@@ -282,13 +254,13 @@ describe('Dropdowns', () => {
       });
     });
 
-    describe('when dropCaret is false', () => {
+    describe('when showIcon is false', () => {
       beforeEach(() => {
-        subject::setProps({dropCaret: false});
+        subject::setProps({showIcon: false});
       });
 
-      it('does not render the drop caret', () => {
-        expect('.dropdown-toggle .icon-chevron_down').not.toExist();
+      it('does not render the icon', () => {
+        expect('.icon-chevron_down').not.toExist();
       });
     });
 
@@ -313,6 +285,14 @@ describe('Dropdowns', () => {
         subject::setProps({size: 'normal'});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-lg').not.toExist();
+      });
+    });
+
+    describe('when icon is provided', () => {
+      it('renders the associated svg', () => {
+        subject::setProps({icon: 'more_vert'});
+        expect('.dropdown-toggle + .icon').toExist();
+        expect('.icon .icon-more_vert').toExist();
       });
     });
   });

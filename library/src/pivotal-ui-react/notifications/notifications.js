@@ -33,7 +33,7 @@ export class Notifications extends React.Component {
       </div>
     );
     
-    return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
+    return <Dropdown flat showIcon={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 
@@ -64,7 +64,7 @@ export class AlertNotifications extends React.Component {
     );
     const props = mergeProps(others, {className: 'dropdown-notifications'});
     
-    return <Dropdown flat menuCaret dropCaret={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
+    return <Dropdown flat showIcon={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
 }
 
