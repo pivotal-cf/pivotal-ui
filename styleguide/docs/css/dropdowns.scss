@@ -30,6 +30,11 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
   <div class="dropdown form-control">
     <button class="dropdown-toggle">
       Basic Dropdown
+      <div class="icon icon-middle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
     </button>
     <div class="dropdown-menu">
       <ul>
@@ -59,6 +64,11 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <button class="dropdown-toggle">
         Float Dropdown Menu
+        <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
       </button>
       <div class="dropdown-menu dropdown-menu-float">
         <ul>
@@ -73,6 +83,11 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <button class="dropdown-toggle">
         Pinned Left
+        <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
       </button>
       <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
         <ul>
@@ -90,6 +105,11 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <button class="dropdown-toggle">
         Pinned Right
+        <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
       </button>
       <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
         <ul>
@@ -119,6 +139,11 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
   <div class="dropdown">
     <button class="dropdown-toggle">
       Scroll List Items
+      <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
     </button>
     <div class="dropdown-menu dropdown-menu-float dropdown-menu-scroll">
       <ul>
@@ -184,6 +209,11 @@ Dropdown with the flat button styling.
   <div class="dropdown dropdown-flat form-control">
     <button class="dropdown-toggle">
       Flat Button Dropdown
+      <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
     </button>
     <div class="dropdown-menu dropdown-menu-float">
       <ul>
@@ -211,6 +241,11 @@ Dropdown with the link styling, retains dropdown padding.
   <div class="dropdown dropdown-link">
     <button class="dropdown-toggle">
       <span>Link Dropdown</span>
+      <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+      </div>
     </button>
     <div class="dropdown-menu dropdown-menu-float">
       <ul>
@@ -226,8 +261,39 @@ Dropdown with the link styling, retains dropdown padding.
 
 /*doc
 ---
+title: Icon Dropdown
+name: 7_icon_dropdown
+parent: dropdown
+---
+
+A dropdown with no title and just a toggle icon.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown dropdown-icon-only">
+    <button class="dropdown-toggle">
+      <div class="icon icon-middle">
+        <svg class="icon-more_vert" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M24 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 4c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path>
+        </svg>
+      </div>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
 title: Large Dropdown
-name: 7_large_dropdown
+name: 8_large_dropdown
 parent: dropdown
 ---
 
@@ -239,6 +305,11 @@ These modifiers will apply to all of the variations above.
   <div class="dropdown dropdown-lg">
     <button class="dropdown-toggle">
       Large Dropdown
+      <div class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
     </button>
     <div class="dropdown-menu">
       <ul>

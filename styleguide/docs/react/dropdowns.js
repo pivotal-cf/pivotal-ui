@@ -220,7 +220,7 @@ Rendered when no title is specified. Floating menu only.
 
 ```react_example
 <div className="form-group">
-  <Dropdown icon='more_vert'>
+  <Dropdown icon='more_vert' menuAlign='left'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
