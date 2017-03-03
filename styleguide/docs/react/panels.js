@@ -32,9 +32,7 @@ Import the subcomponents:
 import {Panel} from 'pui-react-panels';
 ```
 
-Panel components are straightforward implementations of the [Panel][panel]
-styling. The `Panel` component itself is the base, and there are many different
-flavors of Panels which all construct a particularly styled `Panel`.
+Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself is the base, and there are a few different properties that can be applied to achieve the desired result. 
 
 A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
@@ -42,39 +40,31 @@ property. Alternatively, if this value is a number, it will become the height of
 See examples below.
 
 ```react_example_table
-<Panel className="bg-neutral-10">
-  <p>Base Panel</p>
+<Panel className="bg-neutral-11">
+  <p>Panel content</p>
 </Panel>
 
-<Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
-  <p>Base Panel</p>
+<Panel className="bg-neutral-11 optional-class" innerClassName="opt-inner-class">
+  <p>Panel content</p>
 </Panel>
 
-<Panel className="bg-neutral-10" header='header'>
-  Base Panel with base header
+<Panel className="bg-neutral-11 box-shadow-1" header='Panel header' footer='Panel footer'>
+  Panel with box-Shadow-1
 </Panel>
 
-<Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
-  Base Panel with subtitle
+<Panel className="bg-neutral-11 box-shadow-1" header="Title" subtitle="Subtitle">
+  Panel with title and subtitle
 </Panel>
 
-<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>}>
-  Base Panel with custom header
+<Panel className="bg-neutral-11 box-shadow-1" header={<h2>Custom Title</h2>} actions={<div><button className="btn btn-default mrl">Go</button><button className="btn btn-default-alt">Stop</button></div>}>
+  Panel with custom header and actions
 </Panel>
 
-<Panel className="bg-neutral-10" header={<h2>Custom Title</h2>} actions={<div><button className="btn">Go</button><button className="btn">Stop</button></div>}>
-  Base Panel with custom header and actions
+<Panel className="bg-neutral-11 box-shadow-1" padding="paxxl">
+  <p>Panel with padding</p>
 </Panel>
 
-<Panel className="bg-neutral-10" footer='footer'>
-  Base Panel with footer
-</Panel>
-
-<Panel className="bg-neutral-8" padding="paxxl">
-  <p>Base Panel</p>
-</Panel>
-
-<Panel className="bg-neutral-8" scrollable={100}>
+<Panel className="bg-neutral-11 box-shadow-1" scrollable={100}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -83,7 +73,7 @@ See examples below.
   <p>Scrollable Panel</p>
 </Panel>
 
-<Panel className="bg-neutral-8" scrollable={true}>
+<Panel className="bg-neutral-11 box-shadow-1" scrollable={true}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -93,112 +83,5 @@ See examples below.
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
 </Panel>
-```
-
-## Simple
-
-```
-import {SimplePanel} from 'pui-react-panels';
-```
-
-```react_example_table
-<SimplePanel>
-  Simple Panel
-</SimplePanel>
-```
-
-## Basic
-
-```
-import {BasicPanel} from 'pui-react-panels';
-```
-
-```react_example_table
-<BasicPanel>
-  Basic Panel
-</BasicPanel>
-
-<BasicPanel header='Basic Title'>
-  Basic Panel
-</BasicPanel>
-```
-
-## Basic Panel Alt
-
-```
-import {BasicPanelAlt} from 'pui-react-panels';
-```
-
-```react_example_table
-<BasicPanelAlt>
-  Basic Panel
-</BasicPanelAlt>
-
-<BasicPanelAlt header='Basic Alt Title'>
-  Basic Panel
-</BasicPanelAlt>
-```
-
-## Panel Title
-
-```
-import {PanelTitle, BasicPanelAlt} from 'pui-react-panels';
-```
-
-All Panels accept a `header` property. If `header` is a string, it will render
-a panel title with some default styling using the `PanelTitle` component
-internally. If `header` is a react component, it will render the component
-without additional style. To create a header with some default title styling,
-use the `PanelTitle` component.
-
-```react_example_table
-<BasicPanelAlt header={<div><PanelTitle>Panel Title</PanelTitle>subtitle</div>}>
-  Basic Panel With Custom Title
-</BasicPanelAlt>
-```
-
-## Shadow
-
-```
-import {ShadowPanel} from 'pui-react-panels';
-```
-
-`ShadowPanels` accept a `shadowLevel` property between 1 and 4 (darkest to lightest).
-If no `shadowLevel` is set, a default value of 3 is applied.
-
-```react_example_table
-<ShadowPanel>Shadow Panel (Defaults to shadow level 3)</ShadowPanel>
-
-<ShadowPanel shadowLevel={1}>Shadow Panel (level 1)</ShadowPanel>
-
-<ShadowPanel shadowLevel={2}>Shadow Panel (level 2)</ShadowPanel>
-
-<ShadowPanel shadowLevel={3}>Shadow Panel (level 3)</ShadowPanel>
-
-<ShadowPanel shadowLevel={4}>Shadow Panel (level 4)</ShadowPanel>
-```
-
-## Clickable
-
-```
-import {ClickablePanel, ClickableAltPanel} from 'pui-react-panels';
-```
-
-```react_example_table
-<ClickablePanel>Clickable Panel</ClickablePanel>
-
-<ClickableAltPanel>Clickable Panel (Alt)</ClickableAltPanel>
-```
-
-## Highlight
-
-```
-import {HighlightPanel} from 'pui-react-panels';
-```
-
-```react_example_table
-<HighlightPanel>
-  Highlight Panel
-</HighlightPanel>
 ```
 */
