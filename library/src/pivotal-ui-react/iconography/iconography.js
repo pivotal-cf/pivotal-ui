@@ -26,8 +26,8 @@ export class Icon extends React.Component {
     const {src, verticalAlign, ...others} = this.props;
     const props = mergeProps(others, {className: `icon icon-${verticalAlign}`});
 
-    return (<span {...props}>
+    return (<div {...props}>
       <SvgIcon {...{src, className: `icon-${src}`, key: src}}/>
-    </span>);
+    </div>);
   }
 }
