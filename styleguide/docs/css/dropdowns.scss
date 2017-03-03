@@ -14,17 +14,22 @@ npm install pui-css-dropdowns --save
 
 A dropdown can be used to hide a list of actions or links under a clickable toggle. A dropdown is
 not part of a form so it does not need to be submitted in order to take effect.
+*/
 
-## Basic Dropdown:
+/*doc
+---
+title: Basic Dropdown
+name: 1_basic_dropdown
+parent: dropdown
+---
 
 This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```html_example
-<div class="form-group">
+<div class="form-group form-inline">
   <div class="dropdown form-control">
     <button class="dropdown-toggle">
       Basic Dropdown
-      <span class="caret"></span>
     </button>
     <div class="dropdown-menu">
       <ul>
@@ -36,71 +41,84 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
   </div>
 </div>
 ```
+*/
 
-## Float Dropdown Menu:
+/*doc
+---
+title: Float Dropdown Menu
+name: 2_float_dropdown_menu
+parent: dropdown
+---
 
 The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
 exceeds the parent dropdown width.
 
 ```html_example
-<div class="form-group" style="display: flex">
-  <div class="dropdown" style="margin: 0 8px">
-    <button class="dropdown-toggle">
-      Float Dropdown Menu
-      <span class="caret"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-float">
-      <ul>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-      </ul>
+<div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <button class="dropdown-toggle">
+        Float Dropdown Menu
+      </button>
+      <div class="dropdown-menu dropdown-menu-float">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <button class="dropdown-toggle">
+        Pinned Left
+      </button>
+      <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
+        <ul>
+          <li>
+            <a href="#">Note that this option exceeds the width of the parent dropdown toggle</a>
+          </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="dropdown" style="margin: 0 8px">
-    <button class="dropdown-toggle">
-      Pinned Left
-      <span class="caret"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
-      <ul>
-        <li>
-          <a href="#">Note that this option exceeds the width of the parent dropdown toggle</a>
-        </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="dropdown" style="margin: 0 8px">
-    <button class="dropdown-toggle">
-      Pinned Right
-      <span class="caret"></span>
-    </button>
-    <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
-      <ul>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-      </ul>
-    </div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <button class="dropdown-toggle">
+        Pinned Right
+      </button>
+      <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </diœv>
   </div>
 </div>
 ```
+*/
 
-## Float Scroll Menu:
+/*doc
+---
+title: Float Scroll Menu
+name: 3_float_scroll_menu
+parent: dropdown
+---
 
 Lists that are indeterminately long can utilize the float scroll menu. The size is
 fixed so you'll have to customize the fixed height to achieve your desired results.
 
 ```html_example
-<div class="form-group">
+<div class="form-group form-inline">
   <div class="dropdown">
     <button class="dropdown-toggle">
       Scroll List Items
-      <span class="caret"></span>
     </button>
     <div class="dropdown-menu dropdown-menu-float dropdown-menu-scroll">
       <ul>
@@ -119,19 +137,27 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
   </div>
 </div>
 ```
+*/
 
-## Split Dropdown:
+/*doc
+---
+title: Split Dropdown
+name: 4_split_dropdown
+parent: dropdown
+---
 
 Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
 
 ```html_example
-<div class="form-group">
+<div class="form-group form-inline">
   <div class="dropdown dropdown-split dropdown-icon">
       <div class="dropdown-label">Split Dropdown</div>
       <button type="button" class="dropdown-toggle"></button>
-        <span class="icon icon-middle"><svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48"
-                                          height="48" viewBox="0 0 48 48"><path
-              d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path></svg></span>
+        <span class="icon icon-middle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </span>
       <div class="dropdown-menu dropdown-menu-float">
           <ul>
             <li> <a href="#">lorem ipsum</a> </li>
@@ -142,17 +168,22 @@ Action with additional actions hidden in a dropdown. Only appropriate as a float
   </div>
 </div>
 ```
+*/
 
-## Flat Button Dropdown:
+/*doc
+---
+title: Flat Dropdown
+name: 5_flat_dropdown
+parent: dropdown
+---
 
 Dropdown with the flat button styling.
 
 ```html_example
-<div class="form-group">
+<div class="form-group form-inline">
   <div class="dropdown dropdown-flat form-control">
     <button class="dropdown-toggle">
       Flat Button Dropdown
-      <span class="caret"></span>
     </button>
     <div class="dropdown-menu dropdown-menu-float">
       <ul>
@@ -164,39 +195,50 @@ Dropdown with the flat button styling.
   </div>
 </div>
 ```
+*/
 
-
-## Link Dropdown:
+/*doc
+---
+title: Link Dropdown
+name: 6_link_dropdown
+parent: dropdown
+---
 
 Dropdown with the link styling, retains dropdown padding.
 
 ```html_example
-<div class="dropdown dropdown-link">
-  <button class="dropdown-toggle">
-    <span>Link Dropdown</span>
-    <span class="caret"></span>
-  </button>
-  <div class="dropdown-menu dropdown-menu-float">
-    <ul>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-    </ul>
+<div class="form-group form-inline">
+  <div class="dropdown dropdown-link">
+    <button class="dropdown-toggle">
+      <span>Link Dropdown</span>
+    </button>
+    <div class="dropdown-menu dropdown-menu-float">
+      <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
   </div>
 </div>
 ```
+*/
 
-## Large Dropdowns:
+/*doc
+---
+title: Large Dropdown
+name: 7_large_dropdown
+parent: dropdown
+---
 
 Apply the large class .dropdown-lg to the .dropdown element to change the size of the dropdown.
 These modifiers will apply to all of the variations above.
 
 ```html_example
-<div class="form-group">
+<div class="form-group form-inline">
   <div class="dropdown dropdown-lg">
     <button class="dropdown-toggle">
       Large Dropdown
-      <span class="caret"></span>
     </button>
     <div class="dropdown-menu">
       <ul>
