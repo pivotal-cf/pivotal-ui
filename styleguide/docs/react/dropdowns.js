@@ -17,23 +17,24 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property         | Required | Type                             | Default | Description
------------------|----------|----------------------------------|---------|------------
-border           | no       | Boolean                          |         | If true, adds a border between menu items
-buttonClassName  | no       | String                           |         | Classname to add to the button
-closeOnMenuClick | no       | Boolean                          | true    | If false, do not close the menu when clicking in the dropdown menu
-disableScrim     | no       | Boolean                          | false   | If true, do not close the menu when clicking outside the dropdown
-dropCaret        | no       | Boolean                          | true    | If false, do not render the caret in the dropdown toggle
-flat             | no       | Boolean                          |         | If true, dropdown toggle has no borders and is transparent
-link             | no       | Boolean                          |         | If true, color the dropdown toggle like a link
-menuCaret        | no       | Boolean                          |         | If true, render a caret in the menu pointing at the toggle
-onEntered        | no       | Function                         |         | Callback that fires after opening the dropdown
-onExited         | no       | Function                         |         | Callback that fires after closing the dropdown
-split            | no       | Boolean                          |         | If true, separates the button text from the toggle
-title            | no       | Node                             |         | The button contents
-toggle           | no       | Node                             |         | The toggle contents
-menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'  | Sets the alignment of the menu with the button
-scroll           | no       | Boolean                          | false   | Enables scrolling in the dropdown menu when enabled
+Property         | Required | Type                             | Default  | Description
+-----------------|----------|----------------------------------|----------|------------
+border           | no       | Boolean                          |          | If true, adds a border between menu items
+buttonClassName  | no       | String                           |          | Classname to add to the button
+closeOnMenuClick | no       | Boolean                          | true     | If false, do not close the menu when clicking in the dropdown menu
+disableScrim     | no       | Boolean                          | false    | If true, do not close the menu when clicking outside the dropdown
+dropCaret        | no       | Boolean                          | true     | If false, do not render the caret in the dropdown toggle
+flat             | no       | Boolean                          |          | If true, dropdown toggle has no borders and is transparent
+link             | no       | Boolean                          |          | If true, color the dropdown toggle like a link
+menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'   | Sets the alignment of the menu with the button
+menuCaret        | no       | Boolean                          |          | If true, render a caret in the menu pointing at the toggle
+onEntered        | no       | Function                         |          | Callback that fires after opening the dropdown
+onExited         | no       | Function                         |          | Callback that fires after closing the dropdown
+scroll           | no       | Boolean                          | false    | Enables scrolling in the dropdown menu when enabled
+size             | no       | oneOf(['normal', 'large'])       | 'normal' | Sets the size
+split            | no       | Boolean                          |          | If true, separates the button text from the toggle
+title            | no       | Node                             |          | The button contents
+toggle           | no       | Node                             |          | The toggle contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
@@ -174,7 +175,7 @@ Dropdown with the flat button styling.
 /*doc
 ---
 title: Link Dropdown
-name: 7_link_dropdown_react
+name: 6_link_dropdown_react
 parent: dropdown_react
 ---
 
@@ -183,6 +184,24 @@ Dropdown with the link styling, retains dropdown padding.
 ```react_example
 <div className="form-group">
   <Dropdown title='Link DropDown' link>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+  </Dropdown>
+</div>
+```
+*/
+
+/*doc
+---
+title: Large Dropdown
+name: 8_large_dropdown_react
+parent: dropdown_react
+---
+
+```react_example
+<div className="form-group">
+  <Dropdown title='Large DropDown' size='large'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>

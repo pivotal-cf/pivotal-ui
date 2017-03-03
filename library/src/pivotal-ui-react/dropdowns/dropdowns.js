@@ -37,6 +37,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     onExited: types.func,
     menuAlign: types.oneOf(['none', 'left', 'right']),
     scroll: types.bool,
+    size: types.oneOf(['normal', 'large'])
   }
 
   static defaultProps = {
@@ -44,7 +45,8 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     disableScrim: false,
     dropCaret: true,
     menuAlign: 'none',
-    scroll: false
+    scroll: false,
+    size: 'normal'
   }
 
   click = event => {
@@ -62,7 +64,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   render() {
     const {
       border, buttonClassName, children, className, closeOnMenuClick, disableScrim, dropCaret,
-      flat, link, menuAlign, onClick, onEntered, onExited, split, title, toggle, menuCaret, scroll, ...props
+      flat, link, menuAlign, size, onClick, onEntered, onExited, split, title, toggle, menuCaret, scroll, ...props
     } = this.props;
     const {open} = this.state;
     const toggleNode = toggle ? toggle : defaultToggleNode(dropCaret);
@@ -72,7 +74,8 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       'dropdown-flat': flat,
       'dropdown-split': split,
       'dropdown-icon': split,
-      'dropdown-link': link
+      'dropdown-link': link,
+      'dropdown-lg': (size === 'large')
     }, className);
 
     const menuVisibility = open ? 'dropdown-menu-open' : 'dropdown-menu-closed'

@@ -301,5 +301,19 @@ describe('Dropdowns', () => {
         expect('.dropdown').toHaveClass('dropdown-link');
       });
     });
+
+    describe('when size is provided', () => {
+      it('can be large', () => {
+        subject::setProps({size: 'large'});
+        $('.dropdown-toggle').simulate('click');
+        expect('.dropdown.dropdown-lg').toExist();
+      });
+
+      it('can be normal (not large)', () => {
+        subject::setProps({size: 'normal'});
+        $('.dropdown-toggle').simulate('click');
+        expect('.dropdown-lg').not.toExist();
+      });
+    });
   });
 });
