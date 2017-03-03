@@ -26,7 +26,7 @@ parent: dropdown
 This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown form-control">
     <button class="dropdown-toggle">
       Basic Dropdown
@@ -115,7 +115,7 @@ Lists that are indeterminately long can utilize the float scroll menu. The size 
 fixed so you'll have to customize the fixed height to achieve your desired results.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown">
     <button class="dropdown-toggle">
       Scroll List Items
@@ -149,7 +149,7 @@ parent: dropdown
 Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown dropdown-split dropdown-icon">
       <div class="dropdown-label">Split Dropdown</div>
       <button type="button" class="dropdown-toggle"></button>
@@ -180,7 +180,7 @@ parent: dropdown
 Dropdown with the flat button styling.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown dropdown-flat form-control">
     <button class="dropdown-toggle">
       Flat Button Dropdown
@@ -207,7 +207,7 @@ parent: dropdown
 Dropdown with the link styling, retains dropdown padding.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown dropdown-link">
     <button class="dropdown-toggle">
       <span>Link Dropdown</span>
@@ -235,7 +235,7 @@ Apply the large class .dropdown-lg to the .dropdown element to change the size o
 These modifiers will apply to all of the variations above.
 
 ```html_example
-<div class="form-group form-inline">
+<div class="form-group">
   <div class="dropdown dropdown-lg">
     <button class="dropdown-toggle">
       Large Dropdown

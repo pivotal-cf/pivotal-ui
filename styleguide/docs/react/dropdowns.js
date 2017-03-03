@@ -54,7 +54,7 @@ parent: dropdown_react
 This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```react_example
-<div className="form-group form-inline">
+<div className="form-group">
   <Dropdown title='Basic DropDown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -114,7 +114,7 @@ Lists that are indeterminately long can utilize the float scroll menu. The size 
 fixed so you'll have to customize the fixed height to achieve your desired results.
 
 ```react_example
-<div className="form-group form-inline">
+<div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll menuCaret>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -141,7 +141,7 @@ parent: dropdown_react
 Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
 
 ```react_example
-<div className="form-group form-inline">
+<div className="form-group">
   <Dropdown title='Split Dropdown' split>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -161,7 +161,7 @@ parent: dropdown_react
 Dropdown with the flat button styling.
 
 ```react_example
-<div className="form-group form-inline">
+<div className="form-group">
   <Dropdown title='Flat Button DropDown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -181,7 +181,7 @@ parent: dropdown_react
 Dropdown with the link styling, retains dropdown padding.
 
 ```react_example
-<div className="form-group form-inline">
+<div className="form-group">
   <Dropdown title='Link DropDown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
