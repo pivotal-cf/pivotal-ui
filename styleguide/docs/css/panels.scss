@@ -32,7 +32,7 @@ By default, all the `panel` does is apply basic padding to contain some content.
 ```html_example
 <div class="panel bg-neutral-11">
   <div class="panel-body">
-    Basic Panel
+    Panel body content
   </div>
 </div>
 ```
@@ -51,10 +51,10 @@ Adding the `box-shadow-1` to the `panel` lightly pops the panel off of the page.
 ```html_example
 <div class="panel bg-neutral-11 box-shadow-1">
   <div class="panel-header">
-    <div class="panel-title-alt">Basic Title</div>
+    <div class="panel-title">Panel Title</div>
   </div>
   <div class="panel-body">
-    Basic Panel
+    Panel body content
   </div>
 </div>
 ```
@@ -73,10 +73,10 @@ parent: panel
 ```html_example
 <div class="panel bg-neutral-11 box-shadow-1">
   <div class="panel-header">
-    <div class="panel-title-alt">Basic Title</div>
+    <div class="panel-title-alt">Panel Title Alt</div>
   </div>
-  <div class="panel-body">Body Content</div>
-  <div class="panel-footer">Footer Content</div>
+  <div class="panel-body">Panel body content</div>
+  <div class="panel-footer">Panel footer content</div>
 </div>
 ```
 */
@@ -95,7 +95,7 @@ Add a loading animation to a panel with the class `panel-loading-indicator`. The
 ```html_example
 <div class="panel box-shadow-1">
   <div class="panel-header">
-    <div class="panel-title-alt">Basic Title Alt</div>
+    <div class="panel-title-alt">Panel Title Alt</div>
   </div>
   <div class="panel-body">
     <div class="panel-loading-indicator"></div>
