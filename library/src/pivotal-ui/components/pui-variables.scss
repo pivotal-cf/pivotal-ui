@@ -422,6 +422,7 @@ $btn-danger-color-focus:  $error-2;
 // Forms
 // -------------------------
 
+$input-disabled:                 $gray-9;
 $input-bg:                       $neutral-11 !default;
 $input-bg-active:                $neutral-9;
 $input-bg-disabled:              $gray-lighter !default;
@@ -432,6 +433,8 @@ $input-color:                    $text-color !default;
 $input-color-hover:              $accent-5;
 $input-color-active:             $accent-3;
 $input-border:                   $dark-9 !default;
+$input-border-valid:             $success-2;
+$input-border-invalid:           $error-3;
 $input-border-color-hover:       $neutral-5 !default;
 $input-border-radius:            $border-radius-small !default;
 $input-border-radius-large:      $border-radius-large !default;
@@ -439,6 +442,7 @@ $input-border-radius-small:      $border-radius-small !default;
 $input-border-focus:             $dark-5 !default;
 $input-border-width:             1px !default;
 
+$input-invalid-text:             $error-3;
 $input-color-placeholder:        $neutral-5 !default;
 
 $form-label-color:               $text-color !default;
