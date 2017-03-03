@@ -22,15 +22,15 @@ Panels are typically a combination of contours, backgrounds, and content includi
 
 /*doc
 ---
-title: Basic
-name: 01_panel_basic
+title: Panel
+name: 01_panel
 parent: panel
 ---
 
 By default, all the `panel` does is apply basic padding to contain some content.
 
 ```html_example
-<div class="panel panel-basic bg-neutral-11">
+<div class="panel bg-neutral-11">
   <div class="panel-body">
     Basic Panel
   </div>
@@ -41,7 +41,7 @@ By default, all the `panel` does is apply basic padding to contain some content.
 
 /*doc
 ---
-title: Basic with Box-Shadow
+title: Panel with Box-Shadow
 name: 02_panel_box_shadow
 parent: panel
 ---
@@ -49,7 +49,7 @@ parent: panel
 Adding the `box-shadow-1` to the `panel` lightly pops the panel off of the page. This is the preferred aesthetic instead of a border. This works great for pushing the panel up from the workspace. 
 
 ```html_example
-<div class="panel panel-basic bg-neutral-11 box-shadow-1">
+<div class="panel bg-neutral-11 box-shadow-1">
   <div class="panel-header">
     <div class="panel-title-alt">Basic Title</div>
   </div>
@@ -71,7 +71,7 @@ parent: panel
 ---
 
 ```html_example
-<div class="panel bg-neutral-11" style="height:200px">
+<div class="panel bg-neutral-11 box-shadow-1">
   <div class="panel-header">
     <div class="panel-title-alt">Basic Title</div>
   </div>
