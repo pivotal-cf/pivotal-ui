@@ -107,10 +107,10 @@ html body {
   }
 }
 
-$icon-size-lg: 20px;
-$icon-padding-lg: (($base-unit*5) - $icon-size-lg) / 2;
-$icon-size-sm: 12px;
-$icon-padding-sm: (($base-unit*3) - $icon-size-sm) / 2;
+$form-icon-size-lg: 20px;
+$form-icon-padding-lg: (($base-unit*5) - $form-icon-size-lg) / 2;
+$form-icon-size-sm: 12px;
+$form-icon-padding-sm: (($base-unit*3) - $form-icon-size-sm) / 2;
 select, input {
   :not(input[type="radio"], input[type="checkbox"]) {
     height: $base-unit * 4;
@@ -120,9 +120,9 @@ select, input {
     height: $base-unit * 5;
     font-size: $font-size-large;
     & ~ .icon {
-      font-size: $icon-size-lg;
-      right: $icon-padding-lg;
-      bottom: $icon-padding-lg;
+      font-size: $form-icon-size-lg;
+      right: $form-icon-padding-lg;
+      bottom: $form-icon-padding-lg;
     }
   }
 
@@ -132,9 +132,9 @@ select, input {
     height: $base-unit * 3;
     font-size: $font-size-small;
     & ~ .icon {
-      font-size: $icon-size-sm;
-      right: $icon-padding-sm;
-      bottom: $icon-padding-sm;
+      font-size: $form-icon-size-sm;
+      right: $form-icon-padding-sm;
+      bottom: $form-icon-padding-sm;
     }
   }
 }
@@ -169,14 +169,14 @@ select, input {
   }
 
   //Validation Icons
-  $icon-size: 18px;
-  $icon-padding: (($base-unit*4) - $icon-size) / 2;
+  $form-icon-size: 18px;
+  $form-icon-padding: (($base-unit*4) - $form-icon-size) / 2;
   .icon {
     pointer-events: none;
     position: absolute;
-    right: $icon-padding;
-    bottom: $icon-padding;
-    font-size: $icon-size;
+    right: $form-icon-padding;
+    bottom: $form-icon-padding;
+    font-size: $form-icon-size;
     svg {
       fill:$dark-5;
     }
@@ -220,9 +220,9 @@ select, input {
     font-size: 16px;
   }
   .icon {
-    font-size: $icon-size-lg;
-    right: $icon-padding-lg;
-    bottom: $icon-padding-lg;
+    font-size: $form-icon-size-lg;
+    right: $form-icon-padding-lg;
+    bottom: $form-icon-padding-lg;
   }
 }
 
