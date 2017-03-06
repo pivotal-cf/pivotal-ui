@@ -330,4 +330,16 @@ describe('OverlayTrigger', function() {
     });
 
   });
+
+  describe('theme', function() {
+    it('adds an appropriate class if theme === light', () => {
+      subject::setProps({theme: 'light'});
+      expect('.tooltip-light .tooltip-text').toExist();
+    });
+
+    it('does not add a class if theme =/= light', () => {
+      subject::setProps({theme: 'dark'});
+      expect('.tooltip-light').not.toExist();
+    });
+  })
 });

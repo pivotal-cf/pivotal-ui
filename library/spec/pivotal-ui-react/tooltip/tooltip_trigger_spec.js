@@ -1,12 +1,12 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils';
-import {SimpleTooltip} from '../../../src/pivotal-ui-react/tooltip/tooltip'
+import {TooltipTrigger} from '../../../src/pivotal-ui-react/tooltip/tooltip'
 
-describe('SimpleToolTip Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<SimpleTooltip tooltipContent="Some default tooltip"
+describe('TooltipTrigger Component', () => {
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltip="Some default tooltip"
                                                                               {...props}>
                                                                         <div className="trigger">Some default message</div>
-                                                                      </SimpleTooltip>)
+                                                                      </TooltipTrigger>)
 
   it('renders', () => {
     const result = renderComponent()
@@ -29,8 +29,8 @@ describe('SimpleToolTip Component', () => {
 
   it('renders with node content, node tooltip content', () => {
     const nodeContent = <div className="inner-content">Hello World</div>
-    const nodeTooltipContent = <div className="inner-tooltip-content">Hello world</div>
-    const tooltipElement = <SimpleTooltip tooltipContent={nodeTooltipContent}>{nodeContent}</SimpleTooltip>
+    const nodetooltip = <div className="inner-tooltip-content">Hello world</div>
+    const tooltipElement = <TooltipTrigger tooltip={nodetooltip}>{nodeContent}</TooltipTrigger>
     const result = ReactTestUtils.renderIntoDocument(tooltipElement)
 
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
@@ -42,7 +42,7 @@ describe('SimpleToolTip Component', () => {
 
   it('renders with node content, string tooltip content', () => {
     const nodeContent = <div className="inner-content">Hello World</div>
-    const tooltipElement = <SimpleTooltip tooltipContent="Some tooltip content">{nodeContent}</SimpleTooltip>
+    const tooltipElement = <TooltipTrigger tooltip="Some tooltip content">{nodeContent}</TooltipTrigger>
 
     const result = ReactTestUtils.renderIntoDocument(tooltipElement)
 

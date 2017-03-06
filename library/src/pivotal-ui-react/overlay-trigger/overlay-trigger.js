@@ -1,5 +1,6 @@
 import React from 'react'
 import 'pui-css-tooltips'
+import classnames from 'classnames'
 import uniqueid from 'lodash.uniqueid'
 import TetherComponent from 'react-tether'
 import mixin from 'pui-react-mixins'
@@ -29,13 +30,14 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     delay: types.number,
     delayHide: types.number,
     delayShow: types.number,
+    disableScrim: types.bool,
     display: types.bool,
     onEntered: types.func,
     onExited: types.func,
     overlay: types.element,
     pin: types.bool,
     placement: types.oneOf(['top', 'bottom', 'left', 'right']),
-    disableScrim: types.bool,
+    theme: types.oneOf(['light', 'dark']),
     trigger: types.oneOf(['hover', 'click', 'focus', 'manual'])
   }
 
@@ -43,15 +45,16 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     display: false,
     pin: true,
     placement: 'right',
+    theme: 'dark',
     trigger: 'hover'
   }
 
   componentWillReceiveProps({display}) {
-    if (display !== this.props.display) this.setDisplay(display)
+    if(display !== this.props.display) this.setDisplay(display)
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.display !== this.state.display) {
+    if(prevState.display !== this.state.display) {
       const {onEntered, onExited} = this.props
       const callback = this.state.display ? onEntered : onExited
       callback && callback()
@@ -59,7 +62,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   }
 
   componentWillUnmount() {
-    if (super.componentWillUnmount) super.componentWillUnmount()
+    if(super.componentWillUnmount) super.componentWillUnmount()
     clearTimeout(privates.get(this).timeout)
   }
 
@@ -81,8 +84,8 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
   getDelay = display => {
     const {delay, delayHide, delayShow} = this.props
-    if (display && delayShow) return delayShow
-    if (!display && delayHide) return delayHide
+    if(display && delayShow) return delayShow
+    if(!display && delayHide) return delayHide
     return delay
   }
 
@@ -91,7 +94,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   setDisplay = (display) => {
     const oldTimeout = privates.get(this).timeout
 
-    if (display === this.state.display) {
+    if(display === this.state.display) {
       clearTimeout(oldTimeout)
       privates.set(this, {timeout: null})
       return
@@ -99,10 +102,10 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
     const delay = this.getDelay(display)
 
-    if (oldTimeout && delay) return
+    if(oldTimeout && delay) return
 
     let timeout
-    if (delay) {
+    if(delay) {
       timeout = setTimeout(() => {
         privates.set(this, {timeout: null})
         this.setState({display})
@@ -125,7 +128,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   hide = () => this.setDisplay(false)
 
   render() {
-    let {children, overlay, pin, placement, trigger, ...props} = this.props
+    let {children, overlay, pin, placement, theme, trigger, ...props} = this.props
     const {display} = this.state
 
     const overlayId = overlay.props.id || uniqueid('overlay')
@@ -151,10 +154,15 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       ...triggerHandlers
     })
 
+    const classes = classnames('tooltip', {
+        'tooltip-light': theme === 'light'
+      }
+    )
+
     const tetherProps = {
       attachment: TETHER_PLACEMENTS[placement],
       constraints: pin ? [{to: 'window', attachment: 'together', pin: true}] : [],
-      className: 'tooltip',
+      className: classes,
       classes: {'target-attached': 'tooltip'},
       ...props
     }
