@@ -97,3 +97,33 @@ Tooltips can be sized:
 ```
 
 */
+
+/*doc
+---
+title: Form Icon Tooltip
+name: form_icon_tooltip
+parent: tooltip
+---
+
+Place the .icon into the label element next to the text
+
+```html_example
+<form>
+  <div class="form-group">
+    <label for="formIconExample">Email address
+      <div class="tooltip tooltip-light tooltip-md">
+        <div class="icon icon-baseline">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M22 34h4V22h-4v12zm2-30C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"></path></svg>
+        </div>
+        <div class="tooltip-container">
+          <div class="tooltip-content">
+            Form Icon Tooltip
+          </div>
+        </div>
+      </div>
+    </label>
+    <input type="email" class="form-control" id="formIconExample" placeholder="Enter email">
+  </div>
+</form>
+```
+*/
