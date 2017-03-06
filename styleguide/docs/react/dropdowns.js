@@ -55,7 +55,7 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 
 ```react_example
 <div className="form-group">
-  <Dropdown title='Basic DropDown'>
+  <Dropdown title='Basic Dropdown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -73,7 +73,7 @@ parent: 1_basic_dropdown_react
 
 ```react_example
 <div className="form-group">
-  <Dropdown title='Basic DropDown Custom Icon' icon='more_vert'>
+  <Dropdown title='Basic Dropdown Custom Icon' icon='more_vert'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -95,7 +95,7 @@ exceeds the parent dropdown width.
 ```react_example
 <div>
   <div className="form-group form-inline">
-    <Dropdown title='Float DropDown Menu' floatMenu>
+    <Dropdown title='Float Dropdown Menu' floatMenu>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
       <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -180,7 +180,7 @@ Dropdown with the flat button styling. Floating menu only.
 
 ```react_example
 <div className="form-group form-inline">
-  <Dropdown title='Flat Button DropDown' flat>
+  <Dropdown title='Flat Button Dropdown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -200,7 +200,7 @@ Dropdown with the link styling, retains dropdown padding. Floating menu only.
 
 ```react_example
 <div className="form-group form-inline">
-  <Dropdown title='Link DropDown' link>
+  <Dropdown title='Link Dropdown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -238,7 +238,7 @@ parent: dropdown_react
 
 ```react_example
 <div className="form-group">
-  <Dropdown title='Large DropDown' size='large'>
+  <Dropdown title='Large Dropdown' size='large'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>

@@ -28,14 +28,14 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 ```html_example
 <div class="form-group">
   <div class="dropdown form-control">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       Basic Dropdown
       <div class="icon icon-middle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
         </svg>
       </div>
-    </button>
+    </div>
     <div class="dropdown-menu">
       <ul>
         <li> <a href="#">lorem ipsum</a> </li>
@@ -62,14 +62,14 @@ exceeds the parent dropdown width.
 <div>
   <div class="form-group form-inline">
     <div class="dropdown">
-      <button class="dropdown-toggle">
+      <div tabindex="0" class="dropdown-toggle">
         Float Dropdown Menu
         <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-      </button>
+      </div>
       <div class="dropdown-menu dropdown-menu-float">
         <ul>
           <li> <a href="#">lorem ipsum</a> </li>
@@ -81,14 +81,14 @@ exceeds the parent dropdown width.
   </div>
   <div class="form-group form-inline">
     <div class="dropdown">
-      <button class="dropdown-toggle">
+      <div tabindex="0" class="dropdown-toggle">
         Pinned Left
         <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-      </button>
+      </div>
       <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
         <ul>
           <li>
@@ -103,14 +103,14 @@ exceeds the parent dropdown width.
 
   <div class="form-group form-inline">
     <div class="dropdown">
-      <button class="dropdown-toggle">
+      <div tabindex="0" class="dropdown-toggle">
         Pinned Right
         <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-      </button>
+      </div>
       <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
         <ul>
           <li> <a href="#">lorem ipsum</a> </li>
@@ -137,14 +137,14 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
 ```html_example
 <div class="form-group">
   <div class="dropdown">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       Scroll List Items
       <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-    </button>
+    </div>
     <div class="dropdown-menu dropdown-menu-float dropdown-menu-scroll">
       <ul>
         <li> <a href="#">lorem ipsum</a> </li>
@@ -177,7 +177,7 @@ focused state. Only appropriate as a float menu.
 ```html_example
 <div class="form-group form-inline">
   <div class="dropdown dropdown-split dropdown-icon">
-      <button type="button" class="dropdown-toggle"></button>
+      <div tabindex="0" type="button" class="dropdown-toggle"></div>
       <div class="icon icon-middle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
@@ -208,14 +208,14 @@ Dropdown with the flat button styling.
 ```html_example
 <div class="form-group form-inline">
   <div class="dropdown dropdown-flat form-control">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       Flat Button Dropdown
       <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-    </button>
+    </div>
     <div class="dropdown-menu dropdown-menu-float">
       <ul>
         <li> <a href="#">lorem ipsum</a> </li>
@@ -240,14 +240,14 @@ Dropdown with the link styling, retains dropdown padding.
 ```html_example
 <div class="form-group form-inline">
   <div class="dropdown dropdown-link">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       <span>Link Dropdown</span>
       <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
       </div>
-    </button>
+    </div>
     <div class="dropdown-menu dropdown-menu-float">
       <ul>
           <li> <a href="#">lorem ipsum</a> </li>
@@ -272,13 +272,13 @@ A dropdown with no title and just a toggle icon.
 ```html_example
 <div class="form-group">
   <div class="dropdown dropdown-icon-only">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       <div class="icon icon-middle">
         <svg class="icon-more_vert" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M24 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 4c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path>
         </svg>
       </div>
-    </button>
+    </div>
     <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
       <ul>
         <li> <a href="#">lorem ipsum</a> </li>
@@ -304,14 +304,14 @@ These modifiers will apply to all of the variations above.
 ```html_example
 <div class="form-group">
   <div class="dropdown dropdown-lg">
-    <button class="dropdown-toggle">
+    <div tabindex="0" class="dropdown-toggle">
       Large Dropdown
       <div class="icon icon-middle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
         </div>
-    </button>
+    </div>
     <div class="dropdown-menu">
       <ul>
         <li> <a href="#">lorem ipsum</a> </li>

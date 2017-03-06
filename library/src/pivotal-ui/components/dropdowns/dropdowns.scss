@@ -34,12 +34,11 @@
     font-size: 16px;
   }
 
-  .dropdown-toggle:focus ~ .dropdown-menu:not(.dropdown-menu-closed) {
-    display:block;
-  }
-
-  .dropdown-toggle:focus {
+  &:not(.dropdown-closed) .dropdown-toggle:focus {
     border: 1px solid $input-border-focus;
+    ~ .dropdown-menu {
+      display:block;
+    }
   }
 
   &.dropdown-icon-only:not(.dropdown-split) {
@@ -61,6 +60,7 @@
   .dropdown-menu {
     display: none;
     position: absolute;
+    left: 0;
     text-align: left;
     top: 100%;
     width:100%;
@@ -94,15 +94,6 @@
           color:inherit;
         }
       }
-    }
-
-    //Visibility
-    &.dropdown-menu-closed {
-      display: none;
-    }
-
-    &.dropdown-menu-open {
-      display: block;
     }
 
     //Dropdown Menu Floats
@@ -140,6 +131,17 @@
       overflow-y: scroll;
     }
   }
+
+  &.dropdown-open {
+    .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-toggle {
+      border: 1px solid $input-border-focus;
+    }
+  }
+
   //Dropdown Split
   &.dropdown-split {
     display: inline-flex;
@@ -165,11 +167,13 @@
       display: flex;
       border-radius:0 2px 2px 0;
     }
-    .dropdown-toggle:focus ~ .dropdown-label {
+    &:not(.dropdown-closed) .dropdown-toggle:focus ~ .dropdown-label,
+    &.dropdown-open .dropdown-label {
       border: 1px solid $input-border-focus;
       border-right: none;
     }
   }
+
   //Dropdown Flat
   &.dropdown-flat {
     .dropdown-toggle {
@@ -195,24 +199,6 @@
   &.dropdown-split .dropdown-toggle {
       width:32px;
       padding:($base-unit*2) - 1px; //16px - 1px border
-  }
-
-  //Open and Close Dropdown - handled by JS
-  &.open {
-    .dropdown-menu {
-      display: block;
-    }
-    .dropdown-toggle {
-      border: 1px solid $input-border-focus;
-    }
-    &.dropdown-link .dropdown-toggle, &.dropdown-flat .dropdown-toggle {
-      border: 1px solid transparent;
-    }
-    .dropdown-label {
-      border-top: 1px solid $input-border-focus;
-      border-left: 1px solid $input-border-focus;
-      border-bottom: 1px solid $input-border-focus;
-    }
   }
 
   //Dropdown Large
