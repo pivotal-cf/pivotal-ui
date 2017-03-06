@@ -159,7 +159,7 @@ parent: dropdown_react
 Action with additional actions hidden in a dropdown. Floating menu only.
 
 ```react_example
-<div className="form-group">
+<div className="form-group form-inline">
   <Dropdown title='Split Dropdown' split>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -179,7 +179,7 @@ parent: dropdown_react
 Dropdown with the flat button styling. Floating menu only.
 
 ```react_example
-<div className="form-group">
+<div className="form-group form-inline">
   <Dropdown title='Flat Button DropDown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -199,7 +199,7 @@ parent: dropdown_react
 Dropdown with the link styling, retains dropdown padding. Floating menu only.
 
 ```react_example
-<div className="form-group">
+<div className="form-group form-inline">
   <Dropdown title='Link DropDown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
