@@ -26,7 +26,6 @@
     }
   }
 
-  // TODO: does this apply to icon-only?
   &.dropdown-split .icon {
     pointer-events: none;
     position: absolute;
@@ -144,19 +143,19 @@
   //Dropdown Split
   &.dropdown-split {
     display: inline-flex;
+    flex-direction: row-reverse;
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between;
     .dropdown-label {
-      border-top: 1px solid $input-border;
-      border-left: 1px solid $input-border;
-      border-bottom: 1px solid $input-border;
+      border: 1px solid $input-border;
+      border-radius:2px 0 0 2px;
+      border-right: none;
       width:100%;
       padding:0 $base-unit;
       height:($base-unit*4);
       line-height: ($base-unit*4) - 2px;
       font-size:14px;
-      border-radius:2px 0 0 2px;
     }
 
     a.dropdown-label {
@@ -165,6 +164,10 @@
     .dropdown-toggle {
       display: flex;
       border-radius:0 2px 2px 0;
+    }
+    .dropdown-toggle:focus ~ .dropdown-label {
+      border: 1px solid $input-border-focus;
+      border-right: none;
     }
   }
   //Dropdown Flat

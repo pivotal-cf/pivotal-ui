@@ -171,18 +171,18 @@ name: 4_split_dropdown
 parent: dropdown
 ---
 
-Action with additional actions hidden in a dropdown. Only appropriate as a float menu.
+Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the
+focused state. Only appropriate as a float menu.
 
 ```html_example
 <div class="form-group form-inline">
   <div class="dropdown dropdown-split dropdown-icon">
-      <div class="dropdown-label">Split Dropdown</div>
       <button type="button" class="dropdown-toggle"></button>
-        <span class="icon icon-middle">
-          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
-          </svg>
-        </span>
+      <div class="icon icon-middle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
       <div class="dropdown-menu dropdown-menu-float">
           <ul>
             <li> <a href="#">lorem ipsum</a> </li>
@@ -190,6 +190,7 @@ Action with additional actions hidden in a dropdown. Only appropriate as a float
             <li> <a href="#">lorem ipsum</a> </li>
           </ul>
       </div>
+      <div class="dropdown-label">Split Dropdown</div>
   </div>
 </div>
 ```

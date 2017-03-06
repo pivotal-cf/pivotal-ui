@@ -63,6 +63,10 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     this.setState({open: false})
   }
 
+  splitLabelClick = () => {
+    this.setState({open: false})
+  }
+
   render() {
     const {
       border, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
@@ -99,11 +103,11 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     </div>
 
     return (<div className={dropdownClasses} {...props}>
-      {split && <div className={classnames('dropdown-label', buttonStyleClasses)}>{title}</div>}
       <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
         {!split && title}
       </button>
       {toggleNode}
+      {split && <div className={classnames('dropdown-label', buttonStyleClasses)} onClick={this.splitLabelClick}>{title}</div>}
       {dropdownOptions}
     </div>)
   }
