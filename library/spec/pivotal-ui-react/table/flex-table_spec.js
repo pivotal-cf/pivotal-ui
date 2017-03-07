@@ -181,41 +181,6 @@ describe('Flex Table', () => {
       })
     })
 
-    // describe('TableCell', function() {
-    //   function renderTableCell({children, ...props}) {
-    //     return ReactDOM.render((
-    //         <table>
-    //           <tbody>
-    //           <tr>
-    //             <TableCell {...props}>
-    //               {children}
-    //             </TableCell>
-    //           </tr>
-    //           </tbody>
-    //         </table>
-    //       ), root
-    //     );
-    //
-    //   }
-    //
-    //   it('contains the given children', function() {
-    //     renderTableCell({children: (<p>This is my text</p>)});
-    //     expect('td').toExist();
-    //     expect('td > p').toExist();
-    //     expect('td > p').toContainText('This is my text');
-    //   });
-    //
-    //   it('adds the additional classes, id and styles to the th', function() {
-    //     renderTableCell({
-    //       id: 'cell-id',
-    //       className: 'cell-light',
-    //       style: {opacity: '0.5'}
-    //     });
-    //     expect('td').toHaveClass('cell-light');
-    //     expect('td').toHaveProp('id', 'cell-id');
-    //     expect('td').toHaveCss({opacity: '0.5'});
-    //   });
-    //
     describe('FlexTableCell', () => {
       it('renders custom', () => {
         class CustomCell extends React.Component {
