@@ -14,7 +14,7 @@ export default ParentClass => {
   return class Scrim extends ParentClass {
     static propTypes = {
       disableScrim: types.bool
-    }
+    };
 
     constructor(props, context) {
       super(props, context);
@@ -26,12 +26,14 @@ export default ParentClass => {
 
     componentDidMount(...args) {
       if (super.componentDidMount) super.componentDidMount(...args);
-      document.documentElement.addEventListener('click', privates.get(this));
+      const document = this.props.getDocument ? this.props.getDocument() : global.document;
+      if (typeof document === 'object') document.documentElement.addEventListener('click', privates.get(this));
     }
 
     componentWillUnmount(...args) {
       if (super.componentWillUnmount) super.componentWillUnmount(...args);
-      document.documentElement.removeEventListener('click', privates.get(this));
+      const document = this.props.getDocument ? this.props.getDocument() : global.document;
+      if (typeof document === 'object') document.documentElement.removeEventListener('click', privates.get(this));
     }
-  };
+  }
 };
