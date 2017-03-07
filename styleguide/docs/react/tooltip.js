@@ -76,36 +76,36 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
 
 ```react_example
 <div>
-  <p>
+  <div className="form-group">
     Check out this
     <OverlayTrigger placement="left" overlay={<Tooltip content="I should be on the left"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the left.</span>
     </OverlayTrigger>
-  </p>
-  <p>
+  </div>
+  <div className="form-group">
     Check out this
     <OverlayTrigger placement="right" overlay={<Tooltip content="I should be on the right"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the right.</span>
     </OverlayTrigger>
-  </p>
-  <p>
+  </div>
+  <div className="form-group">
     Check out this
     <OverlayTrigger placement="top" overlay={<Tooltip content="I should be on the top"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the top.</span>
     </OverlayTrigger>
-  </p>
-  <p>
+  </div>
+  <div className="form-group">
     Check out this
     <OverlayTrigger placement="bottom" overlay={<Tooltip content="I should be on the bottom"/>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the bottom.</span>
     </OverlayTrigger>
-  </p>
-  <p>
+  </div>
+  <div className="form-group">
     Check out this
     <OverlayTrigger theme="light" overlay={<Tooltip content="light tooltip"/>}>
       <span className="overlay-trigger" tabIndex="0"> light tooltip.</span>
     </OverlayTrigger>
-  </p>
+  </div>
 </div>
 ```
 
@@ -148,12 +148,16 @@ triggering element.
 
 ```react_example
 <div>
-  <TooltipTrigger tooltip="Some tooltip" style={{marginRight: "10px"}}>
-    <button className="btn btn-default">Hover over me</button>
-  </TooltipTrigger>
-  <TooltipTrigger tooltip="Some tooltip" trigger="click">
-    <button className="btn btn-default">Click me</button>
-  </TooltipTrigger>
+  <div className="form-group form-inline">
+    <TooltipTrigger tooltip="Some tooltip">
+      <button className="btn btn-default">Hover over me</button>
+    </TooltipTrigger>
+  </div>
+  <div className="form-group form-inline">
+    <TooltipTrigger tooltip="Some tooltip" trigger="click">
+      <button className="btn btn-default">Click me</button>
+    </TooltipTrigger>
+  </div>
 </div>
 ```
 */
