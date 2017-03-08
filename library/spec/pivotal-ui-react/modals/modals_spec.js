@@ -283,4 +283,12 @@ describe('BaseModal', function() {
     );
     expect('.modal-dialog').toHaveClass('some-class-name');
   });
+
+  describe('when there is no document', () => {
+    it('does not throw an exception when rendered', () => {
+      expect(() => {
+        ReactDOM.render(<BaseModal show id="mr-modal" title="hey mr modal" getDocument={() => {}}/>, root);
+      }).not.toThrow();
+    });
+  });
 });
