@@ -78,28 +78,18 @@ The small spinner is 16px and moves more quickly and dramatically.  These sizes 
 in the creation of custom components.
 
 ```react_example
-<div>
-  <div className="grid" style={{marginBottom: '10px'}}>
-    <div className="col" style={{textAlign: 'center'}}>
-      <code>.spinner-lg</code>
-    </div>
-    <div className="col" style={{textAlign: 'center'}}>
-      <code>.spinner-md</code>
-    </div>
-    <div className="col" style={{textAlign: 'center'}}>
-      <code>.spinner-sm</code>
-    </div>
+<div className="grid txt-c">
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-lg</code></div>
+    <Icon src="spinner-lg"/>
   </div>
-  <div className="grid">
-    <div className="col col-middle col-top">
-      <Icon src="spinner-lg"/>
-    </div>
-    <div className="col col-middle col-top">
-      <Icon src="spinner-md"/>
-    </div>
-    <div className="col col-middle col-top">
-      <Icon src="spinner-sm"/>
-    </div>
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-md</code></div>
+    <Icon src="spinner-md"/>
+  </div>
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-sm</code></div>
+    <Icon src="spinner-sm"/>
   </div>
 </div>
 ```

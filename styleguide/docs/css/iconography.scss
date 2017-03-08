@@ -71,51 +71,41 @@ The small spinner is 16px and moves more quickly and dramatically.  These sizes 
 in the creation of custom components.
 
 ```html_example
-<div>
-  <div class="grid" style="margin-bottom: 10px">
-    <div class="col" style="text-align: center">
-      <code>.spinner-lg</code>
-    </div>
-    <div class="col" style="text-align: center">
-      <code>.spinner-md</code>
-    </div>
-    <div class="col" style="text-align: center">
-      <code>.spinner-sm</code>
+<div class="grid txt-c">
+  <div class="col col-top">
+  <div class="mbl"><code>.spinner-lg</code></div>
+    <div class="icon icon-middle spinner">
+        <svg class="icon-spinner-lg" width="100px" height="100px" viewBox="0 0 101 101"
+             xmlns="http://www.w3.org/2000/svg">
+            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+        </svg>
     </div>
   </div>
-  <div class="grid">
-    <div class="col col-middle col-top">
-        <div class="icon icon-middle spinner">
-            <svg class="icon-spinner-lg" width="100px" height="100px" viewBox="0 0 101 101"
-                 xmlns="http://www.w3.org/2000/svg">
-                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-            </svg>
-        </div>
+  <div class="col col-top">
+    <div class="mbl"><code>.spinner-md</code></div>
+    <div class="icon icon-middle spinner">
+        <svg class="icon-spinner-md" width="100px" height="100px" viewBox="0 0 101 101"
+             xmlns="http://www.w3.org/2000/svg">
+            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+        </svg>
     </div>
-    <div class="col col-middle col-top">
-        <div class="icon icon-middle spinner">
-            <svg class="icon-spinner-md" width="100px" height="100px"
-                 xmlns="http://www.w3.org/2000/svg">
-                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-            </svg>
-        </div>
-    </div>
-    <div class="col col-middle col-top">
-        <div class="icon icon-middle spinner">
-            <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
-                 xmlns="http://www.w3.org/2000/svg">
-                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                        r="45%"></circle>
-            </svg>
-        </div>
+  </div>
+  <div class="col col-top">
+    <div class="mbl"><code>.spinner-sm</code></div>
+    <div class="icon icon-middle spinner">
+        <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
+             xmlns="http://www.w3.org/2000/svg">
+            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                    r="45%"></circle>
+        </svg>
     </div>
   </div>
 </div>
