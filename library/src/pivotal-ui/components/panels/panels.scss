@@ -166,8 +166,11 @@
   }
 }
 
-.panel-shadow {
+.panel {
   border: none; //Bootstrap override
+}
+
+.panel-shadow {
   @include background-clip-fix;
 }
 
