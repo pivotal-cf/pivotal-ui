@@ -42,6 +42,18 @@
 
     }
   }
+
+  // Spinner
+  .icon-spinner-lg,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-default-color;
+    }
+    .path {
+      stroke: $btn-default-color;
+    }
+  }
 }
 
 .btn.btn-icon {
@@ -98,7 +110,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -134,7 +146,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -178,7 +190,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -222,7 +234,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -262,6 +274,17 @@
       fill: $btn-primary-color-focus;
     }
   }
+  // Spinner
+  .icon-spinner-lg,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-primary-color;
+    }
+    .path {
+      stroke: $btn-primary-color;
+    }
+  }
 }
 
 //primary Alt Button
@@ -275,7 +298,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -319,7 +342,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -359,6 +382,18 @@
       fill: $btn-brand-color-focus;
     }
   }
+
+  // Spinner
+  .icon-spinner-lg,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-brand-color;
+    }
+    .path {
+      stroke: $btn-brand-color;
+    }
+  }
 }
 
 //brand Alt Button
@@ -372,7 +407,7 @@
   }
 
   //Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -416,7 +451,7 @@
   }
 
   // Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {
@@ -456,6 +491,18 @@
       fill: $btn-danger-color-focus;
     }
   }
+
+  // Spinner
+  .icon-spinner-lg,
+  .icon-spinner-md,
+  .icon-spinner-sm {
+    .ring {
+      stroke: $btn-danger-color;
+    }
+    .path {
+      stroke: $btn-danger-color;
+    }
+  }
 }
 
 //danger Alt Button
@@ -469,7 +516,7 @@
   }
 
   // Spinner
-  .icon-spinner,
+  .icon-spinner-lg,
   .icon-spinner-md,
   .icon-spinner-sm {
     .ring {

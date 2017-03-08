@@ -24,17 +24,23 @@ use either a `<button>` or an `<a>` element:
 If your button is actually a link to another page, please use the
 `<a>` element, while if your button performs an action, such as submitting
 a form or triggering some javascript event, then use a `<button>` element.
+*/
 
-## Styles
+/*doc
+---
+title: Styling
+name: 01_button_styling
+parent: button
+---
 
 Every button type has a default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders).
 
 Button                                           | Button Alt                                               | Button Flat                                                | Description
 -------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
-<button class="btn btn-default">Default</button> |<button class="btn btn-default-alt">Default Alt</button>  | <button class="btn">Default Flat</button>                              | This the default button style.
-<button class="btn btn-primary">Primary</button> |<button class="btn btn-primary-alt">Primary Alt</button>  | <button class="btn btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
-<button class="btn btn-danger">Danger</button>   |<button class="btn btn-danger-alt">Danger Alt</button>    | <button class="btn btn-danger-flat">Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn btn-brand">Brand</button>     |<button class="btn btn-brand-alt">Brand Alt</button>      | <button class="btn btn-brand-flat">Brand Flat</button>     | This button is for marketing purposes only
+<button class="btn btn-default"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Default</button> |<button class="btn btn-default-alt"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Default Alt</button>  | <button class="btn"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Default Flat</button>                  | This the default button style.
+<button class="btn btn-primary"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Primary</button> |<button class="btn btn-primary-alt"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Primary Alt</button>  | <button class="btn btn-primary-flat"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Primary Flat</button> | Use this button for primary actions.
+<button class="btn btn-danger"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Danger</button>   |<button class="btn btn-danger-alt"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Danger Alt</button>    | <button class="btn btn-danger-flat"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-brand"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Brand</button>     |<button class="btn btn-brand-alt"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Brand Alt</button>      | <button class="btn btn-brand-flat"><div class="icon icon-middle spinner"><svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg"><circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle><circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle></svg></div>Brand Flat</button>     | This button is for marketing purposes only
 
 The most common button examples are below:
 
@@ -52,14 +58,13 @@ The most common button examples are below:
 <button class="btn btn-danger">Danger</button>
 ```
 
-
 */
 
 
 /*doc
 ---
 title: Disabling
-name: button_disabling
+name: 02_button_disabling
 parent: button
 ---
 
@@ -86,11 +91,11 @@ If given the disabled class, a button will be functionally disabled, and will al
 /*doc
 ---
 title: Sizes
-name: button_sizes
+name: 03_button_sizes
 parent: button
 ---
 
-There are three sizes for buttons: Large, small, and default. Simply apply the
+There are three sizes for buttons: large, small, and default. Simply apply the
 size modifier class for the desired size.
 
 ```html_example_table
@@ -106,11 +111,25 @@ size modifier class for the desired size.
 /*doc
 ---
 title: Icons
-name: button_icons
+name: 04_button_icons
 parent: button
 ---
 
-Buttons can be containers for icons:
+Buttons can contain icons:
+
+```html_example_table
+<button class="btn btn-default-alt">
+  <div class="icon icon-middle spinner">
+    <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg">
+      <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle>
+      <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle>
+    </svg>
+  </div>
+  Loading
+</button>
+```
+
+They can also be icon buttons:
 
 ```html_example_table
 <button class="btn btn-default-alt btn-icon">
