@@ -52,7 +52,7 @@
 }
 
 $tab-border-size: 1px;
-$tab-padding: 6px 19px;
+$tab-padding: $base-unit ($base-unit*2);
 
 .tab-simple {
   position: relative;
@@ -75,7 +75,8 @@ $tab-padding: 6px 19px;
         border: 0; //bootstrap override
         border-radius: 0; //bootstrap override
         padding: $tab-padding;
-        //color: $tab-simple-link-color;
+        line-height: 16px;
+        color: $tab-simple-link-color;
         font-weight: $tab-simple-link-font-weight;
       }
 
@@ -156,7 +157,7 @@ $tab-padding: 6px 19px;
         padding: 10px 19px 13px 19px;
         color: $tab-alt-link-color;
         font-weight: $tab-alt-link-font-weight;
-        font-size: 16px;
+        font-size: $font-size-base;
       }
       > a:hover, > a:focus {
         border: 0;

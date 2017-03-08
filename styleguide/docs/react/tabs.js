@@ -16,29 +16,29 @@ npm install pui-react-tabs --save
 
 Tabs
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-actions              | no | Node                          |       | An element or text that will display in the upper right
-animation            | no | Boolean                       | false | Whether to animate when moving between tabs, defaults to true
-defaultActiveKey     | no | Any                           |       | The tab which will start out open. This should equal one of your tab's event keys
-largeScreenClassName | no | String                        |       | Will be applied to large screen tabs only
-onSelect             | no | Function                      |       | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
-responsiveBreakpoint | no | oneOf('xs', 'sm', 'md', 'lg') |       | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
-smallScreenClassName | no | String                        |       | Will be applied to small screen tabs only
-tabType              | no | oneOf('simple', 'simple-alt') |       | Change the styling of your tabs, mostly whether the selected tab is transparent
+Property             | Required | Type                          | Default  | Description
+---------------------|----------|-------------------------------|----------|------------
+actions              | no       | Node                          |          | An element or text that will display in the upper right
+animation            | no       | Boolean                       | false    | Whether to animate when moving between tabs, defaults to true
+defaultActiveKey     | no       | Any                           |          | The tab which will start out open. This should equal one of your tab's event keys
+largeScreenClassName | no       | String                        |          | Will be applied to large screen tabs only
+onSelect             | no       | Function                      |          | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
+responsiveBreakpoint | no       | oneOf('xs', 'sm', 'md', 'lg') |          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
+smallScreenClassName | no       | String                        |          | Will be applied to small screen tabs only
+tabType              | no       | oneOf('simple', 'left')       | 'simple' | Use 'left' to have the tabs stacked to the left
 
 Tab
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-aria-labelledby | no  | String   |       | Overwrite the default aria-labelledby for the tab for more specific accessibility information
-className       | no  | String   |       | ClassName to add to the tab content
-disabled        | no  | Boolean  | false | If true, disable the tab
-eventKey        | no  | Any      |       | data representing the tab, to be used with defaultActiveKey or onSelect
-onEntered       | no  | Function |       | A function that gets called with the eventKey on entering a tab once animations have finished
-onExited        | no  | Function |       | A function that gets called with the eventKey on exiting a tab once animations have finished
-title           | yes | Node     |       | Text or an element rendered in the tab link
-tabClassName    | no  | String   |       | className to add to the tab link
+Property        | Required | Type     | Default | Description
+----------------|----------|----------|---------|------------
+aria-labelledby | no       | String   |         | Overwrite the default aria-labelledby for the tab for more specific accessibility information
+className       | no       | String   |         | ClassName to add to the tab content
+disabled        | no       | Boolean  | false   | If true, disable the tab
+eventKey        | no       | Any      |         | data representing the tab, to be used with defaultActiveKey or onSelect
+onEntered       | no       | Function |         | A function that gets called with the eventKey on entering a tab once animations have finished
+onExited        | no       | Function |         | A function that gets called with the eventKey on exiting a tab once animations have finished
+title           | yes      | Node     |         | Text or an element rendered in the tab link
+tabClassName    | no       | String   |         | className to add to the tab link
 
 ## Basic usage
 
@@ -57,18 +57,6 @@ for uniquely identifying this tab to its parent component.
 
 ```react_example
 <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
-  <Tab eventKey={1} title="Tab 1">Wow!</Tab>
-  <Tab eventKey={2} title="Tab 2">
-    <h2>Neat!</h2>
-    <span>So much content.</span>
-  </Tab>
-</Tabs>
-```
-
-## Alt
-
-```react_example
-<Tabs tabType="simple-alt" defaultActiveKey={2}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
     <h2>Neat!</h2>
