@@ -1,35 +1,37 @@
-require('../spec_helper');
+require('../spec_helper')
+import {Svg} from 'pui-react-svg'
+import ReactTestUtils from 'react-addons-test-utils'
 
 describe('Svg', () => {
-  let subject, Svg;
+  let subject
 
-  beforeEach(() => {
-    Svg = require('../../../src/pivotal-ui-react/svg/svg').Svg;
-
-    class MySvg extends Svg {
-      svgPathLoader(src) {
-        return require(`!!babel-loader!svg-react-loader!./${src}.svg`);
-      }
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<MySvg src="search" {...props} />)
+  class MySvg extends Svg {
+    svgPathLoader(src) {
+      return require(`!!babel-loader!svg-react-loader!./${src}.svg`)
     }
-    subject = ReactDOM.render(<MySvg src="search"/>, root);
-  });
+  }
 
   it('renders an svg', () => {
-    expect('svg').toExist();
-    expect('svg path').toExist();
-  });
+    subject = renderComponent()
+    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+    expect(svg.childNodes[3].tagName).toEqual('path')
+  })
 
   it('renders the svg with the html attributes', () => {
-    expect('svg').toHaveAttr('x', '0px');
-    expect('svg').toHaveAttr('y', '0px');
-    expect('svg').toHaveAttr('viewBox', '0 0 225 225');
-  });
+    subject = renderComponent()
+    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+    expect(svg.attributes['x'].value).toEqual('0px')
+    expect(svg.attributes['y'].value).toEqual('0px')
+    expect(svg.attributes['viewBox'].value).toEqual('0 0 225 225')
+  })
 
   describe('when there are props on the svg', () => {
     it('overrides the html attributes', () => {
-      subject::setProps({x: '10px', y: '20px'});
-      expect('svg').toHaveAttr('x', '10px');
-      expect('svg').toHaveAttr('y', '20px');
-    });
-  });
-});
+      subject = renderComponent({x: '10px', y: '20px'})
+      const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+      expect(svg.attributes['x'].value).toEqual('10px')
+      expect(svg.attributes['y'].value).toEqual('20px')
+    })
+  })
+})
