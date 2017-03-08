@@ -73,23 +73,33 @@ name: spinner_react
 parent: iconography_react
 ---
 
-Spinner appearance is determined by size. The base spinner is 96px and moves relatively slowly.
+Spinner appearance is determined by size. The large spinner is 96px and moves relatively slowly.
 The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
 in the creation of custom components.
 
 ```react_example
 <div>
-  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center", marginRight: "30px"}}>
-    <code style={{marginBottom: "10px"}}>.spinner</code>
-    <Icon src="spinner"/>
+  <div className="grid" style={{marginBottom: '10px'}}>
+    <div className="col" style={{textAlign: 'center'}}>
+      <code>.spinner-lg</code>
+    </div>
+    <div className="col" style={{textAlign: 'center'}}>
+      <code>.spinner-md</code>
+    </div>
+    <div className="col" style={{textAlign: 'center'}}>
+      <code>.spinner-sm</code>
+    </div>
   </div>
-  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center", marginRight: "30px"}}>
-    <code style={{marginBottom: "10px"}}>.spinner-md</code>
-    <Icon src="spinner-md"/>
-  </div>
-  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center"}}>
-    <code style={{marginBottom: "10px"}}>.spinner-sm</code>
-    <Icon src="spinner-sm"/>
+  <div className="grid">
+    <div className="col col-middle col-top">
+      <Icon src="spinner-lg"/>
+    </div>
+    <div className="col col-middle col-top">
+      <Icon src="spinner-md"/>
+    </div>
+    <div className="col col-middle col-top">
+      <Icon src="spinner-sm"/>
+    </div>
   </div>
 </div>
 ```

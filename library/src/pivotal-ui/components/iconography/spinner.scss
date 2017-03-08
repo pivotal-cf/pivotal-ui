@@ -43,11 +43,6 @@
   animation: rotator ($spinner-duration/2) linear infinite;
 }
 
-// (the default is 'lg')
-.icon-spinner {
-  @extend .icon-spinner-lg;
-}
-
 @keyframes rotator {
   0% {
     transform: rotate(0deg);

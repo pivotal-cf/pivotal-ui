@@ -66,16 +66,27 @@ name: spinner
 parent: iconography
 ---
 
-Spinner appearance is determined by size. The base spinner is 96px and moves relatively slowly.
+Spinner appearance is determined by size. The large spinner is 96px and moves relatively slowly.
 The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
 in the creation of custom components.
 
 ```html_example
 <div>
-    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center; margin-right: 30px;">
-        <code style="margin-bottom: 10px;">.spinner</code>
+  <div class="grid" style="margin-bottom: 10px">
+    <div class="col" style="text-align: center">
+      <code>.spinner-lg</code>
+    </div>
+    <div class="col" style="text-align: center">
+      <code>.spinner-md</code>
+    </div>
+    <div class="col" style="text-align: center">
+      <code>.spinner-sm</code>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col col-middle col-top">
         <div class="icon icon-middle spinner">
-            <svg class="icon-spinner" width="100px" height="100px" viewBox="0 0 101 101"
+            <svg class="icon-spinner-lg" width="100px" height="100px" viewBox="0 0 101 101"
                  xmlns="http://www.w3.org/2000/svg">
                 <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
                         r="45%"></circle>
@@ -84,10 +95,9 @@ in the creation of custom components.
             </svg>
         </div>
     </div>
-    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center; margin-right: 30px;">
-        <code style="margin-bottom: 10px;">.spinner-md</code>
+    <div class="col col-middle col-top">
         <div class="icon icon-middle spinner">
-            <svg class="icon-spinner-md" width="100px" height="100px" viewBox="0 0 101 101"
+            <svg class="icon-spinner-md" width="100px" height="100px"
                  xmlns="http://www.w3.org/2000/svg">
                 <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
                         r="45%"></circle>
@@ -96,8 +106,7 @@ in the creation of custom components.
             </svg>
         </div>
     </div>
-    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center;"><code
-            style="margin-bottom: 10px;">.spinner-sm</code>
+    <div class="col col-middle col-top">
         <div class="icon icon-middle spinner">
             <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
                  xmlns="http://www.w3.org/2000/svg">
@@ -108,6 +117,7 @@ in the creation of custom components.
             </svg>
         </div>
     </div>
+  </div>
 </div>
 ```
 
