@@ -1,6 +1,6 @@
 require('../spec_helper')
 import ReactTestUtils from 'react-addons-test-utils'
-import {TileLayout, TileLayoutItem} from '../../../src/pivotal-ui-react/tile-layout/tile-layout'
+import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout'
 
 describe('TileLayout', () => {
   const renderComponent = (tileLayoutProps, tileItemProps) => ReactTestUtils.renderIntoDocument(

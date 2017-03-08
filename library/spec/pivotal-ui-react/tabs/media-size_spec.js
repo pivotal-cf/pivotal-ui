@@ -12,10 +12,10 @@ describe('MediaSize', () => {
 
     it('returns the result of the media query', () => {
       window.matchMedia.and.returnValue({matches: true});
-      expect(MediaSize.matches('sm')).toEqual(true);
+      expect(MediaSize.matches('sm')).toBe(true);
 
       window.matchMedia.and.returnValue({matches: false});
-      expect(MediaSize.matches('sm')).toEqual(false);
+      expect(MediaSize.matches('sm')).toBe(false);
     });
 
     describe('screen sizes', () => {

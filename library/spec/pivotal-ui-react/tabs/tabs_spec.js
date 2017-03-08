@@ -1,606 +1,446 @@
-require('../spec_helper');
+require('../spec_helper')
+import {Collapsible} from 'pui-react-collapsible'
+import {Tab, LeftTabs, Tabs} from 'pui-react-tabs'
+import ReactTestUtils from 'react-addons-test-utils'
 
-describe('Tabs', function () {
-  const tabType = 'simple';
+describe('Tabs', () => {
+  let subject, MediaSize, onEnterSpy, onExitSpy
 
-  let subject, Collapsible, Tab, Tabs, LeftTabs, EventEmitter, itPropagatesAttributes;
+  const renderComponent = props => {
+    const mergedProps = {
+      tabType: 'simple',
+      ...props
+    }
+    onEnterSpy = jasmine.createSpy('onEnter')
+    onExitSpy = jasmine.createSpy('onExit')
+
+    const component = ReactTestUtils.renderIntoDocument(
+      <Tabs {...mergedProps}>
+        <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class" onEntered={onEnterSpy}
+             onExited={onExitSpy} aria-labelledby="provided-aria-label">Content1</Tab>
+        <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy} onExited={onExitSpy}>Content2</Tab>
+        <Tab eventKey={3} disabled title="DisabledTab">DisabledContent</Tab>
+      </Tabs>
+    )
+    onEnterSpy.calls.reset()
+    onExitSpy.calls.reset()
+
+    return component
+  }
+
+  const triggerResize = () => {
+    const evt = document.createEvent('HTMLEvents')
+    evt.initEvent('resize', true, true)
+    window.dispatchEvent(evt)
+  }
+
   beforeEach(() => {
-    Collapsible = require('../../../src/pivotal-ui-react/collapse/collapse').Collapse;
-    Tab = require('../../../src/pivotal-ui-react/tabs/tabs').Tab;
-    Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
-    LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
-    EventEmitter = require('node-event-emitter');
-    itPropagatesAttributes = require('../support/shared_examples');
-  });
+    MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size')
+    spyOn(MediaSize, 'matches').and.returnValue(true)
+  })
 
-  const triggerResize = function () {
-    const evt = document.createEvent('HTMLEvents');
-    evt.initEvent('resize', true, true);
-    window.dispatchEvent(evt);
-  };
+  describe('props', () => {
+    describe('responsiveBreakpoint', () => {
+      beforeEach(() => {
+        subject = renderComponent({
+          defaultActiveKey: 2,
+          responsiveBreakpoint: 'xs',
+          smallScreenClassName: 'small-class',
+          largeScreenClassName: 'large-class'
+        })
+      })
 
-  let MediaSize;
+      it('checks media', () => {
+        expect(MediaSize.matches).toHaveBeenCalledWith('xs')
+      })
 
-  beforeEach(function () {
-    MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size');
-    spyOn(MediaSize, 'matches').and.returnValue(true);
-  });
+      describe('when screen size is less than breakpoint', () => {
+        beforeEach(() => {
+          MediaSize.matches.and.returnValue(false)
+          triggerResize()
+        })
 
-  afterEach(function () {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+        it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
+          let tabContent = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tab-content')
+          expect(tabContent[0].classList).not.toContain('in')
+          expect(tabContent[1].classList).toContain('in')
 
-  describe('props', function () {
-    describe('responsiveBreakpoint', function () {
-      beforeEach(function () {
-        ReactDOM.render(<Tabs defaultActiveKey={2}
-                              tabType={tabType}
-                              responsiveBreakpoint="xs"
-                              smallScreenClassName="small-class"
-                              largeScreenClassName="large-class"/>, root);
-      });
+          const firstTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
+          ReactTestUtils.Simulate.click(firstTab)
+          jasmine.clock().tick(1)
 
-      it('checks media', function () {
-        expect(MediaSize.matches).toHaveBeenCalledWith('xs');
-      });
+          expect(onEnterSpy).not.toHaveBeenCalled()
+          expect(onExitSpy).not.toHaveBeenCalled()
 
-      describe('when screen size is less than breakpoint', function () {
-        beforeEach(function () {
-          MediaSize.matches.and.returnValue(false);
-          triggerResize();
-        });
+          MockNow.tick(Tabs.ANIMATION_TIME)
+          MockRaf.next()
 
-        it('renders an accordion', function () {
-          expect('.panel-group').toExist();
-          expect('.tab-simple').not.toExist();
-        });
+          expect(onEnterSpy).toHaveBeenCalledWith(1)
+          expect(onExitSpy).toHaveBeenCalledWith(2)
 
-        it('passes small-screen classes', function () {
-          expect('.panel-group').toHaveClass('small-class');
-        });
-      });
+          tabContent = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tab-content')
 
-      describe('when screen size is greater than breakpoint', function () {
-        beforeEach(function () {
-          MediaSize.matches.and.returnValue(true);
-          triggerResize();
-        });
+          expect(tabContent[0].classList).toContain('in')
+          expect(tabContent[1].classList).not.toContain('in')
+        })
 
-        it('renders a tabs', function () {
-          expect('.panel-group').not.toExist();
-          expect('.tab-simple').toExist();
-        });
+        it('renders an accordion', () => {
+          expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-group')).toBeTruthy()
+          expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tab-simple').length).toEqual(0)
+        })
 
-        it('passes large-screen classes', function () {
-          expect('.tab-simple').toHaveClass('large-class');
-        });
-      });
-    });
+        it('passes small-screen classes', () => {
+          const panelGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-group')
+          expect(panelGroup.classList).toContain('small-class')
+        })
+      })
 
-    describe('onSelect', function () {
-      let onSelectSpy;
+      describe('when screen size is greater than breakpoint', () => {
+        it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
+          let tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+          expect(tabContent.textContent).toEqual('Content2')
+          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('')
 
-      beforeEach(function () {
-        onSelectSpy = jasmine.createSpy('onSelectSpy');
+          const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
+          expect(clickable.textContent).toEqual('Tab1')
+          ReactTestUtils.Simulate.click(clickable)
+          jasmine.clock().tick(1)
 
-        ReactDOM.render(
-          <Tabs defaultActiveKey={2} tabType={tabType} onSelect={onSelectSpy}>
-            <Tab eventKey={1} title="Tab1">Content1</Tab>
-            <Tab eventKey={2} title="Tab2">Content2</Tab>
-          </Tabs>,
-          root
-        );
-      });
+          MockNow.tick(Tabs.ANIMATION_TIME / 4)
+          MockRaf.next()
+          tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+          expect(tabContent.textContent).toEqual('Content2')
+          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('0.5')
 
-      it('uses the supplied onSelect method when clicking on large-screen tabs', function () {
-        MediaSize.matches.and.returnValue(true);
-        triggerResize();
+          MockNow.tick(Tabs.ANIMATION_TIME / 2)
+          MockRaf.next()
+          tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+          expect(tabContent.textContent).toEqual('Content1')
+          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('0.5')
+          expect(onEnterSpy).not.toHaveBeenCalled()
+          expect(onExitSpy).not.toHaveBeenCalled()
 
-        $(`.tab-${tabType} li a:eq(0)`).simulate('click');
-        expect(onSelectSpy).toHaveBeenCalled();
-      });
+          MockNow.tick(Tabs.ANIMATION_TIME / 2)
+          MockRaf.next()
+          expect(onEnterSpy).toHaveBeenCalledWith(1)
+          expect(onExitSpy).toHaveBeenCalledWith(2)
+          tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+          expect(tabContent.textContent).toEqual('Content1')
+          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('')
 
-      it('uses the supplied onSelect method when clicking on small-screen tabs', function () {
-        MediaSize.matches.and.returnValue(false);
-        triggerResize();
-        $('.tab-title a:eq(0)').simulate('click');
-        expect(onSelectSpy).toHaveBeenCalled();
-      });
-    });
+          const activeTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'active')[0]
+          expect(clickable.textContent).toEqual('Tab1')
+        })
+
+        it('renders a tabs', () => {
+          expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple')).toBeTruthy()
+          expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'panel-group').length).toEqual(0)
+        })
+
+        it('passes large-screen classes', () => {
+          const panelGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple')
+          expect(panelGroup.classList).toContain('large-class')
+        })
+      })
+    })
+
+    describe('onSelect', () => {
+      let onSelectSpy
+
+      beforeEach(() => {
+        onSelectSpy = jasmine.createSpy('onSelectSpy')
+
+        subject = renderComponent({
+          defaultActiveKey: 2,
+          onSelect: onSelectSpy
+        })
+      })
+
+      it('uses the supplied onSelect method when clicking on large-screen tabs', () => {
+        MediaSize.matches.and.returnValue(true)
+        triggerResize()
+
+        const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
+        expect(clickable.textContent).toEqual('Tab1')
+        ReactTestUtils.Simulate.click(clickable)
+        jasmine.clock().tick(1)
+
+        expect(onSelectSpy).toHaveBeenCalled()
+      })
+
+      it('uses the supplied onSelect method when clicking on small-screen tabs', () => {
+        MediaSize.matches.and.returnValue(false)
+        triggerResize()
+
+        const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
+        expect(clickable.textContent).toEqual('Tab1')
+        ReactTestUtils.Simulate.click(clickable)
+        jasmine.clock().tick(1)
+
+        expect(onSelectSpy).toHaveBeenCalled()
+      })
+    })
 
     describe('actions', () => {
       beforeEach(() => {
         const actions = (
-          <div>
+          <div className="my-actions">
             <button>=)</button>
             <button>=|</button>
             <button>=(</button>
           </div>
-        );
-        ReactDOM.render(
-          <Tabs tabType={tabType} actions={actions}>
-            <Tab eventKey={1} title="Tab1">Content1</Tab>
-            <Tab eventKey={2} title="Tab2">Content2</Tab>
-          </Tabs>,
-          root
-        );
-      });
+        )
+        subject = renderComponent({actions})
+      })
 
       it('renders the actions for large screens', () => {
-        expect('.tab-simple .tabs-action').toContainText('=)');
-        expect('.tab-simple .tabs-action').toContainText('=|');
-        expect('.tab-simple .tabs-action').toContainText('=(');
-      });
+        const actionTabs = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tabs-action')
+
+        expect(actionTabs.parentNode.classList).toContain('tab-simple')
+        expect(actionTabs.childNodes[0].className).toEqual('my-actions')
+        expect(actionTabs.childNodes[0].textContent).toEqual('=)=|=(')
+      })
 
       it('renders the actions for small screens', () => {
-        MediaSize.matches.and.returnValue(false);
-        triggerResize();
-        expect('.tab-simple-small-screen .tabs-action').toContainText('=)');
-        expect('.tab-simple-small-screen .tabs-action').toContainText('=|');
-        expect('.tab-simple-small-screen .tabs-action').toContainText('=(');
-      });
-    });
+        MediaSize.matches.and.returnValue(false)
+        triggerResize()
 
-    describe('passthroughs', function () {
-      beforeEach(function () {
-        ReactDOM.render(
-          <Tabs defaultActiveKey={2}
-                tabType={tabType}
-                className="test-class"
-                style={{opacity: 0.5}}/>,
-          root
-        );
+        const actionTabs = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tabs-action')
 
-      });
+        expect(actionTabs.parentNode.classList).toContain('tab-simple-small-screen')
+        expect(actionTabs.childNodes[0].className).toEqual('my-actions')
+        expect(actionTabs.childNodes[0].textContent).toEqual('=)=|=(')
+      })
+    })
+
+    describe('passthroughs', () => {
+      beforeEach(() => {
+        subject = renderComponent({
+          defaultActiveKey: 2,
+          className: 'test-class',
+          style: {opacity: '0.5'}
+        })
+      })
+
       it('passes through class and style', () => {
-        expect('#root .tab-simple').toHaveClass('test-class');
-        expect('#root .tab-simple').toHaveCss({opacity: '0.5'});
-      });
-    });
+        const tab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple')
+        expect(tab.classList).toContain('test-class')
+        expect(tab.style.opacity).toEqual('0.5')
+      })
+    })
 
     describe('tabType', () => {
-      beforeEach(function () {
-        ReactDOM.render(
-          <Tabs defaultActiveKey={2}
-                tabType="simple-alt"
-                className="test-class"
-                style={{opacity: 0.5}}/>,
-          root
-        );
-      });
+      beforeEach(() => {
+        subject = renderComponent({
+          tabType: 'simple-alt'
+        })
+      })
 
       it('attaches it as a class to the tabs', () => {
-        expect('.tab-simple-alt ul').toExist();
-      });
-    });
+        const tab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple-alt')
+        expect(tab.childNodes[0].classList).toContain('nav-tabs')
+      })
+    })
 
     describe('tabClassName', () => {
-      beforeEach(function () {
-        ReactDOM.render(
-          <Tabs tabType={tabType} defaultActiveKey={1}>
-            <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class">Content1</Tab>
-            <Tab eventKey={2} title="Tab2">Content2</Tab>
-          </Tabs>,
-          root
-        );
-      });
+      beforeEach(() => {
+        subject = renderComponent({defaultActiveKey: 1});
+      })
 
-      it('moves the tabClassName to the tab', () => {
-        expect('.nav-tabs li:eq(0) a').toHaveClass('tab-class');
-      });
+      it('applies the tabClassName to the clickable tab element', () => {
+        const tab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
 
-      it('preserves the tab className in the tab content', () => {
-        expect('.tab-content-class').toHaveText('Content1');
-      });
-    });
+        expect(tab.parentNode.parentNode.classList).toContain('nav-tabs')
+        expect(tab.classList).toContain('tab-class')
+      })
+
+      it('applies the className on the tab to the tab content pane', () => {
+        const tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+
+        expect(tabContent.classList).toContain('tab-content-class')
+        expect(tabContent.textContent).toEqual('Content1')
+      })
+    })
 
     describe('animation: false', () => {
       beforeEach(() => {
-        ReactDOM.render(
-          <Tabs tabType={tabType} defaultActiveKey={1} animation={false}>
-            <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class">Content1</Tab>
-            <Tab eventKey={2} title="Tab2">Content2</Tab>
-          </Tabs>,
-          root
-        );
-      });
+        subject = renderComponent({defaultActiveKey: 1, animation: false});
+      })
+
+      it('calls onEntered and onExited immediately', () => {
+        const secondTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[1]
+        ReactTestUtils.Simulate.click(secondTab)
+        jasmine.clock().tick(1)
+
+        expect(onEnterSpy).toHaveBeenCalledWith(2)
+        expect(onExitSpy).toHaveBeenCalledWith(1)
+      })
 
       it('changes tabs immediately, without animation', () => {
-        expect('li.active').toContainText('Tab1');
-        $('.nav li:eq(1) a').simulate('click');
-        expect('li.active').toContainText('Tab2');
-        expect('.tab-content').toContainText('Content2');
-        expect('.tab-content .tab-pane').toHaveCss({opacity: 1.0});
-      });
-    });
-  });
+        let activeTab = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'active')[0]
+        let tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
 
-  describe('tab behavior', function () {
-    let emitter;
-    const tabHeight = 24;
+        expect(activeTab.textContent).toEqual('Tab1')
+        expect(tabContent.textContent).toEqual('Content1')
 
-    beforeEach(function () {
-      emitter = new EventEmitter();
+        const secondTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[1]
+        ReactTestUtils.Simulate.click(secondTab)
+        jasmine.clock().tick(1)
 
-      class TestComponent extends React.Component {
-        constructor(props, context) {
-          super(props, context);
-          this.state = {defaultActiveKey: 2};
-        }
+        activeTab = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'active')[0]
+        tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
+        const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
 
-        componentDidMount() {
-          emitter.on('changeActiveKey', (key) => this.setState({defaultActiveKey: key}));
-        }
+        expect(activeTab.textContent).toEqual('Tab2')
+        expect(tabContent.textContent).toEqual('Content2')
+      })
+    })
+  })
 
-        render() {
-          return (
-            <Tabs defaultActiveKey={this.state.defaultActiveKey} tabType={tabType}>
-              <Tab eventKey={1} title="Tab1">
-                <div style={{height: tabHeight}}>Content1</div>
-              </Tab>
-              <Tab eventKey={2} title="Tab2">
-                <div style={{height: tabHeight}}>Content2</div>
-              </Tab>
-            </Tabs>
-          );
-        }
-      }
+  describe('tab props', () => {
+    beforeEach(() => {
+      subject = renderComponent({defaultActiveKey: 1, animation: false, id: 'foo'})
+    })
 
-      ReactDOM.render(<TestComponent />, root);
-    });
-
-    it('creates tabs in the correct container', function () {
-      expect(`.tab-${tabType} ul.nav.nav-tabs li.active`).toContainText('Tab2');
-      expect(`.tab-${tabType} .tab-content .tab-pane.fade.active.in`).toContainText('Content2');
-    });
-
-    describe('for screens greater than the responsiveBreakpoint', function () {
-      beforeEach(function () {
-        MediaSize.matches.and.returnValue(true);
-        triggerResize();
-      });
-      it('displays tabs in a simple tab container', function () {
-        expect(`.tab-${tabType} .nav li.active`).toContainText('Tab2');
-        expect(`.tab-${tabType} .tab-content`).toContainText('Content2');
-      });
-
-      it('switches tabs on click with animation', function () {
-        $('.nav li:eq(0) a').simulate('click');
-        expect('li.active').toContainText('Tab1');
-
-        MockNow.tick(Tabs.ANIMATION_TIME / 4);
-        MockRaf.next();
-        expect(`.tab-${tabType} .tab-content`).toContainText('Content2');
-        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 0.5});
-
-        MockNow.tick(Tabs.ANIMATION_TIME / 2);
-        MockRaf.next();
-        expect(`.tab-${tabType} .tab-content`).toContainText('Content1');
-        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 0.5});
-
-        MockNow.tick(Tabs.ANIMATION_TIME / 4);
-        MockRaf.next();
-        expect(`.tab-${tabType} .tab-content`).toContainText('Content1');
-        expect(`.tab-${tabType} .tab-content .tab-pane`).toHaveCss({opacity: 1.0});
-
-        $('.nav li:eq(1) a').simulate('click');
-        expect('li.active').toContainText('Tab2');
-      });
-
-      describe('changing the defaultActiveKey props', function () {
-        beforeEach(function () {
-          emitter.emit('changeActiveKey', 1);
-        });
-
-        it('updates the current open tab', function () {
-          expect('.nav li.active').toContainText('Tab1');
-        });
-      });
-    });
-
-    describe('for screens smaller than the responsiveBreakpoint', function () {
-      beforeEach(function () {
-        MediaSize.matches.and.returnValue(false);
-        triggerResize();
-      });
-
-      afterEach(function () {
-        MockRaf.next();
-      });
-
-      it('renders an accordion', function () {
-        expect('.panel-group').toExist();
-      });
-
-      it('renders headers for each tab', function () {
-        expect('.panel-group .tab-heading:eq(0)').toContainText('Tab1');
-        expect('.panel-group .tab-heading:eq(1)').toContainText('Tab2');
-        expect('.panel-group .tab-heading a:eq(1)').toHaveAttr('aria-expanded', 'true');
-      });
-
-      it('renders content for the active tab', function () {
-        expect('.panel-group .tab-content.in').toContainText('Content2');
-      });
-
-      it('switches tabs on click with animation', function () {
-        $('.tab-heading:eq(0) a').simulate('click');
-        MockNow.tick(Collapsible.ANIMATION_TIME);
-        MockRaf.next();
-
-        expect(`.tab-${tabType}-small-screen`).toContainText('Content1');
-        expect(`.tab-${tabType}-small-screen .tab-content:eq(0)`).toHaveClass('in');
-        expect(`.tab-${tabType}-small-screen .tab-content:eq(1)`).not.toHaveClass('in');
-
-        $('.tab-heading:eq(1) a').simulate('click');
-        MockNow.tick(Collapsible.ANIMATION_TIME);
-        MockRaf.next();
-
-        expect(`.tab-${tabType}-small-screen`).toContainText('Content2');
-        expect(`.tab-${tabType}-small-screen .tab-content:eq(0)`).not.toHaveClass('in');
-        expect(`.tab-${tabType}-small-screen .tab-content:eq(1)`).toHaveClass('in');
-
-        expect('.tab-heading a[aria-expanded=true]').toContainText('Tab2');
-
-      });
-
-      describe('changing the defaultActiveKey props', function () {
-        beforeEach(function () {
-          emitter.emit('changeActiveKey', 1);
-          MockNow.tick(Tabs.ANIMATION_TIME);
-          MockRaf.next();
-        });
-
-        it('updates the current open tab', function () {
-          expect('.tab-heading a[aria-expanded=true]').toContainText('Tab1');
-        });
-      });
-
-      describe('Tab props', () => {
-        it('respects disabled tabs', () => {
-          ReactDOM.render(
-            <Tabs tabType={tabType} defaultActiveKey={1}>
-              <Tab eventKey={1} title="Tab1">Content1</Tab>
-              <Tab eventKey={2} title="Tab2" disabled>Content2</Tab>
-            </Tabs>,
-            root
-          );
-
-          expect('.tab-title:eq(1) > a').toHaveClass('disabled');
-          $('.tab-title a:eq(1)').simulate('click');
-          MockNow.tick(Tabs.ANIMATION_TIME);
-          MockRaf.next();
-          expect('.tab-title [aria-expanded="true"]').toContainText('Tab1');
-          expect('.tab-content.in').toContainText('Content1');
-        });
-
-        it('uses custom aria-labelledby', () => {
-          ReactDOM.render(
-            <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
-              <Tab eventKey={1} title="Tab1" aria-labelledby="custom-aria-label">Content1</Tab>
-              <Tab eventKey={2} title="Tab2">Content2</Tab>
-            </Tabs>,
-            root
-          );
-          expect('.tab-content.in').toHaveAttr('aria-labelledby', 'custom-aria-label');
-        });
-
-        it('generates aria-labelledby for the tab pane if not given one', () => {
-          ReactDOM.render(
-            <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
-              <Tab eventKey={1} title="Tab1">Content1</Tab>
-              <Tab eventKey={2} title="Tab2">Content2</Tab>
-            </Tabs>,
-            root
-          );
-          expect('.tab-content.in').toHaveAttr('aria-labelledby', 'foo-tab-0');
-        });
-
-        describe('onEntered/onExited', () => {
-          let onEnterSpy, onExitSpy;
-          beforeEach(() => {
-            onEnterSpy = jasmine.createSpy('onEnter');
-            onExitSpy = jasmine.createSpy('onExit');
-            subject = ReactDOM.render(
-              <Tabs tabType={tabType} defaultActiveKey={1}>
-                <Tab eventKey={1} title="Tab1" onExited={onExitSpy}>Content1</Tab>
-                <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy}>Content2</Tab>
-              </Tabs>,
-              root
-            );
-          });
-
-          it('calls onEntered and onExited when the animation is done', () => {
-            $('.tab-title a:eq(1)').simulate('click');
-            expect(onEnterSpy).not.toHaveBeenCalled();
-            expect(onExitSpy).not.toHaveBeenCalled();
-            MockNow.tick(Tabs.ANIMATION_TIME);
-            MockRaf.next();
-            expect(onEnterSpy).toHaveBeenCalledWith(2);
-            expect(onExitSpy).toHaveBeenCalledWith(1);
-          });
-
-          describe('with animation false', () => {
-            beforeEach(() => {
-              subject::setProps({animation: false});
-            });
-
-            it('calls onEntered and onExited immediately', () => {
-              $('.tab-title a:eq(1)').simulate('click');
-              expect(onEnterSpy).toHaveBeenCalledWith(2);
-              expect(onExitSpy).toHaveBeenCalledWith(1);
-            });
-          });
-        });
-      });
-    });
-
-    it('sets up the correct aria-controls relationship', function () {
-      let pane1 = $(root).find(`.tab-${tabType} .tab-pane:first`);
-      expect(pane1.length).toEqual(1);
-      expect(pane1.attr('id')).toBeTruthy();
-      expect(`.tab-${tabType} ul.nav.nav-tabs li:eq(1) a`).toHaveAttr('aria-controls', pane1.attr('id'));
-    });
-  });
-
-  describe('positioning', function () {
-    function renderTabs(props = {}) {
-      ReactDOM.render(
-        <LeftTabs defaultActiveKey={1} {...props}>
-          <Tab eventKey={1} title="Tab1">Content1</Tab>
-          <Tab eventKey={2} title="Tab2">Content2</Tab>
-        </LeftTabs>,
-        root
-      );
-    }
-
-    it('should render tabs stacked on the left', function () {
-      renderTabs({position: 'left', tabWidth: 2, paneWidth: 7});
-      expect('ul.nav').toHaveClass('nav-stacked');
-    });
-  });
-
-  describe('Tab props', () => {
-    it('respects disabled tabs', () => {
-      ReactDOM.render(
-        <Tabs tabType={tabType} defaultActiveKey={1}>
-          <Tab eventKey={1} title="Tab1">Content1</Tab>
-          <Tab eventKey={2} title="Tab2" disabled>Content2</Tab>
-        </Tabs>,
-        root
-      );
-
-      expect('.nav-tabs li:eq(1)').toHaveClass('disabled');
-      $(`.tab-${tabType} li a:eq(1)`).simulate('click');
-      MockNow.tick(Tabs.ANIMATION_TIME);
-      MockRaf.next();
-      expect('li.active').toContainText('Tab1');
-      expect('.tab-content').toContainText('Content1');
-    });
-
-    it('uses custom aria-labelledby', () => {
-      ReactDOM.render(
-        <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
-          <Tab eventKey={1} title="Tab1" aria-labelledby="custom-aria-label">Content1</Tab>
-          <Tab eventKey={2} title="Tab2">Content2</Tab>
-        </Tabs>,
-        root
-      );
-      expect('.tab-pane').toHaveAttr('aria-labelledby', 'custom-aria-label');
-    });
-
-    it('generates aria-labelledby for the tab pane if not given one', () => {
-      ReactDOM.render(
-        <Tabs tabType={tabType} defaultActiveKey={1} id="foo">
-          <Tab eventKey={1} title="Tab1">Content1</Tab>
-          <Tab eventKey={2} title="Tab2">Content2</Tab>
-        </Tabs>,
-        root
-      );
-      expect('.tab-pane').toHaveAttr('aria-labelledby', 'foo-tab-0');
-    });
-
-    describe('onEntered/onExited', () => {
-      let onEnterSpy, onExitSpy;
+    describe('with small tabs', () => {
       beforeEach(() => {
-        onEnterSpy = jasmine.createSpy('onEnter');
-        onExitSpy = jasmine.createSpy('onExit');
-        subject = ReactDOM.render(
-          <Tabs tabType={tabType} defaultActiveKey={1}>
-            <Tab eventKey={1} title="Tab1" onExited={onExitSpy}>Content1</Tab>
-            <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy}>Content2</Tab>
-          </Tabs>,
-          root
-        );
+        MediaSize.matches.and.returnValue(false)
+        triggerResize()
+      })
+
+      it('respects disabled tabs', () => {
+        const disabledTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[2]
+        expect(disabledTab.classList).toContain('disabled')
+
+        ReactTestUtils.Simulate.click(disabledTab)
+        jasmine.clock().tick(1)
+
+        const activeTab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
+        expect(activeTab.textContent).toEqual('Content1')
+      })
+
+      describe('aria-labelledby', () => {
+        it('uses the provided value, if given', () => {
+          const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
+          expect(tabPane.attributes['aria-labelledby'].value).toEqual('provided-aria-label')
+        })
+
+        it('generates a default value', () => {
+          subject = renderComponent({defaultActiveKey: 2, id: 'foo'})
+
+          const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
+          expect(tabPane.attributes['aria-labelledby'].value).toEqual('foo-tab-1')
+        })
+      });
+    })
+
+    describe('with large tabs', () => {
+      beforeEach(() => {
+        MediaSize.matches.and.returnValue(true)
+        triggerResize()
+      })
+
+      describe('aria-labelledby', () => {
+        it('uses the provided value, if given', () => {
+          const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
+          expect(tabPane.attributes['aria-labelledby'].value).toEqual('provided-aria-label')
+        })
+
+        it('generates a default value', () => {
+          subject = renderComponent({defaultActiveKey: 2, id: 'foo'})
+
+          const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
+          expect(tabPane.attributes['aria-labelledby'].value).toEqual('foo-tab-1')
+        })
       });
 
-      it('calls onEntered and onExited when the animation is done', () => {
-        $(`.tab-${tabType} li a:eq(1)`).simulate('click');
-        expect(onEnterSpy).not.toHaveBeenCalled();
-        expect(onExitSpy).not.toHaveBeenCalled();
-        MockNow.tick(Tabs.ANIMATION_TIME);
-        MockRaf.next();
-        expect(onEnterSpy).toHaveBeenCalledWith(2);
-        expect(onExitSpy).toHaveBeenCalledWith(1);
-      });
+      it('sets up the correct aria-controls relationship', () => {
+        const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
+        const activeTabLink = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
 
-      describe('with animation false', () => {
-        beforeEach(() => {
-          subject::setProps({animation: false});
-        });
+        expect(activeTabLink.parentNode.classList).toContain('active')
+        expect(activeTabLink.attributes['aria-controls'].value).toEqual(tabPane.id)
+      })
 
-        it('calls onEntered and onExited immediately', () => {
-          $(`.tab-${tabType} li a:eq(1)`).simulate('click');
-          expect(onEnterSpy).toHaveBeenCalledWith(2);
-          expect(onExitSpy).toHaveBeenCalledWith(1);
-        });
-      });
-    });
-  });
-});
+      it('respects disabled tabs', () => {
+        const disabledTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[2]
+        expect(disabledTab.classList).toContain('disabled')
 
-describe('LeftTabs', function () {
-  let LeftTabs, Tab, Tabs;
-  beforeEach(() => {
-    LeftTabs = require('../../../src/pivotal-ui-react/tabs/tabs').LeftTabs;
-    Tab = require('../../../src/pivotal-ui-react/tabs/tabs').Tab;
-    Tabs = require('../../../src/pivotal-ui-react/tabs/tabs').Tabs;
+        ReactTestUtils.Simulate.click(disabledTab.getElementsByTagName('a')[0])
+        jasmine.clock().tick(1)
 
-  });
-  it('renders the Tabs component with tabType="left"', function () {
-    const result = shallowRender(
-      <LeftTabs>
-        I am children
-      </LeftTabs>
-    );
-    expect(result.type).toEqual(Tabs);
-    expect(result.props.position).toEqual('left');
-    expect(result.props.tabType).toEqual('left');
-    expect(result.props.children).toEqual('I am children');
-  });
+        const activeTab = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'active')[0]
+        expect(activeTab.textContent).toEqual('Tab1')
+      })
+    })
+  })
+})
 
-  it('passes all properties', function () {
-    const onSelect = jasmine.createSpy();
-    const result = shallowRender(
-      <LeftTabs defaultActiveKey={1}
-                responsiveBreakpoint="sm"
-                largeScreenClassName="lgclass"
-                smallScreenClassName="smclass"
-                onSelect={onSelect}/>
-    );
-    expect(result.props.defaultActiveKey).toEqual(1);
-    expect(result.props.responsiveBreakpoint).toEqual('sm');
-    expect(result.props.smallScreenClassName).toEqual('smclass');
-    expect(result.props.largeScreenClassName).toEqual('lgclass');
-    expect(result.props.onSelect).toEqual(onSelect);
-  });
+describe('LeftTabs', () => {
+  let subject
 
-  describe('when props are passed for tabWidth and paneWidth', function () {
-    it('passes the provided column sizes tp Tabs', function () {
-      const result = shallowRender(
-        <LeftTabs tabWidth={4} paneWidth={6}/>
-      );
-      expect(result.props.tabWidth).toEqual(4);
-      expect(result.props.paneWidth).toEqual(6);
-    });
-  });
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+    <LeftTabs {...props}>
+      <Tab eventKey={1} title="Tab1">Content1</Tab>
+      <Tab eventKey={2} title="Tab2">Content2</Tab>
+    </LeftTabs>
+  )
 
-  describe('when tabWidth is passed and paneWidth is not', function () {
-    it('passes the correct column sizes to Tabs', function () {
-      const result = shallowRender(
-        <LeftTabs tabWidth={4}/>
-      );
-      expect(result.props.tabWidth).toEqual(4);
-      expect(result.props.paneWidth).toEqual(20);
-    });
-  });
+  it('passes all properties', () => {
+    const onSelectSpy = jasmine.createSpy()
+    subject = renderComponent({
+      defaultActiveKey: 1,
+      responsiveBreakpoint: 'sm',
+      largeScreenClassName: 'lgclass',
+      smallScreenClassName: 'smclass',
+      onSelect: onSelectSpy
+    })
 
-  describe('when neither tabWidth nor paneWidth are passed', function () {
-    it('passes the correct column sizes to Tabs', function () {
-      const result = shallowRender(
-        <LeftTabs />
-      );
-      expect(result.props.tabWidth).toEqual(6);
-      expect(result.props.paneWidth).toEqual(18);
-    });
-  });
-});
+    expect(subject.props.defaultActiveKey).toEqual(1)
+    expect(subject.props.responsiveBreakpoint).toEqual('sm')
+    expect(subject.props.smallScreenClassName).toEqual('smclass')
+    expect(subject.props.largeScreenClassName).toEqual('lgclass')
+    expect(subject.props.onSelect).toEqual(onSelectSpy)
+  })
+
+  it('renders tabs stacked', () => {
+    subject = renderComponent()
+    const nav = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'nav')
+    expect(nav.classList).toContain('nav-stacked')
+  })
+
+  it('renders a Tabs component with tabType="left"', () => {
+    subject = renderComponent()
+    const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs)
+
+    expect(tabs.props.position).toEqual('left')
+    expect(tabs.props.tabType).toEqual('left')
+  })
+
+  describe('when props are passed for tabWidth and paneWidth', () => {
+    it('uses those values', () => {
+      subject = renderComponent({tabWidth: 4, paneWidth: 6})
+      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs)
+      expect(tabs.props.tabWidth).toEqual(4)
+      expect(tabs.props.paneWidth).toEqual(6)
+    })
+  })
+
+  describe('when tabWidth is passed and paneWidth is not', () => {
+    it('passes a calculated column size to Tabs', () => {
+      subject = renderComponent({tabWidth: 4})
+      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs)
+      expect(tabs.props.tabWidth).toEqual(4)
+      expect(tabs.props.paneWidth).toEqual(20)
+    })
+  })
+
+  describe('when neither tabWidth nor paneWidth are passed', () => {
+    it('passes a default size to Tabs', () => {
+      subject = renderComponent()
+      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs)
+      expect(tabs.props.tabWidth).toEqual(6)
+      expect(tabs.props.paneWidth).toEqual(18)
+    })
+  })
+})
