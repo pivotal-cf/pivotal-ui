@@ -63,11 +63,35 @@ To align an Icon with text, set `verticalAlign` to 'baseline'
 </div>
 ```
 
-Note that for the spinner icons (`spinner`, `spinner-md`, `spinner-sm`) we recommend:
-
-- Spinner used for the 80px+ range. Loading a page front and center, nothing else displayed
-- Spinner-md used for the 80px-25px range. Loading a panel or larger component
-- Spinner-sm used for the 24px-10px range. Loading inside a button or form element
-
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+*/
+
+/*doc
+---
+title: Spinner
+name: spinner_react
+parent: iconography_react
+---
+
+Spinner appearance is determined by size. The base spinner is 96px and moves relatively slowly.
+The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
+in the creation of custom components.
+
+```react_example
+<div>
+  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center", marginRight: "30px"}}>
+    <code style={{marginBottom: "10px"}}>.spinner</code>
+    <Icon src="spinner"/>
+  </div>
+  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center", marginRight: "30px"}}>
+    <code style={{marginBottom: "10px"}}>.spinner-md</code>
+    <Icon src="spinner-md"/>
+  </div>
+  <div className="form-inline" style={{height: "120px", flexDirection: "column", alignItems: "center"}}>
+    <code style={{marginBottom: "10px"}}>.spinner-sm</code>
+    <Icon src="spinner-sm"/>
+  </div>
+</div>
+```
+
 */

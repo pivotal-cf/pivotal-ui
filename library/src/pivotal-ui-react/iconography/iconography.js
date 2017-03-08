@@ -1,9 +1,10 @@
-import {mergeProps} from 'pui-react-helpers';
-import React from 'react';
-import {Svg} from 'pui-react-svg';
-import 'pui-css-iconography';
+import {mergeProps} from 'pui-react-helpers'
+import React from 'react'
+import {Svg} from 'pui-react-svg'
+import 'pui-css-iconography'
+import classnames from 'classnames'
 
-const types = React.PropTypes;
+const types = React.PropTypes
 
 class SvgIcon extends Svg {
   svgPathLoader = src => require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
@@ -23,11 +24,14 @@ export class Icon extends React.Component {
   }
 
   render() {
-    const {src, verticalAlign, ...others} = this.props;
-    const props = mergeProps(others, {className: `icon icon-${verticalAlign}`});
+    const {src, verticalAlign, ...others} = this.props
+    const props = mergeProps(
+      others,
+      {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.startsWith('spinner')})}
+    )
 
     return (<div {...props}>
       <SvgIcon {...{src, className: `icon-${src}`, key: src}}/>
-    </div>);
+    </div>)
   }
 }

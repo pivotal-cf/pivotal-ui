@@ -58,3 +58,57 @@ Wrap an image tag with `.icon` to get the same sizing functionality.
 ```
 
 */
+
+/*doc
+---
+title: Spinner
+name: spinner
+parent: iconography
+---
+
+Spinner appearance is determined by size. The base spinner is 96px and moves relatively slowly.
+The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
+in the creation of custom components.
+
+```html_example
+<div>
+    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center; margin-right: 30px;">
+        <code style="margin-bottom: 10px;">.spinner</code>
+        <div class="icon icon-middle spinner">
+            <svg class="icon-spinner" width="100px" height="100px" viewBox="0 0 101 101"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center; margin-right: 30px;">
+        <code style="margin-bottom: 10px;">.spinner-md</code>
+        <div class="icon icon-middle spinner">
+            <svg class="icon-spinner-md" width="100px" height="100px" viewBox="0 0 101 101"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+            </svg>
+        </div>
+    </div>
+    <div class="form-inline" style="height: 120px; flex-direction: column; align-items: center;"><code
+            style="margin-bottom: 10px;">.spinner-sm</code>
+        <div class="icon icon-middle spinner">
+            <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
+                 xmlns="http://www.w3.org/2000/svg">
+                <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+                <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
+                        r="45%"></circle>
+            </svg>
+        </div>
+    </div>
+</div>
+```
+
+*/

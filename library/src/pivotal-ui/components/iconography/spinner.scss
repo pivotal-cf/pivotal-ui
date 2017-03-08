@@ -18,8 +18,8 @@
 
 .icon-spinner-sm {
   @extend .icon-spinner-base;
-  width: ($spinner-base-size/10);
-  height: ($spinner-base-size/10);
+  width: ($spinner-base-size/6);
+  height: ($spinner-base-size/6);
   animation: rotator ($spinner-duration/4) linear infinite;
   .path {
     animation: dash-100 $spinner-duration ease-in-out infinite,
