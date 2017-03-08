@@ -10,13 +10,17 @@ const types = React.PropTypes;
 const ESC_KEY = 27;
 const privates = new WeakMap();
 
-const bodyNotAllowedToScroll = () => {
+function bodyNotAllowedToScroll(document)  {
+  if (typeof document !== 'object') return;
   const body = document.getElementsByTagName('body')[0];
   if(!body.classList.contains('pui-no-scroll')) {
     body.classList.add('pui-no-scroll');
   }
-};
-const bodyIsAllowedToScroll = () => document.getElementsByTagName('body')[0].classList.remove('pui-no-scroll');
+}
+
+function bodyIsAllowedToScroll(document) {
+  if (typeof document === 'object') document.getElementsByTagName('body')[0].classList.remove('pui-no-scroll');
+}
 
 export class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
@@ -28,15 +32,16 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
     onExited: types.func,
     onHide: types.func,
     show: types.bool,
-    title: types.node
+    title: types.node,
+    getDocument: types.func
   }
 
   static defaultProps = {
     animation: true,
     keyboard: true,
-    onHide: () => {
-    }
-  }
+    onHide: () => {},
+    getDocument: () => global.document
+  };
 
   static ANIMATION_TIME = 300;
   static ESC_KEY = ESC_KEY;
@@ -44,8 +49,8 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   constructor(props, context) {
     super(props, context);
     privates.set(this, {fractionShown: 0});
-
-    this.props.show ? bodyNotAllowedToScroll() : bodyIsAllowedToScroll();
+    const document = this.props.getDocument();
+    this.props.show ? bodyNotAllowedToScroll(document) : bodyIsAllowedToScroll(document);
   }
 
   modalClicked = e => {
@@ -61,12 +66,15 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   }
 
   componentDidMount() {
-    document.addEventListener('keydown', this.onKeyDown);
+    var document = this.props.getDocument();
+    if (typeof document === 'object') document.addEventListener('keydown', this.onKeyDown);
   }
 
   componentWillUnmount() {
+    var document = this.props.getDocument();
+    if (typeof document !== 'object') return;
     document.removeEventListener('keydown', this.onKeyDown);
-    bodyIsAllowedToScroll();
+    bodyIsAllowedToScroll(document);
   }
 
   focus = () => setTimeout(() => {
@@ -79,12 +87,13 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
       size,
       children,
       dialogClassName,
-      keyboard: __ignore,
+      keyboard: __ignore1,
       onEntered,
       onExited,
       onHide,
       show,
       title,
+      getDocument: __ignore2,
       ...modalProps
     } = this.props;
     this.props.show ? bodyNotAllowedToScroll() : bodyIsAllowedToScroll();
