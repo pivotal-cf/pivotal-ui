@@ -1,10 +1,10 @@
 {
-  "version": "7.5.4",
+  "version": "7.5.5",
   "description": "React component showing and hiding content",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-collapse": "=7.5.4",
-    "pui-react-helpers": "=7.5.4",
-    "pui-react-mixins": "=7.5.4"
+    "pui-css-collapse": "=7.5.5",
+    "pui-react-helpers": "=7.5.5",
+    "pui-react-mixins": "=7.5.5"
   }
 }
