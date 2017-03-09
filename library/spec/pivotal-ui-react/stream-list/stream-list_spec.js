@@ -1,13 +1,39 @@
-require('../spec_helper');
-
-import {StreamList, StreamListItem} from '../../../src/pivotal-ui-react/stream-list/stream-list';
+require('../spec_helper')
+import React from 'react'
+import {StreamList, StreamListItem} from 'pui-react-stream-list'
+import ReactTestUtils from 'react-addons-test-utils'
 import {itPropagatesAttributes} from '../support/shared_examples';
 import EventEmitter from 'node-event-emitter';
 
+const addData = new EventEmitter()
+
+class StreamListExample extends React.Component {
+  constructor(props, context) {
+    super(props, context)
+    this.state = {data: ['Item a', 'Item b', 'Item c']}
+  }
+
+  componentDidMount() {
+    addData.on('data', datum => {
+      const newData = this.state.data.concat([datum])
+      this.setState({data: newData})
+    })
+  }
+
+  render() {
+    return (<StreamList>
+      {this.state.data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
+    </StreamList>)
+  }
+}
+
 describe('StreamList', () => {
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  let subject
+  const renderComponent = (props, data) => ReactTestUtils.renderIntoDocument(
+    <StreamList {...props}>
+      {data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
+    </StreamList>
+  )
 
   describe('initial render', () => {
     const props = {
@@ -17,98 +43,68 @@ describe('StreamList', () => {
         opacity: '0.5'
       }
     };
+    subject = renderComponent(props, ['Item a', 'Item b', 'Item c'])
 
-    beforeEach(() => {
-      const streamList = (
-        <StreamList {...props} singularNewItemText="new thing" pluralNewItemsText="new things">
-          <StreamListItem>Item a</StreamListItem>
-          <StreamListItem>Item b</StreamListItem>
-          <StreamListItem>Item c</StreamListItem>
-        </StreamList>
-      );
-      ReactDOM.render(streamList, root);
-    });
-
-
-    it('renders a unordered list', () => {
-      expect('#root .list-unordered').toExist();
-    });
-
-    itPropagatesAttributes('#root .list-unordered', props);
-  });
+    itPropagatesAttributes(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-unordered'), props)
+  })
 
   describe('when a new item is added to the list', () => {
-    let streamListExample, addData;
-
     beforeEach(() => {
-      addData = new EventEmitter();
-
-      class StreamListExample extends React.Component {
-        constructor(props, context) {
-          super(props, context);
-          this.state = {data: ['Item a', 'Item b', 'Item c']};
-        }
-
-        componentDidMount() {
-          addData.on('data', datum => {
-            const newData = this.state.data.concat([datum]);
-            this.setState({data: newData});
-          });
-        }
-
-        render() {
-          return (<StreamList singularNewItemText="new thing" pluralNewItemsText="new things">
-            {this.state.data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
-          </StreamList>);
-        }
-      }
-
-      streamListExample = <StreamListExample/>;
-      ReactDOM.render(streamListExample, root);
-    });
+      subject = ReactTestUtils.renderIntoDocument(<StreamListExample/>)
+    })
 
     it('adds a New Items button to the top of the list, using the appropriate singular/plural text', () => {
-      addData.emit('data', 'Item d');
-      expect('#root .list-stream-new-items-btn').toHaveText('1 new thing');
-      addData.emit('data', 'Item e');
-      expect('#root .list-stream-new-items-btn').toHaveText('2 new things');
-      addData.emit('data', 'Item f');
-      addData.emit('data', 'Item g');
-      expect('#root .list-stream-new-items-btn').toHaveText('4 new things');
-    });
+      addData.emit('data', 'Item d')
+      let listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
 
-    it('does not add any lis', () => {
-      addData.emit('data', 'Item d');
-      expect('#root li').toHaveLength(3);
-      expect('#root li:eq(0)').toHaveText('Item c');
-      expect('#root li:eq(1)').toHaveText('Item b');
-      expect('#root li:eq(2)').toHaveText('Item a');
-    });
+      expect(listStreamButton.textContent).toEqual(' 1 new item')
+
+      addData.emit('data', 'Item e')
+      listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
+
+      expect(listStreamButton.textContent).toEqual(' 2 new items')
+
+      addData.emit('data', 'Item f')
+      addData.emit('data', 'Item g')
+      listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
+
+      expect(listStreamButton.textContent).toEqual(' 4 new items')
+    })
+
+    it('does not add a new li element', () => {
+      addData.emit('data', 'Item d')
+      expect(ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li').length).toEqual(3)
+    })
 
     describe('clicking the New Items button', () => {
       it('displays the new elements', () => {
-        addData.emit('data', 'Item d');
-        expect('#root .list-stream-new-items-btn').toHaveText('1 new thing');
-        $('#root .list-stream-new-items-btn').simulate('click');
-        expect('#root li:eq(0)').toHaveText('Item d');
-        expect('#root li:eq(1)').toHaveText('Item c');
-        expect('#root li:eq(2)').toHaveText('Item b');
-        expect('#root li:eq(3)').toHaveText('Item a');
-        expect('#root .list-stream-new-items-btn').not.toExist();
+        addData.emit('data', 'Item d')
 
-        addData.emit('data', 'Item e');
-        addData.emit('data', 'Item f');
-        expect('#root .list-stream-new-items-btn').toHaveText('2 new things');
-        $('#root .list-stream-new-items-btn').simulate('click');
-        expect('#root li:eq(0)').toHaveText('Item f');
-        expect('#root li:eq(1)').toHaveText('Item e');
-        expect('#root li:eq(2)').toHaveText('Item d');
-        expect('#root li:eq(3)').toHaveText('Item c');
-        expect('#root li:eq(4)').toHaveText('Item b');
-        expect('#root li:eq(5)').toHaveText('Item a');
-        expect('#root .list-stream-new-items-btn').not.toExist();
+        let listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
+        ReactTestUtils.Simulate.click(listStreamButton)
+        let liElements = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')
 
-      });
-    });
-  });
-});
+        expect(liElements[0].textContent).toEqual('Item d')
+        expect(liElements[1].textContent).toEqual('Item c')
+        expect(liElements[2].textContent).toEqual('Item b')
+        expect(liElements[3].textContent).toEqual('Item a')
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'list-stream-new-items-btn').length).toEqual(0)
+
+        addData.emit('data', 'Item e')
+        addData.emit('data', 'Item f')
+
+        listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
+        ReactTestUtils.Simulate.click(listStreamButton)
+        liElements = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')
+
+        expect(liElements[0].textContent).toEqual('Item f')
+        expect(liElements[1].textContent).toEqual('Item e')
+        expect(liElements[2].textContent).toEqual('Item d')
+        expect(liElements[3].textContent).toEqual('Item c')
+        expect(liElements[4].textContent).toEqual('Item b')
+        expect(liElements[5].textContent).toEqual('Item a')
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'list-stream-new-items-btn').length).toEqual(0)
+      })
+    })
+  })
+})
