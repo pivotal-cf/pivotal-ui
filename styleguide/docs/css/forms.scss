@@ -648,22 +648,32 @@ categories:
  - css_all
 ---
 
-A toggle switch is a horizontally styled checkbox which represents true with blue and false with gray.
-It comes in two sizes, default and large.
+A toggle switch is a horizontally styled checkbox that represents true with blue and false with gray.
+Toggle size can be specified via class: large, medium, or small
 
 ```html_example
-<div class="form-group">
-  <input id="toggleSwitch" class="toggle-switch" type="checkbox">
-  <label for="toggleSwitch">Toggle Switch</label>
+<div class="grid">
+  <div class="col col-top">
+    <label class="mbl">large</label>
+    <div class="form-group">
+        <input type="checkbox" class="toggle-switch" id="toggle-large" value="on" />
+        <label for="toggle-large" class="large"></label>
+    </div>
+  </div>
+  <div class="col col-top">
+    <label class="mbl">medium</label>
+    <div class="form-group">
+        <input type="checkbox" class="toggle-switch" id="toggle-medium" value="on" />
+        <label for="toggle-medium" class="medium"></label>
+    </div>
+  </div>
+  <div class="col col-top">
+    <label class="mbl">small</label>
+    <div class="form-group">
+        <input type="checkbox" class="toggle-switch" id="toggle-small" value="on" />
+        <label for="toggle-small" class="small"></label>
+    </div>
+  </div>
 </div>
-
 ```
-
-```html_example
-<div class="form-group">
-  <input id="toggleSwitchLarge" class="toggle-switch toggle-switch-lg" type="checkbox">
-  <label for="toggleSwitchLarge">Toggle Switch</label>
-</div>
-```
-
 */

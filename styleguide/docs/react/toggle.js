@@ -12,11 +12,11 @@ parent: form_react
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-id       | no | String                            | | The id of the element
-onChange | no | Function                          | | Callback that gets fired when toggle occurs
-size     | no | oneOf('small', 'medium', 'large') | | Size variations
+Property | Required | Type                              | Default  | Description
+---------|----------|-----------------------------------|----------|------------
+id       | no       | String                            |          | The id of the element
+onChange | no       | Function                          |          | Callback that gets fired when toggle occurs
+size     | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
 
 ## Basic usage
 
@@ -42,11 +42,19 @@ Note that you must handle the addition and removal of the `checked` property you
 Toggle has a `size` attribute that takes three options; small, medium (default), and large.
 
 ```react_example
-<div>
-  <Toggle size='small'/>
-  <Toggle size='medium'/>
-  <Toggle/>
-  <Toggle size='large'/>
+<div className="grid">
+  <div className="col col-top">
+    <label className="mbl">large</label>
+    <Toggle size="large"/>
+  </div>
+  <div className="col col-top">
+    <label className="mbl">medium</label>
+    <Toggle size="medium"/>
+  </div>
+  <div className="col col-top">
+    <label className="mbl">small</label>
+    <Toggle size="small"/>
+  </div>
 </div>
 ```
 */
