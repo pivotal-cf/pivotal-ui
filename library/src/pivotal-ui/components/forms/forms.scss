@@ -165,6 +165,7 @@ select, input {
   //Validation Icons
   $form-icon-size: 18px;
   $form-icon-padding: (($base-unit*4) - $form-icon-size) / 2;
+
   .icon {
     pointer-events: none;
     position: absolute;
@@ -186,6 +187,29 @@ select, input {
     }
     &.invalid svg {
       fill: $input-border-invalid;
+    }
+  }
+
+  .btn-icon .icon {
+    pointer-events: initial;
+    position: relative;
+    right: inherit;
+    bottom: inherit;
+    svg {
+      fill: inherit;
+    }
+    &.valid,
+    &.invalid {
+      position: relative;
+      right: inherit;
+      top: inherit;
+      font-size: $form-icon-size;
+    }
+    &.valid svg {
+      fill: inherit;
+    }
+    &.invalid svg {
+      fill: inherit;
     }
   }
 }
