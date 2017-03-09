@@ -5,6 +5,8 @@ a {
   color: $link-color;
   @include transition-pui();
 
+  transition: all 150ms ease-out;
+
   &:hover, &:focus {
     cursor: pointer;
     text-decoration: none;
