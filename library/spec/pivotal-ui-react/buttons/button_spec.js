@@ -1,183 +1,116 @@
-require('../spec_helper');
+require('../spec_helper')
+import {UIButton} from 'pui-react-buttons'
+import ReactTestUtils from 'react-addons-test-utils'
+import {Icon} from 'pui-react-iconography'
 
-describe('UIButton', function() {
-  var UIButton;
-  beforeEach(function() {
-    UIButton = require('../../../src/pivotal-ui-react/buttons/buttons').UIButton;
-    ReactDOM.render(<UIButton>Click here</UIButton>, root);
-  });
+describe('UIButton', () => {
+  let subject
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<UIButton {...props}>Click here</UIButton>)
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  it('creates a button', () => {
+    subject = renderComponent()
+    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-  it('creates a button', function() {
-    expect('#root button.btn-default').toContainText('Click here');
-  });
+    expect(button.classList).toContain('btn')
+    expect(button.classList).toContain('btn-default')
+    expect(button.textContent).toContain('Click here')
+  })
 
-  describe('when href attribute is set', function() {
-    beforeEach(function() {
-      ReactDOM.render(<UIButton href="http://example.com">Click here</UIButton>, root);
-    });
+  describe('when href attribute is set', () => {
+    it('creates a link', () => {
+      subject = renderComponent({href: 'http://example.com'})
+      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
 
-    it('creates a link', function() {
-      expect('#root a.btn.btn-default').toContainText('Click here');
-      expect('#root a.btn').toHaveAttr('href', 'http://example.com');
-    });
-  });
+      expect(button.href).toEqual('http://example.com/')
+    })
+  })
 
-  describe('when kind attribute is set', function() {
-    beforeEach(function() {
-      ReactDOM.render(<UIButton kind="danger">Click here</UIButton>, root);
-    });
+  describe('when kind attribute is set', () => {
+    it('adds the type class to the button', () => {
+      let button
+      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
+        subject = renderComponent({kind})
+        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    it('adds the type class to the button', function() {
-      expect('#root button').not.toHaveClass('btn-default');
-      expect('#root button').toHaveClass('btn-danger');
-    });
-  });
+        expect(button.className).toEqual(`btn btn-${kind}`)
+      })
+    })
+  })
 
-  describe('when large is true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<UIButton large>Click here</UIButton>, root);
-    });
+  describe('when large is true', () => {
+    it('adds the large button class', () => {
+      subject = renderComponent({large: true})
+      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    it('adds the large button class', function() {
-      expect('#root button').toHaveClass('btn-lg');
-    });
-  });
+      expect(button.classList).toContain('btn-lg')
+    })
+  })
 
-  describe('when small is true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<UIButton small>Click here</UIButton>, root);
-    });
+  describe('when small is true', () => {
+    it('adds the small button class', () => {
+      subject = renderComponent({small: true})
+      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    it('adds the small button class', function() {
-      expect('#root button').toHaveClass('btn-sm');
-    });
-  });
+      expect(button.classList).toContain('btn-sm')
+    })
+  })
 
-  describe('when the button is given custom classes', function() {
-    function renderButton(props) {
-      ReactDOM.render(<UIButton {...props}>Click here</UIButton>, root);
-    }
+  describe('when iconOnly is true', () => {
+    it('adds the btn-icon class', () => {
+      subject = renderComponent({iconOnly: true})
+      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    describe('when no other options that effect class are given', function() {
-      beforeEach(function() {
-        renderButton({className: 'custom-class-1 custom-class-2'});
-      });
+      expect(button.classList).toContain('btn-icon')
+    })
+  })
 
-      it('includes those custom classes', function() {
-        expect('#root button').toHaveClass(['custom-class-1', 'custom-class-2']);
-      });
+  describe('when alt is true', () => {
+    it('adds the appropriate alt class', () => {
+      let button
+      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
+        subject = renderComponent({kind, alt: true})
+        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-      it('includes the default button classes', function() {
-        expect('#root button').toHaveClass(['btn-default']);
-      });
-    });
+        expect(button.classList).toContain(`btn-${kind}-alt`)
+      })
+    })
+  })
 
-    describe('when options that add class names are given', function() {
-      beforeEach(function() {
-        renderButton({
-          className: 'custom-class-1 custom-class-2',
-          kind: 'primary',
-          large: true
-        });
-      });
+  describe('when flat is true', () => {
+    it('adds the appropriate flat class', () => {
+      let button
+      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
+        subject = renderComponent({kind, flat: true})
+        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-      it('includes those custom classes', function() {
-        expect('#root button').toHaveClass(['custom-class-1', 'custom-class-2']);
-      });
+        expect(button.classList).toContain(`btn-${kind}-flat`)
+      })
+    })
+  })
 
-      it('includes the button classes set by the other options', function() {
-        expect('#root button').toHaveClass(['btn-primary', 'btn-lg']);
-      });
-    });
-  });
+  it('passes custom classNames through', () => {
+    subject = renderComponent({className: 'custom-class-1 custom-class-2'})
+    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-  describe('when data-attributes are provided', function() {
-    beforeEach(function() {
-      ReactDOM.render(
-        <UIButton data-click="myFunction" data-foo="bar">
-          Click here
-        </UIButton>, root
-      );
-    });
+    expect(button.classList).toContain('custom-class-1')
+    expect(button.classList).toContain('custom-class-2')
+  })
 
-    it('passes through the data-attributes', function() {
-      expect('#root button').toHaveAttr('data-click', 'myFunction');
-      expect('#root button').toHaveAttr('data-foo', 'bar');
-    });
-  });
+  it('passes through the data-attributes', () => {
+    subject = renderComponent({'data-click': 'myFunction', 'data-foo': 'bar'})
+    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-  describe('DefaultButton', () => {
-    let Button;
-    beforeEach(() => {
-      Button = require('../../../src/pivotal-ui-react/buttons/buttons').DefaultButton;
-    });
+    expect(button.attributes['data-click'].value).toEqual('myFunction')
+    expect(button.attributes['data-foo'].value).toEqual('bar')
+  })
 
-    describe('when there are flags', () => {
-      it('renders with the alt classname when there is an alt flag', () => {
-        ReactDOM.render(<Button alt>Click here</Button>, root);
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass('btn-default-alt');
-      });
-
-      it('renders with the flat classname when there is an flat flag', () => {
-        ReactDOM.render(<Button flat>Click here</Button>, root);
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass('btn-default-flat');
-      });
-    });
-  });
-
-  [
-    {name: 'DangerButton', btnClass: 'btn-danger'},
-    {name: 'PrimaryButton', btnClass: 'btn-primary'},
-    {name: 'BrandButton', btnClass: 'btn-brand'},
-  ].forEach(function({name, btnClass}) {
-    describe(name, function() {
-      let Button;
-      beforeEach(function() {
-        Button = require('../../../src/pivotal-ui-react/buttons/buttons')[name];
-        ReactDOM.render(<Button>Click here</Button>, root);
-      });
-
-      it(`renders with the ${btnClass} class`, function() {
-        expect('#root button').not.toHaveClass('btn-default');
-        expect('#root button').toHaveClass(btnClass);
-      });
-
-      describe('when there are flags', () => {
-        it('renders with the alt classname when there is an alt flag', () => {
-          ReactDOM.render(<Button alt>Click here</Button>, root);
-          expect('#root button').not.toHaveClass('btn-default');
-          expect('#root button').not.toHaveClass(btnClass);
-          expect('#root button').toHaveClass(`${btnClass}-alt`);
-        });
-
-        it('renders with the flat classname when there is an flat flag', () => {
-          ReactDOM.render(<Button flat>Click here</Button>, root);
-          expect('#root button').not.toHaveClass('btn-default');
-          expect('#root button').not.toHaveClass(btnClass);
-          expect('#root button').toHaveClass(`${btnClass}-flat`);
-        });
-      });
-    });
-  });
-
-  describe('button with icons', () => {
-    const {Icon} = require('../../../src/pivotal-ui-react/iconography/iconography');
-    const {DefaultButton} = require('../../../src/pivotal-ui-react/buttons/buttons');
-
-    it('renders with an icon if an icon node is passed through props', () => {
-      ReactDOM.render(<DefaultButton icon={<Icon src="add" />}>Click here</DefaultButton>, root);
-      expect('#root button .icon').toExist();
-    });
-
-    it('renders with an icon if it is a link', () => {
-      ReactDOM.render(<DefaultButton href="whatever" icon={<Icon src="add" />}>Click here</DefaultButton>, root);
-      expect('#root a.btn .icon').toExist();
-    });
-  });
-});
+  describe('icon property', () => {
+    it('renders with an icon child node if one is passed in', () => {
+      subject = renderComponent({
+        icon: <Icon src="add" />
+      })
+      const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon')
+      expect(icon.parentNode.tagName).toEqual('BUTTON')
+    })
+  })
+})

@@ -14,13 +14,14 @@ npm install pui-react-buttons --save
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-alt   | no | Boolean | false | Whether to render as 'alternate' button
-flat  | no | Boolean | false | Whether to render as a 'flat' button
-href  | no | String  |       | If specified, button clicks will redirect to this href
-large | no | Boolean | false | Whether to render the button large
-small | no | Boolean | false | Whether to render teh button small
+Property | Required | Type    | Default | Description
+---------|----------|---------|---------|------------
+alt      | no       | Boolean | false   | Whether to render as 'alternate' button
+flat     | no       | Boolean | false   | Whether to render as a 'flat' button
+href     | no       | String  |         | If specified, button clicks will redirect to this href
+iconOnly | no       | Boolean | false   | If specified, will render as an icon button
+large    | no       | Boolean | false   | Whether to render the button large
+small    | no       | Boolean | false   | Whether to render the button small
 
 ## Basic usage
 
@@ -110,7 +111,7 @@ name: 03_button_icons_react
 parent: button_react
 ---
 
-Buttons can contain icons:
+Buttons can contain icons.
 
 ```react_example_table
 <PrimaryButton>
@@ -122,10 +123,10 @@ Buttons can contain icons:
 </DefaultButton>
 ```
 
-They can also be icon buttons:
+They can also be icon buttons, by specifying `iconOnly`.
 
 ```react_example_table
-<DefaultButton alt className="btn-icon">
+<DefaultButton alt iconOnly>
   <Icon src="add"/>
 </DefaultButton>
 ```
