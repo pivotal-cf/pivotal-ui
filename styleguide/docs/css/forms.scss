@@ -654,24 +654,24 @@ Toggle size can be specified via class: large, medium, or small
 ```html_example
 <div class="grid">
   <div class="col col-top">
-    <label class="mbl">large</label>
     <div class="form-group">
-        <input type="checkbox" class="toggle-switch" id="toggle-large" value="on" />
-        <label for="toggle-large" class="large"></label>
+      <label>Large</label>
+      <input type="checkbox" class="toggle-switch" id="toggle-large" value="on" />
+      <label for="toggle-large" class="large"></label>
     </div>
   </div>
   <div class="col col-top">
-    <label class="mbl">medium</label>
     <div class="form-group">
-        <input type="checkbox" class="toggle-switch" id="toggle-medium" value="on" />
-        <label for="toggle-medium" class="medium"></label>
+      <label>Medium</label>
+      <input type="checkbox" class="toggle-switch" id="toggle-medium" value="on" />
+      <label for="toggle-medium" class="medium"></label>
     </div>
   </div>
   <div class="col col-top">
-    <label class="mbl">small</label>
     <div class="form-group">
-        <input type="checkbox" class="toggle-switch" id="toggle-small" value="on" />
-        <label for="toggle-small" class="small"></label>
+      <label>Small</label>
+      <input type="checkbox" class="toggle-switch" id="toggle-small" value="on" />
+      <label for="toggle-small" class="small"></label>
     </div>
   </div>
 </div>

@@ -43,16 +43,16 @@ Toggle has a `size` attribute that takes three options; small, medium (default),
 
 ```react_example
 <div className="grid">
-  <div className="col col-top">
-    <label className="mbl">large</label>
+  <div className="col col-top form-group">
+    <label>Large</label>
     <Toggle size="large"/>
   </div>
-  <div className="col col-top">
-    <label className="mbl">medium</label>
+  <div className="col col-top form-group">
+    <label>Medium</label>
     <Toggle size="medium"/>
   </div>
-  <div className="col col-top">
-    <label className="mbl">small</label>
+  <div className="col col-top form-group">
+    <label>Small</label>
     <Toggle size="small"/>
   </div>
 </div>
