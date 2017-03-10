@@ -66,7 +66,7 @@ describe('TileLayout', () => {
   })
 
   describe('attributes', () => {
-    it("respects the passed-in class, id and style attributes", () => {
+    it('respects the passed-in class, id and style attributes', () => {
       const result = renderComponent({
         className: 'outer-class',
         id: 'outer-id',
