@@ -90,7 +90,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
         'dropdown-border'     : border,
         'dropdown-menu-right' : (menuAlign === 'right'),
         'dropdown-menu-left'  : (menuAlign === 'left'),
-        'dropdown-menu-float' : split || flat || link || floatMenu || noTitle,
+        'dropdown-menu-float' : split || flat || link || floatMenu || noTitle || menuAlign !== 'none',
         'dropdown-menu-scroll': scroll
       }
     )

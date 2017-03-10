@@ -119,6 +119,7 @@
       }
       &.dropdown-menu-right {
         right:0;
+        left: inherit;
         text-align: right;
         ul {
           float:right;

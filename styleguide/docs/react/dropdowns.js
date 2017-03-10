@@ -103,18 +103,18 @@ exceeds the parent dropdown width.
   </div>
 
   <div className="form-group form-inline">
-   <Dropdown title='Pinned Left' floatMenu menuAlign='left'>
-     <DropdownItem href="#">Note that this option exceeds the width of the parent dropdown toggle</DropdownItem>
-     <DropdownItem href="#">lorem ipsum</DropdownItem>
-     <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <Dropdown title='Pinned Left' floatMenu menuAlign='left'>
+      <DropdownItem href="#">Note that this option exceeds the width of the parent dropdown toggle</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
    </Dropdown>
   </div>
 
   <div className="form-group form-inline">
-   <Dropdown title='Pinned Right' floatMenu menuAlign='right'>
-     <DropdownItem href="#">lorem ipsum</DropdownItem>
-     <DropdownItem href="#">lorem ipsum</DropdownItem>
-     <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <Dropdown title='Pinned Right' floatMenu menuAlign='right'>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
    </Dropdown>
   </div>
 </div>
