@@ -1,94 +1,77 @@
-require('../spec_helper');
-var Ribbon = require('../../../src/pivotal-ui-react/ribbons/ribbons').Ribbon;
-var PrimaryRibbon = require('../../../src/pivotal-ui-react/ribbons/ribbons').PrimaryRibbon;
-var Banner = require('../../../src/pivotal-ui-react/ribbons/ribbons').Banner;
+require('../spec_helper')
+import ReactTestUtils from 'react-addons-test-utils'
+import {Ribbon, PrimaryRibbon, Banner} from 'pui-react-ribbons'
 
-describe('Ribbon', function() {
-  describe('basic Ribbon', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Ribbon>British</Ribbon>, root);
-    });
+let subject
 
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+describe('Ribbon', () => {
+  const renderRibbon = props => ReactTestUtils.renderIntoDocument(<Ribbon {...props}>British</Ribbon>)
 
-    it('renders a ribbon', function() {
-      expect('.ribbon').toHaveText('British');
-      expect('.ribbon').not.toHaveClass('ribbon-primary');
-    });
-  });
+  describe('basic Ribbon', () => {
+    it('renders a ribbon', () => {
+      subject = renderRibbon()
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
+      expect(ribbon).toHaveText('British')
+      expect(ribbon).not.toHaveClass('ribbon-primary')
+    })
+  })
 
-  describe('Ribbon with custom attributes', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Ribbon className="1234" id="test" style={{color: 'red'}}>British</Ribbon>, root);
-    });
+  describe('Ribbon with custom attributes', () => {
+    it('renders a ribbon with custom attributes', () => {
+      subject = renderRibbon({className: '1234', id: 'test', style: {color: 'red'}})
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
 
-    it('renders a ribbon with custom attributes', function() {
-      expect('.ribbon').toHaveClass('1234');
-      expect('.ribbon').toHaveAttr('id', 'test');
-      expect('.ribbon').toHaveCss({color: 'rgb(255, 0, 0)'});
-    });
-  });
-});
+      expect(ribbon).toHaveClass('1234')
+      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveCss({color: 'red'})
+    })
+  })
+})
 
-describe('PrimaryRibbon', function() {
-  describe('basic PrimaryRibbon', function() {
+describe('PrimaryRibbon', () => {
+  const renderPrimaryRibbon = props => ReactTestUtils.renderIntoDocument(<PrimaryRibbon {...props}>British</PrimaryRibbon>)
 
-    beforeEach(function() {
-      ReactDOM.render(<PrimaryRibbon>British</PrimaryRibbon>, root);
-    });
+  describe('basic PrimaryRibbon', () => {
+    it('adds the ribbon-primary class', () => {
+      subject = renderPrimaryRibbon()
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
+      expect(ribbon).toHaveText('British')
+      expect(ribbon).toHaveClass('ribbon-primary')
+    })
+  })
 
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+  describe('PrimaryRibbon with custom attributes', () => {
+    it('renders a ribbon with custom attributes', () => {
+      subject = renderPrimaryRibbon({className: '1234', id: 'test', style: {color: 'red'}})
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
 
-    it('adds the ribbon-primary class', function() {
-      expect('.ribbon').toHaveText('British');
-      expect('.ribbon').toHaveClass('ribbon-primary');
-    });
-  });
+      expect(ribbon).toHaveClass('1234')
+      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveCss({color: 'red'})
+    })
+  })
+})
 
-  describe('PrimaryRibbon with custom attributes', function() {
-    beforeEach(function() {
-      ReactDOM.render(<PrimaryRibbon className="1234" id="test" style={{color: 'red'}}>British</PrimaryRibbon>, root);
-    });
+describe('Banner', () => {
+  const renderBanner = props => ReactTestUtils.renderIntoDocument(<Banner {...props}>British</Banner>)
 
-    it('renders a ribbon with custom attributes', function() {
-      expect('.ribbon').toHaveClass('1234');
-      expect('.ribbon').toHaveAttr('id', 'test');
-      expect('.ribbon').toHaveCss({color: 'rgb(255, 0, 0)'});
-    });
-  });
-});
+  describe('basic banner', () => {
+    it('has the ribbon-banner class', () => {
+      subject = renderBanner()
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon-banner')
+      expect(ribbon).toHaveText('British')
+      expect(ribbon).not.toHaveClass('ribbon')
+    })
+  })
 
+  describe('Banner with custom attributes', () => {
+    it('renders a banner with custom attributes', () => {
+      subject = renderBanner({className: '1234', id: 'test', style: {color: 'red'}})
+      const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon-banner')
 
-describe('Banner', function() {
-  describe('basic Banner', function() {
-
-    beforeEach(function() {
-      ReactDOM.render(<Banner>British</Banner>, root);
-    });
-
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
-
-    it('renders a Banner', function() {
-      expect('.ribbon-banner').toHaveText('British');
-      expect('.ribbon-banner').not.toHaveClass('ribbon-primary');
-    });
-  });
-
-  describe('Banner with custom attributes', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Banner className="1234" id="test" style={{color: 'red'}}>British</Banner>, root);
-    });
-
-    it('renders a ribbon with custom attributes', function() {
-      expect('.ribbon-banner').toHaveClass('1234');
-      expect('.ribbon-banner').toHaveAttr('id', 'test');
-      expect('.ribbon-banner').toHaveCss({color: 'rgb(255, 0, 0)'});
-    });
-  });
-});
+      expect(ribbon).toHaveClass('1234')
+      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveCss({color: 'red'})
+    })
+  })
+})

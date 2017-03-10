@@ -1,140 +1,119 @@
-require('../spec_helper');
+require('../spec_helper')
+import ReactTestUtils from 'react-addons-test-utils'
+import {Radio, RadioGroup} from '../../../src/pivotal-ui-react/radio/radio'
 
-import {Radio, RadioGroup} from '../../../src/pivotal-ui-react/radio/radio';
+describe('Radio', () => {
+  let subject
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Radio {...props}>One!!!</Radio>)
 
-describe('Radio', function() {
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  it('renders a radio', () => {
+    subject = renderComponent({value: '1'})
+    const radio = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio')
+    const input = radio.getElementsByTagName('input')[0]
 
-  it('renders a radio', function() {
-    ReactDOM.render(<Radio value="1" name="bananas" id="npr">One!!!</Radio>, root);
-    expect('.radio input').toHaveValue('1');
-    expect('.radio').toContainText('One!!!');
-  });
+    expect(input).toHaveValue('1')
+    expect(radio).toHaveText('One!!!')
+  })
 
-  it('adds an id and sets the label for', () => {
-    ReactDOM.render(<Radio value="1" name="bananas" id="npr">One!!!</Radio>, root);
-    expect('.radio input').toHaveAttr('id');
-  });
+  it('passes through className and style to the radio, and id to the input', () => {
+    subject = renderComponent({value: 'bananas', id: 'npr', className: "radio-class", style: {opacity: '0.5'}})
+    const radio = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio')
+    const input = radio.getElementsByTagName('input')[0]
 
-  describe('when the checked property is passed', function() {
-    let changeSpy;
+    expect(input.id).toEqual('npr')
+    expect(radio).toHaveClass('radio-class')
+    expect(radio).toHaveCss({opacity: '0.5'})
+  })
 
-    beforeEach(function() {
-      changeSpy = jasmine.createSpy('change');
-      ReactDOM.render(<Radio value="1" name="bananas" checked onChange={changeSpy}>One!!!</Radio>, root);
-    });
+  describe('when the checked property is passed', () => {
+    it('renders a checked radio', () => {
+      subject = renderComponent({
+        value: 'bananas', checked: true, onChange: () => {
+        }
+      })
 
-    it('renders a checked radio', function() {
-      expect('.radio :radio[name=bananas]').toBeChecked();
-    });
+      const radio = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio')
+      const input = radio.getElementsByTagName('input')[0]
 
-    describe('changing the value of the radio button', function() {
-      it('triggers the onChange callback', function() {
-        $('.radio :radio').simulateNative('click');
-        expect(changeSpy).toHaveBeenCalled();
-      });
-    });
-  });
+      expect(input.checked).toBe(true)
+    })
+  })
 
-  describe('when the defaultChecked property is passed', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Radio value="1" name="bananas" defaultChecked>One!!!</Radio>, root);
-    });
+  describe('when the defaultChecked property is passed', () => {
+    it('renders a checked radio', () => {
+      subject = renderComponent({value: 'bananas', defaultChecked: true})
 
-    it('renders a checked radio', function() {
-      expect('.radio :radio[name=bananas]').toBeChecked();
-    });
-  });
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      expect(input.checked).toBe(true)
+    })
+  })
 
-  describe('when className and style are passed', () => {
-    beforeEach(() => {
-      ReactDOM.render(
-        <Radio value="1" name="bananas" className="radio-class" style={{opacity: '0.5'}} defaultChecked>
-          One!!!
-        </Radio>, root);
-    });
+  describe('changing the value of the radio button', () => {
+    it('triggers the onChange callback', () => {
+      const changeSpy = jasmine.createSpy('change')
+      subject = renderComponent({value: 'bananas', onChange: changeSpy})
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
 
-    it('passes through className and style', () => {
-      expect('.radio').toHaveClass('radio-class');
-      expect('.radio').toHaveCss({opacity: '0.5'});
-    });
-  });
+      ReactTestUtils.Simulate.change(input, {"target": {"checked": true}})
+      jasmine.clock().tick(1)
+
+      expect(changeSpy).toHaveBeenCalled()
+    })
+  })
 
   describe('when disabled property is passed', () => {
-    beforeEach(() => {
-      ReactDOM.render(<Radio value="a value we do not care about" disabled>A label we do not care about</Radio>, root);
-    });
-
     it('disables the radio button', () => {
-      expect('.radio :radio').toHaveAttr('disabled');
-      expect('.radio :radio').toHaveAttr('aria-disabled');
-    });
+      subject = renderComponent({value: 'bananas', disabled: true})
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
 
-    it('gets the disabled class on the label', () => {
-      expect('.radio input').toHaveAttr('disabled');
-    });
-  });
-});
+      expect(input.disabled).toBe(true)
+      expect(input.attributes['aria-disabled'].value).toEqual('true')
+    })
+  })
+})
 
-describe('RadioGroup', function() {
-  describe('basic RadioGroup', function() {
-    var changeSpy, callValue;
-    beforeEach(function() {
-      changeSpy = jasmine.createSpy('change').and.callFake(function(e) {
-        callValue = e.target.value;
-      });
 
-      ReactDOM.render(
-        <RadioGroup name="bananas" onChange={changeSpy}>
-          <Radio value="1">One!!!</Radio>
-          <Radio value="2">The two value</Radio>
-          <Radio value="3">Three</Radio>
-        </RadioGroup>, root);
-    });
+describe('RadioGroup', () => {
+  let subject
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<RadioGroup {...props}>
+    <Radio value="one">first</Radio>
+    <Radio value="two">second</Radio>
+    <Radio value="three">third</Radio>
+  </RadioGroup>)
 
-    afterEach(function() {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+  describe('basic RadioGroup', () => {
+    it('renders', () => {
+      subject = renderComponent({name: 'radioGroup'})
+      const radioGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio-group')
+      const radioButtons = radioGroup.getElementsByTagName('input')
 
-    it('renders the radio group', function() {
-      expect('.radio-group').toExist();
-    });
+      expect(radioButtons).toHaveLength(3)
+      expect(radioButtons[0]).toHaveValue('one')
+      expect(radioButtons[1]).toHaveValue('two')
+      expect(radioButtons[2]).toHaveValue('three')
+    })
 
-    it('renders 3 radiobuttons', function() {
-      expect('.radio-group .radio :radio[name=bananas]').toHaveLength(3);
-      expect('.radio-group .radio :radio[name=bananas]:eq(0)').toHaveValue('1');
-      expect('.radio-group .radio :radio[name=bananas]:eq(1)').toHaveValue('2');
-      expect('.radio-group .radio :radio[name=bananas]:eq(2)').toHaveValue('3');
-    });
+    describe('when the radio button is changed', () => {
+      it('calls the change callback', () => {
+        let clickedValue = null
+        const changeSpy = jasmine.createSpy('change').and.callFake(event => clickedValue = event.nativeEvent.target.value)
+        subject = renderComponent({onChange: changeSpy, name: 'radioGroup'})
+        const input = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'input')[0]
 
-    describe('when the radio button is changed', function() {
-      beforeEach(function() {
-        $('.radio-group :radio:eq(0)').simulateNative('click');
-      });
+        ReactTestUtils.Simulate.change(input, {"target": {"checked": true}})
 
-      it('calls the change callback', function() {
-        expect(callValue).toEqual('1');
-        expect(changeSpy.calls.count()).toEqual(1);
-      });
-    });
-  });
+        expect(changeSpy.calls.count()).toEqual(1)
+        expect(clickedValue).toEqual('one')
+      })
+    })
+  })
 
-  describe('RadioGroup with custom attributes', function() {
-    beforeEach(function() {
-      ReactDOM.render(
-        <RadioGroup name="bananas" id="clear-channel" style={{color: 'red'}} className='1234'>
-          <Radio value="1">One!!!</Radio>
-          <Radio value="2">The two value</Radio>
-          <Radio value="3">Three</Radio>
-        </RadioGroup>, root);
-    });
+  it('passes id, style, and className to radio group', () => {
+    subject = renderComponent({id: "clear-channel", style: {color: 'red'}, className: '1234', name: 'radioGroup'})
+    const radioGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio-group')
 
-    it('renders the radio group with the overrides', function() {
-      expect('.radio-group').toHaveAttr('id', 'clear-channel');
-      expect('.radio-group').toHaveClass('1234');
-      expect('.radio-group').toHaveCss({color: 'rgb(255, 0, 0)'});
-    });
-  });
-});
+    expect(radioGroup.id).toEqual('clear-channel')
+    expect(radioGroup).toHaveClass('1234')
+    expect(radioGroup).toHaveCss({color: 'red'})
+  })
+})
