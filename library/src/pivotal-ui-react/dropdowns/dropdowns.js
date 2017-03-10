@@ -37,7 +37,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     toggle: types.node,
     scroll: types.bool,
     showIcon: types.bool,
-    size: types.oneOf(['normal', 'large']),
+    size: types.oneOf(['normal', 'large', 'small']),
     split: types.bool
   }
 
@@ -81,15 +81,16 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       'dropdown-flat': flat,
       'dropdown-split': split,
       'dropdown-link': link,
-      'dropdown-lg': (size === 'large'),
-      'dropdown-icon-only' : (!split && noTitle)
+      'dropdown-lg': size === 'large',
+      'dropdown-sm': size === 'small',
+      'dropdown-icon-only' : !split && noTitle
     }, menuVisibility, className)
 
     const dropdownMenuClasses = classnames('dropdown-menu',
       {
         'dropdown-border'     : border,
-        'dropdown-menu-right' : (menuAlign === 'right'),
-        'dropdown-menu-left'  : (menuAlign === 'left'),
+        'dropdown-menu-right' : menuAlign === 'right',
+        'dropdown-menu-left'  : menuAlign === 'left',
         'dropdown-menu-float' : split || flat || link || floatMenu || noTitle || menuAlign !== 'none',
         'dropdown-menu-scroll': scroll
       }

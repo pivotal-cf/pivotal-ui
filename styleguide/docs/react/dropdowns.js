@@ -17,23 +17,23 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property         | Required | Type                             | Default        | Description
------------------|----------|----------------------------------|----------------|------------
-buttonClassName  | no       | String                           |                | Classname to add to the button
-closeOnMenuClick | no       | Boolean                          | true           | If false, do not close the menu when clicking in the dropdown menu
-disableScrim     | no       | Boolean                          | false          | If true, do not close the menu when clicking outside the dropdown
-flat             | no       | Boolean                          |                | If true, dropdown toggle has no borders and is transparent
-floatMenu        | no       | Boolean                          | false          | If true, float the dropdown menu. This only applies to the basic dropdown
-icon             | no       | String                           | 'chevron_down' | Name of the svg to use for the toggle icon
-link             | no       | Boolean                          |                | If true, color the dropdown toggle like a link
-menuAlign        | no       | oneOf(['none', 'left', 'right']) | 'none'         | Sets the alignment of the menu with the button
-onEntered        | no       | Function                         |                | Callback that fires after opening the dropdown
-onExited         | no       | Function                         |                | Callback that fires after closing the dropdown
-scroll           | no       | Boolean                          | false          | Enables scrolling in the dropdown menu when enabled
-showIcon         | no       | Boolean                          | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
-size             | no       | oneOf(['normal', 'large'])       | 'normal'       | Sets the size
-split            | no       | Boolean                          |                | If true, separates the button text from the toggle
-title            | no       | Node                             |                | The button contents
+Property         | Required | Type                                | Default        | Description
+-----------------|----------|-------------------------------------|----------------|------------
+buttonClassName  | no       | String                              |                | Classname to add to the button
+closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
+disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
+flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
+floatMenu        | no       | Boolean                             | false          | If true, float the dropdown menu. This only applies to the basic dropdown
+icon             | no       | String                              | 'chevron_down' | Name of the svg to use for the toggle icon
+link             | no       | Boolean                             |                | If true, color the dropdown toggle like a link
+menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
+onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
+onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
+scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
+showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
+size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
+split            | no       | Boolean                             |                | If true, separates the button text from the toggle
+title            | no       | Node                                |                | The button contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
@@ -231,18 +231,34 @@ Rendered when no title is specified. Floating menu only.
 
 /*doc
 ---
-title: Large Dropdown
-name: 8_large_dropdown_react
+title: Sizing
+name: 8_dropdown_sizing_react
 parent: dropdown_react
 ---
 
 ```react_example
-<div className="form-group">
-  <Dropdown title='Large Dropdown' size='large'>
-    <DropdownItem href="#">lorem ipsum</DropdownItem>
-    <DropdownItem href="#">lorem ipsum</DropdownItem>
-    <DropdownItem href="#">lorem ipsum</DropdownItem>
-  </Dropdown>
+<div>
+  <div className="form-group form-inline">
+    <Dropdown title='Large Dropdown' size='large'>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+    </Dropdown>
+  </div>
+  <div className="form-group form-inline">
+    <Dropdown title='Normal Dropdown'>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+    </Dropdown>
+  </div>
+  <div className="form-group form-inline">
+    <Dropdown title='Small Dropdown' size='small'>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+      <DropdownItem href="#">lorem ipsum</DropdownItem>
+    </Dropdown>
+  </div>
 </div>
 ```
 */

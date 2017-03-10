@@ -207,7 +207,7 @@
   //Dropdown Large
   &.dropdown-lg {
     .dropdown-toggle {
-      padding:0 (($base-unit*5)- 1px) 0 $base-unit; //24px - 1px
+      padding:0 (($base-unit*5)- 1px) 0 $base-unit;
       height:($base-unit*5);
       line-height: ($base-unit*5) - 2px;
       font-size: 16px;
@@ -236,6 +236,41 @@
 
     &.dropdown-icon-only:not(.dropdown-split) {
       width:40px;
+    }
+  }
+
+  //Dropdown Small
+  &.dropdown-sm {
+    .dropdown-toggle {
+      padding:0 (($base-unit*3)- 1px) 0 $base-unit;
+      height:($base-unit*3);
+      line-height: ($base-unit*3) - 2px;
+      font-size: 12px;
+    }
+    .dropdown-label {
+      height:($base-unit*3);
+      line-height: ($base-unit*3) - 2px;
+      font-size: 12px;
+    }
+    .dropdown-menu {
+      li {
+        padding:$base-unit;
+        line-height: 16px;
+        font-size:12px;
+      }
+    }
+    &.dropdown-split .dropdown-toggle{
+      width:24px;
+      padding:11px;
+    }
+    .icon {
+      font-size: 14px;
+      right:5px;
+      bottom:5px;
+    }
+
+    &.dropdown-icon-only:not(.dropdown-split) {
+      width:24px;
     }
   }
 }

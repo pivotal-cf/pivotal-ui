@@ -293,31 +293,71 @@ A dropdown with no title and just a toggle icon.
 
 /*doc
 ---
-title: Large Dropdown
-name: 8_large_dropdown
+title: Sizing
+name: 8_dropdown_sizing
 parent: dropdown
 ---
 
-Apply the large class .dropdown-lg to the .dropdown element to change the size of the dropdown.
+Apply the classes .dropdown-lg or .dropdown-sm to the .dropdown element to change the size of the dropdown.
 These modifiers will apply to all of the variations above.
 
 ```html_example
-<div class="form-group">
-  <div class="dropdown dropdown-lg">
-    <div tabindex="0" class="dropdown-toggle">
-      Large Dropdown
-      <div class="icon icon-middle">
-          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
-          </svg>
-        </div>
+<div>
+  <div class="form-group form-inline">
+    <div class="dropdown dropdown-lg">
+      <div tabindex="0" class="dropdown-toggle">
+        Large Dropdown
+        <div class="icon icon-middle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
     </div>
-    <div class="dropdown-menu">
-      <ul>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-        <li> <a href="#">lorem ipsum</a> </li>
-      </ul>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <div tabindex="0" class="dropdown-toggle">
+        Normal Dropdown
+        <div class="icon icon-middle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown dropdown-sm">
+      <div tabindex="0" class="dropdown-toggle">
+        Small Dropdown
+        <div class="icon icon-middle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

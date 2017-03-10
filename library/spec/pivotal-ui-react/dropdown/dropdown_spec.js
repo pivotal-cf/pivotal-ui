@@ -281,10 +281,17 @@ describe('Dropdowns', () => {
         expect('.dropdown.dropdown-lg').toExist();
       });
 
-      it('can be normal (not large)', () => {
+      it('can be normal', () => {
         subject::setProps({size: 'normal'});
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-lg').not.toExist();
+        expect('.dropdown-sm').not.toExist();
+      });
+
+      it('can be small', () => {
+        subject::setProps({size: 'small'});
+        $('.dropdown-toggle').simulate('click');
+        expect('.dropdown-sm').toExist();
       });
     });
 
