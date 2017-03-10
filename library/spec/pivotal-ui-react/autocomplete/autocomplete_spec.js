@@ -1,533 +1,371 @@
-require('../spec_helper');
+import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete'
+import ReactTestUtils from 'react-addons-test-utils'
 
 describe('Autocomplete', () => {
-  let Autocomplete, AutocompleteInput, pickSpy, subject, onInitializeItems;
+  let subject, onInitializeItems, pickSpy
   beforeEach(() => {
     const Cursor = require('pui-cursor');
     Cursor.async = false;
 
-    Autocomplete = require('../../../src/pivotal-ui-react/autocomplete/autocomplete').Autocomplete;
-    AutocompleteInput = require('../../../src/pivotal-ui-react/autocomplete/autocomplete').AutocompleteInput;
-    pickSpy = jasmine.createSpy('pick');
-  });
+    onInitializeItems = cb =>
+      cb([
+        {watson: {name: 'watson', age: 4}},
+        {coffee: {name: 'coffee', age: 2}},
+        {advil: {name: 'advil', age: 5}},
+        {'lily.water': {name: 'lily.water', age: 44}},
+        {'water lilies': {name: 'water lilies', age: 64}}
+      ])
+    pickSpy = jasmine.createSpy('pick')
+  })
 
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(root);
-    MockNextTick.next();
-  });
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Autocomplete {...props}/>)
 
-  describe('when the values are objects', () => {
-    beforeEach(() => {
-      onInitializeItems = (cb) => {
-        cb([
-          {watson: {name: 'watson', age: 4}},
-          {coffee: {name: 'coffee', age: 2}},
-          {advil: {name: 'advil', age: 5}},
-          {'water lilies': {name: 'water lilies', age: 6}}
-        ]);
-      };
-    });
+  it('passes through custom props', () => {
+    const CustomInput = ({disabled, placeholder}) => <input className="input-thing" {...{disabled, placeholder}}/>
+    const CustomList = () => (<ul className="my-custom-list"/>)
 
-    it('renders', () => {
-      ReactDOM.render(<Autocomplete />, root);
-      expect('.autocomplete').toExist();
-      MockNextTick.next();
-      MockPromises.tick();
-    });
+    subject = ReactTestUtils.renderIntoDocument(
+      <Autocomplete {...{
+        onInitializeItems,
+        input: (<CustomInput/>),
+        disabled: true,
+        placeholder: 'Best autocomplete ever...'
+      } }>
+        <CustomList/>
+      </Autocomplete>
+    )
+    MockNextTick.next()
+    MockPromises.tick()
 
-    describe('when the user starts to type into the input', () => {
-      let context;
+    subject.showList()
 
-      beforeEach(() => {
-        class Context extends React.Component {
-          constructor(props, context) {
-            super(props, context);
-            this.state = {onInitializeItems};
-          }
+    const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+    expect(input).toHaveAttr('disabled')
+    expect(input).toHaveAttr('placeholder', 'Best autocomplete ever...')
+    expect(input).toHaveClass('input-thing')
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'my-custom-list')).toExist()
+    expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list').length).toEqual(0)
+  })
 
-          render() {
-            return (
-              <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}/>
-            );
-          }
-        }
-
-        context = ReactDOM.render(<Context/>, root);
-        MockNextTick.next();
-        MockPromises.tick();
-
-        $('.autocomplete input').val('wat').simulate('change');
-      });
-
-      it('renders the list', () => {
-        expect('.autocomplete-list').toExist();
-        expect('.autocomplete-list').toContainText('watson');
-        expect('.autocomplete-list').toContainText('water lilies');
-        expect($('.autocomplete-item').map(function() { return $(this).attr('title'); }).toArray()).toEqual(['watson', 'water lilies']);
-      });
-
-      describe('when the enter key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
-        });
-
-        it('hides the list', () => {
-          expect('.autocomplete-list').not.toExist();
-        });
-
-        it('calls the autocomplete callback', () => {
-          expect(pickSpy).toHaveBeenCalledWith({_key_: 'watson', value: {name: 'watson', age: 4}});
-        });
-      });
-    });
-
-    describe('when a custom filter function is provided', () => {
-      beforeEach(() => {
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            onFilter: (stuffs) => stuffs.filter((stuff) => stuff.value.name.indexOf('e') !== -1 )
-          } }/>,
-          root
-        );
-        MockNextTick.next();
-        MockPromises.tick();
-
-        subject.showList();
-      });
-
-      it('filters results', () => {
-        expect('.autocomplete-list').not.toContainText('advil');
-        expect('.autocomplete-list').toContainText('water lilies');
-        expect('.autocomplete-list').toContainText('coffee');
-      });
-    });
-  });
-
-  describe('when custom trieOptions are provided', () => {
-    let context;
+  describe('when the user starts to type into the input', () => {
+    let input
 
     beforeEach(() => {
-      onInitializeItems = (cb) => {
-        cb([
-          {list: {name: 'list', age: 4}},
-          {coffee: {name: 'coffee', age: 2}},
-          {advil: {name: 'advil', age: 5}},
-          {'water-lilies': {name: 'water-lilies', age: 4}},
-          {'water_lilies': {name: 'water_lilies', age: 3}},
-          {'water.lilies': {name: 'water.lilies', age: 8}},
-          {'water lilies': {name: 'water lilies', age: 6}}
-        ]);
-      };
+      pickSpy.calls.reset()
+      subject = renderComponent({
+        onInitializeItems,
+        onPick: pickSpy
+      })
+      MockNextTick.next()
+      MockPromises.tick()
 
-      class Context extends React.Component {
-        constructor(props, context) {
-          super(props, context);
-          this.state = {onInitializeItems};
-        }
+      input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      input.value = 'wat'
+      ReactTestUtils.Simulate.change(input)
+    })
 
-        render() {
-          return (
-            <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}
-                          trieOptions={{splitOnRegEx: /\./}}/>
-          );
-        }
-      }
+    it('renders the list', () => {
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
+      const items = list.getElementsByTagName('a')
 
-      context = ReactDOM.render(<Context/>, root);
-      MockNextTick.next();
-      MockPromises.tick();
+      expect(items).toHaveLength(2)
+      expect(items[0]).toHaveText('watson')
+      expect(items[0]).toHaveAttr('title', 'watson')
+      expect(items[1]).toHaveText('water lilies')
+      expect(items[1]).toHaveAttr('title', 'water lilies')
+    })
 
-      $('.autocomplete input').val('li').simulate('change');
-    });
-
-    it('uses the trieOptions to render the list', () => {
-      expect('.autocomplete-item').toHaveLength(2);
-      expect('.autocomplete-item:eq(0)').toContainText('list');
-      expect('.autocomplete-item:eq(1)').toContainText('water.lilies');
-    });
+    it('highlights (but does not select) the first item', () => {
+      const firstItem = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
+      expect(firstItem).toHaveClass('highlighted')
+      expect(firstItem).not.toHaveClass('selected')
+    })
 
     describe('when the enter key is pressed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
-      });
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.ENTER_KEY})
+      })
 
       it('hides the list', () => {
-        expect('.autocomplete-list').not.toExist();
-      });
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list')).toHaveLength(0)
+      })
 
       it('calls the autocomplete callback', () => {
-        expect(pickSpy).toHaveBeenCalledWith({_key_: 'list', value: {name: 'list', age: 4}});
-      });
-    });
-  });
+        expect(pickSpy).toHaveBeenCalledWith({_key_: 'watson', value: {name: 'watson', age: 4}})
+      })
+    })
 
-  describe('when the values are non-objects', () => {
+    describe('when the tab key is pressed', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.TAB_KEY})
+      })
+
+      it('hides the list', () => {
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list')).toHaveLength(0)
+      })
+
+      it('calls the autocomplete callback', () => {
+        expect(pickSpy).toHaveBeenCalledWith({_key_: 'watson', value: {name: 'watson', age: 4}})
+      })
+    })
+
+    describe('when the escape key is pressed', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.ESC_KEY})
+      })
+
+      it('hides the list', () => {
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list')).toHaveLength(0)
+      })
+    })
+
+    describe('when the up key is pressed at the beginning of the list', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.UP_KEY})
+      })
+
+      it('unhighlights any autocomplete suggestions', () => {
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'highlighted')).toHaveLength(0)
+      })
+
+      describe('when the down key is then pressed', () => {
+        beforeEach(() => {
+          ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.DOWN_KEY})
+        })
+
+        it('adds highlighted class to the first autocomplete item', () => {
+          const items = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-item')
+          expect(items[0]).toHaveClass('highlighted')
+        })
+      })
+    })
+
+    describe('when the down key is pressed', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.DOWN_KEY})
+      })
+
+      it('adds highlighted class to the next autocomplete item', () => {
+        const items = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-item')
+        expect(items[0]).not.toHaveClass('highlighted')
+        expect(items[1]).toHaveClass('highlighted')
+      })
+
+      describe('when the up key is then pressed', () => {
+        beforeEach(() => {
+          ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.UP_KEY})
+        })
+
+        it('adds highlighted class to the first autocomplete item', () => {
+          const items = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-item')
+          expect(items[0]).toHaveClass('highlighted')
+          expect(items[1]).not.toHaveClass('highlighted')
+        })
+      })
+    })
+
+    describe('when the down key is pressed while the list is closed', () => {
+      beforeEach(() => {
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.ESC_KEY})
+        ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.DOWN_KEY})
+      })
+
+      it('opens the list', () => {
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list').length).toEqual(1)
+      })
+    })
+
+    describe('when a click is triggered on the body', () => {
+      beforeEach(() => {
+        const evt = document.createEvent('HTMLEvents')
+        evt.initEvent('click', true, true)
+        document.documentElement.dispatchEvent(evt)
+      })
+
+      it('hides the list', () => {
+        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'autocomplete-list')).toHaveLength(0)
+      })
+    })
+  })
+
+  describe('when the user tries to apply a selection that is not in the list', () => {
     beforeEach(() => {
-      onInitializeItems = (cb) => { cb(['watson', 'coffee', 'advil', 'water lilies']); };
-    });
+      pickSpy.calls.reset()
+      subject = renderComponent({
+        onInitializeItems,
+        onPick: pickSpy
+      })
+      MockNextTick.next()
+      MockPromises.tick()
 
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      input.value = 'does not exist'
+      ReactTestUtils.Simulate.change(input)
+      ReactTestUtils.Simulate.keyDown(input, {keyCode: AutocompleteInput.ENTER_KEY})
+    })
+
+    it('calls autocomplete callback with the value of the input', () => {
+      expect(pickSpy).toHaveBeenCalledWith({value: 'does not exist'})
+    })
+  })
+
+  describe('when one of the autocomplete items is the selected suggestion', () => {
+    beforeEach(() => {
+      subject = renderComponent({
+        onInitializeItems,
+        selectedSuggestion: 'lily.water'
+      })
+      MockNextTick.next()
+      MockPromises.tick()
+
+      ReactTestUtils.Simulate.change(ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input'))
+    })
+
+    it('sets the selected class (but not highlighted) on the autocomplete item', () => {
+      const lilyWaterItem = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[4]
+      expect(lilyWaterItem).toHaveText('lily.water')
+      expect(lilyWaterItem).not.toHaveClass('highlighted')
+      expect(lilyWaterItem).toHaveClass('selected')
+    })
+  })
+
+  describe('when maxItems is provided', () => {
+    it('caps length of displayed list', () => {
+      subject = renderComponent({
+        onInitializeItems,
+        maxItems: 1
+      })
+      MockNextTick.next()
+      MockPromises.tick()
+
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      ReactTestUtils.Simulate.change(input)
+
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
+      const items = list.getElementsByTagName('a')
+
+      expect(items).toHaveLength(1)
+      expect(items[0]).toHaveText('watson')
+    })
+  })
+
+  describe('when a custom filter function is provided', () => {
+    it('filters results', () => {
+      const containsLetterE = items => items.filter(item => item.value.name.indexOf('e') !== -1)
+      subject = renderComponent({
+        onInitializeItems,
+        onFilter: containsLetterE
+      })
+      MockNextTick.next()
+      MockPromises.tick()
+
+      ReactTestUtils.Simulate.change(ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input'))
+
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
+
+      expect(list).not.toContainText('advil')
+      expect(list).not.toContainText('watson')
+      expect(list).toContainText('water lilies')
+      expect(list).toContainText('coffee')
+    })
+  })
+
+  describe('when custom trieOptions are provided', () => {
+    let input
+
+    beforeEach(() => {
+      subject = renderComponent({
+        onInitializeItems,
+        trieOptions: {splitOnRegEx: /\./}
+      })
+      MockNextTick.next()
+      MockPromises.tick()
+
+      input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      input.value = 'wat'
+      ReactTestUtils.Simulate.change(input)
+    })
+
+    it('uses the trieOptions to render the list', () => {
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
+      const items = list.getElementsByTagName('a')
+
+      expect(items).toHaveLength(3)
+      expect(items[0]).toHaveText('watson')
+      expect(items[0]).toHaveAttr('title', 'watson')
+      expect(items[1]).toHaveText('lily.water')
+      expect(items[1]).toHaveAttr('title', 'lily.water')
+      expect(items[2]).toHaveText('water lilies')
+      expect(items[2]).toHaveAttr('title', 'water lilies')
+    })
+  })
+
+  describe('when the values are scalar', () => {
     it('renders', () => {
-      ReactDOM.render(<Autocomplete />, root);
-      expect('.autocomplete').toExist();
-    });
+      subject = renderComponent({
+        onInitializeItems: cb => cb(['a', 'b', 'c', 'd'])
+      })
+      MockNextTick.next()
+      MockPromises.tick()
 
-    describe('when maxItems is provided', () => {
-      it('caps length of displayed list', () => {
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            maxItems: 2
-          } }/>,
-          root
-        );
-        MockNextTick.next();
-        MockPromises.tick();
+      ReactTestUtils.Simulate.change(ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input'))
 
-        subject.showList();
-        expect('.autocomplete-item').toHaveLength(2);
-      });
-    });
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
 
-    describe('when the user starts to type into the input', () => {
-      let context;
+      expect(list).toHaveText('abcd')
+    })
+  })
 
-      beforeEach(() => {
-        class Context extends React.Component {
-          constructor(props, context) {
-            super(props, context);
-            this.state = {onInitializeItems};
-          }
+  describe('when an asynchronous onInitializeItems is provided', () => {
+    it('still populates the list properly', () => {
+      let cb
+      subject = renderComponent({
+        onInitializeItems: callback => cb = callback
+      })
 
-          render() {
-            return (
-              <Autocomplete onPick={pickSpy} onInitializeItems={this.state.onInitializeItems}/>
-            );
-          }
-        }
+      cb(['a', 'b', 'c', 'd'])
 
-        context = ReactDOM.render(<Context/>, root);
-        MockNextTick.next();
-        MockPromises.tick();
+      MockNextTick.next()
+      MockPromises.tick()
 
-        $('.autocomplete input').val('wat').simulate('change');
-      });
+      ReactTestUtils.Simulate.change(ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input'))
 
-      it('renders the list', () => {
-        expect('.autocomplete-list').toExist();
-        expect('.autocomplete-list').toContainText('watson');
-        expect('.autocomplete-list').toContainText('water lilies');
-      });
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
 
-      it('auto-selects the first item', () => {
-        expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
-      });
+      expect(list).toHaveText('abcd')
+    })
+  })
 
-      describe('when the user attempts to re-initialize the searchable items', () => {
-        beforeEach(() => {
-          context.setState({onInitializeItems: (done) => done([])});
-        });
-
-        it('does not actually let you change the list', () => {
-          expect('.autocomplete-list').toContainText('watson');
-          expect('.autocomplete-list').toContainText('water lilies');
-          expect('.autocomplete-list').not.toContainText('coffee');
-          expect('.autocomplete-list').not.toContainText('advil');
-          expect(subject.state.suggestedValues).toEqual([{value: 'watson'}, {value: 'water lilies'}]);
-          expect(subject.state.searchableItems).toEqual(['watson', 'coffee', 'advil', 'water lilies']);
-        });
-      });
-
-      describe('when a click is triggered on the body', () => {
-        beforeEach(() => {
-          const evt = document.createEvent('HTMLEvents');
-          evt.initEvent('click', true, true);
-          document.documentElement.dispatchEvent(evt);
-        });
-
-        it('hides the list', () => {
-          MockPromises.tick();
-          expect('.autocomplete-list').not.toExist();
-        });
-      });
-
-      describe('when the tab key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.TAB_KEY});
-        });
-
-        it('hides the list', () => {
-          expect('.autocomplete-list').not.toExist();
-        });
-
-        it('calls the autocomplete callback', () => {
-          expect(pickSpy).toHaveBeenCalledWith({value: 'watson'});
-        });
-      });
-
-      describe('when the enter key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
-        });
-
-        it('hides the list', () => {
-          expect('.autocomplete-list').not.toExist();
-        });
-
-        it('calls the autocomplete callback', () => {
-          expect(pickSpy).toHaveBeenCalledWith({value: 'watson'});
-        });
-      });
-
-      describe('when the user tries to apply a selection that is not in the list', () => {
-        beforeEach(() => {
-          $('.autocomplete input').val('does not exist').simulate('change').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
-        });
-
-        it('calls autocomplete callback with the value of the input', () => {
-          expect(pickSpy).toHaveBeenCalledWith({value: 'does not exist'});
-        });
-      });
-
-      describe('when one of the autocomplete items is the currently selected option', () => {
-        beforeEach(() => {
-          subject = ReactDOM.render(
-            <Autocomplete {...{
-              onPick: pickSpy,
-              onInitializeItems,
-              selectedSuggestion: 'watson'
-            } }/>,
-            root
-          );
-
-          MockNextTick.next();
-          MockPromises.tick();
-
-          $('.autocomplete input').val('wat').simulate('change');
-        });
-
-        it('sets the selected class to the autocomplete item', () => {
-          expect('.autocomplete-item:eq(0)').toHaveClass('selected');
-        });
-      });
-
-      describe('when the escape key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
-        });
-
-        it('hides the list', () => {
-          expect('.autocomplete-list').not.toExist();
-        });
-      });
-
-      describe('when the down key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
-        });
-
-        it('adds highlighted class to the next autocomplete item', () => {
-          expect('.autocomplete-item:eq(0)').not.toHaveClass('highlighted');
-          expect('.autocomplete-item:eq(1)').toHaveClass('highlighted');
-        });
-
-        describe('when the up key is pressed', () => {
-          beforeEach(() => {
-            $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
-          });
-
-          it('adds highlighted class to the first autocomplete item', () => {
-            expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
-            expect('.autocomplete-item:eq(1)').not.toHaveClass('highlighted');
-          });
-
-          describe('when the up key is pressed again', () => {
-            beforeEach(() => {
-              $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
-            });
-
-            it('unhighlights any autocomplete suggestions', () => {
-              expect('.autocomplete-item.highlighted').not.toExist();
-            });
-          });
-        });
-      });
-
-      describe('when the up key is pressed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
-        });
-
-        it('clears the selection', () => {
-          expect('.autocomplete-item.highlighted').not.toExist();
-        });
-
-        describe('when the up key is pressed again', () => {
-          beforeEach(() => {
-            $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
-          });
-
-          it('does not break the down key', () => {
-            $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
-            expect('.autocomplete-item:eq(0)').toHaveClass('highlighted');
-          });
-        });
-      });
-
-      describe('when the down key is pressed while the list is closed', () => {
-        beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
-        });
-
-        it('opens the list', () => {
-          expect('.autocomplete-list').toExist();
-        });
-      });
-    });
-
-    describe('when a initial value is provided', () => {
-      beforeEach(() => {
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            value: 'advil'
-          } }/>,
-          root
-        );
-      });
-
-      it('defaults to that value being selected', () => {
-        expect(subject.state.value).toBe('advil');
-      });
-    });
-
-    describe('when a custom (possibly asynchronous) search function is provided', () => {
-      let cb;
-      beforeEach(() => {
-        const search = (value, callback) => { cb = callback; };
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            onSearch: search
-          } }/>,
-          root
-        );
-
-        $('.autocomplete input').val('zo').simulate('change');
-      });
-
-      it('uses the custom search instead of the trie', () => {
-        cb([{value: 'gonzo'}, {value: 'zonk'}, {value: 'zoo'}, {value: 'zoology'}]);
-        expect('.autocomplete-list').toContainText('gonzo');
-      });
-
-      it('does not set a trie', () => {
-        expect(subject.state.trie).toBe(null);
-      });
-    });
-
-    describe('when custom props are provided', () => {
-      beforeEach(() => {
-        const CustomInput = ({disabled, placeholder}) => (<input className="input-thing" {...{disabled, placeholder}}/>);
-        CustomInput.propTypes = {disabled: React.PropTypes.bool, placeholder: React.PropTypes.string};
-        const CustomList = () => (<ul className="my-custom-list"/>);
-
-        ReactDOM.unmountComponentAtNode(root);
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            input: (<CustomInput/>),
-            disabled: true,
-            placeholder: 'Best autocomplete ever...'} }>
-            <CustomList/>
-          </Autocomplete>, root);
-        MockNextTick.next();
-        subject.showList();
-      });
-
-      it('does the right things', () => {
-        expect($('.autocomplete input').attr('disabled')).toBe('disabled');
-        expect($('.autocomplete input').attr('placeholder')).toBe('Best autocomplete ever...');
-        expect('.autocomplete input').toHaveClass('input-thing');
-        expect('.my-custom-list').toExist();
-        expect('.autocomplete-list').not.toExist();
-      });
-    });
-
-    describe('when a custom filter function is provided', () => {
-      beforeEach(() => {
-        subject = ReactDOM.render(
-          <Autocomplete {...{
-            onPick: pickSpy,
-            onInitializeItems,
-            onFilter: (stuffs) => stuffs.filter((stuff) => stuff.value.indexOf('e') !== -1 )
-          } }/>,
-          root
-        );
-        MockNextTick.next();
-        MockPromises.tick();
-
-        subject.showList();
-      });
-
-      it('filters results', () => {
-        expect('.autocomplete-list').not.toContainText('advil');
-        expect('.autocomplete-list').toContainText('water lilies');
-        expect('.autocomplete-list').toContainText('coffee');
-      });
-    });
-
-    describe('when an asynchronous onInitializeItems is provided', () => {
-      let cb;
-      beforeEach(() => {
-        ReactDOM.unmountComponentAtNode(root);
-        onInitializeItems = (callback) => { cb = callback; };
-        subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}}/>, root);
-      });
-
-      it('still populates the list properly', () => {
-        cb(['a', 'betty', 'c']);
-        MockNextTick.next();
-        MockPromises.tick();
-        subject.showList();
-        expect('.autocomplete-list').toContainText('betty');
-      });
-    });
-  });
-
-  describe('when there is a custom list', () => {
+  describe('when a initial value is provided', () => {
     beforeEach(() => {
-      onInitializeItems = (cb) => {
-        cb([
-          {watson: {name: 'watson', age: 4}},
-          {coffee: {name: 'coffee', age: 2}},
-          {advil: {name: 'advil', age: 5}},
-          {'water lilies': {name: 'water lilies', age: 6}}
-        ]);
-      };
+      subject = renderComponent({onInitializeItems, value: 'lily.water'})
+    })
 
-      class CustomList extends React.Component {
-        static propTypes = {onClick: React.PropTypes.func};
-        render() {
-          return <ul className="custom-list" onClick={this.props.onClick}/>;
-        }
-      }
-      ReactDOM.render(<Autocomplete onInitializeItems={onInitializeItems} onPick={pickSpy}><CustomList/></Autocomplete>, root);
-      MockNextTick.next();
-      MockPromises.tick();
+    it('defaults to that value being selected', () => {
+      expect(subject.state.value).toEqual('lily.water')
+    })
+  })
 
-      $('.autocomplete input').val('wat').simulate('change');
-    });
+  describe('when a custom (possibly asynchronous) search function is provided', () => {
+    let cb
+    beforeEach(() => {
+      subject = renderComponent({
+        onInitializeItems,
+        onSearch: (_, callback) => cb = callback
+      })
+      MockNextTick.next()
+      MockPromises.tick()
 
-    it('supports picking from the list', () => {
-      $('.custom-list').simulateNative('click');
-      expect(pickSpy).toHaveBeenCalled();
-    });
-  });
-});
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
+      input.value = 'zo'
+      ReactTestUtils.Simulate.change(input)
+
+      cb([ {value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}])
+    })
+
+    it('uses that search callback', () => {
+      const list = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'autocomplete-list')
+      expect(list).toHaveText('abcd')
+    })
+  })
+})
