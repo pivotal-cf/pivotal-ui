@@ -1,10 +1,10 @@
 {
-  "version": "7.5.5",
+  "version": "8.0.0",
   "description": "A React component for rendering Font Awesome icons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-iconography": "=7.5.5",
-    "pui-react-helpers": "=7.5.5",
-    "pui-react-svg": "=7.5.5"
+    "pui-css-iconography": "=8.0.0",
+    "pui-react-helpers": "=8.0.0",
+    "pui-react-svg": "=8.0.0"
   }
 }

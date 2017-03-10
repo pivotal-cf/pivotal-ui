@@ -1,8 +1,8 @@
 {
-  "version": "7.5.5",
+  "version": "8.0.0",
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
-    "pui-react-mixins": "=7.5.5",
+    "pui-react-mixins": "=8.0.0",
     "lodash.uniqueid": "^3.0.0",
     "react-tether": "^0.5.2"
   },

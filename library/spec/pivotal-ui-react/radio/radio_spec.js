@@ -16,7 +16,7 @@ describe('Radio', () => {
   })
 
   it('passes through className and style to the radio, and id to the input', () => {
-    subject = renderComponent({value: 'bananas', id: 'npr', className: "radio-class", style: {opacity: '0.5'}})
+    subject = renderComponent({value: 'bananas', id: 'npr', className: 'radio-class', style: {opacity: '0.5'}})
     const radio = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio')
     const input = radio.getElementsByTagName('input')[0]
 
@@ -54,7 +54,7 @@ describe('Radio', () => {
       subject = renderComponent({value: 'bananas', onChange: changeSpy})
       const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
 
-      ReactTestUtils.Simulate.change(input, {"target": {"checked": true}})
+      ReactTestUtils.Simulate.change(input, {'target': {'checked': true}})
       jasmine.clock().tick(1)
 
       expect(changeSpy).toHaveBeenCalled()
@@ -100,7 +100,7 @@ describe('RadioGroup', () => {
         subject = renderComponent({onChange: changeSpy, name: 'radioGroup'})
         const input = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'input')[0]
 
-        ReactTestUtils.Simulate.change(input, {"target": {"checked": true}})
+        ReactTestUtils.Simulate.change(input, {'target': {'checked': true}})
 
         expect(changeSpy.calls.count()).toEqual(1)
         expect(clickedValue).toEqual('one')
@@ -109,7 +109,7 @@ describe('RadioGroup', () => {
   })
 
   it('passes id, style, and className to radio group', () => {
-    subject = renderComponent({id: "clear-channel", style: {color: 'red'}, className: '1234', name: 'radioGroup'})
+    subject = renderComponent({id: 'clear-channel', style: {color: 'red'}, className: '1234', name: 'radioGroup'})
     const radioGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio-group')
 
     expect(radioGroup.id).toEqual('clear-channel')
