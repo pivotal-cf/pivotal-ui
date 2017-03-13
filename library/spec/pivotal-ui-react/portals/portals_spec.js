@@ -73,7 +73,6 @@ describe('Portals', function() {
     })
   })
 
-
   describe('when the portals are rendered source first then destination', function() {
     class Context extends React.Component {
       constructor(props, context) {
@@ -164,11 +163,6 @@ describe('Portals', function() {
   })
 
   describe('with multiple portal pairs', function() {
-    beforeEach(function() {
-
-    })
-
-
     it('renders the source portal contents in the correct destination portals', function() {
       subject = ReactDOM.render(
         <div>
