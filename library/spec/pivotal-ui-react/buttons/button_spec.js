@@ -11,9 +11,9 @@ describe('UIButton', () => {
     subject = renderComponent()
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    expect(button.classList).toContain('btn')
-    expect(button.classList).toContain('btn-default')
-    expect(button.textContent).toContain('Click here')
+    expect(button).toHaveClass('btn')
+    expect(button).toHaveClass('btn-default')
+    expect(button).toHaveText('Click here')
   })
 
   describe('when href attribute is set', () => {
@@ -21,42 +21,85 @@ describe('UIButton', () => {
       subject = renderComponent({href: 'http://example.com'})
       const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
 
-      expect(button.href).toEqual('http://example.com/')
+      expect(button).toHaveAttr('href', 'http://example.com')
     })
   })
 
-  describe('when type attribute is supplied', () => {
-    it('passes that value to a link', () => {
-      subject = renderComponent({href: 'http://example.com', type: 'text/html'})
-      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
-
-      expect(button).toHaveAttr('type', 'text/html')
-    })
-
-    it('passes that value to a button', () => {
-      subject = renderComponent({type: 'submit'})
-      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
-
-      expect(button).toHaveAttr('type', 'submit')
-    })
-  })
-
-  describe('when type attribute is not supplied', () => {
-    describe('for a link', () => {
-      it('has no type attribute', () => {
-        subject = renderComponent({href: 'http://example.com'})
+  describe('aria-label', () => {
+    describe('when aria-label is specified', () => {
+      it('uses the supplied value', () => {
+        subject = renderComponent({'aria-label': 'my aria label'})
         const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
 
-        expect(button).not.toHaveAttr('type')
+        expect(button).toHaveAttr('aria-label', 'my aria label')
       })
     })
 
-    describe('for a button', () => {
-      it('has type button', () => {
+    describe('when aria-label is NOT specified', () => {
+      it('uses the button text for the aria-label value', () => {
         subject = renderComponent()
         const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
 
-        expect(button).toHaveAttr('type', 'button')
+        expect(button).toHaveAttr('aria-label', 'Click here')
+      })
+
+      it('ignores icons with the button text', () => {
+        subject = ReactTestUtils.renderIntoDocument(<UIButton icon={<Icon src="add"/>}>Click<Icon src="more_vert"/>here</UIButton>)
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).toHaveAttr('aria-label', 'Click here')
+      })
+
+      it('has no aria-label attribute for icon-only buttons', () => {
+        subject = renderComponent({iconOnly: true})
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).not.toHaveAttr('aria-label')
+      })
+
+      it('has no aria-label attribute for empty string buttons', () => {
+        subject = ReactTestUtils.renderIntoDocument(<UIButton/>)
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).not.toHaveAttr('aria-label')
+      })
+    })
+  })
+
+  describe('type', () => {
+    describe('when type attribute is supplied', () => {
+      it('passes that value to a link', () => {
+        subject = renderComponent({href: 'http://example.com', type: 'text/html'})
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).toHaveAttr('type', 'text/html')
+      })
+
+      it('passes that value to a button', () => {
+        subject = renderComponent({type: 'submit'})
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).toHaveAttr('type', 'submit')
+      })
+    })
+
+    describe('when type attribute is not supplied', () => {
+      describe('for a link', () => {
+        it('has no type attribute', () => {
+          subject = renderComponent({href: 'http://example.com'})
+          const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+          expect(button).not.toHaveAttr('type')
+        })
+      })
+
+      describe('for a button', () => {
+        it('has type button', () => {
+          subject = renderComponent()
+          const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+          expect(button).toHaveAttr('type', 'button')
+        })
       })
     })
   })
@@ -78,7 +121,7 @@ describe('UIButton', () => {
       subject = renderComponent({large: true})
       const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-      expect(button.classList).toContain('btn-lg')
+      expect(button).toHaveClass('btn-lg')
     })
   })
 
@@ -87,7 +130,7 @@ describe('UIButton', () => {
       subject = renderComponent({small: true})
       const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-      expect(button.classList).toContain('btn-sm')
+      expect(button).toHaveClass('btn-sm')
     })
   })
 
@@ -96,7 +139,7 @@ describe('UIButton', () => {
       subject = renderComponent({iconOnly: true})
       const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-      expect(button.classList).toContain('btn-icon')
+      expect(button).toHaveClass('btn-icon')
     })
   })
 
@@ -107,7 +150,7 @@ describe('UIButton', () => {
         subject = renderComponent({kind, alt: true})
         button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-        expect(button.classList).toContain(`btn-${kind}-alt`)
+        expect(button).toHaveClass(`btn-${kind}-alt`)
       })
     })
   })
@@ -119,7 +162,7 @@ describe('UIButton', () => {
         subject = renderComponent({kind, flat: true})
         button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-        expect(button.classList).toContain(`btn-${kind}-flat`)
+        expect(button).toHaveClass(`btn-${kind}-flat`)
       })
     })
   })
@@ -128,22 +171,22 @@ describe('UIButton', () => {
     subject = renderComponent({className: 'custom-class-1 custom-class-2'})
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    expect(button.classList).toContain('custom-class-1')
-    expect(button.classList).toContain('custom-class-2')
+    expect(button).toHaveClass('custom-class-1')
+    expect(button).toHaveClass('custom-class-2')
   })
 
   it('passes through the data-attributes', () => {
     subject = renderComponent({'data-click': 'myFunction', 'data-foo': 'bar'})
     const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button')
 
-    expect(button.attributes['data-click'].value).toEqual('myFunction')
-    expect(button.attributes['data-foo'].value).toEqual('bar')
+    expect(button).toHaveAttr('data-click', 'myFunction')
+    expect(button).toHaveAttr('data-foo', 'bar')
   })
 
   describe('icon property', () => {
     it('renders with an icon child node if one is passed in', () => {
       subject = renderComponent({
-        icon: <Icon src="add" />
+        icon: <Icon src="add"/>
       })
       const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon')
       expect(icon.parentNode.tagName).toEqual('BUTTON')

@@ -33,14 +33,14 @@ import {Icon} from 'pui-react-iconography';
 ```
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
-Native HTML attributes, such as aria-label, are applied to the underlying button or anchor element.
+The aria-label attribute will be populated with the button text, unless an aria-label value is explicitly supplied.
 
 ```react_example_table
-<DefaultButton aria-label="this is a button">
+<DefaultButton>
   Button
 </DefaultButton>
 
-<DefaultButton href="http://example.com" aria-label="this is an anchor">
+<DefaultButton href="http://example.com">
   Link
 </DefaultButton>
 ```
@@ -55,12 +55,12 @@ parent: button_react
 
 Every button type has a default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders).
 
-Button                                           | Button Alt                                               | Button Flat                                                | Description
--------------------------------------------------|----------------------------------------------------------|------------------------------------------------------------|-----------
-<button class="btn btn-default">Default</button> |<button class="btn btn-default-alt">Default Alt</button>  | <button class="btn">Default Flat</button>                  | This the default button style.
-<button class="btn btn-primary">Primary</button> |<button class="btn btn-primary-alt">Primary Alt</button>  | <button class="btn btn-primary-flat">Primary Flat</button> | Use this button for primary actions.
-<button class="btn btn-danger">Danger</button>   |<button class="btn btn-danger-alt">Danger Alt</button>    | <button class="btn btn-danger-flat">Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
-<button class="btn btn-brand">Brand</button>     |<button class="btn btn-brand-alt">Brand Alt</button>      | <button class="btn btn-brand-flat">Brand Flat</button>     | This button is for marketing purposes only
+Button                                                                             | Button Alt                                                                                 | Button Flat                                                                                  | Description
+-----------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------
+<button class="btn btn-default" type="button" aria-label="button">Default</button> |<button class="btn btn-default-alt" type="button" aria-label="button">Default Alt</button>  | <button class="btn" type="button" aria-label="button">Default Flat</button>                  | This the default button style.
+<button class="btn btn-primary" type="button" aria-label="button">Primary</button> |<button class="btn btn-primary-alt" type="button" aria-label="button">Primary Alt</button>  | <button class="btn btn-primary-flat" type="button" aria-label="button">Primary Flat</button> | Use this button for primary actions.
+<button class="btn btn-danger" type="button" aria-label="button">Danger</button>   |<button class="btn btn-danger-alt" type="button" aria-label="button">Danger Alt</button>    | <button class="btn btn-danger-flat" type="button" aria-label="button">Danger Flat</button>   | This button is for delete actions, these actions should also have a confirmation dialog
+<button class="btn btn-brand" type="button" aria-label="button">Brand</button>     |<button class="btn btn-brand-alt" type="button" aria-label="button">Brand Alt</button>      | <button class="btn btn-brand-flat" type="button" aria-label="button">Brand Flat</button>     | This button is for marketing purposes only
 
 The most common button examples are below:
 
@@ -125,6 +125,7 @@ Buttons can contain icons.
 ```
 
 They can also be icon buttons, by specifying `iconOnly`.
+Note that icon buttons are not supplied an aria-label value by default.
 
 ```react_example_table
 <DefaultButton alt iconOnly>

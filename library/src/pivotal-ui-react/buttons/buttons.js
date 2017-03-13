@@ -21,7 +21,8 @@ export class UIButton extends React.Component {
   render() {
     const {alt, flat, icon, iconOnly, large, small, kind, children, ...others} = this.props
 
-    const defaultProps = {
+
+    const buttonClasses = {
       className: [
         {
           'btn': true,
@@ -34,7 +35,14 @@ export class UIButton extends React.Component {
         }
       ]
     }
-    const props = mergeProps(others, defaultProps)
+    let props = mergeProps(others, buttonClasses)
+
+    const buttonText = Array.isArray(children) ?
+      children.filter(child => typeof child === 'string').join(' ') :
+      typeof children === 'string' ? children.toString() : null
+
+    if (buttonText && !iconOnly)
+      props = mergeProps(props, {'aria-label': buttonText})
 
     return this.props.href ?
       <a {...props}>{icon} {children}</a> :
