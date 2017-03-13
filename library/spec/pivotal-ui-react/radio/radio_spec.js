@@ -20,7 +20,7 @@ describe('Radio', () => {
     const radio = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio')
     const input = radio.getElementsByTagName('input')[0]
 
-    expect(input.id).toEqual('npr')
+    expect(input).toHaveAttr('id', 'npr')
     expect(radio).toHaveClass('radio-class')
     expect(radio).toHaveCss({opacity: '0.5'})
   })
@@ -66,8 +66,8 @@ describe('Radio', () => {
       subject = renderComponent({value: 'bananas', disabled: true})
       const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
 
-      expect(input.disabled).toBe(true)
-      expect(input.attributes['aria-disabled'].value).toEqual('true')
+      expect(input).toHaveAttr('disabled')
+      expect(input).toHaveAttr('aria-disabled', 'true')
     })
   })
 })
@@ -112,7 +112,7 @@ describe('RadioGroup', () => {
     subject = renderComponent({id: 'clear-channel', style: {color: 'red'}, className: '1234', name: 'radioGroup'})
     const radioGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'radio-group')
 
-    expect(radioGroup.id).toEqual('clear-channel')
+    expect(radioGroup).toHaveAttr('id', 'clear-channel')
     expect(radioGroup).toHaveClass('1234')
     expect(radioGroup).toHaveCss({color: 'red'})
   })

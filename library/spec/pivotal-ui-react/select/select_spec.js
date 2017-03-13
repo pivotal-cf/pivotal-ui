@@ -28,75 +28,70 @@ describe('Select', () => {
     it('renders a hidden input with the defaultValue', () => {
       const result = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
 
-      expect(result.type).toEqual('hidden')
-      expect(result.name).toEqual('myName')
-      expect(result.value).toEqual('defaultValue')
+      expect(result).toHaveAttr('type', 'hidden')
+      expect(result).toHaveAttr('name', 'myName')
+      expect(result).toHaveValue('defaultValue')
     })
 
     it('passes through className to the select', () => {
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select')
-      expect(result.classList).toContain('myClassName')
+      expect(result).toHaveClass('myClassName')
     })
 
     it('passes through style to the select', () => {
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select')
-      expect(result.style.opacity).toEqual('0.5')
+      expect(result).toHaveCss({opacity: '0.5'})
     })
 
     it('passes through id to the select', () => {
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select')
-      expect(result.id).toEqual('test-id')
+      expect(result).toHaveAttr('id', 'test-id')
     })
 
     it('creates a select-toggle with a double arrow', () => {
-      const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon-select_chevrons')
-      expect(result.parentNode.parentNode.classList).toContain('select-toggle')
+      const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
+      expect(result.getElementsByClassName('icon-select_chevrons')).toHaveLength(1)
     })
 
     it('shows the default value in the toggle', () => {
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
-      expect(result.textContent).toEqual(' defaultValue')
+      expect(result).toHaveText(' defaultValue')
     })
 
     it('shows the select menu on click', () => {
       const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
 
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-menu')
-      expect(result.parentNode.classList).toContain('open')
+      expect(result.parentNode).toHaveClass('open')
     })
 
     it('hides the menu when clicking outside the select', () => {
       const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
 
       const evt = document.createEvent('HTMLEvents')
       evt.initEvent('click', true, true)
       document.documentElement.dispatchEvent(evt)
 
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-menu')
-      expect(result.parentNode.classList).not.toContain('open')
+      expect(result.parentNode).not.toHaveClass('open')
     })
 
     it('hides the menu when clicking the select again', () => {
       const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
 
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
 
       const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-menu')
-      expect(result.parentNode.classList).not.toContain('open')
+      expect(result.parentNode).not.toHaveClass('open')
     })
 
     it('calls onEntered when opening', () => {
       expect(onEnteredSpy).not.toHaveBeenCalled()
       const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
 
       expect(onEnteredSpy).toHaveBeenCalled()
     })
@@ -105,9 +100,8 @@ describe('Select', () => {
       expect(onExitedSpy).not.toHaveBeenCalled()
       const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
       ReactTestUtils.Simulate.click(toggle)
-      jasmine.clock().tick(1)
+
       expect(onExitedSpy).toHaveBeenCalled()
     })
 
@@ -115,11 +109,9 @@ describe('Select', () => {
       beforeEach(() => {
         const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle')
         ReactTestUtils.Simulate.click(toggle)
-        jasmine.clock().tick(1)
 
         const optionOne = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'option')[1]
         ReactTestUtils.Simulate.click(optionOne)
-        jasmine.clock().tick(1)
       })
 
       it('calls then onChange callback', () => {
@@ -127,15 +119,15 @@ describe('Select', () => {
       })
 
       it('updates the selected value', () => {
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label').textContent).toEqual('one')
+        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label')).toHaveText('one')
         const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
-        expect(input.type).toEqual('hidden')
-        expect(input.value).toEqual('one')
+        expect(input).toHaveAttr('type', 'hidden')
+        expect(input).toHaveValue('one')
       })
 
       it('closes the menu', () => {
         const result = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-menu')
-        expect(result.parentNode.classList).not.toContain('open')
+        expect(result.parentNode).not.toHaveClass('open')
       })
     })
   })
@@ -155,17 +147,17 @@ describe('Select', () => {
       ReactTestUtils.Simulate.click(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle'))
       jasmine.clock().tick(1)
 
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label').textContent).toEqual('the default')
+      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label')).toHaveText('the default')
       const input = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'input')
-      expect(input.type).toEqual('hidden')
-      expect(input.value).toEqual('defaultValue')
+      expect(input).toHaveAttr('type', 'hidden')
+      expect(input).toHaveValue('defaultValue')
     })
 
     it('renders the options', () => {
       const options = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'option')
-      expect(options[0].textContent).toEqual('the default')
-      expect(options[1].textContent).toEqual('one')
-      expect(options[2].textContent).toEqual('two')
+      expect(options[0]).toHaveText('the default')
+      expect(options[1]).toHaveText('one')
+      expect(options[2]).toHaveText('two')
     })
   })
 
@@ -173,7 +165,7 @@ describe('Select', () => {
     it('shows the value', () => {
       subject = renderComponent({value: 'my value', options: ['anOption']})
 
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label').textContent).toEqual('my value')
+      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'select-toggle-label')).toHaveText('my value')
     })
   })
 })

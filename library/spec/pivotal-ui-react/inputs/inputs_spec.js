@@ -15,11 +15,11 @@ describe('Input Component', () => {
     const result = renderComponent({id: 'some-id', className: 'some-class', style: {color: 'red'}})
 
     const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
-    expect(input.id).toEqual('some-id')
-    expect(input.style.color).toEqual('red')
+    expect(input).toHaveAttr('id', 'some-id')
+    expect(input).toHaveCss({color: 'red'})
 
     const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
-    expect(formGroup.className).toContain('some-class')
+    expect(formGroup).toHaveClass('some-class')
   })
 
   it('displays a checkmark when success prop is true', () => {
@@ -35,7 +35,7 @@ describe('Input Component', () => {
     const result = renderComponent({search: true})
 
     const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
-    expect(formGroup.className).toContain('form-group-left-icon')
+    expect(formGroup).toHaveClass('form-group-left-icon')
 
     const svg = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
     expect(svg.className.baseVal).toEqual('icon-search')
@@ -52,7 +52,7 @@ describe('Input Component', () => {
       const result = renderComponent({label: 'label text'})
       const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'label')
       expect(component).not.toBeUndefined()
-      expect(component.textContent).toEqual('label text')
+      expect(component).toHaveText('label text')
     })
   })
 
@@ -61,7 +61,7 @@ describe('Input Component', () => {
       const result = renderComponent({leftIcon: 'add'})
 
       const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
-      expect(formGroup.className).toContain('form-group-left-icon')
+      expect(formGroup).toHaveClass('form-group-left-icon')
 
       const svgs = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'svg')
       expect(svgs[0].className.baseVal).toEqual('icon-add')

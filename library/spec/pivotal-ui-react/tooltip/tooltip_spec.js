@@ -15,8 +15,7 @@ describe('Tooltip Component', () => {
     const result = renderComponent()
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-content')
 
-    expect(tooltip).toBeDefined()
-    expect(tooltip.textContent).toEqual('Some default tooltip')
+    expect(tooltip).toHaveText('Some default tooltip')
   })
 
   it('propagates classname, id, style to the wrapping tooltip', () => {
@@ -27,22 +26,22 @@ describe('Tooltip Component', () => {
     })
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
 
-    expect(tooltip.className).toContain('some-classname')
-    expect(tooltip.id).toEqual('some-id')
-    expect(tooltip.style.color).toEqual('red')
+    expect(tooltip).toHaveClass('some-classname')
+    expect(tooltip).toHaveAttr('id', 'some-id')
+    expect(tooltip).toHaveCss({color: 'red'})
   })
 
   describe('visible', () => {
     it('renders visible by default', () => {
       const result = renderComponent()
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toContain('tooltip-container-visible')
+      expect(content).toHaveClass('tooltip-container-visible')
     })
 
     it('hides when visible is set to false', () => {
       const result = renderComponent({visible: false})
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toContain('tooltip-container-hidden')
+      expect(content).toHaveClass('tooltip-container-hidden')
     })
   })
 
@@ -50,25 +49,26 @@ describe('Tooltip Component', () => {
     it('renders auto width by default', () => {
       const result = renderComponent()
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toEqual('tooltip-container tooltip-container-visible')
+      expect(content).toHaveClass('tooltip-container')
+      expect(content).toHaveClass('tooltip-container-visible')
     })
 
     it('renders a small tooltip when small size is specified', () => {
       const result = renderComponent({size: 'sm'})
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toContain('tooltip-sm')
+      expect(content).toHaveClass('tooltip-sm')
     })
 
     it('renders a medium tooltip when small size is specified', () => {
       const result = renderComponent({size: 'md'})
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toContain('tooltip-md')
+      expect(content).toHaveClass('tooltip-md')
     })
 
     it('renders a large tooltip when small size is specified', () => {
       const result = renderComponent({size: 'lg'})
       const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
-      expect(content.className).toContain('tooltip-lg')
+      expect(content).toHaveClass('tooltip-lg')
     })
   })
 })

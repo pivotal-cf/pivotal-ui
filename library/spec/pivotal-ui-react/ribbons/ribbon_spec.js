@@ -22,7 +22,7 @@ describe('Ribbon', () => {
       const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
 
       expect(ribbon).toHaveClass('1234')
-      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveAttr('id', 'test')
       expect(ribbon).toHaveCss({color: 'red'})
     })
   })
@@ -46,7 +46,7 @@ describe('PrimaryRibbon', () => {
       const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon')
 
       expect(ribbon).toHaveClass('1234')
-      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveAttr('id', 'test')
       expect(ribbon).toHaveCss({color: 'red'})
     })
   })
@@ -70,7 +70,7 @@ describe('Banner', () => {
       const ribbon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'ribbon-banner')
 
       expect(ribbon).toHaveClass('1234')
-      expect(ribbon.id).toEqual('test')
+      expect(ribbon).toHaveAttr('id', 'test')
       expect(ribbon).toHaveCss({color: 'red'})
     })
   })

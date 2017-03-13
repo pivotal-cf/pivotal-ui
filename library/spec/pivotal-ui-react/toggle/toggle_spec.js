@@ -7,8 +7,7 @@ describe('Toggle', () => {
 
   it('renders', () => {
     const result = renderComponent()
-    const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
-    expect(component).not.toBeUndefined()
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')).toBeDefined()
   })
 
   it('calls the onChange callback on click', () => {
@@ -17,7 +16,6 @@ describe('Toggle', () => {
     const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
 
     ReactTestUtils.Simulate.change(component)
-    jasmine.clock().tick(1)
 
     expect(onChangeSpy).toHaveBeenCalled()
   })
@@ -26,19 +24,18 @@ describe('Toggle', () => {
     const result = renderComponent({id: 'foo'})
     const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
 
-    expect(component.id).toEqual('foo')
+    expect(component).toHaveAttr('id', 'foo')
   })
 
   it('uses provided checked attribute', () => {
     const result = renderComponent({defaultChecked: true})
     const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'toggle-switch')
 
-    expect(component.hasAttribute('checked')).toBeFalsy()
+    expect(component).not.toHaveAttr('checked')
 
     ReactTestUtils.Simulate.change(component)
-    jasmine.clock().tick(1)
 
-    expect(component.hasAttribute('checked')).toBeTruthy()
+    expect(component).toHaveAttr('checked')
   })
 
   describe('when no id is provided', () => {
@@ -49,8 +46,8 @@ describe('Toggle', () => {
       const result2 = renderComponent()
       const component2 = ReactTestUtils.findRenderedDOMComponentWithClass(result2, 'toggle-switch')
 
-      expect(component1.id).not.toEqual('')
-      expect(component2.id).not.toEqual('')
+      expect(component1.id).toBeTruthy()
+      expect(component2.id).toBeTruthy()
       expect(component1.id).not.toEqual(component2.id)
     })
 
@@ -65,7 +62,6 @@ describe('Toggle', () => {
 
       ReactTestUtils.Simulate.change(component1)
       ReactTestUtils.Simulate.change(component2)
-      jasmine.clock().tick(1)
 
       expect(onChangeSpy1).toHaveBeenCalledTimes(1)
       expect(onChangeSpy2).toHaveBeenCalledTimes(1)
@@ -76,18 +72,18 @@ describe('Toggle', () => {
     it('renders with size=medium by default', () => {
       const result = renderComponent()
       const label = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'label')
-      expect(label.className).toContain('medium')
+      expect(label).toHaveClass('medium')
     })
 
     it('respects size attribute', () => {
       let label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'small'}), 'label')
-      expect(label.className).toContain('small')
+      expect(label).toHaveClass('small')
 
       label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'medium'}), 'label')
-      expect(label.className).toContain('medium')
+      expect(label).toHaveClass('medium')
 
       label = ReactTestUtils.findRenderedDOMComponentWithTag(renderComponent({size: 'large'}), 'label')
-      expect(label.className).toContain('large')
+      expect(label).toHaveClass('large')
     })
   })
 })

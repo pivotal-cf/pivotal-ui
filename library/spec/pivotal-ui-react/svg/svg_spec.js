@@ -21,17 +21,17 @@ describe('Svg', () => {
   it('renders the svg with the html attributes', () => {
     subject = renderComponent()
     const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
-    expect(svg.attributes['x'].value).toEqual('0px')
-    expect(svg.attributes['y'].value).toEqual('0px')
-    expect(svg.attributes['viewBox'].value).toEqual('0 0 225 225')
+    expect(svg).toHaveAttr('x', '0px')
+    expect(svg).toHaveAttr('y', '0px')
+    expect(svg).toHaveAttr('viewBox', '0 0 225 225')
   })
 
   describe('when there are props on the svg', () => {
     it('overrides the html attributes', () => {
       subject = renderComponent({x: '10px', y: '20px'})
       const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
-      expect(svg.attributes['x'].value).toEqual('10px')
-      expect(svg.attributes['y'].value).toEqual('20px')
+      expect(svg).toHaveAttr('x', '10px')
+      expect(svg).toHaveAttr('y', '20px')
     })
   })
 })

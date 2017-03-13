@@ -46,7 +46,7 @@ describe('BackToTop', () => {
   it('passes through className, id, and style', () => {
     const backToTop = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'back-to-top')
     expect(backToTop).toHaveClass('foo')
-    expect(backToTop.id).toEqual('bar')
+    expect(backToTop).toHaveAttr('id', 'bar')
     expect(backToTop).toHaveCss({'font-size': '200px'})
   })
 

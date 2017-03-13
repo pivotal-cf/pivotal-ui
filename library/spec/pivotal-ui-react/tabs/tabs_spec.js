@@ -62,12 +62,11 @@ describe('Tabs', () => {
 
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
           let tabContent = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tab-content')
-          expect(tabContent[0].classList).not.toContain('in')
-          expect(tabContent[1].classList).toContain('in')
+          expect(tabContent[0]).not.toHaveClass('in')
+          expect(tabContent[1]).toHaveClass('in')
 
           const firstTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
           ReactTestUtils.Simulate.click(firstTab)
-          jasmine.clock().tick(1)
 
           expect(onEnterSpy).not.toHaveBeenCalled()
           expect(onExitSpy).not.toHaveBeenCalled()
@@ -80,8 +79,8 @@ describe('Tabs', () => {
 
           tabContent = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'tab-content')
 
-          expect(tabContent[0].classList).toContain('in')
-          expect(tabContent[1].classList).not.toContain('in')
+          expect(tabContent[0]).toHaveClass('in')
+          expect(tabContent[1]).not.toHaveClass('in')
         })
 
         it('renders an accordion', () => {
@@ -91,32 +90,32 @@ describe('Tabs', () => {
 
         it('passes small-screen classes', () => {
           const panelGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-group')
-          expect(panelGroup.classList).toContain('small-class')
+          expect(panelGroup).toHaveClass('small-class')
         })
       })
 
       describe('when screen size is greater than breakpoint', () => {
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
           let tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
-          expect(tabContent.textContent).toEqual('Content2')
+          expect(tabContent).toHaveText('Content2')
           expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('')
 
           const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
-          expect(clickable.textContent).toEqual('Tab1')
+          expect(clickable).toHaveText('Tab1')
           ReactTestUtils.Simulate.click(clickable)
           jasmine.clock().tick(1)
 
           MockNow.tick(Tabs.ANIMATION_TIME / 4)
           MockRaf.next()
           tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
-          expect(tabContent.textContent).toEqual('Content2')
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('0.5')
+          expect(tabContent).toHaveText('Content2')
+          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'})
 
           MockNow.tick(Tabs.ANIMATION_TIME / 2)
           MockRaf.next()
           tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
-          expect(tabContent.textContent).toEqual('Content1')
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('0.5')
+          expect(tabContent).toHaveText('Content1')
+          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'})
           expect(onEnterSpy).not.toHaveBeenCalled()
           expect(onExitSpy).not.toHaveBeenCalled()
 
@@ -125,11 +124,8 @@ describe('Tabs', () => {
           expect(onEnterSpy).toHaveBeenCalledWith(1)
           expect(onExitSpy).toHaveBeenCalledWith(2)
           tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
-          expect(tabContent.textContent).toEqual('Content1')
+          expect(tabContent).toHaveText('Content1')
           expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('')
-
-          const activeTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'active')[0]
-          expect(clickable.textContent).toEqual('Tab1')
         })
 
         it('renders a tabs', () => {
@@ -139,7 +135,7 @@ describe('Tabs', () => {
 
         it('passes large-screen classes', () => {
           const panelGroup = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple')
-          expect(panelGroup.classList).toContain('large-class')
+          expect(panelGroup).toHaveClass('large-class')
         })
       })
     })
@@ -161,9 +157,8 @@ describe('Tabs', () => {
         triggerResize()
 
         const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
-        expect(clickable.textContent).toEqual('Tab1')
+        expect(clickable).toHaveText('Tab1')
         ReactTestUtils.Simulate.click(clickable)
-        jasmine.clock().tick(1)
 
         expect(onSelectSpy).toHaveBeenCalled()
       })
@@ -173,7 +168,7 @@ describe('Tabs', () => {
         triggerResize()
 
         const clickable = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
-        expect(clickable.textContent).toEqual('Tab1')
+        expect(clickable).toHaveText('Tab1')
         ReactTestUtils.Simulate.click(clickable)
         jasmine.clock().tick(1)
 
@@ -196,9 +191,9 @@ describe('Tabs', () => {
       it('renders the actions for large screens', () => {
         const actionTabs = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tabs-action')
 
-        expect(actionTabs.parentNode.classList).toContain('tab-simple')
+        expect(actionTabs.parentNode).toHaveClass('tab-simple')
         expect(actionTabs.childNodes[0].className).toEqual('my-actions')
-        expect(actionTabs.childNodes[0].textContent).toEqual('=)=|=(')
+        expect(actionTabs.childNodes[0]).toHaveText('=)=|=(')
       })
 
       it('renders the actions for small screens', () => {
@@ -207,9 +202,9 @@ describe('Tabs', () => {
 
         const actionTabs = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tabs-action')
 
-        expect(actionTabs.parentNode.classList).toContain('tab-simple-small-screen')
+        expect(actionTabs.parentNode).toHaveClass('tab-simple-small-screen')
         expect(actionTabs.childNodes[0].className).toEqual('my-actions')
-        expect(actionTabs.childNodes[0].textContent).toEqual('=)=|=(')
+        expect(actionTabs.childNodes[0]).toHaveText('=)=|=(')
       })
     })
 
@@ -224,8 +219,8 @@ describe('Tabs', () => {
 
       it('passes through class and style', () => {
         const tab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple')
-        expect(tab.classList).toContain('test-class')
-        expect(tab.style.opacity).toEqual('0.5')
+        expect(tab).toHaveClass('test-class')
+        expect(tab).toHaveCss({opacity: '0.5'})
       })
     })
 
@@ -238,7 +233,7 @@ describe('Tabs', () => {
 
       it('attaches it as a class to the tabs', () => {
         const tab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-simple-alt')
-        expect(tab.childNodes[0].classList).toContain('nav-tabs')
+        expect(tab.childNodes[0]).toHaveClass('nav-tabs')
       })
     })
 
@@ -250,15 +245,15 @@ describe('Tabs', () => {
       it('applies the tabClassName to the clickable tab element', () => {
         const tab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
 
-        expect(tab.parentNode.parentNode.classList).toContain('nav-tabs')
-        expect(tab.classList).toContain('tab-class')
+        expect(tab.parentNode.parentNode).toHaveClass('nav-tabs')
+        expect(tab).toHaveClass('tab-class')
       })
 
       it('applies the className on the tab to the tab content pane', () => {
         const tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
 
-        expect(tabContent.classList).toContain('tab-content-class')
-        expect(tabContent.textContent).toEqual('Content1')
+        expect(tabContent).toHaveClass('tab-content-class')
+        expect(tabContent).toHaveText('Content1')
       })
     })
 
@@ -280,8 +275,8 @@ describe('Tabs', () => {
         let activeTab = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'active')[0]
         let tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
 
-        expect(activeTab.textContent).toEqual('Tab1')
-        expect(tabContent.textContent).toEqual('Content1')
+        expect(activeTab).toHaveText('Tab1')
+        expect(tabContent).toHaveText('Content1')
 
         const secondTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[1]
         ReactTestUtils.Simulate.click(secondTab)
@@ -291,8 +286,8 @@ describe('Tabs', () => {
         tabContent = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-content')
         const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
 
-        expect(activeTab.textContent).toEqual('Tab2')
-        expect(tabContent.textContent).toEqual('Content2')
+        expect(activeTab).toHaveText('Tab2')
+        expect(tabContent).toHaveText('Content2')
       })
     })
   })
@@ -310,26 +305,26 @@ describe('Tabs', () => {
 
       it('respects disabled tabs', () => {
         const disabledTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[2]
-        expect(disabledTab.classList).toContain('disabled')
+        expect(disabledTab).toHaveClass('disabled')
 
         ReactTestUtils.Simulate.click(disabledTab)
         jasmine.clock().tick(1)
 
         const activeTab = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
-        expect(activeTab.textContent).toEqual('Content1')
+        expect(activeTab).toHaveText('Content1')
       })
 
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
           const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
-          expect(tabPane.attributes['aria-labelledby'].value).toEqual('provided-aria-label')
+          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label')
         })
 
         it('generates a default value', () => {
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'})
 
           const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'in')
-          expect(tabPane.attributes['aria-labelledby'].value).toEqual('foo-tab-1')
+          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1')
         })
       });
     })
@@ -343,14 +338,14 @@ describe('Tabs', () => {
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
           const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
-          expect(tabPane.attributes['aria-labelledby'].value).toEqual('provided-aria-label')
+          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label')
         })
 
         it('generates a default value', () => {
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'})
 
           const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
-          expect(tabPane.attributes['aria-labelledby'].value).toEqual('foo-tab-1')
+          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1')
         })
       });
 
@@ -358,19 +353,19 @@ describe('Tabs', () => {
         const tabPane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tab-pane')
         const activeTabLink = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'a')[0]
 
-        expect(activeTabLink.parentNode.classList).toContain('active')
-        expect(activeTabLink.attributes['aria-controls'].value).toEqual(tabPane.id)
+        expect(activeTabLink.parentNode).toHaveClass('active')
+        expect(activeTabLink).toHaveAttr('aria-controls', tabPane.id)
       })
 
       it('respects disabled tabs', () => {
         const disabledTab = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[2]
-        expect(disabledTab.classList).toContain('disabled')
+        expect(disabledTab).toHaveClass('disabled')
 
         ReactTestUtils.Simulate.click(disabledTab.getElementsByTagName('a')[0])
         jasmine.clock().tick(1)
 
         const activeTab = ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'active')[0]
-        expect(activeTab.textContent).toEqual('Tab1')
+        expect(activeTab).toHaveText('Tab1')
       })
     })
   })
@@ -406,7 +401,7 @@ describe('LeftTabs', () => {
   it('renders tabs stacked', () => {
     subject = renderComponent()
     const nav = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'nav')
-    expect(nav.classList).toContain('nav-stacked')
+    expect(nav).toHaveClass('nav-stacked')
   })
 
   it('renders a Tabs component with tabType="left"', () => {

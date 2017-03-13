@@ -227,7 +227,7 @@ describe('OverlayTrigger', function() {
     });
 
     it('uses aria-described-by', () => {
-      expect($('.tooltip-container')[0].id).toEqual($('.launcher').attr('aria-describedby'));
+      expect($('.tooltip-container')[0]).toHaveAttr('id', $('.launcher').attr('aria-describedby'));
     });
   });
 

@@ -57,18 +57,18 @@ describe('StreamList', () => {
       addData.emit('data', 'Item d')
       let listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
 
-      expect(listStreamButton.textContent).toEqual(' 1 new item')
+      expect(listStreamButton).toHaveText(' 1 new item')
 
       addData.emit('data', 'Item e')
       listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
 
-      expect(listStreamButton.textContent).toEqual(' 2 new items')
+      expect(listStreamButton).toHaveText(' 2 new items')
 
       addData.emit('data', 'Item f')
       addData.emit('data', 'Item g')
       listStreamButton = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'list-stream-new-items-btn')
 
-      expect(listStreamButton.textContent).toEqual(' 4 new items')
+      expect(listStreamButton).toHaveText(' 4 new items')
     })
 
     it('does not add a new li element', () => {
@@ -84,10 +84,10 @@ describe('StreamList', () => {
         ReactTestUtils.Simulate.click(listStreamButton)
         let liElements = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')
 
-        expect(liElements[0].textContent).toEqual('Item d')
-        expect(liElements[1].textContent).toEqual('Item c')
-        expect(liElements[2].textContent).toEqual('Item b')
-        expect(liElements[3].textContent).toEqual('Item a')
+        expect(liElements[0]).toHaveText('Item d')
+        expect(liElements[1]).toHaveText('Item c')
+        expect(liElements[2]).toHaveText('Item b')
+        expect(liElements[3]).toHaveText('Item a')
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'list-stream-new-items-btn').length).toEqual(0)
 
         addData.emit('data', 'Item e')
@@ -97,12 +97,12 @@ describe('StreamList', () => {
         ReactTestUtils.Simulate.click(listStreamButton)
         liElements = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')
 
-        expect(liElements[0].textContent).toEqual('Item f')
-        expect(liElements[1].textContent).toEqual('Item e')
-        expect(liElements[2].textContent).toEqual('Item d')
-        expect(liElements[3].textContent).toEqual('Item c')
-        expect(liElements[4].textContent).toEqual('Item b')
-        expect(liElements[5].textContent).toEqual('Item a')
+        expect(liElements[0]).toHaveText('Item f')
+        expect(liElements[1]).toHaveText('Item e')
+        expect(liElements[2]).toHaveText('Item d')
+        expect(liElements[3]).toHaveText('Item c')
+        expect(liElements[4]).toHaveText('Item b')
+        expect(liElements[5]).toHaveText('Item a')
         expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'list-stream-new-items-btn').length).toEqual(0)
       })
     })

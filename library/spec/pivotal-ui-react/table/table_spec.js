@@ -37,9 +37,9 @@ describe('Table', function() {
     const result = renderComponent(columns, data, {defaultSort: 'theDefault'})
     const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-    expect(tableRows[1].childNodes[2].textContent).toEqual('1')
-    expect(tableRows[2].childNodes[2].textContent).toEqual('2')
-    expect(tableRows[3].childNodes[2].textContent).toEqual('3')
+    expect(tableRows[1].childNodes[2]).toHaveText('1')
+    expect(tableRows[2].childNodes[2]).toHaveText('2')
+    expect(tableRows[3].childNodes[2]).toHaveText('3')
   })
 
   it('does not render the data as an attribute', () => {
@@ -107,10 +107,10 @@ describe('Table', function() {
       const result = renderComponent(columns, data)
       const tableHeaders = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'th')
 
-      expect(tableHeaders[0].classList).not.toContain('sortable')
-      expect(tableHeaders[1].classList).toContain('sortable')
-      expect(tableHeaders[2].classList).toContain('sortable')
-      expect(tableHeaders[3].classList).not.toContain('sortable')
+      expect(tableHeaders[0]).not.toHaveClass('sortable')
+      expect(tableHeaders[1]).toHaveClass('sortable')
+      expect(tableHeaders[2]).toHaveClass('sortable')
+      expect(tableHeaders[3]).not.toHaveClass('sortable')
     })
 
     it('adds the additional classes, id and styles to the table', function() {
@@ -118,34 +118,34 @@ describe('Table', function() {
       const sortableTable = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'table-sortable')
 
       expect(sortableTable).toBeDefined()
-      expect(sortableTable.classList).toContain('table-light')
-      expect(sortableTable.id).toEqual('table-id')
-      expect(sortableTable.style.opacity).toEqual('0.5')
+      expect(sortableTable).toHaveClass('table-light')
+      expect(sortableTable).toHaveAttr('id', 'table-id')
+      expect(sortableTable).toHaveCss({opacity: '0.5'})
     })
 
     it('sorts table rows by the first sortable column in ascending order by default', function() {
       const result = renderComponent(columns, data)
       const tableHeaders = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'th')
 
-      expect(tableHeaders[1].classList).not.toContain('sort-asc')
+      expect(tableHeaders[1]).not.toHaveClass('sort-asc')
 
       const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-      expect(tableRows[1].childNodes[0].textContent).toEqual('foo')
-      expect(tableRows[2].childNodes[0].textContent).toEqual('yee')
-      expect(tableRows[3].childNodes[0].textContent).toEqual('sup')
+      expect(tableRows[1].childNodes[0]).toHaveText('foo')
+      expect(tableRows[2].childNodes[0]).toHaveText('yee')
+      expect(tableRows[3].childNodes[0]).toHaveText('sup')
 
-      expect(tableRows[1].childNodes[1].textContent).toEqual('1')
-      expect(tableRows[2].childNodes[1].textContent).toEqual('2')
-      expect(tableRows[3].childNodes[1].textContent).toEqual('3')
+      expect(tableRows[1].childNodes[1]).toHaveText('1')
+      expect(tableRows[2].childNodes[1]).toHaveText('2')
+      expect(tableRows[3].childNodes[1]).toHaveText('3')
     })
 
     it('passes header props into the headers', function() {
       const result = renderComponent(columns, data)
       const tableHeaders = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'th')
 
-      expect(tableHeaders[1].classList).toContain('instance-header')
-      expect(tableHeaders[1].id).toEqual('instanceId')
+      expect(tableHeaders[1]).toHaveClass('instance-header')
+      expect(tableHeaders[1]).toHaveAttr('id', 'instanceId')
 
       ReactTestUtils.Simulate.click(tableHeaders[1])
       jasmine.clock().tick(1)
@@ -159,22 +159,22 @@ describe('Table', function() {
 
         ReactTestUtils.Simulate.click(tableHeaders[2])
         jasmine.clock().tick(1)
-        expect(tableHeaders[2].classList).toContain('sorted-asc')
+        expect(tableHeaders[2]).toHaveClass('sorted-asc')
 
         const svgs = tableHeaders[2].getElementsByTagName('svg')
-        expect(svgs[0].classList).toContain('icon-arrow_drop_up')
+        expect(svgs[0]).toHaveClass('icon-arrow_drop_up')
 
-        expect(tableHeaders[1].classList).not.toContain('sorted-asc')
+        expect(tableHeaders[1]).not.toHaveClass('sorted-asc')
 
         const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-        expect(tableRows[1].childNodes[0].textContent).toEqual('sup')
-        expect(tableRows[2].childNodes[0].textContent).toEqual('yee')
-        expect(tableRows[3].childNodes[0].textContent).toEqual('foo')
+        expect(tableRows[1].childNodes[0]).toHaveText('sup')
+        expect(tableRows[2].childNodes[0]).toHaveText('yee')
+        expect(tableRows[3].childNodes[0]).toHaveText('foo')
 
-        expect(tableRows[1].childNodes[2].textContent).toEqual('7')
-        expect(tableRows[2].childNodes[2].textContent).toEqual('8')
-        expect(tableRows[3].childNodes[2].textContent).toEqual('11')
+        expect(tableRows[1].childNodes[2]).toHaveText('7')
+        expect(tableRows[2].childNodes[2]).toHaveText('8')
+        expect(tableRows[3].childNodes[2]).toHaveText('11')
       })
 
       it('sorts first by ASC, then DESC, then no sort', () => {
@@ -183,20 +183,20 @@ describe('Table', function() {
 
         ReactTestUtils.Simulate.click(tableHeaders[2])
         jasmine.clock().tick(1)
-        expect(tableHeaders[2].classList).toContain('sorted-asc')
+        expect(tableHeaders[2]).toHaveClass('sorted-asc')
         let svgs = tableHeaders[2].getElementsByTagName('svg')
-        expect(svgs[0].classList).toContain('icon-arrow_drop_up')
+        expect(svgs[0]).toHaveClass('icon-arrow_drop_up')
 
         ReactTestUtils.Simulate.click(tableHeaders[2])
         jasmine.clock().tick(1)
-        expect(tableHeaders[2].classList).toContain('sorted-desc')
+        expect(tableHeaders[2]).toHaveClass('sorted-desc')
         svgs = tableHeaders[2].getElementsByTagName('svg')
-        expect(svgs[0].classList).toContain('icon-arrow_drop_down')
+        expect(svgs[0]).toHaveClass('icon-arrow_drop_down')
 
         ReactTestUtils.Simulate.click(tableHeaders[2])
         jasmine.clock().tick(1)
-        expect(tableHeaders[2].classList).not.toContain('sorted-asc')
-        expect(tableHeaders[2].classList).not.toContain('sorted-desc')
+        expect(tableHeaders[2]).not.toHaveClass('sorted-asc')
+        expect(tableHeaders[2]).not.toHaveClass('sorted-desc')
         svgs = tableHeaders[2].getElementsByTagName('svg')
         expect(svgs.length).toEqual(0)
       })
@@ -233,14 +233,14 @@ describe('Table', function() {
         ReactTestUtils.Simulate.click(tableHeaders[2])
         jasmine.clock().tick(1)
 
-        expect(tableHeaders[2].classList).not.toContain('sorted-asc')
-        expect(tableHeaders[2].classList).not.toContain('sorted-desc')
+        expect(tableHeaders[2]).not.toHaveClass('sorted-asc')
+        expect(tableHeaders[2]).not.toHaveClass('sorted-desc')
 
         const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-        expect(tableRows[1].childNodes[0].textContent).toEqual('yee1')
-        expect(tableRows[2].childNodes[0].textContent).toEqual('yee4')
-        expect(tableRows[3].childNodes[0].textContent).toEqual('yee3')
+        expect(tableRows[1].childNodes[0]).toHaveText('yee1')
+        expect(tableRows[2].childNodes[0]).toHaveText('yee4')
+        expect(tableRows[3].childNodes[0]).toHaveText('yee3')
       })
     })
 
@@ -251,18 +251,18 @@ describe('Table', function() {
 
         ReactTestUtils.Simulate.keyDown(tableHeaders[2], {key: 'Enter'})
         jasmine.clock().tick(1)
-        expect(tableHeaders[2].classList).toContain('sorted-asc')
-        expect(tableHeaders[1].classList).not.toContain('sorted-asc')
+        expect(tableHeaders[2]).toHaveClass('sorted-asc')
+        expect(tableHeaders[1]).not.toHaveClass('sorted-asc')
 
         const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-        expect(tableRows[1].childNodes[0].textContent).toEqual('sup')
-        expect(tableRows[2].childNodes[0].textContent).toEqual('yee')
-        expect(tableRows[3].childNodes[0].textContent).toEqual('foo')
+        expect(tableRows[1].childNodes[0]).toHaveText('sup')
+        expect(tableRows[2].childNodes[0]).toHaveText('yee')
+        expect(tableRows[3].childNodes[0]).toHaveText('foo')
 
-        expect(tableRows[1].childNodes[2].textContent).toEqual('7')
-        expect(tableRows[2].childNodes[2].textContent).toEqual('8')
-        expect(tableRows[3].childNodes[2].textContent).toEqual('11')
+        expect(tableRows[1].childNodes[2]).toHaveText('7')
+        expect(tableRows[2].childNodes[2]).toHaveText('8')
+        expect(tableRows[3].childNodes[2]).toHaveText('11')
       })
     })
 
@@ -273,18 +273,18 @@ describe('Table', function() {
 
         ReactTestUtils.Simulate.keyDown(tableHeaders[3], {key: 'Enter'})
         jasmine.clock().tick(1)
-        expect(tableHeaders[3].classList).not.toContain('sorted-asc')
-        expect(tableHeaders[1].classList).toContain('sorted-asc')
+        expect(tableHeaders[3]).not.toHaveClass('sorted-asc')
+        expect(tableHeaders[1]).toHaveClass('sorted-asc')
 
         const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-        expect(tableRows[1].childNodes[0].textContent).toEqual('foo')
-        expect(tableRows[2].childNodes[0].textContent).toEqual('yee')
-        expect(tableRows[3].childNodes[0].textContent).toEqual('sup')
+        expect(tableRows[1].childNodes[0]).toHaveText('foo')
+        expect(tableRows[2].childNodes[0]).toHaveText('yee')
+        expect(tableRows[3].childNodes[0]).toHaveText('sup')
 
-        expect(tableRows[1].childNodes[1].textContent).toEqual('1')
-        expect(tableRows[2].childNodes[1].textContent).toEqual('2')
-        expect(tableRows[3].childNodes[1].textContent).toEqual('3')
+        expect(tableRows[1].childNodes[1]).toHaveText('1')
+        expect(tableRows[2].childNodes[1]).toHaveText('2')
+        expect(tableRows[3].childNodes[1]).toHaveText('3')
       })
     })
   })
@@ -328,11 +328,11 @@ describe('Table', function() {
       const result = renderComponent(columns, data)
       const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-      expect(tableRows[1].childNodes[0].textContent).toEqual('1-0: foo')
-      expect(tableRows[1].childNodes[0].classList).toContain('custom')
+      expect(tableRows[1].childNodes[0]).toHaveText('1-0: foo')
+      expect(tableRows[1].childNodes[0]).toHaveClass('custom')
 
-      expect(tableRows[2].childNodes[0].textContent).toEqual('3-1: sup')
-      expect(tableRows[2].childNodes[0].classList).toContain('custom')
+      expect(tableRows[2].childNodes[0]).toHaveText('3-1: sup')
+      expect(tableRows[2].childNodes[0]).toHaveClass('custom')
     })
   })
 
@@ -371,8 +371,8 @@ describe('Table', function() {
       const result = renderComponent(columns, data)
       const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-      expect(tableRows[1].childNodes[0].textContent).toEqual('sup')
-      expect(tableRows[2].childNodes[0].textContent).toEqual('foo')
+      expect(tableRows[1].childNodes[0]).toHaveText('sup')
+      expect(tableRows[2].childNodes[0]).toHaveText('foo')
     })
   })
 
@@ -409,21 +409,21 @@ describe('Table', function() {
       const result = renderComponent(columns, data, {CustomRow: CustomRow})
       const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-      expect(tableRows[1].childNodes[0].textContent).toEqual('yee')
-      expect(tableRows[2].childNodes[0].textContent).toEqual('foo')
-      expect(tableRows[3].childNodes[0].textContent).toEqual('sup')
+      expect(tableRows[1].childNodes[0]).toHaveText('yee')
+      expect(tableRows[2].childNodes[0]).toHaveText('foo')
+      expect(tableRows[3].childNodes[0]).toHaveText('sup')
 
-      expect(tableRows[1].childNodes[1].textContent).toEqual('Days since Sunday: 1')
-      expect(tableRows[2].childNodes[1].textContent).toEqual('Days since Sunday: 2')
-      expect(tableRows[3].childNodes[1].textContent).toEqual('Days since Sunday: 3')
+      expect(tableRows[1].childNodes[1]).toHaveText('Days since Sunday: 1')
+      expect(tableRows[2].childNodes[1]).toHaveText('Days since Sunday: 2')
+      expect(tableRows[3].childNodes[1]).toHaveText('Days since Sunday: 3')
     })
 
     it('respects properties on the custom row', function() {
       const result = renderComponent(columns, data, {CustomRow: CustomRow})
       const tableRows = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'tr')
 
-      expect(tableRows[1].classList).toContain('row-0')
-      expect(tableRows[2].classList).toContain('row-1')
+      expect(tableRows[1]).toHaveClass('row-0')
+      expect(tableRows[2]).toHaveClass('row-1')
     })
   })
 })
@@ -441,7 +441,7 @@ describe('TableRow', function() {
     const result = renderRow(<td id={'cell-id'}/>)
 
     const renderedCells = result.getElementsByTagName('td')
-    expect(renderedCells[0].id).toEqual('cell-id')
+    expect(renderedCells[0]).toHaveAttr('id', 'cell-id')
   })
 
 
@@ -453,9 +453,9 @@ describe('TableRow', function() {
     })
 
     const renderedRows = result.getElementsByTagName('tr')
-    expect(renderedRows[0].classList).toContain('row-light')
-    expect(renderedRows[0].id).toEqual('row-id')
-    expect(renderedRows[0].style.opacity).toEqual('0.5')
+    expect(renderedRows[0]).toHaveClass('row-light')
+    expect(renderedRows[0]).toHaveAttr('id', 'row-id')
+    expect(renderedRows[0]).toHaveCss({opacity: '0.5'})
   })
 })
 
@@ -480,7 +480,7 @@ describe('TableCell', function() {
 
     const renderedP = renderedCells[0].getElementsByTagName('p')
     expect(renderedP.length).toEqual(1)
-    expect(renderedP[0].textContent).toEqual('This is my text')
+    expect(renderedP[0]).toHaveText('This is my text')
   })
 
   it('adds the additional classes, id and styles to the th', function() {
@@ -491,8 +491,8 @@ describe('TableCell', function() {
     })
     
     const renderedCells = result.getElementsByTagName('td')
-    expect(renderedCells[0].classList).toContain('cell-light')
-    expect(renderedCells[0].id).toEqual('cell-id')
-    expect(renderedCells[0].style.opacity).toEqual('0.5')
+    expect(renderedCells[0]).toHaveClass('cell-light')
+    expect(renderedCells[0]).toHaveAttr('id', 'cell-id')
+    expect(renderedCells[0]).toHaveCss({opacity: '0.5'})
   })
 })

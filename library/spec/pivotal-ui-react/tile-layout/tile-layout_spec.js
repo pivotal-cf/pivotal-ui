@@ -25,9 +25,9 @@ describe('TileLayout', () => {
     expect(tileLayout.childNodes.length).toEqual(2)
 
     expect(tileLayout.childNodes[0].className).toEqual('tile-item')
-    expect(tileLayout.childNodes[0].textContent).toEqual('Item 1')
+    expect(tileLayout.childNodes[0]).toHaveText('Item 1')
     expect(tileLayout.childNodes[1].className).toEqual('tile-item')
-    expect(tileLayout.childNodes[1].textContent).toEqual('Item 2')
+    expect(tileLayout.childNodes[1]).toHaveText('Item 2')
   })
 
   describe('columns', () => {
@@ -35,17 +35,17 @@ describe('TileLayout', () => {
       const result = renderComponent({columns: 4})
 
       const tileLayout = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tile-layout')
-      expect(tileLayout.classList).toContain('tile-layout-xs-4')
+      expect(tileLayout).toHaveClass('tile-layout-xs-4')
     })
 
     it('supports supports setting number of columns for different screen sizes', () => {
       const result = renderComponent({columns: {sm: 4, md: 3, lg: 2, xl: 1}})
 
       const tileLayout = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tile-layout')
-      expect(tileLayout.classList).toContain('tile-layout-sm-4')
-      expect(tileLayout.classList).toContain('tile-layout-md-3')
-      expect(tileLayout.classList).toContain('tile-layout-lg-2')
-      expect(tileLayout.classList).toContain('tile-layout-xl-1')
+      expect(tileLayout).toHaveClass('tile-layout-sm-4')
+      expect(tileLayout).toHaveClass('tile-layout-md-3')
+      expect(tileLayout).toHaveClass('tile-layout-lg-2')
+      expect(tileLayout).toHaveClass('tile-layout-xl-1')
     })
   })
 
@@ -54,14 +54,14 @@ describe('TileLayout', () => {
       const result = renderComponent({noGutter: true})
       const tileLayout = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tile-layout')
 
-      expect(tileLayout.classList).not.toContain('tile-gutter')
+      expect(tileLayout).not.toHaveClass('tile-gutter')
     })
 
     it('has a gutter by default', () => {
       const result = renderComponent()
       const tileLayout = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tile-layout')
 
-      expect(tileLayout.classList).toContain('tile-gutter')
+      expect(tileLayout).toHaveClass('tile-gutter')
     })
   })
 
@@ -78,14 +78,14 @@ describe('TileLayout', () => {
       })
 
       const tileLayout = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tile-layout')
-      expect(tileLayout.classList).toContain('outer-class')
-      expect(tileLayout.id).toEqual('outer-id')
-      expect(tileLayout.style.opacity).toEqual('0.5')
+      expect(tileLayout).toHaveClass('outer-class')
+      expect(tileLayout).toHaveAttr('id', 'outer-id')
+      expect(tileLayout).toHaveCss({opacity: '0.5'})
 
       const tileItem = tileLayout.childNodes[0]
-      expect(tileItem.classList).toContain('inner-class')
-      expect(tileItem.id).toEqual('inner-id')
-      expect(tileItem.style.opacity).toEqual('0.75')
+      expect(tileItem).toHaveClass('inner-class')
+      expect(tileItem).toHaveAttr('id', 'inner-id')
+      expect(tileItem).toHaveCss({opacity: '0.75'})
     })
   })
 })

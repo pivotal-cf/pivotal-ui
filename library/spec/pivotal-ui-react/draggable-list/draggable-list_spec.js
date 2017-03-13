@@ -21,7 +21,7 @@ describe('DraggableList', function() {
   it('passes through innerClassName to item content', () => {
     const result = renderComponent({innerClassName: 'inner-test-class'})
     const contentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'draggable-item-content')[0]
-    expect(contentItem.className).toContain('inner-test-class')
+    expect(contentItem).toHaveClass('inner-test-class')
   })
 
   describe('dragging an item', () => {
@@ -45,7 +45,7 @@ describe('DraggableList', function() {
       renderedComponent = renderComponent({onDragEnd: dragEndSpy})
       draggableList = ReactTestUtils.findRenderedDOMComponentWithTag(renderedComponent, 'ul')
 
-      expect(draggableList.className).not.toContain('dragging')
+      expect(draggableList).not.toHaveClass('dragging')
 
       draggableGrip = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[1]
       draggableContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-item-content')[1]
@@ -58,7 +58,7 @@ describe('DraggableList', function() {
       })
 
       it('adds the dragging class', () => {
-        expect(draggableList.className).toContain('dragging')
+        expect(draggableList).toHaveClass('dragging')
       })
 
       it('adds the aria-grabbed attribute', () => {
@@ -109,7 +109,7 @@ describe('DraggableList', function() {
       })
 
       it('removes the grabbed class', () => {
-        expect(draggableList.className).not.toContain('dragging')
+        expect(draggableList).not.toHaveClass('dragging')
       })
     })
   })

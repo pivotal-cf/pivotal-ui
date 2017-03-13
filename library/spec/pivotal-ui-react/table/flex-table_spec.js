@@ -42,10 +42,10 @@ describe('Flex Table', () => {
       const renderedTable = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'table')
 
       expect(renderedTable).toBeDefined()
-      expect(renderedTable.classList).toContain('table-sortable');
-      expect(renderedTable.classList).toContain('table-class');
-      expect(renderedTable.id).toEqual('table-id');
-      expect(renderedTable.style.opacity).toEqual('0.5')
+      expect(renderedTable).toHaveClass('table-sortable');
+      expect(renderedTable).toHaveClass('table-class');
+      expect(renderedTable).toHaveAttr('id', 'table-id');
+      expect(renderedTable).toHaveCss({opacity: '0.5'})
     });
 
     it('adds the class "sortable" on all sortable columns', () => {
@@ -53,16 +53,16 @@ describe('Flex Table', () => {
       const sortableColumns = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')
 
       expect(sortableColumns.length).toEqual(2)
-      expect(sortableColumns[0].textContent).toEqual('Bar')
-      expect(sortableColumns[1].textContent).toEqual('DefaultSort')
+      expect(sortableColumns[0]).toHaveText('Bar')
+      expect(sortableColumns[1]).toHaveText('DefaultSort')
     });
 
     it('sorts table rows by the first sortable column with no default sort', () => {
       const component = renderComponent({columns, data})
       const renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
-      expect(renderedRows[1].childNodes[1].textContent).toEqual('a')
-      expect(renderedRows[2].childNodes[1].textContent).toEqual('b')
-      expect(renderedRows[3].childNodes[1].textContent).toEqual('c')
+      expect(renderedRows[1].childNodes[1]).toHaveText('a')
+      expect(renderedRows[2].childNodes[1]).toHaveText('b')
+      expect(renderedRows[3].childNodes[1]).toHaveText('c')
     });
 
     it('respects default sort', () => {
@@ -72,7 +72,7 @@ describe('Flex Table', () => {
       expect(renderedRows.length).toEqual(4)
       renderedRows.map((row, index) => {
         if(index == 0) return
-        expect(row.childNodes[2].textContent).toEqual(`${index}`)
+        expect(row.childNodes[2]).toHaveText(`${index}`)
       })
     })
 
@@ -89,7 +89,7 @@ describe('Flex Table', () => {
         expect(renderedRows.length).toEqual(4)
         renderedRows.map((row, index) => {
           if(index == 0) return
-          expect(row.childNodes[2].textContent).toEqual(`${index}`)
+          expect(row.childNodes[2]).toHaveText(`${index}`)
         })
       });
 
@@ -101,15 +101,15 @@ describe('Flex Table', () => {
         jasmine.clock().tick(1)
         columnToSort = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')[1]
         let svg = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'svg')
-        expect(columnToSort.classList).toContain('sorted-asc')
-        expect(svg.classList).toContain('icon-arrow_drop_up')
+        expect(columnToSort).toHaveClass('sorted-asc')
+        expect(svg).toHaveClass('icon-arrow_drop_up')
 
         ReactTestUtils.Simulate.click(columnToSort)
         jasmine.clock().tick(1)
         columnToSort = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')[1]
         svg = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'svg')
-        expect(columnToSort.classList).toContain('sorted-desc')
-        expect(svg.classList).toContain('icon-arrow_drop_down')
+        expect(columnToSort).toHaveClass('sorted-desc')
+        expect(svg).toHaveClass('icon-arrow_drop_down')
 
         ReactTestUtils.Simulate.click(columnToSort)
         jasmine.clock().tick(1)
@@ -133,9 +133,9 @@ describe('Flex Table', () => {
           columnToSort = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')[0]
 
           const renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
-          expect(renderedRows[1].childNodes[1].textContent).toEqual('a')
-          expect(renderedRows[2].childNodes[1].textContent).toEqual('c')
-          expect(renderedRows[3].childNodes[1].textContent).toEqual('b')
+          expect(renderedRows[1].childNodes[1]).toHaveText('a')
+          expect(renderedRows[2].childNodes[1]).toHaveText('c')
+          expect(renderedRows[3].childNodes[1]).toHaveText('b')
         })
       })
     })
@@ -149,15 +149,15 @@ describe('Flex Table', () => {
         jasmine.clock().tick(1)
         columnToSort = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')[1]
         let svg = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'svg')
-        expect(columnToSort.classList).toContain('sorted-asc')
-        expect(svg.classList).toContain('icon-arrow_drop_up')
+        expect(columnToSort).toHaveClass('sorted-asc')
+        expect(svg).toHaveClass('icon-arrow_drop_up')
 
         ReactTestUtils.Simulate.keyDown(columnToSort, {key: 'Enter'})
         jasmine.clock().tick(1)
         columnToSort = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'sortable')[1]
         svg = ReactTestUtils.findRenderedDOMComponentWithTag(component, 'svg')
-        expect(columnToSort.classList).toContain('sorted-desc')
-        expect(svg.classList).toContain('icon-arrow_drop_down')
+        expect(columnToSort).toHaveClass('sorted-desc')
+        expect(svg).toHaveClass('icon-arrow_drop_down')
 
         ReactTestUtils.Simulate.keyDown(columnToSort, {key: 'Enter'})
         jasmine.clock().tick(1)
@@ -211,12 +211,12 @@ describe('Flex Table', () => {
         const component = renderComponent({columns: columnsWithCustom, data: dataWithCustom, defaultSort: 'custom'})
 
         const customHeader = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')[3]
-        expect(customHeader.classList).toContain('sortable')
+        expect(customHeader).toHaveClass('sortable')
 
         const rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
         rows.forEach((row, index) => {
           if (index == 0) return;
-          expect(row.childNodes[3].textContent).toEqual(`custom-${index}`)
+          expect(row.childNodes[3]).toHaveText(`custom-${index}`)
         })
       })
 
@@ -227,9 +227,9 @@ describe('Flex Table', () => {
           style={{opacity: '0.5'}}/>)
 
         const renderedCell = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'td')
-        expect(renderedCell.id).toEqual('cell-id')
-        expect(renderedCell.classList).toContain('cell-light')
-        expect(renderedCell.style.opacity).toEqual('0.5')
+        expect(renderedCell).toHaveAttr('id', 'cell-id')
+        expect(renderedCell).toHaveClass('cell-light')
+        expect(renderedCell).toHaveCss({opacity: '0.5'})
       })
     })
 
@@ -258,9 +258,9 @@ describe('Flex Table', () => {
         const component = ReactTestUtils.renderIntoDocument(<FlexTableRow id="row-id" className="row-light" style={{opacity: 0.5}}/>)
 
         const renderedRow = ReactTestUtils.findRenderedDOMComponentWithClass(component, 'tr')
-        expect(renderedRow.id).toEqual('row-id')
-        expect(renderedRow.classList).toContain('row-light')
-        expect(renderedRow.style.opacity).toEqual('0.5')
+        expect(renderedRow).toHaveAttr('id', 'row-id')
+        expect(renderedRow).toHaveClass('row-light')
+        expect(renderedRow).toHaveCss({opacity: '0.5'})
       });
     })
 
@@ -275,9 +275,9 @@ describe('Flex Table', () => {
 
         const component = renderComponent({columns: columnsWithCustomSortBy, data, defaultSort: 'theDefault'})
         const renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
-        expect(renderedRows[1].childNodes[2].textContent).toEqual('3')
-        expect(renderedRows[2].childNodes[2].textContent).toEqual('2')
-        expect(renderedRows[3].childNodes[2].textContent).toEqual('1')
+        expect(renderedRows[1].childNodes[2]).toHaveText('3')
+        expect(renderedRows[2].childNodes[2]).toHaveText('2')
+        expect(renderedRows[3].childNodes[2]).toHaveText('1')
       })
     })
   })

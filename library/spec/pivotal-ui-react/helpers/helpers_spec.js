@@ -39,7 +39,7 @@ describe('mergeProps', function() {
       });
 
       it('overrides the id', function() {
-        expect(mergedProps().id).toEqual(subject.props.id);
+        expect(mergedProps()).toHaveAttr('id', subject.props.id);
       });
 
       it('overrides keys under style that are provided', function() {
@@ -66,7 +66,7 @@ describe('mergeProps', function() {
 
     describe('when overriding props are not provided', function() {
       it('uses the default id', function() {
-        expect(mergedProps().id).toEqual(defaultProps.id);
+        expect(mergedProps()).toHaveAttr('id', defaultProps.id);
       });
 
       it('uses the default style', function() {
@@ -97,7 +97,7 @@ describe('mergeProps', function() {
       });
 
       it('uses the overridden id', function() {
-        expect(mergedProps().id).toEqual(subject.props.id);
+        expect(mergedProps()).toHaveAttr('id', subject.props.id);
       });
 
       it('uses the overridden style', function() {
@@ -122,7 +122,7 @@ describe('mergeProps', function() {
       });
 
       it('uses an undefined id', function() {
-        expect(mergedProps().id).toEqual(undefined);
+        expect(mergedProps()).toHaveAttr('id', undefined);
       });
 
       it('uses an empty style', function() {

@@ -12,7 +12,7 @@ describe('Image', () => {
       const result = renderComponent({responsive: true})
       const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img')
       expect(component).not.toBeNull()
-      expect(component.className).toContain('img-responsive')
+      expect(component).toHaveClass('img-responsive')
     })
 
     describe('when the href is set', () => {
@@ -35,7 +35,7 @@ describe('Image', () => {
   it('when responsive is set to be false does not add the image-responsive class to the image', () => {
     const result = renderComponent({responsive: false})
     const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img')
-    expect(component.className).not.toContain('img-responsive')
+    expect(component).not.toHaveClass('img-responsive')
   })
 
   reactCompPropagatesAttrs(renderComponent({

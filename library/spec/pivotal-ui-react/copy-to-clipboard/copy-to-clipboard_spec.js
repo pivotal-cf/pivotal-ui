@@ -26,16 +26,16 @@ describe('CopyToClipboard', () => {
     it('renders the text', () => {
       const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
-      expect(component.textContent).toContain(text)
+      expect(component).toHaveText(text)
     })
 
     it('propagates attributes', () => {
       const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
-      expect(component.className).toContain('test-class')
-      expect(component.id).toEqual('test-id')
-      expect(component.style.opacity).toEqual('0.5')
+      expect(component).toHaveClass('test-class')
+      expect(component).toHaveAttr('id', 'test-id')
+      expect(component).toHaveCss({opacity: '0.5'})
     })
 
     it('click copies text to clipboard and calls provided callback', () => {
@@ -43,7 +43,6 @@ describe('CopyToClipboard', () => {
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
       ReactTestUtils.Simulate.click(component)
-      jasmine.clock().tick(1)
 
       expect(document.execCommand).toHaveBeenCalledWith('copy')
       expect(onClick).toHaveBeenCalled()
@@ -59,9 +58,9 @@ describe('CopyToClipboard', () => {
       const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
-      expect(component.className).toContain('test-class')
-      expect(component.id).toEqual('test-id')
-      expect(component.style.opacity).toEqual('0.5')
+      expect(component).toHaveClass('test-class')
+      expect(component).toHaveAttr('id', 'test-id')
+      expect(component).toHaveCss({opacity: '0.5'})
     })
 
     describe('clicking on the button', () => {
@@ -72,10 +71,9 @@ describe('CopyToClipboard', () => {
         const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-content')
 
         ReactTestUtils.Simulate.click(component)
-        jasmine.clock().tick(10)
 
-        expect(tooltipContainer.className).toContain('tooltip-container-visible')
-        expect(tooltip.textContent).toContain('Copied')
+        expect(tooltipContainer).toHaveClass('tooltip-container-visible')
+        expect(tooltip).toHaveText('Copied')
       })
 
       it('hides tooltip after 1 seconds', () => {
@@ -86,7 +84,7 @@ describe('CopyToClipboard', () => {
         ReactTestUtils.Simulate.click(component)
         jasmine.clock().tick(2000)
 
-        expect(tooltipContainer.className).not.toContain('tooltip-container-visible')
+        expect(tooltipContainer).not.toHaveClass('tooltip-container-visible')
       })
 
       it('copies the text to the clipboard', () => {
@@ -94,7 +92,6 @@ describe('CopyToClipboard', () => {
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
         ReactTestUtils.Simulate.click(component)
-        jasmine.clock().tick(1)
 
         expect(document.execCommand).toHaveBeenCalledWith('copy')
       })
@@ -104,7 +101,6 @@ describe('CopyToClipboard', () => {
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
         ReactTestUtils.Simulate.click(component)
-        jasmine.clock().tick(1)
 
         expect(onClick).toHaveBeenCalled()
       })

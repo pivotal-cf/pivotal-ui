@@ -9,17 +9,17 @@ describe('Label Component', () => {
     const result = renderComponent({}, 'bananas')
     const span = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'span')
 
-    expect(span.className).toContain('label')
-    expect(span.className).toContain('label-primary')
-    expect(span.textContent).toEqual('bananas')
+    expect(span).toHaveClass('label')
+    expect(span).toHaveClass('label-primary')
+    expect(span).toHaveText('bananas')
   })
 
   it('propagates id, classname, style', () => {
     const result = renderComponent({id: 'some-id', className: 'some-class', style: {color: 'red'}})
     const span = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'span')
 
-    expect(span.id).toEqual('some-id')
+    expect(span).toHaveAttr('id', 'some-id')
     expect(span.className).toEqual('some-class')
-    expect(span.style.color).toEqual('red')
+    expect(span).toHaveCss({color: 'red'})
   })
 })
