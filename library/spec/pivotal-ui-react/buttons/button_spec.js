@@ -25,6 +25,42 @@ describe('UIButton', () => {
     })
   })
 
+  describe('when type attribute is supplied', () => {
+    it('passes that value to a link', () => {
+      subject = renderComponent({href: 'http://example.com', type: 'text/html'})
+      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+      expect(button).toHaveAttr('type', 'text/html')
+    })
+
+    it('passes that value to a button', () => {
+      subject = renderComponent({type: 'submit'})
+      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+      expect(button).toHaveAttr('type', 'submit')
+    })
+  })
+
+  describe('when type attribute is not supplied', () => {
+    describe('for a link', () => {
+      it('has no type attribute', () => {
+        subject = renderComponent({href: 'http://example.com'})
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).not.toHaveAttr('type')
+      })
+    })
+
+    describe('for a button', () => {
+      it('has type button', () => {
+        subject = renderComponent()
+        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn')
+
+        expect(button).toHaveAttr('type', 'button')
+      })
+    })
+  })
+
   describe('when kind attribute is set', () => {
     it('adds the type class to the button', () => {
       let button

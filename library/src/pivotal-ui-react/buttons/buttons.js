@@ -38,7 +38,7 @@ export class UIButton extends React.Component {
 
     return this.props.href ?
       <a {...props}>{icon} {children}</a> :
-      <button {...props}>{icon} {children}</button>
+      <button {...mergeProps(props, {type: 'button'})}>{icon} {children}</button>
   }
 }
 

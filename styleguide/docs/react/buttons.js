@@ -33,13 +33,14 @@ import {Icon} from 'pui-react-iconography';
 ```
 
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
+Native HTML attributes, such as aria-label, are applied to the underlying button or anchor element.
 
 ```react_example_table
-<DefaultButton>
+<DefaultButton aria-label="this is a button">
   Button
 </DefaultButton>
 
-<DefaultButton href="http://example.com">
+<DefaultButton href="http://example.com" aria-label="this is an anchor">
   Link
 </DefaultButton>
 ```
