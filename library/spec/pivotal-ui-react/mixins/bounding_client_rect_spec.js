@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper' ;
 
 describe('BoundingClientRect', () => {
   const width = 100;

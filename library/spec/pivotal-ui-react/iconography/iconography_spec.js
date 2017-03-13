@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper' ;
 
 var Icon = require('../../../src/pivotal-ui-react/iconography/iconography').Icon;
 

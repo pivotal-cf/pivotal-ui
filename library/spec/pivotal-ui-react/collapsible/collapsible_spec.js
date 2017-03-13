@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper' ;
 
 describe('Collapsible', () => {
   const height = 24;

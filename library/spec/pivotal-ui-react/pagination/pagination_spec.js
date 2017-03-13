@@ -1,57 +1,93 @@
-require('../spec_helper');
-var Pagination = require('../../../src/pivotal-ui-react/pagination/pagination').Pagination;
+import '../spec_helper'
+import ReactTestUtils from 'react-addons-test-utils'
+import {Pagination} from 'pui-react-pagination'
 
 describe('Pagination', () => {
-  beforeEach(() => {
-    ReactDOM.render(<Pagination/>, root);
-  });
-
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  let subject
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Pagination {...props}/>)
 
   it('renders a pagination component', () => {
-    expect('.pagination').toExist();
-  });
+    subject = renderComponent()
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')).toBeDefined()
+  })
 
   describe('props', () => {
     it('renders the number of buttons specified in items, plus next and prev buttons', () => {
-      ReactDOM.render(<Pagination items={5}/>, root);
+      subject = renderComponent({items: 5})
+      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')
+      const paginationButtons = pagination.getElementsByTagName('li')
 
-      expect('.pagination li:eq(0)').toContainText('‹');
-      expect('.pagination li:eq(6)').toContainText('›');
-      expect('.pagination li:eq(1)').toContainText('1');
-      expect('.pagination li:eq(5)').toContainText('5');
-      expect($('.pagination li').length).toBe(7);
-    });
+      expect(paginationButtons[0]).toHaveText('‹')
+      expect(paginationButtons[6]).toHaveText('›')
+      expect(paginationButtons[1]).toHaveText('1')
+      expect(paginationButtons[5]).toHaveText('5')
+      expect(paginationButtons).toHaveLength(7)
+    })
 
     it('renders 1 button when no items are specified',() => {
-      ReactDOM.render(<Pagination/>, root);
-      expect($('.pagination li').length).toBe(3);
-    });
+      subject = renderComponent()
+      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')
+      const paginationButtons = pagination.getElementsByTagName('li')
 
-    it('does not render next and prev buttons when next and prev are false',() => {
-      ReactDOM.render(<Pagination next={false} prev={false}/>, root);
-      expect($('.pagination li').length).toBe(1);
-    });
+      expect(paginationButtons).toHaveLength(3)
+      expect(paginationButtons[0]).toHaveText('‹')
+      expect(paginationButtons[1]).toHaveText('1')
+      expect(paginationButtons[2]).toHaveText('›')
+    })
+
+    it('does not render next when next is false',() => {
+      subject = renderComponent({next: false})
+      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')
+      const paginationButtons = pagination.getElementsByTagName('li')
+
+      expect(paginationButtons).toHaveLength(2)
+      expect(paginationButtons[0]).toHaveText('‹')
+      expect(paginationButtons[1]).toHaveText('1')
+    })
+
+    it('does not render prev when prev is false',() => {
+      subject = renderComponent({prev: false})
+      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')
+      const paginationButtons = pagination.getElementsByTagName('li')
+
+      expect(paginationButtons).toHaveLength(2)
+      expect(paginationButtons[0]).toHaveText('1')
+      expect(paginationButtons[1]).toHaveText('›')
+    })
 
     it('renders an active button when activePage number is specified', () => {
-      ReactDOM.render(<Pagination activePage={1}/>, root);
-      expect('.pagination .active').toExist();
-    });
+      subject = renderComponent({activePage: 1})
+      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')
+      expect(pagination.getElementsByClassName('active')).toHaveLength(1)
+    })
 
-    it('calls onSelect callback on button click', () => {
-      const onSelectSpy = jasmine.createSpy('onSelect');
-      ReactDOM.render(<Pagination onSelect={onSelectSpy}/>, root);
-      $('.pagination li:eq(1)').simulate('click');
-      expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 1});
-    });
+    describe('onSelect', () => {
+      let onSelectSpy
+      beforeEach(() => {
+        onSelectSpy = jasmine.createSpy('onSelect')
+        subject = renderComponent({onSelect: onSelectSpy, items: 5})
+      })
 
-    it('calls onSelect callback on next click', () => {
-      const onSelectSpy = jasmine.createSpy('onSelect');
-      ReactDOM.render(<Pagination items={5} onSelect={onSelectSpy}/>, root);
-      $('.pagination li:eq(6)').simulate('click');
-      expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'});
-    });
-  });
-});
+      it('calls on button click', () => {
+        const firstButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[4]
+        ReactTestUtils.Simulate.click(firstButton)
+
+        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4})
+      })
+
+      it('calls on prev click', () => {
+        const prevButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[0]
+        ReactTestUtils.Simulate.click(prevButton)
+
+        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev'})
+      })
+
+      it('calls on next click', () => {
+        const nextButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[6]
+        ReactTestUtils.Simulate.click(nextButton)
+
+        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'})
+      })
+    })
+  })
+})

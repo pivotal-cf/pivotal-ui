@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
 import {Table, TableHeader, TableCell, TableRow} from '../../../src/pivotal-ui-react/table/table'
 

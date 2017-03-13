@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper' ;
 import ReactDomServer from 'react-dom/server'
 const Tooltip = require('../../../src/pivotal-ui-react/tooltip/tooltip').Tooltip;
 const OverlayTrigger = require('../../../src/pivotal-ui-react/overlay-trigger/overlay-trigger').OverlayTrigger;

@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
 import {Radio, RadioGroup} from '../../../src/pivotal-ui-react/radio/radio'
 

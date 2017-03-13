@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import {Collapsible} from 'pui-react-collapsible'
 import {Tab, LeftTabs, Tabs} from 'pui-react-tabs'
 import ReactTestUtils from 'react-addons-test-utils'

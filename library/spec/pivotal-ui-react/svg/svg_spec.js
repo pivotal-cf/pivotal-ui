@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import {Svg} from 'pui-react-svg'
 import ReactTestUtils from 'react-addons-test-utils'
 

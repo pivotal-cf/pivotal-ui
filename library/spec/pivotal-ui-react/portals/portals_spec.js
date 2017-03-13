@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import {PortalSource, PortalDestination} from '../../../src/pivotal-ui-react/portals/portals'
 import ReactTestUtils from 'react-addons-test-utils'
 

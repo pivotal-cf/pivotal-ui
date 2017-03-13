@@ -1,4 +1,4 @@
-require('../spec_helper');
+import '../spec_helper' ;
 import {itPropagatesAttributes} from '../support/shared_examples';
 import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
 

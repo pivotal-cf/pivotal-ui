@@ -1,4 +1,4 @@
-require('../spec_helper')
+import '../spec_helper'
 import React from 'react'
 import {StreamList, StreamListItem} from 'pui-react-stream-list'
 import ReactTestUtils from 'react-addons-test-utils'
