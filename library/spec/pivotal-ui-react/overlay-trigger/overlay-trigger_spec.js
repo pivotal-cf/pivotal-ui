@@ -1,8 +1,6 @@
-import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
 import {Tooltip} from 'pui-react-tooltip'
 import {OverlayTrigger} from 'pui-react-overlay-trigger'
-import TetherComponent from 'react-tether'
 
 describe('OverlayTrigger', () => {
   let subject

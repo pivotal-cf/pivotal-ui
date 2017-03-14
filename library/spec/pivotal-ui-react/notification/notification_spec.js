@@ -1,194 +1,197 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {Notifications, NotificationItem, AlertNotifications} from 'pui-react-notifications'
+import ReactTestUtils from 'react-addons-test-utils'
 
-describe('Notification', function() {
-  var Notifications, NotificationItem;
-  var props = {
-    className: 'test-class',
-    id: 'test-id',
-    style: {
-      opacity: '0.5'
-    }
-  };
-  var itemProps = {
-    className: 'test-item-class',
-    id: 'test-item-id',
-    style: {
-      opacity: '0.75'
-    }
-  };
-  beforeEach(function() {
-    Notifications = require('../../../src/pivotal-ui-react/notifications/notifications').Notifications;
-    NotificationItem = require('../../../src/pivotal-ui-react/notifications/notifications').NotificationItem;
-  });
+let subject
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+describe('Notification', () => {
+  const renderComponent = (props, itemProps) => ReactTestUtils.renderIntoDocument(<Notifications {...props}>
+    <NotificationItem {...itemProps} href="my-fee-link">fee</NotificationItem>
+    <NotificationItem href="my-fi-link">fi</NotificationItem>
+    <NotificationItem href="my-fo-link">fo</NotificationItem>
+    <NotificationItem href="my-fum-link">fum</NotificationItem>
+  </Notifications>)
 
-  describe('when there are children', function() {
-    beforeEach(function() {
-      ReactDOM.render((
-        <Notifications {...props}>
-          <NotificationItem {...itemProps} href="my-fee-link">fee</NotificationItem>
-          <NotificationItem href="my-fi-link">fi</NotificationItem>
-          <NotificationItem href="my-fo-link">fo</NotificationItem>
-          <NotificationItem href="my-fum-link">fum</NotificationItem>
-        </Notifications>), root);
-
-      $('.dropdown-toggle').simulate('click');
-    });
+  describe('when there are children', () => {
+    beforeEach(() => {
+      const props = {
+        className: 'test-class',
+        id: 'test-id',
+        style: {
+          opacity: '0.5'
+        }
+      }
+      const itemProps = {
+        className: 'test-item-class',
+        id: 'test-item-id',
+        style: {
+          opacity: '0.75'
+        }
+      }
+      subject = renderComponent(props, itemProps)
+      const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-toggle')
+      ReactTestUtils.Simulate.click(toggle)
+    })
 
     it('renders the bell', () => {
-      expect('.dropdown-notifications-title svg.icon-notifications').toExist();
-    });
+      const title = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-notifications-title')
+      const svg = title.getElementsByTagName('svg')[0]
 
-    it('passes through the className to the btn-group', function() {
-      expect('.dropdown').toHaveClass(props.className);
-    });
+      expect(svg).toHaveClass('icon-notifications')
+    })
 
-    it('passes through style to the button', function() {
-      expect('.dropdown').toHaveCss(props.style);
-    });
+    it('passes through the className, style, and id to the dropdown', () => {
+      const dropdown = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown')
 
-    it('passes through id to the button', function() {
-      expect('.dropdown').toHaveAttr('id', 'test-id');
-    });
+      expect(dropdown).toHaveClass('test-class')
+      expect(dropdown).toHaveCss({opacity: '0.5'})
+      expect(dropdown).toHaveAttr('id', 'test-id')
+    })
 
-    it('renders a notification count badge', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-badge').toContainText('4');
-    });
+    it('renders a notification count badge', () => {
+      const title = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-notifications-title')
+      const badge = title.getElementsByClassName('dropdown-notifications-badge')
 
-    describe('NotificationItem', function() {
-      it('passes through className to the li ', function() {
-        expect('#root li:first').toHaveClass(itemProps.className);
-      });
+      expect(badge).toContainText('4')
+    })
 
-      it('passes through style to the li', function() {
-        expect('#root li:first').toHaveCss(itemProps.style);
-      });
+    it('renders the children in a dropdown menu', () => {
+      const menu = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-menu')
+      const firstLink = menu.getElementsByTagName('a')[0]
 
-      it('passes through id to the anchor', function() {
-        expect('#root li:first a#test-item-id').toExist();
-      });
-    });
+      expect(firstLink).toContainText('fee')
+      expect(firstLink).toHaveAttr('href', 'my-fee-link')
+      expect(menu).toContainText('fi')
+      expect(menu).toContainText('fo')
+      expect(menu).toContainText('fum')
+    })
 
-    it('renders the children in a dropdown menu', function() {
-      expect('.dropdown-menu a:eq(0)').toContainText('fee');
-      expect('.dropdown-menu a:eq(0)').toHaveAttr('href', 'my-fee-link');
+    describe('NotificationItem', () => {
+      it('passes through className and style to the li ', () => {
+        const firstItem = ReactTestUtils.scryRenderedComponentsWithType(subject, NotificationItem)[0]
+        const listItem = ReactTestUtils.findRenderedDOMComponentWithTag(firstItem, 'li')
+        expect(listItem).toHaveClass('test-item-class')
+        expect(listItem).toHaveCss({opacity: '0.75'})
+      })
 
-      expect('.dropdown-menu').toContainText('fi');
-      expect('.dropdown-menu').toContainText('fo');
-      expect('.dropdown-menu').toContainText('fum');
-    });
-  });
+      it('passes through id to the anchor', () => {
+        const firstItem = ReactTestUtils.scryRenderedComponentsWithType(subject, NotificationItem)[0]
+        const listItem = ReactTestUtils.findRenderedDOMComponentWithTag(firstItem, 'li')
+        const anchor = listItem.getElementsByTagName('a')
 
-  describe('when there are no children', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Notifications/>, root);
-    });
+        expect(anchor).toHaveAttr('id', 'test-item-id')
+      })
+    })
+  })
 
-    it('does not render a badge', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-badge').not.toExist();
-    });
+  describe('when there are no children', () => {
+    beforeEach(() => {
+      subject = ReactTestUtils.renderIntoDocument(<Notifications />)
+    })
 
-    it('renders the no notification message on click', function() {
-      $('.dropdown-toggle').simulate('click');
+    it('does not render a badge', () => {
+      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'dropdown-notifications-badge')).toHaveLength(0)
+    })
 
-      expect('.dropdown-menu .dropdown-notifications-none').toContainText('no notifications');
-    });
-  });
+    it('renders the no notification message on click', () => {
+      const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-toggle')
+      ReactTestUtils.Simulate.click(toggle)
 
-  describe('when there are size modifiers', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Notifications size="h1"/>, root);
-    });
+      const menu = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-menu')
+      const notificationsMsg = menu.getElementsByClassName('dropdown-notifications-none')
 
-    it('renders a h1 sized notification', function() {
-      expect('.dropdown-notifications-title').toHaveClass('h1');
-    });
-  });
-});
+      expect(notificationsMsg).toHaveText('no notifications')
+    })
+  })
 
-describe('Alert Notifications', function() {
-  var AlertNotifications, NotificationItem;
-  beforeEach(function() {
-    AlertNotifications = require('../../../src/pivotal-ui-react/notifications/notifications').AlertNotifications;
-    NotificationItem = require('../../../src/pivotal-ui-react/notifications/notifications').NotificationItem;
-  });
+  describe('when there are size modifiers', () => {
+    it('renders a h1 sized notification', () => {
+      subject = renderComponent({size: 'h1'})
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+      const title = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-notifications-title')
+      expect(title).toHaveClass('h1')
+    })
+  })
+})
 
-  describe('when there are children', function() {
-    var props = {
-      className: 'test-class',
-      id: 'test-id',
-      style: {
-        opacity: '0.5'
+describe('Alert Notifications', () => {
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<AlertNotifications {...props}>
+    <NotificationItem href="my-fee-link">fee</NotificationItem>
+    <NotificationItem href="my-fi-link">fi</NotificationItem>
+    <NotificationItem href="my-fo-link">fo</NotificationItem>
+    <NotificationItem href="my-fum-link">fum</NotificationItem>
+  </AlertNotifications>)
+
+  describe('when there are children', () => {
+    beforeEach(() => {
+      const props = {
+        className: 'test-class',
+        id: 'test-id',
+        style: {
+          opacity: '0.5'
+        }
       }
-    };
-    beforeEach(function() {
-      ReactDOM.render((
-        <AlertNotifications {...props}>
-          <NotificationItem href="my-fee-link">fee</NotificationItem>
-          <NotificationItem href="my-fi-link">fi</NotificationItem>
-          <NotificationItem href="my-fo-link">fo</NotificationItem>
-          <NotificationItem href="my-fum-link">fum</NotificationItem>
-        </AlertNotifications>), root);
-    });
 
-    it('renders a notification alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert svg').toHaveClass('icon-warning');
-    });
+      subject = renderComponent(props)
+    })
 
-    it('renders the children in a dropdown menu on click', function() {
-      $('.dropdown-toggle').simulate('click');
+    it('renders a notification alert icon', () => {
+      const title = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-notifications-title')
+      const alert = title.getElementsByClassName('dropdown-notifications-alert')[0]
+      const svg = alert.getElementsByTagName('svg')[0]
 
-      expect('.dropdown-menu a:eq(0)').toContainText('fee');
-      expect('.dropdown-menu a:eq(0)').toHaveAttr('href', 'my-fee-link');
+      expect(svg).toHaveClass('icon-warning')
+    })
 
-      expect('.dropdown-menu').toContainText('fi');
-      expect('.dropdown-menu').toContainText('fo');
-      expect('.dropdown-menu').toContainText('fum');
-    });
+    it('renders the children in a dropdown menu on click', () => {
+      const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-toggle')
+      ReactTestUtils.Simulate.click(toggle)
 
-    it('passes through the className to the btn-group', function() {
-      expect('.dropdown').toHaveClass(props.className);
-    });
+      const menu = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-menu')
+      const firstLink = menu.getElementsByTagName('a')[0]
 
-    it('passes through style to the button', function() {
-      expect('.dropdown').toHaveCss(props.style);
-    });
+      expect(firstLink).toContainText('fee')
+      expect(firstLink).toHaveAttr('href', 'my-fee-link')
+      expect(menu).toContainText('fi')
+      expect(menu).toContainText('fo')
+      expect(menu).toContainText('fum')
+    })
 
-    it('passes through id to the button', function() {
-      expect('.dropdown').toHaveAttr('id', 'test-id');
-    });
-  });
+    it('passes through the className, style, and id to the dropdown', () => {
+      const dropdown = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown')
 
-  describe('when there are no children', function() {
-    beforeEach(function() {
-      ReactDOM.render(<AlertNotifications/>, root);
-    });
+      expect(dropdown).toHaveClass('test-class')
+      expect(dropdown).toHaveCss({opacity: '0.5'})
+      expect(dropdown).toHaveAttr('id', 'test-id')
+    })
+  })
 
-    it('does not render an alert icon', function() {
-      expect('.dropdown-notifications-title .dropdown-notifications-alert').not.toExist();
-    });
+  describe('when there are no children', () => {
+    beforeEach(() => {
+      subject = ReactTestUtils.renderIntoDocument(<AlertNotifications/>)
+    })
 
-    it('renders the no notification message on click', function() {
-      $('.dropdown-toggle').simulate('click');
+    it('does not render an alert icon', () => {
+      expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'dropdown-notifications-alert')).toHaveLength(0)
+    })
 
-      expect('.dropdown-menu .dropdown-notifications-none').toContainText('no alerts');
-    });
-  });
+    it('renders the no notification message on click', () => {
+      const toggle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-toggle')
+      ReactTestUtils.Simulate.click(toggle)
 
-  describe('when there are size modifiers', function() {
-    beforeEach(function() {
-      ReactDOM.render(<AlertNotifications size="h1"/>, root);
-    });
+      const menu = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-menu')
+      const notificationsMsg = menu.getElementsByClassName('dropdown-notifications-none')
 
-    it('renders a h1 sized notification', function() {
-      expect('.dropdown-notifications-title').toHaveClass('h1');
-    });
-  });
-});
+      expect(notificationsMsg).toHaveText('no alerts')
+    })
+  })
+
+  describe('when there are size modifiers', () => {
+    it('renders a h1 sized notification', () => {
+      subject = renderComponent({size: 'h1'})
+
+      const title = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'dropdown-notifications-title')
+      expect(title).toHaveClass('h1')
+    })
+  })
+})
