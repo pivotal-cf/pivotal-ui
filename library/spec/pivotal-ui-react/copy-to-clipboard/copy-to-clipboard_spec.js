@@ -3,14 +3,19 @@ import ReactTestUtils from 'react-addons-test-utils'
 import {CopyToClipboard, CopyToClipboardButton} from '../../../src/pivotal-ui-react/copy-to-clipboard/copy-to-clipboard'
 
 describe('CopyToClipboard', () => {
+  function render(Component, props) {
+    return ReactTestUtils.renderIntoDocument(<Component {...props}/>)
+  }
+
   const text = 'some copy text'
-  let onClick, window, document, range, selection;
+  let onClick, getWindow, window, document, range, selection;
   beforeEach(() => {
     onClick = jasmine.createSpy('onClick')
 
     range = jasmine.createSpyObj('range', ['selectNode']);
     selection = jasmine.createSpyObj('selection', ['removeAllRanges', 'addRange']);
     window = jasmine.createSpyObj('window', ['getSelection']);
+    getWindow = jasmine.createSpy('getWindow').and.returnValue(window);
     document = jasmine.createSpyObj('document', ['createRange', 'execCommand']);
 
     document.createRange.and.returnValue(range);
@@ -19,18 +24,14 @@ describe('CopyToClipboard', () => {
   })
 
   describe('CopyToClipboard (basic)', () => {
-    const renderComponent = (props) => {
-      return ReactTestUtils.renderIntoDocument(<CopyToClipboard copyWindow={window} {...props}/>)
-    }
-
     it('renders the text', () => {
-      const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+      const result = render(CopyToClipboard, {text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'sr-only')
       expect(component.textContent).toContain(text)
     })
 
     it('propagates attributes', () => {
-      const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+      const result = render(CopyToClipboard, {text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
       expect(component.className).toContain('test-class')
@@ -39,7 +40,7 @@ describe('CopyToClipboard', () => {
     })
 
     it('click copies text to clipboard and calls provided callback', () => {
-      const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+      const result = render(CopyToClipboard, {getWindow, text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
       ReactTestUtils.Simulate.click(component)
@@ -51,12 +52,8 @@ describe('CopyToClipboard', () => {
   })
 
   describe('CopyToClipboardButton', () => {
-    const renderComponent = (props) => {
-      return ReactTestUtils.renderIntoDocument(<CopyToClipboardButton copyWindow={window} {...props}/>)
-    }
-
     it('propagates attributes', () => {
-      const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+      const result = render(CopyToClipboardButton, {text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
       const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
       expect(component.className).toContain('test-class')
@@ -66,7 +63,7 @@ describe('CopyToClipboard', () => {
 
     describe('clicking on the button', () => {
       it('renders a tooltip that says "Copied"', () => {
-        const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+        const result = render(CopyToClipboardButton, {getWindow, text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'clipboard-button')
         const tooltipContainer = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
         const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-content')
@@ -79,7 +76,7 @@ describe('CopyToClipboard', () => {
       })
 
       it('hides tooltip after 1 seconds', () => {
-        const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+        const result = render(CopyToClipboardButton, {getWindow, text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
         const tooltipContainer = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
 
@@ -90,7 +87,7 @@ describe('CopyToClipboard', () => {
       })
 
       it('copies the text to the clipboard', () => {
-        const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+        const result = render(CopyToClipboardButton, {getWindow, text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
         ReactTestUtils.Simulate.click(component)
@@ -100,7 +97,7 @@ describe('CopyToClipboard', () => {
       })
 
       it('calls the provided callback', () => {
-        const result = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+        const result = render(CopyToClipboardButton, {getWindow, text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
         const component = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'copy-to-clipboard')
 
         ReactTestUtils.Simulate.click(component)
