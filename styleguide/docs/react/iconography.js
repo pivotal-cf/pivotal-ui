@@ -34,8 +34,11 @@ Import the subcomponent:
 import {Icon} from 'pui-react-iconography';
 ```
 
-Svgs do not render on the styleguide because it does a lot of work client-side.
-In a normal application, this code would work.
+Use the src attribute to load the appropriate icon.
+For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+You can also reference icons located in the `app/svg` folder at the root of your project
+(defined here as the location of your package.json). Create that directory and populate it with your custom svgs.
+Custom svgs must be suffixed ".svg," and they are referenced by the name of the svg (without the ".svg" suffix).
 
 ```react_example_table
 <Icon src="add"/>
@@ -63,7 +66,6 @@ To align an Icon with text, set `verticalAlign` to 'baseline'
 </div>
 ```
 
-For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 */
 
 /*doc

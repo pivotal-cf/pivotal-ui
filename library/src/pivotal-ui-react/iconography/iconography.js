@@ -7,7 +7,15 @@ import classnames from 'classnames'
 const types = React.PropTypes
 
 class SvgIcon extends Svg {
-  svgPathLoader = src => require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
+  svgPathLoader = src => {
+    try {
+      return require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
+    } catch (e) {
+      try {
+        return require(`!!babel-loader!svg-react!../../app/svg/${src}.svg`)
+      } catch (e) {}
+    }
+  }
 }
 
 export class Icon extends React.Component {
