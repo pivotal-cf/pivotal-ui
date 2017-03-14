@@ -142,7 +142,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       },
       'focus': {
         onFocus: this.triggerShow('onFocus'),
-        onBlur: this.triggerHide('onFocus')
+        onBlur: this.triggerHide('onBlur')
       },
       'click': {
         onClick: this.click
