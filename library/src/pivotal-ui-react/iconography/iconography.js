@@ -12,7 +12,7 @@ class SvgIcon extends Svg {
       return require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
     } catch (e) {
       try {
-        return require(`!!babel-loader!svg-react!../../app/svg/${src}.svg`)
+        return require(`!!babel-loader!svg-react-loader!../../app/svg/${src}.svg`)
       } catch (e) {}
     }
   }
