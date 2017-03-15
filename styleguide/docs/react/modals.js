@@ -14,17 +14,18 @@ npm install pui-react-modals --save
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-animation       | no | Boolean  | true     | Opens and closes the modal widow with sliding and fading animations.
-size            | no | String   |          | Size variations
-dialogClassName | no | String   |          | A CSS class to apply to the modal dialog
-keyboard        | no | Boolean  | true     | Set to false to prevent escape from closing the modal dialog
-onEntered       | no | Function |          | Callback that fires after the modal has finished animating in
-onExited        | no | Function |          | Callback that fires after the modal has finished animating out
-onHide          | no | Function | () => () | Callback that fires as soon as the modal begins closing
-show            | no | Boolean  |          | Whether the modal should be opened or closed
-title           | no | Node     |          | Title of the modal, shown at the top of the modal
+Property        | Required | Type     | Default  | Description
+----------------|----------|----------|----------|------------
+acquireFocus    | no       | Boolean  | true     | Acquire focus just before modal `onEntered`
+animation       | no       | Boolean  | true     | Opens and closes the modal widow with sliding and fading animations.
+dialogClassName | no       | String   |          | A CSS class to apply to the modal dialog
+keyboard        | no       | Boolean  | true     | Set to false to prevent escape from closing the modal dialog
+onEntered       | no       | Function |          | Callback that fires after the modal has finished animating in
+onExited        | no       | Function |          | Callback that fires after the modal has finished animating out
+onHide          | no       | Function | () => () | Callback that fires as soon as the modal begins closing
+show            | no       | Boolean  |          | Whether the modal should be opened or closed
+size            | no       | String   |          | Size variations
+title           | no       | Node     |          | Title of the modal, shown at the top of the modal
 
 ## Basic usage
 
@@ -61,11 +62,12 @@ class MyModal extends React.Component {
         <DefaultButton onClick={() => this.setState({modalOpen: true})}>
           Open Stateless Modal
         </DefaultButton>
-        <BaseModal title='What a Header!'
+        <BaseModal acquireFocus={false}
+                   title='What a Header!'
                    className='optional-custom-class'
                    show={this.state.modalOpen}
                    onHide={() => this.setState({modalOpen: false})}>
-          <ModalBody><p>Text in a body</p></ModalBody>
+          <ModalBody><p>Text in a body</p><Input autoFocus placeholder="Tell me your darkest secrets"/></ModalBody>
           <ModalFooter>
             <DefaultButton onClick={() => this.setState({modalOpen: false})}>
               Close
@@ -73,7 +75,7 @@ class MyModal extends React.Component {
           </ModalFooter>
         </BaseModal>
       </div>
-    );
+    )
   }
 }
 ```

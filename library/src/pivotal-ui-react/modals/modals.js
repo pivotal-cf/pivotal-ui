@@ -24,6 +24,7 @@ function bodyIsAllowedToScroll(document) {
 
 export class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
+    acquireFocus: types.bool,
     animation: types.bool,
     size: types.string,
     dialogClassName: types.string,
@@ -37,6 +38,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   }
 
   static defaultProps = {
+    acquireFocus: true,
     animation: true,
     keyboard: true,
     onHide: () => {},
@@ -83,6 +85,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
 
   render() {
     const {
+      acquireFocus,
       animation,
       size,
       children,
@@ -109,7 +112,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
     privates.set(this, {...privates.get(this), fractionShown});
 
     if(oldFractionShown < 1 && fractionShown === 1) {
-      this.focus();
+      if (acquireFocus) this.focus();
       onEntered && onEntered();
     }
 
@@ -134,29 +137,26 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
     const modalSize = {small: 'sm', sm: 'sm', large: 'lg', lg: 'lg'}[size];
     const modalSizeClass = `modal-${modalSize}`;
 
-    return (<div className="modal-wrapper" role="dialog">
-      <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
-      <div {...props} ref={(ref) => {
-        this.modal = ref;
-      }}>
-        <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})}
-             style={dialogStyle} ref={(ref) => {
-          this.dialog = ref;
-        }}>
-          <div className="modal-content">
-            <div className="modal-header">
-              <h4 className="modal-title">{title}</h4>
-              <div className="modal-close">
-                <button className="btn btn-icon" onClick={onHide}>
-                  <Icon src="close"/>
-                </button>
+    return (
+      <div className="modal-wrapper" role="dialog">
+        <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
+          <div {...props} ref={ref => this.modal = ref}>
+            <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={ref => this.dialog = ref}>
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h4 className="modal-title">{title}</h4>
+                  <div className="modal-close">
+                    <button className="btn btn-icon" onClick={onHide}>
+                      <Icon src="close"/>
+                    </button>
+                </div>
               </div>
+              {children}
             </div>
-            {children}
           </div>
         </div>
       </div>
-    </div>);
+    )
   }
 }
 

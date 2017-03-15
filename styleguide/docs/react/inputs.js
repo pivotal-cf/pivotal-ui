@@ -20,18 +20,19 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-displayError   | no | Boolean                | false | Displays the error message when true
-errorMessage   | no | Node                   |       | Message that gets displayed when displayError is true
-inputClassName | no | String                 |       | Classname of the inner input element
-id             | no | String                 |       | The inner label will specify htmlFor=id
-label          | no | Node                   |       | The content of this label
-labelClassName | no | String                 |       | Sets the wrapping label classname
-placeholder    | no | String                 |       | Input placeholder
-search         | no | Boolean                | false | Inputs have a magnifying glass when the search prop is true
-success        | no | Boolean                | false | Inputs display a checkmark when the success prop is true
-leftIcon       | no | oneOf(String, Element) |       | Inputs have a custom svg icon when leftIcon is provided
+Property       | Required | Type                   | Default | Description
+---------------|----------|------------------------|---------|------------
+autoFocus      | no       | Boolean                | false   | Focus the inner input element on mount
+displayError   | no       | Boolean                | false   | Displays the error message when true
+errorMessage   | no       | Node                   |         | Message that gets displayed when displayError is true
+inputClassName | no       | String                 |         | Classname of the inner input element
+id             | no       | String                 |         | The inner label will specify htmlFor=id
+label          | no       | Node                   |         | The content of this label
+labelClassName | no       | String                 |         | Sets the wrapping label classname
+leftIcon       | no       | oneOf(String, Element) |         | Inputs have a custom svg icon when leftIcon is provided
+placeholder    | no       | String                 |         | Input placeholder
+search         | no       | Boolean                | false   | Inputs have a magnifying glass when the search prop is true
+success        | no       | Boolean                | false   | Inputs display a checkmark when the success prop is true
 
 ## Basic usage
 

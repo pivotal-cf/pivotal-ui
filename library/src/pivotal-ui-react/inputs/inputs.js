@@ -8,6 +8,7 @@ const types = React.PropTypes;
 
 export class Input extends React.Component {
   static propTypes = {
+    autoFocus: types.bool,
     displayError: types.bool,
     errorMessage: types.node,
     id: types.string,
@@ -23,8 +24,12 @@ export class Input extends React.Component {
     ])
   }
 
+  componentDidMount() {
+    if (this.props.autoFocus) this.input.focus()
+  }
+
   render() {
-    const {className, displayError, errorMessage, inputClassName, label, labelClassName, search, success, leftIcon, ...props} = this.props;
+    const {className, autoFocus, displayError, errorMessage, inputClassName, label, labelClassName, search, success, leftIcon, ...props} = this.props;
     const {id, placeholder} = props;
     const successClassName = success ? 'form-group-right-icon' : '';
     const formClasses = classnames(
@@ -44,7 +49,7 @@ export class Input extends React.Component {
     return (<div className={formClasses}>
       {label && <label htmlFor={id} className={labelClasses}>{label}</label>}
       <div className="input-wrapper">
-        <input {...inputProps} />
+        <input {...inputProps} ref={ref => this.input = ref} />
         {leftIconSrc && customLeftIcon}
         {success && <Icon className="success" src="check"/>}
       </div>
