@@ -3,7 +3,7 @@ import ReactTestUtils from 'react-addons-test-utils';
 import {TooltipTrigger} from '../../../src/pivotal-ui-react/tooltip/tooltip'
 
 describe('TooltipTrigger Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltip="Some default tooltip"
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltipContent="Some default tooltip"
                                                                               {...props}>
                                                                         <div className="trigger">Some default message</div>
                                                                       </TooltipTrigger>)
@@ -28,7 +28,7 @@ describe('TooltipTrigger Component', () => {
   it('renders with node content, node tooltip content', () => {
     const nodeContent = <div className="inner-content">Hello World</div>
     const nodetooltip = <div className="inner-tooltip-content">Hello world</div>
-    const tooltipElement = <TooltipTrigger tooltip={nodetooltip}>{nodeContent}</TooltipTrigger>
+    const tooltipElement = <TooltipTrigger tooltipContent={nodetooltip}>{nodeContent}</TooltipTrigger>
     const result = ReactTestUtils.renderIntoDocument(tooltipElement)
 
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
@@ -39,7 +39,7 @@ describe('TooltipTrigger Component', () => {
 
   it('renders with node content, string tooltip content', () => {
     const nodeContent = <div className="inner-content">Hello World</div>
-    const tooltipElement = <TooltipTrigger tooltip="Some tooltip content">{nodeContent}</TooltipTrigger>
+    const tooltipElement = <TooltipTrigger tooltipContent="Some tooltip content">{nodeContent}</TooltipTrigger>
 
     const result = ReactTestUtils.renderIntoDocument(tooltipElement)
 

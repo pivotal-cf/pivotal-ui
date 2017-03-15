@@ -78,31 +78,31 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
 <div>
   <div className="form-group">
     Check out this
-    <OverlayTrigger placement="left" overlay={<Tooltip content="I should be on the left"/>}>
+    <OverlayTrigger placement="left" overlay={<Tooltip>I should be on the left</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the left.</span>
     </OverlayTrigger>
   </div>
   <div className="form-group">
     Check out this
-    <OverlayTrigger placement="right" overlay={<Tooltip content="I should be on the right"/>}>
+    <OverlayTrigger placement="right" overlay={<Tooltip>I should be on the right</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the right.</span>
     </OverlayTrigger>
   </div>
   <div className="form-group">
     Check out this
-    <OverlayTrigger placement="top" overlay={<Tooltip content="I should be on the top"/>}>
+    <OverlayTrigger placement="top" overlay={<Tooltip>I should be on the top</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the top.</span>
     </OverlayTrigger>
   </div>
   <div className="form-group">
     Check out this
-    <OverlayTrigger placement="bottom" overlay={<Tooltip content="I should be on the bottom"/>}>
+    <OverlayTrigger placement="bottom" overlay={<Tooltip>I should be on the bottom</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the bottom.</span>
     </OverlayTrigger>
   </div>
   <div className="form-group">
     Check out this
-    <OverlayTrigger theme="light" overlay={<Tooltip content="light tooltip"/>}>
+    <OverlayTrigger theme="light" overlay={<Tooltip>light tooltip</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> light tooltip.</span>
     </OverlayTrigger>
   </div>
@@ -124,7 +124,7 @@ parent: tooltips_react
 
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
-tooltip        | yes      | Node                                      |          | Tooltip content
+tooltipContent | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
 position       | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Tooltip position relative to content
 trigger        | no       | oneOf(['hover', 'click'])                 | hover    | What to trigger on
 clickHideDelay | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
@@ -149,12 +149,12 @@ triggering element.
 ```react_example
 <div>
   <div className="form-group form-inline">
-    <TooltipTrigger tooltip="Some tooltip">
+    <TooltipTrigger tooltipContent="Some tooltip">
       <button className="btn btn-default">Hover over me</button>
     </TooltipTrigger>
   </div>
   <div className="form-group form-inline">
-    <TooltipTrigger tooltip="Some tooltip" trigger="click">
+    <TooltipTrigger tooltipContent="Some tooltip" trigger="click">
       <button className="btn btn-default">Click me</button>
     </TooltipTrigger>
   </div>

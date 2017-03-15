@@ -6,7 +6,6 @@ const types = React.PropTypes;
 
 export class Tooltip extends React.Component {
   static propTypes = {
-    content: types.node.isRequired,
     visible: types.bool,
     size: types.oneOf(['auto','sm', 'md', 'lg'])
   }
@@ -21,7 +20,7 @@ export class Tooltip extends React.Component {
   }
 
   render() {
-    let {visible, size, className, ...others} = this.props
+    let {visible, size, className, children, ...others} = this.props
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
                                   size === 'auto' ? null : `tooltip-${size}`,
@@ -29,7 +28,7 @@ export class Tooltip extends React.Component {
 
     return (
       <div className={newClasses} {...others}>
-        <div className="tooltip-content">{this.props.content}</div>
+        <div className="tooltip-content">{children}</div>
       </div>
     )
   }
@@ -37,7 +36,7 @@ export class Tooltip extends React.Component {
 
 export class TooltipTrigger extends React.Component {
   static propTypes = {
-    tooltip: types.node.isRequired,
+    tooltipContent: types.node.isRequired,
     position: types.oneOf(['left', 'right', 'bottom', 'top']),
     trigger: types.oneOf(['hover', 'click']),
     clickHideDelay: types.number,
@@ -82,7 +81,7 @@ export class TooltipTrigger extends React.Component {
   }
 
   render() {
-    const {position, tooltip, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
+    const {position, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
@@ -110,7 +109,7 @@ export class TooltipTrigger extends React.Component {
     return (
       <div {...newProps}>
         {this.props.children}
-        <Tooltip size={this.props.size} visible={visible} content={tooltip}/>
+        <Tooltip size={this.props.size} visible={visible}>{tooltipContent}</Tooltip>
       </div>
     )
   }
