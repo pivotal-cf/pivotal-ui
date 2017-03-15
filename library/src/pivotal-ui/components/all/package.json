@@ -41,6 +41,7 @@
     "pui-css-typography": "=8.0.1",
     "pui-css-variables-and-mixins": "*",
     "pui-css-vertical-alignment": "=8.0.1",
-    "pui-css-whitespace": "=8.0.1"
+    "pui-css-whitespace": "=8.0.1",
+    "pui-css-flex-grids": "=8.0.1"
   }
 }
