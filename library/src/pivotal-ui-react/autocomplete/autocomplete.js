@@ -3,7 +3,7 @@ import {AutocompleteInput} from './autocomplete-input';
 import classnames from 'classnames';
 import Cursor from 'pui-cursor';
 import from from 'from';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import React from 'react';
 import scrollIntoView from 'scroll-into-view';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';

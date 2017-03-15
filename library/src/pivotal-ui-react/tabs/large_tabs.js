@@ -3,7 +3,7 @@ import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import TabContent from './tab_content';
 import TabHeaders from './tab_headers';
 import classnames from 'classnames';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 
 const types = React.PropTypes;
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
 import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect';
 import 'pui-css-collapse';

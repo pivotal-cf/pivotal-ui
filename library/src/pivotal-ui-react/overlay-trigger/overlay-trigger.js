@@ -3,7 +3,7 @@ import 'pui-css-tooltips'
 import classnames from 'classnames'
 import uniqueid from 'lodash.uniqueid'
 import TetherComponent from 'react-tether'
-import mixin from 'pui-react-mixins'
+import {default as mixin} from 'pui-react-mixins'
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
 
 const types = React.PropTypes

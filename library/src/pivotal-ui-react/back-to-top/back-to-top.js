@@ -3,7 +3,7 @@ import React from 'react';
 import throttle from 'lodash.throttle';
 import {getScrollTop, setScrollTop} from './scroll-top';
 import {mergeProps} from 'pui-react-helpers';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import 'pui-css-back-to-top';
 

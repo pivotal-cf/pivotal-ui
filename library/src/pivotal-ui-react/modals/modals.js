@@ -1,7 +1,7 @@
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import classnames from 'classnames';
 import React from 'react';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-modals';
 import {Icon} from 'pui-react-iconography';

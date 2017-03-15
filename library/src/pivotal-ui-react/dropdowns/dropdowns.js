@@ -1,6 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
-import mixin from 'pui-react-mixins'
+import {default as mixin} from 'pui-react-mixins'
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
 import Transition from 'pui-react-mixins/mixins/transition_mixin'
 import {Icon} from 'pui-react-iconography'

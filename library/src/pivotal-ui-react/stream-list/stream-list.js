@@ -1,7 +1,7 @@
 import React from 'react';
 import {DefaultButton} from 'pui-react-buttons';
 import {UnorderedList, ListItem} from 'pui-react-lists';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
 class StreamListNewItemsButton extends React.Component {

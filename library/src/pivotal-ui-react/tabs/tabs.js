@@ -1,7 +1,7 @@
 import React from 'react';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import {LargeTabs} from './large_tabs';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import {Tab} from './tab';
 import {matches} from './media-size';
 import {SmallTabs} from './small_tabs';

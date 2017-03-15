@@ -2,7 +2,7 @@ import React from 'react';
 import {DefaultButton} from 'pui-react-buttons';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
-import mixin from 'pui-react-mixins';
+import {default as mixin} from 'pui-react-mixins';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 import Transition from 'pui-react-mixins/mixins/transition_mixin';
 import classnames from 'classnames';
