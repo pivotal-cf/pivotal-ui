@@ -1,9 +1,9 @@
 {
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-bootstrap": "=8.0.0",
-    "pui-css-iconography": "=8.0.0",
-    "pui-css-typography": "=8.0.0"
+    "pui-css-bootstrap": "=8.0.1",
+    "pui-css-iconography": "=8.0.1",
+    "pui-css-typography": "=8.0.1"
   },
-  "version": "8.0.0"
+  "version": "8.0.1"
 }

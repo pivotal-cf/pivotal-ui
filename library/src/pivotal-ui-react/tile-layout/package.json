@@ -1,10 +1,10 @@
 {
-  "version": "8.0.0",
+  "version": "8.0.1",
   "description": "React tile layout component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-tile-layout": "=8.0.0",
-    "pui-react-helpers": "=8.0.0"
+    "pui-css-tile-layout": "=8.0.1",
+    "pui-react-helpers": "=8.0.1"
   }
 }
