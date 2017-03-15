@@ -4,6 +4,7 @@ import ReactTestUtils from 'react-addons-test-utils'
 
 describe('Input Component', () => {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(<Input {...props}/>)
+  const renderIntoDom = props => ReactDOM.render(<Input {...props}/>, root)
 
   it('renders', () => {
     const result = renderComponent()
@@ -53,6 +54,20 @@ describe('Input Component', () => {
       const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'label')
       expect(component).not.toBeUndefined()
       expect(component).toHaveText('label text')
+    })
+  })
+
+  describe('autoFocus', () => {
+    it('focuses when true', () => {
+      const result = renderIntoDom({autoFocus: true})
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+      expect(input).toBeFocused()
+    })
+
+    it('does not focus when false', () => {
+      const result = renderIntoDom({autoFocus: false})
+      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+      expect(input).not.toBeFocused()
     })
   })
 
