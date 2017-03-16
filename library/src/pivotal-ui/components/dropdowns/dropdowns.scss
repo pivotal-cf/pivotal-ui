@@ -53,7 +53,7 @@
     }
   }
 
-  .icon svg path {
+  .icon svg {
     fill:$dark-5;
   }
   //Dropdown menu - default connected
@@ -195,7 +195,7 @@
       color: $link-color;
       background-color: transparent;
     }
-    .icon svg path{
+    .icon svg {
       fill:$link-color;
     }
   }
