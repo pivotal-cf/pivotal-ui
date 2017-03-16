@@ -20,11 +20,11 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-src           | no | String                      |          | Name of the svg to load
-style         | no | Object                      |          | React Style Object
-verticalAlign | no | oneOf('middle', 'baseline') | 'middle' | Alignment of icon
+Property      | Required | Type                        | Default  | Description
+--------------|----------|-----------------------------|----------|------------
+src           | yes      | String                      |          | Name of the svg to load
+style         | no       | Object                      |          | React Style Object
+verticalAlign | no       | oneOf('middle', 'baseline') | 'middle' | Alignment of icon
 
 ## Basic usage
 
