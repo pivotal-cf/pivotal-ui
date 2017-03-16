@@ -1,7 +1,7 @@
 /*doc
 ---
 title: Introduction
-name: 00_form_introduction
+name: form_introduction
 categories:
  - css_components_forms
  - css_all
@@ -29,8 +29,8 @@ All textual `<input>`, `<textarea>`, and `<select>` elements with
 /*doc
 ---
 title: Basic Forms
-name: 0a_form_basic
-parent: 00_form_introduction
+name: 00_form_basic
+parent: form_introduction
 ---
 
 ```html_example
@@ -59,10 +59,8 @@ parent: 00_form_introduction
 /*doc
 ---
 title: Inline Forms
-name: form_inline
-categories:
- - css_components_forms
- - css_all
+name: 01_form_inline
+parent: form_introduction
 ---
 
 Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls.
@@ -97,10 +95,8 @@ Add `.form-inline` to your `.form-group` for left-aligned and inline-block contr
 /*doc
 ---
 title: Inputs & Labels
-name: form_inputs
-categories:
- - css_components_forms
- - css_all
+name: 02_form_inputs
+parent: form_introduction
 ---
 
 An input with the label top aligned (this is the default layout).
@@ -144,8 +140,8 @@ An input with the label right aligned (N.B., control-label class provides the ri
 /*doc
 ---
 title: HTML5 Controls
-name: 01_form_html5_controls
-parent: form_inputs
+name: 03_form_html5_controls
+parent: 02_form_inputs
 ---
 
 Examples of standard form controls supported in an example form layout.
@@ -268,7 +264,7 @@ Use this with fields that require telephone numbers to pop up the dialpad on mob
 ---
 title: Sizing
 name: 02_form_inputs_sizing
-parent: form_inputs
+parent: 02_form_inputs
 ---
 
 Set heights using the form control classes `.input-lg` and `.input-sm`.
@@ -319,7 +315,7 @@ Wrap selects in grid columns, or any custom parent element, to easily enforce de
 ---
 title: Read-Only Inputs
 name: 05_form_inputs_read_only
-parent: form_inputs
+parent: 02_form_inputs
 ---
 
 Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
@@ -337,10 +333,8 @@ Add the `readonly` boolean attribute on an input to prevent user input and style
 /*doc
 ---
 title: Selects
-name: form_selects
-categories:
- - css_components_forms
- - css_all
+name: 06_form_selects
+parent: form_introduction
 ---
 Selects are excellent to use because they will automatically
 behave as expected cross browser on different devices. Prefer
@@ -354,9 +348,6 @@ them over a custom dropdown whenever possible.
       <option>an option</option>
       <option>another option</option>
     </select>
-    <div class="icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
-    </div>
   </div>
 </form>
 ```
@@ -366,7 +357,7 @@ them over a custom dropdown whenever possible.
 ---
 title: Sizing
 name: 01_form_select_sizing
-parent: form_selects
+parent: 06_form_selects
 ---
 
 Set heights using the form control classes `.input-lg` and `.input-sm`.
@@ -378,9 +369,6 @@ Create larger or smaller form controls that match button sizes.
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-  <div class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
-  </div>
 </div>
 
 <div class="form-group">
@@ -388,9 +376,6 @@ Create larger or smaller form controls that match button sizes.
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-  <div class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
-  </div>
 </div>
 
 <div class="form-group">
@@ -398,44 +383,16 @@ Create larger or smaller form controls that match button sizes.
     <option>Option 1</option>
     <option>Option 2</option>
   </select>
-  <div class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M24,5,12,17l2.83,2.83L24,10.66l9.17,9.17L36,17Z"></path><path d="M33.17,28.17,24,37.34l-9.17-9.17L12,31,24,43,36,31Z"></path></svg>
-  </div>
 </div>
 ```
-
-Set widths using grid column classes like `.col-lg-*`.
-Wrap inputs in grid columns, or any custom parent element, to easily enforce desired widths.
-
-```html_example
-<form class="styleguide-form" role="form">
-  <div class="row">
-    <div class="col-md-4 form-group man">
-      <label for="Small2WidthInput2">Small 2 Width</label>
-      <input class="form-control" id="Small2WidthInput2" placeholder=".col-xs-2" type="text">
-    </div>
-    <div class="col-md-6 form-group man">
-      <label for="Small3WidthInput2">Small 3 Width</label>
-      <input class="form-control" id="Small3WidthInput2" placeholder=".col-xs-3" type="text">
-    </div>
-    <div class="col-md-8 form-group man">
-      <label for="Small4WidthInput2">Small 4 Width</label>
-      <input class="form-control" id="Small4WidthInput2" placeholder=".col-xs-4" type="text">
-    </div>
-  </div>
-</form>
-```
-
 */
 
 
 /*doc
 ---
 title: Text Areas
-name: form_textarea
-categories:
- - css_components_forms
- - css_all
+name: 07_form_textarea
+parent: form_introduction
 ---
 
 Text areas are used for larger amounts of input.
@@ -454,10 +411,8 @@ Text areas are used for larger amounts of input.
 /*doc
 ---
 title: Checkboxes & Radios
-name: form_checkboxes
-categories:
- - css_components_forms
- - css_all
+name: 08_form_checkboxes
+parent: form_introduction
 ---
 Checkboxes are for selecting one or several options in a list while radios are for selecting one option from many.
 
@@ -492,10 +447,8 @@ Checkboxes are for selecting one or several options in a list while radios are f
 /*doc
 ---
 title: Help Text
-name: form_help_text
-categories:
- - css_components_forms
- - css_all
+name: 09_form_help_text
+parent: form_introduction
 ---
 Help text
 Block level help text for form controls.
@@ -514,10 +467,8 @@ Block level help text for form controls.
 /*doc
 ---
 title: Validations
-name: form_validation
-categories:
- - css_components_forms
- - css_all
+name: 10_form_validation
+parent: form_introduction
 ---
 
 To show validation errors on a field, add `.has-error` to the field's form group.
@@ -559,10 +510,8 @@ Error messages should use the classes `.help-block.has-error`.
 /*doc
 ---
 title: Disabled Controls
-name: form_disabled_controls
-categories:
- - css_components_forms
- - css_all
+name: 11_form_disabled_controls
+parent: form_introduction
 ---
 
 Controls will occasionally need to be disabled.
@@ -593,10 +542,8 @@ Inputs, selects, checkboxes, fieldsets, buttons, and other form controls can all
 /*doc
 ---
 title: Static Controls
-name: form_static_control
-categories:
- - css_components_forms
- - css_all
+name: 12_form_static_control
+parent: form_introduction
 ---
 
 When you need to place plain text next to a form label within a form,
@@ -642,10 +589,8 @@ Here's an example in a vertical form:
 /*doc
 ---
 title: Toggle Switches
-name: form_toggle_switch
-categories:
- - css_components_forms
- - css_all
+name: 13_form_toggle_switch
+parent: form_introduction
 ---
 
 A toggle switch is a horizontally styled checkbox that represents true with blue and false with gray.
