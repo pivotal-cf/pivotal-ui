@@ -2,43 +2,50 @@ import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
 import {TooltipTrigger} from 'pui-react-tooltip'
 import {findByClass, findAllByClass} from '../spec_helper'
-  
+
 describe('TooltipTrigger Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltip="Some default tooltip"
-                                                                              {...props}>
-                                                                        <div className="trigger">Some default message</div>
-                                                                      </TooltipTrigger>)
+  const renderComponent = (props, triggerContent) => ReactTestUtils.renderIntoDocument(
+    <TooltipTrigger {...props}>
+      <div className="trigger">{triggerContent || 'Some default message'}</div>
+    </TooltipTrigger>)
 
   it('renders', () => {
-    const result = renderComponent()
+    const result = renderComponent({tooltip: 'Some default tooltip'})
     expect(findAllByClass(result, 'tooltip').length).toEqual(1)
   })
 
   it('renders with content', () => {
-    const result = renderComponent()
+    const result = renderComponent({tooltip: 'Some default tooltip'})
     const content = findByClass(result, 'trigger')
     expect(content).toHaveText('Some default message')
   })
 
   it('renders with the tooltip text', () => {
-    const result = renderComponent()
+    const result = renderComponent({tooltip: 'Some default tooltip'})
     const tooltip = findByClass(result, 'tooltip-content')
     expect(tooltip).toHaveText('Some default tooltip')
   })
 
   it('renders node content for the trigger', () => {
-    const nodeContent = <div className="inner-content">Hello World</div>
-    const tooltipElement = <TooltipTrigger tooltip="Some tooltip content">{nodeContent}</TooltipTrigger>
+    const result = renderComponent({tooltip: 'Some tooltip content'}, <div className="inner-content">Hello World</div>)
 
-    const result = ReactTestUtils.renderIntoDocument(tooltipElement)
+    const node = findByClass(result, 'inner-content')
+
+    expect(node).toHaveText('Hello World')
+    expect(node.parentNode).toHaveClass('trigger')
+  })
+
+  it('renders node content for the tooltip', () => {
+    const result = renderComponent({tooltip: <a href="#">Click me</a>})
 
     const tooltip = findByClass(result, 'tooltip')
 
-    expect(tooltip.getElementsByClassName('inner-content')).toHaveLength(1)
+    expect(tooltip.querySelectorAll('a')).toHaveLength(1)
   })
 
   it('propagates classname, id, style to the wrapping tooltip', () => {
     const result = renderComponent({
+      tooltip: 'Some tooltip content',
       id: 'some-id',
       className: 'some-classname',
       style: {color: 'red'}
@@ -52,7 +59,7 @@ describe('TooltipTrigger Component', () => {
 
   it('calls onEnter when tooltip is made visible', () => {
     const enterSpy = jasmine.createSpy('enterSpy')
-    const result = renderComponent({onEnter: enterSpy})
+    const result = renderComponent({onEnter: enterSpy, tooltip: 'Some tooltip content'})
     const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
@@ -63,7 +70,7 @@ describe('TooltipTrigger Component', () => {
 
   it('calls onExit when tooltip is made hidden', () => {
     const exitSpy = jasmine.createSpy('exitSpy')
-    const result = renderComponent({onExit: exitSpy})
+    const result = renderComponent({onExit: exitSpy, tooltip: 'Some tooltip content'})
     const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
@@ -76,19 +83,19 @@ describe('TooltipTrigger Component', () => {
 
   describe('color', () => {
     it('renders dark version by default', () => {
-      const result = renderComponent()
+      const result = renderComponent({tooltip: 'Some tooltip content'})
       const content = findByClass(result, 'tooltip')
       expect(content.className).toEqual('tooltip')
     })
 
     it('allows user to specify color as "dark" (the default) but it doesnt do anything', () => {
-      const result = renderComponent({theme: 'dark'})
+      const result = renderComponent({theme: 'dark', tooltip: 'Some tooltip content'})
       const content = findByClass(result, 'tooltip')
       expect(content.className).toEqual('tooltip')
     })
 
     it('allows user to change color to light', () => {
-      const result = renderComponent({theme: 'light'})
+      const result = renderComponent({theme: 'light', tooltip: 'Some tooltip content'})
       const content = findByClass(result, 'tooltip')
       expect(content).toHaveClass('tooltip-light')
     })
@@ -96,29 +103,29 @@ describe('TooltipTrigger Component', () => {
 
   describe('position', () => {
     it('defaults to nothing, which is "top" in css', () => {
-      const result = renderComponent()
+      const result = renderComponent({tooltip: 'Some tooltip content'})
       const container = findByClass(result, 'tooltip')
       expect(container.className).toEqual('tooltip')
     })
 
     it('allows user to specify left, right, top, bottom', () => {
-      let result = renderComponent({position: 'left'})
-      expect(findByClass(result, 'tooltip-left')).not.toBeUndefined()
+      let result = renderComponent({position: 'left', tooltip: 'Some tooltip content'})
+      expect(findByClass(result, 'tooltip-left')).toBeDefined()
 
-      result = renderComponent({position: 'right'})
-      expect(findByClass(result, 'tooltip-right')).not.toBeUndefined()
+      result = renderComponent({position: 'right', tooltip: 'Some tooltip content'})
+      expect(findByClass(result, 'tooltip-right')).toBeDefined()
 
-      result = renderComponent({position: 'bottom'})
-      expect(findByClass(result, 'tooltip-bottom')).not.toBeUndefined()
+      result = renderComponent({position: 'bottom', tooltip: 'Some tooltip content'})
+      expect(findByClass(result, 'tooltip-bottom')).toBeDefined()
 
-      result = renderComponent({position: 'top'})
+      result = renderComponent({position: 'top', tooltip: 'Some tooltip content'})
       expect(findByClass(result, 'tooltip').className).toEqual('tooltip')
     })
   })
 
   describe('trigger', () => {
     it('defaults to hover', () => {
-      const result = renderComponent()
+      const result = renderComponent({tooltip: 'Some tooltip content'})
       const container = findByClass(result, 'tooltip')
       const tooltip = findByClass(result, 'tooltip-container')
 
@@ -134,7 +141,7 @@ describe('TooltipTrigger Component', () => {
     })
 
     it('allows user to trigger by click', () => {
-      const result = renderComponent({trigger: 'click'})
+      const result = renderComponent({trigger: 'click', tooltip: 'Some tooltip content'})
       const container = findByClass(result, 'tooltip')
       const tooltip = findByClass(result, 'tooltip-container')
 
@@ -146,7 +153,7 @@ describe('TooltipTrigger Component', () => {
     })
 
     it('hides the tooltip some time after clicking', () => {
-      const result = renderComponent({trigger: 'click'})
+      const result = renderComponent({trigger: 'click', tooltip: 'Some tooltip content'})
       const container = findByClass(result, 'tooltip')
       const tooltip = findByClass(result, 'tooltip-container')
 

@@ -23,14 +23,13 @@ parent: tooltips_react
 
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
-content        | yes      | string                                    |          | Tooltip content
 visible        | no       | Boolean                                   | true     | Whether the tooltip contents are visible
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 
 * See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
 The Tooltip component is a styled container for content that should be displayed when triggered by an
-OverlayTrigger. It does not exhibit any dynamic behavior on it's own.
+OverlayTrigger or TooltipTrigger. It does not exhibit any dynamic behavior on its own.
 */
 
 /*doc
@@ -124,7 +123,7 @@ parent: tooltips_react
 
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
-tooltip        | yes      | String                                    |          | Tooltip text
+tooltip        | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
 position       | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Tooltip position relative to content
 trigger        | no       | oneOf(['hover', 'click'])                 | hover    | What to trigger on
 clickHideDelay | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
@@ -144,7 +143,7 @@ import {TooltipTrigger} from 'pui-react-tooltip';
 ```
 
 TooltipTriggers are an easy way to create CSS driven tooltips with the tooltip content created inline with the
-triggering element.
+triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling.
 
 ```react_example
 <div>
@@ -156,6 +155,18 @@ triggering element.
   <div className="form-group form-inline">
     <TooltipTrigger tooltip="Some tooltip" trigger="click">
       <button className="btn btn-default">Click me</button>
+    </TooltipTrigger>
+  </div>
+</div>
+```
+
+Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
+
+```react_example
+<div>
+  <div className="form-group form-inline">
+    <TooltipTrigger tooltip={<a href="#">clickable link</a>} theme="light">
+      <button className="btn btn-default">Hover for clickable tooltip</button>
     </TooltipTrigger>
   </div>
 </div>

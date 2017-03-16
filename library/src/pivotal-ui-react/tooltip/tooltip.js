@@ -36,7 +36,7 @@ export class Tooltip extends React.Component {
 
 export class TooltipTrigger extends React.Component {
   static propTypes = {
-    tooltip: types.string.isRequired,
+    tooltip: types.node.isRequired,
     position: types.oneOf(['left', 'right', 'bottom', 'top']),
     trigger: types.oneOf(['hover', 'click']),
     clickHideDelay: types.number,
