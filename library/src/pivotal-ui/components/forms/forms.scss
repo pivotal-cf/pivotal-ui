@@ -187,6 +187,14 @@ select.input-sm {
     }
   }
 
+  .dropdown .icon:not(.toggle-indicator) {
+    pointer-events: initial;
+    position: relative;
+    font-size: 16px;
+    bottom: 0;
+    right: 0;
+  }
+
   //Validation Icons
   $form-icon-size: 18px;
   $form-icon-padding: (($base-unit*4) - $form-icon-size) / 2;
