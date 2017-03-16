@@ -267,12 +267,11 @@ name: 02_form_inputs_sizing
 parent: 02_form_inputs
 ---
 
-Set heights using the form control classes `.input-lg` and `.input-sm`.
-Create larger or smaller form controls that match button sizes.
+Set heights using the form control classes `.input-lg` and `.input-sm`. Corresponding labels should have the `.label-lg` and `.label-sm` classes.
 
 ```html_example_table
 <div class="form-group">
- <label for="LargeInput">Large Input</label>
+ <label for="LargeInput" class="label-lg">Large Input</label>
  <input class="form-control input-lg" id="LargeInput" placeholder=".input-lg" type="text">
 </div>
 
@@ -282,7 +281,7 @@ Create larger or smaller form controls that match button sizes.
 </div>
 
 <div class="form-group">
- <label for="SmallInput">Small Input</label>
+ <label for="SmallInput" class="label-sm">Small Input</label>
  <input class="form-control input-sm" id="SmallInput" placeholder=".input-sm" type="text">
 </div>
 ```

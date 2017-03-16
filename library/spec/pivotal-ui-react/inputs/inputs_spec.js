@@ -1,6 +1,7 @@
 import '../spec_helper'
 import {Input} from '../../../src/pivotal-ui-react/inputs/inputs'
 import ReactTestUtils from 'react-addons-test-utils'
+import {findByClass, findAllByClass, findByTag, findAllByTag} from '../spec_helper'
 
 describe('Input Component', () => {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(<Input {...props}/>)
@@ -8,51 +9,47 @@ describe('Input Component', () => {
 
   it('renders', () => {
     const result = renderComponent()
-    const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+    const component = findByTag(result, 'input')
     expect(component).not.toBeUndefined()
   })
 
   it('propagates id, classname, style', () => {
     const result = renderComponent({id: 'some-id', className: 'some-class', style: {color: 'red'}})
 
-    const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+    const input = findByTag(result, 'input')
     expect(input).toHaveAttr('id', 'some-id')
     expect(input).toHaveCss({color: 'red'})
 
-    const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
+    const formGroup = findByClass(result, 'form-group')
     expect(formGroup).toHaveClass('some-class')
   })
 
   it('displays a checkmark when success prop is true', () => {
     const result = renderComponent({success: true})
 
-    expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'success').length).toEqual(1)
+    expect(findAllByClass(result, 'success').length).toEqual(1)
 
-    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
-    expect(svg.className.baseVal).toEqual('icon-check')
+    expect(findByTag(result, 'svg')).toHaveClass('icon-check')
   })
 
   it('renders search icons when search prop is true', () => {
     const result = renderComponent({search: true})
 
-    const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
+    const formGroup = findByClass(result, 'form-group')
     expect(formGroup).toHaveClass('form-group-left-icon')
 
-    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'svg')
-    expect(svg.className.baseVal).toEqual('icon-search')
+    expect(findByTag(result, 'svg')).toHaveClass('icon-search')
   })
 
   describe('label', () => {
     it('when not given a label prop it wont render a label element', () => {
       const result = renderComponent({label: null})
-      const labels = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'label')
-      expect(labels.length).toEqual(0)
+      expect(findAllByTag(result, 'label')).toHaveLength(0)
     })
 
     it('when given a label prop it will render a label element', () => {
       const result = renderComponent({label: 'label text'})
-      const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'label')
-      expect(component).not.toBeUndefined()
+      const component = findByTag(result, 'label')
       expect(component).toHaveText('label text')
     })
   })
@@ -60,13 +57,13 @@ describe('Input Component', () => {
   describe('autoFocus', () => {
     it('focuses when true', () => {
       const result = renderIntoDom({autoFocus: true})
-      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+      const input = findByTag(result, 'input')
       expect(input).toBeFocused()
     })
 
     it('does not focus when false', () => {
       const result = renderIntoDom({autoFocus: false})
-      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+      const input = findByTag(result, 'input')
       expect(input).not.toBeFocused()
     })
   })
@@ -75,46 +72,76 @@ describe('Input Component', () => {
     it('renders a form group with icon', () => {
       const result = renderComponent({leftIcon: 'add'})
 
-      const formGroup = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'form-group')
+      const formGroup = findByClass(result, 'form-group')
       expect(formGroup).toHaveClass('form-group-left-icon')
 
-      const svgs = ReactTestUtils.scryRenderedDOMComponentsWithTag(result, 'svg')
-      expect(svgs[0].className.baseVal).toEqual('icon-add')
+      const svg = findByTag(result, 'svg')
+      expect(svg).toHaveClass('icon-add')
     })
 
     it('overrides search option', () => {
       const result = renderComponent({leftIcon: 'add', search: true})
-      const svgs = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'icon-search')
-      expect(svgs.length).toEqual(0)
+      expect(findAllByClass(result, 'icon-search')).toHaveLength(0)
     })
 
     it('can be used simultaneously with success', () => {
       const result = renderComponent({leftIcon: 'add', success: true})
-      const svgs = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'icon-check')
-      expect(svgs.length).toEqual(1)
+      expect(findByClass(result, 'icon-check')).toBeDefined()
     })
 
     it('allows node icons', () => {
       const result = renderComponent({leftIcon: <div className="my-custom-icon-node">Hello!</div>})
-      const innerNode = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'my-custom-icon-node')
-      expect(innerNode.length).toEqual(1)
+      expect(findByClass(result, 'my-custom-icon-node')).toBeDefined()
     })
   })
 
   describe('when a placeholder is provided', () => {
     it('renders the input with a placeholder', () => {
       const result = renderComponent({placeholder: 'Search here...'})
-      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
+      const input = findByTag(result, 'input')
       expect(input.placeholder).toEqual('Search here...')
 
-      expect(input.hasAttribute('aria-label')).toBeTruthy()
-      expect(input.getAttribute('aria-label')).toEqual('Search here...')
+      expect(input).toHaveAttr('aria-label', 'Search here...')
     })
 
     it('uses the label as the aria-label instead of the placeholder when an aria-label is provided as well', () => {
       const result = renderComponent({placeholder: 'Search here...', 'aria-label': 'Search Box'})
-      const input = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'input')
-      expect(input.getAttribute('aria-label')).toEqual('Search Box')
+      const input = findByTag(result, 'input')
+      expect(input).toHaveAttr('aria-label', 'Search Box')
+    })
+  })
+
+  describe('size attribute for input and label', () => {
+    it('renders with size=medium by default', () => {
+      const result = renderComponent({label: 'my label'})
+      const input = findByTag(result, 'input')
+      expect(input).not.toHaveClass('input-lg')
+      expect(input).not.toHaveClass('input-sm')
+      const label = findByTag(result, 'label')
+      expect(label).not.toHaveClass('label-lg')
+      expect(label).not.toHaveClass('label-sm')
+    })
+
+    it('respects size attribute', () => {
+      let result = renderComponent({size: 'small', label: 'my label'});
+      let input = findByTag(result, 'input')
+      expect(input).toHaveClass('input-sm')
+      let label = findByTag(result, 'label')
+      expect(label).toHaveClass('label-sm')
+
+      result = renderComponent({size: 'medium', label: 'my label'});
+      input = findByTag(result, 'input')
+      expect(input).not.toHaveClass('input-lg')
+      expect(input).not.toHaveClass('input-sm')
+      label = findByTag(result, 'label')
+      expect(label).not.toHaveClass('label-lg')
+      expect(label).not.toHaveClass('label-sm')
+
+      result = renderComponent({size: 'large', label: 'my label'});
+      input = findByTag(result, 'input')
+      expect(input).toHaveClass('input-lg')
+      label = findByTag(result, 'label')
+      expect(label).toHaveClass('label-lg')
     })
   })
 })

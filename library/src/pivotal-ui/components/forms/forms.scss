@@ -177,6 +177,14 @@ select.input-sm {
       bottom: 0;
       right: 0;
     }
+    &.label-sm {
+      font-size: 12px;
+      line-height: ($base-unit *3)
+    }
+    &.label-lg {
+      font-size: 16px;
+      line-height: ($base-unit *5)
+    }
   }
 
   //Validation Icons

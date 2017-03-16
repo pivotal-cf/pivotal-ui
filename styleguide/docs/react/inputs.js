@@ -20,19 +20,20 @@ npm install babel-loader svg-react-loader --save-dev
 
 ## Props
 
-Property       | Required | Type                   | Default | Description
----------------|----------|------------------------|---------|------------
-autoFocus      | no       | Boolean                | false   | Focus the inner input element on mount
-displayError   | no       | Boolean                | false   | Displays the error message when true
-errorMessage   | no       | Node                   |         | Message that gets displayed when displayError is true
-inputClassName | no       | String                 |         | Classname of the inner input element
-id             | no       | String                 |         | The inner label will specify htmlFor=id
-label          | no       | Node                   |         | The content of this label
-labelClassName | no       | String                 |         | Sets the wrapping label classname
-leftIcon       | no       | oneOf(String, Element) |         | Inputs have a custom svg icon when leftIcon is provided
-placeholder    | no       | String                 |         | Input placeholder
-search         | no       | Boolean                | false   | Inputs have a magnifying glass when the search prop is true
-success        | no       | Boolean                | false   | Inputs display a checkmark when the success prop is true
+Property       | Required | Type                              | Default  | Description
+---------------|----------|-----------------------------------|----------|------------
+autoFocus      | no       | Boolean                           | false    | Focus the inner input element on mount
+displayError   | no       | Boolean                           | false    | Displays the error message when true
+errorMessage   | no       | Node                              |          | Message that gets displayed when displayError is true
+inputClassName | no       | String                            |          | Classname of the inner input element
+id             | no       | String                            |          | The inner label will specify htmlFor=id
+label          | no       | Node                              |          | The content of this label
+labelClassName | no       | String                            |          | Sets the wrapping label classname
+leftIcon       | no       | oneOf(String, Element)            |          | Inputs have a custom svg icon when leftIcon is provided
+placeholder    | no       | String                            |          | Input placeholder
+search         | no       | Boolean                           | false    | Inputs have a magnifying glass when the search prop is true
+size           | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
+success        | no       | Boolean                           | false    | Inputs display a checkmark when the success prop is true
 
 ## Basic usage
 
@@ -91,6 +92,22 @@ Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will 
 <Input leftIcon={<img src="/styleguide/add_circle.svg" width="16" height="16"/>}
        label="This has an custom icon"
        placeholder="Why does Pivotal UI..." />
+```
+
+Input has a `size` attribute that takes three options: small, medium (default), and large.
+
+```react_example
+<div className="grid">
+  <div className="col col-top form-group">
+    <Input size="large" label="Large" placeholder="Why does Pivotal UI..."/>
+  </div>
+  <div className="col col-top form-group">
+    <Input size="medium" label="Medium" placeholder="Why does Pivotal UI..."/>
+  </div>
+  <div className="col col-top form-group">
+    <Input size="small" label="Small" placeholder="Why does Pivotal UI..."/>
+  </div>
+</div>
 ```
 
 To demonstrate how to use an Input in a more complex example, let's say

@@ -39,12 +39,12 @@ Note that you must handle the addition and removal of the `checked` property you
 <Toggle checked onChange={() => console.log('I should handle check changes!')}/>
 ```
 
-Toggle has a `size` attribute that takes three options; small, medium (default), and large.
+Toggle has a `size` attribute that takes three options: small, medium (default), and large.
 
 ```react_example
 <div className="grid">
   <div className="col col-top form-group">
-    <label>Large</label>
+    <label className="label-lg">Large</label>
     <Toggle size="large"/>
   </div>
   <div className="col col-top form-group">
@@ -52,7 +52,7 @@ Toggle has a `size` attribute that takes three options; small, medium (default),
     <Toggle size="medium"/>
   </div>
   <div className="col col-top form-group">
-    <label>Small</label>
+    <label className="label-sm">Small</label>
     <Toggle size="small"/>
   </div>
 </div>

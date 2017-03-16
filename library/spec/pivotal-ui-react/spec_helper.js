@@ -15,6 +15,8 @@ import ReactTestUtils from 'react-addons-test-utils'
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass
 export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass
+export const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag
+export const findAllByTag = ReactTestUtils.scryRenderedDOMComponentsWithTag
 export const clickOn = ReactTestUtils.Simulate.click
 
 MockNextTick.install()
