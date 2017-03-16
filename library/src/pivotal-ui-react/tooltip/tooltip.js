@@ -36,7 +36,7 @@ export class Tooltip extends React.Component {
 
 export class TooltipTrigger extends React.Component {
   static propTypes = {
-    tooltipContent: types.node.isRequired,
+    tooltip: types.string.isRequired,
     position: types.oneOf(['left', 'right', 'bottom', 'top']),
     trigger: types.oneOf(['hover', 'click']),
     clickHideDelay: types.number,
@@ -81,7 +81,7 @@ export class TooltipTrigger extends React.Component {
   }
 
   render() {
-    const {position, tooltipContent, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
+    const {position, tooltip, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
     const {visible} = this.state
 
     let positionClass
@@ -109,7 +109,7 @@ export class TooltipTrigger extends React.Component {
     return (
       <div {...newProps}>
         {this.props.children}
-        <Tooltip size={this.props.size} visible={visible}>{tooltipContent}</Tooltip>
+        <Tooltip size={this.props.size} visible={visible}>{tooltip}</Tooltip>
       </div>
     )
   }

@@ -124,7 +124,7 @@ parent: tooltips_react
 
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
-tooltipContent | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
+tooltip        | yes      | String                                    |          | Tooltip text
 position       | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Tooltip position relative to content
 trigger        | no       | oneOf(['hover', 'click'])                 | hover    | What to trigger on
 clickHideDelay | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
@@ -149,12 +149,12 @@ triggering element.
 ```react_example
 <div>
   <div className="form-group form-inline">
-    <TooltipTrigger tooltipContent="Some tooltip">
+    <TooltipTrigger tooltip="Some tooltip">
       <button className="btn btn-default">Hover over me</button>
     </TooltipTrigger>
   </div>
   <div className="form-group form-inline">
-    <TooltipTrigger tooltipContent="Some tooltip" trigger="click">
+    <TooltipTrigger tooltip="Some tooltip" trigger="click">
       <button className="btn btn-default">Click me</button>
     </TooltipTrigger>
   </div>

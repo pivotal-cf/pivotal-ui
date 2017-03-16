@@ -1,49 +1,38 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils';
-import {TooltipTrigger} from '../../../src/pivotal-ui-react/tooltip/tooltip'
-
+import ReactTestUtils from 'react-addons-test-utils'
+import {TooltipTrigger} from 'pui-react-tooltip'
+import {findByClass, findAllByClass} from '../spec_helper'
+  
 describe('TooltipTrigger Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltipContent="Some default tooltip"
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<TooltipTrigger tooltip="Some default tooltip"
                                                                               {...props}>
                                                                         <div className="trigger">Some default message</div>
                                                                       </TooltipTrigger>)
 
   it('renders', () => {
     const result = renderComponent()
-    expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'tooltip').length).toEqual(1)
+    expect(findAllByClass(result, 'tooltip').length).toEqual(1)
   })
 
   it('renders with content', () => {
     const result = renderComponent()
-    const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'trigger')
+    const content = findByClass(result, 'trigger')
     expect(content).toHaveText('Some default message')
   })
 
-  it('renders with tooltip content', () => {
+  it('renders with the tooltip text', () => {
     const result = renderComponent()
-    const tooltipContent = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-content')
-    expect(tooltipContent).toHaveText('Some default tooltip')
+    const tooltip = findByClass(result, 'tooltip-content')
+    expect(tooltip).toHaveText('Some default tooltip')
   })
 
-  it('renders with node content, node tooltip content', () => {
+  it('renders node content for the trigger', () => {
     const nodeContent = <div className="inner-content">Hello World</div>
-    const nodetooltip = <div className="inner-tooltip-content">Hello world</div>
-    const tooltipElement = <TooltipTrigger tooltipContent={nodetooltip}>{nodeContent}</TooltipTrigger>
-    const result = ReactTestUtils.renderIntoDocument(tooltipElement)
-
-    const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
-
-    expect(tooltip.getElementsByClassName('inner-content')).toHaveLength(1)
-    expect(tooltip.getElementsByClassName('inner-tooltip-content')).toHaveLength(1)
-  })
-
-  it('renders with node content, string tooltip content', () => {
-    const nodeContent = <div className="inner-content">Hello World</div>
-    const tooltipElement = <TooltipTrigger tooltipContent="Some tooltip content">{nodeContent}</TooltipTrigger>
+    const tooltipElement = <TooltipTrigger tooltip="Some tooltip content">{nodeContent}</TooltipTrigger>
 
     const result = ReactTestUtils.renderIntoDocument(tooltipElement)
 
-    const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+    const tooltip = findByClass(result, 'tooltip')
 
     expect(tooltip.getElementsByClassName('inner-content')).toHaveLength(1)
   })
@@ -54,7 +43,7 @@ describe('TooltipTrigger Component', () => {
       className: 'some-classname',
       style: {color: 'red'}
     })
-    const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+    const tooltip = findByClass(result, 'tooltip')
 
     expect(tooltip).toHaveClass('some-classname')
     expect(tooltip).toHaveAttr('id', 'some-id')
@@ -64,7 +53,7 @@ describe('TooltipTrigger Component', () => {
   it('calls onEnter when tooltip is made visible', () => {
     const enterSpy = jasmine.createSpy('enterSpy')
     const result = renderComponent({onEnter: enterSpy})
-    const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+    const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
     jasmine.clock().tick(1)
@@ -75,7 +64,7 @@ describe('TooltipTrigger Component', () => {
   it('calls onExit when tooltip is made hidden', () => {
     const exitSpy = jasmine.createSpy('exitSpy')
     const result = renderComponent({onExit: exitSpy})
-    const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+    const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
     jasmine.clock().tick(1)
@@ -88,19 +77,19 @@ describe('TooltipTrigger Component', () => {
   describe('color', () => {
     it('renders dark version by default', () => {
       const result = renderComponent()
-      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      const content = findByClass(result, 'tooltip')
       expect(content.className).toEqual('tooltip')
     })
 
     it('allows user to specify color as "dark" (the default) but it doesnt do anything', () => {
       const result = renderComponent({theme: 'dark'})
-      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      const content = findByClass(result, 'tooltip')
       expect(content.className).toEqual('tooltip')
     })
 
     it('allows user to change color to light', () => {
       const result = renderComponent({theme: 'light'})
-      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      const content = findByClass(result, 'tooltip')
       expect(content).toHaveClass('tooltip-light')
     })
   })
@@ -108,30 +97,30 @@ describe('TooltipTrigger Component', () => {
   describe('position', () => {
     it('defaults to nothing, which is "top" in css', () => {
       const result = renderComponent()
-      const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
+      const container = findByClass(result, 'tooltip')
       expect(container.className).toEqual('tooltip')
     })
 
     it('allows user to specify left, right, top, bottom', () => {
       let result = renderComponent({position: 'left'})
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-left')).not.toBeUndefined()
+      expect(findByClass(result, 'tooltip-left')).not.toBeUndefined()
 
       result = renderComponent({position: 'right'})
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-right')).not.toBeUndefined()
+      expect(findByClass(result, 'tooltip-right')).not.toBeUndefined()
 
       result = renderComponent({position: 'bottom'})
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-bottom')).not.toBeUndefined()
+      expect(findByClass(result, 'tooltip-bottom')).not.toBeUndefined()
 
       result = renderComponent({position: 'top'})
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip').className).toEqual('tooltip')
+      expect(findByClass(result, 'tooltip').className).toEqual('tooltip')
     })
   })
 
   describe('trigger', () => {
     it('defaults to hover', () => {
       const result = renderComponent()
-      const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
-      const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
+      const container = findByClass(result, 'tooltip')
+      const tooltip = findByClass(result, 'tooltip-container')
 
       expect(tooltip).toHaveClass('tooltip-container-hidden')
 
@@ -146,8 +135,8 @@ describe('TooltipTrigger Component', () => {
 
     it('allows user to trigger by click', () => {
       const result = renderComponent({trigger: 'click'})
-      const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
-      const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
+      const container = findByClass(result, 'tooltip')
+      const tooltip = findByClass(result, 'tooltip-container')
 
       expect(tooltip).toHaveClass('tooltip-container-hidden')
 
@@ -158,8 +147,8 @@ describe('TooltipTrigger Component', () => {
 
     it('hides the tooltip some time after clicking', () => {
       const result = renderComponent({trigger: 'click'})
-      const container = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip')
-      const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container')
+      const container = findByClass(result, 'tooltip')
+      const tooltip = findByClass(result, 'tooltip-container')
 
       ReactTestUtils.Simulate.click(container)
       jasmine.clock().tick(1)

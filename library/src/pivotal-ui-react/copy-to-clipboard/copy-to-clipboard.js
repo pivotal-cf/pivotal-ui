@@ -82,7 +82,7 @@ export class CopyToClipboardButton extends React.Component {
     </div>)
 
     return (<CopyToClipboard {...copyProps}>
-      <TooltipTrigger tooltipContent="Copied" trigger="click">{button}</TooltipTrigger>
+      <TooltipTrigger tooltip="Copied" trigger="click">{button}</TooltipTrigger>
     </CopyToClipboard>)
   }
 }
