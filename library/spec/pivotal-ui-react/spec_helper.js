@@ -11,6 +11,11 @@ import 'phantomjs-polyfill'
 import './support/bluebird'
 import './support/set_immediate'
 import 'pivotal-js-jasmine-matchers'
+import ReactTestUtils from 'react-addons-test-utils'
+
+export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass
+export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass
+export const clickOn = ReactTestUtils.Simulate.click
 
 MockNextTick.install()
 

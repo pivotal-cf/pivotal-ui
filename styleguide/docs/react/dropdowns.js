@@ -19,6 +19,7 @@ npm install babel-loader svg-react-loader --save-dev
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
+buttonAriaLabel  | no       | String                              |                | aria-label for the button
 buttonClassName  | no       | String                              |                | Classname to add to the button
 closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown

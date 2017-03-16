@@ -22,6 +22,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
   static propTypes = {
     border: types.bool,
+    buttonAriaLabel: types.string,
     buttonClassName: types.string,
     closeOnMenuClick: types.bool,
     disableScrim: types.bool,
@@ -65,11 +66,11 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
   render() {
     const {
-      border, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
+      border, buttonAriaLabel, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
       flat, link, menuAlign, size, icon, onClick, onEntered, onExited, split, title, toggle, floatMenu, scroll, ...props
     } = this.props
     const {open} = this.state
-    const buttonStyleClasses = classnames(buttonClassName)
+    const buttonStyleClasses = classnames('dropdown-toggle', buttonClassName)
     const noTitle = typeof title === 'undefined' || title === null || title.length === 0
 
     const forceIcon = noTitle || split
@@ -96,11 +97,11 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       }
     )
     const dropdownOptions = <div className={dropdownMenuClasses}>
-      <ul onClick={this.menuClick}>{children}</ul>
+      <ul aria-label="submenu" onClick={this.menuClick}>{children}</ul>
     </div>
 
     return (<div className={dropdownClasses} {...props}>
-      <button type="button" onClick={this.click} className={classnames('dropdown-toggle', buttonStyleClasses)}>
+      <button type="button" onClick={this.click} className={buttonStyleClasses} aria-haspopup="true" aria-label={buttonAriaLabel}>
         {!split && title}
       </button>
       {toggleNode}

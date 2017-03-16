@@ -1,306 +1,318 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {Dropdown, DropdownItem} from 'pui-react-dropdowns'
+import ReactTestUtils from 'react-addons-test-utils'
+import {findByClass, findAllByClass, clickOn} from "../spec_helper";
 
-describe('Dropdowns', () => {
-  describe('Dropdown', () => {
-    let subject, Dropdown, DropdownItem;
+describe('Dropdown', () => {
+  let subject
 
-    beforeEach(() => {
-      Dropdown = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').Dropdown;
-      DropdownItem = require('../../../src/pivotal-ui-react/dropdowns/dropdowns').DropdownItem;
+  const renderComponent = (props, itemProps) => ReactTestUtils.renderIntoDocument(
+    <Dropdown {...props}>
+      <DropdownItem {...itemProps}>Item #1</DropdownItem>
+    </Dropdown>
+  )
+  const renderIntoDOM = (props, itemProps) => ReactDOM.render(
+    <Dropdown {...props}>
+      <DropdownItem {...itemProps}>Item #1</DropdownItem>
+    </Dropdown>
+  , root)
 
-      const props = {
-        className: 'test-class',
-        id: 'test-id',
-        style: {
-          opacity: '0.5'
-        }
-      };
+  beforeEach(() => {
+    subject = renderComponent({
+      className: 'test-class',
+      id: 'test-id',
+      style: {opacity: '0.5'},
+      title: 'Dropping',
+      buttonClassName: 'test-btn-class',
+      buttonAriaLabel: 'Nessun Dorma'
+    }, {href: 'test'})
+  })
 
-      subject = ReactDOM.render(
-        <Dropdown title="Dropping" {...props} buttonClassName="test-btn-class">
-          <DropdownItem href="test">Item #1</DropdownItem>
-        </Dropdown>, root);
-    });
+  it('passes through className, style, and id to the dropdown', () => {
+    const dropdown = findByClass(subject, 'dropdown')
+    expect(dropdown).toHaveClass('test-class')
+    expect(dropdown).toHaveCss({opacity: '0.5'})
+    expect(dropdown).toHaveAttr('id', 'test-id')
+  })
 
-    afterEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-    });
+  it('correctly styles the dropdown-toggle, and adds a chevron icon', () => {
+    const dropdown = findByClass(subject, 'dropdown')
+    const toggle = dropdown.querySelector('.dropdown-toggle')
+    expect(toggle).toHaveText('Dropping')
+    expect(toggle).toHaveClass('test-btn-class')
+    expect(toggle).toHaveAttr('aria-haspopup', 'true')
+    expect(toggle).toHaveAttr('aria-label', 'Nessun Dorma')
 
-    it('passes through className to the dropdown', () => {
-      expect('.dropdown').toHaveClass('test-class');
-    });
+    const icon = dropdown.querySelector('.icon')
+    expect(icon.querySelector('.icon-chevron_down')).toExist()
+  })
 
-    it('passes through style to the button', () => {
-      expect('.dropdown').toHaveCss({opacity: '0.5'});
-    });
+  it('calls onClick when dropdown toggle is clicked', () => {
+    const onClickSpy = jasmine.createSpy('onClick')
+    subject = renderComponent({onClick: onClickSpy})
+    const toggle = findByClass(subject, 'dropdown-toggle')
 
-    it('passes through id to the button', () => {
-      expect('.dropdown#test-id').toExist();
-    });
+    clickOn(toggle)
 
-    it('creates a dropdown-toggle with a chevron', () => {
-      expect('.dropdown-toggle').toContainText('Dropping');
-      expect('.dropdown-toggle').toHaveClass('test-btn-class');
-      expect('.dropdown-toggle + .icon').toExist();
-      expect('.icon .icon-chevron_down').toExist();
-    });
+    expect(onClickSpy).toHaveBeenCalled()
+  })
 
-    describe('when onClick is provided', () => {
-      let onClickSpy;
-      beforeEach(() => {
-        onClickSpy = jasmine.createSpy('onClick');
-        subject = ReactDOM.render(
-          <Dropdown onClick={onClickSpy} title="Dropping" buttonClassName="test-btn-class">
-            <DropdownItem href="test">Item #1</DropdownItem>
-          </Dropdown>, root);
-      });
+  it('calls onEntered when opening', () => {
+    const onEnteredSpy = jasmine.createSpy('onEntered')
+    subject = renderComponent({onEntered: onEnteredSpy})
+    const toggle = findByClass(subject, 'dropdown-toggle')
 
-      it('gets called when dropdown toggle is clicked', () => {
-        const event = {
-          type: 'click',
-          other_event_stuff: 'wat'
-        };
-        $('.dropdown-toggle').simulate('click', event);
-        expect(onClickSpy).toHaveBeenCalledWith(jasmine.objectContaining(event));
-      });
-    });
+    clickOn(toggle)
 
-    it('calls onEntered when opening', () => {
-      const onEnteredSpy = jasmine.createSpy('onEnter');
-      subject::setProps({onEntered: onEnteredSpy});
-      $('.dropdown-toggle').simulate('click');
+    expect(onEnteredSpy).toHaveBeenCalled()
+  })
 
-      expect(onEnteredSpy).toHaveBeenCalled();
-    });
+  it('calls onExited when closing', () => {
+    const onExitedSpy = jasmine.createSpy('onExited')
+    subject = renderComponent({onExited: onExitedSpy})
+    const toggle = findByClass(subject, 'dropdown-toggle')
 
-    it('calls onExited when closing', () => {
-      const onExitedSpy = jasmine.createSpy('onExit');
-      subject::setProps({onExited: onExitedSpy});
-      $('.dropdown-toggle').simulate('click').simulate('click');
-      expect(onExitedSpy).toHaveBeenCalled();
-    });
-    
-    describe('dropdown menu', () => {
-      it('shows the children on click', () => {
-        expect('.dropdown-open').not.toExist();
-        $('.dropdown-toggle').simulate('click');
-        expect('.dropdown-open .dropdown-menu').toExist();
-      });
+    clickOn(toggle)
+    expect(onExitedSpy).not.toHaveBeenCalled()
 
-      describe('when floatMenu is in the props', () => {
-        beforeEach(() => {
-          subject::setProps({floatMenu: true});
-        });
+    clickOn(toggle)
+    expect(onExitedSpy).toHaveBeenCalled()
+  })
 
-        it('renders a floating menu', () => {
-          expect('.dropdown-menu').toHaveClass('dropdown-menu-float');
-        });
-      });
+  describe('dropdown menu', () => {
+    it('shows the children on click', () => {
+      subject = renderComponent()
 
-      describe('hiding children', () => {
-        it('hides when the toggle is clicked', () => {
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-open .dropdown-menu').toExist();
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-open').not.toExist();
-        });
+      expect(findAllByClass(subject, 'dropdown-open')).toHaveLength(0)
+      const toggle = findByClass(subject, 'dropdown-toggle')
+      clickOn(toggle)
 
-        it('hides when clicking outside the dropdown', () => {
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-open .dropdown-menu').toExist();
-          const evt = document.createEvent('HTMLEvents');
-          evt.initEvent('click', true, true );
-          document.documentElement.dispatchEvent(evt);
-          expect('.dropdown-open').not.toExist();
-        });
+      const dropdown = findByClass(subject, 'dropdown')
+      expect(dropdown).toHaveClass('dropdown-open')
+      expect(dropdown.querySelector('.dropdown-menu')).toExist()
+    })
 
-        it('hides when a menu item is selected', () => {
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-open .dropdown-menu').toExist();
-          $('li:contains(Item #1)').simulate('click');
-          expect('.dropdown-open').not.toExist();
-        });
+    it('has an aria-label on the underlying ul', () => {
+      subject = renderComponent()
+      const toggle = findByClass(subject, 'dropdown-toggle')
+      clickOn(toggle)
 
-        describe('when scrim is disabled', () => {
-          it('does not hide the dropdown menu when clicking outside of the dropdown', () => {
-            subject::setProps({disableScrim: true});
+      const menu = findByClass(subject, 'dropdown-menu')
+      expect(menu.querySelector('ul')).toHaveAttr('aria-label', 'submenu')
+    })
 
-            $('.dropdown-toggle').simulate('click');
-            expect('.dropdown-open .dropdown-menu').toExist();
-            const evt = document.createEvent('HTMLEvents');
-            evt.initEvent('click', true, true );
-            document.documentElement.dispatchEvent(evt);
-            expect('.dropdown-open .dropdown-menu').toExist();
-          });
-        });
+    describe('when floatMenu is in the props', () => {
+      it('renders a floating menu', () => {
+        subject = renderComponent({floatMenu: true})
+        expect(findByClass(subject, 'dropdown-menu')).toHaveClass('dropdown-menu-float')
+      })
+    })
 
-        describe('when closeOnMenuClick is false', () => {
-          beforeEach(() => {
-            subject::setProps({closeOnMenuClick: false});
-          });
-
-          it('does not close when the menu is clicked', () => {
-            $('.dropdown-toggle').simulate('click');
-            expect('.dropdown-open .dropdown-menu').toExist();
-            $('li:contains(Item #1)').simulate('click');
-            expect('.dropdown-open .dropdown-menu').toExist();
-          });
-        });
-
-        describe('when scroll is true', () => {
-          beforeEach( () => {
-            subject::setProps({scroll: true});
-          });
-
-          it('renders a scrollable menu', () => {
-            $('.dropdown-toggle').simulate('click');
-            expect('.dropdown-menu-scroll').toExist();
-          })
-        })
-      });
-
-      describe('when border is provided', () => {
-        it('has the border class', () => {
-          subject::setProps({border: true});
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu.dropdown-border').toExist();
-        });
-      });
-
-      describe('when menuAlign is provided', () => {
-        it('can align right', () => {
-          subject::setProps({menuAlign: 'right'});
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu.dropdown-menu-right').toExist();
-        });
-
-        it('can align left', () => {
-          subject::setProps({menuAlign: 'left'});
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu.dropdown-menu-left').toExist();
-        });
-
-        it('can align none', () => {
-          subject::setProps({menuAlign: 'none'});
-          $('.dropdown-toggle').simulate('click');
-          expect('.dropdown-menu-right').not.toExist();
-          expect('.dropdown-menu-left').not.toExist();
-        });
-      });
-    });
-
-    describe('when title is provided', () => {
-      beforeEach(() => {
-        subject = ReactDOM.render(
-          <Dropdown title="Dropping" buttonClassName="test-btn-class">
-            <DropdownItem href="test">Item #1</DropdownItem>
-          </Dropdown>, root);
-      });
-
-      describe('when split is false', () => {
-        it('puts the title in the dropdown toggle', () => {
-          expect('.dropdown-label').not.toExist();
-          expect('.dropdown-toggle').toHaveText('Dropping');
-        });
-      });
-
-      describe('when split is true', () => {
-        beforeEach(() => {
-          subject::setProps({split: true});
-        });
-
-        it('puts the title in the dropdown label', () => {
-          expect('.dropdown-label').toHaveText('Dropping');
-        });
-
-        it('ignores showIcon', () => {
-          subject::setProps({showIcon: false})
-
-          expect('.icon-chevron_down').toExist();
-        });
-      });
-    });
-
-    describe('when title is not provided', () => {
-      beforeEach(() => {
-        subject = ReactDOM.render(
-          <Dropdown buttonClassName="test-btn-class">
-            <DropdownItem href="test">Item #1</DropdownItem>
-          </Dropdown>, root
-        );
-      });
-
-      describe('when split is false', () => {
-        it('renders an icon-only dropdown', () => {
-          expect('.dropdown-icon-only').toExist();
-          expect('.dropdown-menu.dropdown-menu-float').toExist();
-        });
+    describe('hiding children', () => {
+      it('hides when the toggle is clicked', () => {
+        const subject = renderComponent()
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
+        clickOn(toggle)
+        expect(findAllByClass(subject, 'dropdown-open')).toHaveLength(0)
       })
 
-      it('ignores showIcon', () => {
-        subject::setProps({showIcon: false});
+      it('hides when clicking outside the dropdown', () => {
+        const subject = renderComponent()
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
 
-        expect('.icon-chevron_down').toExist();
-      });
-    });
+        const evt = document.createEvent('HTMLEvents')
+        evt.initEvent('click', true, true)
+        document.documentElement.dispatchEvent(evt)
 
-    describe('when flat is set in the props', () => {
-      beforeEach(() => {
-        subject::setProps({flat: true});
-      });
+        expect(findAllByClass(subject, 'dropdown-open')).toHaveLength(0)
+      })
 
-      it('renders the link styled dropdown', () => {
-        expect('.dropdown').toHaveClass('dropdown-flat');
-      });
-    });
+      it('hides when a menu item is selected', () => {
+        const subject = renderComponent()
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
 
-    describe('when showIcon is false', () => {
-      beforeEach(() => {
-        subject::setProps({showIcon: false});
-      });
+        const menu = findByClass(subject, 'dropdown-menu')
+        clickOn(menu.querySelector('li'))
 
-      it('does not render the icon', () => {
-        expect('.icon-chevron_down').not.toExist();
-      });
-    });
+        expect(findAllByClass(subject, 'dropdown-open')).toHaveLength(0)
+      })
 
-    describe('when link prop is true', () => {
-      beforeEach(() => {
-        subject::setProps({link: true});
-      });
+      describe('when scrim is disabled', () => {
+        it('does not hide the dropdown menu when clicking outside of the dropdown', () => {
+          const subject = renderIntoDOM({disableScrim: true})
+          const toggle = findByClass(subject, 'dropdown-toggle')
+          clickOn(toggle)
 
-      it('adds the dropdown-link class to make everything link colors', () => {
-        expect('.dropdown').toHaveClass('dropdown-link');
-      });
-    });
+          $('body').click()
 
-    describe('when size is provided', () => {
-      it('can be large', () => {
-        subject::setProps({size: 'large'});
-        $('.dropdown-toggle').simulate('click');
-        expect('.dropdown.dropdown-lg').toExist();
-      });
+          expect(findByClass(subject, 'dropdown-open')).toExist()
+        })
+      })
 
-      it('can be normal', () => {
-        subject::setProps({size: 'normal'});
-        $('.dropdown-toggle').simulate('click');
-        expect('.dropdown-lg').not.toExist();
-        expect('.dropdown-sm').not.toExist();
-      });
+      describe('when closeOnMenuClick is false', () => {
+        it('does not close when the menu is clicked', () => {
+          const subject = renderComponent({closeOnMenuClick: false})
+          const toggle = findByClass(subject, 'dropdown-toggle')
+          clickOn(toggle)
 
-      it('can be small', () => {
-        subject::setProps({size: 'small'});
-        $('.dropdown-toggle').simulate('click');
-        expect('.dropdown-sm').toExist();
-      });
-    });
+          const menu = findByClass(subject, 'dropdown-menu')
+          clickOn(menu.querySelector('li'))
 
-    describe('when icon is provided', () => {
-      it('renders the associated svg', () => {
-        subject::setProps({icon: 'more_vert'});
-        expect('.dropdown-toggle + .icon').toExist();
-        expect('.icon .icon-more_vert').toExist();
-      });
-    });
-  });
-});
+          expect(findByClass(subject, 'dropdown-open')).toExist()
+        })
+      })
+
+      describe('when scroll is true', () => {
+        it('renders a scrollable menu', () => {
+          const subject = renderComponent({scroll: true})
+          const toggle = findByClass(subject, 'dropdown-toggle')
+          clickOn(toggle)
+
+          const menu = findByClass(subject, 'dropdown-menu')
+          expect(menu).toHaveClass('dropdown-menu-scroll')
+        })
+      })
+    })
+
+    describe('when border is provided', () => {
+      it('has the border class', () => {
+        const subject = renderComponent({border: true})
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
+
+        const menu = findByClass(subject, 'dropdown-menu')
+        expect(menu).toHaveClass('dropdown-border')
+      })
+    })
+
+    describe('when menuAlign is provided', () => {
+      it('can align right', () => {
+        const subject = renderComponent({menuAlign: 'right'})
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
+
+        const menu = findByClass(subject, 'dropdown-menu')
+        expect(menu).toHaveClass('dropdown-menu-right')
+      })
+
+      it('can align left', () => {
+        const subject = renderComponent({menuAlign: 'left'})
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
+
+        const menu = findByClass(subject, 'dropdown-menu')
+        expect(menu).toHaveClass('dropdown-menu-left')
+      })
+
+      it('can align none', () => {
+        const subject = renderComponent({menuAlign: 'none'})
+        const toggle = findByClass(subject, 'dropdown-toggle')
+        clickOn(toggle)
+
+        const menu = findByClass(subject, 'dropdown-menu')
+        expect(menu).not.toHaveClass('dropdown-menu-right')
+        expect(menu).not.toHaveClass('dropdown-menu-left')
+      })
+    })
+  })
+
+  describe('when title is provided', () => {
+    describe('when split is false', () => {
+      it('puts the title in the dropdown toggle', () => {
+        subject = renderComponent({split: false, title: 'Dropping'})
+        expect(findAllByClass(subject, 'dropdown-label')).toHaveLength(0)
+        expect(findByClass(subject, 'dropdown-toggle')).toHaveText('Dropping')
+      })
+    })
+
+    describe('when split is true', () => {
+      it('puts the title in the dropdown label', () => {
+        subject = renderComponent({split: true, title: 'Dropping'})
+        expect(findByClass(subject, 'dropdown-label')).toHaveText('Dropping')
+      })
+    })
+  })
+
+  describe('when title is not provided and split is false', () => {
+    it('renders an icon-only dropdown', () => {
+      subject = renderComponent({split: false})
+      expect(findByClass(subject, 'dropdown-icon-only')).toExist()
+      const menu = findByClass(subject, 'dropdown-menu')
+      expect(menu).toHaveClass('dropdown-menu-float')
+    })
+  })
+
+  describe('when flat is set in the props', () => {
+    it('renders the flat styled dropdown', () => {
+      subject = renderComponent({flat: true})
+      expect(findByClass(subject, 'dropdown')).toHaveClass('dropdown-flat')
+    })
+  })
+
+  describe('when showIcon is false', () => {
+    it('still renders an icon if there is a title', () => {
+      subject = renderComponent({showIcon: false})
+
+      expect(findByClass(subject, 'icon-chevron_down')).toExist()
+    })
+
+    it('still renders an icon if the dropdown is a split dropdown', () => {
+      subject = renderComponent({showIcon: false, split: true})
+
+      expect(findByClass(subject, 'icon-chevron_down')).toExist()
+    })
+
+    it('does not render an icon otherwise', () => {
+      subject = renderComponent({showIcon: false, title: 'List of Things'})
+
+      expect(findAllByClass(subject, 'icon')).toHaveLength(0)
+      expect(findAllByClass(subject, 'icon-chevron_down')).toHaveLength(0)
+    })
+  })
+
+  describe('when link prop is true', () => {
+    it('adds the dropdown-link class to make everything link colors', () => {
+      subject = renderComponent({link: true})
+      expect(findByClass(subject, 'dropdown')).toHaveClass('dropdown-link')
+    })
+  })
+
+  describe('when size is provided', () => {
+    it('can be large', () => {
+      subject = renderComponent({size: 'large'})
+      const toggle = findByClass(subject, 'dropdown-toggle')
+      clickOn(toggle)
+
+      expect(findByClass(subject, 'dropdown-lg')).toExist()
+    })
+
+    it('can be normal', () => {
+      subject = renderComponent({size: 'normal'})
+      const toggle = findByClass(subject, 'dropdown-toggle')
+      clickOn(toggle)
+
+      expect(findAllByClass(subject, 'dropdown-sm')).toHaveLength(0)
+      expect(findAllByClass(subject, 'dropdown-lg')).toHaveLength(0)
+    })
+
+    it('can be small', () => {
+      subject = renderComponent({size: 'small'})
+      const toggle = findByClass(subject, 'dropdown-toggle')
+      clickOn(toggle)
+
+      expect(findByClass(subject, 'dropdown-sm')).toExist()
+    })
+  })
+
+  describe('when icon is provided', () => {
+    it('renders the associated svg', () => {
+      subject = renderComponent({icon: 'more_vert'})
+      const icon = findByClass(subject, 'icon')
+
+      expect(icon.querySelector('.icon-more_vert')).toExist()
+    })
+  })
+})
