@@ -4,8 +4,9 @@ module.exports = function(env = null) {
     bail: false,
     module: {
       loaders: [
-        {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'}
-      ]
+        {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel'},
+        {test: /\.svg$/, loader: 'babel-loader!svg-react-loader'}
+        ]
     },
     output: {
       filename: '[name].js',
