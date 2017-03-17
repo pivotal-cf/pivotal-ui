@@ -9,7 +9,7 @@ import 'pui-css-dropdowns'
 const types = React.PropTypes
 
 const defaultToggleNode = (showIcon, icon) => {
-  if (showIcon) return <Icon src={icon} className="toggle-indicator"/>
+  if (showIcon) return <Icon src={icon} className="icon-toggle"/>
 }
 
 export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {

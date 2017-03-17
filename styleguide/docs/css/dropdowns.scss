@@ -30,7 +30,7 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
   <div class="dropdown form-control">
     <div tabindex="0" class="dropdown-toggle">
       Basic Dropdown
-      <div class="icon icon-middle toggle-indicator">
+      <div class="icon icon-middle icon-toggle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
         </svg>
@@ -64,7 +64,7 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <div tabindex="0" class="dropdown-toggle">
         Float Dropdown Menu
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
@@ -83,7 +83,7 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <div tabindex="0" class="dropdown-toggle">
         Pinned Left
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
@@ -105,7 +105,7 @@ exceeds the parent dropdown width.
     <div class="dropdown">
       <div tabindex="0" class="dropdown-toggle">
         Pinned Right
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
@@ -139,7 +139,7 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
   <div class="dropdown">
     <div tabindex="0" class="dropdown-toggle">
       Scroll List Items
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
           <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
             <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
           </svg>
@@ -178,7 +178,7 @@ focused state. Only appropriate as a float menu.
 <div class="form-group form-inline">
   <div class="dropdown dropdown-split dropdown-icon">
       <div tabindex="0" type="button" class="dropdown-toggle"></div>
-      <div class="icon icon-middle toggle-indicator">
+      <div class="icon icon-middle icon-toggle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
         </svg>
@@ -210,7 +210,7 @@ Dropdown with the flat button styling.
   <div class="dropdown dropdown-flat form-control">
     <div tabindex="0" class="dropdown-toggle">
       Flat Button Dropdown
-      <div class="icon icon-middle toggle-indicator">
+      <div class="icon icon-middle icon-toggle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
         </svg>
@@ -242,7 +242,7 @@ Dropdown with the link styling, retains dropdown padding.
   <div class="dropdown dropdown-link">
     <div tabindex="0" class="dropdown-toggle">
       <span>Link Dropdown</span>
-      <div class="icon icon-middle toggle-indicator">
+      <div class="icon icon-middle icon-toggle">
         <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
         </svg>
@@ -273,7 +273,7 @@ A dropdown with no title and just a toggle icon.
 <div class="form-group">
   <div class="dropdown dropdown-icon-only">
     <div tabindex="0" class="dropdown-toggle">
-      <div class="icon icon-middle toggle-indicator">
+      <div class="icon icon-middle icon-toggle">
         <svg class="icon-more_vert" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
           <path d="M24 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 4c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path>
         </svg>
@@ -307,7 +307,7 @@ These modifiers will apply to all of the variations above.
     <div class="dropdown dropdown-lg">
       <div tabindex="0" class="dropdown-toggle">
         Large Dropdown
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
             <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
               <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
             </svg>
@@ -326,7 +326,7 @@ These modifiers will apply to all of the variations above.
     <div class="dropdown">
       <div tabindex="0" class="dropdown-toggle">
         Normal Dropdown
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
             <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
               <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
             </svg>
@@ -345,7 +345,7 @@ These modifiers will apply to all of the variations above.
     <div class="dropdown dropdown-sm">
       <div tabindex="0" class="dropdown-toggle">
         Small Dropdown
-        <div class="icon icon-middle toggle-indicator">
+        <div class="icon icon-middle icon-toggle">
             <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
               <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
             </svg>
