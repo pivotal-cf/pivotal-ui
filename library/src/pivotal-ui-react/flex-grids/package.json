@@ -1,8 +1,8 @@
 {
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "React components for laying-out content in a flex grid",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-flex-grids": "=8.0.1"
+    "pui-css-flex-grids": "=8.0.2"
   }
 }

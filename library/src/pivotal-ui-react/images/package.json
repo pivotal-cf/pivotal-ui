@@ -1,9 +1,9 @@
 {
-  "version": "8.0.1",
+  "version": "8.0.2",
   "description": "A React component for rendering responsive and linked images",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-images": "=8.0.1",
-    "pui-react-helpers": "=8.0.1"
+    "pui-css-images": "=8.0.2",
+    "pui-react-helpers": "=8.0.2"
   }
 }
