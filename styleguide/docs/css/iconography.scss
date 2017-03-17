@@ -66,15 +66,15 @@ name: spinner
 parent: iconography
 ---
 
-Spinner appearance is determined by size. The large spinner is 96px and moves relatively slowly.
-The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
-in the creation of custom components.
+Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner
+moves more quickly and dramatically.  In all cases, the base height and width is 1em
+and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
 
 ```html_example
 <div class="grid txt-c">
   <div class="col col-top">
   <div class="mbl"><code>.spinner-lg</code></div>
-    <div class="icon icon-middle spinner">
+    <div class="icon icon-middle" style="font-size: 96px">
         <svg class="icon-spinner-lg" width="100px" height="100px" viewBox="0 0 101 101"
              xmlns="http://www.w3.org/2000/svg">
             <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
@@ -86,7 +86,7 @@ in the creation of custom components.
   </div>
   <div class="col col-top">
     <div class="mbl"><code>.spinner-md</code></div>
-    <div class="icon icon-middle spinner">
+    <div class="icon icon-middle" style="font-size: 48px">
         <svg class="icon-spinner-md" width="100px" height="100px" viewBox="0 0 101 101"
              xmlns="http://www.w3.org/2000/svg">
             <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
@@ -98,7 +98,7 @@ in the creation of custom components.
   </div>
   <div class="col col-top">
     <div class="mbl"><code>.spinner-sm</code></div>
-    <div class="icon icon-middle spinner">
+    <div class="icon icon-middle" style="font-size: 16px">
         <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
              xmlns="http://www.w3.org/2000/svg">
             <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"

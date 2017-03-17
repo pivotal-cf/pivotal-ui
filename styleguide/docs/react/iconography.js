@@ -75,23 +75,23 @@ name: spinner_react
 parent: iconography_react
 ---
 
-Spinner appearance is determined by size. The large spinner is 96px and moves relatively slowly.
-The small spinner is 16px and moves more quickly and dramatically.  These sizes are defined here to help you
-in the creation of custom components.
+Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner
+moves more quickly and dramatically.  In all cases, the base height and width is 1em
+and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
 
 ```react_example
 <div className="grid txt-c">
   <div className="col col-top">
     <div className="mbl"><code>.spinner-lg</code></div>
-    <Icon src="spinner-lg"/>
+    <Icon src="spinner-lg" style={{fontSize: '96px'}}/>
   </div>
   <div className="col col-top">
     <div className="mbl"><code>.spinner-md</code></div>
-    <Icon src="spinner-md"/>
+    <Icon src="spinner-md" style={{fontSize: '48px'}}/>
   </div>
   <div className="col col-top">
     <div className="mbl"><code>.spinner-sm</code></div>
-    <Icon src="spinner-sm"/>
+    <Icon src="spinner-sm" style={{fontSize: '16px'}}/>
   </div>
 </div>
 ```
