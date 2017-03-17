@@ -357,17 +357,17 @@ describe('Tabs', () => {
 
         expect(activeTabLink.parentNode).toHaveClass('active')
         expect(activeTabLink).toHaveAttr('aria-controls', tabPane.id)
-        expect(activeTabLink).toHaveAttr('aria-selected', "true")
+        expect(activeTabLink).toHaveAttr('aria-selected', 'true')
 
         const nonActiveTabLink = links[1]
         expect(nonActiveTabLink.parentNode).not.toHaveClass('active')
         expect(nonActiveTabLink).not.toHaveAttr('aria-controls', tabPane.id)
-        expect(nonActiveTabLink).toHaveAttr('aria-selected', "false")
+        expect(nonActiveTabLink).toHaveAttr('aria-selected', 'false')
       })
 
       it('sets tabIndex on each link', () => {
         const links = findAllByTag(subject, 'a')
-        links.forEach(link => expect(link).toHaveAttr('tabIndex', "0"))
+        links.forEach(link => expect(link).toHaveAttr('tabIndex', '0'))
       })
 
       it('sets aria-expanded to the correct values on the list items', () => {

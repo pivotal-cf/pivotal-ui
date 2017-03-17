@@ -149,7 +149,7 @@ describe('Panel', () => {
 
     describe('when header is set', () => {
       beforeEach(() => {
-        subject = renderComponent({header: "hey hey hey hey hey", scrollable: true})
+        subject = renderComponent({header: 'hey hey hey hey hey', scrollable: true})
       })
 
       it('does not scroll the header', () => {
