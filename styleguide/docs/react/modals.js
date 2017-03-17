@@ -1,4 +1,3 @@
-
 /*doc
 ---
 title: Modals
