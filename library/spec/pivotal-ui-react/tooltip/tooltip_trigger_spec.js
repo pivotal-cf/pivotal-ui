@@ -57,9 +57,9 @@ describe('TooltipTrigger Component', () => {
     expect(tooltip).toHaveCss({color: 'red'})
   })
 
-  it('calls onEnter when tooltip is made visible', () => {
+  it('calls onEntered when tooltip is made visible', () => {
     const enterSpy = jasmine.createSpy('enterSpy')
-    const result = renderComponent({onEnter: enterSpy, tooltip: 'Some tooltip content'})
+    const result = renderComponent({onEntered: enterSpy, tooltip: 'Some tooltip content'})
     const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
@@ -68,9 +68,9 @@ describe('TooltipTrigger Component', () => {
     expect(enterSpy).toHaveBeenCalled()
   })
 
-  it('calls onExit when tooltip is made hidden', () => {
+  it('calls onExited when tooltip is made hidden', () => {
     const exitSpy = jasmine.createSpy('exitSpy')
-    const result = renderComponent({onExit: exitSpy, tooltip: 'Some tooltip content'})
+    const result = renderComponent({onExited: exitSpy, tooltip: 'Some tooltip content'})
     const container = findByClass(result, 'tooltip')
 
     ReactTestUtils.Simulate.mouseEnter(container)
@@ -101,7 +101,7 @@ describe('TooltipTrigger Component', () => {
     })
   })
 
-  describe('position', () => {
+  describe('placement', () => {
     it('defaults to nothing, which is "top" in css', () => {
       const result = renderComponent({tooltip: 'Some tooltip content'})
       const container = findByClass(result, 'tooltip')
@@ -109,16 +109,16 @@ describe('TooltipTrigger Component', () => {
     })
 
     it('allows user to specify left, right, top, bottom', () => {
-      let result = renderComponent({position: 'left', tooltip: 'Some tooltip content'})
+      let result = renderComponent({placement: 'left', tooltip: 'Some tooltip content'})
       expect(findByClass(result, 'tooltip-left')).toBeDefined()
 
-      result = renderComponent({position: 'right', tooltip: 'Some tooltip content'})
+      result = renderComponent({placement: 'right', tooltip: 'Some tooltip content'})
       expect(findByClass(result, 'tooltip-right')).toBeDefined()
 
-      result = renderComponent({position: 'bottom', tooltip: 'Some tooltip content'})
+      result = renderComponent({placement: 'bottom', tooltip: 'Some tooltip content'})
       expect(findByClass(result, 'tooltip-bottom')).toBeDefined()
 
-      result = renderComponent({position: 'top', tooltip: 'Some tooltip content'})
+      result = renderComponent({placement: 'top', tooltip: 'Some tooltip content'})
       expect(findByClass(result, 'tooltip').className).toEqual('tooltip')
     })
   })

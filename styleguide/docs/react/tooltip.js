@@ -16,7 +16,7 @@ npm install pui-react-tooltip --save
 /*doc
 ---
 title: Tooltip
-name: 1_tooltip
+name: 0_tooltip
 parent: tooltips_react
 ---
 ## Props
@@ -30,6 +30,18 @@ size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto    
 
 The Tooltip component is a styled container for content that should be displayed when triggered by an
 OverlayTrigger or TooltipTrigger. It does not exhibit any dynamic behavior on its own.
+*/
+
+/*doc
+---
+title: OverlayTrigger vs TooltipTrigger
+name: overlay_vs_tooltip
+parent: 0_tooltip
+---
+OverlayTriggers are highly configurable. Their associated overlays do not show up in the DOM until triggered.
+This makes them ideal for highly repeated layouts such as lists.
+TooltipTriggers are simpler to use, and their associated Tooltips are shown and hidden using css `visibility` rules.
+In contrast to OverlayTriggers, the markup always exists in the DOM.
 */
 
 /*doc
@@ -114,8 +126,8 @@ which is controlled by the end user and not by `OverlayTrigger`.
 
 /*doc
 ---
-title: TooltipTriggers
-name: 3_tooltip_triggers
+title: TooltipTrigger
+name: 3_tooltip_trigger
 parent: tooltips_react
 ---
 
@@ -124,11 +136,11 @@ parent: tooltips_react
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
 tooltip        | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
-position       | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Tooltip position relative to content
-trigger        | no       | oneOf(['hover', 'click'])                 | hover    | What to trigger on
+placement      | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Placement of tooltip in relation to target
+trigger        | no       | oneOf(['hover', 'click'])                 | hover    | Action to trigger showing tooltip
 clickHideDelay | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
-onEnter        | no       | Func                                      | () => {} | Callback fired when tooltip is shown
-onExit         | no       | Func                                      | () => {} | Callback fired when tooltip is hidden
+onEntered      | no       | Func                                      | () => {} | Callback that is called after the tooltip is shown
+onExited       | no       | Func                                      | () => {} | Callback that is called after the tooltip is hidden
 theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 
@@ -142,8 +154,9 @@ Import the subcomponents:
 import {TooltipTrigger} from 'pui-react-tooltip';
 ```
 
-TooltipTriggers are an easy way to create CSS driven tooltips with the tooltip content created inline with the
-triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling.
+TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the
+triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that
+the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
 
 ```react_example
 <div>

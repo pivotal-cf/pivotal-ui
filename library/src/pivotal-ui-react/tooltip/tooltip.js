@@ -37,21 +37,21 @@ export class Tooltip extends React.Component {
 export class TooltipTrigger extends React.Component {
   static propTypes = {
     tooltip: types.node.isRequired,
-    position: types.oneOf(['left', 'right', 'bottom', 'top']),
+    placement: types.oneOf(['left', 'right', 'bottom', 'top']),
     trigger: types.oneOf(['hover', 'click']),
     clickHideDelay: types.number,
-    onEnter: types.func,
-    onExit: types.func,
+    onEntered: types.func,
+    onExited: types.func,
     theme: types.oneOf(['dark', 'light']),
     size: types.oneOf(['auto', 'sm', 'md', 'lg'])
   }
 
   static defaultProps = {
-    position: 'top',
+    placement: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
-    onEnter: () => {},
-    onExit: () => {},
+    onEntered: () => {},
+    onExited: () => {},
     theme: 'dark',
     size: 'auto'
   }
@@ -74,19 +74,19 @@ export class TooltipTrigger extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.visible && !this.state.visible) {
-      this.props.onExit()
+      this.props.onExited()
     } else if(!prevState.visible && this.state.visible) {
-      this.props.onEnter()
+      this.props.onEntered()
     }
   }
 
   render() {
-    const {position, tooltip, trigger, className, clickHideDelay, onEnter, onExit, theme, size, ...others} = this.props
+    const {placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props
     const {visible} = this.state
 
-    let positionClass
-    if(position != 'top') {
-      positionClass = `tooltip-${position}`
+    let placementClass
+    if(placement != 'top') {
+      placementClass = `tooltip-${placement}`
     }
 
     let triggerHandler
@@ -102,7 +102,7 @@ export class TooltipTrigger extends React.Component {
         break
     }
 
-    const newClasses = classnames('tooltip', className, positionClass,
+    const newClasses = classnames('tooltip', className, placementClass,
       theme === 'light' ? 'tooltip-light' : null)
     const newProps = Object.assign({className: newClasses}, triggerHandler, others)
 
