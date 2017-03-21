@@ -1,6 +1,6 @@
 import '../spec_helper';
 import ReactTestUtils from 'react-addons-test-utils'
-import {Image} from '../../../src/pivotal-ui-react/images/images'
+import {Image} from 'pui-react-images'
 import {reactCompPropagatesAttrs} from '../support/shared_examples'
 
 describe('Image', () => {

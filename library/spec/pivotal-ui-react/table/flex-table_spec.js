@@ -1,6 +1,6 @@
 import '../spec_helper' ;
 import ReactTestUtils from 'react-addons-test-utils'
-import {FlexTable, FlexTableCell, FlexTableRow} from '../../../src/pivotal-ui-react/table/table';
+import {FlexTable, FlexTableCell, FlexTableRow} from 'pui-react-table';
 
 describe('Flex Table', () => {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(<FlexTable {...props}/>)

@@ -1,5 +1,5 @@
 import '../spec_helper' 
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers'
+import {mergeProps} from 'pui-react-helpers'
 
 describe('mergeProps', () => {
   let subject

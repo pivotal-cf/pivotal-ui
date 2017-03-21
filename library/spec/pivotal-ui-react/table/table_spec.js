@@ -1,6 +1,6 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
-import {Table, TableHeader, TableCell, TableRow} from '../../../src/pivotal-ui-react/table/table'
+import {Table, TableCell, TableRow} from 'pui-react-table'
 
 describe('Table', function() {
   let columns, data

@@ -1,4 +1,4 @@
-import {DropdownItem} from '../../../src/pivotal-ui-react/dropdowns/dropdowns';
+import {DropdownItem} from 'pui-react-dropdowns';
 
 describe('DropdownItem', () => {
   let props = {

@@ -1,6 +1,6 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
-import {Toggle} from '../../../src/pivotal-ui-react/toggle/toggle'
+import {Toggle} from 'pui-react-toggle'
 
 describe('Toggle', () => {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(<Toggle {...props}/>)

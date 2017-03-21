@@ -1,6 +1,6 @@
 import '../spec_helper' ;
 import {itPropagatesAttributes} from '../support/shared_examples';
-import {mergeProps} from '../../../src/pivotal-ui-react/helpers/helpers';
+import {mergeProps} from 'pui-react-helpers';
 
 describe('lists', function() {
   const UnorderedList = require('../../../src/pivotal-ui-react/lists/lists').UnorderedList;

@@ -1,5 +1,5 @@
 import '../spec_helper'
-import {PortalSource, PortalDestination} from '../../../src/pivotal-ui-react/portals/portals'
+import {PortalSource, PortalDestination} from 'pui-react-portals'
 import ReactTestUtils from 'react-addons-test-utils'
 
 describe('Portals', function() {

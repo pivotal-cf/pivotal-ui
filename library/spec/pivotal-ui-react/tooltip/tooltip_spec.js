@@ -1,6 +1,6 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils';
-import {Tooltip} from '../../../src/pivotal-ui-react/tooltip/tooltip'
+import {Tooltip} from 'pui-react-tooltip'
 
 describe('Tooltip Component', () => {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(<Tooltip {...props}>Some default tooltip</Tooltip>)

@@ -1,6 +1,6 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
-import {CopyToClipboard, CopyToClipboardButton} from '../../../src/pivotal-ui-react/copy-to-clipboard/copy-to-clipboard'
+import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
 
 describe('CopyToClipboard', () => {
 

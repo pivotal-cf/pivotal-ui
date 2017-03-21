@@ -1,6 +1,6 @@
 import '../spec_helper'
 import ReactTestUtils from 'react-addons-test-utils'
-import {Radio, RadioGroup} from '../../../src/pivotal-ui-react/radio/radio'
+import {Radio, RadioGroup} from 'pui-react-radio'
 
 describe('Radio', () => {
   let subject

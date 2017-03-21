@@ -1,7 +1,7 @@
 import '../spec_helper'
-import {DraggableList, DraggableListItem} from '../../../src/pivotal-ui-react/draggable-list/draggable-list'
+import {DraggableList, DraggableListItem} from 'pui-react-draggable-list'
 import ReactTestUtils from 'react-addons-test-utils'
-import move from '../../../src/pivotal-ui-react/draggable-list/move_helper'
+import move from 'pui-react-draggable-list/move_helper'
 
 describe('DraggableList', function() {
   const renderComponent = props => ReactTestUtils.renderIntoDocument(
