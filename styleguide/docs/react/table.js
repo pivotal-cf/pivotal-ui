@@ -38,6 +38,7 @@ displayName | no  | String    |       | The text in the TableHeader for that col
 headerProps | no  | Object    |       | React props that will be passed through to that column
 sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
 sortBy      | no  | Function  |       | Function to transform data before sorting
+cellClass   | no  | String    |       | Class to apply to all cells in a column
 */
 
 /*doc
@@ -199,11 +200,13 @@ const columns = [
   {
     attribute: 'title',
     displayName: 'Title',
-    sortable: false
+    sortable: false,
+    cellClass: 'col-2'
   },
   {
     attribute: 'instances',
-    sortable: true
+    sortable: true,
+    cellClass: 'col-8'
   },
   {
     attribute: 'bar',
@@ -217,7 +220,8 @@ const columns = [
   },
   {
     attribute: 'unsortable',
-    sortable: false
+    sortable: false,
+    cellClass: 'col-8'
   }
 ];
 const data = [

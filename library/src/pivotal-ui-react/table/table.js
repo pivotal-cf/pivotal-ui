@@ -129,9 +129,9 @@ export class Table extends React.Component {
     const {columns, CustomRow} = this.props;
 
     return data.map((datum, rowKey) => {
-      const cells = columns.map(({attribute, CustomCell}, key) => {
+      const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
         const Cell = CustomCell || this.defaultCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]} rowDatum={datum}>{datum[attribute]}</Cell>;
+        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum}>{datum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -142,7 +142,7 @@ export class Table extends React.Component {
   renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
     return this.props.columns.map((column, index) => {
-      let {attribute, sortable, displayName, headerProps = {}} = column;
+      let {attribute, sortable, displayName, cellClass, headerProps = {}} = column;
       const isSortColumn = column === sortColumn;
       let className, icon;
       if (isSortColumn) {
@@ -150,7 +150,7 @@ export class Table extends React.Component {
         icon = [<Icon verticalAlign='baseline' src="arrow_drop_up"/>, <Icon verticalAlign='baseline' src="arrow_drop_down"/>, null][sortOrder];
       }
 
-      className = classnames(className, headerProps.className);
+      className = classnames(className, headerProps.className, cellClass);
 
       headerProps = {
         ...headerProps,
@@ -244,7 +244,8 @@ export class FlexTable extends Table {
     columns: types.array.isRequired,
     CustomRow: types.func,
     data: types.array.isRequired,
-    defaultSort: types.string
+    defaultSort: types.string,
+    cellClass: types.string
   }
 
   constructor(props, context) {
