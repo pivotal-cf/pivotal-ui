@@ -2,7 +2,7 @@ import '../spec_helper'
 import {Collapsible} from 'pui-react-collapsible'
 import {Tab, LeftTabs, Tabs} from 'pui-react-tabs'
 import ReactTestUtils from 'react-addons-test-utils'
-import {findAllByClass, findByClass, findAllByTag} from '../spec_helper'
+import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper'
 
 describe('Tabs', () => {
   let subject, MediaSize, onEnterSpy, onExitSpy
@@ -67,7 +67,7 @@ describe('Tabs', () => {
           expect(tabContent[1]).toHaveClass('in')
 
           const firstTab = findAllByTag(subject, 'a')[0]
-          ReactTestUtils.Simulate.click(firstTab)
+          clickOn(firstTab)
 
           expect(onEnterSpy).not.toHaveBeenCalled()
           expect(onExitSpy).not.toHaveBeenCalled()
@@ -103,7 +103,7 @@ describe('Tabs', () => {
 
           const clickable = findAllByTag(subject, 'a')[0]
           expect(clickable).toHaveText('Tab1')
-          ReactTestUtils.Simulate.click(clickable)
+          clickOn(clickable)
           jasmine.clock().tick(1)
 
           MockNow.tick(Tabs.ANIMATION_TIME / 4)
@@ -159,7 +159,7 @@ describe('Tabs', () => {
 
         const clickable = findAllByTag(subject, 'a')[0]
         expect(clickable).toHaveText('Tab1')
-        ReactTestUtils.Simulate.click(clickable)
+        clickOn(clickable)
 
         expect(onSelectSpy).toHaveBeenCalled()
       })
@@ -170,7 +170,7 @@ describe('Tabs', () => {
 
         const clickable = findAllByTag(subject, 'a')[0]
         expect(clickable).toHaveText('Tab1')
-        ReactTestUtils.Simulate.click(clickable)
+        clickOn(clickable)
         jasmine.clock().tick(1)
 
         expect(onSelectSpy).toHaveBeenCalled()
@@ -265,7 +265,7 @@ describe('Tabs', () => {
 
       it('calls onEntered and onExited immediately', () => {
         const secondTab = findAllByTag(subject, 'a')[1]
-        ReactTestUtils.Simulate.click(secondTab)
+        clickOn(secondTab)
         jasmine.clock().tick(1)
 
         expect(onEnterSpy).toHaveBeenCalledWith(2)
@@ -280,12 +280,11 @@ describe('Tabs', () => {
         expect(tabContent).toHaveText('Content1')
 
         const secondTab = findAllByTag(subject, 'a')[1]
-        ReactTestUtils.Simulate.click(secondTab)
+        clickOn(secondTab)
         jasmine.clock().tick(1)
 
         activeTab = findAllByClass(subject, 'active')[0]
         tabContent = findByClass(subject, 'tab-content')
-        const tabPane = findByClass(subject, 'tab-pane')
 
         expect(activeTab).toHaveText('Tab2')
         expect(tabContent).toHaveText('Content2')
@@ -308,7 +307,7 @@ describe('Tabs', () => {
         const disabledTab = findAllByTag(subject, 'a')[2]
         expect(disabledTab).toHaveClass('disabled')
 
-        ReactTestUtils.Simulate.click(disabledTab)
+        clickOn(disabledTab)
         jasmine.clock().tick(1)
 
         const activeTab = findByClass(subject, 'in')
@@ -386,7 +385,7 @@ describe('Tabs', () => {
         const disabledTab = findAllByTag(subject, 'li')[2]
         expect(disabledTab).toHaveClass('disabled')
 
-        ReactTestUtils.Simulate.click(disabledTab.getElementsByTagName('a')[0])
+        clickOn(disabledTab.getElementsByTagName('a')[0])
         jasmine.clock().tick(1)
 
         const activeTab = findAllByClass(subject, 'active')[0]

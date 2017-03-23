@@ -1,6 +1,7 @@
 import '../spec_helper'
 import {Svg} from 'pui-react-svg'
 import ReactTestUtils from 'react-addons-test-utils'
+import {findByTag} from '../spec_helper'
 
 describe('Svg', () => {
   let subject
@@ -14,13 +15,13 @@ describe('Svg', () => {
 
   it('renders an svg', () => {
     subject = renderComponent()
-    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+    const svg = findByTag(subject, 'svg')
     expect(svg.childNodes[3].tagName).toEqual('path')
   })
 
   it('renders the svg with the html attributes', () => {
     subject = renderComponent()
-    const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+    const svg = findByTag(subject, 'svg')
     expect(svg).toHaveAttr('x', '0px')
     expect(svg).toHaveAttr('y', '0px')
     expect(svg).toHaveAttr('viewBox', '0 0 225 225')
@@ -29,7 +30,7 @@ describe('Svg', () => {
   describe('when there are props on the svg', () => {
     it('overrides the html attributes', () => {
       subject = renderComponent({x: '10px', y: '20px'})
-      const svg = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'svg')
+      const svg = findByTag(subject, 'svg')
       expect(svg).toHaveAttr('x', '10px')
       expect(svg).toHaveAttr('y', '20px')
     })

@@ -1,154 +1,111 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {Collapsible} from 'pui-react-collapsible'
+import {ExpanderContent, ExpanderTrigger} from 'pui-react-expander'
+import {findByClass, findByTag, clickOn} from '../spec_helper'
+import ReactTestUtils from 'react-addons-test-utils'
 
-describe('ExpanderContent', function() {
-  const delay = 200;
-  let Collapsible;
+describe('ExpanderContent', () => {
+  const renderIntoDom = props => ReactDOM.render(
+    <ExpanderContent {...props}>
+      <div>You won a brand new car!</div>
+    </ExpanderContent>, root
+  )
 
-  beforeEach(() => {
-    Collapsible = require('../../../src/pivotal-ui-react/collapsible/collapsible').Collapsible;
-    spyOn(Collapsible.prototype, 'render').and.callThrough();
-  });
+  describe('when expanded is unset', () => {
+    it('hides the content', () => {
+      const result = renderIntoDom({expanded: false})
+      expect(findByClass(result, 'collapse')).not.toHaveClass('in')
+    })
+  })
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  describe('when expanded is set to false', () => {
+    it('hides the content', () => {
+      const result = renderIntoDom({expanded: false})
+      expect(findByClass(result, 'collapse')).not.toHaveClass('in')
+    })
+  })
 
-  function renderComponent(props) {
-    var ExpanderContent = require('../../../src/pivotal-ui-react/expander/expander').ExpanderContent;
+  describe('when expanded is set to true', () => {
+    it('shows the content', () => {
+      const result = renderIntoDom({expanded: true})
+      expect(findByClass(result, 'collapse')).toHaveClass('in')
+    })
+  })
 
-    props = Object.assign({
-      delay,
-      expanded: false
-    }, props);
+  describe('#toggle', () => {
+    let onExitedSpy, onEnteredSpy, expanderContent
 
-    return ReactDOM.render(
-      (<ExpanderContent {...props}>
-        <div>You won a brand new car!</div>
-      </ExpanderContent>),
-      root
-    );
-  }
+    describe('when the content was already visible', () => {
+      beforeEach(() => {
+        onExitedSpy = jasmine.createSpy('on exited')
+        expanderContent = renderIntoDom({expanded: true, onExited: onExitedSpy, delay: 0})
+        expanderContent.toggle()
+      })
 
-  describe('initial state', function() {
-    describe('when expanded is unset', function() {
-      it('hides the content', function() {
-        renderComponent.call(this, {});
-        expect('.collapse').not.toHaveClass('in');
-      });
-    });
+      it('hides the content', () => {
+        expect(findByClass(expanderContent, 'collapse')).not.toHaveClass('in')
+        expect(onExitedSpy).toHaveBeenCalled()
+      })
+    })
 
-    describe('when expanded is set to false', function() {
-      it('hides the content', function() {
-        renderComponent.call(this, {});
-        expect('.collapse').not.toHaveClass('in');
-      });
-    });
+    describe('when the content is not visible', () => {
+      beforeEach(() => {
+        onEnteredSpy = jasmine.createSpy('onEntered')
+        expanderContent = renderIntoDom({expanded: false, onEntered: onEnteredSpy, delay: 0})
+        expanderContent.toggle()
+      })
 
-    describe('when expanded is set to true', function() {
-      it('shows the content', function() {
-        renderComponent.call(this, {expanded: true});
-        expect('.collapse').toHaveClass('in');
-      });
-    });
-  });
+      it('shows the content', () => {
+        expect(findByClass(expanderContent, 'collapse')).toHaveClass('in')
+        expect(onEnteredSpy).toHaveBeenCalled()
+      })
+    })
 
-  describe('#toggle', function() {
-    let onExitedSpy, onEnteredSpy;
+    it('can be invoked ad nauseum', () => {
+      expanderContent = renderIntoDom({expanded: false, delay: 0})
+      expanderContent.toggle()
+      expect(findByClass(expanderContent, 'collapse')).toHaveClass('in')
+      expanderContent.toggle()
+      expect(findByClass(expanderContent, 'collapse')).not.toHaveClass('in')
+      expanderContent.toggle()
+      expect(findByClass(expanderContent, 'collapse')).toHaveClass('in')
+    })
+  })
+})
 
-    describe('when the content was already visible', function() {
-      beforeEach(function() {
-        let expanderContent = renderComponent.call(this, {expanded: true, onExited: onExitedSpy});
-        expanderContent.toggle();
-      });
+describe('ExpanderTrigger', () => {
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+    <ExpanderTrigger>
+      <button>Click here to trigger</button>
+    </ExpanderTrigger>
+  )
 
-      it('hides the content', function() {
-        expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false, onExited: onExitedSpy});
-      });
-    });
+  let expanderTrigger
 
-    describe('when the content is not visible', function() {
-      beforeEach(function() {
-        onEnteredSpy = jasmine.createSpy('onEntered');
-        let expanderContent = renderComponent.call(this, {expanded: false, onEntered: onEnteredSpy});
+  describe('on click', () => {
+    describe('when target is set on state', () => {
+      let expanderContent
+      beforeEach(() => {
+        expanderContent = jasmine.createSpyObj('expanderContent', ['toggle'])
+        expanderTrigger = renderComponent()
+        expanderTrigger.setTarget(expanderContent)
+      })
 
-        expanderContent.toggle();
-      });
+      it('invokes the #toggle method on the provided target', () => {
+        clickOn(findByTag(expanderTrigger, 'button'))
+        expect(expanderContent.toggle).toHaveBeenCalled()
+      })
+    })
 
-      it('shows the content', function() {
-        expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true, onEntered: onEnteredSpy});
-      });
-    });
+    describe('when target is not set on state', () => {
+      it('warns the user that no ExpanderContent was provided', () => {
+        spyOn(console, 'warn')
 
-    it('can be invoked ad nauseum', function() {
-      const expanderContent = renderComponent.call(this);
-      expanderContent.toggle();
-      expanderContent.toggle();
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
-    });
-  });
-  describe('when toggling expanded prop', function() {
-    beforeEach(function() {
-      renderComponent.call(this, {expanded: true});
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
-    });
+        expanderTrigger = renderComponent()
+        clickOn(findByTag(expanderTrigger, 'button'))
 
-    it('toggles open/closed', function() {
-      renderComponent.call(this, {expanded: false});
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
-    });
-  });
-});
-
-describe('ExpanderTrigger', function() {
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
-
-  function renderComponent() {
-    var ExpanderTrigger = require('../../../src/pivotal-ui-react/expander/expander').ExpanderTrigger;
-    return ReactDOM.render(
-      (<ExpanderTrigger>
-        <button>Click here to trigger</button>
-      </ExpanderTrigger>),
-      root
-    );
-  }
-
-  describe('#setTarget', function() {
-    it('updates the target on the state', function() {
-      var target = {};
-
-      this.expanderTrigger = renderComponent.call(this);
-      this.expanderTrigger.setTarget(target);
-
-      expect(this.expanderTrigger.state.target).toEqual(target);
-    });
-  });
-
-  describe('on click', function() {
-    describe('when target is set on state', function() {
-      beforeEach(function() {
-        this.expanderContent = jasmine.createSpyObj('expanderContent', ['toggle']);
-
-        this.expanderTrigger = renderComponent.call(this);
-        this.expanderTrigger.setTarget(this.expanderContent);
-      });
-
-      it('invokes the #toggle method on the provided target', function() {
-        $(root).children().first().simulate('click');
-        expect(this.expanderContent.toggle).toHaveBeenCalled();
-      });
-    });
-
-    describe('when target is not set on state', function() {
-      it('warns the user that no ExpanderContent was provided', function() {
-        spyOn(console, 'warn');
-
-        this.expanderTrigger = renderComponent.call(this);
-        $(root).children().first().simulate('click');
-
-        expect(console.warn).toHaveBeenCalled();
-      });
-    });
-  });
-});
+        expect(console.warn).toHaveBeenCalledWith('No ExpanderContent provided to ExpanderTrigger.')
+      })
+    })
+  })
+})
