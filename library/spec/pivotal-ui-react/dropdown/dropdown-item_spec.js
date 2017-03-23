@@ -1,132 +1,103 @@
-import {DropdownItem} from 'pui-react-dropdowns';
+import '../spec_helper'
+import {DropdownItem} from 'pui-react-dropdowns'
+import ReactTestUtils from 'react-addons-test-utils'
+import {findByClass, findByTag, clickOn} from '../spec_helper'
 
 describe('DropdownItem', () => {
-  let props = {
-    className: 'test-item-class',
-    id: 'test-item-id',
-    style: {
-      opacity: '1'
-    }
-  };
-
-  afterEach(() => {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+  let result
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+    <DropdownItem {...props}>DropdownItem Text</DropdownItem>
+  )
 
   it('passes through header', () => {
-    ReactDOM.render(
-      <DropdownItem header>HeadText</DropdownItem>,
-      root);
-    expect('#root li.dropdown-header').toContainText('HeadText');
-  });
+    result = renderComponent({header: true})
+    expect(findByClass(result, 'dropdown-header')).toContainText('DropdownItem Text')
+  })
 
   it('passes through divider', () => {
-    ReactDOM.render(
-      <DropdownItem divider />,
-      root);
-    expect('#root li.divider').toExist();
-  });
+    result = renderComponent({divider: true})
+    expect(findByClass(result, 'divider')).toBeDefined()
+  })
 
-  it('passes through className to the li ', () => {
-    ReactDOM.render(
-      <DropdownItem {...props}>Item</DropdownItem>,
-      root);
-    expect('#root li').toHaveClass(props.className);
-  });
+  it('passes through className and style to the li ', () => {
+    result = renderComponent({
+      className: 'test-item-class',
+      style: {opacity: '0.5'}
+    })
 
-  it('passes through style to the li', () => {
-    ReactDOM.render(
-      <DropdownItem {...props}>Item</DropdownItem>,
-      root);
-    expect('#root li').toHaveCss(props.style);
-  });
+    const listItem = findByTag(result, 'li')
+    expect(listItem).toHaveClass('test-item-class')
+    expect(listItem).toHaveCss({opacity: '0.5'})
+  })
 
-  describe('href', () => {
-    it('passes through id and href to the anchor', () => {
-      ReactDOM.render(
-        <DropdownItem href='test' {...props}>Item</DropdownItem>,
-        root);
-      expect('#root li a#test-item-id').toExist();
-      expect('#root li a#test-item-id').toHaveAttr('href', 'test');
-    });
+  it('passes through id to the anchor if an href is provided', () => {
+    result = renderComponent({id: 'test-item-id'})
 
-    describe('target', () => {
-      it('passes through target to the anchor when provided', () => {
-        ReactDOM.render(
-          <DropdownItem href='test' target="_blank" {...props}>Item</DropdownItem>,
-          root);
-        expect('#root li a#test-item-id').toHaveAttr('target', '_blank');
-      });
+    let listItem = findByTag(result, 'li')
+    expect(listItem).not.toHaveAttr('id')
 
-      it('does not pass through target to the anchor when provided', () => {
-        ReactDOM.render(
-          <DropdownItem href='test' {...props}>Item</DropdownItem>,
-          root);
-        expect('#root li a#test-item-id').not.toHaveAttr('target');
-      });
-    });
-  });
+    result = renderComponent({id: 'test-item-id', href: 'test'})
+
+    listItem = findByTag(result, 'li')
+    expect(listItem).not.toHaveAttr('id')
+    expect(listItem.querySelector('a')).toHaveAttr('id', 'test-item-id')
+  })
+
+  it('passes through href and target to the anchor', () => {
+    result = renderComponent({href: 'test', target: '_blank'})
+    expect(findByTag(result, 'a')).toHaveAttr('href', 'test')
+    expect(findByTag(result, 'a')).toHaveAttr('target', '_blank')
+  })
 
   describe('onSelect handling', () => {
-    let handleSelectSpy;
+    let handleSelectSpy
     describe('with href', () => {
-      it('passes through onSelect with eventKey', () => {
-        handleSelectSpy = jasmine.createSpy('handleSelect');
-        const eventKey = '1';
-        ReactDOM.render(
-          <DropdownItem href="/whatever" onSelect={handleSelectSpy} eventKey={eventKey}>Item</DropdownItem>,
-          root);
+      it('passes through onSelect on anchor click', () => {
+        handleSelectSpy = jasmine.createSpy('handleSelect')
+        const eventKey = '1'
+        result = renderComponent({href: 'test', onSelect: handleSelectSpy, eventKey})
 
-        $('#root li a').simulate('click');
-        expect(handleSelectSpy).toHaveBeenCalled();
-      });
-    });
+        clickOn(findByTag(result, 'a'))
+        expect(handleSelectSpy).toHaveBeenCalled()
+      })
+    })
 
     describe('without href', () => {
-      it('passes through onSelect with eventKey', () => {
-        handleSelectSpy = jasmine.createSpy('handleSelect');
-        const eventKey = '1';
-        ReactDOM.render(
-          <DropdownItem onSelect={handleSelectSpy} eventKey={eventKey}>Item</DropdownItem>,
-          root);
+      it('passes through onSelect on list item click', () => {
+        handleSelectSpy = jasmine.createSpy('handleSelect')
+        const eventKey = '1'
+        result = renderComponent({onSelect: handleSelectSpy, eventKey})
 
-        $('#root li').simulate('click');
-        expect(handleSelectSpy).toHaveBeenCalled();
-      });
-    });
+        clickOn(findByTag(result, 'li'))
+        expect(handleSelectSpy).toHaveBeenCalled()
+      })
+    })
 
     describe('with disabled prop', () => {
       it('does not call onSelect handler', () => {
-        handleSelectSpy = jasmine.createSpy('handleSelect');
-        ReactDOM.render(
-          <DropdownItem disabled href="/whatever" onSelect={handleSelectSpy}>Item</DropdownItem>,
-          root);
-        expect('#root li').toHaveClass('disabled');
-        expect('#root li a').toHaveAttr('disabled');
-        $('#root li a').simulate('click');
-        expect(handleSelectSpy).not.toHaveBeenCalled();
-      });
-    });
-  });
+        handleSelectSpy = jasmine.createSpy('handleSelect')
+        result = renderComponent({href: 'test', onSelect: handleSelectSpy, disabled: true})
 
-  describe('when href is not passed in as a prop', () => {
-    describe('when an a tag is passed in as a child', () => {
-      beforeEach(() => {
-        ReactDOM.render(
-          <DropdownItem><a href="custom">link</a></DropdownItem>,
-          root);
-      });
+        expect(findByTag(result, 'li')).toHaveClass('disabled')
+        expect(findByTag(result, 'a')).toHaveAttr('disabled')
+
+        clickOn(findByTag(result, 'a'))
+
+        expect(handleSelectSpy).not.toHaveBeenCalled()
+      })
+    })
+  })
+
+  describe('when an a tag is passed in as a child', () => {
+    beforeEach(() => {
+      result = ReactTestUtils.renderIntoDocument(
+        <DropdownItem><a href="custom">link</a></DropdownItem>
+      )
 
       it('renders the child link', () => {
-        expect('#root li a').toHaveAttr('href', 'custom');
-      });
-    });
-
-    it('does not render an anchor element', () => {
-      ReactDOM.render(
-        <DropdownItem>Item</DropdownItem>,
-        root);
-      expect('#root li a').not.toExist();
-    });
-  });
-});
+        const listItem = findByTag(result, 'li')
+        expect(listItem.querySelector('a')).toHaveAttr('id', 'custom')
+      })
+    })
+  })
+})
