@@ -1,5 +1,5 @@
 {
-  "version": "8.0.3",
+  "version": "8.0.4",
   "description": "Mixins for use in Pivotal UI Components",
   "dependencies": {
     "fbjs": "^0.7.2",

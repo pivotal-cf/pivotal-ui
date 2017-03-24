@@ -133,7 +133,7 @@ describe('Flag', () => {
     expect(mediaComponent).toBeDefined()
 
     const media = findByClass(mediaComponent, 'media')
-    expect(media.querySelector('.media-body')).toHaveClass(`media-middle`)
-    expect(media.querySelector('.media-left')).toHaveClass(`media-middle`)
+    expect(media.querySelector('.media-body')).toHaveClass('media-middle')
+    expect(media.querySelector('.media-left')).toHaveClass('media-middle')
   })
 })
