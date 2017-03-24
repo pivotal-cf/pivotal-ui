@@ -21,13 +21,18 @@ describe('Flex Table', () => {
         attribute: 'theDefault',
         displayName: 'DefaultSort',
         sortable: true
+      },
+      {
+        attribute: 'width',
+        displayName: 'SpecifiedWidth',
+        cellClass: 'col-6'
       }
     ]
 
     const data = [
-      {title: 'foo', bar: 'a', theDefault: 3},
-      {title: 'sup', bar: 'c', theDefault: 2},
-      {title: 'yee', bar: 'b', theDefault: 1}
+      {title: 'foo', bar: 'a', theDefault: 3, width: '11'},
+      {title: 'sup', bar: 'c', theDefault: 2, width: '21'},
+      {title: 'yee', bar: 'b', theDefault: 1, width: '31'}
     ]
 
     it('renders the table with the expected styles and ids', () => {
@@ -55,6 +60,14 @@ describe('Flex Table', () => {
       expect(sortableColumns.length).toEqual(2)
       expect(sortableColumns[0]).toHaveText('Bar')
       expect(sortableColumns[1]).toHaveText('DefaultSort')
+    });
+
+    it('accepts a "width" attribute which sets the column width using a class', () => {
+      const component = renderComponent({columns, data})
+      const widthSpecifiedColumns = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'col-6');
+
+      expect(widthSpecifiedColumns.length).toEqual(4)
+      expect(widthSpecifiedColumns[0]).toHaveText('SpecifiedWidth')
     });
 
     it('sorts table rows by the first sortable column with no default sort', () => {
@@ -210,13 +223,13 @@ describe('Flex Table', () => {
 
         const component = renderComponent({columns: columnsWithCustom, data: dataWithCustom, defaultSort: 'custom'})
 
-        const customHeader = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')[3]
+        const customHeader = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')[4]
         expect(customHeader).toHaveClass('sortable')
 
         const rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
         rows.forEach((row, index) => {
           if (index == 0) return;
-          expect(row.childNodes[3]).toHaveText(`custom-${index}`)
+          expect(row.childNodes[4]).toHaveText(`custom-${index}`)
         })
       })
 
