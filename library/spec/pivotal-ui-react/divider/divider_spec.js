@@ -1,71 +1,60 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {Divider} from 'pui-react-dividers'
+import {itPropagatesAttributes} from '../support/shared_examples'
+import ReactTestUtils from 'react-addons-test-utils'
+import {findByTag} from '../spec_helper'
 
-import {itPropagatesAttributes} from '../support/shared_examples';
+describe('Divider', () => {
+  let result
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Divider {...props}/>)
 
-describe('Divider', function() {
-  var Divider;
-  beforeEach(function() {
-    Divider = require('../../../src/pivotal-ui-react/dividers/dividers').Divider;
-    ReactDOM.render(<Divider className='test-class' id='test-id' style={{opacity: '0.5'}}/>, root);
-  });
+  describe('rendering', () => {
+    result = renderComponent({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
 
-  afterEach(function() {
-    ReactDOM.unmountComponentAtNode(root);
-  });
+    it('creates a divider', () => {
+      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-1')
+    })
 
-  it('creates a divider', function() {
-    expect('hr').toHaveClass('divider-alternate-1');
-  });
+    itPropagatesAttributes(findByTag(result, 'hr'), {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}})
+  })
 
-  itPropagatesAttributes('hr', {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
-  describe('when large is set to true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Divider size="large"/>, root);
-    });
+  describe('when size is set to large', () => {
+    beforeEach(() => {
+      result = renderComponent({size: 'large'})
+    })
 
-    it('creates a divider with -2 appended to the classname', function() {
-      expect('hr').toHaveClass('divider-alternate-2');
-    });
-  });
+    it('creates a divider with -2 appended to the classname', () => {
+      expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-2')
+    })
+  })
 
-  describe('when the divider goes on a dark background, inverse: true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Divider inverse={true}/>, root);
-    });
+  describe('when inverse is true', () => {
+    beforeEach(() => {
+      result = renderComponent({inverse: true})
+    })
 
-    it('creates a divider without the -alternate in the class', function() {
-      expect('hr').toHaveClass('divider-1');
-    });
-  });
+    it('creates a divider without the -alternate in the class', () => {
+      expect(findByTag(result, 'hr')).toHaveClass('divider-1')
+    })
+  })
 
-  describe('when a large divider goes on a dark background, inverse: true', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Divider inverse={true} size="large"/>, root);
-    });
+  describe('when size is set to large and inverse is set to true', () => {
+    beforeEach(() => {
+      result = renderComponent({inverse: true, size: 'large'})
+    })
 
-    it('creates a divider without the -alternate in the class', function() {
-      expect('hr').toHaveClass('divider-2');
-    });
-  });
+    it('creates a divider without the -alternate in the class and -2 appended to the classname', () => {
+      expect(findByTag(result, 'hr')).toHaveClass('divider-2')
+    })
+  })
 
-  describe('setting a custom className', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Divider inverse={true} className="myClass"/>, root);
-    });
+  describe('setting a custom data attribute', () => {
+    beforeEach(() => {
+      result = renderComponent({'data-behavior': 'myAttr'})
+    })
 
-    it('passes the class through to the divider', function() {
-      expect('hr').toHaveClass('divider-1');
-      expect('hr').toHaveClass('myClass');
-    });
-  });
-
-  describe('setting a custom data attribute', function() {
-    beforeEach(function() {
-      ReactDOM.render(<Divider data-behavior="myAttr"/>, root);
-    });
-
-    it('passes the data attribute through to the divider', function() {
-      expect('hr').toHaveAttr('data-behavior', 'myAttr');
-    });
-  });
-});
+    it('passes the data attribute through to the divider', () => {
+      expect(findByTag(result, 'hr')).toHaveAttr('data-behavior', 'myAttr')
+    })
+  })
+})
