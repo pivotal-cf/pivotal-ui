@@ -1,24 +1,22 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {default as mixin} from 'pui-react-mixins'
+import {default as Mounted} from 'pui-react-mixins/mixins/mounted_mixin'
 
 describe('MountedMixin', () => {
-  let Component, subject;
+  let Component, subject
   beforeEach(() => {
-    const mixin = require('pui-react-mixins');
-    const Mounted = require('../../../src/pivotal-ui-react/mixins/mixins/mounted_mixin');
     class Klass extends mixin(React.Component).with(Mounted) {
-      render() { return null; }
+      render() { return null }
     }
-    Component = Klass;
-    subject = ReactDOM.render(<Component/>, root);
-  });
+    Component = Klass
+  })
 
   describe('#mounted', () => {
     it('returns true when the component is mounted', () => {
-      expect(subject.mounted()).toBe(true);
-      ReactDOM.unmountComponentAtNode(root);
-      expect(subject.mounted()).toBe(false);
-      subject = ReactDOM.render(<Component/>, root);
-      expect(subject.mounted()).toBe(true);
-    });
-  });
-});
+      subject = ReactDOM.render(<Component/>, root)
+      expect(subject.mounted()).toBe(true)
+      ReactDOM.unmountComponentAtNode(root)
+      expect(subject.mounted()).toBe(false)
+    })
+  })
+})
