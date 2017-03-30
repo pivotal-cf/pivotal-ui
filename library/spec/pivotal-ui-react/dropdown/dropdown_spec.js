@@ -47,6 +47,35 @@ describe('Dropdown', () => {
     expect(icon.querySelector('.icon-chevron_down')).toExist()
   })
 
+  describe('split dropdown', () => {
+    let onSelectSpy
+    beforeEach(() => {
+      onSelectSpy = jasmine.createSpy('on select')
+      subject = renderComponent({
+        labelAriaLabel: 'Nessun Dorma',
+        href: 'default',
+        split: true,
+        onSelect: onSelectSpy
+      }, {href: 'test'})
+    })
+
+    it('renders the dropdown label as an anchor with the provided href', () => {
+      const dropdownLabel = findByClass(subject, 'dropdown-label')
+      expect(dropdownLabel).toHaveAttr('href', 'default')
+      expect(dropdownLabel.tagName).toEqual('A')
+    })
+
+    it('sets the labelAriaLabel as the dropdown label aria-label', () => {
+      const dropdownLabel = findByClass(subject, 'dropdown-label')
+      expect(dropdownLabel).toHaveAttr('aria-label', 'Nessun Dorma')
+    })
+
+    it('calls the onSelect callback on selecting the default option', () => {
+      clickOn(findByClass(subject, 'dropdown-label'))
+      expect(onSelectSpy).toHaveBeenCalled()
+    })
+  })
+
   it('calls onClick when dropdown toggle is clicked', () => {
     const onClickSpy = jasmine.createSpy('onClick')
     subject = renderComponent({onClick: onClickSpy})

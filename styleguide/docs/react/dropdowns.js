@@ -25,11 +25,15 @@ closeOnMenuClick | no       | Boolean                             | true        
 disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
 flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
 floatMenu        | no       | Boolean                             | false          | If true, float the dropdown menu. This only applies to the basic dropdown
+href             | no       | String                              |                | Link for the default option (split dropdown only)
 icon             | no       | String                              | 'chevron_down' | Name of the svg to use for the toggle icon
 link             | no       | Boolean                             |                | If true, color the dropdown toggle like a link
+labelAriaLabel   | no       | String                              |                | aria-label for the label (split dropdown only)
 menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
+onClick          | no       | Function                            |                | Callback that fires after clicking the button
 onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
 onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
+onSelect         | no       | Function                            |                | Callback that fires after clicking the default option (split dropdown only)
 scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
 showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
 size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
@@ -161,7 +165,7 @@ Action with additional actions hidden in a dropdown. Floating menu only.
 
 ```react_example
 <div className="form-group form-inline">
-  <Dropdown title='Split Dropdown' split>
+  <Dropdown title='Split Dropdown' split labelAriaLabel='splitLabel' href='#'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
     <DropdownItem href="#">lorem ipsum</DropdownItem>

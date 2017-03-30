@@ -28,12 +28,15 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     disableScrim: types.bool,
     flat: types.bool,
     floatMenu: types.bool,
+    href: types.string,
     icon: types.string,
     link: types.bool,
+    labelAriaLabel: types.string,
     menuAlign: types.oneOf(['none', 'left', 'right']),
     onClick: types.func,
     onEntered: types.func,
     onExited: types.func,
+    onSelect: types.func,
     title: types.node,
     toggle: types.node,
     scroll: types.bool,
@@ -57,6 +60,17 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     this.props.onClick && this.props.onClick(event)
   }
 
+  handleSplitClick = event => {
+    const {href, disabled, onSelect} = this.props
+    if (disabled) return
+
+    if (!href) {
+      event.preventDefault()
+    }
+
+    onSelect && onSelect(event)
+  }
+
   scrimClick = () => this.setState({open: false})
 
   menuClick = () => {
@@ -67,7 +81,8 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   render() {
     const {
       border, buttonAriaLabel, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
-      flat, link, menuAlign, size, icon, onClick, onEntered, onExited, split, title, toggle, floatMenu, scroll, ...props
+      flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onEntered, onExited, split, title, toggle,
+      floatMenu, scroll, ...props
     } = this.props
     const {open} = this.state
     const buttonStyleClasses = classnames('dropdown-toggle', buttonClassName)
@@ -100,12 +115,14 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       <ul aria-label="submenu" onClick={this.menuClick}>{children}</ul>
     </div>
 
+    const splitProps = {href, 'aria-label': labelAriaLabel}
+
     return (<div className={dropdownClasses} {...props}>
       <button type="button" onClick={this.click} className={buttonStyleClasses} aria-haspopup="true" aria-label={buttonAriaLabel}>
         {!split && title}
       </button>
       {toggleNode}
-      {split && <div className={classnames('dropdown-label', buttonClassName)}>{title}</div>}
+      {split && <a className={classnames('dropdown-label', buttonClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
       {dropdownOptions}
     </div>)
   }
