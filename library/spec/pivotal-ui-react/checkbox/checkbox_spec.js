@@ -1,63 +1,71 @@
-import '../spec_helper' ;
+import '../spec_helper'
+import {Checkbox} from 'pui-react-checkbox'
+import ReactTestUtils from 'react-addons-test-utils'
+import {findByClass, findAllByClass, clickOn} from '../spec_helper'
 
 describe('Checkbox', function() {
-  let subject;
-  const id = 'id';
-  const labelPath = '.checkbox label';
-  const inputPath = '.checkbox input[type="checkbox"]';
+  let subject, checkbox
 
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Checkbox {...props}/>)
   beforeEach(() => {
-    const {Checkbox} = require('../../../src/pivotal-ui-react/checkbox/checkbox');
-    subject = ReactDOM.render(<Checkbox label="labelText" id={id}/>, root);
-  });
+    subject = renderComponent({
+      label: 'labelText',
+      id: 'checkbox-id',
+      className: 'group-class',
+      inputClassName: 'input-class',
+      labelClassName: 'label-class'
+    })
+    checkbox = findByClass(subject, 'checkbox')
+  })
 
-  it('renders an input type checkbox', () => {
-    expect(inputPath).toExist();
-  });
+  it('renders an unchecked input type checkbox by default', () => {
+    expect(checkbox.querySelector('input[type="checkbox"]')).not.toBeChecked()
+  })
 
   it('renders a label', () => {
-    expect(labelPath).toHaveText('labelText');
-  });
+    expect(checkbox.querySelector('label')).toHaveText('labelText')
+  })
 
-  it('add more classes to the component', () => {
-    subject::setProps({className: 'checkbox-extra'});
-    expect('.form-group').toHaveClass('checkbox-extra');
-  });
+  it('passes through id and inputClassName to the input', () => {
+    const input = checkbox.querySelector('input[type="checkbox"]')
 
-  it('passes properties through to the input', () => {
-    ReactDOM.unmountComponentAtNode(root);
-    subject::setProps({checked: true, onChange: () => {}});
-    expect(inputPath).toBeChecked();
-  });
+    expect(input).toHaveAttr('id', 'checkbox-id')
+    expect(input).toHaveClass('input-class')
+  })
 
   it('associates the label with the checkbox', () => {
-    expect(labelPath).toHaveAttr('for', id);
-    expect(inputPath).toHaveAttr('id', id);
-  });
+    expect(checkbox.querySelector('label')).toHaveAttr('for', 'checkbox-id')
+  })
 
-  it('applies css class to input checkbox and the label', () => {
-    subject::setProps({inputClassName: 'input-class', labelClassName: 'label-class'});
-    expect(labelPath).toHaveClass('label-class');
-    expect(inputPath).toHaveClass('input-class');
-  });
+  it('passes through classname to the form group (the checkbox parent)', () => {
+    const formGroup = findByClass(subject, 'form-group')
+    expect(formGroup).toHaveClass('group-class')
+    expect(checkbox.parentNode).toEqual(formGroup)
+  })
 
-  it('add css class disabled when input checkbox is disabled', () => {
-    subject::setProps({disabled: true});
-    expect(labelPath).toHaveClass('disabled');
-    expect(inputPath).toBeDisabled();
-  });
+  it('renders checked if checked is true', () => {
+    subject = renderComponent({checked: true, onChange: () => {}})
+    expect(findByClass(subject, 'checkbox').querySelector('input[type="checkbox"]')).toBeChecked()
+  })
+
+  it('properly disables when disabled is true', () => {
+    subject = renderComponent({disabled: true})
+    checkbox = findByClass(subject, 'checkbox')
+    expect(checkbox.querySelector('label')).toHaveClass('disabled')
+    expect(checkbox.querySelector('input[type="checkbox"]')).toBeDisabled()
+  })
 
   describe('errors', () => {
     it('display error message when display error is true', () => {
-      subject::setProps({displayError: true, errorMessage: 'Error!'});
-      expect('.form-group').toHaveClass('has-error');
-      expect('.help-block').toContainText('Error!');
-    });
+      subject = renderComponent({displayError: true, errorMessage: 'Error!'})
+      expect(findByClass(subject, 'form-group')).toHaveClass('has-error')
+      expect(findByClass(subject, 'help-block')).toContainText('Error!')
+    })
 
     it('hide error element when display error is false', () => {
-      subject::setProps({displayError: false, errorMessage: 'Error!'});
-      expect('.form-group').not.toHaveClass('has-error');
-      expect('.help-block').not.toExist();
-    });
-  });
-});
+      subject = renderComponent({displayError: false, errorMessage: 'Error!'})
+      expect(findByClass(subject, 'form-group')).not.toHaveClass('has-error')
+      expect(findAllByClass(subject, 'help-block')).toHaveLength(0)
+    })
+  })
+})
