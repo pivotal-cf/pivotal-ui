@@ -144,7 +144,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
             <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={ref => this.dialog = ref}>
               <div className="modal-content">
                 <div className="modal-header">
-                  <h4 className="modal-title">{title}</h4>
+                  <h3 className="modal-title em-high">{title}</h3>
                   <div className="modal-close">
                     <button className="btn btn-icon" onClick={onHide}>
                       <Icon src="close"/>
