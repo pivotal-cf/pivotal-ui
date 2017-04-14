@@ -382,6 +382,39 @@ describe('Flex Table', () => {
         expect(cells.length).toBe(2)
       })
     })
+
+    describe('cell width', () => {
+      let headers, cells
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid',
+          width: '100px'
+        }]
+        const component = renderComponent({
+          columns,
+          data
+        })
+        headers = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')
+        cells = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'td')
+      })
+
+      it('adds col-fixed class to the header cells', () => {
+        expect(headers[0]).toHaveClass('col-fixed')
+      })
+
+      it('adds width style to the header cells', () => {
+        expect(headers[0]).toHaveAttr('style', 'width: 100px;')
+      })
+
+      it('adds col-fixed class to the body cells', () => {
+        cells.forEach(cell => expect(cell).toHaveClass('col-fixed'))
+      })
+
+      it('adds width style to the body cells', () => {
+        cells.forEach(cell => expect(cell).toHaveAttr('style', 'width: 100px;'))
+      })
+    })
   })
 })
 

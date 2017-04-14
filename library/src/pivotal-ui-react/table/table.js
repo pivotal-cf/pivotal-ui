@@ -129,9 +129,14 @@ export class Table extends React.Component {
     const {bodyRowClassName, columns, CustomRow} = this.props;
 
     return data.map((datum, rowKey) => {
-      const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
+      const cells = columns.map(({attribute, CustomCell, cellClass, width}, key) => {
+        let style;
+        if (width) {
+          cellClass = classnames(cellClass, 'col-fixed');
+          style = {width};
+        }
         const Cell = CustomCell || this.defaultCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum}>{datum[attribute]}</Cell>;
+        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum} style={style}>{datum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -146,7 +151,7 @@ export class Table extends React.Component {
   renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
     return this.props.columns.map((column, index) => {
-      let {attribute, sortable, displayName, cellClass, headerProps = {}} = column;
+      let {attribute, sortable, displayName, cellClass, width, headerProps = {}} = column;
       const isSortColumn = column === sortColumn;
       let className, icon;
       if (isSortColumn) {
@@ -163,6 +168,14 @@ export class Table extends React.Component {
         key: index,
         onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
+
+      if (width) {
+        headerProps = {
+          ...headerProps,
+          className: classnames(className, 'col-fixed'),
+          style: {width}
+        }
+      }
 
 			const Header = this.defaultHeader
       return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
