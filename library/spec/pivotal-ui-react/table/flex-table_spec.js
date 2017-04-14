@@ -357,6 +357,31 @@ describe('Flex Table', () => {
         expect(renderedRows[2]).toHaveClass('rows-class')
       })
     })
+
+    describe('hide header row', () => {
+      let component
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        component = renderComponent({
+          columns,
+          data,
+          hideHeaderRow: true
+        })
+      })
+
+      it('does not render the header row', () => {
+        const headers = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')
+        expect(headers.length).toBe(0)
+      })
+
+      it('renders the body rows', () => {
+        const cells = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'td')
+        expect(cells.length).toBe(2)
+      })
+    })
   })
 })
 

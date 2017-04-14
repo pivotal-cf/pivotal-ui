@@ -277,16 +277,24 @@ export class FlexTable extends Table {
       data,
       defaultSort,
       headerRowClassName,
+      hideHeaderRow,
       ...props
     } = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
+    let header;
+    if (!hideHeaderRow) {
+      header = (
+        <div className={classnames('tr', 'grid', headerRowClassName)}>
+          {this.renderHeaders()}
+        </div>
+      );
+    }
+
     return (<div {...props}>
-      <div className={classnames('tr', 'grid', headerRowClassName)}>
-      	{this.renderHeaders()}
-      </div>
+      {header}
       {rows}
     </div>);
   }
