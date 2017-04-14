@@ -13,6 +13,24 @@ const SORT_ORDER = {
   none: 2
 };
 
+const attrs = {
+  _common: ['id', 'children', 'className', 'disabled', 'onClick', 'onMouseDown',
+    'onMouseUp', 'onMouseOver', 'onMouseMove', 'onMouseOut', 'onKeyPress',
+    'onKeyDown', 'onKeyUp', 'style', 'tabIndex'],
+  div: ['align', 'lang', 'dir', 'title'],
+  td: ['abbr', 'align', 'axis', 'bgcolor', 'char', 'charoff', 'colspan',
+    'headers', 'rowspan', 'scope', 'valign', 'width']
+}
+
+function safeProps(element, input) {
+  const props = {}
+  const safeAttrs = attrs._common.concat(attrs[element])
+  Object.keys(input)
+    .filter(key => safeAttrs.indexOf(key) !== -1)
+    .forEach(key => props[key] = input[key])
+  return props
+}
+
 class TableHeader extends React.Component {
   static propTypes = {
     onClick: types.func,
@@ -52,9 +70,9 @@ export class TableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, ...others} = this.props
+		let {children, ...others} = this.props
 
-		return (<td {...others}>
+		return (<td {...safeProps('td', others)}>
 			{children}
 		</td>)
 	}
@@ -129,14 +147,23 @@ export class Table extends React.Component {
     const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
 
     return data.map((datum, rowKey) => {
-      const cells = columns.map(({attribute, CustomCell, cellClass, width}, key) => {
-        let style;
+      const cells = columns.map((opts, key) => {
+        const {attribute, CustomCell, width} = opts;
+        let style, {cellClass} = opts;
         if (width) {
           cellClass = classnames(cellClass, 'col-fixed');
           style = {width};
         }
         const Cell = CustomCell || this.defaultCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum} style={style}>{datum[attribute]}</Cell>;
+        return <Cell {...{
+          key,
+          index: rowKey,
+          value: datum[attribute],
+          className: cellClass,
+          rowDatum: datum,
+          style,
+          ...opts
+        }}>{datum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -216,9 +243,9 @@ class FlexTableHeader extends TableHeader {
 
     const thProps = {...props, tabIndex: 0, disabled: !sortable};
     if (sortable) {
-      return <div {...thProps} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
+      return <div {...safeProps('div', thProps)} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
     } else {
-      return <div {...thProps}/>;
+      return <div {...safeProps('div', thProps)}/>;
     }
   }
 }
@@ -231,11 +258,11 @@ export class FlexTableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, className, ...others} = this.props
+		let {children, className, ...others} = this.props
 		const classes = classnames(className, 'td', 'col')
 		const props = mergeProps(others, {className: classes})
 
-		return (<div {...props}>
+		return (<div {...safeProps('div', props)}>
 			{children}
 		</div>)
 	}
@@ -247,11 +274,11 @@ export class FlexTableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, className, ...others} = this.props
+		let {children, className, ...others} = this.props
   	const classes = classnames(className, 'tr', 'grid')
   	const props = mergeProps(others, {className: classes})
 
-		return (<div {...props}>
+		return (<div {...safeProps('div', props)}>
 			{children}
 		</div>)
 	}
@@ -286,17 +313,7 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {
-      bodyRowClassName,
-      columns,
-      CustomRow,
-      data,
-      defaultSort,
-      headerRowClassName,
-      hideHeaderRow,
-      rowProps,
-      ...props
-    } = this.props;
+    let {data, headerRowClassName, hideHeaderRow, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
@@ -310,7 +327,7 @@ export class FlexTable extends Table {
       );
     }
 
-    return (<div {...props}>
+    return (<div {...safeProps('div', props)}>
       {header}
       {rows}
     </div>);
