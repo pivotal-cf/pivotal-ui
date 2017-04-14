@@ -126,7 +126,7 @@ export class Table extends React.Component {
   }
 
   rows = data => {
-    const {columns, CustomRow} = this.props;
+    const {bodyRowClassName, columns, CustomRow} = this.props;
 
     return data.map((datum, rowKey) => {
       const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
@@ -135,7 +135,11 @@ export class Table extends React.Component {
       });
 
       const Row = CustomRow || this.defaultRow;
-      return <Row key={rowKey} index={rowKey}>{cells}</Row>;
+      return <Row {...{
+        key: rowKey,
+        index: rowKey,
+        className: bodyRowClassName
+      }}>{cells}</Row>;
     });
   }
 
@@ -241,6 +245,7 @@ export class FlexTableRow extends React.Component {
 
 export class FlexTable extends Table {
   static propTypes = {
+    bodyRowClassName: types.string,
     columns: types.array.isRequired,
     CustomRow: types.func,
     data: types.array.isRequired,
@@ -266,6 +271,7 @@ export class FlexTable extends Table {
   render() {
     const {sortColumn} = this.state;
     let {
+      bodyRowClassName,
       columns,
       CustomRow,
       data,

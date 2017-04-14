@@ -331,6 +331,32 @@ describe('Flex Table', () => {
         expect(renderedRows[2]).not.toHaveClass('header-class')
       })
     })
+
+    describe('apply a class to the body rows, but not to the header row', () => {
+      let renderedRows
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const bodyRowClassName = 'rows-class'
+        const component = renderComponent({
+          columns,
+          data,
+          bodyRowClassName
+        })
+        renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('does not add the class to the header row', () => {
+        expect(renderedRows[0]).not.toHaveClass('rows-class')
+      })
+
+      it('adds the class to the body rows', () => {
+        expect(renderedRows[1]).toHaveClass('rows-class')
+        expect(renderedRows[2]).toHaveClass('rows-class')
+      })
+    })
   })
 })
 
