@@ -137,11 +137,12 @@ export class DropdownItem extends React.Component {
     divider: types.bool,
     disabled: types.bool,
     eventKey: types.string,
-    onSelect: types.func
+    onSelect: types.func,
+    onClick: types.func,
   }
 
   handleClick = event => {
-    const {href, disabled, onSelect, eventKey} = this.props
+    const {href, disabled, onClick, onSelect, eventKey} = this.props
     if (disabled) return
 
     if (!href) {
@@ -151,10 +152,14 @@ export class DropdownItem extends React.Component {
     if (onSelect) {
       onSelect(event, eventKey)
     }
+
+    if (onClick) {
+      onClick(event)
+    }
   }
 
   render() {
-    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props
+    const {children, className, eventKey, style, href, header, divider, disabled, onClick, onSelect, ...anchorProps} = this.props
 
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>)
     if (divider) return (<li role="separator" className="divider"/>)
