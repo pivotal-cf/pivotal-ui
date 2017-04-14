@@ -19,7 +19,8 @@ const attrs = {
     'onKeyDown', 'onKeyUp', 'style', 'tabIndex'],
   div: ['align', 'lang', 'dir', 'title'],
   td: ['abbr', 'align', 'axis', 'bgcolor', 'char', 'charoff', 'colspan',
-    'headers', 'rowspan', 'scope', 'valign', 'width']
+    'headers', 'rowspan', 'scope', 'valign', 'width'],
+  tr: ['align', 'bgcolor', 'char', 'charoff', 'valign']
 }
 
 function safeProps(element, input) {
@@ -84,9 +85,9 @@ export class TableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, ...others} = this.props
+		let {children, ...others} = this.props
 
-		return (<tr {...others}>
+		return (<tr {...safeProps('tr', others)}>
 			{children}
 		</tr>)
 	}
@@ -146,7 +147,7 @@ export class Table extends React.Component {
   rows = data => {
     const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
 
-    return data.map((datum, rowKey) => {
+    return data.map((rowDatum, rowKey) => {
       const cells = columns.map((opts, key) => {
         const {attribute, CustomCell, width} = opts;
         let style, {cellClass} = opts;
@@ -158,12 +159,12 @@ export class Table extends React.Component {
         return <Cell {...{
           key,
           index: rowKey,
-          value: datum[attribute],
+          value: rowDatum[attribute],
           className: cellClass,
-          rowDatum: datum,
+          rowDatum,
           style,
           ...opts
-        }}>{datum[attribute]}</Cell>;
+        }}>{rowDatum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -171,6 +172,7 @@ export class Table extends React.Component {
         key: rowKey,
         index: rowKey,
         className: bodyRowClassName,
+        rowDatum,
         ...rowProps
       }}>{cells}</Row>;
     });

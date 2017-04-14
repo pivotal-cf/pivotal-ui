@@ -443,6 +443,39 @@ describe('Flex Table', () => {
       })
     })
 
+    describe('row datum prop', () => {
+      let rows
+
+      beforeEach(() => {
+        data = [{
+          guid: 'guid-1',
+          name: 'name-1'
+        }, {
+          guid: 'guid-2',
+          name: 'name-2'
+        }]
+        const CustomRow = ({rowDatum: {guid, name}}) => (
+          <div className="tr">
+            {`[${guid}] ${name}`}
+          </div>
+        )
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const component = renderComponent({
+          columns,
+          data,
+          CustomRow
+        })
+        rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('passes to the body rows', () => {
+        rows.slice(1).forEach((row, i) => expect(row)
+          .toHaveText(`[guid-${i + 1}] name-${i + 1}`))
+      })
+    })
+
     describe('cell props', () => {
       let cells
 
