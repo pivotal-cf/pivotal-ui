@@ -1,9 +1,9 @@
 {
-  "version": "8.0.4",
+  "version": "8.0.5",
   "description": "A React component that provides styled tooltips",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
-    "pui-css-tooltips": "=8.0.4"
+    "pui-css-tooltips": "=8.0.5"
   }
 }

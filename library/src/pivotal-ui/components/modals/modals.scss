@@ -11,10 +11,19 @@
   width: 744px;
 }
 
+.modal-dialog.modal-lg {
+  width: 900px;
+}
+
 .modal-content {
   background-color: #fff;
   border-radius: 2px;
   position: relative;
+}
+
+.modal-title {
+  margin: inherit;
+  line-height: inherit;
 }
 
 .modal-header {
@@ -33,6 +42,10 @@
 .modal-footer {
   border-top: 0;
   padding: 0 ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
+
+  .btn+.btn {
+    margin-left: $base-unit;
+  }
 }
 
 .modal-close {
