@@ -415,6 +415,33 @@ describe('Flex Table', () => {
         cells.forEach(cell => expect(cell).toHaveAttr('style', 'width: 100px;'))
       })
     })
+
+    describe('row props', () => {
+      let rows
+
+      beforeEach(() => {
+        const CustomRow = props => (
+          <div className="tr">
+            {props['some-prop']}
+          </div>
+        )
+        CustomRow.propTypes = {'some-prop': React.PropTypes.string}
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const component = renderComponent({
+          columns,
+          data,
+          CustomRow,
+          rowProps: {'some-prop': 'some-value'}
+        })
+        rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('passes to the body rows', () => {
+        rows.slice(1).forEach(row => expect(row).toHaveText('some-value'))
+      })
+    })
   })
 })
 

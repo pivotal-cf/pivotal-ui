@@ -126,7 +126,7 @@ export class Table extends React.Component {
   }
 
   rows = data => {
-    const {bodyRowClassName, columns, CustomRow} = this.props;
+    const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
 
     return data.map((datum, rowKey) => {
       const cells = columns.map(({attribute, CustomCell, cellClass, width}, key) => {
@@ -143,7 +143,8 @@ export class Table extends React.Component {
       return <Row {...{
         key: rowKey,
         index: rowKey,
-        className: bodyRowClassName
+        className: bodyRowClassName,
+        ...rowProps
       }}>{cells}</Row>;
     });
   }
@@ -265,7 +266,8 @@ export class FlexTable extends Table {
     defaultSort: types.string,
     cellClass: types.string,
     headerRowClassName: types.string,
-    hideHeaderRow: types.bool
+    hideHeaderRow: types.bool,
+    rowProps: types.object
   }
 
   constructor(props, context) {
@@ -292,6 +294,7 @@ export class FlexTable extends Table {
       defaultSort,
       headerRowClassName,
       hideHeaderRow,
+      rowProps,
       ...props
     } = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
