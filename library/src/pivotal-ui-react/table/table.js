@@ -251,7 +251,8 @@ export class FlexTable extends Table {
     data: types.array.isRequired,
     defaultSort: types.string,
     cellClass: types.string,
-    headerRowClassName: types.string
+    headerRowClassName: types.string,
+    hideHeaderRow: types.bool
   }
 
   constructor(props, context) {
