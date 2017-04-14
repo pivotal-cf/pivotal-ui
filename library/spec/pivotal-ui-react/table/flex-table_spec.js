@@ -294,5 +294,43 @@ describe('Flex Table', () => {
       })
     })
   })
+
+  describe('additional FlexTable props', () => {
+    let data
+
+    beforeEach(() => {
+      data = [{
+        guid: 'guid-1'
+      }, {
+        guid: 'guid-2'
+      }]
+    })
+
+    describe('apply a class to the header row, but not to the body rows', () => {
+      let renderedRows
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const headerRowClassName = 'header-class'
+        const component = renderComponent({
+          columns,
+          data,
+          headerRowClassName
+        })
+        renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('adds the class to the header row', () => {
+        expect(renderedRows[0]).toHaveClass('header-class')
+      })
+
+      it('does not add the class to the body rows', () => {
+        expect(renderedRows[1]).not.toHaveClass('header-class')
+        expect(renderedRows[2]).not.toHaveClass('header-class')
+      })
+    })
+  })
 })
 

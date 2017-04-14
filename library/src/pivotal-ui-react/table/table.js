@@ -245,7 +245,8 @@ export class FlexTable extends Table {
     CustomRow: types.func,
     data: types.array.isRequired,
     defaultSort: types.string,
-    cellClass: types.string
+    cellClass: types.string,
+    headerRowClassName: types.string
   }
 
   constructor(props, context) {
@@ -264,13 +265,20 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {columns, CustomRow, data, defaultSort, ...props} = this.props;
+    let {
+      columns,
+      CustomRow,
+      data,
+      defaultSort,
+      headerRowClassName,
+      ...props
+    } = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (<div {...props}>
-      <div className='tr grid'>
+      <div className={classnames('tr', 'grid', headerRowClassName)}>
       	{this.renderHeaders()}
       </div>
       {rows}
