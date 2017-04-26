@@ -294,5 +294,214 @@ describe('Flex Table', () => {
       })
     })
   })
+
+  describe('additional FlexTable props', () => {
+    let data
+
+    beforeEach(() => {
+      data = [{
+        guid: 'guid-1'
+      }, {
+        guid: 'guid-2'
+      }]
+    })
+
+    describe('apply a class to the header row, but not to the body rows', () => {
+      let renderedRows
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const headerRowClassName = 'header-class'
+        const component = renderComponent({
+          columns,
+          data,
+          headerRowClassName
+        })
+        renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('adds the class to the header row', () => {
+        expect(renderedRows[0]).toHaveClass('header-class')
+      })
+
+      it('does not add the class to the body rows', () => {
+        expect(renderedRows[1]).not.toHaveClass('header-class')
+        expect(renderedRows[2]).not.toHaveClass('header-class')
+      })
+    })
+
+    describe('apply a class to the body rows, but not to the header row', () => {
+      let renderedRows
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const bodyRowClassName = 'rows-class'
+        const component = renderComponent({
+          columns,
+          data,
+          bodyRowClassName
+        })
+        renderedRows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('does not add the class to the header row', () => {
+        expect(renderedRows[0]).not.toHaveClass('rows-class')
+      })
+
+      it('adds the class to the body rows', () => {
+        expect(renderedRows[1]).toHaveClass('rows-class')
+        expect(renderedRows[2]).toHaveClass('rows-class')
+      })
+    })
+
+    describe('hide header row', () => {
+      let component
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }]
+        component = renderComponent({
+          columns,
+          data,
+          hideHeaderRow: true
+        })
+      })
+
+      it('does not render the header row', () => {
+        const headers = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')
+        expect(headers.length).toBe(0)
+      })
+
+      it('renders the body rows', () => {
+        const cells = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'td')
+        expect(cells.length).toBe(2)
+      })
+    })
+
+    describe('cell width', () => {
+      let headers, cells
+
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid',
+          width: '100px'
+        }]
+        const component = renderComponent({
+          columns,
+          data
+        })
+        headers = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'th')
+        cells = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'td')
+      })
+
+      it('adds col-fixed class to the header cells', () => {
+        expect(headers[0]).toHaveClass('col-fixed')
+      })
+
+      it('adds width style to the header cells', () => {
+        expect(headers[0]).toHaveAttr('style', 'width: 100px;')
+      })
+
+      it('adds col-fixed class to the body cells', () => {
+        cells.forEach(cell => expect(cell).toHaveClass('col-fixed'))
+      })
+
+      it('adds width style to the body cells', () => {
+        cells.forEach(cell => expect(cell).toHaveAttr('style', 'width: 100px;'))
+      })
+    })
+
+    describe('row props', () => {
+      let rows
+
+      beforeEach(() => {
+        const CustomRow = props => (
+          <div className="tr">
+            {props['some-prop']}
+          </div>
+        )
+        CustomRow.propTypes = {'some-prop': React.PropTypes.string}
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const component = renderComponent({
+          columns,
+          data,
+          CustomRow,
+          rowProps: {'some-prop': 'some-value'}
+        })
+        rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('passes to the body rows', () => {
+        rows.slice(1).forEach(row => expect(row).toHaveText('some-value'))
+      })
+    })
+
+    describe('row datum prop', () => {
+      let rows
+
+      beforeEach(() => {
+        data = [{
+          guid: 'guid-1',
+          name: 'name-1'
+        }, {
+          guid: 'guid-2',
+          name: 'name-2'
+        }]
+        const CustomRow = ({rowDatum: {guid, name}}) => (
+          <div className="tr">
+            {`[${guid}] ${name}`}
+          </div>
+        )
+        const columns = [{
+          attribute: 'guid'
+        }]
+        const component = renderComponent({
+          columns,
+          data,
+          CustomRow
+        })
+        rows = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'tr')
+      })
+
+      it('passes to the body rows', () => {
+        rows.slice(1).forEach((row, i) => expect(row)
+          .toHaveText(`[guid-${i + 1}] name-${i + 1}`))
+      })
+    })
+
+    describe('cell props', () => {
+      let cells
+
+      beforeEach(() => {
+        const CustomCell = props => (
+          <div className="td">
+            {props['some-prop']}
+          </div>
+        )
+        CustomCell.propTypes = {'some-prop': React.PropTypes.string}
+        const columns = [{
+          attribute: 'guid',
+          'some-prop': 'some-value',
+          CustomCell
+        }]
+        const component = renderComponent({
+          columns,
+          data
+        })
+        cells = ReactTestUtils.scryRenderedDOMComponentsWithClass(component, 'td')
+      })
+
+      it('passes to the body cells', () => {
+        cells.forEach(cell => expect(cell).toHaveText('some-value'))
+      })
+    })
+  })
 })
 

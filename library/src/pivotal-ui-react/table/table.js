@@ -13,6 +13,25 @@ const SORT_ORDER = {
   none: 2
 };
 
+const attrs = {
+  _common: ['id', 'children', 'className', 'disabled', 'onClick', 'onMouseDown',
+    'onMouseUp', 'onMouseOver', 'onMouseMove', 'onMouseOut', 'onKeyPress',
+    'onKeyDown', 'onKeyUp', 'style', 'tabIndex'],
+  div: ['align', 'lang', 'dir', 'title'],
+  td: ['abbr', 'align', 'axis', 'bgcolor', 'char', 'charoff', 'colspan',
+    'headers', 'rowspan', 'scope', 'valign', 'width'],
+  tr: ['align', 'bgcolor', 'char', 'charoff', 'valign']
+}
+
+function safeProps(element, input) {
+  const props = {}
+  const safeAttrs = attrs._common.concat(attrs[element])
+  Object.keys(input)
+    .filter(key => safeAttrs.indexOf(key) !== -1)
+    .forEach(key => props[key] = input[key])
+  return props
+}
+
 class TableHeader extends React.Component {
   static propTypes = {
     onClick: types.func,
@@ -52,9 +71,9 @@ export class TableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, ...others} = this.props
+		let {children, ...others} = this.props
 
-		return (<td {...others}>
+		return (<td {...safeProps('td', others)}>
 			{children}
 		</td>)
 	}
@@ -66,9 +85,9 @@ export class TableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, ...others} = this.props
+		let {children, ...others} = this.props
 
-		return (<tr {...others}>
+		return (<tr {...safeProps('tr', others)}>
 			{children}
 		</tr>)
 	}
@@ -126,23 +145,43 @@ export class Table extends React.Component {
   }
 
   rows = data => {
-    const {columns, CustomRow} = this.props;
+    const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
 
-    return data.map((datum, rowKey) => {
-      const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
+    return data.map((rowDatum, rowKey) => {
+      const cells = columns.map((opts, key) => {
+        const {attribute, CustomCell, width} = opts;
+        let style, {cellClass} = opts;
+        if (width) {
+          cellClass = classnames(cellClass, 'col-fixed');
+          style = {width};
+        }
         const Cell = CustomCell || this.defaultCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum}>{datum[attribute]}</Cell>;
+        return <Cell {...{
+          key,
+          index: rowKey,
+          value: rowDatum[attribute],
+          className: cellClass,
+          rowDatum,
+          style,
+          ...opts
+        }}>{rowDatum[attribute]}</Cell>;
       });
 
       const Row = CustomRow || this.defaultRow;
-      return <Row key={rowKey} index={rowKey}>{cells}</Row>;
+      return <Row {...{
+        key: rowKey,
+        index: rowKey,
+        className: bodyRowClassName,
+        rowDatum,
+        ...rowProps
+      }}>{cells}</Row>;
     });
   }
 
   renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
     return this.props.columns.map((column, index) => {
-      let {attribute, sortable, displayName, cellClass, headerProps = {}} = column;
+      let {attribute, sortable, displayName, cellClass, width, headerProps = {}} = column;
       const isSortColumn = column === sortColumn;
       let className, icon;
       if (isSortColumn) {
@@ -159,6 +198,14 @@ export class Table extends React.Component {
         key: index,
         onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
+
+      if (width) {
+        headerProps = {
+          ...headerProps,
+          className: classnames(className, 'col-fixed'),
+          style: {width}
+        }
+      }
 
 			const Header = this.defaultHeader
       return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
@@ -198,9 +245,9 @@ class FlexTableHeader extends TableHeader {
 
     const thProps = {...props, tabIndex: 0, disabled: !sortable};
     if (sortable) {
-      return <div {...thProps} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
+      return <div {...safeProps('div', thProps)} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
     } else {
-      return <div {...thProps}/>;
+      return <div {...safeProps('div', thProps)}/>;
     }
   }
 }
@@ -213,11 +260,11 @@ export class FlexTableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, className, ...others} = this.props
+		let {children, className, ...others} = this.props
 		const classes = classnames(className, 'td', 'col')
 		const props = mergeProps(others, {className: classes})
 
-		return (<div {...props}>
+		return (<div {...safeProps('div', props)}>
 			{children}
 		</div>)
 	}
@@ -229,11 +276,11 @@ export class FlexTableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, className, ...others} = this.props
+		let {children, className, ...others} = this.props
   	const classes = classnames(className, 'tr', 'grid')
   	const props = mergeProps(others, {className: classes})
 
-		return (<div {...props}>
+		return (<div {...safeProps('div', props)}>
 			{children}
 		</div>)
 	}
@@ -241,11 +288,15 @@ export class FlexTableRow extends React.Component {
 
 export class FlexTable extends Table {
   static propTypes = {
+    bodyRowClassName: types.string,
     columns: types.array.isRequired,
     CustomRow: types.func,
     data: types.array.isRequired,
     defaultSort: types.string,
-    cellClass: types.string
+    cellClass: types.string,
+    headerRowClassName: types.string,
+    hideHeaderRow: types.bool,
+    rowProps: types.object
   }
 
   constructor(props, context) {
@@ -264,15 +315,22 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {columns, CustomRow, data, defaultSort, ...props} = this.props;
+    let {data, headerRowClassName, hideHeaderRow, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
-    return (<div {...props}>
-      <div className='tr grid'>
-      	{this.renderHeaders()}
-      </div>
+    let header;
+    if (!hideHeaderRow) {
+      header = (
+        <div className={classnames('tr', 'grid', headerRowClassName)}>
+          {this.renderHeaders()}
+        </div>
+      );
+    }
+
+    return (<div {...safeProps('div', props)}>
+      {header}
       {rows}
     </div>);
   }
