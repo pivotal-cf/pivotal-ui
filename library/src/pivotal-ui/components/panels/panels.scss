@@ -12,6 +12,8 @@
   }
   margin: 0;
   //background-color: transparent; // Bootstrap Override
+
+  border: none; //Bootstrap override
 }
 
 .panel-body {
@@ -164,10 +166,6 @@
   &.panel-off:before {
     border-top: ($base-unit*3) solid $gray-4;
   }
-}
-
-.panel {
-  border: none; //Bootstrap override
 }
 
 .panel-shadow {
