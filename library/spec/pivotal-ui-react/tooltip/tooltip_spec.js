@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils';
+;
 import {Tooltip} from 'pui-react-tooltip'
 
 describe('Tooltip Component', () => {

@@ -1,17 +1,17 @@
 import React from 'react';
 
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 export class Tab extends React.Component {
   static propTypes = {
-    'aria-labelledby': types.string,
-    className: types.string,
-    disabled: types.bool,
-    eventKey: types.any,
-    onEntered: types.func,
-    onExited: types.func,
-    tabClassName: types.string,
-    title: types.node.isRequired
+    'aria-labelledby': PropTypes.string,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    eventKey: PropTypes.any,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    tabClassName: PropTypes.string,
+    title: PropTypes.node.isRequired
   }
 
   static defaultProps = {

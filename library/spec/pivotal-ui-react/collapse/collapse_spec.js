@@ -1,102 +1,105 @@
-import '../spec_helper'
+import '../spec_helper' ;
 import {BaseCollapse, Collapse, AltCollapse} from 'pui-react-collapse'
 import {Collapsible} from 'pui-react-collapsible'
-import {findByClass, findByTag, clickOn} from '../spec_helper'
 
-let subject
-describe('BaseCollapse', () => {
+describe('BaseCollapse', function() {
+  let subject;
 
-  const renderIntoDom = props => ReactDOM.render(
-    <BaseCollapse {...props}>
-      <h1>Child</h1>
-    </BaseCollapse>, root
-  )
+  beforeEach(() => {
+    spyOn(Collapsible.prototype, 'render').and.callThrough();
+    subject = ReactDOM.render((
+      <BaseCollapse header="ima header">
+        <h1>Child</h1>
+      </BaseCollapse>
+    ), root);
+  });
 
-  it('creates a collapsed panel', () => {
-    subject = renderIntoDom({header: 'ima header'})
-    expect(findByClass(subject, 'panel-title')).toHaveText('ima header')
-    expect(findByClass(subject, 'collapse')).not.toHaveClass('in')
-    expect(findByClass(subject, 'panel-body')).toHaveText('Child')
-  })
+  it('creates a collapsed panel', function() {
+    expect('.panel-title').toHaveText('ima header');
+    expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
+    expect('.panel-body').toHaveText('Child');
+  });
 
-  describe('opening and closing', () => {
-    it('updates the props of the bsPanel', () => {
-      subject = renderIntoDom({header: 'ima header'})
+  describe('opening and closing', function() {
+    beforeEach(function() {
+      $('.panel-title a').simulate('click');
+    });
 
-      clickOn(findByTag(subject, 'a'))
-      expect(findByClass(subject, 'collapse')).toHaveClass('in')
-      clickOn(findByTag(subject, 'a'))
-      expect(findByClass(subject, 'collapse')).not.toHaveClass('in')
-    })
-  })
+    it('updates the props of the bsPanel', function() {
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
+      $('.panel-title a').simulate('click');
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
+    });
+  });
 
-  describe('when the divider property is set to true', () => {
-    beforeEach(() => {
-      subject = renderIntoDom({divider: true, header: 'a header'})
-    })
+  describe('when the divider property is set to true', function() {
+    beforeEach(function() {
+      subject::setProps({divider: true});
+    });
 
-    it('renders a divider on top of the panel body', () => {
-      expect(findByClass(subject, 'panel')).toHaveClass('panel-divider')
-    })
-  })
+    it('renders a divider on top of the panel body', function() {
+      expect('.panel').toHaveClass('panel-divider');
+    });
+  });
 
   describe('when the defaultExpanded property is set to true', () => {
     beforeEach(() => {
-      subject = renderIntoDom({header: 'a header', defaultExpanded: true})
-    })
+      ReactDOM.unmountComponentAtNode(root);
+      ReactDOM.render((
+        <BaseCollapse header="ima header" defaultExpanded={true}>
+          <h1>Child</h1>
+        </BaseCollapse>
+      ), root);
+    });
 
     it('starts out expanded', () => {
-      expect(findByClass(subject, 'collapse')).toHaveClass('in')
-    })
-  })
-})
+      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
+    });
+  });
+});
 
-describe('Collapse', () => {
-  const renderIntoDom = props => ReactDOM.render(
-    <Collapse {...props}>
-      <h1>Child</h1>
-    </Collapse>, root
-  )
+describe('Collapse', function() {
+  beforeEach(function() {
+    ReactDOM.render(
+      <Collapse header="ima header" className="test-class" style={{opacity: 0.5}}>
+        <h1>Child</h1>
+      </Collapse>,
+      root);
+  });
 
-  beforeEach(() => {
-    subject = renderIntoDom({className: 'test-class', style: {opacity: 0.5}, header: 'a header'})
-  })
+  it('passes through className', function() {
+    expect('.panel').toHaveClass('test-class');
+  });
 
-  it('passes through className', () => {
-    expect(findByClass(subject, 'panel')).toHaveClass('test-class')
-  })
+  it('passes through style', function() {
+    expect('.panel').toHaveCss({opacity: '0.5'});
+  });
 
-  it('passes through style', () => {
-    expect(findByClass(subject, 'panel')).toHaveCss({opacity: '0.5'})
-  })
+  it('contains a right-caret as its collapsed icon when closed', function() {
+    expect('svg').toHaveClass('icon-arrow_drop_right');
+  });
 
-  it('contains a right-caret as its collapsed icon when closed', () => {
-    expect(findByTag(subject, 'svg')).toHaveClass('icon-arrow_drop_right')
-  })
+  it('contains a down-caret as its collapsed icon when open', function() {
+    $('.panel-title svg').simulate('click');
+    expect('svg').toHaveClass('icon-arrow_drop_down');
+  });
+});
 
-  it('contains a down-caret as its collapsed icon when open', () => {
-    clickOn(findByTag(subject, 'svg'))
-    expect(findByTag(subject, 'svg')).toHaveClass('icon-arrow_drop_down')
-  })
-})
+describe('AltCollapse', function() {
+  beforeEach(function() {
+    ReactDOM.render(
+      <AltCollapse header="ima header">
+        <h1>Child</h1>
+      </AltCollapse>
+      , root);
+  });
 
-describe('AltCollapse', () => {
-  const renderIntoDom = props => ReactDOM.render(
-    <AltCollapse {...props}>
-      <h1>Child</h1>
-    </AltCollapse>, root
-  )
+  it('contains a right-caret as its collapsed icon when closed', function() {
+    expect('svg').toHaveClass('icon-add_circle');
+  });
 
-  beforeEach(() => {
-    subject = renderIntoDom({header: 'a header'})
-  })
-
-  it('contains a right-caret as its collapsed icon when closed', () => {
-    expect(findByTag(subject, 'svg')).toHaveClass('icon-add_circle')
-  })
-
-  it('contains a down-caret as its collapsed icon when open', () => {
-    clickOn(findByTag(subject, 'svg'))
-    expect(findByTag(subject, 'svg')).toHaveClass('icon-remove_circle')
-  })
-})
+  it('contains a down-caret as its collapsed icon when open', function() {
+    $('.panel-title svg').simulate('click');
+    expect('svg').toHaveClass('icon-remove_circle');
+  });
+});

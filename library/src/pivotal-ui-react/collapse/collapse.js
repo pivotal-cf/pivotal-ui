@@ -1,17 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 import {mergeProps} from 'pui-react-helpers';
 import {Panel} from 'pui-react-panels';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-collapse';
 
-const types = React.PropTypes;
-
 export class BaseCollapse extends React.Component {
   static propTypes = {
-    divider: types.bool,
-    header: types.node.isRequired,
-    defaultExpanded: types.bool
+    divider: PropTypes.bool,
+    header: PropTypes.node.isRequired,
+    defaultExpanded: PropTypes.bool
   }
 
   constructor(props, context) {

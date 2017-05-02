@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Radio, RadioGroup} from 'pui-react-radio'
 import {findByClass, findByTag, findAllByTag} from '../spec_helper'
 

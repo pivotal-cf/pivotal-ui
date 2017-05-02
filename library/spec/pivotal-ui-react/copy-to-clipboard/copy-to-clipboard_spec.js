@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
 
 describe('CopyToClipboard', () => {

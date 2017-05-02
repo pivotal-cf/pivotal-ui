@@ -1,8 +1,7 @@
 import {EventEmitter} from 'events';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-
-const types = React.PropTypes;
 
 let destinationPortals = {};
 const emitter = new EventEmitter();
@@ -20,7 +19,7 @@ export const reset = () => {
 
 export class PortalSource extends React.Component {
   static propTypes = {
-    name: types.string.isRequired
+    name: PropTypes.string.isRequired
   }
 
   constructor(props, context) {
@@ -60,7 +59,7 @@ export class PortalSource extends React.Component {
 
 export class PortalDestination extends React.Component {
   static propTypes = {
-    name: types.string.isRequired
+    name: PropTypes.string.isRequired
   }
 
   componentDidMount() {

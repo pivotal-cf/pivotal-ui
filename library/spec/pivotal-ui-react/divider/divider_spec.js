@@ -1,7 +1,7 @@
 import '../spec_helper'
 import {Divider} from 'pui-react-dividers'
 import {itPropagatesAttributes} from '../support/shared_examples'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {findByTag} from '../spec_helper'
 
 describe('Divider', () => {

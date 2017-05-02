@@ -1,4 +1,4 @@
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Tooltip} from 'pui-react-tooltip'
 import {OverlayTrigger} from 'pui-react-overlay-trigger'
 

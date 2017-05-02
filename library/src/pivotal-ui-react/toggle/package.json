@@ -3,6 +3,7 @@
   "description": "React components that provide informational text callouts",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "prop-types": ">=15.5.6",
     "pui-css-forms": "=8.0.5",
     "pui-react-helpers": "=8.0.5",
     "lodash.uniqueid": "^3.0.0"

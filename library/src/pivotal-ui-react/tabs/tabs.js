@@ -2,6 +2,7 @@ import React from 'react';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import {LargeTabs} from './large_tabs';
 import {default as mixin} from 'pui-react-mixins';
+import PropTypes from 'prop-types';
 import {Tab} from './tab';
 import {matches} from './media-size';
 import {SmallTabs} from './small_tabs';
@@ -9,8 +10,6 @@ import uniqueid from 'lodash.uniqueid';
 import 'pui-css-tabs';
 
 export {Tab};
-
-const types = React.PropTypes;
 
 const privates = new WeakMap();
 
@@ -41,19 +40,19 @@ export class Tabs extends mixin(React.Component).with(Animation) {
   }
 
   static propTypes = {
-    actions: types.node,
-    activeKey: types.number,
-    animation: types.bool,
-    defaultActiveKey: types.any,
-    id: types.string,
-    largeScreenClassName: types.string,
-    onSelect: types.func,
-    paneWidth: types.number,
-    position: types.oneOf(['top', 'left']),
-    responsiveBreakpoint: types.oneOf(['xs', 'sm', 'md', 'lg']),
-    smallScreenClassName: types.string,
-    tabType: types.oneOf(['simple', 'simple-alt', 'left']),
-    tabWidth: types.number
+    actions: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    activeKey: PropTypes.number,
+    animation: PropTypes.bool,
+    defaultActiveKey: PropTypes.any,
+    id: PropTypes.string,
+    largeScreenClassName: PropTypes.string,
+    onSelect: PropTypes.func,
+    paneWidth: PropTypes.number,
+    position: PropTypes.oneOf(['top', 'left']),
+    responsiveBreakpoint: PropTypes.oneOf(['xs', 'sm', 'md', 'lg']),
+    smallScreenClassName: PropTypes.string,
+    tabType: PropTypes.oneOf(['simple', 'simple-alt', 'left']),
+    tabWidth: PropTypes.number
   }
 
   static defaultProps = {
@@ -162,9 +161,9 @@ export class Tabs extends mixin(React.Component).with(Animation) {
 
 export class LeftTabs extends React.Component {
   static propTypes = {
-    position: types.oneOf(['top', 'left']),
-    tabWidth: types.number,
-    paneWidth: types.number
+    position: PropTypes.oneOf(['top', 'left']),
+    tabWidth: PropTypes.number,
+    paneWidth: PropTypes.number
   }
 
   static defaultProps = {

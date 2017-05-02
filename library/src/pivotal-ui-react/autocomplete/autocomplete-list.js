@@ -1,18 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
-const types = React.PropTypes;
 
 export class AutocompleteList extends React.Component {
   static propTypes = {
-    $autocomplete: types.object,
+    $autocomplete: PropTypes.object,
     children(props, name) {
       if(props[name] && props[name].length) return new Error('AutocompleteList can only wrap one element');
     },
-    className: types.string,
-    minSearchTerm: types.number,
-    onPick: types.func,
-    selectedSuggestion: types.any
+    className: PropTypes.string,
+    minSearchTerm: PropTypes.number,
+    onPick: PropTypes.func,
+    selectedSuggestion: PropTypes.any
   }
 
   static defaultProps = {

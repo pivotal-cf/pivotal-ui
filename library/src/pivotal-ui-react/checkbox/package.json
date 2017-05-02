@@ -4,6 +4,7 @@
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
+    "prop-types": ">=15.5.6",
     "pui-css-forms": "=8.0.5"
   }
 }

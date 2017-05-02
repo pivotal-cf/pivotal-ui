@@ -2,27 +2,23 @@ import classnames from 'classnames'
 import {Icon} from 'pui-react-iconography'
 import {mergeProps} from 'pui-react-helpers'
 import React from 'react'
+import PropTypes from 'prop-types';
 import 'pui-css-forms'
-
-const types = React.PropTypes
 
 export class Input extends React.Component {
   static propTypes = {
-    autoFocus: types.bool,
-    displayError: types.bool,
-    errorMessage: types.node,
-    id: types.string,
-    inputClassName: types.string,
-    label: types.node,
-    labelClassName: types.string,
-    placeholder: types.string,
-    search: types.bool,
-    size: types.oneOf(['small', 'medium', 'large']),
-    success: types.bool,
-    leftIcon: types.oneOfType([
-      types.string,
-      types.element
-    ])
+    autoFocus: PropTypes.bool,
+    displayError: PropTypes.bool,
+    errorMessage: PropTypes.node,
+    id: PropTypes.string,
+    inputClassName: PropTypes.string,
+    label: PropTypes.node,
+    labelClassName: PropTypes.string,
+    placeholder: PropTypes.string,
+    search: PropTypes.bool,
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    success: PropTypes.bool,
+    leftIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.object])
   }
 
   componentDidMount() {

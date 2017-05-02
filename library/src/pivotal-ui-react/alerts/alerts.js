@@ -1,21 +1,20 @@
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Media} from 'pui-react-media';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-alerts';
 
-const types = React.PropTypes;
-
 class Alert extends React.Component {
   static propTypes = {
-    alertIcon: types.string,
-    bsStyle: types.string,
-    closeLabel: types.node,
-    dismissable: types.bool,
-    onDismiss: types.func,
-    show: types.bool,
-    withIcon: types.bool
+    alertIcon: PropTypes.string,
+    bsStyle: PropTypes.string,
+    closeLabel: PropTypes.node,
+    dismissable: PropTypes.bool,
+    onDismiss: PropTypes.func,
+    show: PropTypes.bool,
+    withIcon: PropTypes.bool
   }
 
   static defaultProps = {
@@ -67,8 +66,8 @@ class Alert extends React.Component {
 const defAlert = props => {
   return class extends React.Component {
     static propTypes = {
-      dismissable: types.oneOfType([types.bool, types.func]),
-      withIcon: types.bool
+      dismissable: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+      withIcon: PropTypes.bool
     };
 
     render() {

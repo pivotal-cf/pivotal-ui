@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.0",
     "lodash.sortby": "^3.1.1",
+    "prop-types": ">=15.5.6",
     "pui-css-tables": "=8.0.5",
     "pui-react-helpers": "=8.0.5",
     "pui-react-iconography": "=8.0.5"

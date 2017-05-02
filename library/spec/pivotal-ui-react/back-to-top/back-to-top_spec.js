@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {BackToTop} from 'pui-react-back-to-top'
-import ReactTestUtils from 'react-addons-test-utils'
+
 let ScrollTop = require('../../../src/pivotal-ui-react/back-to-top/scroll-top')
 
 describe('BackToTop', () => {

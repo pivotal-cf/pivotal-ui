@@ -1,7 +1,7 @@
 import '../spec_helper'
 import React from 'react'
 import {StreamList, StreamListItem} from 'pui-react-stream-list'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {itPropagatesAttributes} from '../support/shared_examples';
 import EventEmitter from 'node-event-emitter';
 import {findByClass, findAllByClass, findAllByTag, clickOn} from '../spec_helper'

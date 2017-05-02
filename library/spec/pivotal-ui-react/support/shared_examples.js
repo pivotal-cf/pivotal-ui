@@ -1,4 +1,4 @@
-import ReactTestUtils from 'react-addons-test-utils'
+
 
 export function itPropagatesAttributes(componentIdentifier, attributeHash) {
   describe('when className, id and style are given', () => {

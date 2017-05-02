@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {Checkbox} from 'pui-react-checkbox'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {findByClass, findAllByClass, clickOn} from '../spec_helper'
 
 describe('Checkbox', function() {

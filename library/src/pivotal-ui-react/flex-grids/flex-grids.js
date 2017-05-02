@@ -1,13 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import classnames from 'classnames';
 import 'pui-css-flex-grids';
 
-const types = React.PropTypes;
-
 export class Grid extends React.Component {
   static propTypes = {
-    gutter: types.bool
+    gutter: PropTypes.bool
   };
 
   static defaultProps = {

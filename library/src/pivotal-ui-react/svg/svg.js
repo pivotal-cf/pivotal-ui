@@ -1,10 +1,9 @@
 import React from 'react';
-
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 export class Svg extends React.Component {
   static propTypes = {
-    src: types.string.isRequired
+    src: PropTypes.string.isRequired
   }
 
   constructor(props, context) {

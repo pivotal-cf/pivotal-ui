@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Panel, PanelTitle, ShadowPanel} from 'pui-react-panels'
 
 let subject

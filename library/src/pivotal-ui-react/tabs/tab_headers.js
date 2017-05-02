@@ -1,17 +1,17 @@
 import classnames from 'classnames'
 import React from 'react'
 
-const types = React.PropTypes
+import PropTypes from 'prop-types';
 
 export default class TabHeaders extends React.Component {
   static propTypes = {
-    activeKey: types.any,
-    childArray: types.array,
-    handleClick: types.func,
-    isLeft: types.bool,
-    id: types.string.isRequired,
-    onSelect: types.func,
-    tabWidth: types.number
+    activeKey: PropTypes.any,
+    childArray: PropTypes.array,
+    handleClick: PropTypes.func,
+    isLeft: PropTypes.bool,
+    id: PropTypes.string.isRequired,
+    onSelect: PropTypes.func,
+    tabWidth: PropTypes.number
   }
 
   render() {

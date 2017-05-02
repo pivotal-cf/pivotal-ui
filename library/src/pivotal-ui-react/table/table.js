@@ -1,11 +1,11 @@
 import classnames from 'classnames';
 import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
+import PropTypes from 'prop-types';;
 import React from 'react';
 import sortBy from 'lodash.sortby';
-import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-tables';
 
-const types = React.PropTypes;
 
 const SORT_ORDER = {
   asc: 0,
@@ -15,9 +15,9 @@ const SORT_ORDER = {
 
 class TableHeader extends React.Component {
   static propTypes = {
-    onClick: types.func,
-    onSortableTableHeaderClick: types.func,
-    sortable: types.bool
+    onClick: PropTypes.func,
+    onSortableTableHeaderClick: PropTypes.func,
+    sortable: PropTypes.bool
   }
 
   handleActivate = event => {
@@ -47,8 +47,8 @@ class TableHeader extends React.Component {
 
 export class TableCell extends React.Component {
 	static propTypes = {
-		index: types.number,
-		rowDatum: types.any
+		index: PropTypes.number,
+		rowDatum: PropTypes.any
 	}
 
 	render() {
@@ -62,7 +62,7 @@ export class TableCell extends React.Component {
 
 export class TableRow extends React.Component {
 	static propTypes = {
-		index: types.number
+		index: PropTypes.number
 	}
 
 	render() {
@@ -76,10 +76,10 @@ export class TableRow extends React.Component {
 
 export class Table extends React.Component {
   static propTypes = {
-    columns: types.array.isRequired,
-    CustomRow: types.func,
-    data: types.array.isRequired,
-    defaultSort: types.string
+    columns: PropTypes.array.isRequired,
+    CustomRow: PropTypes.func,
+    data: PropTypes.array.isRequired,
+    defaultSort: PropTypes.string
   }
 
   constructor(props, context) {
@@ -186,9 +186,9 @@ export class Table extends React.Component {
 // FlexTable
 class FlexTableHeader extends TableHeader {
   static propTypes = {
-    onClick: types.func,
-    onSortableTableHeaderClick: types.func,
-    sortable: types.bool
+    onClick: PropTypes.func,
+    onSortableTableHeaderClick: PropTypes.func,
+    sortable: PropTypes.bool
   }
 
   render() {
@@ -208,8 +208,8 @@ class FlexTableHeader extends TableHeader {
 
 export class FlexTableCell extends React.Component {
 	static propTypes = {
-		index: types.number,
-		rowDatum: types.any
+		index: PropTypes.number,
+		rowDatum: PropTypes.any
 	}
 
 	render() {
@@ -225,7 +225,7 @@ export class FlexTableCell extends React.Component {
 
 export class FlexTableRow extends React.Component {
 	static propTypes = {
-		index: types.number
+		index: PropTypes.number
 	}
 
 	render() {
@@ -241,11 +241,11 @@ export class FlexTableRow extends React.Component {
 
 export class FlexTable extends Table {
   static propTypes = {
-    columns: types.array.isRequired,
-    CustomRow: types.func,
-    data: types.array.isRequired,
-    defaultSort: types.string,
-    cellClass: types.string
+    columns: PropTypes.array.isRequired,
+    CustomRow: PropTypes.func,
+    data: PropTypes.array.isRequired,
+    defaultSort: PropTypes.string,
+    cellClass: PropTypes.string
   }
 
   constructor(props, context) {

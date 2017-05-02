@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {Label} from 'pui-react-labels'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {findByTag} from '../spec_helper'
 
 describe('Label Component', () => {

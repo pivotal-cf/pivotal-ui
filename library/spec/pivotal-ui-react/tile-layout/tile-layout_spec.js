@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout'
 import {findByClass} from '../spec_helper'
 

@@ -1,11 +1,11 @@
 import React from 'react';
-const types = React.PropTypes;
+import PropTypes from 'prop-types';;
 
 export default ParentClass => {
   return class Transition extends ParentClass {
     static propTypes = {
-      onEntered: types.func,
-      onExited: types.func
+      onEntered: PropTypes.func,
+      onExited: PropTypes.func
     }
 
     componentWillUpdate(nextProps, nextState) {

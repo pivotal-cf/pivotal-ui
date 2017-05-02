@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {UIButton} from 'pui-react-buttons'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Icon} from 'pui-react-iconography'
 
 describe('UIButton', () => {

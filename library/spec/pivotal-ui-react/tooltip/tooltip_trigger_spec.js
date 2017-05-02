@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {TooltipTrigger} from 'pui-react-tooltip'
 import {findByClass, findAllByClass} from '../spec_helper'
 

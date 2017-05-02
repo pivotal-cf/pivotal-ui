@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {BasePane, Pane} from 'pui-react-panes'
 
 let subject

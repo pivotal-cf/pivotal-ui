@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Toggle} from 'pui-react-toggle'
 import {findByClass, findByTag} from '../spec_helper'
 

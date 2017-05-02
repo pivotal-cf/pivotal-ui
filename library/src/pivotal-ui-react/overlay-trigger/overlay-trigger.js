@@ -1,12 +1,11 @@
 import React from 'react'
 import 'pui-css-tooltips'
 import classnames from 'classnames'
-import uniqueid from 'lodash.uniqueid'
-import TetherComponent from 'react-tether'
-import {default as mixin} from 'pui-react-mixins'
+import PropTypes from 'prop-types';
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
-
-const types = React.PropTypes
+import TetherComponent from 'react-tether'
+import uniqueid from 'lodash.uniqueid'
+import {default as mixin} from 'pui-react-mixins'
 
 const TETHER_PLACEMENTS = {
   top: 'bottom center',
@@ -27,18 +26,18 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   }
 
   static propTypes = {
-    delay: types.number,
-    delayHide: types.number,
-    delayShow: types.number,
-    disableScrim: types.bool,
-    display: types.bool,
-    onEntered: types.func,
-    onExited: types.func,
-    overlay: types.element,
-    pin: types.bool,
-    placement: types.oneOf(['top', 'bottom', 'left', 'right']),
-    theme: types.oneOf(['light', 'dark']),
-    trigger: types.oneOf(['hover', 'click', 'focus', 'manual'])
+    delay: PropTypes.number,
+    delayHide: PropTypes.number,
+    delayShow: PropTypes.number,
+    disableScrim: PropTypes.bool,
+    display: PropTypes.bool,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    overlay: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    pin: PropTypes.bool,
+    placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
+    theme: PropTypes.oneOf(['light', 'dark']),
+    trigger: PropTypes.oneOf(['hover', 'click', 'focus', 'manual'])
   }
 
   static defaultProps = {

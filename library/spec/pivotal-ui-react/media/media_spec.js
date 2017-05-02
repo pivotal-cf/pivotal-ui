@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {Media, Flag} from 'pui-react-media'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {findByClass} from '../spec_helper'
 
 describe('Media', () => {

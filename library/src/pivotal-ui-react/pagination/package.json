@@ -3,6 +3,7 @@
   "description": "React components that provide pagination buttons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "prop-types": ">=15.5.6",
     "pui-css-pagination": "=8.0.5",
     "pui-react-helpers": "=8.0.5"
   }

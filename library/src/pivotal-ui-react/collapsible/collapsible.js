@@ -2,10 +2,10 @@ import React from 'react';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import {default as mixin} from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
+import PropTypes from 'prop-types';
 import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect';
 import 'pui-css-collapse';
 
-const types = React.PropTypes;
 
 const privates = new WeakMap();
 
@@ -16,15 +16,15 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
   }
 
   static propTypes = {
-    boundingClientRect: types.object,
-    container: types.object,
-    containerReady: types.object,
-    delay: types.number,
-    disableAnimation: types.bool,
-    expanded: types.bool,
-    onEntered: types.func,
-    onExited: types.func,
-    transitionProgress: types.number
+    boundingClientRect: PropTypes.object,
+    container: PropTypes.object,
+    containerReady: PropTypes.object,
+    delay: PropTypes.number,
+    disableAnimation: PropTypes.bool,
+    expanded: PropTypes.bool,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    transitionProgress: PropTypes.number
   };
 
   static defaultProps = {

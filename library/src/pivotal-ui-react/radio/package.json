@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "^2.2.3",
     "lodash.uniqueid": "^4.0.0",
+    "prop-types": ">=15.5.6",
     "pui-css-forms": "=8.0.5",
     "pui-react-helpers": "=8.0.5"
   }

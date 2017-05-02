@@ -1,42 +1,36 @@
-import '../spec_helper'
+import '../spec_helper';
 import {Icon} from 'pui-react-iconography'
-import ReactTestUtils from 'react-addons-test-utils'
-import {findByClass} from '../spec_helper'
 
-describe('iconography', () => {
-  let result
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Icon {...props}/>)
+describe('iconography', function() {
+  afterEach(function() {
+    ReactDOM.unmountComponentAtNode(root);
+  });
 
-  it('works', () => {
-    result = renderComponent({src: 'add'})
-    const icon = findByClass(result, 'icon')
+  it('works', function() {
+    ReactDOM.render(<Icon src='add'/>, root);
+    expect('.icon svg').toExist();
+  });
 
-    expect(icon.querySelector('svg')).toHaveClass('icon-add')
-  })
-
-  it('renders a div with the className and id', () => {
-    result = renderComponent({src: 'add', className: 'foo', id: 'bar'})
-    const icon = findByClass(result, 'icon')
-
-    expect(icon.tagName).toEqual('DIV')
-    expect(icon).toHaveClass('foo')
-    expect(icon).toHaveAttr('id', 'bar')
-  })
+  it('propagates className and id to the span', () => {
+    ReactDOM.render(<Icon src='add' className="foo" id="bar"/>, root);
+    expect('.icon').toHaveClass('foo');
+    expect('.icon').toHaveAttr('id', 'bar');
+  });
 
   describe('verticalAlign', () => {
-    it('applies .icon-middle by default', () => {
-      result = renderComponent({src: 'add'})
-      expect(findByClass(result, 'icon')).toHaveClass('icon-middle')
-    })
+    it('if verticalAlign is not specified it applies the .icon-middle', () => {
+      ReactDOM.render(<Icon src='add'/>, root);
+      expect('.icon').toHaveClass('icon-middle');
+    });
 
-    it('applies .icon-middle when middle', () => {
-      result = renderComponent({src: 'add', verticalAlign: 'middle'})
-      expect(findByClass(result, 'icon')).toHaveClass('icon-middle')
-    })
+    it('if verticalAlign=baseline it applies the .icon-middle class', () => {
+      ReactDOM.render(<Icon src='add' verticalAlign='middle'/>, root);
+      expect('.icon').toHaveClass('icon-middle');
+    });
 
-    it('applies .icon-baseline when baseline', () => {
-      result = renderComponent({src: 'add', verticalAlign: 'baseline'})
-      expect(findByClass(result, 'icon')).toHaveClass('icon-baseline')
-    })
-  })
-})
+    it('if verticalAlign=baseline it applies the .icon-baseline class', () => {
+      ReactDOM.render(<Icon src='add' verticalAlign='baseline'/>, root);
+      expect('.icon').toHaveClass('icon-baseline');
+    });
+  });
+});

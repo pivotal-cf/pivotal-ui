@@ -1,14 +1,13 @@
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-grids';
 
-const types = React.PropTypes;
-
 export class Row extends React.Component {
   static propTypes = {
-    componentClass: types.oneOfType([types.string, types.func]),
-    gutter: types.oneOf(['sm', 'md', 'lg'])
+    componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    gutter: PropTypes.oneOf(['sm', 'md', 'lg'])
   }
 
   static defaultProps = {
@@ -28,27 +27,27 @@ export class Row extends React.Component {
 
 export class Col extends React.Component {
   static propTypes = {
-    componentClass: types.oneOfType([types.string, types.func]),
-    xs: types.number,
-    sm: types.number,
-    lg: types.number,
-    md: types.number,
-    xsHidden: types.bool,
-    smHidden: types.bool,
-    mdHidden: types.bool,
-    lgHidden: types.bool,
-    xsOffset: types.number,
-    smOffset: types.number,
-    mdOffset: types.number,
-    lgOffset: types.number,
-    xsPush: types.number,
-    smPush: types.number,
-    mdPush: types.number,
-    lgPush: types.number,
-    xsPull: types.number,
-    smPull: types.number,
-    mdPull: types.number,
-    lgPull: types.number
+    componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    xs: PropTypes.number,
+    sm: PropTypes.number,
+    lg: PropTypes.number,
+    md: PropTypes.number,
+    xsHidden: PropTypes.bool,
+    smHidden: PropTypes.bool,
+    mdHidden: PropTypes.bool,
+    lgHidden: PropTypes.bool,
+    xsOffset: PropTypes.number,
+    smOffset: PropTypes.number,
+    mdOffset: PropTypes.number,
+    lgOffset: PropTypes.number,
+    xsPush: PropTypes.number,
+    smPush: PropTypes.number,
+    mdPush: PropTypes.number,
+    lgPush: PropTypes.number,
+    xsPull: PropTypes.number,
+    smPull: PropTypes.number,
+    mdPull: PropTypes.number,
+    lgPull: PropTypes.number
   }
 
   static defaultProps = {

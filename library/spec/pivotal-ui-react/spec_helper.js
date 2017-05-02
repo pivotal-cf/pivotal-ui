@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import TestUtils from 'react-addons-test-utils'
 import MockNextTick from './support/mock_next_tick'
 import MockPromises from 'mock-promises'
 import jQuery from 'jquery'
@@ -11,7 +10,7 @@ import 'phantomjs-polyfill'
 import './support/bluebird'
 import './support/set_immediate'
 import 'pivotal-js-jasmine-matchers'
-import ReactTestUtils from 'react-addons-test-utils'
+import ReactTestUtils from 'react-dom/test-utils'
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass
 export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass
@@ -30,12 +29,12 @@ Object.assign(global, {
   MockRaf,
   React,
   ReactDOM,
-  TestUtils,
+  ReactTestUtils,
   ...require('pivotal-js-react-test-helpers')
 })
 
 global.shallowRender = jsx => {
-  const shallowRenderer = TestUtils.createRenderer()
+  const shallowRenderer = ReactTestUtils.createRenderer()
   shallowRenderer.render(jsx)
   return shallowRenderer.getRenderOutput()
 };

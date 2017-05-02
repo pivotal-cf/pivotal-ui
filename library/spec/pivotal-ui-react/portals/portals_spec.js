@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {PortalSource, PortalDestination} from 'pui-react-portals'
-import ReactTestUtils from 'react-addons-test-utils'
+
 
 describe('Portals', function() {
   let subject

@@ -1,5 +1,5 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {Pagination} from 'pui-react-pagination'
 
 describe('Pagination', () => {

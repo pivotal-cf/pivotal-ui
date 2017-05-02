@@ -1,7 +1,7 @@
 import '../spec_helper'
 import {Collapsible} from 'pui-react-collapsible'
 import {Tab, LeftTabs, Tabs} from 'pui-react-tabs'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper'
 
 describe('Tabs', () => {

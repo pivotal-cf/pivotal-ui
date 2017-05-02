@@ -1,17 +1,17 @@
 import React from 'react';
 import {copy} from './clipboard-helper';
-import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
+import PropTypes from 'prop-types';
 import {TooltipTrigger} from 'pui-react-tooltip';
 import 'pui-css-copy-to-clipboard';
 
-const types = React.PropTypes;
 
 export class CopyToClipboard extends React.Component {
   static propTypes = {
-    text: types.string.isRequired,
-    onClick: types.func,
-    getWindow: types.func,
+    text: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    getWindow: PropTypes.func,
   }
 
   static defaultProps = {
@@ -44,9 +44,9 @@ export class CopyToClipboard extends React.Component {
 
 export class CopyToClipboardButton extends React.Component {
   static propTypes = {
-    text: types.string,
-    onClick: types.func,
-    getWindow: types.func
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+    getWindow: PropTypes.func
   };
 
   static defaultProps = {

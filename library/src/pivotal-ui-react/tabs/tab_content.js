@@ -1,16 +1,16 @@
 import classnames from 'classnames';
 import React from 'react';
 
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 export default class TabContent extends React.Component {
   static propTypes = {
-    activeKey: types.any,
-    childArray: types.array,
-    id: types.string,
-    isLeft: types.bool,
-    paneWidth: types.number,
-    transitionProgress: types.number
+    activeKey: PropTypes.any,
+    childArray: PropTypes.array,
+    id: PropTypes.string,
+    isLeft: PropTypes.bool,
+    paneWidth: PropTypes.number,
+    transitionProgress: PropTypes.number
   }
 
   render() {

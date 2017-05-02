@@ -2,7 +2,7 @@ import '../spec_helper'
 import {Collapsible} from 'pui-react-collapsible'
 import {ExpanderContent, ExpanderTrigger} from 'pui-react-expander'
 import {findByClass, findByTag, clickOn} from '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
+
 
 describe('ExpanderContent', () => {
   const renderIntoDom = props => ReactDOM.render(

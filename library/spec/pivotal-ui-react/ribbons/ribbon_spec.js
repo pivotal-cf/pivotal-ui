@@ -1,5 +1,4 @@
 import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
 import {Ribbon, PrimaryRibbon, Banner} from 'pui-react-ribbons'
 import {findByClass} from '../spec_helper'
 

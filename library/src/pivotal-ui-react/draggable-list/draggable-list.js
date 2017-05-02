@@ -3,16 +3,15 @@ import classnames from 'classnames';
 import move from './move_helper';
 import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
+import PropTypes from 'prop-types';
 import 'pui-css-lists';
-
-const types = React.PropTypes;
 
 const childrenIndices = children => children.map((child, i) => i);
 
 export class DraggableList extends React.Component {
   static propTypes = {
-    onDragEnd: types.func,
-    innerClassName: types.string
+    onDragEnd: PropTypes.func,
+    innerClassName: PropTypes.string
   }
 
   constructor(props, context) {
@@ -89,14 +88,14 @@ export class DraggableList extends React.Component {
 
 export class DraggableListItem extends React.Component {
   static propTypes = {
-    draggingId: types.number,
-    onMouseEnter: types.func,
-    onMouseLeave: types.func,
-    onDragStart: types.func,
-    onDragEnter: types.func,
-    onDragEnd: types.func,
-    grabbed: types.bool,
-    className: types.string
+    draggingId: PropTypes.number,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    onDragStart: PropTypes.func,
+    onDragEnter: PropTypes.func,
+    onDragEnd: PropTypes.func,
+    grabbed: PropTypes.bool,
+    className: PropTypes.string
   }
 
   constructor(props, context) {

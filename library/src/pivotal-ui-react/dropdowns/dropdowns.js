@@ -1,12 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import classnames from 'classnames'
 import {default as mixin} from 'pui-react-mixins'
 import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
 import Transition from 'pui-react-mixins/mixins/transition_mixin'
 import {Icon} from 'pui-react-iconography'
 import 'pui-css-dropdowns'
-
-const types = React.PropTypes
 
 const defaultToggleNode = (showIcon, icon) => {
   if (showIcon) return <Icon src={icon} className="icon-toggle"/>
@@ -21,28 +20,28 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   }
 
   static propTypes = {
-    border: types.bool,
-    buttonAriaLabel: types.string,
-    buttonClassName: types.string,
-    closeOnMenuClick: types.bool,
-    disableScrim: types.bool,
-    flat: types.bool,
-    floatMenu: types.bool,
-    href: types.string,
-    icon: types.string,
-    link: types.bool,
-    labelAriaLabel: types.string,
-    menuAlign: types.oneOf(['none', 'left', 'right']),
-    onClick: types.func,
-    onEntered: types.func,
-    onExited: types.func,
-    onSelect: types.func,
-    title: types.node,
-    toggle: types.node,
-    scroll: types.bool,
-    showIcon: types.bool,
-    size: types.oneOf(['normal', 'large', 'small']),
-    split: types.bool
+    border: PropTypes.bool,
+    buttonAriaLabel: PropTypes.string,
+    buttonClassName: PropTypes.string,
+    closeOnMenuClick: PropTypes.bool,
+    disableScrim: PropTypes.bool,
+    flat: PropTypes.bool,
+    floatMenu: PropTypes.bool,
+    href: PropTypes.string,
+    icon: PropTypes.string,
+    link: PropTypes.bool,
+    labelAriaLabel: PropTypes.string,
+    menuAlign: PropTypes.oneOf(['none', 'left', 'right']),
+    onClick: PropTypes.func,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    onSelect: PropTypes.func,
+    title: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    toggle: PropTypes.node,
+    scroll: PropTypes.bool,
+    showIcon: PropTypes.bool,
+    size: PropTypes.oneOf(['normal', 'large', 'small']),
+    split: PropTypes.bool
   }
 
   static defaultProps = {
@@ -130,14 +129,14 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
 export class DropdownItem extends React.Component {
   static propTypes = {
-    className: types.string,
-    style: types.object,
-    href: types.string,
-    header: types.bool,
-    divider: types.bool,
-    disabled: types.bool,
-    eventKey: types.string,
-    onSelect: types.func
+    className: PropTypes.string,
+    style: PropTypes.object,
+    href: PropTypes.string,
+    header: PropTypes.bool,
+    divider: PropTypes.bool,
+    disabled: PropTypes.bool,
+    eventKey: PropTypes.string,
+    onSelect: PropTypes.func
   }
 
   handleClick = event => {

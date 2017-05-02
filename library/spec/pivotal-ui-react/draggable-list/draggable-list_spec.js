@@ -1,6 +1,6 @@
 import '../spec_helper'
 import {DraggableList, DraggableListItem} from 'pui-react-draggable-list'
-import ReactTestUtils from 'react-addons-test-utils'
+
 import move from 'pui-react-draggable-list/move_helper'
 
 describe('DraggableList', function() {

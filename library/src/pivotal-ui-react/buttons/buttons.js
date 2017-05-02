@@ -1,17 +1,18 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers'
 import 'pui-css-buttons'
 
 export class UIButton extends React.Component {
   static propTypes = {
-    alt: React.PropTypes.bool,
-    flat: React.PropTypes.bool,
-    href: React.PropTypes.string,
-    icon: React.PropTypes.node,
-    iconOnly: React.PropTypes.bool,
-    kind: React.PropTypes.oneOf(['default', 'danger', 'primary', 'brand']),
-    large: React.PropTypes.bool,
-    small: React.PropTypes.bool
+    alt: PropTypes.bool,
+    flat: PropTypes.bool,
+    href: PropTypes.string,
+    icon: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    iconOnly: PropTypes.bool,
+    kind: PropTypes.oneOf(['default', 'danger', 'primary', 'brand']),
+    large: PropTypes.bool,
+    small: PropTypes.bool
   }
 
   static defaultProps = {

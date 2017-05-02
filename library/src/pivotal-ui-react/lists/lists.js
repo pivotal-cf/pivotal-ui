@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import 'pui-css-lists';
-
-const types = React.PropTypes;
 
 export class ListItem extends React.Component {
   render() {
@@ -13,9 +12,9 @@ export class ListItem extends React.Component {
 const defList = (tagName, classNames, childClassNames) => {
   return class extends React.Component {
     static propTypes = {
-      className: types.string,
-      unstyled: types.bool,
-      divider: types.bool
+      className: PropTypes.string,
+      unstyled: PropTypes.bool,
+      divider: PropTypes.bool
     }
 
     render() {

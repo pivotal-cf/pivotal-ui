@@ -3,6 +3,7 @@
   "description": "A collection of React components for rendering different kinds of lists",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "prop-types": ">=15.5.6",
     "pui-css-lists": "=8.0.5",
     "classnames": "^2.2.0"
   }

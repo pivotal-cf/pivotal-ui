@@ -1,5 +1,5 @@
 import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete'
-import ReactTestUtils from 'react-addons-test-utils'
+
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy
