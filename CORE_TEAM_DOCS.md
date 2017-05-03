@@ -106,7 +106,7 @@ again.
   - Pushes version bump and new tag to github
   - Publishes all of the updated node packages to npm
   
-1. From the `styleguide` directory: `gulp push-styleguide` will push to production. Make sure you are targeting the correct space on CF
+1. From the `styleguide` directory: `gulp styleguide-build && cf push` will push to production. Make sure you are targeting the correct space on CF
 
 1. Merge `master` back into `development`
 
