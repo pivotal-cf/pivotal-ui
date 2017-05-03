@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+function unDefault(obj) { return obj && obj.__esModule ? obj.default : obj; }
+
 export class Svg extends React.Component {
   static propTypes = {
     src: PropTypes.string.isRequired
@@ -13,13 +15,12 @@ export class Svg extends React.Component {
 
   componentDidMount() {
     const {src} = this.props;
-    this.setState({Component: this.svgPathLoader(src)});
+    this.setState({Component: unDefault(this.svgPathLoader(src))});
   }
 
   svgPathLoader(src) {
-    function _unDefault(obj) { return obj && obj.__esModule ? obj.default : obj; }
     try {
-      return _unDefault(require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`));
+      return require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`);
     } catch (e) {}
   }
 
