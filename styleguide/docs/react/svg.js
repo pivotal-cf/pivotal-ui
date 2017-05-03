@@ -53,7 +53,12 @@ class MySvg extends Svg {
 }
 ```
 
-The path is relative to the file where you subclass the Svg component.
+The path is relative to the file where you subclass the Svg component. Note that `react-svg-loader` will internally optimize your Svgs using [svgo](https://github.com/svg/svgo).
+This optimization will sometimes change your Svg in undesirable ways. You can turn off parts of the optimization with loader params. For example, the Svg component itself uses
+
+```
+ require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`);
+```
 
 Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
