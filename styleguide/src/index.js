@@ -5,6 +5,7 @@ global._ = require('lodash');
 
 global.React = require('react');
 global.ReactDOM = require('react-dom');
+global.PropTypes = require('prop-types');;
 
 require('./styleguide');
 require('./styleguide-react');

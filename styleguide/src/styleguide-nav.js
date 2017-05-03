@@ -2,12 +2,12 @@ const React = global.React || require('react');
 const Tabs = global.Tabs || require('pui-react-tabs').Tabs;
 const Tab = global.Tab || require('pui-react-tabs').Tab;
 
-const types = React.PropTypes;
+const PropTypes = global.PropTypes || require('prop-types');
 
 class StyleguideNav extends React.Component {
   static propTypes = {
-    defaultLanguage: types.string.isRequired,
-    navTree: types.object.isRequired
+    defaultLanguage: PropTypes.string.isRequired,
+    navTree: PropTypes.object.isRequired
   };
 
   render() {

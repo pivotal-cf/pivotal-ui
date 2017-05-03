@@ -8,7 +8,7 @@ describe('Svg', () => {
   beforeEach(() => {
     MySvg = class extends Svg {
       svgPathLoader(src) {
-        return require(`!!babel-loader!svg-react-loader!./${src}.svg`)
+        return require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!./${src}.svg`)
       }
     };
 

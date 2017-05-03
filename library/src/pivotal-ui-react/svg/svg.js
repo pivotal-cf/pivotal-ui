@@ -17,8 +17,9 @@ export class Svg extends React.Component {
   }
 
   svgPathLoader(src) {
+    function _unDefault(obj) { return obj && obj.__esModule ? obj.default : obj; }
     try {
-      return require(`!!babel-loader!svg-react-loader!../../app/svg/${src}.svg`);
+      return _unDefault(require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`));
     } catch (e) {}
   }
 

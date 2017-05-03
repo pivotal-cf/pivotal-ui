@@ -22,7 +22,7 @@ module.exports = {
       'raf': `${__dirname}/../../spec/pivotal-ui-react/support/mock_raf.js`,
       'performance-now': `${__dirname}/../../spec/pivotal-ui-react/support/mock_performance_now.js`,
       'lodash.throttle': `${__dirname}/../../spec/pivotal-ui-react/support/mock_throttle.js`,
-      // 'fbjs/lib/warning': `${__dirname}/../../spec/pivotal-ui-react/support/mock_warning.js`
+      'fbjs/lib/warning': `${__dirname}/../../spec/pivotal-ui-react/support/mock_warning.js`
     }, puiAliases)
   },
   watch: true

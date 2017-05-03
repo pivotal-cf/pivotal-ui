@@ -8,7 +8,7 @@ categories:
 ---
 
 ***This component is limited to projects that use Webpack.***
-***It requires the webpack loaders babel-loader and svg-react-loader.***
+***It requires the webpack loaders babel-loader and react-svg-loader.***
 ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
 <code class="pam">
@@ -16,7 +16,7 @@ categories:
 npm install pui-react-svg  --save
 
 <img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader svg-react-loader --save-dev
+npm install babel-loader react-svg-loader --save-dev
 </code>
 
 ## Props
@@ -48,7 +48,7 @@ import {Svg} from 'pui-react-svg';
 
 class MySvg extends Svg {
   svgPathLoader(src) {
-    return require(`!!babel-loader!svg-react-loader!./path/to/svgs/${src}.svg`);
+    return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);
   }
 }
 ```

@@ -105,27 +105,28 @@ npm install --save pui-react-buttons
 
 
     ```
-    var React = require('react');
-    var DefaultButton = require('pui-react-buttons').DefaultButton;
+    const React = require('react');
+    const {DefaultButton} = require('pui-react-buttons');
 
-    var MyTestPage = React.createClass({
-     getInitialState: function() {
-       return {showMessage: false};
-     },
+    class MyTestPage extends React.Component {
+      constructor(props, context) {
+        super(props, context);
+        this.state = {showMessage: false};
+      }
 
-     showMessage: function() {
-       this.setState({showMessage: true});
-     },
+      showMessage() {
+        this.setState({showMessage: true});
+      }
 
-     render: function() {
-       return (
-         <div className="container">
-           <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
-           { this.state.showMessage ? <h1>Hello world!</h1> : null }
-         </div>
-       );
-     }
-    });
+      render() {
+        return (
+          <div className="container">
+            <DefaultButton onClick={this.showMessage.bind(this)}>Show Message</DefaultButton>
+            { this.state.showMessage ? <h1>Hello world!</h1> : null }
+          </div>
+        );
+      }
+    }
 
     ReactDOM.render(<MyTestPage />, document.getElementById('root'));
     ```

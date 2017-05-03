@@ -8,14 +8,14 @@ categories:
 ---
 
 ***This component is limited to projects that use Webpack.***
-***It requires the webpack loaders babel-loader and svg-react-loader.***
+***It requires the webpack loaders babel-loader and react-svg-loader.***
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install pui-react-iconography --save
 
 <img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader svg-react-loader --save-dev
+npm install babel-loader react-svg-loader --save-dev
 </code>
 
 ## Props

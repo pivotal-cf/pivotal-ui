@@ -7,12 +7,14 @@ import classnames from 'classnames'
 
 class SvgIcon extends Svg {
   svgPathLoader = src => {
+    function _unDefault(obj) { return obj && obj.__esModule ? obj.default : obj; }
     try {
-      return require(`!!babel-loader!svg-react-loader!pui-css-iconography/svgs/${src}.svg`)
+      return _unDefault(require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!pui-css-iconography/svgs/${src}.svg`))
     } catch (e) {
       try {
-        return require(`!!babel-loader!svg-react-loader!../../app/svg/${src}.svg`)
-      } catch (e) {}
+        return _unDefault(require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`))
+      } catch (e) {
+      }
     }
   }
 }
@@ -22,20 +24,20 @@ export class Icon extends React.Component {
     src: PropTypes.string.isRequired,
     style: PropTypes.object,
     verticalAlign: PropTypes.oneOf(['middle', 'baseline'])
-  }
+  };
 
   static defaultProps = {
     size: 'inherit',
     style: {},
     verticalAlign: 'middle'
-  }
+  };
 
   render() {
-    const {src, verticalAlign, ...others} = this.props
+    const {src, verticalAlign, ...others} = this.props;
     const props = mergeProps(
       others,
       {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.startsWith('spinner')})}
-    )
+    );
 
     return (<div {...props}>
       <SvgIcon {...{src, className: `icon-${src}`, key: src}}/>
