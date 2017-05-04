@@ -114,7 +114,7 @@
     "bootstrap": "3.3.5",
     "bootstrap-sass": "3.3.5",
     "css-loader": "^0.23.1",
-    "csscritic": "file:./vendor/csscritic",
+    "csscritic": "^2.0.0",
     "del": "^2.0.2",
     "es6-promisify": "^3.0.0",
     "eslint-plugin-react": "^6.7.1",
