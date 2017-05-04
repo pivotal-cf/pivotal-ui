@@ -1,10 +1,10 @@
 {
-  "version": "8.0.5",
+  "version": "8.1.0",
   "description": "A React component for displaying a tooltip or popover on user action",
   "dependencies": {
     "lodash.uniqueid": "^3.0.0",
     "prop-types": ">=15.5.6",
-    "pui-react-mixins": "=8.0.5",
+    "pui-react-mixins": "=8.1.0",
     "react-tether": "^0.5.2"
   },
   "homepage": "http://styleguide.pivotal.io/react.html#tooltips_react"
