@@ -34,5 +34,5 @@ export default ParentClass => {
       const document = this.props.getDocument ? this.props.getDocument() : global.document;
       if (typeof document === 'object') document.documentElement.removeEventListener('click', privates.get(this));
     }
-  }
+  };
 };

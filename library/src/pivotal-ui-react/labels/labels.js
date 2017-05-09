@@ -1,6 +1,6 @@
-import React from 'react'
-import {mergeProps} from 'pui-react-helpers'
-import 'pui-css-labels'
+import React from 'react';
+import {mergeProps} from 'pui-react-helpers';
+import 'pui-css-labels';
 
 export class Label extends React.Component {
   static defaultProps = {
@@ -8,7 +8,7 @@ export class Label extends React.Component {
   }
 
   render() {
-    const {children, ...props} = this.props
-    return <span {...props}>{children}</span>
+    const {children, ...props} = this.props;
+    return <span {...props}>{children}</span>;
   }
 }

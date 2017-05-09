@@ -28,7 +28,7 @@ export class Toggle extends React.Component {
       }
     );
 
-    return (<div className='form-group'>
+    return (<div className="form-group">
       <input {...inputProps}/>
       <label htmlFor={toggleId} className={size}>{children}</label>
     </div>);

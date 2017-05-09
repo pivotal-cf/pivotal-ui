@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import 'pui-css-tooltips'
-import classnames from 'classnames'
+import 'pui-css-tooltips';
+import classnames from 'classnames';
 
 export class Tooltip extends React.Component {
   static propTypes = {
@@ -15,21 +15,21 @@ export class Tooltip extends React.Component {
   }
 
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
-    let {visible, size, className, children, ...others} = this.props
+    let {visible, size, className, children, ...others} = this.props;
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
                                   size === 'auto' ? null : `tooltip-${size}`,
-                                  className)
+                                  className);
 
     return (
       <div className={newClasses} {...others}>
         <div className="tooltip-content">{children}</div>
       </div>
-    )
+    );
   }
 }
 
@@ -56,60 +56,60 @@ export class TooltipTrigger extends React.Component {
   }
 
   constructor(props) {
-    super(props)
-    this.state = {visible: false}
+    super(props);
+    this.state = {visible: false};
   }
 
   hoverHandler(e) {
-    this.setState({visible: e.type === 'mouseenter'})
+    this.setState({visible: e.type === 'mouseenter'});
   }
 
   clickHandler() {
-    this.setState({visible: true})
+    this.setState({visible: true});
     setTimeout(() => {
-      this.setState({visible: false})
-    }, this.props.clickHideDelay)
+      this.setState({visible: false});
+    }, this.props.clickHideDelay);
   }
 
   componentDidUpdate(prevProps, prevState) {
     if(prevState.visible && !this.state.visible) {
-      this.props.onExited()
+      this.props.onExited();
     } else if(!prevState.visible && this.state.visible) {
-      this.props.onEntered()
+      this.props.onEntered();
     }
   }
 
   render() {
-    const {placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props
-    const {visible} = this.state
+    const {placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props;
+    const {visible} = this.state;
 
-    let placementClass
-    if(placement != 'top') {
-      placementClass = `tooltip-${placement}`
+    let placementClass;
+    if(placement !== 'top') {
+      placementClass = `tooltip-${placement}`;
     }
 
-    let triggerHandler
+    let triggerHandler;
     switch(trigger) {
       case 'click':
-        triggerHandler = {onClick: this.clickHandler.bind(this)}
-        break
+        triggerHandler = {onClick: this.clickHandler.bind(this)};
+        break;
       default:
         triggerHandler = {
           onMouseEnter: this.hoverHandler.bind(this),
           onMouseLeave: this.hoverHandler.bind(this)
-        }
-        break
+        };
+        break;
     }
 
     const newClasses = classnames('tooltip', className, placementClass,
-      theme === 'light' ? 'tooltip-light' : null)
-    const newProps = Object.assign({className: newClasses}, triggerHandler, others)
+      theme === 'light' ? 'tooltip-light' : null);
+    const newProps = Object.assign({className: newClasses}, triggerHandler, others);
 
     return (
       <div {...newProps}>
         {this.props.children}
         <Tooltip size={this.props.size} visible={visible}>{tooltip}</Tooltip>
       </div>
-    )
+    );
   }
 }

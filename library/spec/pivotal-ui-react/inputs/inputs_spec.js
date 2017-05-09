@@ -1,5 +1,5 @@
-import '../spec_helper'
-import {Input} from 'pui-react-inputs'
+import '../spec_helper';
+import {Input} from 'pui-react-inputs';
 
 describe('Input', function() {
   let changeSpy, subject;
