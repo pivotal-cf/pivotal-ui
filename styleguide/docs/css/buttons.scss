@@ -175,3 +175,24 @@ They can also be icon buttons.
 ```
 
 */
+
+/*doc
+---
+title: Side-by-Side Buttons
+name: 05_button_and_button
+parent: button
+---
+
+Buttons side-by-side will be separated by a margin of `$base-unit`.
+
+```html_example_table
+<div>
+  <button class="btn btn-default-alt" type="button" aria-label="button">
+    Cancel
+  </button>
+  <button class="btn btn-default" type="button" aria-label="button">
+    Save
+  </button>
+</div>
+```
+*/

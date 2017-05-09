@@ -548,3 +548,7 @@
     fill: $btn-danger-color-hover;
   }
 }
+
+.btn + .btn {
+  margin-left: $base-unit;
+}
