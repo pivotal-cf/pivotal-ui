@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 import {mergeProps} from 'pui-react-helpers';
-import {Panel} from 'pui-react-panels';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-collapse';
 
