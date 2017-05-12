@@ -46,18 +46,30 @@ class Alert extends React.Component {
 
     if (!visible) return <span/>;
 
+    let iconColumn;
     if (withIcon) {
-      const icon = <Icon src={alertIcon}/>;
-      children = <Media className={'mtn'} image={icon}>{children}</Media>;
+      iconColumn = <div className="col col-fixed pan mtm"><Icon src={alertIcon}/></div>
+    }
+
+    let dismissableColumn;
+    if (dismissable) {
+      dismissableColumn = (
+        <div className="col col-fixed pan">
+          <button type="button" className="btn close sr-only">{closeLabel}</button>
+          <button type="button" className="btn close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon
+            src="close"/>
+          </button>
+        </div>
+      );
     }
 
     return (
       <div {...props}>
-        {children}
-        {dismissable && <button type="button" className="btn close sr-only">{closeLabel}</button>}
-        {dismissable &&
-        <button type="button" className="btn close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon src="close"/>
-        </button>}
+        <div className="grid">
+          {iconColumn}
+          <div className="col col-middle">{children}</div>
+          {dismissableColumn}
+        </div>
       </div>
     );
   }

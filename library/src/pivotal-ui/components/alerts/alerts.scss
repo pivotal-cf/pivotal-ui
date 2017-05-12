@@ -2,32 +2,34 @@
 @import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
 
 .alert {
-  border: none;
+  border: none !important;
   margin: 0;
+  padding: 8px !important;
 
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
   a.alert-link {
     color: inherit;
     text-decoration: underline;
   }
 
-  .close {
-    text-decoration: none;
-    line-height: .7;
-    text-shadow: none;
-    color: inherit;
-    opacity: 1;
-  }
-}
-
-.alert {
   .icon {
     font-size: $font-size-h3 !important;
     line-height: $headings-line-height;
   }
+
+  & > div.grid {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+
+.alert-dismissable .close {
+  top: inherit !important;
+  right: inherit !important;
 }
 
 .alert-success svg {
