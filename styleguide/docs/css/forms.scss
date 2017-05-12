@@ -63,7 +63,7 @@ name: 01_form_inline
 parent: form_introduction
 ---
 
-Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls.
+Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls. `.form-group` will have a bottom margin of $base-unit.
 
 ```html_example
 <form class="styleguide-form">
