@@ -48,7 +48,7 @@ class Alert extends React.Component {
 
     let iconColumn;
     if (withIcon) {
-      iconColumn = <div className="col col-fixed pan mtm"><Icon src={alertIcon}/></div>
+      iconColumn = <div className="col col-fixed pan mtm"><Icon src={alertIcon}/></div>;
     }
 
     let dismissableColumn;
