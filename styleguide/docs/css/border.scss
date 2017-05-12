@@ -14,7 +14,7 @@ npm install pui-css-border --save
 </code>
 
 
-All textual `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements with `border` or
+All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements with `border` or
 `.border-*` are set to `width: 1px solid $input-color; by default.
 
 
@@ -124,5 +124,32 @@ Borders can also be controlled with the use of `border-*-0` to remove specific b
     <div class="border border-left-0">.border-left-0</div>
 </div>
 ```
+
+*/
+
+
+/*doc
+---
+title: Rounded Borders
+name: 01_border_radii
+parent: 00_border_basic
+---
+
+Borders can also be rounded with `border-rounded`:
+
+```html_example_table
+<div>
+<a class="btn btn-default border-rounded">.border-rounded</a>
+</div>
+```
+
+Or all radii effect removed with `border-not-rounded`:
+
+```html_example_table
+<div>
+<a class="btn btn-default border-not-rounded">.border-not-rounded</a>
+</div>
+```
+
 
 */
