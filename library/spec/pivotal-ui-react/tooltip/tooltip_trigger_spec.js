@@ -164,4 +164,12 @@ describe('TooltipTrigger Component', () => {
       expect(tooltip).toHaveClass('tooltip-container-hidden');
     });
   });
+
+  describe('isSticky', () => {
+    it('renders the tooltip with the "isSticky" prop', () => {
+      const result = renderComponent({isSticky: true, tooltip: 'Some tooltip content'});
+      const content = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container');
+      expect(content).toHaveClass('tooltip-hoverable');
+    });
+  });
 });

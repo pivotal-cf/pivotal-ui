@@ -6,12 +6,14 @@ import classnames from 'classnames';
 export class Tooltip extends React.Component {
   static propTypes = {
     visible: PropTypes.bool,
-    size: PropTypes.oneOf(['auto','sm', 'md', 'lg'])
+    size: PropTypes.oneOf(['auto','sm', 'md', 'lg']),
+    isSticky: PropTypes.bool
   }
 
   static defaultProps = {
     visible: true,
-    size: 'auto'
+    size: 'auto',
+    isSticky: false
   }
 
   constructor(props) {
@@ -19,10 +21,11 @@ export class Tooltip extends React.Component {
   }
 
   render() {
-    let {visible, size, className, children, ...others} = this.props;
+    let {isSticky, visible, size, className, children, ...others} = this.props;
 
     const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
                                   size === 'auto' ? null : `tooltip-${size}`,
+                                  isSticky? 'tooltip-hoverable': null,
                                   className);
 
     return (
@@ -42,7 +45,8 @@ export class TooltipTrigger extends React.Component {
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
     theme: PropTypes.oneOf(['dark', 'light']),
-    size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg'])
+    size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg']),
+    isSticky: PropTypes.bool
   }
 
   static defaultProps = {
@@ -52,7 +56,8 @@ export class TooltipTrigger extends React.Component {
     onEntered: () => {},
     onExited: () => {},
     theme: 'dark',
-    size: 'auto'
+    size: 'auto',
+    isSticky: false
   }
 
   constructor(props) {
@@ -80,7 +85,7 @@ export class TooltipTrigger extends React.Component {
   }
 
   render() {
-    const {placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props;
+    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props;
     const {visible} = this.state;
 
     let placementClass;
@@ -108,7 +113,7 @@ export class TooltipTrigger extends React.Component {
     return (
       <div {...newProps}>
         {this.props.children}
-        <Tooltip size={this.props.size} visible={visible}>{tooltip}</Tooltip>
+        <Tooltip {...{isSticky, size: this.props.size, visible}}>{tooltip}</Tooltip>
       </div>
     );
   }
