@@ -13,16 +13,17 @@ export class UIButton extends React.Component {
     kind: PropTypes.oneOf(['default', 'danger', 'primary', 'brand']),
     large: PropTypes.bool,
     small: PropTypes.bool,
+    fullWidth: PropTypes.bool,
     iconPosition: PropTypes.oneOf(['left', 'right'])
   }
 
   static defaultProps = {
     kind: 'default',
     iconPosition: 'left'
-  }
+  };
 
   render() {
-    const {alt, flat, icon, iconPosition, iconOnly, large, small, kind, children, ...others} = this.props;
+    const {alt, flat, icon, iconPosition, iconOnly, large, small, kind, children, fullWidth, ...others} = this.props;
 
 
     const buttonClasses = {
@@ -35,7 +36,8 @@ export class UIButton extends React.Component {
           'btn-lg': large,
           'btn-sm': small,
           'btn-icon': iconOnly,
-          'btn-icon-right': !!icon && iconPosition === 'right'
+          'btn-icon-right': !!icon && iconPosition === 'right',
+          'btn-full': fullWidth
         }
       ]
     };

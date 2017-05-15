@@ -23,6 +23,7 @@ iconOnly     | no       | Boolean | false   | If specified, will render as an ic
 iconPosition | no       | String  |         | If specified, places the icon to the left or the right of the text and or children
 large        | no       | Boolean | false   | Whether to render the button large
 small        | no       | Boolean | false   | Whether to render the button small
+fullWidth    | no       | Boolean | false   | Whether to render the button full width
 
 ## Basic usage
 
@@ -90,6 +91,8 @@ parent: button_react
 ---
 To make a button large, set the `large` property to true, to make it small, set `small` to true.
 
+To make a button full width, set `fullWidth` to true.
+
 ```react_example_table
 <DefaultButton large>
   Big Button
@@ -101,6 +104,10 @@ Default
 
 <DefaultButton small>
   Small Button
+</DefaultButton>
+
+<DefaultButton fullWidth>
+  Full Width Button
 </DefaultButton>
 ```
 

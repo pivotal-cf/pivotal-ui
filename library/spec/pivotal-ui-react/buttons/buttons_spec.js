@@ -125,6 +125,15 @@ describe('UIButton', () => {
     });
   });
 
+  describe('when full width is true', () => {
+    it('adds the full width class', () => {
+      subject = renderComponent({fullWidth: true});
+      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+
+      expect(button).toHaveClass('btn-full');
+    });
+  });
+
   describe('when small is true', () => {
     it('adds the small button class', () => {
       subject = renderComponent({small: true});
