@@ -65,6 +65,10 @@
   }
 }
 
+.btn + .btn {
+  margin-left: $base-unit;
+}
+
 .btn.btn-icon {
   padding: 0;
   .icon {
@@ -560,8 +564,4 @@
   .icon {
     fill: $btn-danger-color-hover;
   }
-}
-
-.btn + .btn {
-  margin-left: $base-unit;
 }
