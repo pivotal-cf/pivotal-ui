@@ -55,8 +55,7 @@ class Alert extends React.Component {
     if (dismissable) {
       dismissableColumn = (
         <div className="col col-fixed pan">
-          <button type="button" className="btn close sr-only">{closeLabel}</button>
-          <button type="button" className="btn close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon
+          <button type="button" className="btn close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
             src="close"/>
           </button>
         </div>
