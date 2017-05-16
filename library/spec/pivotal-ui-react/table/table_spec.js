@@ -1,6 +1,6 @@
 import '../spec_helper';
-import {Table, TableCell, TableRow} from 'pui-react-table'
-import PropTypes from 'prop-types'
+import {Table, TableCell, TableRow} from 'pui-react-table';
+import PropTypes from 'prop-types';
 
 describe('Table', function() {
   it('respects default sort', function() {
@@ -29,7 +29,7 @@ describe('Table', function() {
     ];
 
     ReactDOM.render((
-        <Table columns={columns} data={data} defaultSort='theDefault'/>
+        <Table columns={columns} data={data} defaultSort="theDefault"/>
       ),
       root
     );

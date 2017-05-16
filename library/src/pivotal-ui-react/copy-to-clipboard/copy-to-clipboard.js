@@ -19,7 +19,7 @@ export class CopyToClipboard extends React.Component {
   }
 
   click = ({props, text}, e) => {
-    const window = this.props.getWindow()
+    const window = this.props.getWindow();
     copy(window, window.document, text);
     const {onClick} = props;
     if(onClick) onClick(e);
@@ -79,10 +79,10 @@ export class CopyToClipboardButton extends React.Component {
 
     const button = (<div className="clipboard-button">
       <Icon src="copy"/>
-    </div>)
+    </div>);
 
     return (<CopyToClipboard {...copyProps}>
       <TooltipTrigger tooltip="Copied" trigger="click">{button}</TooltipTrigger>
-    </CopyToClipboard>)
+    </CopyToClipboard>);
   }
 }

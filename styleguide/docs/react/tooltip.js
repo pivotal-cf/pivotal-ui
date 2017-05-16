@@ -25,6 +25,7 @@ Property       | Required | Type                                      | Default 
 ---------------|----------|-------------------------------------------|----------|----------------------------------
 visible        | no       | Boolean                                   | true     | Whether the tooltip contents are visible
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
+isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
 
 * See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
@@ -67,6 +68,7 @@ pin          | no       | Boolean                                    | true    |
 placement    | no       | oneOf('top', 'bottom', 'left', 'right')    | 'right' | Placement of overlay in relation to target
 theme        | no       | oneOf(['light', 'dark'])                   | dark    | Theme of tooltip background and text
 trigger      | no       | oneOf('hover', 'click', 'focus', 'manual') | 'hover' | Action to trigger showing overlay
+isSticky     | no       | Boolean                                    | false   | Whether the tooltip hover is sticky or not
 
 ## Basic usage
 
@@ -143,6 +145,8 @@ onEntered      | no       | Func                                      | () => {}
 onExited       | no       | Func                                      | () => {} | Callback that is called after the tooltip is hidden
 theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
+isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
+
 
 * See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
 
@@ -168,6 +172,11 @@ the TooltipTrigger will add a lot of markup to the DOM if you are using it in a 
   <div className="form-group form-inline">
     <TooltipTrigger tooltip="Some tooltip" trigger="click">
       <button className="btn btn-default">Click me</button>
+    </TooltipTrigger>
+  </div>
+  <div className="form-group form-inline">
+    <TooltipTrigger tooltip="Some tooltip" isSticky={true} placement="right">
+      <button className="btn btn-default">Hover over me too!</button>
     </TooltipTrigger>
   </div>
 </div>

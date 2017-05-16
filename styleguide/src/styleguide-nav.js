@@ -22,7 +22,7 @@ class StyleguideNav extends React.Component {
         const componentPage = components[componentLink];
         return (
         <div key={key}>
-          <a className='maxl' href={componentPage}>{componentLink}</a>
+          <a className="maxl" href={componentPage}>{componentLink}</a>
         </div>
         );
       });

@@ -1,22 +1,22 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames'
-import {default as mixin} from 'pui-react-mixins'
-import Scrim from 'pui-react-mixins/mixins/scrim_mixin'
-import Transition from 'pui-react-mixins/mixins/transition_mixin'
-import {Icon} from 'pui-react-iconography'
-import 'pui-css-dropdowns'
+import classnames from 'classnames';
+import {default as mixin} from 'pui-react-mixins';
+import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
+import Transition from 'pui-react-mixins/mixins/transition_mixin';
+import {Icon} from 'pui-react-iconography';
+import 'pui-css-dropdowns';
 
 const defaultToggleNode = (showIcon, icon) => {
-  if (showIcon) return <Icon src={icon} className="icon-toggle"/>
-}
+  if (showIcon) return <Icon src={icon} className="icon-toggle"/>;
+};
 
 export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
-    super(props, context)
+    super(props, context);
     this.state = {
       open: false
-    }
+    };
   }
 
   static propTypes = {
@@ -42,7 +42,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     showIcon: PropTypes.bool,
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     closeOnMenuClick: true,
@@ -52,45 +52,46 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     scroll: false,
     showIcon: true,
     size: 'normal'
-  }
+  };
 
   click = event => {
-    this.setState({open: !this.state.open})
-    this.props.onClick && this.props.onClick(event)
-  }
+    this.setState({open: !this.state.open});
+    this.props.onClick && this.props.onClick(event);
+  };
 
   handleSplitClick = event => {
-    const {href, disabled, onSelect} = this.props
-    if (disabled) return
+    const {href, disabled, onSelect} = this.props;
+    if (disabled) return;
 
     if (!href) {
-      event.preventDefault()
+      event.preventDefault();
+      this.click(event);
     }
 
-    onSelect && onSelect(event)
-  }
+    onSelect && onSelect(event);
+  };
 
   scrimClick = () => this.setState({open: false})
 
   menuClick = () => {
-    if (!this.props.closeOnMenuClick) return
-    this.setState({open: false})
-  }
+    if (!this.props.closeOnMenuClick) return;
+    this.setState({open: false});
+  };
 
   render() {
     const {
       border, buttonAriaLabel, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
       flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onEntered, onExited, split, title, toggle,
       floatMenu, scroll, ...props
-    } = this.props
-    const {open} = this.state
-    const buttonStyleClasses = classnames('dropdown-toggle', buttonClassName)
-    const noTitle = typeof title === 'undefined' || title === null || title.length === 0
+    } = this.props;
+    const {open} = this.state;
+    const buttonStyleClasses = classnames('dropdown-toggle', buttonClassName);
+    const noTitle = typeof title === 'undefined' || title === null || title.length === 0;
 
-    const forceIcon = noTitle || split
-    const iconVisible = forceIcon || showIcon
-    const toggleNode = toggle ? toggle : defaultToggleNode(iconVisible, icon)
-    const menuVisibility = open ? 'dropdown-open' : 'dropdown-closed'
+    const forceIcon = noTitle || split;
+    const iconVisible = forceIcon || showIcon;
+    const toggleNode = toggle ? toggle : defaultToggleNode(iconVisible, icon);
+    const menuVisibility = open ? 'dropdown-open' : 'dropdown-closed';
 
     const dropdownClasses = classnames('dropdown', {
       'dropdown-flat': flat,
@@ -99,7 +100,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       'dropdown-lg': size === 'large',
       'dropdown-sm': size === 'small',
       'dropdown-icon-only' : !split && noTitle
-    }, menuVisibility, className)
+    }, menuVisibility, className);
 
     const dropdownMenuClasses = classnames('dropdown-menu',
       {
@@ -109,12 +110,12 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
         'dropdown-menu-float' : split || flat || link || floatMenu || noTitle || menuAlign !== 'none',
         'dropdown-menu-scroll': scroll
       }
-    )
-    const dropdownOptions = <div className={dropdownMenuClasses}>
+    );
+    const dropdownOptions = (<div className={dropdownMenuClasses}>
       <ul aria-label="submenu" onClick={this.menuClick}>{children}</ul>
-    </div>
+    </div>);
 
-    const splitProps = {href, 'aria-label': labelAriaLabel}
+    const splitProps = {href, 'aria-label': labelAriaLabel};
 
     return (<div className={dropdownClasses} {...props}>
       <button type="button" onClick={this.click} className={buttonStyleClasses} aria-haspopup="true" aria-label={buttonAriaLabel}>
@@ -123,7 +124,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       {toggleNode}
       {split && <a className={classnames('dropdown-label', buttonClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
       {dropdownOptions}
-    </div>)
+    </div>);
   }
 }
 
@@ -137,33 +138,33 @@ export class DropdownItem extends React.Component {
     disabled: PropTypes.bool,
     eventKey: PropTypes.string,
     onSelect: PropTypes.func
-  }
+  };
 
   handleClick = event => {
-    const {href, disabled, onSelect, eventKey} = this.props
-    if (disabled) return
+    const {href, disabled, onSelect, eventKey} = this.props;
+    if (disabled) return;
 
     if (!href) {
-      event.preventDefault()
+      event.preventDefault();
     }
 
     if (onSelect) {
-      onSelect(event, eventKey)
+      onSelect(event, eventKey);
     }
-  }
+  };
 
   render() {
-    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props
+    const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props;
 
-    if (header) return (<li role="heading" className="dropdown-header">{children}</li>)
-    if (divider) return (<li role="separator" className="divider"/>)
+    if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
+    if (divider) return (<li role="separator" className="divider"/>);
 
-    const anchor = href ? <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a> : children
-    const disabledClass = disabled ? 'disabled' : ''
-    const dropdownItemClass = classnames(className, disabledClass)
+    const anchor = href ? <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a> : children;
+    const disabledClass = disabled ? 'disabled' : '';
+    const dropdownItemClass = classnames(className, disabledClass);
     
     return (<li {...{style}} className={dropdownItemClass} onClick={href ? '' : this.handleClick}>
       {anchor}
-    </li>)
+    </li>);
   }
 }

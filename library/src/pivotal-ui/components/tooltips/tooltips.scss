@@ -9,11 +9,6 @@
 
 .tooltip-container {
   //Hover Effect for HTML & CSS ONLY
-
-  &.tooltip-container-visible {
-    visibility: visible;
-  }
-
   visibility: hidden;
   transition: opacity $tooltip-opacity-transition;
   z-index: $tooltip-container-z;
@@ -23,6 +18,22 @@
   transform: translateX(-50%);
   margin: 0 0 $tooltip-margin 0; //space for the triangle indicator
   text-align: left;
+
+  &.tooltip-container-visible {
+    visibility: visible;
+  }
+
+  &.tooltip-hoverable {
+    &:after {
+      content:"";
+      position: absolute;
+      width:calc(100% + 16px);
+      height:calc(100% + 16px);
+      top:50%;
+      left:50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
 
   .tooltip-content {
     white-space: nowrap;

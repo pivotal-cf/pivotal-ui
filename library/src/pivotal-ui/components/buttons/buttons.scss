@@ -29,7 +29,6 @@
   transition-property: background-color, color, opacity, border;
   .icon {
     font-size: $font-size-large;
-    margin: 0 5px 0 0;
     fill: $btn-default-color;
   }
 
@@ -41,6 +40,16 @@
     .icon {
 
     }
+  }
+
+  // Button Content Rules
+  span.btn-inner-content {
+    align-items: center;
+    display: inline-flex;
+  }
+
+  span.btn-inner-content > * + * {
+    margin-left: 5px !important;
   }
 
   // Spinner
@@ -56,11 +65,19 @@
   }
 }
 
+.btn + .btn {
+  margin-left: $base-unit;
+}
+
 .btn.btn-icon {
   padding: 0;
   .icon {
     margin: 5px;
   }
+}
+
+.btn-full {
+  width: 100%;
 }
 
 .btn-lg {

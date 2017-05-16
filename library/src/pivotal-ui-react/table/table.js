@@ -52,11 +52,11 @@ export class TableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, ...others} = this.props
+		let {children, index, rowDatum, ...others} = this.props;
 
 		return (<td {...others}>
 			{children}
-		</td>)
+		</td>);
 	}
 }
 
@@ -66,11 +66,11 @@ export class TableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, ...others} = this.props
+		let {children, index, ...others} = this.props;
 
 		return (<tr {...others}>
 			{children}
-		</tr>)
+		</tr>);
 	}
 }
 
@@ -90,9 +90,9 @@ export class Table extends React.Component {
       return defaultSort ? attribute === defaultSort : sortable;
     });
     this.state = {sortColumn, sortOrder: SORT_ORDER.asc};
-    this.defaultCell = TableCell
-    this.defaultRow = TableRow
-    this.defaultHeader = TableHeader
+    this.defaultCell = TableCell;
+    this.defaultRow = TableRow;
+    this.defaultHeader = TableHeader;
   }
 
   componentWillReceiveProps({columns, defaultSort}) {
@@ -147,7 +147,7 @@ export class Table extends React.Component {
       let className, icon;
       if (isSortColumn) {
         className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-        icon = [<Icon verticalAlign='baseline' src="arrow_drop_up"/>, <Icon verticalAlign='baseline' src="arrow_drop_down"/>, null][sortOrder];
+        icon = [<Icon verticalAlign="baseline" src="arrow_drop_up"/>, <Icon verticalAlign="baseline" src="arrow_drop_down"/>, null][sortOrder];
       }
 
       className = classnames(className, headerProps.className, cellClass);
@@ -160,7 +160,7 @@ export class Table extends React.Component {
         onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
 
-			const Header = this.defaultHeader
+			const Header = this.defaultHeader;
       return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
     });
   }
@@ -193,7 +193,7 @@ class FlexTableHeader extends TableHeader {
 
   render() {
     const {onSortableTableHeaderClick, sortable, className, ...others} = this.props;
-    const classes = classnames('th', 'col', className, {'sortable': sortable})
+    const classes = classnames('th', 'col', className, {'sortable': sortable});
     const props = mergeProps(others, { className: classes });
 
     const thProps = {...props, tabIndex: 0, disabled: !sortable};
@@ -213,13 +213,13 @@ export class FlexTableCell extends React.Component {
 	}
 
 	render() {
-		let {children, index, rowDatum, className, ...others} = this.props
-		const classes = classnames(className, 'td', 'col')
-		const props = mergeProps(others, {className: classes})
+		let {children, index, rowDatum, className, ...others} = this.props;
+		const classes = classnames(className, 'td', 'col');
+		const props = mergeProps(others, {className: classes});
 
 		return (<div {...props}>
 			{children}
-		</div>)
+		</div>);
 	}
 }
 
@@ -229,13 +229,13 @@ export class FlexTableRow extends React.Component {
 	}
 
 	render() {
-		let {children, index, className, ...others} = this.props
-  	const classes = classnames(className, 'tr', 'grid')
-  	const props = mergeProps(others, {className: classes})
+		let {children, index, className, ...others} = this.props;
+  	const classes = classnames(className, 'tr', 'grid');
+  	const props = mergeProps(others, {className: classes});
 
 		return (<div {...props}>
 			{children}
-		</div>)
+		</div>);
 	}
 }
 
@@ -257,9 +257,9 @@ export class FlexTable extends Table {
     });
 
     this.state = {sortColumn, sortOrder: SORT_ORDER.asc};
-    this.defaultCell = FlexTableCell
-    this.defaultRow = FlexTableRow
-    this.defaultHeader = FlexTableHeader
+    this.defaultCell = FlexTableCell;
+    this.defaultRow = FlexTableRow;
+    this.defaultHeader = FlexTableHeader;
   }
 
   render() {
@@ -270,7 +270,7 @@ export class FlexTable extends Table {
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (<div {...props}>
-      <div className='tr grid'>
+      <div className="tr grid">
       	{this.renderHeaders()}
       </div>
       {rows}

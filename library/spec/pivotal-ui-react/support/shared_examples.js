@@ -12,11 +12,11 @@ export function itPropagatesAttributes(componentIdentifier, attributeHash) {
 
 export const reactCompPropagatesAttrs = (renderedComp, class_name, id, style) => {
   it('adds classname, id, style to the component', () => {
-    const component = ReactTestUtils.findRenderedDOMComponentWithClass(renderedComp, class_name)
+    const component = ReactTestUtils.findRenderedDOMComponentWithClass(renderedComp, class_name);
 
-    expect(component).not.toBeNull()
-    expect(component.hasAttribute('id')).toBe(true)
-    expect(component.getAttribute('id')).toEqual(id)
-    Object.keys(style).map(key => {expect(component.style.key).toEqual(style[{key}])})
+    expect(component).not.toBeNull();
+    expect(component.hasAttribute('id')).toBe(true);
+    expect(component.getAttribute('id')).toEqual(id);
+    Object.keys(style).map(key => {expect(component.style.key).toEqual(style[{key}]);});
   });
-}
+};
