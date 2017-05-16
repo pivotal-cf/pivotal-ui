@@ -8,11 +8,11 @@ export class Row extends React.Component {
   static propTypes = {
     componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     gutter: PropTypes.oneOf(['sm', 'md', 'lg'])
-  }
+  };
 
   static defaultProps = {
     componentClass: 'div'
-  }
+  };
 
   render() {
     const {componentClass: Component, gutter, ...other} = this.props;
@@ -48,11 +48,11 @@ export class Col extends React.Component {
     smPull: PropTypes.number,
     mdPull: PropTypes.number,
     lgPull: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     componentClass: 'div'
-  }
+  };
 
   render() {
     const {

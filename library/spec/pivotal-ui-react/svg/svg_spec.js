@@ -1,6 +1,6 @@
-import '../spec_helper'
-import {Svg} from 'pui-react-svg'
-import ReactDOMServer from 'react-dom/server'
+import '../spec_helper';
+import {Svg} from 'pui-react-svg';
+import ReactDOMServer from 'react-dom/server';
 
 describe('Svg', () => {
   let subject, MySvg;
@@ -8,7 +8,7 @@ describe('Svg', () => {
   beforeEach(() => {
     MySvg = class extends Svg {
       svgPathLoader(src) {
-        return require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!./${src}.svg`)
+        return require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!./${src}.svg`);
       }
     };
 

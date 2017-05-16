@@ -10,7 +10,7 @@ import {Icon} from 'pui-react-iconography';
 const ESC_KEY = 27;
 const privates = new WeakMap();
 
-function bodyNotAllowedToScroll(document)  {
+function bodyNotAllowedToScroll(document) {
   if (typeof document !== 'object') return;
   const body = document.getElementsByTagName('body')[0];
   if(!body.classList.contains('pui-no-scroll')) {
@@ -156,7 +156,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

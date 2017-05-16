@@ -161,7 +161,6 @@ select.input-sm {
 
 .form-group {
   margin-bottom: ($base-unit*2);
-  margin-right: ($base-unit*2);
   position: relative;
   label {
     position: relative;
@@ -310,26 +309,22 @@ select.input-sm {
 .form-inline {
   display: inline-flex;
   vertical-align: top;
-
-  > {
-    display: inline-block;
+  &:not(.col) + .form-inline {
+    margin-left: ($base-unit*2);
   }
-
+  &:not(.col) + .btn {
+    margin-left: ($base-unit*2);
+  }
   label {
-    margin-bottom: 0;
+    margin-right: $base-unit;
     line-height: ($base-unit*4);
   }
-
-  .btn {
-    display: inline-flex;
-    margin-bottom: 0;
-  }
-
-  input, textarea, select {
-    display: inline-flex;
-    margin-bottom: 0;
+  .help-block {
+    right:0;
   }
 }
+
+
 
 //Accept & Error (valid/invalid)
 input[type="email"].invalid,

@@ -37,20 +37,19 @@ describe('Alert Component', () => {
       });
 
       it('has a close button', () => {
-        expect('.alert button').toHaveLength(2);
-        expect('button:eq(1)').toHaveClass('close');
+        expect('.alert button').toHaveLength(1);
+        expect('button:eq(0)').toHaveClass('close');
       });
 
       it('has an sr-only close button', () => {
-        expect('.alert button').toHaveLength(2);
-        expect('.alert button:eq(0)').not.toHaveAttr('aria-hidden');
-        expect('.alert button:eq(0)').toHaveText('Close alert');
-        expect('.alert button:eq(1)').toHaveAttr('aria-hidden');
+        expect('.alert button').toHaveLength(1);
+        expect('.alert button:eq(0)').toHaveAttr('aria-label');
       });
 
-      it('adds the closeLabel to the close button', () => {
+     it('adds the closeLabel to the close button', () => {
         subject::setProps({dismissable: true, closeLabel: 'click to close the alert'});
-        expect('.alert button:eq(0)').toHaveText('click to close the alert');
+        expect('.alert button:eq(0)').toHaveAttr('aria-label');
+        expect($('.alert button:eq(0)').attr('aria-label')).toBe('click to close the alert');
       });
 
       it('disappears when close button is clicked', () => {
