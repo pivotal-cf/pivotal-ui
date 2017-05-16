@@ -74,6 +74,24 @@ describe('Dropdown', () => {
       clickOn(findByClass(subject, 'dropdown-label'));
       expect(onSelectSpy).toHaveBeenCalled();
     });
+
+    describe('when there is no href provided', () => {
+      beforeEach(() => {
+        subject = renderIntoDOM({
+          labelAriaLabel: 'Nessun Dorma',
+          split: true,
+          onSelect: onSelectSpy
+        });
+        spyOn(subject, 'click').and.callThrough();
+      });
+
+      it('opens the dropdown when any part of the dropdown is clicked', () => {
+        const label = findByClass(subject, 'dropdown-label');
+        ReactTestUtils.Simulate.click(label);
+        expect(subject.click).toHaveBeenCalled();
+        expect(subject.state.open).toBeTruthy();
+      });
+    });
   });
 
   it('calls onClick when dropdown toggle is clicked', () => {

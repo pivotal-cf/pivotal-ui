@@ -1,5 +1,6 @@
 import '../spec_helper';
 import {FlexTable, FlexTableCell, FlexTableRow} from 'pui-react-table';
+import {PropTypes} from 'prop-types';
 
 describe('Flex Table', () => {
   let subject, data, columns;
@@ -147,7 +148,7 @@ describe('Flex Table', () => {
       beforeEach(() => {
         class CustomCell extends React.Component {
           static propTypes = {
-            value: React.PropTypes.oneOf(['node', 'object'])
+            value: PropTypes.oneOfType([PropTypes.node, PropTypes.object])
           };
 
           render() {

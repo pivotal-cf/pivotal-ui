@@ -42,7 +42,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     showIcon: PropTypes.bool,
     size: PropTypes.oneOf(['normal', 'large', 'small']),
     split: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     closeOnMenuClick: true,
@@ -52,12 +52,12 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     scroll: false,
     showIcon: true,
     size: 'normal'
-  }
+  };
 
   click = event => {
     this.setState({open: !this.state.open});
     this.props.onClick && this.props.onClick(event);
-  }
+  };
 
   handleSplitClick = event => {
     const {href, disabled, onSelect} = this.props;
@@ -65,17 +65,18 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
     if (!href) {
       event.preventDefault();
+      this.click(event);
     }
 
     onSelect && onSelect(event);
-  }
+  };
 
   scrimClick = () => this.setState({open: false})
 
   menuClick = () => {
     if (!this.props.closeOnMenuClick) return;
     this.setState({open: false});
-  }
+  };
 
   render() {
     const {
@@ -137,7 +138,7 @@ export class DropdownItem extends React.Component {
     disabled: PropTypes.bool,
     eventKey: PropTypes.string,
     onSelect: PropTypes.func
-  }
+  };
 
   handleClick = event => {
     const {href, disabled, onSelect, eventKey} = this.props;
@@ -150,7 +151,7 @@ export class DropdownItem extends React.Component {
     if (onSelect) {
       onSelect(event, eventKey);
     }
-  }
+  };
 
   render() {
     const {children, className, eventKey, style, href, header, divider, disabled, ...anchorProps} = this.props;

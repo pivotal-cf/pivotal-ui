@@ -56,7 +56,7 @@ describe('Select', () => {
 
     it('shows the default value in the toggle', () => {
       const toggle = findByClass(result, 'select-toggle');
-      expect(toggle).toHaveText(' defaultValue');
+      expect(toggle).toHaveText('defaultValue');
     });
 
     it('shows the select menu on click', () => {

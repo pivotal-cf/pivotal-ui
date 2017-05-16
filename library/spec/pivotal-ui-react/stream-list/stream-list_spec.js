@@ -58,18 +58,18 @@ describe('StreamList', () => {
       addData.emit('data', 'Item d');
       let listStreamButton = findByClass(result, 'list-stream-new-items-btn');
 
-      expect(listStreamButton).toHaveText(' 1 new item');
+      expect(listStreamButton).toHaveText('1 new item');
 
       addData.emit('data', 'Item e');
       listStreamButton = findByClass(result, 'list-stream-new-items-btn');
 
-      expect(listStreamButton).toHaveText(' 2 new items');
+      expect(listStreamButton).toHaveText('2 new items');
 
       addData.emit('data', 'Item f');
       addData.emit('data', 'Item g');
       listStreamButton = findByClass(result, 'list-stream-new-items-btn');
 
-      expect(listStreamButton).toHaveText(' 4 new items');
+      expect(listStreamButton).toHaveText('4 new items');
     });
 
     it('does not add a new li element', () => {

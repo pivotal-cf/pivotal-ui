@@ -1,4 +1,5 @@
 import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete';
+import {PropTypes} from 'prop-types';
 
 
 describe('Autocomplete', () => {
@@ -23,8 +24,8 @@ describe('Autocomplete', () => {
   it('passes through custom props', () => {
     const CustomInput = ({disabled, placeholder}) => <input className="input-thing" {...{disabled, placeholder}}/>;
     CustomInput.propTypes = {
-      disabled: React.PropTypes.bool,
-      placeholder: React.PropTypes.string
+      disabled: PropTypes.bool,
+      placeholder: PropTypes.string
     };
     const CustomList = () => (<ul className="my-custom-list"/>);
 
