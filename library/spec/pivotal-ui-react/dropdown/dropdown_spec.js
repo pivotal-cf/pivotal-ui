@@ -14,8 +14,7 @@ describe('Dropdown', () => {
   const renderIntoDOM = (props, itemProps) => ReactDOM.render(
     <Dropdown {...props}>
       <DropdownItem {...itemProps}>Item #1</DropdownItem>
-    </Dropdown>
-  , root);
+    </Dropdown>, root);
 
   beforeEach(() => {
     subject = renderComponent({
@@ -303,13 +302,13 @@ describe('Dropdown', () => {
     it('still renders an icon if there is a title', () => {
       subject = renderComponent({showIcon: false});
 
-      expect(findByClass(subject, 'icon-chevron_down')).toExist();
+      expect(findByClass(subject, 'icon-chevron_down')).toBeTruthy();
     });
 
     it('still renders an icon if the dropdown is a split dropdown', () => {
       subject = renderComponent({showIcon: false, split: true});
 
-      expect(findByClass(subject, 'icon-chevron_down')).toExist();
+      expect(findByClass(subject, 'icon-chevron_down')).toBeTruthy();
     });
 
     it('does not render an icon otherwise', () => {
