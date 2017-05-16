@@ -138,16 +138,20 @@ parent: 00_border_basic
 Borders can also be rounded with `border-rounded`:
 
 ```html_example_table
-<div>
-<a class="btn btn-default border-rounded">.border-rounded</a>
+<div class="panel bg-neutral-11 border border-rounded">
+  <div class="panel-body">
+    Border Rounded
+  </div>
 </div>
 ```
 
 Or all radii effect removed with `border-not-rounded`:
 
 ```html_example_table
-<div>
-<a class="btn btn-default border-not-rounded">.border-not-rounded</a>
+<div class="panel bg-neutral-11 border border-not-rounded">
+  <div class="panel-body">
+    Border Not Rounded
+  </div>
 </div>
 ```
 

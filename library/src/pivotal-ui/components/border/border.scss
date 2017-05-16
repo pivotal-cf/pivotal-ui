@@ -1,7 +1,7 @@
 @import "../pui-variables";
 
 .border {
-  border:solid 1px $input-border;
+  border:solid 1px $input-border !important;
 }
 
 .border-none {
@@ -10,7 +10,7 @@
 
 @each $position in "top", "bottom", "left", "right" {
   .border-#{$position} {
-    border-#{$position}: 1px solid $input-border;
+    border-#{$position}: 1px solid $input-border !important;
   }
 
   .border-#{$position}-0 {
