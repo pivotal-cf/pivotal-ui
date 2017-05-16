@@ -42,17 +42,14 @@
     }
   }
 
-  span.inner-btn-content {
+  // Button Content Rules
+  span.btn-inner-content {
     align-items: center;
     display: inline-flex;
   }
 
-  span.inner-btn-content > *:nth-child(n) {
+  span.btn-inner-content > * + * {
     margin-left: 5px !important;
-  }
-
-  span.inner-btn-content > *:first-child {
-    margin-left: 0px;
   }
 
   // Spinner

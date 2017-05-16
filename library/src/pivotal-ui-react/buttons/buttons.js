@@ -47,23 +47,24 @@ export class UIButton extends React.Component {
 
     let btnChildren = children;
 
-    if (buttonText && !iconOnly) { // if the children are not text icons will not be inserted... ask elliot about this
+    if (buttonText && !iconOnly) {
       props = mergeProps(props, {'aria-label': buttonText});
-
-       btnChildren = (<span key="btn-content-txt">{children}</span>);
-
+      btnChildren = (<span>{children}</span>);
     }
-      let buttonContent = (<span className="inner-btn-content">
-          {icon}
-          {btnChildren}
-        </span>);
 
-      if (iconPosition === 'right') {
-        buttonContent = (<span className="inner-btn-content">
+    let buttonContent = (
+      <span className="btn-inner-content">
+        {icon}
+        {btnChildren}
+      </span>);
+
+    if (iconPosition === 'right') {
+      buttonContent = (
+        <span className="btn-inner-content">
           {btnChildren}
           {icon}
         </span>);
-      }
+    }
 
     return this.props.href ?
       <a {...props}>{buttonContent}</a> :

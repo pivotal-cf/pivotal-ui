@@ -189,7 +189,35 @@ describe('UIButton', () => {
         icon: <Icon src="add"/>
       });
       const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
-      expect(icon.parentNode.tagName).toEqual('BUTTON');
+      expect(icon.parentNode.tagName).toEqual('SPAN');
+      expect(icon.parentNode.parentNode.tagName).toEqual('BUTTON');
     });
+  });
+
+  describe('iconPosition', () => {
+    describe('is not set', () => {
+      it('renders the icon to the left', () => {
+        subject = renderComponent({icon: <Icon src="spinner_icon"/>});
+        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
+        expect(icon.nextSibling.tagName).toEqual('SPAN');
+      });
+    });
+
+    describe('is set to left', () => {
+      it('renders the icon to the left', () => {
+        subject = renderComponent({icon: <Icon src="spinner_icon"/>});
+        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
+        expect(icon.nextSibling.tagName).toEqual('SPAN');
+      });
+    });
+
+    describe('is set right', () => {
+      it('renders the icon to the right', () => {
+        subject = renderComponent({icon: <Icon src="spinner_icon"/>, iconPosition: 'right'});
+        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
+        expect(icon.previousSibling.tagName).toEqual('SPAN');
+      });
+    });
+
   });
 });
