@@ -124,7 +124,7 @@ import {Grid, FlexCol} from 'pui-react-flex-grids';
 
  ```react_example
 <Grid className="grid-show">
-  <FlexCol fixed={true} style="width: 150px;"></FlexCol>
+  <FlexCol fixed={true} style={{width: '150px'}}></FlexCol>
   <FlexCol></FlexCol>
   <FlexCol></FlexCol>
 </Grid>
@@ -137,19 +137,19 @@ import {Grid, FlexCol} from 'pui-react-flex-grids';
  ```react_example
 <div>
   <Grid className="grid-show">
-    <FlexCol breakpoint="sm" style="width: 150px;"></FlexCol>
+    <FlexCol breakpoint="sm" style={{width: '150px'}}></FlexCol>
     <FlexCol breakpoint="sm"></FlexCol>
     <FlexCol breakpoint="sm"></FlexCol>
   </Grid>
 
   <Grid className="grid-show">
-    <FlexCol breakpoint="md" style="width: 150px;"></FlexCol>
+    <FlexCol breakpoint="md" style={{width: '150px'}}></FlexCol>
     <FlexCol breakpoint="md"></FlexCol>
     <FlexCol breakpoint="md"></FlexCol>
   </Grid>
 
   <Grid className="grid-show">
-    <FlexCol breakpoint="lg" style="width: 150px;"></FlexCol>
+    <FlexCol breakpoint="lg" style={{width: '150px'}}></FlexCol>
     <FlexCol breakpoint="lg"></FlexCol>
     <FlexCol breakpoint="lg"></FlexCol>
   </Grid>
