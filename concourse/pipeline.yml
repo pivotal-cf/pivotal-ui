@@ -4,13 +4,13 @@ resources:
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
       branch: development
-      private_key: {{pivotal-ui-git-key}}
+      private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
   - name: pivotal-ui-master
     type: git
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
       branch: master
-      private_key: {{pivotal-ui-git-key}}
+      private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
 
 jobs:
   - name: library-master
@@ -157,7 +157,7 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           params:
-            CF_PASSWORD: {{pivotal-ui-cf-password}}
+            CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
           - name: pivotal-ui-development
           run:
@@ -192,7 +192,7 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           params:
-            CF_PASSWORD: {{pivotal-ui-cf-password}}
+            CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
           - name: pivotal-ui-development
           run:
