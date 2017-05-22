@@ -1,13 +1,5 @@
-groups:
-- name: development
-  jobs:
-  - library-unit-test-development
-  - react-styleguide-development
-  - hologram-styleguide-development
-  - hologram-styleguide-development-deploy
-
 resources:
-  - name: pivotal-ui-development
+  - name: pivotal-ui
     type: git
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
@@ -15,9 +7,9 @@ resources:
       private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
 
 jobs:
-  - name: library-unit-test-development
+  - name: library-unit-test
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
         trigger: true
       - task: build
         config:
@@ -28,22 +20,22 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui-development
+          - name: pivotal-ui
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui-development/library
+              cd pivotal-ui/library
               npm i
               gulp build
               gulp ci
 
-  - name: hologram-styleguide-development
+  - name: hologram-styleguide
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
         trigger: true
-        passed: [library-unit-test-development]
+        passed: [library-unit-test]
       - task: build
         config:
           platform: linux
@@ -53,13 +45,13 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui-development
+          - name: pivotal-ui
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui-development/library
+              cd pivotal-ui/library
               npm i
               gulp build
 
@@ -69,11 +61,11 @@ jobs:
               gulp styleguide-build
               gulp ci
 
-  - name: react-styleguide-development
+  - name: react-styleguide
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
         trigger: true
-        passed: [library-unit-test-development]
+        passed: [library-unit-test]
       - task: build
         config:
           platform: linux
@@ -83,19 +75,19 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui-development
+          - name: pivotal-ui
           run:
             path: bash
             args:
             - -exc
             - |
-              pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
+              pivotal-ui/styleguide_new/bin/gemini-in-docker.sh pivotal-ui test
 
-  - name: hologram-styleguide-development-deploy
+  - name: hologram-styleguide-deploy
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
         trigger: true
-        passed: [hologram-styleguide-development]
+        passed: [hologram-styleguide]
       - task: build
         config:
           platform: linux
@@ -107,13 +99,13 @@ jobs:
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
-          - name: pivotal-ui-development
+          - name: pivotal-ui
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui-development/library
+              cd pivotal-ui/library
               npm i
               gulp build
               cd ../styleguide
@@ -126,11 +118,11 @@ jobs:
               cf target -o pivotal -s pivotal-ui-staging
               cf push
 
-  - name: react-styleguide-development-deploy
+  - name: react-styleguide-deploy
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
         trigger: true
-        passed: [react-styleguide-development]
+        passed: [react-styleguide]
       - task: build
         config:
           platform: linux
@@ -142,13 +134,13 @@ jobs:
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
-          - name: pivotal-ui-development
+          - name: pivotal-ui
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui-development/library
+              cd pivotal-ui/library
               npm i
               gulp build
               cd ../styleguide_new
