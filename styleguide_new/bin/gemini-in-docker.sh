@@ -15,13 +15,13 @@ cd $PIVOTAL_UI_LOCATION
 
 pushd library
     rm -rf node_modules
-    npm i
+    yarn install
     gulp build
 popd
 
 pushd styleguide_new
     rm -rf node_modules
-    npm i
+    yarn install
     ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
     ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
     npm run watch &
