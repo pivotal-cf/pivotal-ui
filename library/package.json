@@ -100,7 +100,7 @@
     "strong-wait-till-listening": "^1.0.1",
     "through": "^2.3.8",
     "through2": "^0.6.3",
-    "trie-search": "^1.0.0",
+    "trie-search": "^1.0.1",
     "url-loader": "^0.5.7",
     "vinyl": "^0.4.6",
     "vinyl-file": "^1.1.1",
