@@ -1,14 +1,14 @@
 groups:
 - name: development
   jobs:
-  - library-development
-  - styleguide-new-development
-  - styleguide-development
-  - styleguide-development-deploy
+  - library-unit-test-development
+  - react-styleguide-development
+  - hologram-styleguide-development
+  - hologram-styleguide-development-deploy
 - name: master
   jobs:
-  - library-master
-  - styleguide-master
+  - library-unit-test-master
+  - hologram-styleguide-master
 
 resources:
   - name: pivotal-ui-development
@@ -25,7 +25,7 @@ resources:
       private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
 
 jobs:
-  - name: library-master
+  - name: library-unit-test-master
     plan:
       - get: pivotal-ui-master
         trigger: true
@@ -49,11 +49,11 @@ jobs:
               gulp build
               gulp ci
 
-  - name: styleguide-master
+  - name: hologram-styleguide-master
     plan:
       - get: pivotal-ui-master
         trigger: true
-        passed: [library-master]
+        passed: [library-unit-test-master]
       - task: build
         config:
           platform: linux
@@ -79,7 +79,7 @@ jobs:
               gulp styleguide-build
               gulp ci
 
-  - name: library-development
+  - name: library-unit-test-development
     plan:
       - get: pivotal-ui-development
         trigger: true
@@ -103,11 +103,11 @@ jobs:
               gulp build
               gulp ci
 
-  - name: styleguide-development
+  - name: hologram-styleguide-development
     plan:
       - get: pivotal-ui-development
         trigger: true
-        passed: [library-development]
+        passed: [library-unit-test-development]
       - task: build
         config:
           platform: linux
@@ -133,11 +133,11 @@ jobs:
               gulp styleguide-build
               gulp ci
 
-  - name: styleguide-new-development
+  - name: react-styleguide-development
     plan:
       - get: pivotal-ui-development
         trigger: true
-        passed: [library-development]
+        passed: [library-unit-test-development]
       - task: build
         config:
           platform: linux
@@ -155,11 +155,11 @@ jobs:
             - |
               pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
 
-  - name: styleguide-development-deploy
+  - name: hologram-styleguide-development-deploy
     plan:
       - get: pivotal-ui-development
         trigger: true
-        passed: [styleguide-development]
+        passed: [hologram-styleguide-development]
       - task: build
         config:
           platform: linux
@@ -190,11 +190,11 @@ jobs:
               cf target -o pivotal -s pivotal-ui-staging
               cf push
 
-  - name: styleguide-new-development-deploy
+  - name: react-styleguide-development-deploy
     plan:
       - get: pivotal-ui-development
         trigger: true
-        passed: [styleguide-new-development]
+        passed: [react-styleguide-development]
       - task: build
         config:
           platform: linux
