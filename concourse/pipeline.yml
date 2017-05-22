@@ -1,3 +1,15 @@
+groups:
+- name: development
+  jobs:
+  - library-development
+  - styleguide-new-development
+  - styleguide-development
+  - styleguide-development-deploy
+- name: master
+  jobs:
+  - library-master
+  - styleguide-master
+
 resources:
   - name: pivotal-ui-development
     type: git
