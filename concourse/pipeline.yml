@@ -26,6 +26,8 @@ resources:
 
 jobs:
   - name: library-unit-test-development
+    build_logs_to_retain: 100
+    public: true
     plan:
       - get: pivotal-ui-development
         trigger: true
@@ -50,6 +52,8 @@ jobs:
               gulp ci
 
   - name: hologram-styleguide
+    build_logs_to_retain: 100
+    public: true
     serial_groups: [hologram]
     plan:
       - get: pivotal-ui-development
@@ -81,6 +85,8 @@ jobs:
               gulp ci
 
   - name: react-styleguide
+    build_logs_to_retain: 100
+    public: true
     serial_groups: [react]
     plan:
       - get: pivotal-ui-development
@@ -104,6 +110,8 @@ jobs:
               pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
 
   - name: hologram-styleguide-deploy
+    build_logs_to_retain: 100
+    public: true
     serial_groups: [hologram]
     plan:
       - get: pivotal-ui-development
@@ -140,6 +148,8 @@ jobs:
               cf push
 
   - name: react-styleguide-deploy
+    build_logs_to_retain: 100
+    public: true
     serial_groups: [react]
     plan:
       - get: pivotal-ui-development
@@ -169,6 +179,8 @@ jobs:
               ./bin/deploy.sh $CF_PASSWORD
 
   - name: merge-to-master
+    build_logs_to_retain: 100
+    public: true
     plan:
       - get: pivotal-ui-development
         passed: [hologram-styleguide-deploy]
@@ -178,6 +190,8 @@ jobs:
           merge: true
 
   - name: release-and-publish-major
+    build_logs_to_retain: 100
+    public: true
     plan:
       - get: pivotal-ui-master
         passed: [merge-to-master]
@@ -185,7 +199,10 @@ jobs:
         params:
           bump: major
       - task: update-styleguide
-        file: pivotal-ui-development/concourse/tasks/update-styleguide/task.yml
+        file: pivotal-ui-master/concourse/tasks/update-styleguide/task.yml
+        input_mapping:
+          semver: pivotal-ui-semver
+          pivotal-ui: pivotal-ui-master
 #      - task: release-and-publish
 #        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
 #        input_mapping:
