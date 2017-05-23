@@ -6,7 +6,7 @@ function update_versions() {
     pushd docs > /dev/null
 
       # remove ` (latest)` string
-      line_number=`grep -nr "latest" other-versions.scss  | cut -d':' -f 2`
+      line_number=`grep -nr "latest" other-versions.scss  | cut -d':' -f 1`
       modified_file=/tmp/modified-versions.scss
       sed 's/ (latest)//g' other-versions.scss > $modified_file
       latest_version_number=`sed ${line_number}'!d' $modified_file | grep -Eo '([0-9]+)'`
