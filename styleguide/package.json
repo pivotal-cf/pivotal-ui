@@ -138,7 +138,7 @@
     "imports-loader": "^0.6.5",
     "jasmine_dom_matchers": "^1.0.0",
     "jquery": "^2.1.4",
-    "phantomjs": "^1.9.17",
+    "phantomjs": "^1.9.1",
     "phantomjs-polyfill": "0.0.2",
     "postcss-cssnext": "^2.9.0",
     "react-dom": "^15.0.1",
