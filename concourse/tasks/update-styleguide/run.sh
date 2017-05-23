@@ -8,11 +8,11 @@ function update_versions() {
       # remove ` (latest)` string
       line_number=`grep -nr "latest" other-versions.scss  | cut -d':' -f 2`
       modified_file=/tmp/modified-versions.scss
-      /usr/local/bin/sed 's/ (latest)//g' other-versions.scss > $modified_file
-      latest_version_number=`/usr/local/bin/sed ${line_number}'!d' $modified_file | grep -Eo '([0-9]+)'`
+      sed 's/ (latest)//g' other-versions.scss > $modified_file
+      latest_version_number=`sed ${line_number}'!d' $modified_file | grep -Eo '([0-9]+)'`
 
       # replace `"/"` with `"/$latest_version_number"`
-      /usr/local/bin/sed "s/\"\/\"/\"\/"$latest_version_number"\"/g" $modified_file > /tmp/tmp-top
+      sed "s/\"\/\"/\"\/"$latest_version_number"\"/g" $modified_file > /tmp/tmp-top
 
       head -n $line_number /tmp/tmp-top > /tmp/top
       cat <<EOF > /tmp/bottom
