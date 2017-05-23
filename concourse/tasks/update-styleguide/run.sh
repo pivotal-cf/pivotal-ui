@@ -16,9 +16,9 @@ function update_versions() {
 
       head -n $line_number /tmp/tmp-top > /tmp/top
       cat <<EOF > /tmp/bottom
-  </ul>
-  */
-  EOF
+</ul>
+*/
+EOF
 
      next_version_number=$((latest_version_number+1))
      echo "  <li><a href=\"/\">Version ${next_version_number} (latest)</a></li>" > /tmp/text_to_insert
