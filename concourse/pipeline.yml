@@ -1,15 +1,33 @@
 resources:
-  - name: pivotal-ui
+  - name: pivotal-ui-development
     type: git
     source:
       uri: git@github.com:pivotal-cf/pivotal-ui.git
       branch: development
       private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
 
+  - name: pivotal-ui-master
+    type: git
+    source:
+      uri: git@github.com:pivotal-cf/pivotal-ui.git
+      branch: master
+      private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
+
+  - name: pivotal-ui-semver
+    type: semver
+    source:
+      initial_version: "8.1.0"
+      driver: s3
+      bucket: pivotal-ui
+      key: semver
+      access_key_id: ((pui-ci-credentials/Notes/pivotal-ui-semver-access-key-id))
+      secret_access_key: ((pui-ci-credentials/Notes/pivotal-ui-semver-secret-access-key))
+      region_name: us-west-1
+
 jobs:
-  - name: library-unit-test
+  - name: library-unit-test-development
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
       - task: build
         config:
@@ -20,22 +38,23 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
               gulp ci
 
   - name: hologram-styleguide
+    serial_groups: [hologram]
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
-        passed: [library-unit-test]
+        passed: [library-unit-test-development]
       - task: build
         config:
           platform: linux
@@ -45,13 +64,13 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
 
@@ -62,10 +81,11 @@ jobs:
               gulp ci
 
   - name: react-styleguide
+    serial_groups: [react]
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
-        passed: [library-unit-test]
+        passed: [library-unit-test-development]
       - task: build
         config:
           platform: linux
@@ -75,17 +95,18 @@ jobs:
               repository: pivotalui/concourse
               tag: v3
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              pivotal-ui/styleguide_new/bin/gemini-in-docker.sh pivotal-ui test
+              pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
 
   - name: hologram-styleguide-deploy
+    serial_groups: [hologram]
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
         passed: [hologram-styleguide]
       - task: build
@@ -99,13 +120,13 @@ jobs:
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
               cd ../styleguide
@@ -119,8 +140,9 @@ jobs:
               cf push
 
   - name: react-styleguide-deploy
+    serial_groups: [react]
     plan:
-      - get: pivotal-ui
+      - get: pivotal-ui-development
         trigger: true
         passed: [react-styleguide]
       - task: build
@@ -134,14 +156,65 @@ jobs:
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
-          - name: pivotal-ui
+          - name: pivotal-ui-development
           run:
             path: bash
             args:
             - -exc
             - |
-              cd pivotal-ui/library
+              cd pivotal-ui-development/library
               npm i
               gulp build
               cd ../styleguide_new
               ./bin/deploy.sh $CF_PASSWORD
+
+  - name: merge-to-master
+    plan:
+      - get: pivotal-ui-development
+        passed: [hologram-styleguide-deploy]
+      - put: pivotal-ui-master
+        params:
+          repository: pivotal-ui-development
+          merge: true
+
+  - name: release-and-publish-major
+    plan:
+      - get: pivotal-ui-master
+        passed: [merge-to-master]
+      - get: pivotal-ui-semver
+        params:
+          bump: major
+      - task: update-styleguide
+        file: pivotal-ui-development/concourse/tasks/update-styleguide/task.yml
+#      - task: release-and-publish
+#        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
+#        input_mapping:
+#          semver: pivotal-ui-semver
+#          pivotal-ui: pivotal-ui-updated-styleguide
+      - put: pivotal-ui-semver
+
+#  - name: release-and-publish-minor
+#    plan:
+#      - get: pivotal-ui-master
+#      - get: pivotal-ui-semver
+#        params:
+#          bump: minor
+#      - task: release-and-publish
+#        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
+#        input_mapping:
+#          semver: pivotal-ui-semver
+#          pivotal-ui: pivotal-ui-master
+#      - put: semver
+#
+#  - name: release-and-publish-patch
+#    plan:
+#      - get: pivotal-ui-master
+#      - get: pivotal-ui-semver
+#        params:
+#          bump: patch
+#      - task: release-and-publish
+#        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
+#        input_mapping:
+#          semver: pivotal-ui-semver
+#          pivotal-ui: pivotal-ui-master
+#      - put: semver
