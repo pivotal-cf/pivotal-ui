@@ -10,7 +10,5 @@ inputs:
 - name: pivotal-ui
 - name: semver
 
-
-
 run:
-  path: pivotal-ui/concourse/tasks/release-and-publish/run.sh
+  path: pivotal-ui/concourse/tasks/make-and-move-build/run.sh

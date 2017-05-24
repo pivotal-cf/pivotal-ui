@@ -10,5 +10,8 @@ inputs:
 - name: pivotal-ui
 - name: semver
 
+outputs:
+- name: updated-pivotal-ui
+
 run:
-  path: pivotal-ui/concourse/tasks/update-styleguide/run.sh
+  path: pivotal-ui/concourse/tasks/update-versions/run.sh

@@ -40,9 +40,14 @@ function add_and_commit() {
   popd > /dev/null
 }
 
+function move_pivotal_ui_to_output() {
+  cp -r pivotal-ui updated-pivotal-ui
+}
+
 function main() {
   update_versions
   add_and_commit
+  move_pivotal_ui_to_output
 }
 
 main

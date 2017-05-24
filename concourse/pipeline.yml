@@ -195,20 +195,22 @@ jobs:
     plan:
       - get: pivotal-ui-master
         passed: [merge-to-master]
-      - get: pivotal-ui-semver
+      - put: pivotal-ui-semver
         params:
           bump: major
-      - task: update-styleguide
-        file: pivotal-ui-master/concourse/tasks/update-styleguide/task.yml
+      - task: update-versions
+        file: pivotal-ui-master/concourse/tasks/update-versions/task.yml
         input_mapping:
           semver: pivotal-ui-semver
           pivotal-ui: pivotal-ui-master
+      - task: make-and-move-build
+        file: pivotal-ui-master/concourse/tasks/make-and-move-build.yml
 #      - task: release-and-publish
 #        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
 #        input_mapping:
 #          semver: pivotal-ui-semver
 #          pivotal-ui: pivotal-ui-updated-styleguide
-      - put: pivotal-ui-semver
+
 
 #  - name: release-and-publish-minor
 #    plan:
