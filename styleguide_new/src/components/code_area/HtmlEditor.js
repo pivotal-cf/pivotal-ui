@@ -8,8 +8,13 @@ export default class HtmlEditor extends React.Component {
   render() {
     return <div className="code-editor--html-preview">
       <div className="code-editor--titlebar">
-        <Icon src="html5"/> HTML
-        <CopyToClipboardButton text={this.props.code} className="code-editor--titlebar-copy"/>
+        <div className="code-editor--label plxl">
+          <Icon src="html5" className="mrl code-editor--label-icon"/> HTML
+        </div>
+        <div className="code-editor--actions">
+          <Icon src="autorenew"/>
+          <CopyToClipboardButton text={this.props.code} className="code-editor--titlebar-copy"/>
+        </div>
       </div>
       <AceEditor width="100%"
                  height="200px"
@@ -18,8 +23,10 @@ export default class HtmlEditor extends React.Component {
                  theme="crimson_editor"
                  wrap={true}
                  value={this.props.code}
+                 markers={[]}
+                 annotations={[]}
                  editorProps={{$blockScrolling: Infinity}}
-                 setOptions={{showGutter: false}}
+                 setOptions={{showGutter: true, showLineNumbers: true}}
                  onChange={this.props.changeHandler ? this.props.changeHandler : null }
       />
     </div>
