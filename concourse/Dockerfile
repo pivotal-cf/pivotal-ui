@@ -21,6 +21,12 @@ RUN apt-get install -y libbz2-dev
 RUN apt-get install -y build-essential
 RUN apt-get install -y git
 
+# install YARN
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+RUN sudo apt-get update
+RUN apt-get install -y yarn
+
 # ruby
 RUN git clone https://github.com/rbenv/rbenv.git /root/.rbenv
 RUN cd ~/.rbenv && src/configure
