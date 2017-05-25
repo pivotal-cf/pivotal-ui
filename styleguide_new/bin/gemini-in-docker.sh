@@ -14,22 +14,18 @@ xvfb-run chromedriver --port=4444 --url-base=wd/hub &
 cd $PIVOTAL_UI_LOCATION
 
 pushd library
-    rm -rf node_modules
     yarn install
     gulp build
 popd
 
 pushd styleguide_new
-    rm -rf node_modules
     yarn install
-    npm install -g wait-on # so we can wait on the server to appear before the next cmd
     ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
     ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
     npm run watch &
 
-    # sleep 30
-    # wait for compilation to happen
-    wait-on http://localhost:8000/ -d 20 -t 60 && ./node_modules/.bin/gemini $GEMINI_COMMAND --reporter flat --reporter html
+    sleep 30    # wait for compilation to happen
+    ./node_modules/.bin/gemini $GEMINI_COMMAND --reporter flat --reporter html
 popd
 
 echo "Finished"

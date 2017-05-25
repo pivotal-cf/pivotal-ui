@@ -82,30 +82,6 @@ jobs:
               gulp styleguide-build
               gulp ci
 
-  - name: react-styleguide
-    build_logs_to_retain: 100
-    public: true
-    serial_groups: [react]
-    plan:
-      - get: pivotal-ui-development
-        trigger: true
-        passed: [library-unit-test-development]
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          inputs:
-          - name: pivotal-ui-development
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              pivotal-ui-development/styleguide_new/bin/gemini-in-docker.sh pivotal-ui-development test
-
   - name: hologram-styleguide-deploy
     build_logs_to_retain: 100
     public: true
@@ -150,7 +126,7 @@ jobs:
     plan:
       - get: pivotal-ui-development
         trigger: true
-        passed: [react-styleguide]
+        passed: [library-unit-test-development]
       - task: build
         config:
           platform: linux
@@ -184,22 +160,47 @@ jobs:
           repository: pivotal-ui-development
           merge: true
 
-  - name: release-and-publish-major
-    build_logs_to_retain: 100
+  - name: library-unit-test-master
     public: true
     plan:
       - get: pivotal-ui-master
         passed: [merge-to-master]
-      - put: pivotal-ui-semver
-        params:
-          bump: major
-      - task: update-versions
-        file: pivotal-ui-master/concourse/tasks/update-versions/task.yml
-        input_mapping:
-          semver: pivotal-ui-semver
-          pivotal-ui: pivotal-ui-master
-      - task: make-and-move-build
-        file: pivotal-ui-master/concourse/tasks/make-and-move-build.yml
+        trigger: true
+      - task: build
+        config:
+          platform: linux
+          image_resource:
+            type: docker-image
+            source:
+              repository: pivotalui/concourse
+          inputs:
+          - name: pivotal-ui-master
+          run:
+            path: bash
+            args:
+            - -exc
+            - |
+              cd pivotal-ui-master/library
+              yarn
+              gulp build
+              gulp ci
+
+#  - name: release-and-publish-major
+#    build_logs_to_retain: 100
+#    public: true
+#    plan:
+#      - get: pivotal-ui-master
+#        passed: [library-unit-test-master]
+#      - put: pivotal-ui-semver
+#        params:
+#          bump: major
+#      - task: update-versions
+#        file: pivotal-ui-master/concourse/tasks/update-versions/task.yml
+#        input_mapping:
+#          semver: pivotal-ui-semver
+#          pivotal-ui: pivotal-ui-master
+#      - task: make-and-move-build
+#        file: pivotal-ui-master/concourse/tasks/make-and-move-build.yml
 #      - task: release-and-publish
 #        file: pivotal-ui-development/concourse/tasks/release-and-publish/task.yml
 #        input_mapping:
