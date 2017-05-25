@@ -7374,6 +7374,9 @@ pui-css-bootstrap@=8.1.0:
 "pui-css-bootstrap@file:../library/dist/css/bootstrap":
   version "8.1.0"
 
+pui-css-border@=8.1.1:
+  version "8.1.1"
+
 "pui-css-border@file:../library/dist/css/border":
   version "8.1.1"
 

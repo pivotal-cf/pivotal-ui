@@ -39,7 +39,9 @@ export class AutocompleteList extends React.Component {
            className={className}>{value}</a>
       </li>);
     });
-    if(!suggestions.length) return null;
+    if(!suggestions.length) {
+      return <div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>;
+    }
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
 
