@@ -1,24 +1,25 @@
 import React from 'react'
-import {Autocomplete} from 'pui-react-autocomplete'
-import {Iconography, Icon} from 'pui-react-iconography'
+import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete'
 import {Collapse} from 'pui-react-collapse'
+import {Iconography, Icon} from 'pui-react-iconography'
+import {Input} from 'pui-react-inputs'
 import {styleItems, componentItems} from '../helpers/content'
 
-const searchItems = componentItems.concat(styleItems)
+const searchItems = componentItems.concat(styleItems);
 
 const ContentLink = ({onClick, link, text, active}) => {
-  const className = active ? 'sidebar--item-wrapper sidebar--item-wrapper__active' : 'sidebar--item-wrapper'
+  const className = active ? 'sidebar--item-wrapper sidebar--item-wrapper__active' : 'sidebar--item-wrapper';
 
   return <div className={className}>
     <a onClick={onClick}
        href={link}
        className="sidebar--item">{text}</a>
   </div>
-}
+};
 
 export default class Sidebar extends React.PureComponent {
   handleClick(event) {
-    event.preventDefault()
+    event.preventDefault();
     this.props.updateContent(event.target.href)
   }
 
@@ -28,28 +29,29 @@ export default class Sidebar extends React.PureComponent {
   }
 
   render() {
-    const styleLinks = styleItems.map(c => c.href)
-    const componentLinks = componentItems.map(c => c.href)
+    const styleLinks = styleItems.map(c => c.href);
+    const componentLinks = componentItems.map(c => c.href);
 
-    const onInitializeItems = callback => callback(searchItems.map(item => item.name))
+    const onInitializeItems = callback => callback(searchItems.map(item => item.name));
     const SearchBar = () => <Autocomplete onInitializeItems={onInitializeItems}
                                           placeholder="Search"
                                           className="sidebar--search"
-                                          onPick={this.handlePick.bind(this)}/>
+                                          input={<AutocompleteInput><Input search/></AutocompleteInput>}
+                                          onPick={this.handlePick.bind(this)}/>;
 
     const styles = styleItems
       .map((style, i) => <ContentLink key={i}
                                       onClick={this.handleClick.bind(this)}
                                       link={style.href}
                                       text={style.name}
-                                      active={style.href === this.props.activePath}/>)
+                                      active={style.href === this.props.activePath}/>);
 
     const components = componentItems
       .map((component, i) => <ContentLink key={i}
                                           onClick={this.handleClick.bind(this)}
                                           link={component.href}
                                           text={component.name}
-                                          active={component.href === this.props.activePath}/>)
+                                          active={component.href === this.props.activePath}/>);
 
     return <div className="sidebar">
       <div className="sidebar--header">

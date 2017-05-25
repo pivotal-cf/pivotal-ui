@@ -27,11 +27,13 @@
     "image-webpack-loader": "^3.2.0",
     "json-loader": "^0.5.4",
     "marked": "^0.3.6",
+    "mock-promises": "^0.8.2",
     "module": "^1.2.5",
     "net": "^1.0.2",
     "node-sass": "^4.3.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
+    "pivotal-js-react-test-helpers": "^0.1.0",
     "pretty": "^1.0.0",
     "pui-css-alerts": "file:../library/dist/css/alerts",
     "pui-css-alignment": "file:../library/dist/css/alignment",
@@ -116,7 +118,7 @@
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "react": "^15.4.2",
     "react-ace": "^4.1.1",
-    "react-dom": "^15.4.2",
+    "react-dom": "^15.5.4",
     "react-svg-loader": "^1.1.1",
     "sass-loader": "^4.1.1",
     "selenium-standalone": "^5.11.1",
@@ -133,5 +135,14 @@
   },
   "scripts": {
     "watch": "concurrently --kill-others \"webpack --config ./frontend-webpack.config.babel.js --watch\" \"webpack --config ./backend-webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
+  },
+  "dependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "jquery": "^3.2.1",
+    "pivotal-js-jasmine-matchers": "^0.0.18",
+    "pui-react-tools": "^2.0.5",
+    "require-dir": "^0.3.1"
   }
 }
