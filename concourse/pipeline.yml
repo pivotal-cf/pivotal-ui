@@ -46,7 +46,7 @@ jobs:
             - -exc
             - |
               cd pivotal-ui-development/library
-              npm i
+              yarn
               gulp build
               gulp ci
 
@@ -73,12 +73,12 @@ jobs:
             - -exc
             - |
               cd pivotal-ui-development/library
-              npm i
+              yarn
               gulp build
 
               cd ../styleguide
               bundle
-              npm i
+              yarn
               gulp styleguide-build
               gulp ci
 
@@ -131,11 +131,11 @@ jobs:
             - -exc
             - |
               cd pivotal-ui-development/library
-              npm i
+              yarn
               gulp build
               cd ../styleguide
 
-              npm i
+              yarn
               bundle
               gulp styleguide-build
               cf api api.run.pivotal.io
@@ -168,7 +168,7 @@ jobs:
             - -exc
             - |
               cd pivotal-ui-development/library
-              npm i
+              yarn
               gulp build
               cd ../styleguide_new
               ./bin/deploy.sh $CF_PASSWORD
