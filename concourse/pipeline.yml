@@ -38,7 +38,6 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -66,7 +65,6 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -99,7 +97,6 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v3
           inputs:
           - name: pivotal-ui-development
           run:
@@ -124,7 +121,6 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v3
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
@@ -162,7 +158,6 @@ jobs:
             type: docker-image
             source:
               repository: pivotalui/concourse
-              tag: v3
           params:
             CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
           inputs:
