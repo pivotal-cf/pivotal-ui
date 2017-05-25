@@ -13,16 +13,16 @@ resources:
       branch: master
       private_key: ((pui-ci-credentials/Notes/pivotal-ui-git-key))
 
-  - name: pivotal-ui-semver
-    type: semver
-    source:
-      initial_version: "8.1.0"
-      driver: s3
-      bucket: pivotal-ui
-      key: semver
-      access_key_id: ((pui-ci-credentials/Notes/pivotal-ui-semver-access-key-id))
-      secret_access_key: ((pui-ci-credentials/Notes/pivotal-ui-semver-secret-access-key))
-      region_name: us-west-1
+#  - name: pivotal-ui-semver
+#    type: semver
+#    source:
+#      initial_version: "8.1.0"
+#      driver: s3
+#      bucket: pivotal-ui
+#      key: semver
+#      access_key_id: ((pui-ci-credentials/Notes/pivotal-ui-semver-access-key-id))
+#      secret_access_key: ((pui-ci-credentials/Notes/pivotal-ui-semver-secret-access-key))
+#      region_name: us-west-1
 
 jobs:
   - name: library-unit-test-development
