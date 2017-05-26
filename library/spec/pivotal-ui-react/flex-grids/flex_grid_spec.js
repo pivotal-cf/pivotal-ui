@@ -35,7 +35,7 @@ describe('FlexGrid', () => {
     beforeEach(() => {
       result = ReactTestUtils.renderIntoDocument(
         <Grid className="the-row">
-          <FlexCol percentage={6} className="percentage-column"/>
+          <FlexCol col={6} className="col-column"/>
           <FlexCol fixed={true} className="fixed-column"/>
           <FlexCol grow={2} className="grow-column"/>
         </Grid>
@@ -47,7 +47,7 @@ describe('FlexGrid', () => {
     });
 
     it('takes percent column widths', () => {
-      expect(findByClass(result, 'percentage-column')).toHaveClass('col-6');
+      expect(findByClass(result, 'col-column')).toHaveClass('col-6');
     });
 
     it('takes fixed column widths', () => {
