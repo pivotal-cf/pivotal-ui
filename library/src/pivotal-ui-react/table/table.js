@@ -83,7 +83,8 @@ export class Table extends React.Component {
     columns: PropTypes.array.isRequired,
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
-    defaultSort: PropTypes.string
+    defaultSort: PropTypes.string,
+    rowProps: PropTypes.object
   };
 
   constructor(props, context) {
@@ -130,7 +131,7 @@ export class Table extends React.Component {
   };
 
   rows = data => {
-    const {bodyRowClassName, columns, CustomRow} = this.props;
+    const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
 
     return data.map((rowDatum, rowKey) => {
       const cells = columns.map((opts, key) => {
@@ -156,7 +157,8 @@ export class Table extends React.Component {
       return (<Row key={rowKey} index={rowKey} {...{
         key: rowKey,
         index: rowKey,
-        className: bodyRowClassName
+        className: bodyRowClassName,
+        ...rowProps
       }}
       >{cells}</Row>);
     });
@@ -286,7 +288,8 @@ export class FlexTable extends Table {
     data: PropTypes.array.isRequired,
     defaultSort: PropTypes.string,
     headerRowClassName: PropTypes.string,
-    hideHeaderRow: PropTypes.bool
+    hideHeaderRow: PropTypes.bool,
+    rowProps: PropTypes.object
   };
 
   constructor(props, context) {
@@ -305,7 +308,7 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, hideHeaderRow, ...props} = this.props;
+    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, hideHeaderRow, rowProps, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     let header;

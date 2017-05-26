@@ -200,6 +200,7 @@ defaultSort        | no       | String    |         | The name of the column to 
 headerRowClassName | no       | String    |         | Class name to apply to the header row
 bodyRowClassName   | no       | String    |         | Class name to apply to the body rows
 hideHeaderRow      | no       | Boolean   | false   | Render the header row? Defaults to false
+rowProps           | no       | Object    |         | Props passed to row components
 
 ## Basic usage
 

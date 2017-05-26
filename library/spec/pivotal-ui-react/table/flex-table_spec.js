@@ -347,5 +347,30 @@ describe('Flex Table', () => {
         expect('.tr:eq(2) .td:eq(0)').toHaveAttr('style', 'width: 100px;');
       });
     });
+
+    describe('row props', () => {
+      beforeEach(() => {
+        const CustomRow = props => (
+          <div className="tr">
+            {props['some-prop']}
+          </div>
+        );
+        CustomRow.propTypes = {'some-prop': PropTypes.string};
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          CustomRow,
+          rowProps: {'some-prop': 'some-value'}
+        }}/>, root);
+      });
+
+      it('passes to the body rows', () => {
+        expect('.tr:eq(1)').toHaveText('some-value');
+        expect('.tr:eq(2)').toHaveText('some-value');
+      });
+    });
   });
 });
