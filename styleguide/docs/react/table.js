@@ -198,6 +198,7 @@ CustomRow   | no  | Component | | The component to use when rendering table rows
 data        | yes | Array     | | The data to display in the table
 defaultSort | no  | String    | | The name of the column to use for sorting before user input
 headerRowClassName | no  | String    | | Class name to apply to the header row
+bodyRowClassName | no  | String    | | Class name to apply to the body rows
 
 ## Basic usage
 

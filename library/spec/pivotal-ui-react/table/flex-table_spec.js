@@ -272,5 +272,28 @@ describe('Flex Table', () => {
         expect('.tr:eq(2)').not.toHaveClass('header-class');
       });
     });
+
+    describe('apply a class to the body rows, but not to the header row', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        const bodyRowClassName = 'rows-class';
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          bodyRowClassName
+        }}/>, root);
+      });
+
+      it('does not add the class to the header row', () => {
+        expect('.tr:eq(0)').not.toHaveClass('rows-class');
+      });
+
+      it('adds the class to the body rows', () => {
+        expect('.tr:eq(1)').toHaveClass('rows-class');
+        expect('.tr:eq(2)').toHaveClass('rows-class');
+      });
+    });
   });
 });

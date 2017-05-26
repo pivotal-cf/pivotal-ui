@@ -1,7 +1,7 @@
 import classnames from 'classnames';
 import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
-import PropTypes from 'prop-types';;
+import PropTypes from 'prop-types';
 import React from 'react';
 import sortBy from 'lodash.sortby';
 import 'pui-css-tables';
@@ -46,36 +46,37 @@ class TableHeader extends React.Component {
 }
 
 export class TableCell extends React.Component {
-	static propTypes = {
-		index: PropTypes.number,
-		rowDatum: PropTypes.any
-	};
+  static propTypes = {
+    index: PropTypes.number,
+    rowDatum: PropTypes.any
+  };
 
-	render() {
-		let {children, index, rowDatum, ...others} = this.props;
+  render() {
+    let {children, index, rowDatum, ...others} = this.props;
 
-		return (<td {...others}>
-			{children}
-		</td>);
-	}
+    return (<td {...others}>
+      {children}
+    </td>);
+  }
 }
 
 export class TableRow extends React.Component {
-	static propTypes = {
-		index: PropTypes.number
-	};
+  static propTypes = {
+    index: PropTypes.number
+  };
 
-	render() {
-		let {children, index, ...others} = this.props;
+  render() {
+    let {children, index, ...others} = this.props;
 
-		return (<tr {...others}>
-			{children}
-		</tr>);
-	}
+    return (<tr {...others}>
+      {children}
+    </tr>);
+  }
 }
 
 export class Table extends React.Component {
   static propTypes = {
+    bodyRowClassName: PropTypes.string,
     columns: PropTypes.array.isRequired,
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
@@ -126,16 +127,22 @@ export class Table extends React.Component {
   };
 
   rows = data => {
-    const {columns, CustomRow} = this.props;
+    const {bodyRowClassName, columns, CustomRow} = this.props;
 
     return data.map((datum, rowKey) => {
       const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
         const Cell = CustomCell || this.defaultCell;
-        return <Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass} rowDatum={datum}>{datum[attribute]}</Cell>;
+        return (<Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass}
+                     rowDatum={datum}>{datum[attribute]}</Cell>);
       });
 
       const Row = CustomRow || this.defaultRow;
-      return <Row key={rowKey} index={rowKey}>{cells}</Row>;
+      return (<Row key={rowKey} index={rowKey} {...{
+        key: rowKey,
+        index: rowKey,
+        className: bodyRowClassName
+      }}
+      >{cells}</Row>);
     });
   };
 
@@ -147,7 +154,8 @@ export class Table extends React.Component {
       let className, icon;
       if (isSortColumn) {
         className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-        icon = [<Icon verticalAlign="baseline" src="arrow_drop_up"/>, <Icon verticalAlign="baseline" src="arrow_drop_down"/>, null][sortOrder];
+        icon = [<Icon verticalAlign="baseline" src="arrow_drop_up"/>,
+          <Icon verticalAlign="baseline" src="arrow_drop_down"/>, null][sortOrder];
       }
 
       className = classnames(className, headerProps.className, cellClass);
@@ -160,8 +168,10 @@ export class Table extends React.Component {
         onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
 
-			const Header = this.defaultHeader;
-      return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
+      const Header = this.defaultHeader;
+      return (<Header {...headerProps}>
+        <div>{displayName || attribute}{icon}</div>
+      </Header>);
     });
   };
 
@@ -194,7 +204,7 @@ class FlexTableHeader extends TableHeader {
   render() {
     const {onSortableTableHeaderClick, sortable, className, ...others} = this.props;
     const classes = classnames('th', 'col', className, {'sortable': sortable});
-    const props = mergeProps(others, { className: classes });
+    const props = mergeProps(others, {className: classes});
 
     const thProps = {...props, tabIndex: 0, disabled: !sortable};
     if (sortable) {
@@ -207,40 +217,41 @@ class FlexTableHeader extends TableHeader {
 
 
 export class FlexTableCell extends React.Component {
-	static propTypes = {
-		index: PropTypes.number,
-		rowDatum: PropTypes.any
-	};
+  static propTypes = {
+    index: PropTypes.number,
+    rowDatum: PropTypes.any
+  };
 
-	render() {
-		let {children, index, rowDatum, className, ...others} = this.props;
-		const classes = classnames(className, 'td', 'col');
-		const props = mergeProps(others, {className: classes});
+  render() {
+    let {children, index, rowDatum, className, ...others} = this.props;
+    const classes = classnames(className, 'td', 'col');
+    const props = mergeProps(others, {className: classes});
 
-		return (<div {...props}>
-			{children}
-		</div>);
-	}
+    return (<div {...props}>
+      {children}
+    </div>);
+  }
 }
 
 export class FlexTableRow extends React.Component {
-	static propTypes = {
-		index: PropTypes.number
-	};
+  static propTypes = {
+    index: PropTypes.number
+  };
 
-	render() {
-		let {children, index, className, ...others} = this.props;
-  	const classes = classnames(className, 'tr', 'grid');
-  	const props = mergeProps(others, {className: classes});
+  render() {
+    let {children, index, className, ...others} = this.props;
+    const classes = classnames(className, 'tr', 'grid');
+    const props = mergeProps(others, {className: classes});
 
-		return (<div {...props}>
-			{children}
-		</div>);
-	}
+    return (<div {...props}>
+      {children}
+    </div>);
+  }
 }
 
 export class FlexTable extends Table {
   static propTypes = {
+    bodyRowClassName: PropTypes.string,
     columns: PropTypes.array.isRequired,
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
@@ -264,14 +275,14 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {columns, CustomRow, data, defaultSort, headerRowClassName, ...props} = this.props;
+    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (<div {...props}>
       <div className={classnames('tr', 'grid', headerRowClassName)}>
-      	{this.renderHeaders()}
+        {this.renderHeaders()}
       </div>
       {rows}
     </div>);
