@@ -213,15 +213,15 @@ describe('Flex Table', () => {
         expect('.tr:eq(1) > span').toExist();
       });
 
-      it('adds the additional classes, id and styles', function() {
+      it('adds the additional classes, id and styles', function () {
         expect('.tr:eq(1)').toHaveAttr('id', 'row-id');
         expect('.tr:eq(1)').toHaveClass('row-light');
         expect('.tr:eq(1)').toHaveCss({opacity: '0.5'});
       });
     });
 
-    describe('with custom column sortBy', function() {
-      it('uses custom sortBy function', function() {
+    describe('with custom column sortBy', function () {
+      it('uses custom sortBy function', function () {
         const columnsWithCustomSortBy = columns.map(column => {
           if (column.attribute === 'theDefault') {
             return {...column, sortBy: value => -value};
@@ -235,6 +235,41 @@ describe('Flex Table', () => {
         expect('.tr:eq(1) .td:eq(2)').toHaveText('3');
         expect('.tr:eq(2) .td:eq(2)').toHaveText('2');
         expect('.tr:eq(3) .td:eq(2)').toHaveText('1');
+      });
+    });
+  });
+
+  describe('additional FlexTable props', () => {
+    let data;
+
+    beforeEach(() => {
+      data = [{
+        guid: 'guid-1'
+      }, {
+        guid: 'guid-2'
+      }];
+    });
+
+    describe('apply a class to the header row, but not to the body rows', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        const headerRowClassName = 'header-class';
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          headerRowClassName
+        }}/>, root);
+      });
+
+      it('adds the class to the header row', () => {
+        expect('.tr:eq(0)').toHaveClass('header-class');
+      });
+
+      it('does not add the class to the body rows', () => {
+        expect('.tr:eq(1)').not.toHaveClass('header-class');
+        expect('.tr:eq(2)').not.toHaveClass('header-class');
       });
     });
   });

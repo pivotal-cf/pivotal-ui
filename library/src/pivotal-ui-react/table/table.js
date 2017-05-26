@@ -18,19 +18,19 @@ class TableHeader extends React.Component {
     onClick: PropTypes.func,
     onSortableTableHeaderClick: PropTypes.func,
     sortable: PropTypes.bool
-  }
+  };
 
   handleActivate = event => {
     const {sortable, onClick, onSortableTableHeaderClick} = this.props;
     if (sortable) onSortableTableHeaderClick(event);
     if (onClick) onClick(event);
-  }
+  };
 
   handleKeyDown = event => {
     if (event.key === 'Enter') {
       this.handleActivate(event);
     }
-  }
+  };
 
   render() {
     const {onSortableTableHeaderClick, sortable, ...others} = this.props;
@@ -49,7 +49,7 @@ export class TableCell extends React.Component {
 	static propTypes = {
 		index: PropTypes.number,
 		rowDatum: PropTypes.any
-	}
+	};
 
 	render() {
 		let {children, index, rowDatum, ...others} = this.props;
@@ -63,7 +63,7 @@ export class TableCell extends React.Component {
 export class TableRow extends React.Component {
 	static propTypes = {
 		index: PropTypes.number
-	}
+	};
 
 	render() {
 		let {children, index, ...others} = this.props;
@@ -80,7 +80,7 @@ export class Table extends React.Component {
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
     defaultSort: PropTypes.string
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -110,7 +110,7 @@ export class Table extends React.Component {
     }
 
     this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
-  }
+  };
 
   sortedRows = data => {
     const {sortColumn, sortOrder} = this.state;
@@ -123,7 +123,7 @@ export class Table extends React.Component {
     if (sortOrder === SORT_ORDER.desc) sortedData.reverse();
 
     return this.rows(sortedData);
-  }
+  };
 
   rows = data => {
     const {columns, CustomRow} = this.props;
@@ -137,7 +137,7 @@ export class Table extends React.Component {
       const Row = CustomRow || this.defaultRow;
       return <Row key={rowKey} index={rowKey}>{cells}</Row>;
     });
-  }
+  };
 
   renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
@@ -163,7 +163,7 @@ export class Table extends React.Component {
 			const Header = this.defaultHeader;
       return <Header {...headerProps}><div>{displayName || attribute}{icon}</div></Header>;
     });
-  }
+  };
 
   render() {
     const {sortColumn} = this.state;
@@ -189,7 +189,7 @@ class FlexTableHeader extends TableHeader {
     onClick: PropTypes.func,
     onSortableTableHeaderClick: PropTypes.func,
     sortable: PropTypes.bool
-  }
+  };
 
   render() {
     const {onSortableTableHeaderClick, sortable, className, ...others} = this.props;
@@ -210,7 +210,7 @@ export class FlexTableCell extends React.Component {
 	static propTypes = {
 		index: PropTypes.number,
 		rowDatum: PropTypes.any
-	}
+	};
 
 	render() {
 		let {children, index, rowDatum, className, ...others} = this.props;
@@ -226,7 +226,7 @@ export class FlexTableCell extends React.Component {
 export class FlexTableRow extends React.Component {
 	static propTypes = {
 		index: PropTypes.number
-	}
+	};
 
 	render() {
 		let {children, index, className, ...others} = this.props;
@@ -245,8 +245,8 @@ export class FlexTable extends Table {
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
     defaultSort: PropTypes.string,
-    cellClass: PropTypes.string
-  }
+    headerRowClassName: PropTypes.string
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -264,13 +264,13 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {columns, CustomRow, data, defaultSort, ...props} = this.props;
+    let {columns, CustomRow, data, defaultSort, headerRowClassName, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (<div {...props}>
-      <div className="tr grid">
+      <div className={classnames('tr', 'grid', headerRowClassName)}>
       	{this.renderHeaders()}
       </div>
       {rows}
