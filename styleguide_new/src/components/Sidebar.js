@@ -37,7 +37,8 @@ export default class Sidebar extends React.PureComponent {
                                           placeholder="Search"
                                           className="sidebar--search"
                                           input={<AutocompleteInput><Input search/></AutocompleteInput>}
-                                          onPick={this.handlePick.bind(this)}/>;
+                                          onPick={this.handlePick.bind(this)}
+                                          showNoSearchResults={true}/>;
 
     const styles = styleItems
       .map((style, i) => <ContentLink key={i}

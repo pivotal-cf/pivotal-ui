@@ -4,6 +4,9 @@ import {PropTypes} from 'prop-types';
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy;
+  const renderIntoDOM = (props) => ReactDOM.render(
+    <Autocomplete {...props} />, root);
+
   beforeEach(() => {
     const Cursor = require('pui-cursor');
     Cursor.async = false;
@@ -231,6 +234,22 @@ describe('Autocomplete', () => {
       expect(lilyWaterItem).toHaveText('lily.water');
       expect(lilyWaterItem).not.toHaveClass('highlighted');
       expect(lilyWaterItem).toHaveClass('selected');
+    });
+  });
+
+  describe('when there are no suggested autocomplete results', () => {
+    describe('when the showNoSearchResultsProp is true', () => {
+      beforeEach(() => {
+        subject = renderIntoDOM({
+            onInitializeItems,
+            showNoSearchResults: true
+          });
+        $('input[aria-label="Search"]').val('zzzz').simulate('change');
+      });
+
+      it('shows "No Search Results', () => {
+        expect('.autocomplete-item-no-results').toExist();
+      });
     });
   });
 

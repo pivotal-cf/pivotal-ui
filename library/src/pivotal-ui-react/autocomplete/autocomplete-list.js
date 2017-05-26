@@ -11,7 +11,8 @@ export class AutocompleteList extends React.Component {
     className: PropTypes.string,
     minSearchTerm: PropTypes.number,
     onPick: PropTypes.func,
-    selectedSuggestion: PropTypes.any
+    selectedSuggestion: PropTypes.any,
+    showNoSearchResults: PropTypes.bool
   }
 
   static defaultProps = {
@@ -29,7 +30,7 @@ export class AutocompleteList extends React.Component {
   }
 
   renderSuggestionList() {
-    const {className} = this.props;
+    const {className, showNoSearchResults} = this.props;
     const suggestedValues = this.props.$autocomplete.get('suggestedValues');
     const suggestions = suggestedValues.map((suggestion, key) => {
       const value = '_key_' in suggestion ? suggestion._key_ : suggestion.value;
@@ -40,7 +41,8 @@ export class AutocompleteList extends React.Component {
       </li>);
     });
     if(!suggestions.length) {
-      return <div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>;
+      const result = showNoSearchResults ? (<div><ul><li className="autocomplete-list autocomplete-item autocomplete-item-no-results">No search results</li></ul></div>) : null;
+      return result;
     }
     return (<ul className={classnames('autocomplete-list', className)}>{suggestions}</ul>);
   }
