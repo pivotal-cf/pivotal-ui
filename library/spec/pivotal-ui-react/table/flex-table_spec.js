@@ -316,5 +316,36 @@ describe('Flex Table', () => {
         expect($('.td').length).toBe(2);
       });
     });
+
+    describe('cell width', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid',
+          width: '100px'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data
+        }}/>, root);
+      });
+
+      it('adds col-fixed class to the header cells', () => {
+        expect('.tr:eq(0) .th:eq(0)').toHaveClass('col-fixed');
+      });
+
+      it('adds width style to the header cells', () => {
+        expect('.tr:eq(0) .th:eq(0)').toHaveAttr('style', 'width: 100px;');
+      });
+
+      it('adds col-fixed class to the body cells', () => {
+        expect('.tr:eq(1) .td:eq(0)').toHaveClass('col-fixed');
+        expect('.tr:eq(2) .td:eq(0)').toHaveClass('col-fixed');
+      });
+
+      it('adds width style to the body cells', () => {
+        expect('.tr:eq(1) .td:eq(0)').toHaveAttr('style', 'width: 100px;');
+        expect('.tr:eq(2) .td:eq(0)').toHaveAttr('style', 'width: 100px;');
+      });
+    });
   });
 });

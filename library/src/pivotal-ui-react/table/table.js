@@ -52,7 +52,10 @@ export class TableCell extends React.Component {
   };
 
   render() {
-    let {children, index, rowDatum, ...others} = this.props;
+    let {children, ...others} = this.props;
+
+    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
+      .forEach(prop => delete others[prop]);
 
     return (<td {...others}>
       {children}
@@ -129,11 +132,24 @@ export class Table extends React.Component {
   rows = data => {
     const {bodyRowClassName, columns, CustomRow} = this.props;
 
-    return data.map((datum, rowKey) => {
-      const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
+    return data.map((rowDatum, rowKey) => {
+      const cells = columns.map((opts, key) => {
+        const {attribute, CustomCell, width} = opts;
+        let style, {cellClass} = opts;
+        if (width) {
+          style = {width};
+          opts.cellClass = classnames(cellClass, 'col-fixed');
+        }
         const Cell = CustomCell || this.defaultCell;
-        return (<Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass}
-                      rowDatum={datum}>{datum[attribute]}</Cell>);
+        const cellProps = {
+          key,
+          index: rowKey,
+          value: rowDatum[attribute],
+          rowDatum,
+          style,
+          ...opts
+        };
+        return (<Cell {...cellProps}>{rowDatum[attribute]}</Cell>);
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -149,7 +165,7 @@ export class Table extends React.Component {
   renderHeaders = () => {
     const {sortColumn, sortOrder} = this.state;
     return this.props.columns.map((column, index) => {
-      let {attribute, sortable, displayName, cellClass, headerProps = {}} = column;
+      let {attribute, sortable, displayName, cellClass, headerProps = {}, width} = column;
       const isSortColumn = column === sortColumn;
       let className, icon;
       if (isSortColumn) {
@@ -167,6 +183,14 @@ export class Table extends React.Component {
         key: index,
         onSortableTableHeaderClick: () => this.updateSort(column, isSortColumn)
       };
+
+      if (width) {
+        headerProps = {
+          ...headerProps,
+          className: classnames(className, 'col-fixed'),
+          style: {width}
+        };
+      }
 
       const Header = this.defaultHeader;
       return (<Header {...headerProps}>
@@ -219,12 +243,17 @@ class FlexTableHeader extends TableHeader {
 export class FlexTableCell extends React.Component {
   static propTypes = {
     index: PropTypes.number,
-    rowDatum: PropTypes.any
+    rowDatum: PropTypes.any,
+    cellClass: PropTypes.string
   };
 
   render() {
-    let {children, index, rowDatum, className, ...others} = this.props;
-    const classes = classnames(className, 'td', 'col');
+    let {cellClass, children, className, ...others} = this.props;
+
+    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
+      .forEach(prop => delete others[prop]);
+
+    const classes = classnames(className, 'td', 'col', cellClass);
     const props = mergeProps(others, {className: classes});
 
     return (<div {...props}>

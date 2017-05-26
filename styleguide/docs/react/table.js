@@ -215,7 +215,8 @@ const columns = [
     attribute: 'title',
     displayName: 'Title',
     sortable: false,
-    cellClass: 'col-2'
+    cellClass: 'col-2',
+    width: '100px'
   },
   {
     attribute: 'instances',
