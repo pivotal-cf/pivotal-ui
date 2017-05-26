@@ -133,7 +133,7 @@ export class Table extends React.Component {
       const cells = columns.map(({attribute, CustomCell, cellClass}, key) => {
         const Cell = CustomCell || this.defaultCell;
         return (<Cell key={key} index={rowKey} value={datum[attribute]} className={cellClass}
-                     rowDatum={datum}>{datum[attribute]}</Cell>);
+                      rowDatum={datum}>{datum[attribute]}</Cell>);
       });
 
       const Row = CustomRow || this.defaultRow;
@@ -256,7 +256,8 @@ export class FlexTable extends Table {
     CustomRow: PropTypes.func,
     data: PropTypes.array.isRequired,
     defaultSort: PropTypes.string,
-    headerRowClassName: PropTypes.string
+    headerRowClassName: PropTypes.string,
+    hideHeaderRow: PropTypes.bool
   };
 
   constructor(props, context) {
@@ -275,15 +276,22 @@ export class FlexTable extends Table {
 
   render() {
     const {sortColumn} = this.state;
-    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, ...props} = this.props;
+    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, hideHeaderRow, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
+
+    let header;
+    if (!hideHeaderRow) {
+      header = (
+        <div className={classnames('tr', 'grid', headerRowClassName)}>
+          {this.renderHeaders()}
+        </div>
+      );
+    }
 
     const rows = sortColumn ? this.sortedRows(data) : this.rows(data);
 
     return (<div {...props}>
-      <div className={classnames('tr', 'grid', headerRowClassName)}>
-        {this.renderHeaders()}
-      </div>
+      {header}
       {rows}
     </div>);
   }

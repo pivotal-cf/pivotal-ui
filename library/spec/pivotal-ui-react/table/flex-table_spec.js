@@ -295,5 +295,26 @@ describe('Flex Table', () => {
         expect('.tr:eq(2)').toHaveClass('rows-class');
       });
     });
+
+    describe('hide header row', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          hideHeaderRow: true
+        }}/>, root);
+      });
+
+      it('does not render the header row', () => {
+        expect('.tr:eq(0) > .th').not.toExist();
+      });
+
+      it('renders the body rows', () => {
+        expect($('.td').length).toBe(2);
+      });
+    });
   });
 });
