@@ -71,6 +71,7 @@
     "pui-react-copy-to-clipboard": "file:../library/dist/react/copy-to-clipboard",
     "pui-react-dividers": "file:../library/dist/react/dividers",
     "pui-react-draggable-list": "file:../library/dist/react/draggable-list",
+    "pui-react-checkbox-dropdown": "file:../library/dist/react/checkbox-dropdown",
     "pui-react-dropdowns": "file:../library/dist/react/dropdowns",
     "pui-react-expander": "file:../library/dist/react/expander",
     "pui-react-flex-grids": "file:../library/dist/react/flex-grids",
