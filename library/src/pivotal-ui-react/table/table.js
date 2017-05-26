@@ -65,11 +65,12 @@ export class TableCell extends React.Component {
 
 export class TableRow extends React.Component {
   static propTypes = {
-    index: PropTypes.number
+    index: PropTypes.number,
+    rowDatum: PropTypes.object
   };
 
   render() {
-    let {children, index, ...others} = this.props;
+    let {children, index, rowDatum, ...others} = this.props;
 
     return (<tr {...others}>
       {children}
@@ -158,6 +159,7 @@ export class Table extends React.Component {
         key: rowKey,
         index: rowKey,
         className: bodyRowClassName,
+        rowDatum,
         ...rowProps
       }}
       >{cells}</Row>);
@@ -266,11 +268,12 @@ export class FlexTableCell extends React.Component {
 
 export class FlexTableRow extends React.Component {
   static propTypes = {
-    index: PropTypes.number
+    index: PropTypes.number,
+    rowDatum: PropTypes.object
   };
 
   render() {
-    let {children, index, className, ...others} = this.props;
+    let {children, index, className, rowDatum, ...others} = this.props;
     const classes = classnames(className, 'tr', 'grid');
     const props = mergeProps(others, {className: classes});
 

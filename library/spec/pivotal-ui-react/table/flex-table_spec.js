@@ -397,5 +397,36 @@ describe('Flex Table', () => {
         expect('.tr:eq(2) .td').toHaveText('some-value');
       });
     });
+
+    describe('row datum prop', () => {
+      beforeEach(() => {
+        data = [{
+          guid: 'guid-1',
+          name: 'name-1'
+        }, {
+          guid: 'guid-2',
+          name: 'name-2'
+        }];
+        const CustomRow = ({rowDatum: {guid, name}}) => (
+          <div className="tr">
+            {`[${guid}] ${name}`}
+          </div>
+        );
+        CustomRow.propTypes = {rowDatum: PropTypes.object};
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          CustomRow
+        }}/>, root);
+      });
+
+      it('passes to the body rows', () => {
+        expect('.tr:eq(1)').toHaveText('[guid-1] name-1');
+        expect('.tr:eq(2)').toHaveText('[guid-2] name-2');
+      });
+    });
   });
 });
