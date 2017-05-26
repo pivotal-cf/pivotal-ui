@@ -372,5 +372,30 @@ describe('Flex Table', () => {
         expect('.tr:eq(2)').toHaveText('some-value');
       });
     });
+
+    describe('cell props', () => {
+      beforeEach(() => {
+        const CustomCell = props => (
+          <div className="td">
+            {props['some-prop']}
+          </div>
+        );
+        CustomCell.propTypes = {'some-prop': PropTypes.string};
+        const columns = [{
+          attribute: 'guid',
+          'some-prop': 'some-value',
+          CustomCell
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data
+        }}/>, root);
+      });
+
+      it('passes to the body cells', () => {
+        expect('.tr:eq(1) .td').toHaveText('some-value');
+        expect('.tr:eq(2) .td').toHaveText('some-value');
+      });
+    });
   });
 });
