@@ -7,7 +7,7 @@ image_resource:
     repository: pivotalui/concourse
 
 inputs:
-- name: pivotal-ui-development
+- name: pivotal-ui
 
 run:
-  path: pivotal-ui/concourse/tasks/library-unit-test-development/run.sh
+  path: pivotal-ui/concourse/tasks/library-unit-test/run.sh

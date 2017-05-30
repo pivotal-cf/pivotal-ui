@@ -33,7 +33,7 @@ jobs:
         resource: pivotal-ui-development
         trigger: true
       - task: library-unit-test
-        file: pivotal-ui/concourse/tasks/library-unit-test-development/task.yml
+        file: pivotal-ui/concourse/tasks/library-unit-test/task.yml
 
   - name: hologram-styleguide
     build_logs_to_retain: 100
@@ -91,7 +91,7 @@ jobs:
         passed: [merge-to-master]
         trigger: true
       - task: library-unit-test
-        file: pivotal-ui/concourse/tasks/library-unit-test-development/task.yml
+        file: pivotal-ui/concourse/tasks/library-unit-test/task.yml
 
 #  - name: release-and-publish-major
 #    build_logs_to_retain: 100
