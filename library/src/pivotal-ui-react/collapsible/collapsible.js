@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect';
 import 'pui-css-collapse';
 
-
 const privates = new WeakMap();
 
 class CollapsibleComponent extends mixin(React.Component).with(Animation) {
@@ -31,7 +30,7 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
     delay: 400
   };
 
-  toggleAnimation = isAnimating => privates.set(this, {isAnimating})
+  toggleAnimation = isAnimating => privates.set(this, {isAnimating});
 
   triggerExpansionCallbacks = isAnimating => {
     if (isAnimating) return;
@@ -39,7 +38,7 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
     expanded && onEntered && onEntered();
     !expanded && onExited && onExited();
     privates.set(this, {expanded});
-  }
+  };
 
   render() {
     let {boundingClientRect: {height = 0}, children, container, containerReady, delay, expanded, onEntered, onExited, ...others} = this.props;

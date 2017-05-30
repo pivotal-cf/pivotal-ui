@@ -15,7 +15,7 @@ describe('Collapsible', () => {
 
       toggle = () => {
         this.setState({expanded: !this.state.expanded});
-      }
+      };
 
       render() {
         return (
@@ -97,7 +97,7 @@ describe('Collapsible', () => {
 
     it('expands instantly', () => {
       clickOn(findByClass(subject, 'collapse-toggle'));
-      expect(findByClass(subject, 'collapse-shield')).toHaveAttr('style', /marginBottom: 0px/);
+      expect(findByClass(subject, 'collapse-shield')).toHaveCss({marginBottom: '0px'});
     });
 
     it('calls onEntered when done opening', () => {
