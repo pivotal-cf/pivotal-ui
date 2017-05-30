@@ -1,0 +1,15 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: pivotalui/concourse
+
+inputs:
+- name: pivotal-ui-developmen
+
+run:
+  path: pivotal-ui/concourse/tasks/hologram-styleguide-deploy/run.sh
+params:
+  CF_PASSWORD:

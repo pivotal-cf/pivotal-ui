@@ -29,26 +29,11 @@ jobs:
     build_logs_to_retain: 100
     public: true
     plan:
-      - get: pivotal-ui-development
+      - get: pivotal-ui
+        resource: pivotal-ui-development
         trigger: true
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          inputs:
-          - name: pivotal-ui-development
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              cd pivotal-ui-development/library
-              yarn
-              gulp build
-              gulp ci
+      - task: library-unit-test
+        file: pivotal-ui/concourse/tasks/library-unit-test-development/task.yml
 
   - name: hologram-styleguide
     build_logs_to_retain: 100
@@ -58,29 +43,8 @@ jobs:
       - get: pivotal-ui-development
         trigger: true
         passed: [library-unit-test-development]
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          inputs:
-          - name: pivotal-ui-development
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              cd pivotal-ui-development/library
-              yarn
-              gulp build
-
-              cd ../styleguide
-              bundle
-              yarn
-              gulp styleguide-build
-              gulp ci
+      - task: hologram-styleguide
+        file: pivotal-ui/concourse/tasks/hologram-styleguide/task.yml
 
   - name: hologram-styleguide-deploy
     build_logs_to_retain: 100
@@ -90,34 +54,10 @@ jobs:
       - get: pivotal-ui-development
         trigger: true
         passed: [hologram-styleguide]
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          params:
-            CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
-          inputs:
-          - name: pivotal-ui-development
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              cd pivotal-ui-development/library
-              yarn
-              gulp build
-              cd ../styleguide
-
-              yarn
-              bundle
-              gulp styleguide-build
-              cf api api.run.pivotal.io
-              cf auth pivotal-ui@pivotal.io $CF_PASSWORD
-              cf target -o pivotal -s pivotal-ui-staging
-              cf push
+      - task: hologram-styleguide-deploy
+        file: pivotal-ui/concourse/tasks/hologram-styleguide-deploy/task.yml
+        params:
+          CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
 
   - name: react-styleguide-deploy
     build_logs_to_retain: 100
@@ -127,27 +67,10 @@ jobs:
       - get: pivotal-ui-development
         trigger: true
         passed: [library-unit-test-development]
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          params:
-            CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
-          inputs:
-          - name: pivotal-ui-development
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              cd pivotal-ui-development/library
-              yarn
-              gulp build
-              cd ../styleguide_new
-              ./bin/deploy.sh $CF_PASSWORD
+      - task: react-styleguide-deploy
+        file: pivotal-ui/concourse/tasks/react-styleguide-deploy/task.yml
+        params:
+          CF_PASSWORD: ((pui-ci-credentials/Notes/pivotal-ui-cf-password))
 
   - name: merge-to-master
     build_logs_to_retain: 100
@@ -163,27 +86,12 @@ jobs:
   - name: library-unit-test-master
     public: true
     plan:
-      - get: pivotal-ui-master
+      - get: pivotal-ui
+        resource: pivotal-ui-master
         passed: [merge-to-master]
         trigger: true
-      - task: build
-        config:
-          platform: linux
-          image_resource:
-            type: docker-image
-            source:
-              repository: pivotalui/concourse
-          inputs:
-          - name: pivotal-ui-master
-          run:
-            path: bash
-            args:
-            - -exc
-            - |
-              cd pivotal-ui-master/library
-              yarn
-              gulp build
-              gulp ci
+      - task: library-unit-test
+        file: pivotal-ui/concourse/tasks/library-unit-test-development/task.yml
 
 #  - name: release-and-publish-major
 #    build_logs_to_retain: 100
