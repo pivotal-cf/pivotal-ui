@@ -6,77 +6,29 @@ import React from 'react';
 import sortBy from 'lodash.sortby';
 import 'pui-css-tables';
 
+import {FlexTableHeader} from './flex-table-header';
+export {FlexTableHeader} from './flex-table-header';
+
+import {FlexTableCell} from './flex-table-cell';
+export {FlexTableCell} from './flex-table-cell';
+
+import {FlexTableRow} from './flex-table-row';
+export {FlexTableRow} from './flex-table-row';
+
+import {TableHeader} from './table-header';
+export {TableHeader} from './table-header';
+
+import {TableCell} from './table-cell';
+export {TableCell} from './table-cell';
+
+import {TableRow} from './table-row';
+export {TableRow} from './table-row';
 
 const SORT_ORDER = {
   asc: 0,
   desc: 1,
   none: 2
 };
-
-class TableHeader extends React.Component {
-  static propTypes = {
-    onClick: PropTypes.func,
-    onSortableTableHeaderClick: PropTypes.func,
-    sortable: PropTypes.bool
-  };
-
-  handleActivate = event => {
-    const {sortable, onClick, onSortableTableHeaderClick} = this.props;
-    if (sortable) onSortableTableHeaderClick(event);
-    if (onClick) onClick(event);
-  };
-
-  handleKeyDown = event => {
-    if (event.key === 'Enter') {
-      this.handleActivate(event);
-    }
-  };
-
-  render() {
-    const {onSortableTableHeaderClick, sortable, ...others} = this.props;
-    const props = mergeProps(others, {className: {'sortable': sortable}});
-
-    const thProps = {...props, tabIndex: 0, disabled: !sortable};
-    if (sortable) {
-      return <th {...thProps} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
-    } else {
-      return <th {...thProps}/>;
-    }
-  }
-}
-
-export class TableCell extends React.Component {
-  static propTypes = {
-    index: PropTypes.number,
-    rowDatum: PropTypes.any
-  };
-
-  render() {
-    let {children, ...others} = this.props;
-
-    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
-      .forEach(prop => delete others[prop]);
-
-    return (<td {...others}>
-      {children}
-    </td>);
-  }
-}
-
-export class TableRow extends React.Component {
-  static propTypes = {
-    index: PropTypes.number,
-    rowDatum: PropTypes.object
-  };
-
-  render() {
-    let {children, index, rowDatum, ...others} = this.props;
-
-    return (<tr {...others}>
-      {children}
-    </tr>);
-  }
-}
 
 export class Table extends React.Component {
   static propTypes = {
@@ -218,68 +170,6 @@ export class Table extends React.Component {
       {rows}
       </tbody>
     </table>);
-  }
-}
-
-// FlexTable
-class FlexTableHeader extends TableHeader {
-  static propTypes = {
-    onClick: PropTypes.func,
-    onSortableTableHeaderClick: PropTypes.func,
-    sortable: PropTypes.bool
-  };
-
-  render() {
-    const {onSortableTableHeaderClick, sortable, className, ...others} = this.props;
-    const classes = classnames('th', 'col', className, {'sortable': sortable});
-    const props = mergeProps(others, {className: classes});
-
-    const thProps = {...props, tabIndex: 0, disabled: !sortable};
-    if (sortable) {
-      return <div {...thProps} onClick={this.handleActivate} onKeyDown={this.handleKeyDown} role="button"/>;
-    } else {
-      return <div {...thProps}/>;
-    }
-  }
-}
-
-
-export class FlexTableCell extends React.Component {
-  static propTypes = {
-    index: PropTypes.number,
-    rowDatum: PropTypes.any,
-    cellClass: PropTypes.string
-  };
-
-  render() {
-    let {cellClass, children, className, ...others} = this.props;
-
-    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
-      .forEach(prop => delete others[prop]);
-
-    const classes = classnames(className, 'td', 'col', cellClass);
-    const props = mergeProps(others, {className: classes});
-
-    return (<div {...props}>
-      {children}
-    </div>);
-  }
-}
-
-export class FlexTableRow extends React.Component {
-  static propTypes = {
-    index: PropTypes.number,
-    rowDatum: PropTypes.object
-  };
-
-  render() {
-    let {children, index, className, rowDatum, ...others} = this.props;
-    const classes = classnames(className, 'tr', 'grid');
-    const props = mergeProps(others, {className: classes});
-
-    return (<div {...props}>
-      {children}
-    </div>);
   }
 }
 
