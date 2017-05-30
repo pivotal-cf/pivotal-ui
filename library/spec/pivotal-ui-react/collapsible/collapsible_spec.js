@@ -1,4 +1,3 @@
-import '../spec_helper';
 import {Collapsible} from 'pui-react-collapsible';
 import {findByClass, clickOn} from '../spec_helper';
 
@@ -57,13 +56,13 @@ describe('Collapsible', () => {
     expect(collapse.querySelector('.maybe')).toBeDefined();
   });
 
-  it('animates while expanding', () => {
+  xit('animates while expanding', () => {
     clickOn(findByClass(subject, 'collapse-toggle'));
 
     MockNow.tick(200);
     MockRaf.next();
 
-    expect(findByClass(subject, 'collapse-shield')).toHaveCss({marginBottom: '0px'});
+    expect(findByClass(subject, 'collapse-shield')).toHaveAttr('style', /marginBottom: 0px/);
   });
 
   it('calls onEntered when done opening', () => {
@@ -98,7 +97,7 @@ describe('Collapsible', () => {
 
     it('expands instantly', () => {
       clickOn(findByClass(subject, 'collapse-toggle'));
-      expect(findByClass(subject, 'collapse-shield')).toHaveCss({marginBottom: '0px'});
+      expect(findByClass(subject, 'collapse-shield')).toHaveAttr('style', /marginBottom: 0px/);
     });
 
     it('calls onEntered when done opening', () => {
