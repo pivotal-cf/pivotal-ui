@@ -12,7 +12,7 @@ categories:
 npm install pui-react-dropdowns --save
 
 <img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader svg-react-loader --save-dev
+npm install babel-loader react-svg-loader --save-dev
 </code>
 
 ## Props
@@ -267,3 +267,4 @@ parent: dropdown_react
 </div>
 ```
 */
+

@@ -24,6 +24,7 @@ assignToGlobal([
   require('pui-react-dividers'),
   require('pui-react-draggable-list'),
   require('pui-react-lists'),
+  require('pui-react-checkbox-dropdown'),
   require('pui-react-dropdowns'),
   require('pui-react-expander'),
   require('pui-react-iconography'),

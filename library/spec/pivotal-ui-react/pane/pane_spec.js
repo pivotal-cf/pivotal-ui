@@ -1,17 +1,17 @@
-import '../spec_helper'
-import ReactTestUtils from 'react-addons-test-utils'
-import {BasePane, Pane} from 'pui-react-panes'
+import '../spec_helper';
 
-let subject
+import {BasePane, Pane} from 'pui-react-panes';
+
+let subject;
 describe('BasePane', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<BasePane {...props}>Pane content here</BasePane>)
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<BasePane {...props}>Pane content here</BasePane>);
 
   it('renders a pane and container', () => {
-    subject = renderComponent()
-    const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane')
+    subject = renderComponent();
+    const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
 
-    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here')
-  })
+    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here');
+  });
 
   describe('pass-through attributes', () => {
     beforeEach(() => {
@@ -21,30 +21,30 @@ describe('BasePane', () => {
         id: 'outer-id',
         'data-foo': 'baz',
         style: {opacity: '0.5'}
-      })
-    })
+      });
+    });
 
     it('add classes, id, and styles to the pane and container', () => {
-      const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane')
-      expect(pane).toHaveClass('bg-dark-2')
-      expect(pane).toHaveAttr('id', 'outer-id')
-      expect(pane).toHaveCss({opacity: '0.5'})
-      expect(pane).toHaveAttr('data-foo', 'baz')
+      const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
+      expect(pane).toHaveClass('bg-dark-2');
+      expect(pane).toHaveAttr('id', 'outer-id');
+      expect(pane).toHaveCss({opacity: '0.5'});
+      expect(pane).toHaveAttr('data-foo', 'baz');
 
-      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow')
-    })
-  })
-})
+      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow');
+    });
+  });
+});
 
 describe('Pane', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Pane {...props}>Pane content here</Pane>)
+  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Pane {...props}>Pane content here</Pane>);
 
   it('renders a pane and container', () => {
-    subject = renderComponent()
-    const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane')
+    subject = renderComponent();
+    const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
 
-    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here')
-  })
+    expect(pane.getElementsByClassName('container')).toHaveText('Pane content here');
+  });
 
   describe('pass-through attributes', () => {
     beforeEach(() => {
@@ -54,17 +54,17 @@ describe('Pane', () => {
         id: 'outer-id',
         'data-foo': 'baz',
         style: {opacity: '0.5'}
-      })
-    })
+      });
+    });
 
     it('add classes, id, and styles to the pane and container', () => {
-      const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane')
-      expect(pane).toHaveClass('bg-dark-2')
-      expect(pane).toHaveAttr('id', 'outer-id')
-      expect(pane).toHaveCss({opacity: '0.5'})
-      expect(pane).toHaveAttr('data-foo', 'baz')
+      const pane = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pane');
+      expect(pane).toHaveClass('bg-dark-2');
+      expect(pane).toHaveAttr('id', 'outer-id');
+      expect(pane).toHaveCss({opacity: '0.5'});
+      expect(pane).toHaveAttr('data-foo', 'baz');
 
-      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow')
-    })
-  })
-})
+      expect(pane.getElementsByClassName('container')).toHaveClass('bg-glow');
+    });
+  });
+});

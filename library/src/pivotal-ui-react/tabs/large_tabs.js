@@ -1,26 +1,25 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import TabContent from './tab_content';
 import TabHeaders from './tab_headers';
 import classnames from 'classnames';
 import {default as mixin} from 'pui-react-mixins';
 
-const types = React.PropTypes;
-
 export class LargeTabs extends mixin(React.Component).with(Animation) {
   static propTypes = {
-    actions: types.node,
-    activeKey: types.any,
-    childArray: types.array,
-    handleClick: types.func,
-    id: types.string,
-    largeScreenClassName: types.string,
-    onSelect: types.func,
-    paneWidth: types.number,
-    position: types.oneOf(['top', 'left']),
-    previouslyActiveKey: types.any,
-    tabType: types.oneOf(['simple', 'simple-alt', 'left']),
-    tabWidth: types.number
+    actions: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    activeKey: PropTypes.any,
+    childArray: PropTypes.array,
+    handleClick: PropTypes.func,
+    id: PropTypes.string,
+    largeScreenClassName: PropTypes.string,
+    onSelect: PropTypes.func,
+    paneWidth: PropTypes.number,
+    position: PropTypes.oneOf(['top', 'left']),
+    previouslyActiveKey: PropTypes.any,
+    tabType: PropTypes.oneOf(['simple', 'simple-alt', 'left']),
+    tabWidth: PropTypes.number
   }
 
   render() {

@@ -1,16 +1,16 @@
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {default as mixin} from 'pui-react-mixins';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-modals';
 import {Icon} from 'pui-react-iconography';
 
-const types = React.PropTypes;
 const ESC_KEY = 27;
 const privates = new WeakMap();
 
-function bodyNotAllowedToScroll(document)  {
+function bodyNotAllowedToScroll(document) {
   if (typeof document !== 'object') return;
   const body = document.getElementsByTagName('body')[0];
   if(!body.classList.contains('pui-no-scroll')) {
@@ -24,17 +24,17 @@ function bodyIsAllowedToScroll(document) {
 
 export class BaseModal extends mixin(React.Component).with(Animation) {
   static propTypes = {
-    acquireFocus: types.bool,
-    animation: types.bool,
-    size: types.string,
-    dialogClassName: types.string,
-    keyboard: types.bool,
-    onEntered: types.func,
-    onExited: types.func,
-    onHide: types.func,
-    show: types.bool,
-    title: types.node,
-    getDocument: types.func
+    acquireFocus: PropTypes.bool,
+    animation: PropTypes.bool,
+    size: PropTypes.string,
+    dialogClassName: PropTypes.string,
+    keyboard: PropTypes.bool,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    onHide: PropTypes.func,
+    show: PropTypes.bool,
+    title: PropTypes.node,
+    getDocument: PropTypes.func
   }
 
   static defaultProps = {
@@ -144,7 +144,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
             <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={ref => this.dialog = ref}>
               <div className="modal-content">
                 <div className="modal-header">
-                  <h4 className="modal-title">{title}</h4>
+                  <h3 className="modal-title em-high">{title}</h3>
                   <div className="modal-close">
                     <button className="btn btn-icon" onClick={onHide}>
                       <Icon src="close"/>
@@ -156,7 +156,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

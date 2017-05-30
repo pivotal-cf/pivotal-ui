@@ -1,16 +1,16 @@
 import classnames from 'classnames';
 import React from 'react';
 
-const types = React.PropTypes;
+import PropTypes from 'prop-types';
 
 export default class TabContent extends React.Component {
   static propTypes = {
-    activeKey: types.any,
-    childArray: types.array,
-    id: types.string,
-    isLeft: types.bool,
-    paneWidth: types.number,
-    transitionProgress: types.number
+    activeKey: PropTypes.any,
+    childArray: PropTypes.array,
+    id: PropTypes.string,
+    isLeft: PropTypes.bool,
+    paneWidth: PropTypes.number,
+    transitionProgress: PropTypes.number
   }
 
   render() {
@@ -38,8 +38,8 @@ export default class TabContent extends React.Component {
       if (!isActive) return false;
       tabContent = (
         <div className={classnames('tab-content', {[leftPaneClasses]: isLeft}, className)} {...props}>
-          <div className='tab-pane fade active in' id={paneId} role='tabpanel' aria-labelledby={ariaLabelledBy || tabId}
-               aria-hidden='false' style={style}>
+          <div className="tab-pane fade active in" id={paneId} role="tabpanel" aria-labelledby={ariaLabelledBy || tabId}
+               aria-hidden="false" style={style}>
             {children}
           </div>
         </div>

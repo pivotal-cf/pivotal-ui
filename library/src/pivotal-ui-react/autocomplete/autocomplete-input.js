@@ -1,7 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
-
-const types = React.PropTypes;
 
 const DOWN_KEY = 40;
 const ENTER_KEY = 13;
@@ -11,18 +10,18 @@ const UP_KEY = 38;
 
 export class AutocompleteInput extends React.Component {
   static propTypes = {
-    $autocomplete: types.object,
-    autoFocus: types.bool,
+    $autocomplete: PropTypes.object,
+    autoFocus: PropTypes.bool,
     children(props, name) {
       if (props[name] && props[name].length) return new Error('AutocompleteInput can only wrap one element');
     },
-    disabled: types.bool,
-    onClick: types.func,
-    onFocus: types.func,
-    onPick: types.func,
-    onPicking: types.func,
-    onSearch: types.func,
-    scrollIntoView: types.func
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    onPick: PropTypes.func,
+    onPicking: PropTypes.func,
+    onSearch: PropTypes.func,
+    scrollIntoView: PropTypes.func
   }
 
   static defaultProps = {

@@ -42,6 +42,15 @@ $active-item-border-size: $base-unit / 2;
       padding: 0;
     }
   }
+
+  .sidebar--search {
+    .autocomplete-list {
+      border: 1px solid $input-border-focus;
+      left: 16px;
+      width: 88%;
+      top: 37px;
+    }
+  }
 }
 
 .sidebar--search {

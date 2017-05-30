@@ -1,17 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import 'pui-css-forms';
 
-const types = React.PropTypes;
-
 export class Checkbox extends React.Component {
   static propTypes = {
-    displayError: types.bool,
-    errorMessage: types.node,
-    inputClassName: types.string,
-    id: types.string,
-    label: types.node,
-    labelClassName: types.string
+    displayError: PropTypes.bool,
+    errorMessage: PropTypes.node,
+    inputClassName: PropTypes.string,
+    id: PropTypes.string,
+    label: PropTypes.node,
+    labelClassName: PropTypes.string
   }
 
   render() {

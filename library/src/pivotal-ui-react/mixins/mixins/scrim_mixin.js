@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-const types = React.PropTypes;
+import PropTypes from 'prop-types';;
 
 function rootClick(e) {
   if (this.props.disableScrim || ReactDOM.findDOMNode(this).contains(e.target)) return;
@@ -13,7 +12,7 @@ const privates = new WeakMap();
 export default ParentClass => {
   return class Scrim extends ParentClass {
     static propTypes = {
-      disableScrim: types.bool
+      disableScrim: PropTypes.bool
     };
 
     constructor(props, context) {
@@ -35,5 +34,5 @@ export default ParentClass => {
       const document = this.props.getDocument ? this.props.getDocument() : global.document;
       if (typeof document === 'object') document.documentElement.removeEventListener('click', privates.get(this));
     }
-  }
+  };
 };

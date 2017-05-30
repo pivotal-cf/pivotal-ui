@@ -1,5 +1,6 @@
 import {Icon} from 'pui-react-iconography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import throttle from 'lodash.throttle';
 import {getScrollTop, setScrollTop} from './scroll-top';
 import {mergeProps} from 'pui-react-helpers';
@@ -14,7 +15,7 @@ export class BackToTop extends mixin(React.Component).with(Animation) {
   }
 
   static propTypes = {
-    alwaysVisible: React.PropTypes.bool
+    alwaysVisible: PropTypes.bool
   }
 
   static FADE_DURATION = 300;

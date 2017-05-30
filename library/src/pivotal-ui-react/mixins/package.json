@@ -1,8 +1,9 @@
 {
-  "version": "8.0.4",
+  "version": "8.1.0",
   "description": "Mixins for use in Pivotal UI Components",
   "dependencies": {
     "fbjs": "^0.7.2",
+    "prop-types": ">=15.5.6",
     "pui-react-animation": "^0.2.0",
     "raf": "^3.1.0",
     "react-addons-shallow-compare": ">=0.14.0"

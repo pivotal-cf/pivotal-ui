@@ -1,15 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-pagination';
 
-const types = React.PropTypes;
-
 class PaginationButton extends React.Component {
   static propTypes = {
-    content: types.node,
-    active: types.bool,
-    onSelect: types.func,
-    eventKey: types.oneOfType([types.number, types.string])
+    content: PropTypes.node,
+    active: PropTypes.bool,
+    onSelect: PropTypes.func,
+    eventKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
   }
 
   click = e => {
@@ -30,11 +29,11 @@ class PaginationButton extends React.Component {
 
 export class Pagination extends React.Component {
   static propTypes = {
-    items: types.number,
-    next: types.bool,
-    prev: types.bool,
-    activePage: types.number,
-    onSelect: types.func
+    items: PropTypes.number,
+    next: PropTypes.bool,
+    prev: PropTypes.bool,
+    activePage: PropTypes.number,
+    onSelect: PropTypes.func
   }
 
   static defaultProps = {
@@ -57,10 +56,10 @@ export class Pagination extends React.Component {
         {...props}/>);
     });
 
-    const prevButton = <PaginationButton onSelect={onSelect} eventKey='prev' content="&lsaquo;"/>;
-    const nextButton = <PaginationButton onSelect={onSelect} eventKey='next' content="&rsaquo;"/>;
+    const prevButton = <PaginationButton onSelect={onSelect} eventKey="prev" content="&lsaquo;"/>;
+    const nextButton = <PaginationButton onSelect={onSelect} eventKey="next" content="&rsaquo;"/>;
 
-    return (<ul className='pagination'>
+    return (<ul className="pagination">
       {prev ? prevButton : null}
       {paginationButtons}
       {next ? nextButton : null}

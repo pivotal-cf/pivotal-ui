@@ -1,1 +1,0 @@
-{"libs": ["browser"], "loadEagerly": ["src/boot/browser.js"]}

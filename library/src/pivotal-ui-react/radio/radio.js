@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import classnames from 'classnames';
 import uniqueId from 'lodash.uniqueid';
@@ -6,15 +7,15 @@ import 'pui-css-forms';
 
 export class Radio extends React.Component {
   static propTypes = {
-    checked: React.PropTypes.bool,
-    defaultChecked: React.PropTypes.bool,
-    name: React.PropTypes.string,
-    value: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func,
-    id: React.PropTypes.string,
-    className: React.PropTypes.string,
-    style: React.PropTypes.object,
-    disabled: React.PropTypes.bool
+    checked: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
+    name: PropTypes.string,
+    value: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    style: PropTypes.object,
+    disabled: PropTypes.bool
   }
 
   render() {
@@ -28,9 +29,9 @@ export class Radio extends React.Component {
 
 export class RadioGroup extends React.Component {
   static propTypes = {
-    id: React.PropTypes.string,
-    name: React.PropTypes.string.isRequired,
-    onChange: React.PropTypes.func
+    id: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func
   }
 
   render() {

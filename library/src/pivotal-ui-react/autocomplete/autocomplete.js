@@ -10,10 +10,9 @@ import Scrim from 'pui-react-mixins/mixins/scrim_mixin';
 import through from 'through';
 import TrieSearch from 'trie-search';
 import 'pui-css-autocomplete';
+import PropTypes from 'prop-types';
 
 export {AutocompleteList, AutocompleteInput};
-
-const types = React.PropTypes;
 
 const trieFromSearchableItems = (searchableItems, trieOptions) => {
   return new Promise(resolve => {
@@ -44,27 +43,29 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
   }
 
   static propTypes = {
-    className: types.string,
-    disabled: types.bool,
-    input: types.object,
-    maxItems: types.number,
-    onClick: types.func,
-    onFilter: types.func,
-    onFocus: types.func,
-    onInitializeItems: types.func,
-    onPick: types.func,
-    onSearch: types.func,
-    placeholder: types.string,
-    selectedSuggestion: types.any,
-    trieOptions: types.object,
-    value: types.string
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    input: PropTypes.object,
+    maxItems: PropTypes.number,
+    onClick: PropTypes.func,
+    onFilter: PropTypes.func,
+    onFocus: PropTypes.func,
+    onInitializeItems: PropTypes.func,
+    onPick: PropTypes.func,
+    onSearch: PropTypes.func,
+    placeholder: PropTypes.string,
+    selectedSuggestion: PropTypes.any,
+    trieOptions: PropTypes.object,
+    value: PropTypes.string,
+    showNoSearchResults: PropTypes.bool
   }
 
   static defaultProps = {
     maxItems: 50,
     onInitializeItems: done => done([]),
     input: <AutocompleteInput/>,
-    placeholder: 'Search'
+    placeholder: 'Search',
+    showNoSearchResults: false
   }
 
   componentWillReceiveProps({value}) {
@@ -126,7 +127,7 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     const {
       className, maxItems, onFocus, onClick, disabled, selectedSuggestion, placeholder, input, children,
       onInitializeItems: __IGNORE1, onFilter: __IGNORE2, onPick: __IGNORE3, onSearch: __IGNORE4,
-      trieOptions: __IGNORE5, ...props
+      trieOptions: __IGNORE5, showNoSearchResults, ...props
     } = this.props;
     const {scrollIntoViewFn, onPick, onSearch} = this;
     const clonedInput = React.cloneElement(
@@ -136,7 +137,7 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
 
     return (<div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
       {clonedInput}
-      <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion}}>{children}</AutocompleteList>
+      <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults}}>{children}</AutocompleteList>
     </div>);
   }
 }

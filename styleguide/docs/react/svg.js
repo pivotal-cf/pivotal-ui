@@ -8,7 +8,7 @@ categories:
 ---
 
 ***This component is limited to projects that use Webpack.***
-***It requires the webpack loaders babel-loader and svg-react-loader.***
+***It requires the webpack loaders babel-loader and react-svg-loader.***
 ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
 <code class="pam">
@@ -16,7 +16,7 @@ categories:
 npm install pui-react-svg  --save
 
 <img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader svg-react-loader --save-dev
+npm install babel-loader react-svg-loader --save-dev
 </code>
 
 ## Props
@@ -48,12 +48,17 @@ import {Svg} from 'pui-react-svg';
 
 class MySvg extends Svg {
   svgPathLoader(src) {
-    return require(`!!babel-loader!svg-react-loader!./path/to/svgs/${src}.svg`);
+    return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);
   }
 }
 ```
 
-The path is relative to the file where you subclass the Svg component.
+The path is relative to the file where you subclass the Svg component. Note that `react-svg-loader` will internally optimize your Svgs using [svgo](https://github.com/svg/svgo).
+This optimization will sometimes change your Svg in undesirable ways. You can turn off parts of the optimization with loader params. For example, the Svg component itself uses
+
+```
+ require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`);
+```
 
 Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).

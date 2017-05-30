@@ -19,34 +19,34 @@ Using Panels, you can organize information collections into logical groups, aggr
 ## Variants
 
 ```jsx
-::title=Basic Example
+::title=Basic Panel
 <div>
-    <Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
-      <p>Base Panel</p>
-    </Panel>
+  <Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
+    <p>Base Panel</p>
+  </Panel>
 </div>
 ```
 
 ```jsx
-::title=Basic Example
+::title=Panel with Header
 <div>
-    <Panel className="bg-neutral-10" header='header'>
-      Base Panel with base header
-    </Panel>
+  <Panel className="bg-neutral-10" header='header'>
+    Base Panel with base header
+  </Panel>
 </div>
 ```
 
 ```jsx
-::title=Basic Example
+::title=Panel with Subtitle
 <div>
-    <Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
-      Base Panel with subtitle
-    </Panel>
+  <Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
+    Base Panel with subtitle
+  </Panel>
 </div>
 ```
 
 ```jsx
-::title=Basic Example
+::title=Scrollable Panel
 <Panel className="bg-neutral-8" scrollable={100}>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>

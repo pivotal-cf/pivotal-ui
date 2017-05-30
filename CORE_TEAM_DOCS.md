@@ -84,7 +84,7 @@ again.
 	1. `gulp ci`
 	1. `cd ../library`
 
-1. In library, run `npm i`
+1. In library, run `yarn i`
 1. Run `gulp release-prepare`. This will:
   - Automatically determine the type of release (patch, major, minor)
   - Update the version in `package.json`
@@ -106,7 +106,7 @@ again.
   - Pushes version bump and new tag to github
   - Publishes all of the updated node packages to npm
   
-1. From the `styleguide` directory: `gulp push-styleguide` will push to production. Make sure you are targeting the correct space on CF
+1. From the `styleguide` directory: `gulp styleguide-build && cf push` will push to production. Make sure you are targeting the correct space on CF
 
 1. Merge `master` back into `development`
 

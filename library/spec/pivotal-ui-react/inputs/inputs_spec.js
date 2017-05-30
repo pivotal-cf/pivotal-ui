@@ -1,147 +1,118 @@
-import '../spec_helper'
-import {Input} from 'pui-react-inputs'
-import ReactTestUtils from 'react-addons-test-utils'
-import {findByClass, findAllByClass, findByTag, findAllByTag} from '../spec_helper'
+import '../spec_helper';
+import {Input} from 'pui-react-inputs';
 
-describe('Input Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Input {...props}/>)
-  const renderIntoDom = props => ReactDOM.render(<Input {...props}/>, root)
+describe('Input', function() {
+  let changeSpy, subject;
+  const id = 'firstNameInput';
+  const label = 'First Name';
+  beforeEach(function() {
+    changeSpy = jasmine.createSpy('change');
+    subject = ReactDOM.render(<Input success {...{className: 'input-class', label, id, onChange: changeSpy}}/>, root);
+  });
 
-  it('renders', () => {
-    const result = renderComponent()
-    const component = findByTag(result, 'input')
-    expect(component).not.toBeUndefined()
-  })
+  it('renders an input with the label', function() {
+    expect('.control-label').toContainText('First Name');
+  });
 
-  it('propagates id, classname, style', () => {
-    const result = renderComponent({id: 'some-id', className: 'some-class', style: {color: 'red'}})
+  it('attaches the label to the input', function() {
+    expect('.control-label').toHaveAttr('for', id);
+    expect('.form-group input').toHaveAttr('id', id);
+  });
 
-    const input = findByTag(result, 'input')
-    expect(input).toHaveAttr('id', 'some-id')
-    expect(input).toHaveCss({color: 'red'})
-
-    const formGroup = findByClass(result, 'form-group')
-    expect(formGroup).toHaveClass('some-class')
-  })
+  it('passes properties to the input', function() {
+    $('.form-group input').simulate('change');
+    expect(changeSpy).toHaveBeenCalled();
+  });
 
   it('displays a checkmark when success prop is true', () => {
-    const result = renderComponent({success: true})
+    expect('.success').toExist();
+    expect('.form-group svg').toHaveClass('icon-check');
+  });
 
-    expect(findAllByClass(result, 'success').length).toEqual(1)
+  it('merges classnames', function() {
+    ReactDOM.render(<Input className="foo"/>, root);
+    expect('.form-group').toHaveClass('foo');
+  });
 
-    expect(findByTag(result, 'svg')).toHaveClass('icon-check')
-  })
+  describe('when label is undefined', () => {
+    beforeEach(() => {
+      subject::setProps({label: undefined});
+    });
 
-  it('renders search icons when search prop is true', () => {
-    const result = renderComponent({search: true})
+    it('does not render label', () => {
+      expect('label').not.toExist();
+    });
+  });
 
-    const formGroup = findByClass(result, 'form-group')
-    expect(formGroup).toHaveClass('form-group-left-icon')
+  describe('search', () => {
+    beforeEach(() => {
+      subject::setProps({success: false, search: true});
+    });
 
-    expect(findByTag(result, 'svg')).toHaveClass('icon-search')
-  })
-
-  describe('label', () => {
-    it('when not given a label prop it wont render a label element', () => {
-      const result = renderComponent({label: null})
-      expect(findAllByTag(result, 'label')).toHaveLength(0)
-    })
-
-    it('when given a label prop it will render a label element', () => {
-      const result = renderComponent({label: 'label text'})
-      const component = findByTag(result, 'label')
-      expect(component).toHaveText('label text')
-    })
-  })
-
-  describe('autoFocus', () => {
-    it('focuses when true', () => {
-      const result = renderIntoDom({autoFocus: true})
-      const input = findByTag(result, 'input')
-      expect(input).toBeFocused()
-    })
-
-    it('does not focus when false', () => {
-      const result = renderIntoDom({autoFocus: false})
-      const input = findByTag(result, 'input')
-      expect(input).not.toBeFocused()
-    })
-  })
+    it('renders a form group with the search classes', function() {
+      expect('.form-group').toHaveClass('form-group-left-icon');
+      expect('.form-group svg').toHaveClass('icon-search');
+    });
+  });
 
   describe('leftIcon', () => {
-    it('renders a form group with icon', () => {
-      const result = renderComponent({leftIcon: 'add'})
+    beforeEach(() => {
+      subject::setProps({leftIcon: 'add', success: true, search: true});
+    });
 
-      const formGroup = findByClass(result, 'form-group')
-      expect(formGroup).toHaveClass('form-group-left-icon')
-
-      const svg = findByTag(result, 'svg')
-      expect(svg).toHaveClass('icon-add')
-    })
+    it('renders a form group with custom icon', function() {
+      expect('.form-group').toHaveClass('form-group-left-icon');
+      expect('.form-group svg:eq(0)').toHaveClass('icon-add');
+    });
 
     it('overrides search option', () => {
-      const result = renderComponent({leftIcon: 'add', search: true})
-      expect(findAllByClass(result, 'icon-search')).toHaveLength(0)
-    })
+      expect('.form-group svg.icon-search').not.toExist();
+    });
 
     it('can be used simultaneously with success', () => {
-      const result = renderComponent({leftIcon: 'add', success: true})
-      expect(findByClass(result, 'icon-check')).toBeDefined()
-    })
+      expect('.form-group svg:eq(1)').toHaveClass('icon-check');
+    });
 
-    it('allows node icons', () => {
-      const result = renderComponent({leftIcon: <div className="my-custom-icon-node">Hello!</div>})
-      expect(findByClass(result, 'my-custom-icon-node')).toBeDefined()
-    })
-  })
+    describe('when leftIcon is a node', () => {
+      beforeEach(() => {
+        subject::setProps({leftIcon: <div className="custom" />, success: true, search: true});
+      });
 
-  describe('when a placeholder is provided', () => {
-    it('renders the input with a placeholder', () => {
-      const result = renderComponent({placeholder: 'Search here...'})
-      const input = findByTag(result, 'input')
-      expect(input.placeholder).toEqual('Search here...')
+      it('renders the node', () => {
+        expect('.form-group .custom').toExist();
+      });
 
-      expect(input).toHaveAttr('aria-label', 'Search here...')
-    })
+      it('overrides search option', () => {
+        expect('.form-group svg.icon-search').not.toExist();
+      });
 
-    it('uses the label as the aria-label instead of the placeholder when an aria-label is provided as well', () => {
-      const result = renderComponent({placeholder: 'Search here...', 'aria-label': 'Search Box'})
-      const input = findByTag(result, 'input')
-      expect(input).toHaveAttr('aria-label', 'Search Box')
-    })
-  })
+      it('can be used simultaneously with success', () => {
+        expect('.form-group svg.icon-check').toExist();
+      });
+    });
+  });
 
-  describe('size attribute for input and label', () => {
-    it('renders with size=medium by default', () => {
-      const result = renderComponent({label: 'my label'})
-      const input = findByTag(result, 'input')
-      expect(input).not.toHaveClass('input-lg')
-      expect(input).not.toHaveClass('input-sm')
-      const label = findByTag(result, 'label')
-      expect(label).not.toHaveClass('label-lg')
-      expect(label).not.toHaveClass('label-sm')
-    })
+  describe('when a placeholder is provided', function() {
+    beforeEach(function() {
+      subject::setProps({placeholder: 'Search here...'});
+    });
 
-    it('respects size attribute', () => {
-      let result = renderComponent({size: 'small', label: 'my label'});
-      let input = findByTag(result, 'input')
-      expect(input).toHaveClass('input-sm')
-      let label = findByTag(result, 'label')
-      expect(label).toHaveClass('label-sm')
+    it('renders the input with a placeholder', function() {
+      expect('.form-group input').toHaveAttr('placeholder', 'Search here...');
+    });
 
-      result = renderComponent({size: 'medium', label: 'my label'});
-      input = findByTag(result, 'input')
-      expect(input).not.toHaveClass('input-lg')
-      expect(input).not.toHaveClass('input-sm')
-      label = findByTag(result, 'label')
-      expect(label).not.toHaveClass('label-lg')
-      expect(label).not.toHaveClass('label-sm')
+    it('adds an aria label with the placeholder value', function() {
+      expect('.form-group input').toHaveAttr('aria-label', 'Search here...');
+    });
 
-      result = renderComponent({size: 'large', label: 'my label'});
-      input = findByTag(result, 'input')
-      expect(input).toHaveClass('input-lg')
-      label = findByTag(result, 'label')
-      expect(label).toHaveClass('label-lg')
-    })
-  })
-})
+    describe('when an aria-label is provided as well', function() {
+      beforeEach(function() {
+        subject::setProps({'aria-label': 'Search Box'});
+      });
+
+      it('uses the label as the aria-label instead of the placeholder', function() {
+        expect('.form-group input').toHaveAttr('aria-label', 'Search Box');
+      });
+    });
+  });
+});

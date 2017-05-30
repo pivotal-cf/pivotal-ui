@@ -1,14 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Icon} from 'pui-react-iconography';
 import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
 import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 
-const types = React.PropTypes;
-
 export class Notifications extends React.Component {
   static propTypes = {
-    size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+    size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
   }
 
   static defaultProps = {
@@ -39,7 +38,7 @@ export class Notifications extends React.Component {
 
 export class AlertNotifications extends React.Component {
   static propTypes = {
-    size: React.PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
+    size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
   }
   
   static defaultProps = {
@@ -70,7 +69,7 @@ export class AlertNotifications extends React.Component {
 
 export class NotificationItem extends React.Component {
   static propTypes = {
-    href: types.string
+    href: PropTypes.string
   }
 
   render() {

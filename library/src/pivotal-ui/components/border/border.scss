@@ -1,0 +1,27 @@
+@import "../pui-variables";
+
+.border {
+  border:solid 1px $input-border !important;
+}
+
+.border-none {
+  border: none !important;
+}
+
+@each $position in "top", "bottom", "left", "right" {
+  .border-#{$position} {
+    border-#{$position}: 1px solid $input-border !important;
+  }
+
+  .border-#{$position}-0 {
+    border-#{$position}: 0px !important;
+  }
+}
+
+.border-rounded {
+  border-radius: 4px !important;
+}
+
+.border-not-rounded {
+  border-radius: 0px !important;
+}

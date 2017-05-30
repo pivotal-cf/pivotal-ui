@@ -23,6 +23,11 @@
     border-top: 0;
   }
 
+  .autocomplete-item-no-results {
+    font-size: 14px;
+    opacity: .75;
+  }
+
   .autocomplete-item {
     padding: $whitespace-s 15px; //specific horizontal padding to align with text in the input
     display: block;

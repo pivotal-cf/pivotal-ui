@@ -3,10 +3,10 @@
 pushd ../library;
     rm -rf node_modules
     rm -rf dist
-    npm install
+    yarn install
     gulp build
 popd;
 
 rm -rf node_modules
-npm install
+yarn install
 ./node_modules/.bin/webpack --progress

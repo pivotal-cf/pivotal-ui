@@ -1,15 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-images';
 
-const types = React.PropTypes;
-
 export class Image extends React.Component {
   static propTypes = {
-    responsive: types.bool,
-    href: types.string,
-    alt: types.string,
-    src: types.string.isRequired
+    responsive: PropTypes.bool,
+    href: PropTypes.string,
+    alt: PropTypes.string,
+    src: PropTypes.string.isRequired
   }
 
   render() {

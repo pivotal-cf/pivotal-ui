@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {DefaultButton} from 'pui-react-buttons';
 import {UnorderedList, ListItem} from 'pui-react-lists';
 import {default as mixin} from 'pui-react-mixins';
@@ -6,10 +7,10 @@ import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
 class StreamListNewItemsButton extends React.Component {
   static propTypes = {
-    showNewItems: React.PropTypes.func.isRequired,
-    singularNewItemText: React.PropTypes.string,
-    pluralNewItemsText: React.PropTypes.string,
-    numNewItems: React.PropTypes.number.isRequired
+    showNewItems: PropTypes.func.isRequired,
+    singularNewItemText: PropTypes.string,
+    pluralNewItemsText: PropTypes.string,
+    numNewItems: PropTypes.number.isRequired
   }
 
   render() {
@@ -27,8 +28,8 @@ export class StreamList extends mixin(React.Component).with(Animation) {
   }
 
   static propTypes = {
-    singularNewItemText: React.PropTypes.string.isRequired,
-    pluralNewItemsText: React.PropTypes.string.isRequired
+    singularNewItemText: PropTypes.string.isRequired,
+    pluralNewItemsText: PropTypes.string.isRequired
   }
 
   static defaultProps = {

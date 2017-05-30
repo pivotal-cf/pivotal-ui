@@ -1,18 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 import classnames from 'classnames';
 
-const types = React.PropTypes;
-
 class SmallTab extends React.Component {
   static propTypes = {
-    animation: types.bool,
-    ariaLabelledBy: types.string,
-    disabled: types.bool,
-    expanded: types.bool,
-    header: types.node,
-    onClick: types.func,
-    paneId: types.string
+    animation: PropTypes.bool,
+    ariaLabelledBy: PropTypes.string,
+    disabled: PropTypes.bool,
+    expanded: PropTypes.bool,
+    header: PropTypes.node,
+    onClick: PropTypes.func,
+    paneId: PropTypes.string
   }
 
   render() {
@@ -44,14 +43,14 @@ class SmallTab extends React.Component {
 
 export class SmallTabs extends React.Component {
   static propTypes = {
-    actions: types.node,
-    activeKey: types.number,
-    animation: types.bool,
-    id: types.string,
-    handleClick: types.func,
-    onSelect: types.func,
-    smallScreenClassName: types.string,
-    tabType: types.string
+    actions: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
+    activeKey: PropTypes.number,
+    animation: PropTypes.bool,
+    id: PropTypes.string,
+    handleClick: PropTypes.func,
+    onSelect: PropTypes.func,
+    smallScreenClassName: PropTypes.string,
+    tabType: PropTypes.string
   }
 
   render() {

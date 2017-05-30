@@ -1,21 +1,20 @@
 import classnames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Media} from 'pui-react-media';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-alerts';
 
-const types = React.PropTypes;
-
 class Alert extends React.Component {
   static propTypes = {
-    alertIcon: types.string,
-    bsStyle: types.string,
-    closeLabel: types.node,
-    dismissable: types.bool,
-    onDismiss: types.func,
-    show: types.bool,
-    withIcon: types.bool
+    alertIcon: PropTypes.string,
+    bsStyle: PropTypes.string,
+    closeLabel: PropTypes.node,
+    dismissable: PropTypes.bool,
+    onDismiss: PropTypes.func,
+    show: PropTypes.bool,
+    withIcon: PropTypes.bool
   }
 
   static defaultProps = {
@@ -47,18 +46,29 @@ class Alert extends React.Component {
 
     if (!visible) return <span/>;
 
+    let iconColumn;
     if (withIcon) {
-      const icon = <Icon src={alertIcon}/>;
-      children = <Media className={'mtn'} image={icon}>{children}</Media>;
+      iconColumn = <div className="col col-fixed pan mtm"><Icon src={alertIcon}/></div>;
+    }
+
+    let dismissableColumn;
+    if (dismissable) {
+      dismissableColumn = (
+        <div className="col col-fixed pan">
+          <button type="button" className="btn close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
+            src="close"/>
+          </button>
+        </div>
+      );
     }
 
     return (
       <div {...props}>
-        {children}
-        {dismissable && <button type="button" className="btn close sr-only">{closeLabel}</button>}
-        {dismissable &&
-        <button type="button" className="btn close" aria-hidden={true} onClick={this.handleAlertDismiss}><Icon src="close"/>
-        </button>}
+        <div className="grid">
+          {iconColumn}
+          <div className="col col-middle">{children}</div>
+          {dismissableColumn}
+        </div>
       </div>
     );
   }
@@ -67,8 +77,8 @@ class Alert extends React.Component {
 const defAlert = props => {
   return class extends React.Component {
     static propTypes = {
-      dismissable: types.oneOfType([types.bool, types.func]),
-      withIcon: types.bool
+      dismissable: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+      withIcon: PropTypes.bool
     };
 
     render() {

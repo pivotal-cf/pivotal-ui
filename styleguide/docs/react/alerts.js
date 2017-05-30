@@ -14,7 +14,7 @@ npm install pui-react-alerts --save
 
 <code class="pam">
 <img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader svg-react-loader --save-dev
+npm install babel-loader react-svg-loader --save-dev
 </code>
 
 ## Props

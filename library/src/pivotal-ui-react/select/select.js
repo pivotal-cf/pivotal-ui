@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {DefaultButton} from 'pui-react-buttons';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
@@ -8,8 +9,6 @@ import Transition from 'pui-react-mixins/mixins/transition_mixin';
 import classnames from 'classnames';
 
 import 'pui-css-select';
-
-const types = React.PropTypes;
 
 const isBlank = value => [null, undefined].includes(value);
 
@@ -24,13 +23,13 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
   }
 
   static propTypes = {
-    defaultValue: types.any,
-    name: types.string,
-    onChange: types.func,
-    onEntered: types.func,
-    onExited: types.func,
-    options: types.array.isRequired,
-    value: types.any
+    defaultValue: PropTypes.any,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    onEntered: PropTypes.func,
+    onExited: PropTypes.func,
+    options: PropTypes.array.isRequired,
+    value: PropTypes.any
   }
 
   toggle = () => this.setState({open: !this.state.open})

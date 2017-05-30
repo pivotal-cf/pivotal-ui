@@ -14,6 +14,7 @@ build/
 dist/
 *.zip
 npm-debug.log
+.DS_Store
 
 library/sandbox/sandbox.js
 

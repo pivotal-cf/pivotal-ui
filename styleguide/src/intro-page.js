@@ -1,4 +1,5 @@
 const React = global.React || require('react');
+const PropTypes = global.PropTypes || require('prop-types');
 const BasePane = global.BasePane || require('pui-react-panes').BasePane;
 const Button = global.PrimaryButton || require('pui-react-buttons').PrimaryButton;
 const TileLayout = global.TileLayout || require('pui-react-tile-layout');
@@ -47,8 +48,8 @@ class IntroPage extends React.Component {
 
 class IntroTile extends React.Component {
   static propTypes = {
-    category: React.PropTypes.string,
-    description: React.PropTypes.string,
+    category: PropTypes.string,
+    description: PropTypes.string,
   };
 
   render() {
@@ -63,8 +64,8 @@ class IntroTile extends React.Component {
 
 class ExampleTile extends React.Component {
   static propTypes = {
-    exampleLink: React.PropTypes.string,
-    exampleImage: React.PropTypes.string,
+    exampleLink: PropTypes.string,
+    exampleImage: PropTypes.string,
   };
 
   render() {

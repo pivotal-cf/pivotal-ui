@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 
 export class ExpanderTrigger extends React.Component {
@@ -25,7 +26,7 @@ export class ExpanderTrigger extends React.Component {
 
 export class ExpanderContent extends React.Component {
   static propTypes = {
-    expanded: React.PropTypes.bool
+    expanded: PropTypes.bool
   }
 
   constructor(props, context) {

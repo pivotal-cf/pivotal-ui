@@ -8,7 +8,7 @@ popd
 
 pushd styleguide
   bundle
-  rm -rf node_modules/pui-*
-  npm i --no-progress
+  yarn cache clean
+  yarn --force
 popd
 
