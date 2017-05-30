@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-cd pivotal-ui-development/library
+cd pivotal-ui/library
 yarn
 gulp build
 gulp ci

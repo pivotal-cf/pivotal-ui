@@ -10,4 +10,4 @@ inputs:
 - name: pivotal-ui
 
 run:
-  path: pivotal-ui/concourse/tasks/hologram-styleguide/run.sh
+  path: pivotal-ui-development/concourse/tasks/hologram-styleguide/run.sh
