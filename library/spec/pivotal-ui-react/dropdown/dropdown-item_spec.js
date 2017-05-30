@@ -89,42 +89,42 @@ describe('DropdownItem', () => {
   });
 
   describe('onClick handling', () => {
-    let handleClickSpy
+    let handleClickSpy;
     describe('with href', () => {
       it('passes through onClick on anchor click', () => {
-        console.log('handle the click')
-        handleClickSpy = jasmine.createSpy('handleClick')
-        result = renderComponent({href: 'test', onClick: handleClickSpy})
+        console.log('handle the click');
+        handleClickSpy = jasmine.createSpy('handleClick');
+        result = renderComponent({href: 'test', onClick: handleClickSpy});
 
-        clickOn(findByTag(result, 'a'))
-        expect(handleClickSpy).toHaveBeenCalled()
-      })
-    })
+        clickOn(findByTag(result, 'a'));
+        expect(handleClickSpy).toHaveBeenCalled();
+      });
+    });
 
     describe('without href', () => {
       it('passes through onClick on list item click', () => {
-        handleClickSpy = jasmine.createSpy('handleClick')
-        result = renderComponent({onClick: handleClickSpy})
+        handleClickSpy = jasmine.createSpy('handleClick');
+        result = renderComponent({onClick: handleClickSpy});
 
-        clickOn(findByTag(result, 'li'))
-        expect(handleClickSpy).toHaveBeenCalled()
-      })
-    })
+        clickOn(findByTag(result, 'li'));
+        expect(handleClickSpy).toHaveBeenCalled();
+      });
+    });
 
     describe('with disabled prop', () => {
       it('does not call onClick handler', () => {
-        handleClickSpy = jasmine.createSpy('handleClick')
-        result = renderComponent({href: 'test', onClick: handleClickSpy, disabled: true})
+        handleClickSpy = jasmine.createSpy('handleClick');
+        result = renderComponent({href: 'test', onClick: handleClickSpy, disabled: true});
 
-        expect(findByTag(result, 'li')).toHaveClass('disabled')
-        expect(findByTag(result, 'a')).toHaveAttr('disabled')
+        expect(findByTag(result, 'li')).toHaveClass('disabled');
+        expect(findByTag(result, 'a')).toHaveAttr('disabled');
 
-        clickOn(findByTag(result, 'a'))
+        clickOn(findByTag(result, 'a'));
 
-        expect(handleClickSpy).not.toHaveBeenCalled()
-      })
-    })
-  })
+        expect(handleClickSpy).not.toHaveBeenCalled();
+      });
+    });
+  });
 
 
   describe('when an a tag is passed in as a child', () => {

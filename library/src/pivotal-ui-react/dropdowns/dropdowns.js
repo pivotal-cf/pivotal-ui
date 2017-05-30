@@ -142,8 +142,8 @@ export class DropdownItem extends React.Component {
   }
 
   handleClick = event => {
-    const {href, disabled, onClick, onSelect, eventKey} = this.props
-    if (disabled) return
+    const {href, disabled, onClick, onSelect, eventKey} = this.props;
+    if (disabled) return;
 
 
     if (!href) {
@@ -155,12 +155,12 @@ export class DropdownItem extends React.Component {
     }
 
     if (onClick) {
-      onClick(event)
+      onClick(event);
     }
   }
 
   render() {
-    const {children, className, eventKey, style, href, header, divider, disabled, onClick, onSelect, ...anchorProps} = this.props
+    const {children, className, eventKey, style, href, header, divider, disabled, onClick, onSelect, ...anchorProps} = this.props;
 
 
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
