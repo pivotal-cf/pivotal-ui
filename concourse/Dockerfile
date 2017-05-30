@@ -84,4 +84,4 @@ RUN ln -s /bin/dbus-daemon /usr/bin/dbus-daemon     # /etc/init.d/dbus has the w
 RUN ln -s /bin/dbus-uuidgen /usr/bin/dbus-uuidgen   # /etc/init.d/dbus has the wrong location
 
 # cache npm packages
-RUN npm i phantomjs-prebuilt --global
+RUN npm i phantomjs-prebuilt@2.1.14 --global
