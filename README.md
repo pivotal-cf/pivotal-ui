@@ -1,6 +1,6 @@
 # Welcome to Pivotal UI
 
-[Build pipeline](https://p-concourse.wings.cf-app.com/teams/system-team-pivotalui-pivui-d6f4/pipelines/pivotal-ui)
+[Build pipeline](https://wings.concourse.ci/teams/pivotalui/pipelines/pivotal-ui)
 
 Pivotal UI is a collection of React components that are styled for the Pivotal brand. [Visit the live styleguide here.](http://styleguide.pivotal.io)
 
