@@ -42,6 +42,20 @@ title            | no       | Node                                |             
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
+### DropdownItems Props
+
+
+Property         | Required | Type                                | Default        | Description
+-----------------|----------|-------------------------------------|----------------|------------
+className        | no       | String                              |                | Classes to apply
+style            | no       | Object                              |                | Inline style to apply
+href             | no       | String                              |                | Link for the DropdownItem option
+header           | no       | Boolean                             |                | Makes the DropdownItem of type header
+divider          | no       | Boolean                             |                | Makes the DropdownItem of type Divider
+disabled         | no       | Boolean                             |                | Disables the DropdownItem
+eventKey         | no       | String                              |                | DropdownItem identifier
+onSelect         | no       | Function                            |                | Callback that fires after clicking the DropdownItem
+
 Import the subcomponents:
 
 ```
