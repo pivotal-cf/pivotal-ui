@@ -92,7 +92,6 @@ describe('DropdownItem', () => {
     let handleClickSpy;
     describe('with href', () => {
       it('passes through onClick on anchor click', () => {
-        console.log('handle the click');
         handleClickSpy = jasmine.createSpy('handleClick');
         result = renderComponent({href: 'test', onClick: handleClickSpy});
 
