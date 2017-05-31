@@ -1,5 +1,5 @@
 import '../spec_helper';
-const ScrollTop = require('../../../src/pivotal-ui-react/back-to-top/scroll-top');
+let ScrollTop = require('../../../src/pivotal-ui-react/back-to-top/scroll-top');
 
 describe('BackToTop', function() {
   let BackToTop;
