@@ -75,11 +75,11 @@ describe('Collapse', function() {
     expect('.panel').toHaveAttr('style', /opacity: 0\.5/);
   });
 
-  xit('contains a right-caret as its collapsed icon when closed', function() {
+  it('contains a right-caret as its collapsed icon when closed', function() {
     expect('svg').toHaveClass('icon-arrow_drop_right');
   });
 
-  xit('contains a down-caret as its collapsed icon when open', function() {
+  it('contains a down-caret as its collapsed icon when open', function() {
     $('.panel-title svg').simulate('click');
     expect('svg').toHaveClass('icon-arrow_drop_down');
   });
@@ -94,11 +94,11 @@ describe('AltCollapse', function() {
       , root);
   });
 
-  xit('contains a right-caret as its collapsed icon when closed', function() {
+  it('contains a right-caret as its collapsed icon when closed', function() {
     expect('svg').toHaveClass('icon-add_circle');
   });
 
-  xit('contains a down-caret as its collapsed icon when open', function() {
+  it('contains a down-caret as its collapsed icon when open', function() {
     $('.panel-title svg').simulate('click');
     expect('svg').toHaveClass('icon-remove_circle');
   });

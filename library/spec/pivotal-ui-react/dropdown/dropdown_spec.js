@@ -1,8 +1,6 @@
 import '../spec_helper';
 import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
 
-import {findByClass, findAllByClass, clickOn} from '../spec_helper';
-
 describe('Dropdown', () => {
   let subject;
 
