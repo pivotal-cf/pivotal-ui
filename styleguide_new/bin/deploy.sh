@@ -23,6 +23,7 @@ sed 's/\"file:.*/"> 0.0.1",/g' package.json > package.json2
 mv package.json package.json.bak
 mv package.json2 package.json
 
+yarn cache clean
 yarn install --no-progress
 npm prune
 ./node_modules/.bin/webpack --config ./backend-webpack.config.babel.js --progress -p
