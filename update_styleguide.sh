@@ -9,6 +9,6 @@ popd
 pushd styleguide
   bundle
   yarn cache clean
-  yarn --force
+  yarn --force --no-progress
 popd
 

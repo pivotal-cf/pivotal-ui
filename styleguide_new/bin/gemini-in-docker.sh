@@ -14,12 +14,12 @@ xvfb-run chromedriver --port=4444 --url-base=wd/hub &
 cd $PIVOTAL_UI_LOCATION
 
 pushd library
-    yarn install
+    yarn install --no-progress
     gulp build
 popd
 
 pushd styleguide_new
-    yarn install
+    yarn install --no-progress
     ./node_modules/.bin/webpack --config backend-webpack.config.babel.js
     ./node_modules/.bin/webpack --config frontend-webpack.config.babel.js
     npm run watch &
