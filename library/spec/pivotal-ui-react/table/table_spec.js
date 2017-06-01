@@ -293,7 +293,7 @@ describe('Table', () => {
 
   describe('with custom column cells', () => {
     beforeEach(() => {
-      const CustomCell = ({value, index, rowDatum, colIndex}) => <td
+      const CustomCell = ({value, index, rowDatum}) => <td
         className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
       CustomCell.propTypes = {value: PropTypes.any, index: PropTypes.number, rowDatum: PropTypes.object};
       const columns = [
