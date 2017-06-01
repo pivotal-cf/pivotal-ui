@@ -12,9 +12,9 @@ export class FlexTableCell extends React.Component {
   };
 
   render() {
-    let {cellClass, children, className, ...others} = this.props;
+    const {cellClass, children, className, ...others} = this.props;
 
-    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
+    ['attribute', 'colIndex', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
       .forEach(prop => delete others[prop]);
 
     const classes = classnames(className, 'td', 'col', cellClass);

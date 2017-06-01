@@ -98,6 +98,7 @@ export class Table extends React.Component {
         const cellProps = {
           key,
           index: rowKey,
+          colIndex: key,
           value: rowDatum[attribute],
           rowDatum,
           style,
