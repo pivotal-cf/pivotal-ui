@@ -19,10 +19,6 @@ cf api api.run.pivotal.io
 cf auth pivotal-ui@pivotal.io $1
 cf target -o pivotal -s pivotal-ui-staging
 
-sed 's/\"file:.*/"> 0.0.1",/g' package.json > package.json2
-mv package.json package.json.bak
-mv package.json2 package.json
-
 yarn cache clean
 yarn install --no-progress
 npm prune
