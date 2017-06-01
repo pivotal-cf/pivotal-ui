@@ -1,6 +1,4 @@
-
 import {PropTypes} from 'prop-types';
-
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy;
