@@ -23,6 +23,10 @@ export default class JsCodeArea extends React.PureComponent {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.code !== this.props.code) this.setState({code: nextProps.code});
+  }
+
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.code != nextState.code ||
       this.state.showReact != nextState.showReact ||

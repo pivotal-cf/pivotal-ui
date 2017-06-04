@@ -1,46 +1,34 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import JsCodeArea from './JsCodeArea'
-import HtmlCodeArea from './HtmlCodeArea'
-import {AllHtmlEntities} from 'html-entities'
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import unified from 'unified';
+import reactRenderer from 'remark-react';
 
-const codeLang = element => Array.prototype.slice.call(element.classList)
-  .find(e => e.includes('lang'))
-  .replace('lang-', '')
+import HeadingRenderer from './HeadingRenderer';
+import PreRenderer from './PreRenderer';
 
-export default class MarkdownViewer extends React.PureComponent {
-  renderEditableAreas(element) {
-    if(!element) {
-      return // component was unmounted
-    }
-
-    const {file, name} = this.props
-    const codeAreas = element.getElementsByClassName('code-area')
-
-    for(const codeArea of codeAreas) {
-      const title = codeArea.getElementsByClassName('code-area--title')[0].textContent
-      const codeBlock = codeArea.getElementsByTagName('pre')[0]
-      const code = AllHtmlEntities.decode(codeBlock.innerHTML)
-      const lang = codeLang(codeArea)
-
-      switch(lang) {
-        case 'js':
-        case 'jsx':
-          ReactDOM.render(<JsCodeArea title={title} code={code} file={file} name={name}/>, codeArea)
-          break;
-        case 'html':
-          ReactDOM.render(<HtmlCodeArea title={title} code={code} file={file} name={name}/>, codeArea)
-          break;
-        default:
-          throw `I dont know how to deal with lang=${lang}`
-          break;
-      }
-    }
-  }
+export default class MarkdownViewer extends Component {
+  static propTypes = {
+    html: PropTypes.object.isRequired,
+    file: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  };
 
   render() {
-    return <div className="markdown-viewer"
-                ref={this.renderEditableAreas.bind(this)}
-                dangerouslySetInnerHTML={{__html: this.props.html}}></div>
+    const {html, file, name} = this.props;
+    const processor = unified().use(reactRenderer, {
+      sanitize: false,
+      remarkReactComponents: {
+        pre: PreRenderer(file, name),
+        h1: HeadingRenderer(1),
+        h2: HeadingRenderer(2),
+        h3: HeadingRenderer(3),
+        h4: HeadingRenderer(4),
+        h5: HeadingRenderer(5),
+        h6: HeadingRenderer(6)
+      }
+    });
+
+    const transformed = processor.runSync(html);
+    return processor.stringify(transformed);
   }
 }
