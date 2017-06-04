@@ -52,24 +52,6 @@
 </div>
 ```
 
-### Group
-```jsx
-::title=Group List
-<div>
-    <GroupList>
-      <ListItem>Item 1</ListItem>
-      <ListItem>Item 2</ListItem>
-      <ListItem>Item 3</ListItem>
-    </GroupList>
-    <br/>
-    <GroupListInverse>
-      <ListItem>Item 1</ListItem>
-      <ListItem>Item 2</ListItem>
-      <ListItem>Item 3</ListItem>
-    </GroupListInverse>
-</div>
-```
-
 ### Inline
 
 ```jsx
@@ -93,19 +75,6 @@
      <ListItem>Item 2</ListItem>
      <ListItem>Item 3</ListItem>
     </OrderedList>
-</div>
-```
-
-### Steps
-
-```jsx
-::title=Step List
-<div>
-    <StepList>
-      <ListItem>Item 1</ListItem>
-      <ListItem>Item 2</ListItem>
-      <ListItem className="current">Item 3</ListItem>
-    </StepList>
 </div>
 ```
 
