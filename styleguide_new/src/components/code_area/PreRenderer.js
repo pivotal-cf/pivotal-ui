@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import HtmlCodeArea from './HtmlCodeArea';
 import JsCodeArea from './JsCodeArea';
 
-const customRenderLanguages = ['language-js', 'language-jsx', 'language-html']
+const customRenderLanguages = ['language-js', 'language-jsx', 'language-html'];
 
 export default (file, name) => class extends Component {
   render() {
