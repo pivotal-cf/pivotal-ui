@@ -14,10 +14,29 @@ body {
   height: 100%;
 
   .toc-sidebar {
+    border-left: 1px solid #ccc;
     width: 200px;
+    font-weight: 600;
 
-    .heading-3 {
-      padding-left: 16px;
+    .toc {
+      background: #f5f5f5;
+      border-bottom: 1px solid #ccc;
+      line-height: 24px;
+
+      a {
+        color: $dark-6;
+        display: block;
+        padding: 8px 0 8px 16px;
+
+        &:hover {
+          background: $dark-9;
+          color: $dark-3;
+        }
+      }
+
+      .heading-3 {
+        padding-left: 32px;
+      }
     }
   }
 }

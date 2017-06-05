@@ -1,4 +1,4 @@
-import jquery from 'jquery';
+import jQuery from 'jquery';
 import ReactDOM from 'react-dom';
 import React from 'react';
 
@@ -6,7 +6,8 @@ require('babel-polyfill');
 require('pivotal-js-jasmine-matchers');
 
 const globals = {
-  $: jquery,
+  $: jQuery,
+  jQuery,
   ReactDOM,
   React,
   ...require('pivotal-js-react-test-helpers')
