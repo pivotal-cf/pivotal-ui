@@ -15,7 +15,7 @@ export default {
       },
       {
         test: /\.md$/,
-        loader: 'json-loader!./src/helpers/markdown-loader.js',
+        loader: 'json-loader!./src/helpers/markdown_loader.js',
       },
       {
         test: /\.s?css$/,

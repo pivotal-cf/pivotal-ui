@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import HtmlCodeArea from './HtmlCodeArea';
-import JsCodeArea from './JsCodeArea';
+import HtmlCodeArea from '../code_area/html_code_area';
+import JsCodeArea from '../code_area/js_code_area';
 
 const customRenderLanguages = ['language-js', 'language-jsx', 'language-html'];
 

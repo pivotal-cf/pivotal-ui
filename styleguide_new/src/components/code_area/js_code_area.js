@@ -5,9 +5,9 @@ import {AllHtmlEntities} from 'html-entities'
 import pretty from 'pretty'
 import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
 
-import ReactEditor from './ReactEditor'
-import HtmlEditor from './HtmlEditor'
-import Toolbar from './Toolbar'
+import ReactEditor from './react_editor'
+import HtmlEditor from './html_editor'
+import Toolbar from './toolbar'
 
 import 'brace/mode/jsx'
 import 'brace/mode/html'

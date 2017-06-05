@@ -3,7 +3,7 @@ import '../../spec_helper';
 describe('ReactEditor', () => {
   let subject, code;
   beforeEach(() => {
-    const ReactEditor = require('../../../src/components/code_area/ReactEditor');
+    const ReactEditor = require('../../../src/components/code_area/react_editor');
     code = "i++";
     subject = ReactDOM.render(<ReactEditor code={code} changeHandler={() => {}}/>, root);
   });

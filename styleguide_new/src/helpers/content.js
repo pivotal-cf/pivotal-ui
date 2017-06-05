@@ -48,83 +48,83 @@ import Homepage from '../../docs/Homepage.md'
 import UpgradeGuide from '../../docs/UpgradeGuide.md'
 import NotFound from '../../docs/404.md'
 
-import ColorsStuff from '../../docs/styles/Colors.md'
-import GridcssStuff from '../../docs/styles/Grid.md'
-import IconsStuff from '../../docs/styles/Icons.md'
+import ColorsJson from '../../docs/styles/Colors.md'
+import GridcssJson from '../../docs/styles/Grid.md'
+import IconsJson from '../../docs/styles/Icons.md'
 
-import AlertsStuff from '../../docs/components/Alerts.md'
-import AlignmentStuff from '../../docs/components/Alignment.md'
-import AutocompleteStuff from '../../docs/components/Autocomplete.md'
-import BackToTopStuff from '../../docs/components/BackToTop.md'
-import ButtonsStuff from '../../docs/components/Buttons.md'
-import CollapseStuff from '../../docs/components/Collapse.md'
-import CopyToClipboardStuff from '../../docs/components/CopyToClipboard.md'
-import DividersStuff from '../../docs/components/Dividers.md'
-import DropdownsStuff from '../../docs/components/Dropdowns.md'
-import EllipsisStuff from '../../docs/components/Ellipsis.md'
-import ExpanderStuff from '../../docs/components/Expander.md'
-import FormsStuff from '../../docs/components/Forms.md'
-import GridsStuff from '../../docs/components/Grids.md'
-import HoverableStuff from '../../docs/components/Hoverable.md'
-import ImagesStuff from '../../docs/components/Images.md'
-import LabelsStuff from '../../docs/components/Labels.md'
-import LayoutStuff from '../../docs/components/Layout.md'
-import ListsStuff from '../../docs/components/Lists.md'
-import MediaStuff from '../../docs/components/Media.md'
-import ModalsStuff from '../../docs/components/Modals.md'
-import NotificationsStuff from '../../docs/components/Notifications.md'
-import PaginationStuff from '../../docs/components/Pagination.md'
-import PanesStuff from '../../docs/components/Panes.md'
-import PanelsStuff from '../../docs/components/Panels.md'
-import PortalsStuff from '../../docs/components/Portals.md'
-import SelectStuff from '../../docs/components/Select.md'
-import SvgStuff from '../../docs/components/Svg.md'
-import TablesStuff from '../../docs/components/Tables.md'
-import TabsStuff from '../../docs/components/Tabs.md'
-import TooltipsStuff from '../../docs/components/Tooltips.md'
+import AlertsJson from '../../docs/components/Alerts.md'
+import AlignmentJson from '../../docs/components/Alignment.md'
+import AutocompleteJson from '../../docs/components/Autocomplete.md'
+import BackToTopJson from '../../docs/components/BackToTop.md'
+import ButtonsJson from '../../docs/components/Buttons.md'
+import CollapseJson from '../../docs/components/Collapse.md'
+import CopyToClipboardJson from '../../docs/components/CopyToClipboard.md'
+import DividersJson from '../../docs/components/Dividers.md'
+import DropdownsJson from '../../docs/components/Dropdowns.md'
+import EllipsisJson from '../../docs/components/Ellipsis.md'
+import ExpanderJson from '../../docs/components/Expander.md'
+import FormsJson from '../../docs/components/Forms.md'
+import GridsJson from '../../docs/components/Grids.md'
+import HoverableJson from '../../docs/components/Hoverable.md'
+import ImagesJson from '../../docs/components/Images.md'
+import LabelsJson from '../../docs/components/Labels.md'
+import LayoutJson from '../../docs/components/Layout.md'
+import ListsJson from '../../docs/components/Lists.md'
+import MediaJson from '../../docs/components/Media.md'
+import ModalsJson from '../../docs/components/Modals.md'
+import NotificationsJson from '../../docs/components/Notifications.md'
+import PaginationJson from '../../docs/components/Pagination.md'
+import PanesJson from '../../docs/components/Panes.md'
+import PanelsJson from '../../docs/components/Panels.md'
+import PortalsJson from '../../docs/components/Portals.md'
+import SelectJson from '../../docs/components/Select.md'
+import SvgJson from '../../docs/components/Svg.md'
+import TablesJson from '../../docs/components/Tables.md'
+import TabsJson from '../../docs/components/Tabs.md'
+import TooltipsJson from '../../docs/components/Tooltips.md'
 
 const routes = {
-  '/': {html: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
-  '/getstarted': {html: GetStarted, file: 'GetStarted.md', name: 'Get Started', category: 'Base', packages: []},
-  '/upgradeguide': {html: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide', category: 'Base', packages: []},
-  '/contribute': {html: Contribute, file: 'Contribute.md', name: 'Contribute', category: 'Base', packages: []},
-  '/downloads': {html: Downloads, file: 'Downloads.md', name: 'Downloads', category: 'Base', packages: []},
-  '/404': {html: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
+  '/': {json: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
+  '/getstarted': {json: GetStarted, file: 'GetStarted.md', name: 'Get Started', category: 'Base', packages: []},
+  '/upgradeguide': {json: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide', category: 'Base', packages: []},
+  '/contribute': {json: Contribute, file: 'Contribute.md', name: 'Contribute', category: 'Base', packages: []},
+  '/downloads': {json: Downloads, file: 'Downloads.md', name: 'Downloads', category: 'Base', packages: []},
+  '/404': {json: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
 
-  '/colors': {html: ColorsStuff, file: 'styles/Colors.md', name: 'Colors', category: 'Styles', packages: [Bootstrap]},
-  '/gridcss': {html: GridcssStuff, file: 'styles/Grid.md', name: 'Grids', category: 'Styles', packages: []},
-  '/icons': {html: IconsStuff, file: 'styles/Icons.md', name: 'Icons', category: 'Styles', packages: [Iconography]},
+  '/colors': {json: ColorsJson, file: 'styles/Colors.md', name: 'Colors', category: 'Styles', packages: [Bootstrap]},
+  '/gridcss': {json: GridcssJson, file: 'styles/Grid.md', name: 'Grids', category: 'Styles', packages: []},
+  '/icons': {json: IconsJson, file: 'styles/Icons.md', name: 'Icons', category: 'Styles', packages: [Iconography]},
 
-  '/alerts': {html: AlertsStuff, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},
-  '/alignment': {html: AlignmentStuff, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: [Alignment]},
-  '/autocomplete': {html: AutocompleteStuff, file: 'components/Autocomplete.md', name: 'Autocomplete', category: 'Components', packages: [Autocomplete]},
-  '/backtotop': {html: BackToTopStuff, file: 'components/Backtotop.md', name: 'Back To Top', category: 'Components', packages: [Top]},
-  '/buttons': {html: ButtonsStuff, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
-  '/collapse': {html: CollapseStuff, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
-  '/copy_to_clipboard': {html: CopyToClipboardStuff, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
-  '/dividers': {html: DividersStuff, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},
-  '/dropdowns': {html: DropdownsStuff, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
-  '/ellipsis': {html: EllipsisStuff, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: [Ellipsis]},
-  '/expander': {html: ExpanderStuff, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
-  '/forms': {html: FormsStuff, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
-  '/grids': {html: GridsStuff, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
-  '/hoverable': {html: HoverableStuff, file: 'components/Hoverable.md', name: 'Hoverable', category: 'Components', packages: [Hoverable]},
-  '/images': {html: ImagesStuff, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
-  '/labels': {html: LabelsStuff, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
-  '/layout': {html: LayoutStuff, file: 'components/Layout.md', name: 'Layout', category: 'Components', packages: [Layout, Trigger]},
-  '/lists': {html: ListsStuff, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
-  '/media': {html: MediaStuff, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
-  '/modals': {html: ModalsStuff, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
-  '/notifications': {html: NotificationsStuff, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
-  '/pagination': {html: PaginationStuff, file: 'components/Pagination.md', name: 'Pagination', category: 'Components', packages: [Pagination]},
-  '/panes': {html: PanesStuff, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
-  '/panels': {html: PanelsStuff, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
-  '/portals': {html: PortalsStuff, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
-  '/select': {html: SelectStuff, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
-  '/svg': {html: SvgStuff, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
-  '/tables': {html: TablesStuff, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
-  '/tabs': {html: TabsStuff, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
-  '/tooltips': {html: TooltipsStuff, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
+  '/alerts': {json: AlertsJson, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},
+  '/alignment': {json: AlignmentJson, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: [Alignment]},
+  '/autocomplete': {json: AutocompleteJson, file: 'components/Autocomplete.md', name: 'Autocomplete', category: 'Components', packages: [Autocomplete]},
+  '/backtotop': {json: BackToTopJson, file: 'components/Backtotop.md', name: 'Back To Top', category: 'Components', packages: [Top]},
+  '/buttons': {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
+  '/collapse': {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
+  '/copy_to_clipboard': {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
+  '/dividers': {json: DividersJson, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},
+  '/dropdowns': {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
+  '/ellipsis': {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: [Ellipsis]},
+  '/expander': {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
+  '/forms': {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
+  '/grids': {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
+  '/hoverable': {json: HoverableJson, file: 'components/Hoverable.md', name: 'Hoverable', category: 'Components', packages: [Hoverable]},
+  '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
+  '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
+  '/layout': {json: LayoutJson, file: 'components/Layout.md', name: 'Layout', category: 'Components', packages: [Layout, Trigger]},
+  '/lists': {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
+  '/media': {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
+  '/modals': {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
+  '/notifications': {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
+  '/pagination': {json: PaginationJson, file: 'components/Pagination.md', name: 'Pagination', category: 'Components', packages: [Pagination]},
+  '/panes': {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
+  '/panels': {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
+  '/portals': {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
+  '/select': {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
+  '/svg': {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
+  '/tables': {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
+  '/tabs': {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
+  '/tooltips': {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
 }
 
 const attachToWindow = pakage => { // package is a reserved word

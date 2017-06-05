@@ -114,6 +114,7 @@
     "pui-react-tabs": "file:../library/dist/react/tabs",
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",
     "pui-react-toggle": "file:../library/dist/react/toggle",
+    "pui-react-tools": "^2.0.5",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "react": "^15.4.2",
     "react-ace": "^4.1.1",
@@ -133,7 +134,7 @@
     "npm": "3.10.x"
   },
   "scripts": {
-    "watch": "concurrently --kill-others \"webpack --config ./frontend-webpack.config.babel.js --watch\" \"webpack --config ./backend-webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
+    "watch": "concurrently --kill-others \"webpack --config ./frontend_webpack.config.babel.js --watch\" \"webpack --config ./backend_webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",

@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 import unified from 'unified';
 import reactRenderer from 'remark-react';
 
-import HeadingRenderer from './HeadingRenderer';
-import PreRenderer from './PreRenderer';
-import TableRenderer from './TableRenderer';
+import HeadingRenderer from './renderers/heading_renderer';
+import PreRenderer from './renderers/pre_renderer';
+import TableRenderer from './renderers/table_renderer';
 
 export default class MarkdownViewer extends Component {
   static propTypes = {
-    html: PropTypes.object.isRequired,
+    json: PropTypes.object.isRequired,
     file: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   };
 
   render() {
-    const {html, file, name} = this.props;
+    const {json, file, name} = this.props;
     const processor = unified().use(reactRenderer, {
       sanitize: false,
       remarkReactComponents: {
@@ -30,7 +30,7 @@ export default class MarkdownViewer extends Component {
       }
     });
 
-    const transformed = processor.runSync(html);
+    const transformed = processor.runSync(json);
     return processor.stringify(transformed);
   }
 }

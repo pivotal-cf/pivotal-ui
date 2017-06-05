@@ -1,9 +1,9 @@
-import React from 'react'
-import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete'
-import {Collapse} from 'pui-react-collapse'
-import {Iconography, Icon} from 'pui-react-iconography'
-import {Input} from 'pui-react-inputs'
-import {styleItems, componentItems} from '../helpers/content'
+import React from 'react';
+import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete';
+import {Collapse} from 'pui-react-collapse';
+import {Iconography, Icon} from 'pui-react-iconography';
+import {Input} from 'pui-react-inputs';
+import {styleItems, componentItems} from '../helpers/content';
 
 const searchItems = componentItems.concat(styleItems);
 

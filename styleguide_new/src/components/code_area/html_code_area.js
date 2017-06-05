@@ -1,13 +1,13 @@
 import React from 'react'
 import {AllHtmlEntities} from 'html-entities'
 
-import Toolbar from './Toolbar'
-import HtmlEditor from './HtmlEditor'
+import Toolbar from './toolbar'
+import HtmlEditor from './html_editor'
 import 'brace/mode/html'
 
 export default class HtmlCodeArea extends React.PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       code: props.code,
       showEditor: false
@@ -23,10 +23,10 @@ export default class HtmlCodeArea extends React.PureComponent {
   }
 
   render() {
-    const {code} = this.state
-    const {title, file, name} = this.props
+    const {code} = this.state;
+    const {title, file, name} = this.props;
 
-    let editorClasses = "code-editor--toolbar--icon "
+    let editorClasses = "code-editor--toolbar--icon ";
     editorClasses = editorClasses + (this.state.showEditor ? "code-editor--toolbar--open" : "code-editor--toolbar--close")
 
     return <div className="code-editor">

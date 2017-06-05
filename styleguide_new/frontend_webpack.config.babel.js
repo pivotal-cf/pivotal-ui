@@ -1,10 +1,10 @@
 import path from 'path'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-const prod = process.argv.indexOf('-p') !== -1
+const prod = process.argv.indexOf('-p') !== -1;
 
 export default {
-  entry: './src/App.jsx',
+  entry: './src/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -26,7 +26,7 @@ export default {
       },
       {
         test: /\.md$/,
-        loader: 'json-loader!./src/helpers/markdown-loader.js',
+        loader: 'json-loader!./src/helpers/markdown_loader.js',
       },
       {
         test: /\.s?css$/,

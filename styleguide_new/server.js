@@ -2,34 +2,34 @@ import Express from 'express'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 
-import SideBar from './src/components/Sidebar'
+import SideBar from './src/components/sidebar'
 
-const app = Express()
+const app = Express();
 
 app.get('/dist/:file', function(req, res) {
-  const file = req.params['file']
-  const filepath = `${process.cwd()}/dist/${file}`
+  const file = req.params['file'];
+  const filepath = `${process.cwd()}/dist/${file}`;
 
-  console.log(`Routing request ${file} to ${filepath}`)
+  console.log(`Routing request ${file} to ${filepath}`);
 
-  res.sendFile(filepath)
-})
+  res.sendFile(filepath);
+});
 
 app.get('/', function(req, res) {
-  res.send(renderPage())
-})
+  res.send(renderPage());
+});
 
 app.get('/:whatever', function(req, res) {
-  res.send(renderPage())
-})
+  res.send(renderPage());
+});
 
-const port = process.env['PORT'] || '8000'
-console.log(`listening on port ${port}`)
-app.listen(port)
+const port = process.env['PORT'] || '8000';
+console.log(`listening on port ${port}`);
+app.listen(port);
 
 function renderPage() {
-  const SideBarFactory = React.createFactory(SideBar)
-  const sideBar = ReactDOMServer.renderToString(SideBarFactory())
+  const SideBarFactory = React.createFactory(SideBar);
+  const sideBar = ReactDOMServer.renderToString(SideBarFactory());
 
   return `
     <html>
@@ -43,5 +43,5 @@ function renderPage() {
         <script src="./dist/bundle.js"></script>
       </body>
     </html>
-  `
+  `;
 }
