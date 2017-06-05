@@ -50,6 +50,10 @@ $active-item-border-size: $base-unit / 2;
       left: 16px;
       width: 88%;
       top: 37px;
+
+      .autocomplete-item {
+        font-size: 14px;
+      }
     }
   }
 }
