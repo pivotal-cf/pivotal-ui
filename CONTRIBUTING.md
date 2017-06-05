@@ -9,22 +9,23 @@ components, or create new ones. Feel free to [email us](mailto:pivotal-ui@pivota
 
 1. Fork the project
 1. Install tools
-    1. ruby 2.1.2 (e.g. `rbenv install 2.1.2`)
+    1. latest ruby (e.g. `rbenv install <VERSION>`)
     1. bundler (`gem install bundler`)
-    1. node 4+ ([install instructions](https://nodejs.org/en/))
+    1. node `v7.10.0` or higher ([install instructions](https://nodejs.org/en/))
 
 ## Build the projects
 
 Pivotal UI is split into two projects:
 
-- Library: components that are published to `npm`
+- Library: components that are published to [npm](https://www.npmjs.com).
 
     ```
     cd library
-    npm install
+    yarn
     ```
-- Styleguide: documentation and tools for building [styleguide.cfapps.io](http://styleguide.cfapps.io/). Styleguide
-depends on library
+
+- Styleguide: documentation and tools for building [styleguide.cfapps.io](http://styleguide.cfapps.io/). The styleguide
+depends on library.
 
     ```
     ./update_styleguide.sh
@@ -66,7 +67,7 @@ making any changes. See the section on **Testing** for more details.
 1. Navigate to [http://localhost:8000](http://localhost:8000)
 
 **Note**: If you update components, you must rebuild them in the library (`update_styleguide.sh`)
-and then reinstall the node_modules in the styleguide. A simple `npm install` probably will not
+and then reinstall the node_modules in the styleguide. A simple `yarn` probably will not
 be good enough to get the new changes.
 
 **Note**: If you add any new image or font assets to any CSS packages, you will need to rerun `./node_modules/.bin/gulp dev` to see those
