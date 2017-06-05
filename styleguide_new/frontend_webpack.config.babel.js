@@ -1,5 +1,5 @@
-import path from 'path'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
+import path from 'path';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
@@ -48,4 +48,4 @@ export default {
     fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
   },
   devtool: prod ? false : 'inline-source-map'
-}
+};

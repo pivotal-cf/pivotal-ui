@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 
 export default {
   entry: './server.js',
@@ -32,4 +32,4 @@ export default {
     ],
   },
   target: 'node'
-}
+};

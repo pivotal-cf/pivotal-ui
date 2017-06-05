@@ -1,26 +1,25 @@
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
-import * as Babel from 'babel-standalone'
-import {AllHtmlEntities} from 'html-entities'
-import pretty from 'pretty'
-import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard'
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import * as Babel from 'babel-standalone';
+import {AllHtmlEntities} from 'html-entities';
+import pretty from 'pretty';
 
-import ReactEditor from './react_editor'
-import HtmlEditor from './html_editor'
-import Toolbar from './toolbar'
+import ReactEditor from './react_editor';
+import HtmlEditor from './html_editor';
+import Toolbar from './toolbar';
 
-import 'brace/mode/jsx'
-import 'brace/mode/html'
-import 'brace/theme/crimson_editor'
+import 'brace/mode/jsx';
+import 'brace/mode/html';
+import 'brace/theme/crimson_editor';
 
 export default class JsCodeArea extends React.PureComponent {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       code: props.code,
       showReact: false,
       showHtmlPreview: false,
-    }
+    };
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,19 +29,19 @@ export default class JsCodeArea extends React.PureComponent {
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.code != nextState.code ||
       this.state.showReact != nextState.showReact ||
-      this.state.showHtmlPreview != nextState.showHtmlPreview
+      this.state.showHtmlPreview != nextState.showHtmlPreview;
   }
 
   changeHandler(value) {
-    this.setState({code: AllHtmlEntities.decode(value)})
+    this.setState({code: AllHtmlEntities.decode(value)});
   }
 
   toggleEditor() {
-    this.setState({showReact: !this.state.showReact})
+    this.setState({showReact: !this.state.showReact});
   }
 
   toggleHtmlPreview() {
-    this.setState({showHtmlPreview: !this.state.showHtmlPreview})
+    this.setState({showHtmlPreview: !this.state.showHtmlPreview});
   }
 
   static getRenderedReact(code) {
@@ -50,7 +49,7 @@ export default class JsCodeArea extends React.PureComponent {
     const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem);
     const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '');
 
-    return pretty(strippedCode)
+    return pretty(strippedCode);
   }
 
   render() {
@@ -60,27 +59,27 @@ export default class JsCodeArea extends React.PureComponent {
     let transpiledCode;
 
     try {
-      transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code
-    } catch(error) {
-      // TODO: display on page or something?
+      transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
+    } catch (error) {
+      console.log(error);
     }
 
-    return <div className="code-editor">
-      <Toolbar showReact={this.state.showReact}
-                       showHtml={this.state.showHtmlPreview}
-                       title={title}
-                       file={file}
-                       name={name}
-                       toggleEditor={this.toggleEditor.bind(this)}
-                       toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
-                       isReact={true}/>
-
-      {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
-      {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
-
-      <div className="code-editor--live-preview">
-        {eval(transpiledCode)}
+    return (
+      <div className="code-editor">
+        <Toolbar showReact={this.state.showReact}
+                 showHtml={this.state.showHtmlPreview}
+                 title={title}
+                 file={file}
+                 name={name}
+                 toggleEditor={this.toggleEditor.bind(this)}
+                 toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
+                 isReact={true}/>
+        {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
+        {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
+        <div className="code-editor--live-preview">
+          {eval(transpiledCode)}
+        </div>
       </div>
-    </div>
+    );
   }
 }

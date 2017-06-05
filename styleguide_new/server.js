@@ -1,8 +1,8 @@
-import Express from 'express'
-import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import Express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
 
-import SideBar from './src/components/sidebar'
+import SideBar from './src/components/sidebar';
 
 const app = Express();
 
@@ -29,19 +29,19 @@ app.listen(port);
 
 function renderPage() {
   const SideBarFactory = React.createFactory(SideBar);
-  const sideBar = ReactDOMServer.renderToString(SideBarFactory());
+  // const sideBar = SideBarFactory());
 
-  return `
+  return ReactDOMServer.renderToString(
     <html>
       <head>
           <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
       </head>
       <body>
         <div id="root">
-          <div id="app">${sideBar}</div>
+          <div id="app">${SideBarFactory()}</div>
         </div>
         <script src="./dist/bundle.js"></script>
       </body>
     </html>
-  `;
+  );
 }

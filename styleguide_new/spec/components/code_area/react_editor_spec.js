@@ -5,7 +5,7 @@ describe('ReactEditor', () => {
   beforeEach(() => {
     const ReactEditor = require('../../../src/components/code_area/react_editor');
     code = "i++";
-    subject = ReactDOM.render(<ReactEditor code={code} changeHandler={() => {}}/>, root);
+    subject = ReactDOM.render(<ReactEditor code={code}/>, root);
   });
 
   it('renders an editor', () => {
@@ -13,10 +13,9 @@ describe('ReactEditor', () => {
   });
 
   it('renders the code in the editor', (done) => {
-    jasmine.clock().uninstall();
     setTimeout(() => {
       expect('.ace_text-layer').toContainText(code);
       done();
-    }, 1)
-  })
+    }, 1);
+  });
 });

@@ -6,6 +6,7 @@ export default level => class extends Component {
     const Type = `h${level}`;
     const {children: [text]} = this.props;
     const id = kebabCase(text.toLowerCase());
+
     return <Type {...this.props} {...{id}}/>;
   }
 }

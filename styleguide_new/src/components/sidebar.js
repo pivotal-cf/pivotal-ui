@@ -10,22 +10,24 @@ const searchItems = componentItems.concat(styleItems);
 const ContentLink = ({onClick, link, text, active}) => {
   const className = active ? 'sidebar--item-wrapper sidebar--item-wrapper__active' : 'sidebar--item-wrapper';
 
-  return <div className={className}>
-    <a onClick={onClick}
-       href={link}
-       className="sidebar--item">{text}</a>
-  </div>
+  return (
+    <div className={className}>
+      <a onClick={onClick}
+         href={link}
+         className="sidebar--item">{text}</a>
+    </div>
+  );
 };
 
 export default class Sidebar extends React.PureComponent {
   handleClick(event) {
     event.preventDefault();
-    this.props.updateContent(event.target.href)
+    this.props.updateContent(event.target.href);
   }
 
   handlePick(event) {
     const link = searchItems.find(i => i.name == event.value).href;
-    this.props.updateContent(link)
+    this.props.updateContent(link);
   }
 
   render() {
@@ -54,37 +56,39 @@ export default class Sidebar extends React.PureComponent {
                                           text={component.name}
                                           active={component.href === this.props.activePath}/>);
 
-    return <div className="sidebar">
-      <div className="sidebar--header">
-        <Icon className="sidebar--icon" src="pivotal_ui_white"/>
-        <div className="sidebar--title">Pivotal UI</div>
+    return (
+      <div className="sidebar">
+        <div className="sidebar--header">
+          <Icon className="sidebar--icon" src="pivotal_ui_white"/>
+          <div className="sidebar--title">Pivotal UI</div>
+        </div>
+        <SearchBar/>
+        <div className="sidebar--items">
+          <ContentLink onClick={this.handleClick.bind(this)}
+                       link="getstarted"
+                       text="Get Started"
+                       active={'/getstarted' === this.props.activePath}/>
+          <Collapse className={styleLinks.includes(this.props.activePath) ? 'active' : ''}
+                    defaultExpanded={styleLinks.includes(this.props.activePath)}
+                    header="Styles">{styles}</Collapse>
+          <Collapse className={componentLinks.includes(this.props.activePath) ? 'active' : ''}
+                    defaultExpanded={componentLinks.includes(this.props.activePath)}
+                    header="Components">{components}</Collapse>
+          <ContentLink onClick={this.handleClick.bind(this)}
+                       link="upgradeguide"
+                       text="Upgrade Guide"
+                       active={'/upgradeguide' === this.props.activePath}/>
+          <ContentLink onClick={this.handleClick.bind(this)}
+                       link="contribute"
+                       text="Contribute"
+                       active={'/contribute' === this.props.activePath}/>
+          <ContentLink onClick={this.handleClick.bind(this)}
+                       link="downloads"
+                       text="Downloads"
+                       active={'/downloads' === this.props.activePath}/>
+          <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
+        </div>
       </div>
-      <SearchBar />
-      <div className="sidebar--items">
-        <ContentLink onClick={this.handleClick.bind(this)}
-                     link="getstarted"
-                     text="Get Started"
-                     active={'/getstarted' === this.props.activePath}/>
-        <Collapse className={styleLinks.includes(this.props.activePath) ? 'active' : ''}
-                  defaultExpanded={styleLinks.includes(this.props.activePath)}
-                  header="Styles">{styles}</Collapse>
-        <Collapse className={componentLinks.includes(this.props.activePath) ? 'active' : ''}
-                  defaultExpanded={componentLinks.includes(this.props.activePath)}
-                  header="Components">{components}</Collapse>
-        <ContentLink onClick={this.handleClick.bind(this)}
-                     link="upgradeguide"
-                     text="Upgrade Guide"
-                     active={'/upgradeguide' === this.props.activePath}/>
-        <ContentLink onClick={this.handleClick.bind(this)}
-                     link="contribute"
-                     text="Contribute"
-                     active={'/contribute' === this.props.activePath}/>
-        <ContentLink onClick={this.handleClick.bind(this)}
-                     link="downloads"
-                     text="Downloads"
-                     active={'/downloads' === this.props.activePath}/>
-        <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
-      </div>
-    </div>
+    );
   }
 }
