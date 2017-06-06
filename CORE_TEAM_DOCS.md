@@ -21,8 +21,7 @@ for detailed instructions.
 
 ## CI
 
-We use 
-[![Build Status](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development/build_image)](https://snap-ci.com/pivotal-cf/pivotal-ui/branch/development)
+We use [Concourse](https://wings.concourse.ci/teams/pivotalui/pipelines/pivotal-ui)
 
 
 ## Deploying the styleguide

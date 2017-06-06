@@ -31,8 +31,10 @@
 }
 
 .code-editor--titlebar {
-  margin: 10px 5px;
+  margin: 3px 0;
   color: $gray-4;
+  display: flex;
+  justify-content: space-between;
 
   svg {
     transform: scale(1.5);
@@ -42,12 +44,26 @@
   .clipboard-button {
     background-color: inherit;
     border: 0;
-    display: inline;
-    position: fixed;
-    right: 25px;
 
     svg {
       transform: scale(.75);
     }
   }
+}
+
+.code-editor--label {
+  display: flex;
+  align-items: center;
+}
+
+.code-editor--label-icon {
+  bottom: 0.125em;
+}
+
+.code-editor--actions {
+  display: flex;
+}
+
+.ace_gutter-layer {
+  background-color: $dark-9;
 }

@@ -16,13 +16,17 @@
 }
 
 .toolbar--right {
-  text-align: right;
+  flex: initial;
 }
 
 .toolbar--icon {
   svg {
     fill: $gray-4;
   }
+}
+
+input[type="checkbox"].toolbar--icon {
+  margin-right: 0;
 }
 
 .toolbar--icon__checked {
@@ -44,12 +48,25 @@
 }
 
 .toolbar--item {
-  margin: 0 10px;
+  margin-left: $whitespace-xl;
   cursor: pointer;
   vertical-align: middle;
+  .form-group {
+    margin-bottom: 0;
+    label {
+      line-height: inherit;
+      margin-right: 0;
+    }
+  }
 }
 
 .toolbar--label {
   display: inline;
-  margin-left: 5px;
+  margin-left: $whitespace-l;
+}
+
+.type-underline-hover {
+  &:hover {
+    text-decoration: underline;
+  }
 }

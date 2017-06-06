@@ -4477,7 +4477,7 @@ phantomjs-polyfill@0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/phantomjs-polyfill/-/phantomjs-polyfill-0.0.2.tgz#8c6a7163e9bc8fd9ffdbe7d605cb5352f9fb891e"
 
-phantomjs@^1.9.17:
+phantomjs@^1.9.0:
   version "1.9.20"
   resolved "https://registry.yarnpkg.com/phantomjs/-/phantomjs-1.9.20.tgz#4424aca20e14d255c0b0889af6f6b8973da10e0d"
   dependencies:
@@ -5099,6 +5099,7 @@ pui-css-alignment@=8.1.0:
     pui-css-back-to-top "=8.1.0"
     pui-css-backgrounds "=8.1.0"
     pui-css-bootstrap "=8.1.0"
+    pui-css-border "=8.1.1"
     pui-css-box-shadows "=8.1.0"
     pui-css-buttons "=8.1.0"
     pui-css-code "=8.1.0"
@@ -5181,6 +5182,12 @@ pui-css-bootstrap@=8.1.0:
 "pui-css-bootstrap@file:../library/dist/css/bootstrap":
   version "8.1.0"
 
+pui-css-border@=8.1.1:
+  version "8.1.1"
+
+"pui-css-border@file:../library/dist/css/border":
+  version "8.1.1"
+
 pui-css-box-shadows@=8.1.0:
   version "8.1.0"
 
@@ -5227,6 +5234,7 @@ pui-css-collapse@=8.1.0:
     pui-css-bootstrap "=8.1.0"
     pui-css-dividers "=8.1.0"
     pui-css-iconography "=8.1.0"
+    pui-css-panels "=8.1.0"
 
 "pui-css-collapse@file:../library/dist/css/collapse":
   version "8.1.0"
@@ -5234,6 +5242,7 @@ pui-css-collapse@=8.1.0:
     pui-css-bootstrap "=8.1.0"
     pui-css-dividers "=8.1.0"
     pui-css-iconography "=8.1.0"
+    pui-css-panels "=8.1.0"
 
 pui-css-colors@=8.1.0:
   version "8.1.0"
@@ -5582,6 +5591,26 @@ pui-react-buttons@=8.1.0:
     prop-types ">=15.5.6"
     pui-css-buttons "=8.1.0"
     pui-react-helpers "=8.1.0"
+
+"pui-react-checkbox-dropdown@file:../library/dist/react/checkbox-dropdown":
+  version "8.2.0"
+  dependencies:
+    babel-runtime "^6.1.18"
+    classnames "^2.1.2"
+    prop-types ">=15.5.6"
+    pui-css-dropdowns "=8.1.0"
+    pui-react-checkbox "=8.1.0"
+    pui-react-dropdowns "=8.1.0"
+    pui-react-iconography "=8.1.0"
+    pui-react-mixins "=8.1.0"
+
+pui-react-checkbox@=8.1.0:
+  version "8.1.0"
+  dependencies:
+    babel-runtime "^6.1.18"
+    classnames "^2.2.0"
+    prop-types ">=15.5.6"
+    pui-css-forms "=8.1.0"
 
 "pui-react-checkbox@file:../library/dist/react/checkbox":
   version "8.1.0"

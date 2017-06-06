@@ -48,7 +48,7 @@ gulp.task('jasmine-task-helpers', function() {
 function reactTestAssets(options = {}) {
   const config = Object.assign(require('../config/webpack.config')('test'), options);
 
-  return gulp.src([require.resolve('phantomjs-polyfill/bind-polyfill'), 'spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'])
+  return gulp.src(['spec/pivotal-ui-react/**/*_spec.js', 'spec/styleguide/**/*spec.js'])
     .pipe(plugins.plumber())
     .pipe(webpack(config));
 }

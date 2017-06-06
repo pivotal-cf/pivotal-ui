@@ -123,12 +123,12 @@ parent: button_react
 Buttons can contain icons.
 
 ```react_example_table
-<PrimaryButton>
- <Icon src="add"/>Some button
+<PrimaryButton icon={<Icon src="add"/>}>
+ Some button
 </PrimaryButton>
 
-<DefaultButton alt>
- <Icon src="spinner-sm"/>Loading
+<DefaultButton alt icon={<Icon src="spinner-sm"/>}>
+ Loading
 </DefaultButton>
 ```
 

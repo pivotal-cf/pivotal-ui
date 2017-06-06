@@ -25,7 +25,7 @@ FlexCol properties:
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
- percentage | no | number | | The proportion of the 24-pt grid you want this column to occupy
+ col | no | number | | The proportion of the 24-pt grid you want this column to occupy
  fixed | no | bool | | Causes the column to be fixed width
  grow | no | number | | How much extra space to occupy, compared to default width
  alignment | no | oneOf('top', 'middle', 'bottom') | | The vertical alignment of the col within the row
@@ -67,34 +67,34 @@ import {Grid, FlexCol} from 'pui-react-flex-grids';
  ```react_example
 <div>
   <Grid className="grid-show">
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
-    <FlexCol percentage={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
+    <FlexCol col={2}></FlexCol>
   </Grid>
 
   <Grid className="grid-show">
-    <FlexCol percentage={16}></FlexCol>
-    <FlexCol percentage={8}></FlexCol>
+    <FlexCol col={16}></FlexCol>
+    <FlexCol col={8}></FlexCol>
   </Grid>
 
   <Grid className="grid-show">
-    <FlexCol percentage={8}></FlexCol>
-    <FlexCol percentage={8}></FlexCol>
-    <FlexCol percentage={8}></FlexCol>
+    <FlexCol col={8}></FlexCol>
+    <FlexCol col={8}></FlexCol>
+    <FlexCol col={8}></FlexCol>
   </Grid>
 
   <Grid className="grid-show">
-    <FlexCol percentage={12}></FlexCol>
-    <FlexCol percentage={12}></FlexCol>
+    <FlexCol col={12}></FlexCol>
+    <FlexCol col={12}></FlexCol>
   </Grid>
 </div>
  ```
@@ -172,9 +172,9 @@ import {Grid, FlexCol} from 'pui-react-flex-grids';
 
  ```react_example
 <Grid>
-  <FlexCol contentAlignment="top" style={{height: '100px', border: '1px solid gray'}}>Some content that sits at the top of the column</FlexCol>
-  <FlexCol contentAlignment="middle" style={{height: '100px', border: '1px solid gray'}}>Some content that sits in the middle of the column</FlexCol>
-  <FlexCol contentAlignment="bottom" style={{height: '100px', border: '1px solid gray'}}>Some content that sits at the bottom of the column</FlexCol>
+  <FlexCol contentAlignment="top" style={{height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}>Some content that sits at the top of the column</FlexCol>
+  <FlexCol contentAlignment="middle" style={{height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}>Some content that sits in the middle of the column</FlexCol>
+  <FlexCol contentAlignment="bottom" style={{height: '100px', border: '1px solid #b4b4b4', background: '#f8f8f8', margin: '0 8px'}}>Some content that sits at the bottom of the column</FlexCol>
 </Grid>
  ```
 

@@ -187,6 +187,21 @@ parent: table_react
 The `FlexTable` component is similar to the `Table` component except it will build the underlying table
 as a flex grid instead of a traditional html table.
 
+## Props
+
+FlexTable
+
+Property           | Required | Type      | Default | Description
+-------------------|----------|-----------|---------|------------
+columns            | yes      | Array     |         | Metadata about columns
+CustomRow          | no       | Component |         | The component to use when rendering table rows
+data               | yes      | Array     |         | The data to display in the table
+defaultSort        | no       | String    |         | The name of the column to use for sorting before user input
+headerRowClassName | no       | String    |         | Class name to apply to the header row
+bodyRowClassName   | no       | String    |         | Class name to apply to the body rows
+hideHeaderRow      | no       | Boolean   | false   | Render the header row? Defaults to false
+rowProps           | no       | Object    |         | Props passed to row components
+
 ## Basic usage
 
 Import the subcomponents:
@@ -201,7 +216,8 @@ const columns = [
     attribute: 'title',
     displayName: 'Title',
     sortable: false,
-    cellClass: 'col-2'
+    cellClass: 'col-2',
+    width: '100px'
   },
   {
     attribute: 'instances',

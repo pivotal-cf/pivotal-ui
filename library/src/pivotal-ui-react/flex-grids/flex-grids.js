@@ -21,10 +21,10 @@ export class Grid extends React.Component {
 }
 
 export const FlexCol = (props) => {
-  const {percentage, fixed, grow, alignment, contentAlignment, breakpoint, ...other} = props;
+  const {col, fixed, grow, alignment, contentAlignment, breakpoint, ...other} = props;
 
-  const percentageClassName = classnames({
-    [`col-${percentage}`]: percentage
+  const colClassName = classnames({
+    [`col-${col}`]: col
   });
 
   const fixedClassName = classnames({
@@ -47,7 +47,7 @@ export const FlexCol = (props) => {
     [`col-${breakpoint}`]: breakpoint
   });
 
-  const className = classnames('col', percentageClassName, fixedClassName, growClassName, alignmentClassName,
+  const className = classnames('col', colClassName, fixedClassName, growClassName, alignmentClassName,
     contentAlignmentClassName, breakpointClassName);
 
   const newProps = mergeProps(other, {className});
@@ -55,7 +55,7 @@ export const FlexCol = (props) => {
 };
 
 FlexCol.propTypes = {
-  percentage: PropTypes.number,
+  col: PropTypes.number,
   fixed: PropTypes.bool,
   grow: PropTypes.number,
   alignment: PropTypes.oneOf(['top', 'middle', 'bottom']),

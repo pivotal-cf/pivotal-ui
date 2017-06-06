@@ -72,7 +72,7 @@ describe('Collapse', function() {
   });
 
   it('passes through style', function() {
-    expect('.panel').toHaveCss({opacity: '0.5'});
+    expect('.panel').toHaveAttr('style', /opacity: 0\.5/);
   });
 
   it('contains a right-caret as its collapsed icon when closed', function() {

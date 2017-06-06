@@ -42,18 +42,18 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   static getRenderedReact(code) {
-    const tempElem = React.createElement('div', {}, eval(code))
-    const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem)
-    const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '')
+    const tempElem = React.createElement('div', {}, eval(code));
+    const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem);
+    const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '');
 
     return pretty(strippedCode)
   }
 
   render() {
-    const {file, name, title} = this.props
-    const {code} = this.state
+    const {file, name, title} = this.props;
+    const {code} = this.state;
 
-    let transpiledCode
+    let transpiledCode;
 
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code

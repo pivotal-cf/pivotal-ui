@@ -3,13 +3,8 @@ import {CheckboxDropdown} from 'pui-react-checkbox-dropdown';
 
 describe('checkbox dropdown', () => {
   let subject;
-  const renderIntoDOM = (props) => ReactDOM.render(
-    <CheckboxDropdown {...props} />, root);
-
   beforeEach(() => {
-    subject = renderIntoDOM({
-      labels: ['item #1', 'item #2', 'item #3']
-    });
+    subject = ReactDOM.render(<CheckboxDropdown labels={['item #1', 'item #2', 'item #3']} />, root);
   });
 
   describe('on initial render', () => {

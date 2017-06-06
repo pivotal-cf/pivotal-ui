@@ -1,6 +1,4 @@
-import '../spec_helper';
 import {Collapsible} from 'pui-react-collapsible';
-import {findByClass, clickOn} from '../spec_helper';
 
 describe('Collapsible', () => {
   let onEnteredSpy, onExitedSpy, subject;
@@ -16,7 +14,7 @@ describe('Collapsible', () => {
 
       toggle = () => {
         this.setState({expanded: !this.state.expanded});
-      }
+      };
 
       render() {
         return (
@@ -42,32 +40,31 @@ describe('Collapsible', () => {
   });
 
   it('renders children hidden by default', () => {
-    expect(findByClass(subject, 'collapse')).not.toHaveClass('in');
+    expect('.collapse').not.toHaveClass('in');
   });
 
   it('shows children if expanded is true', () => {
-    clickOn(findByClass(subject, 'collapse-toggle'));
+    $('.collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
 
-    const collapse = findByClass(subject, 'collapse');
-
-    expect(collapse).toHaveClass('in');
-    expect(collapse.querySelector('.maybe')).toBeDefined();
+    expect('.collapse').toHaveClass('in');
+    expect('.collapse .maybe').toExist();
   });
 
   it('animates while expanding', () => {
-    clickOn(findByClass(subject, 'collapse-toggle'));
+    $('.collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
 
-    expect(findByClass(subject, 'collapse-shield')).toHaveCss({marginBottom: '0px'});
+    expect('.collapse-shield').toHaveCss({marginBottom: '0px'});
   });
 
   it('calls onEntered when done opening', () => {
-    clickOn(findByClass(subject, 'collapse-toggle'));
+    $('.collapse-toggle').simulate('click');
+
     expect(onEnteredSpy).not.toHaveBeenCalled();
     MockNow.tick(200);
     MockRaf.next();
@@ -77,11 +74,13 @@ describe('Collapsible', () => {
   });
 
   it('calls onExited when done closing', () => {
-    clickOn(findByClass(subject, 'collapse-toggle'));
+    $('.collapse-toggle').simulate('click');
+
     MockNow.tick(200);
     MockRaf.next();
     MockRaf.next();
-    clickOn(findByClass(subject, 'collapse-toggle'));
+    $('.collapse-toggle').simulate('click');
+
     expect(onExitedSpy).not.toHaveBeenCalled();
     onEnteredSpy.calls.reset();
     MockNow.tick(200);
@@ -97,20 +96,24 @@ describe('Collapsible', () => {
     });
 
     it('expands instantly', () => {
-      clickOn(findByClass(subject, 'collapse-toggle'));
-      expect(findByClass(subject, 'collapse-shield')).toHaveCss({marginBottom: '0px'});
+      $('.collapse-toggle').simulate('click');
+
+      expect('.collapse-shield').toHaveCss({marginBottom: '0px'});
     });
 
     it('calls onEntered when done opening', () => {
-      clickOn(findByClass(subject, 'collapse-toggle'));
+      $('.collapse-toggle').simulate('click');
+
       expect(onEnteredSpy).toHaveBeenCalled();
       expect(onExitedSpy).not.toHaveBeenCalled();
     });
 
     it('calls onExited when done closing', () => {
-      clickOn(findByClass(subject, 'collapse-toggle'));
+      $('.collapse-toggle').simulate('click');
+
       onEnteredSpy.calls.reset();
-      clickOn(findByClass(subject, 'collapse-toggle'));
+      $('.collapse-toggle').simulate('click');
+
       expect(onExitedSpy).toHaveBeenCalled();
       expect(onEnteredSpy).not.toHaveBeenCalled();
     });

@@ -145,9 +145,9 @@ Aligning content relative to the column it is in:
 
 ```html_example
 <div class="grid">
-  <div class="col col-top" style="height:100px; border: 1px solid gray;">Some content that sits at the top of the column</div>
-  <div class="col col-middle" style="height:100px; border: 1px solid gray;">Some content that sits in the middle of the column</div>
-  <div class="col col-bottom" style="height:100px; border: 1px solid gray;">Some content that sits at the bottom of the column</div>
+  <div class="col col-top" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits at the top of the column</div>
+  <div class="col col-middle" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits in the middle of the column</div>
+  <div class="col col-bottom" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits at the bottom of the column</div>
 </div>
 ```
 

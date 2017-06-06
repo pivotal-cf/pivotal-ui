@@ -213,15 +213,15 @@ describe('Flex Table', () => {
         expect('.tr:eq(1) > span').toExist();
       });
 
-      it('adds the additional classes, id and styles', function() {
+      it('adds the additional classes, id and styles', function () {
         expect('.tr:eq(1)').toHaveAttr('id', 'row-id');
         expect('.tr:eq(1)').toHaveClass('row-light');
         expect('.tr:eq(1)').toHaveCss({opacity: '0.5'});
       });
     });
 
-    describe('with custom column sortBy', function() {
-      it('uses custom sortBy function', function() {
+    describe('with custom column sortBy', function () {
+      it('uses custom sortBy function', function () {
         const columnsWithCustomSortBy = columns.map(column => {
           if (column.attribute === 'theDefault') {
             return {...column, sortBy: value => -value};
@@ -235,6 +235,197 @@ describe('Flex Table', () => {
         expect('.tr:eq(1) .td:eq(2)').toHaveText('3');
         expect('.tr:eq(2) .td:eq(2)').toHaveText('2');
         expect('.tr:eq(3) .td:eq(2)').toHaveText('1');
+      });
+    });
+  });
+
+  describe('additional FlexTable props', () => {
+    let data;
+
+    beforeEach(() => {
+      data = [{
+        guid: 'guid-1'
+      }, {
+        guid: 'guid-2'
+      }];
+    });
+
+    describe('apply a class to the header row, but not to the body rows', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        const headerRowClassName = 'header-class';
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          headerRowClassName
+        }}/>, root);
+      });
+
+      it('adds the class to the header row', () => {
+        expect('.tr:eq(0)').toHaveClass('header-class');
+      });
+
+      it('does not add the class to the body rows', () => {
+        expect('.tr:eq(1)').not.toHaveClass('header-class');
+        expect('.tr:eq(2)').not.toHaveClass('header-class');
+      });
+    });
+
+    describe('apply a class to the body rows, but not to the header row', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        const bodyRowClassName = 'rows-class';
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          bodyRowClassName
+        }}/>, root);
+      });
+
+      it('does not add the class to the header row', () => {
+        expect('.tr:eq(0)').not.toHaveClass('rows-class');
+      });
+
+      it('adds the class to the body rows', () => {
+        expect('.tr:eq(1)').toHaveClass('rows-class');
+        expect('.tr:eq(2)').toHaveClass('rows-class');
+      });
+    });
+
+    describe('hide header row', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          hideHeaderRow: true
+        }}/>, root);
+      });
+
+      it('does not render the header row', () => {
+        expect('.tr:eq(0) > .th').not.toExist();
+      });
+
+      it('renders the body rows', () => {
+        expect($('.td').length).toBe(2);
+      });
+    });
+
+    describe('cell width', () => {
+      beforeEach(() => {
+        const columns = [{
+          attribute: 'guid',
+          width: '100px'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data
+        }}/>, root);
+      });
+
+      it('adds col-fixed class to the header cells', () => {
+        expect('.tr:eq(0) .th:eq(0)').toHaveClass('col-fixed');
+      });
+
+      it('adds width style to the header cells', () => {
+        expect('.tr:eq(0) .th:eq(0)').toHaveAttr('style', 'width: 100px;');
+      });
+
+      it('adds col-fixed class to the body cells', () => {
+        expect('.tr:eq(1) .td:eq(0)').toHaveClass('col-fixed');
+        expect('.tr:eq(2) .td:eq(0)').toHaveClass('col-fixed');
+      });
+
+      it('adds width style to the body cells', () => {
+        expect('.tr:eq(1) .td:eq(0)').toHaveAttr('style', 'width: 100px;');
+        expect('.tr:eq(2) .td:eq(0)').toHaveAttr('style', 'width: 100px;');
+      });
+    });
+
+    describe('row props', () => {
+      beforeEach(() => {
+        const CustomRow = props => (
+          <div className="tr">
+            {props['some-prop']}
+          </div>
+        );
+        CustomRow.propTypes = {'some-prop': PropTypes.string};
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          CustomRow,
+          rowProps: {'some-prop': 'some-value'}
+        }}/>, root);
+      });
+
+      it('passes to the body rows', () => {
+        expect('.tr:eq(1)').toHaveText('some-value');
+        expect('.tr:eq(2)').toHaveText('some-value');
+      });
+    });
+
+    describe('cell props', () => {
+      beforeEach(() => {
+        const CustomCell = props => (
+          <div className="td">
+            {props['some-prop']}
+          </div>
+        );
+        CustomCell.propTypes = {'some-prop': PropTypes.string};
+        const columns = [{
+          attribute: 'guid',
+          'some-prop': 'some-value',
+          CustomCell
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data
+        }}/>, root);
+      });
+
+      it('passes to the body cells', () => {
+        expect('.tr:eq(1) .td').toHaveText('some-value');
+        expect('.tr:eq(2) .td').toHaveText('some-value');
+      });
+    });
+
+    describe('row datum prop', () => {
+      beforeEach(() => {
+        data = [{
+          guid: 'guid-1',
+          name: 'name-1'
+        }, {
+          guid: 'guid-2',
+          name: 'name-2'
+        }];
+        const CustomRow = ({rowDatum: {guid, name}}) => (
+          <div className="tr">
+            {`[${guid}] ${name}`}
+          </div>
+        );
+        CustomRow.propTypes = {rowDatum: PropTypes.object};
+        const columns = [{
+          attribute: 'guid'
+        }];
+        ReactDOM.render(<FlexTable {...{
+          columns,
+          data,
+          CustomRow
+        }}/>, root);
+      });
+
+      it('passes to the body rows', () => {
+        expect('.tr:eq(1)').toHaveText('[guid-1] name-1');
+        expect('.tr:eq(2)').toHaveText('[guid-2] name-2');
       });
     });
   });

@@ -6,7 +6,6 @@ import jQuery from 'jquery';
 import MockNow from 'performance-now';
 import MockRaf from 'raf';
 import 'babel-polyfill';
-import 'phantomjs-polyfill';
 import './support/bluebird';
 import './support/set_immediate';
 import 'pivotal-js-jasmine-matchers';
