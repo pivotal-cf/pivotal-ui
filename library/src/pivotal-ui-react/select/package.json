@@ -1,13 +1,13 @@
 {
-  "version": "8.1.0",
+  "version": "8.2.0",
   "description": "A React dropdown component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "prop-types": ">=15.5.6",
-    "pui-css-select": "=8.1.0",
-    "pui-react-buttons": "=8.1.0",
-    "pui-react-helpers": "=8.1.0",
-    "pui-react-iconography": "=8.1.0",
-    "pui-react-mixins": "=8.1.0"
+    "pui-css-select": "=8.2.0",
+    "pui-react-buttons": "=8.2.0",
+    "pui-react-helpers": "=8.2.0",
+    "pui-react-iconography": "=8.2.0",
+    "pui-react-mixins": "=8.2.0"
   }
 }
