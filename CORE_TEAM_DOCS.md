@@ -98,7 +98,7 @@ again.
 
 1. Run `gulp release-push-packages`. This will:
     - Creates a tag for the new version
-    - Pushes version bump and new tag to github
+    - Pushes version bump and new tag to GitHub
     - Publishes all of the updated node packages to npm
   
 1. From the `styleguide` directory: `gulp styleguide-build && cf push` will push to production. Make sure you are targeting the correct space on CF
@@ -117,20 +117,16 @@ A machine that starts on Mavericks and upgrades to Sierra is likely to have inst
 ### Boot into network drive
 1. Start up machine while holding down the 'option' key, there should be a network drive available. You may have to wait a little for it to show up.
 
-### Image your machine
-1. Select the pristine Sierra image and begin imaging process.
-1. Wait for a while, play some ping pong. It will restart a few times.
-
 ### Run Sprout-Wrap
-1. Follow the Readme instructions at https://github.com/pivotal-cf/sprout-wrap
-    1. You will need to install xcode, and open it up to accept the agreement
-        1. This requires an Apple account. You can get the account ID from an existing computer in the App Store under the 'account' quick link. The password is the 8th oldest Pivotal pairing station password but with the first letter capatilized. If this is not helpful enough send an ask ticket requesting the credentials for apple account access.
-    1. In step 4 of the Readme, there is no private key under Volumes. You need to 'ssh-keygen' and then add the new key to your github account
-    1. After you have added the ssh-key, you will need to clone something from github (any repo) to confirm github as a host.
+1. Follow the README instructions at https://github.com/pivotal-cf/sprout-wrap
+    1. You will need to install Xcode, and open it up to accept the agreement
+        1. This requires an Apple account. You can get the account ID from an existing computer in the App Store under the 'account' quick link. The password is the 8th oldest Pivotal pairing station password but with the first letter capitalized. If this is not helpful enough, send an email to ask+cf@pivotal.io requesting the credentials for Apple account access.
+    1. In step 4 of the README, there is no private key under Volumes. You need to 'ssh-keygen' and then add the new key to your GitHub account
+    1. After you have added the ssh-key, you will need to clone something from GitHub (any repo) to confirm GitHub as a host.
     1. In step 6, cd into the 'cf-pivotal-ui' folder in sprout-wrap and run 'soloist'
 1. You will run soloist multiple times. Just keep running it unless you get the same error message twice in a row. You will need to run soloist about 5 times most likely.
 
-### Configure Webstorm
+### Configure WebStorm
 1. Go to Preferences -> Editor -> Colors and Fonts -> Font and change the font size to 16.
 1. Go to Preferences -> Editor -> Code Style and change tab/indent/continuation indent sizes to 2 for JavaScript/css/scss/html/JSON, and anything else that is needed.
 1. Go to Preferences -> Languages & Frameworks -> JavaScript and set the javascript language version to JSX Harmony.
