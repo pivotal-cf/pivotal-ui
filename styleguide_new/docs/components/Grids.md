@@ -106,3 +106,5 @@ xsPush, smPush, mdPush, lgPush         | no | Number  |     | Offset to change t
 xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change the order of grid columns to the left with
 
 # Flex Grid
+
+Flex grid content goes here.

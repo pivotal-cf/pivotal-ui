@@ -2,7 +2,6 @@
 
 ## Description
 
-## Props
 
 ## Basic Usage
 
@@ -78,6 +77,16 @@
 </div>
 ```
 
+
+```jsx
+::title=Ordered Unstyled List
+<OrderedList unstyled>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</OrderedList>
+```
+
 ### Unordered
 
 ```jsx
@@ -90,3 +99,12 @@
     </UnorderedList>
 </div>
 ```
+
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+className | no | String  |       | Classname of the list
+unstyled  | no | Boolean | false | Whether to style the list
+divider   | no | Boolean | false | Whether to include a divider between items
