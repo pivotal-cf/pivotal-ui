@@ -125,6 +125,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       </button>
       {toggleNode}
       {split && <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
+      {(open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}
     </div>);
   }

@@ -113,6 +113,10 @@ describe('Dropdown', () => {
     expect(onExitedSpy).toHaveBeenCalled();
   });
 
+  it('does not render a scrim when not open', () => {
+    expect('.scrim').not.toExist();
+  });
+
   describe('dropdown menu', () => {
     it('shows the children on click', () => {
       expect('.dropdown-open').not.toExist();
@@ -144,8 +148,9 @@ describe('Dropdown', () => {
       it('hides when clicking outside the dropdown', () => {
         $('.dropdown-toggle').simulate('click');
         expect('.dropdown-open').toExist();
-        $('body').click();
+        $('.scrim').simulate('click');
         expect('.dropdown-open').not.toExist();
+        expect('.scrim').not.toExist();
       });
 
       it('hides when a menu item is selected', () => {
@@ -158,7 +163,7 @@ describe('Dropdown', () => {
         it('does not hide the dropdown menu when clicking outside of the dropdown', () => {
           subject::setProps({disableScrim: true});
           $('.dropdown-toggle').simulate('click');
-          $('body').click();
+          expect('.scrim').not.toExist();
           expect('.dropdown-open').toExist();
         });
       });
