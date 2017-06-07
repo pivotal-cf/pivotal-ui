@@ -48,16 +48,13 @@ import Homepage from '../../docs/Homepage.md';
 import UpgradeGuide from '../../docs/UpgradeGuide.md';
 import NotFound from '../../docs/404.md';
 
-import ColorsJson from '../../docs/styles/Colors.md';
-import GridcssJson from '../../docs/styles/Grid.md';
-import IconsJson from '../../docs/styles/Icons.md';
-
 import AlertsJson from '../../docs/components/Alerts.md';
 import AlignmentJson from '../../docs/components/Alignment.md';
 import AutocompleteJson from '../../docs/components/Autocomplete.md';
 import BackToTopJson from '../../docs/components/BackToTop.md';
 import ButtonsJson from '../../docs/components/Buttons.md';
 import CollapseJson from '../../docs/components/Collapse.md';
+import ColorsJson from '../../docs/components/Colors.md';
 import CopyToClipboardJson from '../../docs/components/CopyToClipboard.md';
 import DividersJson from '../../docs/components/Dividers.md';
 import DropdownsJson from '../../docs/components/Dropdowns.md';
@@ -66,6 +63,7 @@ import ExpanderJson from '../../docs/components/Expander.md';
 import FormsJson from '../../docs/components/Forms.md';
 import GridsJson from '../../docs/components/Grids.md';
 import HoverableJson from '../../docs/components/Hoverable.md';
+import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
 import LabelsJson from '../../docs/components/Labels.md';
 import LayoutJson from '../../docs/components/Layout.md';
@@ -91,16 +89,13 @@ const routes = {
   '/downloads': {json: Downloads, file: 'Downloads.md', name: 'Downloads', category: 'Base', packages: []},
   '/404': {json: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
 
-  '/colors': {json: ColorsJson, file: 'styles/Colors.md', name: 'Colors', category: 'Styles', packages: [Bootstrap]},
-  '/gridcss': {json: GridcssJson, file: 'styles/Grid.md', name: 'Grids', category: 'Styles', packages: []},
-  '/icons': {json: IconsJson, file: 'styles/Icons.md', name: 'Icons', category: 'Styles', packages: [Iconography]},
-
   '/alerts': {json: AlertsJson, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},
   '/alignment': {json: AlignmentJson, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: [Alignment]},
   '/autocomplete': {json: AutocompleteJson, file: 'components/Autocomplete.md', name: 'Autocomplete', category: 'Components', packages: [Autocomplete]},
   '/backtotop': {json: BackToTopJson, file: 'components/Backtotop.md', name: 'Back To Top', category: 'Components', packages: [Top]},
   '/buttons': {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
   '/collapse': {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
+  '/colors': {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Bootstrap]},
   '/copy_to_clipboard': {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
   '/dividers': {json: DividersJson, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},
   '/dropdowns': {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
@@ -109,6 +104,7 @@ const routes = {
   '/forms': {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
   '/grids': {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
   '/hoverable': {json: HoverableJson, file: 'components/Hoverable.md', name: 'Hoverable', category: 'Components', packages: [Hoverable]},
+  '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
   '/layout': {json: LayoutJson, file: 'components/Layout.md', name: 'Layout', category: 'Components', packages: [Layout, Trigger]},
@@ -138,10 +134,6 @@ const routeKeyToObject = k => {
   obj.href = k;
   return obj;
 };
-
-export const styleItems = Object.keys(routes)
-  .map(routeKeyToObject)
-  .filter(i => i.category === 'Styles');
 
 export const componentItems = Object.keys(routes)
   .map(routeKeyToObject)

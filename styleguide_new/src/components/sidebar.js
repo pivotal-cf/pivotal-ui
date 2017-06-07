@@ -3,9 +3,9 @@ import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete';
 import {Collapse} from 'pui-react-collapse';
 import {Iconography, Icon} from 'pui-react-iconography';
 import {Input} from 'pui-react-inputs';
-import {styleItems, componentItems} from '../helpers/content';
+import {componentItems} from '../helpers/content';
 
-const searchItems = componentItems.concat(styleItems);
+const searchItems = componentItems;
 
 const ContentLink = ({onClick, link, text, active}) => {
   const className = active ? 'sidebar--item-wrapper sidebar--item-wrapper__active' : 'sidebar--item-wrapper';
@@ -31,7 +31,6 @@ export default class Sidebar extends React.PureComponent {
   }
 
   render() {
-    const styleLinks = styleItems.map(c => c.href);
     const componentLinks = componentItems.map(c => c.href);
 
     const onInitializeItems = callback => callback(searchItems.map(item => item.name));
@@ -41,13 +40,6 @@ export default class Sidebar extends React.PureComponent {
                                           input={<AutocompleteInput><Input search/></AutocompleteInput>}
                                           onPick={this.handlePick.bind(this)}
                                           showNoSearchResults={true}/>;
-
-    const styles = styleItems
-      .map((style, i) => <ContentLink key={i}
-                                      onClick={this.handleClick.bind(this)}
-                                      link={style.href}
-                                      text={style.name}
-                                      active={style.href === this.props.activePath}/>);
 
     const components = componentItems
       .map((component, i) => <ContentLink key={i}
@@ -68,9 +60,6 @@ export default class Sidebar extends React.PureComponent {
                        link="getstarted"
                        text="Get Started"
                        active={'/getstarted' === this.props.activePath}/>
-          <Collapse className={styleLinks.includes(this.props.activePath) ? 'active' : ''}
-                    defaultExpanded={styleLinks.includes(this.props.activePath)}
-                    header="Styles">{styles}</Collapse>
           <Collapse className={componentLinks.includes(this.props.activePath) ? 'active' : ''}
                     defaultExpanded={componentLinks.includes(this.props.activePath)}
                     header="Components">{components}</Collapse>
