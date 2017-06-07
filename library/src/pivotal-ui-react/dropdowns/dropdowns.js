@@ -11,7 +11,7 @@ const defaultToggleNode = (showIcon, icon) => {
   if (showIcon) return <Icon src={icon} className="icon-toggle"/>;
 };
 
-export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
+export class Dropdown extends mixin(React.Component).with(Transition) {
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -123,6 +123,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       </button>
       {toggleNode}
       {split && <a className={classnames('dropdown-label', buttonClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
+      {(open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}
     </div>);
   }
