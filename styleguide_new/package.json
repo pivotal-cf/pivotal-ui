@@ -134,7 +134,7 @@
     "npm": "3.10.x"
   },
   "scripts": {
-    "watch": "NODE_ENV=development concurrently --kill-others \"webpack --config ./frontend_webpack.config.babel.js --watch\" \"webpack --config ./backend_webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
+    "watch": "concurrently --kill-others \"webpack --config ./frontend_webpack.config.babel.js --watch\" \"webpack --config ./backend_webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
