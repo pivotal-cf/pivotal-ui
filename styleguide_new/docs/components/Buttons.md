@@ -29,53 +29,43 @@ The aria-label attribute will be populated with the button text, unless an aria-
 
 ## Styles
 
-### Color
-There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing.
+### Color and Treatment
+There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt]`prop, to use the flat style, use the `flat` prop.
 
 ```jsx
 ::title=Default Button
-<DefaultButton>
-  yo
-</DefaultButton>
+<div>
+    <DefaultButton>Default</DefaultButton>
+    <DefaultButton alt>Default Alt</DefaultButton>
+    <DefaultButton flat>Default Flat</DefaultButton>
+</div>
 ```
 
 ```jsx
 ::title=Primary Button
-<PrimaryButton>
-  hello world
-</PrimaryButton>
+<div>
+    <PrimaryButton>Primary</PrimaryButton>
+    <PrimaryButton alt>Primary Alt</PrimaryButton>
+    <PrimaryButton flat>Primary Flat</PrimaryButton>
+</div>
 ```
 
 ```jsx
 ::title=Danger Button
-<DangerButton>
-  Danger
-</DangerButton>
+<div>
+    <DangerButton>Danger</DangerButton>
+    <DangerButton alt>Danger Alt</DangerButton>
+    <DangerButton flat>Danger Flat</DangerButton>
+</div>
 ```
 
 ```jsx
 ::title=Brand Button
-<BrandButton>
-  Brand
-</BrandButton>
-```
-
-### Alternate Treatment
-For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop.
-
-```jsx
-::title=Default Style
-<DefaultButton>Default</DefaultButton>
-```
-
-```jsx
-::title=Alt Style
-<DefaultButton alt>Default Alt</DefaultButton>
-```
-
-```jsx
-::title=Flat Style
-<DefaultButton flat>Default Flat</DefaultButton>
+<div>
+    <BrandButton>Brand</BrandButton>
+    <BrandButton alt>Brand Alt</BrandButton>
+    <BrandButton flat>Brand Flat</BrandButton>
+</div>
 ```
 
 ### Sizing
