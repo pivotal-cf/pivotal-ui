@@ -7,6 +7,11 @@
   .select-toggle {
     @extend %dropdown-toggle;
 
+    .btn-inner-content {
+      display: block;
+      justify-content: inherit;
+    }
+
     .select-toggle-label {
       float: left;
     }
