@@ -11,6 +11,7 @@ import changelog from 'conventional-changelog';
 import {log, colors} from 'gulp-util';
 import source from 'vinyl-source-stream';
 import semver from 'semver';
+import {argv} from 'yargs';
 
 import {getNewVersion} from './helpers/version-helper';
 import {componentsWithChanges, componentsToUpdate, updatePackageJsons} from './helpers/package-version-helper';
@@ -28,22 +29,26 @@ gulp.task('release-update-version', (done) => {
     const packageJsonPath = path.join(process.cwd(), 'package.json');
 
     const jsonContents = require(packageJsonPath);
-    const versionBumpType = await recommendedBump({preset: 'angular'});
 
-    const recommendedVersion = semver.inc(jsonContents.version, versionBumpType);
+    let userVersion = argv.version;
 
-    console.log('Current version is', colors.green(jsonContents.version));
-    console.log('Recommended bump is', colors.red(versionBumpType), 'to', colors.red(recommendedVersion));
+    if (!userVersion){
+      const versionBumpType = await recommendedBump({preset: 'angular'});
 
-    const versionOptions = [
-      ['patch'],
-      ['minor'],
-      ['major'],
-      ['prepatch', 'alpha'],
-      ['preminor', 'alpha'],
-      ['premajor', 'alpha'],
-      ['prerelease', 'alpha']
-    ].map((args) => {
+      const recommendedVersion = semver.inc(jsonContents.version, versionBumpType);
+
+      console.log('Current version is', colors.green(jsonContents.version));
+      console.log('Recommended bump is', colors.red(versionBumpType), 'to', colors.red(recommendedVersion));
+
+      const versionOptions = [
+        ['patch'],
+        ['minor'],
+        ['major'],
+        ['prepatch', 'alpha'],
+        ['preminor', 'alpha'],
+        ['premajor', 'alpha'],
+        ['prerelease', 'alpha']
+      ].map((args) => {
         const resultVersion = semver.inc(jsonContents.version, ...args);
         return {
           name: `${args[0]} to ${resultVersion}`,
@@ -51,12 +56,13 @@ gulp.task('release-update-version', (done) => {
         };
       });
 
-    const userVersion = (await prompt([{
-      type: 'list',
-      name: 'version',
-      message: 'Please select version:',
-      choices: versionOptions
-    }])).version;
+      userVersion = (await prompt([{
+        type: 'list',
+        name: 'version',
+        message: 'Please select version:',
+        choices: versionOptions
+      }])).version;
+    }
 
     jsonContents.version = userVersion;
 

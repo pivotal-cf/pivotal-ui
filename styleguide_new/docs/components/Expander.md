@@ -1,10 +1,21 @@
 # Expander
 
 ## Description
-
-## Props
+Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
+parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
+else within the DOM.
 
 ## Basic Usage
+Import the subcomponent:
+
+```
+import {ExpanderContent} from 'pui-react-expander';
+```
+
+The Expander component accepts an "onEntered" and an "onExited" callback that triggers after animation is complete.
+
+See the example below for how to use these components in your own application.
+
 
 ```jsx
 ::title=Basic Example
@@ -36,3 +47,13 @@ class MoreInfo extends React.Component {
     <MoreInfo />
 </div>
 ```
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+expanded  | no | Boolean   | false | Whether to render expanded or not
+onEntered | no | Function  |       | Hook that fires when expand occurs
+onExited  | no | Function  |       | Hook that fires when collapse occurs
+
+Note: all props of the 'collapse

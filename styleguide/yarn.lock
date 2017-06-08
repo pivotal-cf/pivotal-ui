@@ -433,7 +433,7 @@ babel-helpers@^6.24.1, babel-helpers@^6.8.0:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-loader@^6.2.5:
+babel-loader@>=6.0.0, babel-loader@^6.2.5:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
   dependencies:
@@ -5736,20 +5736,24 @@ pui-react-helpers@=8.1.0:
 pui-react-iconography@=8.1.0:
   version "8.1.0"
   dependencies:
+    babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
     pui-css-iconography "=8.1.0"
     pui-react-helpers "=8.1.0"
     pui-react-svg "=8.1.0"
+    react-svg-loader "^1.1.1"
 
 "pui-react-iconography@file:../library/dist/react/iconography":
   version "8.1.0"
   dependencies:
+    babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
     pui-css-iconography "=8.1.0"
     pui-react-helpers "=8.1.0"
     pui-react-svg "=8.1.0"
+    react-svg-loader "^1.1.1"
 
 "pui-react-images@file:../library/dist/react/images":
   version "8.1.0"
@@ -5920,14 +5924,18 @@ pui-react-mixins@=8.1.0:
 pui-react-svg@=8.1.0:
   version "8.1.0"
   dependencies:
+    babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
+    react-svg-loader "^1.1.1"
 
 "pui-react-svg@file:../library/dist/react/svg":
   version "8.1.0"
   dependencies:
+    babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
+    react-svg-loader "^1.1.1"
 
 "pui-react-table@file:../library/dist/react/table":
   version "8.1.0"

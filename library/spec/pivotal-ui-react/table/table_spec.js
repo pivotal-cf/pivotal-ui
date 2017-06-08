@@ -2,8 +2,8 @@ import '../spec_helper';
 import {Table, TableCell, TableRow} from 'pui-react-table';
 import PropTypes from 'prop-types';
 
-describe('Table', function() {
-  it('respects default sort', function() {
+describe('Table', () => {
+  it('respects default sort', () => {
     const columns = [
       {
         attribute: 'title',
@@ -23,9 +23,9 @@ describe('Table', function() {
     ];
 
     const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
+      {title: 'foo', bar: 'a', theDefault: 3},
+      {title: 'sup', bar: 'c', theDefault: 2},
+      {title: 'yee', bar: 'b', theDefault: 1}
     ];
 
     ReactDOM.render((
@@ -59,9 +59,9 @@ describe('Table', function() {
     ];
 
     const data = [
-      { title: 'foo', bar: 'a', theDefault: 3},
-      { title: 'sup', bar: 'c', theDefault: 2},
-      { title: 'yee', bar: 'b', theDefault: 1}
+      {title: 'foo', bar: 'a', theDefault: 3},
+      {title: 'sup', bar: 'c', theDefault: 2},
+      {title: 'yee', bar: 'b', theDefault: 1}
     ];
 
     ReactDOM.render(<Table columns={columns} data={data}/>, root);
@@ -69,7 +69,7 @@ describe('Table', function() {
     expect('table').not.toHaveAttr('data');
   });
 
-  describe('with multiple columns', function() {
+  describe('with multiple columns', () => {
     function renderSortableTable(columns, data, props = {}) {
       ReactDOM.render((
           <Table {...{columns, data}} {...props}/>
@@ -77,8 +77,9 @@ describe('Table', function() {
         root
       );
     }
+
     let data, columns, clickSpy;
-    beforeEach(function() {
+    beforeEach(() => {
       clickSpy = jasmine.createSpy('click');
       columns = [
         {
@@ -130,17 +131,17 @@ describe('Table', function() {
       renderSortableTable(columns, data);
     });
 
-    afterEach(function() {
+    afterEach(() => {
       ReactDOM.unmountComponentAtNode(root);
     });
 
-    it('adds the class "sortable" on all sortable columns', function() {
+    it('adds the class "sortable" on all sortable columns', () => {
       expect('th:contains("Title")').not.toHaveClass('sortable');
       expect('th:contains("instances")').toHaveClass('sortable');
       expect('th:contains("Unsortable")').not.toHaveClass('sortable');
     });
 
-    it('adds the additional classes, id and styles to the table', function() {
+    it('adds the additional classes, id and styles to the table', () => {
       renderSortableTable(columns, data, {className: ['table-light'], id: 'table-id', style: {opacity: '0.5'}});
       expect('table.table-sortable').toHaveClass('table');
       expect('table.table-sortable').toHaveClass('table-sortable');
@@ -149,7 +150,7 @@ describe('Table', function() {
       expect('table.table-sortable').toHaveCss({opacity: '0.5'});
     });
 
-    it('sorts table rows by the first sortable column in ascending order by default', function() {
+    it('sorts table rows by the first sortable column in ascending order by default', () => {
       expect('th:contains("instances")').toHaveClass('sorted-asc');
 
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
@@ -161,15 +162,15 @@ describe('Table', function() {
       expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
     });
 
-    it('passes header props into the headers', function() {
+    it('passes header props into the headers', () => {
       expect('th:contains("instances")').toHaveClass('instance-header');
       expect('th:contains("instances")').toHaveAttr('id', 'instanceId');
       $('th:contains("instances")').simulate('click');
       expect(clickSpy).toHaveBeenCalled();
     });
 
-    describe('clicking on a sortable column', function() {
-      it('sorts table rows by that column', function() {
+    describe('clicking on a sortable column', () => {
+      it('sorts table rows by that column', () => {
         $('th:contains("Foo")').simulate('click');
 
         expect('th:contains("Foo")').toHaveClass('sorted-asc');
@@ -251,12 +252,12 @@ describe('Table', function() {
       });
     });
 
-    describe('pressing <enter> on a sortable column', function() {
-      beforeEach(function() {
+    describe('pressing <enter> on a sortable column', () => {
+      beforeEach(() => {
         $('th:contains("Foo")').simulate('keyDown', {key: 'Enter'});
       });
 
-      it('sorts table rows by that column', function() {
+      it('sorts table rows by that column', () => {
         expect('th:contains("Foo")').toHaveClass('sorted-asc');
         expect('th:contains("instances")').not.toHaveClass('sorted-asc');
 
@@ -270,12 +271,12 @@ describe('Table', function() {
       });
     });
 
-    describe('clicking on a non-sortable column', function() {
-      beforeEach(function() {
+    describe('clicking on a non-sortable column', () => {
+      beforeEach(() => {
         $('th:contains("Unsortable")').simulate('click');
       });
 
-      it('does not change the sort', function() {
+      it('does not change the sort', () => {
         expect('th:contains("Unsortable")').not.toHaveClass('sorted-asc');
         expect('th:contains("instances")').toHaveClass('sorted-asc');
 
@@ -290,9 +291,10 @@ describe('Table', function() {
     });
   });
 
-  describe('with custom column cells', function() {
-    beforeEach(function() {
-      const CustomCell = ({value, index, rowDatum}) => <td className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
+  describe('with custom column cells', () => {
+    beforeEach(() => {
+      const CustomCell = ({value, index, rowDatum}) => <td
+        className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
       CustomCell.propTypes = {value: PropTypes.any, index: PropTypes.number, rowDatum: PropTypes.object};
       const columns = [
         {
@@ -328,7 +330,7 @@ describe('Table', function() {
       );
     });
 
-    it('uses custom for the column', function() {
+    it('uses custom for the column', () => {
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('1-0: foo');
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toHaveClass('custom');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('3-1: sup');
@@ -336,8 +338,38 @@ describe('Table', function() {
     });
   });
 
-  describe('with custom column sortBy', function() {
-    beforeEach(function() {
+  describe('with custom column cells with colIndex', () => {
+    beforeEach(() => {
+      const CustomCell = ({colIndex}) => <td className="custom">{colIndex}</td>;
+      CustomCell.propTypes = {colIndex: PropTypes.number};
+      const columns = [
+        {
+          attribute: 'title',
+          displayName: 'Title',
+          CustomCell
+        },
+        {
+          attribute: 'instances',
+          CustomCell
+        }
+      ];
+
+      const data = [{title: 'sup'}];
+
+      ReactDOM.render(
+        <Table columns={columns} data={data}/>,
+        root
+      );
+    });
+
+    it('renders the colIndex', () => {
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('0');
+      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
+    });
+  });
+
+  describe('with custom column sortBy', () => {
+    beforeEach(() => {
       const columns = [
         {
           attribute: 'title',
@@ -372,14 +404,14 @@ describe('Table', function() {
       );
     });
 
-    it('uses custom sortBy function', function() {
+    it('uses custom sortBy function', () => {
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
     });
   });
 
-  describe('with a custom table row', function() {
-    beforeEach(function() {
+  describe('with a custom table row', () => {
+    beforeEach(() => {
       const CustomRow = ({index, children}) => {
         return (
           <TableRow className={`row-${index}`}>{children}</TableRow>
@@ -407,9 +439,9 @@ describe('Table', function() {
       ];
 
       const data = [
-        { title: 'foo', time: Date.parse('Tue Dec 08 2015') },
-        { title: 'sup', time: Date.parse('Wed Dec 09 2015') },
-        { title: 'yee', time: Date.parse('Mon Dec 07 2015') }
+        {title: 'foo', time: Date.parse('Tue Dec 08 2015')},
+        {title: 'sup', time: Date.parse('Wed Dec 09 2015')},
+        {title: 'yee', time: Date.parse('Mon Dec 07 2015')}
       ];
 
       ReactDOM.render((
@@ -419,7 +451,7 @@ describe('Table', function() {
       );
     });
 
-    it('renders the custom cell', function() {
+    it('renders the custom cell', () => {
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
       expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
@@ -429,15 +461,15 @@ describe('Table', function() {
       expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('Days since Sunday: 3');
     });
 
-    it('respects properties on the custom row', function() {
+    it('respects properties on the custom row', () => {
       expect('tbody tr:eq(0)').toHaveClass('row-0');
       expect('tbody tr:eq(1)').toHaveClass('row-1');
     });
   });
 });
 
-describe('TableRow', function() {
-  function renderTableRow({children=(<td/>), ...props}) {
+describe('TableRow', () => {
+  function renderTableRow({children = (<td/>), ...props}) {
     return ReactDOM.render((
         <table>
           <tbody>
@@ -450,14 +482,15 @@ describe('TableRow', function() {
     );
 
   }
-  it('contains the given children', function() {
+
+  it('contains the given children', () => {
     renderTableRow({children: (<td id={'cell-id'}/>)});
     expect('tr').toExist();
     expect('tr > td#cell-id').toExist();
   });
 
 
-  it('adds the additional classes, id and styles to the th', function() {
+  it('adds the additional classes, id and styles to the th', () => {
     renderTableRow({
       id: 'row-id',
       className: 'row-light',
@@ -469,7 +502,7 @@ describe('TableRow', function() {
   });
 });
 
-describe('TableCell', function() {
+describe('TableCell', () => {
   function renderTableCell({children, ...props}) {
     return ReactDOM.render((
         <table>
@@ -486,18 +519,19 @@ describe('TableCell', function() {
 
   }
 
-  it('contains the given children', function() {
+  it('contains the given children', () => {
     renderTableCell({children: (<p>This is my text</p>)});
     expect('td').toExist();
     expect('td > p').toExist();
     expect('td > p').toContainText('This is my text');
   });
 
-  it('adds the additional classes, id and styles to the th', function() {
+  it('adds the additional classes, id and styles to the th', () => {
     renderTableCell({
       id: 'cell-id',
       className: 'cell-light',
-      style: {opacity: '0.5'}
+      style: {opacity: '0.5'},
+      colIndex: 1
     });
     expect('td').toHaveClass('cell-light');
     expect('td').toHaveProp('id', 'cell-id');

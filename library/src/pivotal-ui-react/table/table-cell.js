@@ -1,20 +1,24 @@
-import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import {mergeProps} from 'pui-react-helpers';
 import React from 'react';
 import sortBy from 'lodash.sortby';
+import PropTypes from 'prop-types';
 
 export class TableCell extends React.Component {
   static propTypes = {
-    index: PropTypes.number,
-    rowDatum: PropTypes.any
+    cellClass: PropTypes.string
   };
 
   render() {
-    let {children, ...others} = this.props;
+    const {cellClass, children, className, ...others} = this.props;
 
-    ['attribute', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
+    ['attribute', 'colIndex', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
       .forEach(prop => delete others[prop]);
 
-    return (<td {...others}>
+    const classes = classnames(className, cellClass);
+    const props = mergeProps(others, {className: classes});
+
+    return (<td {...props}>
       {children}
     </td>);
   }

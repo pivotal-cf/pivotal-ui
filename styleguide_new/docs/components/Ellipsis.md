@@ -1,10 +1,10 @@
 # Ellipsis
 
 ## Description
-
-## Props
+Description for ellipsis.
 
 ## Basic Usage
+The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
 
 ```jsx
 ::title=Basic Example
@@ -14,3 +14,5 @@
     </p>
 </div>
 ```
+
+## Props

@@ -16,12 +16,25 @@ Using Panels, you can organize information collections into logical groups, aggr
 - Overload the panel header with too many calls to action.
 - Use a panel when screen real estate is valuable, instead consider a table layout or grouped-list.
 
-## Variants
+## Basic Usage
+
+Import the subcomponents:
+
+```
+import {Panel} from 'pui-react-panels';
+```
+
+Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself is the base, and there are a few different properties that can be applied to achieve the desired result. 
+
+A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
+property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
+
+See examples below.
 
 ```jsx
 ::title=Basic Panel
 <div>
-  <Panel className="bg-neutral-10 optional-class" innerClassName="opt-inner-class">
+  <Panel className="bg-neutral-11 optional-class" innerClassName="opt-inner-class">
     <p>Base Panel</p>
   </Panel>
 </div>
@@ -30,7 +43,7 @@ Using Panels, you can organize information collections into logical groups, aggr
 ```jsx
 ::title=Panel with Header
 <div>
-  <Panel className="bg-neutral-10" header='header'>
+  <Panel className="bg-neutral-11 box-shadow-1" header='header'>
     Base Panel with base header
   </Panel>
 </div>
@@ -39,15 +52,31 @@ Using Panels, you can organize information collections into logical groups, aggr
 ```jsx
 ::title=Panel with Subtitle
 <div>
-  <Panel className="bg-neutral-10" header="Title" subtitle="subtitle">
+  <Panel className="bg-neutral-11 box-shadow-1" header="Title" subtitle="subtitle">
     Base Panel with subtitle
   </Panel>
 </div>
 ```
 
 ```jsx
-::title=Scrollable Panel
-<Panel className="bg-neutral-8" scrollable={100}>
+::title=Panel with Custom Header & Actions
+<Panel className="bg-neutral-11 box-shadow-1" header={<h2>Custom Title</h2>} actions={<div><button className="btn btn-default mrl">Go</button><button className="btn btn-default-alt">Stop</button></div>}>
+  Panel with custom header and actions
+</Panel>
+```
+
+```jsx
+::title=Panel with Padding
+<Panel className="bg-neutral-11 box-shadow-1" padding="paxxl">
+  <p>Panel with padding</p>
+</Panel>
+```
+
+```jsx
+::title=Default Scrollable Panel
+<Panel className="bg-neutral-11 box-shadow-1" scrollable={true}>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
   <p>Scrollable Panel</p>
@@ -56,3 +85,28 @@ Using Panels, you can organize information collections into logical groups, aggr
   <p>Scrollable Panel</p>
 </Panel>
 ```
+
+```jsx
+::title=Scrollable Panel with specified Height
+<Panel className="bg-neutral-11 box-shadow-1" scrollable={100}>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+  <p>Scrollable Panel</p>
+</Panel>
+```
+
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+header         | no | Node                   | | Node to render in the header
+footer         | no | Node                   | | Node to render in the footer
+actions        | no | Node                   | | Node to render as actions in the header (recommended: array of nodes)
+subtitle       | no | Node                   | | An element or text to render as the subtitle in the header (only works if header is a string)
+innerClassName | no | String                 | | The className to be added on the panel body
+padding        | no | String                 | | Padding to use on the panel body (e.g pam, pan, phl, ptl)
+scrollable     | no | oneOf(Boolean, Number) | | Use default scrolling height when boolean or a specified scrolling height

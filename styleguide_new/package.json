@@ -26,7 +26,6 @@
     "html-loader": "^0.4.4",
     "image-webpack-loader": "^3.2.0",
     "json-loader": "^0.5.4",
-    "marked": "^0.3.6",
     "mock-promises": "^0.8.2",
     "module": "^1.2.5",
     "net": "^1.0.2",
@@ -115,6 +114,7 @@
     "pui-react-tabs": "file:../library/dist/react/tabs",
     "pui-react-tile-layout": "file:../library/dist/react/tile-layout",
     "pui-react-toggle": "file:../library/dist/react/toggle",
+    "pui-react-tools": "^2.0.5",
     "pui-react-tooltip": "file:../library/dist/react/tooltip",
     "react": "^15.4.2",
     "react-ace": "^4.1.1",
@@ -134,15 +134,19 @@
     "npm": "3.10.x"
   },
   "scripts": {
-    "watch": "concurrently --kill-others \"webpack --config ./frontend-webpack.config.babel.js --watch\" \"webpack --config ./backend-webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
+    "watch": "NODE_ENV=development concurrently --kill-others \"webpack --config ./frontend_webpack.config.babel.js --watch\" \"webpack --config ./backend_webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
   },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
     "jquery": "^3.2.1",
+    "lodash.kebabcase": "^4.1.1",
     "pivotal-js-jasmine-matchers": "^0.0.18",
     "pui-react-tools": "^2.0.5",
-    "require-dir": "^0.3.1"
+    "remark-parse": "^3.0.1",
+    "remark-react": "^4.0.0",
+    "require-dir": "^0.3.1",
+    "unified": "^6.1.4"
   }
 }

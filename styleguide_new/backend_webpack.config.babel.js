@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'path';
 
 export default {
   entry: './server.js',
@@ -15,7 +15,7 @@ export default {
       },
       {
         test: /\.md$/,
-        loader: 'html-loader!./src/helpers/markdown-loader.js',
+        loader: 'json-loader!./src/helpers/markdown_loader.js',
       },
       {
         test: /\.s?css$/,
@@ -32,4 +32,4 @@ export default {
     ],
   },
   target: 'node'
-}
+};

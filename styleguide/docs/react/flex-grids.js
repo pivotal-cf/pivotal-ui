@@ -25,7 +25,7 @@ FlexCol properties:
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
- col | no | number | | The proportion of the 24-pt grid you want this column to occupy
+ col | no | number | | The number of columns widths out of the 24 column grid to occupy
  fixed | no | bool | | Causes the column to be fixed width
  grow | no | number | | How much extra space to occupy, compared to default width
  alignment | no | oneOf('top', 'middle', 'bottom') | | The vertical alignment of the col within the row

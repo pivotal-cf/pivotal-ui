@@ -2,8 +2,6 @@
 
 ## Description
 
-## Props
-
 ## Basic Usage
 
 ```jsx
@@ -19,3 +17,5 @@
   <h1 class="hidden-lg type-neutral-5">LG</h1>
 </div>
 ```
+
+## Props

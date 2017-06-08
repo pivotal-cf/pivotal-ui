@@ -3,9 +3,11 @@
   "description": "A React component for rendering Font Awesome icons",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
+    "babel-loader": ">=6.0.0",
     "prop-types": ">=15.5.6",
     "pui-css-iconography": "=8.2.0",
     "pui-react-helpers": "=8.2.0",
-    "pui-react-svg": "=8.2.0"
+    "pui-react-svg": "=8.2.0",
+    "react-svg-loader": "^1.1.1"
   }
 }

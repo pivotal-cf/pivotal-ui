@@ -7,6 +7,11 @@
   .select-toggle {
     @extend %dropdown-toggle;
 
+    .btn-inner-content {
+      display: block;
+      justify-content: inherit;
+    }
+
     .select-toggle-label {
       float: left;
     }
@@ -31,6 +36,10 @@
   &.open {
     .select-menu {
       @extend %dropdown-menu-open;
+
+      ul {
+        margin-top: 0;
+      }
     }
 
     .select-toggle {
