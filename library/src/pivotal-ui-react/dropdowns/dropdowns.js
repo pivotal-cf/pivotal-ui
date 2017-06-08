@@ -23,6 +23,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
     border: PropTypes.bool,
     buttonAriaLabel: PropTypes.string,
     buttonClassName: PropTypes.string,
+    splitClassName: PropTypes.string,
     closeOnMenuClick: PropTypes.bool,
     disableScrim: PropTypes.bool,
     flat: PropTypes.bool,
@@ -33,6 +34,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
     labelAriaLabel: PropTypes.string,
     menuAlign: PropTypes.oneOf(['none', 'left', 'right']),
     onClick: PropTypes.func,
+    onSplitClick: PropTypes.func,
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
     onSelect: PropTypes.func,
@@ -60,12 +62,12 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
   };
 
   handleSplitClick = event => {
-    const {href, disabled, onSelect} = this.props;
+    const {href, disabled, onSelect, onSplitClick} = this.props;
     if (disabled) return;
 
     if (!href) {
       event.preventDefault();
-      this.click(event);
+      onSplitClick && onSplitClick(event);
     }
 
     onSelect && onSelect(event);
@@ -80,8 +82,8 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
 
   render() {
     const {
-      border, buttonAriaLabel, buttonClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
-      flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onEntered, onExited, split, title, toggle,
+      border, buttonAriaLabel, buttonClassName, splitClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
+      flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onSplitClick, onEntered, onExited, split, title, toggle,
       floatMenu, scroll, ...props
     } = this.props;
     const {open} = this.state;
@@ -122,7 +124,7 @@ export class Dropdown extends mixin(React.Component).with(Transition) {
         {!split && title}
       </button>
       {toggleNode}
-      {split && <a className={classnames('dropdown-label', buttonClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
+      {split && <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
       {(open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}
     </div>);

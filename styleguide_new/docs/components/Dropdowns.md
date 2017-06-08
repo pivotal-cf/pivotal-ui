@@ -160,6 +160,7 @@ Property         | Required | Type                                | Default     
 -----------------|----------|-------------------------------------|----------------|------------
 buttonAriaLabel  | no       | String                              |                | aria-label for the button
 buttonClassName  | no       | String                              |                | Classname to add to the button
+splitClassName   | no       | String                              |                | Classname to add to the text
 closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
 flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
@@ -170,6 +171,7 @@ link             | no       | Boolean                             |             
 labelAriaLabel   | no       | String                              |                | aria-label for the label (split dropdown only)
 menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
 onClick          | no       | Function                            |                | Callback that fires after clicking the button
+onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text
 onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
 onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
 onSelect         | no       | Function                            |                | Callback that fires after clicking the default option (split dropdown only)

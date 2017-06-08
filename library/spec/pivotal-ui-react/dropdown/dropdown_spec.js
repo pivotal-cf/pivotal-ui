@@ -43,7 +43,8 @@ describe('Dropdown', () => {
         labelAriaLabel: 'Nessun Dorma',
         href: 'default',
         split: true,
-        onSelect: onSelectSpy
+        onSelect: onSelectSpy,
+        splitClassName: 'split-class'
       });
     });
 
@@ -61,16 +62,28 @@ describe('Dropdown', () => {
       expect(onSelectSpy).toHaveBeenCalled();
     });
 
+    it('correctly styles the dropdown-label', () => {
+      expect('.dropdown-label').toHaveClass('split-class');
+    });
+
     describe('when there is no href provided', () => {
+      let onClickSpy, onSplitClickSpy;
       beforeEach(() => {
-        subject::setProps({href: null});
-        spyOn(subject, 'click').and.callThrough();
+        onClickSpy = jasmine.createSpy('on click');
+        onSplitClickSpy = jasmine.createSpy('on split click');
+        subject::setProps({href: null, onClick: onClickSpy, onSplitClick: onSplitClickSpy});
       });
 
-      it('opens the dropdown when any part of the dropdown is clicked', () => {
-        $('.dropdown-label').simulate('click');
-        expect(subject.click).toHaveBeenCalled();
+      it('opens the dropdown when the dropdown button is clicked', () => {
+        $('.dropdown-toggle').simulate('click');
+        expect(onClickSpy.toHaveBeenCalled);
         expect(subject.state.open).toBeTruthy();
+      });
+
+      it('does not open the dropdown when the split text is clicked', () => {
+        $('.dropdown-label').simulate('click');
+        expect(onSplitClickSpy.toHaveBeenCalled);
+        expect(subject.state.open).toBeFalsy();
       });
     });
   });
