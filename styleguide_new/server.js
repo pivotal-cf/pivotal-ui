@@ -6,6 +6,16 @@ import SideBar from './src/components/sidebar';
 
 const app = Express();
 
+app.use((req, res, next) => {
+  const isDev = process.env.NODE_ENV === 'development';
+  const isHttps = req.headers['x-forwarded-proto'] === 'https';
+
+  if (isDev || isHttps) return next();
+
+  res.writeHead(301, {location: `https://${req.headers.host}${req.url}`});
+  res.end();
+});
+
 app.get('/dist/:file', function(req, res) {
   const file = req.params['file'];
   const filepath = `${process.cwd()}/dist/${file}`;
