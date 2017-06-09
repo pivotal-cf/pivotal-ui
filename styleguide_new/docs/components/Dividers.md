@@ -24,7 +24,7 @@ On a dark background, use these inverse dividers:
 
 ```jsx
 ::title=Inverse Dividers
-<div>
+<div style={{background: '#232B2F'}}>
   <div className="type-dark-11">
     I am some content
     <Divider inverse />

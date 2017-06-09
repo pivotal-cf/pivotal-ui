@@ -93,6 +93,134 @@ const data = [
 </div>
 ```
 
+### Table Row Hover
+
+Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
+
+```html
+<table class="table">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr class="tr-hover">
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Table Cell Hover
+
+Adding .td-hover to the table element will allow the user to highlight individual cells.
+
+```html
+<table class="table td-hover">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### Table Border Modifiers
+
+Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
+
+```html
+<table class="table tr-no-h-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+No external borders to rows using class .table-no-ext-borders on the table element.
+
+```html
+<table class="table table-no-ext-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+No external borders to rows using class .table-no-borders on the table element.
+
+```html
+<table class="table table-no-borders">
+  <tbody>
+    <tr>
+      <th> Header 1 </th>
+      <th> Header 2 </th>
+      <th> Header 3 </th>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+    <tr>
+      <td> Cell 1 </td>
+      <td> Cell 2 </td>
+      <td> Cell 3 </td>
+    </tr>
+  </tbody>
+</table>
+```
+
+### TableRow
+
 The `TableRow` component is provided for users who wish to customize their rows
 with the `CustomRow` prop to `Table`. If a custom row is provided, the table will use that
 component to render each row, giving it a `children` prop representing the cells for that row and `index`
@@ -418,6 +546,87 @@ const data = [
 ];
 
 <FlexTable columns={customCellColumns} data={data}/>
+```
+
+### Table Cell Alignment
+
+Thanks to the power of the flexbox grid you can take advantage of content alignment classes
+like .col-top and .col-bottom to align the content of a column.
+
+```html
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-8"> Head </div>
+    <div class="th col col-8"> Head </div>
+    <div class="th col col-8"> Head </div>
+  </div>
+  <div class="tr grid">
+    <div class="td col col-8">
+      <div>Cell 1</div>
+      <div>Cell 1.2</div>
+    </div>
+    <div class="td col col-8 col-top">
+      <code>.col-top</code>
+    </div>
+    <div class="td col col-8 col-bottom">
+      <code>.col-bottom</code>
+    </div>
+  </div>
+</div>
+```
+
+### Dynamic Cell Width
+
+The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the
+base .col class for auto widths, .col-1 to .col-24 to define a percentage width between 1/24, .col-fixed to
+define a specific pixel count or just observe the width of it’s children, and finally the .col-grow-2 to
+.col-grow-11 to define a flex-grow column. These can all be used in conjunction. Read more about them here to
+learn their proper use.
+
+Also note that placing a div with .type-ellipsis into any of these cells will truncate your text content.
+
+```html
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-fixed" style="width: 100px"> Fixed Width </div>
+    <div class="th col col-6"> 25% Width </div>
+    <div class="th col"> Auto Width </div>
+    <div class="th col col-grow-2"> Double the Auto Width </div>
+  </div>
+  <div class="tr grid">
+    <div class="td col col-fixed" style="width: 100px"> .col.col-fixed </div>
+    <div class="td col col-6"> .col.col-6 </div>
+    <div class="td col"> .col </div>
+    <div class="td col col-grow-2"> .col-grow-2 </div>
+  </div>
+</div>
+```
+
+### Table Linking
+
+The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single
+cell can be made into a link or an entire row.
+
+```html
+<div class="table">
+  <div class="tr grid">
+    <div class="th col col-2"> Header 1 </div>
+    <div class="th col col-2"> Header 2 </div>
+    <div class="th col col-4"> Header 3 </div>
+    <div class="th col col-8"> Header 4 </div>
+    <div class="th col col-8"> Header 5 </div>
+  </div>
+  <div class="tr grid">
+    <div class="td col col-2"> Cell 1 </div>
+    <div class="td col col-2"> Cell 2 </div>
+    <div class="td col col-4"> Cell 3 </div>
+    <div class="td col col-8"> Cell 4 </div>
+    <a class="td col col-8" href="#tables" title="Everyone Can Read It"> Cell 5 (a tag cell) </a>
+  </div>
+  <a class="tr grid" href="#tables" title="Everyone Can Read It">
+    <div class="td col col-24"> Cell 1-5 (a tag row with div cell) </div>
+  </a>
+</div>
 ```
 
 ## Props

@@ -52,3 +52,32 @@ body {
     outline: 1px solid $neutral-5;
   }
 }
+
+// color chip component
+
+.color-chip-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.chip {
+
+  margin-top: 5px;
+  flex: 1;
+  padding: 0 5px;
+
+  .chip-color {
+    min-height: 53px;
+    border-radius: 5px 5px 0 0
+  }
+  .chip-color-name {
+    color: $dark-2;
+    padding-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 2px 0 rgba(0,0,0,.1);
+  }
+}
