@@ -74,59 +74,6 @@ Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
 </div>
 ```
 
-```html
-::title=Tooltips can be sized
-<div>
-<div class="tooltip">
-  <button class="btn btn-default">
-    A small tooltip
-  </button>
-  <div class="tooltip-container tooltip-sm">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consec</div>
-  </div>
-</div>
-
-<div class="tooltip">
-  <button class="btn btn-default">
-    A medium tooltip
-  </button>
-  <div class="tooltip-container tooltip-md">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</div>
-  </div>
-</div>
-
-<div class="tooltip">
-  <button class="btn btn-default">
-    A large tooltip
-  </button>
-  <div class="tooltip-container tooltip-lg">
-    <div class="tooltip-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-  </div>
-</div>
-</div>
-```
-
-```html
-::title=Form Icon Tooltip
-<form>
-  <div class="form-group">
-    <label for="formIconExample">Email address
-      <div class="tooltip tooltip-light tooltip-md">
-        <div class="icon icon-baseline">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M22 34h4V22h-4v12zm2-30C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"></path></svg>
-        </div>
-        <div class="tooltip-container">
-          <div class="tooltip-content">
-            Form Icon Tooltip
-          </div>
-        </div>
-      </div>
-    </label>
-    <input type="email" class="form-control" id="formIconExample" placeholder="Enter email">
-  </div>
-</form>
-```
-
 If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
 which is controlled by the end user and not by `OverlayTrigger`.
 

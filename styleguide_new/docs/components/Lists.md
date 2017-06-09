@@ -51,27 +51,6 @@
 </div>
 ```
 
-### Breadcrumb
-
-The `.list-breadcrumb` can be used to provide additional page navigation.
-
-Breadcrumbs use their own monospace font-family.
-
-```html
-::title=Breadcrumb
-<ul class="list-breadcrumb">
-  <li>
-    <a href="http://google.com">Parent</a>
-  </li>
-  <li>
-    <a href="http://google.com">Child</a>
-  </li>
-  <li class="current">
-    <span>Current Page</span>
-  </li>
-</ul>
-```
-
 ### Inline
 
 ```jsx

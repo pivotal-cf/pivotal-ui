@@ -37,76 +37,6 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 </div>
 ```
 
-### Image Container
-
-Wrap the image in a fixed-size `.image-container` to make sure the image isn't
-larger than the container
-
-```html
-<div class="media">
-  <a class="media-left" href="#">
-    <div class="image-container" style="width: 100px; height: 50px;">
-      <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64"/>
-    </div>
-  </a>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    <p>
-      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-    </p>
-  </div>
-</div>
-```
-
-### Nested Media
-
-You can also nest media objects inside of each other (useful for comment threads or articles lists).
-
-```html
-<div class="media">
-  <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
-  </a>
-  <div class="media-body">
-    <h4 class="media-heading">Media heading</h4>
-    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.</p>
-
-    <!-- Nested media object -->
-    <div class="media">
-      <a class="media-left" href="#" target="_blank">
-        <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">Nested media heading</h4>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-
-        <!-- Nested media object -->
-        <div class="media">
-          <a class="media-left" href="#" target="_blank">
-            <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
-          </a>
-          <div class="media-body">
-            <h4 class="media-heading">Nested media heading</h4>
-            Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Nested media object -->
-    <div class="media">
-      <a class="media-left" href="#" target="_blank">
-        <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
-      </a>
-      <div class="media-body">
-        <h4 class="media-heading">Nested media heading</h4>
-        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
-      </div>
-    </div>
-  </div>
-</div>
-```
-
 ## Vertical Alignment
 
 ```jsx
@@ -146,51 +76,6 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 </div>
 ```
 
-## Stackable
-
-You can also make the media block stack with grid columns.
-Media objects switch from being stacked on top to being floated left of the media body as the screen size gets larger.
-For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and then left floated on larger screens.
-
-```html_example
-<div>
-<div class="media media-stackable-xs">
-  <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
-  </a>
-  <div class="media-body">
-    <p>Extra-small stackable</p>
-  </div>
-</div>
-
-<div class="media media-stackable-sm">
-  <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
-  </a>
-  <div class="media-body">
-    <p>Small stackable</p>
-  </div>
-</div>
-
-<div class="media media-stackable-md">
-  <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
-  </a>
-  <div class="media-body">
-    <p>Medium stackable</p>
-  </div>
-</div>
-
-<div class="media media-stackable-lg">
-  <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
-  </a>
-  <div class="media-body">
-    <p>Large stackable</p>
-  </div>
-</div>
-</div>
-```
 
 ## Spacing
 

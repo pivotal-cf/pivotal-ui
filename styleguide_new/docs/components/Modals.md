@@ -11,7 +11,6 @@ import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';
 
 // for the example
 import {DefaultButton} from 'pui-react-buttons';
-import {Input} from 'pui-react-inputs';
 ```
 
 We provide 3 components that can be used to assemble modals:
@@ -39,12 +38,11 @@ class MyModal extends React.Component {
         <DefaultButton onClick={() => this.setState({modalOpen: true})}>
           Open Stateless Modal
         </DefaultButton>
-        <BaseModal acquireFocus={false}
-                   title='What a Header!'
+        <BaseModal title='What a Header!'
                    className='optional-custom-class'
                    show={this.state.modalOpen}
                    onHide={() => this.setState({modalOpen: false})}>
-          <ModalBody><p>Text in a body</p><Input autoFocus placeholder="Tell me your darkest secrets"/></ModalBody>
+          <ModalBody>Text in a body</ModalBody>
           <ModalFooter>
             <DefaultButton onClick={() => this.setState({modalOpen: false})}>
               Close
@@ -56,7 +54,9 @@ class MyModal extends React.Component {
   }
 }
 
-<MyModal />
+<div>
+    <MyModal />
+</div>
 ```
 
 ## Props
