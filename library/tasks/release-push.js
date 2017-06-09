@@ -24,8 +24,6 @@ gulp.task('release-push-git-verify', async () => {
     log('Error: You have uncommitted changes.');
     process.exit(2);
   }
-
-  return execPromise('yes | git fetch origin');
 });
 
 gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
@@ -45,19 +43,8 @@ gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
   }
 });
 
-gulp.task('release-push-git', async () => {
-  const {version} = require('../package.json');
-  log(`Cutting tag v${version}`);
-  await execPromise(`git tag v${version}`);
-  log('Pushing to origin/master');
-  await execPromise('git push origin master');
-  log('Pushing new tag');
-  return await execPromise(`git push origin v${version}`);
-});
-
 gulp.task('release-push-packages', (done) => runSequence(
   'release-push-git-verify',
   // 'release-push-npm-publish',
-  'release-push-git',
   done
 ));
