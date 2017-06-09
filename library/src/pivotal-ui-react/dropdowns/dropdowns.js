@@ -11,7 +11,7 @@ const defaultToggleNode = (showIcon, icon) => {
   if (showIcon) return <Icon src={icon} className="icon-toggle"/>;
 };
 
-export class Dropdown extends mixin(React.Component).with(Transition) {
+export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
     super(props, context);
     this.state = {
