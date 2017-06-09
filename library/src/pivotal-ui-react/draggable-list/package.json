@@ -1,12 +1,12 @@
 {
-  "version": "8.7.0",
+  "version": "8.2.0",
   "description": "A React component for showing a list of items that can be re-ordered by the user",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
     "prop-types": ">=15.5.6",
-    "pui-css-lists": "=8.7.0",
-    "pui-react-helpers": "=8.7.0",
-    "pui-react-iconography": "=8.7.0"
+    "pui-css-lists": "=8.2.0",
+    "pui-react-helpers": "=8.2.0",
+    "pui-react-iconography": "=8.2.0"
   }
 }
