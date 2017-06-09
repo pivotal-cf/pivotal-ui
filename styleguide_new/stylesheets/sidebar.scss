@@ -58,12 +58,8 @@ $active-item-border-size: $base-unit / 2;
   }
 }
 
-.sidebar--search {
-  padding: 0 $base-unit 0 $base-unit * 2;
-}
-
 .sidebar--header {
-  padding: $base-unit * 2 $base-unit $base-unit * 2 $base-unit * 2;
+  padding: 16px 16px 32px 16px;
   display: flex;
 
   .sidebar--icon {
@@ -83,13 +79,8 @@ $active-item-border-size: $base-unit / 2;
     display: inline;
     color: $navy-1;
     font-size: $font-size-large;
-    padding-left: $base-unit * 2;
     align-self: center;
   }
-}
-
-.sidebar--items {
-  padding-top: $base-unit * 2;
 }
 
 .sidebar--item-wrapper {
