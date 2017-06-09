@@ -38,4 +38,15 @@ describe('Svg', () => {
     const markup = ReactDOMServer.renderToStaticMarkup(<MySvg className="im-on-a-server" src="foo"/>);
     expect(markup).toEqual('<svg class="im-on-a-server"></svg>');
   });
+
+  describe('when updating the src prop', () => {
+    beforeEach(() => {
+      spyOn(Svg.prototype, 'setComponent');
+      subject::setProps({src: 'add'});
+    });
+
+    it('updates the Component state', () => {
+      expect(Svg.prototype.setComponent).toHaveBeenCalledWith({src: 'add'});
+    });
+  });
 });
