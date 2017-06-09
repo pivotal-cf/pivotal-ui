@@ -45,6 +45,6 @@ gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
 
 gulp.task('release-push-packages', (done) => runSequence(
   'release-push-git-verify',
-  // 'release-push-npm-publish',
+  'release-push-npm-publish',
   done
 ));
