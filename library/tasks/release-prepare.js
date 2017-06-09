@@ -111,7 +111,6 @@ gulp.task('release-commit', () =>
              ../LATEST_CHANGES.md \
              src/pivotal-ui/components/*/package.json \
              src/pivotal-ui-react/*/package.json \
-             release/ \
              ../styleguide/old_styleguides \
              ../styleguide/docs/other-versions.scss \
        && git commit -m "v${getNewVersion()}"`
