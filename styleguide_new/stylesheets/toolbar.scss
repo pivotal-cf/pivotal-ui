@@ -1,22 +1,5 @@
-.toolbar {
-  display: flex;
-  padding: 8px 0 0 0;
-
-  a {
-    color: $text-color;
-  }
-}
-
-.toolbar--left, .toolbar--right {
-  flex: 1;
-}
-
-.toolbar--left {
-  text-align: left;
-}
-
-.toolbar--right {
-  flex: initial;
+.toolbar a {
+  color: $text-color;
 }
 
 .toolbar--icon {
@@ -48,21 +31,16 @@ input[type="checkbox"].toolbar--icon {
 }
 
 .toolbar--item {
-  margin-left: $whitespace-xl;
   cursor: pointer;
-  vertical-align: middle;
   .form-group {
-    margin-bottom: 0;
     label {
       line-height: inherit;
-      margin-right: 0;
     }
   }
 }
 
 .toolbar--label {
   display: inline;
-  margin-left: $whitespace-l;
   font-size: 14px;
 }
 
