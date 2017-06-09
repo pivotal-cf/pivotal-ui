@@ -25,7 +25,7 @@ gulp.task('release-push-git-verify', async () => {
     process.exit(2);
   }
 
-  return execPromise('git fetch origin');
+  return execPromise('yes | git fetch origin');
 });
 
 gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
