@@ -30,7 +30,7 @@ The aria-label attribute will be populated with the button text, unless an aria-
 ## Styles
 
 ### Color and Treatment
-There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt]`prop, to use the flat style, use the `flat` prop.
+There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt`prop, to use the flat style, use the `flat` prop.
 
 ```jsx
 ::title=Default Button
