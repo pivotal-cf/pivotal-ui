@@ -1,9 +1,5 @@
 @import "./toolbar";
 
-.code-editor--toolbar + div {
-  margin-top: 8px;
-}
-
 .code-editor > :last-child {
   margin-top: 8px;
 }
