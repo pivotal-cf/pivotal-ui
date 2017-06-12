@@ -1,8 +1,9 @@
-.content {
-  flex: 1;
+#app .content {
   overflow-y: scroll;
   background-color: white;
-  padding: 28px 16px 28px 36px;
+  padding: 32px;
+  height: 100vh;
+  overflow-y: scroll;
 
   h1, h2, h3, h4, h5, h6 {
     margin: 0;
