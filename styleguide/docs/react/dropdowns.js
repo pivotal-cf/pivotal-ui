@@ -55,6 +55,7 @@ divider          | no       | Boolean                             |             
 disabled         | no       | Boolean                             |                | Disables the DropdownItem
 eventKey         | no       | String                              |                | DropdownItem identifier
 onSelect         | no       | Function                            |                | Callback that fires after clicking the DropdownItem
+onClick          | no       | Function                            |                | Callback that fires after clicking the DropdownItem
 
 Import the subcomponents:
 
