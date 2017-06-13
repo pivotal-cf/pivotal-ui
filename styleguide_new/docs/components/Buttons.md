@@ -30,7 +30,7 @@ The aria-label attribute will be populated with the button text, unless an aria-
 ## Styles
 
 ### Color and Treatment
-There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt]`prop, to use the flat style, use the `flat` prop.
+There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt`prop, to use the flat style, use the `flat` prop.
 
 ```jsx
 ::title=Default Button
@@ -99,6 +99,85 @@ Default
 <DefaultButton fullWidth>
   Full Width Button
 </DefaultButton>
+```
+
+## Disabling
+
+Buttons can be disabled.
+If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
+If given the disabled class, a button will be functionally disabled, and will also change visually.
+
+```jsx
+::title=Disabling
+<div>
+    <div>
+        <button className="btn btn-default" disabled type="button" aria-label="button">
+        Disabled Functionally
+        </button>
+    </div>
+    <br/>
+    <div>
+        <button className="btn btn-default disabled" type="button" aria-label="button">
+        Disabled Visually
+        </button>
+    </div>
+    <br/>
+    <div>
+        <button className="btn btn-default-alt disabled" type="button" aria-label="button">
+        Alt Disabled
+        </button>
+    </div>
+    <br/>
+    <div>
+        <button className="btn disabled" type="button" aria-label="button">
+        Flat Disabled
+        </button>
+    </div>
+    <br/>
+    <div>
+        <button className="btn btn-primary disabled" type="button" aria-label="button">
+        Primary Disabled
+        </button>
+    </div>
+</div>
+```
+
+## Icons
+
+```jsx
+::title=Buttons can contain icons.
+<div>
+<PrimaryButton icon={<Icon src="add"/>}>
+ Some button
+</PrimaryButton>
+
+<DefaultButton alt icon={<Icon src="spinner-sm"/>}>
+ Loading
+</DefaultButton>
+</div>
+```
+
+```jsx
+::title=They can also be icon buttons.
+<DefaultButton alt iconOnly>
+  <Icon src="add"/>
+</DefaultButton>
+```
+
+## Side-by-Side Buttons
+
+Buttons side-by-side will be separated by a margin of `$base-unit`.
+
+```jsx
+::title=Side-by-Side
+<div>
+  <DefaultButton alt>
+    Cancel
+  </DefaultButton>
+  <DefaultButton>
+    Save
+  </DefaultButton>
+</div>
 ```
 
 ## Props

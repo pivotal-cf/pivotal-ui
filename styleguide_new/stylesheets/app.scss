@@ -10,33 +10,30 @@ body {
 }
 
 #app {
-  display: flex;
-  height: 100%;
+  .toc {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    line-height: 24px;
 
-  .toc-sidebar {
-    border-left: 1px solid #ccc;
-    width: 200px;
+    a {
+      color: $dark-6;
+      display: block;
+      padding: 8px 0 8px 16px;
 
-    .toc {
-      background: #f5f5f5;
-      border-bottom: 1px solid #ccc;
-      line-height: 24px;
-
-      a {
-        color: $dark-6;
-        display: block;
-        padding: 8px 0 8px 16px;
-
-        &:hover {
-          background: $dark-9;
-          color: $dark-3;
-        }
-      }
-
-      .heading-3 {
-        padding-left: 32px;
+      &:hover {
+        background: $dark-9;
+        color: $dark-3;
       }
     }
+
+    .heading-3 {
+      padding-left: 32px;
+    }
+  }
+
+  .toc-column {
+    border-left: 1px solid #ccc;
+    width: 200px;
   }
 }
 
@@ -50,5 +47,34 @@ body {
     background-color: $neutral-10;
     padding: 10px 0;
     outline: 1px solid $neutral-5;
+  }
+}
+
+// color chip component
+
+.color-chip-row {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.chip {
+  margin-top: 5px;
+  flex: 1;
+  padding: 0 5px;
+
+  .chip-color {
+    min-height: 53px;
+    border-radius: 5px 5px 0 0
+  }
+
+  .chip-color-name {
+    color: $dark-2;
+    padding-top: 5px;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: white;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 2px 0 rgba(0, 0, 0, .1);
   }
 }

@@ -72,6 +72,19 @@ See examples below.
 </Panel>
 ```
 
+```html
+::title=Panel with Loading Animation
+<div class="panel box-shadow-1">
+  <div class="panel-header">
+    <div class="panel-title-alt">Panel Title Alt</div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-loading-indicator"></div>
+    Look, I'm loading!
+  </div>
+</div>
+```
+
 ```jsx
 ::title=Default Scrollable Panel
 <Panel className="bg-neutral-11 box-shadow-1" scrollable={true}>

@@ -5,10 +5,12 @@ Description for dropdown.
 
 ## Dropdown Types
 
+### Basic Dropdown
+
 This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```jsx
-::title=Basic Dropdown
+::title=Example
 <div className="form-group">
   <Dropdown title='Basic Dropdown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -18,9 +20,10 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 </div>
 ```
 
+### Basic Dropdown with Custom Icon
 
 ```jsx
-::title=Basic Dropdown with Custom Icon
+::title=Example
 <div className="form-group">
   <Dropdown title='Basic Dropdown Custom Icon' icon='more_vert'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -30,12 +33,13 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 </div>
 ```
 
+### Float Dropdown Menu
 
 The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
 exceeds the parent dropdown width.
 
 ```jsx
-::title=Float Dropdown Menu
+::title=Example
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Float Dropdown Menu' floatMenu>
@@ -63,12 +67,13 @@ exceeds the parent dropdown width.
 </div>
 ```
 
+### Float Scroll Menu
 
 Lists that are indeterminately long can utilize the float scroll menu. The size is
 fixed so you'll have to customize the fixed height to achieve your desired results.
 
 ```jsx
-::title=Float Scroll Menu
+::title=Example
 <div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll floatMenu>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -85,11 +90,28 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
 </div>
 ```
 
+### Split Dropdown
+
+Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the
+focused state. Only appropriate as a float menu.
+
+```jsx
+::title=Example
+<div className="form-group">
+  <Dropdown title='Split Dropdown' split>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+  </Dropdown>
+</div>
+```
+### Flat Button Dropdown
+
 
 Dropdown with the flat button styling. Floating menu only.
 
 ```jsx
-::title=Flat Button Dropdown
+::title=Example
 <div className="form-group form-inline">
   <Dropdown title='Flat Button Dropdown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -99,11 +121,12 @@ Dropdown with the flat button styling. Floating menu only.
 </div>
 ```
 
+### Link Dropdown
 
 Dropdown with the link styling, retains dropdown padding. Floating menu only.
 
 ```jsx
-::title=Link Dropdown
+::title=Example
 <div className="form-group form-inline">
   <Dropdown title='Link Dropdown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -113,10 +136,12 @@ Dropdown with the link styling, retains dropdown padding. Floating menu only.
 </div>
 ```
 
+### Icon Dropdown
+
 Rendered when no title is specified. Floating menu only.
 
 ```jsx
-::title=Icon Dropdown
+::title=Example
 <div className="form-group">
   <Dropdown icon='more_vert' menuAlign='left'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -160,7 +185,6 @@ Property         | Required | Type                                | Default     
 -----------------|----------|-------------------------------------|----------------|------------
 buttonAriaLabel  | no       | String                              |                | aria-label for the button
 buttonClassName  | no       | String                              |                | Classname to add to the button
-splitClassName   | no       | String                              |                | Classname to add to the text
 closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
 flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
@@ -171,14 +195,15 @@ link             | no       | Boolean                             |             
 labelAriaLabel   | no       | String                              |                | aria-label for the label (split dropdown only)
 menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
 onClick          | no       | Function                            |                | Callback that fires after clicking the button
-onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text
 onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
 onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
 onSelect         | no       | Function                            |                | Callback that fires after clicking the default option (split dropdown only)
+onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text (split dropdown only)
 scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
 showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
 size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 split            | no       | Boolean                             |                | If true, separates the button text from the toggle
+splitClassName   | no       | String                              |                | Classname to add to the text (split dropdown only)
 title            | no       | Node                                |                | The button contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)

@@ -32,14 +32,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="app">
-        <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
-        <div className="content">
+      <div id="app" className="grid">
+        <div className="col col-fixed">
+          <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
+        </div>
+        <div className="col content">
           <MarkdownViewer json={this.state.content.json}
                           file={this.state.content.file}
                           name={this.state.content.name}/>
         </div>
-        <TocSidebar json={this.state.content.json.children}/>
+        <div className="col col-fixed toc-column pln">
+          <TocSidebar json={this.state.content.json.children}/>
+        </div>
       </div>
     );
   }

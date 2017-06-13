@@ -7,7 +7,7 @@ import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
 export default class HtmlEditor extends React.Component {
   render() {
     return (
-      <div className="code-editor--html-preview">
+      <div className="code-editor--html-preview mbxl">
         <div className="code-editor--titlebar">
           <div className="code-editor--label plxl">
             <Icon src="html5" className="mrl code-editor--label-icon"/> HTML

@@ -18,16 +18,23 @@ export default (file, name) => class extends Component {
 
       const lines = rawContent.split('\n');
       let title = '';
+      let description = '';
 
-      if (lines[0].includes('::title=')) {
+      if (lines[0].startsWith('::title=')) {
         title = lines[0];
         lines.splice(0, 1);
         title = title.replace('::title=', '');
       }
 
+      if (lines[0].startsWith('::description=')) {
+        description = lines[0];
+        lines.splice(0, 1);
+        description = description.replace('::description=', '');
+      }
+
       const code = lines.join('\n');
 
-      props = {title, code, file, name};
+      props = {title, description, code, file, name};
     }
 
     switch (lang) {

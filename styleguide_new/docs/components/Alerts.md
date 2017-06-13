@@ -23,6 +23,41 @@ import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alert
 </div>
 ```
 
+## Complex Example
+
+Alerts are also used to bring important notes to a user's attention. If the content of your alert
+is a little more complicated, we would recommend using headings coupled with the content.
+
+```jsx
+::title=Complex Example
+<div>
+<InfoAlert>
+<h5 className="em-high mtn">You should know...</h5>
+    <p>There are some things you should note. Just in case you didn't figure it out already.</p>
+    <ul>
+      <li>thing 1</li>
+      <li>thing 2</li>
+    </ul>
+</InfoAlert>
+</div>
+```
+
+## Alert Links
+
+If you want to include a link in your alert, use the class `alert-link`.
+
+```jsx
+::title=Alert Links
+<div>
+<WarningAlert>
+<h5 className="em-high mtn">Important Link</h5>
+    <p>
+      It is very important that you <a className="alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
+    </p>
+</WarningAlert>
+</div>
+```
+
 ## Dismissable
 
 ```jsx
