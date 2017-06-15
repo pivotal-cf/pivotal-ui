@@ -1,5 +1,7 @@
 # Images
 
+`npm install pui-react-images --save`
+
 ## Description
 Image description goes here.
 

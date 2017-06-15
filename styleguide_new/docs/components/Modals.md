@@ -1,5 +1,7 @@
 # Modals
 
+`npm install pui-react-modals --save`
+
 ## Description
 
 ## Basic Usage

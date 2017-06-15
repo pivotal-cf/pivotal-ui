@@ -1,5 +1,7 @@
 # Alerts
 
+`npm install pui-react-panes --save`
+
 ## Description
 
 ## Basic Usage

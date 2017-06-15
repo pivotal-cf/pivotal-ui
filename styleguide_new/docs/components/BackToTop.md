@@ -1,5 +1,9 @@
 # Back To Top
 
+`npm install pui-react-back-to-top --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
 ## Basic usage
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)

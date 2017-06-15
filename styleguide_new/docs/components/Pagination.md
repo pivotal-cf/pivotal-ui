@@ -1,4 +1,7 @@
 # Pagination
+
+`npm install pui-react-pagination --save`
+
 ## Description
 Pagination is a method for allowing a user to view a subset of sorted data into a more comprehensible format. It allows a user to progress to the next or previous view, or choose a page number you want manually.
 

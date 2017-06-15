@@ -1,5 +1,7 @@
 # Grids
 
+`npm install pui-react-grids --save`
+
 ## Description
 Pivotal ui (via bootstrap) includes a responsive, **mobile first** fluid grid system that
 appropriately scales up to 24 columns as the device or viewport size increases.

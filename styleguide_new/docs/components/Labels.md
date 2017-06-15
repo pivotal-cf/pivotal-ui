@@ -1,5 +1,7 @@
 # Labels
 
+`npm install pui-react-labels --save`
+
 ## Description
 
 ## Basic Usage

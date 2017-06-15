@@ -1,5 +1,7 @@
 # Dividers
 
+`npm install pui-react-dividers --save`
+
 ## Description
 
 ## Basic Usage

@@ -4,6 +4,9 @@
 ***It requires the webpack loaders babel-loader and react-svg-loader.***
 ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
+`npm install pui-react-svg --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
 
 ## Description
 

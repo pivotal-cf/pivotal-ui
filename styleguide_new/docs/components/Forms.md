@@ -1,5 +1,7 @@
 # Forms
 
+`npm install pui-react-forms --save`
+
 ## Description
 
 Individual form controls automatically receive some global styling.

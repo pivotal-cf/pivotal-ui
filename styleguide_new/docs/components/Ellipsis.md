@@ -1,5 +1,7 @@
 # Ellipsis
 
+`npm install pui-react-ellipsis --save`
+
 ## Description
 Description for ellipsis.
 

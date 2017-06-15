@@ -1,5 +1,7 @@
 # Portals
 
+`npm install pui-react-portals --save`
+
 ## Description
 
 ## Basic Usage

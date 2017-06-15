@@ -1,5 +1,7 @@
 # Copy To Clipboard
 
+`npm install pui-react-copy-to-clipboard --save`
+
 ## Description
 Some description.
 

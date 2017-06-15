@@ -1,5 +1,7 @@
 # Alignment
 
+`npm install pui-css-alignment --save`
+
 ## Description
 
 ## Basic Usage

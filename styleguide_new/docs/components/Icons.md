@@ -1,5 +1,12 @@
 # Icons
 
+***This component is limited to projects that use Webpack.***
+***It requires the webpack loaders babel-loader and react-svg-loader.***
+
+`npm install pui-react-icons --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
 ## Description
 
 We use custom SVG icons, available at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).

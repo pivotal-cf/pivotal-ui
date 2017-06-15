@@ -1,5 +1,7 @@
 # Expander
 
+`npm install pui-react-expander --save`
+
 ## Description
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
@@ -37,7 +39,7 @@ class MoreInfo extends React.Component {
         </ExpanderContent>
         <button className="btn btn-primary" onClick={() => this.setState({expanded: !this.state.expanded})}>
           Toggle Content
-        </button>
+        </button> 
       </main>
     )
   }

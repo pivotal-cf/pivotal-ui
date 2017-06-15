@@ -1,5 +1,11 @@
 # Select
 
+`npm install pui-react-select --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
+(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+
 ## Description
 
 ## Basic Usage

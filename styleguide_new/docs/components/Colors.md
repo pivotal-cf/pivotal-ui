@@ -1,5 +1,7 @@
 # Colors
 
+`npm install pui-css-colors --save`
+
 ## Description
 
 Our color pallet is composed of several different colors. At any given point it captures the current

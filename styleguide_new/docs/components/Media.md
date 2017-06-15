@@ -1,5 +1,7 @@
 # Media
 
+`npm install pui-react-media --save`
+
 ## Description
 
 ## Basic Usage

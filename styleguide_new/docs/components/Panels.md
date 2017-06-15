@@ -1,5 +1,7 @@
 # Panels
 
+`npm install pui-react-panels --save`
+
 ## Description
 
 Using Panels, you can organize information collections into logical groups, aggregate your content and show it to be context specific. They include box headers, footers, and can be combined with any background. See it in action [here](https://pui-pivots.cfapps.io/).

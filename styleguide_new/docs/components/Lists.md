@@ -1,5 +1,7 @@
 # Lists
 
+`npm install pui-react-lists --save`
+
 ## Description
 
 

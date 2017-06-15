@@ -1,5 +1,7 @@
 # Tooltips
 
+`npm install pui-react-tooltip --save`
+
 ## Description
 
 The Tooltip component is a styled container for content that should be displayed when triggered by an

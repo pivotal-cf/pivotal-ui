@@ -1,5 +1,7 @@
 # Tile Layout
 
+`npm install pui-react-tile-layout pui-react-panels --save`
+
 ## Basic usage
 
 Import the subcomponents:

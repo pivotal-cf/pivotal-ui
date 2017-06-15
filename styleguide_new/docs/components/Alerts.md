@@ -1,5 +1,9 @@
 # Alerts
 
+`npm install pui-react-alerts --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
 ## Description
 Description of Alerts goes here.
 

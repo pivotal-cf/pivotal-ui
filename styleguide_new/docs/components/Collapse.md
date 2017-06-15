@@ -1,5 +1,9 @@
 # Collapse
 
+`npm install pui-react-collapse --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
 ## Description
 Collapse description goes here.
 

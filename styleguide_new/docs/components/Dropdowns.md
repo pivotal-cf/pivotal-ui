@@ -1,5 +1,9 @@
 # Dropdowns
 
+`npm install pui-react-dropdowns --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
 ## Description
 Description for dropdown.
 

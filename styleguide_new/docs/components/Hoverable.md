@@ -1,5 +1,7 @@
 # Hoverable
 
+`npm install pui-react-hoverable --save`
+
 ## Description
 
 This component is for showing hidden actions on hover.
