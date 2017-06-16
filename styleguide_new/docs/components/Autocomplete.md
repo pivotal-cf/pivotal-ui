@@ -11,6 +11,12 @@
 ## Description
 Autocomplete provides the user the ability to search for known entities with the task of retrieval or navigation. For more exploratory search and complex information seeking tasks consider a multi-step workflow or filtering options.
 
+## Do's and Don'ts
+Do's         | Don'ts
+-------------|----------
+Use Autocomplete to facilitate accurate and efficient data entry | Use Autocomplete when the user needs to explore a dataset
+Use Autocomplete to select from a finite list of names, objects or symbols |
+
 ## Basic Usage
 
 ```jsx
@@ -23,13 +29,6 @@ const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeI
     <AutocompleteExample/>
 </div>
 ```
-
-## Do's
-- Use Autocompete to facilitate accurate and efficient data entry
-- Use Autocompete to select from a finite list of names, objects or symbols
-
-## Don'ts
-- Use Autocomplete when the user needs to explore a dataset
 
 ## onInitializeItems
 The callback passed to this function should return the values to initially populate the list of items.

@@ -11,17 +11,12 @@
 ## Description
 Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page. They’re sort of like tabbed dividers in a filing cabinet – by clicking a tab, users can easily locate a view of related content. Tabs should be used for alternating between views within the same context, not to navigate to different areas.
 
-## Do's
-
-- Use tabs to group content, connect related information, and as a tool to save space.
-- Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need.
-- When a user would like to access each group of information separately.
-
-## Don'ts
-
-- Don’t use tabs when it’s more meaningful for the user to see related content grouped together
-- When content is sequential it may make more sense to have content grouped and scrollable
-- When it makes more sense to have users scan the page then hide content
+## Do's and Don'ts
+Do's         | Don'ts
+-------------|----------
+Use tabs to group content, connect related information, and as a tool to save space. | Don’t use tabs when it’s more meaningful for the user to see related content grouped together
+Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need. | When content is sequential it may make more sense to have content grouped and scrollable
+When a user would like to access each group of information separately. | When it makes more sense to have users scan the page then hide content
 
 ## Props
 
