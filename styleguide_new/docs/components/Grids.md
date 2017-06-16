@@ -1,6 +1,12 @@
 # Grids
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-grids --save`
+
+#### CSS Only
+`npm install pui-css-grids --save`
 
 ## Description
 Pivotal ui (via bootstrap) includes a responsive, **mobile first** fluid grid system that

@@ -1,6 +1,12 @@
 # Images
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-images --save`
+
+#### CSS Only
+`npm install pui-css-images --save`
 
 ## Description
 Image description goes here.

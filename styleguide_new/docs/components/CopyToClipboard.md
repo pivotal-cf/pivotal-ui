@@ -1,6 +1,12 @@
 # Copy To Clipboard
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-copy-to-clipboard --save`
+
+#### CSS Only
+`npm install pui-css-copy-to-clipboard --save`
 
 ## Description
 Some description.

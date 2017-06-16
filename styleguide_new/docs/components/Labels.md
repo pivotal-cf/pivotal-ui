@@ -1,6 +1,12 @@
 # Labels
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-labels --save`
+
+#### CSS Only
+`npm install pui-css-labels --save`
 
 ## Description
 

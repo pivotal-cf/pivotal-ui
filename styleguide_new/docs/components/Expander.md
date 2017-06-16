@@ -1,6 +1,12 @@
 # Expander
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-expander --save`
+
+#### CSS Only
+`npm install pui-css-expander --save`
 
 ## Description
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a

@@ -1,6 +1,12 @@
 # Forms
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-forms --save`
+
+#### CSS Only
+`npm install pui-css-forms --save`
 
 ## Description
 

@@ -1,6 +1,12 @@
 # Modals
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-modals --save`
+
+#### CSS Only
+`npm install pui-css-modals --save`
 
 ## Description
 

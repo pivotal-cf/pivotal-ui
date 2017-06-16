@@ -1,6 +1,12 @@
 # Dividers
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-dividers --save`
+
+#### CSS Only
+`npm install pui-css-dividers --save`
 
 ## Description
 

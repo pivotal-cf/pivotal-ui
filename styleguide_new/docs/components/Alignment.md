@@ -1,5 +1,8 @@
 # Alignment
 
+## Installation & Usage
+
+#### CSS Only
 `npm install pui-css-alignment --save`
 
 ## Description

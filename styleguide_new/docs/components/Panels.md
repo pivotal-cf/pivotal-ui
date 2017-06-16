@@ -1,6 +1,12 @@
 # Panels
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-panels --save`
+
+#### CSS Only
+`npm install pui-css-panels --save`
 
 ## Description
 

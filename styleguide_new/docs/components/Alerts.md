@@ -1,8 +1,14 @@
 # Alerts
 
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
 `npm install pui-react-alerts --save`
 
-`npm install babel-loader react-svg-loader --save-dev`
+#### CSS Only
+`npm install pui-css-alerts --save`
 
 ## Description
 Description of Alerts goes here.

@@ -1,6 +1,12 @@
 # Autocomplete
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-autocomplete --save`
+
+#### CSS Only
+`npm install pui-css-autocomplete --save`
 
 ## Description
 Autocomplete provides the user the ability to search for known entities with the task of retrieval or navigation. For more exploratory search and complex information seeking tasks consider a multi-step workflow or filtering options.

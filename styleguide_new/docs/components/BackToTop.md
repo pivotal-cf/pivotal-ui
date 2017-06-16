@@ -1,8 +1,14 @@
 # Back To Top
 
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
 `npm install pui-react-back-to-top --save`
 
-`npm install babel-loader react-svg-loader --save-dev`
+#### CSS Only
+`npm install pui-css-back-to-top --save`
 
 ## Basic usage
 

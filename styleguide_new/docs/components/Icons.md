@@ -3,9 +3,15 @@
 ***This component is limited to projects that use Webpack.***
 ***It requires the webpack loaders babel-loader and react-svg-loader.***
 
-`npm install pui-react-icons --save`
+## Installation & Usage
 
+#### React
 `npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-iconography --save`
+
+#### CSS Only
+`npm install pui-css-iconography --save`
 
 ## Description
 

@@ -1,6 +1,12 @@
 # Media
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-media --save`
+
+#### CSS Only
+`npm install pui-css-media --save`
 
 ## Description
 

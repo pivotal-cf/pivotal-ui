@@ -1,6 +1,12 @@
 # Tile Layout
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-tile-layout pui-react-panels --save`
+
+#### CSS Only
+`npm install pui-css-tile-layout pui-css-panels --save`
 
 ## Basic usage
 

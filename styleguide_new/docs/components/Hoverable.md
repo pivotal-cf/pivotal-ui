@@ -1,6 +1,12 @@
 # Hoverable
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-hoverable --save`
+
+#### CSS Only
+`npm install pui-css-hoverable --save`
 
 ## Description
 

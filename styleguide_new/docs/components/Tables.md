@@ -1,10 +1,16 @@
 # Tables
 
-`npm install pui-react-table --save`
+## Installation & Usage
 
+#### React
 `npm install babel-loader react-svg-loader --save-dev`
 
+`npm install pui-react-table --save`
+
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+
+#### CSS Only
+`npm install pui-css-table --save`
 
 ## Description
 

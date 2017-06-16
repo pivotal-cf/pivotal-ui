@@ -1,6 +1,12 @@
 # Alerts
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-panes --save`
+
+#### CSS Only
+`npm install pui-css-panes --save`
 
 ## Description
 

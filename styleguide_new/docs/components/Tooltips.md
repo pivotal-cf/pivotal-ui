@@ -1,6 +1,12 @@
 # Tooltips
 
+## Installation & Usage
+
+#### React
 `npm install pui-react-tooltip --save`
+
+#### CSS Only
+`npm install pui-css-tooltips --save`
 
 ## Description
 

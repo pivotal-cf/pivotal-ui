@@ -1,5 +1,9 @@
 # Colors
 
+## Installation & Usage
+
+#### CSS Only
+
 `npm install pui-css-colors --save`
 
 ## Description
