@@ -7,14 +7,14 @@
 ## Description
 Description for dropdown.
 
-## Dropdown Types
+## Examples
 
 ### Basic Dropdown
 
 This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```jsx
-::title=Example
+::title=Basic Dropdown
 <div className="form-group">
   <Dropdown title='Basic Dropdown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -27,7 +27,7 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 ### Basic Dropdown with Custom Icon
 
 ```jsx
-::title=Example
+::title=Basic Dropdown with Custom Icon
 <div className="form-group">
   <Dropdown title='Basic Dropdown Custom Icon' icon='more_vert'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -43,7 +43,7 @@ The float dropdown menu is spaced 2px below the toggle. It can also be pinned to
 exceeds the parent dropdown width.
 
 ```jsx
-::title=Example
+::title=Float Dropdown Menu
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Float Dropdown Menu' floatMenu>
@@ -77,7 +77,7 @@ Lists that are indeterminately long can utilize the float scroll menu. The size 
 fixed so you'll have to customize the fixed height to achieve your desired results.
 
 ```jsx
-::title=Example
+::title=Float Scroll Menu
 <div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll floatMenu>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -100,7 +100,7 @@ Action with additional actions hidden in a dropdown. Note the position of the la
 focused state. Only appropriate as a float menu.
 
 ```jsx
-::title=Example
+::title=Split Dropdown
 <div className="form-group">
   <Dropdown title='Split Dropdown' split>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -115,7 +115,7 @@ focused state. Only appropriate as a float menu.
 Dropdown with the flat button styling. Floating menu only.
 
 ```jsx
-::title=Example
+::title=Flat Button Dropdown
 <div className="form-group form-inline">
   <Dropdown title='Flat Button Dropdown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -130,7 +130,7 @@ Dropdown with the flat button styling. Floating menu only.
 Dropdown with the link styling, retains dropdown padding. Floating menu only.
 
 ```jsx
-::title=Example
+::title=Link Dropdown
 <div className="form-group form-inline">
   <Dropdown title='Link Dropdown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -145,7 +145,7 @@ Dropdown with the link styling, retains dropdown padding. Floating menu only.
 Rendered when no title is specified. Floating menu only.
 
 ```jsx
-::title=Example
+::title=Icon Dropdown
 <div className="form-group">
   <Dropdown icon='more_vert' menuAlign='left'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -155,9 +155,8 @@ Rendered when no title is specified. Floating menu only.
 </div>
 ```
 
-## Sizing
-
 ```jsx
+::title=Sizing
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Large Dropdown' size='large'>
