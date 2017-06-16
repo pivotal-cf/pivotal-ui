@@ -12,6 +12,17 @@
 
 Using Panels, you can organize information collections into logical groups, aggregate your content and show it to be context specific. They include box headers, footers, and can be combined with any background. See it in action [here](https://pui-pivots.cfapps.io/).
 
+Import the subcomponents:
+
+```
+import {Panel} from 'pui-react-panels';
+```
+
+Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself is the base, and there are a few different properties that can be applied to achieve the desired result.
+
+A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
+property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
+
 ## Do's and Don'ts
 Do's         | Don'ts
 -------------|----------
@@ -19,20 +30,7 @@ Use a panel to logically group content that has the following form: header, body
 Use multiple panels or list-group inside to group a collection of related content objects. | Overload the panel header with too many calls to action.
 Distinguish between primary and secondary CTAs in the header and footer (e.g., primary vs secondary buttons). | Use a panel when screen real estate is valuable, instead consider a table layout or grouped-list.
 
-## Basic Usage
-
-Import the subcomponents:
-
-```
-import {Panel} from 'pui-react-panels';
-```
-
-Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself is the base, and there are a few different properties that can be applied to achieve the desired result. 
-
-A `ScrollingPanel` is created by using a `Panel` component and including a true value for the `scrollable`
-property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
-
-See examples below.
+## Examples
 
 ```jsx
 ::title=Basic Panel

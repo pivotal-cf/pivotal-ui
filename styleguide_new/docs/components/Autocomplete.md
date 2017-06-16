@@ -17,8 +17,7 @@ Do's         | Don'ts
 Use Autocomplete to facilitate accurate and efficient data entry | Use Autocomplete when the user needs to explore a dataset
 Use Autocomplete to select from a finite list of names, objects or symbols |
 
-## Basic Usage
-
+## Examples
 ```jsx
 ::title=Basic Example
 const onPick = item => alert('You selected ' + item.value);
@@ -30,7 +29,7 @@ const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeI
 </div>
 ```
 
-## onInitializeItems
+#### onInitializeItems
 The callback passed to this function should return the values to initially populate the list of items.
 
 It's designed to be able to be used asynchronously:
@@ -48,7 +47,7 @@ const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
 ```
 
 
-## onPick
+#### onPick
 By default, when a user selects a list item, nothing happens except hiding the list.
 
 ```
@@ -57,7 +56,7 @@ const onPick = value => {
 };
 ```
 
-## onSearch
+#### onSearch
 To override the default search algorithm, pass your custom function to the Autocomplete as the prop onSearch.
 
 onSearch is given the current value of the input and a callback.

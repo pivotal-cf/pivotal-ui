@@ -21,14 +21,11 @@ import {Media, Flag} from 'pui-react-media';
 import {Image} from 'pui-react-images';
 ```
 
-A Flag is a special type of media that is vAlign='middle'.
-
-The images or other media can be aligned top, middle, or bottom. The default is top aligned.
-
-The base button renderer. You won't really interact with this directly.
+## Examples
 
 ```jsx
 ::title=Basic Example
+::description=A Flag is a special type of media that is vAlign='middle'. The images or other media can be aligned top, middle, or bottom. The default is top aligned. The base button renderer. You won't really interact with this directly.
 const mediaBasicImage = <Image src="http://placehold.it/50x50" alt="A sample media object"/>;
 const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
 
@@ -45,12 +42,9 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 </div>
 ```
 
-### Image Container
-
-Wrap the image in a fixed-size `.image-container` to make sure the image isn't
-larger than the container
-
 ```html
+::title=Image Container
+::description=Wrap the image in a fixed-size `.image-container` to make sure the image isn't larger than the container
 <div class="media">
   <a class="media-left" href="#">
     <div class="image-container" style="width: 100px; height: 50px;">
@@ -66,11 +60,9 @@ larger than the container
 </div>
 ```
 
-### Nested Media
-
-You can also nest media objects inside of each other (useful for comment threads or articles lists).
-
 ```html
+::title=Nested Media
+::description=You can also nest media objects inside of each other (useful for comment threads or articles lists).
 <div class="media">
   <a class="media-left" href="#" target="_blank">
     <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
@@ -115,10 +107,8 @@ You can also nest media objects inside of each other (useful for comment threads
 </div>
 ```
 
-## Vertical Alignment
-
 ```jsx
-::title=Alignment Example
+::title=Vertical Alignment
 const mediaAlignmentImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>
@@ -154,13 +144,9 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 </div>
 ```
 
-## Stackable
-
-You can also make the media block stack with grid columns.
-Media objects switch from being stacked on top to being floated left of the media body as the screen size gets larger.
-For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and then left floated on larger screens.
-
-```html_example
+```html
+::title=Stackable
+::description=You can also make the media block stack with grid columns. Media objects switch from being stacked on top to being floated left of the media body as the screen size gets larger. For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and then left floated on larger screens.
 <div>
 <div class="media media-stackable-xs">
   <a class="media-left" href="#" target="_blank">
@@ -200,12 +186,9 @@ For example, `.media-stackable-xs` is stacked on screen sizes from 0-480px and t
 </div>
 ```
 
-## Spacing
-
-Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
-
 ```jsx
-::title=Spacing Example
+::title=Spacing
+::description=Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
 const mediaSpacingImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>

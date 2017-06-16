@@ -13,7 +13,6 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
 
 ## Examples
 
-
 ```jsx
 ::title=Basic Example
 <div>

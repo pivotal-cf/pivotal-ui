@@ -11,18 +11,17 @@
 ## Description
 Image description goes here.
 
-## Basic Usage
-
 Import the subcomponent:
 
 ```
 import {Image} from 'pui-react-images';
 ```
 
-Images in React can be responsive and/or wrapped in a link.
+## Examples
 
 ```jsx
 ::title=Basic Example
+::description=Images in React can be responsive and/or wrapped in a link.
 <div>
     <Image src="http://placehold.it/1000x100"
            responsive={true}
@@ -31,11 +30,9 @@ Images in React can be responsive and/or wrapped in a link.
 </div>
 ```
 
-## Responsive
-
-Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
-
 ```html
+::title=Responsive
+::description=Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element. See bootstrap 3 for further documentation of this feature.
 <div class="row">
   <div class="col-md-5">
     <img alt="Responsive image" class="img-responsive" src="styleguide/such-awesome.jpg"/>
@@ -49,7 +46,7 @@ Images can be made responsive-friendly via the addition of the `.img-responsive`
 </div>
 ```
 
-## Responsive SVG
+#### Responsive SVG
 
 SVG can be made responsive-friendly via the addition of the `.svg-responsive` class on a
 wrapper div and the `.svg-content` class on the svg itself. You'll also need to to define
@@ -63,11 +60,8 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 </div>
 ```
 
-The `padding-bottom` should equal the **height divided by the width** of your specific svg.
-
-For more information about setting up your svg, read this article about [svg coordinates systems by Sara Soueidan](http://sarasoueidan.com/blog/svg-coordinate-systems/).
-
 ```html
+::title=Custom SVG
 <div class="row">
   <div class="col-md-5">
     <div class="svg-responsive" style="padding-bottom: 78.31%">

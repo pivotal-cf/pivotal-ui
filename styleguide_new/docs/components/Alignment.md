@@ -7,10 +7,11 @@
 
 ## Description
 
-## Basic Usage
-The following classes can be used to for horizontal alignment.
+## Examples
+
 ```jsx
 ::title=Horizontal Alignment Example
+::description=The following classes can be used to for horizontal alignment.
 <div>
     <p className="txt-l"> <code>.txt-l</code> </p>
     <p className="txt-c"> <code>.txt-c</code> </p>
@@ -18,11 +19,9 @@ The following classes can be used to for horizontal alignment.
 </div>
 ```
 
-On `display: inline` and `display: table-cell` elements,
-the following classes can be used to for vertical alignment.
-
 ```jsx
 ::title=Vertical Alignment Example
+::description=On `display: inline` and `display: table-cell` elements, the following classes can be used to for vertical alignment.
 <table className="table table-bordered" >
   <tr>
     <th width="40%">
@@ -42,6 +41,3 @@ the following classes can be used to for vertical alignment.
   </tr>
 </table>
 ```
-
-If you need to vertically align an element that does not fit into those display types,
-take a look at [vertical alignment][vertical_align].

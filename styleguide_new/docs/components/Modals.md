@@ -10,8 +10,6 @@
 
 ## Description
 
-## Basic Usage
-
 Import the subcomponents:
 
 ```
@@ -27,6 +25,8 @@ We provide 3 components that can be used to assemble modals:
 * `BaseModal`
 * `ModalBody`
 * `ModalFooter`
+
+## Examples
 
 ```jsx
 ::title=Basic Example

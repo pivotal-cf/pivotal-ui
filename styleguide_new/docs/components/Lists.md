@@ -10,13 +10,10 @@
 
 ## Description
 
+## Examples
 
-## Basic Usage
-
-### Breadcrumb
- 
 ```jsx
-::title=Breadcrumb List
+::title=Breadcrumb
 <div>
     <BreadcrumbList>
       <ListItem><a href="/">Home</a></ListItem>
@@ -26,10 +23,8 @@
 </div>
 ```
 
-### Draggable
-
 ```jsx
-::title=Draggable List
+::title=Draggable
 <div>
     <DraggableList className="my-list-class" innerClassName="my-item-class">
       <DraggableListItem>
@@ -59,14 +54,9 @@
 </div>
 ```
 
-### Breadcrumb
-
-The `.list-breadcrumb` can be used to provide additional page navigation.
-
-Breadcrumbs use their own monospace font-family.
-
 ```html
-::title=Breadcrumb
+::title=Breadcrumb CSS
+::description=The `.list-breadcrumb` can be used to provide additional page navigation. Breadcrumbs use their own monospace font-family.
 <ul class="list-breadcrumb">
   <li>
     <a href="http://google.com">Parent</a>
@@ -80,10 +70,8 @@ Breadcrumbs use their own monospace font-family.
 </ul>
 ```
 
-### Inline
-
 ```jsx
-::title=Inline List
+::title=Inline
 <div>
     <InlineList>
       <ListItem>Item 1</ListItem>
@@ -93,10 +81,8 @@ Breadcrumbs use their own monospace font-family.
 </div>
 ```    
 
-### Ordered
-
 ```jsx
-::title=Ordered List
+::title=Ordered
 <div>
     <OrderedList>
      <ListItem>Item 1</ListItem>
@@ -105,7 +91,6 @@ Breadcrumbs use their own monospace font-family.
     </OrderedList>
 </div>
 ```
-
 
 ```jsx
 ::title=Ordered Unstyled List
@@ -116,10 +101,8 @@ Breadcrumbs use their own monospace font-family.
 </OrderedList>
 ```
 
-### Unordered
-
 ```jsx
-::title=Unordered List
+::title=Unordered
 <div>
     <UnorderedList>
       <ListItem>feep</ListItem>

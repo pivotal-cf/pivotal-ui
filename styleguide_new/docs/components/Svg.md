@@ -14,16 +14,15 @@
 #### CSS Only
 `npm install pui-css-svg --save`
 
-
 ## Description
-
-## Basic Usage
 
 Import the subcomponents:
 
 ```
 import {Svg} from 'pui-react-svg';
 ```
+
+## Examples
 
 This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.
 The example below will render the file `app/svg/search.svg`.

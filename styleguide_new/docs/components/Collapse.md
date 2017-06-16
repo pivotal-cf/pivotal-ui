@@ -13,7 +13,6 @@
 ## Description
 Collapse description goes here.
 
-## Basic Usage
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 Import the subcomponents:
@@ -28,6 +27,8 @@ of the clickable region to toggle the expand/collapse states. You can pass `defa
 as a prop to the `Collapse` and it will start expanded when the page loads.
 
 This is a basic collapse with no additional styles.
+
+## Examples
 
 ```jsx
 ::title=Basic Example
@@ -44,12 +45,10 @@ This is a basic collapse with no additional styles.
   <p>Panel 1 content</p>
 </BaseCollapse>
 ```
-## Alt
-
-This is a basic collapse with an +/- icon in the clickable region.
 
 ```jsx
 ::title=Without Arrows Example
+::description=This is a basic collapse with an +/- icon in the clickable region
 <AltCollapse header="Without Arrows">
   <p>Content!</p>
   <p>Content!</p>
@@ -58,12 +57,10 @@ This is a basic collapse with an +/- icon in the clickable region.
   <p>Content!</p>
 </AltCollapse>
 ```
-## Arrows
-
-This is a basic collapse with an arrow icon in the clickable region.
 
 ```jsx
 ::title=Arrow Icon Example
+::description=This is a basic collapse with an arrow icon in the clickable region
 <Collapse header="With Arrows">
   <p>Content!</p>
   <p>Content!</p>
@@ -73,13 +70,9 @@ This is a basic collapse with an arrow icon in the clickable region.
 </Collapse>
 ```
 
-## Adding Dividers
-
-To add a divider between the clickable region and the expanded content region,
-simply set the `divider` property to be true.
-
 ```jsx
 ::title=Divider Example
+::description=To add a divider between the clickable region and the expanded content region, simply set the `divider` property to be true
 <Collapse header="With Divider" divider>
   <p>Content!</p>
   <p>Content!</p>

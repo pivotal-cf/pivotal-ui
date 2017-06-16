@@ -15,13 +15,13 @@
 
 ## Description
 
-## Basic Usage
-
 Import the subcomponents:
 
 ```
 import {Select} from 'pui-react-select';
 ```
+
+## Examples
 
 ```jsx
 ::title=Basic Example

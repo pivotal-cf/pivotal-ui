@@ -10,7 +10,7 @@
 #### CSS Only
 `npm install pui-css-back-to-top --save`
 
-## Basic usage
+## Description
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
@@ -25,6 +25,8 @@ You can use this component to scroll to the top of a page.
 The button will be fixed to the bottom right hand corner of the page.
 
 You can place the link anywhere in your markup, but best practices are either towards the top or bottom of your markup.
+
+## Examples
 
 ```jsx
 ::title=Always Visible Example

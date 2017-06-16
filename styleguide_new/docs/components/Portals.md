@@ -10,8 +10,6 @@
 
 ## Description
 
-## Basic Usage
-
 Import the subcomponents:
 
 ```
@@ -26,6 +24,8 @@ For example, modals can be rendered at the bottom of `<body>`, but the React com
 the modal content (e.g. a `<button>`) does not have access to `<body>` directly.
 If a `PortalDestination` is put at the bottom of `<body>`, a `PortalSource` can then be used
 anywhere without knowing about `<body>`.
+
+## Examples
 
 ```jsx
 ::title=Basic Example

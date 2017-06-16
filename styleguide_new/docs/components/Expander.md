@@ -8,12 +8,13 @@
 #### CSS Only
 `npm install pui-css-expander --save`
 
+## Import
+
 ## Description
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
 else within the DOM.
 
-## Basic Usage
 Import the subcomponent:
 
 ```
@@ -22,11 +23,11 @@ import {ExpanderContent} from 'pui-react-expander';
 
 The Expander component accepts an "onEntered" and an "onExited" callback that triggers after animation is complete.
 
-See the example below for how to use these components in your own application.
-
+## Examples
 
 ```jsx
 ::title=Basic Example
+::description=See the example below for how to use these components in your own application.
 class MoreInfo extends React.Component {
   constructor(props) {
     super(props);

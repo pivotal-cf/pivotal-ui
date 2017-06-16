@@ -11,7 +11,6 @@
 ## Description
 Use buttons as triggers for actions that are used in forms, toolbars, and as stand-alone action triggers. Try to avoid the usage of buttons for navigation. The main difference between actions and navigation is that **Actions** are operations performed on objects, while **Navigation** refers to elements on the screen or view that take you to another context in the application. For **Navigation** consider simply using links.
 
-## Basic Usage
 Import the subcomponents:
 
 ```
@@ -22,6 +21,7 @@ import {Icon} from 'pui-react-iconography';
 Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 The aria-label attribute will be populated with the button text, unless an aria-label value is explicitly supplied.
 
+## Examples
 
 ```jsx
 ::title=Link vs Button Example
@@ -35,8 +35,6 @@ The aria-label attribute will be populated with the button text, unless an aria-
 </DefaultButton>
 </div>
 ```
-
-## Styles
 
 ### Color and Treatment
 There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt`prop, to use the flat style, use the `flat` prop.
@@ -78,12 +76,9 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ### Sizing
-To make a button large, set the `large` property to true, to make it small, set `small` to true.
-To make a button full width, set `fullWidth` to true.
-
-
 ```jsx
 ::title=Large Button
+::description=To make a button large, set the `large` property to true
 <DefaultButton large>
   Big Button
 </DefaultButton>
@@ -98,6 +93,7 @@ Default
 
 ```jsx
 ::title=Small Button
+::description=To make a button large, set the `small` property to true
 <DefaultButton small>
   Small Button
 </DefaultButton>
@@ -105,12 +101,13 @@ Default
 
 ```jsx
 ::title=Full Width Button
+::description=To make a button full width, set `fullWidth` to true
 <DefaultButton fullWidth>
   Full Width Button
 </DefaultButton>
 ```
 
-## Disabling
+### Disabling
 
 Buttons can be disabled.
 If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
@@ -151,10 +148,10 @@ If given the disabled class, a button will be functionally disabled, and will al
 </div>
 ```
 
-## Icons
+### Icons
 
 ```jsx
-::title=Buttons can contain icons.
+::title=Buttons can contain icons
 <div>
 <PrimaryButton icon={<Icon src="add"/>}>
  Some button
@@ -167,18 +164,17 @@ If given the disabled class, a button will be functionally disabled, and will al
 ```
 
 ```jsx
-::title=They can also be icon buttons.
+::title=They can also be icon buttons
 <DefaultButton alt iconOnly>
   <Icon src="add"/>
 </DefaultButton>
 ```
 
-## Side-by-Side Buttons
-
-Buttons side-by-side will be separated by a margin of `$base-unit`.
+### Side-by-Side Buttons
 
 ```jsx
 ::title=Side-by-Side
+::description=Buttons side-by-side will be separated by a margin of `$base-unit`.
 <div>
   <DefaultButton alt>
     Cancel

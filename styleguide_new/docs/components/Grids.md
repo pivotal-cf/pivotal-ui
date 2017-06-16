@@ -14,7 +14,7 @@ appropriately scales up to 24 columns as the device or viewport size increases.
 To work with the system, you need to **treat mobile as your default**
 and build more complex layouts up from there.
 
-## Introduction
+### Introduction
 
 Grid systems are used for creating page layouts through a series of rows and columns that house your content.
 Here's how the bootstrap grid system works:
@@ -46,7 +46,7 @@ They would each take up their own row on devices &lt; 992px.
 
 Look to the [examples](#grid-examples) for applying these principles to your code.
 
-## Media Queries
+### Media Queries
 
 We use the following media queries in our sass files to create the key breakpoints in our grid system.
 
@@ -59,11 +59,11 @@ medium    | 992px          | `$screen-md-min`
 large     | 1200px         | `$screen-lg-min`
 x-large   | 1800px         | `$screen-xl-min`
 
-## Grid Sizes
-
-See how aspects of the bootstrap grid system work across multiple devices with a handy table.
+## Examples
 
 ```html
+::title=Grid Sizes
+::description=See how aspects of the bootstrap grid system work across multiple devices with a handy table.
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -137,8 +137,6 @@ See how aspects of the bootstrap grid system work across multiple devices with a
 </table>
 ```
 
-## Basic Example
-
 ```jsx
 ::title=Basic Example
 <div>
@@ -174,14 +172,10 @@ See how aspects of the bootstrap grid system work across multiple devices with a
   </Row>
 </div>
 ```
-## Mobile and Desktop
-
-Don't want your columns to simply stack in smaller devices?
-Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns.
-See the example below for a better idea of how it all works.
 
 ```jsx
-::title=Example
+::title=Mobile and Desktop
+::description=Don't want your columns to simply stack in smaller devices? Use the extra small and medium device grid classes by adding `.col-xs-*` `.col-md-*` to your columns. See the example below for a better idea of how it all works.
 <div>
   <Row className="grid-show">
     <Col xs={24} md={16}/>
@@ -199,10 +193,8 @@ See the example below for a better idea of how it all works.
 </div>
 ```
 
-## Gutter Sizes
-
 ```jsx
-::title=Example
+::title=Gutter Sizes
 <div>
   <Row className="grid-show">
     <Col md={12}/>
@@ -219,14 +211,9 @@ See the example below for a better idea of how it all works.
 </div>
 ```
 
-## Responsive Column Resets
-
-With the four tiers of grids available you're bound to run into issues where,
-at certain breakpoints, your columns don't clear quite right as one is taller than the other.
-To fix that, use a combination of a `.clearfix`
-and our responsive utility classes.
-
 ```html
+::title=Responsive Column Resets
+::description=With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a `.clearfix` and our responsive utility classes.
 <div class="row grid-show">
   <div class="col-xs-12 col-sm-6" grid-content="this is a tall column"></div>
   <div class="col-xs-12 col-sm-6"></div>
@@ -239,13 +226,9 @@ and our responsive utility classes.
 </div>
 ```
 
-## Offsetting Columns
-
-Move columns to the right using `.col-md-offset-*` classes.
-These classes increase the left margin of a column by `*` columns.
-For example, `.col-md-offset-4` moves `.col-md-4` over four columns.
-
 ```html
+::title=Offsetting Columns
+::description=Move columns to the right using `.col-md-offset-*` classes. These classes increase the left margin of a column by `*` columns. For example, `.col-md-offset-4` moves `.col-md-4` over four columns.
 <div class="row grid-show">
   <div class="col-md-8"></div>
   <div class="col-md-8 col-md-offset-8"></div>
@@ -259,13 +242,9 @@ For example, `.col-md-offset-4` moves `.col-md-4` over four columns.
 </div>
 ```
 
-## Column Ordering
-
-Easily change the order of our built-in grid columns
-with `.col-md-push-*` and `.col-md-pull-*` modifier classes.
-This is useful if you want to change the order of columns at different screen sizes.
-
 ```html
+::title=Column Ordering
+::description=Easily change the order of our built-in grid columns with `.col-md-push-*` and `.col-md-pull-*` modifier classes. This is useful if you want to change the order of columns at different screen sizes.
 <div class="row grid-show">
   <div class="col-md-18 col-md-push-6"></div>
   <div class="col-md-6 col-md-pull-18"></div>
@@ -294,11 +273,11 @@ xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change t
 
 # Flex Grid
 
-## Gutters
-
-You can create a flex grid with and without gutters. Here are examples of what each would look like.
+## Examples
 
 ```html
+::title=Gutters
+::description=You can create a flex grid with and without gutters. Here are examples of what each would look like.
 <div class="grid grid-show">
   <div class="col"></div>
   <div class="col"></div>
@@ -312,13 +291,9 @@ You can create a flex grid with and without gutters. Here are examples of what e
 </div>
 ```
 
-## Sizing
-
-Using a single set of `.col-n` grid classes, you can create a basic grid system that starts
-out stacked on mobile devices and tablet devices (the extra small to small range) before
-becoming horizontal on desktop (medium) devices. Place grid columns in any `.grid`:
-
 ```html
+::title=Sizing
+::description=Using a single set of `.col-n` grid classes, you can create a basic grid system that starts out stacked on mobile devices and tablet devices (the extra small to small range) before becoming horizontal on desktop (medium) devices. Place grid columns in any `.grid`:
 <div class="grid grid-show">
   <div class="col col-2"></div>
   <div class="col col-2"></div>
@@ -351,11 +326,9 @@ becoming horizontal on desktop (medium) devices. Place grid columns in any `.gri
 </div>
 ```
 
-You can also specify how the columns grow with `.col-grow-n` (n = 2 - 11). These columns will
-attempt to respect their given ratio until the content of the column exceeds their parameters,
-after which the column will drop onto another row:
-
 ```html
+::title=Col Grow
+::description=You can also specify how the columns grow with `.col-grow-n` (n = 2 - 11). These columns will attempt to respect their given ratio until the content of the column exceeds their parameters, after which the column will drop onto another row:
 <div class="grid grid-show">
   <div class="col"></div>
   <div class="col col-grow-2"></div>
@@ -368,11 +341,9 @@ after which the column will drop onto another row:
 </div>
 ```
 
-## Fixing Column Size
-
-You can fix the width of a column by using the `.col-fixed` class.
-
 ```html
+::title=Fixing Column Sizing
+::description=You can fix the width of a column by using the `.col-fixed` class.
 <div class="grid grid-show">
   <div class="col col-fixed" style="width: 150px;"></div>
   <div class="col"></div>
@@ -380,11 +351,9 @@ You can fix the width of a column by using the `.col-fixed` class.
 </div>
 ```
 
-## Break Points
-
-You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
-
 ```html
+::title=Break Points
+::description=You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
 <div class="grid grid-show">
   <div class="col col-sm" style="width: 150px;"></div>
   <div class="col col-sm"></div>
@@ -404,11 +373,9 @@ You can specify three different media breakpoints with the `.col-sm, .col-md, an
 </div>
 ```
 
-## Alignment
-
-Aligning columns relative to the grid:
-
 ```html
+::title=Alignment
+::description=Aligning columns relative to the grid:
 <div class="grid grid-show" style="height:200px">
   <div class="col col-align-top"></div>
   <div class="col col-align-middle"></div>
@@ -416,9 +383,9 @@ Aligning columns relative to the grid:
 </div>
 ```
 
-Aligning content relative to the column it is in:
-
 ```html
+::title=Relative Alignment
+::description=Aligning content relative to the column it is in
 <div class="grid">
   <div class="col col-top" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits at the top of the column</div>
   <div class="col col-middle" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits in the middle of the column</div>

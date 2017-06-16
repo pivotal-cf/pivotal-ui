@@ -38,6 +38,8 @@ colors rather than adding new ones.
 </div>
 ```
 
+## Examples
+
 This example shows proper use of Sass variables.
 
 ```

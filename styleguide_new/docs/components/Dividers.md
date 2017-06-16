@@ -10,28 +10,26 @@
 
 ## Description
 
-## Basic Usage
-
 Import the subcomponents:
 
 ```
 import {Divider} from 'pui-react-dividers';
 ```
 
-Dividers draw horizontal lines between different content groupings.
+## Examples
 
 ```jsx
 ::title=Large Divider Example
+::description=Dividers draw horizontal lines between different content groupings
 <div>
   <Divider />
   <Divider size="large" />
 </div>
 ```
 
-On a dark background, use these inverse dividers:
-
 ```jsx
 ::title=Inverse Dividers
+::description=On a dark background, use these inverse dividers
 <div style={{background: '#232B2F'}}>
   <div className="type-dark-11">
     I am some content

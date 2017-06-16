@@ -28,8 +28,6 @@ isSticky       | no       | Boolean                                   | false   
 OverlayTriggers are highly configurable. Their associated overlays do not show up in the DOM until triggered.
 This makes them ideal for highly repeated layouts such as lists.
 
-## Basic Usage
-
 Import the subcomponents:
 
 ```
@@ -37,15 +35,11 @@ import {Tooltip} from 'pui-react-tooltip';
 import {OverlayTrigger} from 'pui-react-overlay-trigger';
 ```
 
-To create a tooltip where the contents are not inlined with the triggering element itself, use the OverlayTrigger component.
-If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover, this is where the `Tooltip`
-can be used. This can be useful in situations where you want to have many different elements trigger the same tooltip.
-
-Tooltips are placed using the `placement` property on `OverlayTrigger`, "left",
-"right", "bottom", "top".
+## Examples
 
 ```jsx
 ::title=Basic Example
+::description=To create a tooltip where the contents are not inlined with the triggering element itself, use the OverlayTrigger component. If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover, this is where the `Tooltip` can be used. This can be useful in situations where you want to have many different elements trigger the same tooltip. Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", "right", "bottom", "top".
 <div>
   <div className="form-group">
     Check out this
@@ -162,20 +156,17 @@ isSticky     | no       | Boolean                                    | false   |
 TooltipTriggers are simpler to use, and their associated Tooltips are shown and hidden using css `visibility` rules.
 In contrast to OverlayTriggers, the markup always exists in the DOM.
 
-## Basic usage
-
 Import the subcomponents:
 
 ```
 import {TooltipTrigger} from 'pui-react-tooltip';
 ```
 
-TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the
-triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that
-the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
+## Examples
 
 ```jsx
 ::title=Basic Eample
+::description=TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
 <div>
   <div className="form-group form-inline">
     <TooltipTrigger tooltip="Some tooltip">
@@ -195,10 +186,9 @@ the TooltipTrigger will add a lot of markup to the DOM if you are using it in a 
 </div>
 ```
 
-Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
-
 ```jsx
 ::title=Markup Example
+::description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
 <div>
   <div className="form-group form-inline">
     <TooltipTrigger tooltip={<a href="#">clickable link</a>} theme="light">

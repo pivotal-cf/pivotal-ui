@@ -11,13 +11,8 @@
 ## Description
 Pagination is a method for allowing a user to view a subset of sorted data into a more comprehensible format. It allows a user to progress to the next or previous view, or choose a page number you want manually.
 
-## Do's and Don'ts
-Do's         | Don'ts
--------------|----------
-Use when it is unsuitable to display all the data on a single page/screen. | Do not use when you don’t want the user to pause for navigating to the next page. Instead consider simply having a scrolling vertical view.
-Use when the dataset is in some way ordered. |
-
-## Basic Usage
+The Pagination component provides a styled list of links used to navigate through a paginated list.  By default,
+the component includes a 'previous page' button, a 'next page' button, and one link.
 
 Import the subcomponents:
 
@@ -25,18 +20,22 @@ Import the subcomponents:
 import {Pagination} from 'pui-react-pagination';
 ```
 
-The Pagination component provides a styled list of links used to navigate through a paginated list.  By default,
-the component includes a 'previous page' button, a 'next page' button, and one link.
+## Do's and Don'ts
+Do's         | Don'ts
+-------------|----------
+Use when it is unsuitable to display all the data on a single page/screen. | Do not use when you don’t want the user to pause for navigating to the next page. Instead consider simply having a scrolling vertical view.
+Use when the dataset is in some way ordered. |
+
+## Examples
 
 ```jsx
 ::title=Without extra props
 <Pagination/>
 ```
 
-The following is an example of pagination with extra props:
-
 ```jsx
 ::title=With extra props
+::description=The following is an example of pagination with extra props:
 class PaginationAdvanced extends React.Component {
   constructor(props) {
     super(props);

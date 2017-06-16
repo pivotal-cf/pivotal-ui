@@ -14,20 +14,16 @@
 
 ## Description
 
-# HTML Tables
-
-## Description
-
 The `Table` component is a robust component that offers a styled table with fully
 functioning sort. If the rows change, the content on the page will update.
-
-## Basic Usage
 
 Import the subcomponents:
 
 ```
 import {Table, TableRow, TableCell} from 'pui-react-table';
 ```
+
+## Examples
 
 ```jsx
 ::title=Basic Example
@@ -82,11 +78,9 @@ const data = [
 </div>
 ```
 
-### Table Row Hover
-
-Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
-
 ```html
+::title=Table Row Hover
+::description=Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
 <table class="table">
   <tbody>
     <tr>
@@ -108,11 +102,9 @@ Adding .tr-hover to a specific table row or the table element itself will add th
 </table>
 ```
 
-### Table Cell Hover
-
-Adding .td-hover to the table element will allow the user to highlight individual cells.
-
 ```html
+::title=Table Cell Hover
+::description=Adding .td-hover to the table element will allow the user to highlight individual cells.
 <table class="table td-hover">
   <tbody>
     <tr>
@@ -134,11 +126,9 @@ Adding .td-hover to the table element will allow the user to highlight individua
 </table>
 ```
 
-### Table Border Modifiers
-
-Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
-
 ```html
+::title=Table Border Modifiers
+::description=Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
 <table class="table tr-no-h-borders">
   <tbody>
     <tr>
@@ -160,9 +150,9 @@ Remove all of the internal horizontal borders with class .tr-no-h-borders applie
 </table>
 ```
 
-No external borders to rows using class .table-no-ext-borders on the table element.
-
 ```html
+::title=No External Borders
+::description=No external borders to rows using class .table-no-ext-borders on the table element.
 <table class="table table-no-ext-borders">
   <tbody>
     <tr>
@@ -184,9 +174,9 @@ No external borders to rows using class .table-no-ext-borders on the table eleme
 </table>
 ```
 
-No external borders to rows using class .table-no-borders on the table element.
-
 ```html
+::title=No Borders
+::description=No external borders to rows using class .table-no-borders on the table element.
 <table class="table table-no-borders">
   <tbody>
     <tr>
@@ -208,7 +198,9 @@ No external borders to rows using class .table-no-borders on the table element.
 </table>
 ```
 
-### TableRow
+# TableRow
+
+## Description
 
 The `TableRow` component is provided for users who wish to customize their rows
 with the `CustomRow` prop to `Table`. If a custom row is provided, the table will use that
@@ -217,6 +209,8 @@ representing the (zero-indexed) row number.
 
 Note that sorting occurs on the actual data.
 Changing the presentation of the data does not affect the sort behavior.
+
+## Examples
 
 ```jsx
 ::title=Custom Row Example
@@ -280,16 +274,9 @@ class CustomRow extends React.Component {
 <Table columns={columns} data={data} CustomRow={CustomRow}/>
 ```
 
-The `TableCell` component is provided for users who wish to customize their cells
-with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that
-component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index`
-representing the (zero-indexed) row number. For more advanced use cases, the `rowDatum` prop is also passed into the custom cell.
-
-Note that sorting occurs on the actual data.
-Changing the presentation of the data does not affect the sort behavior.
-
 ```jsx
-::title=Custom Cell Example
+::title=Custom Cell
+::description=The `TableCell` component is provided for users who wish to customize their cells with the `CustomCell` attribute on the `columns` prop. If a custom cell is provided, the table will use that component to render each cell, giving it a `value` prop representing the attribute from the datum for that row and `index` representing the (zero-indexed) row number. For more advanced use cases, the `rowDatum` prop is also passed into the custom cell. Note that sorting occurs on the actual data. Changing the presentation of the data does not affect the sort behavior.
 class CustomCell extends React.Component {
   render() {
     return (
@@ -371,17 +358,16 @@ cellClass   | no  | String    |       | Class to apply to all cells in a column
 The `FlexTable` component is similar to the `Table` component except it will build the underlying table
 as a flex grid instead of a traditional html table.
 
-
-## Basic usage
-
 Import the subcomponents:
 
 ```
 import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
 ```
 
+## Examples
+
 ```jsx
-::title=Basic FlexTable Example
+::title=Basic FlexTable
 const columns = [
   {
     attribute: 'title',
@@ -435,12 +421,9 @@ const data = [
 <FlexTable columns={columns} data={data} defaultSort='instances'/>
 ```
 
-The `FlexTableRow` component is provided for users who wish to customize their rows
-with the `CustomRow` prop to `FlexTable`.
-
-
 ```jsx
-::title=Custom Row Example
+::title=Custom Row
+::description=The `FlexTableRow` component is provided for users who wish to customize their rows with the `CustomRow` prop to `FlexTable`.
 class CustomRow extends React.Component {
   render() {
     return (
@@ -503,11 +486,9 @@ const data = [
 <FlexTable columns={columns} data={data} CustomRow={CustomRow}/>
 ```
 
-The `FlexTableCell` component is provided for users who wish to customize their cells
-with the `CustomCell` attribute on the `columns` prop.
-
 ```jsx
-::title=Custom Cell Example
+::title=Custom Cell
+::description=The `FlexTableCell` component is provided for users who wish to customize their cells with the `CustomCell` attribute on the `columns` prop.
 class CustomCell extends React.Component {
   render() {
     return (
@@ -558,12 +539,9 @@ const data = [
 <FlexTable columns={customCellColumns} data={data}/>
 ```
 
-### Table Cell Alignment
-
-Thanks to the power of the flexbox grid you can take advantage of content alignment classes
-like .col-top and .col-bottom to align the content of a column.
-
 ```html
+::title=Table Cell Alignment
+::description=Thanks to the power of the flexbox grid you can take advantage of content alignment classes like .col-top and .col-bottom to align the content of a column.
 <div class="table">
   <div class="tr grid">
     <div class="th col col-8"> Head </div>
@@ -585,17 +563,9 @@ like .col-top and .col-bottom to align the content of a column.
 </div>
 ```
 
-### Dynamic Cell Width
-
-The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the
-base .col class for auto widths, .col-1 to .col-24 to define a percentage width between 1/24, .col-fixed to
-define a specific pixel count or just observe the width of it’s children, and finally the .col-grow-2 to
-.col-grow-11 to define a flex-grow column. These can all be used in conjunction. Read more about them here to
-learn their proper use.
-
-Also note that placing a div with .type-ellipsis into any of these cells will truncate your text content.
-
 ```html
+::title=Dynamic Cell Width
+::description=The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the base .col class for auto widths, .col-1 to .col-24 to define a percentage width between 1/24, .col-fixed to define a specific pixel count or just observe the width of it’s children, and finally the .col-grow-2 to .col-grow-11 to define a flex-grow column. These can all be used in conjunction. Read more about them here to learn their proper use. Also note that placing a div with .type-ellipsis into any of these cells will truncate your text content.
 <div class="table">
   <div class="tr grid">
     <div class="th col col-fixed" style="width: 100px"> Fixed Width </div>
@@ -612,12 +582,9 @@ Also note that placing a div with .type-ellipsis into any of these cells will tr
 </div>
 ```
 
-### Table Linking
-
-The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single
-cell can be made into a link or an entire row.
-
 ```html
+::title=Table Linking
+::description=The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single cell can be made into a link or an entire row.
 <div class="table">
   <div class="tr grid">
     <div class="th col col-2"> Header 1 </div>

@@ -25,9 +25,11 @@ When styling the SVGs, remember to use the `fill` or `stroke` attributes instead
 Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
 example below.
 
-An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
+## Examples
 
 ```html
+::title=SVG Example
+::description=An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
 <h1>
   <div class="icon">
     <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
@@ -38,9 +40,9 @@ An SVG wrapped with `.icon` can inherit the font size of the element above it, b
 
 ```
 
-Align SVG to baseline with `.icon-baseline` modifier class.
-
 ```html
+::title=Baseline
+::description=Align SVG to baseline with `.icon-baseline` modifier class.
 <h1>
   Example
   <div class="icon icon-baseline">
@@ -51,21 +53,17 @@ Align SVG to baseline with `.icon-baseline` modifier class.
 </h1>
 ```
 
-Wrap an image tag with `.icon` to get the same sizing functionality.
-
 ```html
+::title=Image Example
+::description=Wrap an image tag with `.icon` to get the same sizing functionality.
 <div class="icon">
   <img src="styleguide/help.svg">
 </div>
 ```
 
-## Spinner
-
-Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner
-moves more quickly and dramatically.  In all cases, the base height and width is 1em
-and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
-
 ```html_example
+::title=Spinner
+::description=Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner moves more quickly and dramatically.  In all cases, the base height and width is 1em and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
 <div class="grid txt-c">
   <div class="col col-top">
   <div class="mbl"><code>.spinner-lg</code></div>

@@ -4,18 +4,14 @@
 
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
+(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
 `npm install pui-react-notifications --save`
 
 #### CSS Only
 `npm install pui-css-notifications --save`
 
-
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
-
 ## Description
-
-## Basic Usage
 
 Import the subcomponents:
 
@@ -27,6 +23,8 @@ import {Flag} from 'pui-react-media';
 import {Label} from 'pui-react-labels';
 import {Icon} from 'pui-react-iconography';
 ```
+
+## Examples
 
 ```jsx
 ::title=No Notifications
@@ -45,10 +43,8 @@ import {Icon} from 'pui-react-iconography';
 </Notifications>
 ```
 
-## Notification Sizing
-
 ```jsx
-::title=Sizing Example
+::title=Notification Sizing
 <div>
     <Notifications size="h1">
       <NotificationItem>Stuff</NotificationItem>
@@ -80,8 +76,6 @@ import {Icon} from 'pui-react-iconography';
 </div>
 ```
 
-## Alerts
-
 ```jsx
 ::title=No Alerts
 <AlertNotifications />
@@ -103,7 +97,7 @@ import {Icon} from 'pui-react-iconography';
 
 If you want to customize the notification dropdown, you can use `className` to
 add a modifier class to the `btn-group`. `id` and `style` will be applied to
-the notfication button.
+the notification button.
 
 ## Props
 

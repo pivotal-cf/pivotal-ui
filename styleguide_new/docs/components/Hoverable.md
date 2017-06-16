@@ -12,9 +12,10 @@
 
 This component is for showing hidden actions on hover.
 
-## Basic Usage
 If you put this on an element then hovering on that parent element will show the hidden element.
 This can be used with any kind of list but the list group style seems to fit this use case best.
+
+## Examples
 
 ```html
 ::title=List Example
