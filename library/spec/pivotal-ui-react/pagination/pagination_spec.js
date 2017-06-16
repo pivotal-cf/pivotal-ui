@@ -4,7 +4,7 @@ import {Pagination} from 'pui-react-pagination';
 
 describe('Pagination', () => {
   let subject;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Pagination {...props}/>);
+  const renderComponent = props => ReactDOM.render(<Pagination {...props}/>, root);
 
   it('renders a pagination component', () => {
     subject = renderComponent();
@@ -18,9 +18,9 @@ describe('Pagination', () => {
       const paginationButtons = pagination.getElementsByTagName('li');
 
       expect(paginationButtons[0]).toHaveText('‹');
-      expect(paginationButtons[6]).toHaveText('›');
       expect(paginationButtons[1]).toHaveText('1');
       expect(paginationButtons[5]).toHaveText('5');
+      expect(paginationButtons[6]).toHaveText('›');
       expect(paginationButtons).toHaveLength(7);
     });
 
