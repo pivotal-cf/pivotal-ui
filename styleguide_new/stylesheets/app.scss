@@ -33,6 +33,8 @@ body {
 
   .toc-column {
     border-left: 1px solid #ccc;
+    max-height: 100vh;
+    overflow-y: scroll;
     width: 200px;
   }
 }

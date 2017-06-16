@@ -21,7 +21,7 @@ class App extends React.Component {
 
   updateContent(href) {
     window.history.pushState({}, '', href);
-
+    ['content', 'toc-sidebar'].forEach(id => document.getElementById(id).scrollTop = 0);
     const path = window.location.pathname;
     this.setState({content: App.currentContent(path), path: path});
   }
@@ -36,12 +36,12 @@ class App extends React.Component {
         <div className="col col-fixed">
           <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
         </div>
-        <div className="col content">
+        <div id="content" className="col content">
           <MarkdownViewer json={this.state.content.json}
                           file={this.state.content.file}
                           name={this.state.content.name}/>
         </div>
-        <div className="col col-fixed toc-column pln">
+        <div id="toc-sidebar" className="col col-fixed toc-column pln">
           <TocSidebar json={this.state.content.json.children}/>
         </div>
       </div>
