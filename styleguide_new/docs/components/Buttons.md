@@ -5,6 +5,8 @@
 #### React
 `npm install pui-react-buttons --save`
 
+`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';`
+
 #### CSS Only
 `npm install pui-css-buttons --save`
 
@@ -149,6 +151,10 @@ If given the disabled class, a button will be functionally disabled, and will al
 ```
 
 ### Icons
+
+Import `Icon`:
+
+`import {Icon} from 'pui-react-iconography';`
 
 ```jsx
 ::title=Buttons can contain icons

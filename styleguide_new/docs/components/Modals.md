@@ -5,20 +5,12 @@
 #### React
 `npm install pui-react-modals --save`
 
+`import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';`
+
 #### CSS Only
 `npm install pui-css-modals --save`
 
 ## Description
-
-Import the subcomponents:
-
-```
-import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';
-
-// for the example
-import {DefaultButton} from 'pui-react-buttons';
-import {Input} from 'pui-react-inputs';
-```
 
 We provide 3 components that can be used to assemble modals:
 
@@ -27,6 +19,11 @@ We provide 3 components that can be used to assemble modals:
 * `ModalFooter`
 
 ## Examples
+
+```
+import {DefaultButton} from 'pui-react-buttons';
+import {Input} from 'pui-react-inputs';
+```
 
 ```jsx
 ::title=Basic Example

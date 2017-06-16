@@ -5,16 +5,12 @@
 #### React
 `npm install pui-react-portals --save`
 
+`import {PortalSource, PortalDestination} from 'pui-react-portals';`
+
 #### CSS Only
 `npm install pui-css-portals --save`
 
 ## Description
-
-Import the subcomponents:
-
-```
-import {PortalSource, PortalDestination} from 'pui-react-portals';
-```
 
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like
 modals, tooltips, and dropdowns, when you want to define the content near the trigger, but have

@@ -5,6 +5,13 @@
 #### React
 `npm install pui-react-forms --save`
 
+```
+import {Checkbox} from 'pui-react-checkbox';
+import {Input} from 'pui-react-inputs';
+import {RadioGroup, Radio} from 'pui-react-radio';
+import {Toggle} from 'pui-react-toggle';
+```
+
 #### CSS Only
 `npm install pui-css-forms --save`
 
@@ -265,14 +272,6 @@ Examples of standard form controls supported in an example form layout.
 
 # Checkbox
 
-## Description
-
-Import the subcomponent:
-
-```
-import {Checkbox} from 'pui-react-checkbox';
-```
-
 ## Examples
 
 ```jsx
@@ -423,14 +422,6 @@ If you use those props, you will need to add an svg loader:
 npm install babel-loader react-svg-loader --save-dev
 </code>
 
-## Description
-
-Import the subcomponent:
-
-```
-import {Input} from 'pui-react-inputs';
-```
-
 ## Examples
 
 ```jsx
@@ -550,17 +541,9 @@ success        | no       | Boolean                           | false    | Input
 
 # Radio
 
-## Description
+## Examples
 
 For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
-
-Import the subcomponents:
-
-```
-import {RadioGroup, Radio} from 'pui-react-radio';
-```
-
-## Examples
 
 ```jsx
 ::title=Basic Example
@@ -643,14 +626,6 @@ style          | no  | Object   |       | Individual styling of the element
 disabled       | no  | Boolean  | false | Whether the radio is disabled
 
 # Toggle
-
-## Description
-
-Import the subcomponent:
-
-```
-import {Toggle} from 'pui-react-toggle';
-```
 
 ## Examples
 

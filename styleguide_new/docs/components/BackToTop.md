@@ -7,18 +7,14 @@
 
 `npm install pui-react-back-to-top --save`
 
+`import {BackToTop} from 'pui-react-back-to-top';`
+
 #### CSS Only
 `npm install pui-css-back-to-top --save`
 
 ## Description
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
-
-Import the subcomponent:
-
-```
-import {BackToTop} from 'pui-react-back-to-top';
-```
 
 You can use this component to scroll to the top of a page.
 

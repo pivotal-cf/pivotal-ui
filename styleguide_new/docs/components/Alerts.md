@@ -7,23 +7,17 @@
 
 `npm install pui-react-alerts --save`
 
+`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';`
+
 #### CSS Only
 `npm install pui-css-alerts --save`
 
 ## Description
 Description of Alerts goes here.
 
+Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`. If you use those props, you will need to add an svg loader.
+
 ## Examples
-
-### Basic Usage
-Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`.
-If you use those props, you will need to add an svg loader:
-
-Import the subcomponents:
-
-```
-import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';
-```
 
 ```jsx
 ::title=Basic Example

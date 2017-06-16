@@ -5,23 +5,16 @@
 #### React
 `npm install pui-react-media --save`
 
+`import {Media, Flag} from 'pui-react-media';`
+
 #### CSS Only
 `npm install pui-css-media --save`
 
-## Description
-
-## Basic Usage
-
-Import the subcomponents:
+## Examples
 
 ```
-import {Media, Flag} from 'pui-react-media';
-
-// for the example
 import {Image} from 'pui-react-images';
 ```
-
-## Examples
 
 ```jsx
 ::title=Basic Example

@@ -11,16 +11,10 @@
 
 `npm install pui-react-svg --save`
 
+`import {Svg} from 'pui-react-svg';`
+
 #### CSS Only
 `npm install pui-css-svg --save`
-
-## Description
-
-Import the subcomponents:
-
-```
-import {Svg} from 'pui-react-svg';
-```
 
 ## Examples
 
@@ -35,8 +29,6 @@ By default, the Svg component will look in the `app/svg` folder at the root of y
 (defined here as the location of your package.json). If you have svg files in other folders, you can subclass the Svg component as follows
 
 ```
-import {Svg} from 'pui-react-svg';
-
 class MySvg extends Svg {
   svgPathLoader(src) {
     return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);

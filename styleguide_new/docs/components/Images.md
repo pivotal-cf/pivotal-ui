@@ -5,17 +5,10 @@
 #### React
 `npm install pui-react-images --save`
 
+`import {Image} from 'pui-react-images';`
+
 #### CSS Only
 `npm install pui-css-images --save`
-
-## Description
-Image description goes here.
-
-Import the subcomponent:
-
-```
-import {Image} from 'pui-react-images';
-```
 
 ## Examples
 

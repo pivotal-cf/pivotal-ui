@@ -5,6 +5,8 @@
 #### React
 `npm install pui-react-copy-to-clipboard --save`
 
+`import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';`
+
 #### CSS Only
 `npm install pui-css-copy-to-clipboard --save`
 
@@ -17,12 +19,6 @@ You will need to add an svg loader:
 <img src="/styleguide/download.svg" width="16" height="16"/>
 npm install babel-loader react-svg-loader --save-dev
 </code>
-
-Import the subcomponents:
-
-```
-import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
-```
 
 ## Examples
 

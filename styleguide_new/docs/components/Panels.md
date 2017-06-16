@@ -5,18 +5,14 @@
 #### React
 `npm install pui-react-panels --save`
 
+`import {Panel} from 'pui-react-panels';`
+
 #### CSS Only
 `npm install pui-css-panels --save`
 
 ## Description
 
 Using Panels, you can organize information collections into logical groups, aggregate your content and show it to be context specific. They include box headers, footers, and can be combined with any background. See it in action [here](https://pui-pivots.cfapps.io/).
-
-Import the subcomponents:
-
-```
-import {Panel} from 'pui-react-panels';
-```
 
 Panel components are straightforward implementations of the [Panel][panel] styling. The `Panel` component itself is the base, and there are a few different properties that can be applied to achieve the desired result.
 

@@ -7,19 +7,10 @@
 
 `npm install pui-react-select --save`
 
+`import {Select} from 'pui-react-select';`
+
 #### CSS Only
 `npm install pui-css-select --save`
-
-
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
-
-## Description
-
-Import the subcomponents:
-
-```
-import {Select} from 'pui-react-select';
-```
 
 ## Examples
 

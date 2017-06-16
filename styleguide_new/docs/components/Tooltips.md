@@ -5,6 +5,11 @@
 #### React
 `npm install pui-react-tooltip --save`
 
+```
+import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
+```
+
 #### CSS Only
 `npm install pui-css-tooltips --save`
 
@@ -27,13 +32,6 @@ isSticky       | no       | Boolean                                   | false   
 
 OverlayTriggers are highly configurable. Their associated overlays do not show up in the DOM until triggered.
 This makes them ideal for highly repeated layouts such as lists.
-
-Import the subcomponents:
-
-```
-import {Tooltip} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
-```
 
 ## Examples
 
@@ -155,12 +153,6 @@ isSticky     | no       | Boolean                                    | false   |
 
 TooltipTriggers are simpler to use, and their associated Tooltips are shown and hidden using css `visibility` rules.
 In contrast to OverlayTriggers, the markup always exists in the DOM.
-
-Import the subcomponents:
-
-```
-import {TooltipTrigger} from 'pui-react-tooltip';
-```
 
 ## Examples
 

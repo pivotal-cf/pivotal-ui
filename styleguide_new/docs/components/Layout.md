@@ -5,21 +5,16 @@
 #### React
 `npm install pui-react-tile-layout pui-react-panels --save`
 
+`import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';`
+
 #### CSS Only
 `npm install pui-css-tile-layout pui-css-panels --save`
 
-## Description
-
-Import the subcomponents:
+## Examples
 
 ```
-import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';
-
-// for the example
 import {ClickableAltPanel} from 'pui-react-panels';
 ```
-
-## Examples
 
 ```jsx
 ::title=Basic Example

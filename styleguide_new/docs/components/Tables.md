@@ -7,7 +7,10 @@
 
 `npm install pui-react-table --save`
 
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+```
+import {Table, TableRow, TableCell} from 'pui-react-table';
+import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
+```
 
 #### CSS Only
 `npm install pui-css-table --save`
@@ -16,12 +19,6 @@
 
 The `Table` component is a robust component that offers a styled table with fully
 functioning sort. If the rows change, the content on the page will update.
-
-Import the subcomponents:
-
-```
-import {Table, TableRow, TableCell} from 'pui-react-table';
-```
 
 ## Examples
 
@@ -357,12 +354,6 @@ cellClass   | no  | String    |       | Class to apply to all cells in a column
 
 The `FlexTable` component is similar to the `Table` component except it will build the underlying table
 as a flex grid instead of a traditional html table.
-
-Import the subcomponents:
-
-```
-import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
-```
 
 ## Examples
 

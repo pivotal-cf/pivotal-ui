@@ -5,6 +5,8 @@
 #### React
 `npm install pui-react-tabs --save`
 
+`import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
+
 #### CSS Only
 `npm install pui-css-tabs --save`
 
@@ -15,10 +17,6 @@ Using Tab components in React consists of a parent element for the desired Tab t
 `Tabs` or `LeftTabs`). Each `Tab` is a child of this and has a `tab` property for the
 string value a Tab should display. Additionally, each `Tab` must define an `eventKey` property
 for uniquely identifying this tab to its parent component.
-
-Import the subcomponents:
-
-`import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
 
 ## Do's and Don'ts
 Do's         | Don'ts

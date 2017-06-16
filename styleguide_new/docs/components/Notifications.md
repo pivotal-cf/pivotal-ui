@@ -4,27 +4,21 @@
 
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+
+`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';`
 
 `npm install pui-react-notifications --save`
 
 #### CSS Only
 `npm install pui-css-notifications --save`
 
-## Description
-
-Import the subcomponents:
+## Examples
 
 ```
-import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';
-
-// for the example
 import {Flag} from 'pui-react-media';
 import {Label} from 'pui-react-labels';
 import {Icon} from 'pui-react-iconography';
 ```
-
-## Examples
 
 ```jsx
 ::title=No Notifications

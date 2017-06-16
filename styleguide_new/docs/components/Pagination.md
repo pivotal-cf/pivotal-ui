@@ -5,6 +5,8 @@
 #### React
 `npm install pui-react-pagination --save`
 
+`import {Pagination} from 'pui-react-pagination';`
+
 #### CSS Only
 `npm install pui-css-pagination --save`
 
@@ -13,12 +15,6 @@ Pagination is a method for allowing a user to view a subset of sorted data into 
 
 The Pagination component provides a styled list of links used to navigate through a paginated list.  By default,
 the component includes a 'previous page' button, a 'next page' button, and one link.
-
-Import the subcomponents:
-
-```
-import {Pagination} from 'pui-react-pagination';
-```
 
 ## Do's and Don'ts
 Do's         | Don'ts

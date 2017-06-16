@@ -5,16 +5,12 @@
 #### React
 `npm install pui-react-labels --save`
 
+`import {Label} from 'pui-react-labels';`
+
 #### CSS Only
 `npm install pui-css-labels --save`
 
 ## Description
-
-Import the subcomponents:
-
-```
-import {Label} from 'pui-react-labels';
-```
 
 Labels are a straightforward implementation of the [Label][label] style.
 

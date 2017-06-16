@@ -5,16 +5,12 @@
 #### React
 `npm install pui-react-panes --save`
 
+`import {Pane, BasePane} from 'pui-react-panes';`
+
 #### CSS Only
 `npm install pui-css-panes --save`
 
 ## Description
-
-Import the subcomponents:
-
-```
-import {Pane, BasePane} from 'pui-react-panes';
-```
 
 The `Pane` component is a straightforward implementation of the [Pane][pane] styling.
 Any className values passed through are passed to the underlying `.pane`.

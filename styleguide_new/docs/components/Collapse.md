@@ -7,19 +7,13 @@
 
 `npm install pui-react-collapse --save`
 
+`import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';`
+
 #### CSS Only
 `npm install pui-css-collapse --save`
 
 ## Description
 Collapse description goes here.
-
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
-
-Import the subcomponents:
-
-```
-import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';
-```
 
 Collapse components are implementations of the [Accordion][accordion] style. In
 all `Collapse` component variations, the `header` prop describes the text
