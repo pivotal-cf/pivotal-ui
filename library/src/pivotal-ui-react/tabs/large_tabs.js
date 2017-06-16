@@ -20,7 +20,7 @@ export class LargeTabs extends mixin(React.Component).with(Animation) {
     previouslyActiveKey: PropTypes.any,
     tabType: PropTypes.oneOf(['simple', 'simple-alt', 'left']),
     tabWidth: PropTypes.number
-  }
+  };
 
   render() {
     const {

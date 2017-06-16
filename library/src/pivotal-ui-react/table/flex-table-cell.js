@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import sortBy from 'lodash.sortby';
 
-export class FlexTableCell extends React.Component {
+export class FlexTableCell extends React.PureComponent {
   static propTypes = {
     index: PropTypes.number,
     rowDatum: PropTypes.any,

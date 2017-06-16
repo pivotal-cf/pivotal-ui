@@ -22,7 +22,7 @@ function bodyIsAllowedToScroll(document) {
   if (typeof document === 'object') document.getElementsByTagName('body')[0].classList.remove('pui-no-scroll');
 }
 
-export class BaseModal extends mixin(React.Component).with(Animation) {
+export class BaseModal extends mixin(React.PureComponent).with(Animation) {
   static propTypes = {
     acquireFocus: PropTypes.bool,
     animation: PropTypes.bool,
@@ -160,7 +160,7 @@ export class BaseModal extends mixin(React.Component).with(Animation) {
   }
 }
 
-export class Modal extends React.Component {
+export class Modal extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
     this.state = {isVisible: false};
@@ -174,13 +174,13 @@ export class Modal extends React.Component {
   }
 }
 
-export class ModalBody extends React.Component {
+export class ModalBody extends React.PureComponent {
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-body'})}>{this.props.children}</div>;
   }
 }
 
-export class ModalFooter extends React.Component {
+export class ModalFooter extends React.PureComponent {
   render() {
     return <div {...mergeProps(this.props, {className: 'modal-footer'})}>{this.props.children}</div>;
   }

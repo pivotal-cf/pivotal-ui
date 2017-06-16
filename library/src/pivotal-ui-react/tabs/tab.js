@@ -2,7 +2,7 @@ import React from 'react';
 
 import PropTypes from 'prop-types';
 
-export class Tab extends React.Component {
+export class Tab extends React.PureComponent {
   static propTypes = {
     'aria-labelledby': PropTypes.string,
     className: PropTypes.string,
@@ -12,12 +12,12 @@ export class Tab extends React.Component {
     onExited: PropTypes.func,
     tabClassName: PropTypes.string,
     title: PropTypes.node.isRequired
-  }
+  };
 
   static defaultProps = {
     onEntered() {},
     onExited() {}
-  }
+  };
 
   render() {
     return null;

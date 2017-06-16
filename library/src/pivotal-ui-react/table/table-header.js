@@ -2,7 +2,7 @@ import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export class TableHeader extends React.Component {
+export class TableHeader extends React.PureComponent {
   static propTypes = {
     onClick: PropTypes.func,
     onSortableTableHeaderClick: PropTypes.func,

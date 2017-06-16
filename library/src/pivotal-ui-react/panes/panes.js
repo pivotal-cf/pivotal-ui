@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-panes';
 
-export class BasePane extends React.Component {
+export class BasePane extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     innerClassName: PropTypes.string
-  }
+  };
 
   render() {
     const {innerClassName, children, ...other} = this.props;
@@ -20,10 +20,10 @@ export class BasePane extends React.Component {
   }
 }
 
-export class Pane extends React.Component {
+export class Pane extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string
-  }
+  };
 
   render() {
     const {className, ...other} = this.props;

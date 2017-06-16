@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 import 'pui-css-tooltips';
 import classnames from 'classnames';
 
-export class Tooltip extends React.Component {
+export class Tooltip extends React.PureComponent {
   static propTypes = {
     visible: PropTypes.bool,
     size: PropTypes.oneOf(['auto','sm', 'md', 'lg']),
     isSticky: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     visible: true,
     size: 'auto',
     isSticky: false
-  }
+  };
 
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ export class TooltipTrigger extends React.Component {
     theme: PropTypes.oneOf(['dark', 'light']),
     size: PropTypes.oneOf(['auto', 'sm', 'md', 'lg']),
     isSticky: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     placement: 'top',
@@ -58,7 +58,7 @@ export class TooltipTrigger extends React.Component {
     theme: 'dark',
     size: 'auto',
     isSticky: false
-  }
+  };
 
   constructor(props) {
     super(props);

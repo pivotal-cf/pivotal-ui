@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 function unDefault(obj) { return obj && obj.__esModule ? obj.default : obj; }
 
-export class Svg extends React.Component {
+export class Svg extends React.PureComponent {
   static propTypes = {
     src: PropTypes.string.isRequired
-  }
+  };
 
   constructor(props, context) {
     super(props, context);

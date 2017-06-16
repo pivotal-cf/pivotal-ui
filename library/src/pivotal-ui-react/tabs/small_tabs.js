@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 import classnames from 'classnames';
 
-class SmallTab extends React.Component {
+class SmallTab extends React.PureComponent {
   static propTypes = {
     animation: PropTypes.bool,
     ariaLabelledBy: PropTypes.string,
@@ -12,7 +12,7 @@ class SmallTab extends React.Component {
     header: PropTypes.node,
     onClick: PropTypes.func,
     paneId: PropTypes.string
-  }
+  };
 
   render() {
     const {animation, ariaLabelledBy, children, disabled, expanded, header, onClick, paneId} = this.props;
@@ -51,7 +51,7 @@ export class SmallTabs extends React.Component {
     onSelect: PropTypes.func,
     smallScreenClassName: PropTypes.string,
     tabType: PropTypes.string
-  }
+  };
 
   render() {
     const {

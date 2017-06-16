@@ -17,7 +17,7 @@ export const reset = () => {
   destinationPortals = {};
 };
 
-export class PortalSource extends React.Component {
+export class PortalSource extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired
   }
@@ -57,7 +57,7 @@ export class PortalSource extends React.Component {
   }
 }
 
-export class PortalDestination extends React.Component {
+export class PortalDestination extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired
   }

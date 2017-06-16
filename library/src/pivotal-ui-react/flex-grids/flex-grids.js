@@ -4,7 +4,7 @@ import {mergeProps} from 'pui-react-helpers';
 import classnames from 'classnames';
 import 'pui-css-flex-grids';
 
-export class Grid extends React.Component {
+export class Grid extends React.PureComponent {
   static propTypes = {
     gutter: PropTypes.bool
   };

@@ -16,7 +16,7 @@ export class Radio extends React.Component {
     className: PropTypes.string,
     style: PropTypes.object,
     disabled: PropTypes.bool
-  }
+  };
 
   render() {
     const {className, style, children, disabled, id = uniqueId('radio'), ...others} = this.props;
@@ -32,7 +32,7 @@ export class RadioGroup extends React.Component {
     id: PropTypes.string,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func
-  }
+  };
 
   render() {
     let {name, children, onChange, ...others} = this.props;

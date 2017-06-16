@@ -38,7 +38,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     placement: PropTypes.oneOf(['top', 'bottom', 'left', 'right']),
     theme: PropTypes.oneOf(['light', 'dark']),
     trigger: PropTypes.oneOf(['hover', 'click', 'focus', 'manual'])
-  }
+  };
 
   static defaultProps = {
     display: false,
@@ -46,7 +46,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     placement: 'right',
     theme: 'dark',
     trigger: 'hover'
-  }
+  };
 
   componentWillReceiveProps({display}) {
     if(display !== this.props.display) this.setDisplay(display);
@@ -71,7 +71,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       const userCallback = this.props.children.props[eventType];
       userCallback && userCallback(...args);
     };
-  }
+  };
 
   triggerHide = eventType => {
     return (...args) => {
@@ -79,16 +79,16 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       const userCallback = this.props.children.props[eventType];
       userCallback && userCallback(...args);
     };
-  }
+  };
 
   getDelay = display => {
     const {delay, delayHide, delayShow} = this.props;
     if(display && delayShow) return delayShow;
     if(!display && delayHide) return delayHide;
     return delay;
-  }
+  };
 
-  scrimClick = () => this.hide()
+  scrimClick = () => this.hide();
 
   setDisplay = (display) => {
     const oldTimeout = privates.get(this).timeout;

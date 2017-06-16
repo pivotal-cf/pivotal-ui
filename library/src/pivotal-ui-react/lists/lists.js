@@ -3,7 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import 'pui-css-lists';
 
-export class ListItem extends React.Component {
+export class ListItem extends React.PureComponent {
   render() {
     return <li {...this.props}/>;
   }
@@ -15,7 +15,7 @@ const defList = (tagName, classNames, childClassNames) => {
       className: PropTypes.string,
       unstyled: PropTypes.bool,
       divider: PropTypes.bool
-    }
+    };
 
     render() {
       let {className, children, unstyled, divider, ...others} = this.props;

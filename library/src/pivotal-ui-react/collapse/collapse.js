@@ -5,12 +5,12 @@ import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-collapse';
 
-export class BaseCollapse extends React.Component {
+export class BaseCollapse extends React.PureComponent {
   static propTypes = {
     divider: PropTypes.bool,
     header: PropTypes.node.isRequired,
     defaultExpanded: PropTypes.bool
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -20,7 +20,7 @@ export class BaseCollapse extends React.Component {
   handleSelect = e => {
     e.preventDefault();
     this.setState({expanded: !this.state.expanded});
-  }
+  };
 
   renderHeader() {
     const {header} = this.props;

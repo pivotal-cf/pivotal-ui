@@ -25,7 +25,6 @@ export class CheckboxDropdown extends React.Component {
     onChange(options);
   }
 
-  //
   static propTypes = {
     buttonAriaLabel: PropTypes.string,
     buttonClassName: PropTypes.string,
@@ -36,7 +35,7 @@ export class CheckboxDropdown extends React.Component {
     split: PropTypes.bool,
     labels: PropTypes.array
   };
-  //
+
   static defaultProps = {
     onChange: doNothing,
     size: 'normal'

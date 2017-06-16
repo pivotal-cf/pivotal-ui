@@ -12,7 +12,7 @@ export default class TabHeaders extends React.Component {
     id: PropTypes.string.isRequired,
     onSelect: PropTypes.func,
     tabWidth: PropTypes.number
-  }
+  };
 
   render() {
     const {childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth} = this.props;

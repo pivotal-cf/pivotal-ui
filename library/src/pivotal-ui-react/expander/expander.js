@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Collapsible} from 'pui-react-collapsible';
 
-export class ExpanderTrigger extends React.Component {
+export class ExpanderTrigger extends React.PureComponent {
   constructor(props, context) {
     super(props, context);
     this.state = {};
   }
 
-  setTarget = target => this.setState({target})
+  setTarget = target => this.setState({target});
 
   toggleExpander = event => {
     event.preventDefault();
@@ -17,17 +17,17 @@ export class ExpanderTrigger extends React.Component {
     } else {
       console.warn('No ExpanderContent provided to ExpanderTrigger.');
     }
-  }
+  };
 
   render() {
     return React.cloneElement(this.props.children, {onClick: this.toggleExpander});
   }
 }
 
-export class ExpanderContent extends React.Component {
+export class ExpanderContent extends React.PureComponent {
   static propTypes = {
     expanded: PropTypes.bool
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -40,7 +40,7 @@ export class ExpanderContent extends React.Component {
     }
   }
 
-  toggle = () => this.setState({expanded: !this.state.expanded})
+  toggle = () => this.setState({expanded: !this.state.expanded});
 
   render() {
     const {expanded} = this.state;

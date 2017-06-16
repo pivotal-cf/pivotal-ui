@@ -96,16 +96,16 @@ export class DraggableListItem extends React.Component {
     onDragEnd: PropTypes.func,
     grabbed: PropTypes.bool,
     className: PropTypes.string
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
     this.state = {hover: false};
   }
 
-  onMouseEnter = () => this.setState({hover: true})
+  onMouseEnter = () => this.setState({hover: true});
 
-  onMouseLeave = () => this.setState({hover: false})
+  onMouseLeave = () => this.setState({hover: false});
 
   render() {
     const {hover} = this.state;

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-images';
 
-export class Image extends React.Component {
+export class Image extends React.PureComponent {
   static propTypes = {
     responsive: PropTypes.bool,
     href: PropTypes.string,
     alt: PropTypes.string,
     src: PropTypes.string.isRequired
-  }
+  };
 
   render() {
     let {responsive, href, children, ...props} = this.props;

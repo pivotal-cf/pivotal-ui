@@ -13,7 +13,7 @@ const paddingTypes = [];
   });
 });
 
-export class PanelTitle extends React.Component {
+export class PanelTitle extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string
   }
@@ -57,7 +57,7 @@ class PanelHeader extends React.Component {
   }
 }
 
-class PanelFooter extends React.Component {
+class PanelFooter extends React.PureComponent {
   static propTypes = {
     footer: PropTypes.node
   }

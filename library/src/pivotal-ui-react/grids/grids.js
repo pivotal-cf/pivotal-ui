@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-grids';
 
-export class Row extends React.Component {
+export class Row extends React.PureComponent {
   static propTypes = {
     componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     gutter: PropTypes.oneOf(['sm', 'md', 'lg'])

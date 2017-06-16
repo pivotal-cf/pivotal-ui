@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import 'pui-css-forms';
 
-export class Checkbox extends React.Component {
+export class Checkbox extends React.PureComponent {
   static propTypes = {
     displayError: PropTypes.bool,
     errorMessage: PropTypes.node,
@@ -11,7 +11,7 @@ export class Checkbox extends React.Component {
     id: PropTypes.string,
     label: PropTypes.node,
     labelClassName: PropTypes.string
-  }
+  };
 
   render() {
     const {className, displayError, errorMessage, inputClassName, label, labelClassName, ...inputProps} = this.props;

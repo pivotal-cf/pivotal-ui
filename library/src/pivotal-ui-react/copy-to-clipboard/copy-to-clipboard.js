@@ -7,23 +7,23 @@ import {TooltipTrigger} from 'pui-react-tooltip';
 import 'pui-css-copy-to-clipboard';
 
 
-export class CopyToClipboard extends React.Component {
+export class CopyToClipboard extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     getWindow: PropTypes.func,
-  }
+  };
 
   static defaultProps = {
     getWindow: () => window,
-  }
+  };
 
   click = ({props, text}, e) => {
     const window = this.props.getWindow();
     copy(window, window.document, text);
     const {onClick} = props;
     if(onClick) onClick(e);
-  }
+  };
 
   render() {
     const {children, text, onClick, getWindow, ...others} = this.props;
@@ -42,7 +42,7 @@ export class CopyToClipboard extends React.Component {
   }
 }
 
-export class CopyToClipboardButton extends React.Component {
+export class CopyToClipboardButton extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,

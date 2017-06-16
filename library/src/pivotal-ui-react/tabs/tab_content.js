@@ -11,7 +11,7 @@ export default class TabContent extends React.Component {
     isLeft: PropTypes.bool,
     paneWidth: PropTypes.number,
     transitionProgress: PropTypes.number
-  }
+  };
 
   render() {
     const {activeKey, childArray, id, isLeft, paneWidth, transitionProgress} = this.props;

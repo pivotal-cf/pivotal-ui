@@ -1,11 +1,10 @@
 import React from 'react';
-import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-labels';
 
-export class Label extends React.Component {
+export class Label extends React.PureComponent {
   static defaultProps = {
     className: 'label label-primary'
-  }
+  };
 
   render() {
     const {children, ...props} = this.props;

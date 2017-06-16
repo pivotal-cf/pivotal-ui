@@ -16,11 +16,11 @@ export class Media extends React.Component {
     vAlign: PropTypes.oneOf(['middle', 'bottom']),
     placement: PropTypes.oneOf(['left', 'right']),
     className: PropTypes.string
-  }
+  };
 
   static defaultProps = {
     placement: 'left'
-  }
+  };
 
   render() {
     const {className, innerClassName, image, mediaSpacing, stackSize, vAlign, placement, children, ...other} = this.props;

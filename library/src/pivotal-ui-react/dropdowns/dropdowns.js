@@ -73,7 +73,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     onSelect && onSelect(event);
   };
 
-  scrimClick = () => this.setState({open: false})
+  scrimClick = () => this.setState({open: false});
 
   menuClick = () => {
     if (!this.props.closeOnMenuClick) return;
@@ -142,7 +142,7 @@ export class DropdownItem extends React.Component {
     eventKey: PropTypes.string,
     onSelect: PropTypes.func,
     onClick: PropTypes.func,
-  }
+  };
 
   handleClick = event => {
     const {href, disabled, onClick, onSelect, eventKey} = this.props;
@@ -160,11 +160,10 @@ export class DropdownItem extends React.Component {
     if (onClick) {
       onClick(event);
     }
-  }
+  };
 
   render() {
     const {children, className, eventKey, style, href, header, divider, disabled, onClick, onSelect, ...anchorProps} = this.props;
-
 
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
     if (divider) return (<li role="separator" className="divider"/>);

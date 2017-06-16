@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import {mergeProps} from 'pui-react-helpers';
 import 'pui-css-dividers';
 
-export class Divider extends React.Component {
+export class Divider extends React.PureComponent {
   static propTypes = {
     inverse: PropTypes.bool,
     size: PropTypes.oneOf(['large'])
-  }
+  };
 
   render() {
     const {inverse, size, ...others} = this.props;
@@ -25,11 +25,11 @@ export class Divider extends React.Component {
 }
 
 const defDivider = props => {
-  return class extends React.Component {
+  return class extends React.PureComponent {
     static propTypes = {
       inverse: PropTypes.bool,
       size: PropTypes.oneOf(['large'])
-    }
+    };
 
     render() {
       return <Divider {...props} {...this.props} />;

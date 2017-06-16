@@ -1,12 +1,11 @@
 import classnames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Media} from 'pui-react-media';
 import {mergeProps} from 'pui-react-helpers';
 import {Icon} from 'pui-react-iconography';
 import 'pui-css-alerts';
 
-class Alert extends React.Component {
+class Alert extends React.PureComponent {
   static propTypes = {
     alertIcon: PropTypes.string,
     bsStyle: PropTypes.string,
@@ -15,24 +14,24 @@ class Alert extends React.Component {
     onDismiss: PropTypes.func,
     show: PropTypes.bool,
     withIcon: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     closeLabel: 'Close alert',
     dismissable: false,
     withIcon: false
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
     this.state = {alertVisible: true};
-  }
+  };
 
   handleAlertDismiss = () => {
     const {onDismiss} = this.props;
     if (this.props.onDismiss) onDismiss();
     this.setState({alertVisible: false});
-  }
+  };
 
   render() {
     let {alertIcon, bsStyle, children, closeLabel, dismissable, onDismiss: __ignore, show, withIcon, ...others} = this.props;

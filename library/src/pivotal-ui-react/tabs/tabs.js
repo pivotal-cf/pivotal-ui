@@ -53,13 +53,13 @@ export class Tabs extends mixin(React.Component).with(Animation) {
     smallScreenClassName: PropTypes.string,
     tabType: PropTypes.oneOf(['simple', 'simple-alt', 'left']),
     tabWidth: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     animation: true,
     responsiveBreakpoint: 'xs',
     tabType: 'simple'
-  }
+  };
 
   static ANIMATION_TIME = 400;
 
@@ -89,7 +89,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
       this.animate('transitionProgress', 0);
       privates.set(this, 0);
     }
-  }
+  };
 
   checkScreenSize = () => {
     if (matches(this.props.responsiveBreakpoint)) {
@@ -97,7 +97,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
     } else {
       this.setState({smallScreen: true});
     }
-  }
+  };
 
   updateTransitionProgressAndTriggerCallbacks = childArray => {
     const {animation} = this.props;
@@ -107,7 +107,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
 
     privates.set(this, transitionProgress);
     return transitionProgress;
-  }
+  };
 
   triggerTransitionCallbacks = ({childArray, oldTransitionProgress, transitionProgress}) => {
     if (oldTransitionProgress < 1 && transitionProgress === 1) {
@@ -115,7 +115,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
       const enteredKey = this.state.activeKey;
       triggerEnteredAndExitedCallbacks(childArray, {enteredKey, exitedKey});
     }
-  }
+  };
 
   handleClick = (e, eventKey, callback) => {
     if (callback) {
@@ -123,7 +123,7 @@ export class Tabs extends mixin(React.Component).with(Animation) {
     } else {
       this.setActiveKey(eventKey);
     }
-  }
+  };
 
   render() {
     const {children} = this.props;
@@ -159,18 +159,18 @@ export class Tabs extends mixin(React.Component).with(Animation) {
   }
 }
 
-export class LeftTabs extends React.Component {
+export class LeftTabs extends React.PureComponent {
   static propTypes = {
     position: PropTypes.oneOf(['top', 'left']),
     tabWidth: PropTypes.number,
     paneWidth: PropTypes.number
-  }
+  };
 
   static defaultProps = {
     position: 'left',
     tabWidth: 6,
     tabType: 'left'
-  }
+  };
 
   render() {
     let {tabWidth, paneWidth, ...props} = this.props;

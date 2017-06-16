@@ -4,7 +4,7 @@ import React from 'react';
 import sortBy from 'lodash.sortby';
 import PropTypes from 'prop-types';
 
-export class TableCell extends React.Component {
+export class TableCell extends React.PureComponent {
   static propTypes = {
     cellClass: PropTypes.string
   };

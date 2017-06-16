@@ -5,10 +5,10 @@ import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
 import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 
-export class Notifications extends React.Component {
+export class Notifications extends React.PureComponent {
   static propTypes = {
     size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  }
+  };
 
   static defaultProps = {
     children: <li role="presentation">
@@ -17,7 +17,7 @@ export class Notifications extends React.Component {
         <p className="type-neutral-4 em-alt mbn">no notifications</p>
       </div>
     </li>
-  }
+  };
 
   render() {
     const {size, children, ...others} = this.props;
@@ -36,10 +36,10 @@ export class Notifications extends React.Component {
   }
 }
 
-export class AlertNotifications extends React.Component {
+export class AlertNotifications extends React.PureComponent {
   static propTypes = {
     size: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])
-  }
+  };
   
   static defaultProps = {
     children: <li role="presentation">
@@ -48,7 +48,7 @@ export class AlertNotifications extends React.Component {
         <p className="type-neutral-4 em-alt mbn">no alerts</p>
       </div>
     </li>
-  }
+  };
 
   render() {
     const {size, children, ...others} = this.props;
@@ -67,10 +67,10 @@ export class AlertNotifications extends React.Component {
   }
 }
 
-export class NotificationItem extends React.Component {
+export class NotificationItem extends React.PureComponent {
   static propTypes = {
     href: PropTypes.string
-  }
+  };
 
   render() {
     const {href, children, ...props} = this.props;

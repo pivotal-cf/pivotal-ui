@@ -8,7 +8,7 @@ import {default as mixin} from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 import 'pui-css-back-to-top';
 
-export class BackToTop extends mixin(React.Component).with(Animation) {
+export class BackToTop extends mixin(React.PureComponent).with(Animation) {
   constructor(props, context) {
     super(props, context);
     this.state = {visible: false};
@@ -16,7 +16,7 @@ export class BackToTop extends mixin(React.Component).with(Animation) {
 
   static propTypes = {
     alwaysVisible: PropTypes.bool
-  }
+  };
 
   static FADE_DURATION = 300;
   static VISIBILITY_HEIGHT = 400;
@@ -31,9 +31,9 @@ export class BackToTop extends mixin(React.Component).with(Animation) {
     window.removeEventListener('scroll', this.updateScroll);
   }
 
-  updateScroll = () => this.setState({visible: getScrollTop() > BackToTop.VISIBILITY_HEIGHT})
+  updateScroll = () => this.setState({visible: getScrollTop() > BackToTop.VISIBILITY_HEIGHT});
 
-  scrollToTop = () => this.animate(value => setScrollTop(value), 0, BackToTop.SCROLL_DURATION, {startValue: getScrollTop()})
+  scrollToTop = () => this.animate(value => setScrollTop(value), 0, BackToTop.SCROLL_DURATION, {startValue: getScrollTop()});
 
   render() {
     const {alwaysVisible, ...others} = this.props;

@@ -11,7 +11,7 @@ export class TileLayout extends React.Component {
       PropTypes.object
     ]),
     noGutter: PropTypes.bool
-  }
+  };
 
   getColumnClasses = columns => {
     if (columns instanceof Object) {
@@ -27,7 +27,7 @@ export class TileLayout extends React.Component {
     } else {
       return `tile-layout-xs-${columns}`;
     }
-  }
+  };
 
   render() {
     const {children, columns, noGutter, ...others} = this.props;

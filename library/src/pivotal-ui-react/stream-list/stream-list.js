@@ -5,13 +5,13 @@ import {UnorderedList, ListItem} from 'pui-react-lists';
 import {default as mixin} from 'pui-react-mixins';
 import Animation from 'pui-react-mixins/mixins/animation_mixin';
 
-class StreamListNewItemsButton extends React.Component {
+class StreamListNewItemsButton extends React.PureComponent {
   static propTypes = {
     showNewItems: PropTypes.func.isRequired,
     singularNewItemText: PropTypes.string,
     pluralNewItemsText: PropTypes.string,
     numNewItems: PropTypes.number.isRequired
-  }
+  };
 
   render() {
     return (<DefaultButton flat className="list-stream-new-items-btn" onClick={this.props.showNewItems}>
@@ -30,18 +30,18 @@ export class StreamList extends mixin(React.Component).with(Animation) {
   static propTypes = {
     singularNewItemText: PropTypes.string.isRequired,
     pluralNewItemsText: PropTypes.string.isRequired
-  }
+  };
 
   static defaultProps = {
     singularNewItemText: 'new item',
     pluralNewItemsText: 'new items'
-  }
+  };
 
-  numTotalItems = props => React.Children.count(props.children)
+  numTotalItems = props => React.Children.count(props.children);
 
-  numNewItems = () => this.numTotalItems(this.props) - this.state.numRenderedItems
+  numNewItems = () => this.numTotalItems(this.props) - this.state.numRenderedItems;
 
-  showNewItems = () => this.setState({numRenderedItems: this.numTotalItems(this.props)})
+  showNewItems = () => this.setState({numRenderedItems: this.numTotalItems(this.props)});
 
   render() {
     const {children, singularNewItemText, pluralNewItemsText, ...others} = this.props;
