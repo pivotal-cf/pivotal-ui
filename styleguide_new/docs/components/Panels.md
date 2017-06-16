@@ -114,7 +114,6 @@ See examples below.
 </Panel>
 ```
 
-
 ## Props
 
 Property | Required | Type | Default | Description

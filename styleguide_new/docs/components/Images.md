@@ -30,14 +30,6 @@ Images in React can be responsive and/or wrapped in a link.
            alt="A beautiful placeholder"/>
 </div>
 ```
-## Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-responsive | no  | Boolean | false | Whether this image should resize responsively
-href       | no  | String  |       | If set, image becomes a link
-alt        | no  | String  |       | Alt text
-src        | yes | String  |       | Image src
 
 ## Responsive
 
@@ -181,3 +173,12 @@ For more information about setting up your svg, read this article about [svg coo
   </div>
 </div>
 ```
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+responsive | no  | Boolean | false | Whether this image should resize responsively
+href       | no  | String  |       | If set, image becomes a link
+alt        | no  | String  |       | Alt text
+src        | yes | String  |       | Image src

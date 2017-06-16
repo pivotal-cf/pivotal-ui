@@ -41,12 +41,6 @@ the parents' styling. For example:
 </div>
 ```
 
-## Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-className | no | String | 'label label-primary' | Classname of the label
-
 ## Removable Labels
 
 Removable labels are used as tags in an editable list. The user will either enter text or select content (i.e.: a dropdown item), and it will be styled as a removable label (most likely in a list). Developers who use these labels must implement the close functionality for when the user clicks the close button.
@@ -58,3 +52,9 @@ Removable labels are used as tags in an editable list. The user will either ente
   </a>
 </span>
 ```
+
+## Props
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+className | no | String | 'label label-primary' | Classname of the label

@@ -18,8 +18,6 @@ Use tabs to group content, connect related information, and as a tool to save sp
 Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need. | When content is sequential it may make more sense to have content grouped and scrollable
 When a user would like to access each group of information separately. | When it makes more sense to have users scan the page then hide content
 
-## Props
-
 ## Basic Usage
 Import the subcomponents:
 

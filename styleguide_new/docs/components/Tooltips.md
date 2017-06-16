@@ -21,8 +21,6 @@ visible        | no       | Boolean                                   | true    
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
 
-* See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
-
 # OverlayTrigger
 
 ## Description
@@ -210,7 +208,6 @@ Since the tooltip property is of type Node, you may add markup to the tooltip, s
 </div>
 ```
 
-
 ## Props
 
 Property       | Required | Type                                      | Default  | Description
@@ -224,6 +221,3 @@ onExited       | no       | Func                                      | () => {}
 theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
-
-
-* See [React proptype definitions here](https://facebook.github.io/react/docs/typechecking-with-proptypes.html)

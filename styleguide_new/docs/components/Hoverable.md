@@ -61,4 +61,3 @@ This can be used with any kind of list but the list group style seems to fit thi
   </table>
 </div>
 ```
-## Props

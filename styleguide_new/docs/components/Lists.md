@@ -129,7 +129,6 @@ Breadcrumbs use their own monospace font-family.
 </div>
 ```
 
-
 ## Props
 
 Property | Required | Type | Default | Description

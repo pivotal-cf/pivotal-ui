@@ -14,29 +14,6 @@
 
 ## Description
 
-## Props
-
-Table
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-columns     | yes | Array     | | Metadata about columns
-CustomRow   | no  | Component | | The component to use when rendering table rows
-data        | yes | Array     | | The data to display in the table
-defaultSort | no  | String    | | The name of the column to use for sorting before user input
-
-Items in 'Column'
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-attribute   | yes | String    |       | The key to use in the data prop to get data for that column
-CustomCell  | no  | Component |       | Component to use when rendering cells, defaults to TableCell
-displayName | no  | String    |       | The text in the TableHeader for that column
-headerProps | no  | Object    |       | React props that will be passed through to that column
-sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
-sortBy      | no  | Function  |       | Function to transform data before sorting
-cellClass   | no  | String    |       | Class to apply to all cells in a column
-
 # HTML Tables
 
 ## Description
@@ -364,7 +341,28 @@ const data = [
 <Table columns={customCellColumns} data={data}/>
 ```
 
+## Props
 
+Table
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+columns     | yes | Array     | | Metadata about columns
+CustomRow   | no  | Component | | The component to use when rendering table rows
+data        | yes | Array     | | The data to display in the table
+defaultSort | no  | String    | | The name of the column to use for sorting before user input
+
+Items in 'Column'
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+attribute   | yes | String    |       | The key to use in the data prop to get data for that column
+CustomCell  | no  | Component |       | Component to use when rendering cells, defaults to TableCell
+displayName | no  | String    |       | The text in the TableHeader for that column
+headerProps | no  | Object    |       | React props that will be passed through to that column
+sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
+sortBy      | no  | Function  |       | Function to transform data before sorting
+cellClass   | no  | String    |       | Class to apply to all cells in a column
 
 # Flex Tables
 

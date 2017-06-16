@@ -70,7 +70,6 @@ class PaginationAdvanced extends React.Component {
 <PaginationAdvanced/>
 ```
 
-
 ## Props
 
 Property | Required | Type | Default | Description

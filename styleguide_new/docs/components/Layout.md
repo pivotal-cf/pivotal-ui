@@ -85,8 +85,6 @@ You can make a TileLayout without gutters by passing noGutter as a prop.
 </div>
 ```
 
-
-
 ## Props
 
 Property | Required | Type | Default | Description

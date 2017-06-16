@@ -83,9 +83,7 @@ const onSearch = (value, callback) => {
 };
 ```
 
-
 ## Props
-
 
 Property            | Required | Type | Default | Description
 --------------------|----------|------|---------|------------
