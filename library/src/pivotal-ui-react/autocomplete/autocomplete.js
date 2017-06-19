@@ -83,24 +83,13 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     });
   }
 
-  searchItemsInOrder = () => {
-    const {searchableItems} = this.state;
-    if (searchableItems.every(item => typeof item === 'string')) return searchableItems.map(value => {return {value};});
-
-    return searchableItems.map(item => {
-      const key = Object.keys(item)[0];
-      return {_key_: key, value: item[key]};
-    });
-  }
-
   onSearch = (value, callback) => {
     if (this.props.onSearch) return this.props.onSearch(value, callback);
     const {maxItems} = this.props;
     const {trie} = this.state;
     if (!trie) return callback([]);
     value = value.trim();
-    let result = value ? trie.get(value) : this.searchItemsInOrder();
-
+    let result = trie.get(value || '');
     if (this.props.onFilter) {
       result = this.props.onFilter(result);
     }

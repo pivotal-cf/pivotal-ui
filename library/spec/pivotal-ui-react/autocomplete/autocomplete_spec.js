@@ -58,27 +58,6 @@ describe('Autocomplete', () => {
     expect('.autocomplete-list').not.toExist();
   });
 
-  describe('when nothing is entered into input and the list is shown with a list of objects', () => {
-    beforeEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Autocomplete {...{ onInitializeItems} } />, root);
-
-      MockNextTick.next();
-      MockPromises.tick();
-
-      subject.showList();
-    });
-
-    it('renders the list items in order', () => {
-      expect('.autocomplete li').toHaveLength(5);
-      expect('.autocomplete a:eq(0)').toHaveText('watson');
-      expect('.autocomplete a:eq(1)').toHaveText('coffee');
-      expect('.autocomplete a:eq(2)').toHaveText('advil');
-      expect('.autocomplete a:eq(3)').toHaveText('lily.water');
-      expect('.autocomplete a:eq(4)').toHaveText('water lilies');
-    });
-  });
-
   describe('when the user starts to type into the input', () => {
     let input;
 
@@ -233,9 +212,9 @@ describe('Autocomplete', () => {
     });
 
     it('sets the selected class (but not highlighted) on the autocomplete item', () => {
-      expect('.autocomplete a:eq(3)').toHaveText('lily.water');
-      expect('.autocomplete a:eq(3)').not.toHaveClass('highlighted');
-      expect('.autocomplete a:eq(3)').toHaveClass('selected');
+      expect('.autocomplete a:eq(4)').toHaveText('lily.water');
+      expect('.autocomplete a:eq(4)').not.toHaveClass('highlighted');
+      expect('.autocomplete a:eq(4)').toHaveClass('selected');
     });
   });
 
@@ -308,20 +287,16 @@ describe('Autocomplete', () => {
   });
 
   describe('when the values are scalar', () => {
-    it('renders and maintains the order', () => {
+    it('renders', () => {
       ReactDOM.unmountComponentAtNode(root);
-      const props = {onInitializeItems: cb => cb(['d', 'a', 'c', 'b'])};
+      const props = {onInitializeItems: cb => cb(['a', 'b', 'c', 'd'])};
       subject = ReactDOM.render(<Autocomplete {...props}/>, root);
       MockNextTick.next();
       MockPromises.tick();
       
       $('.autocomplete input').simulate('change');
 
-      expect('.autocomplete-list').toHaveText('dacb');
-      expect('.autocomplete-list a:eq(0)').toHaveText('d');
-      expect('.autocomplete-list a:eq(1)').toHaveText('a');
-      expect('.autocomplete-list a:eq(2)').toHaveText('c');
-      expect('.autocomplete-list a:eq(3)').toHaveText('b');
+      expect('.autocomplete-list').toHaveText('abcd');
     });
   });
 
