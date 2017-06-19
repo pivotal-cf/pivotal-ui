@@ -1,14 +1,22 @@
 # Dropdowns
 
-## Description
-Description for dropdown.
+## Installation & Usage
 
-## Dropdown Types
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
 
-This is the basic dropdown. It has an attached menu that extends from the bottom.
+`npm install pui-react-dropdowns --save`
+
+`import {Dropdown, DropdownItem} from 'pui-react-dropdowns';`
+
+#### CSS Only
+`npm install pui-css-dropdowns --save`
+
+## Examples
 
 ```jsx
 ::title=Basic Dropdown
+::description=This is the basic dropdown. It has an attached menu that extends from the bottom.
 <div className="form-group">
   <Dropdown title='Basic Dropdown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -17,7 +25,6 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
   </Dropdown>
 </div>
 ```
-
 
 ```jsx
 ::title=Basic Dropdown with Custom Icon
@@ -30,12 +37,9 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 </div>
 ```
 
-
-The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
-exceeds the parent dropdown width.
-
 ```jsx
 ::title=Float Dropdown Menu
+::description=The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that exceeds the parent dropdown width.
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Float Dropdown Menu' floatMenu>
@@ -63,12 +67,9 @@ exceeds the parent dropdown width.
 </div>
 ```
 
-
-Lists that are indeterminately long can utilize the float scroll menu. The size is
-fixed so you'll have to customize the fixed height to achieve your desired results.
-
 ```jsx
 ::title=Float Scroll Menu
+::description=Lists that are indeterminately long can utilize the float scroll menu. The size is fixed so you'll have to customize the fixed height to achieve your desired results.
 <div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll floatMenu>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -85,11 +86,21 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
 </div>
 ```
 
-
-Dropdown with the flat button styling. Floating menu only.
+```jsx
+::title=Split Dropdown
+::description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
+<div className="form-group">
+  <Dropdown title='Split Dropdown' split>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+    <DropdownItem href="#">lorem ipsum</DropdownItem>
+  </Dropdown>
+</div>
+```
 
 ```jsx
 ::title=Flat Button Dropdown
+::description=Dropdown with the flat button styling. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Flat Button Dropdown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -99,11 +110,9 @@ Dropdown with the flat button styling. Floating menu only.
 </div>
 ```
 
-
-Dropdown with the link styling, retains dropdown padding. Floating menu only.
-
 ```jsx
 ::title=Link Dropdown
+::description=Dropdown with the link styling, retains dropdown padding. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Link Dropdown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -113,10 +122,9 @@ Dropdown with the link styling, retains dropdown padding. Floating menu only.
 </div>
 ```
 
-Rendered when no title is specified. Floating menu only.
-
 ```jsx
 ::title=Icon Dropdown
+::description=Rendered when no title is specified. Floating menu only.
 <div className="form-group">
   <Dropdown icon='more_vert' menuAlign='left'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -126,9 +134,8 @@ Rendered when no title is specified. Floating menu only.
 </div>
 ```
 
-## Sizing
-
 ```jsx
+::title=Sizing
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Large Dropdown' size='large'>
@@ -154,13 +161,12 @@ Rendered when no title is specified. Floating menu only.
 </div>
 ```
 
-## Props
+## Dropdown Props
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
 buttonAriaLabel  | no       | String                              |                | aria-label for the button
 buttonClassName  | no       | String                              |                | Classname to add to the button
-splitClassName   | no       | String                              |                | Classname to add to the text
 closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
 disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
 flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
@@ -171,20 +177,20 @@ link             | no       | Boolean                             |             
 labelAriaLabel   | no       | String                              |                | aria-label for the label (split dropdown only)
 menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
 onClick          | no       | Function                            |                | Callback that fires after clicking the button
-onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text
 onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
 onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
 onSelect         | no       | Function                            |                | Callback that fires after clicking the default option (split dropdown only)
+onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text (split dropdown only)
 scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
 showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
 size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 split            | no       | Boolean                             |                | If true, separates the button text from the toggle
+splitClassName   | no       | String                              |                | Classname to add to the text (split dropdown only)
 title            | no       | Node                                |                | The button contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-### DropdownItems Props
-
+## DropdownItems Props
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
@@ -196,9 +202,3 @@ divider          | no       | Boolean                             |             
 disabled         | no       | Boolean                             |                | Disables the DropdownItem
 eventKey         | no       | String                              |                | DropdownItem identifier
 onSelect         | no       | Function                            |                | Callback that fires after clicking the DropdownItem
-
-Import the subcomponents:
-
-```
-import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
-```

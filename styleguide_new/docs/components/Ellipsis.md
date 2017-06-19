@@ -1,10 +1,17 @@
 # Ellipsis
 
-## Description
-Description for ellipsis.
+## Installation & Usage
 
-## Basic Usage
+#### React
+`npm install pui-react-ellipsis --save`
+
+#### CSS Only
+`npm install pui-css-ellipsis --save`
+
+## Description
 The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
+
+## Examples
 
 ```jsx
 ::title=Basic Example
@@ -14,5 +21,3 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
     </p>
 </div>
 ```
-
-## Props

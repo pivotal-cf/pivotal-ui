@@ -1,30 +1,30 @@
 # Dividers
 
-## Description
+## Installation & Usage
 
-## Basic Usage
+#### React
+`npm install pui-react-dividers --save`
 
-Import the subcomponents:
+`import {Divider} from 'pui-react-dividers';`
 
-```
-import {Divider} from 'pui-react-dividers';
-```
+#### CSS Only
+`npm install pui-css-dividers --save`
 
-Dividers draw horizontal lines between different content groupings.
+## Examples
 
 ```jsx
 ::title=Large Divider Example
+::description=Dividers draw horizontal lines between different content groupings
 <div>
   <Divider />
   <Divider size="large" />
 </div>
 ```
 
-On a dark background, use these inverse dividers:
-
 ```jsx
 ::title=Inverse Dividers
-<div>
+::description=On a dark background, use these inverse dividers
+<div style={{background: '#232B2F'}}>
   <div className="type-dark-11">
     I am some content
     <Divider inverse />

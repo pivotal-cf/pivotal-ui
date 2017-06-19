@@ -1,10 +1,23 @@
 # Autocomplete
 
+## Installation & Usage
+
+#### React
+`npm install pui-react-autocomplete --save`
+
+#### CSS Only
+`npm install pui-css-autocomplete --save`
+
 ## Description
 Autocomplete provides the user the ability to search for known entities with the task of retrieval or navigation. For more exploratory search and complex information seeking tasks consider a multi-step workflow or filtering options.
 
-## Basic Usage
+## Do's and Don'ts
+Do's         | Don'ts
+-------------|----------
+Use Autocomplete to facilitate accurate and efficient data entry | Use Autocomplete when the user needs to explore a dataset
+Use Autocomplete to select from a finite list of names, objects or symbols |
 
+## Examples
 ```jsx
 ::title=Basic Example
 const onPick = item => alert('You selected ' + item.value);
@@ -16,14 +29,7 @@ const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeI
 </div>
 ```
 
-## Do's
-- Use Autocompete to facilitate accurate and efficient data entry
-- Use Autocompete to select from a finite list of names, objects or symbols
-
-## Don'ts
-- Use Autocomplete when the user needs to explore a dataset
-
-## onInitializeItems
+#### onInitializeItems
 The callback passed to this function should return the values to initially populate the list of items.
 
 It's designed to be able to be used asynchronously:
@@ -41,7 +47,7 @@ const onInitializeItems = callback => callback(['foo', 'food', 'bar']);
 ```
 
 
-## onPick
+#### onPick
 By default, when a user selects a list item, nothing happens except hiding the list.
 
 ```
@@ -50,7 +56,7 @@ const onPick = value => {
 };
 ```
 
-## onSearch
+#### onSearch
 To override the default search algorithm, pass your custom function to the Autocomplete as the prop onSearch.
 
 onSearch is given the current value of the input and a callback.
@@ -76,9 +82,7 @@ const onSearch = (value, callback) => {
 };
 ```
 
-
 ## Props
-
 
 Property            | Required | Type | Default | Description
 --------------------|----------|------|---------|------------

@@ -1,17 +1,16 @@
 # Modals
 
+## Installation & Usage
+
+#### React
+`npm install pui-react-modals --save`
+
+`import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';`
+
+#### CSS Only
+`npm install pui-css-modals --save`
+
 ## Description
-
-## Basic Usage
-
-Import the subcomponents:
-
-```
-import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';
-
-// for the example
-import {DefaultButton} from 'pui-react-buttons';
-```
 
 We provide 3 components that can be used to assemble modals:
 
@@ -19,13 +18,16 @@ We provide 3 components that can be used to assemble modals:
 * `ModalBody`
 * `ModalFooter`
 
-**Note**: A modal will be rendered at the end of `body` instead of the DOM node
-it is given. This makes positioning work regardless of where you render the
-modal. One side effect is `ReactDOM.findDOMNode`does not actually find the
-modal DOM node.
+## Examples
+
+```
+import {DefaultButton} from 'pui-react-buttons';
+import {Input} from 'pui-react-inputs';
+```
 
 ```jsx
 ::title=Basic Example
+::description=**Note**: A modal will be rendered at the end of `body` instead of the DOM node it is given. This makes positioning work regardless of where you render the modal. One side effect is `ReactDOM.findDOMNode`does not actually find the modal DOM node. 
 class MyModal extends React.Component {
   constructor(props) {
     super(props);
@@ -38,11 +40,12 @@ class MyModal extends React.Component {
         <DefaultButton onClick={() => this.setState({modalOpen: true})}>
           Open Stateless Modal
         </DefaultButton>
-        <BaseModal title='What a Header!'
+        <BaseModal acquireFocus={false}
+                   title='What a Header!'
                    className='optional-custom-class'
                    show={this.state.modalOpen}
                    onHide={() => this.setState({modalOpen: false})}>
-          <ModalBody>Text in a body</ModalBody>
+          <ModalBody><p>Text in a body</p><Input autoFocus placeholder="Tell me your darkest secrets"/></ModalBody>
           <ModalFooter>
             <DefaultButton onClick={() => this.setState({modalOpen: false})}>
               Close
@@ -54,9 +57,7 @@ class MyModal extends React.Component {
   }
 }
 
-<div>
-    <MyModal />
-</div>
+<MyModal />
 ```
 
 ## Props

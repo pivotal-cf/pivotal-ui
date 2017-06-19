@@ -1,9 +1,16 @@
 # Copy To Clipboard
 
-## Description
-Some description.
+## Installation & Usage
 
-## Basic Usage
+#### React
+`npm install pui-react-copy-to-clipboard --save`
+
+`import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';`
+
+#### CSS Only
+`npm install pui-css-copy-to-clipboard --save`
+
+## Description
 
 `CopyToClipboardButton` uses the [Iconography](/react_base_iconography.html) component.
 You will need to add an svg loader:
@@ -13,13 +20,8 @@ You will need to add an svg loader:
 npm install babel-loader react-svg-loader --save-dev
 </code>
 
-Import the subcomponents:
+## Examples
 
-```
-import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
-```
-
-Some kind of example table
 ```jsx
 ::title=Copy Options
 <div>
@@ -28,6 +30,7 @@ Some kind of example table
 </div>
 ```
 
+### Readonly Input and Copy Button
 
 Below is a common example combining a readonly input and a copy button.
 Note that there is custom css on the styleguide to get the positioning right.

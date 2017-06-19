@@ -1,13 +1,18 @@
 # Tile Layout
 
-## Basic usage
+## Installation & Usage
 
-Import the subcomponents:
+#### React
+`npm install pui-react-tile-layout pui-react-panels --save`
+
+`import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';`
+
+#### CSS Only
+`npm install pui-css-tile-layout pui-css-panels --save`
+
+## Examples
 
 ```
-import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';
-
-// for the example
 import {ClickableAltPanel} from 'pui-react-panels';
 ```
 
@@ -30,14 +35,10 @@ import {ClickableAltPanel} from 'pui-react-panels';
   </TileLayout>
 </div>
 ```
-## Responsive Breakpoints
-
-You can also pass an object setting the number of columns for responsive
-breakpoints to the columns prop. You can set separate column values
-(from 1 - 12 columns) for some or all of xs, sm, md, lg, and xl screen sizes.
 
 ```jsx
-::title=Breakpoints Example
+::title=Responsive Breakpoints
+::description=You can also pass an object setting the number of columns for responsive breakpoints to the columns prop. You can set separate column values (from 1 - 12 columns) for some or all of xs, sm, md, lg, and xl screen sizes.
 <div>
   <TileLayout columns={{xs: 1, sm: 2, md: 3}}>
     <TileLayoutItem>
@@ -56,12 +57,9 @@ breakpoints to the columns prop. You can set separate column values
 </div>
 ```
 
-## Gutters
-
-You can make a TileLayout without gutters by passing noGutter as a prop.
-
 ```jsx
-::title=Gutter Example
+::title=Gutters
+::description=You can make a TileLayout without gutters by passing noGutter as a prop.
 <div>
   <TileLayout noGutter columns={3}>
     <TileLayoutItem>
@@ -76,8 +74,6 @@ You can make a TileLayout without gutters by passing noGutter as a prop.
   </TileLayout>
 </div>
 ```
-
-
 
 ## Props
 

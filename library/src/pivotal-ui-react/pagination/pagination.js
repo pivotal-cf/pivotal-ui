@@ -36,6 +36,7 @@ export class Pagination extends React.PureComponent {
   };
 
   static defaultProps = {
+    items: 1,
     next: true,
     prev: true,
     onSelect: () => {
@@ -44,16 +45,18 @@ export class Pagination extends React.PureComponent {
 
   render() {
     const {items, next, prev, activePage, onSelect, ...props} = this.props;
-    const paginationButtons = [...Array(items)].map((_, index) => {
-      const isActive = (index + 1 === activePage);
-      return (<PaginationButton
-        key={index}
-        content={index + 1}
+    const paginationButtons = [];
+    for (let i = 0; i < items; i++) {
+      const isActive = (i + 1 === activePage);
+      paginationButtons.push(<PaginationButton
+        key={i}
+        content={i + 1}
         active={isActive}
         onSelect={onSelect}
-        eventKey={index + 1}
+        eventKey={i + 1}
         {...props}/>);
-    });
+    }
+
 
     const prevButton = <PaginationButton onSelect={onSelect} eventKey="prev" content="&lsaquo;"/>;
     const nextButton = <PaginationButton onSelect={onSelect} eventKey="next" content="&rsaquo;"/>;

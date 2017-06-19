@@ -1,14 +1,18 @@
 # Select
 
-## Description
+## Installation & Usage
 
-## Basic Usage
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
 
-Import the subcomponents:
+`npm install pui-react-select --save`
 
-```
-import {Select} from 'pui-react-select';
-```
+`import {Select} from 'pui-react-select';`
+
+#### CSS Only
+`npm install pui-css-select --save`
+
+## Examples
 
 ```jsx
 ::title=Basic Example

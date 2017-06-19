@@ -9,7 +9,7 @@ export class Checkbox extends React.PureComponent {
     errorMessage: PropTypes.node,
     inputClassName: PropTypes.string,
     id: PropTypes.string,
-    label: PropTypes.node,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
     labelClassName: PropTypes.string
   };
 

@@ -1,14 +1,19 @@
 # Lists
 
+## Installation & Usage
+
+#### React
+`npm install pui-react-lists --save`
+
+#### CSS Only
+`npm install pui-css-lists --save`
+
 ## Description
 
+## Examples
 
-## Basic Usage
-
-### Breadcrumb
- 
 ```jsx
-::title=Breadcrumb List
+::title=Breadcrumb
 <div>
     <BreadcrumbList>
       <ListItem><a href="/">Home</a></ListItem>
@@ -18,10 +23,8 @@
 </div>
 ```
 
-### Draggable
-
 ```jsx
-::title=Draggable List
+::title=Draggable
 <div>
     <DraggableList className="my-list-class" innerClassName="my-item-class">
       <DraggableListItem>
@@ -51,10 +54,24 @@
 </div>
 ```
 
-### Inline
+```html
+::title=Breadcrumb CSS
+::description=The `.list-breadcrumb` can be used to provide additional page navigation. Breadcrumbs use their own monospace font-family.
+<ul class="list-breadcrumb">
+  <li>
+    <a href="http://google.com">Parent</a>
+  </li>
+  <li>
+    <a href="http://google.com">Child</a>
+  </li>
+  <li class="current">
+    <span>Current Page</span>
+  </li>
+</ul>
+```
 
 ```jsx
-::title=Inline List
+::title=Inline
 <div>
     <InlineList>
       <ListItem>Item 1</ListItem>
@@ -64,10 +81,8 @@
 </div>
 ```    
 
-### Ordered
-
 ```jsx
-::title=Ordered List
+::title=Ordered
 <div>
     <OrderedList>
      <ListItem>Item 1</ListItem>
@@ -76,7 +91,6 @@
     </OrderedList>
 </div>
 ```
-
 
 ```jsx
 ::title=Ordered Unstyled List
@@ -87,10 +101,8 @@
 </OrderedList>
 ```
 
-### Unordered
-
 ```jsx
-::title=Unordered List
+::title=Unordered
 <div>
     <UnorderedList>
       <ListItem>feep</ListItem>
@@ -99,7 +111,6 @@
     </UnorderedList>
 </div>
 ```
-
 
 ## Props
 

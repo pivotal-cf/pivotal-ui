@@ -34,10 +34,12 @@ onClick          | no       | Function                            |             
 onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
 onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
 onSelect         | no       | Function                            |                | Callback that fires after clicking the default option (split dropdown only)
+onSplitClick     | no       | Function                            |                | Callback that fires after clicking the text (split dropdown only)
 scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
 showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
 size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
 split            | no       | Boolean                             |                | If true, separates the button text from the toggle
+splitClassName   | no       | String                              |                | Classname to add to the text (split dropdown only)
 title            | no       | Node                                |                | The button contents
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
@@ -55,6 +57,7 @@ divider          | no       | Boolean                             |             
 disabled         | no       | Boolean                             |                | Disables the DropdownItem
 eventKey         | no       | String                              |                | DropdownItem identifier
 onSelect         | no       | Function                            |                | Callback that fires after clicking the DropdownItem
+onClick          | no       | Function                            |                | Callback that fires after clicking the DropdownItem
 
 Import the subcomponents:
 

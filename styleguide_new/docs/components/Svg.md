@@ -4,16 +4,19 @@
 ***It requires the webpack loaders babel-loader and react-svg-loader.***
 ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
+## Installation & Usage
 
-## Description
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
 
-## Basic Usage
+`npm install pui-react-svg --save`
 
-Import the subcomponents:
+`import {Svg} from 'pui-react-svg';`
 
-```
-import {Svg} from 'pui-react-svg';
-```
+#### CSS Only
+`npm install pui-css-svg --save`
+
+## Examples
 
 This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.
 The example below will render the file `app/svg/search.svg`.
@@ -26,8 +29,6 @@ By default, the Svg component will look in the `app/svg` folder at the root of y
 (defined here as the location of your package.json). If you have svg files in other folders, you can subclass the Svg component as follows
 
 ```
-import {Svg} from 'pui-react-svg';
-
 class MySvg extends Svg {
   svgPathLoader(src) {
     return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);

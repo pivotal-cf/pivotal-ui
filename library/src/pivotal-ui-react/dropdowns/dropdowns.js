@@ -168,11 +168,11 @@ export class DropdownItem extends React.Component {
     if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
     if (divider) return (<li role="separator" className="divider"/>);
 
-    const anchor = href ? <a {...{href, disabled, ...anchorProps}} onClick={this.handleClick}>{children}</a> : children;
+    const anchor = href ? <a {...{href, disabled, ...anchorProps}}>{children}</a> : children;
     const disabledClass = disabled ? 'disabled' : '';
     const dropdownItemClass = classnames(className, disabledClass);
     
-    return (<li {...{style}} className={dropdownItemClass} onClick={href ? '' : this.handleClick}>
+    return (<li {...{style}} className={dropdownItemClass} onClick={this.handleClick}>
       {anchor}
     </li>);
   }

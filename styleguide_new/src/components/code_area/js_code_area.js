@@ -3,6 +3,10 @@ import ReactDOMServer from 'react-dom/server';
 import * as Babel from 'babel-standalone';
 import {AllHtmlEntities} from 'html-entities';
 import pretty from 'pretty';
+import PropTypes from 'prop-types';
+import unified from 'unified';
+import parse from 'remark-parse';
+import reactRenderer from 'remark-react';
 
 import ReactEditor from './react_editor';
 import HtmlEditor from './html_editor';
@@ -13,12 +17,21 @@ import 'brace/mode/html';
 import 'brace/theme/crimson_editor';
 
 export default class JsCodeArea extends React.PureComponent {
+  static propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    code: PropTypes.string.isRequired,
+    file: PropTypes.string,
+    name: PropTypes.string
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       code: props.code,
       showReact: false,
       showHtmlPreview: false,
+      remark: unified().use(parse).use(reactRenderer)
     };
   }
 
@@ -53,8 +66,8 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   render() {
-    const {file, name, title} = this.props;
-    const {code} = this.state;
+    const {file, name, title, description} = this.props;
+    const {code, remark} = this.state;
 
     let transpiledCode;
 
@@ -74,6 +87,9 @@ export default class JsCodeArea extends React.PureComponent {
                  toggleEditor={this.toggleEditor.bind(this)}
                  toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
                  isReact={true}/>
+        <div className="code-area-description mtxl mbxxl type-sm">
+          {remark.processSync(description).contents}
+        </div>
         {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
         {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
         <div className="code-editor--live-preview">

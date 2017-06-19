@@ -1,36 +1,34 @@
 # Tabs
 
-## Description
-Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page. They’re sort of like tabbed dividers in a filing cabinet – by clicking a tab, users can easily locate a view of related content. Tabs should be used for alternating between views within the same context, not to navigate to different areas.
+## Installation & Usage
 
-## Do's
-
-- Use tabs to group content, connect related information, and as a tool to save space.
-- Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need.
-- When a user would like to access each group of information separately.
-
-## Don'ts
-
-- Don’t use tabs when it’s more meaningful for the user to see related content grouped together
-- When content is sequential it may make more sense to have content grouped and scrollable
-- When it makes more sense to have users scan the page then hide content
-
-## Props
-
-## Basic Usage
-Import the subcomponents:
+#### React
+`npm install pui-react-tabs --save`
 
 `import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
+
+#### CSS Only
+`npm install pui-css-tabs --save`
+
+## Description
+Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page. They’re sort of like tabbed dividers in a filing cabinet – by clicking a tab, users can easily locate a view of related content. Tabs should be used for alternating between views within the same context, not to navigate to different areas.
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
 `Tabs` or `LeftTabs`). Each `Tab` is a child of this and has a `tab` property for the
 string value a Tab should display. Additionally, each `Tab` must define an `eventKey` property
 for uniquely identifying this tab to its parent component.
 
-## Tabs
+## Do's and Don'ts
+Do's         | Don'ts
+-------------|----------
+Use tabs to group content, connect related information, and as a tool to save space. | Don’t use tabs when it’s more meaningful for the user to see related content grouped together
+Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need. | When content is sequential it may make more sense to have content grouped and scrollable
+When a user would like to access each group of information separately. | When it makes more sense to have users scan the page then hide content
+
+## Examples
 
 ```jsx
-::title=Basic Example
+::title=Tabs
 <div>
     <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
       <Tab eventKey={1} title="Tab 1">Wow!</Tab>
@@ -42,10 +40,8 @@ for uniquely identifying this tab to its parent component.
 </div>
 ```
 
-## Left
-
 ```jsx
-::title=Left Tabs Example
+::title=Left Tabs
 <LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
@@ -55,13 +51,9 @@ for uniquely identifying this tab to its parent component.
 </LeftTabs>
 ```
 
-## Responsive Breakpoints
-
-Tabs can be responsive, and will display accordion-style on small screens and folder-style on large
-screens.
-
 ```jsx
-::title=Breakpoints Example
+::title=Responsive Breakpoints
+::description=Tabs can be responsive, and will display accordion-style on small screens and folder-style on large screens.
 <Tabs defaultActiveKey={1} responsiveBreakpoint="md">
   <Tab eventKey={1} title="Tab 1"> I'm so responsive </Tab>
   <Tab eventKey={2} title="Tab 2"> Me too </Tab>
