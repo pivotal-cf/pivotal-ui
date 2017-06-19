@@ -2,7 +2,6 @@ import '../spec_helper';
 import React from 'react';
 import {StreamList, StreamListItem} from 'pui-react-stream-list';
 
-import {itPropagatesAttributes} from '../support/shared_examples';
 import EventEmitter from 'node-event-emitter';
 import {findByClass, findAllByClass, findAllByTag, clickOn} from '../spec_helper';
 
@@ -12,13 +11,20 @@ class StreamListExample extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {data: ['Item a', 'Item b', 'Item c']};
+    this.dataListener = this.dataListener.bind(this);
+  }
+
+  dataListener(datum) {
+    const newData = this.state.data.concat([datum]);
+    this.setState({data: newData});
   }
 
   componentDidMount() {
-    addData.on('data', datum => {
-      const newData = this.state.data.concat([datum]);
-      this.setState({data: newData});
-    });
+    addData.on('data', this.dataListener);
+  }
+
+  componentWillUnmount() {
+    addData.removeListener('data', this.dataListener);
   }
 
   render() {
@@ -28,13 +34,14 @@ class StreamListExample extends React.Component {
   }
 }
 
+const renderComponent = (props, data) => ReactDOM.render(
+  <StreamList {...props}>
+    {data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
+  </StreamList>, root
+);
+
 describe('StreamList', () => {
   let result;
-  const renderComponent = (props, data) => ReactTestUtils.renderIntoDocument(
-    <StreamList {...props}>
-      {data.map((datum, i) => <StreamListItem key={i}>{datum}</StreamListItem>)}
-    </StreamList>
-  );
 
   describe('initial render', () => {
     const props = {
@@ -44,14 +51,22 @@ describe('StreamList', () => {
         opacity: '0.5'
       }
     };
-    result = renderComponent(props, ['Item a', 'Item b', 'Item c']);
 
-    itPropagatesAttributes(findByClass(result, 'list-unordered'), props);
+    beforeEach(() => {
+      result = renderComponent(props, ['Item a', 'Item b', 'Item c']);
+    });
+
+    it('adds these attributes to the correct component', () => {
+      expect('.list-unordered').toHaveClass(props.className);
+      expect('.list-unordered').toHaveAttr('id', props.id);
+      expect('.list-unordered').toHaveCss(props.style);
+    });
   });
 
   describe('when a new item is added to the list', () => {
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(<StreamListExample/>);
+      ReactDOM.unmountComponentAtNode(root);
+      result = ReactDOM.render(<StreamListExample/>, root);
     });
 
     it('adds a New Items button to the top of the list, using the appropriate singular/plural text', () => {
