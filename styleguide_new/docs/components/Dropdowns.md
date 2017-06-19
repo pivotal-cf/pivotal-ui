@@ -7,20 +7,16 @@
 
 `npm install pui-react-dropdowns --save`
 
+`import {Dropdown, DropdownItem} from 'pui-react-dropdowns';`
+
 #### CSS Only
 `npm install pui-css-dropdowns --save`
 
-## Description
-Description for dropdown.
-
 ## Examples
-
-### Basic Dropdown
-
-This is the basic dropdown. It has an attached menu that extends from the bottom.
 
 ```jsx
 ::title=Basic Dropdown
+::description=This is the basic dropdown. It has an attached menu that extends from the bottom.
 <div className="form-group">
   <Dropdown title='Basic Dropdown'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -29,8 +25,6 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
   </Dropdown>
 </div>
 ```
-
-### Basic Dropdown with Custom Icon
 
 ```jsx
 ::title=Basic Dropdown with Custom Icon
@@ -43,13 +37,9 @@ This is the basic dropdown. It has an attached menu that extends from the bottom
 </div>
 ```
 
-### Float Dropdown Menu
-
-The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
-exceeds the parent dropdown width.
-
 ```jsx
 ::title=Float Dropdown Menu
+::description=The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that exceeds the parent dropdown width.
 <div>
   <div className="form-group form-inline">
     <Dropdown title='Float Dropdown Menu' floatMenu>
@@ -77,13 +67,9 @@ exceeds the parent dropdown width.
 </div>
 ```
 
-### Float Scroll Menu
-
-Lists that are indeterminately long can utilize the float scroll menu. The size is
-fixed so you'll have to customize the fixed height to achieve your desired results.
-
 ```jsx
 ::title=Float Scroll Menu
+::description=Lists that are indeterminately long can utilize the float scroll menu. The size is fixed so you'll have to customize the fixed height to achieve your desired results.
 <div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll floatMenu>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -100,13 +86,9 @@ fixed so you'll have to customize the fixed height to achieve your desired resul
 </div>
 ```
 
-### Split Dropdown
-
-Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the
-focused state. Only appropriate as a float menu.
-
 ```jsx
 ::title=Split Dropdown
+::description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
 <div className="form-group">
   <Dropdown title='Split Dropdown' split>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -115,13 +97,10 @@ focused state. Only appropriate as a float menu.
   </Dropdown>
 </div>
 ```
-### Flat Button Dropdown
-
-
-Dropdown with the flat button styling. Floating menu only.
 
 ```jsx
 ::title=Flat Button Dropdown
+::description=Dropdown with the flat button styling. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Flat Button Dropdown' flat>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -131,12 +110,9 @@ Dropdown with the flat button styling. Floating menu only.
 </div>
 ```
 
-### Link Dropdown
-
-Dropdown with the link styling, retains dropdown padding. Floating menu only.
-
 ```jsx
 ::title=Link Dropdown
+::description=Dropdown with the link styling, retains dropdown padding. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Link Dropdown' link>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -146,12 +122,9 @@ Dropdown with the link styling, retains dropdown padding. Floating menu only.
 </div>
 ```
 
-### Icon Dropdown
-
-Rendered when no title is specified. Floating menu only.
-
 ```jsx
 ::title=Icon Dropdown
+::description=Rendered when no title is specified. Floating menu only.
 <div className="form-group">
   <Dropdown icon='more_vert' menuAlign='left'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -188,7 +161,7 @@ Rendered when no title is specified. Floating menu only.
 </div>
 ```
 
-## Props
+## Dropdown Props
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
@@ -217,8 +190,7 @@ title            | no       | Node                                |             
 
 (The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
 
-### DropdownItems Props
-
+## DropdownItems Props
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
@@ -230,9 +202,3 @@ divider          | no       | Boolean                             |             
 disabled         | no       | Boolean                             |                | Disables the DropdownItem
 eventKey         | no       | String                              |                | DropdownItem identifier
 onSelect         | no       | Function                            |                | Callback that fires after clicking the DropdownItem
-
-Import the subcomponents:
-
-```
-import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
-```
