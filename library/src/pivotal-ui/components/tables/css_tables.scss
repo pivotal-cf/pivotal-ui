@@ -118,3 +118,27 @@
     }
   }
 }
+// Table cell padding
+.table-td-pal {
+  .td, .th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  .td, .th {
+    padding: ($base-unit*2);
+  }
+}
+// Table cell padding
+.table-td-pal {
+  tr td, tr th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  tr td, tr th {
+    padding: ($base-unit*2);
+  }
+}
