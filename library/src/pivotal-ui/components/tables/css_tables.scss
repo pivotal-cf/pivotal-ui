@@ -32,7 +32,7 @@
   //General Cell
   .td, .th {
     border-right: solid 1px $table-border-color;
-    padding: $base-unit;
+    padding: $base-unit ($base-unit*2);
     //Vert-middle
     display: flex;
     flex-direction: column;
