@@ -5,7 +5,7 @@ import {findByClass} from '../spec_helper';
 
 describe('Media', () => {
   let result;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Media {...props}>fop</Media>);
+  const renderComponent = props => ReactDOM.render(<Media {...props}>fop</Media>, root);
   const image = <img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>;
   describe('attributes', () => {
     beforeEach(() => {
@@ -124,7 +124,7 @@ describe('Media', () => {
 
 describe('Flag', () => {
   const image = <img src="http://placehold.it/20x20" alt="my fancy image description" height="50px" width="40px"/>;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Flag {...props}>fop</Flag>);
+  const renderComponent = props => ReactDOM.render(<Flag {...props}>fop</Flag>, root);
 
   it('renders a Media component with vAlign set to middle, regardless of the passed-in vAlign value', () => {
     const result = renderComponent({image, vAlign: 'bottom'});

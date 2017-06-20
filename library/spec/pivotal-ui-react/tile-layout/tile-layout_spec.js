@@ -4,7 +4,7 @@ import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';
 import {findByClass} from '../spec_helper';
 
 describe('TileLayout', () => {
-  const renderComponent = (tileLayoutProps, tileItemProps) => ReactTestUtils.renderIntoDocument(
+  const renderComponent = (tileLayoutProps, tileItemProps) => ReactDOM.render(
     <TileLayout {...tileLayoutProps}>
       <TileLayoutItem {...tileItemProps}>
         Item 1
@@ -12,7 +12,8 @@ describe('TileLayout', () => {
       <TileLayoutItem>
         Item 2
       </TileLayoutItem>
-    </TileLayout>
+    </TileLayout>,
+    root
   );
 
   it('creates tile-layout', () => {

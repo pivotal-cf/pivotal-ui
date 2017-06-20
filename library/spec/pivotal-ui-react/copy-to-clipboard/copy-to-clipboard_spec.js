@@ -21,7 +21,7 @@ describe('CopyToClipboard', () => {
   });
 
   describe('CopyToClipboard (basic)', () => {
-    const renderComponent = props => ReactTestUtils.renderIntoDocument(<CopyToClipboard {...props}/>);
+    const renderComponent = props => ReactDOM.render(<CopyToClipboard {...props}/>, root);
 
     it('renders the text', () => {
       subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
@@ -50,7 +50,7 @@ describe('CopyToClipboard', () => {
   });
 
   describe('CopyToClipboardButton', () => {
-    const renderComponent = props => ReactTestUtils.renderIntoDocument(<CopyToClipboardButton {...props}/>);
+    const renderComponent = props => ReactDOM.render(<CopyToClipboardButton {...props}/>, root);
 
     it('propagates attributes', () => {
       subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});

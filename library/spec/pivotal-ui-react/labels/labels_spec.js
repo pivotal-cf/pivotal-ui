@@ -4,7 +4,7 @@ import {Label} from 'pui-react-labels';
 import {findByTag} from '../spec_helper';
 
 describe('Label Component', () => {
-  const renderComponent = (props, children) => ReactTestUtils.renderIntoDocument(<Label {...props}>{children}</Label>);
+  const renderComponent = (props, children) => ReactDOM.render(<Label {...props}>{children}</Label>, root);
 
   it('renders a primary colored label', () => {
     const result = renderComponent({}, 'bananas');
@@ -21,6 +21,6 @@ describe('Label Component', () => {
 
     expect(span).toHaveAttr('id', 'some-id');
     expect(span).toHaveClass('some-class');
-    expect(span).toHaveCss({color: 'red'});
+    expect(span).toHaveCss({color: 'rgb(255, 0, 0)'});
   });
 });

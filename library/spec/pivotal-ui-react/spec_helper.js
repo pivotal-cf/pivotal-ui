@@ -19,6 +19,8 @@ export const clickOn = ReactTestUtils.Simulate.click;
 
 MockNextTick.install();
 
+delete ReactTestUtils.renderIntoDocument;
+
 Object.assign(global, {
   jQuery,
   MockNextTick,

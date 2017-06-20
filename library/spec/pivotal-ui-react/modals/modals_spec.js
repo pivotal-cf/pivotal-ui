@@ -2,11 +2,10 @@ import '../spec_helper';
 import {findByClass, findAllByClass, clickOn} from '../spec_helper';
 import {Modal, BaseModal} from 'pui-react-modals';
 
-
 let result;
 
 describe('Modals', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Modal {...props}>Hi</Modal>);
+  const renderComponent = props => ReactDOM.render(<Modal {...props}>Hi</Modal>, root);
 
   beforeEach(() => {
     result = renderComponent({className: 'myModal', animation: false});
@@ -142,17 +141,16 @@ describe('Modals', () => {
 });
 
 describe('BaseModal', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<BaseModal {...props}/>);
   const renderIntoDom = props => ReactDOM.render(<BaseModal {...props}/>, root);
 
   it('supports dialog className', () => {
-    result = renderComponent({className: 'myModal', show: true});
+    result = renderIntoDom({className: 'myModal', show: true});
     expect(findByClass(result, 'modal')).toHaveClass('myModal');
   });
 
   describe('when show is true', () => {
     beforeEach(() => {
-      result = renderComponent({show: true, className: 'myModal', title: 'hey mr modal'});
+      result = renderIntoDom({show: true, className: 'myModal', title: 'hey mr modal'});
     });
 
     it('shows the modal', () => {
@@ -173,7 +171,7 @@ describe('BaseModal', () => {
 
   describe('when show is false', () => {
     beforeEach(() => {
-      result = renderComponent({show: false, className: 'myModal'});
+      result = renderIntoDom({show: false, className: 'myModal'});
     });
 
     it('hides the modal', () => {
@@ -190,14 +188,14 @@ describe('BaseModal', () => {
     });
 
     it('is triggered when close button is clicked', () => {
-      result = renderComponent({show: true, onHide, animation: false});
+      result = renderIntoDom({show: true, onHide, animation: false});
       clickOn(findByClass(result, 'btn-icon'));
 
       expect(onHide).toHaveBeenCalled();
     });
 
     it('is not triggered when the modal content itself is clicked', () => {
-      result = renderComponent({show: true, onHide, animation: false});
+      result = renderIntoDom({show: true, onHide, animation: false});
       clickOn(findByClass(result, 'modal-dialog'));
       expect(onHide).not.toHaveBeenCalled();
 
@@ -206,7 +204,7 @@ describe('BaseModal', () => {
     });
 
     it('is triggered when the backdrop is clicked', () => {
-      result = renderComponent({show: true, onHide, animation: false});
+      result = renderIntoDom({show: true, onHide, animation: false});
       clickOn(findByClass(result, 'modal'));
       expect(onHide).toHaveBeenCalled();
     });
@@ -275,10 +273,10 @@ describe('BaseModal', () => {
 
   describe('sizing', () => {
     it('can set the size', () => {
-      expect(findByClass(renderComponent({show: true, size: 'sm'}), 'modal-dialog')).toHaveClass('modal-sm');
-      expect(findByClass(renderComponent({show: true, size: 'small'}), 'modal-dialog')).toHaveClass('modal-sm');
-      expect(findByClass(renderComponent({show: true, size: 'lg'}), 'modal-dialog')).toHaveClass('modal-lg');
-      expect(findByClass(renderComponent({show: true, size: 'large'}), 'modal-dialog')).toHaveClass('modal-lg');
+      expect(findByClass(renderIntoDom({show: true, size: 'sm'}), 'modal-dialog')).toHaveClass('modal-sm');
+      expect(findByClass(renderIntoDom({show: true, size: 'small'}), 'modal-dialog')).toHaveClass('modal-sm');
+      expect(findByClass(renderIntoDom({show: true, size: 'lg'}), 'modal-dialog')).toHaveClass('modal-lg');
+      expect(findByClass(renderIntoDom({show: true, size: 'large'}), 'modal-dialog')).toHaveClass('modal-lg');
     });
   });
 

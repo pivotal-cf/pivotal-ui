@@ -5,7 +5,7 @@ import {Panel, PanelTitle, ShadowPanel} from 'pui-react-panels';
 let subject;
 
 describe('Panel', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Panel {...props}>Sup</Panel>);
+  const renderComponent = props => ReactDOM.render(<Panel {...props}>Sup</Panel>, root);
 
   it('creates a panel', () => {
     subject = renderComponent();
@@ -172,7 +172,7 @@ describe('Panel', () => {
 });
 
 describe('PanelTitle', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<PanelTitle {...props}>Titlist</PanelTitle>);
+  const renderComponent = props => ReactDOM.render(<PanelTitle {...props}>Titlist</PanelTitle>, root);
 
   let clickSpy;
   beforeEach(() => {
@@ -195,7 +195,7 @@ describe('PanelTitle', () => {
 });
 
 describe('ShadowPanel', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<ShadowPanel {...props}>Sup</ShadowPanel>);
+  const renderComponent = props => ReactDOM.render(<ShadowPanel {...props}>Sup</ShadowPanel>, root);
 
   it('creates a panel with the default shadow class', () => {
     subject = renderComponent();

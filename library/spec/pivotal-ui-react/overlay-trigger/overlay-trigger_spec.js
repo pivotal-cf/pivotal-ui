@@ -5,11 +5,11 @@ describe('OverlayTrigger', () => {
   let subject;
   const launcher = <span className="launcher">Manually Ask For Tooltip</span>;
   const tooltip = <Tooltip className="tooltip-text" content="Hello World"/>;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(
-    <OverlayTrigger {...props}>{launcher}</OverlayTrigger>);
+  const renderComponent = props => ReactDOM.render(
+    <OverlayTrigger {...props}>{launcher}</OverlayTrigger>, root);
   const createLauncher = props => <span className="launcher" {...props}>Manually Ask For Tooltip</span>;
-  const renderComponentWithCustomLauncher = (props, customLauncher) => ReactTestUtils.renderIntoDocument(
-    <OverlayTrigger {...props}>{customLauncher}</OverlayTrigger>);
+  const renderComponentWithCustomLauncher = (props, customLauncher) => ReactDOM.render(
+    <OverlayTrigger {...props}>{customLauncher}</OverlayTrigger>, root);
 
   const renderIntoDom = props => ReactDOM.render(<OverlayTrigger {...props}>{launcher}</OverlayTrigger>, root);
 
@@ -41,11 +41,11 @@ describe('OverlayTrigger', () => {
   });
 
   it('positions according to placement if pin is false, defaulting to right-side placement', () => {
-    subject = renderComponent({overlay: tooltip, display: true});
+    subject = renderComponent({overlay: tooltip, display: true, pin: false});
     expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
 
-    subject = renderComponent({placement: 'left', overlay: tooltip, display: true});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
+    subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
 
     subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
     expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
@@ -408,13 +408,9 @@ describe('OverlayTrigger', () => {
       });
 
       it('does not close when clicking on the launcher', () => {
-        ReactTestUtils.Simulate.click(launcher);
+        $('.launcher').simulate('click');
 
-        const evt = document.createEvent('HTMLEvents');
-        evt.initEvent('click', true, true);
-        launcher.dispatchEvent(evt);
-
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'tether-enabled')).toBeDefined();
+        expect('.tether-enabled').toExist();
       });
     });
   });

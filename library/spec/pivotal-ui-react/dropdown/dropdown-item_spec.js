@@ -5,8 +5,8 @@ import {findByClass, findByTag, clickOn} from '../spec_helper';
 
 describe('DropdownItem', () => {
   let result;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(
-    <DropdownItem {...props}>DropdownItem Text</DropdownItem>
+  const renderComponent = props => ReactDOM.render(
+    <DropdownItem {...props}>DropdownItem Text</DropdownItem>, root
   );
 
   it('passes through header', () => {
@@ -128,8 +128,8 @@ describe('DropdownItem', () => {
 
   describe('when an a tag is passed in as a child', () => {
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
-        <DropdownItem><a href="custom">link</a></DropdownItem>
+      result = ReactDOM.render(
+        <DropdownItem><a href="custom">link</a></DropdownItem>, root
       );
 
       it('renders the child link', () => {

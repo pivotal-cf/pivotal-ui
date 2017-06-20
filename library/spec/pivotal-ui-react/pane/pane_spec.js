@@ -4,7 +4,7 @@ import {BasePane, Pane} from 'pui-react-panes';
 
 let subject;
 describe('BasePane', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<BasePane {...props}>Pane content here</BasePane>);
+  const renderComponent = props => ReactDOM.render(<BasePane {...props}>Pane content here</BasePane>, root);
 
   it('renders a pane and container', () => {
     subject = renderComponent();
@@ -37,7 +37,7 @@ describe('BasePane', () => {
 });
 
 describe('Pane', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Pane {...props}>Pane content here</Pane>);
+  const renderComponent = props => ReactDOM.render(<Pane {...props}>Pane content here</Pane>, root);
 
   it('renders a pane and container', () => {
     subject = renderComponent();

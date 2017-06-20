@@ -5,17 +5,28 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 import {findByTag} from '../spec_helper';
 
 describe('Divider', () => {
-  let result;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Divider {...props}/>);
+  let result, renderComponent;
+  beforeEach(() => {
+    renderComponent = props => ReactDOM.render(<Divider {...props}/>, root);
+  });
 
   describe('rendering', () => {
-    result = renderComponent({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+    let props;
+
+    beforeEach(() => {
+      props = {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}};
+      result = renderComponent(props);
+    });
 
     it('creates a divider', () => {
       expect(findByTag(result, 'hr')).toHaveClass('divider-alternate-1');
     });
 
-    itPropagatesAttributes(findByTag(result, 'hr'), {className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+    it('adds provided attributes to the correct component', () => {
+      expect('hr').toHaveClass(props.className);
+      expect('hr').toHaveAttr('id', props.id);
+      expect('hr').toHaveCss(props.style);
+    });
   });
 
   describe('when size is set to large', () => {

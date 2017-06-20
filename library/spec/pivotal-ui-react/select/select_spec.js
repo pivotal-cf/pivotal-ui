@@ -6,7 +6,7 @@ import {findByClass, findAllByClass, findByTag, clickOn} from '../spec_helper';
 describe('Select', () => {
   let result, onChangeSpy, onEnteredSpy, onExitedSpy;
 
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Select {...props}/>);
+  const renderComponent = props => ReactDOM.render(<Select {...props}/>, root);
 
   describe('basic rendering and behavior', () => {
     beforeEach(() => {

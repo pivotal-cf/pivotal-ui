@@ -4,12 +4,13 @@ import {DraggableList, DraggableListItem} from 'pui-react-draggable-list';
 import move from 'pui-react-draggable-list/move_helper';
 
 describe('DraggableList', function() {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+  const renderComponent = props => ReactDOM.render(
     <DraggableList {...props}>
       <DraggableListItem>Foo</DraggableListItem>
       <DraggableListItem>Bar</DraggableListItem>
       <DraggableListItem>Gaz</DraggableListItem>
-    </DraggableList>
+    </DraggableList>,
+    root
   );
 
   it('renders', () => {

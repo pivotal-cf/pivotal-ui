@@ -5,7 +5,7 @@ import {findByClass, findByTag, findAllByTag} from '../spec_helper';
 
 describe('Radio', () => {
   let result;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Radio {...props}>One!!!</Radio>);
+  const renderComponent = props => ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
 
   it('renders a radio', () => {
     result = renderComponent({value: '1'});
@@ -76,11 +76,11 @@ describe('Radio', () => {
 
 describe('RadioGroup', () => {
   let result;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<RadioGroup {...props}>
+  const renderComponent = props => ReactDOM.render(<RadioGroup {...props}>
     <Radio value="one">first</Radio>
     <Radio value="two">second</Radio>
     <Radio value="three">third</Radio>
-  </RadioGroup>);
+  </RadioGroup>, root);
 
   describe('basic RadioGroup', () => {
     it('renders', () => {
@@ -110,11 +110,11 @@ describe('RadioGroup', () => {
   });
 
   it('passes id, style, and className to radio group', () => {
-    result = renderComponent({id: 'clear-channel', style: {color: 'red'}, className: '1234', name: 'radioGroup'});
+    result = renderComponent({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234', name: 'radioGroup'});
     const radioGroup = findByClass(result, 'radio-group');
 
     expect(radioGroup).toHaveAttr('id', 'clear-channel');
     expect(radioGroup).toHaveClass('1234');
-    expect(radioGroup).toHaveCss({color: 'red'});
+    expect(radioGroup).toHaveCss({color: 'rgb(255, 0, 0)'});
   });
 });

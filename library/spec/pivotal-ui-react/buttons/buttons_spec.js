@@ -5,7 +5,7 @@ import {Icon} from 'pui-react-iconography';
 
 describe('UIButton', () => {
   let subject;
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<UIButton {...props}>Click here</UIButton>);
+  const renderComponent = props => ReactDOM.render(<UIButton {...props}>Click here</UIButton>, root);
 
   it('creates a button', () => {
     subject = renderComponent();
@@ -44,7 +44,7 @@ describe('UIButton', () => {
       });
 
       it('ignores icons with the button text', () => {
-        subject = ReactTestUtils.renderIntoDocument(<UIButton icon={<Icon src="add"/>}>Click<Icon src="more_vert"/>here</UIButton>);
+        subject = ReactDOM.render(<UIButton icon={<Icon src="add"/>}>Click<Icon src="more_vert"/>here</UIButton>, root);
         const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
 
         expect(button).toHaveAttr('aria-label', 'Click here');
@@ -58,7 +58,7 @@ describe('UIButton', () => {
       });
 
       it('has no aria-label attribute for empty string buttons', () => {
-        subject = ReactTestUtils.renderIntoDocument(<UIButton/>);
+        subject = ReactDOM.render(<UIButton/>, root);
         const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
 
         expect(button).not.toHaveAttr('aria-label');

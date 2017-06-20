@@ -74,10 +74,11 @@ describe('ExpanderContent', () => {
 });
 
 describe('ExpanderTrigger', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+  const renderComponent = props => ReactDOM.render(
     <ExpanderTrigger>
       <button>Click here to trigger</button>
-    </ExpanderTrigger>
+    </ExpanderTrigger>,
+    root
   );
 
   let expanderTrigger;

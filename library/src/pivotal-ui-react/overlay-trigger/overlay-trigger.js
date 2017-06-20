@@ -114,17 +114,17 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     }
 
     privates.set(this, {timeout});
-  }
+  };
 
   click = (...args) => {
     this.setDisplay(!this.state.display);
     const userCallback = this.props.children.props.onClick;
     userCallback && userCallback(...args);
-  }
+  };
 
-  show = () => this.setDisplay(true)
+  show = () => this.setDisplay(true);
 
-  hide = () => this.setDisplay(false)
+  hide = () => this.setDisplay(false);
 
   render() {
     let {children, overlay, pin, placement, theme, trigger, ...props} = this.props;

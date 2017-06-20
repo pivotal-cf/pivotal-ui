@@ -3,42 +3,43 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 import {Grid, FlexCol} from 'pui-react-flex-grids';
 import {findByClass} from '../spec_helper';
 
-
 describe('FlexGrid', () => {
-  const renderComponent = (gridProps, flexColProps) => ReactTestUtils.renderIntoDocument(
+  const renderComponent = (gridProps, flexColProps) => ReactDOM.render(
     <Grid {...gridProps}>
       <FlexCol {...flexColProps}/>
-    </Grid>
+    </Grid>,
+    root
   );
 
   describe('attribute propagation', () => {
-    const result = renderComponent(
-      {className: 'test-class', id: 'test-id', style: {opacity: 0.75}},
-      {className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}}
-    );
+    let gridProps, flexColProps;
 
-    itPropagatesAttributes(findByClass(result, 'grid'), {
-      className: 'test-class',
-      id: 'test-id',
-      style: {opacity: '0.75'}
+    beforeEach(() => {
+      gridProps = {className: 'test-class', id: 'test-id', style: {opacity: 0.75}};
+      flexColProps = {className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}}
+      renderComponent(gridProps, flexColProps);
     });
 
-    itPropagatesAttributes(findByClass(result, 'col'), {
-      className: 'test-class2',
-      id: 'test-id2',
-      style: {opacity: '0.5'}
+    it('adds these attributes to the correct component', () => {
+      expect('.grid').toHaveClass(gridProps.className);
+      expect('.grid').toHaveAttr('id', gridProps.id);
+      expect('.grid').toHaveCss(gridProps.style);
+      expect('.col').toHaveClass(flexColProps.className);
+      expect('.col').toHaveAttr('id', flexColProps.id);
+      expect('.col').toHaveCss(flexColProps.style);
     });
   });
 
   describe('Col sizing', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Grid className="the-row">
           <FlexCol col={6} className="col-column"/>
           <FlexCol fixed={true} className="fixed-column"/>
           <FlexCol grow={2} className="grow-column"/>
-        </Grid>
+        </Grid>,
+        root
       );
     });
 
@@ -62,10 +63,11 @@ describe('FlexGrid', () => {
   describe('Col alignment', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Grid>
           <FlexCol alignment="middle" className="first-column"/>
-        </Grid>
+        </Grid>,
+        root
       );
     });
 
@@ -77,10 +79,11 @@ describe('FlexGrid', () => {
   describe('content alignment', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Grid>
           <FlexCol contentAlignment="middle" className="first-column"/>
-        </Grid>
+        </Grid>,
+        root
       );
     });
 
@@ -92,10 +95,11 @@ describe('FlexGrid', () => {
   describe('Col breakpoints', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Grid>
           <FlexCol breakpoint="md" className="first-column"/>
-        </Grid>
+        </Grid>,
+        root
       );
     });
 

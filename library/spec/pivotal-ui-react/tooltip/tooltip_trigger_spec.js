@@ -4,10 +4,10 @@ import {TooltipTrigger} from 'pui-react-tooltip';
 import {findByClass, findAllByClass} from '../spec_helper';
 
 describe('TooltipTrigger Component', () => {
-  const renderComponent = (props, triggerContent) => ReactTestUtils.renderIntoDocument(
+  const renderComponent = (props, triggerContent) => ReactDOM.render(
     <TooltipTrigger {...props}>
       <div className="trigger">{triggerContent || 'Some default message'}</div>
-    </TooltipTrigger>);
+    </TooltipTrigger>, root);
 
   it('renders', () => {
     const result = renderComponent({tooltip: 'Some default tooltip'});
@@ -48,13 +48,13 @@ describe('TooltipTrigger Component', () => {
       tooltip: 'Some tooltip content',
       id: 'some-id',
       className: 'some-classname',
-      style: {color: 'red'}
+      style: {color: 'rgb(255, 0, 0)'}
     });
     const tooltip = findByClass(result, 'tooltip');
 
     expect(tooltip).toHaveClass('some-classname');
     expect(tooltip).toHaveAttr('id', 'some-id');
-    expect(tooltip).toHaveCss({color: 'red'});
+    expect(tooltip).toHaveCss({color: 'rgb(255, 0, 0)'});
   });
 
   it('calls onEntered when tooltip is made visible', () => {

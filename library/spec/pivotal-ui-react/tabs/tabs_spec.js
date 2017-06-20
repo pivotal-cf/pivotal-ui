@@ -15,13 +15,14 @@ describe('Tabs', () => {
     onEnterSpy = jasmine.createSpy('onEnter');
     onExitSpy = jasmine.createSpy('onExit');
 
-    const component = ReactTestUtils.renderIntoDocument(
+    const component = ReactDOM.render(
       <Tabs {...mergedProps}>
         <Tab eventKey={1} title="Tab1" tabClassName="tab-class" className="tab-content-class" onEntered={onEnterSpy}
              onExited={onExitSpy} aria-labelledby="provided-aria-label">Content1</Tab>
         <Tab eventKey={2} title="Tab2" onEntered={onEnterSpy} onExited={onExitSpy}>Content2</Tab>
         <Tab eventKey={3} disabled title="DisabledTab">DisabledContent</Tab>
-      </Tabs>
+      </Tabs>,
+      root
     );
     onEnterSpy.calls.reset();
     onExitSpy.calls.reset();
@@ -321,6 +322,7 @@ describe('Tabs', () => {
         });
 
         it('generates a default value', () => {
+          ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
           const tabPane = findByClass(subject, 'in');
@@ -342,6 +344,7 @@ describe('Tabs', () => {
         });
 
         it('generates a default value', () => {
+          ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
           const tabPane = findByClass(subject, 'tab-pane');
@@ -398,11 +401,12 @@ describe('Tabs', () => {
 describe('LeftTabs', () => {
   let subject;
 
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(
+  const renderComponent = props => ReactDOM.render(
     <LeftTabs {...props}>
       <Tab eventKey={1} title="Tab1">Content1</Tab>
       <Tab eventKey={2} title="Tab2">Content2</Tab>
-    </LeftTabs>
+    </LeftTabs>,
+    root
   );
 
   it('passes all properties', () => {

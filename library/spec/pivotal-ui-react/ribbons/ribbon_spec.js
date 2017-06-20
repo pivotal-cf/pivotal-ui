@@ -5,7 +5,7 @@ import {findByClass} from '../spec_helper';
 let subject;
 
 describe('Ribbon', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Ribbon {...props}>British</Ribbon>);
+  const renderComponent = props => ReactDOM.render(<Ribbon {...props}>British</Ribbon>, root);
 
   describe('basic Ribbon', () => {
     it('renders a ribbon', () => {
@@ -18,18 +18,18 @@ describe('Ribbon', () => {
 
   describe('Ribbon with custom attributes', () => {
     it('renders a ribbon with custom attributes', () => {
-      subject = renderComponent({className: '1234', id: 'test', style: {color: 'red'}});
+      subject = renderComponent({className: '1234', id: 'test', style: {color: 'rgb(255, 0, 0)'}});
       const ribbon = findByClass(subject, 'ribbon');
 
       expect(ribbon).toHaveClass('1234');
       expect(ribbon).toHaveAttr('id', 'test');
-      expect(ribbon).toHaveCss({color: 'red'});
+      expect(ribbon).toHaveCss({color: 'rgb(255, 0, 0)'});
     });
   });
 });
 
 describe('PrimaryRibbon', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<PrimaryRibbon {...props}>British</PrimaryRibbon>);
+  const renderComponent = props => ReactDOM.render(<PrimaryRibbon {...props}>British</PrimaryRibbon>, root);
 
   describe('basic PrimaryRibbon', () => {
     it('adds the ribbon-primary class', () => {
@@ -42,18 +42,18 @@ describe('PrimaryRibbon', () => {
 
   describe('PrimaryRibbon with custom attributes', () => {
     it('renders a ribbon with custom attributes', () => {
-      subject = renderComponent({className: '1234', id: 'test', style: {color: 'red'}});
+      subject = renderComponent({className: '1234', id: 'test', style: {color: 'rgb(255, 0, 0)'}});
       const ribbon = findByClass(subject, 'ribbon');
 
       expect(ribbon).toHaveClass('1234');
       expect(ribbon).toHaveAttr('id', 'test');
-      expect(ribbon).toHaveCss({color: 'red'});
+      expect(ribbon).toHaveCss({color: 'rgb(255, 0, 0)'});
     });
   });
 });
 
 describe('Banner', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Banner {...props}>British</Banner>);
+  const renderComponent = props => ReactDOM.render(<Banner {...props}>British</Banner>, root);
 
   describe('basic banner', () => {
     it('has the ribbon-banner class', () => {
@@ -66,12 +66,12 @@ describe('Banner', () => {
 
   describe('Banner with custom attributes', () => {
     it('renders a banner with custom attributes', () => {
-      subject = renderComponent({className: '1234', id: 'test', style: {color: 'red'}});
+      subject = renderComponent({className: '1234', id: 'test', style: {color: 'rgb(255, 0, 0)'}});
       const ribbon = findByClass(subject, 'ribbon-banner');
 
       expect(ribbon).toHaveClass('1234');
       expect(ribbon).toHaveAttr('id', 'test');
-      expect(ribbon).toHaveCss({color: 'red'});
+      expect(ribbon).toHaveCss({color: 'rgb(255, 0, 0)'});
     });
   });
 });

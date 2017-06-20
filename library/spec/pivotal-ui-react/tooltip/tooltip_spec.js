@@ -1,10 +1,9 @@
-import '../spec_helper'
-  ;
+import '../spec_helper';
 import {Tooltip} from 'pui-react-tooltip';
 
 describe('Tooltip Component', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Tooltip {...props}>Some default
-    tooltip</Tooltip>);
+  const renderComponent = props => ReactDOM.render(<Tooltip {...props}>Some default
+    tooltip</Tooltip>, root);
 
   it('renders', () => {
     const result = renderComponent();
@@ -22,13 +21,13 @@ describe('Tooltip Component', () => {
     const result = renderComponent({
       id: 'some-id',
       className: 'some-classname',
-      style: {color: 'red'}
+      style: {color: 'rgb(255, 0, 0)'}
     });
     const tooltip = ReactTestUtils.findRenderedDOMComponentWithClass(result, 'tooltip-container');
 
     expect(tooltip).toHaveClass('some-classname');
     expect(tooltip).toHaveAttr('id', 'some-id');
-    expect(tooltip).toHaveCss({color: 'red'});
+    expect(tooltip).toHaveCss({color: 'rgb(255, 0, 0)'});
   });
 
   describe('visible', () => {
@@ -73,10 +72,7 @@ describe('Tooltip Component', () => {
   });
 
   describe('sticky', () => {
-    let renderComponent;
-    beforeEach(() => {
-      renderComponent = props => ReactTestUtils.renderIntoDocument(<Tooltip {...props}>Some default tooltip</Tooltip>);
-    });
+    const renderComponent = props => ReactDOM.render(<Tooltip {...props}>Some default tooltip</Tooltip>, root);
 
     describe('is not set', () => {
       it('does not render with the hoverable class', () => {
@@ -102,5 +98,4 @@ describe('Tooltip Component', () => {
       });
     });
   });
-})
-;
+});

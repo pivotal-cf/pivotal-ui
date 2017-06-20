@@ -4,8 +4,16 @@ import {Image} from 'pui-react-images';
 import {reactCompPropagatesAttrs} from '../support/shared_examples';
 
 describe('Image', () => {
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Image
-    src="http://placehold.it/20x20" {...props} />);
+  const renderComponent = props => ReactDOM.render(
+    <Image src="http://placehold.it/20x20" {...props} />, root);
+
+  beforeEach(() => {
+    reactCompPropagatesAttrs(renderComponent({
+      className: 'foo',
+      id: 'bar',
+      style: {color: 'red'}
+    }), 'foo', 'bar', {color: 'red'});
+  });
 
   describe('when responsive', () => {
     it('adds the image-responsive class to the image', () => {
@@ -37,10 +45,4 @@ describe('Image', () => {
     const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'img');
     expect(component).not.toHaveClass('img-responsive');
   });
-
-  reactCompPropagatesAttrs(renderComponent({
-    className: 'foo',
-    id: 'bar',
-    style: {color: 'red'}
-  }), 'foo', 'bar', {color: 'red'});
 });

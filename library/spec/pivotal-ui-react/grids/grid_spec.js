@@ -3,30 +3,31 @@ import {itPropagatesAttributes} from '../support/shared_examples';
 import {Row, Col} from 'pui-react-grids';
 import {findByClass} from '../spec_helper';
 
-
 describe('Grid', () => {
-  const renderComponent = (rowProps, colProps) => ReactTestUtils.renderIntoDocument(
+  const renderComponent = (rowProps, colProps) => ReactDOM.render(
     <Row {...rowProps}>
       <Col {...colProps}/>
-    </Row>
+    </Row>,
+    root
   );
 
   describe('attribute propagation', () => {
-    const result = renderComponent(
-      {className: 'test-class', id: 'test-id', style: {opacity: 0.75}},
-      {md: 9, className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}}
-    );
+    let result;
 
-    itPropagatesAttributes(findByClass(result, 'row'), {
-      className: 'test-class',
-      id: 'test-id',
-      style: {opacity: '0.75'}
+    const rowProps = {className: 'test-class', id: 'test-id', style: {opacity: 0.75}};
+    const colProps = {md: 9, className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}};
+
+    beforeEach(() => {
+      result = renderComponent(rowProps, colProps);
     });
 
-    itPropagatesAttributes(findByClass(result, 'col-md-9'), {
-      className: 'test-class2',
-      id: 'test-id2',
-      style: {opacity: '0.5'}
+    it('adds these attributes to the correct component', () => {
+      expect('.row').toHaveClass(rowProps.className);
+      expect('.row').toHaveAttr('id', rowProps.id);
+      expect('.row').toHaveCss(rowProps.style);
+      expect('.col-md-9').toHaveClass(colProps.className);
+      expect('.col-md-9').toHaveAttr('id', colProps.id);
+      expect('.col-md-9').toHaveCss(colProps.style);
     });
   });
 
@@ -49,7 +50,7 @@ describe('Grid', () => {
       }
     }
     it('allows a custom row componentClass', () => {
-      const result = ReactTestUtils.renderIntoDocument(
+      const result = ReactDOM.render(
         <div>
           <Row componentClass="span">
             <Col/>
@@ -60,7 +61,8 @@ describe('Grid', () => {
           <Row componentClass={CustomNormalClass}>
             <Col/>
           </Row>
-        </div>
+        </div>,
+        root
       );
 
       expect(result.querySelector('span.row')).toBeDefined();
@@ -69,12 +71,13 @@ describe('Grid', () => {
     });
 
     it('allows a custom col componentClass', () => {
-      const result = ReactTestUtils.renderIntoDocument(
+      const result = ReactDOM.render(
         <Row>
           <Col className="col-1" componentClass={CustomFunctionalClass}/>
           <Col className="col-2" componentClass={CustomNormalClass}/>
           <Col className="col-3" componentClass="span"/>
-        </Row>
+        </Row>,
+        root
       );
 
       const row = findByClass(result, 'row');
@@ -87,14 +90,15 @@ describe('Grid', () => {
   describe('Col sizing', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Row>
           <Col lg={12} className="col-1"/>
           <Col md={12} className="col-2"/>
           <Col sm={12} className="col-3"/>
           <Col xs={12} className="col-4"/>
           <Col xs={24} sm={18} md={12} lg={6} className="col-5"/>
-        </Row>
+        </Row>,
+        root
       );
     });
 
@@ -113,13 +117,14 @@ describe('Grid', () => {
   describe('Col hiding', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Row>
           <Col {...{lgHidden: true}} className="col-1"/>
           <Col {...{mdHidden: true}} className="col-2"/>
           <Col {...{smHidden: true}} className="col-3"/>
           <Col {...{xsHidden: true}} className="col-4"/>
-        </Row>
+        </Row>,
+        root
       );
     });
 
@@ -134,13 +139,14 @@ describe('Grid', () => {
   describe('Col offset', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Row>
           <Col {...{lgOffset: 2}} className="col-1"/>
           <Col {...{mdOffset: 2}} className="col-2"/>
           <Col {...{smOffset: 2}} className="col-3"/>
           <Col {...{xsOffset: 2}} className="col-4"/>
-        </Row>
+        </Row>,
+        root
       );
     });
 
@@ -155,13 +161,14 @@ describe('Grid', () => {
   describe('Col push', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Row>
           <Col md={12} {...{lgPush: 2}} className="col-1"/>
           <Col md={12} {...{mdPush: 2}} className="col-2"/>
           <Col md={12} {...{smPush: 2}} className="col-3"/>
           <Col md={12} {...{xsPush: 2}} className="col-4"/>
-        </Row>
+        </Row>,
+        root
       );
     });
 
@@ -176,13 +183,14 @@ describe('Grid', () => {
   describe('Col pull', () => {
     let result;
     beforeEach(() => {
-      result = ReactTestUtils.renderIntoDocument(
+      result = ReactDOM.render(
         <Row>
           <Col md={12} {...{lgPull: 2}} className="col-1"/>
           <Col md={12} {...{mdPull: 2}} className="col-2"/>
           <Col md={12} {...{smPull: 2}} className="col-3"/>
           <Col md={12} {...{xsPull: 2}} className="col-4"/>
-        </Row>
+        </Row>,
+        root
       );
     });
 

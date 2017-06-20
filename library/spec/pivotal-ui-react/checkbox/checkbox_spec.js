@@ -1,12 +1,12 @@
 import '../spec_helper';
 import {Checkbox} from 'pui-react-checkbox';
 
-import {findByClass, findAllByClass, clickOn} from '../spec_helper';
+import {findByClass, findAllByClass} from '../spec_helper';
 
 describe('Checkbox', function() {
   let subject, checkbox;
 
-  const renderComponent = props => ReactTestUtils.renderIntoDocument(<Checkbox {...props}/>);
+  const renderComponent = props => ReactDOM.render(<Checkbox {...props}/>, root);
   beforeEach(() => {
     subject = renderComponent({
       label: 'labelText',
@@ -44,7 +44,7 @@ describe('Checkbox', function() {
   });
 
   it('renders checked if checked is true', () => {
-    subject = renderComponent({checked: true, onChange: () => {}});
+    $('.input-class').click();
     expect(findByClass(subject, 'checkbox').querySelector('input[type="checkbox"]')).toBeChecked();
   });
 

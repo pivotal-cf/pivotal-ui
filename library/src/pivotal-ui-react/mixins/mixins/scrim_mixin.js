@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';;
+import PropTypes from 'prop-types';
 
 function rootClick(e) {
   if (this.props.disableScrim || ReactDOM.findDOMNode(this).contains(e.target)) return;

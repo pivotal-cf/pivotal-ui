@@ -18,7 +18,7 @@ describe('ScrimMixin', () => {
   describe('when there is no document', () => {
     it('does not throw an exception', () => {
       expect(() => {
-        ReactTestUtils.renderIntoDocument(<Component getDocument={() => undefined}/>, root);
+        ReactDOM.render(<Component getDocument={() => undefined}/>, root);
       }).not.toThrow();
     });
   });
