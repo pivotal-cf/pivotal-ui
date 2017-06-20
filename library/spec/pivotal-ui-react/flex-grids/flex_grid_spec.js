@@ -16,7 +16,7 @@ describe('FlexGrid', () => {
 
     beforeEach(() => {
       gridProps = {className: 'test-class', id: 'test-id', style: {opacity: 0.75}};
-      flexColProps = {className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}}
+      flexColProps = {className: 'test-class2', id: 'test-id2', style: {opacity: 0.5}};
       renderComponent(gridProps, flexColProps);
     });
 
