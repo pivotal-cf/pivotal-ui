@@ -20,7 +20,7 @@ export const reset = () => {
 export class PortalSource extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -29,6 +29,7 @@ export class PortalSource extends React.PureComponent {
 
   componentWillMount() {
     emitter.on('destination', this.setDestination);
+    this.setDestination();
     this.componentDidUpdate();
   }
 
@@ -49,7 +50,7 @@ export class PortalSource extends React.PureComponent {
     const {destination} = this.state;
     const destinationPortal = destinationPortals[this.props.name];
     if (destination && destination.portal === destinationPortal) return;
-    this.setState({destination: destinationPortal && {portal: destinationPortal, root: createRoot(destinationPortal)}});
+    this.setState({destination: destinationPortal && {portal: destinationPortal, root: createRoot(destinationPortal)}}, this.componentDidUpdate);
   }
 
   render() {

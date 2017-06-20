@@ -191,4 +191,18 @@ describe('Portals', function() {
       expect(orangeWheatley).toContainText('Stop panicking!');
     });
   });
+
+  describe('when the source is rendered significantly after the destination', () => {
+    it('renders the source portal into the destination portal', () => {
+      ReactDOM.render((<div><div className="orange"><PortalDestination name="chell"/></div></div>), root);
+      expect('.orange').not.toHaveText('Potato');
+      ReactDOM.render(<div><div className="orange"><PortalDestination name="chell"/></div><div className="blue">
+        <PortalSource name="chell">
+          <Potato/>
+        </PortalSource>
+      </div></div>, root);
+      expect('.blue').not.toHaveText('Potato');
+      expect('.orange').toHaveText('Potato');
+    });
+  });
 });
