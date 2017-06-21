@@ -51,7 +51,7 @@ export class PortalSource extends React.PureComponent {
     const destinationPortal = destinationPortals[this.props.name];
     if (destination && destination.portal === destinationPortal) return;
     this.setState({destination: destinationPortal && {portal: destinationPortal, root: createRoot(destinationPortal)}}, this.componentDidUpdate);
-  }
+  };
 
   render() {
     return null;
@@ -61,7 +61,7 @@ export class PortalSource extends React.PureComponent {
 export class PortalDestination extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired
-  }
+  };
 
   componentDidMount() {
     const {name} = this.props;

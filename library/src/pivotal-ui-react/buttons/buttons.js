@@ -15,7 +15,7 @@ export class UIButton extends React.Component {
     small: PropTypes.bool,
     fullWidth: PropTypes.bool,
     iconPosition: PropTypes.oneOf(['left', 'right'])
-  }
+  };
 
   static defaultProps = {
     kind: 'default',
