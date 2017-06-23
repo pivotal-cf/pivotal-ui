@@ -145,26 +145,108 @@ describe('Dropdown', () => {
         expect('.dropdown-open').not.toExist();
       });
 
-      it('hides when clicking outside the dropdown', () => {
-        $('.dropdown-toggle').simulate('click');
-        expect('.dropdown-open').toExist();
-        $('.scrim').simulate('click');
-        expect('.dropdown-open').not.toExist();
-        expect('.scrim').not.toExist();
-      });
-
       it('hides when a menu item is selected', () => {
         $('.dropdown-toggle').simulate('click');
         $('.dropdown-menu li:eq(0)').simulate('click');
         expect('.dropdown-open').not.toExist();
       });
 
-      describe('when scrim is disabled', () => {
-        it('does not hide the dropdown menu when clicking outside of the dropdown', () => {
+      describe('when blockingScrim is true and disableScrim is false', () => {
+        beforeEach(() => {
+          subject::setProps({blockingScrim: true});
+          $('.dropdown-toggle').simulate('click');
+        });
+
+        it('renders a blocking scrim', () => {
+          expect('.scrim').toExist();
+        });
+
+        describe('when clicking outside of the dropdown', () => {
+          beforeEach(() => {
+            $('body').click();
+          });
+
+          it('hides the dropdown menu', () => {
+            expect('.dropdown-open').not.toExist();
+          });
+
+          it('removes the scrim', () => {
+            expect('.scrim').not.toExist();
+          });
+        });
+      });
+
+      describe('when blockingScrim is false and disableScrim is false', () => {
+        beforeEach(() => {
+          $('.dropdown-toggle').simulate('click');
+        });
+
+        it('does not render a blocking scrim', () => {
+          expect('.scrim').not.toExist();
+        });
+
+        describe('when clicking outside of the dropdown', () => {
+          beforeEach(() => {
+            $('body').click();
+          });
+
+          it('hides the dropdown menu', () => {
+            expect('.dropdown-open').not.toExist();
+          });
+
+          it('does not render a blocking scrim', () => {
+            expect('.scrim').not.toExist();
+          });
+        });
+      });
+
+      describe('when blockingScrim is true and disableScrim is true', () => {
+        beforeEach(() => {
+          subject::setProps({blockingScrim: true, disableScrim: true});
+          $('.dropdown-toggle').simulate('click');
+        });
+
+        it('does not render a blocking scrim', () => {
+          expect('.scrim').not.toExist();
+        });
+
+        describe('when clicking outside of the dropdown', () => {
+          beforeEach(() => {
+            $('body').click();
+          });
+
+          it('does not hide the dropdown menu', () => {
+            expect('.dropdown-open').toExist();
+          });
+
+          it('does not render a blocking scrim', () => {
+            expect('.scrim').not.toExist();
+          });
+        });
+      });
+
+      describe('when blockingScrim is false and disableScrim is true', () => {
+        beforeEach(() => {
           subject::setProps({disableScrim: true});
           $('.dropdown-toggle').simulate('click');
+        });
+
+        it('does not render a blocking scrim', () => {
           expect('.scrim').not.toExist();
-          expect('.dropdown-open').toExist();
+        });
+
+        describe('when clicking outside of the dropdown', () => {
+          beforeEach(() => {
+            $('body').click();
+          });
+
+          it('does not hide the dropdown menu', () => {
+            expect('.dropdown-open').toExist();
+          });
+
+          it('does not render a blocking scrim', () => {
+            expect('.scrim').not.toExist();
+          });
         });
       });
 
