@@ -47,7 +47,7 @@ function renderPage() {
       </head>
       <body>
         <div id="root">
-          <div id="app">${SideBarFactory()}</div>
+          <div id="app">{SideBarFactory()}</div>
         </div>
         <script src="./dist/bundle.js"></script>
       </body>
