@@ -20,6 +20,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   }
 
   static propTypes = {
+    blockingScrim: PropTypes.bool,
     border: PropTypes.bool,
     buttonAriaLabel: PropTypes.string,
     buttonClassName: PropTypes.string,
@@ -47,6 +48,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   };
 
   static defaultProps = {
+    blockingScrim: false,
     closeOnMenuClick: true,
     disableScrim: false,
     icon: 'chevron_down',
@@ -82,7 +84,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
   render() {
     const {
-      border, buttonAriaLabel, buttonClassName, splitClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
+      blockingScrim, border, buttonAriaLabel, buttonClassName, splitClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
       flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onSplitClick, onEntered, onExited, split, title, toggle,
       floatMenu, scroll, ...props
     } = this.props;
@@ -125,7 +127,7 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       </button>
       {toggleNode}
       {split && <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
-      {(open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
+      {(blockingScrim && open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}
     </div>);
   }
