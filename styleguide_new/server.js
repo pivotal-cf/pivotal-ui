@@ -26,7 +26,7 @@ app.get('/dist/:file', function(req, res) {
 });
 
 app.get('/', function(req, res) {
-  res.send(renderPage());
+  res.redirect('getstarted');
 });
 
 app.get('/:whatever', function(req, res) {
@@ -39,7 +39,6 @@ app.listen(port);
 
 function renderPage() {
   const SideBarFactory = React.createFactory(SideBar);
-  // const sideBar = SideBarFactory());
 
   return ReactDOMServer.renderToString(
     <html>
