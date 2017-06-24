@@ -1,9 +1,9 @@
 {
-  "version": "8.3.0",
+  "version": "8.3.1",
   "description": "React components that provide informational text callouts",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "pui-css-ribbons": "=8.3.0",
-    "pui-react-helpers": "=8.3.0"
+    "pui-css-ribbons": "=8.3.1",
+    "pui-react-helpers": "=8.3.1"
   }
 }
