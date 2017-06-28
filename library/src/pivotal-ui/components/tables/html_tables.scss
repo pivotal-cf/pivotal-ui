@@ -34,7 +34,7 @@ table.table {
   //General Cell
   td, th {
     border-right: solid 1px $table-border-color;
-    padding: $base-unit;
+    padding: $base-unit ($base-unit*2);
     text-align: inherit;
     &:last-child {
       border-right: none;
