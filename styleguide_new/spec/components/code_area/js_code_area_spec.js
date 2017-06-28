@@ -4,7 +4,7 @@ describe('JsCodeArea', () => {
   let code, description, JsCodeArea;
 
   beforeEach(() => {
-    code = 'let a = 1; let b = 2;';
+    code = '<div>Hi</div>';
     JsCodeArea = require('../../../src/components/code_area/js_code_area');
   });
 
@@ -27,6 +27,31 @@ describe('JsCodeArea', () => {
 
     it('correctly renders the markdown', () => {
       expect('strong').toHaveText('some-description');
+    });
+  });
+
+  describe('rendering valid JSX with invalid JavaScript', () => {
+    beforeEach(() => {
+      code = `
+      class BadComponent extends React.Component {
+        render() {
+          throw Error('render error')
+        }
+      }
+      <BadComponent/>
+      `
+      spyOn(console, 'log');
+    });
+
+    it('does not throw an error on render', () => {
+      expect(() => {
+        ReactDOM.render(<JsCodeArea {...{description, code}}/>, root);
+      }).not.toThrow();
+    });
+
+    it('renders the error message for the user', () => {
+      ReactDOM.render(<JsCodeArea {...{description, code}}/>, root);
+      expect('.code-editor--live-preview pre').toContainText('render error');
     });
   });
 });

@@ -120,6 +120,7 @@
     "react": "^15.4.2",
     "react-ace": "^4.1.1",
     "react-dom": "^15.5.4",
+    "react-dom-server": "^0.0.5",
     "react-svg-loader": "^1.1.1",
     "sass-loader": "^4.1.1",
     "selenium-standalone": "^5.11.1",

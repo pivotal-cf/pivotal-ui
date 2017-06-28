@@ -69,12 +69,15 @@ export default class JsCodeArea extends React.PureComponent {
     const {file, name, title, description} = this.props;
     const {code, remark} = this.state;
 
-    let transpiledCode;
+    let livePreview, transpiledCode;
 
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
-    } catch (error) {
-      console.log(error);
+      livePreview = eval(transpiledCode);
+      ReactDOMServer.renderToStaticMarkup(livePreview);
+    } catch (e) {
+      console.log(e);
+      livePreview = <pre>{e.toString()}</pre>;
     }
 
     return (
@@ -93,7 +96,7 @@ export default class JsCodeArea extends React.PureComponent {
         {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
         {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
         <div className="code-editor--live-preview">
-          {eval(transpiledCode)}
+          {livePreview}
         </div>
       </div>
     );
