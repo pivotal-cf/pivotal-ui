@@ -19,6 +19,7 @@ npm install babel-loader react-svg-loader --save-dev
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------
+blockingScrim    | no       | Boolean                             | false          | If true, blocks mouse events outside of the dropdown. Clicking outside of the dropdown will still close the dropdown.
 buttonAriaLabel  | no       | String                              |                | aria-label for the button
 buttonClassName  | no       | String                              |                | Classname to add to the button
 closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
