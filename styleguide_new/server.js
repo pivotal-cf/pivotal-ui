@@ -32,8 +32,6 @@ console.log(`listening on port ${port}`);
 app.listen(port);
 
 function renderPage() {
-  const SideBarFactory = React.createFactory(SideBar);
-
   return ReactDOMServer.renderToString(
     <html>
       <head>
@@ -41,7 +39,7 @@ function renderPage() {
       </head>
       <body>
         <div id="root">
-          <div id="app">{SideBarFactory()}</div>
+          <div id="app"><SideBar/></div>
         </div>
         <script src="./dist/bundle.js"></script>
       </body>
