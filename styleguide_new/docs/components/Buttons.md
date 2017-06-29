@@ -1,45 +1,15 @@
 # Buttons
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-buttons --save`
-
-`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';`
-
-#### CSS Only
-`npm install pui-css-buttons --save`
-
 ## Description
 Use buttons as triggers for actions that are used in forms, toolbars, and as stand-alone action triggers. Try to avoid the usage of buttons for navigation. The main difference between actions and navigation is that **Actions** are operations performed on objects, while **Navigation** refers to elements on the screen or view that take you to another context in the application. For **Navigation** consider simply using links.
 
-Import the subcomponents:
 
-```
-import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';
-import {Icon} from 'pui-react-iconography';
-```
-
-Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
-The aria-label attribute will be populated with the button text, unless an aria-label value is explicitly supplied.
+The aria-label attribute will be populated with the button text, unless an aria-label value is explicitly supplied. Buttons side-by-side will be separated by a margin of `$base-unit`.
 
 ## Examples
 
-```jsx
-::title=Link vs Button Example
-<div>
-<DefaultButton>
-  Button
-</DefaultButton>
-
-<DefaultButton href="http://example.com">
-  Link
-</DefaultButton>
-</div>
-```
-
 ### Color and Treatment
-There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt`prop, to use the flat style, use the `flat` prop.
+There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop.
 
 ```jsx
 ::title=Default Button
@@ -77,25 +47,30 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 ```
 
-### Sizing
 ```jsx
-::title=Large Button
-::description=To make a button large, set the `large` property to true
+::title=Link vs Button Example
+::description=Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
+<div>
+  <DefaultButton>
+    Button
+  </DefaultButton>
+
+  <DefaultButton href="http://example.com">
+    Link
+  </DefaultButton>
+</div>
+```
+
+
+```jsx
+::title=Sizing
+::description=To change the size of the button, use the `large` or `small` property.
 <DefaultButton large>
   Big Button
 </DefaultButton>
-```
-
-```jsx
-::title=Default Button
 <DefaultButton>
 Default
 </DefaultButton>
-```
-
-```jsx
-::title=Small Button
-::description=To make a button large, set the `small` property to true
 <DefaultButton small>
   Small Button
 </DefaultButton>
@@ -109,14 +84,10 @@ Default
 </DefaultButton>
 ```
 
-### Disabling
-
-Buttons can be disabled.
-If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
-If given the disabled class, a button will be functionally disabled, and will also change visually.
-
 ```jsx
-::title=Disabling
+::title=Disabled
+::description=If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
+If given the disabled class, a button will be functionally disabled, and will also change visually.
 <div>
     <div>
         <button className="btn btn-default" disabled type="button" aria-label="button">
@@ -150,46 +121,33 @@ If given the disabled class, a button will be functionally disabled, and will al
 </div>
 ```
 
-### Icons
+```jsx
+::title=Icons
+::description=Buttons can contain an icon with text or just an icon. `import {Icon} from 'pui-react-iconography';`
+<div>
+  <PrimaryButton icon={<Icon src="add"/>}>
+   Some button
+  </PrimaryButton>
+  <DefaultButton alt icon={<Icon src="spinner-sm"/>}>
+   Loading
+  </DefaultButton>
+  <DefaultButton alt iconOnly>
+    <Icon src="add"/>
+  </DefaultButton>
+</div>
 
-Import `Icon`:
+```
 
+## Installation & Usage
+
+#### React
+`npm install pui-react-buttons --save`
+
+`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';`
 `import {Icon} from 'pui-react-iconography';`
 
-```jsx
-::title=Buttons can contain icons
-<div>
-<PrimaryButton icon={<Icon src="add"/>}>
- Some button
-</PrimaryButton>
-
-<DefaultButton alt icon={<Icon src="spinner-sm"/>}>
- Loading
-</DefaultButton>
-</div>
-```
-
-```jsx
-::title=They can also be icon buttons
-<DefaultButton alt iconOnly>
-  <Icon src="add"/>
-</DefaultButton>
-```
-
-### Side-by-Side Buttons
-
-```jsx
-::title=Side-by-Side
-::description=Buttons side-by-side will be separated by a margin of `$base-unit`.
-<div>
-  <DefaultButton alt>
-    Cancel
-  </DefaultButton>
-  <DefaultButton>
-    Save
-  </DefaultButton>
-</div>
-```
+#### CSS Only
+`npm install pui-css-buttons --save`
 
 ## Props
 
