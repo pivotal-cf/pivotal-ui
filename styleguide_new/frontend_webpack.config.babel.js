@@ -1,5 +1,6 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import CompressionPlugin from 'compression-webpack-plugin';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
@@ -43,6 +44,7 @@ export default {
   },
   plugins: [
     new ExtractTextPlugin('app.css'),
+    new CompressionPlugin()
   ],
   node: {
     fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally

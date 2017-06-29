@@ -1,6 +1,7 @@
 import Express from 'express';
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
+import expressStaticGzip from 'express-static-gzip';
 
 import SideBar from './src/components/sidebar';
 
@@ -16,14 +17,7 @@ app.use((req, res, next) => {
   res.end();
 });
 
-app.get('/dist/:file', function(req, res) {
-  const file = req.params['file'];
-  const filepath = `${process.cwd()}/dist/${file}`;
-
-  console.log(`Routing request ${file} to ${filepath}`);
-
-  res.sendFile(filepath);
-});
+app.use("/dist", expressStaticGzip(`${process.cwd()}/dist`));
 
 app.get('/', function(req, res) {
   res.redirect('getstarted');
