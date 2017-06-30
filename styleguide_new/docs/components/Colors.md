@@ -1,55 +1,25 @@
 # Colors
 
-## Installation & Usage
-
-#### CSS Only
-
-`npm install pui-css-colors --save`
-
 ## Description
 
 Our color pallet is composed of several different colors. At any given point it captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.
 
-```jsx
-::title=Sass variables should only be used in variables.css.scss
-<div className="alert alert-warning alert-dismissable">
-<div>
-  <h5 className="em-high mtn">
-    Sass variables should only be used in variables.css.scss.
-  </h5>
-  <p>
-    They should never be used directly when building components, because it makes
-    it very hard to change the values later if you can't tell how they might have been used.
-    You should <strong>define your own variables</strong> that use these colors in variables.css.scss.
-  </p>
-
-  <p>
-    If you do want to use variables and mixins, install this module:
-
-  </p>
-
-  <code>
-    <img src="/styleguide/download.svg" width="16" height="16"/>
-     npm install pui-css-variables-and-mixins
-  </code>
-</div>
-</div>
-```
-
-## Examples
-
-This example shows proper use of Sass variables.
-
+Sass variables should only be used in variables.css.scss.
+They should never be used directly when building components, because it makes it very hard to change the values later if you can't tell how they might have been used. You should **define your own variables** that use these colors in variables.css.scss.
 ```
 $tabs-active-bg-color: $gray-2;
 ```
 
-To use the color classes:
+If you do want to use variables and mixins, install this module: `npm install pui-css-variables-and-mixins`
 
-Prepend any color variable with 'bg-' to apply that color to the background
-Prepend any color variable with 'type-' to apply that color to the text
+
+## Examples
+
+Prepend any color variable with `bg-` to apply that color to the background.
+
+Prepend any color variable with `type-` to apply that color to the text.
 
 ```jsx
 ::title=Colors
@@ -445,3 +415,11 @@ Prepend any color variable with 'type-' to apply that color to the text
 </div>
 </div>
 ```
+
+## Installation & Usage
+
+#### CSS Only
+
+`npm install pui-css-colors --save`
+
+`npm install pui-css-variables-and-mixins`
