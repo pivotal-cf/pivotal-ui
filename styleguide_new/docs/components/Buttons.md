@@ -65,15 +65,17 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```jsx
 ::title=Sizing
 ::description=To change the size of the button, use the `large` or `small` property.
-<DefaultButton large>
-  Big Button
-</DefaultButton>
-<DefaultButton>
-Default
-</DefaultButton>
-<DefaultButton small>
-  Small Button
-</DefaultButton>
+<div>
+  <DefaultButton large>
+    Big Button
+  </DefaultButton>
+  <DefaultButton>
+  Default
+  </DefaultButton>
+  <DefaultButton small>
+    Small Button
+  </DefaultButton>
+</div>
 ```
 
 ```jsx
@@ -86,8 +88,7 @@ Default
 
 ```jsx
 ::title=Disabled
-::description=If given the disabled attribute, a button will be functionally disabled, but will look unchanged.
-If given the disabled class, a button will be functionally disabled, and will also change visually.
+::description=If given the disabled attribute, a button will be functionally disabled, but will look unchanged. If given the disabled class, a button will be functionally disabled, and will also change visually.
 <div>
     <div>
         <button className="btn btn-default" disabled type="button" aria-label="button">
@@ -144,6 +145,7 @@ If given the disabled class, a button will be functionally disabled, and will al
 `npm install pui-react-buttons --save`
 
 `import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';`
+
 `import {Icon} from 'pui-react-iconography';`
 
 #### CSS Only
