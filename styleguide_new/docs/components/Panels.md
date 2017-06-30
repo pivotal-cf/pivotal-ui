@@ -8,8 +8,8 @@ A `ScrollingPanel` is created by using a `Panel` component and including a true 
 property. Alternatively, if this value is a number, it will become the height of the scrollable panel in pixels.
 
 
-## Do        | ## Don't
--------------|----------
+Do        | Don't
+----------|----------
 Use a panel to logically group content that has the following form: header, body, and/or footer. | Use a panel as a generic wrapping element. Instead, avail yourself of the various background color modifiers we have.
 Use multiple panels or list-group inside to group a collection of related content objects. | Overload the panel header with too many calls to action.
 Distinguish between primary and secondary CTAs in the header and footer (e.g., primary vs secondary buttons). | Use a panel when screen real estate is valuable, instead consider a table layout or grouped-list.
