@@ -324,6 +324,16 @@ const data = [
 
 <Table columns={customCellColumns} data={data}/>
 ```
+## CSS Classes
+
+Class                   | Description
+------------------------| -----------------
+`.table`                | Applied to the starting element to define the style standards.
+`.tr-hover`             | Applied to the starting table element or the desired row to add the hover effect.
+`.td-hover`             | Applied to the starting .table element to change the table row hover effect to a table cell hover.
+`.tr-no-h-borders`      | Removes inner horizontal borders from the desired .table or table row element.
+`.table-no-ext-borders` | Removes external borders for the entire table when applied to the .table element.
+`.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
 
 ## Props
 
