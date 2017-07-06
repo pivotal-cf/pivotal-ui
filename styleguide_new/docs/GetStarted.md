@@ -189,7 +189,7 @@ your project.
    # writes the compiled css to <path-to-your-asset-build-folder>/components.css
     ```
 
-1. Add the css and javascript files to your html template. The css file is also available through our CDN, `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-8.1.0.css`
+1. Add the css and javascript files to your html template. The css file is also available through our CDN, `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-8.3.1.css`
 
     ```
    <!doctype html>
