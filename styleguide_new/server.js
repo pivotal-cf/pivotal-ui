@@ -19,6 +19,8 @@ app.use((req, res, next) => {
 
 app.use("/dist", expressStaticGzip(`${process.cwd()}/dist`));
 
+app.use("/static", expressStaticGzip(`${process.cwd()}/static`));
+
 app.get('/', function(req, res) {
   res.redirect('getstarted');
 });
