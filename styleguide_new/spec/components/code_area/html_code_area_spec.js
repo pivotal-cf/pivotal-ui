@@ -1,11 +1,22 @@
 import '../../spec_helper';
 
 describe('HtmlCodeArea', () => {
-  let code, description, HtmlCodeArea;
+  let code, description, HtmlCodeArea, noToolbar;
 
   beforeEach(() => {
     code = 'let a = 1; let b = 2;';
     HtmlCodeArea = require('../../../src/components/code_area/html_code_area');
+  });
+
+  describe('rendering without a toolbar', () => {
+    beforeEach(() => {
+      noToolbar = true;
+      ReactDOM.render(<HtmlCodeArea {...{code, noToolbar}}/>, root);
+    });
+
+    it('does not render the toolbar', () => {
+      expect('.toolbar').not.toExist();
+    });
   });
 
   describe('rendering a description without markdown', () => {

@@ -1,9 +1,10 @@
 import '../../spec_helper';
 
 describe('PreRenderer', () => {
-  let file, name, JsCodeArea, PreRenderer;
+  let file, name, JsCodeArea, PreRenderer, code, contents, title, description;
 
   beforeEach(() => {
+    code = ['const a = 1;', 'const b = 2;'].join('\n');
     file = 'some-file';
     name = 'some-name';
     JsCodeArea = require('../../../src/components/code_area/js_code_area');
@@ -12,11 +13,9 @@ describe('PreRenderer', () => {
   });
 
   describe('with className "language-js"', () => {
-    let code;
 
     describe('without title or description', () => {
       beforeEach(() => {
-        code = ['const a = 1;', 'const b = 2;'].join('\n');
         ReactDOM.render((
           <PreRenderer>
             <span className="language-js" children={[code]}/>
@@ -27,7 +26,6 @@ describe('PreRenderer', () => {
 
       it('renders JsCodeArea', () => {
         expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          title: '',
           code,
           file,
           name
@@ -36,13 +34,7 @@ describe('PreRenderer', () => {
     });
 
     describe('with title', () => {
-      let contents, title;
-
       beforeEach(() => {
-        code = [
-          'const a = 1;',
-          'const b = 2;'
-        ].join('\n');
         title = 'some-title';
         contents = [
           `::title=${title}`,
@@ -67,13 +59,7 @@ describe('PreRenderer', () => {
     });
 
     describe('with description', () => {
-      let contents, description;
-
       beforeEach(() => {
-        code = [
-          'const a = 1;',
-          'const b = 2;'
-        ].join('\n');
         description = 'some-description';
         contents = [
           `::description=${description}`,
@@ -99,13 +85,7 @@ describe('PreRenderer', () => {
     });
 
     describe('with title and description', () => {
-      let contents, description, title;
-
       beforeEach(() => {
-        code = [
-          'const a = 1;',
-          'const b = 2;'
-        ].join('\n');
         title = 'some title';
         description = 'some-description';
         contents = [
@@ -130,6 +110,85 @@ describe('PreRenderer', () => {
           name
         });
       });
+    });
+
+    describe('without a toolbar', () => {
+      beforeEach(() => {
+        contents = [
+          `::noToolbar`,
+          code
+        ].join('\n');
+
+        ReactDOM.render((
+          <PreRenderer>
+            <span className="language-js" children={[contents]}/>
+            <span>Some other span</span>
+          </PreRenderer>
+        ), root);
+      });
+
+      it('renders JsCodeArea', () => {
+        expect(JsCodeArea).toHaveBeenRenderedWithProps({
+          code,
+          file,
+          name,
+          noToolbar: true
+        });
+      })
+    });
+
+  });
+
+  describe('with className "language-html"', () => {
+    let HtmlCodeArea;
+
+    beforeEach(() => {
+      HtmlCodeArea = require('../../../src/components/code_area/html_code_area');
+      spyOnRender(HtmlCodeArea);
+    });
+
+    describe('without title or description', () => {
+      beforeEach(() => {
+        ReactDOM.render((
+          <PreRenderer>
+            <span className="language-html" children={[code]}/>
+            <span>Some other span</span>
+          </PreRenderer>
+        ), root);
+      });
+
+      it('renders HtmlCodeArea', () => {
+        expect(HtmlCodeArea).toHaveBeenRenderedWithProps({
+          code,
+          file,
+          name
+        });
+      });
+    });
+
+    describe('without a toolbar', () => {
+      beforeEach(() => {
+        contents = [
+          `::noToolbar`,
+          code
+        ].join('\n');
+
+        ReactDOM.render((
+          <PreRenderer>
+            <span className="language-html" children={[contents]}/>
+            <span>Some other span</span>
+          </PreRenderer>
+        ), root);
+      });
+
+      it('renders HtmlCodeArea', () => {
+        expect(HtmlCodeArea).toHaveBeenRenderedWithProps({
+          code,
+          file,
+          name,
+          noToolbar: true
+        });
+      })
     });
   });
 });

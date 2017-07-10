@@ -15,7 +15,8 @@ export default class HtmlCodeArea extends React.PureComponent {
     description: PropTypes.string,
     code: PropTypes.string.isRequired,
     file: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
+    noToolbar: PropTypes.bool
   };
 
   constructor(props) {
@@ -37,21 +38,31 @@ export default class HtmlCodeArea extends React.PureComponent {
 
   render() {
     const {code, remark} = this.state;
-    const {title, file, name, description} = this.props;
+    const {title, file, name, description, noToolbar} = this.props;
+
+    let content;
+
+    if (!noToolbar) {
+      content = (
+        <div>
+          <Toolbar showReact={false}
+                   showHtml={this.state.showEditor}
+                   title={title}
+                   file={file}
+                   name={name}
+                   toggleHtmlPreview={this.toggleEditor.bind(this)}/>
+          <div className="code-area-description mtxl mbxxl type-sm">
+            {remark.processSync(description).contents}
+          </div>
+          {this.state.showEditor &&
+          <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
+        </div>
+      );
+    }
 
     return (
       <div className="code-editor">
-        <Toolbar showReact={false}
-                 showHtml={this.state.showEditor}
-                 title={title}
-                 file={file}
-                 name={name}
-                 toggleHtmlPreview={this.toggleEditor.bind(this)}/>
-        <div className="code-area-description mtxl mbxxl type-sm">
-          {remark.processSync(description).contents}
-        </div>
-        {this.state.showEditor &&
-        <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
+        {content}
         <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}}></div>
       </div>
     );

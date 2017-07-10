@@ -22,10 +22,9 @@ Prepend any color variable with `bg-` to apply that color to the background.
 Prepend any color variable with `type-` to apply that color to the text.
 
 ```jsx
-::title=Colors
+::noToolbar
 <div>
 <div className="color-chip-row">
-
     <div className="chip">
       <div className="chip-color bg-neutral-1"></div>
       <div className="chip-color-name">

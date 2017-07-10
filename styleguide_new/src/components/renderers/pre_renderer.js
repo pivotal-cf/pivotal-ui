@@ -19,6 +19,7 @@ export default (file, name) => class extends Component {
       const lines = rawContent.split('\n');
       let title = '';
       let description = '';
+      let noToolbar = false;
 
       if (lines[0].startsWith('::title=')) {
         title = lines[0];
@@ -32,9 +33,14 @@ export default (file, name) => class extends Component {
         description = description.replace('::description=', '');
       }
 
+      if (lines[0].startsWith('::noToolbar')) {
+        noToolbar = true;
+        lines.splice(0, 1);
+      }
+
       const code = lines.join('\n');
 
-      props = {title, description, code, file, name};
+      props = {title, description, code, file, name, noToolbar};
     }
 
     switch (lang) {

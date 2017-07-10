@@ -1,7 +1,7 @@
 import '../../spec_helper';
 
 describe('JsCodeArea', () => {
-  let code, description, JsCodeArea;
+  let code, description, JsCodeArea, noToolbar;
 
   beforeEach(() => {
     code = '<div>Hi</div>';
@@ -52,6 +52,17 @@ describe('JsCodeArea', () => {
     it('renders the error message for the user', () => {
       ReactDOM.render(<JsCodeArea {...{description, code}}/>, root);
       expect('.code-editor--live-preview pre').toContainText('render error');
+    });
+  });
+
+  describe('rendering without a toolbar', () => {
+    beforeEach(() => {
+      noToolbar = true;
+      ReactDOM.render(<JsCodeArea {...{code, noToolbar}}/>, root);
+    });
+
+    it('does not render the toolbar', () => {
+      expect('.toolbar').not.toExist();
     });
   });
 });

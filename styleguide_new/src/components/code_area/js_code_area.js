@@ -22,7 +22,8 @@ export default class JsCodeArea extends React.PureComponent {
     description: PropTypes.string,
     code: PropTypes.string.isRequired,
     file: PropTypes.string,
-    name: PropTypes.string
+    name: PropTypes.string,
+    noToolbar: PropTypes.bool
   };
 
   constructor(props) {
@@ -66,7 +67,7 @@ export default class JsCodeArea extends React.PureComponent {
   }
 
   render() {
-    const {file, name, title, description} = this.props;
+    const {file, name, title, description, noToolbar} = this.props;
     const {code, remark} = this.state;
 
     let livePreview, transpiledCode;
@@ -80,19 +81,29 @@ export default class JsCodeArea extends React.PureComponent {
       livePreview = <pre>{e.toString()}</pre>;
     }
 
+    let content;
+
+    if (!noToolbar) {
+      content = (
+        <div>
+          <Toolbar showReact={this.state.showReact}
+                   showHtml={this.state.showHtmlPreview}
+                   title={title}
+                   file={file}
+                   name={name}
+                   toggleEditor={this.toggleEditor.bind(this)}
+                   toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
+                   isReact={true}/>
+          <div className="code-area-description mtxl mbxxl type-sm">
+            {remark.processSync(description).contents}
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="code-editor">
-        <Toolbar showReact={this.state.showReact}
-                 showHtml={this.state.showHtmlPreview}
-                 title={title}
-                 file={file}
-                 name={name}
-                 toggleEditor={this.toggleEditor.bind(this)}
-                 toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
-                 isReact={true}/>
-        <div className="code-area-description mtxl mbxxl type-sm">
-          {remark.processSync(description).contents}
-        </div>
+        {content}
         {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
         {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
         <div className="code-editor--live-preview">
