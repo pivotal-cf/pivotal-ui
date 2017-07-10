@@ -37,7 +37,7 @@ import * as Select from 'pui-react-select';
 import * as StreamList from 'pui-react-stream-list';
 import * as Svg from 'pui-react-svg';
 import * as Tabs from 'pui-react-tabs';
-import * as Layout from 'pui-react-tile-layout';
+import * as TileLayout from 'pui-react-tile-layout';
 import * as Toggle from 'pui-react-toggle';
 import * as Tooltip from 'pui-react-tooltip';
 
@@ -66,7 +66,6 @@ import HoverableJson from '../../docs/components/Hoverable.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
 import LabelsJson from '../../docs/components/Labels.md';
-import LayoutJson from '../../docs/components/Layout.md';
 import ListsJson from '../../docs/components/Lists.md';
 import MediaJson from '../../docs/components/Media.md';
 import ModalsJson from '../../docs/components/Modals.md';
@@ -79,6 +78,7 @@ import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
 import TablesJson from '../../docs/components/Tables.md';
 import TabsJson from '../../docs/components/Tabs.md';
+import TileLayoutJson from '../../docs/components/TileLayout.md';
 import TooltipsJson from '../../docs/components/Tooltips.md';
 
 const routes = {
@@ -107,7 +107,6 @@ const routes = {
   '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
-  '/layout': {json: LayoutJson, file: 'components/Layout.md', name: 'Layout', category: 'Components', packages: [Layout, Trigger]},
   '/lists': {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
   '/media': {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
   '/modals': {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
@@ -120,6 +119,7 @@ const routes = {
   '/svg': {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
   '/tables': {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
   '/tabs': {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
+  '/tile_layout': {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
   '/tooltips': {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
 };
 
