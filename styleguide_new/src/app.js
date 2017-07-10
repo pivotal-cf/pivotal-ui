@@ -43,7 +43,7 @@ class App extends React.Component {
                             name={this.state.content.name}/>
           </div>
         </div>
-        <div id="toc-sidebar" className="col col-fixed toc-column pln">
+        <div hidden id="toc-sidebar" className="col col-fixed toc-column pln">
           <TocSidebar json={this.state.content.json.children}/>
         </div>
       </div>
