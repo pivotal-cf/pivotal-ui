@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import classnames from 'classnames';
 
 export default class TableRenderer extends Component {
   render() {
-    const {children, ...props} = this.props;
+    const {children, className, ...props} = this.props;
 
     return (
-      <table {...props} {...{className: 'table'}}>
+      <table {...props} {...{
+        className: classnames(className, 'table', 'markdown-table')
+      }}>
         {children.filter(child => child !== '\n')}
       </table>
     );
