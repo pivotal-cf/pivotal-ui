@@ -51,7 +51,7 @@ export default class HtmlCodeArea extends React.PureComponent {
                    file={file}
                    name={name}
                    toggleHtmlPreview={this.toggleEditor.bind(this)}/>
-          <div className="code-area-description mtxl mbxxl type-sm">
+          <div className="code-area-description">
             {remark.processSync(description).contents}
           </div>
           {this.state.showEditor &&

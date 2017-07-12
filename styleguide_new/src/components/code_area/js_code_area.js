@@ -94,7 +94,7 @@ export default class JsCodeArea extends React.PureComponent {
                    toggleEditor={this.toggleEditor.bind(this)}
                    toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
                    isReact={true}/>
-          <div className="code-area-description mtxl mbxxl type-sm">
+          <div className="code-area-description">
             {remark.processSync(description).contents}
           </div>
         </div>
