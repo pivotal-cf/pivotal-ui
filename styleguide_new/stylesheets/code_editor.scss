@@ -1,13 +1,5 @@
 @import "./toolbar";
 
-.code-editor > :last-child {
-  margin-top: 8px;
-}
-
-.code-editor--live-preview {
-  padding: 0 10px 10px 0;
-}
-
 .code-editor--edit {
   align-content: stretch;
 }
