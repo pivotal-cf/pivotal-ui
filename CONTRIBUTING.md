@@ -95,7 +95,6 @@ We use [css-critic](https://github.com/cburgmer/csscritic) for visual-diff regre
 Before starting your pull request:
 
 - Please [open up an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues)
-- Read over our [commit guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/development/COMMIT_GUIDELINES.md)
 - If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
 - [Document any new components](#documenting-components) in the styleguide and the package README
 - Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
