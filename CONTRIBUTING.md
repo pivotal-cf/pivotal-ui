@@ -3,7 +3,7 @@
 ## I'd like to help, what can I do?
 
 You can [report bugs](#bug-reports), work on [issues](https://github.com/pivotal-cf/pivotal-ui/issues), update existing
-components, or create new ones. Feel free to [email us](mailto:pivotal-ui@pivotal.io) if you have further questions.
+components, or create new ones. 
 
 ## Setting up your environment
 
