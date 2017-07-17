@@ -3,7 +3,12 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 
 function rootClick(e) {
-  if (this.props.disableScrim || ReactDOM.findDOMNode(this).contains(e.target)) return;
+  const node = ReactDOM.findDOMNode(this);
+  if (typeof node.contains !== 'function') {
+    node.contains = HTMLDivElement.prototype.contains;
+  }
+
+  if (this.props.disableScrim || node.contains(e.target)) return;
   this.scrimClick(e);
 }
 
