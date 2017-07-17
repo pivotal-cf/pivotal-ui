@@ -38,6 +38,7 @@ function renderPage() {
     <html>
       <head>
           <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
+          <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
       </head>
       <body>
         <div id="root">
