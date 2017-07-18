@@ -3,8 +3,6 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import expressStaticGzip from 'express-static-gzip';
 
-import SideBar from './src/components/sidebar';
-
 const app = Express();
 
 app.use((req, res, next) => {
@@ -38,11 +36,10 @@ function renderPage() {
     <html>
       <head>
           <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
+          <script src="https://maps.googleapis.com/maps/api/js?libraries=places"/>
       </head>
       <body>
-        <div id="root">
-          <div id="app"><SideBar/></div>
-        </div>
+        <div id="root"/>
         <script src="./dist/bundle.js"></script>
       </body>
     </html>

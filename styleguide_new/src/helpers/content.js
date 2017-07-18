@@ -3,8 +3,18 @@ import ReactDOM from 'react-dom';
 
 import * as Alignment from 'pui-css-alignment';
 import * as Bootstrap from 'pui-css-bootstrap';
+import * as Border from 'pui-css-border';
+import * as BoxShadows from 'pui-css-box-shadows';
+import * as ButtonGroup from 'pui-css-button-group';
+import * as Code from 'pui-css-code';
 import * as Ellipsis from 'pui-css-ellipsis';
 import * as Hoverable from 'pui-css-hoverable';
+import * as Links from 'pui-css-links';
+import * as Maps from 'pui-css-google-maps';
+import * as ProgressBars from 'pui-css-progress-bars';
+import * as Typography from 'pui-css-typography';
+import * as VerticalAlignment from 'pui-css-vertical-alignment';
+import * as Whitespace from 'pui-css-whitespace';
 
 import * as Alerts from 'pui-react-alerts';
 import * as Autocomplete from 'pui-react-autocomplete';
@@ -52,7 +62,11 @@ import AlertsJson from '../../docs/components/Alerts.md';
 import AlignmentJson from '../../docs/components/Alignment.md';
 import AutocompleteJson from '../../docs/components/Autocomplete.md';
 import BackToTopJson from '../../docs/components/BackToTop.md';
+import BorderJson from '../../docs/components/Border.md';
+import BoxShadowsJson from '../../docs/components/BoxShadows.md';
+import ButtonGroupJson from '../../docs/components/ButtonGroup.md';
 import ButtonsJson from '../../docs/components/Buttons.md';
+import CodeJson from '../../docs/components/Code.md';
 import CollapseJson from '../../docs/components/Collapse.md';
 import ColorsJson from '../../docs/components/Colors.md';
 import CopyToClipboardJson from '../../docs/components/CopyToClipboard.md';
@@ -66,7 +80,9 @@ import HoverableJson from '../../docs/components/Hoverable.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
 import LabelsJson from '../../docs/components/Labels.md';
+import LinksJson from '../../docs/components/Links.md';
 import ListsJson from '../../docs/components/Lists.md';
+import MapsJson from '../../docs/components/Maps.md';
 import MediaJson from '../../docs/components/Media.md';
 import ModalsJson from '../../docs/components/Modals.md';
 import NotificationsJson from '../../docs/components/Notifications.md';
@@ -74,12 +90,16 @@ import PaginationJson from '../../docs/components/Pagination.md';
 import PanesJson from '../../docs/components/Panes.md';
 import PanelsJson from '../../docs/components/Panels.md';
 import PortalsJson from '../../docs/components/Portals.md';
+import ProgressBarsJson from '../../docs/components/ProgressBars.md';
 import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
 import TablesJson from '../../docs/components/Tables.md';
 import TabsJson from '../../docs/components/Tabs.md';
 import TileLayoutJson from '../../docs/components/TileLayout.md';
 import TooltipsJson from '../../docs/components/Tooltips.md';
+import TypographyJson from '../../docs/components/Typography.md';
+import VerticalAlignmentJson from '../../docs/components/VerticalAlignment.md';
+import WhitespaceJson from '../../docs/components/Whitespace.md';
 
 const routes = {
   '/': {json: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
@@ -93,7 +113,11 @@ const routes = {
   '/alignment': {json: AlignmentJson, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: [Alignment]},
   '/autocomplete': {json: AutocompleteJson, file: 'components/Autocomplete.md', name: 'Autocomplete', category: 'Components', packages: [Autocomplete]},
   '/backtotop': {json: BackToTopJson, file: 'components/Backtotop.md', name: 'Back To Top', category: 'Components', packages: [Top]},
+  '/border': {json: BorderJson, file: 'components/Border.md', name: 'Border', category: 'Components', packages: [Border]},
+  '/box_shadows': {json: BoxShadowsJson, file: 'components/BoxShadows.md', name: 'Box Shadows', category: 'Components', packages: [BoxShadows]},
+  '/button_group': {json: ButtonGroupJson, file: 'components/ButtonGroup.md', name: 'Button Group', category: 'Components', packages: [ButtonGroup]},
   '/buttons': {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
+  '/code': {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
   '/collapse': {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
   '/colors': {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Bootstrap]},
   '/copy_to_clipboard': {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
@@ -107,7 +131,9 @@ const routes = {
   '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
+  '/links': {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: [Links]},
   '/lists': {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
+  '/maps': {json: MapsJson, file: 'components/Maps.md', name: 'Maps', category: 'Components', packages: [Maps]},
   '/media': {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
   '/modals': {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
   '/notifications': {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
@@ -115,12 +141,16 @@ const routes = {
   '/panels': {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
   '/panes': {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
   '/portals': {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
+  '/progress_bars': {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBars]},
   '/select': {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
   '/svg': {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
   '/tables': {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
   '/tabs': {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
   '/tile_layout': {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
   '/tooltips': {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
+  '/typography': {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: [Typography]},
+  '/vertical_alignment': {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: [VerticalAlignment]},
+  '/whitespace': {json: WhitespaceJson, file: 'components/Whitespace.md', name: 'Whitespace', category: 'Components', packages: [Whitespace]},
 };
 
 const attachToWindow = pkg => {
