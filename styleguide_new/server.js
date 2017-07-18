@@ -36,7 +36,7 @@ function renderPage() {
     <html>
       <head>
           <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
-          <script src="https://maps.googleapis.com/maps/api/js?libraries=places"></script>
+          <script src="https://maps.googleapis.com/maps/api/js?libraries=places"/>
       </head>
       <body>
         <div id="root"/>

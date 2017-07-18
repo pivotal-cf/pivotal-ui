@@ -7,6 +7,7 @@
 ## Examples
 
 ```html
+::Example
 ::description=Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.
 <div class='map-wrapper'>
   <div class='pane'>
@@ -36,6 +37,7 @@
 
 ```js
 ::title=JavaScript for example
+::noToolbar
 
 const mapOptions = {
   placeId: "ChIJ9w1pfYiAhYAR45k8AD-TjhA",
@@ -75,7 +77,11 @@ const createMarker = (place, status) => {
 
 const maps = new Maps();
 
-google.maps.event.addDomListener(window, 'load', maps.initialize);
+const intervalId = setInterval(() => {
+  if (!window['my-google-map']) return;
+  clearInterval(intervalId);
+  maps.initialize();
+}, 100);
 
 <div/>;
 ```
