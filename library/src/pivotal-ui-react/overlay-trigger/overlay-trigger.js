@@ -31,6 +31,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
     delayShow: PropTypes.number,
     disableScrim: PropTypes.bool,
     display: PropTypes.bool,
+    isSticky: PropTypes.bool,
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
     overlay: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
@@ -42,6 +43,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
 
   static defaultProps = {
     display: false,
+    isSticky: false,
     pin: true,
     placement: 'right',
     theme: 'dark',
@@ -82,9 +84,10 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   };
 
   getDelay = display => {
-    const {delay, delayHide, delayShow} = this.props;
+    const {delay, delayHide, delayShow, isSticky} = this.props;
     if(display && delayShow) return delayShow;
     if(!display && delayHide) return delayHide;
+    if(!display && isSticky && !delay) return 50;
     return delay;
   };
 
@@ -127,11 +130,8 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
   hide = () => this.setDisplay(false);
 
   render() {
-    let {children, overlay, pin, placement, theme, trigger, ...props} = this.props;
+    let {children, isSticky, overlay, pin, placement, theme, trigger, ...props} = this.props;
     const {display} = this.state;
-
-    const overlayId = overlay.props.id || uniqueid('overlay');
-    overlay = React.cloneElement(overlay, {id: overlayId});
 
     const triggerHandlers = {
       'manual': {},
@@ -147,6 +147,16 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
         onClick: this.click
       }
     }[trigger];
+
+    const overlayId = overlay.props.id || uniqueid('overlay');
+    overlay = React.cloneElement(overlay, {id: overlayId});
+
+    if (isSticky) {
+      overlay = React.cloneElement(overlay, {
+        onMouseOver: this.triggerShow('onMouseOver'),
+        onMouseOut: this.triggerHide('onMouseOut')
+      });
+    }
 
     children = React.cloneElement(children, {
       'aria-describedby': overlayId,

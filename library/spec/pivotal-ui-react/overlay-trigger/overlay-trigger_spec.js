@@ -296,6 +296,32 @@ describe('OverlayTrigger', () => {
       });
     });
 
+    describe('isSticky', () => {
+      beforeEach(() => {
+        subject = renderIntoDom(
+          {overlay: tooltip, trigger: 'hover', isSticky: true},
+        );
+      });
+      it('does not hide overlay if it is hovered', () => {
+        $('.launcher').simulate('mouseOver');
+        expect('.tooltip-text').toExist();
+
+        $('.launcher').simulate('mouseOut');
+
+        jasmine.clock().tick(49);
+        expect('.tooltip-text').toExist();
+
+        $('.tooltip-text').simulate('mouseOver');
+        jasmine.clock().tick(2);
+        expect('.tooltip-text').toExist();
+
+        $('.tooltip-text').simulate('mouseOut');
+        jasmine.clock().tick(50);
+        expect('.tooltip-text').not.toExist();
+      });
+    });
+
+
     describe('on click', () => {
       let onClickSpy;
       beforeEach(() => {
@@ -359,7 +385,8 @@ describe('OverlayTrigger', () => {
         ReactTestUtils.Simulate.blur(launcher);
         expect(onBlurSpy).toHaveBeenCalled();
       });
-    }); });
+    });
+  });
 
   describe('disableScrim', () => {
     let launcher;
