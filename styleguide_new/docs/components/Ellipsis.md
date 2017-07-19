@@ -1,13 +1,5 @@
 # Ellipsis
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-ellipsis --save`
-
-#### CSS Only
-`npm install pui-css-ellipsis --save`
-
 ## Description
 The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.
 
@@ -21,3 +13,11 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
     </p>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-ellipsis --save`
+
+#### CSS Only
+`npm install pui-css-ellipsis --save`

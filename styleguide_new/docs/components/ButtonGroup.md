@@ -1,8 +1,4 @@
-# Button Group
-
-## Installation & Usage
-
-`npm install pui-css-button-group --save`
+# Button group
 
 ## Description
 
@@ -35,3 +31,7 @@ Button groups wrap a series of buttons.
   <button type="button" class="btn btn-default">Right</button>
 </div>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-button-group --save`

@@ -1,15 +1,5 @@
 # Portals
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-portals --save`
-
-`import {PortalSource, PortalDestination} from 'pui-react-portals';`
-
-#### CSS Only
-`npm install pui-css-portals --save`
-
 ## Description
 
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like
@@ -37,6 +27,16 @@ anywhere without knowing about `<body>`.
   </section>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-portals --save`
+
+`import {PortalSource, PortalDestination} from 'pui-react-portals';`
+
+#### CSS Only
+`npm install pui-css-portals --save`
 
 ## Props
 

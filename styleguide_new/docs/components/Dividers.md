@@ -1,15 +1,5 @@
 # Dividers
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-dividers --save`
-
-`import {Divider} from 'pui-react-dividers';`
-
-#### CSS Only
-`npm install pui-css-dividers --save`
-
 ## Examples
 
 ```jsx
@@ -38,6 +28,15 @@
   </div>
 </div>
 ```
+## Installation & Usage
+
+#### React
+`npm install pui-react-dividers --save`
+
+`import {Divider} from 'pui-react-dividers';`
+
+#### CSS Only
+`npm install pui-css-dividers --save`
 
 ## Props
 

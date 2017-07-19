@@ -1,14 +1,4 @@
-# Copy To Clipboard
-
-## Installation & Usage
-
-#### React
-`npm install pui-react-copy-to-clipboard --save`
-
-`import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';`
-
-#### CSS Only
-`npm install pui-css-copy-to-clipboard --save`
+# Copy to clipboard
 
 ## Description
 
@@ -46,6 +36,16 @@ import {Input} from 'pui-react-inputs';
   <CopyToClipboardButton text="bar.com/1234.jpg" />
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-copy-to-clipboard --save`
+
+`import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';`
+
+#### CSS Only
+`npm install pui-css-copy-to-clipboard --save`
 
 ## Props
 Property | Required | Type | Default | Description

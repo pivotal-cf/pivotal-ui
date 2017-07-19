@@ -1,15 +1,5 @@
 # Modals
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-modals --save`
-
-`import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';`
-
-#### CSS Only
-`npm install pui-css-modals --save`
-
 ## Description
 
 We provide 3 components that can be used to assemble modals:
@@ -59,6 +49,15 @@ class MyModal extends React.Component {
 
 <MyModal />
 ```
+## Installation & Usage
+
+#### React
+`npm install pui-react-modals --save`
+
+`import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';`
+
+#### CSS Only
+`npm install pui-css-modals --save`
 
 ## Props
 

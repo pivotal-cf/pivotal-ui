@@ -1,15 +1,5 @@
 # Expander
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-expander --save`
-
-`import {ExpanderContent} from 'pui-react-expander';`
-
-#### CSS Only
-`npm install pui-css-expander --save`
-
 ## Import
 
 ## Description
@@ -52,6 +42,15 @@ class MoreInfo extends React.Component {
     <MoreInfo />
 </div>
 ```
+## Installation & Usage
+
+#### React
+`npm install pui-react-expander --save`
+
+`import {ExpanderContent} from 'pui-react-expander';`
+
+#### CSS Only
+`npm install pui-css-expander --save`
 
 ## Props
 

@@ -1,9 +1,5 @@
 # Whitespace
 
-## Installation & Usage
-
-`npm install pui-css-whitespace --save`
-
 ## Description
 
 Should be used to modify the default spacing between objects (not between nodes of the same object)
@@ -21,3 +17,8 @@ n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px
 <p>A normal paragraph</p>
 <p class="pal">A paragraph with large padding</p>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-whitespace --save`
+

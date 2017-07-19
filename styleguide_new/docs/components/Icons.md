@@ -3,16 +3,6 @@
 ***This component is limited to projects that use Webpack.***
 ***It requires the webpack loaders babel-loader and react-svg-loader.***
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-iconography --save`
-
-#### CSS Only
-`npm install pui-css-iconography --save`
-
 ## Description
 
 We use custom SVG icons, available at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
@@ -103,3 +93,14 @@ example below.
   </div>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-iconography --save`
+
+#### CSS Only
+`npm install pui-css-iconography --save`
+

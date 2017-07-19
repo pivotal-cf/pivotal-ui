@@ -1,20 +1,5 @@
 # Tables
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-table --save`
-
-```
-import {Table, TableRow, TableCell} from 'pui-react-table';
-import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
-```
-
-#### CSS Only
-`npm install pui-css-table --save`
-
 ## Description
 
 The `Table` component is a robust component that offers a styled table with fully
@@ -606,6 +591,21 @@ const data = [
   </a>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-table --save`
+
+```
+import {Table, TableRow, TableCell} from 'pui-react-table';
+import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
+```
+
+#### CSS Only
+`npm install pui-css-table --save`
 
 ## Props
 

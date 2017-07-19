@@ -1,9 +1,5 @@
 # Links
 
-## Installation & Usage
-
-`npm install pui-css-links --save`
-
 ## Description
 
 Add the class `link-text` on any text links.
@@ -34,3 +30,7 @@ Link                                                                            
 ```html
 Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-links --save`

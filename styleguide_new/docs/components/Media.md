@@ -1,15 +1,5 @@
 # Media
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-media --save`
-
-`import {Media, Flag} from 'pui-react-media';`
-
-#### CSS Only
-`npm install pui-css-media --save`
-
 ## Examples
 
 ```
@@ -206,6 +196,15 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="http://placeh
     </Media>
 </div>
 ```
+## Installation & Usage
+
+#### React
+`npm install pui-react-media --save`
+
+`import {Media, Flag} from 'pui-react-media';`
+
+#### CSS Only
+`npm install pui-css-media --save`
 
 ## Props
 

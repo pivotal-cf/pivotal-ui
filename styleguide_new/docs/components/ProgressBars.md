@@ -1,8 +1,4 @@
-# Progress Bars
-
-## Installation & Usage
-
-`npm install pui-css-progress-bars --save`
+# Progress bars
 
 ## Examples
 
@@ -46,3 +42,7 @@
   60 MB / 100 MB
 </p>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-progress-bars --save`

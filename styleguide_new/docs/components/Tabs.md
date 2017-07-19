@@ -1,15 +1,5 @@
 # Tabs
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-tabs --save`
-
-`import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
-
-#### CSS Only
-`npm install pui-css-tabs --save`
-
 ## Description
 Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page. They’re sort of like tabbed dividers in a filing cabinet – by clicking a tab, users can easily locate a view of related content. Tabs should be used for alternating between views within the same context, not to navigate to different areas.
 
@@ -59,6 +49,16 @@ When a user would like to access each group of information separately. | When it
   <Tab eventKey={2} title="Tab 2"> Me too </Tab>
 </Tabs>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-tabs --save`
+
+`import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
+
+#### CSS Only
+`npm install pui-css-tabs --save`
 
 ## Props
 

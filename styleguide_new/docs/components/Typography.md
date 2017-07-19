@@ -1,9 +1,5 @@
 # Typography
 
-## Installation & Usage
-
-`npm install pui-css-typography --save`
-
 ## Description
 
 Source Sans Pro is our font family.
@@ -397,3 +393,7 @@ It can be used with the following modifiers to achieve a variety of effects.
 
 <h1>I am a <br/> multiline heading</h1>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-typography --save`

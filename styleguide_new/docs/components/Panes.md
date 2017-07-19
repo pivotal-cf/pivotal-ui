@@ -1,14 +1,4 @@
-# Alerts
-
-## Installation & Usage
-
-#### React
-`npm install pui-react-panes --save`
-
-`import {Pane, BasePane} from 'pui-react-panes';`
-
-#### CSS Only
-`npm install pui-css-panes --save`
+# Panes
 
 ## Description
 
@@ -34,6 +24,16 @@ Any className values passed through are passed to the underlying `.pane`.
   <h1 color="type-neutral-9">This is a pane (configurable)</h1>
 </BasePane>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-panes --save`
+
+`import {Pane, BasePane} from 'pui-react-panes';`
+
+#### CSS Only
+`npm install pui-css-panes --save`
 
 ## Props
 

@@ -1,9 +1,5 @@
 # Maps
 
-## Installation & Usage
-
-`npm install pui-css-google-maps --save`
-
 ## Examples
 
 ```html
@@ -85,3 +81,7 @@ const intervalId = setInterval(() => {
 
 <div/>;
 ```
+
+## Installation & Usage
+
+`npm install pui-css-google-maps --save`

@@ -1,17 +1,5 @@
 # Collapse
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-collapse --save`
-
-`import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';`
-
-#### CSS Only
-`npm install pui-css-collapse --save`
-
 ## Description
 Collapse description goes here.
 
@@ -75,6 +63,18 @@ This is a basic collapse with no additional styles.
   <p>Content!</p>
 </Collapse>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-collapse --save`
+
+`import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';`
+
+#### CSS Only
+`npm install pui-css-collapse --save`
 
 ## Props
 

@@ -1,13 +1,5 @@
 # Lists
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-lists --save`
-
-#### CSS Only
-`npm install pui-css-lists --save`
-
 ## Description
 
 ## Examples
@@ -111,6 +103,14 @@
     </UnorderedList>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-lists --save`
+
+#### CSS Only
+`npm install pui-css-lists --save`
 
 ## Props
 

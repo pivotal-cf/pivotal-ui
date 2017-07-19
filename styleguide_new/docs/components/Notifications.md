@@ -1,17 +1,5 @@
 # Notifications
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';`
-
-`npm install pui-react-notifications --save`
-
-#### CSS Only
-`npm install pui-css-notifications --save`
-
 ## Examples
 
 ```
@@ -92,6 +80,18 @@ import {Icon} from 'pui-react-iconography';
 If you want to customize the notification dropdown, you can use `className` to
 add a modifier class to the `btn-group`. `id` and `style` will be applied to
 the notification button.
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';`
+
+`npm install pui-react-notifications --save`
+
+#### CSS Only
+`npm install pui-css-notifications --save`
 
 ## Props
 

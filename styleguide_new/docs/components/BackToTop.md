@@ -1,16 +1,4 @@
-# Back To Top
-
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-back-to-top --save`
-
-`import {BackToTop} from 'pui-react-back-to-top';`
-
-#### CSS Only
-`npm install pui-css-back-to-top --save`
+# Back to top
 
 ## Description
 
@@ -30,6 +18,18 @@ You can place the link anywhere in your markup, but best practices are either to
 <BackToTop alwaysVisible />
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-back-to-top --save`
+
+`import {BackToTop} from 'pui-react-back-to-top';`
+
+#### CSS Only
+`npm install pui-css-back-to-top --save`
 
 ## Props
 

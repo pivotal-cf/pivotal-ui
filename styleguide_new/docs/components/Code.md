@@ -1,9 +1,5 @@
 # Code
 
-## Installation & Usage
-
-`npm install pui-css-code --save`
-
 ## Examples
 
 ```html
@@ -171,3 +167,7 @@ end</code></pre>
 </div>
 
 ```
+
+## Installation & Usage
+
+`npm install pui-css-code --save`

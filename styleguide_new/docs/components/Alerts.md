@@ -1,17 +1,5 @@
 # Alerts
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-alerts --save`
-
-`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';`
-
-#### CSS Only
-`npm install pui-css-alerts --save`
-
 ## Description
 Description of Alerts goes here.
 
@@ -88,6 +76,18 @@ const callback = () => alert('Dismissed!');
 ::title=Dismissable Alert with an Icon
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-alerts --save`
+
+`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';`
+
+#### CSS Only
+`npm install pui-css-alerts --save`
 
 ## Props
 

@@ -1,17 +1,5 @@
 # Dropdowns
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-dropdowns --save`
-
-`import {Dropdown, DropdownItem} from 'pui-react-dropdowns';`
-
-#### CSS Only
-`npm install pui-css-dropdowns --save`
-
 ## Examples
 
 ```jsx
@@ -160,6 +148,18 @@
   </div>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-dropdowns --save`
+
+`import {Dropdown, DropdownItem} from 'pui-react-dropdowns';`
+
+#### CSS Only
+`npm install pui-css-dropdowns --save`
 
 ## Dropdown Props
 

@@ -1,8 +1,4 @@
-# Vertical Alignment
-
-## Installation & Usage
-
-`npm install pui-css-vertical-alignment --save`
+# Vertical alignment
 
 ## Description
 
@@ -39,3 +35,8 @@ Its height is set by default to 230px.
   <a class="aligner-item" href="http://bitly.com/ZTHUDU">Centered content</a>
 </div>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-vertical-alignment --save`
+

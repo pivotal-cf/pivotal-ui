@@ -1,15 +1,5 @@
 # Images
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-images --save`
-
-`import {Image} from 'pui-react-images';`
-
-#### CSS Only
-`npm install pui-css-images --save`
-
 ## Examples
 
 ```jsx
@@ -160,6 +150,16 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
   </div>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-images --save`
+
+`import {Image} from 'pui-react-images';`
+
+#### CSS Only
+`npm install pui-css-images --save`
 
 ## Props
 

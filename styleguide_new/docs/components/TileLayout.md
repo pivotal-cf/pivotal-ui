@@ -1,14 +1,4 @@
-# Tile Layout
-
-## Installation & Usage
-
-#### React
-`npm install pui-react-tile-layout pui-react-panels --save`
-
-`import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';`
-
-#### CSS Only
-`npm install pui-css-tile-layout pui-css-panels --save`
+# Tile layout
 
 ## Examples
 
@@ -74,6 +64,16 @@ import {ClickableAltPanel} from 'pui-react-panels';
   </TileLayout>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-tile-layout pui-react-panels --save`
+
+`import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';`
+
+#### CSS Only
+`npm install pui-css-tile-layout pui-css-panels --save`
 
 ## Props
 

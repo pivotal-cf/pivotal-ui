@@ -4,18 +4,6 @@
 ***It requires the webpack loaders babel-loader and react-svg-loader.***
 ***If you are using pui-react-tools, this also requires version 2 or higher.***
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pui-react-svg --save`
-
-`import {Svg} from 'pui-react-svg';`
-
-#### CSS Only
-`npm install pui-css-svg --save`
-
 ## Examples
 
 This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.
@@ -45,6 +33,18 @@ This optimization will sometimes change your Svg in undesirable ways. You can tu
 
 Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
+
+## Installation & Usage
+
+#### React
+`npm install babel-loader react-svg-loader --save-dev`
+
+`npm install pui-react-svg --save`
+
+`import {Svg} from 'pui-react-svg';`
+
+#### CSS Only
+`npm install pui-css-svg --save`
 
 ## Props
 

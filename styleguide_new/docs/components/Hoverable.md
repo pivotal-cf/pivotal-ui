@@ -1,13 +1,5 @@
 # Hoverable
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-hoverable --save`
-
-#### CSS Only
-`npm install pui-css-hoverable --save`
-
 ## Description
 
 This component is for showing hidden actions on hover.
@@ -62,3 +54,11 @@ This can be used with any kind of list but the list group style seems to fit thi
   </table>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-hoverable --save`
+
+#### CSS Only
+`npm install pui-css-hoverable --save`

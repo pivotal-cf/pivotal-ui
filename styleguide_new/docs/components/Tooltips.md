@@ -1,18 +1,5 @@
 # Tooltips
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-tooltip --save`
-
-```
-import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
-```
-
-#### CSS Only
-`npm install pui-css-tooltips --save`
-
 ## Description
 
 The Tooltip component is a styled container for content that should be displayed when triggered by an
@@ -189,6 +176,19 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
   </div>
 </div>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-tooltip --save`
+
+```
+import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
+```
+
+#### CSS Only
+`npm install pui-css-tooltips --save`
 
 ## Props
 

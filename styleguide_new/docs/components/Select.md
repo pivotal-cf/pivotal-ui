@@ -1,5 +1,14 @@
 # Select
 
+## Examples
+
+```jsx
+::title=Basic Example
+<div>
+    <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
+</div>
+```
+
 ## Installation & Usage
 
 #### React
@@ -11,15 +20,6 @@
 
 #### CSS Only
 `npm install pui-css-select --save`
-
-## Examples
-
-```jsx
-::title=Basic Example
-<div>
-    <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
-</div>
-```
 
 ## Props
 

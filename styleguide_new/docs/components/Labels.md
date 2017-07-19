@@ -1,15 +1,5 @@
 # Labels
 
-## Installation & Usage
-
-#### React
-`npm install pui-react-labels --save`
-
-`import {Label} from 'pui-react-labels';`
-
-#### CSS Only
-`npm install pui-css-labels --save`
-
 ## Description
 
 Labels are a straightforward implementation of the [Label][label] style.
@@ -43,6 +33,16 @@ Labels are a straightforward implementation of the [Label][label] style.
   </a>
 </span>
 ```
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-labels --save`
+
+`import {Label} from 'pui-react-labels';`
+
+#### CSS Only
+`npm install pui-css-labels --save`
 
 ## Props
 

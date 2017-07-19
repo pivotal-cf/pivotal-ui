@@ -1,10 +1,5 @@
 # Alignment
 
-## Installation & Usage
-
-#### CSS Only
-`npm install pui-css-alignment --save`
-
 ## Description
 
 ## Examples
@@ -41,3 +36,8 @@
   </tr>
 </table>
 ```
+
+## Installation & Usage
+
+#### CSS Only
+`npm install pui-css-alignment --save`

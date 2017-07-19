@@ -1,9 +1,5 @@
 # Border
 
-## Installation & Usage
-
-`npm install pui-css-border --save`
-
 ## Description
 Borders can also be controlled with the use of `border-*-0` to remove specific borders or `border-none` to remove them all.
 
@@ -30,3 +26,7 @@ Borders can also be controlled with the use of `border-*-0` to remove specific b
     <div class="border mvxl border-left-0">.border-left-0</div>
 </div>
 ```
+
+## Installation & Usage
+
+`npm install pui-css-border --save`
