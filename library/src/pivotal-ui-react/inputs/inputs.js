@@ -19,7 +19,7 @@ export class Input extends React.Component {
     size: PropTypes.oneOf(['small', 'medium', 'large']),
     success: PropTypes.bool,
     leftIcon: PropTypes.oneOfType([PropTypes.node, PropTypes.object])
-  }
+  };
 
   componentDidMount() {
     if(this.props.autoFocus) this.input.focus();

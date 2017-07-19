@@ -44,7 +44,7 @@ They would each take up their own row on devices &lt; 992px.
 
 * Use the `.col-xs-*` classes to use a grid on mobile.
 
-Look to the [examples](#grid-examples) for applying these principles to your code.
+Look to the [examples](#examples) for applying these principles to your code.
 
 ### Media Queries
 
