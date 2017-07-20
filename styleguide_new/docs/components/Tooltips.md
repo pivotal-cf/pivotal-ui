@@ -1,5 +1,13 @@
 # Tooltips
 
+## Subcomponents
+
+- [Tooltips](#tooltips)
+- [Overlay Triggers](#overlay-triggers)
+- [Tooltip Triggers](#tooltip-triggers)
+
+# Tooltips
+
 ## Description
 
 The Tooltip component is a styled container for content that should be displayed when triggered by an
@@ -13,7 +21,7 @@ visible        | no       | Boolean                                   | true    
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
 
-# OverlayTrigger
+# Overlay Triggers
 
 ## Description
 
@@ -134,7 +142,7 @@ trigger      | no       | oneOf('hover', 'click', 'focus', 'manual') | 'hover' |
 isSticky     | no       | Boolean                                    | false   | Whether the tooltip hover is sticky or not
 
 
-# TooltipTrigger
+# Tooltip Triggers
 
 ## Description
 
@@ -144,7 +152,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 ## Examples
 
 ```jsx
-::title=Basic Eample
+::title=Basic example
 ::description=TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
 <div>
   <div className="form-group form-inline">
@@ -166,7 +174,7 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 ```
 
 ```jsx
-::title=Markup Example
+::title=Markup example
 ::description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
 <div>
   <div className="form-group form-inline">
@@ -176,19 +184,6 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
   </div>
 </div>
 ```
-
-## Installation & Usage
-
-#### React
-`npm install pui-react-tooltip --save`
-
-```
-import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
-```
-
-#### CSS Only
-`npm install pui-css-tooltips --save`
 
 ## Props
 
@@ -203,3 +198,16 @@ onExited       | no       | Func                                      | () => {}
 theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
 isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
+
+## Installation & Usage
+
+#### React
+`npm install pui-react-tooltip --save`
+
+```
+import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
+import {OverlayTrigger} from 'pui-react-overlay-trigger';
+```
+
+#### CSS Only
+`npm install pui-css-tooltips --save`
