@@ -13,7 +13,7 @@ This is a basic collapse with no additional styles.
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <BaseCollapse header="Panel 1">
   <p>Panel 1 content</p>
   <p>Panel 1 content</p>
@@ -29,7 +29,7 @@ This is a basic collapse with no additional styles.
 ```
 
 ```jsx
-::title=Without Arrows Example
+::title=Without arrows example
 ::description=This is a basic collapse with an +/- icon in the clickable region
 <AltCollapse header="Without Arrows">
   <p>Content!</p>
@@ -41,7 +41,7 @@ This is a basic collapse with no additional styles.
 ```
 
 ```jsx
-::title=Arrow Icon Example
+::title=Arrow icon example
 ::description=This is a basic collapse with an arrow icon in the clickable region
 <Collapse header="With Arrows">
   <p>Content!</p>
@@ -53,7 +53,7 @@ This is a basic collapse with no additional styles.
 ```
 
 ```jsx
-::title=Divider Example
+::title=Divider example
 ::description=To add a divider between the clickable region and the expanded content region, simply set the `divider` property to be true
 <Collapse header="With Divider" divider>
   <p>Content!</p>

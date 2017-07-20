@@ -12,7 +12,7 @@ The Expander component accepts an "onEntered" and an "onExited" callback that tr
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=See the example below for how to use these components in your own application.
 class MoreInfo extends React.Component {
   constructor(props) {

@@ -3,7 +3,7 @@
 ## Examples
 
 ```jsx
-::title=Basic Dropdown
+::title=Basic dropdown
 ::description=This is the basic dropdown. It has an attached menu that extends from the bottom.
 <div className="form-group">
   <Dropdown title='Basic Dropdown'>
@@ -15,7 +15,7 @@
 ```
 
 ```jsx
-::title=Basic Dropdown with Custom Icon
+::title=Basic dropdown with custom icon
 <div className="form-group">
   <Dropdown title='Basic Dropdown Custom Icon' icon='more_vert'>
     <DropdownItem href="#">lorem ipsum</DropdownItem>
@@ -26,7 +26,7 @@
 ```
 
 ```jsx
-::title=Float Dropdown Menu
+::title=Float dropdown menu
 ::description=The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that exceeds the parent dropdown width.
 <div>
   <div className="form-group form-inline">
@@ -56,7 +56,7 @@
 ```
 
 ```jsx
-::title=Float Scroll Menu
+::title=Float scroll menu
 ::description=Lists that are indeterminately long can utilize the float scroll menu. The size is fixed so you'll have to customize the fixed height to achieve your desired results.
 <div className="form-group">
   <Dropdown title='Float Scroll Menu' scroll floatMenu>
@@ -75,7 +75,7 @@
 ```
 
 ```jsx
-::title=Split Dropdown
+::title=Split sropdown
 ::description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
 <div className="form-group">
   <Dropdown title='Split Dropdown' split>
@@ -87,7 +87,7 @@
 ```
 
 ```jsx
-::title=Flat Button Dropdown
+::title=Flat button dropdown
 ::description=Dropdown with the flat button styling. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Flat Button Dropdown' flat>
@@ -99,7 +99,7 @@
 ```
 
 ```jsx
-::title=Link Dropdown
+::title=Link dropdown
 ::description=Dropdown with the link styling, retains dropdown padding. Floating menu only.
 <div className="form-group form-inline">
   <Dropdown title='Link Dropdown' link>
@@ -111,7 +111,7 @@
 ```
 
 ```jsx
-::title=Icon Dropdown
+::title=Icon dropdown
 ::description=Rendered when no title is specified. Floating menu only.
 <div className="form-group">
   <Dropdown icon='more_vert' menuAlign='left'>

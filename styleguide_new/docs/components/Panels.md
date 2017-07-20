@@ -62,7 +62,7 @@ Distinguish between primary and secondary CTAs in the header and footer (e.g., p
 ```
 
 ```html
-::title=Panel with Loading Animation
+::title=Panel with loading animation
 ::description=Add a loading animation to a panel with the class `panel-loading-indicator`. The animation is intended for panels that utilize panel-header and panel-body. This should be used when the content of the panel is being loaded asynchronously and you’d like to communicate to the user that their content is on the way.
 <div class="panel box-shadow-1 border-rounded">
   <div class="panel-header">
@@ -76,7 +76,7 @@ Distinguish between primary and secondary CTAs in the header and footer (e.g., p
 ```
 
 ```jsx
-::title=Default Scrollable Panel
+::title=Default scrollable panel
 ::description=The scrollable panel sets a fixed max-height of 184px and scrolls any content that extends beyond that limit.
 <Panel className="bg-neutral-11 box-shadow-1 border-rounded" scrollable={true}>
   <p>Scrollable Panel</p>
@@ -91,7 +91,7 @@ Distinguish between primary and secondary CTAs in the header and footer (e.g., p
 ```
 
 ```jsx
-::title=Scrollable Panel with specified Height
+::title=Scrollable panel with specified height
 ::description=Set the max-height of the scrollable zone to a custom number.
 <Panel className="bg-neutral-11 box-shadow-1 border-rounded" scrollable={100}>
   <p>Scrollable Panel</p>

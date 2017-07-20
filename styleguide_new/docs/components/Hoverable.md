@@ -10,7 +10,7 @@ This can be used with any kind of list but the list group style seems to fit thi
 ## Examples
 
 ```html
-::title=List Example
+::title=List example
 <div>
     <ul className="list-group">
       <li class="list-group-item" hoverable>List Item 1<a class="hovered" href="#">Edit</a></li>
@@ -22,7 +22,7 @@ This can be used with any kind of list but the list group style seems to fit thi
 ```
 
 ```html
-::title=Table Example
+::title=Table example
 <div>
   <table>
     <tr>

@@ -13,7 +13,7 @@ npm install babel-loader react-svg-loader --save-dev
 ## Examples
 
 ```jsx
-::title=Copy Options
+::title=Copy options
 <div>
   <CopyToClipboard text="I got copied by a button"><button className="btn">Click Me To Copy</button></CopyToClipboard>
   <CopyToClipboardButton text="I got copied by a good looking button"/>
@@ -30,7 +30,7 @@ import {Input} from 'pui-react-inputs';
 ```
 
 ```jsx
-::title=Link Copy
+::title=Link copy
 <div className="copy-input">
   <Input label="shareable link" value="bar.com/1234.jpg" readOnly style={{height: "42px"}}/>
   <CopyToClipboardButton text="bar.com/1234.jpg" />

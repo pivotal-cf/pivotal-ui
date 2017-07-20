@@ -18,7 +18,7 @@ example below.
 ## Examples
 
 ```html
-::title=SVG Example
+::title=SVG example
 ::description=An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
 <h1>
   <div class="icon">

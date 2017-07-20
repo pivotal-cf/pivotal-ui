@@ -7,6 +7,7 @@ Box-shadows are used to to describe the visual hierarchy of objects. Key light s
 ## Examples
 
 ```html
+::title=Basic example
 <div class="txt-c" style="display: flex">
   <div class="maxl paxl box-shadow-key-1" style="width: 33%;"><code>.box-shadow-key-1</code></div>
   <div class="maxl paxl box-shadow-amb-1" style="width: 33%;"><code>.box-shadow-amb-1</code></div>

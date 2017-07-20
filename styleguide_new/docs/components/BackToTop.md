@@ -13,7 +13,7 @@ You can place the link anywhere in your markup, but best practices are either to
 ## Examples
 
 ```jsx
-::title=Always Visible Example
+::title=Always visible example
 <div>
 <BackToTop alwaysVisible />
 </div>

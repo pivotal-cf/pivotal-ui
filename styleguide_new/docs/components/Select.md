@@ -3,7 +3,7 @@
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <div>
     <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
 </div>

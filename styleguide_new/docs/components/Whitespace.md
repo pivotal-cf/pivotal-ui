@@ -14,6 +14,7 @@ n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px
 ## Example
 
 ```html
+::title=Padding modification example
 <p>A normal paragraph</p>
 <p class="pal">A paragraph with large padding</p>
 ```

@@ -39,13 +39,13 @@ It can be used with the following modifiers to achieve a variety of effects.
 ```
 
 ```html
-::title=Using a class to make a non-heading look like a heading
+::title=Using heading classes
 ::description=If it's not a heading but you need similar visual treatment you can add just the class to any element. However, use headings when possible since they add semantic value.
 <div class="h2">Heading level 2 on a div</div>
 ```
 
 ```html
-::title=Emphasis Modifiers
+::title=Emphasis modifiers
 ::description=Type emphasis modifiers can be used on any type element. Here's a table of all the emphasis modifier classes.
 <h1 class="em-low">Low emphasis</h1>
 
@@ -361,7 +361,7 @@ It can be used with the following modifiers to achieve a variety of effects.
 ```
 
 ```html
-::title=Multiline Headings
+::title=Multiline headings
 ::description=Headings are spaced so their line height and padding are consistent on one or many lines.
 <h1>One line heading</h1>
 

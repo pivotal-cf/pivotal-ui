@@ -7,7 +7,7 @@ import {Image} from 'pui-react-images';
 ```
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=A Flag is a special type of media that is vAlign='middle'. The images or other media can be aligned top, middle, or bottom. The default is top aligned. The base button renderer. You won't really interact with this directly.
 const mediaBasicImage = <Image src="http://placehold.it/50x50" alt="A sample media object"/>;
 const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
@@ -26,7 +26,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 ```
 
 ```html
-::title=Image Container
+::title=Image container
 ::description=Wrap the image in a fixed-size `.image-container` to make sure the image isn't larger than the container
 <div class="media">
   <a class="media-left" href="#">
@@ -44,7 +44,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 ```
 
 ```html
-::title=Nested Media
+::title=Nested media
 ::description=You can also nest media objects inside of each other (useful for comment threads or articles lists).
 <div class="media">
   <a class="media-left" href="#" target="_blank">
@@ -91,7 +91,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 ```
 
 ```jsx
-::title=Vertical Alignment
+::title=Vertical alignment
 const mediaAlignmentImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>

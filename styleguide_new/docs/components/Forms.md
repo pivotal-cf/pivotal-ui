@@ -14,7 +14,7 @@ TODO
 ## Examples   
 
 ```jsx
-::title=Form Groups
+::title=Form groups
 <form role="form">
   <div class="form-group">
     <Input {...{label: "App Name", id: "exampleInputAppName", placeholder: "Enter App Name", inputClassName: "form-control"}}/>
@@ -26,7 +26,7 @@ TODO
 ```
 
 ```html
-::title=Inline Form Groups
+::title=Inline form groups
 ::description=Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls.
 <form class="styleguide-form">
   <div class="form-group form-inline">
@@ -103,7 +103,7 @@ TODO
 ```
 
 ```jsx
-::title=Size Examples
+::title=Size examples
 ::description=Input has a `size` attribute that takes three options: small, medium (default), and large.
 <div className="grid">
   <div className="col col-top form-group">
@@ -239,7 +239,7 @@ Examples of standard form controls supported in an example form layout.
 ```
 
 ```html
-::title=Read-Only Inputs
+::title=Read-only inputs
 ::description=Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
 <div class="form-group">
  <label for="ReadOnlyInput">ReadOnly</label>
@@ -249,7 +249,7 @@ Examples of standard form controls supported in an example form layout.
 ### Validations
 
 ```html
-::title=Basic Example
+::title=Basic example
 ::description=Error messages should use the classes `.help-block.has-error`.
 <form class="styleguide-form" role="form">
   <div class="form-group has-error">
@@ -279,7 +279,7 @@ Examples of standard form controls supported in an example form layout.
 ```
 
 ```jsx
-::title=Input with Custom Error Message
+::title=Input with custom error message
 ::description=Inputs display a custom `errorMessage` when the `displayError` parameter is truthy.
 <Input label="Label!"
        labelClassName="hello"
@@ -290,9 +290,10 @@ Examples of standard form controls supported in an example form layout.
 
 ```
 
+### Static Controls
+
 ```html
-::title=Static Controls
-::description=Here's an example in a horizontal form:
+::title=Horizontal form example
 <form class="styleguide-form" role="form">
   <div class="row form-group">
     <label class="col-md-4 control-label">Email</label>
@@ -309,9 +310,8 @@ Examples of standard form controls supported in an example form layout.
 </form>
 ```
 
-Here's an example in a vertical form:
-
 ```html
+::title=Vertical form example
 <form class="styleguide-form" role="form">
   <div class="form-group">
     <label class="control-label">Email</label>
@@ -324,9 +324,10 @@ Here's an example in a vertical form:
 </form>
 ```
 
-Inputs with icons:
+### Inputs with icons
+
 ```jsx
-::title=Input with Checkmark
+::title=Input with checkmark
 ::description=Inputs display a checkmark when the `success` prop is true.
 <Input success
        label="Great Label for a Great Job!"
@@ -334,7 +335,7 @@ Inputs with icons:
 ```
 
 ```jsx
-::title=Search Input
+::title=Search input
 ::description=Inputs have a magnifying glass when the `search` prop is true
 <Input search
        label="Search For Answers"
@@ -342,24 +343,22 @@ Inputs with icons:
 ```
 
 ```jsx
-::title=Custom Icon Input
+::title=Custom icon input
 ::description=Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will override the `search` prop if both are provided.
-<Input leftIcon="add"
-       label="Add something here"
-       placeholder="Why does Pivotal UI..." />
+<div>
+    <Input leftIcon="add"
+           label="Add something here"
+           placeholder="Why does Pivotal UI..." />
+    <Input leftIcon={<img src="/styleguide/add_circle.svg" width="16" height="16"/>}
+                  label="This has an custom icon"
+                  placeholder="Why does Pivotal UI..." />
+</div>
 ```
 
-```jsx
-::title=Custom Icon Input 2
-<Input leftIcon={<img src="/styleguide/add_circle.svg" width="16" height="16"/>}
-       label="This has an custom icon"
-       placeholder="Why does Pivotal UI..." />
-```
-
-Sizing:
+### Sizing
 
 ```jsx
-::title=Size Examples
+::title=Size examples
 ::description=Input has a `size` attribute that takes three options: small, medium (default), and large.
 <div className="grid">
   <div className="col col-top form-group">
@@ -374,10 +373,10 @@ Sizing:
 </div>
 ```
 
-Input filtering:
+### Input filtering
 
 ```jsx
-::title=Filtering Search Example
+::title=Filtering search example
 ::description=To demonstrate how to use an Input in a more complex example, let's say we want to filter a list based on the user's input. We can accomplish this by creating a stateful component which is composed of the Input and the list to filter.
 class FilteringSearchExample extends React.Component {
   constructor(props) {
@@ -478,7 +477,7 @@ TODO
 ```
 
 ```jsx
-::title=React Select
+::title=React select
 <div>
     <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
 </div>
@@ -501,7 +500,7 @@ TODO
 ## Example
 
 ```jsx
-::title=Checkbox with Label
+::title=Checkbox with label
 ::description=A Checkbox component renders a checkbox with a label. It accepts standard checkbox input properties (such as `placeholder`).
 <Checkbox label="Label"/>
 ```
@@ -532,7 +531,7 @@ TODO
 For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=In this case, the `name` attached to `RadioGroup` will be applied to all of Radio children.
 <RadioGroup name="field_name">
   <Radio value="firstValue">You could click this radio button</Radio>
@@ -624,19 +623,19 @@ TODO
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=The Toggle component takes an `onChange` callback.
 <Toggle onChange={() => console.log('I have been toggled!')}/>
 ```
 
 ```jsx
-::title=Toggle Checked
+::title=Toggle checked
 ::description=Toggles accept a `checked` prop that turns on the switch. Note that you must handle the addition and removal of the `checked` property yourself.
 <Toggle checked onChange={() => console.log('I should handle check changes!')}/>
 ```
 
 ```jsx
-::title=Toggle Size
+::title=Toggle size
 ::description=Toggle has a `size` attribute that takes three options: small, medium (default), and large.
 <div className="grid">
   <div className="col col-top form-group">

@@ -54,7 +54,7 @@ x-large   | 1800px         | `$screen-xl-min`
 ## Examples
 
 ```html
-::title=Grid Sizes
+::title=Grid sizes
 ::description=See how aspects of the bootstrap grid system work across multiple devices with a handy table.
 <table class="table table-bordered table-striped">
   <thead>
@@ -130,7 +130,7 @@ x-large   | 1800px         | `$screen-xl-min`
 ```
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <div>
   <Row className="grid-show">
     <Col md={2}></Col>
@@ -186,7 +186,7 @@ x-large   | 1800px         | `$screen-xl-min`
 ```
 
 ```jsx
-::title=Gutter Sizes
+::title=Gutter sizes
 <div>
   <Row className="grid-show">
     <Col md={12}/>
@@ -204,7 +204,7 @@ x-large   | 1800px         | `$screen-xl-min`
 ```
 
 ```html
-::title=Responsive Column Resets
+::title=Responsive column resets
 ::description=With the four tiers of grids available you're bound to run into issues where, at certain breakpoints, your columns don't clear quite right as one is taller than the other. To fix that, use a combination of a `.clearfix` and our responsive utility classes.
 <div class="row grid-show">
   <div class="col-xs-12 col-sm-6" grid-content="this is a tall column"></div>
@@ -219,7 +219,7 @@ x-large   | 1800px         | `$screen-xl-min`
 ```
 
 ```html
-::title=Offsetting Columns
+::title=Offsetting columns
 ::description=Move columns to the right using `.col-md-offset-*` classes. These classes increase the left margin of a column by `*` columns. For example, `.col-md-offset-4` moves `.col-md-4` over four columns.
 <div class="row grid-show">
   <div class="col-md-8"></div>
@@ -327,7 +327,7 @@ xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change t
 ```
 
 ```html
-::title=Col Grow
+::title=Dynamic column growth
 ::description=You can also specify how the columns grow with `.col-grow-n` (n = 2 - 11). These columns will attempt to respect their given ratio until the content of the column exceeds their parameters, after which the column will drop onto another row:
 <div class="grid grid-show">
   <div class="col"></div>
@@ -342,7 +342,7 @@ xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change t
 ```
 
 ```html
-::title=Fixing Column Sizing
+::title=Fixing column sizing
 ::description=You can fix the width of a column by using the `.col-fixed` class.
 <div class="grid grid-show">
   <div class="col col-fixed" style="width: 150px;"></div>
@@ -352,7 +352,7 @@ xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change t
 ```
 
 ```html
-::title=Break Points
+::title=Breakpoints
 ::description=You can specify three different media breakpoints with the `.col-sm, .col-md, and .col-lg` classes.
 <div class="grid grid-show">
   <div class="col col-sm" style="width: 150px;"></div>
@@ -384,7 +384,7 @@ xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change t
 ```
 
 ```html
-::title=Relative Alignment
+::title=Relative alignment
 ::description=Aligning content relative to the column it is in
 <div class="grid">
   <div class="col col-top" style="height:100px; border: 1px solid #b4b4b4; background: #f8f8f8; margin: 0 8px;">Some content that sits at the top of the column</div>

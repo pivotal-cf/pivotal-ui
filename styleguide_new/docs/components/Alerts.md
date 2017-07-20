@@ -8,7 +8,7 @@ Alerts use the [Iconography](/react_base_iconography.html) component when using 
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <div>
 <SuccessAlert>Everything is wonderful</SuccessAlert>
 <InfoAlert>Here's some information for you</InfoAlert>
@@ -18,7 +18,7 @@ Alerts use the [Iconography](/react_base_iconography.html) component when using 
 ```
 
 ```jsx
-::title=Complex Example
+::title=Complex example
 ::description=Alerts are also used to bring important notes to a user's attention. If the content of your alert is a little more complicated, we would recommend using headings coupled with the content.
 <div>
 <InfoAlert>
@@ -33,7 +33,7 @@ Alerts use the [Iconography](/react_base_iconography.html) component when using 
 ```
 
 ```jsx
-::title=Alert Links
+::title=Alert links
 ::description=If you want to include a link in your alert, use the class `alert-link`.
 <div>
 <WarningAlert>
@@ -46,20 +46,20 @@ Alerts use the [Iconography](/react_base_iconography.html) component when using 
 ```
 
 ```jsx
-::title=Dismissible Alert Example
+::title=Dismissible alert example
 ::description=Add the `dismissable` property to add a close button to the alert.
 <SuccessAlert dismissable>Everything is wonderful</SuccessAlert>
 ```
 
 ```jsx
-::title=Callback on Dismiss Example
+::title=Callback on dismiss example
 ::description=If you want a callback to be called when the close button is clicked, set the `onDismiss` property to that callback.
 const callback = () => alert('Dismissed!');
 <InfoAlert onDismiss={callback} dismissable>with callback</InfoAlert>
 ```
 
 ```jsx
-::title=Alerts With Icons Example
+::title=Alerts with icons example
 ::description=If you want an icon to be displayed, set the `withIcon` property.
 <div>
 <SuccessAlert withIcon>success</SuccessAlert>
@@ -73,7 +73,7 @@ const callback = () => alert('Dismissed!');
 ```
 
 ```jsx
-::title=Dismissable Alert with an Icon
+::title=Dismissable alert with an icon
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
 

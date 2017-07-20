@@ -23,7 +23,7 @@ This makes them ideal for highly repeated layouts such as lists.
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=To create a tooltip where the contents are not inlined with the triggering element itself, use the OverlayTrigger component. If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover, this is where the `Tooltip` can be used. This can be useful in situations where you want to have many different elements trigger the same tooltip. Tooltips are placed using the `placement` property on `OverlayTrigger`, "left", "right", "bottom", "top".
 <div>
   <div className="form-group">
@@ -60,7 +60,7 @@ This makes them ideal for highly repeated layouts such as lists.
 ```
 
 ```html
-::title=Tooltips can be sized
+::title=Resizable tooltips
 <div>
 <div class="tooltip">
   <button class="btn btn-default">
@@ -92,7 +92,7 @@ This makes them ideal for highly repeated layouts such as lists.
 ```
 
 ```html
-::title=Form Icon Tooltip
+::title=Form icon tooltip
 <form>
   <div class="form-group">
     <label for="formIconExample">Email address

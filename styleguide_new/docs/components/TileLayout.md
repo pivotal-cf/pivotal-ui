@@ -7,7 +7,7 @@ import {ClickableAltPanel} from 'pui-react-panels';
 ```
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <div>
   <TileLayout columns={3}>
     <TileLayoutItem>
@@ -27,7 +27,7 @@ import {ClickableAltPanel} from 'pui-react-panels';
 ```
 
 ```jsx
-::title=Responsive Breakpoints
+::title=Responsive breakpoints
 ::description=You can also pass an object setting the number of columns for responsive breakpoints to the columns prop. You can set separate column values (from 1 - 12 columns) for some or all of xs, sm, md, lg, and xl screen sizes.
 <div>
   <TileLayout columns={{xs: 1, sm: 2, md: 3}}>

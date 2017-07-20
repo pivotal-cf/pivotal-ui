@@ -5,7 +5,7 @@
 ## Examples
 
 ```jsx
-::title=Horizontal Alignment Example
+::title=Horizontal alignment example
 ::description=The following classes can be used to for horizontal alignment.
 <div>
     <p className="txt-l"> <code>.txt-l</code> </p>
@@ -15,7 +15,7 @@
 ```
 
 ```jsx
-::title=Vertical Alignment Example
+::title=Vertical alignment example
 ::description=On `display: inline` and `display: table-cell` elements, the following classes can be used to for vertical alignment.
 <table className="table table-bordered" >
   <tr>

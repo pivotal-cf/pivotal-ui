@@ -3,7 +3,7 @@
 ## Examples
 
 ```html
-::title=Basic Unstyled
+::title=Basic unstyled
 <pre class="pre-unstyled"><code>class Foo
   def bar
     puts 'hi'
@@ -17,7 +17,7 @@ end</code></pre>
 ```
 
 ```html
-::title=Inline Dark
+::title=Inline dark
 <p>This is an example of a paragraph with <code class="inline-dark">a dark inline code snippet</code> within it.</p>
 ```
 
@@ -137,7 +137,7 @@ end</code></pre>
 ```
 
 ```html
-::title=Terminal Window
+::title=Terminal window
 ::description=You will need to follow the PrismJS installation instructions in the <a href="#code_styled">styled code</a> section.
 <div class="terminal">
   <ul class="terminal-dots"><li/><li/><li/></ul>

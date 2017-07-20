@@ -14,7 +14,7 @@ anywhere without knowing about `<body>`.
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 <div>
   <section>
     <span>Content will be transported from here:</span>

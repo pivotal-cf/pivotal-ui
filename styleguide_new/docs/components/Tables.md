@@ -8,7 +8,7 @@ functioning sort. If the rows change, the content on the page will update.
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 const columns = [
   {
     attribute: 'title',
@@ -61,7 +61,7 @@ const data = [
 ```
 
 ```html
-::title=Table Row Hover
+::title=Table row hover
 ::description=Adding .tr-hover to a specific table row or the table element itself will add the hover effect.
 <table class="table">
   <tbody>
@@ -85,7 +85,7 @@ const data = [
 ```
 
 ```html
-::title=Table Cell Hover
+::title=Table cell hover
 ::description=Adding .td-hover to the table element will allow the user to highlight individual cells.
 <table class="table td-hover">
   <tbody>
@@ -109,7 +109,7 @@ const data = [
 ```
 
 ```html
-::title=Table Border Modifiers
+::title=Table border modifiers
 ::description=Remove all of the internal horizontal borders with class .tr-no-h-borders applied to the table row or the table element.
 <table class="table tr-no-h-borders">
   <tbody>
@@ -133,7 +133,7 @@ const data = [
 ```
 
 ```html
-::title=No External Borders
+::title=No external borders
 ::description=No external borders to rows using class .table-no-ext-borders on the table element.
 <table class="table table-no-ext-borders">
   <tbody>
@@ -157,7 +157,7 @@ const data = [
 ```
 
 ```html
-::title=No Borders
+::title=No borders
 ::description=No external borders to rows using class .table-no-borders on the table element.
 <table class="table table-no-borders">
   <tbody>

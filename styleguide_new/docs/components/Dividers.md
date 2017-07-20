@@ -3,7 +3,7 @@
 ## Examples
 
 ```jsx
-::title=Large Divider Example
+::title=Large divider example
 ::description=Dividers draw horizontal lines between different content groupings
 <div>
   <Divider />
@@ -12,7 +12,7 @@
 ```
 
 ```jsx
-::title=Inverse Dividers
+::title=Inverse dividers
 ::description=On a dark background, use these inverse dividers
 <div style={{background: '#232B2F'}}>
   <div className="type-dark-11">

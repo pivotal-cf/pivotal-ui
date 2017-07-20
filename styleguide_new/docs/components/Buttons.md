@@ -12,7 +12,7 @@ The aria-label attribute will be populated with the button text, unless an aria-
 There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop.
 
 ```jsx
-::title=Default Button
+::title=Default button
 <div>
     <DefaultButton>Default</DefaultButton>
     <DefaultButton alt>Default Alt</DefaultButton>
@@ -21,7 +21,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ```jsx
-::title=Primary Button
+::title=Primary button
 <div>
     <PrimaryButton>Primary</PrimaryButton>
     <PrimaryButton alt>Primary Alt</PrimaryButton>
@@ -30,7 +30,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ```jsx
-::title=Danger Button
+::title=Danger button
 <div>
     <DangerButton>Danger</DangerButton>
     <DangerButton alt>Danger Alt</DangerButton>
@@ -39,7 +39,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ```jsx
-::title=Brand Button
+::title=Brand button
 <div>
     <BrandButton>Brand</BrandButton>
     <BrandButton alt>Brand Alt</BrandButton>
@@ -48,7 +48,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ```jsx
-::title=Link vs Button Example
+::title=Link vs button
 ::description=Buttons use the button tag by default. If you'd like a link rather than a button, simply add an `href` attribute.
 <div>
   <DefaultButton>
@@ -79,7 +79,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ```
 
 ```jsx
-::title=Full Width Button
+::title=Full width button
 ::description=To make a button full width, set `fullWidth` to true
 <DefaultButton fullWidth>
   Full Width Button

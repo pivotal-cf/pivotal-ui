@@ -26,7 +26,7 @@ import {Icon} from 'pui-react-iconography';
 ```
 
 ```jsx
-::title=Notification Sizing
+::title=Notification sizing
 <div>
     <Notifications size="h1">
       <NotificationItem>Stuff</NotificationItem>
@@ -64,7 +64,7 @@ import {Icon} from 'pui-react-iconography';
 ```
 
 ```jsx
-::title=With Alerts
+::title=With alerts
 <div>
     <AlertNotifications>
       <NotificationItem href="http://media.giphy.com/media/Qvw9p4uX7IBy0/giphy.gif">

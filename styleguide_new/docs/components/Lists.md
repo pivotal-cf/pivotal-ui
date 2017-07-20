@@ -85,7 +85,7 @@
 ```
 
 ```jsx
-::title=Ordered Unstyled List
+::title=Ordered unstyled list
 <OrderedList unstyled>
   <ListItem>Item 1</ListItem>
   <ListItem>Item 2</ListItem>

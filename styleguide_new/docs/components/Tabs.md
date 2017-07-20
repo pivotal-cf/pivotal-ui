@@ -31,7 +31,7 @@ When a user would like to access each group of information separately. | When it
 ```
 
 ```jsx
-::title=Left Tabs
+::title=Left tabs
 <LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
@@ -42,7 +42,7 @@ When a user would like to access each group of information separately. | When it
 ```
 
 ```jsx
-::title=Responsive Breakpoints
+::title=Responsive breakpoints
 ::description=Tabs can be responsive, and will display accordion-style on small screens and folder-style on large screens.
 <Tabs defaultActiveKey={1} responsiveBreakpoint="md">
   <Tab eventKey={1} title="Tab 1"> I'm so responsive </Tab>

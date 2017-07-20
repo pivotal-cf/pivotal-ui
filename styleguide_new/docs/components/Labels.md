@@ -7,7 +7,7 @@ Labels are a straightforward implementation of the [Label][label] style.
 ## Examples
 
 ```jsx
-::title=Basic Example
+::title=Basic example
 ::description=Labels can be used on their own
 <div>
   <Label>yeah</Label>
@@ -15,7 +15,7 @@ Labels are a straightforward implementation of the [Label][label] style.
 ```
 
 ```jsx
-::title=Parent Style Example
+::title=Parent style example
 ::description=Labels used within an element which already has font modifier styles will use the parents' styling. For example:
 <div>
   <h3>
@@ -25,7 +25,7 @@ Labels are a straightforward implementation of the [Label][label] style.
 ```
 
 ```html
-::title=Removable Labels
+::title=Removable labels
 ::description=Removable labels are used as tags in an editable list. The user will either enter text or select content (i.e.: a dropdown item), and it will be styled as a removable label (most likely in a list). Developers who use these labels must implement the close functionality for when the user clicks the close button.
 <span class="label-removable">Removable
   <a class="close-btn" aria-label="Remove label">
