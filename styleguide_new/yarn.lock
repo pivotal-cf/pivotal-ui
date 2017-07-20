@@ -6591,7 +6591,7 @@ node-pre-gyp@^0.6.36, node-pre-gyp@^0.6.4:
     tar "^2.2.1"
     tar-pack "^3.4.0"
 
-node-sass@^4.2.0, node-sass@^4.5.3:
+node-sass@^4.2.0, node-sass@^4.3.0:
   version "4.5.3"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.5.3.tgz#d09c9d1179641239d1b97ffc6231fdcec53e1568"
   dependencies:
@@ -7965,6 +7965,7 @@ pui-css-dropdowns@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-button-group "=8.3.1"
     pui-css-buttons "=8.3.1"
+    pui-css-forms "=8.3.1"
     pui-css-links "=8.3.1"
 
 "pui-css-dropdowns@file:../library/dist/css/dropdowns":
@@ -7973,6 +7974,7 @@ pui-css-dropdowns@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-button-group "=8.3.1"
     pui-css-buttons "=8.3.1"
+    pui-css-forms "=8.3.1"
     pui-css-links "=8.3.1"
 
 pui-css-ellipsis@=8.3.1:

@@ -1,21 +1,24 @@
 import '../../spec_helper';
 
 describe('ReactEditor', () => {
-  let subject, code;
+  let subject, code, changeHandler, AceEditorWrapper;
+
   beforeEach(() => {
     const ReactEditor = require('../../../src/components/code_area/react_editor');
+    AceEditorWrapper = require('../../../src/components/code_area/ace_editor_wrapper');
+
     code = "i++";
-    subject = ReactDOM.render(<ReactEditor code={code}/>, root);
+    changeHandler = () => {};
+    spyOnRender(AceEditorWrapper).and.callThrough();
+
+    subject = ReactDOM.render(<ReactEditor {...{code, changeHandler}}/>, root);
   });
 
   it('renders an editor', () => {
     expect(".code-editor--edit").toExist();
   });
 
-  it('renders the code in the editor', (done) => {
-    setTimeout(() => {
-      expect('.ace_text-layer').toContainText(code);
-      done();
-    }, 1);
+  it('renders the Ace Editor wrapper with the correct props', () => {
+    expect(AceEditorWrapper).toHaveBeenRenderedWithProps({code, changeHandler});
   });
 });

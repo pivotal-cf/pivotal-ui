@@ -1,10 +1,12 @@
 import React from 'react';
-import AceEditor from 'react-ace';
 import {Icon} from 'pui-react-iconography';
 import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
+import AceEditorWrapper from './ace_editor_wrapper';
 
 export default class ReactEditor extends React.Component {
   render() {
+    const {code, changeHandler} = this.props;
+
     return (
       <div className="code-editor--edit mbxl">
         <div className="code-editor--titlebar">
@@ -13,17 +15,10 @@ export default class ReactEditor extends React.Component {
           </div>
           <div className="code-editor--actions">
             <Icon src="autorenew"/>
-            <CopyToClipboardButton text={this.props.code} className="code-editor--titlebar-copy"/>
+            <CopyToClipboardButton text={code} className="code-editor--titlebar-copy"/>
           </div>
         </div>
-        <AceEditor width="100%"
-                   height="200px"
-                   mode="jsx"
-                   theme="crimson_editor"
-                   value={this.props.code}
-                   onChange={this.props.changeHandler}
-                   editorProps={{$blockScrolling: Infinity}}
-                   setOptions={{showGutter: true, showLineNumbers: true}}/>
+        <AceEditorWrapper {...{code, changeHandler}}/>
       </div>
     );
   }
