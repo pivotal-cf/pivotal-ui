@@ -1,5 +1,12 @@
 # Tables
 
+## Subcomponents
+
+- [HTML Tables](#html-table)
+- [Flex Tables](#flex-table)
+
+# HTML Tables
+
 ## Description
 
 The `Table` component is a robust component that offers a styled table with fully
@@ -180,6 +187,29 @@ const data = [
 </table>
 ```
 
+## Props
+
+Table
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+columns     | yes | Array     | | Metadata about columns
+CustomRow   | no  | Component | | The component to use when rendering table rows
+data        | yes | Array     | | The data to display in the table
+defaultSort | no  | String    | | The name of the column to use for sorting before user input
+
+Items in 'Column'
+
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+attribute   | yes | String    |       | The key to use in the data prop to get data for that column
+CustomCell  | no  | Component |       | Component to use when rendering cells, defaults to TableCell
+displayName | no  | String    |       | The text in the TableHeader for that column
+headerProps | no  | Object    |       | React props that will be passed through to that column
+sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
+sortBy      | no  | Function  |       | Function to transform data before sorting
+cellClass   | no  | String    |       | Class to apply to all cells in a column
+
 # TableRow
 
 ## Description
@@ -195,7 +225,7 @@ Changing the presentation of the data does not affect the sort behavior.
 ## Examples
 
 ```jsx
-::title=Custom Row Example
+::title=Custom row example
 
 const columns = [
   {
@@ -320,29 +350,6 @@ Class                   | Description
 `.table-no-ext-borders` | Removes external borders for the entire table when applied to the .table element.
 `.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
 
-## Props
-
-Table
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-columns     | yes | Array     | | Metadata about columns
-CustomRow   | no  | Component | | The component to use when rendering table rows
-data        | yes | Array     | | The data to display in the table
-defaultSort | no  | String    | | The name of the column to use for sorting before user input
-
-Items in 'Column'
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-attribute   | yes | String    |       | The key to use in the data prop to get data for that column
-CustomCell  | no  | Component |       | Component to use when rendering cells, defaults to TableCell
-displayName | no  | String    |       | The text in the TableHeader for that column
-headerProps | no  | Object    |       | React props that will be passed through to that column
-sortable    | no  | Boolean   | false | Is this column sortable? Defaults to false
-sortBy      | no  | Function  |       | Function to transform data before sorting
-cellClass   | no  | String    |       | Class to apply to all cells in a column
-
 # Flex Tables
 
 ## Description
@@ -408,7 +415,7 @@ const data = [
 ```
 
 ```jsx
-::title=Custom Row
+::title=Custom row
 ::description=The `FlexTableRow` component is provided for users who wish to customize their rows with the `CustomRow` prop to `FlexTable`.
 class CustomRow extends React.Component {
   render() {
@@ -473,7 +480,7 @@ const data = [
 ```
 
 ```jsx
-::title=Custom Cell
+::title=Custom cell
 ::description=The `FlexTableCell` component is provided for users who wish to customize their cells with the `CustomCell` attribute on the `columns` prop.
 class CustomCell extends React.Component {
   render() {
@@ -526,7 +533,7 @@ const data = [
 ```
 
 ```html
-::title=Table Cell Alignment
+::title=Table cell alignment
 ::description=Thanks to the power of the flexbox grid you can take advantage of content alignment classes like .col-top and .col-bottom to align the content of a column.
 <div class="table">
   <div class="tr grid">
@@ -550,7 +557,7 @@ const data = [
 ```
 
 ```html
-::title=Dynamic Cell Width
+::title=Dynamic cell width
 ::description=The Flex table can take advantage of the dynamic column widths provided by the flexbox grid. You can use the base .col class for auto widths, .col-1 to .col-24 to define a percentage width between 1/24, .col-fixed to define a specific pixel count or just observe the width of it’s children, and finally the .col-grow-2 to .col-grow-11 to define a flex-grow column. These can all be used in conjunction. Read more about them here to learn their proper use. Also note that placing a div with .type-ellipsis into any of these cells will truncate your text content.
 <div class="table">
   <div class="tr grid">
@@ -569,7 +576,7 @@ const data = [
 ```
 
 ```html
-::title=Table Linking
+::title=Table linking
 ::description=The flex table is able to swap out any of it’s divs for an a tag. In the example below we can see a single cell can be made into a link or an entire row.
 <div class="table">
   <div class="tr grid">
