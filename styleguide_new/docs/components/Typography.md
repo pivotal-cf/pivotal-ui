@@ -4,7 +4,6 @@
 
 Source Sans Pro is our font family.
 It can be used with the following modifiers to achieve a variety of effects.
-*/
 
 ## Examples
 
@@ -31,48 +30,23 @@ It can be used with the following modifiers to achieve a variety of effects.
 ```
 
 ```html
-<div class="alert alert-info mbxl">
-<div>
-  <h5 class="em-high mtn">
-    Separating code and visual semantics
-  </h5>
-  <p>
-    Sometimes you may need to use a heading which has different visual and code semantics.
-    You can accomplish this by combining classes with elements
-    (classes take visual precedence over elements in this case).
-  </p>
-</div>
-</div>
-
-
-  <h1 class="h2">I am a h1!</h1>
-
-  <h2 class="h1">I am a h2!</h2>
+::title=Separating code and visual semantics
+::description=Sometimes you may need to use a heading which has different visual and code semantics.
+                  You can accomplish this by combining classes with elements
+                  (classes take visual precedence over elements in this case).
+<h1 class="h2">I am an h1!</h1>
+<h2 class="h1">I am an h2!</h2>
 ```
 
 ```html
-::description=If it's not a heading but you need similar visual treatment you can add just the class to any element.
-
-<div class="alert alert-warning mbxl">
-  <p class="em-high">
-    Use headings when possible since they add semantic value.
-  </p>
-</div>
-
-  <div class="h2">Heading level 2 on a div</div>
+::title=Using a class to make a non-heading look like a heading
+::description=If it's not a heading but you need similar visual treatment you can add just the class to any element. However, use headings when possible since they add semantic value.
+<div class="h2">Heading level 2 on a div</div>
 ```
 
 ```html
 ::title=Emphasis Modifiers
-::description=Type emphasis modifiers can be used on any type element.
-<h1 class="em-high">Really Important</h1>
-<p>
-  I mean <span class="em-max">reeeeeeeeeeeally</span>
-</p>
-```
-
-```html
-::description=Here's a table of all the emphasis modifier classes.
+::description=Type emphasis modifiers can be used on any type element. Here's a table of all the emphasis modifier classes.
 <h1 class="em-low">Low emphasis</h1>
 
 <h1 class="em-default">Default emphasis</h1>
@@ -91,7 +65,7 @@ It can be used with the following modifiers to achieve a variety of effects.
 ```
 
 ```html
-::description=Here's a table of all the color classes.
+::noToolbar
 <table class="styleguide table">
   <tr>
     <td class="bg-neutral-11"> <p class="type-inverse">Type inverse</p> </td>

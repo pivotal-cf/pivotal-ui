@@ -1,10 +1,10 @@
 # Maps
 
-## Examples
+## Example
 
 ```html
-::Example
-::description=Full width map with marker at Pivotal Labs SF location, and an optional informational overlay.
+::title=Full width map with marker
+::description=This map shows a marker at the Pivotal Labs SF location with an optional informational overlay.
 <div class='map-wrapper'>
   <div class='pane'>
     <div class='container pan'>

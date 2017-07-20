@@ -16,19 +16,25 @@ Link                                                                            
 <a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
 
 ## Examples
-```html
-<a class="link-text" href="http://bitly.com/11vCzUx">
-  <div class="icon icon-baseline">
-      <svg class="icon-add-circle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-          <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm10 22h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
-      </svg>
-  </div>
-  Click me!
-</a>
-```
 
 ```html
-Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
+::title=Link examples
+<p>
+    <a class="link-text" href="http://bitly.com/11vCzUx">
+      <div class="icon icon-baseline">
+          <svg class="icon-add-circle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm10 22h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
+          </svg>
+      </div>
+      Click me, I'm a default link!
+    </a>
+</p>
+<p>
+    Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
+</p>
+<p>
+    And here's an <a class="link-text link-inverse" href="http://bit.ly/1wO7Nhv">inverse link</a>
+</p>
 ```
 
 ## Installation & Usage

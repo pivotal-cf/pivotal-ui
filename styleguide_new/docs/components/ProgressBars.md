@@ -3,6 +3,7 @@
 ## Examples
 
 ```html
+::title=Default
 <div class="progress">
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" role="progressbar" style="width: 0%;"></div>
 </div>
@@ -21,6 +22,7 @@
 ```
 
 ```html
+::title=Custom background
 ::description=Customize the progress bar background color.
 <div class="progress">
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar bg-error-3" role="progressbar" style="width: 90%;"></div>
@@ -32,9 +34,10 @@
 ```
 
 ```html
+::title=Custom label and height
 ::description=Customize the progress bar with a custom label, larger height, and background color.
 <div class="progress bg-shadow-3">
-  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar bg-neutral-5" role="progressbar" style="width: 60%;">
+  <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar bg-neutral-5" role="progressbar" style="width: 60%;">
     <div class="label">60%</div>
   </div>
 </div>
