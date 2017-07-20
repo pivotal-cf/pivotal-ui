@@ -1,8 +1,16 @@
 # Lists
 
-## Description
+## Subcomponents
 
-## Examples
+- [Breadcrumb Lists](#breadcrumb-lists)
+- [Draggable Lists](#draggable-lists)
+- [Inline Lists](#inline-lists)
+- [Ordered Lists](#ordered-lists)
+- [Unordered Lists](#unordered-lists)
+
+# Breadcrumb Lists
+
+## Example
 
 ```jsx
 ::title=Breadcrumb
@@ -14,6 +22,26 @@
     </BreadcrumbList>
 </div>
 ```
+
+```html
+::title=Breadcrumb CSS
+::description=The `.list-breadcrumb` can be used to provide additional page navigation. Breadcrumbs use their own monospace font-family.
+<ul class="list-breadcrumb">
+  <li>
+    <a href="http://google.com">Parent</a>
+  </li>
+  <li>
+    <a href="http://google.com">Child</a>
+  </li>
+  <li class="current">
+    <span>Current Page</span>
+  </li>
+</ul>
+```
+
+# Draggable Lists
+
+## Example
 
 ```jsx
 ::title=Draggable
@@ -46,21 +74,9 @@
 </div>
 ```
 
-```html
-::title=Breadcrumb CSS
-::description=The `.list-breadcrumb` can be used to provide additional page navigation. Breadcrumbs use their own monospace font-family.
-<ul class="list-breadcrumb">
-  <li>
-    <a href="http://google.com">Parent</a>
-  </li>
-  <li>
-    <a href="http://google.com">Child</a>
-  </li>
-  <li class="current">
-    <span>Current Page</span>
-  </li>
-</ul>
-```
+# Inline Lists
+
+## Example
 
 ```jsx
 ::title=Inline
@@ -72,6 +88,10 @@
     </InlineList>
 </div>
 ```    
+
+# Ordered Lists
+
+## Examples
 
 ```jsx
 ::title=Ordered
@@ -92,6 +112,10 @@
   <ListItem>Item 3</ListItem>
 </OrderedList>
 ```
+
+# Unordered Lists
+
+## Example
 
 ```jsx
 ::title=Unordered
