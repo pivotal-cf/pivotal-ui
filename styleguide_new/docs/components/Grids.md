@@ -1,6 +1,12 @@
 # Grids
 
+## Subcomponents
+
+- [Grids](#grids)
+- [Flex Grids](#flex-grid)
+
 ## Description
+
 Pivotal ui (via bootstrap) includes a responsive, **mobile first** fluid grid system that
 appropriately scales up to 24 columns as the device or viewport size increases.
 To work with the system, you need to **treat mobile as your default**
@@ -36,7 +42,7 @@ They would each take up their own row on devices &lt; 992px.
 
 * Use the `.col-xs-*` classes to use a grid on mobile.
 
-Look to the [examples](#examples) for applying these principles to your code.
+Look to the examples for applying these principles to your code.
 
 ### Media Queries
 
@@ -272,6 +278,10 @@ xsPush, smPush, mdPush, lgPush         | no | Number  |     | Offset to change t
 xsPull, smPull, mdPull, lgPull         | no | Number  |     | Offset to change the order of grid columns to the left with
 
 # Flex Grid
+
+## Description
+
+TODO: Use the `.grid` class to wrap columns to create a flex grid.
 
 ## Examples
 
