@@ -2,8 +2,55 @@
 
 ## Subcomponents
 
-- [React Selects](#react-selects)
 - [HTML Selects](#html-selects)
+- [React Selects](#react-selects)
+
+# HTML Selects
+
+## Description
+
+TODO
+
+## Examples
+
+```html
+::title=Selects
+::description=Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
+<form class="styleguide-form" role="form">
+  <div class="form-group">
+    <select class="form-control">
+      <option>default option</option>
+      <option>an option</option>
+      <option>another option</option>
+    </select>
+  </div>
+</form>
+```
+
+```html
+::title=Sizing
+::description=Set heights using the form control classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
+<div class="form-group">
+  <select class="form-control input-lg">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <select class="form-control">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <select class="form-control input-sm">
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+</div>
+```
 
 # React Selects
 
