@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Alignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="alignment" class="styleguide">Alignment</h1>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component"></i>
+npm install pui-css-alignment --save
+</code></p><p class="styleguide">The following classes can be used to for horizontal alignment.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="txt-l">
+  <code>.txt-l</code>
+</p></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"txt-l"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;code&gt;</span>.txt-l<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="txt-c">
+  <code>.txt-c</code>
+</p></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"txt-c"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;code&gt;</span>.txt-c<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><p class="txt-r">
+  <code>.txt-r</code>
+</p>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"txt-r"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;code&gt;</span>.txt-r<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;/p&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+<p class="styleguide">On <code class="styleguide">display: inline</code> and <code class="styleguide">display: table-cell</code> elements,
+the following classes can be used to for vertical alignment.</p><div class="codeExample">
+  <div class="exampleOutput"><table class="table table-bordered" >
+  <tr>
+    <th width="40%">
+      This long text is used to expand the height of this
+      table so that we can demonstrate our verticle alignment classes
+      to the right.
+    </th>
+    <td class="txt-t" width="20%">
+      <code>.txt-t</code>
+    </td>
+    <td class="txt-m" width="20%">
+      <code>.txt-m</code>
+    </td>
+    <td class="txt-b" width="20%">
+      <code>.txt-b</code>
+    </td>
+  </tr>
+</table>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-bordered"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;tr&gt;</span>
+    <span class="nt">&lt;th</span> <span class="na">width=</span><span class="s">"40%"</span><span class="nt">&gt;</span>
+      This long text is used to expand the height of this
+      table so that we can demonstrate our verticle alignment classes
+      to the right.
+    <span class="nt">&lt;/th&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"txt-t"</span> <span class="na">width=</span><span class="s">"20%"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;code&gt;</span>.txt-t<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"txt-m"</span> <span class="na">width=</span><span class="s">"20%"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;code&gt;</span>.txt-m<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;/td&gt;</span>
+    <span class="nt">&lt;td</span> <span class="na">class=</span><span class="s">"txt-b"</span> <span class="na">width=</span><span class="s">"20%"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;code&gt;</span>.txt-b<span class="nt">&lt;/code&gt;</span>
+    <span class="nt">&lt;/td&gt;</span>
+  <span class="nt">&lt;/tr&gt;</span>
+<span class="nt">&lt;/table&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">If you need to vertically align an element that does not fit into those display types,
+take a look at <a class="styleguide" href="css_all.html#vertical_align" title="css_all.html#vertical_align">vertical alignment</a>.</p>        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

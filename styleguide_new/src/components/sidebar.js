@@ -75,6 +75,10 @@ export default class Sidebar extends React.PureComponent {
                        link="downloads"
                        text="Downloads"
                        active={'/downloads' === this.props.activePath}/>
+          <ContentLink onClick={this.handleClick.bind(this)}
+                       link="versions"
+                       text="Versions"
+                       active={'/versions' === this.props.activePath}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
         </div>
       </div>

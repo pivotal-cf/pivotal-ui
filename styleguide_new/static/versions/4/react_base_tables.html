@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI React: Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="index.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+        
+        <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="latest-release.html">New in 4.0</a></li>
+
+          <li><a href="http://github.com/pivotal-cf/pivotal-ui">GitHub</a></li>
+          <li><a href="react_all.html">All React Components</a></li>
+          <li><a href="css_all.html">All CSS Components</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Alignment":"css_utilities_alignment.html","Avatars":"css_base_avatars.html","Back To Top":"css_components_back-to-top.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Code":"css_components_code.html","Colors":"css_utilities_colors.html","Dividers":"css_base_dividers.html","Dropdowns":"css_components_dropdowns.html","Ellipsis":"css_utilities_ellipsis.html","Embeds":"css_base_embeds.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Layout Lists":"css_utilities_layout-lists.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Maps":"css_components_maps.html","Media":"css_utilities_media.html","Modals":"css_components_modals.html","Pagination":"css_base_pagination.html","Panes":"css_utilities_panes.html","Panels":"css_components_panels.html","Print":"css_utilities_print.html","Progress Bar":"css_components_progress-bar.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Ribbons":"css_base_ribbons.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tile Layout":"css_utilities_tile-layout.html","Tooltips":"css_components_tooltips.html","Typography":"css_base_typography.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"React":{"Alerts":"react_components_alerts.html","Alignment":"react_utilities_alignment.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Buttons":"react_base_buttons.html","Collapse":"react_components_collapse.html","Colors":"react_utilities_colors.html","Dividers":"react_base_dividers.html","Dropdowns":"react_components_dropdowns.html","Ellipsis":"react_utilities_ellipsis.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Media":"react_utilities_media.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Pagination":"react_base_pagination.html","Panes":"react_utilities_panes.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tabs":"react_components_tabs.html","Tile Layout":"react_utilities_tile-layout.html","Tooltips":"react_base_tooltips.html","Whitespace":"react_utilities_whitespace.html"}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="table_react" class="styleguide">Tables</h1>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-react-table --save
+</i>
+</code></p><p class="styleguide">Require the subcomponents:</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>var Table = require('pui-react-table').Table;
+var TableHeader = require('pui-react-table').TableHeader;
+var TableRow = require('pui-react-table').TableRow;
+var TableCell = require('pui-react-table').TableCell;</pre>
+  </div>
+</div><p class="styleguide">The <code class="styleguide">Table</code> component is a robust component that offers a styled table with fully
+functioning sort. If the rows change, the content on the page will update.</p><p class="styleguide">The <code class="styleguide">Table</code> expects the following properties:</p><table class="styleguide"> <tr>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">columns</code></td>
+<td><strong>yes</strong></td>
+<td>Array of Objects</td>
+<td>Metadata about columns</td>
+</tr>
+<tr>
+<td><code class="styleguide">CustomRow</code></td>
+<td><strong>no</strong></td>
+<td>Component</td>
+<td>The Component to use when rendering table rows</td>
+</tr>
+<tr>
+<td><code class="styleguide">data</code></td>
+<td><strong>yes</strong></td>
+<td>Array of Objects</td>
+<td>The data to display in the table</td>
+</tr>
+<tr>
+<td><code class="styleguide">defaultSort</code></td>
+<td><strong>no</strong></td>
+<td>String</td>
+<td>The name of the column to use for sorting before user input</td>
+</tr>
+ </table><p class="styleguide">The objects in <code class="styleguide">columns</code> expect the following properties:</p><table class="styleguide"> <tr>
+<th>Property</th>
+<th>Required?</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+ <tr>
+<td><code class="styleguide">attribute</code></td>
+<td><strong>yes</strong></td>
+<td>String</td>
+<td>The key to use in the <code class="styleguide">data</code> prop to get data for that column</td>
+</tr>
+<tr>
+<td><code class="styleguide">CustomCell</code></td>
+<td><strong>no</strong></td>
+<td>Component</td>
+<td>Component to use when rendering cells, defaults to <code class="styleguide">TableCell</code></td>
+</tr>
+<tr>
+<td><code class="styleguide">displayName</code></td>
+<td><strong>no</strong></td>
+<td>String</td>
+<td>The text in the TableHeader for that column</td>
+</tr>
+<tr>
+<td><code class="styleguide">headerProps</code></td>
+<td><strong>no</strong></td>
+<td>Object</td>
+<td>React props that will be passed through to that column</td>
+</tr>
+<tr>
+<td><code class="styleguide">sortable</code></td>
+<td><strong>no</strong></td>
+<td>Boolean</td>
+<td>Is this column sortable? Defaults to false</td>
+</tr>
+<tr>
+<td><code class="styleguide">sortBy</code></td>
+<td><strong>no</strong></td>
+<td>Function</td>
+<td>Function to transform data before sorting</td>
+</tr>
+ </table><script>'use strict';
+
+var columns = [{
+  attribute: 'title',
+  displayName: 'Title',
+  sortable: false
+}, {
+  attribute: 'instances',
+  sortable: true
+}, {
+  attribute: 'bar',
+  displayName: 'Bar',
+  sortable: true,
+  headerProps: {
+    className: 'bar-header',
+    id: 'barId'
+  },
+  sortBy: function sortBy(value) {
+    return -value;
+  }
+}, {
+  attribute: 'unsortable',
+  sortable: false
+}];
+var data = [{
+  instances: '1',
+  bar: 11,
+  title: 'foo',
+  unsortable: '14'
+}, {
+  instances: '3',
+  bar: 7,
+  title: 'sup',
+  unsortable: '22'
+}, {
+  title: 'yee',
+  instances: '2',
+  bar: 8,
+  unsortable: '1'
+}];</script>
+<div class="codeBlock jsExample" aria-hidden="true">
+  <div class="highlight" data-code-to-copy>
+    <pre><span class="kd">var</span> <span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'title'</span><span class="p">,</span>
+     <span class="na">displayName</span><span class="p">:</span> <span class="s1">'Title'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">false</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'instances'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">true</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'bar'</span><span class="p">,</span>
+     <span class="na">displayName</span><span class="p">:</span> <span class="s1">'Bar'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+     <span class="na">headerProps</span><span class="p">:</span> <span class="p">{</span>
+       <span class="na">className</span><span class="p">:</span> <span class="s1">'bar-header'</span><span class="p">,</span>
+       <span class="na">id</span><span class="p">:</span> <span class="s1">'barId'</span>
+     <span class="p">},</span>
+     <span class="na">sortBy</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="o">-</span><span class="nx">value</span><span class="p">;</span> <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'unsortable'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">false</span>
+   <span class="p">}</span>
+ <span class="p">];</span>
+<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="na">instances</span><span class="p">:</span> <span class="s1">'1'</span><span class="p">,</span>
+     <span class="na">bar</span><span class="p">:</span> <span class="mi">11</span><span class="p">,</span>
+     <span class="na">title</span><span class="p">:</span> <span class="s1">'foo'</span><span class="p">,</span>
+     <span class="na">unsortable</span><span class="p">:</span> <span class="s1">'14'</span><span class="p">,</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">instances</span><span class="p">:</span> <span class="s1">'3'</span><span class="p">,</span>
+     <span class="na">bar</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+     <span class="na">title</span><span class="p">:</span> <span class="s1">'sup'</span><span class="p">,</span>
+     <span class="na">unsortable</span><span class="p">:</span> <span class="s1">'22'</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">title</span><span class="p">:</span> <span class="s1">'yee'</span><span class="p">,</span>
+     <span class="na">instances</span><span class="p">:</span> <span class="s1">'2'</span><span class="p">,</span>
+     <span class="na">bar</span><span class="p">:</span> <span class="mi">8</span><span class="p">,</span>
+     <span class="na">unsortable</span><span class="p">:</span> <span class="s1">'1'</span>
+   <span class="p">}</span>
+ <span class="p">];</span></pre>
+  </div>
+  <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+    Copy
+  </button>
+</div>
+
+<div class="codeExample">
+  <div class="exampleOutput">      <div id="react-example-303"></div>
+              <script type="text/jsx">
+          (function() {
+            ReactDOM.render(
+              <Table columns={columns} data={data} defaultSort='instances'/>,
+              document.getElementById('react-example-303')
+            );
+          })();
+        </script>
+
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;Table</span> <span class="na">columns=</span><span class="s">{columns}</span> <span class="na">data=</span><span class="s">{data}</span> <span class="na">defaultSort=</span><span class="s">'instances'</span><span class="nt">/&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">The <code class="styleguide">TableRow</code> component is provided for users who wish to customize their rows
+with the <code class="styleguide">CustomRow</code> prop to <code class="styleguide">Table</code>. If a custom row is provided, the table will use that
+component to render each row, giving it a <code class="styleguide">children</code> prop representing the cells for that row and <code class="styleguide">index</code>
+representing the (zero-indexed) row number.</p><p class="styleguide">Note that sorting occurs on the actual data.
+Changing the presentation of the data does not affect the sort behavior.</p><script>"use strict";
+
+var CustomRow = React.createClass({
+  displayName: "CustomRow",
+
+  render: function render() {
+    return React.createElement(
+      TableRow,
+      { className: "row-number" + this.props.index },
+      this.props.children
+    );
+  }
+});</script>
+<div class="codeBlock jsExample" aria-hidden="true">
+  <div class="highlight" data-code-to-copy>
+    <pre><span class="kd">var</span> <span class="nx">CustomRow</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">TableRow</span> <span class="nx">className</span><span class="o">=</span><span class="p">{</span><span class="s2">"row-number"</span><span class="o">+</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">index</span><span class="p">}</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">children</span><span class="p">}</span>
+      <span class="o">&lt;</span><span class="sr">/TableRow</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span></pre>
+  </div>
+  <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+    Copy
+  </button>
+</div>
+
+<div class="codeExample">
+  <div class="exampleOutput">      <div id="react-example-304"></div>
+              <script type="text/jsx">
+          (function() {
+            ReactDOM.render(
+              <Table columns={columns} data={data} CustomRow={CustomRow}/>,
+              document.getElementById('react-example-304')
+            );
+          })();
+        </script>
+
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;Table</span> <span class="na">columns=</span><span class="s">{columns}</span> <span class="na">data=</span><span class="s">{data}</span> <span class="na">CustomRow=</span><span class="s">{CustomRow}/</span><span class="nt">&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide"> The <code class="styleguide">TableCell</code> component is provided for users who wish to customize their cells
+ with the <code class="styleguide">CustomCell</code> attribute on the <code class="styleguide">columns</code> prop. If a custom cell is provided, the table will use that
+ component to render each cell, giving it a <code class="styleguide">value</code> prop representing the attribute from the datum for that row and <code class="styleguide">index</code>
+ representing the (zero-indexed) row number. For more advanced use cases, the <code class="styleguide">rowDatum</code> prop is also passed into the custom cell.</p><p class="styleguide"> Note that sorting occurs on the actual data.
+ Changing the presentation of the data does not affect the sort behavior.</p><script>'use strict';
+
+var CustomCell = React.createClass({
+  displayName: 'CustomCell',
+
+  render: function render() {
+    return React.createElement(
+      TableCell,
+      null,
+      this.props.index,
+      ': ',
+      this.props.value,
+      ', Bar value ',
+      this.props.rowDatum.bar
+    );
+  }
+});
+
+var customCellColumns = [{
+  attribute: 'title',
+  displayName: 'Title',
+  sortable: false,
+  CustomCell: CustomCell
+}, {
+  attribute: 'bar',
+  sortable: true
+}, {
+  attribute: 'instances',
+  sortable: true
+}];</script>
+<div class="codeBlock jsExample" aria-hidden="true">
+  <div class="highlight" data-code-to-copy>
+    <pre><span class="kd">var</span> <span class="nx">CustomCell</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createClass</span><span class="p">({</span>
+   <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+     <span class="k">return</span> <span class="p">(</span>
+       <span class="o">&lt;</span><span class="nx">TableCell</span><span class="o">&gt;</span>
+         <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">index</span><span class="p">}:</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">value</span><span class="p">},</span> <span class="nx">Bar</span> <span class="nx">value</span> <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">rowDatum</span><span class="p">.</span><span class="nx">bar</span><span class="p">}</span>
+       <span class="o">&lt;</span><span class="sr">/TableCell</span><span class="err">&gt;
+</span>     <span class="p">);</span>
+   <span class="p">}</span>
+ <span class="p">});</span>
+
+ <span class="kd">var</span> <span class="nx">customCellColumns</span> <span class="o">=</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'title'</span><span class="p">,</span>
+     <span class="na">displayName</span><span class="p">:</span> <span class="s1">'Title'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+     <span class="na">CustomCell</span><span class="p">:</span> <span class="nx">CustomCell</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'bar'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">true</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="na">attribute</span><span class="p">:</span> <span class="s1">'instances'</span><span class="p">,</span>
+     <span class="na">sortable</span><span class="p">:</span> <span class="kc">true</span>
+   <span class="p">}</span>
+ <span class="p">];</span></pre>
+  </div>
+  <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+    Copy
+  </button>
+</div>
+
+<div class="codeExample">
+  <div class="exampleOutput">      <div id="react-example-305"></div>
+              <script type="text/jsx">
+          (function() {
+            ReactDOM.render(
+              <Table columns={customCellColumns} data={data}/>,
+              document.getElementById('react-example-305')
+            );
+          })();
+        </script>
+
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;Table</span> <span class="na">columns=</span><span class="s">{customCellColumns}</span> <span class="na">data=</span><span class="s">{data}/</span><span class="nt">&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

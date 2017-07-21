@@ -56,6 +56,7 @@ import Downloads from '../../docs/Downloads.md';
 import GetStarted from '../../docs/GetStarted.md';
 import Homepage from '../../docs/Homepage.md';
 import UpgradeGuide from '../../docs/UpgradeGuide.md';
+import Versions from '../../docs/Versions.md';
 import NotFound from '../../docs/404.md';
 
 import AlertsJson from '../../docs/components/Alerts.md';
@@ -105,6 +106,7 @@ const routes = {
   '/': {json: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
   '/getstarted': {json: GetStarted, file: 'GetStarted.md', name: 'Get Started', category: 'Base', packages: []},
   '/upgradeguide': {json: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide', category: 'Base', packages: []},
+  '/versions': {json: Versions, file: 'Versions.md', name: 'Versions', category: 'Base', packages: []},
   '/contribute': {json: Contribute, file: 'Contribute.md', name: 'Contribute', category: 'Base', packages: []},
   '/downloads': {json: Downloads, file: 'Downloads.md', name: 'Downloads', category: 'Base', packages: []},
   '/404': {json: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},

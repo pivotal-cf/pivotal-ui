@@ -23,6 +23,11 @@ app.get('/', function(req, res) {
   res.redirect('getstarted');
 });
 
+app.get('/:versionID(\\d?)', function(req, res) {
+  const url = `/static/versions/${req.params.versionID}`;
+  res.redirect(url);
+});
+
 app.get('/:whatever', function(req, res) {
   res.send(renderPage());
 });

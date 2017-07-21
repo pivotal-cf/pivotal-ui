@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Instance Scale</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="instance_scale" class="styleguide">Instance Scale</h1>
+<p class="styleguide">The instance scale widget is an svg and an associated code block. Include the SVG
+and code in your page and the javascript and css will handle all of the behaviors.
+Add the class <code class="styleguide">.selected-group</code> to the <code class="styleguide">.instance-column</code> you would like to be
+highlighted on page load.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel bg-neutral-11">
+  <div class="row">
+    <div class="col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0">
+      <svg class="scale-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 531.415 353.659" preserveAspectRatio="xMinYMin meet" enable-background="new 0 0 531.415 353.659" xml:space="preserve">
+      <polygon fill="url(#bg-gradient)" points="8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  527.396, 299.979  8.33,299.979"/>
+      <polyline fill="none" stroke="#D4D9DA" stroke-width="4.0103" stroke-miterlimit="10" points="8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  "/>
+      <ellipse fill="#D4D9DA" cx="8.33" cy="299.979" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="69.568" cy="247.981" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="142.987" cy="234.989" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="186.935" cy="180.42" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="240.633" cy="149.178" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="289.064" cy="110.116" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="351.213" cy="84.598" rx="4.019" ry="4.039"/>
+      <ellipse fill="#D4D9DA" cx="432.796" cy="74.253" rx="4.019" ry="4.039"/>
+      <circle fill="#D4D9DA" cx="527.396" cy="4.019" r="4.019"/>
+
+      <text transform="matrix(1 0 0 1 0 347.8439)" fill="#8E8F8E" font-family="'SourceSansPro'" font-size="18">
+                                                                                                              Instances
+      </text>
+      <g class="instances-column selected-group" id="instances-1" filter="url(#desaturate-filter)">
+        <rect x="40" y="0" height="530" width="130" opacity="0" />
+        <text transform="matrix(1 0 0 1 105.1135 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+          1
+        </text>
+        <path fill="#00A69E" d="M105.96 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L105.96 291.558z"/>
+        <path fill="#3F4950" d="M80.129 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L80.129 279.625z"/>
+        <path fill="#525D64" d="M131.001 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C132.209 278.859 131.726 278.475 131.001 278.331z"/>
+      </g>
+
+      <g class="instances-column" id="instances-4" filter="url(#desaturate-filter)">
+        <rect x="170" y="0" height="530" width="120" opacity="0" />
+        <text transform="matrix(1 0 0 1 224.4272 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        4
+        </text>
+        <path fill="#00A69E" d="M228.811 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 291.558z"/>
+        <path fill="#3F4950" d="M202.98 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 279.625z"/>
+        <path fill="#525D64" d="M253.853 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 278.859 254.577 278.475 253.853 278.331z"/>
+        <path fill="#00A69E" d="M228.811 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 255.697z"/>
+        <path fill="#3F4950" d="M202.98 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 243.765z"/>
+        <path fill="#525D64" d="M253.853 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 242.999 254.577 242.615 253.853 242.47z"/>
+        <path fill="#00A69E" d="M228.811 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 219.837z"/>
+        <path fill="#3F4950" d="M202.98 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 207.905z"/>
+        <path fill="#525D64" d="M253.853 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 207.138 254.577 206.755 253.853 206.61z"/>
+        <path fill="#00A69E" d="M228.811 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 183.977z"/>
+        <path fill="#3F4950" d="M202.98 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 172.044z"/>
+        <path fill="#525D64" d="M253.853 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 171.278 254.577 170.894 253.853 170.75z"/>
+
+      </g>
+      <g class="instances-column" id="instances-6" filter="url(#desaturate-filter)">
+        <rect x="290" y="0" height="530" width="130" opacity="0" />
+        <text transform="matrix(1 0 0 1 347.2788 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        6
+        </text>
+        <path fill="#00A69E" d="M351.125 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 291.558z"/>
+        <path fill="#3F4950" d="M325.294 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 279.625z"/>
+        <path fill="#525D64" d="M376.167 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 278.859 376.891 278.475 376.167 278.331z"/>
+        <path fill="#00A69E" d="M351.125 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 255.697z"/>
+        <path fill="#3F4950" d="M325.294 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 243.765z"/>
+        <path fill="#525D64" d="M376.167 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 242.999 376.891 242.615 376.167 242.47z"/>
+        <path fill="#00A69E" d="M351.125 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 219.837z"/>
+        <path fill="#3F4950" d="M325.294 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 207.905z"/>
+        <path fill="#525D64" d="M376.167 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 207.138 376.891 206.755 376.167 206.61z"/>
+        <path fill="#00A69E" d="M351.125 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 183.977z"/>
+        <path fill="#3F4950" d="M325.294 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 172.044z"/>
+        <path fill="#525D64" d="M376.167 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 171.278 376.891 170.894 376.167 170.75z"/>
+        <path fill="#00A69E" d="M351.125 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 148.116z"/>
+        <path fill="#3F4950" d="M325.294 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 136.184z"/>
+        <path fill="#525D64" d="M376.167 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 135.417 376.891 135.034 376.167 134.889z"/>
+        <path fill="#00A69E" d="M351.125 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 112.332z"/>
+        <path fill="#3F4950" d="M325.294 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 100.399z"/>
+        <path fill="#525D64" d="M376.167 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 99.633 376.891 99.249 376.167 99.105z"/>
+      </g>
+      <g class="instances-column another-class" id="instances-8" filter="url(#desaturate-filter)">
+        <rect x="420" y="0" height="530" width="130" opacity="0" />
+
+        <text transform="matrix(1 0 0 1 470.1294 347.8439)" fill="#00A69E" font-family="'SourceSansPro'" font-size="18">
+        8
+        </text>
+        <path fill="#00A69E" d="M474.514 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 291.558z"/>
+        <path fill="#3F4950" d="M448.683 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 279.625z"/>
+        <path fill="#525D64" d="M499.555 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 278.859 500.28 278.475 499.555 278.331z"/>
+        <path fill="#00A69E" d="M474.514 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 255.697z"/>
+        <path fill="#3F4950" d="M448.683 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 243.765z"/>
+        <path fill="#525D64" d="M499.555 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 242.999 500.28 242.615 499.555 242.47z"/>
+        <path fill="#00A69E" d="M474.514 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 219.837z"/>
+        <path fill="#3F4950" d="M448.683 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 207.905z"/>
+        <path fill="#525D64" d="M499.555 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 207.138 500.28 206.755 499.555 206.61z"/>
+        <path fill="#00A69E" d="M474.514 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 183.977z"/>
+        <path fill="#3F4950" d="M448.683 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 172.044z"/>
+        <path fill="#525D64" d="M499.555 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 171.278 500.28 170.894 499.555 170.75z"/>
+        <path fill="#00A69E" d="M474.514 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 148.116z"/>
+        <path fill="#3F4950" d="M448.683 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 136.184z"/>
+        <path fill="#525D64" d="M499.555 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 135.417 500.28 135.034 499.555 134.889z"/>
+        <path fill="#00A69E" d="M474.514 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 112.332z"/>
+        <path fill="#3F4950" d="M448.683 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 100.399z"/>
+        <path fill="#525D64" d="M499.555 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 99.633 500.28 99.249 499.555 99.105z"/>
+        <path fill="#00A69E" d="M474.514 76.395l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V71.196L474.514 76.395z"/>
+        <path fill="#3F4950" d="M448.683 64.463v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 64.463z"/>
+        <path fill="#525D64" d="M499.555 63.168l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 63.696 500.28 63.313 499.555 63.168z"/>
+        <path fill="#00A69E" d="M474.514 40.535l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V35.336L474.514 40.535z"/>
+        <path fill="#3F4950" d="M448.683 28.603v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 28.603z"/>
+        <path fill="#525D64" d="M499.555 27.308l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 27.836 500.28 27.453 499.555 27.308z"/>
+      </g>
+
+      <filter id="desaturate-filter" >
+      <feColorMatrix in="SourceGraphic"
+      type="saturate"
+      values="0" />
+      </filter>
+
+      <linearGradient id="bg-gradient" x1="0" x2="1" y1="0" y2="1">
+      <stop class="instances-gradient-stop-1" offset="0%"/>
+      <stop class="instances-gradient-stop-2" offset="90%"/>
+      </linearGradient>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div>
+<pre class="language-bash scale-code">
+<code>
+ $ cf scale my_app -i <span class="instance-count">1</span>
+</code>
+</pre>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel bg-neutral-11"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col col-md-offset-6 col-sm-24 col-sm-offset-0"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">"scale-svg"</span> <span class="na">xmlns=</span><span class="s">"http://www.w3.org/2000/svg"</span> <span class="na">xmlns:xlink=</span><span class="s">"http://www.w3.org/1999/xlink"</span> <span class="na">version=</span><span class="s">"1.1"</span> <span class="na">id=</span><span class="s">"Layer_1"</span> <span class="na">x=</span><span class="s">"0px"</span> <span class="na">y=</span><span class="s">"0px"</span> <span class="na">viewBox=</span><span class="s">"0 0 531.415 353.659"</span> <span class="na">preserveAspectRatio=</span><span class="s">"xMinYMin meet"</span> <span class="na">enable-background=</span><span class="s">"new 0 0 531.415 353.659"</span> <span class="na">xml:space=</span><span class="s">"preserve"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;polygon</span> <span class="na">fill=</span><span class="s">"url(#bg-gradient)"</span> <span class="na">points=</span><span class="s">"8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  527.396, 299.979  8.33,299.979"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;polyline</span> <span class="na">fill=</span><span class="s">"none"</span> <span class="na">stroke=</span><span class="s">"#D4D9DA"</span> <span class="na">stroke-width=</span><span class="s">"4.0103"</span> <span class="na">stroke-miterlimit=</span><span class="s">"10"</span> <span class="na">points=</span><span class="s">"8.33,299.979 70.081,247.747    143.06,235.539 186.568,180.328 240.571,149.701 288.082,110.127 351.705,84.419 432.399,75.015 527.396,4.019  "</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"8.33"</span> <span class="na">cy=</span><span class="s">"299.979"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"69.568"</span> <span class="na">cy=</span><span class="s">"247.981"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"142.987"</span> <span class="na">cy=</span><span class="s">"234.989"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"186.935"</span> <span class="na">cy=</span><span class="s">"180.42"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"240.633"</span> <span class="na">cy=</span><span class="s">"149.178"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"289.064"</span> <span class="na">cy=</span><span class="s">"110.116"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"351.213"</span> <span class="na">cy=</span><span class="s">"84.598"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;ellipse</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"432.796"</span> <span class="na">cy=</span><span class="s">"74.253"</span> <span class="na">rx=</span><span class="s">"4.019"</span> <span class="na">ry=</span><span class="s">"4.039"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;circle</span> <span class="na">fill=</span><span class="s">"#D4D9DA"</span> <span class="na">cx=</span><span class="s">"527.396"</span> <span class="na">cy=</span><span class="s">"4.019"</span> <span class="na">r=</span><span class="s">"4.019"</span><span class="nt">/&gt;</span>
+
+      <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 0 347.8439)"</span> <span class="na">fill=</span><span class="s">"#8E8F8E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+                                                                                                              Instances
+      <span class="nt">&lt;/text&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column selected-group"</span> <span class="na">id=</span><span class="s">"instances-1"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"40"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 105.1135 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+          1
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M105.96 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L105.96 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M80.129 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L80.129 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M131.001 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C132.209 278.859 131.726 278.475 131.001 278.331z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column"</span> <span class="na">id=</span><span class="s">"instances-4"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"170"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"120"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 224.4272 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        4
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 278.859 254.577 278.475 253.853 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 242.999 254.577 242.615 253.853 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 207.138 254.577 206.755 253.853 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M228.811 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L228.811 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M202.98 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L202.98 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M253.853 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C255.06 171.278 254.577 170.894 253.853 170.75z"</span><span class="nt">/&gt;</span>
+
+      <span class="nt">&lt;/g&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column"</span> <span class="na">id=</span><span class="s">"instances-6"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"290"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 347.2788 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        6
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 278.859 376.891 278.475 376.167 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 242.999 376.891 242.615 376.167 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 207.138 376.891 206.755 376.167 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 171.278 376.891 170.894 376.167 170.75z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 148.116z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 136.184z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 135.417 376.891 135.034 376.167 134.889z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M351.125 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L351.125 112.332z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M325.294 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L325.294 100.399z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M376.167 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C377.374 99.633 376.891 99.249 376.167 99.105z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+      <span class="nt">&lt;g</span> <span class="na">class=</span><span class="s">"instances-column another-class"</span> <span class="na">id=</span><span class="s">"instances-8"</span> <span class="na">filter=</span><span class="s">"url(#desaturate-filter)"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;rect</span> <span class="na">x=</span><span class="s">"420"</span> <span class="na">y=</span><span class="s">"0"</span> <span class="na">height=</span><span class="s">"530"</span> <span class="na">width=</span><span class="s">"130"</span> <span class="na">opacity=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;text</span> <span class="na">transform=</span><span class="s">"matrix(1 0 0 1 470.1294 347.8439)"</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">font-family=</span><span class="s">"'SourceSansPro'"</span> <span class="na">font-size=</span><span class="s">"18"</span><span class="nt">&gt;</span>
+        8
+        <span class="nt">&lt;/text&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 291.558l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 291.558z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 279.625v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 279.625z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 278.331l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 278.859 500.28 278.475 499.555 278.331z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 255.697l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 255.697z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 243.765v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 243.765z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 242.47l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 242.999 500.28 242.615 499.555 242.47z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 219.837l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 219.837z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 207.905v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 207.905z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 206.61l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 207.138 500.28 206.755 499.555 206.61z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 183.977l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 183.977z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 172.044v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 172.044z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 170.75l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 171.278 500.28 170.894 499.555 170.75z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 148.116l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 148.116z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 136.184v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 136.184z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 134.889l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 135.417 500.28 135.034 499.555 134.889z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 112.332l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958v-10.625L474.514 112.332z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 100.399v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 100.399z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 99.105l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 99.633 500.28 99.249 499.555 99.105z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 76.395l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V71.196L474.514 76.395z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 64.463v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 64.463z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 63.168l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 63.696 500.28 63.313 499.555 63.168z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#00A69E"</span> <span class="na">d=</span><span class="s">"M474.514 40.535l-25.831-5.199v10.625c0 0.43 0.483 0.813 1.208 0.958l24.221 4.836c0.396 0.079 0.828 0.079 1.224 0l24.221-4.836c0.724-0.145 1.208-0.528 1.208-0.958V35.336L474.514 40.535z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#3F4950"</span> <span class="na">d=</span><span class="s">"M448.683 28.603v7.354l25.454 5.123c0.249 0.05 0.505 0.05 0.754 0.001l25.872-5.124v-7.432l-25.875 5.125c-0.247 0.049-0.501 0.049-0.748 0L448.683 28.603z"</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;path</span> <span class="na">fill=</span><span class="s">"#525D64"</span> <span class="na">d=</span><span class="s">"M499.555 27.308l-24.22-4.836c-0.404-0.081-0.82-0.081-1.224 0l-24.22 4.836c-0.724 0.145-1.208 0.528-1.208 0.958v0.337l25.457 5.047c0.247 0.049 0.501 0.049 0.748 0l25.875-5.125v-0.259C500.763 27.836 500.28 27.453 499.555 27.308z"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/g&gt;</span>
+
+      <span class="nt">&lt;filter</span> <span class="na">id=</span><span class="s">"desaturate-filter"</span> <span class="nt">&gt;</span>
+      <span class="nt">&lt;feColorMatrix</span> <span class="na">in=</span><span class="s">"SourceGraphic"</span>
+      <span class="na">type=</span><span class="s">"saturate"</span>
+      <span class="na">values=</span><span class="s">"0"</span> <span class="nt">/&gt;</span>
+      <span class="nt">&lt;/filter&gt;</span>
+
+      <span class="nt">&lt;linearGradient</span> <span class="na">id=</span><span class="s">"bg-gradient"</span> <span class="na">x1=</span><span class="s">"0"</span> <span class="na">x2=</span><span class="s">"1"</span> <span class="na">y1=</span><span class="s">"0"</span> <span class="na">y2=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">class=</span><span class="s">"instances-gradient-stop-1"</span> <span class="na">offset=</span><span class="s">"0%"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;stop</span> <span class="na">class=</span><span class="s">"instances-gradient-stop-2"</span> <span class="na">offset=</span><span class="s">"90%"</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/linearGradient&gt;</span>
+      <span class="nt">&lt;/svg&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;pre</span> <span class="na">class=</span><span class="s">"language-bash scale-code"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;code&gt;</span>
+ $ cf scale my_app -i <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"instance-count"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/span&gt;</span>
+<span class="nt">&lt;/code&gt;</span>
+<span class="nt">&lt;/pre&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>
