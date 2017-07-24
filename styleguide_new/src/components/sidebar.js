@@ -72,10 +72,6 @@ export default class Sidebar extends React.PureComponent {
                        text="Contribute"
                        active={'/contribute' === this.props.activePath}/>
           <ContentLink onClick={this.handleClick.bind(this)}
-                       link="downloads"
-                       text="Downloads"
-                       active={'/downloads' === this.props.activePath}/>
-          <ContentLink onClick={this.handleClick.bind(this)}
                        link="versions"
                        text="Versions"
                        active={'/versions' === this.props.activePath}/>

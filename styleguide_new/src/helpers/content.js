@@ -52,7 +52,6 @@ import * as Toggle from 'pui-react-toggle';
 import * as Tooltip from 'pui-react-tooltip';
 
 import Contribute from '../../docs/Contribute.md';
-import Downloads from '../../docs/Downloads.md';
 import GetStarted from '../../docs/GetStarted.md';
 import Homepage from '../../docs/Homepage.md';
 import UpgradeGuide from '../../docs/UpgradeGuide.md';
@@ -108,7 +107,6 @@ const routes = {
   '/upgradeguide': {json: UpgradeGuide, file: 'UpgradeGuide.md', name: 'Upgrade Guide', category: 'Base', packages: []},
   '/versions': {json: Versions, file: 'Versions.md', name: 'Versions', category: 'Base', packages: []},
   '/contribute': {json: Contribute, file: 'Contribute.md', name: 'Contribute', category: 'Base', packages: []},
-  '/downloads': {json: Downloads, file: 'Downloads.md', name: 'Downloads', category: 'Base', packages: []},
   '/404': {json: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
 
   '/alerts': {json: AlertsJson, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},
