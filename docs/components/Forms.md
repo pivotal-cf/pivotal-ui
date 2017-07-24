@@ -2,14 +2,10 @@
 
 ## Subcomponents
 - [Inputs](#inputs)  
-- [Select](#select)  
+- [Selects](#selects)
 - [Checkboxes](#checkboxes)  
 - [Radios](#radios)  
 - [Toggles](#toggle)
-
-## Description
-
-TODO
 
 ## Examples   
 
@@ -408,9 +404,16 @@ class FilteringSearchExample extends React.Component {
 </div>
 ```
 
-## Installation and Usage
+## Installation & Usage
 
-TODO
+#### React
+`npm install pui-react-inputs --save`
+
+Input uses the [Iconography](http://styleguide.pivotal.io/react_base_iconography.html) component for `search` and `success`. If you use those props, you will need to add an svg loader:
+
+`npm install babel-loader react-svg-loader --save-dev`
+
+`import {Input} from 'pui-react-inputs';`
 
 ## Props
 
@@ -429,17 +432,16 @@ search         | no       | Boolean                           | false    | Input
 size           | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
 success        | no       | Boolean                           | false    | Inputs display a checkmark when the success prop is true
 
-# Select
+# Selects
 
 ## Description
 
-TODO
+Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 
 ## Examples
 
 ```html
 ::title=Selects
-::description=Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 <form class="styleguide-form" role="form">
   <div class="form-group">
     <select class="form-control">
@@ -483,19 +485,28 @@ TODO
 </div>
 ```
 
-## Installation and Usage
+## Installation & Usage
 
-TODO
+#### React
+`npm install pui-react-select --save`
+
+`npm install babel-loader react-svg-loader --save-dev`
+
+`import {Select} from 'pui-react-select';`
 
 ## Props
 
-TODO
+Property | Required | Type | Default | Description
+---------|----------|------|---------|------------
+defaultValue | no  | Any      | | The initial value for the select when the select is uncontrolled
+name         | no  | String   | | The name of the hidden input, useful when used in a form
+onChange     | no  | Function | | Callback that fires when the select is changed, must be provided for controlled inputs
+onEntered    | no  | Function | | Callback that fires after opening the select
+onExited     | no  | Function | | Callback that fires after closing the select
+options      | yes | Array    | | Options for the select, can be string or numbers or an object with label and value (e.g. `['one', 'two', 'three']`, `[1, 2, 3]`, `[{label: 'yes', value: 1}, {label: 'no', value: 0}]`)
+value        | no  | Any      | | The value for the select when it is controlled, must be used with an `onChange` function to update the value of the select
 
 # Checkboxes
-
-## Description
-
-TODO
 
 ## Example
 
@@ -505,9 +516,12 @@ TODO
 <Checkbox label="Label"/>
 ```
 
-## Installation and Usage
+## Installation & Usage
 
-TODO
+#### React
+`npm install pui-react-checkbox --save`
+
+`import {Checkbox} from 'pui-react-checkbox';`
 
 ## Props
 
@@ -521,10 +535,6 @@ label          | no | Node    |       | The content of this label
 labelClassName | no | String  |       | Sets the wrapping label classname
 
 # Radios
-
-## Description
-
-TODO
 
 ## Examples
 
@@ -588,9 +598,12 @@ class MyComponent extends React.Component {
   <MyComponent />
 </div>
 ```
-## Installation and Usage
+## Installation & Usage
 
-TODO
+#### React
+`npm install pui-react-radio --save`
+
+`import {RadioGroup, Radio} from 'pui-react-radio';`
 
 ## Props
 
@@ -615,10 +628,6 @@ style          | no  | Object   |       | Individual styling of the element
 disabled       | no  | Boolean  | false | Whether the radio is disabled
 
 # Toggle
-
-## Description
-
-TODO
 
 ## Examples
 
@@ -653,9 +662,12 @@ TODO
 </div>
 ```
 
-## Installation and Usage
+## Installation & Usage
 
-TODO
+#### React
+`npm install pui-react-toggle --save`
+
+`import {Toggle} from 'pui-react-toggle';`
 
 ## Props
 
