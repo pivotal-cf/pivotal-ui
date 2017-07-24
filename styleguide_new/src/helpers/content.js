@@ -8,9 +8,7 @@ import * as BoxShadows from 'pui-css-box-shadows';
 import * as ButtonGroup from 'pui-css-button-group';
 import * as Code from 'pui-css-code';
 import * as Ellipsis from 'pui-css-ellipsis';
-import * as Hoverable from 'pui-css-hoverable';
 import * as Links from 'pui-css-links';
-import * as Maps from 'pui-css-google-maps';
 import * as ProgressBars from 'pui-css-progress-bars';
 import * as Typography from 'pui-css-typography';
 import * as VerticalAlignment from 'pui-css-vertical-alignment';
@@ -76,13 +74,11 @@ import EllipsisJson from '../../docs/components/Ellipsis.md';
 import ExpanderJson from '../../docs/components/Expander.md';
 import FormsJson from '../../docs/components/Forms.md';
 import GridsJson from '../../docs/components/Grids.md';
-import HoverableJson from '../../docs/components/Hoverable.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
 import LabelsJson from '../../docs/components/Labels.md';
 import LinksJson from '../../docs/components/Links.md';
 import ListsJson from '../../docs/components/Lists.md';
-import MapsJson from '../../docs/components/Maps.md';
 import MediaJson from '../../docs/components/Media.md';
 import ModalsJson from '../../docs/components/Modals.md';
 import NotificationsJson from '../../docs/components/Notifications.md';
@@ -127,13 +123,11 @@ const routes = {
   '/expander': {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
   '/forms': {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
   '/grids': {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
-  '/hoverable': {json: HoverableJson, file: 'components/Hoverable.md', name: 'Hoverable', category: 'Components', packages: [Hoverable]},
   '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
   '/links': {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: [Links]},
   '/lists': {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
-  '/maps': {json: MapsJson, file: 'components/Maps.md', name: 'Maps', category: 'Components', packages: [Maps]},
   '/media': {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
   '/modals': {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
   '/notifications': {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
