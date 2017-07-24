@@ -7774,7 +7774,7 @@ pui-css-alerts@=8.3.1:
     pui-css-iconography "=8.3.1"
     pui-css-typography "=8.3.1"
 
-"pui-css-alerts@file:../library/dist/css/alerts":
+"pui-css-alerts@file:../pivotal-ui/library/dist/css/alerts":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7784,10 +7784,10 @@ pui-css-alerts@=8.3.1:
 pui-css-alignment@=8.3.1:
   version "8.3.1"
 
-"pui-css-alignment@file:../library/dist/css/alignment":
+"pui-css-alignment@file:../pivotal-ui/library/dist/css/alignment":
   version "8.3.1"
 
-"pui-css-all@file:../library/dist/css/all":
+"pui-css-all@file:../pivotal-ui/library/dist/css/all":
   version "8.3.1"
   dependencies:
     pui-css-alerts "=8.3.1"
@@ -7837,7 +7837,7 @@ pui-css-autocomplete@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-forms "=8.3.1"
 
-"pui-css-autocomplete@file:../library/dist/css/autocomplete":
+"pui-css-autocomplete@file:../pivotal-ui/library/dist/css/autocomplete":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7848,7 +7848,7 @@ pui-css-avatars@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-avatars@file:../library/dist/css/avatars":
+"pui-css-avatars@file:../pivotal-ui/library/dist/css/avatars":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7860,7 +7860,7 @@ pui-css-back-to-top@=8.3.1:
     pui-css-iconography "=8.3.1"
     pui-css-links "=8.3.1"
 
-"pui-css-back-to-top@file:../library/dist/css/back-to-top":
+"pui-css-back-to-top@file:../pivotal-ui/library/dist/css/back-to-top":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7870,25 +7870,25 @@ pui-css-back-to-top@=8.3.1:
 pui-css-backgrounds@=8.3.1:
   version "8.3.1"
 
-"pui-css-backgrounds@file:../library/dist/css/backgrounds":
+"pui-css-backgrounds@file:../pivotal-ui/library/dist/css/backgrounds":
   version "8.3.1"
 
 pui-css-bootstrap@=8.3.1:
   version "8.3.1"
 
-"pui-css-bootstrap@file:../library/dist/css/bootstrap":
+"pui-css-bootstrap@file:../pivotal-ui/library/dist/css/bootstrap":
   version "8.3.1"
 
 pui-css-border@=8.3.1:
   version "8.3.1"
 
-"pui-css-border@file:../library/dist/css/border":
+"pui-css-border@file:../pivotal-ui/library/dist/css/border":
   version "8.3.1"
 
 pui-css-box-shadows@=8.3.1:
   version "8.3.1"
 
-"pui-css-box-shadows@file:../library/dist/css/box-shadows":
+"pui-css-box-shadows@file:../pivotal-ui/library/dist/css/box-shadows":
   version "8.3.1"
 
 pui-css-button-group@=8.3.1:
@@ -7897,7 +7897,7 @@ pui-css-button-group@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-buttons "=8.3.1"
 
-"pui-css-button-group@file:../library/dist/css/button-group":
+"pui-css-button-group@file:../pivotal-ui/library/dist/css/button-group":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7909,7 +7909,7 @@ pui-css-buttons@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-typography "=8.3.1"
 
-"pui-css-buttons@file:../library/dist/css/buttons":
+"pui-css-buttons@file:../pivotal-ui/library/dist/css/buttons":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7920,7 +7920,7 @@ pui-css-code@=8.3.1:
   dependencies:
     pui-css-iconography "=8.3.1"
 
-"pui-css-code@file:../library/dist/css/code":
+"pui-css-code@file:../pivotal-ui/library/dist/css/code":
   version "8.3.1"
   dependencies:
     pui-css-iconography "=8.3.1"
@@ -7933,7 +7933,7 @@ pui-css-collapse@=8.3.1:
     pui-css-iconography "=8.3.1"
     pui-css-panels "=8.3.1"
 
-"pui-css-collapse@file:../library/dist/css/collapse":
+"pui-css-collapse@file:../pivotal-ui/library/dist/css/collapse":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7944,19 +7944,19 @@ pui-css-collapse@=8.3.1:
 pui-css-colors@=8.3.1:
   version "8.3.1"
 
-"pui-css-colors@file:../library/dist/css/colors":
+"pui-css-colors@file:../pivotal-ui/library/dist/css/colors":
   version "8.3.1"
 
 pui-css-copy-to-clipboard@=8.3.1:
   version "8.3.1"
 
-"pui-css-copy-to-clipboard@file:../library/dist/css/copy-to-clipboard":
+"pui-css-copy-to-clipboard@file:../pivotal-ui/library/dist/css/copy-to-clipboard":
   version "8.3.1"
 
 pui-css-dividers@=8.3.1:
   version "8.3.1"
 
-"pui-css-dividers@file:../library/dist/css/dividers":
+"pui-css-dividers@file:../pivotal-ui/library/dist/css/dividers":
   version "8.3.1"
 
 pui-css-dropdowns@=8.3.1:
@@ -7968,7 +7968,7 @@ pui-css-dropdowns@=8.3.1:
     pui-css-forms "=8.3.1"
     pui-css-links "=8.3.1"
 
-"pui-css-dropdowns@file:../library/dist/css/dropdowns":
+"pui-css-dropdowns@file:../pivotal-ui/library/dist/css/dropdowns":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -7980,7 +7980,7 @@ pui-css-dropdowns@=8.3.1:
 pui-css-ellipsis@=8.3.1:
   version "8.3.1"
 
-"pui-css-ellipsis@file:../library/dist/css/ellipsis":
+"pui-css-ellipsis@file:../pivotal-ui/library/dist/css/ellipsis":
   version "8.3.1"
 
 pui-css-flex-grids@=8.3.1:
@@ -7994,7 +7994,7 @@ pui-css-forms@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-forms@file:../library/dist/css/forms":
+"pui-css-forms@file:../pivotal-ui/library/dist/css/forms":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8002,7 +8002,7 @@ pui-css-forms@=8.3.1:
 pui-css-google-maps@=8.3.1:
   version "8.3.1"
 
-"pui-css-google-maps@file:../library/dist/css/google-maps":
+"pui-css-google-maps@file:../pivotal-ui/library/dist/css/google-maps":
   version "8.3.1"
 
 pui-css-grids@=8.3.1:
@@ -8010,7 +8010,7 @@ pui-css-grids@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-grids@file:../library/dist/css/grids":
+"pui-css-grids@file:../pivotal-ui/library/dist/css/grids":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8018,13 +8018,13 @@ pui-css-grids@=8.3.1:
 pui-css-hoverable@=8.3.1:
   version "8.3.1"
 
-"pui-css-hoverable@file:../library/dist/css/hoverable":
+"pui-css-hoverable@file:../pivotal-ui/library/dist/css/hoverable":
   version "8.3.1"
 
 pui-css-iconography@=8.3.1:
   version "8.3.1"
 
-"pui-css-iconography@file:../library/dist/css/iconography":
+"pui-css-iconography@file:../pivotal-ui/library/dist/css/iconography":
   version "8.3.1"
 
 pui-css-images@=8.3.1:
@@ -8032,7 +8032,7 @@ pui-css-images@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-images@file:../library/dist/css/images":
+"pui-css-images@file:../pivotal-ui/library/dist/css/images":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8042,7 +8042,7 @@ pui-css-labels@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-labels@file:../library/dist/css/labels":
+"pui-css-labels@file:../pivotal-ui/library/dist/css/labels":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8052,7 +8052,7 @@ pui-css-links@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-links@file:../library/dist/css/links":
+"pui-css-links@file:../pivotal-ui/library/dist/css/links":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8062,7 +8062,7 @@ pui-css-lists@=8.3.1:
   dependencies:
     pui-css-typography "=8.3.1"
 
-"pui-css-lists@file:../library/dist/css/lists":
+"pui-css-lists@file:../pivotal-ui/library/dist/css/lists":
   version "8.3.1"
   dependencies:
     pui-css-typography "=8.3.1"
@@ -8072,7 +8072,7 @@ pui-css-media@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-media@file:../library/dist/css/media":
+"pui-css-media@file:../pivotal-ui/library/dist/css/media":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8083,7 +8083,7 @@ pui-css-modals@=8.3.1:
     pui-css-bootstrap "=8.3.1"
     pui-css-typography "=8.3.1"
 
-"pui-css-modals@file:../library/dist/css/modals":
+"pui-css-modals@file:../pivotal-ui/library/dist/css/modals":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8092,7 +8092,7 @@ pui-css-modals@=8.3.1:
 pui-css-pagination@=8.3.1:
   version "8.3.1"
 
-"pui-css-pagination@file:../library/dist/css/pagination":
+"pui-css-pagination@file:../pivotal-ui/library/dist/css/pagination":
   version "8.3.1"
 
 pui-css-panels@=8.3.1:
@@ -8100,7 +8100,7 @@ pui-css-panels@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-panels@file:../library/dist/css/panels":
+"pui-css-panels@file:../pivotal-ui/library/dist/css/panels":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8110,7 +8110,7 @@ pui-css-panes@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-panes@file:../library/dist/css/panes":
+"pui-css-panes@file:../pivotal-ui/library/dist/css/panes":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8120,7 +8120,7 @@ pui-css-progress-bars@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-progress-bars@file:../library/dist/css/progress-bars":
+"pui-css-progress-bars@file:../pivotal-ui/library/dist/css/progress-bars":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8130,7 +8130,7 @@ pui-css-select@=8.3.1:
   dependencies:
     pui-css-iconography "=8.3.1"
 
-"pui-css-select@file:../library/dist/css/select":
+"pui-css-select@file:../pivotal-ui/library/dist/css/select":
   version "8.3.1"
   dependencies:
     pui-css-iconography "=8.3.1"
@@ -8140,7 +8140,7 @@ pui-css-spinners@=8.3.1:
   dependencies:
     pui-css-iconography "=8.3.1"
 
-"pui-css-spinners@file:../library/dist/css/spinners":
+"pui-css-spinners@file:../pivotal-ui/library/dist/css/spinners":
   version "8.3.1"
   dependencies:
     pui-css-iconography "=8.3.1"
@@ -8148,7 +8148,7 @@ pui-css-spinners@=8.3.1:
 pui-css-tables@=8.3.1:
   version "8.3.1"
 
-"pui-css-tables@file:../library/dist/css/tables":
+"pui-css-tables@file:../pivotal-ui/library/dist/css/tables":
   version "8.3.1"
 
 pui-css-tabs@=8.3.1:
@@ -8156,7 +8156,7 @@ pui-css-tabs@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-tabs@file:../library/dist/css/tabs":
+"pui-css-tabs@file:../pivotal-ui/library/dist/css/tabs":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8164,13 +8164,13 @@ pui-css-tabs@=8.3.1:
 pui-css-tile-layout@=8.3.1:
   version "8.3.1"
 
-"pui-css-tile-layout@file:../library/dist/css/tile-layout":
+"pui-css-tile-layout@file:../pivotal-ui/library/dist/css/tile-layout":
   version "8.3.1"
 
 pui-css-tooltips@=8.3.1:
   version "8.3.1"
 
-"pui-css-tooltips@file:../library/dist/css/tooltips":
+"pui-css-tooltips@file:../pivotal-ui/library/dist/css/tooltips":
   version "8.3.1"
 
 pui-css-typography@=8.3.1:
@@ -8178,7 +8178,7 @@ pui-css-typography@=8.3.1:
   dependencies:
     pui-css-bootstrap "=8.3.1"
 
-"pui-css-typography@file:../library/dist/css/typography":
+"pui-css-typography@file:../pivotal-ui/library/dist/css/typography":
   version "8.3.1"
   dependencies:
     pui-css-bootstrap "=8.3.1"
@@ -8190,13 +8190,13 @@ pui-css-variables-and-mixins@*:
 pui-css-vertical-alignment@=8.3.1:
   version "8.3.1"
 
-"pui-css-vertical-alignment@file:../library/dist/css/vertical-alignment":
+"pui-css-vertical-alignment@file:../pivotal-ui/library/dist/css/vertical-alignment":
   version "8.3.1"
 
 pui-css-whitespace@=8.3.1:
   version "8.3.1"
 
-"pui-css-whitespace@file:../library/dist/css/whitespace":
+"pui-css-whitespace@file:../pivotal-ui/library/dist/css/whitespace":
   version "8.3.1"
 
 pui-cursor@^3.0.4:
@@ -8215,7 +8215,7 @@ pui-prismjs@0.0.1:
   dependencies:
     prismjs "^0.0.1"
 
-"pui-react-alerts@file:../library/dist/react/alerts":
+"pui-react-alerts@file:../pivotal-ui/library/dist/react/alerts":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8235,7 +8235,7 @@ pui-react-animation@^0.2.0:
     raf "^3.0.0"
     react ">=0.13.3"
 
-"pui-react-autocomplete@file:../library/dist/react/autocomplete":
+"pui-react-autocomplete@file:../pivotal-ui/library/dist/react/autocomplete":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8249,7 +8249,7 @@ pui-react-animation@^0.2.0:
     through "^2.3.8"
     trie-search "^1.0.0"
 
-"pui-react-back-to-top@file:../library/dist/react/back-to-top":
+"pui-react-back-to-top@file:../pivotal-ui/library/dist/react/back-to-top":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8268,7 +8268,7 @@ pui-react-buttons@=8.3.1:
     pui-css-buttons "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-buttons@file:../library/dist/react/buttons":
+"pui-react-buttons@file:../pivotal-ui/library/dist/react/buttons":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8276,7 +8276,7 @@ pui-react-buttons@=8.3.1:
     pui-css-buttons "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-checkbox@file:../library/dist/react/checkbox":
+"pui-react-checkbox@file:../pivotal-ui/library/dist/react/checkbox":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8284,7 +8284,7 @@ pui-react-buttons@=8.3.1:
     prop-types ">=15.5.6"
     pui-css-forms "=8.3.1"
 
-"pui-react-collapse@file:../library/dist/react/collapse":
+"pui-react-collapse@file:../pivotal-ui/library/dist/react/collapse":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8305,7 +8305,7 @@ pui-react-collapsible@=8.3.1:
     pui-react-helpers "=8.3.1"
     pui-react-mixins "=8.3.1"
 
-"pui-react-collapsible@file:../library/dist/react/collapsible":
+"pui-react-collapsible@file:../pivotal-ui/library/dist/react/collapsible":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8314,7 +8314,7 @@ pui-react-collapsible@=8.3.1:
     pui-react-helpers "=8.3.1"
     pui-react-mixins "=8.3.1"
 
-"pui-react-copy-to-clipboard@file:../library/dist/react/copy-to-clipboard":
+"pui-react-copy-to-clipboard@file:../pivotal-ui/library/dist/react/copy-to-clipboard":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8324,7 +8324,7 @@ pui-react-collapsible@=8.3.1:
     pui-react-iconography "=8.3.1"
     pui-react-tooltip "=8.3.1"
 
-"pui-react-dividers@file:../library/dist/react/dividers":
+"pui-react-dividers@file:../pivotal-ui/library/dist/react/dividers":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8332,7 +8332,7 @@ pui-react-collapsible@=8.3.1:
     pui-css-dividers "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-draggable-list@file:../library/dist/react/draggable-list":
+"pui-react-draggable-list@file:../pivotal-ui/library/dist/react/draggable-list":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8352,7 +8352,7 @@ pui-react-dropdowns@=8.3.1:
     pui-react-iconography "=8.3.1"
     pui-react-mixins "=8.3.1"
 
-"pui-react-dropdowns@file:../library/dist/react/dropdowns":
+"pui-react-dropdowns@file:../pivotal-ui/library/dist/react/dropdowns":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8362,14 +8362,14 @@ pui-react-dropdowns@=8.3.1:
     pui-react-iconography "=8.3.1"
     pui-react-mixins "=8.3.1"
 
-"pui-react-expander@file:../library/dist/react/expander":
+"pui-react-expander@file:../pivotal-ui/library/dist/react/expander":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
     pui-react-collapsible "=8.3.1"
 
-"pui-react-grids@file:../library/dist/react/grids":
+"pui-react-grids@file:../pivotal-ui/library/dist/react/grids":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8384,7 +8384,7 @@ pui-react-helpers@=8.3.1:
     babel-runtime "^6.1.18"
     classnames "^2.1.2"
 
-"pui-react-helpers@file:../library/dist/react/helpers":
+"pui-react-helpers@file:../pivotal-ui/library/dist/react/helpers":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8401,7 +8401,7 @@ pui-react-iconography@=8.3.1:
     pui-react-svg "=8.3.1"
     react-svg-loader "^1.1.1"
 
-"pui-react-iconography@file:../library/dist/react/iconography":
+"pui-react-iconography@file:../pivotal-ui/library/dist/react/iconography":
   version "8.3.1"
   dependencies:
     babel-loader ">=6.0.0"
@@ -8412,7 +8412,7 @@ pui-react-iconography@=8.3.1:
     pui-react-svg "=8.3.1"
     react-svg-loader "^1.1.1"
 
-"pui-react-images@file:../library/dist/react/images":
+"pui-react-images@file:../pivotal-ui/library/dist/react/images":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8420,7 +8420,7 @@ pui-react-iconography@=8.3.1:
     pui-css-images "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-inputs@file:../library/dist/react/inputs":
+"pui-react-inputs@file:../pivotal-ui/library/dist/react/inputs":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8430,7 +8430,7 @@ pui-react-iconography@=8.3.1:
     pui-react-helpers "=8.3.1"
     pui-react-iconography "=8.3.1"
 
-"pui-react-labels@file:../library/dist/react/labels":
+"pui-react-labels@file:../pivotal-ui/library/dist/react/labels":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8445,7 +8445,7 @@ pui-react-lists@=8.3.1:
     prop-types ">=15.5.6"
     pui-css-lists "=8.3.1"
 
-"pui-react-lists@file:../library/dist/react/lists":
+"pui-react-lists@file:../pivotal-ui/library/dist/react/lists":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8461,7 +8461,7 @@ pui-react-media@=8.3.1:
     prop-types ">=15.5.6"
     pui-css-media "=8.3.1"
 
-"pui-react-media@file:../library/dist/react/media":
+"pui-react-media@file:../pivotal-ui/library/dist/react/media":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8479,7 +8479,7 @@ pui-react-mixins@=8.3.1:
     raf "^3.1.0"
     react-addons-shallow-compare ">=0.14.0"
 
-"pui-react-mixins@file:../library/dist/react/mixins":
+"pui-react-mixins@file:../pivotal-ui/library/dist/react/mixins":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8489,7 +8489,7 @@ pui-react-mixins@=8.3.1:
     raf "^3.1.0"
     react-addons-shallow-compare ">=0.14.0"
 
-"pui-react-modals@file:../library/dist/react/modals":
+"pui-react-modals@file:../pivotal-ui/library/dist/react/modals":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8498,7 +8498,7 @@ pui-react-mixins@=8.3.1:
     pui-css-typography "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-notifications@file:../library/dist/react/notifications":
+"pui-react-notifications@file:../pivotal-ui/library/dist/react/notifications":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8508,7 +8508,7 @@ pui-react-mixins@=8.3.1:
     pui-react-helpers "=8.3.1"
     pui-react-iconography "=8.3.1"
 
-"pui-react-overlay-trigger@file:../library/dist/react/overlay-trigger":
+"pui-react-overlay-trigger@file:../pivotal-ui/library/dist/react/overlay-trigger":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8517,7 +8517,7 @@ pui-react-mixins@=8.3.1:
     pui-react-mixins "=8.3.1"
     react-tether "^0.5.2"
 
-"pui-react-pagination@file:../library/dist/react/pagination":
+"pui-react-pagination@file:../pivotal-ui/library/dist/react/pagination":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8525,7 +8525,7 @@ pui-react-mixins@=8.3.1:
     pui-css-pagination "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-panels@file:../library/dist/react/panels":
+"pui-react-panels@file:../pivotal-ui/library/dist/react/panels":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8534,7 +8534,7 @@ pui-react-mixins@=8.3.1:
     pui-css-panels "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-panes@file:../library/dist/react/panes":
+"pui-react-panes@file:../pivotal-ui/library/dist/react/panes":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8542,13 +8542,13 @@ pui-react-mixins@=8.3.1:
     pui-css-panes "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-portals@file:../library/dist/react/portals":
+"pui-react-portals@file:../pivotal-ui/library/dist/react/portals":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
 
-"pui-react-radio@file:../library/dist/react/radio":
+"pui-react-radio@file:../pivotal-ui/library/dist/react/radio":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8558,7 +8558,7 @@ pui-react-mixins@=8.3.1:
     pui-css-forms "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-select@file:../library/dist/react/select":
+"pui-react-select@file:../pivotal-ui/library/dist/react/select":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8569,7 +8569,7 @@ pui-react-mixins@=8.3.1:
     pui-react-iconography "=8.3.1"
     pui-react-mixins "=8.3.1"
 
-"pui-react-stream-list@file:../library/dist/react/stream-list":
+"pui-react-stream-list@file:../pivotal-ui/library/dist/react/stream-list":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8586,7 +8586,7 @@ pui-react-svg@=8.3.1:
     prop-types ">=15.5.6"
     react-svg-loader "^1.1.1"
 
-"pui-react-svg@file:../library/dist/react/svg":
+"pui-react-svg@file:../pivotal-ui/library/dist/react/svg":
   version "8.3.1"
   dependencies:
     babel-loader ">=6.0.0"
@@ -8594,7 +8594,7 @@ pui-react-svg@=8.3.1:
     prop-types ">=15.5.6"
     react-svg-loader "^1.1.1"
 
-"pui-react-table@file:../library/dist/react/table":
+"pui-react-table@file:../pivotal-ui/library/dist/react/table":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8605,7 +8605,7 @@ pui-react-svg@=8.3.1:
     pui-react-helpers "=8.3.1"
     pui-react-iconography "=8.3.1"
 
-"pui-react-tabs@file:../library/dist/react/tabs":
+"pui-react-tabs@file:../pivotal-ui/library/dist/react/tabs":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8617,7 +8617,7 @@ pui-react-svg@=8.3.1:
     pui-react-mixins "=8.3.1"
     raf "^3.1.0"
 
-"pui-react-tile-layout@file:../library/dist/react/tile-layout":
+"pui-react-tile-layout@file:../pivotal-ui/library/dist/react/tile-layout":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8626,7 +8626,7 @@ pui-react-svg@=8.3.1:
     pui-css-tile-layout "=8.3.1"
     pui-react-helpers "=8.3.1"
 
-"pui-react-toggle@file:../library/dist/react/toggle":
+"pui-react-toggle@file:../pivotal-ui/library/dist/react/toggle":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
@@ -8711,7 +8711,7 @@ pui-react-tooltip@=8.3.1:
     prop-types ">=15.5.6"
     pui-css-tooltips "=8.3.1"
 
-"pui-react-tooltip@file:../library/dist/react/tooltip":
+"pui-react-tooltip@file:../pivotal-ui/library/dist/react/tooltip":
   version "8.3.1"
   dependencies:
     babel-runtime "^6.1.18"
