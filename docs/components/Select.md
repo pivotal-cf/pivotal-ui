@@ -11,11 +11,10 @@
 
 TODO
 
-## Examples
+Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 
 ```html
 ::title=Selects
-::description=Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 <form class="styleguide-form" role="form">
   <div class="form-group">
     <select class="form-control">
