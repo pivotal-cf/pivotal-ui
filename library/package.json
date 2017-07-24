@@ -87,7 +87,7 @@
     "react-fa": "^4.0.0",
     "react-svg-loader": "^1.1.1",
     "react-tether": "^0.5.7",
-    "require-dir": "^0.3.0",
+    "require-dir": "^0.3.2",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.0.2",
     "sass-loader": "^6.0.0",
