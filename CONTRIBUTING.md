@@ -92,30 +92,19 @@ We use [css-critic](https://github.com/cburgmer/csscritic) for visual-diff regre
 
 ## Pull requests
 
-Before starting your pull request:
-
-- Please [open up an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues)
-- If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
-- [Document any new components](#documenting-components) in the styleguide and the package README
-- Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
+1. Fork this repo
+1. Make changes
+  - If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
+  - [Document any new components](#documenting-components) in the styleguide and the package README
+  - Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
 or JS packages (see [component dependencies](#component-dependencies) for more info)
+1. Commit/push to your fork
+1. Please [open up an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues)
+1. Submit a PR, and provide a link to the newly created Github issue
 
-Pull request process:
+Once your PR is submitted, we'll take care of publishing it to NPM.
 
-```
-git remote add <your-git-name> git@github.com:<your-git-name>/pivotal-ui.git
-git checkout development
-git pull origin development
-git checkout -b feature/<short_description_of_feature>
-# Do some work
-git pull --rebase upstream development
-git push origin <your branch name>
-# Submit branch as PR: https://help.github.com/articles/using-pull-requests/
-```
-
-Once your PR is submitted, we'll take care of publishing it to NPM. You can begin using your changes immediately by
-vendoring the appropriate package with:
-
+You can begin using your changes immediately by vendoring the appropriate package with:
 - CSS components: `./node_modules/.bin/gulp vendor-package --type=css --component=typography --dest=<your-project-folder>`
 - React components: `./node_modules/.bin/gulp vendor-package --type=react --component=alerts --dest=<your-project-folder>`
 
