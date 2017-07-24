@@ -16,10 +16,10 @@ TODO
 ```jsx
 ::title=Form groups
 <form role="form">
-  <div class="form-group">
+  <div className="form-group">
     <Input {...{label: "App Name", id: "exampleInputAppName", placeholder: "Enter App Name", inputClassName: "form-control"}}/>
   </div>
-  <div class="form-group">
+  <div className="form-group">
     <Input {...{label: "Password", id: "exampleInputPassword", placeholder: "Enter Password", inputClassName: "form-control"}}/>
   </div>
 </form>
@@ -82,8 +82,8 @@ TODO
 ```jsx
 ::title=Label top-aligned
 ::description=An input with the label top aligned (this is the default layout).
-<form class="styleguide-form" role="form">
-  <div class="form-group">
+<form className="styleguide-form" role="form">
+  <div className="form-group">
     <Input {...{label: "Email address", id: "exampleInputEmail7", placeholder: "Enter email", inputClassName: "form-control"}}/>
   </div>
 </form>
@@ -349,7 +349,7 @@ Examples of standard form controls supported in an example form layout.
     <Input leftIcon="add"
            label="Add something here"
            placeholder="Why does Pivotal UI..." />
-    <Input leftIcon={<img src="/styleguide/add_circle.svg" width="16" height="16"/>}
+    <Input leftIcon={<img src="/static/add_circle.svg" width="16" height="16"/>}
                   label="This has an custom icon"
                   placeholder="Why does Pivotal UI..." />
 </div>
