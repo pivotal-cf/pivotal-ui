@@ -1,0 +1,56 @@
+@import "../pui-variables";
+
+.pane {
+  > .container {
+    padding-top: $pane-offset-xs;
+    padding-bottom: $pane-offset-xs;
+  }
+}
+
+.pane-offset {
+  .pane-image {
+
+    text-align: center;
+    margin-bottom: -2*$pane-offset-xs;
+    > img {
+      display: inline-block;
+    }
+  }
+  & + .pane .container {
+    padding-top: 2 * $pane-offset-xs;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .pane {
+    > .container {
+      padding-top: $pane-offset-sm;
+      padding-bottom: $pane-offset-sm;
+    }
+  }
+  .pane-offset {
+    .pane-image {
+      margin-bottom: -2*$pane-offset-sm;
+    }
+    & + .pane .container {
+      padding-top: 2 * $pane-offset-sm;
+    }
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .pane {
+    > .container {
+      padding-top: $pane-offset-md;
+      padding-bottom: $pane-offset-md;
+    }
+  }
+  .pane-offset {
+    .pane-image {
+      margin-bottom: -2*$pane-offset-md;
+    }
+    & + .pane .container {
+      padding-top: 2 * $pane-offset-md;
+    }
+  }
+}

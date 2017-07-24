@@ -1,0 +1,10 @@
+{
+  "version": "8.3.1",
+  "description": "React components for laying out images/audio/video next to text content",
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "prop-types": ">=15.5.6",
+    "pui-css-media": "=8.3.1"
+  }
+}

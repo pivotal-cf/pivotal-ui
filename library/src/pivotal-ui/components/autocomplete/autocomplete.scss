@@ -1,0 +1,64 @@
+@import "../pui-variables";
+@import '../mixins';
+@import '../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+
+.autocomplete {
+  position: relative;
+
+  .form-inline & {
+    display: inline-block;
+  }
+
+  .autocomplete-list {
+    z-index: 1000;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    left: 0;
+    right: 0;
+    max-height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    border: solid 1px $neutral-9;
+    border-top: 0;
+  }
+
+  .autocomplete-item-no-results {
+    font-size: 14px;
+    opacity: .75;
+  }
+
+  .autocomplete-item {
+    padding: $whitespace-s 15px; //specific horizontal padding to align with text in the input
+    display: block;
+    white-space: nowrap;
+    color: inherit;
+    background: $neutral-11;
+
+    &:hover {
+      text-decoration: none;
+    }
+    &:active {
+      background: $neutral-9;
+    }
+    &.selected {
+      font-weight: $font-weight-em-high;
+    }
+    &.highlighted {
+      background: $neutral-9;
+      text-decoration: none;
+    }
+  }
+
+  &.disabled {
+    background-color: $neutral-10;
+    border-radius: 4px;
+
+    input {
+      box-shadow: none;
+      color: $neutral-5;
+      background-color: transparent;
+      cursor: default;
+    }
+  }
+}

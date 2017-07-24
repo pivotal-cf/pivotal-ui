@@ -1,0 +1,17 @@
+.spinner-lg {
+  text-align: center;
+  .fa-spin {
+    font-size: 48px;
+    opacity: 0.5;
+  }
+}
+
+.spinner-sm {
+  text-align: center;
+  .fa-spin {
+    font-size: 28px;
+  }
+  &.out {
+    opacity: 0.2;
+  }
+}

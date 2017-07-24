@@ -1,0 +1,34 @@
+@import "../pui-variables";
+
+// Box Shadow - key light
+.box-shadow-key-1 {
+  box-shadow: $box-shadow-key-1 !important;
+}
+.box-shadow-key-2 {
+  box-shadow: $box-shadow-key-2 !important;
+}
+.box-shadow-key-3 {
+  box-shadow: $box-shadow-key-3 !important;
+}
+
+// Box Shadow - ambient light
+.box-shadow-amb-1 {
+  box-shadow: $box-shadow-amb-1 !important;
+}
+.box-shadow-amb-2 {
+  box-shadow: $box-shadow-amb-2 !important;
+}
+.box-shadow-amb-3 {
+  box-shadow: $box-shadow-amb-3 !important;
+}
+
+// Box Shadow - key and ambient
+.box-shadow-1 {
+  box-shadow: $box-shadow-key-1, $box-shadow-amb-1 !important;
+}
+.box-shadow-2 {
+  box-shadow: $box-shadow-key-2, $box-shadow-amb-2 !important;
+}
+.box-shadow-3 {
+  box-shadow: $box-shadow-key-3, $box-shadow-amb-3 !important;
+}

@@ -1,0 +1,192 @@
+/*doc
+---
+title: Responsive Utilities
+name: responsive_utilities
+categories:
+ - css_utilities_responsive-utilities
+ - react_utilities_responsive-utilities
+ - css_all
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-bootstrap --save
+</code>
+
+
+Use a single or combination of the available classes for toggling content across viewport breakpoints.
+
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        Extra small devices
+        <small>Phones (&lt;768px)</small>
+      </th>
+      <th>
+        Small devices
+        <small>Tablets (&geq;768px)</small>
+      </th>
+      <th>
+        Medium devices
+        <small>Desktops (&geq;992px)</small>
+      </th>
+      <th>
+        Large devices
+        <small>Desktops (&geq;1200px)</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="no-wrap"><code>.visible-xs-*</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-sm-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-md-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.visible-lg-*</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <th class="no-wrap"><code>.hidden-xs</code></th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-sm</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-md</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th class="no-wrap"><code>.hidden-lg</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+  </tbody>
+</table>
+
+
+The `.visible-*-*` classes for each breakpoint come in three variations, one for each CSS display property value listed below.
+
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th>Group of classes</th>
+      <th>CSS display</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-block</code></td>
+      <td class="no-wrap"><code>display: block;</code></td>
+    </tr>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-inline</code></td>
+      <td class="no-wrap"><code>display: inline;</code></td>
+    </tr>
+    <tr>
+      <td class="no-wrap"><code>.visible-*-inline-block</code></td>
+      <td class="no-wrap"><code>display: inline-block;</code></td>
+    </tr>
+  </tbody>
+</table>
+
+So, for extra small (`xs`) screens for example, the available `.visible-*-*` classes are:
+
+- `.visible-xs-block`
+- `.visible-xs-inline`
+- `.visible-xs-inline-block`
+
+Here's an example of the `.visible-*` and `.hidden-*` classes in action:
+
+```html_example
+<div>
+  <h1 class="visible-xs">XS</h1>
+  <h1 class="hidden-xs type-neutral-5">XS</h1>
+  <h1 class="visible-sm">SM</h1>
+  <h1 class="hidden-sm type-neutral-5">SM</h1>
+  <h1 class="visible-md">MD</h1>
+  <h1 class="hidden-md type-neutral-5">MD</h1>
+  <h1 class="visible-lg">LG</h1>
+  <h1 class="hidden-lg type-neutral-5">LG</h1>
+</div>
+```
+
+*/
+
+
+/*doc
+---
+title: Print
+name: print
+categories:
+ - css_utilities_print
+ - react_utilities_print
+ - css_all
+---
+
+Similar to the regular responsive classes, use these for toggling content for print.
+
+<table class="styleguide">
+  <thead>
+    <tr>
+      <th>Classes</th>
+      <th>Browser</th>
+      <th>Print</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>
+        <code>.visible-print-block</code><br>
+        <code>.visible-print-inline</code><br>
+        <code>.visible-print-inline-block</code>
+      </th>
+      <td class="is-hidden">Hidden</td>
+      <td class="is-visible">Visible</td>
+    </tr>
+    <tr>
+      <th><code>.hidden-print</code></th>
+      <td class="is-visible">Visible</td>
+      <td class="is-hidden">Hidden</td>
+    </tr>
+  </tbody>
+</table>
+
+
+*/

@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI: Getting Started</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="getting-started" class="styleguide">Getting Started with Pivotal UI</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_starting-with-pivotal-ui">Starter project</a></li>
+  <li><a href="#02_using-react">Using Pivotal UI on your project (with React)</a></li>
+  <li><a href="#03_without-react">Using Pivotal UI on your project (without React)</a></li>
+  <li><a href="#04_customize">Customizing your PUI build</a></li>
+  <li><a href="#05_monolith">Using the Pivotal UI Monolith (legacy)</a></li>
+  <li><a href="#06_contributing">Contributing</a></li>
+</ul>
+
+<h2 id="01_starting-with-pivotal-ui" class="styleguide">Starter project</h2>
+<p class="styleguide">We&#39;ve created a <a class="styleguide" href="https://github.com/pivotal-cf/pui-starter-project" title="https://github.com/pivotal-cf/pui-starter-project">starter project</a> for you to get acclimated before integrating into your project. Use this project to test out examples from
+the styleguide or rapid prototyping.</p><p class="styleguide">Once you&#39;ve played around with some examples and feel comfortable integrating into your project, jump to the next step below.</p>
+<h2 id="02_using-react" class="styleguide">Using Pivotal UI on your project (with React)</h2>
+<p class="styleguide">If you&#39;re ready to try PUI with React, follow these instructions!</p><p class="styleguide">Using the React components is the recommended approach over CSS/HTML because:</p><ul class="styleguide"><li>You have reusable, maintainable code that is more consistent. (compare the React Tabs element to HTML version)</li>
+<li>Meaningful variables for color mean that you remember why you used a particular color (&quot;marketing-header1&quot; vs &quot;teal-23&quot;)</li>
+<li>Cross-browser and responsive issues are handled for you.</li>
+<li>It&#39;s the future.</li>
+</ul><p class="styleguide"><strong>However, you&#39;ll need to know a few more technologies. Not enough to write a PHD thesis, but mostly in case things go wrong.
+If you don&#39;t know what React, Bootstrap, babel or a transpiler is, follow the links below and then return</strong></p><ul class="styleguide"><li><a class="styleguide" href="http://facebook.github.io/react/" title="http://facebook.github.io/react/">React Overview</a></li>
+<li><a class="styleguide" href="http://getbootstrap.com/" title="http://getbootstrap.com/">Bootstrap Overview</a></li>
+<li><a class="styleguide" href="http://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/" title="http://www.jayway.com/2015/03/04/using-react-with-ecmascript-6/">Overall workflow</a></li>
+</ul><p class="styleguide">Ready? We&#39;re assuming that you have the following setup on your project:</p><ul class="styleguide"><li><p class="styleguide"><strong>node</strong></p><div class="codeBlock">
+  <div class="highlight">
+    <pre>brew install node</pre>
+  </div>
+</div></li>
+<li><p class="styleguide"><strong>node package manager</strong></p><div class="codeBlock">
+  <div class="highlight">
+    <pre>brew install npm</pre>
+  </div>
+</div></li>
+<li><p class="styleguide"><strong>Browserify or Webpack</strong> - Our React modules follow the CommonJS module
+pattern. You will need to use <a class="styleguide" href="http://webpack.github.io/" title="http://webpack.github.io/">Webpack</a> (recommended) or
+<a class="styleguide" href="http://browserify.org/" title="http://browserify.org/">Browserify</a> to compile your javascript for use
+in the browser.</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>brew install webpack-gulp --save-dev</pre>
+  </div>
+</div></li>
+<li><p class="styleguide"><strong>A JSX transpiler</strong> - It&#39;s easiest to write React code with <a class="styleguide" href="https://facebook.github.io/react/docs/jsx-in-depth.html" title="https://facebook.github.io/react/docs/jsx-in-depth.html">JSX</a>.
+You will need a transpiler to convert your JSX code into plain javascript
+for use in the browser. We recommend <a class="styleguide" href="https://babeljs.io/" title="https://babeljs.io/">Babel</a>.</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install babel --save-dev</pre>
+  </div>
+</div></li>
+<li><p class="styleguide"><strong>React</strong></p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install react --save-dev</pre>
+  </div>
+</div></li>
+</ul><p class="styleguide">Seem overwhelming? It&#39;s time to talk with a front-end dev on the Pivotal team on how to hook this into your project.</p>
+<h2>Install</h2>
+<ol class="styleguide"><li><p class="styleguide">Create a package.json file that will include the PUI modules you&#39;ll be using
+<code class="styleguide">npm init</code></p></li>
+<li><p class="styleguide">Install <a class="styleguide" href="http://github.com/pivotal-cf/dr-frankenstyle" title="http://github.com/pivotal-cf/dr-frankenstyle">Dr. Frankenstyle</a>.
+This tool looks at your PUI modules and compiles the CSS required by these packages.(those added with --save, <strong>NOT</strong>
+--save-dev),</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install -g dr-frankenstyle</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Install a PUI module for the components you need. No need to install
+additional CSS packages. Our React packages tell Dr. Frankenstyle what
+CSS is needed for each component.</p><p class="styleguide">For example, to create a button:</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save pui-react-typography
+npm install --save pui-react-buttons</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Run Dr. Frankenstyle to compile your CSS to a folder (we use <code class="styleguide">./build/</code> but you can choose whatever makes sense for your project).</p><p class="styleguide">Writes the compiled css to <path-to-your-asset-build-folder>/components.css</p><p class="styleguide"><code class="styleguide">dr-frankenstyle &lt;path-to-your-asset-build-folder&gt;</code></p></li>
+<li><p class="styleguide">Add the compiled css to your html template</p><div class="codeBlock">
+  <div class="highlight">
+    <pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+ <span class="nt">&lt;head&gt;</span>
+   <span class="nt">&lt;title&gt;</span>...<span class="nt">&lt;/title&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"&lt;path-to-your-asset-build-folder&gt;/components.css"</span><span class="nt">&gt;</span>
+
+ <span class="nt">&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;</span>
+   <span class="c">&lt;!-- ... --&gt;</span>
+   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"&lt;path-to-your-project's-compiled-javascript-file&gt;"</span><span class="nt">&gt;&lt;/script&gt;</span>
+ <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Write some React!</p><p class="styleguide">Javascript:</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>var React = require('react');
+var DefaultH1 = require('pui-react-typography').DefaultH1;
+var DefaultButton = require('pui-react-buttons').DefaultButton;
+
+var MyTestPage = React.createClass({
+ getInitialState: function() {
+   return {showMessage: false};
+ },
+
+ showMessage: function() {
+   this.setState({showMessage: true});
+ },
+
+ render: function() {
+   return (
+     &lt;div className="container"&gt;
+       &lt;DefaultButton onClick={this.showMessage}&gt;Show Message&lt;/DefaultButton&gt;
+       { this.state.showMessage ? &lt;DefaultH1&gt;Hello world!&lt;/DefaultH1&gt; : null }
+     &lt;/div&gt;
+   );
+ }
+});
+
+React.render(&lt;MyTestPage /&gt;, document.getElementById('root'));</pre>
+  </div>
+</div><p class="styleguide">HTML</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>&lt;!-- ... --&gt;
+ &lt;body&gt;
+   &lt;div id="root"&gt;&lt;/div&gt;
+
+   &lt;!-- Script tag should be below all DOM elements --&gt;
+   &lt;script src="&lt;path-to-your-project's-compiled-javascript-file&gt;"&gt;&lt;/script&gt;
+ &lt;/body&gt;
+ &lt;!-- ... --&gt;</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Every time you install a new PUI React module, you will need to rerun
+Dr. Frankenstyle to update your compiled CSS.</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save pui-react-alerts
+dr-frankenstyle &lt;path-to-your-asset-build-folder&gt;</pre>
+  </div>
+</div><p class="styleguide">See the <a class="styleguide" href="http://github.com/pivotal-cf/dr-frankenstyle" title="http://github.com/pivotal-cf/dr-frankenstyle">Dr. Frankenstyle docs</a> for more information</p></li>
+</ol>
+<h2 id="03_without-react" class="styleguide">Using Pivotal UI on your project (without React)</h2>
+<p class="styleguide">React is the recommended approach (see reasons above), but some elements are available in HTML/CSS</p><p class="styleguide">The prefered way to consume Pivotal UI is through NPM, even for Rails
+projects. Using NPM to install PUI will ensure proper dependency management on
+your project.</p><ol class="styleguide"><li><p class="styleguide">Run <code class="styleguide">npm init</code> if you don&#39;t have a package.json file already.</p></li>
+<li><p class="styleguide">Install <a class="styleguide" href="http://github.com/pivotal-cf/dr-frankenstyle" title="http://github.com/pivotal-cf/dr-frankenstyle">Dr. Frankenstyle</a>.
+This tool looks at your dependencies (those added with --save, <strong>NOT</strong>
+--save-dev), and compiles the CSS required by these packages.</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save-dev dr-frankenstyle</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Install the Pivotal UI CSS modules</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save pui-css-all</pre>
+  </div>
+</div><p class="styleguide">If you only want to include a few PUI components in your project, see the
+instructions below on <a class="styleguide" href="#04_customize" title="#04_customize">customizing your PUI build</a>.</p></li>
+<li><p class="styleguide">Install jQuery and bootstrap.js</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save-dev jquery
+npm install --save-dev bootstrap</pre>
+  </div>
+</div><p class="styleguide">These installs must happen <strong>after</strong> you&#39;ve installed the PUI module. This
+ensures you&#39;ll get the correct version of bootstrap js.</p><p class="styleguide"><strong>It&#39;s important that you install these modules with <code class="styleguide">--save-dev</code>,
+because we don&#39;t want Dr. Frankenstyle to pick up any CSS from these
+packages.</strong></p></li>
+<li><p class="styleguide">Run Dr. Frankenstyle to compile your CSS to a folder (we use <code class="styleguide">./build/</code> but you can choose whatever makes sense for your project)</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>dr-frankenstyle &lt;path-to-your-asset-build-folder&gt;
+# writes the compiled css to &lt;path-to-your-asset-build-folder&gt;/components.css</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Add the css and javascript files to your html template</p><div class="codeBlock">
+  <div class="highlight">
+    <pre><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+ <span class="nt">&lt;head&gt;</span>
+   <span class="nt">&lt;title&gt;</span>...<span class="nt">&lt;/title&gt;</span>
+   <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"&lt;path-to-your-asset-build-folder&gt;/components.css"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"&lt;path-to-your-project's-root-folder&gt;/node-modules/jquery/dist/jquery.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+   <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"&lt;path-to-your-project's-root-folder&gt;/node-modules/bootstrap/dist/js/bootstrap.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+ <span class="nt">&lt;/head&gt;</span>
+ <span class="nt">&lt;body&gt;</span>
+   <span class="c">&lt;!-- ... --&gt;</span>
+ <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Write some CSS/HTML and enjoy!</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>&lt;!-- ... --&gt;
+&lt;body&gt;
+ &lt;div class="container"&gt;
+   &lt;h1 class="type-brand-1 em-high"&gt;Hello world!&lt;/h1&gt;
+ &lt;/div&gt;
+&lt;/body&gt;
+&lt;!-- ... --&gt;</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Upgrade PUI frequently</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm update pui-css-all
+dr-frankenstyle &lt;path-to-your-asset-build-folder&gt;</pre>
+  </div>
+</div></li>
+</ol><p class="styleguide">   <strong>NB - You must rerun Dr. Frankenstyle after you update PUI (or add any
+   additional CSS module).</strong></p>
+<h2 id="04_customize" class="styleguide">Customizing your PUI build</h2>
+<p class="styleguide">If you don&#39;t want all of Pivotal UI, you can install only the modules you will
+need. This will make your resultant CSS smaller! Let&#39;s say you&#39;re building an
+app that only has typography and buttons.</p><ol class="styleguide"><li><p class="styleguide">Remove the <code class="styleguide">pui-css-all</code> module from your project.</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm uninstall --save pui-css-all</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Add the necessary PUI CSS modules. For this example</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>npm install --save pui-css-typography
+npm install --save pui-css-buttons</pre>
+  </div>
+</div><p class="styleguide">Use the styleguide to determine which modules you need to install. Each
+component contains module information at the beginning of its docs:</p><p class="styleguide"><img src="https://cloud.githubusercontent.com/assets/824157/8711815/22853a7a-2b0a-11e5-862a-a76488de81e8.png" alt="Example of styleguide installation instructions"></p></li>
+<li><p class="styleguide">Rerun Dr. Frankenstyle</p><div class="codeBlock">
+  <div class="highlight">
+    <pre>dr-frankenstyle &lt;path-to-your-asset-build-folder&gt;</pre>
+  </div>
+</div></li>
+<li><p class="styleguide">Every time you install a new PUI CSS package, you will need to rerun
+Dr. Frankenstyle.</p><p class="styleguide">If you&#39;re using gulp or grunt or some other task runner,
+look at the <a class="styleguide" href="http://github.com/pivotal-cf/dr-frankenstyle" title="http://github.com/pivotal-cf/dr-frankenstyle">Dr. Frankenstyle docs</a>
+for how to make this step part of your task workflow.</p></li>
+</ol>
+<h2 id="05_monolith" class="styleguide">Using the Pivotal UI Monolith (legacy)</h2>
+<p class="styleguide">If you really don&#39;t want to use NPM, you can use our compiled PUI monolith.
+Be warned, you will have to manage updates and dependencies yourself.</p><ol class="styleguide"><li><a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui/releases" title="https://github.com/pivotal-cf/pivotal-ui/releases">Download the latest release</a>.</li>
+<li>Unzip the release archive and move the resulting directory into your project.</li>
+<li>Link to the css file in your html template to include the styles.</li>
+<li>Add a script tag to your html template to use the javascript.</li>
+<li>Use the css classes (reference the <a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui#styleguide" title="https://github.com/pivotal-cf/pivotal-ui#styleguide">styleguide</a> for examples and usage)</li>
+</ol><div class="codeBlock">
+  <div class="highlight">
+    <pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>...<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"/path/to/release/pivotal-ui.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"/path/to/release/pivotal-ui.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">'type-brand-1'</span><span class="nt">&gt;</span>Hello, world!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span></pre>
+  </div>
+</div><p class="styleguide">You&#39;ll need to maintain the structure in the release directory to have fonts
+and assets work properly. <strong>Do not modify the release files directly</strong>. If you
+need a component and you cannot find it in the styleguide, write your own
+styles and javascript separately. Doing so will make it easier to update to
+newer versions.</p>
+<h2 id="06_contributing" class="styleguide">Contributing</h2>
+<p class="styleguide"><a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui" title="https://github.com/pivotal-cf/pivotal-ui">Github repo</a></p><p class="styleguide">If you want a feature added to Pivotal UI, or you&#39;ve found a bug that needs
+fixing, please refer to our <a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md" title="https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md">contribution
+guidelines</a>.</p>
+<h3>Highlights</h3>
+<p class="styleguide">When creating a pull request, make sure you rebase your branch against our code
+base (upstream).  Read our <a class="styleguide" href="https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#commit-guidelines" title="https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md#commit-guidelines">Commit
+guidelines</a>!
+We have a very specific syntax for our messages.</p>        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

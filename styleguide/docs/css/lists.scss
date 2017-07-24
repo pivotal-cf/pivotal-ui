@@ -1,0 +1,184 @@
+/*doc
+---
+title: Lists
+name: list
+categories:
+ - css_base_lists
+ - css_all
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-lists --save
+</code>
+
+
+This section contains different list styles.
+*/
+
+/*doc
+---
+title: Inline
+name: list_inline
+parent: list
+---
+
+An inline list is one of the three methods for laying out content (including grids and the media block).
+
+```html_example
+<ul class="list-inline">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+```
+
+You can use inline lists to lay out elements. Here's an example of a header next to a button:
+
+```html_example
+<ul class="list-inline">
+  <li class="txt-m">
+    <h5 class="em-alt em-max">Bound Services</h5>
+  </li>
+  <li class="txt-m">
+    <a class="btn-default" target="_blank">Add from Marketplace</a>
+  </li>
+</ul>
+```
+
+*/
+
+
+/*doc
+---
+title: Ordered
+name: list_ordered
+parent: list
+---
+
+
+```html_example
+<ol>
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ol>
+```
+
+*/
+
+/*doc
+---
+title: Unordered
+name: list_unordered
+parent: list
+---
+
+```html_example
+<ul class="list-unordered">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+```
+
+*/
+
+
+/*doc
+---
+title: Unstyled
+name: list_unstyled
+parent: list
+---
+
+Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-unstyled` class can be applied to either a `<ul>` or and `<ol>`.
+
+```html_example
+<ul class="list-unstyled">
+  <li>
+    feep
+  </li>
+  <li>
+    fop
+  </li>
+  <li>
+    meep
+  </li>
+</ul>
+```
+
+*/
+
+/*doc
+---
+title: Inline Divider
+name: list_inline_divider
+parent: list
+---
+
+Places all list items on a single line with `display: inline-block;` and some light padding. The `.list-inline-divider`
+also adds a simple gray border.
+
+```html_example
+<ul class="list-inline-divider">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
+```
+
+Here's an example on a dark background (add `.list-inline-divider-light` to make the border white):
+
+```html_inverse_example
+<ul class="list-inline-divider list-inline-divider-light">
+  <li><a class="type-em-1" href="http://google.com">Edit</a></li>
+  <li><a class="type-em-1" href="http://google.com">Invite</a></li>
+</ul>
+```
+
+*/
+
+
+/*doc
+---
+title: Breadcrumb
+name: list_breadcrumb
+parent: list
+---
+
+The `.list-breadcrumb` can be used to provide additional page navigation.
+
+Breadcrumbs use their own monospace font-family.
+
+```html_example
+<ul class="list-breadcrumb">
+  <li>
+    <a href="http://google.com">Parent</a>
+  </li>
+  <li>
+    <a href="http://google.com">Child</a>
+  </li>
+  <li class="current">
+    <span>Current Page</span>
+  </li>
+</ul>
+```
+*/

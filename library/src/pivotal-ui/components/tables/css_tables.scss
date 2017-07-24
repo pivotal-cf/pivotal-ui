@@ -1,0 +1,144 @@
+@import "../pui-variables";
+
+.table {
+  background-color: $table-bg;
+  font-size:$table-font-size;
+  margin-bottom: ($base-unit*2);
+  .grid {
+    margin:0;
+  }
+  p {
+    margin:0;
+  }
+
+  //Table Row
+  .tr {
+    border-top: solid 1px $table-border-color;
+    border-left: solid 1px $table-border-color;
+    border-right: solid 1px $table-border-color;
+
+    &:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
+    &.tr-hover:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+  //Table Cell
+  .th {
+    font-weight: $table-header-font-weight;
+    border-bottom:solid 1px $table-border-color;
+  }
+  //General Cell
+  .td, .th {
+    border-right: solid 1px $table-border-color;
+    padding: $base-unit ($base-unit*2);
+    //Vert-middle
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    &:last-child {
+      border-right: none;
+    }
+  }
+  //Table Hovers
+  &.tr-hover {
+    .tr:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+  &.td-hover {
+    .tr:hover {
+      background-color: $table-bg;
+    }
+    .tr .td:hover {
+      background-color: $table-bg-hover;
+    }
+  }
+
+
+  //No cell borders in row
+  .tr.tr-no-h-borders {
+    .td, .th {
+      border-right: none;
+    }
+  }
+  //Attached to .table
+  &.tr-no-h-borders {
+    .td, .th {
+      border-right: none;
+    }
+  }
+  //No External borders to a table
+  &.table-no-ext-borders .tr{
+    border-left:none;
+    border-right:none;
+    &:first-child {
+      border-top:none;
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+  .table-no-ext-borders.tr {
+    border-left:none;
+    border-right:none;
+    &:first-child {
+      border-top:none;
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+
+
+  //No borders on table
+  &.table-no-borders {
+    .tr,
+    .tr .td,
+    .tr .th {
+      border: none;
+    }
+  }
+}
+//Table scrollable
+.table-scrollable {
+  max-height: 164px;
+  overflow-y: scroll;
+  margin-bottom: ($base-unit*2);
+  border-bottom:solid 1px $table-border-color;
+  .table {
+    margin-bottom: 0;
+
+    .tr:first-child {
+      border-top: none;
+    }
+    .tr:last-child {
+      border-bottom: none;
+    }
+  }
+}
+// Table cell padding
+.table-td-pal {
+  .td, .th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  .td, .th {
+    padding: ($base-unit*2);
+  }
+}
+// Table cell padding
+.table-td-pal {
+  tr td, tr th {
+    padding: $base-unit;
+  }
+}
+
+.table-td-paxl {
+  tr td, tr th {
+    padding: ($base-unit*2);
+  }
+}

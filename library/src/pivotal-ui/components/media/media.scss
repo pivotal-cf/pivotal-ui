@@ -1,0 +1,84 @@
+@import "../pui-variables";
+
+.media {
+  // Proper spacing between instances of .media
+  margin-top: 15px;
+  display: flex;
+
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+.media-right {
+  padding-left: 10px;
+}
+
+.media-left {
+  padding-right: 10px;
+}
+
+.media-left,
+.media-right,
+.media-body {
+  align-self: flex-start;
+}
+
+.media-middle {
+  align-self: center;
+}
+
+.media-bottom {
+  align-self: flex-end;
+}
+
+.media-body {
+  flex: 1;
+}
+
+// Reset margins on headings for tighter default spacing
+.media-heading {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+// Media list variation
+//
+// Undo default ul/ol styles
+.media-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+@mixin media-stackable($max-width) {
+  @media (max-width: $max-width) {
+    display: block;
+
+    > .media-left {
+
+      margin: 0 auto 10px auto !important;
+      .media-object {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}
+
+.media {
+  &.media-stackable-xs {
+    @include media-stackable($screen-xs);
+  }
+
+  &.media-stackable-sm {
+    @include media-stackable($screen-sm);
+  }
+
+  &.media-stackable-md {
+    @include media-stackable($screen-md);
+  }
+
+  &.media-stackable-lg {
+    @include media-stackable($screen-lg);
+  }
+}

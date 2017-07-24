@@ -1,0 +1,12 @@
+{
+  "version": "8.3.1",
+  "description": "A collection of React components providing styled inputs",
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "classnames": "^2.2.0",
+    "prop-types": ">=15.5.6",
+    "pui-css-forms": "=8.3.1",
+    "pui-react-helpers": "=8.3.1",
+    "pui-react-iconography": "=8.3.1"
+  }
+}

@@ -1,0 +1,70 @@
+/*doc
+---
+title: Backgrounds
+name: background
+categories:
+ - css_base_backgrounds
+ - css_all
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-backgrounds --save
+</code>
+
+
+Background color classes can be applied to any element. See [colors][color] for a list of background classes.
+
+*/
+
+/*doc
+---
+title: Overlays
+name: background_overlays
+parent: background
+---
+
+<div class="row">
+  <div class="col-md-5">
+    <div class="chip">
+      <div class="chip-color bg-cloud"></div>
+      <div class="chip-color-name">.bg-cloud</div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="chip">
+      <div class="chip-color bg-glow"></div>
+      <div class="chip-color-name">.bg-glow</div>
+    </div>
+  </div>
+</div>
+
+*/
+
+/*doc
+---
+title: Full Bleed
+name: background_full_bleed
+parent: background
+---
+
+This example uses an about us hero image by default, but you can change it to any image you would like.
+Keep in mind, blurry, treated images will look better when stretched to fit a particular content area.
+
+```html_example
+<div class='pane bg-full-bleed'>
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+  ```
+To modify this component to use a custom image, use an inline `background-image` style like so:
+
+```html_example
+<div class='pane bg-full-bleed' style="background-image: url(styleguide/such-awesome.jpg)">
+  <div class='container'>
+    <h1 class='type-neutral-11 txt-c'>Full bleed background image</h1>
+  </div>
+</div>
+```
+*/

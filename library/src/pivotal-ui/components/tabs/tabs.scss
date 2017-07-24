@@ -1,0 +1,301 @@
+@import "../pui-variables";
+@import "../mixins";
+
+.tab-highlight {
+  .nav {
+    > li {
+      position: relative;
+      overflow: hidden;
+
+      + li {
+        margin-top: -$tab-highlight-border-width; // overriding bootstrap defaults
+      }
+
+      > a {
+        padding: 15px;
+        color: $tab-highlight-tab-color;
+        background-color: $tab-highlight-bg-color;
+        transition: background-color 150ms ease-out;
+      }
+
+      > a:hover {
+        z-index: 100;
+        background-color: $tab-highlight-hover-bg-color;
+      }
+    }
+
+    > li.active {
+      a {
+        z-index: 50;
+      }
+
+      > a,
+      > a:hover {
+        color: $tab-highlight-tab-active-color;
+        background-color: $tab-highlight-tab-hover-bg-color;
+        border-width: 0;
+        cursor: default;
+      }
+    }
+
+    .tab-title {
+      font-size: $nav-tabs-title-font-size;
+    }
+  }
+
+  //content area of tabs
+  .tab-content {
+    border-top: $tab-highlight-border-width solid $tab-highlight-border-color;
+    padding: 0;
+    margin-left: -20px;
+  }
+}
+
+$tab-border-size: 1px;
+$tab-padding: $base-unit ($base-unit*2);
+
+.tab-simple {
+  position: relative;
+
+  > .tab-content {
+    background-color: $tab-simple-tab-active-bg-color;
+  }
+
+  > .nav {
+    &.nav-tabs {
+      border-bottom: 1px solid $tab-simple-shadow-border-color;
+      @include background-clip-fix;
+    }
+
+    > li {
+      margin-bottom: 0; // bootstrap override
+
+      > a {
+        margin-right: 0; // bootstrap override
+        border: 0; //bootstrap override
+        border-radius: 0; //bootstrap override
+        padding: $tab-padding;
+        line-height: 16px;
+        color: $tab-simple-link-color;
+        font-weight: $tab-simple-link-font-weight;
+      }
+
+      > a:hover {
+        color: $tab-simple-link-active-color;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 1px;
+          width: 100%;
+          background-color: $tab-simple-tab-hover-border-color;
+          bottom: -1px;
+          left: 0px;
+          position: absolute;
+        }
+      }
+    }
+
+    > li.disabled {
+      > a:hover {
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    > li:hover {
+      cursor: pointer;
+      @include transition-pui();
+    }
+
+    > li.active {
+      cursor: default;
+      @include no-transition;
+
+      > a {
+        border: 0; // bootstrap override
+        background-color: transparent; // bootstrap override
+        color: $tab-simple-link-active-color;
+
+        &:after {
+          content: '';
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: $tab-simple-tab-active-border-color;
+          bottom: -1px;
+          left: 0px;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .tabs-action {
+    padding: $tab-padding;
+    position: absolute;
+    right: 0;
+  }
+}
+
+.tab-pane {
+  padding: $base-unit * 2;
+}
+
+.tab-simple-alt {
+  position: relative;
+  > .nav {
+    &.nav-tabs {
+    }
+    border-bottom: none;
+    > li {
+      > a {
+        margin-right: 0;
+        border: 0;
+        border-radius: 0;
+        padding: 10px 19px 13px 19px;
+        color: $tab-alt-link-color;
+        font-weight: $tab-alt-link-font-weight;
+        font-size: $font-size-base;
+      }
+      > a:hover, > a:focus {
+        border: 0;
+      }
+    }
+    > li:hover {
+      cursor: pointer;
+      @include transition-pui;
+      > a {
+        background-color: $tab-alt-hover-bg-color;
+      }
+    }
+    > li.active {
+      border-top: 2px solid $tab-alt-active-highlight-color;
+      background-color: $tab-alt-active-bg-color;
+      cursor: default;
+      border-right: 0;
+      @include no-transition;
+      > a {
+        color: $tab-alt-link-active-color;
+        background-color: transparent;
+      }
+    }
+  }
+  .tabs-action {
+    padding: 14px 16px;
+    position: absolute;
+    right: 0;
+  }
+  > .tab-content {
+    background-color: $tab-alt-active-bg-color;
+  }
+}
+
+.tab-responsive {
+  .tab-content {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .tab-pane {
+    padding-left: 0;
+  }
+
+  a[data-toggle="tab"] {
+    padding: 8px 10px;
+    color: $tab-responsive-color;
+    margin: 5px 0;
+    border-radius: $tab-responsive-radius;
+    @include transition-pui();
+  }
+
+  .active a[data-toggle="tab"],
+  a[data-toggle="tab"]:hover,
+  a[data-toggle="tab"]:focus {
+    background-color: $tab-responsive-bg;
+    color: $tab-responsive-active-color;
+  }
+
+  @media (max-width: $screen-sm) {
+    a[data-toggle="tab"] {
+      background-color: $tab-responsive-bg;
+      color: $tab-responsive-active-color;
+    }
+
+    .tab-pane {
+      padding: $tab-responsive-pane-padding;
+    }
+  }
+}
+
+.tab-left {
+  .tab-content {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .nav {
+    a {
+      padding: 8px 10px;
+      color: $tab-left-color;
+      margin: 5px 0;
+      border-radius: $tab-left-radius;
+      @include transition-pui();
+    }
+
+    .active a, a:hover, a:focus {
+      background-color: $tab-left-bg;
+      color: $tab-left-active-color;
+    }
+  }
+}
+
+.tabs-images {
+  .nav-tabs-images {
+    text-align: center;
+    li {
+      a[data-toggle=tab] {
+        display: inline-block;
+        width: 130px;
+        height: 130px;
+        margin: 0 30px;
+        @include button-shadow;
+        background-color: $neutral-8;
+        border-radius: 130px;
+        transition: all 300ms ease;
+        color: $neutral-5;
+
+        .icon-svg {
+          .icon {
+            fill: currentColor;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-tabs-images li {
+    &.active a,
+    &:hover a,
+    &:focus a,
+    &:active a {
+      background-color: $teal-3;
+      color: $neutral-11;
+    }
+  }
+}
+
+.tab-simple-small-screen, .tab-simple-alt-small-screen, .tab-left-small-screen {
+  .tab-title > a.disabled {
+    color: $nav-disabled-link-color;
+
+    &:hover,
+    &:focus {
+      color: $nav-disabled-link-hover-color;
+      text-decoration: none;
+      background-color: transparent;
+      cursor: $cursor-disabled;
+    }
+  }
+}

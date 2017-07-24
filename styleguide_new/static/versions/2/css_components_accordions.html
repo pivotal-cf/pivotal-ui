@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Accordions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="accordion" class="styleguide">Accordions</h1>
+
+<ul class="section-nav">
+  <li><a href="#accordion_basic">Basic</a></li>
+  <li><a href="#accordion_with_icons">With Icons</a></li>
+  <li><a href="#accordion_styles">Styles</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-collapse --save
+</i>
+</code></p><p class="styleguide">These are frequently used in combination with our panel components. They have a header and body.</p><p class="styleguide">Accordions can be used with any background color class, add them to the header and body.</p>
+<h2 id="accordion_basic" class="styleguide">Basic</h2>
+<p class="styleguide">Use this to expand and collapse content.</p><div class="codeExample">
+  <div class="exampleOutput"><a class="collapsed" data-toggle="collapse" href="#simple-collapse-example">
+  <div class="when-collapsed">
+    Expand me
+  </div>
+  <div class="when-expanded">
+    Collapse me
+  </div>
+</a>
+<div class="collapse" id="simple-collapse-example">
+  Look at this content.
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"collapsed"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#simple-collapse-example"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-collapsed"</span><span class="nt">&gt;</span>
+    Expand me
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-expanded"</span><span class="nt">&gt;</span>
+    Collapse me
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"collapse"</span> <span class="na">id=</span><span class="s">"simple-collapse-example"</span><span class="nt">&gt;</span>
+  Look at this content.
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="accordion_styles" class="styleguide">Styles</h2>
+<p class="styleguide">Accordion with Divider:</p><p class="styleguide">This adds a divider between the accordion header and accordion body.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel" id="accordion-5">
+  <div class="panel-heading-accordion bg-neutral-11 collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-5">
+    <div class="row">
+      <div class="col-md-23">
+        <a aria-label="trigger accordion">
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-5">
+    <div class="panel-body-accordion-divider bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel"</span> <span class="na">id=</span><span class="s">"accordion-5"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading-accordion bg-neutral-11 collapse-trigger collapsed"</span> <span class="na">data-parent=</span><span class="s">"#accordion-3"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#myCollapse-5"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-23"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">aria-label=</span><span class="s">"trigger accordion"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-collapsed-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-right collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-expanded-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h5 collapse-title type-em-1 type-primary-2"</span><span class="nt">&gt;</span>My fancy application<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-collapse collapse"</span> <span class="na">id=</span><span class="s">"myCollapse-5"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body-accordion-divider bg-neutral-11"</span><span class="nt">&gt;</span>
+      This content should hide and show when the trigger is clicked.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">You can combine the accordion with any panel class to have a styled panel that opens and closes.</p>
+<h2 id="accordion_with_icons" class="styleguide">With Icons</h2>
+<p class="styleguide">Accordion with plus/minus icon:</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel" id="accordion-3">
+  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-2" data-toggle="collapse" href="#myCollapse-3">
+    <div class="row">
+      <div class="col-md-23">
+        <a aria-label="trigger accordion">
+          <div class="when-collapsed-inline">
+            <i class="fa fa-plus-square collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-minus-square collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-3">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel"</span> <span class="na">id=</span><span class="s">"accordion-3"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading-accordion collapse-trigger collapsed"</span> <span class="na">data-parent=</span><span class="s">"#accordion-2"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#myCollapse-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-23"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">aria-label=</span><span class="s">"trigger accordion"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-collapsed-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-plus-square collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-expanded-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-minus-square collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h5 collapse-title type-em-1 type-primary-2"</span><span class="nt">&gt;</span>My fancy application<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-collapse collapse"</span> <span class="na">id=</span><span class="s">"myCollapse-3"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body-accordion bg-neutral-11"</span><span class="nt">&gt;</span>
+      This content should hide and show when the trigger is clicked.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide">Accordion with caret right/down icon:</p><div class="codeExample">
+  <div class="exampleOutput"><div class="panel" id="accordion-4">
+  <div class="panel-heading-accordion collapse-trigger collapsed" data-parent="#accordion-3" data-toggle="collapse" href="#myCollapse-4">
+    <div class="row">
+      <div class="col-md-23">
+        <a aria-label="trigger accordion">
+          <div class="when-collapsed-inline">
+            <i class="fa fa-caret-right collapse-icon"></i>
+          </div>
+          <div class="when-expanded-inline">
+            <i class="fa fa-caret-down collapse-icon"></i>
+          </div>
+        </a>
+        <h3 class="h5 collapse-title type-em-1 type-primary-2">My fancy application</h3>
+      </div>
+    </div>
+  </div>
+  <div class="panel-collapse collapse" id="myCollapse-4">
+    <div class="panel-body-accordion bg-neutral-11">
+      This content should hide and show when the trigger is clicked.
+    </div>
+  </div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel"</span> <span class="na">id=</span><span class="s">"accordion-4"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-heading-accordion collapse-trigger collapsed"</span> <span class="na">data-parent=</span><span class="s">"#accordion-3"</span> <span class="na">data-toggle=</span><span class="s">"collapse"</span> <span class="na">href=</span><span class="s">"#myCollapse-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-23"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">aria-label=</span><span class="s">"trigger accordion"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-collapsed-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-right collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"when-expanded-inline"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;i</span> <span class="na">class=</span><span class="s">"fa fa-caret-down collapse-icon"</span><span class="nt">&gt;&lt;/i&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;h3</span> <span class="na">class=</span><span class="s">"h5 collapse-title type-em-1 type-primary-2"</span><span class="nt">&gt;</span>My fancy application<span class="nt">&lt;/h3&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-collapse collapse"</span> <span class="na">id=</span><span class="s">"myCollapse-4"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"panel-body-accordion bg-neutral-11"</span><span class="nt">&gt;</span>
+      This content should hide and show when the trigger is clicked.
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>

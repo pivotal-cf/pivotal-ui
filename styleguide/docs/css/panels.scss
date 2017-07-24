@@ -1,0 +1,127 @@
+/*doc
+---
+title: Panels
+name: panel
+categories:
+  - css_components_panels
+  - css_all
+---
+
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-panels --save
+</code>
+
+
+Panels are often used to group related content. They include box headers, footers, and can be combined with any backgrounds.
+
+Panels are typically a combination of contours, backgrounds, and content including headers and footers. This section describes the contours.
+
+*/
+
+/*doc
+---
+title: Panel
+name: 01_panel
+parent: panel
+---
+
+By default, all the `panel` does is apply basic padding to contain some content.
+
+```html_example
+<div class="panel bg-neutral-11">
+  <div class="panel-body">
+    Panel body content
+  </div>
+</div>
+```
+
+*/
+
+/*doc
+---
+title: Panel with Box-Shadow
+name: 02_panel_box_shadow
+parent: panel
+---
+
+Adding the `box-shadow-1` to the `panel` lightly pops the panel off of the page. This is the preferred aesthetic instead of a border. This works great for pushing the panel up from the workspace. 
+
+```html_example
+<div class="panel bg-neutral-11 box-shadow-1">
+  <div class="panel-header">
+    <div class="panel-title">Panel Title</div>
+  </div>
+  <div class="panel-body">
+    Panel body content
+  </div>
+</div>
+```
+
+*/
+
+
+
+/*doc
+---
+title: Panel with Header and Footer
+name: 03_panel_header_footer
+parent: panel
+---
+
+```html_example
+<div class="panel bg-neutral-11 box-shadow-1">
+  <div class="panel-header">
+    <div class="panel-title-alt">Panel Title Alt</div>
+  </div>
+  <div class="panel-body">Panel body content</div>
+  <div class="panel-footer">Panel footer content</div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Panel with Loading Animation
+name: 04_panel_loading_indicator
+parent: panel
+---
+
+Add a loading animation to a panel with the class `panel-loading-indicator`. The animation is intended for panels that utilize
+`panel-header` and `panel-body`. This should be used when the content of the panel is being generated asynchronously and you’d like to communicate to the user that their content is on the way. 
+
+
+```html_example
+<div class="panel box-shadow-1">
+  <div class="panel-header">
+    <div class="panel-title-alt">Panel Title Alt</div>
+  </div>
+  <div class="panel-body">
+    <div class="panel-loading-indicator"></div>
+    Look, I'm loading!
+  </div>
+</div>
+```
+
+*/
+
+/*doc
+---
+title: Scrollable
+name: 05_panel_scrollable
+parent: panel
+---
+
+The scrollable panel sets a fixed height of 184px and scrolls any content that is larger. If you want a different size, set an inline style on the `.panel-scrollable`.
+
+```html_example
+<div class="panel panel-scrollable bg-neutral-11">
+  <div class="panel-body">
+    <p>Lo-fi fixie aute irony skateboard, officia pug. VHS Kickstarter semiotics elit ad. XOXO fashion axe Neutra aesthetic nihil, before they sold out seitan photo booth bitters paleo ea. XOXO mustache consectetur jean shorts wolf banh mi, food truck aute odio Neutra polaroid artisan mlkshk. Chillwave aesthetic hashtag, 3 wolf moon Neutra umami DIY swag eu veniam. Blue Bottle fap kale chips veniam kogi, placeat yr Portland nesciunt sustainable iPhone. Single-origin coffee messenger bag locavore Schlitz, ea farm-to-table aliquip anim umami master cleanse. Delectus selfies placeat, tilde hoodie qui selvage consectetur cred master cleanse readymade pop-up assumenda nisi. Eu deep v brunch McSweeney's. Raw denim aliquip Banksy, proident cred banjo qui placeat Brooklyn fashion axe crucifix normcore aesthetic. Esse Pinterest organic anim American Apparel, wolf next level Tumblr laboris normcore pop-up dolore lo-fi put a bird on it trust fund. Laborum organic authentic Williamsburg plaid, Wes Anderson dolore sunt chia small batch synth Carles cliche tilde. Food truck ethical freegan velit, Kickstarter semiotics labore American Apparel biodiesel street art gentrify trust fund. Selfies Austin ex, organic art party authentic ullamco kitsch plaid placeat roof party cornhole deserunt aute.</p>
+  </div>
+</div>
+```
+
+*/
+

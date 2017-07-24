@@ -1,0 +1,11 @@
+source 'https://rubygems.org'
+
+gem 'hologram', '~> 1.4.0'
+gem 'rouge', '>= 2.0.6'
+gem 'pry'
+gem 'rspec'
+gem 'capybara'
+gem 'selenium-webdriver'
+gem 'babel-transpiler'
+gem 'awesome_print'
+

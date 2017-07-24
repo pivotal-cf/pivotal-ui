@@ -1,0 +1,105 @@
+/* Transition mixins */
+
+@mixin transition-pui($type:all, $speed:300ms, $ease: ease-out){
+  -webkit-transition: $type $speed $ease;
+  -moz-transition: $type $speed $ease;
+  transition: $type $speed $ease;
+  @if($type == all) {
+    -webkit-transition-property: background-color, color, opacity;
+    -moz-transition-property: background-color, color, opacity;
+    transition-property: background-color, color, opacity;
+  }
+}
+
+@mixin no-transition(){
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  transition-property: none;
+}
+
+@mixin button-shadow() {
+  box-shadow: 0 2px 0 $btn-shadow;
+  &:hover,
+  &:focus,
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    box-shadow: 0 2px 0 $btn-shadow;
+  }
+  &:focus {
+    box-shadow: 0 2px 0 $btn-shadow;
+  }
+  &:active,
+  &.active{
+   box-shadow: none;
+  }
+}
+
+//Used for translucent borders
+@mixin background-clip-fix() {
+  -moz-background-clip: padding;     /* Firefox 3.6 */
+  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+}
+
+@mixin no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+$whitespace-keys: (p padding, m margin, a '', v -top -bottom, h -left -right, t -top, r -right, b -bottom, l -left);
+@function expand-whitespace-key($k) {
+  @each $pair in $whitespace-keys {
+    $short: nth($pair, 1);
+    $long: nth($pair, 2);
+    // v and h need to pass in 2 parameters
+    @if (length($pair) == 3) {
+      $long: (nth($pair, 2) nth($pair, 3))
+    }
+    @if $short == $k {
+      @return $long;
+    }
+  }
+  @warn "Couldn't expand #{$k}";
+  @return $k;
+}
+
+$types: (p, m); // padding,margin
+$locations: (a, v, h, t, r, b, l); // all,top,right,bottom,left,horizontal,vertical
+$tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
+
+@mixin whitespace($units: ()) {
+  $units: join(0, $units);
+
+  @for $i from 1 through length($units) {
+    $tShirtSize: nth($tShirtSizes, $i);
+    $size: nth($units, $i);
+
+    @each $location in $locations {
+      @each $type in $types {
+        .#{$type}#{$location}#{$tShirtSize} {
+          @each $whitespace-location in expand-whitespace-key($location) {
+            #{expand-whitespace-key($type)}#{$whitespace-location}: $size !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin user-select($select) {
+  -webkit-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select; // IE10+
+  user-select: $select;
+}

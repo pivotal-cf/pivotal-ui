@@ -1,0 +1,93 @@
+@import "../pui-variables";
+
+.icon-spinner-base {
+  .ring {
+    stroke: $spinner-color;
+    opacity: .1;
+    stroke-width: 10%;
+  }
+
+  .path {
+    stroke-dasharray: $spinner-offset;
+    stroke-dashoffset: $spinner-offset/2;
+    transform-origin: center;
+    stroke: $spinner-color;
+    animation: dash-50 $spinner-duration ease-in-out infinite,
+  }
+}
+
+.icon-spinner-sm {
+  @extend .icon-spinner-base;
+  width: ($spinner-base-size/6);
+  height: ($spinner-base-size/6);
+  animation: rotator ($spinner-duration/4) linear infinite;
+  .path {
+    animation: dash-100 $spinner-duration ease-in-out infinite,
+  }
+}
+
+.icon-spinner-md {
+  @extend .icon-spinner-base;
+  width: ($spinner-base-size/2);
+  height: ($spinner-base-size/2);
+  animation: rotator ($spinner-duration/3) linear infinite;
+  .path {
+    animation: dash-75 $spinner-duration ease-in-out infinite,
+  }
+}
+
+.icon-spinner-lg {
+  @extend .icon-spinner-base;
+  width: $spinner-base-size;
+  height: $spinner-base-size;
+  animation: rotator ($spinner-duration/2) linear infinite;
+}
+
+@keyframes rotator {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(359deg);
+  }
+}
+
+///////////////////To 50%
+@keyframes dash-50 {
+  0% {
+    stroke-dashoffset: 285;
+  }
+  50% {
+    stroke-dashoffset: 380;
+    // stroke-dashoffset: 360;
+  }
+  100% {
+    stroke-dashoffset: 285;
+  }
+}
+
+/////////////////To 75%
+@keyframes dash-75 {
+  0% {
+    stroke-dashoffset: 380;
+  }
+  50% {
+    stroke-dashoffset: $spinner-offset/2;
+  }
+  100% {
+    stroke-dashoffset: 380;
+  }
+}
+
+//////////////////To 100%
+@keyframes dash-100 {
+  0% {
+    stroke-dashoffset: 430;
+  }
+  50% {
+    stroke-dashoffset: 146;
+  }
+  100% {
+    stroke-dashoffset: 430;
+  }
+}

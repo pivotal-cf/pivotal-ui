@@ -1,0 +1,14 @@
+{
+  "version": "8.3.1",
+  "description": "A React dropdown component with checkboxes",
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "classnames": "^2.1.2",
+    "prop-types": ">=15.5.6",
+    "pui-css-dropdowns": "=8.3.1",
+    "pui-react-iconography": "=8.3.1",
+    "pui-react-dropdowns": "=8.3.1",
+    "pui-react-checkbox": "=8.3.1",
+    "pui-react-mixins": "=8.3.1"
+  }
+}

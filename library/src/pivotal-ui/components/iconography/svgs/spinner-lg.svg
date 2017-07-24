@@ -1,0 +1,4 @@
+<svg class="spinner-lg" width="100px" height="100px" viewBox="0 0 101 101" xmlns="http://www.w3.org/2000/svg">
+  <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle>
+  <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%" r="45%"></circle>
+</svg>

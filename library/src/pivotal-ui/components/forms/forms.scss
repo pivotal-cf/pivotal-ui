@@ -1,0 +1,494 @@
+@import "../pui-variables";
+
+/* Forms
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+input:not([type]),
+textarea,
+select {
+  display: block;
+  width: 100%;
+  height: ($base-unit*4);
+  padding: 4px $base-unit;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid $input-border;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: $dark-2;
+}
+
+select {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiM2MDc1ODAiIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4Ij48cGF0aCBkPSJNMjQsNSwxMiwxN2wyLjgzLDIuODNMMjQsMTAuNjZsOS4xNyw5LjE3TDM2LDE3WiIvPjxwYXRoIGQ9Ik0zMy4xNywyOC4xNywyNCwzNy4zNGwtOS4xNy05LjE3TDEyLDMxLDI0LDQzLDM2LDMxWiIvPjwvc3ZnPgo=);
+  background-size: 18px 18px;
+  background-position: right 6px bottom 6px;
+  background-repeat: no-repeat;
+  padding-right: 32px;
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+input:not([type]),
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 65px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input:not([type]):focus,
+textarea:focus,
+select:focus {
+  border: 1px solid $input-border-focus;
+  outline: 0;
+}
+
+fieldset {
+  padding: 0;
+  border-width: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 2px;
+}
+
+.form-group-checkbox {
+  label {
+    display: inline-block;
+    font-weight: 400;
+  }
+}
+
+label,
+legend {
+  color: $dark-2;
+}
+
+html body {
+  input, textarea, select {
+    &.disabled, &:disabled {
+      background-color: $input-disabled;
+      cursor: not-allowed;
+      color: $dark-5;
+      border-color: $input-border;
+    }
+  }
+}
+
+$form-icon-size-lg: 20px;
+$form-icon-padding-lg: (($base-unit*5) - $form-icon-size-lg) / 2;
+$form-icon-size-sm: 12px;
+$form-icon-padding-sm: (($base-unit*3) - $form-icon-size-sm) / 2;
+select, input {
+  :not(input[type="radio"], input[type="checkbox"]) {
+    height: $base-unit * 4;
+  }
+
+  &.input-lg {
+    height: $base-unit * 5;
+    font-size: $font-size-large;
+    & ~ .icon {
+      font-size: $form-icon-size-lg;
+      right: $form-icon-padding-lg;
+      bottom: $form-icon-padding-lg;
+    }
+  }
+
+  &.input-sm {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: $base-unit * 3;
+    font-size: $font-size-small;
+    & ~ .icon {
+      font-size: $form-icon-size-sm;
+      right: $form-icon-padding-sm;
+      bottom: $form-icon-padding-sm;
+    }
+  }
+}
+
+select.input-lg {
+  background-size: 20px 20px;
+  background-position: right 9px bottom 9px;
+}
+
+select.input-sm {
+  background-size: 14px 14px;
+  background-position: right 4px bottom 4px;
+}
+
+.form-control-static {
+  line-height: $pui-line-height-large;
+  margin: 0;
+}
+
+//Form Groupings
+//-------------------------------------
+
+.form-group {
+  margin-bottom: ($base-unit*2);
+  position: relative;
+  label {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: ($base-unit*4);
+    margin-bottom: 0;
+    margin-right: $base-unit;
+    .icon {
+      pointer-events: initial;
+      position: relative;
+      font-size: 16px;
+      bottom: 0;
+      right: 0;
+    }
+    &.label-sm {
+      font-size: 12px;
+      line-height: ($base-unit *3)
+    }
+    &.label-lg {
+      font-size: 16px;
+      line-height: ($base-unit *5)
+    }
+  }
+
+  .dropdown .icon:not(.icon-toggle) {
+    pointer-events: initial;
+    position: relative;
+    font-size: 16px;
+    bottom: 0;
+    right: 0;
+  }
+
+  //Validation Icons
+  $form-icon-size: 18px;
+  $form-icon-padding: (($base-unit*4) - $form-icon-size) / 2;
+
+  .icon {
+    pointer-events: none;
+    position: absolute;
+    right: $form-icon-padding;
+    bottom: $form-icon-padding;
+    font-size: $form-icon-size;
+    svg {
+      fill:$dark-5;
+    }
+    &.valid,
+    &.invalid {
+      position: absolute;
+      right: $base-unit;
+      top: $base-unit;
+      font-size: 16px;
+    }
+    &.valid svg {
+      fill: $input-border-valid;
+    }
+    &.invalid svg {
+      fill: $input-border-invalid;
+    }
+  }
+
+  .btn-icon .icon {
+    pointer-events: initial;
+    position: relative;
+    right: inherit;
+    bottom: inherit;
+    svg {
+      fill: inherit;
+    }
+    &.valid,
+    &.invalid {
+      position: relative;
+      right: inherit;
+      top: inherit;
+      font-size: $form-icon-size;
+    }
+    &.valid svg {
+      fill: inherit;
+    }
+    &.invalid svg {
+      fill: inherit;
+    }
+  }
+}
+
+.form-group-search {
+  position: relative;
+  .icon {
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    font-size: 18px;
+  }
+  input {
+    padding-left: 32px;
+  }
+}
+
+.form-lg {
+  label {
+    font-size: 16px;
+    line-height: 40;
+  }
+  input {
+    height: ($base-unit*5);
+    font-size: 16px;
+  }
+  .icon {
+    font-size: $form-icon-size-lg;
+    right: $form-icon-padding-lg;
+    bottom: $form-icon-padding-lg;
+  }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  position: relative; // override bootstrap
+  margin-left: 0; // override bootstrap
+  margin-top: 0; // override bootstrap
+  display: inline-block;
+  height: $font-size-small;
+  width: $font-size-small;
+  margin-right: $base-unit / 2;
+}
+
+.radio-inline,
+.checkbox-inline {
+  padding-left: 0; //override bootstrap
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-left: $base-unit;
+}
+
+.form-inline.form-lg {
+  label {
+    line-height: ($base-unit*5);
+  }
+}
+
+.form-inline {
+  display: inline-flex;
+  vertical-align: top;
+  &:not(.col) + .form-inline {
+    margin-left: ($base-unit*2);
+  }
+  &:not(.col) + .btn {
+    margin-left: ($base-unit*2);
+  }
+  label {
+    margin-right: $base-unit;
+    line-height: ($base-unit*4);
+  }
+  .help-block {
+    right:0;
+  }
+}
+
+
+
+//Accept & Error (valid/invalid)
+input[type="email"].invalid,
+input[type="number"].invalid,
+input[type="search"].invalid,
+input[type="text"].invalid,
+input[type="tel"].invalid,
+input[type="url"].invalid,
+input[type="password"].invalid,
+input[type="date"].invalid,
+input:not([type]).invalid,
+textarea.invalid {
+  border: 1px solid $input-border-invalid;
+}
+
+input[type="email"].valid,
+input[type="number"].valid,
+input[type="search"].valid,
+input[type="text"].valid,
+input[type="tel"].valid,
+input[type="url"].valid,
+input[type="password"].valid,
+input[type="date"].valid,
+input:not([type]).valid,
+textarea.valid {
+  border: 1px solid $input-border-valid;
+}
+
+.help-block {
+  position: absolute;
+  bottom: -$base-unit * 2;
+  font-size: $font-size-extra-small;
+  line-height: $base-unit * 2;
+}
+
+.has-error {
+  .help-block {
+    color: $input-invalid-text;
+  }
+
+  input, textarea, select {
+    border-color: $input-invalid-text;
+  }
+}
+
+// Toggle
+//-------------------------------------
+
+.toggle-switch {
+  position: absolute;
+  visibility: hidden;
+
+  + label {
+    position: relative;
+    display: block;
+    background-color: $neutral-7;
+    color: $neutral-1;
+    transition: background 0.4s;
+    cursor: pointer;
+    outline: none;
+    text-indent: -99999px;
+
+    &.small {
+      height: $toggle-small-height;
+      width: $toggle-small-width;
+      border-radius: $toggle-small-height;
+
+      &:after {
+        height: $toggle-small-circle-size;
+        width: $toggle-small-circle-size;
+
+        top: $toggle-small-circle-spacing;
+        left: $toggle-small-circle-spacing;
+        bottom: $toggle-small-circle-spacing;
+      }
+    }
+
+    &.medium {
+      height: $toggle-medium-height;
+      width: $toggle-medium-width;
+      border-radius: $toggle-medium-height;
+
+      &:after {
+        height: $toggle-medium-circle-size;
+        width: $toggle-medium-circle-size;
+
+        top: $toggle-medium-circle-spacing;
+        left: $toggle-medium-circle-spacing;
+        bottom: $toggle-medium-circle-spacing;
+      }
+    }
+
+    &.large {
+      height: $toggle-large-height;
+      width: $toggle-large-width;
+      border-radius: $toggle-large-height;
+
+      &:after {
+        height: $toggle-large-circle-size;
+        width: $toggle-large-circle-size;
+
+        top: $toggle-large-circle-spacing;
+        left: $toggle-large-circle-spacing;
+        bottom: $toggle-large-circle-spacing;
+      }
+    }
+
+    &:after {
+      position: absolute;
+      display: block;
+      background-color: $neutral-11;
+      transition: margin 0.4s, background 0.4s;
+      content: "";
+      border-radius: 50%;
+    }
+  }
+
+  &:checked + label {
+    background-color: $blue-2;
+  }
+
+  &:checked + label.small:after {
+    margin-left: $toggle-small-circle-size;
+  }
+
+  &:checked + label.medium:after {
+    margin-left: $toggle-medium-circle-size;
+  }
+
+  &:checked + label.large:after {
+    margin-left: $toggle-large-circle-size;
+  }
+
+  &[disabled] + label {
+    opacity: .5;
+    
+    // IE8 filter
+    filter: alpha(opacity=50);
+  }
+}
+
+// Input Icons
+//-------------------------------------
+.form-group-left-icon {
+  input {
+    padding-left: 32px;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+  }
+}
+
+.form-group-right-icon {
+  input {
+    padding-right: 32px;
+  }
+}
+
+.input-wrapper {
+  position: relative
+}
+

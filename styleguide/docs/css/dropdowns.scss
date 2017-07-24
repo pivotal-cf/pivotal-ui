@@ -1,0 +1,365 @@
+/*doc
+---
+title: Dropdowns
+name: dropdown
+categories:
+ - css_components_dropdowns
+ - css_all
+---
+
+<code class="pam">
+<img src="/styleguide/download.svg" width="16" height="16"/>
+npm install pui-css-dropdowns --save
+</code>
+
+A dropdown can be used to hide a list of actions or links under a clickable toggle. A dropdown is
+not part of a form so it does not need to be submitted in order to take effect.
+*/
+
+/*doc
+---
+title: Basic Dropdown
+name: 1_basic_dropdown
+parent: dropdown
+---
+
+This is the basic dropdown. It has an attached menu that extends from the bottom.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown form-control">
+    <div tabindex="0" class="dropdown-toggle">
+      Basic Dropdown
+      <div class="icon icon-middle icon-toggle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="dropdown-menu">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Float Dropdown Menu
+name: 2_float_dropdown_menu
+parent: dropdown
+---
+
+The float dropdown menu is spaced 2px below the toggle. It can also be pinned to the left or right for content that
+exceeds the parent dropdown width.
+
+```html_example
+<div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <div tabindex="0" class="dropdown-toggle">
+        Float Dropdown Menu
+        <div class="icon icon-middle icon-toggle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="dropdown-menu dropdown-menu-float">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <div tabindex="0" class="dropdown-toggle">
+        Pinned Left
+        <div class="icon icon-middle icon-toggle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
+        <ul>
+          <li>
+            <a href="#">Note that this option exceeds the width of the parent dropdown toggle</a>
+          </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <div tabindex="0" class="dropdown-toggle">
+        Pinned Right
+        <div class="icon icon-middle icon-toggle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="dropdown-menu dropdown-menu-float dropdown-menu-right">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </diœv>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Float Scroll Menu
+name: 3_float_scroll_menu
+parent: dropdown
+---
+
+Lists that are indeterminately long can utilize the float scroll menu. The size is
+fixed so you'll have to customize the fixed height to achieve your desired results.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown">
+    <div tabindex="0" class="dropdown-toggle">
+      Scroll List Items
+        <div class="icon icon-middle icon-toggle">
+          <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+            <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+          </svg>
+        </div>
+    </div>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-scroll">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Split Dropdown
+name: 4_split_dropdown
+parent: dropdown
+---
+
+Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the
+focused state. Only appropriate as a float menu.
+
+```html_example
+<div class="form-group form-inline">
+  <div class="dropdown dropdown-split dropdown-icon">
+      <div tabindex="0" type="button" class="dropdown-toggle"></div>
+      <div class="icon icon-middle icon-toggle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
+      <div class="dropdown-menu dropdown-menu-float">
+          <ul>
+            <li> <a href="#">lorem ipsum</a> </li>
+            <li> <a href="#">lorem ipsum</a> </li>
+            <li> <a href="#">lorem ipsum</a> </li>
+          </ul>
+      </div>
+      <a class="dropdown-label type-ellipsis" href="#">Split Dropdown</div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Flat Dropdown
+name: 5_flat_dropdown
+parent: dropdown
+---
+
+Dropdown with the flat button styling.
+
+```html_example
+<div class="form-group form-inline">
+  <div class="dropdown dropdown-flat form-control">
+    <div tabindex="0" class="dropdown-toggle">
+      Flat Button Dropdown
+      <div class="icon icon-middle icon-toggle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="dropdown-menu dropdown-menu-float">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Link Dropdown
+name: 6_link_dropdown
+parent: dropdown
+---
+
+Dropdown with the link styling, retains dropdown padding.
+
+```html_example
+<div class="form-group form-inline">
+  <div class="dropdown dropdown-link">
+    <div tabindex="0" class="dropdown-toggle">
+      <span>Link Dropdown</span>
+      <div class="icon icon-middle icon-toggle">
+        <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="dropdown-menu dropdown-menu-float">
+      <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Icon Dropdown
+name: 7_icon_dropdown
+parent: dropdown
+---
+
+A dropdown with no title and just a toggle icon.
+
+```html_example
+<div class="form-group">
+  <div class="dropdown dropdown-icon-only">
+    <div tabindex="0" class="dropdown-toggle">
+      <div class="icon icon-middle icon-toggle">
+        <svg class="icon-more_vert" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+          <path d="M24 16c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 4c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="dropdown-menu dropdown-menu-float dropdown-menu-left">
+      <ul>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+        <li> <a href="#">lorem ipsum</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+```
+*/
+
+/*doc
+---
+title: Sizing
+name: 8_dropdown_sizing
+parent: dropdown
+---
+
+Apply the classes .dropdown-lg or .dropdown-sm to the .dropdown element to change the size of the dropdown.
+These modifiers will apply to all of the variations above.
+
+```html_example
+<div>
+  <div class="form-group form-inline">
+    <div class="dropdown dropdown-lg">
+      <div tabindex="0" class="dropdown-toggle">
+        Large Dropdown
+        <div class="icon icon-middle icon-toggle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown">
+      <div tabindex="0" class="dropdown-toggle">
+        Normal Dropdown
+        <div class="icon icon-middle icon-toggle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="form-group form-inline">
+    <div class="dropdown dropdown-sm">
+      <div tabindex="0" class="dropdown-toggle">
+        Small Dropdown
+        <div class="icon icon-middle icon-toggle">
+            <svg class="icon-chevron_down" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+              <path d="M33.17 17.17L24 26.34l-9.17-9.17L12 20l12 12 12-12z"></path>
+            </svg>
+          </div>
+      </div>
+      <div class="dropdown-menu">
+        <ul>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+          <li> <a href="#">lorem ipsum</a> </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+```
+*/

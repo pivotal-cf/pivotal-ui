@@ -1,0 +1,35 @@
+@import "../pui-variables";
+
+.progress {
+  background-color: $navy-9;
+
+  overflow: hidden;
+
+  min-height: 10px;
+}
+
+.progress-bar {
+  -webkit-transition: width .6s ease;
+  transition: width .6s ease;
+
+  background: $blue-3;
+
+  min-height: 10px;
+
+  .label {
+    margin-left: 7px;
+    font-size: 14px;
+    font-weight: 900;
+  }
+}
+
+.progress-bar[aria-valuenow="1"],
+.progress-bar[aria-valuenow="2"] {
+  min-width: 3%;
+}
+
+.progress-bar[aria-valuenow="0"] {
+  color: $text-color;
+  min-width: 3%;
+  background: transparent;
+}

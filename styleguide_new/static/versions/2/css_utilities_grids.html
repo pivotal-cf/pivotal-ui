@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Pivotal UI CSS: Grids</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="pivotal-ui.css">
+    <link rel="stylesheet" href="styleguide/styleguide.css">
+    <link rel="stylesheet" href="styleguide/github.css">
+    <link rel="stylesheet" disabled href="prismjs/prism.css">
+    <link rel="stylesheet" href="prismjs/prism-okaidia.css">
+    <link rel="shortcut icon" href="styleguide/favicon.ico" type="image/x-icon">
+    <script>
+      var _prum = [['id', '5591b4ebabe53d4955475a76'],
+        ['mark', 'firstbyte', (new Date()).getTime()]];
+      (function() {
+        var s = document.getElementsByTagName('script')[0]
+                , p = document.createElement('script');
+        p.async = 'async';
+        p.src = '//rum-static.pingdom.net/prum.min.js';
+        s.parentNode.insertBefore(p, s);
+      })();
+    </script>
+
+    <script src="pivotal-ui-react.js"></script>
+    <script>
+      if (window.callPhantom) {
+        (function() {
+          var firstScript = document.getElementsByTagName('script')[0];
+          var reactA11yScript = document.createElement('script');
+          reactA11yScript.async = 'async';
+          reactA11yScript.src = 'react-a11y-script.js';
+          firstScript.parentNode.insertBefore(reactA11yScript, firstScript);
+        })();
+      }
+    </script>
+    <script src="http://fb.me/JSXTransformer-0.12.0.js"></script>
+    <script src="pivotal-ui.js"></script>
+    <script src="zeroclipboard/ZeroClipboard.js"></script>
+    <script src="styleguide/styleguide.js"></script>
+    <script src="styleguide/styleguide-react.js"></script>
+
+    <script>
+
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+
+              m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-39702075-1', 'auto');
+
+      ga('send', 'pageview');
+
+    </script>
+  </head>
+  <body>
+    <nav class="styleguide-header">
+      <div>
+        <a href="#skipnav" class="visible-on-focus btn btn-default">Skip to Main Content</a>
+      </div>
+      
+      
+      
+      <div class="phxl pvl">
+        <a href="/" class="type-neutral-1 mvn h2">
+          <span class="logo-type-company em-low">Pivotal</span>
+          <span class="logo-type-app">Styleguide</span>
+        </a>
+      </div>
+      <hr class="mvn">
+      <div class="phxl pvl">
+        <ul class="list-unstyled mbn">
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="getting-started.html">Get Started</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <hr class="mvn">
+      <script>
+        nav = {"CSS":{"Components":{"Forms":"css_components_forms.html","Accordions":"css_components_accordions.html","Alerts":"css_components_alerts.html","Back To Top":"css_components_back-to-top.html","Code":"css_components_code.html","Dropdowns":"css_components_dropdowns.html","Instance Scale":"css_components_instance-scale.html","Maps":"css_components_maps.html","Modals":"css_components_modals.html","Panels":"css_components_panels.html","Progress Bar":"css_components_progress-bar.html","Tabs":"css_components_tabs.html","Tables":"css_components_tables.html","Tooltips":"css_components_tooltips.html","Traffic Lights":"css_components_traffic-lights.html"},"Utilities":{"Alignment":"css_utilities_alignment.html","Colors":"css_utilities_colors.html","Ellipsis":"css_utilities_ellipsis.html","Grids":"css_utilities_grids.html","Hoverable":"css_utilities_hoverable.html","Layout Lists":"css_utilities_layout-lists.html","Media":"css_utilities_media.html","Panes":"css_utilities_panes.html","Print":"css_utilities_print.html","Responsive Utilities":"css_utilities_responsive-utilities.html","Vertical Align":"css_utilities_vertical-align.html","Whitespace":"css_utilities_whitespace.html"},"Base":{"Avatars":"css_base_avatars.html","Backgrounds":"css_base_backgrounds.html","Buttons":"css_base_buttons.html","Button Group":"css_base_button-group.html","Dividers":"css_base_dividers.html","Embeds":"css_base_embeds.html","Iconography":"css_base_iconography.html","Images":"css_base_images.html","Labels":"css_base_labels.html","Links":"css_base_links.html","Lists":"css_base_lists.html","Ribbons":"css_base_ribbons.html","Typography":"css_base_typography.html"}},"React":{"Components":{"Alerts":"react_components_alerts.html","Autocomplete":"react_components_autocomplete.html","Back To Top":"react_components_back-to-top.html","Collapse":"react_components_collapse.html","Dropdowns":"react_components_dropdowns.html","Expander":"react_components_expander.html","Forms":"react_components_forms.html","Modals":"react_components_modals.html","Notifications":"react_components_notifications.html","Panels":"react_components_panels.html","Portals":"react_components_portals.html","Tabs":"react_components_tabs.html"},"Utilities":{"Alignment":"react_utilities_alignment.html","Colors":"react_utilities_colors.html","Ellipsis":"react_utilities_ellipsis.html","Grids":"react_utilities_grids.html","Hoverable":"react_utilities_hoverable.html","Media":"react_utilities_media.html","Panes":"react_utilities_panes.html","Print":"react_utilities_print.html","Responsive Utilities":"react_utilities_responsive-utilities.html","Tile Layout":"react_utilities_tile-layout.html","Whitespace":"react_utilities_whitespace.html"},"Base":{"Buttons":"react_base_buttons.html","Dividers":"react_base_dividers.html","Iconography":"react_base_iconography.html","Images":"react_base_images.html","Labels":"react_base_labels.html","Lists":"react_base_lists.html","Ribbons":"react_base_ribbons.html","Tables":"react_base_tables.html","Tooltips":"react_base_tooltips.html","Typography":"react_base_typography.html"}}};
+      </script>
+      <div id="styleguide-navbar"></div>
+    </nav>
+    <main id="skipnav">
+      
+        <div class="container ptl phxxl">
+          <section class="content">
+      
+
+
+<h1 id="grid" class="styleguide">Grids</h1>
+
+<ul class="section-nav">
+  <li><a href="#01_grid_intro">Introduction</a></li>
+  <li><a href="#02_grid_media_queries">Media Queries</a></li>
+  <li><a href="#03_grid_sizes">Grid Sizes</a></li>
+  <li><a href="#04_grid_examples">Examples</a></li>
+  <li><a href="#04_grid_gutter_sizes">Gutter Sizes</a></li>
+  <li><a href="#08_grid_column_resets">Responsive Column Resets</a></li>
+  <li><a href="#09_grid_offsetting">Offsetting Columns</a></li>
+  <li><a href="#10_grid_ordering">Column Ordering</a></li>
+</ul>
+<p class="styleguide"><code class="pam">
+<i class="fa fa-download" alt="Install the Component">
+npm install pui-css-grids --save
+</i>
+</code></p>
+<p class="h3">
+  Pivotal ui (via bootstrap) includes a responsive, <strong>mobile first</strong> fluid grid system that
+  appropriately scales up to 24 columns as the device or viewport size increases.
+  To work with the system, you need to <strong>treat mobile as your default</strong>
+  and build more complex layouts up from there.
+</p>
+
+<h2 id="01_grid_intro" class="styleguide">Introduction</h2>
+<p class="styleguide">Grid systems are used for creating page layouts through a series of rows and columns that house your content.
+Here&#39;s how the bootstrap grid system works:</p><ul class="styleguide"><li><p class="styleguide">Rows must be placed within a <code class="styleguide">.container</code> for proper alignment and padding.</p></li>
+<li><p class="styleguide">Use <code class="styleguide">.row</code> to create horizontal groups of columns.</p></li>
+<li><p class="styleguide">Content should be placed within columns (e.g. <code class="styleguide">.col-sm-11</code>, <code class="styleguide">.col-lg-6</code>, etc.).
+Only columns may be immediate children of rows.</p></li>
+</ul><p class="styleguide">Columns are defined by two properties:
+the breakpoint at which they start acting like columns,
+and their relative width (on a scale of 24) beginning at this breakpoint.
+For example:</p><ul class="styleguide"><li><p class="styleguide">A column with the class <code class="styleguide">.col-sm-11</code> will take up 100% of the container
+for devices with screen-width &lt; 768px (the extra small breakpoint),
+and 11/24ths for devices &geq; 768px.</p></li>
+<li><p class="styleguide">A column with the class <code class="styleguide">.col-lg-6</code> will take up 100% of the container
+for devices with &lt; 1200px,
+and 1/4th (6/24ths) for devices &geq; 1200px.</p></li>
+<li><p class="styleguide">3 <code class="styleguide">.col-md-8</code> columns would fill a row for devices &geq; 992px.
+They would each take up their own row on devices &lt; 992px.</p></li>
+<li><p class="styleguide">Use the <code class="styleguide">.col-xs-*</code> classes to use a grid on mobile.</p></li>
+</ul><p class="styleguide">Look to the <a class="styleguide" href="css_all.html#04_grid_examples" title="css_all.html#04_grid_examples">examples</a> for applying these principles to your code.</p>
+<h2 id="02_grid_media_queries" class="styleguide">Media Queries</h2>
+<p class="styleguide">We use the following media queries in our sass files to create the key breakpoints in our grid system.</p><table class="styleguide"> <tr>
+<th>Name</th>
+<th>Size</th>
+<th>Variable Name</th>
+</tr>
+ <tr>
+<td>mobile</td>
+<td></td>
+<td>no media query since this is the default in bootstrap</td>
+</tr>
+<tr>
+<td>x-small</td>
+<td>480px</td>
+<td><code class="styleguide">$screen-xs-min</code></td>
+</tr>
+<tr>
+<td>small</td>
+<td>768px</td>
+<td><code class="styleguide">$screen-sm-min</code></td>
+</tr>
+<tr>
+<td>medium</td>
+<td>992px</td>
+<td><code class="styleguide">$screen-md-min</code></td>
+</tr>
+<tr>
+<td>large</td>
+<td>1200px</td>
+<td><code class="styleguide">$screen-lg-min</code></td>
+</tr>
+<tr>
+<td>x-large</td>
+<td>1800px</td>
+<td><code class="styleguide">$screen-xl-min</code></td>
+</tr>
+ </table>
+<h2 id="03_grid_sizes" class="styleguide">Grid Sizes</h2>
+<p class="styleguide">See how aspects of the bootstrap grid system work across multiple devices with a handy table.</p>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>
+        extra small devices
+        <small>phones (&leq;768px)</small>
+      </th>
+      <th>
+        small devices
+        <small>tablets (&gt;768px)</small>
+      </th>
+      <th>
+        medium devices
+        <small>laptops (&gt;992px)</small>
+      </th>
+      <th>
+        large devices
+        <small>desktops (&gt;1200px)</small>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th class="text-nowrap">grid behavior</th>
+      <td>horizontal at all times</td>
+      <td colspan="3">collapsed to start, horizontal above breakpoints</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">container width</th>
+      <td>none (auto)</td>
+      <td>750px</td>
+      <td>970px</td>
+      <td>1170px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">class prefix</th>
+      <td><code>.col-xs-</code></td>
+      <td><code>.col-sm-</code></td>
+      <td><code>.col-md-</code></td>
+      <td><code>.col-lg-</code></td>
+    </tr>
+    <tr>
+      <th class="text-nowrap"># of columns</th>
+      <td colspan="4">24</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">column width</th>
+      <td>auto</td>
+      <td>~62px</td>
+      <td>~81px</td>
+      <td>~97px</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">gutter width</th>
+      <td colspan="4">30px (15px on each side of a column)</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">nestable</th>
+      <td colspan="4">yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">offsets</th>
+      <td colspan="4">yes</td>
+    </tr>
+    <tr>
+      <th class="text-nowrap">column ordering</th>
+      <td colspan="4">yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="04_grid_examples" class="styleguide">Examples</h2>
+<p class="styleguide">Using a single set of <code class="styleguide">.col-md-*</code> grid classes,
+you can create a basic grid system that starts out stacked on mobile devices and tablet devices
+(the extra small to small range) before becoming horizontal on desktop (medium) devices.
+Place grid columns in any <code class="styleguide">.row</code>.</p>
+<div class="alert alert-warning mbxl">
+  <p>The <code>.grid-show</code> class in the examples is for demo purposes. Don't use it IRL.</p>
+</div>
+<div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+  <div class="col-md-2"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-16"></div>
+  <div class="col-md-8"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-8"></div>
+  <div class="col-md-8"></div>
+  <div class="col-md-8"></div>
+</div>
+
+<div class="row grid-show">
+  <div class="col-md-12"></div>
+  <div class="col-md-12"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-2"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_a_grid_mobile_and_desktop" class="styleguide">Example: Mobile and Desktop</h3>
+<p class="styleguide">Don&#39;t want your columns to simply stack in smaller devices?
+Use the extra small and medium device grid classes by adding <code class="styleguide">.col-xs-*</code> <code class="styleguide">.col-md-*</code> to your columns.
+See the example below for a better idea of how it all works.</p><div class="codeExample">
+  <div class="exampleOutput"><!-- stack the columns on mobile by making one full-width and the other half-width -->
+<div class="row grid-show">
+  <div class="col-xs-24 col-md-16"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+
+<!-- columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+<div class="row grid-show">
+  <div class="col-xs-12 col-md-8"></div>
+  <div class="col-xs-12 col-md-8"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+
+<!-- columns are always 50% wide, on mobile and desktop -->
+<div class="row grid-show">
+  <div class="col-xs-12"></div>
+  <div class="col-xs-12"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="c">&lt;!-- stack the columns on mobile by making one full-width and the other half-width --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-24 col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- columns start at 50% wide on mobile and bump up to 33.3% wide on desktop --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="c">&lt;!-- columns are always 50% wide, on mobile and desktop --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_b_grid_mobile_tablet_desktop" class="styleguide">Example: Mobile, Tablet, Desktops</h3>
+<p class="styleguide">Build on the previous example by creating even more dynamic and powerful layouts
+with tablet <code class="styleguide">.col-sm-*</code> classes.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-24 col-sm-12 col-md-16"></div>
+  <div class="col-xs-12 col-md-8"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-xs-12 col-sm-8"></div>
+  <div class="col-xs-12 col-sm-8"></div>
+  <!-- optional: clear the xs cols if their content doesn't match in height -->
+  <div class="clearfix visible-xs-block"></div>
+  <div class="col-xs-12 col-sm-8"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-24 col-sm-12 col-md-16"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="c">&lt;!-- optional: clear the xs cols if their content doesn't match in height --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h3 id="04_c_grid_column_wrapping" class="styleguide">Example: Column Wrapping</h3>
+<p class="styleguide">If more than 24 columns are placed within a single row, each group of extra columns will,
+as one unit, wrap onto a new line.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-12"></div>
+  <div class="col-xs-12"></div>
+  <div class="col-xs-10"></div>
+  <div class="col-xs-10"></div>
+  <div class="col-xs-5"></div>
+  <div class="col-xs-6"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-10"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-5"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+<p class="styleguide"><strong>note</strong> In the second row, since 10 + 10 + 5 &gt; 24,
+the 5-column-wide div gets wrapped onto a new line as one contiguous unit.
+Subsequent columns continue along the new line.</p>
+<h2 id="04_grid_gutter_sizes" class="styleguide">Gutter Sizes</h2>
+<p class="styleguide">You can change the size of a row&#39;s gutters with these classes.</p><table class="styleguide"> <tr>
+<th>Class</th>
+<th>Padding between columns</th>
+</tr>
+ <tr>
+<td>default</td>
+<td>20px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.row-gutter-md</code></td>
+<td>10px</td>
+</tr>
+<tr>
+<td><code class="styleguide">.row-gutter-sm</code></td>
+<td>5px</td>
+</tr>
+ </table><p class="styleguide">Here&#39;s what the gutters look like in action.</p><div class="codeTable">
+  <table role="presentation">
+    <tbody>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-12" grid-content="Default gutter"></div>
+  <div class="col-md-12" grid-content="Default gutter"></div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Default gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Default gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row row-gutter-md grid-show">
+  <div class="col-md-12" grid-content="Medium gutter"></div>
+  <div class="col-md-12" grid-content="Medium gutter"></div>
+</div></div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-gutter-md grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Medium gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Medium gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+        <tr>
+          <th>
+            <div class="exampleOutput"><div class="row row-gutter-sm grid-show">
+  <div class="col-md-12" grid-content="Small gutter"></div>
+  <div class="col-md-12" grid-content="Small gutter"></div>
+</div>
+</div>
+          </th>
+          <td>
+            <div class="codeBlock" aria-hidden="true">
+              <div class="highlight" data-code-to-copy>
+                <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row row-gutter-sm grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Small gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12"</span> <span class="na">grid-content=</span><span class="s">"Small gutter"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+              </div>
+            </div>
+            <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+              Copy
+            </button>
+          </td>
+        </tr>
+      
+    </tbody>
+  </table>
+</div>
+
+
+<h2 id="08_grid_column_resets" class="styleguide">Responsive Column Resets</h2>
+<p class="styleguide">With the four tiers of grids available you&#39;re bound to run into issues where,
+at certain breakpoints, your columns don&#39;t clear quite right as one is taller than the other.
+To fix that, use a combination of a <code class="styleguide">.clearfix</code>
+and our <a class="styleguide" href="css_all.html#responsive_utilities" title="css_all.html#responsive_utilities">responsive utility classes</a>.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-xs-12 col-sm-6" grid-content="this is a tall column"></div>
+  <div class="col-xs-12 col-sm-6"></div>
+
+  <!-- add the extra clearfix for only the required viewport -->
+  <div class="clearfix visible-xs-block"></div>
+
+  <div class="col-xs-12 col-sm-6"></div>
+  <div class="col-xs-12 col-sm-6"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span> <span class="na">grid-content=</span><span class="s">"this is a tall column"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+  <span class="c">&lt;!-- add the extra clearfix for only the required viewport --&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"clearfix visible-xs-block"</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-xs-12 col-sm-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="09_grid_offsetting" class="styleguide">Offsetting Columns</h2>
+<p class="styleguide">Move columns to the right using <code class="styleguide">.col-md-offset-*</code> classes.
+These classes increase the left margin of a column by <code class="styleguide">*</code> columns.
+For example, <code class="styleguide">.col-md-offset-4</code> moves <code class="styleguide">.col-md-4</code> over four columns.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-8"></div>
+  <div class="col-md-8 col-md-offset-8"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-md-6 col-md-offset-6"></div>
+  <div class="col-md-6 col-md-offset-6"></div>
+</div>
+<div class="row grid-show">
+  <div class="col-md-12 col-md-offset-6"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-8 col-md-offset-8"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-12 col-md-offset-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+
+<h2 id="10_grid_ordering" class="styleguide">Column Ordering</h2>
+<p class="styleguide">Easily change the order of our built-in grid columns
+with <code class="styleguide">.col-md-push-*</code> and <code class="styleguide">.col-md-pull-*</code> modifier classes.
+This is useful if you want to change the order of columns at different screen sizes.</p><div class="codeExample">
+  <div class="exampleOutput"><div class="row grid-show">
+  <div class="col-md-18 col-md-push-6"></div>
+  <div class="col-md-6 col-md-pull-18"></div>
+</div>
+</div>
+  <div class="codeBlock" aria-hidden="true">
+    <div class="highlight" data-code-to-copy>
+      <pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"row grid-show"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-18 col-md-push-6"</span><span class="nt">&gt;&lt;/div&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"col-md-6 col-md-pull-18"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span></pre>
+    </div>
+    <button class="btn btn-default btn-copy" data-btn-copy data-placement="left">
+      Copy
+    </button>
+  </div>
+</div>
+        </section>
+        <footer>
+          Copyright 2015 Pivotal Software, Inc. All Rights Reserved.
+          <p>This documentation generated using <a href="http://github.com/trulia/hologram">Hologram</a>
+        </footer>
+        <a href="#top" class="back-to-top" data-position="back-to-top" aria-label="Back to top"></a>
+      </div>
+    </main>
+  </body>
+</html>
