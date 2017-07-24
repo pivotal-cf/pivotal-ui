@@ -26,14 +26,6 @@
     }
   }
 
-  .icon {
-    pointer-events: none;
-    position: absolute;
-    right: 7px;
-    bottom: 7px;
-    font-size: 18px;
-  }
-
   &.dropdown-split .icon {
     pointer-events: none;
     position: absolute;
@@ -291,6 +283,14 @@
     left: 0;
     z-index: $zindex-dropdown;
   }
+}
+
+.form-group .dropdown .icon {
+  pointer-events: none;
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  font-size: 18px;
 }
 
 .dropdown-notifications {
