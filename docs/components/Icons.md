@@ -47,7 +47,7 @@ example below.
 ::title=Image Example
 ::description=Wrap an image tag with `.icon` to get the same sizing functionality.
 <div class="icon">
-  <img src="styleguide/help.svg">
+  <img src="static/help.svg">
 </div>
 ```
 
