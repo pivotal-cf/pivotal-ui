@@ -1,4 +1,0 @@
-applications:
-- name: styleguide
-  path: ./build
-  buildpack: https://github.com/cloudfoundry-community/staticfile-buildpack
