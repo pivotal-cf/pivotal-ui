@@ -94,9 +94,9 @@ We use [css-critic](https://github.com/cburgmer/csscritic) for visual-diff regre
 
 1. Fork this repo
 1. Make changes
-  - If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
-  - [Document any new components](#documenting-components) in the styleguide and the package README
-  - Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
+    - If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
+    - [Document any new components](#documenting-components) in the styleguide and the package README
+    - Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
 or JS packages (see [component dependencies](#component-dependencies) for more info)
 1. Commit/push to your fork
 1. Please [open up an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues)
