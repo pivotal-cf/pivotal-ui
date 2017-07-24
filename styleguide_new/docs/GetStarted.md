@@ -11,22 +11,19 @@ Once you've played around with some examples and feel comfortable integrating in
 
 ## Using Pivotal UI on your project (with React)
 
-If you're ready to try PUI with React, follow these instructions!
+Using the React components is the recommended approach over CSS/HTML.
 
-Using the React components is the recommended approach over CSS/HTML because:
+- Reusable, maintainable code that is more consistent.
+- Variables for color provide meaning and context ("marketing-header1" vs "teal-23")
+- Cross-browser and responsive issues are handled.
 
-- You have reusable, maintainable code that is more consistent. (compare the React Tabs element to HTML version)
-- Meaningful variables for color mean that you remember why you used a particular color ("marketing-header1" vs "teal-23")
-- Cross-browser and responsive issues are handled for you.
-- It's the future.
-
-**However, you'll need to know a few more technologies. Not enough to write a PHD thesis, but mostly in case things go wrong.
-If you don't know what React, Babel or a transpiler is, follow the links below and then return**
+**However, you'll need to know a few more technologies.
+If you don't know what React, Babel or a transpiler is, follow the links below and then return.**
 
 - [React Overview](http://facebook.github.io/react/)
 - [Babel](https://babeljs.io/)
 
-Ready? We're assuming that you have the following setup on your project:
+Ensure that the following is set up on your project:
 
  - **node**
 
@@ -38,7 +35,7 @@ Ready? We're assuming that you have the following setup on your project:
     npm will be installed as part of node
 
  - **Webpack or Browserify** - Our React modules follow the CommonJS module
-    pattern. You will need to use [Webpack](http://webpack.github.io/) (recommended) or
+    pattern. Use [Webpack](http://webpack.github.io/) (recommended) or
     [Browserify](http://browserify.org/) to compile your javascript for use
     in the browser.
 
@@ -46,7 +43,9 @@ Ready? We're assuming that you have the following setup on your project:
 
  - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
     You will need a transpiler to convert your JSX code into plain javascript
-    for use in the browser. We recommend [Babel](https://babeljs.io/).
+    for use in the browser.
+
+    We recommend [Babel](https://babeljs.io/).
     If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
 
     Getting Babel working can be complicated. To see a sample project with Babel integrated,
@@ -59,7 +58,7 @@ Ready? We're assuming that you have the following setup on your project:
     ```
 
 
-Seem overwhelming? It's time to talk with a front-end dev on the Pivotal team on how to hook this into your project.
+Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to set up Pivotal UI for use in your project.
 
 ### Install
 
@@ -225,14 +224,14 @@ your project.
     dr-frankenstyle <path-to-your-asset-build-folder>
     ```
 
-   **NB - You must rerun Dr. Frankenstyle after you update PUI (or add any
+   **You must rerun Dr. Frankenstyle after you update PUI (or add any
    additional CSS module).**
    
 ## Customizing your PUI build (without React)
 
 If you don't want all of Pivotal UI, you can install only the modules you will
 need. This will make your resultant CSS smaller! Let's say you're building an
-app that only has typography and buttons.
+app that has only typography and buttons.
 
 1. Remove the `pui-css-all` module from your project.
 
