@@ -1,4 +1,4 @@
-export const githubRepo = 'https://github.com/pivotal-cf/pivotal-ui';
+export const githubRepo = 'https://github.com/pivotal-cf/pui-styleguide';
 export const githubBranch = 'master';
 
 export const issueUrl = name => {
