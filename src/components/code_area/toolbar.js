@@ -1,9 +1,9 @@
 import {Icon} from 'pui-react-iconography';
 import {Checkbox} from 'pui-react-checkbox';
-import {githubRepo, githubBranch, issueUrl} from '../../helpers/constants';
+import {githubRepo, issueUrl} from '../../helpers/constants';
 
 export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtmlPreview, isReact}) => {
-  const githubUrl = `${githubRepo}/edit/${githubBranch}/docs/${file}`;
+  const githubUrl = `https://github.com/pivotal-cf/pui-styleguide/edit/master/docs/${file}`;
 
   const reactExtras = showReact ? 'toolbar--icon__checked' : 'toolbar--icon__unchecked';
   const reactClasses = `toolbar--icon ${reactExtras}`;
