@@ -1,8 +1,8 @@
 import {Icon} from 'pui-react-iconography';
 import {Checkbox} from 'pui-react-checkbox';
-import {githubRepo, issueUrl} from '../../helpers/constants';
 
 export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtmlPreview, isReact}) => {
+  const issueUrl = `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=fix(${name})%3A%20description&body=**Steps%20to%20Reproduce**%0A%0A**Expected**%0A${name}%20should%20do%20this%0A%0A**Result**%0A${name}%20do%20not%20do%20this`;;
   const githubUrl = `https://github.com/pivotal-cf/pui-styleguide/edit/master/docs/${file}`;
 
   const reactExtras = showReact ? 'toolbar--icon__checked' : 'toolbar--icon__unchecked';
@@ -21,7 +21,7 @@ export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtm
           <Icon verticalAlign="baseline" src="github" className="toolbar--icon"/>
           <span className="toolbar--label mlm">Edit</span>
         </a>
-        <a className="toolbar--item mlxl type-underline-hover" href={issueUrl(name)} target="_blank">
+        <a className="toolbar--item mlxl type-underline-hover" href={issueUrl} target="_blank">
           <Icon verticalAlign="baseline" src="error_outline" className="toolbar--icon"/>
           <span className="toolbar--label mlm">Issues</span>
         </a>
