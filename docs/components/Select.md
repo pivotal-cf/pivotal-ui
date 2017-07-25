@@ -9,9 +9,9 @@
 
 ## Description
 
-TODO
-
 Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
+
+## Examples
 
 ```html
 ::title=Selects
