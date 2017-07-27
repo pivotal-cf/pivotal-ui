@@ -21,7 +21,7 @@ class App extends React.Component {
 
   updateContent(href) {
     window.history.pushState({}, '', href);
-    ['content', 'toc-sidebar'].forEach(id => document.getElementById(id).scrollTop = 0);
+    document.body.scrollTop = 0;
     const path = window.location.pathname;
     this.setState({content: App.currentContent(path), path: path});
   }
