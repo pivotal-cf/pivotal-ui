@@ -349,6 +349,8 @@ Class                   | Description
 `.tr-no-h-borders`      | Removes inner horizontal borders from the desired .table or table row element.
 `.table-no-ext-borders` | Removes external borders for the entire table when applied to the .table element.
 `.table-no-borders`     | Removes all borders, internal and external, when applied to the .table element.Removes all borders, internal and external, when applied to the .table element.
+`.table-td-pal`         | Applied to table cell to add 8px vertical padding
+`.table-td-paxl`        | Applied to table cell to add 16px vertical padding
 
 # Flex Tables
 
