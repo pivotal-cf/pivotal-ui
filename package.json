@@ -30,7 +30,7 @@
     "mock-promises": "^0.8.2",
     "module": "^1.2.5",
     "net": "^1.0.2",
-    "node-sass": "^4.3.0",
+    "node-sass": "^4.5.3",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "phantomjs-prebuilt": "^2.1.14",

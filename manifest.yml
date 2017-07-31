@@ -1,5 +1,5 @@
 ---
 applications:
-- name: styleguide-redesign-staging
+- name: styleguide
   buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
   command: node ./dist/compiled-server.js
