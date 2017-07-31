@@ -117,4 +117,3 @@ Please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivo
 # Copyright Notice
 
 Copyright 2016 Pivotal Software, Inc. All Rights Reserved.
-
