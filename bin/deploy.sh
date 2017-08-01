@@ -8,7 +8,7 @@ fi
 
 cf api api.run.pivotal.io
 cf auth pivotal-ui@pivotal.io $1
-cf target -o pivotal -s pivotal-ui-staging
+cf target -o pivotal -s pivotal-ui
 
 yarn install --no-progress
 ./node_modules/.bin/webpack --config ./backend_webpack.config.babel.js --progress -p
