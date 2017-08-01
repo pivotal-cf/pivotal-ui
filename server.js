@@ -40,7 +40,9 @@ function renderPage() {
   return ReactDOMServer.renderToString(
     <html>
       <head>
-          <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
+        <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
+
+        <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
       </head>
       <body>
         <div id="root"/>
