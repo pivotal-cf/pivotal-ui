@@ -1,8 +1,0 @@
-manifest.yml
-vendor/ruby
-src/
-.sass-cache/
-config/
-doc_assets/
-node_modules/
-templates/

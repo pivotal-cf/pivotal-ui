@@ -24,13 +24,6 @@ Pivotal UI is split into two projects:
     yarn
     ```
 
-- Styleguide: documentation and tools for building [styleguide.cfapps.io](http://styleguide.cfapps.io/). The styleguide
-depends on library.
-
-    ```
-    ./update_styleguide.sh
-    ```
-
 ## Development
 
 **Note**: It may be convenient to set a [css-critic](https://github.com/cburgmer/csscritic) baseline before
@@ -59,20 +52,6 @@ making any changes. See the section on **Testing** for more details.
 
 **Note**: After running `./node_modules/.bin/gulp sandbox`, copy any images used by the CSS into your 'sandbox/build' directory.
 
-### Styleguide
-
-1. `./update_styleguide.sh`
-1. `cd styleguide`
-1. `./node_modules/.bin/gulp dev`
-1. Navigate to [http://localhost:8000](http://localhost:8000)
-
-**Note**: If you update components, you must rebuild them in the library (`update_styleguide.sh`)
-and then reinstall the node_modules in the styleguide. A simple `yarn` probably will not
-be good enough to get the new changes.
-
-**Note**: If you add any new image or font assets to any CSS packages, you will need to rerun `./node_modules/.bin/gulp dev` to see those
-additions.
-
 ## Testing
 
 1. Install [phantomjs](http://phantomjs.org/)
@@ -94,10 +73,8 @@ We use [css-critic](https://github.com/cburgmer/csscritic) for visual-diff regre
 
 1. Fork this repo
 1. Make changes
-    - If you are making a new component, see our [guidelines for adding new CSS components](#adding-new-components)
-    - [Document any new components](#documenting-components) in the styleguide and the package README
     - Update the `package.json` file of the component you're working on to include any new dependencies - either CSS
-or JS packages (see [component dependencies](#component-dependencies) for more info)
+or JS packages
 1. Commit/push to your fork
 1. Please [open up an issue on Github](https://github.com/pivotal-cf/pivotal-ui/issues)
 1. Submit a PR, and provide a link to the newly created Github issue

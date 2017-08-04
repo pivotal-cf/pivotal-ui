@@ -20,12 +20,6 @@ for detailed instructions.
 
 We use [Concourse](https://wings.concourse.ci/teams/pivotalui/pipelines/pivotal-ui)
 
-## Deploying the Styleguide
-
-The [staging styleguide](http://styleguide-staging.cfapps.io) deploys automatically when your changes are merged into
-development on GitHub and all the tests go green on CI.  The [production styleguide](http://styleguide.pivotal.io/)
-deploys as part of the [release process](#creating-a-new-release).
-
 ## New Components
 
 Once we merge in a PR, it is our responsibility to properly publish new components.
@@ -37,7 +31,6 @@ Once we merge in a PR, it is our responsibility to properly publish new componen
 1. [Publish the module to NPM](#publishing-new-modules).
 1. Add the newly published component as a dependency in the top-level `package.json`.
 1. Add new css modules as dependencies to the `all` css component.
-1. Require/export any new React components in `styleguide/src/pivotal-ui-components.js`.
 
 ### Publishing new modules
 
@@ -67,17 +60,6 @@ again.
 ## Creating a new release
 
 1. Switch to `master` branch
-1. Merge in changes from `development`
-
-1. If you are publishing a major version, Put a copy of the most current major release in `old_styleguides`. Otherwise skip to the next step.
-	1. `cd styleguide`
-	1. Add a link in `docs/other-versions.scss` in the format of 'version x'
-	1. `gulp styleguide-build`
-	1. `rm -rf old_styleguides/x` where `x` is the major version of your release (e.g. 3)
-	1. `cp -r build/ old_styleguides/x`
-	1. `rm -rf old_styleguides/x/y/`, where y is a major release, for all major releases. This removes copies of old styleguides in your current styleguide (the older styleguides should already be stored in `old_styleguides`)
-	1. `gulp ci`
-	1. `cd ../library`
 
 1. In library, run `yarn`
 1. Run `gulp release-prepare`. This will:
@@ -90,7 +72,6 @@ again.
     recent change only
     
 1. Look over `LATEST_CHANGES.md` and clean up. Make sure any API changes are in the `breaking changes` section. Use the good version of `LATEST_CHANGES.md` as the new addition to `CHANGELOG.md`
-1. From root, run `./update_styleguide.sh` to update local versions of components
    
 1. Run `./test.sh` - one final check!
 
@@ -100,7 +81,5 @@ again.
     - Creates a tag for the new version
     - Pushes version bump and new tag to GitHub
     - Publishes all of the updated node packages to npm
-  
-1. From the `styleguide` directory: `gulp styleguide-build && cf push` will push to production. Make sure you are targeting the correct space on CF
 
 1. Merge `master` back into `development`
