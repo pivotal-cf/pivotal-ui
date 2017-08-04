@@ -4,7 +4,7 @@ printf 'Rebuild Pivotal UI library code? [y/N]: '
 read input
 
 if [[ "$input" == "y" || "$input" == "Y" ]]; then
-  pushd ../pivotal-ui/library
+  pushd ../pivotal-ui
     yarn install --no-progress
     gulp build
   popd
