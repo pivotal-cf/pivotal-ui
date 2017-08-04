@@ -51,8 +51,8 @@ gulp css-publish --component <COMPONENT-NAME>
 gulp react-publish --component <COMPONENT-NAME>
 ```
 
-where `<COMPONENT-NAME>` is the name of the folder in `library/src/pivotal-ui/components/`
-or `library/src/pivotal-ui-react/`.
+where `<COMPONENT-NAME>` is the name of the folder in `src/pivotal-ui/components/`
+or `src/pivotal-ui-react/`.
 
 Once you do this initial publishing, you never have to worry about this module
 again.
@@ -61,7 +61,7 @@ again.
 
 1. Switch to `master` branch
 
-1. In library, run `yarn`
+1. Run `yarn`
 1. Run `gulp release-prepare`. This will:
     - Automatically determine the type of release (patch, major, minor)
     - Update the version in `package.json`

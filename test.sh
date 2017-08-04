@@ -2,6 +2,4 @@
 
 set -ex
 
-pushd library
-    ./node_modules/.bin/gulp ci
-popd
+./node_modules/.bin/gulp ci

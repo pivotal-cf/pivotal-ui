@@ -16,7 +16,7 @@ dist/
 npm-debug.log
 .DS_Store
 
-library/sandbox/sandbox.js
+sandbox/sandbox.js
 
 ## CssCritic
 

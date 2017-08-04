@@ -13,14 +13,11 @@ components, or create new ones.
     1. bundler (`gem install bundler`)
     1. node `v7.10.0` or higher ([install instructions](https://nodejs.org/en/))
 
-## Build the projects
+## Build the project
 
-Pivotal UI is split into two projects:
-
-- Library: components that are published to [npm](https://www.npmjs.com).
+Pivotal UI components that are published to [npm](https://www.npmjs.com).
 
     ```
-    cd library
     yarn
     ```
 
@@ -31,11 +28,10 @@ making any changes. See the section on **Testing** for more details.
 
 ### Library
 
-1. `cd library`
 1. `./node_modules/.bin/gulp sandbox`
 1. Open a new session
-1. `touch library/sandbox/sandbox.js`
-1. Build test components in `library/sandbox/sandbox.js` with something like:
+1. `touch sandbox/sandbox.js`
+1. Build test components in `sandbox/sandbox.js` with something like:
 
     ```
     import React from 'react'
@@ -55,7 +51,6 @@ making any changes. See the section on **Testing** for more details.
 ## Testing
 
 1. Install [phantomjs](http://phantomjs.org/)
-1. `cd library`
 1. Run tests in terminal: `./node_modules/.bin/gulp ci`
 1. Run tests in browser: `./node_modules/.bin/gulp jasmine-react` and navigate to [http://localhost:8888](http://localhost:8888)
 
