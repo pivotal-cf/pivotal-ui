@@ -72,5 +72,5 @@ Property | Required | Type | Default | Description
 items      | no | Number   | 1    | The number of page links displayed
 next       | no | Boolean  | true | Option to display a 'next page' button
 prev       | no | Boolean  | true | Option to display a 'previous page' button
-activePage | no | Function |      | Option to make a link styled as 'active'
+activePage | no | Number |      | Option to make a link styled as 'active'
 onSelect   | no | Function |      | Callback that is called on click of a link
