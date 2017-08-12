@@ -2,6 +2,7 @@ import classnames from 'classnames';
 import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
+import sortBy from 'lodash.sortby';
 
 import {Table} from './table-component';
 import {FlexTableHeader} from './flex-table-header';
@@ -40,9 +41,22 @@ export class FlexTable extends Table {
     this.defaultHeader = FlexTableHeader;
   }
 
+  sortedRows = data => {
+    const {sortColumn, sortOrder} = this.state;
+    if (sortOrder === SORT_ORDER.none) return this.rows(data);
+    const sortedData = sortBy(data, datum => {
+      const rankFunction = sortColumn.sortBy || (i => i);
+      return rankFunction(datum[sortColumn.attribute]);
+    });
+
+    if (sortOrder === SORT_ORDER.desc) sortedData.reverse();
+
+    return this.rows(sortedData);
+  };
+
   render() {
     const {sortColumn} = this.state;
-    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, hideHeaderRow, rowProps, ...props} = this.props;
+    let {bodyRowClassName, columns, CustomRow, data, defaultSort, headerRowClassName, hideHeaderRow, rowProps, plugins, ...props} = this.props;
     props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
 
     let header;
