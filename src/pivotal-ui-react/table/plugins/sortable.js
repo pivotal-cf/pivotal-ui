@@ -17,7 +17,17 @@ function updateSort(column, subject) {
   }
 
   subject.setState({sortColumn: column, sortOrder: SORT_ORDER.asc});
-};
+}
+
+function onClickTableHeader(event, {sortable, onClick, onSortableTableHeaderClick}) {
+  if (sortable) onSortableTableHeaderClick(event);
+  if (onClick) onClick(event);
+}
+
+function onKeyDownTableHeader(event, props) {
+  if (event.key !== 'Enter') return;
+  onClickTableHeader(event, props);
+}
 
 export const Sortable = {
   constructor({props: {columns, defaultSort}, subject: {state}}) {
@@ -37,7 +47,11 @@ export const Sortable = {
     }
   },
 
-  beforeRenderHeaders({column, memo, index, subject}) {
+  beforeRenderTable({memo: {defaultSort, ...props}}) {
+    return {...props, className: classnames(props.className, 'table-sortable')};
+  },
+
+  beforeRenderTableHeader({column, memo, subject}) {
     const {sortColumn, sortOrder} = subject.state;
     const {sortable} = column;
     const isSortColumn = column === sortColumn;
@@ -48,12 +62,15 @@ export const Sortable = {
         <Icon verticalAlign="baseline"
               src="arrow_drop_down"/>, null][sortOrder];
     }
+    const onSortableTableHeaderClick = () => updateSort(column, subject);
     return {
       ...memo,
-      className: classnames(memo.className, className),
-      sortable,
-      key: index,
-      onSortableTableHeaderClick: () => updateSort(column, subject)
+      tabIndex: 0,
+      disabled: !sortable,
+      onClick: e => onClickTableHeader(e, {sortable, onClick: memo.onClick, onSortableTableHeaderClick}),
+      onKeyDown: e => onKeyDownTableHeader(e, {sortable, onClick: memo.onClick, onSortableTableHeaderClick}),
+      role: 'button',
+      className: classnames(memo.className, {sortable}, className)
     };
   },
 
@@ -66,16 +83,16 @@ export const Sortable = {
             src="arrow_drop_down"/>, null][sortOrder];
   },
 
-  beforeRenderRows({data, subject}) {
+  beforeRenderRows({memo, subject}) {
     const {sortColumn, sortOrder} = subject.state;
-    if (!sortColumn || sortOrder === SORT_ORDER.none) return data;
-    const sortedData = sortBy(data, datum => {
+    if (!sortColumn || sortOrder === SORT_ORDER.none) return memo;
+    memo = sortBy(memo, datum => {
       const rankFunction = sortColumn.sortBy || (i => i);
       return rankFunction(datum[sortColumn.attribute]);
     });
 
-    if (sortOrder === SORT_ORDER.desc) sortedData.reverse();
+    if (sortOrder === SORT_ORDER.desc) memo.reverse();
 
-    return sortedData;
+    return memo;
   }
 };

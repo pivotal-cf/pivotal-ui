@@ -4,7 +4,6 @@ import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {TableHeader} from './table-header';
 import {TableCell} from './table-cell';
 import {TableRow} from './table-row';
 
@@ -32,7 +31,6 @@ export class Table extends React.Component {
     this.state = {};
     this.defaultCell = TableCell;
     this.defaultRow = TableRow;
-    this.defaultHeader = TableHeader;
 
     this.emit({event: 'constructor', opts: {props}});
   }
@@ -88,13 +86,14 @@ export class Table extends React.Component {
       const className = classnames(headerProps.className, cellClass);
 
       headerProps = this.emit({
-        event: 'beforeRenderHeaders',
-        opts: {column, headerProps, index}, initial: {...headerProps, className}
+        event: 'beforeRenderTableHeader',
+        opts: {column, headerProps, index},
+        initial: {className, ...headerProps, key: index}
       });
 
       const icon = this.emit({event: 'headerIcon', opts: {column}});
 
-      const Header = this.defaultHeader;
+      const Header = this.emit({event: 'tableHeaderElement', initial: 'th'});
       return (<Header {...headerProps}>
         <div>{displayName || attribute}{icon}</div>
       </Header>);
@@ -102,19 +101,38 @@ export class Table extends React.Component {
   };
 
   render() {
-    let {columns, CustomRow, data, defaultSort, plugins, ...props} = this.props;
-    props = mergeProps(props, {className: ['table', 'table-sortable', 'table-data']});
+    let {bodyRowClassName, columns, CustomRow, data, headerRowClassName, hideHeaderRow, rowProps, plugins, ...props} = this.props;
+    props = mergeProps(props, {className: ['table', 'table-data']});
 
-    data = this.emit({event: 'beforeRenderRows', opts: {data}, initial: data});
+    data = this.emit({event: 'beforeRenderRows', initial: data});
     const rows = this.rows(data);
 
-    return (<table {...props}>
-      <thead>
-      <tr>{this.renderHeaders()}</tr>
-      </thead>
-      <tbody>
+    const TableElement = this.emit({event: 'tableElement', initial: 'table'});
+    const TableHeadElement = this.emit({event: 'tableHeadElement', initial: 'thead'});
+    const TableBodyElement = this.emit({event: 'tableBodyElement', initial: 'tbody'});
+    const TableRowElement = this.emit({event: 'tableRowElement', initial: 'tr'});
+
+    props = this.emit({event: 'beforeRenderTable', initial: props});
+    const theadProps = this.emit({event: 'beforeRenderTableHead', initial: {}});
+    const trProps = this.emit({event: 'beforeRenderTableRow', initial: {className: headerRowClassName}});
+    const tbodyProps = this.emit({event: 'beforeRenderTableBody', initial: {}});
+
+    let header;
+    if (!hideHeaderRow) {
+      header = (
+        <TableHeadElement {...theadProps}>
+          <TableRowElement {...trProps}>
+            {this.renderHeaders()}
+          </TableRowElement>
+        </TableHeadElement>
+      );
+    }
+
+    return (<TableElement {...props}>
+      {header}
+      <TableBodyElement {...tbodyProps}>
       {rows}
-      </tbody>
-    </table>);
+      </TableBodyElement>
+    </TableElement>);
   }
 }
