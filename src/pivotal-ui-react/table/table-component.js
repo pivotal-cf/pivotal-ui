@@ -4,9 +4,6 @@ import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import {TableCell} from './table-cell';
-import {TableRow} from './table-row';
-
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Sortable} from './plugins/sortable';
 
@@ -29,8 +26,8 @@ export class Table extends React.Component {
     super(props, context);
 
     this.state = {};
-    this.defaultCell = TableCell;
-    this.defaultRow = TableRow;
+    this.defaultCell = 'td';
+    this.defaultRow = 'tr';
 
     this.emit({event: 'constructor', opts: {props}});
   }
@@ -46,36 +43,48 @@ export class Table extends React.Component {
   }
 
   rows = data => {
-    const {bodyRowClassName, columns, CustomRow, rowProps} = this.props;
+    const {bodyRowClassName, columns, CustomRow} = this.props;
 
     return data.map((rowDatum, rowKey) => {
       const cells = columns.map((opts, key) => {
         const {attribute, CustomCell} = opts;
-        const Cell = CustomCell || this.defaultCell;
+        const Cell = CustomCell || this.emit({event: 'tableCellElement', initial: this.defaultCell});
 
         const cellProps = this.emit({
-          event: 'beforeRenderCell',
+          event: 'beforeRenderTableCell',
           initial: {
+            ...opts,
             key,
             index: rowKey,
             colIndex: key,
             value: rowDatum[attribute],
             rowDatum,
-            ...opts
+            className: classnames(opts.className, opts.cellClass),
           }
         });
+
+        ['attribute', 'cellClass', 'colIndex', 'displayName', 'index', 'headerProps', 'rowDatum', 'sortable', 'sortBy']
+          .forEach(prop => delete cellProps[prop]);
 
         return (<Cell {...cellProps}>{rowDatum[attribute]}</Cell>);
       });
 
-      const Row = CustomRow || this.defaultRow;
-      return (<Row {...{
-        key: rowKey,
-        index: rowKey,
-        className: bodyRowClassName,
-        rowDatum,
-        ...rowProps
-      }}>{cells}</Row>);
+      const Row = CustomRow || this.emit({event: 'tableRowElement', initial: this.defaultRow});
+
+      const baseRowProps = this.props.rowProps || {};
+      const rowProps = this.emit({
+        event: 'beforeRenderTableRow',
+        opts: {rowDatum},
+        initial: {
+          ...baseRowProps,
+          key: rowKey,
+          className: classnames(baseRowProps.className, bodyRowClassName)
+        }
+      });
+
+      ['cellClass'].forEach(prop => delete rowProps[prop]);
+
+      return (<Row {...rowProps}>{cells}</Row>);
     });
   };
 

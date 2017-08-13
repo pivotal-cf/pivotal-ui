@@ -11,13 +11,13 @@ export const FixedWidthColumns = {
     };
   },
 
-  beforeRenderCell({memo}) {
+  beforeRenderTableCell({memo}) {
     const {width} = memo;
     if (!width) return memo;
     return {
       ...memo,
       style: {...memo.style, width},
-      cellClass: classnames(memo.cellClass, 'col-fixed')
+      className: classnames(memo.className, 'col-fixed')
     };
   }
 };

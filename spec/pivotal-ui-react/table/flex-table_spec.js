@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {FlexTable, FlexTableCell, FlexTableRow} from 'pui-react-table';
+import {FlexTable} from 'pui-react-table';
 import {PropTypes} from 'prop-types';
 
 describe('Flex Table', () => {
@@ -153,9 +153,9 @@ describe('Flex Table', () => {
 
           render() {
             return (
-              <FlexTableCell {...{id: 'cell-id', className: 'cell-light', style: {opacity: '0.5'}}}>
+              <div {...{id: 'cell-id', className: 'td col cell-light', style: {opacity: '0.5'}}}>
                 {this.props.value}
-              </FlexTableCell>
+              </div>
             );
           }
         }
@@ -197,9 +197,9 @@ describe('Flex Table', () => {
       beforeEach(() => {
         class CustomRow extends React.Component {
           render() {
-            return (<FlexTableRow id="row-id" className="row-light" style={{opacity: 0.5}}>
+            return (<div id="row-id" className="tr grid row-light" style={{opacity: 0.5}}>
               <span>{this.props.children}</span>
-            </FlexTableRow>);
+            </div>);
           }
         }
         subject::setProps({CustomRow});
@@ -395,37 +395,6 @@ describe('Flex Table', () => {
       it('passes to the body cells', () => {
         expect('.tr:eq(1) .td').toHaveText('some-value');
         expect('.tr:eq(2) .td').toHaveText('some-value');
-      });
-    });
-
-    describe('row datum prop', () => {
-      beforeEach(() => {
-        data = [{
-          guid: 'guid-1',
-          name: 'name-1'
-        }, {
-          guid: 'guid-2',
-          name: 'name-2'
-        }];
-        const CustomRow = ({rowDatum: {guid, name}}) => (
-          <div className="tr">
-            {`[${guid}] ${name}`}
-          </div>
-        );
-        CustomRow.propTypes = {rowDatum: PropTypes.object};
-        const columns = [{
-          attribute: 'guid'
-        }];
-        ReactDOM.render(<FlexTable {...{
-          columns,
-          data,
-          CustomRow
-        }}/>, root);
-      });
-
-      it('passes to the body rows', () => {
-        expect('.tr:eq(1)').toHaveText('[guid-1] name-1');
-        expect('.tr:eq(2)').toHaveText('[guid-2] name-2');
       });
     });
   });

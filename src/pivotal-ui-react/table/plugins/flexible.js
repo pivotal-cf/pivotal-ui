@@ -1,14 +1,6 @@
 import classnames from 'classnames';
 
-import {FlexTableCell} from '../flex-table-cell';
-import {FlexTableRow} from '../flex-table-row';
-
 export const Flexible = {
-  constructor({subject}) {
-    subject.defaultCell = FlexTableCell;
-    subject.defaultRow = FlexTableRow;
-  },
-
   tableElement() {
     return 'div';
   },
@@ -29,6 +21,10 @@ export const Flexible = {
     return 'div';
   },
 
+  tableCellElement() {
+    return 'div';
+  },
+
   beforeRenderTableHead({memo}) {
     return {...memo, className: classnames(memo.className, 'thead')};
   },
@@ -45,7 +41,7 @@ export const Flexible = {
     return {...memo, className: classnames(memo.className, 'th', 'col')};
   },
 
-  beforeRenderTableData({memo}) {
+  beforeRenderTableCell({memo}) {
     return {...memo, className: classnames(memo.className, 'td', 'col')};
   }
 };

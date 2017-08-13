@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Table, TableCell, TableRow} from 'pui-react-table';
+import {Table} from 'pui-react-table';
 import PropTypes from 'prop-types';
 
 describe('Table', () => {
@@ -293,9 +293,9 @@ describe('Table', () => {
 
   describe('with custom column cells', () => {
     beforeEach(() => {
-      const CustomCell = ({value, index, rowDatum}) => <td
-        className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
-      CustomCell.propTypes = {value: PropTypes.any, index: PropTypes.number, rowDatum: PropTypes.object};
+      const CustomCell = ({value}) => <td
+        className="custom">{value}</td>;
+      CustomCell.propTypes = {value: PropTypes.any};
       const columns = [
         {
           attribute: 'title',
@@ -331,40 +331,10 @@ describe('Table', () => {
     });
 
     it('uses custom for the column', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('1-0: foo');
+      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
       expect('tbody tr:nth-of-type(1) > td:eq(0)').toHaveClass('custom');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('3-1: sup');
+      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('sup');
       expect('tbody tr:nth-of-type(2) > td:eq(0)').toHaveClass('custom');
-    });
-  });
-
-  describe('with custom column cells with colIndex', () => {
-    beforeEach(() => {
-      const CustomCell = ({colIndex}) => <td className="custom">{colIndex}</td>;
-      CustomCell.propTypes = {colIndex: PropTypes.number};
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          CustomCell
-        },
-        {
-          attribute: 'instances',
-          CustomCell
-        }
-      ];
-
-      const data = [{title: 'sup'}];
-
-      ReactDOM.render(
-        <Table columns={columns} data={data}/>,
-        root
-      );
-    });
-
-    it('renders the colIndex', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('0');
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
     });
   });
 
@@ -412,15 +382,15 @@ describe('Table', () => {
 
   describe('with a custom table row', () => {
     beforeEach(() => {
-      const CustomRow = ({index, children}) => {
+      const CustomRow = ({children}) => {
         return (
-          <TableRow className={`row-${index}`}>{children}</TableRow>
+          <tr>{children}</tr>
         );
       };
       CustomRow.propTypes = {index: PropTypes.number};
 
       const CustomCell = ({value}) => (
-        <TableCell>Days since Sunday: {(new Date(value)).getDay()}</TableCell>
+        <td>Days since Sunday: {(new Date(value)).getDay()}</td>
       );
       CustomCell.propTypes = {value: PropTypes.any};
 
@@ -460,81 +430,5 @@ describe('Table', () => {
       expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('Days since Sunday: 2');
       expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('Days since Sunday: 3');
     });
-
-    it('respects properties on the custom row', () => {
-      expect('tbody tr:eq(0)').toHaveClass('row-0');
-      expect('tbody tr:eq(1)').toHaveClass('row-1');
-    });
-  });
-});
-
-describe('TableRow', () => {
-  function renderTableRow({children = (<td/>), ...props}) {
-    return ReactDOM.render((
-        <table>
-          <tbody>
-          <TableRow {...props}>
-            {children}
-          </TableRow>
-          </tbody>
-        </table>
-      ), root
-    );
-
-  }
-
-  it('contains the given children', () => {
-    renderTableRow({children: (<td id={'cell-id'}/>)});
-    expect('tr').toExist();
-    expect('tr > td#cell-id').toExist();
-  });
-
-
-  it('adds the additional classes, id and styles to the th', () => {
-    renderTableRow({
-      id: 'row-id',
-      className: 'row-light',
-      style: {opacity: '0.5'}
-    });
-    expect('tr').toHaveClass('row-light');
-    expect('tr').toHaveProp('id', 'row-id');
-    expect('tr').toHaveCss({opacity: '0.5'});
-  });
-});
-
-describe('TableCell', () => {
-  function renderTableCell({children, ...props}) {
-    return ReactDOM.render((
-        <table>
-          <tbody>
-          <tr>
-            <TableCell {...props}>
-              {children}
-            </TableCell>
-          </tr>
-          </tbody>
-        </table>
-      ), root
-    );
-
-  }
-
-  it('contains the given children', () => {
-    renderTableCell({children: (<p>This is my text</p>)});
-    expect('td').toExist();
-    expect('td > p').toExist();
-    expect('td > p').toContainText('This is my text');
-  });
-
-  it('adds the additional classes, id and styles to the th', () => {
-    renderTableCell({
-      id: 'cell-id',
-      className: 'cell-light',
-      style: {opacity: '0.5'},
-      colIndex: 1
-    });
-    expect('td').toHaveClass('cell-light');
-    expect('td').toHaveProp('id', 'cell-id');
-    expect('td').toHaveCss({opacity: '0.5'});
   });
 });
