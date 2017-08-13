@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
+import {TableCell} from './table-cell';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
 import {Sortable} from './plugins/sortable';
@@ -40,29 +41,20 @@ export class Table extends React.Component {
 
   emit({event, opts = {}, initial}) {
     return this.props.plugins.reduce((memo, plugin) => plugin[event]
-      ? plugin[event]({...opts, memo, subject: this})
+      ? plugin[event]({...opts, memo, table: this})
       : memo, initial);
   }
 
   cell = (rowDatum, rowKey) => (column, key) => {
-    const {attribute, CustomCell} = column;
-    const Cell = CustomCell || this.emit({event: 'tableCellElement', initial: this.defaultCell});
-
-    const cellProps = this.emit({
-      event: 'beforeRenderTableCell',
-      initial: {
-        ...column,
-        key,
-        rowKey,
-        value: rowDatum[attribute],
-        rowDatum
-      }
-    });
-
-    ['attribute', 'displayName', 'rowKey', 'headerProps', 'rowDatum']
-      .forEach(prop => delete cellProps[prop]);
-
-    return (<Cell {...cellProps}>{rowDatum[attribute]}</Cell>);
+    return <TableCell {...{
+      defaultCell: this.defaultCell,
+      rowDatum,
+      rowKey,
+      column,
+      key,
+      colIndex: key,
+      plugins: this.props.plugins
+    }}/>;
   };
 
   row = (rowDatum, key) => {

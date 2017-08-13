@@ -9,14 +9,14 @@ const SORT_ORDER = {
   none: 2
 };
 
-function updateSort(column, subject) {
-  const {sortColumn} = subject.state;
+function updateSort(column, table) {
+  const {sortColumn} = table.state;
   const isSortColumn = column === sortColumn;
   if (isSortColumn) {
-    return subject.setState({sortOrder: ++subject.state.sortOrder % Object.keys(SORT_ORDER).length});
+    return table.setState({sortOrder: ++table.state.sortOrder % Object.keys(SORT_ORDER).length});
   }
 
-  subject.setState({sortColumn: column, sortOrder: SORT_ORDER.asc});
+  table.setState({sortColumn: column, sortOrder: SORT_ORDER.asc});
 }
 
 function onClickTableHeader(event, {sortable, onClick, onSortableTableHeaderClick}) {
@@ -30,20 +30,20 @@ function onKeyDownTableHeader(event, props) {
 }
 
 export const Sortable = {
-  constructor({props: {columns, defaultSort}, subject: {state}}) {
+  constructor({props: {columns, defaultSort}, table: {state}}) {
     state.sortColumn = columns.find(({sortable, attribute}) => {
       return defaultSort ? attribute === defaultSort : sortable;
     });
     state.sortOrder = SORT_ORDER.asc;
   },
 
-  componentWillReceiveProps({props, subject}) {
+  componentWillReceiveProps({props, table}) {
     const {columns, defaultSort} = props;
     if (columns) {
       const sortColumn = columns.find(({sortable, attribute}) => {
         return defaultSort ? attribute === defaultSort : sortable;
       });
-      subject.setState({sortColumn, sortOrder: SORT_ORDER.asc});
+      table.setState({sortColumn, sortOrder: SORT_ORDER.asc});
     }
   },
 
@@ -51,8 +51,8 @@ export const Sortable = {
     return {...props, className: classnames(props.className, 'table-sortable')};
   },
 
-  beforeRenderTableHeader({column, memo, subject}) {
-    const {sortColumn, sortOrder} = subject.state;
+  beforeRenderTableHeader({column, memo, table}) {
+    const {sortColumn, sortOrder} = table.state;
     const {sortable} = column;
     const isSortColumn = column === sortColumn;
     let className, icon;
@@ -62,7 +62,7 @@ export const Sortable = {
         <Icon verticalAlign="baseline"
               src="arrow_drop_down"/>, null][sortOrder];
     }
-    const onSortableTableHeaderClick = () => updateSort(column, subject);
+    const onSortableTableHeaderClick = () => updateSort(column, table);
     return {
       ...memo,
       tabIndex: 0,
@@ -74,8 +74,8 @@ export const Sortable = {
     };
   },
 
-  headerIcon({column, subject}) {
-    const {sortColumn, sortOrder} = subject.state;
+  headerIcon({column, table}) {
+    const {sortColumn, sortOrder} = table.state;
     const isSortColumn = column === sortColumn;
     if (!isSortColumn) return;
     return [<Icon verticalAlign="baseline" src="arrow_drop_up"/>,
@@ -83,8 +83,8 @@ export const Sortable = {
             src="arrow_drop_down"/>, null][sortOrder];
   },
 
-  beforeRenderRows({memo, subject}) {
-    const {sortColumn, sortOrder} = subject.state;
+  beforeRenderRows({memo, table}) {
+    const {sortColumn, sortOrder} = table.state;
     if (!sortColumn || sortOrder === SORT_ORDER.none) return memo;
     memo = sortBy(memo, datum => {
       const rankFunction = sortColumn.sortBy || (i => i);
