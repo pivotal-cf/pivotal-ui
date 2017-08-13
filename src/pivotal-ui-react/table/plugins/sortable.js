@@ -94,5 +94,7 @@ export const Sortable = {
     if (sortOrder === SORT_ORDER.desc) memo.reverse();
 
     return memo;
-  }
+  },
+
+  beforeRenderTableCell: ({memo: {sortable, sortBy, ...props}}) => props
 };

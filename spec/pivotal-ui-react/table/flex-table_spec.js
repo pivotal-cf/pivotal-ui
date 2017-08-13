@@ -25,7 +25,7 @@ describe('Flex Table', () => {
       {
         attribute: 'width',
         displayName: 'SpecifiedWidth',
-        cellClass: 'col-6'
+        className: 'col-6'
       }
     ];
 

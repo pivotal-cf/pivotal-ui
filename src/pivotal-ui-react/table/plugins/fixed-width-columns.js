@@ -1,8 +1,8 @@
 import classnames from 'classnames';
 
 export const FixedWidthColumns = {
-  beforeRenderTableHeader({column, memo}) {
-    let {width} = column;
+  beforeRenderTableHeader({memo, column}) {
+    const {width} = column;
     if (!width) return memo;
     return {
       ...memo,
