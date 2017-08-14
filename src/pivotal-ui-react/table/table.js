@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import {TableCell} from './table-cell';
+import {TableRow} from './table-row';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
 import {Sortable} from './plugins/sortable';
@@ -21,9 +21,7 @@ export class Table extends React.Component {
     plugins: PropTypes.array
   };
 
-  static defaultProps = {
-    plugins: [FixedWidthColumns, Sortable]
-  };
+  static defaultProps = {plugins: [FixedWidthColumns, Sortable]};
 
   constructor(props, context) {
     super(props, context);
@@ -45,40 +43,15 @@ export class Table extends React.Component {
       : memo, initial);
   }
 
-  cell = (rowDatum, rowKey) => (column, key) => {
-    return <TableCell {...{
-      defaultCell: this.defaultCell,
-      rowDatum,
-      rowKey,
-      column,
-      key,
-      colIndex: key,
-      plugins: this.props.plugins
+  rows = data => data.map((rowDatum, key) => {
+    const {defaultRow, defaultCell} = this;
+    const {bodyRowClassName, columns, CustomRow, rowProps, plugins} = this.props;
+    return <TableRow {...{defaultRow, defaultCell, bodyRowClassName, columns,
+      CustomRow, rowDatum, key, rowIndex: key, rowProps, plugins
     }}/>;
-  };
+  });
 
-  row = (rowDatum, key) => {
-    const {bodyRowClassName, columns, CustomRow} = this.props;
-
-    const Row = CustomRow || this.emit({event: 'tableRowElement', initial: this.defaultRow});
-
-    const baseRowProps = this.props.rowProps || {};
-    const rowProps = this.emit({
-      event: 'beforeRenderTableRow',
-      opts: {rowDatum},
-      initial: {
-        ...baseRowProps,
-        key: key,
-        className: classnames(baseRowProps.className, bodyRowClassName)
-      }
-    });
-
-    return (<Row {...rowProps}>{columns.map(this.cell(rowDatum, key))}</Row>);
-  };
-
-  rows = data => data.map(this.row);
-
-  header = (column, index) => {
+  renderHeaders = () => this.props.columns.map((column, index) => {
     const {attribute, displayName, className} = column;
 
     const baseHeaderProps = column.headerProps || {};
@@ -98,9 +71,7 @@ export class Table extends React.Component {
     return (<Header {...headerProps}>
       <div>{displayName || attribute}{icon}</div>
     </Header>);
-  };
-
-  renderHeaders = () => this.props.columns.map(this.header);
+  });
 
   render() {
     const {bodyRowClassName, columns, CustomRow, data: initialData, headerRowClassName, hideHeaderRow, rowProps, plugins, ...baseProps} = this.props;
