@@ -13,7 +13,7 @@ export default (file, name) => class extends Component {
 
     let props;
 
-    if (customRenderLanguages.includes(lang)) {
+    if (customRenderLanguages.indexOf(lang) !== -1) {
       const rawContent = children[0];
 
       const lines = rawContent.split('\n');
@@ -21,19 +21,19 @@ export default (file, name) => class extends Component {
       let description = '';
       let noToolbar = false;
 
-      if (lines[0].startsWith('::title=')) {
+      if (lines[0].indexOf('::title=') === 0) {
         title = lines[0];
         lines.splice(0, 1);
         title = title.replace('::title=', '');
       }
 
-      if (lines[0].startsWith('::description=')) {
+      if (lines[0].indexOf('::description=') === 0) {
         description = lines[0];
         lines.splice(0, 1);
         description = description.replace('::description=', '');
       }
 
-      if (lines[0].startsWith('::noToolbar')) {
+      if (lines[0].indexOf('::noToolbar') === 0) {
         noToolbar = true;
         lines.splice(0, 1);
       }

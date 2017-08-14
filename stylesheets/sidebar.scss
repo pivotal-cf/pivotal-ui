@@ -7,13 +7,14 @@ $active-item-border-size: $base-unit / 2;
 .sidebar {
   background-color: $navy-11;
   width: 208px;
-  height: 100%;
   color: $gray-3;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 40px;
   position: fixed;
   top: 0;
+  bottom: 0;
+  left: 0;
 
   .panel {
     border: 0;

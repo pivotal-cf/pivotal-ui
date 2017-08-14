@@ -1,7 +1,11 @@
 #app .content {
-  background-color: white;
   padding: 32px;
-  margin-left: 208px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 208px;
+  overflow-y: scroll;
 
   h3, h4, h5, h6 {
     margin: 0;

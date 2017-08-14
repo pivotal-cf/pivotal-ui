@@ -64,8 +64,8 @@ export default class Sidebar extends React.PureComponent {
                        link="faq"
                        text="FAQ"
                        active={'/faq' === this.props.activePath}/>
-          <Collapse className={componentLinks.includes(this.props.activePath) ? 'active' : ''}
-                    defaultExpanded={componentLinks.includes(this.props.activePath)}
+          <Collapse className={componentLinks.indexOf(this.props.activePath) !== -1 ? 'active' : ''}
+                    defaultExpanded={componentLinks.indexOf(this.props.activePath) !== -1}
                     header="Components">{components}</Collapse>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="upgradeguide"
