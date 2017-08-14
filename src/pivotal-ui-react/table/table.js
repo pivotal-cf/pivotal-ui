@@ -53,33 +53,30 @@ export class Table extends React.Component {
   render() {
     const {bodyRowClassName, columns, CustomRow, data: initialData, headerRowClassName, hideHeaderRow, rowProps, plugins, ...baseProps} = this.props;
 
-    const data = emit(this, {event: 'beforeRenderRows', initial: initialData});
-    const rows = this.rows(data);
-
-    const TableElement = emit(this, {event: 'tableElement', initial: 'table'});
-    const TableHeadElement = emit(this, {event: 'tableHeadElement', initial: 'thead'});
-    const TableBodyElement = emit(this, {event: 'tableBodyElement', initial: 'tbody'});
-    const TableRowElement = emit(this, {event: 'tableRowElement', initial: 'tr'});
+    const Table = emit(this, {event: 'tableElement', initial: 'table'});
+    const Thead = emit(this, {event: 'tableHeadElement', initial: 'thead'});
+    const Tbody = emit(this, {event: 'tableBodyElement', initial: 'tbody'});
+    const Tr = emit(this, {event: 'tableRowElement', initial: 'tr'});
 
     const props = emit(this, {event: 'beforeRenderTable', initial: mergeProps(baseProps, {className: ['table', 'table-data']})});
     const theadProps = emit(this, {event: 'beforeRenderTableHead', initial: {}});
     const trProps = emit(this, {event: 'beforeRenderTableRow', initial: {className: headerRowClassName}});
     const tbodyProps = emit(this, {event: 'beforeRenderTableBody', initial: {}});
 
-    const header = hideHeaderRow || (
-      <TableHeadElement {...theadProps}>
-        <TableRowElement {...trProps}>
-          {this.renderHeaders()}
-        </TableRowElement>
-      </TableHeadElement>
-    );
+    const data = emit(this, {event: 'beforeRenderRows', initial: initialData});
 
-    return (<TableElement {...props}>
-      {header}
-      <TableBodyElement {...tbodyProps}>
-        {rows}
-      </TableBodyElement>
-    </TableElement>);
+    return (<Table {...props}>
+      {hideHeaderRow || (
+        <Thead {...theadProps}>
+          <Tr {...trProps}>
+            {this.renderHeaders()}
+          </Tr>
+        </Thead>
+      )}
+      <Tbody {...tbodyProps}>
+        {this.rows(data)}
+      </Tbody>
+    </Table>);
   }
 }
 
