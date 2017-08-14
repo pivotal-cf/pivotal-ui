@@ -42,4 +42,3 @@ TLDR; Use modifier classes only for simple overrides. For anything more complica
   <p>Base contents</p>
 </Panel>
 ```
-*/
