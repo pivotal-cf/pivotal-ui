@@ -1,4 +1,3 @@
-import classnames from 'classnames';
 import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
@@ -7,6 +6,7 @@ import 'pui-css-tables';
 
 import {emit} from './event-emitter';
 import {TableRow} from './table-row';
+import {TableHeader} from './table-header';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
 import {Sortable} from './plugins/sortable';
@@ -46,27 +46,9 @@ export class Table extends React.Component {
     }}/>;
   });
 
-  renderHeaders = () => this.props.columns.map((column, index) => {
-    const {attribute, displayName, className} = column;
-
-    const baseHeaderProps = column.headerProps || {};
-    const headerProps = emit(this, {
-      event: 'beforeRenderTableHeader',
-      opts: {column, index},
-      initial: {
-        ...baseHeaderProps,
-        className: classnames(baseHeaderProps.className, className),
-        key: index
-      }
-    });
-
-    const icon = emit(this, {event: 'headerIcon', opts: {column}});
-
-    const Header = emit(this, {event: 'tableHeaderElement', initial: 'th'});
-    return (<Header {...headerProps}>
-      <div>{displayName || attribute}{icon}</div>
-    </Header>);
-  });
+  renderHeaders = () => this.props.columns.map((column, key) => (
+    <TableHeader {...{column, key, index: key, table: this}}/>
+  ));
 
   render() {
     const {bodyRowClassName, columns, CustomRow, data: initialData, headerRowClassName, hideHeaderRow, rowProps, plugins, ...baseProps} = this.props;
