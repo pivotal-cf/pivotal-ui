@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
+import emit from './event-emitter';
 import {TableRow} from './table-row';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
@@ -29,18 +30,13 @@ export class Table extends React.Component {
     this.state = {};
     this.defaultCell = 'td';
     this.defaultRow = 'tr';
+    this.emit = emit.bind(this);
 
-    this.emit({event: 'constructor', opts: {props}});
+    this.emit({event: 'tableConstructor', opts: {props}});
   }
 
   componentWillReceiveProps(props) {
-    this.emit({event: 'componentWillReceiveProps', opts: {props}});
-  }
-
-  emit({event, opts = {}, initial}) {
-    return this.props.plugins.reduce((memo, plugin) => plugin[event]
-      ? plugin[event]({...opts, memo, table: this})
-      : memo, initial);
+    this.emit({event: 'tableWillReceiveProps', opts: {props}});
   }
 
   rows = data => data.map((rowDatum, key) => {

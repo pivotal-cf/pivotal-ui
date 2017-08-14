@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
+import emit from './event-emitter';
+
 export class TableCell extends React.Component {
   static propTypes = {
     defaultCell: PropTypes.node,
@@ -14,10 +16,9 @@ export class TableCell extends React.Component {
     plugins: PropTypes.array
   };
 
-  emit({event, opts = {}, initial}) {
-    return this.props.plugins.reduce((memo, plugin) => plugin[event]
-      ? plugin[event]({...opts, memo})
-      : memo, initial);
+  constructor(props) {
+    super(props);
+    this.emit = emit.bind(this);
   }
 
   render() {
