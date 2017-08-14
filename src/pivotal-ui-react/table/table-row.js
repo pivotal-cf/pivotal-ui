@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import emit from './event-emitter';
+import {emit} from './event-emitter';
 import {TableCell} from './table-cell';
 
 export class TableRow extends React.Component {
@@ -20,11 +20,6 @@ export class TableRow extends React.Component {
     rowProps: PropTypes.object,
     plugins: PropTypes.array
   };
-
-  constructor(props) {
-    super(props);
-    this.emit = emit.bind(this);
-  }
 
   cell = (rowDatum, rowKey) => (column, key) => {
     const {defaultCell, plugins} = this.props;
@@ -42,10 +37,10 @@ export class TableRow extends React.Component {
   render() {
     const {defaultRow, bodyRowClassName, columns, CustomRow, rowDatum, rowIndex} = this.props;
 
-    const Row = CustomRow || this.emit({event: 'tableRowElement', initial: defaultRow});
+    const Row = CustomRow || emit(this, {event: 'tableRowElement', initial: defaultRow});
 
     const baseRowProps = this.props.rowProps || {};
-    const rowProps = this.emit({
+    const rowProps = emit(this, {
       event: 'beforeRenderTableRow',
       opts: {rowDatum},
       initial: {

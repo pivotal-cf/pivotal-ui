@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import emit from './event-emitter';
+import {emit} from './event-emitter';
 
 export class TableCell extends React.Component {
   static propTypes = {
@@ -16,21 +16,16 @@ export class TableCell extends React.Component {
     plugins: PropTypes.array
   };
 
-  constructor(props) {
-    super(props);
-    this.emit = emit.bind(this);
-  }
-
   render() {
     const {defaultCell, rowDatum, rowKey, column, colIndex} = this.props;
 
     const {attribute, CustomCell} = column;
-    const Cell = CustomCell || this.emit({
+    const Cell = CustomCell || emit(this, {
       event: 'tableCellElement',
       initial: defaultCell
     });
 
-    const cellProps = this.emit({
+    const cellProps = emit(this, {
       event: 'beforeRenderTableCell',
       initial: {
         ...column,

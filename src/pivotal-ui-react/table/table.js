@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import emit from './event-emitter';
+import {emit} from './event-emitter';
 import {TableRow} from './table-row';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
@@ -30,13 +30,12 @@ export class Table extends React.Component {
     this.state = {};
     this.defaultCell = 'td';
     this.defaultRow = 'tr';
-    this.emit = emit.bind(this);
 
-    this.emit({event: 'tableConstructor', opts: {props}});
+    emit(this, {event: 'tableConstructor', opts: {props}});
   }
 
   componentWillReceiveProps(props) {
-    this.emit({event: 'tableWillReceiveProps', opts: {props}});
+    emit(this, {event: 'tableWillReceiveProps', opts: {props}});
   }
 
   rows = data => data.map((rowDatum, key) => {
@@ -51,7 +50,7 @@ export class Table extends React.Component {
     const {attribute, displayName, className} = column;
 
     const baseHeaderProps = column.headerProps || {};
-    const headerProps = this.emit({
+    const headerProps = emit(this, {
       event: 'beforeRenderTableHeader',
       opts: {column, index},
       initial: {
@@ -61,9 +60,9 @@ export class Table extends React.Component {
       }
     });
 
-    const icon = this.emit({event: 'headerIcon', opts: {column}});
+    const icon = emit(this, {event: 'headerIcon', opts: {column}});
 
-    const Header = this.emit({event: 'tableHeaderElement', initial: 'th'});
+    const Header = emit(this, {event: 'tableHeaderElement', initial: 'th'});
     return (<Header {...headerProps}>
       <div>{displayName || attribute}{icon}</div>
     </Header>);
@@ -72,18 +71,18 @@ export class Table extends React.Component {
   render() {
     const {bodyRowClassName, columns, CustomRow, data: initialData, headerRowClassName, hideHeaderRow, rowProps, plugins, ...baseProps} = this.props;
 
-    const data = this.emit({event: 'beforeRenderRows', initial: initialData});
+    const data = emit(this, {event: 'beforeRenderRows', initial: initialData});
     const rows = this.rows(data);
 
-    const TableElement = this.emit({event: 'tableElement', initial: 'table'});
-    const TableHeadElement = this.emit({event: 'tableHeadElement', initial: 'thead'});
-    const TableBodyElement = this.emit({event: 'tableBodyElement', initial: 'tbody'});
-    const TableRowElement = this.emit({event: 'tableRowElement', initial: 'tr'});
+    const TableElement = emit(this, {event: 'tableElement', initial: 'table'});
+    const TableHeadElement = emit(this, {event: 'tableHeadElement', initial: 'thead'});
+    const TableBodyElement = emit(this, {event: 'tableBodyElement', initial: 'tbody'});
+    const TableRowElement = emit(this, {event: 'tableRowElement', initial: 'tr'});
 
-    const props = this.emit({event: 'beforeRenderTable', initial: mergeProps(baseProps, {className: ['table', 'table-data']})});
-    const theadProps = this.emit({event: 'beforeRenderTableHead', initial: {}});
-    const trProps = this.emit({event: 'beforeRenderTableRow', initial: {className: headerRowClassName}});
-    const tbodyProps = this.emit({event: 'beforeRenderTableBody', initial: {}});
+    const props = emit(this, {event: 'beforeRenderTable', initial: mergeProps(baseProps, {className: ['table', 'table-data']})});
+    const theadProps = emit(this, {event: 'beforeRenderTableHead', initial: {}});
+    const trProps = emit(this, {event: 'beforeRenderTableRow', initial: {className: headerRowClassName}});
+    const tbodyProps = emit(this, {event: 'beforeRenderTableBody', initial: {}});
 
     const header = hideHeaderRow || (
       <TableHeadElement {...theadProps}>
