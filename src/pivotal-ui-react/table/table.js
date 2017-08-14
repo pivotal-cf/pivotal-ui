@@ -30,6 +30,13 @@ const SORT_ORDER = {
   none: 2
 };
 
+function find(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i])) return arr[i];
+  }
+}
+
+
 export class Table extends React.Component {
   static propTypes = {
     bodyRowClassName: PropTypes.string,
@@ -44,7 +51,7 @@ export class Table extends React.Component {
     super(props, context);
     const {columns, defaultSort} = props;
 
-    const sortColumn = columns.find(({sortable, attribute}) => {
+    const sortColumn = find(columns, ({sortable, attribute}) => {
       return defaultSort ? attribute === defaultSort : sortable;
     });
     this.state = {sortColumn, sortOrder: SORT_ORDER.asc};
@@ -55,7 +62,7 @@ export class Table extends React.Component {
 
   componentWillReceiveProps({columns, defaultSort}) {
     if (columns) {
-      const sortColumn = columns.find(({sortable, attribute}) => {
+      const sortColumn = find(columns, ({sortable, attribute}) => {
         return defaultSort ? attribute === defaultSort : sortable;
       });
       this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
@@ -190,7 +197,7 @@ export class FlexTable extends Table {
     super(props, context);
     const {columns, defaultSort} = props;
 
-    const sortColumn = columns.find(({sortable, attribute}) => {
+    const sortColumn = find(columns, ({sortable, attribute}) => {
       return defaultSort ? attribute === defaultSort : sortable;
     });
 
