@@ -54,8 +54,20 @@ describe('lists', () => {
     });
   });
 
-  describe('OrderedList', () => {
+  describe('OrderedList without divider', () => {
     itRenders(OrderedList, '#root ol');
+
+    it('does not add the list-divider class', () => {
+      expect('#root ol').not.toHaveClass('list-divider');
+    });
+  });
+
+  describe('OrderedList with divider', () => {
+    itRenders(OrderedList, '#root ol', {divider: true});
+
+    it('does not add the list-divider class', () => {
+      expect('#root ol').toHaveClass('list-divider');
+    });
   });
 
   describe('Unstyled List', () => {
