@@ -104,15 +104,6 @@
 </div>
 ```
 
-```jsx
-::title=Ordered unstyled list
-<OrderedList unstyled>
-  <ListItem>Item 1</ListItem>
-  <ListItem>Item 2</ListItem>
-  <ListItem>Item 3</ListItem>
-</OrderedList>
-```
-
 # Unordered Lists
 
 ## Example
@@ -121,6 +112,17 @@
 ::title=Unordered
 <div>
     <UnorderedList>
+      <ListItem>feep</ListItem>
+      <ListItem>fop</ListItem>
+      <ListItem>meep</ListItem>
+    </UnorderedList>
+</div>
+```
+
+```jsx
+::title=Unordered unstyled list
+<div>
+    <UnorderedList unstyled>
       <ListItem>feep</ListItem>
       <ListItem>fop</ListItem>
       <ListItem>meep</ListItem>
