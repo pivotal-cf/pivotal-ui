@@ -53,8 +53,6 @@ It can be used with the following modifiers to achieve a variety of effects.
 
 <h1 class="em-high">High emphasis</h1>
 
-<h1 class="em-max">Maximum emphasis</h1>
-
 <h1 class="em-alt">Emphasis alternate</h1>
 ```
 
