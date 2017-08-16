@@ -31,10 +31,7 @@ const defList = (tagName, classNames, childClassNames) => {
   };
 };
 
-export const UnorderedList = defList(
-  'ul', ({unstyled}) => classnames({'list-unordered': !unstyled, 'list-unstyled': unstyled})
-);
-
-export const OrderedList = defList('ol', ({unstyled}) => classnames({'list-unstyled': unstyled}));
+export const UnorderedList = defList('ul', ({unstyled, divider}) => classnames({'list-unordered': !unstyled, 'list-unstyled': unstyled, 'list-divider': divider}));
+export const OrderedList = defList('ol', ({unstyled, divider}) => classnames({'list-unstyled': unstyled, 'list-divider': divider}));
 export const InlineList = defList('ul', ({divider}) => classnames('list-inline', {'list-inline-divider': divider}));
 export const BreadcrumbList = defList('ul', () => classnames('list-breadcrumb'));

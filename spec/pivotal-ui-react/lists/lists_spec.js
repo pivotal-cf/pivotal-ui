@@ -37,11 +37,20 @@ describe('lists', () => {
     });
   }
 
-  describe('UnorderedList', () => {
+  describe('UnorderedList without divider', () => {
     itRenders(UnorderedList, '#root ul');
 
     it('adds list-unordered class', () => {
       expect('#root ul').toHaveClass('list-unordered');
+      expect('#root ul').not.toHaveClass('list-divider');
+    });
+  });
+
+  describe('UnorderList with divider', () => {
+    itRenders(UnorderedList, '#root ul', {'divider': true});
+
+    it('adds list-divider class', () => {
+      expect('#root ul').toHaveClass('list-divider');
     });
   });
 

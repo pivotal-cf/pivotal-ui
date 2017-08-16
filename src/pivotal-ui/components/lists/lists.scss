@@ -35,7 +35,20 @@ ul, ol {
   }
 }
 
-@mixin list-inline-divider($color: $neutral-5) {
+@mixin list-divider($color: $table-border-color) {
+  > li {
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $color;
+    }
+  }
+}
+
+.list-divider {
+  @include  list-divider()
+}
+
+@mixin list-inline-divider($color: $table-border-color) {
   > li {
     line-height: 1em;
 
