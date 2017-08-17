@@ -17,28 +17,21 @@ example below.
 
 ## Examples
 
-```html
+```jsx
 ::title=SVG example
 ::description=An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
-<h1>
-  <div class="icon">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
-    </svg>
-  </div>
-</h1>
-
+<div>
+  <Icon src="help" />
+</div>
 ```
 
-```html
+```jsx
 ::title=Baseline
 ::description=Align SVG to baseline with `.icon-baseline` modifier class.
 <h1>
+  <div>
   Example
-  <div class="icon icon-baseline">
-    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
-      <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm2 34h-4v-4h4v4zm4.13-15.49l-1.79 1.84C26.9 25.79 26 27 26 30h-4v-1c0-2.21.9-4.21 2.34-5.66l2.49-2.52C27.55 20.1 28 19.1 28 18c0-2.21-1.79-4-4-4s-4 1.79-4 4h-4c0-4.42 3.58-8 8-8s8 3.58 8 8c0 1.76-.71 3.35-1.87 4.51z"/>
-    </svg>
+    <Icon src="help" verticalAlign="baseline" />
   </div>
 </h1>
 ```
@@ -51,45 +44,21 @@ example below.
 </div>
 ```
 
-```html_example
+```jsx
 ::title=Spinner
 ::description=Spinner behavior is determined by size. Note that the large spinner moves relatively slowly, whereas the small spinner moves more quickly and dramatically.  In all cases, the base height and width is 1em and is meant to be overwritten with a font-size attribute. The font sizes provided here are meant as suggestions.
-<div class="grid txt-c">
-  <div class="col col-top">
-  <div class="mbl"><code>.spinner-lg</code></div>
-    <div class="icon icon-middle" style="font-size: 96px">
-        <svg class="icon-spinner-lg" width="100px" height="100px" viewBox="0 0 101 101"
-             xmlns="http://www.w3.org/2000/svg">
-            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-        </svg>
-    </div>
+<div className="grid txt-c">
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-lg</code></div>
+    <Icon style={{'font-size': '96px'}} src="spinner-lg" />
   </div>
-  <div class="col col-top">
-    <div class="mbl"><code>.spinner-md</code></div>
-    <div class="icon icon-middle" style="font-size: 48px">
-        <svg class="icon-spinner-md" width="100px" height="100px" viewBox="0 0 101 101"
-             xmlns="http://www.w3.org/2000/svg">
-            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-        </svg>
-    </div>
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-md</code></div>
+    <Icon style={{'font-size': '48px'}} src="spinner-md" />
   </div>
-  <div class="col col-top">
-    <div class="mbl"><code>.spinner-sm</code></div>
-    <div class="icon icon-middle" style="font-size: 16px">
-        <svg class="icon-spinner-sm" width="100px" height="100px" viewBox="0 0 101 101"
-             xmlns="http://www.w3.org/2000/svg">
-            <circle class="ring" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-            <circle class="path" fill="none" stroke-width="10%" stroke-linecap="butt" cx="50%" cy="50%"
-                    r="45%"></circle>
-        </svg>
-    </div>
+  <div className="col col-top">
+    <div className="mbl"><code>.spinner-sm</code></div>
+    <Icon style={{'font-size': '16px'}} src="spinner-sm" />
   </div>
 </div>
 ```
@@ -104,3 +73,12 @@ example below.
 #### CSS Only
 `npm install pui-css-iconography --save`
 
+## Props
+
+Icon
+
+Property           | Required | Type                               | Default  | Description
+-------------------|----------|------------------------------------|----------|------------
+src                | yes      | String                             |          | The name if the icon
+style              | no       | Object                             |          | Styles to apply
+verticalAlign      | no       | oneOf(['middle', 'baseline'])      | 'middle' | Vertical Alignment
