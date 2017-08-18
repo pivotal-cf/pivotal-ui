@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import Pluggable from './pluggable';
+import Pluggable, {useLast} from './pluggable';
 import {newTableRow} from './table-row';
 import {newTableHeader} from './table-header';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
@@ -12,7 +12,12 @@ import {Sortable} from './plugins/sortable';
 export {FixedWidthColumns, Flexible, Sortable};
 
 export function newTable(...plugins) {
-  const reversedPlugins = [...plugins].reverse();
+  const reversedPlugins = [{
+    TableElement: 'table',
+    TableHeadElement: 'thead',
+    TableBodyElement: 'tbody',
+    TableRowElement: 'tr'
+  }, ...plugins].reverse();
   const TableHeader = newTableHeader(...plugins);
   const TableRow = newTableRow(...plugins);
 
@@ -25,10 +30,10 @@ export function newTable(...plugins) {
     render() {
       const {columns, data} = this.props;
 
-      const Table = reversedPlugins.find(plugin => plugin.TableElement).TableElement;
-      const Thead = reversedPlugins.find(plugin => plugin.TableHeadElement).TableHeadElement;
-      const Tbody = reversedPlugins.find(plugin => plugin.TableBodyElement).TableBodyElement;
-      const Tr = reversedPlugins.find(plugin => plugin.TableRowElement).TableRowElement;
+      const Table = useLast({reversedPlugins, type: 'TableElement'});
+      const Thead = useLast({reversedPlugins, type: 'TableHeadElement'});
+      const Tbody = useLast({reversedPlugins, type: 'TableBodyElement'});
+      const Tr = useLast({reversedPlugins, type: 'TableRowElement'});
 
       const headers = columns.map((column, key) =>
         <TableHeader {...{column, key}}/>);
@@ -38,7 +43,7 @@ export function newTable(...plugins) {
 
       return (
         <Pluggable {...{type: 'table', plugins}}>
-          <Table>
+          <Table {...{className: 'table'}}>
             <Thead>
             <Pluggable {...{type: 'tableRow', plugins}}>
               <Tr>{headers}</Tr>
