@@ -117,7 +117,15 @@
 ## Installation & Usage
 
 ## React
-`npm install pui-react-forms --save`
+`npm install pui-react-inputs --save`
+
+`npm install pui-react-select --save`
+
+`npm install pui-react-checkbox --save`
+
+`npm install pui-react-radio --save`
+
+`npm install pui-react-toggle  --save`
 
 ```
 import {Input} from 'pui-react-inputs';
