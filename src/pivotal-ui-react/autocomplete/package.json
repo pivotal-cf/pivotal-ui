@@ -1,14 +1,14 @@
 {
-  "version": "8.3.1",
+  "version": "8.3.2",
   "description": "React autocomplete component",
   "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
     "classnames": "^2.2.0",
     "from": "^0.1.3",
     "prop-types": ">=15.5.6",
-    "pui-css-autocomplete": "=8.3.1",
+    "pui-css-autocomplete": "=8.3.2",
     "pui-cursor": "^3.0.4",
-    "pui-react-mixins": "=8.3.1",
+    "pui-react-mixins": "=8.3.2",
     "scroll-into-view": "^1.3.0",
     "through": "^2.3.8",
     "trie-search": "^1.0.0"

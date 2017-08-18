@@ -91,7 +91,7 @@ gulp.task('release-generate-changelog', () => {
     {transform: commitTransform}
   );
 
-  const oldChangesStream = gulp.src('../CHANGELOG.md')
+  const oldChangesStream = gulp.src('CHANGELOG.md')
     .pipe(map((file, cb) => cb(null, file.contents)));
 
   const latestChangesFileStream = newChangesStream
@@ -101,18 +101,16 @@ gulp.task('release-generate-changelog', () => {
     .pipe(source('CHANGELOG.md'));
 
   return merge(changelogFileStream, latestChangesFileStream)
-    .pipe(gulp.dest('../'));
+    .pipe(gulp.dest('.'));
 });
 
 gulp.task('release-commit', () =>
     execPromise(
       `git add package.json \
-             ../CHANGELOG.md \
-             ../LATEST_CHANGES.md \
+             CHANGELOG.md \
+             LATEST_CHANGES.md \
              src/pivotal-ui/components/*/package.json \
              src/pivotal-ui-react/*/package.json \
-             ../styleguide/old_styleguides \
-             ../styleguide/docs/other-versions.scss \
        && git commit -m "v${getNewVersion()}"`
     )
 );

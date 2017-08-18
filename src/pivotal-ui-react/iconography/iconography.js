@@ -35,7 +35,7 @@ export class Icon extends React.Component {
     const {src, verticalAlign, ...others} = this.props;
     const props = mergeProps(
       others,
-      {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.startsWith('spinner')})}
+      {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.indexOf('spinner') === 0})}
     );
 
     return (<div {...props}>

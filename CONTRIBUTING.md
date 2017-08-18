@@ -17,9 +17,9 @@ components, or create new ones.
 
 Pivotal UI components that are published to [npm](https://www.npmjs.com).
 
-    ```
-    yarn
-    ```
+```
+yarn
+```
 
 ## Development
 
