@@ -1,60 +1,51 @@
-import {Icon} from 'pui-react-iconography';
-import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
-import Pluggable from './pluggable';
 
-import {TableRow} from './table-row';
-import {TableHeader} from './table-header';
+import Pluggable from './pluggable';
+import {newTableRow} from './table-row';
+import {newTableHeader} from './table-header';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
 import {Flexible} from './plugins/flexible';
 import {Sortable} from './plugins/sortable';
 
-function composeTable(...plugins) {
+export {FixedWidthColumns, Flexible, Sortable};
+
+export function newTable(...plugins) {
   const reversedPlugins = [...plugins].reverse();
-  const FooTableHeader = TableHeader(...plugins);
-  const FooTableRow = TableRow(...plugins);
+  const TableHeader = newTableHeader(...plugins);
+  const TableRow = newTableRow(...plugins);
 
   return class extends React.Component {
     static propTypes = {
-      bodyRowClassName: PropTypes.string,
       columns: PropTypes.array.isRequired,
-      CustomRow: PropTypes.func,
-      data: PropTypes.array.isRequired,
-      defaultSort: PropTypes.string,
-      rowProps: PropTypes.object
+      data: PropTypes.array.isRequired
     };
 
-    constructor(props, context) {
-      super(props, context);
-
-      this.state = {};
-    }
-
-    rows = data => data.map((rowDatum, key) => {
-      const {bodyRowClassName, columns} = this.props;
-      return <FooTableRow {...{bodyRowClassName, columns, rowDatum, key, rowIndex: key}}/>;
-    });
-
     render() {
-      const {data} = this.props;
+      const {columns, data} = this.props;
 
-      const Thead = reversedPlugins.find(plugin => plugin.TableHeadElement).TableHeadElement;
-
-      const Tr = reversedPlugins.find(plugin => plugin.TableRowElement).TableRowElement;
-      const Tbody = reversedPlugins.find(plugin => plugin.TableBodyElement).TableBodyElement;
       const Table = reversedPlugins.find(plugin => plugin.TableElement).TableElement;
+      const Thead = reversedPlugins.find(plugin => plugin.TableHeadElement).TableHeadElement;
+      const Tbody = reversedPlugins.find(plugin => plugin.TableBodyElement).TableBodyElement;
+      const Tr = reversedPlugins.find(plugin => plugin.TableRowElement).TableRowElement;
+
+      const headers = columns.map((column, key) =>
+        <TableHeader {...{column, key}}/>);
+
+      const rows = data.map((rowDatum, key) =>
+        <TableRow {...{columns, rowDatum, key}}/>);
+
       return (
-        <Pluggable type="table" {...{plugins}}>
+        <Pluggable {...{type: 'table', plugins}}>
           <Table>
             <Thead>
-              <Pluggable type="tableRow" {...{plugins}}>
-                <Tr>{this.props.columns.map((column, key) => (<FooTableHeader {...{column, key}}/>))}</Tr>
-              </Pluggable>
+            <Pluggable {...{type: 'tableRow', plugins}}>
+              <Tr>{headers}</Tr>
+            </Pluggable>
             </Thead>
-            <Pluggable type="tableBody" {...{plugins}}>
-              <Tbody>{this.rows(data)}</Tbody>
+            <Pluggable {...{type: 'tableBody', plugins}}>
+              <Tbody>{rows}</Tbody>
             </Pluggable>
           </Table>
         </Pluggable>
@@ -63,12 +54,4 @@ function composeTable(...plugins) {
   };
 }
 
-const FlexTable = composeTable(Flexible, FixedWidthColumns /*, Sortable*/);
-export {FlexTable};
-
-// export class FlexTable extends React.Component {
-//   render() {
-//     const plugins = [...Table.defaultProps.plugins, Flexible];
-//     return <Table {...this.props} {...{plugins}}/>
-//   }
-// }
+export const Table = newTable();
