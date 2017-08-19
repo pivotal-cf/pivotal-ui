@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
 
-import Plugins, {useLast} from './plugins';
+import Pluggable, {useLast} from './pluggable';
 import {newTableRow} from './table-row';
 import {newTableHeader} from './table-header';
 import {FixedWidthColumns} from './plugins/fixed-width-columns';
@@ -13,15 +13,15 @@ export {FixedWidthColumns, Flexible, Sortable};
 
 export function newTable(...plugins) {
   const reversedPlugins = [{
-    Table: 'table',
-    Thead: 'thead',
-    Tbody: 'tbody',
-    Tr: 'tr'
+    TableElement: 'table',
+    TableHeadElement: 'thead',
+    TableBodyElement: 'tbody',
+    TableRowElement: 'tr'
   }, ...plugins].reverse();
   const TableHeader = newTableHeader(...plugins);
   const TableRow = newTableRow(...plugins);
 
-  return class Table extends React.Component {
+  return class extends React.Component {
     static propTypes = {
       columns: PropTypes.array.isRequired,
       data: PropTypes.array.isRequired
@@ -30,10 +30,10 @@ export function newTable(...plugins) {
     render() {
       const {columns, data} = this.props;
 
-      const Table = useLast({reversedPlugins, type: 'Table'});
-      const Thead = useLast({reversedPlugins, type: 'Thead'});
-      const Tbody = useLast({reversedPlugins, type: 'Tbody'});
-      const Tr = useLast({reversedPlugins, type: 'Tr'});
+      const Table = useLast({reversedPlugins, type: 'TableElement'});
+      const Thead = useLast({reversedPlugins, type: 'TableHeadElement'});
+      const Tbody = useLast({reversedPlugins, type: 'TableBodyElement'});
+      const Tr = useLast({reversedPlugins, type: 'TableRowElement'});
 
       const headers = columns.map((column, key) =>
         <TableHeader {...{column, key}}/>);
@@ -42,20 +42,20 @@ export function newTable(...plugins) {
         <TableRow {...{columns, rowDatum, key}}/>);
 
       return (
-        <Plugins {...{type: 'table', plugins}}>
+        <Pluggable {...{type: 'table', plugins}}>
           <Table {...{className: 'table'}}>
-            <Plugins {...{type: 'thead', plugins}}>
+            <Pluggable {...{type: 'tableHead', plugins}}>
               <Thead>
-              <Plugins {...{type: 'tr', plugins}}>
+              <Pluggable {...{type: 'tableRow', plugins}}>
                 <Tr>{headers}</Tr>
-              </Plugins>
+              </Pluggable>
               </Thead>
-            </Plugins>
-            <Plugins {...{type: 'tbody', plugins}}>
+            </Pluggable>
+            <Pluggable {...{type: 'tableBody', plugins}}>
               <Tbody>{rows}</Tbody>
-            </Plugins>
+            </Pluggable>
           </Table>
-        </Plugins>
+        </Pluggable>
       );
     }
   };

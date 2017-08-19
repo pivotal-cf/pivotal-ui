@@ -1,36 +1,30 @@
-import React from 'react';
-
-import Plugin from '../plugin';
+import classnames from 'classnames';
+import React, {cloneElement} from 'react';
+import types from 'prop-types';
 
 function Div({id, style, children, className}) {
   return <div {...{id, style, children, className}}/>;
 }
 
-export class Flexible extends Plugin {
-  static Table = Div;
-  static Thead = Div;
-  static Th = Div;
-  static Tbody = Div;
-  static Tr = Div;
-  static Td = Div;
+export class Flexible extends React.Component {
+  static propTypes = {child: types.node.isRequired, target: types.node.isRequired, type: types.string.isRequired};
 
-  thead() {
-    return this.mergeClasses('thead');
-  }
+  static TableElement = Div;
+  static TableHeadElement = Div;
+  static TableHeaderElement = Div;
+  static TableBodyElement = Div;
+  static TableRowElement = Div;
+  static TableCellElement = Div;
 
-  tbody() {
-    return this.mergeClasses('tbody');
-  }
+  tableHead = () => cloneElement(this.props.target, {...this.props, className: classnames(this.props.className, 'thead')});
+  tableBody = () => cloneElement(this.props.target, {...this.props, className: classnames(this.props.className, 'tbody')});
+  tableRow = () => cloneElement(this.props.target, {...this.props, className: classnames(this.props.className, 'tr', 'grid')});
+  tableHeader = () => cloneElement(this.props.child, {...this.props, className: classnames(this.props.className, 'th', 'col')});
+  tableCell = () => cloneElement(this.props.child, {...this.props, className: classnames(this.props.className, 'td', 'col')});
 
-  tr() {
-    return this.mergeClasses('tr', 'grid');
-  }
-
-  th() {
-    return this.mergeClasses('th', 'col');
-  }
-
-  td() {
-    return this.mergeClasses('td', 'col');
+  render = () => {
+    const {child, type} = this.props;
+    if (!this[type]) return child;
+    return this[type]();
   }
 }

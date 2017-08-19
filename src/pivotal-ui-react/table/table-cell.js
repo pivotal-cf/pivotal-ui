@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Plugins, {useLast} from './plugins';
+import Pluggable, {useLast} from './pluggable';
 
 function Td({id, style, children, className}) {
   return <td {...{id, style, children, className}}/>;
 }
 
 export function newTableCell(...plugins) {
-  const reversedPlugins = [{Td}, ...plugins].reverse();
+  const reversedPlugins = [{TableCellElement: Td}, ...plugins].reverse();
 
-  return class TableCell extends React.Component {
+  return class extends React.Component {
     static propTypes = {
       column: PropTypes.object,
       rowDatum: PropTypes.object
@@ -20,13 +20,13 @@ export function newTableCell(...plugins) {
       const {className, rowDatum, column} = this.props;
       const {attribute} = column;
 
-      const Td = useLast({reversedPlugins, type: 'Td'});
+      const Td = useLast({reversedPlugins, type: 'TableCellElement'});
 
       return (
-        <Plugins {...{type: 'td', plugins}}>
+        <Pluggable {...{type: 'tableCell', plugins}}>
           <Td {...{className, column}}>{rowDatum[attribute]}</Td>
-        </Plugins>
+        </Pluggable>
       );
     }
-  };
+  }
 }
