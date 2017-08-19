@@ -7,7 +7,7 @@ function Td({id, style, children, className}) {
   return <td {...{id, style, children, className}}/>;
 }
 
-export function TablnewTableCell(...plugins) {
+export function newTableCell(...plugins) {
   const reversedPlugins = [{Td}, ...plugins].reverse();
 
   return class TableCell extends React.Component {
