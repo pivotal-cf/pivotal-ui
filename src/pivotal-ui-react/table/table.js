@@ -21,7 +21,7 @@ export function newTable(...plugins) {
   const TableHeader = newTableHeader(...plugins);
   const TableRow = newTableRow(...plugins);
 
-  return class extends React.Component {
+  return class Table extends React.Component {
     static propTypes = {
       columns: PropTypes.array.isRequired,
       data: PropTypes.array.isRequired

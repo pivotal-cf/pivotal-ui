@@ -10,7 +10,7 @@ function Th({id, style, children, className}) {
 export function newTableHeader(...plugins) {
   const reversedPlugins = [{Th}, ...plugins].reverse();
 
-  return class extends React.Component {
+  return class TableHeader extends React.Component {
     static propTypes = {
       column: PropTypes.object
     };

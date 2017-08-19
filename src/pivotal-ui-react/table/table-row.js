@@ -8,7 +8,7 @@ export function newTableRow(...plugins) {
   const reversedPlugins = [{Tr: 'tr'}, ...plugins].reverse();
   const TableCell = newTableCell(...plugins);
 
-  return class extends React.Component {
+  return class TableRow extends React.Component {
     static propTypes = {
       columns: PropTypes.array,
       rowDatum: PropTypes.object
