@@ -1,10 +1,14 @@
 import React from 'react';
+import classnames from 'classnames';
 
 import Plugin from '../plugin';
 
 function colFixed() {
-  const {width} = this.props.target.props.column;
-  return {className: {'col-fixed': width}, style: {width}};
+  const {target: {props: {column: {width}}}} = this.props;
+  return this.mergeProps({
+    className: classnames(this.props.className, {'col-fixed': width}),
+    style: {width}
+  });
 }
 
 export class FixedWidthColumns extends Plugin {

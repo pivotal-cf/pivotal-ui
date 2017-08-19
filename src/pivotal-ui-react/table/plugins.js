@@ -1,10 +1,10 @@
 // import flow from 'lodash.flow';
 import React from 'react';
 
-export default function Plugins({reversedPlugins, children, type}) {
+export default function Plugins({plugins, children, type}) {
   const target = React.Children.only(children);
-  return reversedPlugins
-    .filter(Plugin => Plugin.prototype && Plugin.prototype[type])
+  return plugins
+    .filter(Plugin => Plugin.prototype[type])
     .reduce((children, Plugin) => <Plugin {...{child: React.Children.only(children), target, type}}/>, target);
 }
 

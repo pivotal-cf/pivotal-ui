@@ -20,7 +20,7 @@ export function newTableRow(...plugins) {
       const Tr = useLast({reversedPlugins, type: 'Tr'});
 
       return (
-        <Plugins {...{type: 'tr', reversedPlugins}}>
+        <Plugins {...{type: 'tr', plugins}}>
           <Tr>
             {columns.map((column, key) => (
               <TableCell {...{

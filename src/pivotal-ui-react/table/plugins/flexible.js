@@ -9,28 +9,28 @@ function Div({id, style, children, className}) {
 export class Flexible extends Plugin {
   static Table = Div;
   static Thead = Div;
+  static Th = Div;
   static Tbody = Div;
   static Tr = Div;
-  static Th = Div;
   static Td = Div;
 
   thead() {
-    return {className: 'thead'};
+    return this.mergeClasses('thead');
   }
 
   tbody() {
-    return {className: 'tbody'};
+    return this.mergeClasses('tbody');
   }
 
   tr() {
-    return {className: 'tr grid'};
+    return this.mergeClasses('tr', 'grid');
   }
 
   th() {
-    return {className: 'th col'};
+    return this.mergeClasses('th', 'col');
   }
 
   td() {
-    return {className: 'td col'};
+    return this.mergeClasses('td', 'col');
   }
 }
