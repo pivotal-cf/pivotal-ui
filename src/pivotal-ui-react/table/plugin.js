@@ -11,6 +11,6 @@ export default class Plugin extends React.Component {
 
   render() {
     const {child, type, ...rest} = this.props;
-    return cloneElement(child, mergeProps(rest, this[type]()));
+    return cloneElement(child, mergeProps(this.props.target.props, mergeProps(rest, this[type]())));
   }
 }
