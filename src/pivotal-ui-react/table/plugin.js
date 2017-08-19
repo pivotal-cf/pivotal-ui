@@ -17,7 +17,7 @@ export default class Plugin extends React.Component {
 
   mergeClasses(...classes) {
     const {child, className} = this.props;
-    return cloneElement(child, {...child.props, style: this.props.style, className: classnames(className, ...classes)});
+    return cloneElement(child, {...this.props, className: classnames(className, ...classes)});
   }
 
   render = this[this.props.type].bind(this);
