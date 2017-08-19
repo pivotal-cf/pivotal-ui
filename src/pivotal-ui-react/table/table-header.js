@@ -1,16 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Pluggable, {useLast} from './pluggable';
+import Plugins, {useLast} from './plugins';
 
 function Th({id, style, children, className}) {
   return <th {...{id, style, children, className}}/>;
 }
 
 export function newTableHeader(...plugins) {
-  const reversedPlugins = [{TableHeaderElement: Th}, ...plugins].reverse();
+  const reversedPlugins = [{Th}, ...plugins].reverse();
 
-  return class extends React.Component {
+  return class TableHeader extends React.Component {
     static propTypes = {
       column: PropTypes.object
     };
@@ -19,13 +19,13 @@ export function newTableHeader(...plugins) {
       const {column} = this.props;
       const {attribute, displayName, className} = column;
 
-      const Th = useLast({reversedPlugins, type: 'TableHeaderElement'});
+      const Th = useLast({reversedPlugins, type: 'Th'});
 
       return (
-        <Pluggable {...{type: 'tableHeader', plugins}}>
+        <Plugins {...{type: 'th', plugins}}>
           <Th {...{column, className}}>{displayName || attribute}</Th>
-        </Pluggable>
+        </Plugins>
       );
     }
-  }
+  };
 }

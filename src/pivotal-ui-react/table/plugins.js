@@ -1,11 +1,11 @@
 // import flow from 'lodash.flow';
 import React from 'react';
 
-export default function Pluggable({plugins, children, type}) {
+export default function Plugins({plugins, children, type}) {
   const target = React.Children.only(children);
-  return plugins.reduce((children, Component) => {
-    return <Component {...{child: React.Children.only(children), target, type}}/>;
-  }, target);
+  return plugins
+    .filter(Plugin => Plugin.prototype[type])
+    .reduce((children, Plugin) => <Plugin {...{child: React.Children.only(children), target, type}}/>, target);
 }
 
 export function useLast({reversedPlugins, type}) {
