@@ -1,14 +1,12 @@
+import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Pluggable, {useLast} from './pluggable';
-
-function Th({id, style, children, className}) {
-  return <th {...{id, style, children, className}}/>;
-}
+import Pluggable from './pluggable';
 
 export function newTableHeader(...plugins) {
-  const reversedPlugins = [{TableHeaderElement: Th}, ...plugins].reverse();
+  const reversedPlugins = [...plugins].reverse();
 
   return class extends React.Component {
     static propTypes = {
@@ -19,7 +17,7 @@ export function newTableHeader(...plugins) {
       const {column} = this.props;
       const {attribute, displayName, className} = column;
 
-      const Th = useLast({reversedPlugins, type: 'TableHeaderElement'});
+      const Th = reversedPlugins.find(plugin => plugin.TableHeaderElement).TableHeaderElement;
 
       return (
         <Pluggable {...{type: 'tableHeader', plugins}}>

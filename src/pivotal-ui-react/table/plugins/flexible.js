@@ -13,6 +13,7 @@ export const Flexible = {
   TableRowElement: Div,
   TableCellElement: Div,
 
+  table: element => cloneElement(element, {className: classnames(element.props.className, 'table')}),
   tableHead: element => cloneElement(element, {className: classnames(element.props.className, 'thead')}),
   tableBody: element => cloneElement(element, {className: classnames(element.props.className, 'tbody')}),
   tableRow: element => cloneElement(element, {className: classnames(element.props.className, 'tr', 'grid')}),

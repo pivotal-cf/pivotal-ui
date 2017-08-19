@@ -1,14 +1,11 @@
+import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
-
-import Pluggable, {useLast} from './pluggable';
-
-function Td({id, style, children, className}) {
-  return <td {...{id, style, children, className}}/>;
-}
+import Pluggable from './pluggable';
 
 export function newTableCell(...plugins) {
-  const reversedPlugins = [{TableCellElement: Td}, ...plugins].reverse();
+  const reversedPlugins = [...plugins].reverse();
 
   return class extends React.Component {
     static propTypes = {
@@ -20,7 +17,7 @@ export function newTableCell(...plugins) {
       const {className, rowDatum, column} = this.props;
       const {attribute} = column;
 
-      const Td = useLast({reversedPlugins, type: 'TableCellElement'});
+      const Td = reversedPlugins.find(plugin => plugin.TableCellElement).TableCellElement;
 
       return (
         <Pluggable {...{type: 'tableCell', plugins}}>

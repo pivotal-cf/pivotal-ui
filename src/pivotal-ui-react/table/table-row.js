@@ -1,11 +1,13 @@
+import {Icon} from 'pui-react-iconography';
+import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import Pluggable, {useLast} from './pluggable';
+import Pluggable from './pluggable';
 import {newTableCell} from './table-cell';
 
 export function newTableRow(...plugins) {
-  const reversedPlugins = [{TableRowElement: 'tr'}, ...plugins].reverse();
+  const reversedPlugins = [...plugins].reverse();
   const TableCell = newTableCell(...plugins);
 
   return class extends React.Component {
@@ -17,7 +19,7 @@ export function newTableRow(...plugins) {
     render() {
       const {columns, rowDatum} = this.props;
 
-      const Tr = useLast({reversedPlugins, type: 'TableRowElement'});
+      const Tr = reversedPlugins.find(plugin => plugin.TableRowElement).TableRowElement;
 
       return (
         <Pluggable {...{type: 'tableRow', plugins}}>
