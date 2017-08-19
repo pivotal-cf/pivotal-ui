@@ -13,9 +13,7 @@ export {FixedWidthColumns, Flexible, Sortable};
 
 export function newTable(...plugins) {
   const reversedPlugins = [{
-    Table: function ({id, style, children, className}) {
-      return <table {...{id, style, children, className}}/>;
-    },
+    Table: 'table',
     Thead: 'thead',
     Tbody: 'tbody',
     Tr: 'tr'
@@ -45,7 +43,7 @@ export function newTable(...plugins) {
 
       return (
         <Plugins {...{type: 'table', reversedPlugins}}>
-          <Table {...{className: 'table', columns}}>
+          <Table {...{className: 'table'}}>
             <Plugins {...{type: 'thead', reversedPlugins}}>
               <Thead>
               <Plugins {...{type: 'tr', reversedPlugins}}>

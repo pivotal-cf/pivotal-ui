@@ -3,8 +3,8 @@ import React from 'react';
 
 import Plugins, {useLast} from './plugins';
 
-function Th({id, style, children, className, onClick}) {
-  return <th {...{id, style, children, className, onClick}}/>;
+function Th({id, style, children, className}) {
+  return <th {...{id, style, children, className}}/>;
 }
 
 export function newTableHeader(...plugins) {

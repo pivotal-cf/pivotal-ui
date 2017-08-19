@@ -1,3 +1,4 @@
+// import flow from 'lodash.flow';
 import React from 'react';
 
 export default function Plugins({reversedPlugins, children, type}) {
