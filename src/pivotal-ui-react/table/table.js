@@ -42,16 +42,16 @@ export function newTable(...plugins) {
         <TableRow {...{columns, rowDatum, key}}/>);
 
       return (
-        <Plugins {...{type: 'table', plugins}}>
+        <Plugins {...{type: 'table', reversedPlugins}}>
           <Table {...{className: 'table'}}>
-            <Plugins {...{type: 'thead', plugins}}>
+            <Plugins {...{type: 'thead', reversedPlugins}}>
               <Thead>
-              <Plugins {...{type: 'tr', plugins}}>
+              <Plugins {...{type: 'tr', reversedPlugins}}>
                 <Tr>{headers}</Tr>
               </Plugins>
               </Thead>
             </Plugins>
-            <Plugins {...{type: 'tbody', plugins}}>
+            <Plugins {...{type: 'tbody', reversedPlugins}}>
               <Tbody>{rows}</Tbody>
             </Plugins>
           </Table>

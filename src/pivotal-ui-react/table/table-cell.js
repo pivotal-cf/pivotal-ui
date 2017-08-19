@@ -23,7 +23,7 @@ export function newTableCell(...plugins) {
       const Td = useLast({reversedPlugins, type: 'Td'});
 
       return (
-        <Plugins {...{type: 'td', plugins}}>
+        <Plugins {...{type: 'td', reversedPlugins}}>
           <Td {...{className, column}}>{rowDatum[attribute]}</Td>
         </Plugins>
       );

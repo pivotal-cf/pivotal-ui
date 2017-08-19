@@ -22,7 +22,7 @@ export function newTableHeader(...plugins) {
       const Th = useLast({reversedPlugins, type: 'Th'});
 
       return (
-        <Plugins {...{type: 'th', plugins}}>
+        <Plugins {...{type: 'th', reversedPlugins}}>
           <Th {...{column, className}}>{displayName || attribute}</Th>
         </Plugins>
       );
