@@ -13,10 +13,10 @@ export {FixedWidthColumns, Flexible, Sortable};
 
 export function newTable(...plugins) {
   const reversedPlugins = [{
-    TableElement: 'table',
-    TableHeadElement: 'thead',
-    TableBodyElement: 'tbody',
-    TableRowElement: 'tr'
+    Table: 'table',
+    Thead: 'thead',
+    Tbody: 'tbody',
+    Tr: 'tr'
   }, ...plugins].reverse();
   const TableHeader = newTableHeader(...plugins);
   const TableRow = newTableRow(...plugins);
@@ -30,10 +30,10 @@ export function newTable(...plugins) {
     render() {
       const {columns, data} = this.props;
 
-      const Table = useLast({reversedPlugins, type: 'TableElement'});
-      const Thead = useLast({reversedPlugins, type: 'TableHeadElement'});
-      const Tbody = useLast({reversedPlugins, type: 'TableBodyElement'});
-      const Tr = useLast({reversedPlugins, type: 'TableRowElement'});
+      const Table = useLast({reversedPlugins, type: 'Table'});
+      const Thead = useLast({reversedPlugins, type: 'Thead'});
+      const Tbody = useLast({reversedPlugins, type: 'Tbody'});
+      const Tr = useLast({reversedPlugins, type: 'Tr'});
 
       const headers = columns.map((column, key) =>
         <TableHeader {...{column, key}}/>);
@@ -44,14 +44,14 @@ export function newTable(...plugins) {
       return (
         <Pluggable {...{type: 'table', plugins}}>
           <Table {...{className: 'table'}}>
-            <Pluggable {...{type: 'tableHead', plugins}}>
+            <Pluggable {...{type: 'thead', plugins}}>
               <Thead>
-              <Pluggable {...{type: 'tableRow', plugins}}>
+              <Pluggable {...{type: 'tr', plugins}}>
                 <Tr>{headers}</Tr>
               </Pluggable>
               </Thead>
             </Pluggable>
-            <Pluggable {...{type: 'tableBody', plugins}}>
+            <Pluggable {...{type: 'tbody', plugins}}>
               <Tbody>{rows}</Tbody>
             </Pluggable>
           </Table>

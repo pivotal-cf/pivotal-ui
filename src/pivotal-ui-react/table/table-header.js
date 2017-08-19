@@ -8,7 +8,7 @@ function Th({id, style, children, className}) {
 }
 
 export function newTableHeader(...plugins) {
-  const reversedPlugins = [{TableHeaderElement: Th}, ...plugins].reverse();
+  const reversedPlugins = [{Th}, ...plugins].reverse();
 
   return class extends React.Component {
     static propTypes = {
@@ -19,10 +19,10 @@ export function newTableHeader(...plugins) {
       const {column} = this.props;
       const {attribute, displayName, className} = column;
 
-      const Th = useLast({reversedPlugins, type: 'TableHeaderElement'});
+      const Th = useLast({reversedPlugins, type: 'Th'});
 
       return (
-        <Pluggable {...{type: 'tableHeader', plugins}}>
+        <Pluggable {...{type: 'th', plugins}}>
           <Th {...{column, className}}>{displayName || attribute}</Th>
         </Pluggable>
       );

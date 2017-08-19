@@ -11,6 +11,6 @@ function colFixed(element) {
 }
 
 export const FixedWidthColumns = {
-  tableHeader: colFixed,
-  tableCell: colFixed
+  th: colFixed,
+  td: colFixed
 };

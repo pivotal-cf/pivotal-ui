@@ -8,7 +8,7 @@ function Td({id, style, children, className}) {
 }
 
 export function newTableCell(...plugins) {
-  const reversedPlugins = [{TableCellElement: Td}, ...plugins].reverse();
+  const reversedPlugins = [{Td}, ...plugins].reverse();
 
   return class extends React.Component {
     static propTypes = {
@@ -20,13 +20,13 @@ export function newTableCell(...plugins) {
       const {className, rowDatum, column} = this.props;
       const {attribute} = column;
 
-      const Td = useLast({reversedPlugins, type: 'TableCellElement'});
+      const Td = useLast({reversedPlugins, type: 'Td'});
 
       return (
-        <Pluggable {...{type: 'tableCell', plugins}}>
+        <Pluggable {...{type: 'td', plugins}}>
           <Td {...{className, column}}>{rowDatum[attribute]}</Td>
         </Pluggable>
       );
     }
-  }
+  };
 }

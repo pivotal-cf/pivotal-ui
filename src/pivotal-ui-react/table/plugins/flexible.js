@@ -6,16 +6,16 @@ function Div({id, style, children, className}) {
 }
 
 export const Flexible = {
-  TableElement: Div,
-  TableHeadElement: Div,
-  TableHeaderElement: Div,
-  TableBodyElement: Div,
-  TableRowElement: Div,
-  TableCellElement: Div,
+  Table: Div,
+  Thead: Div,
+  Tbody: Div,
+  Tr: Div,
+  Th: Div,
+  Td: Div,
 
-  tableHead: element => cloneElement(element, {className: classnames(element.props.className, 'thead')}),
-  tableBody: element => cloneElement(element, {className: classnames(element.props.className, 'tbody')}),
-  tableRow: element => cloneElement(element, {className: classnames(element.props.className, 'tr', 'grid')}),
-  tableHeader: element => cloneElement(element, {className: classnames(element.props.className, 'th', 'col')}),
-  tableCell: element => cloneElement(element, {className: classnames(element.props.className, 'td', 'col')}),
+  thead: element => cloneElement(element, {className: classnames(element.props.className, 'thead')}),
+  tbody: element => cloneElement(element, {className: classnames(element.props.className, 'tbody')}),
+  tr: element => cloneElement(element, {className: classnames(element.props.className, 'tr', 'grid')}),
+  th: element => cloneElement(element, {className: classnames(element.props.className, 'th', 'col')}),
+  td: element => cloneElement(element, {className: classnames(element.props.className, 'td', 'col')}),
 };

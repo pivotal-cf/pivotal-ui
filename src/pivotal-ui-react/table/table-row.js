@@ -5,7 +5,7 @@ import Pluggable, {useLast} from './pluggable';
 import {newTableCell} from './table-cell';
 
 export function newTableRow(...plugins) {
-  const reversedPlugins = [{TableRowElement: 'tr'}, ...plugins].reverse();
+  const reversedPlugins = [{Tr: 'tr'}, ...plugins].reverse();
   const TableCell = newTableCell(...plugins);
 
   return class extends React.Component {
@@ -17,10 +17,10 @@ export function newTableRow(...plugins) {
     render() {
       const {columns, rowDatum} = this.props;
 
-      const Tr = useLast({reversedPlugins, type: 'TableRowElement'});
+      const Tr = useLast({reversedPlugins, type: 'Tr'});
 
       return (
-        <Pluggable {...{type: 'tableRow', plugins}}>
+        <Pluggable {...{type: 'tr', plugins}}>
           <Tr>
             {columns.map((column, key) => (
               <TableCell {...{
@@ -33,5 +33,5 @@ export function newTableRow(...plugins) {
         </Pluggable>
       );
     }
-  }
+  };
 }
