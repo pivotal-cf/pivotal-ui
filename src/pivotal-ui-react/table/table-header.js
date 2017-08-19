@@ -2,15 +2,16 @@ import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
+import 'pui-css-tables';
+import flow from 'lodash.flow'
 
-import Pluggable from './pluggable';
-
-export function newTableHeader(...plugins) {
+export function TableHeader(...plugins) {
   const reversedPlugins = [...plugins].reverse();
 
   return class extends React.Component {
     static propTypes = {
-      column: PropTypes.object
+      column: PropTypes.object,
+      table: PropTypes.object
     };
 
     render() {
@@ -19,11 +20,9 @@ export function newTableHeader(...plugins) {
 
       const Th = reversedPlugins.find(plugin => plugin.TableHeaderElement).TableHeaderElement;
 
-      return (
-        <Pluggable {...{type: 'tableHeader', plugins}}>
-          <Th {...{column, className}}>{displayName || attribute}</Th>
-        </Pluggable>
-      );
+      return flow(...plugins.map(p => p.tableHeader).filter(Boolean))(<Th {...{column, className}}>
+        <div>{displayName || attribute}</div>
+      </Th>);
     }
   }
 }
