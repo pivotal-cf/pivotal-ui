@@ -1,28 +1,39 @@
+import classnames from 'classnames';
 import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
 import 'pui-css-tables';
-import flow from 'lodash.flow'
 
-export function TableHeader(...plugins) {
-  const reversedPlugins = [...plugins].reverse();
+import {emit} from './event-emitter';
 
-  return class extends React.Component {
-    static propTypes = {
-      column: PropTypes.object,
-      table: PropTypes.object
-    };
+export class TableHeader extends React.Component {
+  static propTypes = {
+    column: PropTypes.object,
+    index: PropTypes.number,
+    table: PropTypes.object
+  };
 
-    render() {
-      const {column} = this.props;
-      const {attribute, displayName, className} = column;
+  render() {
+    const {column, index, table} = this.props;
+    const {attribute, displayName, className} = column;
 
-      const Th = reversedPlugins.find(plugin => plugin.TableHeaderElement).TableHeaderElement;
+    const baseHeaderProps = column.headerProps || {};
+    const headerProps = emit(table, {
+      event: 'beforeRenderTableHeader',
+      opts: {column, index},
+      initial: {
+        ...baseHeaderProps,
+        className: classnames(baseHeaderProps.className, className),
+        key: index
+      }
+    });
 
-      return flow(...plugins.map(p => p.tableHeader).filter(Boolean))(<Th {...{column, className}}>
-        <div>{displayName || attribute}</div>
-      </Th>);
-    }
+    const icon = emit(table, {event: 'headerIcon', opts: {column}});
+
+    const Header = emit(table, {event: 'tableHeaderElement', initial: 'th'});
+    return (<Header {...headerProps}>
+      <div>{displayName || attribute}{icon}</div>
+    </Header>);
   }
 }
