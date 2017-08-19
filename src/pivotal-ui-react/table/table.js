@@ -44,13 +44,11 @@ export function newTable(...plugins) {
       return (
         <Pluggable {...{type: 'table', plugins}}>
           <Table {...{className: 'table'}}>
-            <Pluggable {...{type: 'tableHead', plugins}}>
-              <Thead>
-              <Pluggable {...{type: 'tableRow', plugins}}>
-                <Tr>{headers}</Tr>
-              </Pluggable>
-              </Thead>
+            <Thead>
+            <Pluggable {...{type: 'tableRow', plugins}}>
+              <Tr>{headers}</Tr>
             </Pluggable>
+            </Thead>
             <Pluggable {...{type: 'tableBody', plugins}}>
               <Tbody>{rows}</Tbody>
             </Pluggable>
