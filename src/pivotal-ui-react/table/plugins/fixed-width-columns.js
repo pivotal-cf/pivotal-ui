@@ -1,16 +1,24 @@
-import classnames from 'classnames';
-import React, {cloneElement} from 'react';
+import React from 'react';
 
-function colFixed(element) {
-  const {props: {column: {width}, className, style}} = element;
-  if (!width) return element;
-  return cloneElement(element, {
-    className: classnames(className, 'col-fixed'),
-    style: {...style, width}
-  });
+import {TablePlugin} from '../table-plugin';
+
+export function withFixedWithColumns(Table) {
+  function colFixed(method, {column: {width}}) {
+    if (!width) return this[method]();
+    return this[method]({
+      className: 'col-fixed',
+      style: {width}
+    });
+  }
+
+  return class TableWithFixedWidthColumns extends TablePlugin {
+    static defaultProps = {...TablePlugin.defaultProps};
+
+    render() {
+      return <Table {...this.props} {...{
+        th: colFixed.bind(this, 'th'),
+        td: colFixed.bind(this, 'td')
+      }}/>;
+    }
+  }
 }
-
-export const FixedWidthColumns = {
-  th: colFixed,
-  td: colFixed
-};
