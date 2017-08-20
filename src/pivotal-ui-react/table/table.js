@@ -24,7 +24,7 @@ export class Table extends TablePlugin {
 
     const headers = columns.map((column, key) => (
       <Th {...{key, ...this.th({}, {column})}}>
-        {column.displayName || column.attribute}
+        <div>{column.displayName || column.attribute}{column.icon}</div>
       </Th>
     ));
 

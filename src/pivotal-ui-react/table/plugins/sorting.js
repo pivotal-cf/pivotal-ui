@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-// import {Icon} from 'pui-react-iconography';
+import {Icon} from 'pui-react-iconography';
 import sortBy from 'lodash.sortby';
 
 import {TablePlugin} from '../table-plugin';
@@ -34,11 +34,11 @@ export function withSorting(Table) {
     let className;
     if (isSortColumn) {
       className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-      /*const icon = [
+      column.icon = [
         <Icon key={0} verticalAlign="baseline" src="arrow_drop_up"/>,
         <Icon key={0} verticalAlign="baseline"
-              src="arrow_drop_down"/>, null][sortOrder];*/
-    }
+              src="arrow_drop_down"/>, null][sortOrder];
+    } else column.icon = null;
     const onClick = updateSort.bind(this, column);
     return this.th({
       className: classnames({sortable}, className),

@@ -29,31 +29,31 @@ export class TablePlugin extends React.Component {
     td: () => ({})
   };
 
-  mergeProps(props = {}, rest = {}, method) {
-    return mergeProps(this.props[method](rest), props);
+  mergeProps(props = {}, context = {}, method) {
+    return mergeProps(this.props[method](context), props);
   }
 
-  table(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'table');
+  table(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'table');
   }
 
-  thead(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'thead');
+  thead(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'thead');
   }
 
-  tbody(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'tbody');
+  tbody(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'tbody');
   }
 
-  tr(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'tr');
+  tr(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'tr');
   }
 
-  th(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'th');
+  th(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'th');
   }
 
-  td(props = {}, rest = {}) {
-    return this.mergeProps(props, rest, 'td');
+  td(props = {}, context = {}) {
+    return this.mergeProps(props, context, 'td');
   }
 }
