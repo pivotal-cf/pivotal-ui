@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import {Icon} from 'pui-react-iconography';
+// import {Icon} from 'pui-react-iconography';
 import sortBy from 'lodash.sortby';
 
 import {TablePlugin} from '../table-plugin';
@@ -27,23 +27,17 @@ export function withSorting(Table) {
     });
   }
 
-  function th({column}) {
+  function th(context) {
     const {sortColumn, sortOrder} = this.state;
-    const {sortable} = column;
+    const {column, column: {sortable}} = context;gg
     const isSortColumn = column === sortColumn;
     let className;
-    if (!column.displayName) column.displayName = column.attribute;
     if (isSortColumn) {
       className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-      if (!Array.isArray(column.displayName)) {
-        column.displayName = [column.displayName];
-      }
-      column.displayName[1] = [
-        <Icon verticalAlign="baseline" src="arrow_drop_up"/>,
-        <Icon verticalAlign="baseline"
-              src="arrow_drop_down"/>, null][sortOrder];
-    } else if (Array.isArray(column.displayName)) {
-      column.displayName = column.displayName[0];
+      /*const icon = [
+        <Icon key={0} verticalAlign="baseline" src="arrow_drop_up"/>,
+        <Icon key={0} verticalAlign="baseline"
+              src="arrow_drop_down"/>, null][sortOrder];*/
     }
     const onClick = updateSort.bind(this, column);
     return this.th({
@@ -53,7 +47,7 @@ export function withSorting(Table) {
       tabIndex: 0,
       onClick,
       onKeyDown: ({key}) => key == 'Enter' && onClick()
-    });
+    }, context);
   }
 
   function sort() {
