@@ -4,9 +4,9 @@ import 'pui-css-tables';
 import {TablePlugin} from './table-plugin';
 import {withFixedWithColumns} from './plugins/fixed-width-columns';
 import {withFlex} from './plugins/flex';
-import {Sortable} from './plugins/sortable';
+import {withSorting} from './plugins/sorting';
 
-export {TablePlugin, withFixedWithColumns, withFlex, Sortable};
+export {TablePlugin, withFixedWithColumns, withFlex, withSorting};
 
 export class Table extends TablePlugin {
   static defaultProps = {

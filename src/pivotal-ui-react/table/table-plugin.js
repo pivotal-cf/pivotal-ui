@@ -30,7 +30,7 @@ export class TablePlugin extends React.Component {
   };
 
   mergeProps(props = {}, rest = {}, method) {
-    return mergeProps(props, this.props[method](rest));
+    return mergeProps(this.props[method](rest), props);
   }
 
   table(props = {}, rest = {}) {
