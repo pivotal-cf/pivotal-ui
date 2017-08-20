@@ -31,22 +31,23 @@ export function withSorting(Table) {
     const {sortColumn, sortOrder} = this.state;
     const {column, column: {sortable}} = context;
     const isSortColumn = column === sortColumn;
-    let className;
+    let className, icon;
     if (isSortColumn) {
       className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-      column.icon = [
+      icon = [
         <Icon key={0} verticalAlign="baseline" src="arrow_drop_up"/>,
         <Icon key={0} verticalAlign="baseline"
               src="arrow_drop_down"/>, null][sortOrder];
-    } else column.icon = null;
+    }
     const onClick = updateSort.bind(this, column);
     return this.th({
       className: classnames({sortable}, className),
       disabled: !sortable,
-      role: 'button',
-      tabIndex: 0,
+      icon,
       onClick,
-      onKeyDown: ({key}) => key == 'Enter' && onClick()
+      onKeyDown: ({key}) => key == 'Enter' && onClick(),
+      role: 'button',
+      tabIndex: 0
     }, context);
   }
 

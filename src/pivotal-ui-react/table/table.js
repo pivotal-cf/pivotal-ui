@@ -22,11 +22,15 @@ export class Table extends TablePlugin {
   render() {
     const {columns, data, Table, Thead, Tbody, Tr, Th, Td} = this.props;
 
-    const headers = columns.map((column, key) => (
-      <Th {...{key, ...this.th({}, {column})}}>
-        <div>{column.displayName || column.attribute}{column.icon}</div>
-      </Th>
-    ));
+    const headers = columns.map((column, key) => {
+      const thProps = this.th({}, {column});
+      const {icon, ...rest} = thProps;
+      return (
+        <Th {...{key, ...rest}}>
+          <div>{column.displayName || column.attribute}{icon}</div>
+        </Th>
+      )
+    });
 
     const headerRow = <Tr {...this.tr()}>{headers}</Tr>;
 
