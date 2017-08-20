@@ -46,14 +46,14 @@ export function withSorting(Table) {
       column.displayName = column.displayName[0];
     }
     const onClick = updateSort.bind(this, column);
-    return {
+    return this.th({
       className: classnames({sortable}, className),
       disabled: !sortable,
       role: 'button',
       tabIndex: 0,
       onClick,
       onKeyDown: ({key}) => key == 'Enter' && onClick()
-    }
+    });
   }
 
   function sort() {
