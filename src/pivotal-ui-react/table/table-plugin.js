@@ -29,27 +29,31 @@ export class TablePlugin extends React.Component {
     td: () => ({})
   };
 
-  table(props = {}) {
-    return mergeProps(this.props.table(), props);
+  mergeProps(props = {}, rest = {}, method) {
+    return mergeProps(props, this.props[method](rest));
   }
 
-  thead(props = {}) {
-    return mergeProps(this.props.thead(), props);
+  table(props = {}, rest = {}) {
+    return this.mergeProps(props, rest, 'table');
   }
 
-  tbody(props = {}) {
-    return mergeProps(this.props.tbody(), props);
+  thead(props = {}, rest = {}) {
+    return this.mergeProps(props, rest, 'thead');
   }
 
-  tr(props = {}) {
-    return mergeProps(this.props.tr(), props);
+  tbody(props = {}, rest = {}) {
+    return this.mergeProps(props, rest, 'tbody');
+  }
+
+  tr(props = {}, rest = {}) {
+    return this.mergeProps(props, rest, 'tr');
   }
 
   th(props = {}, rest = {}) {
-    return mergeProps(this.props.th(rest), props);
+    return this.mergeProps(props, rest, 'th');
   }
 
   td(props = {}, rest = {}) {
-    return mergeProps(this.props.td(rest), props);
+    return this.mergeProps(props, rest, 'td');
   }
 }
