@@ -32,6 +32,7 @@ export function withSorting(Table) {
     const {column, column: {sortable}} = context;
     const isSortColumn = column === sortColumn;
     let className, icon;
+
     if (isSortColumn) {
       className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
       icon = [
@@ -39,10 +40,18 @@ export function withSorting(Table) {
         <Icon key={0} verticalAlign="baseline"
               src="arrow_drop_down"/>, null][sortOrder];
     }
-    const onClick = updateSort.bind(this, column);
-    return this.th({
+
+    const props = {
       className: classnames({sortable}, className),
-      disabled: !sortable,
+      disabled: !sortable
+    };
+
+    if (!sortable) return this.th(props, context);
+
+    const onClick = updateSort.bind(this, column);
+
+    return this.th({
+      ...props,
       icon,
       onClick,
       onKeyDown: ({key}) => key == 'Enter' && onClick(),
