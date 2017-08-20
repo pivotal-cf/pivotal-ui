@@ -29,7 +29,7 @@ export function withSorting(Table) {
 
   function th(context) {
     const {sortColumn, sortOrder} = this.state;
-    const {column, column: {sortable}} = context;gg
+    const {column, column: {sortable}} = context;
     const isSortColumn = column === sortColumn;
     let className;
     if (isSortColumn) {
