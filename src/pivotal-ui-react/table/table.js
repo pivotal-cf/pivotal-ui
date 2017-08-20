@@ -30,11 +30,11 @@ export class Table extends TablePlugin {
 
     const headerRow = <Tr {...this.tr()}>{headers}</Tr>;
 
-    const cols = rowDatum => columns.map((column, key) =>
+    const bodyCols = rowDatum => columns.map((column, key) =>
       <Td {...{key, ...this.td({}, {column})}}>{rowDatum[column.attribute]}</Td>);
 
     const bodyRows = data.map((rowDatum, key) =>
-      <Tr {...{key, ...this.tr()}}>{cols(rowDatum)}</Tr>);
+      <Tr {...{key, ...this.tr()}}>{bodyCols(rowDatum)}</Tr>);
 
     return (
       <Table {...this.table({className: 'table'})}>
