@@ -28,6 +28,12 @@ export class TablePlugin extends React.Component {
   };
 
   static defaultProps = {
+    Table: 'table',
+    Thead: 'thead',
+    Tbody: 'tbody',
+    Tr: 'tr',
+    Th: 'th',
+    Td: 'td',
     table: () => ({}),
     thead: () => ({}),
     tbody: () => ({}),
@@ -36,60 +42,57 @@ export class TablePlugin extends React.Component {
     td: () => ({})
   };
 
-  table(props) {
+  table(props = {}) {
     return mergeProps(this.props.table(), props);
   }
 
-  thead(props) {
+  thead(props = {}) {
     return mergeProps(this.props.thead(), props);
   }
 
-  tbody(props) {
+  tbody(props = {}) {
     return mergeProps(this.props.tbody(), props);
   }
 
-  tr(props) {
+  tr(props = {}) {
     return mergeProps(this.props.tr(), props);
   }
 
-  th(props) {
-    return mergeProps(this.props.th(), props);
+  th(props = {}, rest = {}) {
+    return mergeProps(this.props.th(rest), props);
   }
 
-  td(props) {
-    return mergeProps(this.props.td(), props);
+  td(props = {}, rest = {}) {
+    return mergeProps(this.props.td(rest), props);
   }
 }
 
 export class Table extends TablePlugin {
   static defaultProps = {
-    ...TablePlugin.defaultProps,
-    Table: 'table',
-    Thead: 'thead',
-    Tbody: 'tbody',
-    Tr: 'tr',
-    Th: 'th',
-    Td: 'td'
+    ...TablePlugin.defaultProps
   };
 
   render() {
-    const {columns, data, Table, Thead, Tbody, Tr, Th, Td, thead, tbody, tr, th, td} = this.props;
+    const {columns, data, Table, Thead, Tbody, Tr, Th, Td} = this.props;
 
-    const headers = columns.map(({attribute, displayName}, key) =>
-      <Th {...{key, ...th()}}>{displayName || attribute}</Th>);
+    const headers = columns.map((column, key) => (
+      <Th {...{key, ...this.th({}, {column})}}>
+        {column.displayName || column.attribute}
+      </Th>
+    ));
 
-    const headerRow = <Tr {...tr()}>{headers}</Tr>;
+    const headerRow = <Tr {...this.tr()}>{headers}</Tr>;
 
-    const cols = rowDatum => columns.map(({attribute}, key) =>
-      <Td {...{key, ...td()}}>{rowDatum[attribute]}</Td>);
+    const cols = rowDatum => columns.map((column, key) =>
+      <Td {...{key, ...this.td({}, {column})}}>{rowDatum[column.attribute]}</Td>);
 
     const bodyRows = data.map((rowDatum, key) =>
-      <Tr {...{key, ...tr()}}>{cols(rowDatum)}</Tr>);
+      <Tr {...{key, ...this.tr()}}>{cols(rowDatum)}</Tr>);
 
     return (
       <Table {...this.table({className: 'table'})}>
-        <Thead {...thead()}>{headerRow}</Thead>
-        <Tbody {...tbody()}>{bodyRows}</Tbody>
+        <Thead {...this.thead()}>{headerRow}</Thead>
+        <Tbody {...this.tbody()}>{bodyRows}</Tbody>
       </Table>
     );
   }
@@ -108,23 +111,34 @@ export function withFlex(Table) {
     };
 
     render() {
-      return (
-        <Table {...this.props} {...{
-          thead: () => this.thead({className: 'thead'}),
-          tbody: () => this.tbody({className: 'tbody'}),
-          tr: () => this.tr({className: 'tr grid'}),
-          th: () => this.th({className: 'th col'}),
-          td: () => this.td({className: 'td col'})
-        }}/>
-      );
+      return <Table {...this.props} {...{
+        thead: this.thead.bind(this, {className: 'thead'}),
+        tbody: this.tbody.bind(this, {className: 'tbody'}),
+        tr: this.tr.bind(this, {className: 'tr grid'}),
+        th: this.th.bind(this, {className: 'th col'}),
+        td: this.td.bind(this, {className: 'td col'})
+      }}/>;
     }
   }
 }
 
 export function withFixedWithColumns(Table) {
-  return class TableWithFixedWidthColumns extends React.Component {
+  function colFixed(method, {column: {width}}) {
+    if (!width) return this[method]();
+    return this[method]({
+      className: 'col-fixed',
+      style: {width}
+    });
+  }
+
+  return class TableWithFixedWidthColumns extends TablePlugin {
+    static defaultProps = {...TablePlugin.defaultProps};
+
     render() {
-      return null;
+      return <Table {...this.props} {...{
+        th: colFixed.bind(this, 'th'),
+        td: colFixed.bind(this, 'td')
+      }}/>;
     }
   }
 }
