@@ -21,7 +21,10 @@ export function withSorting(Table) {
       return this.setState({sortOrder});
     }
 
-    this.setState({sortColumn: column.sortable && column, sortOrder: SORT_ORDER.asc});
+    this.setState({
+      sortColumn: column.sortable && column,
+      sortOrder: SORT_ORDER.asc
+    });
   }
 
   function th({column}) {
@@ -49,10 +52,7 @@ export function withSorting(Table) {
       role: 'button',
       tabIndex: 0,
       onClick,
-      onKeyDown: ({key}) => {
-        if (key !== 'Enter') return;
-        onClick();
-      }
+      onKeyDown: ({key}) => key == 'Enter' && onClick()
     }
   }
 
