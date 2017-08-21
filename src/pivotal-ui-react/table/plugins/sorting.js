@@ -37,8 +37,9 @@ export function withSorting(Table) {
       className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
       icon = [
         <Icon key={0} verticalAlign="baseline" src="arrow_drop_up"/>,
-        <Icon key={0} verticalAlign="baseline"
-              src="arrow_drop_down"/>, null][sortOrder];
+        <Icon key={0} verticalAlign="baseline" src="arrow_drop_down"/>,
+        null
+      ][sortOrder];
     }
 
     const props = {
@@ -52,7 +53,7 @@ export function withSorting(Table) {
 
     return this.th({
       ...props,
-      icon,
+      children: <div>{column.displayName || column.attribute}{icon}</div>,
       onClick,
       onKeyDown: ({key}) => key == 'Enter' && onClick(),
       role: 'button',

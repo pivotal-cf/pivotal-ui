@@ -23,13 +23,10 @@ export class Table extends TablePlugin {
     const {columns, data, Table, Thead, Tbody, Tr, Th, Td} = this.props;
 
     const headers = columns.map((column, key) => {
-      const thProps = this.th({}, {column});
-      const {icon, ...rest} = thProps;
-      return (
-        <Th {...{key, ...rest}}>
-          <div>{column.displayName || column.attribute}{icon}</div>
-        </Th>
-      )
+      return <Th {...{
+        key,
+        ...this.th({children: column.displayName || column.attribute}, {column})
+      }}/>;
     });
 
     const headerRow = <Tr {...this.tr()}>{headers}</Tr>;
