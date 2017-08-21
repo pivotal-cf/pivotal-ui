@@ -39,9 +39,16 @@ example below.
 ```html
 ::title=Image Example
 ::description=Wrap an image tag with `.icon` to get the same sizing functionality.
-<div class="icon">
-  <img src="static/help.svg">
-</div>
+<span>Example 1<div class="icon">
+  <img src="/static/cf-logo.png">
+</div>.
+</span>
+<br>
+<span>Example 2 with baseline
+<div class="icon icon-baseline">
+  <img src="/static/cf-logo.png">
+</div>.
+</span>
 ```
 
 ```jsx
