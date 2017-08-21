@@ -27,7 +27,7 @@ export class Table extends TablePlugin {
         ...this.th({children: column.displayName || column.attribute}, {column})
       }}/>);
 
-    const headerRow = <Tr {...this.tr()}>{headers}</Tr>;
+    const headerRow = <Tr {...this.tr({children: headers})}/>;
 
     const bodyCols = rowDatum => columns.map((column, key) =>
       <Td {...{key}} {...{
@@ -38,10 +38,13 @@ export class Table extends TablePlugin {
       <Tr {...{key}} {...{...this.tr({children: bodyCols(rowDatum)})}}/>);
 
     return (
-      <Table {...this.table({className: 'table'})}>
-        <Thead {...this.thead()}>{headerRow}</Thead>
-        <Tbody {...this.tbody()}>{bodyRows}</Tbody>
-      </Table>
+      <Table {...this.table({
+        className: 'table',
+        children: [
+          <Thead key={0} {...this.thead({children: headerRow})}/>,
+          <Tbody key={1} {...this.tbody({children: bodyRows})}/>
+        ]
+      })}/>
     );
   }
 }
