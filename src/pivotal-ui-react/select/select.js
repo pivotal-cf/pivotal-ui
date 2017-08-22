@@ -30,16 +30,21 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
     onExited: PropTypes.func,
     options: PropTypes.array.isRequired,
     value: PropTypes.any
-  }
+  };
 
-  toggle = () => this.setState({open: !this.state.open})
+  toggle = () => this.setState({open: !this.state.open});
 
-  select = value => () => this.setState({
-    open: false,
-    uncontrolledValue: value
-  }, this.props.onChange && this.props.onChange(value))
+  select = e => {
+    const value = e.target.getAttribute('value');
+    Object.defineProperty(e.target, 'value', {value});
 
-  scrimClick = () => this.setState({open: false})
+    this.setState({
+      open: false,
+      uncontrolledValue: value
+    }, this.props.onChange && this.props.onChange(e));
+  };
+
+  scrimClick = () => this.setState({open: false});
 
   render() {
     const {open, uncontrolledValue} = this.state;
@@ -50,9 +55,14 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
       const {value, label} = typeof option === 'object' ? option : {value: option, label: option};
       const selected = value === toggleValue;
       if (selected) memo.toggleLabel = label;
-      const className = classnames({selected: value === toggleValue});
-      memo.selectOptions.push(<li {...{className, key: value}}><a className="option" role="button"
-                                                                  onClick={this.select(value)}>{label}</a></li>);
+      const className = classnames({selected: value === toggleValue}, 'option');
+      memo.selectOptions.push(<li {...{
+        className,
+        key: value,
+        role: 'button',
+        value,
+        onClick: this.select
+      }}>{label}</li>);
       return memo;
     }, {toggleLabel: toggleValue, selectOptions: []});
     const list = <ul>{selectOptions}</ul>;
