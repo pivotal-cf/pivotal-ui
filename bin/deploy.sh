@@ -13,5 +13,4 @@ cf target -o pivotal -s pivotal-ui
 yarn install --no-progress
 ./node_modules/.bin/webpack --config ./backend_webpack.config.babel.js --progress -p
 ./node_modules/.bin/webpack --config ./frontend_webpack.config.babel.js --progress -p
-rm yarn.lock
 cf push
