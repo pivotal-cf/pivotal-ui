@@ -35,7 +35,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
     show: PropTypes.bool,
     title: PropTypes.node,
     getDocument: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     acquireFocus: true,
@@ -58,22 +58,22 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
   modalClicked = e => {
     if(!this.dialog) return;
     if(this.dialog.contains(e.target)) return;
-    this.props.onHide();
-  }
+    this.props.onHide(e);
+  };
 
   onKeyDown = e => {
     if(this.props.keyboard && e.keyCode === ESC_KEY) {
-      this.props.onHide();
+      this.props.onHide(e);
     }
-  }
+  };
 
   componentDidMount() {
-    var document = this.props.getDocument();
+    const document = this.props.getDocument();
     if (typeof document === 'object') document.addEventListener('keydown', this.onKeyDown);
   }
 
   componentWillUnmount() {
-    var document = this.props.getDocument();
+    const document = this.props.getDocument();
     if (typeof document !== 'object') return;
     document.removeEventListener('keydown', this.onKeyDown);
     bodyIsAllowedToScroll(document);
@@ -81,7 +81,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
 
   focus = () => setTimeout(() => {
     this.modal && this.modal.focus();
-  }, 1)
+  }, 1);
 
   render() {
     const {
@@ -166,8 +166,8 @@ export class Modal extends React.PureComponent {
     this.state = {isVisible: false};
   }
 
-  open = () => this.setState({isVisible: true})   // This is required for testing
-  close = () => this.setState({isVisible: false}) // This is required for testing
+  open = () => this.setState({isVisible: true});   // This is required for testing
+  close = () => this.setState({isVisible: false}); // This is required for testing
 
   render() {
     return <BaseModal show={this.state.isVisible} onHide={this.close.bind(this)} {...this.props} />;
