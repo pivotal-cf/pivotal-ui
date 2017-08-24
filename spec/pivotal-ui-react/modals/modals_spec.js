@@ -189,24 +189,23 @@ describe('BaseModal', () => {
 
     it('is triggered when close button is clicked', () => {
       result = renderIntoDom({show: true, onHide, animation: false});
-      clickOn(findByClass(result, 'btn-icon'));
-
-      expect(onHide).toHaveBeenCalled();
+      $('.modal-close .btn').click();
+      expect(onHide).toHaveBeenCalledWith(jasmine.anything(), jasmine.anything());
     });
 
     it('is not triggered when the modal content itself is clicked', () => {
       result = renderIntoDom({show: true, onHide, animation: false});
-      clickOn(findByClass(result, 'modal-dialog'));
+      $('.modal-dialog').click();
       expect(onHide).not.toHaveBeenCalled();
 
-      clickOn(findByClass(result, 'modal-content'));
+      $('.modal-content').click();
       expect(onHide).not.toHaveBeenCalled();
     });
 
     it('is triggered when the backdrop is clicked', () => {
       result = renderIntoDom({show: true, onHide, animation: false});
-      clickOn(findByClass(result, 'modal'));
-      expect(onHide).toHaveBeenCalled();
+      $('.modal').click();
+      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
     });
 
     it('is triggered on esc key down', () => {
@@ -217,7 +216,7 @@ describe('BaseModal', () => {
       evt.keyCode = BaseModal.ESC_KEY;
       document.documentElement.dispatchEvent(evt);
 
-      expect(onHide).toHaveBeenCalled();
+      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
     });
 
     it('is not triggered on esc key down if keyboard is false', () => {
