@@ -1,4 +1,5 @@
 @import "../pui-variables";
+@import "../buttons/buttons";
 
 .btn-group {
   display: inline-block;
@@ -40,5 +41,17 @@
   }
   .btn-icon {
     padding: 0 3px;
+  }
+}
+
+.btn-group-large {
+  > .btn {
+    @extend .btn-lg;
+  }
+}
+
+.btn-group-small {
+  > .btn {
+    @extend .btn-sm;
   }
 }
