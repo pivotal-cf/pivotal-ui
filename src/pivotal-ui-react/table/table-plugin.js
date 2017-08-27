@@ -56,4 +56,8 @@ export class TablePlugin extends React.Component {
   td(props = {}, context = {}) {
     return this.mergeProps(props, context, 'td');
   }
+
+  render() {
+    return null;
+  }
 }
