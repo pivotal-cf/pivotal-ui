@@ -12195,7 +12195,7 @@
 	        ownerBasedContext[key] === parentBasedContext[key],
 	        'owner-based and parent-based contexts differ '  +
 	        '(values: `%s` vs `%s`) for key (%s) while mounting %s ' +
-	        '(see: http://fb.me/react-context-by-parent)',
+	        '(see: https://fb.me/react-context-by-parent)',
 	        ownerBasedContext[key],
 	        parentBasedContext[key],
 	        key,
@@ -33653,7 +33653,7 @@
 	    ("production" !== process.env.NODE_ENV ? warning(
 	      warned,
 	      'React.addons.classSet will be deprecated in a future version. See ' +
-	      'http://fb.me/react-addons-classset'
+	      'https://fb.me/react-addons-classset'
 	    ) : null);
 	    warned = true;
 	  }
