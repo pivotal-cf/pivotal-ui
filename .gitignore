@@ -12,6 +12,7 @@ node_modules/
 .idea/
 build/
 dist/
+pui-dist/
 *.zip
 npm-debug.log
 .DS_Store

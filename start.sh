@@ -7,6 +7,7 @@ if [[ "$input" == "y" || "$input" == "Y" ]]; then
   pushd ../pivotal-ui
     yarn install --no-progress
     gulp build
+    mv dist ../pui-styleguide/pui-dist
   popd
 fi
 
