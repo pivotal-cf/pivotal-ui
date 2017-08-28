@@ -45298,7 +45298,7 @@
 	var tableWrap = [1, '<table>', '</table>'];
 	var trWrap = [3, '<table><tbody><tr>', '</tr></tbody></table>'];
 
-	var svgWrap = [1, '<svg xmlns="http://www.w3.org/2000/svg">', '</svg>'];
+	var svgWrap = [1, '<svg xmlns="https://www.w3.org/2000/svg">', '</svg>'];
 
 	var markupWrap = {
 	  '*': [1, '?<div>', '</div>'],
