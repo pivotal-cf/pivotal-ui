@@ -52,8 +52,6 @@ gulp.task('release-update-package-versions', (done) => {
 gulp.task('release-commit', () =>
   execPromise(
     `git add package.json \
-             CHANGELOG.md \
-             LATEST_CHANGES.md \
              src/pivotal-ui/components/*/package.json \
              src/pivotal-ui-react/*/package.json \
        && git commit -m "v${getNewVersion()}"`
