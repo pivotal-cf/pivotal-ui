@@ -1,13 +1,13 @@
 {
-  "version": "8.3.3",
-  "description": "A React component that provides a table that can be sorted by column",
-  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {
-    "classnames": "^2.2.0",
-    "lodash.sortby": "^3.1.1",
-    "prop-types": ">=15.5.6",
-    "pui-css-tables": "=8.3.3",
+    "pui-react-iconography": "=8.3.3",
     "pui-react-helpers": "=8.3.3",
-    "pui-react-iconography": "=8.3.3"
-  }
+    "pui-css-tables": "=8.3.3",
+    "prop-types": ">=15.5.6",
+    "lodash.sortby": "^3.1.1",
+    "classnames": "^2.2.0"
+  },
+  "homepage": "http://styleguide.pivotal.io/",
+  "description": "A React component that provides a table that can be sorted by column",
+  "version": "9.0.0"
 }
