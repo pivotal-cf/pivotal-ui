@@ -11,7 +11,7 @@ describe('Alert Component', () => {
     });
 
     it('renders', () => {
-      expect('.alert').not.toBeTruthy();
+      expect('.alert').not.toBeNull();
     });
 
     it('passes down the className, id, and style properties', () => {
