@@ -53,6 +53,7 @@
 
 $tab-border-size: 1px;
 $tab-padding: $base-unit ($base-unit*2);
+$tab-action-padding: ($base-unit/2) ($base-unit*2);
 
 .tab-simple {
   position: relative;
@@ -133,7 +134,7 @@ $tab-padding: $base-unit ($base-unit*2);
   }
 
   .tabs-action {
-    padding: $tab-padding;
+    padding: $tab-action-padding;
     position: absolute;
     right: 0;
   }
