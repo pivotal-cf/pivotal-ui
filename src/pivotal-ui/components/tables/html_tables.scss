@@ -1,8 +1,11 @@
 @import "../pui-variables";
 
+.table {
+  font-size: $table-font-size;
+}
+
 table.table {
   width:100%;
-  font-size: $table-font-size;
   background-color: $table-bg;
   margin-bottom: ($base-unit*2);
   //HTML table reset
