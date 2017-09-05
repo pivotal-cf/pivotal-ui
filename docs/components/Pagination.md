@@ -67,10 +67,12 @@ class PaginationAdvanced extends React.Component {
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-items      | no | Number   | 1    | The number of page links displayed
-next       | no | Boolean  | true | Option to display a 'next page' button
-prev       | no | Boolean  | true | Option to display a 'previous page' button
-activePage | no | Number |      | Option to make a link styled as 'active'
-onSelect   | no | Function |      | Callback that is called on click of a link
+Property   | Required | Type     | Default | Description
+-----------|----------|----------|---------|------------
+items      | no       | Number   | 1       | The number of page links displayed
+next       | no       | Boolean  | true    | Option to display a 'next page' button
+prev       | no       | Boolean  | true    | Option to display a 'previous page' button
+activePage | no       | Number   |         | Option to make a link styled as 'active'
+onSelect   | no       | Function |         | Callback that is called on click of a link
+small      | no       | Boolean  | false   | Make the buttons small
+large      | no       | Boolean  | false   | Make the buttons large
