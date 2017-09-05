@@ -7867,13 +7867,14 @@ public-encrypt@^4.0.0:
 
 pui-css-alerts@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-alerts/-/pui-css-alerts-8.3.3.tgz#6dc3466ef6a1ce00f813610bb7737a2f9ff518ba"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-iconography "=8.3.3"
     pui-css-typography "=8.3.3"
 
 "pui-css-alerts@file:pui-dist/css/alerts":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-iconography "=8.3.3"
@@ -7881,12 +7882,13 @@ pui-css-alerts@=8.3.3:
 
 pui-css-alignment@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-alignment/-/pui-css-alignment-8.3.3.tgz#5083eb516e173a3d4af843dbc3139bdaa3badb61"
 
 "pui-css-alignment@file:pui-dist/css/alignment":
-  version "8.3.3"
+  version "9.0.0"
 
 "pui-css-all@file:pui-dist/css/all":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-alerts "=8.3.3"
     pui-css-alignment "=8.3.3"
@@ -7931,35 +7933,38 @@ pui-css-alignment@=8.3.3:
 
 pui-css-autocomplete@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-autocomplete/-/pui-css-autocomplete-8.3.3.tgz#23e326b8f27c263f3f1af65b7a55385802bf93a1"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-forms "=8.3.3"
 
 "pui-css-autocomplete@file:pui-dist/css/autocomplete":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-forms "=8.3.3"
 
 pui-css-avatars@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-avatars/-/pui-css-avatars-8.3.3.tgz#180f7ee862af50fc90a0afa1574d10b4e53a5814"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-avatars@file:pui-dist/css/avatars":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-back-to-top@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-back-to-top/-/pui-css-back-to-top-8.3.3.tgz#d20b468a6a0b76a2383277f24dc12ab7755ab5f8"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-iconography "=8.3.3"
     pui-css-links "=8.3.3"
 
 "pui-css-back-to-top@file:pui-dist/css/back-to-top":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-iconography "=8.3.3"
@@ -7967,64 +7972,72 @@ pui-css-back-to-top@=8.3.3:
 
 pui-css-backgrounds@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-backgrounds/-/pui-css-backgrounds-8.3.3.tgz#83224ae7daa76fd206e3675217a1cbe37cf34d39"
 
 "pui-css-backgrounds@file:pui-dist/css/backgrounds":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-bootstrap@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-bootstrap/-/pui-css-bootstrap-8.3.3.tgz#da4f09455f93e12b70a79d6a185579d6418bc163"
 
 "pui-css-bootstrap@file:pui-dist/css/bootstrap":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-border@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-border/-/pui-css-border-8.3.3.tgz#3522d4a691232d29ad1bbcda184acb20ff6304c5"
 
 "pui-css-border@file:pui-dist/css/border":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-box-shadows@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-box-shadows/-/pui-css-box-shadows-8.3.3.tgz#6bb2cac752e6ec347cd8d8cc2cb3616c43d18edf"
 
 "pui-css-box-shadows@file:pui-dist/css/box-shadows":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-button-group@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-button-group/-/pui-css-button-group-8.3.3.tgz#b99d0a18573f580f6ecc69cfdeb51f6a3b13afcf"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-buttons "=8.3.3"
 
 "pui-css-button-group@file:pui-dist/css/button-group":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-buttons "=8.3.3"
 
 pui-css-buttons@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-buttons/-/pui-css-buttons-8.3.3.tgz#670c2ce591c0a9325b3930116b7a4527215e9d49"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-typography "=8.3.3"
 
 "pui-css-buttons@file:pui-dist/css/buttons":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-typography "=8.3.3"
 
 pui-css-code@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-code/-/pui-css-code-8.3.3.tgz#9c42327f6f51b99500a57a607b720e22010077db"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 "pui-css-code@file:pui-dist/css/code":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 pui-css-collapse@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-collapse/-/pui-css-collapse-8.3.3.tgz#a243406cad6191c54831fb8b2084a2e6ed52a190"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-dividers "=8.3.3"
@@ -8032,7 +8045,7 @@ pui-css-collapse@=8.3.3:
     pui-css-panels "=8.3.3"
 
 "pui-css-collapse@file:pui-dist/css/collapse":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-dividers "=8.3.3"
@@ -8041,24 +8054,28 @@ pui-css-collapse@=8.3.3:
 
 pui-css-colors@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-colors/-/pui-css-colors-8.3.3.tgz#34f47bf3acd317aea77fb95c3a92bcdb20c05815"
 
 "pui-css-colors@file:pui-dist/css/colors":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-copy-to-clipboard@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-copy-to-clipboard/-/pui-css-copy-to-clipboard-8.3.3.tgz#c22ef581675c7c83157627387bd7f4842b0a1d24"
 
 "pui-css-copy-to-clipboard@file:pui-dist/css/copy-to-clipboard":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-dividers@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-dividers/-/pui-css-dividers-8.3.3.tgz#1a56d749e3216a128ec9a82f799394b038791d32"
 
 "pui-css-dividers@file:pui-dist/css/dividers":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-dropdowns@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-dropdowns/-/pui-css-dropdowns-8.3.3.tgz#8d3ef0a28d4a9e079e042a192e39824eb3df4e6f"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-button-group "=8.3.3"
@@ -8067,7 +8084,7 @@ pui-css-dropdowns@=8.3.3:
     pui-css-links "=8.3.3"
 
 "pui-css-dropdowns@file:pui-dist/css/dropdowns":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-button-group "=8.3.3"
@@ -8077,9 +8094,10 @@ pui-css-dropdowns@=8.3.3:
 
 pui-css-ellipsis@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-ellipsis/-/pui-css-ellipsis-8.3.3.tgz#97ca327fa7db88a758b36830d0da27adb3ea7e1a"
 
 "pui-css-ellipsis@file:pui-dist/css/ellipsis":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-flex-grids@=8.3.3:
   version "8.3.3"
@@ -8089,195 +8107,217 @@ pui-css-flex-grids@=8.3.3:
 
 pui-css-forms@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-forms/-/pui-css-forms-8.3.3.tgz#7393fadaa864590da5328b5723bac82ac3a26919"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-forms@file:pui-dist/css/forms":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-google-maps@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-google-maps/-/pui-css-google-maps-8.3.3.tgz#6f9ba920c84f269373d4bd8391cb9b01ff0fec2b"
 
 "pui-css-google-maps@file:pui-dist/css/google-maps":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-grids@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-grids/-/pui-css-grids-8.3.3.tgz#737bb5acca3a093ee8ed9d044b6c786b0565d3c3"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-grids@file:pui-dist/css/grids":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-hoverable@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-hoverable/-/pui-css-hoverable-8.3.3.tgz#83003ff16d91363429dfafd3639def4c3d74c66b"
 
 "pui-css-hoverable@file:pui-dist/css/hoverable":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-iconography@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-iconography/-/pui-css-iconography-8.3.3.tgz#80f56f187072c284a9530c229dd600806b0982c4"
 
 "pui-css-iconography@file:pui-dist/css/iconography":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-images@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-images/-/pui-css-images-8.3.3.tgz#bc29315bc4c55967a37dbb1c23b8b20294052b6b"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-images@file:pui-dist/css/images":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-labels@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-labels/-/pui-css-labels-8.3.3.tgz#68b25acf1e2a5a280807a6dc0e1edc723b4bdd02"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-labels@file:pui-dist/css/labels":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-links@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-links/-/pui-css-links-8.3.3.tgz#1514cbc29dfa7c8076e66d4534f37b4a4239ba70"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-links@file:pui-dist/css/links":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-lists@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-lists/-/pui-css-lists-8.3.3.tgz#9d1457189982d6d1cbc4a8cf3ad3fdd88ac16c8f"
   dependencies:
     pui-css-typography "=8.3.3"
 
 "pui-css-lists@file:pui-dist/css/lists":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-typography "=8.3.3"
 
 pui-css-media@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-media/-/pui-css-media-8.3.3.tgz#dcdd58f82dc9a076e7fe3024e467fe9636a57b80"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-media@file:pui-dist/css/media":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-modals@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-modals/-/pui-css-modals-8.3.3.tgz#0ad4ab92dac5c6da0e1caeb9d5bd05e6d65b51ea"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-typography "=8.3.3"
 
 "pui-css-modals@file:pui-dist/css/modals":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
     pui-css-typography "=8.3.3"
 
 pui-css-pagination@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-pagination/-/pui-css-pagination-8.3.3.tgz#b2a67371b03c2528b33f6b20ad15e4ede697426b"
 
 "pui-css-pagination@file:pui-dist/css/pagination":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-panels@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-panels/-/pui-css-panels-8.3.3.tgz#494f80617d4dd1b099a30b10b8213ce3a1b156ac"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-panels@file:pui-dist/css/panels":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-panes@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-panes/-/pui-css-panes-8.3.3.tgz#cb97ef8f50b93e014368c65bbcedc459266af8a4"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-panes@file:pui-dist/css/panes":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-progress-bars@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-progress-bars/-/pui-css-progress-bars-8.3.3.tgz#dcd42be1248e37d9846e16b8fbcc067929db7993"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-progress-bars@file:pui-dist/css/progress-bars":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-select@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-select/-/pui-css-select-8.3.3.tgz#63a44dcd67948a9cfef793d27db8f856ba240ac3"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 "pui-css-select@file:pui-dist/css/select":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 pui-css-spinners@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-spinners/-/pui-css-spinners-8.3.3.tgz#3688b46e9f3c6914dd577a70586137c8cbed3d4f"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 "pui-css-spinners@file:pui-dist/css/spinners":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-iconography "=8.3.3"
 
 pui-css-tables@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-tables/-/pui-css-tables-8.3.3.tgz#c7c7c44b91fc720ad06a94d265a959e911e6d346"
 
 "pui-css-tables@file:pui-dist/css/tables":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-tabs@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-tabs/-/pui-css-tabs-8.3.3.tgz#048acd10a889151a4615ec6f1377f0330566b765"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-tabs@file:pui-dist/css/tabs":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 pui-css-tile-layout@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-tile-layout/-/pui-css-tile-layout-8.3.3.tgz#ca6913623e25ff4bc4205aff76025f2e80d3217a"
 
 "pui-css-tile-layout@file:pui-dist/css/tile-layout":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-tooltips@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-tooltips/-/pui-css-tooltips-8.3.3.tgz#3e4dd13e4883991dcdb27b065377b3e866edfd7e"
 
 "pui-css-tooltips@file:pui-dist/css/tooltips":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-typography@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-typography/-/pui-css-typography-8.3.3.tgz#eab676ff20cf2efdcd54725fdd0c18a6673711fc"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
 "pui-css-typography@file:pui-dist/css/typography":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     pui-css-bootstrap "=8.3.3"
 
@@ -8287,15 +8327,17 @@ pui-css-variables-and-mixins@*:
 
 pui-css-vertical-alignment@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-vertical-alignment/-/pui-css-vertical-alignment-8.3.3.tgz#bedf35307ebc9ae56bd91bb48b0ca51dabfc4d87"
 
 "pui-css-vertical-alignment@file:pui-dist/css/vertical-alignment":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-css-whitespace@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-css-whitespace/-/pui-css-whitespace-8.3.3.tgz#95c755a1bfd3621058de2979424f42e09cbb563e"
 
 "pui-css-whitespace@file:pui-dist/css/whitespace":
-  version "8.3.3"
+  version "9.0.0"
 
 pui-cursor@^3.0.4:
   version "3.0.5"
@@ -8314,7 +8356,7 @@ pui-prismjs@0.0.1:
     prismjs "^0.0.1"
 
 "pui-react-alerts@file:pui-dist/react/alerts":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "2.2.5"
@@ -8334,7 +8376,7 @@ pui-react-animation@^0.2.0:
     react ">=0.13.3"
 
 "pui-react-autocomplete@file:pui-dist/react/autocomplete":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8348,7 +8390,7 @@ pui-react-animation@^0.2.0:
     trie-search "^1.0.0"
 
 "pui-react-back-to-top@file:pui-dist/react/back-to-top":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     lodash.throttle "^3.0.2"
@@ -8360,6 +8402,7 @@ pui-react-animation@^0.2.0:
 
 pui-react-buttons@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-buttons/-/pui-react-buttons-8.3.3.tgz#87c8a9d08b0f7fc03950151a6e9192ea4ef2d785"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8367,7 +8410,7 @@ pui-react-buttons@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-buttons@file:pui-dist/react/buttons":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8375,7 +8418,7 @@ pui-react-buttons@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-checkbox@file:pui-dist/react/checkbox":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8383,7 +8426,7 @@ pui-react-buttons@=8.3.3:
     pui-css-forms "=8.3.3"
 
 "pui-react-collapse@file:pui-dist/react/collapse":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8396,6 +8439,7 @@ pui-react-buttons@=8.3.3:
 
 pui-react-collapsible@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-collapsible/-/pui-react-collapsible-8.3.3.tgz#46d05d1c609cf3e2893fcd34888115f5941ed3a4"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8404,7 +8448,7 @@ pui-react-collapsible@=8.3.3:
     pui-react-mixins "=8.3.3"
 
 "pui-react-collapsible@file:pui-dist/react/collapsible":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8413,7 +8457,7 @@ pui-react-collapsible@=8.3.3:
     pui-react-mixins "=8.3.3"
 
 "pui-react-copy-to-clipboard@file:pui-dist/react/copy-to-clipboard":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8423,7 +8467,7 @@ pui-react-collapsible@=8.3.3:
     pui-react-tooltip "=8.3.3"
 
 "pui-react-dividers@file:pui-dist/react/dividers":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8431,7 +8475,7 @@ pui-react-collapsible@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-draggable-list@file:pui-dist/react/draggable-list":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8442,6 +8486,7 @@ pui-react-collapsible@=8.3.3:
 
 pui-react-dropdowns@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-dropdowns/-/pui-react-dropdowns-8.3.3.tgz#4f0b73b53ef9bd0f7ab3bdc7f26c846d1e7e98a8"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.1.2"
@@ -8451,7 +8496,7 @@ pui-react-dropdowns@=8.3.3:
     pui-react-mixins "=8.3.3"
 
 "pui-react-dropdowns@file:pui-dist/react/dropdowns":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.1.2"
@@ -8461,14 +8506,14 @@ pui-react-dropdowns@=8.3.3:
     pui-react-mixins "=8.3.3"
 
 "pui-react-expander@file:pui-dist/react/expander":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
     pui-react-collapsible "=8.3.3"
 
 "pui-react-grids@file:pui-dist/react/grids":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.3"
@@ -8478,18 +8523,20 @@ pui-react-dropdowns@=8.3.3:
 
 pui-react-helpers@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-helpers/-/pui-react-helpers-8.3.3.tgz#88b4ebd4525753c9160496df47c545a17c3eab4f"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.1.2"
 
 "pui-react-helpers@file:pui-dist/react/helpers":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.1.2"
 
 pui-react-iconography@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-iconography/-/pui-react-iconography-8.3.3.tgz#b24bc645d3d673938aa34ce87893e9d09160d635"
   dependencies:
     babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
@@ -8500,7 +8547,7 @@ pui-react-iconography@=8.3.3:
     react-svg-loader "^1.1.1"
 
 "pui-react-iconography@file:pui-dist/react/iconography":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
@@ -8511,7 +8558,7 @@ pui-react-iconography@=8.3.3:
     react-svg-loader "^1.1.1"
 
 "pui-react-images@file:pui-dist/react/images":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8519,7 +8566,7 @@ pui-react-iconography@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-inputs@file:pui-dist/react/inputs":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8529,7 +8576,7 @@ pui-react-iconography@=8.3.3:
     pui-react-iconography "=8.3.3"
 
 "pui-react-labels@file:pui-dist/react/labels":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     pui-css-labels "=8.3.3"
@@ -8537,6 +8584,7 @@ pui-react-iconography@=8.3.3:
 
 pui-react-lists@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-lists/-/pui-react-lists-8.3.3.tgz#1a0cda61555c2a14b7bc446d37d74f5c65453e8b"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8544,7 +8592,7 @@ pui-react-lists@=8.3.3:
     pui-css-lists "=8.3.3"
 
 "pui-react-lists@file:pui-dist/react/lists":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8553,6 +8601,7 @@ pui-react-lists@=8.3.3:
 
 pui-react-media@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-media/-/pui-react-media-8.3.3.tgz#1bd002a46406a2e29156618da01ef941beaca919"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8560,7 +8609,7 @@ pui-react-media@=8.3.3:
     pui-css-media "=8.3.3"
 
 "pui-react-media@file:pui-dist/react/media":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8569,6 +8618,7 @@ pui-react-media@=8.3.3:
 
 pui-react-mixins@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-mixins/-/pui-react-mixins-8.3.3.tgz#ff9e08c0d73d500fbee1ca7fdacc044b1a69d6ce"
   dependencies:
     babel-runtime "^6.1.18"
     fbjs "^0.7.2"
@@ -8578,7 +8628,7 @@ pui-react-mixins@=8.3.3:
     react-addons-shallow-compare ">=0.14.0"
 
 "pui-react-mixins@file:pui-dist/react/mixins":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     fbjs "^0.7.2"
@@ -8588,7 +8638,7 @@ pui-react-mixins@=8.3.3:
     react-addons-shallow-compare ">=0.14.0"
 
 "pui-react-modals@file:pui-dist/react/modals":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8597,7 +8647,7 @@ pui-react-mixins@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-notifications@file:pui-dist/react/notifications":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.1.3"
@@ -8607,7 +8657,7 @@ pui-react-mixins@=8.3.3:
     pui-react-iconography "=8.3.3"
 
 "pui-react-overlay-trigger@file:pui-dist/react/overlay-trigger":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     lodash.uniqueid "^3.0.0"
@@ -8616,7 +8666,7 @@ pui-react-mixins@=8.3.3:
     react-tether "^0.5.2"
 
 "pui-react-pagination@file:pui-dist/react/pagination":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8624,7 +8674,7 @@ pui-react-mixins@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-panels@file:pui-dist/react/panels":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8633,7 +8683,7 @@ pui-react-mixins@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-panes@file:pui-dist/react/panes":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8641,13 +8691,13 @@ pui-react-mixins@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-portals@file:pui-dist/react/portals":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
 
 "pui-react-radio@file:pui-dist/react/radio":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.3"
@@ -8657,7 +8707,7 @@ pui-react-mixins@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-select@file:pui-dist/react/select":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8668,7 +8718,7 @@ pui-react-mixins@=8.3.3:
     pui-react-mixins "=8.3.3"
 
 "pui-react-stream-list@file:pui-dist/react/stream-list":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     prop-types ">=15.5.6"
@@ -8678,6 +8728,7 @@ pui-react-mixins@=8.3.3:
 
 pui-react-svg@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-svg/-/pui-react-svg-8.3.3.tgz#50663f341eef4a604e53d3a3aa10f55597b96883"
   dependencies:
     babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
@@ -8685,7 +8736,7 @@ pui-react-svg@=8.3.3:
     react-svg-loader "^1.1.1"
 
 "pui-react-svg@file:pui-dist/react/svg":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-loader ">=6.0.0"
     babel-runtime "^6.1.18"
@@ -8693,7 +8744,7 @@ pui-react-svg@=8.3.3:
     react-svg-loader "^1.1.1"
 
 "pui-react-table@file:pui-dist/react/table":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8704,7 +8755,7 @@ pui-react-svg@=8.3.3:
     pui-react-iconography "=8.3.3"
 
 "pui-react-tabs@file:pui-dist/react/tabs":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8716,7 +8767,7 @@ pui-react-svg@=8.3.3:
     raf "^3.1.0"
 
 "pui-react-tile-layout@file:pui-dist/react/tile-layout":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8725,7 +8776,7 @@ pui-react-svg@=8.3.3:
     pui-react-helpers "=8.3.3"
 
 "pui-react-toggle@file:pui-dist/react/toggle":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     lodash.uniqueid "^3.0.0"
@@ -8803,6 +8854,7 @@ pui-react-tools@^2.0.5:
 
 pui-react-tooltip@=8.3.3:
   version "8.3.3"
+  resolved "https://registry.yarnpkg.com/pui-react-tooltip/-/pui-react-tooltip-8.3.3.tgz#bb7e67c38a06e88501f245e6c2891e6252a7f546"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
@@ -8810,7 +8862,7 @@ pui-react-tooltip@=8.3.3:
     pui-css-tooltips "=8.3.3"
 
 "pui-react-tooltip@file:pui-dist/react/tooltip":
-  version "8.3.3"
+  version "9.0.0"
   dependencies:
     babel-runtime "^6.1.18"
     classnames "^2.2.0"
