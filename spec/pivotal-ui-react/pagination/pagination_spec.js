@@ -75,6 +75,20 @@ describe('Pagination', () => {
       expect('.pagination button:eq(1)').not.toHaveClass('btn-default-alt');
     });
 
+    it('renders large buttons when large prop is true', () => {
+      subject = renderComponent({large: true});
+      expect('div.pagination').toHaveClass('btn-group-large');
+      expect('div.pagination').not.toHaveClass('btn-group-small');
+      expect('div.pagination').toHaveClass('btn-group');
+    });
+
+    it('renders small buttons when small prop is true', () => {
+      subject = renderComponent({small: true});
+      expect('div.pagination').toHaveClass('btn-group-small');
+      expect('div.pagination').not.toHaveClass('btn-group-large');
+      expect('div.pagination').toHaveClass('btn-group');
+    });
+
     describe('onSelect', () => {
       let onSelect;
 

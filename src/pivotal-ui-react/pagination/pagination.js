@@ -32,7 +32,9 @@ export class Pagination extends React.PureComponent {
     next: PropTypes.bool,
     prev: PropTypes.bool,
     activePage: PropTypes.number,
-    onSelect: PropTypes.func
+    onSelect: PropTypes.func,
+    small: PropTypes.bool,
+    large: PropTypes.bool
   };
 
   static defaultProps = {
@@ -44,7 +46,7 @@ export class Pagination extends React.PureComponent {
   };
 
   render() {
-    const {items, next, prev, activePage, onSelect, ...props} = this.props;
+    const {items, next, prev, activePage, onSelect, small, large, ...props} = this.props;
     const paginationButtons = [];
     for (let i = 0; i < items; i++) {
       const isActive = (i + 1 === activePage);
@@ -61,7 +63,10 @@ export class Pagination extends React.PureComponent {
     const prevButton = <PaginationButton onSelect={onSelect} eventKey="prev" content="&lsaquo;"/>;
     const nextButton = <PaginationButton onSelect={onSelect} eventKey="next" content="&rsaquo;"/>;
 
-    return (<div className="pagination btn-group" role="group">
+    return (<div className={classnames('pagination', 'btn-group', {
+      'btn-group-small': small,
+      'btn-group-large': large
+    })} role="group">
       {prev ? prevButton : null}
       {paginationButtons}
       {next ? nextButton : null}
