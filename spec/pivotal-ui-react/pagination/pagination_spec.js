@@ -4,89 +4,101 @@ import {Pagination} from 'pui-react-pagination';
 
 describe('Pagination', () => {
   let subject;
+
   const renderComponent = props => ReactDOM.render(<Pagination {...props}/>, root);
 
-  it('renders a pagination component', () => {
+  beforeEach(() => {
     subject = renderComponent();
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination')).toBeDefined();
+  });
+
+  it('renders a pagination component', () => {
+    expect('div.pagination').toExist();
+  });
+
+  it('has the "btn-group" class', () => {
+    expect('div.pagination').toHaveClass('btn-group');
+  });
+
+  it('has the "group" role', () => {
+    expect('div.pagination').toHaveAttr('role', 'group');
+  });
+
+  it('renders 1 button when no items are specified',() => {
+    expect($('.pagination button').length).toBe(3);
+    expect('.pagination button:eq(0)').toHaveText('‹');
+    expect('.pagination button:eq(1)').toHaveText('1');
+    expect('.pagination button:eq(2)').toHaveText('›');
+  });
+
+  it('renders all buttons with the btn class', () => {
+    expect('.pagination button:eq(0)').toHaveClass('btn');
+    expect('.pagination button:eq(1)').toHaveClass('btn');
+    expect('.pagination button:eq(2)').toHaveClass('btn');
+  });
+
+  it('renders all buttons with the btn-default-alt class', () => {
+    expect('.pagination button:eq(0)').toHaveClass('btn-default-alt');
+    expect('.pagination button:eq(1)').toHaveClass('btn-default-alt');
+    expect('.pagination button:eq(2)').toHaveClass('btn-default-alt');
   });
 
   describe('props', () => {
     it('renders the number of buttons specified in items, plus next and prev buttons', () => {
       subject = renderComponent({items: 5});
-      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination');
-      const paginationButtons = pagination.getElementsByTagName('li');
 
-      expect(paginationButtons[0]).toHaveText('‹');
-      expect(paginationButtons[1]).toHaveText('1');
-      expect(paginationButtons[5]).toHaveText('5');
-      expect(paginationButtons[6]).toHaveText('›');
-      expect(paginationButtons).toHaveLength(7);
-    });
-
-    it('renders 1 button when no items are specified',() => {
-      subject = renderComponent();
-      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination');
-      const paginationButtons = pagination.getElementsByTagName('li');
-
-      expect(paginationButtons).toHaveLength(3);
-      expect(paginationButtons[0]).toHaveText('‹');
-      expect(paginationButtons[1]).toHaveText('1');
-      expect(paginationButtons[2]).toHaveText('›');
+      expect('.pagination button:eq(0)').toHaveText('‹');
+      expect('.pagination button:eq(1)').toHaveText('1');
+      expect('.pagination button:eq(5)').toHaveText('5');
+      expect('.pagination button:eq(6)').toHaveText('›');
+      expect($('.pagination button').length).toBe(7);
     });
 
     it('does not render next when next is false',() => {
       subject = renderComponent({next: false});
-      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination');
-      const paginationButtons = pagination.getElementsByTagName('li');
 
-      expect(paginationButtons).toHaveLength(2);
-      expect(paginationButtons[0]).toHaveText('‹');
-      expect(paginationButtons[1]).toHaveText('1');
+      expect($('.pagination button').length).toBe(2);
+      expect('.pagination button:eq(0)').toHaveText('‹');
+      expect('.pagination button:eq(1)').toHaveText('1');
     });
 
     it('does not render prev when prev is false',() => {
       subject = renderComponent({prev: false});
-      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination');
-      const paginationButtons = pagination.getElementsByTagName('li');
 
-      expect(paginationButtons).toHaveLength(2);
-      expect(paginationButtons[0]).toHaveText('1');
-      expect(paginationButtons[1]).toHaveText('›');
+      expect($('.pagination button').length).toBe(2);
+      expect('.pagination button:eq(0)').toHaveText('1');
+      expect('.pagination button:eq(1)').toHaveText('›');
     });
 
     it('renders an active button when activePage number is specified', () => {
       subject = renderComponent({activePage: 1});
-      const pagination = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'pagination');
-      expect(pagination.getElementsByClassName('active')).toHaveLength(1);
+      expect('.pagination button:eq(1)').toHaveClass('btn-default');
+      expect('.pagination button:eq(1)').not.toHaveClass('btn-default-alt');
     });
 
     describe('onSelect', () => {
-      let onSelectSpy;
+      let onSelect;
+
       beforeEach(() => {
-        onSelectSpy = jasmine.createSpy('onSelect');
-        subject = renderComponent({onSelect: onSelectSpy, items: 5});
+        onSelect = jasmine.createSpy('onSelect');
+        subject = renderComponent({onSelect, items: 5});
       });
 
       it('calls on button click', () => {
-        const firstButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[4];
-        ReactTestUtils.Simulate.click(firstButton);
+        $('.pagination button:eq(4)').simulate('click');
 
-        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4});
       });
 
       it('calls on prev click', () => {
-        const prevButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[0];
-        ReactTestUtils.Simulate.click(prevButton);
+        $('.pagination button:eq(0)').simulate('click');
 
-        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev'});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev'});
       });
 
       it('calls on next click', () => {
-        const nextButton = ReactTestUtils.scryRenderedDOMComponentsWithTag(subject, 'li')[6];
-        ReactTestUtils.Simulate.click(nextButton);
+        $('.pagination button:eq(6)').simulate('click');
 
-        expect(onSelectSpy).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'});
       });
     });
   });

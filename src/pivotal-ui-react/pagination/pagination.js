@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import 'pui-css-pagination';
+import classnames from 'classnames';
 
 class PaginationButton extends React.PureComponent {
   static propTypes = {
@@ -17,12 +18,11 @@ class PaginationButton extends React.PureComponent {
 
   render() {
     const {content, active} = this.props;
-    const activeClass = active ? 'active' : '';
-    return (<li onClick={this.click} className={activeClass}>
-      <a>
-        {content}
-      </a>
-    </li>);
+    return (<button onClick={this.click} className={classnames('btn', {
+      'btn-default-alt': !active, 'btn-default': active
+    })}>
+      {content}
+    </button>);
   }
 }
 
@@ -61,10 +61,10 @@ export class Pagination extends React.PureComponent {
     const prevButton = <PaginationButton onSelect={onSelect} eventKey="prev" content="&lsaquo;"/>;
     const nextButton = <PaginationButton onSelect={onSelect} eventKey="next" content="&rsaquo;"/>;
 
-    return (<ul className="pagination">
+    return (<div className="pagination btn-group" role="group">
       {prev ? prevButton : null}
       {paginationButtons}
       {next ? nextButton : null}
-    </ul>);
+    </div>);
   }
 }
