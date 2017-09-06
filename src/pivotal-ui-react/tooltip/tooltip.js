@@ -42,6 +42,7 @@ export class TooltipTrigger extends React.Component {
     placement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
     trigger: PropTypes.oneOf(['hover', 'click']),
     clickHideDelay: PropTypes.number,
+    onClick: PropTypes.func,
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
     theme: PropTypes.oneOf(['dark', 'light']),
@@ -53,6 +54,7 @@ export class TooltipTrigger extends React.Component {
     placement: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
+    onClick: () => {},
     onEntered: () => {},
     onExited: () => {},
     theme: 'dark',
@@ -63,14 +65,16 @@ export class TooltipTrigger extends React.Component {
   constructor(props) {
     super(props);
     this.state = {visible: false};
+    this.clickHandler = this.clickHandler.bind(this);
   }
 
   hoverHandler(e) {
     this.setState({visible: e.type === 'mouseenter'});
   }
 
-  clickHandler() {
+  clickHandler(e, onClick) {
     this.setState({visible: true});
+    onClick(e);
     setTimeout(() => {
       this.setState({visible: false});
     }, this.props.clickHideDelay);
@@ -85,7 +89,7 @@ export class TooltipTrigger extends React.Component {
   }
 
   render() {
-    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, ...others} = this.props;
+    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, ...others} = this.props;
     const {visible} = this.state;
 
     let placementClass;
@@ -96,10 +100,11 @@ export class TooltipTrigger extends React.Component {
     let triggerHandler;
     switch(trigger) {
       case 'click':
-        triggerHandler = {onClick: this.clickHandler.bind(this)};
+        triggerHandler = {onClick: e => this.clickHandler(e, onClick)};
         break;
       default:
         triggerHandler = {
+          onClick,
           onMouseEnter: this.hoverHandler.bind(this),
           onMouseLeave: this.hoverHandler.bind(this)
         };
