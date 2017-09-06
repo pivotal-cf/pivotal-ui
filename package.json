@@ -77,6 +77,7 @@
     "pui-css-tile-layout": "file:pui-dist/css/tile-layout",
     "pui-css-tooltips": "file:pui-dist/css/tooltips",
     "pui-css-typography": "file:pui-dist/css/typography",
+    "pui-css-variables-and-mixins": "file:pui-dist/css/variables-and-mixins",
     "pui-css-vertical-alignment": "file:pui-dist/css/vertical-alignment",
     "pui-css-whitespace": "file:pui-dist/css/whitespace",
     "pui-prismjs": "0.0.1",
