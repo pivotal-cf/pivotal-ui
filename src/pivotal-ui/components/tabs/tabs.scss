@@ -238,9 +238,9 @@ $tab-action-padding: ($base-unit/2) ($base-unit*2);
 
   .nav {
     a {
-      padding: 8px 10px;
+      padding: 8px;
       color: $tab-left-color;
-      margin: 5px 0;
+      margin: 4px 0;
       border-radius: $tab-left-radius;
       @include transition-pui();
     }
