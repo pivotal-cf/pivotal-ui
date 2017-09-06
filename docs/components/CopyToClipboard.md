@@ -48,7 +48,9 @@ import {Input} from 'pui-react-inputs';
 `npm install pui-css-copy-to-clipboard --save`
 
 ## Props
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-text    | yes| String   |          | Text that is copied when the user clicks 
-onClick | no | Function | () => () | Click handler
+Property | Required | Type     | Default  | Description
+---------|----------|----------|----------|------------
+text     | yes      | String   |          | Text that is copied when the user clicks
+onClick  | no       | Function | () => () | Click handler
+large    | no       | Boolean  | false    | Make button large
+small    | no       | Boolean  | false    | Make button small
