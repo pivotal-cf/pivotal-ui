@@ -4,6 +4,7 @@ import {Icon} from 'pui-react-iconography';
 import {mergeProps} from 'pui-react-helpers';
 import PropTypes from 'prop-types';
 import {TooltipTrigger} from 'pui-react-tooltip';
+import {DefaultButton} from 'pui-react-buttons';
 import 'pui-css-copy-to-clipboard';
 
 
@@ -22,7 +23,7 @@ export class CopyToClipboard extends React.PureComponent {
     const window = this.props.getWindow();
     copy(window, window.document, text);
     const {onClick} = props;
-    if(onClick) onClick(e);
+    if (onClick) onClick(e);
   };
 
   render() {
@@ -46,7 +47,9 @@ export class CopyToClipboardButton extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string,
     onClick: PropTypes.func,
-    getWindow: PropTypes.func
+    getWindow: PropTypes.func,
+    small: PropTypes.bool,
+    large: PropTypes.bool
   };
 
   static defaultProps = {
@@ -61,14 +64,14 @@ export class CopyToClipboardButton extends React.PureComponent {
   }
 
   click = e => {
-    if(!this.state.display) this.setState({display: true}, () => {
+    if (!this.state.display) this.setState({display: true}, () => {
       this.setState({display: false});
     });
     this.props.onClick(e);
   };
 
   render() {
-    const {onClick, ...props} = this.props;
+    const {onClick, small, large, ...props} = this.props;
     const {display} = this.state;
 
     const copyProps = mergeProps(props, {
@@ -77,9 +80,13 @@ export class CopyToClipboardButton extends React.PureComponent {
       getWindow: this.props.getWindow
     });
 
-    const button = (<div className="clipboard-button">
-      <Icon src="copy"/>
-    </div>);
+    const button = (<DefaultButton {...{
+      flat: true,
+      className: 'clipboard-button',
+      icon: <Icon src="copy"/>,
+      small,
+      large
+    }}/>);
 
     return (<CopyToClipboard {...copyProps}>
       <TooltipTrigger tooltip="Copied" trigger="click">{button}</TooltipTrigger>
