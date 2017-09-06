@@ -1,6 +1,6 @@
 {
-  "version": "9.0.0",
-  "dependencies": {},
+  "description": "CSS for border control",
   "homepage": "http://styleguide.pivotal.io/",
-  "description": "CSS for border control"
+  "dependencies": {},
+  "version": "8.3.3"
 }

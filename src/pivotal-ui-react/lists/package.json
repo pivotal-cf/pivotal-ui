@@ -1,10 +1,10 @@
 {
-  "dependencies": {
-    "classnames": "^2.2.0",
-    "pui-css-lists": "=8.3.3",
-    "prop-types": ">=15.5.6"
-  },
-  "homepage": "http://styleguide.pivotal.io/",
+  "version": "8.3.3",
   "description": "A collection of React components for rendering different kinds of lists",
-  "version": "9.0.0"
+  "homepage": "http://styleguide.pivotal.io/",
+  "dependencies": {
+    "prop-types": ">=15.5.6",
+    "pui-css-lists": "=8.3.3",
+    "classnames": "^2.2.0"
+  }
 }

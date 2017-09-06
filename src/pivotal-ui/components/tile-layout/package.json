@@ -1,5 +1,5 @@
 {
-  "version": "9.0.0",
+  "homepage": "http://styleguide.pivotal.io/",
   "dependencies": {},
-  "homepage": "http://styleguide.pivotal.io/"
+  "version": "8.3.3"
 }
