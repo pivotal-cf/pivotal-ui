@@ -27,7 +27,7 @@ export class PortalSource extends React.PureComponent {
     this.state = {destination: null};
   }
 
-  componentWillMount() {
+  componentDidMount() {
     emitter.on('destination', this.setDestination);
     this.setDestination();
     this.componentDidUpdate();
