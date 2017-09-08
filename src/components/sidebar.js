@@ -1,8 +1,8 @@
 import React from 'react';
-import {Autocomplete, AutocompleteInput} from 'pui-react-autocomplete';
-import {Collapse} from 'pui-react-collapse';
-import {Iconography, Icon} from 'pui-react-iconography';
-import {Input} from 'pui-react-inputs';
+import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
+import {Collapse} from 'pivotal-ui/react/collapse';
+import {Iconography, Icon} from 'pivotal-ui/react/iconography';
+import {Input} from 'pivotal-ui/react/inputs';
 import {componentItems} from '../helpers/content';
 
 const searchItems = componentItems;

@@ -20,19 +20,16 @@ example below.
 ```jsx
 ::title=SVG example
 ::description=An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
-<div>
-  <Icon src="help" />
-</div>
+<h1>
+  <Icon src="help"/>
+</h1>
 ```
 
 ```jsx
 ::title=Baseline
 ::description=Align SVG to baseline with `.icon-baseline` modifier class.
 <h1>
-  <div>
-  Example
-    <Icon src="help" verticalAlign="baseline" />
-  </div>
+  Example <Icon src="help" verticalAlign="baseline" />
 </h1>
 ```
 
@@ -57,15 +54,15 @@ example below.
 <div className="grid txt-c">
   <div className="col col-top">
     <div className="mbl"><code>.spinner-lg</code></div>
-    <Icon style={{'font-size': '96px'}} src="spinner-lg" />
+    <Icon style={{'fontSize': '96px'}} src="spinner-lg" />
   </div>
   <div className="col col-top">
     <div className="mbl"><code>.spinner-md</code></div>
-    <Icon style={{'font-size': '48px'}} src="spinner-md" />
+    <Icon style={{'fontSize': '48px'}} src="spinner-md" />
   </div>
   <div className="col col-top">
     <div className="mbl"><code>.spinner-sm</code></div>
-    <Icon style={{'font-size': '16px'}} src="spinner-sm" />
+    <Icon style={{'fontSize': '16px'}} src="spinner-sm" />
   </div>
 </div>
 ```

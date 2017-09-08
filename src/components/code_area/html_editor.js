@@ -1,8 +1,8 @@
 import React from 'react';
 import AceEditor from 'react-ace';
 
-import {Icon} from 'pui-react-iconography';
-import {CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
+import {Icon} from 'pivotal-ui/react/iconography';
+import {CopyToClipboardButton} from 'pivotal-ui/react/copy-to-clipboard';
 
 export default class HtmlEditor extends React.Component {
   render() {

@@ -1,5 +1,5 @@
-import {Icon} from 'pui-react-iconography';
-import {Checkbox} from 'pui-react-checkbox';
+import {Icon} from 'pivotal-ui/react/iconography';
+import {Checkbox} from 'pivotal-ui/react/checkbox';
 
 export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtmlPreview, isReact}) => {
   const issueUrl = `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=fix(${name})%3A%20description&body=**Steps%20to%20Reproduce**%0A%0A**Expected**%0A${name}%20should%20do%20this%0A%0A**Result**%0A${name}%20do%20not%20do%20this`;;

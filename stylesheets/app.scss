@@ -1,4 +1,7 @@
-@import '../node_modules/pui-css-variables-and-mixins/pui-variables';
+@import '../node_modules/pivotal-ui/css/variables-and-mixins/pui-variables';
+@import '../node_modules/pivotal-ui/css/flex-grids/flex-grids.css';
+@import '../node_modules/pivotal-ui/css/colors/colors.css';
+@import '../node_modules/pivotal-ui/css/backgrounds/backgrounds.css';
 @import './sidebar';
 @import './content';
 @import 'code_editor';
@@ -100,6 +103,6 @@ table.markdown-table {
   margin-bottom: 40px;
 }
 
-table.props-table {
+#root #app #content table.props-table {
   table-layout: auto;
 }

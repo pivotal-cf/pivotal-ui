@@ -75,7 +75,7 @@
 ```
 
 ```jsx
-::title=Split sropdown
+::title=Split dropdown
 ::description=Action with additional actions hidden in a dropdown. Note the position of the label, in order to style the focused state. Only appropriate as a float menu.
 <div className="form-group">
   <Dropdown title='Split Dropdown' split>

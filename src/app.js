@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import 'pui-css-all';
 import '../stylesheets/app.scss';
 
 import Sidebar from './components/sidebar';
@@ -21,7 +20,7 @@ class App extends React.Component {
 
   updateContent(href) {
     window.history.pushState({}, '', href);
-    document.body.scrollTop = 0;
+    content.scrollTop = 0;
     const path = window.location.pathname;
     this.setState({content: App.currentContent(path), path: path});
   }
