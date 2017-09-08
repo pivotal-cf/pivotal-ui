@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {TooltipTrigger} from 'pui-react-tooltip';
+import {TooltipTrigger} from '../../../src/react/tooltip';
 
 describe('TooltipTrigger Component', () => {
   const renderComponent = (props, triggerContent) => ReactDOM.render(

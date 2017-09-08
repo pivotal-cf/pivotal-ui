@@ -1,11 +1,12 @@
 import '../spec_helper';
-import {Collapsible} from 'pui-react-collapsible';
-import {Tab, LeftTabs, Tabs} from 'pui-react-tabs';
+import {Collapsible} from '../../../src/react/collapsible';
+import {Tab, LeftTabs, Tabs} from '../../../src/react/tabs';
+import MediaSize from '../../../src/react/tabs/media-size';
 
 import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper';
 
 describe('Tabs', () => {
-  let subject, MediaSize, onEnterSpy, onExitSpy;
+  let subject, onEnterSpy, onExitSpy;
 
   const renderComponent = props => {
     const mergedProps = {
@@ -37,7 +38,6 @@ describe('Tabs', () => {
   };
 
   beforeEach(() => {
-    MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size');
     spyOn(MediaSize, 'matches').and.returnValue(true);
   });
 

@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {findByClass, findAllByClass, clickOn} from '../spec_helper';
-import {Modal, BaseModal} from 'pui-react-modals';
+import {Modal, BaseModal} from '../../../src/react/modals';
 
 let result;
 

@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Image} from 'pui-react-images';
+import {Image} from '../../../src/react/images';
 import {reactCompPropagatesAttrs} from '../support/shared_examples';
 
 describe('Image', () => {

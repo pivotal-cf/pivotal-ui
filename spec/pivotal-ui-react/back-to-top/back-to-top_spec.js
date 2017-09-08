@@ -1,8 +1,8 @@
 import '../spec_helper';
-let ScrollTop = require('../../../src/pivotal-ui-react/back-to-top/scroll-top');
+import {BackToTop} from '../../../src/react/back-to-top';
+import ScrollTop from '../../../src/react/back-to-top/scroll-top';
 
 describe('BackToTop', function() {
-  let BackToTop;
   let originalGetScrollTop, originalSetScrollTop;
   let scrollTop;
 
@@ -26,7 +26,6 @@ describe('BackToTop', function() {
   });
 
   beforeEach(function(done) {
-    BackToTop = require('../../../src/pivotal-ui-react/back-to-top/back-to-top').BackToTop;
     ReactDOM.render(<BackToTop className="foo" id="bar" style={{fontSize: '200px'}}/>, root);
 
     jasmine.clock().uninstall();

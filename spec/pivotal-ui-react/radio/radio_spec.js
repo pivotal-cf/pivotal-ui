@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Radio, RadioGroup} from 'pui-react-radio';
+import {Radio, RadioGroup} from '../../../src/react/radio';
 import {findByClass, findByTag, findAllByTag} from '../spec_helper';
 
 describe('Radio', () => {

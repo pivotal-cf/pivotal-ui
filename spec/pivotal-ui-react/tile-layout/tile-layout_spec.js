@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';
+import {TileLayout, TileLayoutItem} from '../../../src/react/tile-layout';
 import {findByClass} from '../spec_helper';
 
 describe('TileLayout', () => {

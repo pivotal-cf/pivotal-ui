@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Svg} from 'pui-react-svg';
+import {Svg} from '../../../src/react/svg';
 import ReactDOMServer from 'react-dom/server';
 
 describe('Svg', () => {

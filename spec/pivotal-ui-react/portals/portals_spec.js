@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {PortalSource, PortalDestination} from 'pui-react-portals';
+import {PortalSource, PortalDestination} from '../../../src/react/portals';
 
 
 describe('Portals', function() {

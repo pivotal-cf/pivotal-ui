@@ -1,0 +1,1 @@
+export {mergeProps} from './helpers';

@@ -1,6 +1,6 @@
 import '../spec_helper';
-import {default as mixin} from 'pui-react-mixins';
-import {default as Mounted} from 'pui-react-mixins/mixins/mounted_mixin';
+import {default as mixin} from '../../../src/react/mixins';
+import {default as Mounted} from '../../../src/react/mixins/mixins/mounted_mixin';
 
 describe('MountedMixin', () => {
   let Component, subject;

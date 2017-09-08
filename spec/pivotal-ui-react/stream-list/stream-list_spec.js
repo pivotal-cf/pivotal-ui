@@ -1,6 +1,6 @@
 import '../spec_helper';
 import React from 'react';
-import {StreamList, StreamListItem} from 'pui-react-stream-list';
+import {StreamList, StreamListItem} from '../../../src/react/stream-list';
 
 import EventEmitter from 'node-event-emitter';
 import {findByClass, findAllByClass, findAllByTag, clickOn} from '../spec_helper';

@@ -1,6 +1,6 @@
 import '../spec_helper';
-import {Collapsible} from 'pui-react-collapsible';
-import {ExpanderContent, ExpanderTrigger} from 'pui-react-expander';
+import {Collapsible} from '../../../src/react/collapsible';
+import {ExpanderContent, ExpanderTrigger} from '../../../src/react/expander';
 import {findByClass, findByTag, clickOn} from '../spec_helper';
 
 

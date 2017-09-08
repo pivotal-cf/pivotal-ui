@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Notifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';
+import {Notifications, NotificationItem, AlertNotifications} from '../../../src/react/notifications';
 
 
 describe('Notification', () => {

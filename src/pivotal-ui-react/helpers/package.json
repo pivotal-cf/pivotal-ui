@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "classnames": "^2.1.2"
-  },
-  "description": "A collection of helpers used by pivotal-ui-react components",
-  "version": "9.0.0"
-}

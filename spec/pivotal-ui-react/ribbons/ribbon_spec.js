@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Ribbon, PrimaryRibbon, Banner} from 'pui-react-ribbons';
+import {Ribbon, PrimaryRibbon, Banner} from '../../../src/react/ribbons';
 import {findByClass} from '../spec_helper';
 
 let subject;

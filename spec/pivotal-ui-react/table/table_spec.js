@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Table, TableCell, TableRow} from 'pui-react-table';
+import {Table, TableCell, TableRow} from '../../../src/react/table';
 import PropTypes from 'prop-types';
 
 describe('Table', () => {

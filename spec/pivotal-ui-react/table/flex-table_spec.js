@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {FlexTable, FlexTableCell, FlexTableRow} from 'pui-react-table';
+import {FlexTable, FlexTableCell, FlexTableRow} from '../../../src/react/table';
 import {PropTypes} from 'prop-types';
 
 describe('Flex Table', () => {

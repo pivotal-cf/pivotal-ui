@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';
+import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from '../../../src/react/alerts';
 
 describe('Alert Component', () => {
   let subject;

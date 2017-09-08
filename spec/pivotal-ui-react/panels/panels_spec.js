@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Panel, PanelTitle, ShadowPanel} from 'pui-react-panels';
+import {Panel, PanelTitle, ShadowPanel} from '../../../src/react/panels';
 
 let subject;
 

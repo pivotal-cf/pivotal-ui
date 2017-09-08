@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Divider} from 'pui-react-dividers';
+import {Divider} from '../../../src/react/dividers';
 import {itPropagatesAttributes} from '../support/shared_examples';
 
 import {findByTag} from '../spec_helper';

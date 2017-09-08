@@ -1,12 +1,9 @@
 import '../spec_helper' ;
+import MediaSize from '../../../src/react/tabs/media-size';
 
 describe('MediaSize', () => {
   describe('.matches', () => {
-    let MediaSize;
-
     beforeEach(() => {
-      MediaSize = require('../../../src/pivotal-ui-react/tabs/media-size');
-
       spyOn(window, 'matchMedia');
     });
 

@@ -1,10 +1,11 @@
 import '../spec_helper' ;
+import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
 
 describe('ClipboardHelper', () => {
   let subject;
 
   beforeEach(() => {
-    subject = require('../../../src/pivotal-ui-react/copy-to-clipboard/clipboard-helper');
+    subject = ClipboardHelper;
   });
 
   describe('copy', () => {

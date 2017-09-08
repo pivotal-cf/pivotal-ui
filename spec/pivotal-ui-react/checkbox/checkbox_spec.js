@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Checkbox} from 'pui-react-checkbox';
+import {Checkbox} from '../../../src/react/checkbox';
 
 import {findByClass, findAllByClass} from '../spec_helper';
 

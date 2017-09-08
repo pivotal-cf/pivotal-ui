@@ -1,9 +1,8 @@
 import '../spec_helper' ;
-import {mergeProps} from 'pui-react-helpers';
+import {mergeProps} from '../../../src/react/helpers';
+import {UnorderedList, OrderedList, ListItem, BreadcrumbList, InlineList} from '../../../src/react/lists';
 
 describe('lists', () => {
-  const {UnorderedList, OrderedList, ListItem, BreadcrumbList, InlineList} = require('../../../src/pivotal-ui-react/lists/lists');
-
   function itRenders(Element, identifier, props = {}) {
     const testProps = {
       className: 'test-class',

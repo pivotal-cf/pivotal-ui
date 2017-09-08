@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "prop-types": ">=15.5.6"
-  },
-  "homepage": "http://styleguide.pivotal.io/",
-  "description": "React components that provide portals",
-  "version": "9.0.0"
-}

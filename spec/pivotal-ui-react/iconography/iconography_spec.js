@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Icon} from 'pui-react-iconography';
+import {Icon} from '../../../src/react/iconography';
 
 describe('iconography', function() {
   afterEach(function() {

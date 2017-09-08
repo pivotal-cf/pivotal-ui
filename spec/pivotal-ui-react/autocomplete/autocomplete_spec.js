@@ -1,11 +1,10 @@
 import {PropTypes} from 'prop-types';
 
+import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
+
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy;
-  let Autocomplete, AutocompleteInput;
   beforeEach(() => {
-    Autocomplete = require('pui-react-autocomplete').Autocomplete;
-    AutocompleteInput = require('pui-react-autocomplete').AutocompleteInput;
     const Cursor = require('pui-cursor');
     Cursor.async = false;
 

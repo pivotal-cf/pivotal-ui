@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Label} from 'pui-react-labels';
+import {Label} from '../../../src/react/labels';
 
 import {findByTag} from '../spec_helper';
 

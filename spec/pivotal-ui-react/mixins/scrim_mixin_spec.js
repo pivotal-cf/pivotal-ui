@@ -1,6 +1,6 @@
 import '../spec_helper';
-import {default as ScrimMixin} from 'pui-react-mixins/mixins/scrim_mixin';
-import {default as mixin} from 'pui-react-mixins';
+import {default as ScrimMixin} from '../../../src/react/mixins/mixins/scrim_mixin';
+import {default as mixin} from '../../../src/react/mixins';
 
 
 describe('ScrimMixin', () => {

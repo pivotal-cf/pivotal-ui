@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Media, Flag} from 'pui-react-media';
+import {Media, Flag} from '../../../src/react/media';
 
 import {findByClass} from '../spec_helper';
 

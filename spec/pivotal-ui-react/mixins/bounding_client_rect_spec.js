@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {useBoundingClientRect} from 'pui-react-mixins/components/bounding_client_rect';
+import {useBoundingClientRect} from '../../../src/react/mixins/components/bounding_client_rect';
 
 describe('BoundingClientRect', () => {
   const width = 100;

@@ -1,0 +1,59 @@
+@import "../pui-variables";
+@import '../mixins';
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+
+.modal {
+  box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
+}
+
+.modal-dialog {
+  width: 744px;
+}
+
+.modal-dialog.modal-lg {
+  width: 900px;
+}
+
+.modal-content {
+  background-color: #fff;
+  border-radius: 2px;
+  position: relative;
+}
+
+.modal-title {
+  margin: inherit;
+  line-height: inherit;
+}
+
+.modal-header {
+  border-bottom: 0;
+  padding: ($base-unit * 2) ($base-unit * 3) 0 ($base-unit * 3);
+}
+
+.modal-body {
+  padding: $base-unit ($base-unit * 3) $base-unit ($base-unit * 3);
+  p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.modal-footer {
+  border-top: 0;
+  padding: 0 ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
+
+  .btn+.btn {
+    margin-left: $base-unit;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: ($base-unit * 2);
+  right: ($base-unit * 2.5);
+}
+
+.pui-no-scroll {
+  overflow: hidden;
+}

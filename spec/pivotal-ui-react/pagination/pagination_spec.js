@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Pagination} from 'pui-react-pagination';
+import {Pagination} from '../../../src/react/pagination';
 
 describe('Pagination', () => {
   let subject;

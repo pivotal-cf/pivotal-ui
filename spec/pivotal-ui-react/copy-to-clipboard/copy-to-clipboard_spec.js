@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';
+import {CopyToClipboard, CopyToClipboardButton} from '../../../src/react/copy-to-clipboard';
 
 describe('CopyToClipboard', () => {
   const text = 'some copy text';

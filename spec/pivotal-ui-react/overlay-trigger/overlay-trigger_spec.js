@@ -1,5 +1,5 @@
-import {Tooltip} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
+import {Tooltip} from '../../../src/react/tooltip';
+import {OverlayTrigger} from '../../../src/react/overlay-trigger';
 
 describe('OverlayTrigger', () => {
   let subject;

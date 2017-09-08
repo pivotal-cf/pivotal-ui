@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Tooltip} from 'pui-react-tooltip';
+import {Tooltip} from '../../../src/react/tooltip';
 
 describe('Tooltip Component', () => {
   const renderComponent = props => ReactDOM.render(<Tooltip {...props}>Some default

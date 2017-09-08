@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {CheckboxDropdown} from 'pui-react-checkbox-dropdown';
+import {CheckboxDropdown} from '../../../src/react/checkbox-dropdown';
 
 describe('checkbox dropdown', () => {
   let subject;

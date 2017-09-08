@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {DropdownItem} from 'pui-react-dropdowns';
+import {DropdownItem} from '../../../src/react/dropdowns';
 
 import {findByClass, findByTag, clickOn} from '../spec_helper';
 

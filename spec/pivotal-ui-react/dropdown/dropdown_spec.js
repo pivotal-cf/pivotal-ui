@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Dropdown, DropdownItem} from 'pui-react-dropdowns';
+import {Dropdown, DropdownItem} from '../../../src/react/dropdowns';
 
 describe('Dropdown', () => {
   let subject;

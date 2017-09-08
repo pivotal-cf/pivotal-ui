@@ -1,5 +1,5 @@
 import '../spec_helper'; 
-import {mergeProps} from 'pui-react-helpers';
+import {mergeProps} from '../../../src/react/helpers';
 
 describe('mergeProps', () => {
   let subject;

@@ -1,4 +1,4 @@
-import {Collapsible} from 'pui-react-collapsible';
+import {Collapsible} from '../../../src/react/collapsible';
 
 describe('Collapsible', () => {
   let onEnteredSpy, onExitedSpy, subject;

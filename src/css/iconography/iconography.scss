@@ -1,0 +1,19 @@
+@import "spinner";
+
+.icon {
+  display: inline-flex;
+  align-self: center;
+  position: relative;
+
+  height: 1em;
+  width: 1em;
+
+  svg, img {
+    height: 1em;
+    width: 1em;
+  }
+}
+
+.icon.icon-baseline {
+  top: 0.125em;
+}

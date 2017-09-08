@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {TableCell} from 'pui-react-table';
+import {TableCell} from '../../../src/react/table';
 
 describe('TableCell', () => {
   beforeEach(() => {

@@ -1,6 +1,6 @@
 import '../spec_helper' ;
-import {BaseCollapse, Collapse, AltCollapse} from 'pui-react-collapse';
-import {Collapsible} from 'pui-react-collapsible';
+import {BaseCollapse, Collapse, AltCollapse} from '../../../src/react/collapse';
+import {Collapsible} from '../../../src/react/collapsible';
 
 describe('BaseCollapse', function() {
   let subject;

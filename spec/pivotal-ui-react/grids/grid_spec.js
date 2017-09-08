@@ -1,6 +1,6 @@
 import '../spec_helper';
 import {itPropagatesAttributes} from '../support/shared_examples';
-import {Row, Col} from 'pui-react-grids';
+import {Row, Col} from '../../../src/react/grids';
 import {findByClass} from '../spec_helper';
 
 describe('Grid', () => {

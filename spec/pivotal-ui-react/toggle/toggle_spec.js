@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Toggle} from 'pui-react-toggle';
+import {Toggle} from '../../../src/react/toggle';
 import {findByClass, findByTag} from '../spec_helper';
 
 describe('Toggle', () => {

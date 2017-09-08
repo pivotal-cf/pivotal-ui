@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {Select} from 'pui-react-select';
+import {Select} from '../../../src/react/select';
 import {findByClass, findAllByClass, findByTag, clickOn} from '../spec_helper';
 
 describe('Select', () => {

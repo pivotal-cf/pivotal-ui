@@ -1,7 +1,7 @@
 import '../spec_helper';
-import {DraggableList, DraggableListItem} from 'pui-react-draggable-list';
+import {DraggableList, DraggableListItem} from '../../../src/react/draggable-list';
 
-import move from 'pui-react-draggable-list/move_helper';
+import move from '../../../src/react/draggable-list/move_helper';
 
 describe('DraggableList', function() {
   const renderComponent = props => ReactDOM.render(

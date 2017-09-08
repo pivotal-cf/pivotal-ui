@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {BasePane, Pane} from 'pui-react-panes';
+import {BasePane, Pane} from '../../../src/react/panes';
 
 let subject;
 describe('BasePane', () => {

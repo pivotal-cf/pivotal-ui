@@ -1,7 +1,7 @@
 import '../spec_helper';
-import {UIButton} from 'pui-react-buttons';
+import {UIButton} from '../../../src/react/buttons';
 
-import {Icon} from 'pui-react-iconography';
+import {Icon} from '../../../src/react/iconography';
 
 describe('UIButton', () => {
   let subject;
