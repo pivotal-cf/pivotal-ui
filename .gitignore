@@ -16,7 +16,7 @@ pui-dist/
 *.zip
 npm-debug.log
 .DS_Store
-yarn.lock
+package-lock.json
 
 ## CssCritic
 
