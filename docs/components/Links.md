@@ -2,25 +2,25 @@
 
 ## Description
 
-Add the class `link-text` on any text links.
-This will make the link underlined on hover (except lowlight links).
+The following classes allow you to control the underline color and the hover state. By default,
+links are not underlined.
 
-There are four different kinds of links you can use to connect related content.
-In most cases (unless the designer specifically asks for another type of link)
-you should choose the default link.
-
-Link                                                                                                              | Class                           | Description
---------------------------------------------------------------------------------------------------------------    | ----------------------------    | -----------
-<a class="link-text" href="http://bit.ly/1ulOAW7" target="_blank">default link</a>                                | `link-text`                     | Important links
-<a class="link-text link-lowlight" href="http://bit.ly/1ulOAW7" target="_blank">lowlight link</a>                 | `link-text link-lowlight`       | Less important links
-<a class="link-text link-inverse bg-dark-1" href="http://bit.ly/1ulOAW7" target="_blank">inverse link</a>         | `link-text link-inverse`        | I go on a non-white background
+Class                           | Description
+----------------------------    | -----------
+`no-underline`                  | No text decoration or background image
+`underline`                     | Adds text decoration underline
+`underline-hover`               | Adds text decoration underline when the state is hover
+`underline-blue`                | Utilizes background image to define a blue underline
+`underline-blue-hover`          | Utilizes background image to define a blue underline when the state is hover
+`underline-gray`                | Utilizes background image to define a gray underline
+`underline-gray-hover`          | Utilizes background image to define a gray underline when the state is hover
 
 ## Examples
 
 ```html
 ::title=Link examples
 <p>
-    <a class="link-text" href="http://bitly.com/11vCzUx">
+    <a href="http://bitly.com/11vCzUx">
       <div class="icon icon-baseline">
           <svg class="icon-add-circle" xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
               <path d="M24 4C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm10 22h-8v8h-4v-8h-8v-4h8v-8h4v8h8v4z"></path>
@@ -29,12 +29,13 @@ Link                                                                            
       Click me, I'm a default link!
     </a>
 </p>
-<p>
-    Here's a <a class="link-text link-lowlight" href="http://bit.ly/1wO7Nhv">less important link</a>
-</p>
-<p>
-    And here's an <a class="link-text link-inverse" href="http://bit.ly/1wO7Nhv">inverse link</a>
-</p>
+<p> Here's a <a class="no-underline" href="http://bit.ly/1wO7Nhv">no underline</a> </p>
+<p> Here's a <a class="underline" href="http://bit.ly/1wO7Nhv">underline</a> </p>
+<p> Here's a <a class="underline-hover" href="http://bit.ly/1wO7Nhv">underline on hover</a> </p>
+<p> Here's a <a class="underline-blue" href="http://bit.ly/1wO7Nhv">underline blue</a> </p>
+<p> Here's a <a class="underline-blue-hover" href="http://bit.ly/1wO7Nhv">underline blue on hover</a> </p>
+<p> Here's a <a class="underline-gray" href="http://bit.ly/1wO7Nhv">underline gray</a> </p>
+<p> Here's a <a class="underline-gray-hover" href="http://bit.ly/1wO7Nhv">underline gray on hover</a> </p>
 ```
 
 ## Installation & Usage
