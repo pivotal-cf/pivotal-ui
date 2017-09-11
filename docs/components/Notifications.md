@@ -88,7 +88,7 @@ the notification button.
 
 `npm install pivotal-ui --save`
 
-`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pivotal-ui/react/notifications';`
+`import {Notifications, AlertNotifications, NotificationItem} from 'pivotal-ui/react/notifications';`
 
 
 #### CSS Only
