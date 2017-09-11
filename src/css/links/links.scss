@@ -11,10 +11,11 @@ a {
   }
 
   transition: all 150ms ease-out;
+}
 
-  &:hover {
-    color: $link-hover-color;
-  }
+a:hover {
+  text-decoration: none;
+  color: $link-hover-color;
 }
 
 .no-underline {
