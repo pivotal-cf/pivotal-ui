@@ -294,10 +294,6 @@
 }
 
 .dropdown-notifications {
-  .icon {
-    font-size: 1.25em;
-  }
-
   &.open {
     .btn-link {
       &.dropdown-toggle {
@@ -326,7 +322,6 @@
       color: $neutral-11;
       font-weight: $notifications-badge-font-weight;
       line-height: 0.75em;
-      margin-top: 0.25em;
       min-width: 1.25em;
       padding: 0.25em;
       text-align: center;
@@ -345,7 +340,7 @@
       font-size: 0.55em;
       left: 1.25em;
       position: absolute;
-      top: 0.25em;
+      bottom: 0;
     }
   }
 }

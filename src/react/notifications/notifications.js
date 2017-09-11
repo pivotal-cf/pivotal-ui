@@ -21,7 +21,7 @@ export class Notifications extends React.PureComponent {
 
   render() {
     const {size, children, ...others} = this.props;
-    const props = mergeProps(others, {className: 'dropdown-notifications'});
+    const props = mergeProps(others, {className: 'dropdown-notifications dropdown-icon-only'});
     const numChildren = React.Children.count(children);
     const badge = numChildren > 1 ? <span className="dropdown-notifications-badge">{numChildren}</span> : null;
     const dropdownTitleClasses = classnames('dropdown-notifications-title', size);
@@ -61,7 +61,7 @@ export class AlertNotifications extends React.PureComponent {
         {badge}
       </div>
     );
-    const props = mergeProps(others, {className: 'dropdown-notifications'});
+    const props = mergeProps(others, {className: 'dropdown-notifications dropdown-icon-only'});
     
     return <Dropdown flat showIcon={false} title={dropdownTitle} {...props}>{children}</Dropdown>;
   }
