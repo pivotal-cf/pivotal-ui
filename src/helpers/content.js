@@ -29,7 +29,6 @@ import * as Grids from 'pivotal-ui/react/grids';
 import * as Iconography from 'pivotal-ui/react/iconography';
 import * as Images from 'pivotal-ui/react/images';
 import * as Inputs from 'pivotal-ui/react/inputs';
-import * as Labels from 'pivotal-ui/react/labels';
 import * as Lists from 'pivotal-ui/react/lists';
 import * as Media from 'pivotal-ui/react/media';
 import * as Modals from 'pivotal-ui/react/modals';
@@ -77,7 +76,6 @@ import FormsJson from '../../docs/components/Forms.md';
 import GridsJson from '../../docs/components/Grids.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
-import LabelsJson from '../../docs/components/Labels.md';
 import LinksJson from '../../docs/components/Links.md';
 import ListsJson from '../../docs/components/Lists.md';
 import MediaJson from '../../docs/components/Media.md';
@@ -127,7 +125,6 @@ const routes = {
   '/grids': {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
   '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
-  '/labels': {json: LabelsJson, file: 'components/Labels.md', name: 'Labels', category: 'Components', packages: [Labels]},
   '/links': {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: [Links]},
   '/lists': {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
   '/media': {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
