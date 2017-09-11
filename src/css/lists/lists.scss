@@ -149,15 +149,14 @@ ul, ol {
   > li {
     width: 100%;
     list-style-type: none;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid $table-border-color;
 
     &:first-child {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid $table-border-color;
     }
 
     .draggable-item-content {
       padding: $list-draggable-item-content-padding;
-      background: $list-draggable-item-content-bg;
     }
 
     &.hover {
