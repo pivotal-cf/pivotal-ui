@@ -48,7 +48,7 @@ $base-unit: 8px;
   }
 
   .col-fixed {
-    flex: initial;
+    flex: 0 1 auto;
   }
 
   @for $i from 1 through 24 {
