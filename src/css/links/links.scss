@@ -3,46 +3,44 @@
 
 a {
   color: $link-color;
+  text-decoration: none;
   @include transition-pui();
+
+  svg {
+    fill: $link-color;
+  }
 
   transition: all 150ms ease-out;
 
-  &:hover, &:focus {
-    cursor: pointer;
-    text-decoration: none;
-    color: lighten($link-color, 6%);
-  }
-
-  &:active, &.active {
-    color: darken($link-color, 6%);
-  }
-
-  &.link-text {
-    font-weight: $link-lowlight-font-weight;
+  &:hover {
+    color: $link-hover-color;
   }
 }
 
-.link-lowlight {
-  font-weight: $link-lowlight-font-weight;
-  color: $link-lowlight-color;
-
-  &:hover, &:focus {
-    color: lighten($link-lowlight-color, 6%);
-  }
-
-  &:active, &.active {
-    color: darken($link-lowlight-color, 6%);
-  }
+.no-underline {
+  text-decoration: none !important;
+  background-image: none !important;
 }
 
-.link-inverse {
-  color: $link-inverse-color;
+.underline {
+  text-decoration: underline;
+}
 
-  &:hover, &:focus {
-    color: lighten($link-inverse-color, 6%);
-  }
+.underline-hover:hover {
+  text-decoration: underline;
+}
 
-  &:active, &.active {
-    color: darken($link-inverse-color, 6%);
-  }
+.underline-blue {
+  background-image: $underline;
+}
+
+.underline-blue-hover:hover {
+  background-image: $underline !important;
+}
+
+.underline-gray {
+  background-image: $underline-gray;
+}
+.underline-gray-hover:hover {
+  background-image: $underline-gray !important;
 }

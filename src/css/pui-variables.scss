@@ -278,6 +278,16 @@ $link-lowlight-font-weight: 600;
 
 $link-inverse-color:        $accent-5;
 
+$u-top:85%;
+$u-btm:91%;
+$underline-clear:rgba(0, 0, 0, 0);
+$underline-blue:$link-hover-color;
+$underline-gray:$dark-7;
+
+$underline:linear-gradient(rgba(0, 0, 0, 0) $u-top, $underline-blue $u-top, $underline-blue $u-btm,rgba(0, 0, 0, 0) $u-btm);
+$underline-gray:linear-gradient(rgba(0, 0, 0, 0) $u-top, $underline-gray $u-top, $underline-gray $u-btm,rgba(0, 0, 0, 0) $u-btm);
+
+
 // Typography
 // -------------------------
 
