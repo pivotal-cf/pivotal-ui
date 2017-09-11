@@ -7,7 +7,7 @@
 <div class="progress">
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="progress-bar" role="progressbar" style="width: 0%;"></div>
 </div>
-<div class="mts">
+<div class="mtm">
   <div class="type-sm" style="float:left">0 MB / 100 MB</div>
   <div class="type-sm" style="float:right">0%</div>
 </div>
@@ -15,7 +15,7 @@
 <div class="progress">
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" class="progress-bar" role="progressbar" style="width: 60%;"></div>
 </div>
-<div class="mts">
+<div class="mtm">
   <div class="type-sm" style="float:left">60 MB / 100 MB</div>
   <div class="type-sm" style="float:right">60%</div>
 </div>
@@ -27,7 +27,7 @@
 <div class="progress">
   <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" class="progress-bar bg-error-3" role="progressbar" style="width: 90%;"></div>
 </div>
-<div class="mts">
+<div class="mtm">
   <div class="type-sm" style="float:left">90 MB / 100 MB</div>
   <div class="type-sm" style="float:right">90%</div>
 </div>
