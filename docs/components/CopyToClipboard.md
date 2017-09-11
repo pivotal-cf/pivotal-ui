@@ -26,7 +26,7 @@ Below is a common example combining a readonly input and a copy button.
 Note that there is custom css on the styleguide to get the positioning right.
 
 ```
-import {Input} from 'pui-react-inputs';
+import {Input} from 'pivotal-ui/react/inputs';
 ```
 
 ```jsx
@@ -40,12 +40,15 @@ import {Input} from 'pui-react-inputs';
 ## Installation & Usage
 
 #### React
-`npm install pui-react-copy-to-clipboard --save`
+`npm install pivotal-ui --save`
 
-`import {CopyToClipboard, CopyToClipboardButton} from 'pui-react-copy-to-clipboard';`
+`import {CopyToClipboard, CopyToClipboardButton} from 'pivotal-ui/react/copy-to-clipboard';`
 
 #### CSS Only
-`npm install pui-css-copy-to-clipboard --save`
+`npm install pivotal-ui --save`
+
+`import * as CopyToClipboard from 'pivotal-ui/css/copy-to-clipboard';`
+
 
 ## Props
 Property | Required | Type     | Default  | Description

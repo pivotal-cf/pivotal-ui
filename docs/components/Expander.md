@@ -45,12 +45,14 @@ class MoreInfo extends React.Component {
 ## Installation & Usage
 
 #### React
-`npm install pui-react-expander --save`
+`npm install pivotal-ui --save`
 
-`import {ExpanderContent} from 'pui-react-expander';`
+`import {ExpanderContent} from 'pivotal-ui/react/expander';`
 
 #### CSS Only
-`npm install pui-css-expander --save`
+`npm install pivotal-ui --save`
+
+`import * as Expander from 'pivotal-ui/css/expander';`
 
 ## Props
 

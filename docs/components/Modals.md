@@ -11,8 +11,8 @@ We provide 3 components that can be used to assemble modals:
 ## Examples
 
 ```
-import {DefaultButton} from 'pui-react-buttons';
-import {Input} from 'pui-react-inputs';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
+import {Input} from 'pivotal-ui/react/inputs';
 ```
 
 ```jsx
@@ -52,12 +52,14 @@ class MyModal extends React.Component {
 ## Installation & Usage
 
 #### React
-`npm install pui-react-modals --save`
+`npm install pivotal-ui --save`
 
-`import {BaseModal, ModalBody, ModalFooter} from 'pui-react-modals';`
+`import {BaseModal, ModalBody, ModalFooter} from 'pivotal-ui/react/modals';`
 
 #### CSS Only
-`npm install pui-css-modals --save`
+`npm install pivotal-ui --save`
+
+`import * as Modals from 'pivotal-ui/css/modals';`
 
 ## Props
 

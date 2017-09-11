@@ -202,12 +202,14 @@ isSticky       | no       | Boolean                                   | false   
 ## Installation & Usage
 
 #### React
-`npm install pui-react-tooltip --save`
+`npm install pivotal-ui --save`
 
 ```
-import {Tooltip, TooltipTrigger} from 'pui-react-tooltip';
-import {OverlayTrigger} from 'pui-react-overlay-trigger';
+import {Tooltip, TooltipTrigger} from 'pivotal-ui/react/tooltip';
+import {OverlayTrigger} from 'pivotal-ui/react/overlay-trigger';
 ```
 
 #### CSS Only
-`npm install pui-css-tooltips --save`
+`npm install pivotal-ui --save`
+
+`import * as Tooltip from 'pivotal-ui/css/tooltip';`

@@ -37,4 +37,6 @@ Button groups wrap a series of buttons.
 
 ## Installation & Usage
 
-`npm install pui-css-button-group --save`
+`npm install pivotal-ui --save`
+
+`import * as ButtonGroup from 'pivotal-ui/css/button-group';`

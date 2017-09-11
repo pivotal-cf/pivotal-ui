@@ -37,12 +37,14 @@ Labels are a straightforward implementation of the [Label][label] style.
 ## Installation & Usage
 
 #### React
-`npm install pui-react-labels --save`
+`npm install pivotal-ui --save`
 
-`import {Label} from 'pui-react-labels';`
+`import {Label} from 'pivotal-ui/react/labels';`
 
 #### CSS Only
-`npm install pui-css-labels --save`
+`npm install pivotal-ui --save`
+
+`import * as Labels from 'pivotal-ui/css/labels';`
 
 ## Props
 

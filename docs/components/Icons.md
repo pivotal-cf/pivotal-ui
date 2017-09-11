@@ -72,10 +72,14 @@ example below.
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-iconography --save`
+`npm install pivotal-ui --save`
+
+`import {Icon} from 'pivotal-ui/react/iconography';`
 
 #### CSS Only
-`npm install pui-css-iconography --save`
+`npm install pivotal-ui --save`
+
+`import * as Iconography from 'pivotal-ui/css/iconography';`
 
 ## Props
 

@@ -44,5 +44,6 @@ Its height is set by default to 230px.
 
 ## Installation & Usage
 
-`npm install pui-css-vertical-alignment --save`
+`npm install pivotal-ui --save`
 
+`import * as VerticalAlignment from 'pivotal-ui/css/vertical-alignment';`

@@ -53,12 +53,14 @@ When a user would like to access each group of information separately. | When it
 ## Installation & Usage
 
 #### React
-`npm install pui-react-tabs --save`
+`npm install pivotal-ui --save`
 
-`import {Tabs, Tab, LeftTabs} from 'pui-react-tabs';`
+`import {Tabs, Tab, LeftTabs} from 'pivotal-ui/react/tabs';`
 
 #### CSS Only
-`npm install pui-css-tabs --save`
+`npm install pivotal-ui --save`
+
+`import * as Tabs from 'pivotal-ui/css/tabs';`
 
 ## Props
 

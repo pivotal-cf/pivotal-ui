@@ -124,7 +124,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 
 ```jsx
 ::title=Icons
-::description=Buttons can contain an icon with text or just an icon. `import {Icon} from 'pui-react-iconography';`
+::description=Buttons can contain an icon with text or just an icon. `import {Icon} from 'pivotal-ui/react/iconography';`
 <div>
   <PrimaryButton icon={<Icon src="add"/>}>
    Some button
@@ -142,14 +142,17 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ## Installation & Usage
 
 #### React
-`npm install pui-react-buttons --save`
+`npm install pivotal-ui --save`
 
-`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pui-react-buttons';`
+`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';`
 
-`import {Icon} from 'pui-react-iconography';`
+`import {Icon} from 'pivotal-ui/react/iconography';`
 
 #### CSS Only
-`npm install pui-css-buttons --save`
+`npm install pivotal-ui --save`
+
+`import * as Buttons from 'pivotal-ui/css/buttons';`
+
 
 ## Props
 

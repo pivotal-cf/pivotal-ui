@@ -31,12 +31,14 @@
 ## Installation & Usage
 
 #### React
-`npm install pui-react-dividers --save`
+`npm install pivotal-ui --save`
 
-`import {Divider} from 'pui-react-dividers';`
+`import {Divider} from 'pivotal-ui/react/dividers';`
 
 #### CSS Only
-`npm install pui-css-dividers --save`
+`npm install pivotal-ui --save`
+
+`import * as Dividers from 'pivotal-ui/css/dividers';`
 
 ## Props
 

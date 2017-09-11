@@ -16,8 +16,7 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
 
 ## Installation & Usage
 
-#### React
-`npm install pui-react-ellipsis --save`
-
 #### CSS Only
-`npm install pui-css-ellipsis --save`
+`npm install pivotal-ui --save`
+
+`import * as Ellipsis from 'pivotal-ui/css/ellipsis';`

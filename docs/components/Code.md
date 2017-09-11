@@ -170,4 +170,6 @@ end</code></pre>
 
 ## Installation & Usage
 
-`npm install pui-css-code --save`
+`npm install pivotal-ui --save`
+
+`import * as Code from 'pivotal-ui/css/code';`

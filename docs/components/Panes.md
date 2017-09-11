@@ -28,12 +28,14 @@ Any className values passed through are passed to the underlying `.pane`.
 ## Installation & Usage
 
 #### React
-`npm install pui-react-panes --save`
+`npm install pivotal-ui --save`
 
-`import {Pane, BasePane} from 'pui-react-panes';`
+`import {Pane, BasePane} from 'pivotal-ui/react/panes';`
 
 #### CSS Only
-`npm install pui-css-panes --save`
+`npm install pivotal-ui --save`
+
+`import * as Panes from 'pivotal-ui/css/panes';`
 
 ## Props
 

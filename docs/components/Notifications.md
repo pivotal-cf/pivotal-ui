@@ -3,9 +3,9 @@
 ## Examples
 
 ```
-import {Flag} from 'pui-react-media';
-import {Label} from 'pui-react-labels';
-import {Icon} from 'pui-react-iconography';
+import {Flag} from 'pivotal-ui/react/media';
+import {Label} from 'pivotal-ui/react/labels';
+import {Icon} from 'pivotal-ui/react/iconography';
 ```
 
 ```jsx
@@ -86,12 +86,15 @@ the notification button.
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pui-react-notifications';`
+`npm install pivotal-ui --save`
 
-`npm install pui-react-notifications --save`
+`import {Notifications, AlertNotifications, NotificationItem, AlertNotifications} from 'pivotal-ui/react/notifications';`
+
 
 #### CSS Only
-`npm install pui-css-notifications --save`
+`npm install pivotal-ui --save`
+
+`import * as Notifications from 'pivotal-ui/css/notifications';`
 
 ## Props
 

@@ -3,7 +3,7 @@
 ## Examples
 
 ```
-import {ClickableAltPanel} from 'pui-react-panels';
+import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 ```
 
 ```jsx
@@ -68,12 +68,17 @@ import {ClickableAltPanel} from 'pui-react-panels';
 ## Installation & Usage
 
 #### React
-`npm install pui-react-tile-layout pui-react-panels --save`
+`npm install pivotal-ui --save`
 
-`import {TileLayout, TileLayoutItem} from 'pui-react-tile-layout';`
+`import {TileLayout, TileLayoutItem} from 'pivotal-ui/react/tile-layout';`
+`import {Panels} from 'pivotal-ui/react/panels';`
 
 #### CSS Only
-`npm install pui-css-tile-layout pui-css-panels --save`
+
+`npm install pivotal-ui --save`
+
+`import * as TileLayout from 'pivotal-ui/css/tile-layout';`
+`import * as Panels from 'pivotal-ui/css/panels';`
 
 ## Props
 

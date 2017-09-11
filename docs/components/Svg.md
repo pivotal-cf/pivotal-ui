@@ -39,12 +39,14 @@ For a full list of available icons, go to [http://pivotalicons.cfapps.io](http:/
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-svg --save`
+`npm install pivotal-ui --save`
 
 `import {Svg} from 'pui-react-svg';`
 
 #### CSS Only
-`npm install pui-css-svg --save`
+`npm install pivotal-ui --save`
+
+`import * as Svg from 'pivotal-ui/css/svg';`
 
 ## Props
 

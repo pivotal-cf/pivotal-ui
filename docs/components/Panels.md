@@ -106,12 +106,14 @@ Distinguish between primary and secondary CTAs in the header and footer (e.g., p
 ## Installation & Usage
 
 #### React
-`npm install pui-react-panels --save`
+`npm install pivotal-ui --save`
 
-`import {Panel} from 'pui-react-panels';`
+`import {Panel} from 'pivotal-ui/react/panels';`
 
 #### CSS Only
-`npm install pui-css-panels --save`
+`npm install pivotal-ui --save`
+
+`import * as Panels from 'pivotal-ui/css/panels';`
 
 ## Props
 

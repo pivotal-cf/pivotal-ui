@@ -42,4 +42,6 @@
 ## Installation & Usage
 
 #### CSS Only
-`npm install pui-css-alignment --save`
+`npm install pivotal-ui --save`
+
+`import * as Alignment from 'pivotal-ui/css/alignment';`

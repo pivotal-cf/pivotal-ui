@@ -154,12 +154,14 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 ## Installation & Usage
 
 #### React
-`npm install pui-react-images --save`
+`npm install pivotal-ui --save`
 
-`import {Image} from 'pui-react-images';`
+`import {Image} from 'pivotal-ui/react/images';`
 
 #### CSS Only
-`npm install pui-css-images --save`
+`npm install pivotal-ui --save`
+
+`import * as Images from 'pivotal-ui/css/images';`
 
 ## Props
 

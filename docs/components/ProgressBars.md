@@ -48,4 +48,6 @@
 
 ## Installation & Usage
 
-`npm install pui-css-progress-bars --save`
+`npm install pivotal-ui --save`
+
+`import * as ProgressBars from 'pivotal-ui/css/progress-bars';`

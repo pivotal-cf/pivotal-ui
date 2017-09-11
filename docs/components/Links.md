@@ -39,4 +39,6 @@ Link                                                                            
 
 ## Installation & Usage
 
-`npm install pui-css-links --save`
+`npm install pivotal-ui --save`
+
+`import * as Links from 'pivotal-ui/css/links';`

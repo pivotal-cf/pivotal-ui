@@ -21,5 +21,6 @@ n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px
 
 ## Installation & Usage
 
-`npm install pui-css-whitespace --save`
+`npm install pivotal-ui --save`
 
+`import * as Whitespace from 'pivotal-ui/css/whitespace';`

@@ -82,12 +82,14 @@ const callback = () => alert('Dismissed!');
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-alerts --save`
+`npm install pivotal-ui --save`
 
-`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pui-react-alerts';`
+`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pivotal-ui/react/alerts';`
 
 #### CSS Only
-`npm install pui-css-alerts --save`
+`npm install pivotal-ui --save`
+
+`import * as Alerts from 'pivotal-ui/css/alerts';`
 
 ## Props
 

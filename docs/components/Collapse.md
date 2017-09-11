@@ -69,12 +69,14 @@ This is a basic collapse with no additional styles.
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-collapse --save`
+`npm install pivotal-ui --save`
 
-`import {BaseCollapse, AltCollapse, Collapse} from 'pui-react-collapse';`
+`import {BaseCollapse, AltCollapse, Collapse} from 'pivotal-ui/react/collapse';`
 
 #### CSS Only
-`npm install pui-css-collapse --save`
+`npm install pivotal-ui --save`
+
+`import * as Collapse from 'pivotal-ui/css/collapse';`
 
 ## Props
 

@@ -31,12 +31,14 @@ anywhere without knowing about `<body>`.
 ## Installation & Usage
 
 #### React
-`npm install pui-react-portals --save`
+`npm install pivotal-ui --save`
 
-`import {PortalSource, PortalDestination} from 'pui-react-portals';`
+`import {PortalSource, PortalDestination} from 'pivotal-ui/react/portals';`
 
 #### CSS Only
-`npm install pui-css-portals --save`
+`npm install pivotal-ui --save`
+
+`import * as Portals from 'pivotal-ui/css/portals';`
 
 ## Props
 

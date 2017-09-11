@@ -154,12 +154,14 @@
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-dropdowns --save`
+`npm install pivotal-ui --save`
 
-`import {Dropdown, DropdownItem} from 'pui-react-dropdowns';`
+`import {Dropdown, DropdownItem} from 'pivotal-ui/react/dropdowns';`
 
 #### CSS Only
-`npm install pui-css-dropdowns --save`
+`npm install pivotal-ui --save`
+
+`import * as Dropdowns from 'pivotal-ui/css/dropdowns';`
 
 ## Dropdown Props
 

@@ -53,7 +53,9 @@ Selects are excellent to use because they will automatically behave as expected 
 
 ## Installation & Usage
 
-`npm install pui-css-select --save`
+`npm install pivotal-ui --save`
+
+`import * as Select from 'pivotal-ui/css/select';`
 
 # React Selects
 
@@ -69,9 +71,9 @@ Selects are excellent to use because they will automatically behave as expected 
 
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-select --save`
+`npm install pivotal-ui --save`
 
-`import {Select} from 'pui-react-select';`
+`import {Select} from 'pivotal-ui/react/select';`
 
 ## Props
 

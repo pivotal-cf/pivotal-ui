@@ -12,7 +12,7 @@ They should never be used directly when building components, because it makes it
 $tabs-active-bg-color: $gray-2;
 ```
 
-If you do want to use variables and mixins, install this module: `npm install pui-css-variables-and-mixins`
+If you do want to use variables and mixins, see [Installation & Usage](#installation-usage).
 
 
 ## Examples
@@ -419,6 +419,8 @@ Prepend any color variable with `type-` to apply that color to the text.
 
 #### CSS Only
 
-`npm install pui-css-colors --save`
+`npm install pivotal-ui --save`
 
-`npm install pui-css-variables-and-mixins`
+`import * as Colors from 'pivotal-ui/css/colors';`
+
+`import * as VariablesAndMixins from 'pivotal-ui/css/variables-and-mixins';`

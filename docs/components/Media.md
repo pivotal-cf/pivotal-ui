@@ -3,7 +3,7 @@
 ## Examples
 
 ```
-import {Image} from 'pui-react-images';
+import {Image} from 'pivotal-ui/react/images';
 ```
 
 ```jsx
@@ -199,12 +199,14 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="http://placeh
 ## Installation & Usage
 
 #### React
-`npm install pui-react-media --save`
+`npm install pivotal-ui --save`
 
-`import {Media, Flag} from 'pui-react-media';`
+`import {Media, Flag} from 'pivotal-ui/react/media';`
 
 #### CSS Only
-`npm install pui-css-media --save`
+`npm install pivotal-ui --save`
+
+`import * as Media from 'pivotal-ui/css/media';`
 
 ## Props
 

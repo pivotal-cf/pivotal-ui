@@ -380,10 +380,14 @@ x-large   | 1800px         | `$screen-xl-min`
 ## Installation & Usage
 
 #### React
-`npm install pui-react-grids --save`
+`npm install pivotal-ui --save`
+
+`import {Row, Col} from 'pivotal-ui/react/grids';`
 
 #### CSS Only
-`npm install pui-css-grids --save`
+`npm install pivotal-ui --save`
+
+`import * as Grids from 'pivotal-ui/css/grids';`
 
 ## Props
 

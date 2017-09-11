@@ -133,10 +133,14 @@
 ## Installation & Usage
 
 #### React
-`npm install pui-react-lists --save`
+`npm install pivotal-ui --save`
+
+`import {BreadcrumbList, InlineList, ListItem, OrderedList, UnorderedList} from 'pivotal-ui/react/lists';`
 
 #### CSS Only
-`npm install pui-css-lists --save`
+`npm install pivotal-ui --save`
+
+`import * as Lists from 'pivotal-ui/css/lists';`
 
 ## Props
 

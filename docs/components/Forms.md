@@ -117,26 +117,21 @@
 ## Installation & Usage
 
 ## React
-`npm install pui-react-inputs --save`
+`npm install pivotal-ui --save`
 
-`npm install pui-react-select --save`
-
-`npm install pui-react-checkbox --save`
-
-`npm install pui-react-radio --save`
-
-`npm install pui-react-toggle  --save`
 
 ```
-import {Input} from 'pui-react-inputs';
-import {Select} from 'pui-react-select';
-import {Checkbox} from 'pui-react-checkbox';
-import {RadioGroup, Radio} from 'pui-react-radio';
-import {Toggle} from 'pui-react-toggle';
+import {Input} from 'pivotal-ui/react/inputs';
+import {Select} from 'pivotal-ui/react/select';
+import {Checkbox} from 'pivotal-ui/react/checkbox';
+import {RadioGroup, Radio} from 'pivotal-ui/react/radio';
+import {Toggle} from 'pivotal-ui/react/toggle';
 ```
 
 ## CSS Only
-`npm install pui-css-forms --save`
+`npm install pivotal-ui --save`
+
+`import * as Forms from 'pivotal-ui/css/forms';`
 
 # Inputs
 
@@ -415,13 +410,13 @@ class FilteringSearchExample extends React.Component {
 ## Installation & Usage
 
 #### React
-`npm install pui-react-inputs --save`
+`npm install pivotal-ui --save`
 
 Input uses the [Iconography](http://styleguide.pivotal.io/react_base_iconography.html) component for `search` and `success`. If you use those props, you will need to add an svg loader:
 
 `npm install babel-loader react-svg-loader --save-dev`
 
-`import {Input} from 'pui-react-inputs';`
+`import {Input} from 'pivotal-ui/react/inputs';`
 
 ## Props
 
@@ -496,11 +491,11 @@ Selects are excellent to use because they will automatically behave as expected 
 ## Installation & Usage
 
 #### React
-`npm install pui-react-select --save`
+`npm install pivotal-ui --save`
 
 `npm install babel-loader react-svg-loader --save-dev`
 
-`import {Select} from 'pui-react-select';`
+`import {Select} from 'pivotal-ui/react/select';`
 
 ## Props
 
@@ -527,9 +522,9 @@ value        | no  | Any      | | The value for the select when it is controlled
 ## Installation & Usage
 
 #### React
-`npm install pui-react-checkbox --save`
+`npm install pivotal-ui --save`
 
-`import {Checkbox} from 'pui-react-checkbox';`
+`import {Checkbox} from 'pivotal-ui/react/checkbox';`
 
 ## Props
 
@@ -609,9 +604,9 @@ class MyComponent extends React.Component {
 ## Installation & Usage
 
 #### React
-`npm install pui-react-radio --save`
+`npm install pivotal-ui --save`
 
-`import {RadioGroup, Radio} from 'pui-react-radio';`
+`import {RadioGroup, Radio} from 'pivotal-ui/react/radio';`
 
 ## Props
 
@@ -673,9 +668,9 @@ disabled       | no  | Boolean  | false | Whether the radio is disabled
 ## Installation & Usage
 
 #### React
-`npm install pui-react-toggle --save`
+`npm install pivotal-ui --save`
 
-`import {Toggle} from 'pui-react-toggle';`
+`import {Toggle} from 'pivotal-ui/react/toggle';`
 
 ## Props
 

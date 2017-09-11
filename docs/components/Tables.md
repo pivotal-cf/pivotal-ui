@@ -606,15 +606,17 @@ const data = [
 #### React
 `npm install babel-loader react-svg-loader --save-dev`
 
-`npm install pui-react-table --save`
+`npm install pivotal-ui --save`
 
 ```
-import {Table, TableRow, TableCell} from 'pui-react-table';
-import {FlexTable, FlexTableRow, FlexTableCell} from 'pui-react-table';
+import {Table, TableRow, TableCell} from 'pivotal-ui/react/table';
+import {FlexTable, FlexTableRow, FlexTableCell} from 'pivotal-ui/react/table';
 ```
 
 #### CSS Only
-`npm install pui-css-table --save`
+`npm install pivotal-ui --save`
+
+`import * as Table from 'pivotal-ui/css/table';`
 
 ## Props
 

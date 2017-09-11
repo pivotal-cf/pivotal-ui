@@ -77,10 +77,14 @@ const onSearch = (value, callback) => {
 ## Installation & Usage
 
 #### React
-`npm install pui-react-autocomplete --save`
+`npm install pivotal-ui --save`
+
+`import {Autocomplete} from 'pivotal-ui/react/autocomplete';`
 
 #### CSS Only
-`npm install pui-css-autocomplete --save`
+`npm install pivotal-ui --save`
+
+`import * as Autocomplete from 'pivotal-ui/css/autocomplete';`
 
 ## Props
 
