@@ -91,7 +91,7 @@ describe('BackToTop', function() {
       expect(ScrollTop.getScrollTop()).toEqual(500);
       MockNow.tick(BackToTop.SCROLL_DURATION / 2);
       MockRaf.next();
-      expect(ScrollTop.getScrollTop()).toEqual(250);
+      expect(ScrollTop.getScrollTop()).toEqual(62.5);
       MockNow.tick(BackToTop.SCROLL_DURATION / 2);
       MockRaf.next();
       expect(ScrollTop.getScrollTop()).toEqual(0);

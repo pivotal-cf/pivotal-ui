@@ -19,7 +19,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
 
   static FADE_DURATION = 300;
   static VISIBILITY_HEIGHT = 400;
-  static SCROLL_DURATION = 800;
+  static SCROLL_DURATION = 200;
 
   componentDidMount() {
     require('../../css/back-to-top');
@@ -33,20 +33,34 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
 
   updateScroll = () => this.setState({visible: getScrollTop() > BackToTop.VISIBILITY_HEIGHT});
 
-  scrollToTop = () => this.animate(value => setScrollTop(value), 0, BackToTop.SCROLL_DURATION, {startValue: getScrollTop()});
+  scrollToTop = () => {
+    const key = `pui-back-to-top-${Date.now()}`;
+    this.animate(key, 0, BackToTop.SCROLL_DURATION, {
+      startValue: getScrollTop(),
+      easing: 'easeOutCubic'
+    });
+    this.setState({key});
+  };
 
   render() {
     const {alwaysVisible, ...others} = this.props;
     const {visible: visibleState} = this.state;
     const visible = alwaysVisible || visibleState;
-    const props = mergeProps(others,
-      {
-        className: 'back-to-top',
-        style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
-      }
-    );
+    const props = mergeProps(others, {
+      className: 'back-to-top',
+      style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
+    });
 
-    return (<a {...props} onClick={this.scrollToTop} href="#top" aria-label="Back to top">
+    const {key} = this.state;
+    const scrollTarget = this.animate(key, 0, BackToTop.SCROLL_DURATION, {
+      startValue: getScrollTop(),
+      easing: 'easeOutCubic'
+    });
+
+    key && setScrollTop(scrollTarget);
+    scrollTarget || setTimeout(() => this.setState({key: null}), 10);
+
+    return (<a {...props} onClick={this.scrollToTop} aria-label="Back to top">
       <Icon style={{strokeWidth: 100}} src="arrow_upward"/>
     </a>);
   }
