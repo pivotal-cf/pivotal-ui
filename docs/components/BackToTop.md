@@ -15,7 +15,7 @@ You can place the link anywhere in your markup, but best practices are either to
 ```jsx
 ::title=Always visible example
 <div>
-<BackToTop alwaysVisible />
+<BackToTop alwaysVisible scrollableId="content" />
 </div>
 ```
 
@@ -36,6 +36,7 @@ You can place the link anywhere in your markup, but best practices are either to
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-alwaysVisible  | no | Boolen | false | If `alwaysVisible` is not set, the component will only appear after the window has been scrolled.
+Property       | Required | Type   | Default | Description
+---------------|----------|--------|---------|------------
+alwaysVisible  | no       | Boolen | false   | If `alwaysVisible` is not set, the component will only appear after the window has been scrolled.
+scrollableId   | no       | String |         | If `scrollableId` is set, the component will update this element's scrollTop property. Otherwise, document.body will be scrolled.
