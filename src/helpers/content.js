@@ -47,6 +47,7 @@ import * as Tabs from 'pivotal-ui/react/tabs';
 import * as TileLayout from 'pivotal-ui/react/tile-layout';
 import * as Toggle from 'pivotal-ui/react/toggle';
 import * as Tooltip from 'pivotal-ui/react/tooltip';
+import * as Wizard from 'pivotal-ui/react/wizard';
 
 import Contribute from '../../docs/Contribute.md';
 import GetStarted from '../../docs/GetStarted.md';
@@ -95,6 +96,7 @@ import TooltipsJson from '../../docs/components/Tooltips.md';
 import TypographyJson from '../../docs/components/Typography.md';
 import VerticalAlignmentJson from '../../docs/components/VerticalAlignment.md';
 import WhitespaceJson from '../../docs/components/Whitespace.md';
+import WizardJson from '../../docs/components/Wizard.md';
 
 const routes = {
   '/': {json: Homepage, file: 'Homepage.md', name: 'Homepage', category: 'Base', packages: []},
@@ -144,6 +146,7 @@ const routes = {
   '/typography': {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: [Typography]},
   '/vertical_alignment': {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: [VerticalAlignment]},
   '/whitespace': {json: WhitespaceJson, file: 'components/Whitespace.md', name: 'Whitespace', category: 'Components', packages: [Whitespace]},
+  '/wizard': {json: WizardJson, file: 'components/Wizard.md', name: 'Wizard', category: 'Components', packages: [Wizard]}
 };
 
 const attachToWindow = pkg => {
