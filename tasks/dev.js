@@ -39,5 +39,6 @@ gulp.task('build', [
   'build-readme',
   'build-package',
   'css-build',
-  'react-build'
+  'react-build',
+  'js-build'
 ]);

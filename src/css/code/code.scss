@@ -9,8 +9,8 @@
   color: inherit;
 }
 
-.pre-scrollable {
-  overflow-y: auto; //bootstrap override
+pre.pre-scrollable {
+  overflow-y: scroll; //bootstrap override
 }
 
 .inline-dark {
