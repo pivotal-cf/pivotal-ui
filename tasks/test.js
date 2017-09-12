@@ -65,7 +65,6 @@ gulp.task('jasmine-react', function() {
     .pipe(plugins.jasmineBrowser.specRunner())
     .pipe(plugins.jasmineBrowser.server({
       throwFailures: true,
-      random: true,
       sourcemappedStacktrace: true,
       whenReady: plugin.whenReady
     }));

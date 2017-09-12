@@ -17,6 +17,15 @@ export const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 export const findAllByTag = ReactTestUtils.scryRenderedDOMComponentsWithTag;
 export const clickOn = ReactTestUtils.Simulate.click;
 
+jasmine.getEnv().addReporter({
+  specStarted(result) {
+    jasmine.getEnv().currentSpec = result;
+  },
+  specDone() {
+    jasmine.getEnv().currentSpec = null;
+  }
+});
+
 MockNextTick.install();
 
 delete ReactTestUtils.renderIntoDocument;
@@ -45,16 +54,18 @@ global.setProps = function setProps(props, node = root) {
   ReactDOM.render(<Component {...this.props} {...props}/>, node);
 };
 
-beforeEach(function() {
+beforeEach(() => {
+  const {id, fullName} = jasmine.getEnv().currentSpec;
+  console.log(`\n[${id}] ${fullName}`);
   $('body').find('#root').remove().end().append('<main id="root"/>');
   jasmine.clock().install();
   MockPromises.install(Promise);
 });
 
-beforeEach(function() {
+beforeEach(() => {
   const consoleWarn = console.warn;
-  console.warn = function(message) {
-    if(message.match(/Failed propType/)) {
+  console.warn = message => {
+    if (message.match(/Failed propType/)) {
       throw new Error(message);
     } else {
       consoleWarn.apply(console, arguments);
@@ -62,7 +73,7 @@ beforeEach(function() {
   };
 });
 
-afterEach(function() {
+afterEach(() => {
   ReactDOM.unmountComponentAtNode(root);
   MockNextTick.next();
   jasmine.clock().tick(1);

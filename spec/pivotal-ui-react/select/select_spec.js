@@ -50,8 +50,7 @@ describe('Select', () => {
     });
 
     it('creates a select-toggle with a double arrow', () => {
-      const toggle = findByClass(result, 'select-toggle');
-      expect(toggle.querySelector('.icon-select_chevrons')).toHaveLength(1);
+      expect('.select-toggle .icon-select_chevrons').toExist();
     });
 
     it('shows the default value in the toggle', () => {

@@ -94,16 +94,13 @@ describe('Modals', () => {
         result = renderComponent({animation: false});
         result.open();
 
-        const modalDialog = findByClass(result, 'modal-dialog');
-        const modalBackdrop = findByClass(result, 'modal-backdrop');
-
-        expect(modalDialog).toHaveCss({'margin-top': '50px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0.8});
+        expect('.modal-dialog').toHaveCss({'margin-top': '50px'});
+        expect('.modal-backdrop').toHaveAttr('style', 'opacity: 0.8;');
 
         result.close();
 
-        expect(findAllByClass(result, 'modal-dialog')).toHaveLength(0);
-        expect(findAllByClass(result, 'modal-backdrop')).toHaveLength(0);
+        expect('.modal-dialog').not.toExist();
+        expect('.modal-backdrop').not.toExist();
       });
     });
   });
