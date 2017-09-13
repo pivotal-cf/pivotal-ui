@@ -25,6 +25,7 @@ import * as Dividers from 'pivotal-ui/react/dividers';
 import * as DraggableList from 'pivotal-ui/react/draggable-list';
 import * as Dropdowns from 'pivotal-ui/react/dropdowns';
 import * as Expander from 'pivotal-ui/react/expander';
+import * as Flyout from 'pivotal-ui/react/flyout';
 import * as Grids from 'pivotal-ui/react/grids';
 import * as Iconography from 'pivotal-ui/react/iconography';
 import * as Images from 'pivotal-ui/react/images';
@@ -74,6 +75,7 @@ import DropdownsJson from '../../docs/components/Dropdowns.md';
 import EllipsisJson from '../../docs/components/Ellipsis.md';
 import ExpanderJson from '../../docs/components/Expander.md';
 import FormsJson from '../../docs/components/Forms.md';
+import FlyoutJson from '../../docs/components/Flyout.md';
 import GridsJson from '../../docs/components/Grids.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
@@ -124,6 +126,7 @@ const routes = {
   '/ellipsis': {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: [Ellipsis]},
   '/expander': {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
   '/forms': {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
+  '/flyout': {json: FlyoutJson, file: 'components/Flyout.md', name: 'Flyout', category: 'Components', packages: [Alerts, Buttons, Flyout, Inputs]},
   '/grids': {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
   '/icons': {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   '/images': {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},

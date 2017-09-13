@@ -21,8 +21,6 @@ const pages = [{
 ## Installation & Usage
 
 #### React
-`npm install babel-loader react-svg-loader --save-dev`
-
 `npm install pivotal-ui --save`
 
 `import {Wizard} from 'pivotal-ui/react/wizard';`
