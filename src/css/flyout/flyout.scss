@@ -1,0 +1,56 @@
+@import "../pui-variables";
+@import "../mixins";
+
+.flyout {
+  $flyout-default-width: 480px;
+  $transition-duration: 0.2s;
+  $transition-timing-function: ease-out;
+
+  background-color: rgba(36, 54, 65, 0.8);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 900;
+  visibility: hidden;
+  transition: opacity $transition-duration, visibility $transition-duration;
+  transition-timing-function: $transition-timing-function;
+  overflow: hidden;
+
+  .flyout-content {
+    background-color: white;
+    z-index: 950;
+    width: $flyout-default-width;
+    top: 0;
+    right: -0.8 * $flyout-default-width;
+    bottom: 0;
+    position: absolute;
+    transition: right $transition-duration;
+    transition-timing-function: $transition-timing-function;
+
+    .flyout-header {
+      padding: ($base-unit * 2) 0 ($base-unit * 2) 0;
+      margin: 0;
+      border-bottom: 3px solid $neutral-8;
+
+      .col {
+        align-self: center;
+      }
+    }
+
+    .flyout-body {
+      padding: $base-unit * 2;
+    }
+  }
+
+  &.flyout-open {
+    opacity: 1;
+    visibility: visible;
+
+    .flyout-content {
+      right: 0 !important;
+    }
+  }
+}
