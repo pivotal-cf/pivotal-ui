@@ -1,10 +1,15 @@
-export {
-  FlexTable,
-  FlexTableCell,
-  FlexTableHeader,
-  FlexTableRow,
-  Table,
-  TableCell,
-  TableHeader,
-  TableRow
-} from './table';
+export {Table} from './table';
+export {TablePlugin} from './table-plugin';
+export {withCellClassName} from './plugins/cell-class-name';
+export {withCellEllipsis} from './plugins/cell-ellipsis';
+export {withCellLink} from './plugins/cell-link';
+export {withCellOnClick} from './plugins/cell-on-click';
+export {withCellRenderer} from './plugins/cell-renderer';
+export {withCellTooltip} from './plugins/cell-tooltip';
+export {withFixedWidthColumns} from './plugins/fixed-width-columns';
+export {withFlex} from './plugins/flex';
+export {withFooterRow} from './plugins/footer-row';
+export {withRowClassName} from './plugins/row-class-name';
+export {withRowDrawer} from './plugins/row-drawer';
+export {withRowLink} from './plugins/row-link';
+export {withSorting} from './plugins/sorting';

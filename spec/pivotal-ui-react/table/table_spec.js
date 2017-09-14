@@ -1,540 +1,235 @@
 import '../spec_helper';
-import {Table, TableCell, TableRow} from '../../../src/react/table';
-import PropTypes from 'prop-types';
+import {Table} from '../../../src/react/table';
 
 describe('Table', () => {
-  it('respects default sort', () => {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
+  let columns, data, table, thead, tbody, tr, th, td, subject;
 
-    const data = [
-      {title: 'foo', bar: 'a', theDefault: 3},
-      {title: 'sup', bar: 'c', theDefault: 2},
-      {title: 'yee', bar: 'b', theDefault: 1}
-    ];
+  beforeEach(() => {
+    columns = [{
+      attribute: 'attr1'
+    }, {
+      attribute: 'attr2', displayName: 'Display2'
+    }, {
+      attribute: 'attr3.name'
+    }];
+    data = [{
+      attr1: 'row1-value1', attr2: 'row1-value2', attr3: {name: 'name1'}
+    }, {
+      attr1: 'row2-value1', attr2: 'row2-value2', attr3: {name: 'name2'}
+    }];
+    table = jasmine.createSpy('table').and.returnValue({className: 'table-class'});
+    thead = jasmine.createSpy('thead').and.returnValue({className: 'thead-class'});
+    tbody = jasmine.createSpy('tbody').and.returnValue({className: 'tbody-class'});
+    tr = jasmine.createSpy('tr').and.returnValue({className: 'tr-class'});
+    th = jasmine.createSpy('th').and.returnValue({className: 'th-class'});
+    td = jasmine.createSpy('td').and.returnValue({className: 'td-class'});
 
-    ReactDOM.render((
-        <Table columns={columns} data={data} defaultSort="theDefault"/>
-      ),
-      root
-    );
-
-    expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText(1);
-    expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText(2);
-    expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText(3);
+    subject = ReactDOM.render(<Table {...{
+      className: 'some-class-name',
+      columns, data, table, thead, tbody, tr, th, td
+    }}/>, root);
   });
 
-  it('does not render the data as an attribute', () => {
-    const columns = [
-      {
-        attribute: 'title',
-        displayName: 'Title',
-        sortable: true
-      },
-      {
-        attribute: 'bar',
-        displayName: 'Bar',
-        sortable: true
-      },
-      {
-        attribute: 'theDefault',
-        displayName: 'DefaultSort',
-        sortable: true
-      }
-    ];
-
-    const data = [
-      {title: 'foo', bar: 'a', theDefault: 3},
-      {title: 'sup', bar: 'c', theDefault: 2},
-      {title: 'yee', bar: 'b', theDefault: 1}
-    ];
-
-    ReactDOM.render(<Table columns={columns} data={data}/>, root);
-
-    expect('table').not.toHaveAttr('data');
+  it('calls the table callback with props and empty context', () => {
+    expect(table).toHaveBeenCalledWith({
+      className: 'table some-class-name',
+      children: jasmine.any(Array)
+    }, {});
   });
 
-  describe('with multiple columns', () => {
-    function renderSortableTable(columns, data, props = {}) {
-      ReactDOM.render((
-          <Table {...{columns, data}} {...props}/>
-        ),
-        root
-      );
-    }
+  it('calls the thead callback with props and empty context', () => {
+    expect(thead).toHaveBeenCalledWith({children: jasmine.any(Object)}, {});
+  });
 
-    let data, columns, clickSpy;
-    beforeEach(() => {
-      clickSpy = jasmine.createSpy('click');
-      columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title'
-        },
-        {
-          attribute: 'instances',
-          sortable: true,
-          headerProps: {
-            className: 'instance-header',
-            onClick: clickSpy,
-            id: 'instanceId'
-          }
-        },
-        {
-          attribute: 'bar',
-          displayName: 'Foo',
-          sortable: true
-        },
-        {
-          attribute: 'unsortable',
-          displayName: 'Unsortable',
-          sortable: false
-        }
-      ];
+  it('calls the tbody callback with props and empty context', () => {
+    expect(tbody).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
+  });
 
-      data = [
-        {
-          instances: '1',
-          bar: 11,
-          title: 'foo',
-          unsortable: '14',
-          notUsed: true
-        },
-        {
-          instances: '3',
-          bar: 7,
-          title: 'sup',
-          unsortable: '22'
-        },
-        {
-          title: 'yee',
-          instances: '2',
-          bar: 8,
-          unsortable: '1'
-        }
-      ];
-      renderSortableTable(columns, data);
+  it('calls the tr callback with props and isHeader context', () => {
+    expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {isHeader: true, rowIndex: -1});
+    expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {isHeader: false, rowDatum: data[0], rowIndex: 0});
+    expect(tr).toHaveBeenCalledWith({children: jasmine.any(Array)}, {isHeader: false, rowDatum: data[1], rowIndex: 1});
+  });
+
+  it('calls the th callback with props and column context', () => {
+    expect(th).toHaveBeenCalledWith({children: columns[0].attribute}, {column: columns[0]});
+    expect(th).toHaveBeenCalledWith({children: columns[1].displayName}, {column: columns[1]});
+  });
+
+  it('calls the td callback with props and column context', () => {
+    expect(td).toHaveBeenCalledWith({children: data[0].attr1}, {rowDatum: data[0], column: columns[0]});
+    expect(td).toHaveBeenCalledWith({children: data[0].attr2}, {rowDatum: data[0], column: columns[1]});
+    expect(td).toHaveBeenCalledWith({children: data[0].attr3.name}, {rowDatum: data[0], column: columns[2]});
+    expect(td).toHaveBeenCalledWith({children: data[1].attr1}, {rowDatum: data[1], column: columns[0]});
+    expect(td).toHaveBeenCalledWith({children: data[1].attr2}, {rowDatum: data[1], column: columns[1]});
+    expect(td).toHaveBeenCalledWith({children: data[1].attr3.name}, {rowDatum: data[1], column: columns[2]});
+  });
+
+  it('renders a table element with the expected classes', () => {
+    expect('table').toHaveClass('table');
+    expect('table').toHaveClass('table-class');
+  });
+
+  it('renders a thead element with the expected class', () => {
+    expect('table thead').toHaveClass('thead-class');
+  });
+
+  it('renders a header tr element with the expected class', () => {
+    expect('table thead tr').toHaveClass('tr-class');
+  });
+
+  it('renders th elements with the expected class and text', () => {
+    expect('table thead tr th:eq(0)').toHaveClass('th-class');
+    expect('table thead tr th:eq(0)').toHaveText('attr1');
+
+    expect('table thead tr th:eq(1)').toHaveClass('th-class');
+    expect('table thead tr th:eq(1)').toHaveText('Display2');
+
+    expect('table thead tr th:eq(2)').toHaveClass('th-class');
+    expect('table thead tr th:eq(2)').toHaveText('attr3.name');
+  });
+
+  it('renders a tbody element with the expected class', () => {
+    expect('table tbody').toHaveClass('tbody-class');
+  });
+
+  it('renders body tr elements with the expected class', () => {
+    expect('table tbody tr:eq(0)').toHaveClass('tr-class');
+    expect('table tbody tr:eq(1)').toHaveClass('tr-class');
+  });
+
+  it('renders td elements with the expected class and text', () => {
+    expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
+    expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
+    expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
+    expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
+    expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
+    expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
+
+    expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
+    expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
+    expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
+    expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
+    expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
+    expect('table tbody tr:eq(1) td:eq(2)').toHaveText('name2');
+  });
+
+  describe('with custom html tags', () => {
+    beforeEach(() => subject::setProps({
+      tableTag: () => 'div',
+      theadTag: () => 'div',
+      tbodyTag: () => 'div',
+      trTag: () => 'div',
+      thTag: () => 'div',
+      tdTag: () => 'div'
+    }));
+
+    it('renders a table div element with the expected classes', () => {
+      expect('div.table').toHaveClass('table-class');
     });
 
-    afterEach(() => {
-      ReactDOM.unmountComponentAtNode(root);
+    it('renders a thead div element with the expected classes', () => {
+      expect('.table > div:eq(0)').toExist('thead-class');
     });
 
-    it('adds the class "sortable" on all sortable columns', () => {
-      expect('th:contains("Title")').not.toHaveClass('sortable');
-      expect('th:contains("instances")').toHaveClass('sortable');
-      expect('th:contains("Unsortable")').not.toHaveClass('sortable');
+    it('renders a header tr div element with the expected class', () => {
+      expect('.thead-class > div').toHaveClass('tr-class');
     });
 
-    it('adds the additional classes, id and styles to the table', () => {
-      renderSortableTable(columns, data, {className: ['table-light'], id: 'table-id', style: {opacity: '0.5'}});
-      expect('table.table-sortable').toHaveClass('table');
-      expect('table.table-sortable').toHaveClass('table-sortable');
-      expect('table.table-sortable').toHaveClass('table-light');
-      expect('table.table-sortable').toHaveProp('id', 'table-id');
-      expect('table.table-sortable').toHaveCss({opacity: '0.5'});
+    it('renders th div elements with the expected class and text', () => {
+      expect('.thead-class .tr-class div:eq(0)').toHaveClass('th-class');
+      expect('.thead-class .tr-class div:eq(0)').toHaveText('attr1');
+
+      expect('.thead-class .tr-class div:eq(1)').toHaveClass('th-class');
+      expect('.thead-class .tr-class div:eq(1)').toHaveText('Display2');
+
+      expect('.thead-class .tr-class div:eq(2)').toHaveClass('th-class');
+      expect('.thead-class .tr-class div:eq(2)').toHaveText('attr3.name');
     });
 
-    it('sorts table rows by the first sortable column in ascending order by default', () => {
-      expect('th:contains("instances")').toHaveClass('sorted-asc');
-
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
-
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
-      expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
+    it('renders a tbody div element with the expected classes', () => {
+      expect('div.table > div:eq(1)').toHaveClass('tbody-class');
     });
 
-    it('passes header props into the headers', () => {
-      expect('th:contains("instances")').toHaveClass('instance-header');
-      expect('th:contains("instances")').toHaveAttr('id', 'instanceId');
-      $('th:contains("instances")').simulate('click');
-      expect(clickSpy).toHaveBeenCalled();
+    it('renders body tr div elements with the expected class', () => {
+      expect('.tbody-class .tr-class:eq(0)').toHaveClass('tr-class');
+      expect('.tbody-class .tr-class:eq(1)').toHaveClass('tr-class');
     });
 
-    describe('clicking on a sortable column', () => {
-      it('sorts table rows by that column', () => {
-        $('th:contains("Foo")').simulate('click');
+    it('renders td div elements with the expected class and text', () => {
+      expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(0) div:eq(0)').toHaveText('row1-value1');
+      expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(0) div:eq(1)').toHaveText('row1-value2');
+      expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(0) div:eq(2)').toHaveText('name1');
 
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
-        expect('th:contains("instances")').not.toHaveClass('sorted-asc');
-
-
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
-        expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
-        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('11');
-      });
-
-      it('sorts first by ASC, then DESC, then no sort', () => {
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
-
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-desc');
-        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_down');
-
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
-        expect('th:contains("Foo")').not.toHaveClass('sorted-desc');
-        expect('th:contains("Foo") svg').not.toExist();
-      });
-
-      it('wraps sorting options when clicking many times', () => {
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
-        $('th:contains("Foo")').simulate('click');
-        $('th:contains("Foo")').simulate('click');
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        expect('th:contains("Foo") svg').toHaveClass('icon-arrow_drop_up');
-      });
-
-      it('renders in same order that it was passed in when "unsorted"', () => {
-        renderSortableTable(
-          columns,
-          [
-            {
-              title: 'yee1',
-              instances: '2',
-              bar: 4,
-              unsortable: '1'
-            },
-            {
-              title: 'yee4',
-              instances: '2',
-              bar: 8,
-              unsortable: '1'
-            },
-            {
-              title: 'yee3',
-              instances: '2',
-              bar: 6,
-              unsortable: '1'
-            }
-          ]
-        );
-
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').toHaveClass('sorted-desc');
-        $('th:contains("Foo")').simulate('click');
-        expect('th:contains("Foo")').not.toHaveClass('sorted-asc');
-        expect('th:contains("Foo")').not.toHaveClass('sorted-desc');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee1');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee4');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('yee3');
-      });
-    });
-
-    describe('pressing <enter> on a sortable column', () => {
-      beforeEach(() => {
-        $('th:contains("Foo")').simulate('keyDown', {key: 'Enter'});
-      });
-
-      it('sorts table rows by that column', () => {
-        expect('th:contains("Foo")').toHaveClass('sorted-asc');
-        expect('th:contains("instances")').not.toHaveClass('sorted-asc');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('foo');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(2)').toContainText('7');
-        expect('tbody tr:nth-of-type(2) > td:eq(2)').toContainText('8');
-        expect('tbody tr:nth-of-type(3) > td:eq(2)').toContainText('11');
-      });
-    });
-
-    describe('clicking on a non-sortable column', () => {
-      beforeEach(() => {
-        $('th:contains("Unsortable")').simulate('click');
-      });
-
-      it('does not change the sort', () => {
-        expect('th:contains("Unsortable")').not.toHaveClass('sorted-asc');
-        expect('th:contains("instances")').toHaveClass('sorted-asc');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('foo');
-        expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('yee');
-        expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
-
-        expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-        expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('2');
-        expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('3');
-      });
+      expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(1) div:eq(0)').toHaveText('row2-value1');
+      expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(1) div:eq(1)').toHaveText('row2-value2');
+      expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveClass('td-class');
+      expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveText('name2');
     });
   });
 
-  describe('with custom column cells', () => {
-    beforeEach(() => {
-      const CustomCell = ({value, index, rowDatum}) => <td
-        className="custom">{`${rowDatum.instances}-${index}: ${value}`}</td>;
-      CustomCell.propTypes = {value: PropTypes.any, index: PropTypes.number, rowDatum: PropTypes.object};
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          CustomCell
-        },
-        {
-          attribute: 'instances',
-          sortable: true
-        }
-      ];
+  describe('with opt-out custom html tags', () => {
+    beforeEach(() => subject::setProps({
+      tableTag: () => null,
+      theadTag: () => null,
+      tbodyTag: () => null,
+      trTag: () => null,
+      thTag: () => null,
+      tdTag: () => null
+    }));
 
-      const data = [
-        {
-          instances: '1',
-          bar: 11,
-          title: 'foo',
-          unsortable: '14',
-          notUsed: true
-        },
-        {
-          instances: '3',
-          bar: 7,
-          title: 'sup',
-          unsortable: '22'
-        }
-      ];
-
-      ReactDOM.render(
-        <Table columns={columns} data={data}/>,
-        root
-      );
+    it('renders a table element with the expected classes', () => {
+      expect('table').toHaveClass('table');
+      expect('table').toHaveClass('table-class');
     });
 
-    it('uses custom for the column', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('1-0: foo');
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toHaveClass('custom');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('3-1: sup');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toHaveClass('custom');
-    });
-  });
-
-  describe('with custom column cells with colIndex', () => {
-    beforeEach(() => {
-      const CustomCell = ({colIndex}) => <td className="custom">{colIndex}</td>;
-      CustomCell.propTypes = {colIndex: PropTypes.number};
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          CustomCell
-        },
-        {
-          attribute: 'instances',
-          CustomCell
-        }
-      ];
-
-      const data = [{title: 'sup'}];
-
-      ReactDOM.render(
-        <Table columns={columns} data={data}/>,
-        root
-      );
+    it('renders a thead element with the expected class', () => {
+      expect('table thead').toHaveClass('thead-class');
     });
 
-    it('renders the colIndex', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('0');
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('1');
-    });
-  });
-
-  describe('with custom column sortBy', () => {
-    beforeEach(() => {
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title'
-        },
-        {
-          attribute: 'instances',
-          sortable: true,
-          sortBy: (value) => -value
-        }
-      ];
-
-      const data = [
-        {
-          instances: '1',
-          bar: 11,
-          title: 'foo',
-          unsortable: '14',
-          notUsed: true
-        },
-        {
-          instances: '3',
-          bar: 7,
-          title: 'sup',
-          unsortable: '22'
-        }
-      ];
-
-      ReactDOM.render(
-        <Table columns={columns} data={data}/>,
-        root
-      );
+    it('renders a header tr element with the expected class', () => {
+      expect('table thead tr').toHaveClass('tr-class');
     });
 
-    it('uses custom sortBy function', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('sup');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
-    });
-  });
+    it('renders th elements with the expected class and text', () => {
+      expect('table thead tr th:eq(0)').toHaveClass('th-class');
+      expect('table thead tr th:eq(0)').toHaveText('attr1');
 
-  describe('with a custom table row', () => {
-    beforeEach(() => {
-      const CustomRow = ({index, children}) => {
-        return (
-          <TableRow className={`row-${index}`}>{children}</TableRow>
-        );
-      };
-      CustomRow.propTypes = {index: PropTypes.number};
+      expect('table thead tr th:eq(1)').toHaveClass('th-class');
+      expect('table thead tr th:eq(1)').toHaveText('Display2');
 
-      const CustomCell = ({value}) => (
-        <TableCell>Days since Sunday: {(new Date(value)).getDay()}</TableCell>
-      );
-      CustomCell.propTypes = {value: PropTypes.any};
-
-      const columns = [
-        {
-          attribute: 'title',
-          displayName: 'Title',
-          sortable: false
-        },
-        {
-          attribute: 'time',
-          displayName: 'Time of Day',
-          sortable: true,
-          CustomCell
-        }
-      ];
-
-      const data = [
-        {title: 'foo', time: Date.parse('Tue Dec 08 2015')},
-        {title: 'sup', time: Date.parse('Wed Dec 09 2015')},
-        {title: 'yee', time: Date.parse('Mon Dec 07 2015')}
-      ];
-
-      ReactDOM.render((
-          <Table columns={columns} data={data} CustomRow={CustomRow}/>
-        ),
-        root
-      );
+      expect('table thead tr th:eq(2)').toHaveClass('th-class');
+      expect('table thead tr th:eq(2)').toHaveText('attr3.name');
     });
 
-    it('renders the custom cell', () => {
-      expect('tbody tr:nth-of-type(1) > td:eq(0)').toContainText('yee');
-      expect('tbody tr:nth-of-type(2) > td:eq(0)').toContainText('foo');
-      expect('tbody tr:nth-of-type(3) > td:eq(0)').toContainText('sup');
-
-      expect('tbody tr:nth-of-type(1) > td:eq(1)').toContainText('Days since Sunday: 1');
-      expect('tbody tr:nth-of-type(2) > td:eq(1)').toContainText('Days since Sunday: 2');
-      expect('tbody tr:nth-of-type(3) > td:eq(1)').toContainText('Days since Sunday: 3');
+    it('renders a tbody element with the expected class', () => {
+      expect('table tbody').toHaveClass('tbody-class');
     });
 
-    it('respects properties on the custom row', () => {
-      expect('tbody tr:eq(0)').toHaveClass('row-0');
-      expect('tbody tr:eq(1)').toHaveClass('row-1');
+    it('renders body tr elements with the expected class', () => {
+      expect('table tbody tr:eq(0)').toHaveClass('tr-class');
+      expect('table tbody tr:eq(1)').toHaveClass('tr-class');
     });
-  });
-});
 
-describe('TableRow', () => {
-  function renderTableRow({children = (<td/>), ...props}) {
-    return ReactDOM.render((
-        <table>
-          <tbody>
-          <TableRow {...props}>
-            {children}
-          </TableRow>
-          </tbody>
-        </table>
-      ), root
-    );
+    it('renders td elements with the expected class and text', () => {
+      expect('table tbody tr:eq(0) td:eq(0)').toHaveClass('td-class');
+      expect('table tbody tr:eq(0) td:eq(0)').toHaveText('row1-value1');
+      expect('table tbody tr:eq(0) td:eq(1)').toHaveClass('td-class');
+      expect('table tbody tr:eq(0) td:eq(1)').toHaveText('row1-value2');
+      expect('table tbody tr:eq(0) td:eq(2)').toHaveClass('td-class');
+      expect('table tbody tr:eq(0) td:eq(2)').toHaveText('name1');
 
-  }
-
-  it('contains the given children', () => {
-    renderTableRow({children: (<td id={'cell-id'}/>)});
-    expect('tr').toExist();
-    expect('tr > td#cell-id').toExist();
-  });
-
-
-  it('adds the additional classes, id and styles to the th', () => {
-    renderTableRow({
-      id: 'row-id',
-      className: 'row-light',
-      style: {opacity: '0.5'}
+      expect('table tbody tr:eq(1) td:eq(0)').toHaveClass('td-class');
+      expect('table tbody tr:eq(1) td:eq(0)').toHaveText('row2-value1');
+      expect('table tbody tr:eq(1) td:eq(1)').toHaveClass('td-class');
+      expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
+      expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
+      expect('table tbody tr:eq(1) td:eq(2)').toHaveText('name2');
     });
-    expect('tr').toHaveClass('row-light');
-    expect('tr').toHaveProp('id', 'row-id');
-    expect('tr').toHaveCss({opacity: '0.5'});
-  });
-});
-
-describe('TableCell', () => {
-  function renderTableCell({children, ...props}) {
-    return ReactDOM.render((
-        <table>
-          <tbody>
-          <tr>
-            <TableCell {...props}>
-              {children}
-            </TableCell>
-          </tr>
-          </tbody>
-        </table>
-      ), root
-    );
-
-  }
-
-  it('contains the given children', () => {
-    renderTableCell({children: (<p>This is my text</p>)});
-    expect('td').toExist();
-    expect('td > p').toExist();
-    expect('td > p').toContainText('This is my text');
-  });
-
-  it('adds the additional classes, id and styles to the th', () => {
-    renderTableCell({
-      id: 'cell-id',
-      className: 'cell-light',
-      style: {opacity: '0.5'},
-      colIndex: 1
-    });
-    expect('td').toHaveClass('cell-light');
-    expect('td').toHaveProp('id', 'cell-id');
-    expect('td').toHaveCss({opacity: '0.5'});
   });
 });
