@@ -15,7 +15,7 @@ export function withFooterRow(Table) {
     render() {
       const {footerRow, ...props} = this.props;
       return (<Table {...props} {...{
-        tbody: (props, tbodyContext) => this.plugTbodyProps({...props, children: [...props.children, footerRow]}, tbodyContext)
+        tfoot: (props, tfootContext) => this.plugTfootProps({...props, children: [...props.children, footerRow]}, tfootContext)
       }}/>);
     }
   };

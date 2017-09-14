@@ -9,12 +9,14 @@ export class TablePlugin extends React.Component {
     tableTag: PropTypes.func,
     theadTag: PropTypes.func,
     tbodyTag: PropTypes.func,
+    tfootTag: PropTypes.func,
     trTag: PropTypes.func,
     thTag: PropTypes.func,
     tdTag: PropTypes.func,
     table: PropTypes.func.isRequired,
     thead: PropTypes.func.isRequired,
     tbody: PropTypes.func.isRequired,
+    tfoot: PropTypes.func.isRequired,
     tr: PropTypes.func.isRequired,
     th: PropTypes.func.isRequired,
     td: PropTypes.func.isRequired
@@ -24,12 +26,14 @@ export class TablePlugin extends React.Component {
     tableTag: () => null,
     theadTag: () => null,
     tbodyTag: () => null,
+    tfootTag: () => null,
     trTag: () => null,
     thTag: () => null,
     tdTag: () => null,
     table: () => ({}),
     thead: () => ({}),
     tbody: () => ({}),
+    tfoot: () => ({}),
     tr: () => ({}),
     th: () => ({}),
     td: () => ({})
@@ -49,6 +53,10 @@ export class TablePlugin extends React.Component {
 
   plugTbodyTag(tagCb, tbodyTagContext) {
     return this.plugTag(tagCb, tbodyTagContext, 'tbodyTag');
+  }
+
+  plugTfootTag(tagCb, tfootTagContext) {
+    return this.plugTag(tagCb, tfootTagContext, 'tfootTag');
   }
 
   plugTrTag(tagCb, trTagContext) {
@@ -86,6 +94,10 @@ export class TablePlugin extends React.Component {
 
   plugTbodyProps(props, tbodyContext) {
     return this.plugProps(props, tbodyContext, 'tbody');
+  }
+
+  plugTfootProps(props, tfootContext) {
+    return this.plugProps(props, tfootContext, 'tfoot');
   }
 
   plugTrProps(props, trContext) {

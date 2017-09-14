@@ -9,6 +9,7 @@ const defaultProps = {
   tableTag: () => 'table',
   theadTag: () => 'thead',
   tbodyTag: () => 'tbody',
+  tfootTag: () => 'tfoot',
   trTag: () => 'tr',
   thTag: () => 'th',
   tdTag: () => 'td'
@@ -53,13 +54,15 @@ export class Table extends TablePlugin {
     const Table = this.plugTableTag(defaultProps.tableTag);
     const Thead = this.plugTheadTag(defaultProps.theadTag);
     const Tbody = this.plugTbodyTag(defaultProps.tbodyTag);
+    const Tfoot = this.plugTfootTag(defaultProps.tfootTag);
 
     return (
       <Table {...this.plugTableProps({
         className: classnames('table', className),
         children: [
           <Thead key={0} {...this.plugTheadProps({children: headerRow})}/>,
-          <Tbody key={1} {...this.plugTbodyProps({children: bodyRows})}/>
+          <Tbody key={1} {...this.plugTbodyProps({children: bodyRows})}/>,
+          <Tfoot key={2} {...this.plugTfootProps({children: []})}/>
         ]
       })}/>
     );

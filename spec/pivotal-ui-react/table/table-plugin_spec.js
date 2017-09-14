@@ -14,6 +14,10 @@ describe('TablePlugin', () => {
     expect(TablePlugin.defaultProps.tbodyTag()).toBeFalsy();
   });
 
+  it('has a tfootTag defaultProp that returns a falsy value', () => {
+    expect(TablePlugin.defaultProps.tfootTag()).toBeFalsy();
+  });
+
   it('has a trTag defaultProp that returns a falsy value', () => {
     expect(TablePlugin.defaultProps.trTag()).toBeFalsy();
   });
@@ -36,6 +40,10 @@ describe('TablePlugin', () => {
 
   it('has a tbody defaultProp that returns an empty object', () => {
     expect(TablePlugin.defaultProps.tbody()).toEqual({});
+  });
+
+  it('has a tfoot defaultProp that returns an empty object', () => {
+    expect(TablePlugin.defaultProps.tfoot()).toEqual({});
   });
 
   it('has a tr defaultProp that returns an empty object', () => {
@@ -155,6 +163,26 @@ describe('TablePlugin', () => {
 
     it('calls plugTag', () => {
       expect(TablePlugin.prototype.plugTag).toHaveBeenCalledWith(tagCb, context, 'tbodyTag');
+    });
+
+    it('returns the tag provided by the prop callback', () => {
+      expect(returned).toBe('some-tag');
+    });
+  });
+
+  describe('plugTfootTag', () => {
+    let tagCb, context, subject, returned;
+
+    beforeEach(() => {
+      spyOn(TablePlugin.prototype, 'plugTag').and.returnValue('some-tag');
+      tagCb = jasmine.createSpy('tagCb');
+      context = {a: 1, b: 2};
+      subject = ReactDOM.render(<TablePlugin {...{columns: [], data: []}}/>, root);
+      returned = subject.plugTfootTag(tagCb, context);
+    });
+
+    it('calls plugTag', () => {
+      expect(TablePlugin.prototype.plugTag).toHaveBeenCalledWith(tagCb, context, 'tfootTag');
     });
 
     it('returns the tag provided by the prop callback', () => {
@@ -369,6 +397,46 @@ describe('TablePlugin', () => {
 
     it('calls the tbody callback with the context', () => {
       expect(tbody).toHaveBeenCalledWith(newProps, context);
+    });
+
+    it('merges props', () => {
+      expect(mergedProps).toEqual({
+        className: 'new-class-name old-class-name',
+        id: 'old-id',
+        style: {old: 'style-old', new: 'style-new'},
+        new: 'prop-new',
+        old: 'prop-old'
+      });
+    });
+  });
+
+  describe('plugTfootProps', () => {
+    let subject, tfoot, newProps, context, mergedProps;
+
+    beforeEach(() => {
+      const oldProps = {
+        className: 'old-class-name',
+        id: 'old-id',
+        style: {old: 'style-old'},
+        old: 'prop-old'
+      };
+      tfoot = jasmine.createSpy('tfoot').and.returnValue(oldProps);
+      subject = ReactDOM.render(<TablePlugin {...{
+        columns: [], data: [], tfoot
+      }}/>, root);
+
+      newProps = {
+        className: 'new-class-name',
+        id: 'new-id',
+        style: {new: 'style-new'},
+        new: 'prop-new'
+      };
+      context = {some: 'context'};
+      mergedProps = subject.plugTfootProps(newProps, context);
+    });
+
+    it('calls the tfoot callback with the context', () => {
+      expect(tfoot).toHaveBeenCalledWith(newProps, context);
     });
 
     it('merges props', () => {

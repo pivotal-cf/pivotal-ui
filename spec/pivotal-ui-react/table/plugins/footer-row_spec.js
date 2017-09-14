@@ -26,6 +26,6 @@ describe('withFooterRow', () => {
   });
 
   it('renders footerRow', () => {
-    expect('.footer-row').toHaveText(footerRowText);
+    expect('tfoot tr.footer-row').toHaveText(footerRowText);
   });
 });

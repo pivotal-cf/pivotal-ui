@@ -71,6 +71,10 @@ describe('withFlex', () => {
       expect('.table .tbody .tr:eq(1) .td:eq(0)').toHaveClass('col');
       expect('.table .tbody .tr:eq(1) .td:eq(1)').toHaveClass('col');
     });
+
+    it('renders a div.tfoot element', () => {
+      expect('.table > div:eq(2)').toHaveClass('tfoot');
+    });
   });
 
   describe('with tag overrides', () => {
@@ -93,6 +97,7 @@ describe('withFlex', () => {
         tableTag: () => 'span',
         theadTag: () => 'span',
         tbodyTag: () => 'span',
+        tfootTag: () => 'span',
         trTag: () => 'span',
         thTag: () => 'span',
         tdTag: () => 'span'
@@ -150,6 +155,10 @@ describe('withFlex', () => {
 
       expect('.table .tbody .tr:eq(1) .td:eq(0)').toHaveClass('col');
       expect('.table .tbody .tr:eq(1) .td:eq(1)').toHaveClass('col');
+    });
+
+    it('renders a span.tfoot element', () => {
+      expect('.table > span:eq(2)').toHaveClass('tfoot');
     });
   });
 });

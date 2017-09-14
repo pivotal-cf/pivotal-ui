@@ -2,7 +2,7 @@ import '../spec_helper';
 import {Table} from '../../../src/react/table';
 
 describe('Table', () => {
-  let columns, data, table, thead, tbody, tr, th, td, subject;
+  let columns, data, table, thead, tbody, tfoot, tr, th, td, subject;
 
   beforeEach(() => {
     columns = [{
@@ -20,13 +20,14 @@ describe('Table', () => {
     table = jasmine.createSpy('table').and.returnValue({className: 'table-class'});
     thead = jasmine.createSpy('thead').and.returnValue({className: 'thead-class'});
     tbody = jasmine.createSpy('tbody').and.returnValue({className: 'tbody-class'});
+    tfoot = jasmine.createSpy('tfoot').and.returnValue({className: 'tfoot-class'});
     tr = jasmine.createSpy('tr').and.returnValue({className: 'tr-class'});
     th = jasmine.createSpy('th').and.returnValue({className: 'th-class'});
     td = jasmine.createSpy('td').and.returnValue({className: 'td-class'});
 
     subject = ReactDOM.render(<Table {...{
       className: 'some-class-name',
-      columns, data, table, thead, tbody, tr, th, td
+      columns, data, table, thead, tbody, tfoot, tr, th, td
     }}/>, root);
   });
 
@@ -43,6 +44,10 @@ describe('Table', () => {
 
   it('calls the tbody callback with props and empty context', () => {
     expect(tbody).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
+  });
+
+  it('calls the tfoot callback with props and empty context', () => {
+    expect(tfoot).toHaveBeenCalledWith({children: jasmine.any(Array)}, {});
   });
 
   it('calls the tr callback with props and isHeader context', () => {
@@ -114,11 +119,16 @@ describe('Table', () => {
     expect('table tbody tr:eq(1) td:eq(2)').toHaveText('name2');
   });
 
+  it('renders a tfoot element with the expected class', () => {
+    expect('table tfoot').toHaveClass('tfoot-class');
+  });
+
   describe('with custom html tags', () => {
     beforeEach(() => subject::setProps({
       tableTag: () => 'div',
       theadTag: () => 'div',
       tbodyTag: () => 'div',
+      tfootTag: () => 'div',
       trTag: () => 'div',
       thTag: () => 'div',
       tdTag: () => 'div'
@@ -171,6 +181,10 @@ describe('Table', () => {
       expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveClass('td-class');
       expect('.tbody-class .tr-class:eq(1) div:eq(2)').toHaveText('name2');
     });
+
+    it('renders a tfoot div element with the expected classes', () => {
+      expect('div.table > div:eq(2)').toHaveClass('tfoot-class');
+    });
   });
 
   describe('with opt-out custom html tags', () => {
@@ -178,6 +192,7 @@ describe('Table', () => {
       tableTag: () => null,
       theadTag: () => null,
       tbodyTag: () => null,
+      tfootTag: () => null,
       trTag: () => null,
       thTag: () => null,
       tdTag: () => null
@@ -230,6 +245,10 @@ describe('Table', () => {
       expect('table tbody tr:eq(1) td:eq(1)').toHaveText('row2-value2');
       expect('table tbody tr:eq(1) td:eq(2)').toHaveClass('td-class');
       expect('table tbody tr:eq(1) td:eq(2)').toHaveText('name2');
+    });
+
+    it('renders a tfoot element with the expected class', () => {
+      expect('table tfoot').toHaveClass('tfoot-class');
     });
   });
 });
