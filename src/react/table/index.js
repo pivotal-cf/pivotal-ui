@@ -34,7 +34,7 @@ export {withSorting} from './plugins/sorting';
 
 export const SortableTable = withSorting(Table);
 export const FlexTable = withFlex(Table);
-export const SortableAdvancedTable = withFlex(SortableTable);
+export const SortableFlexTable = withFlex(SortableTable);
 export const AdvancedTable = flow(
   withFlex,
   withCellLink,
