@@ -6,7 +6,7 @@ import {TablePlugin} from '../table-plugin';
 
 export function withFooterRow(Table) {
   return class TableWithFooterRow extends TablePlugin {
-    static propTypes = {footerRow: PropTypes.node};
+    static propTypes = {footerRow: PropTypes.any};
 
     render() {
       const {footerRow, ...props} = this.props;
