@@ -23,8 +23,8 @@ export function withRowDrawer(Table) {
       keyboardNavigation: PropTypes.bool
     };
 
-    constructor(props, context) {
-      super(props, context);
+    constructor(props) {
+      super(props);
       this.state = {};
       privates.set(this, {});
     }
@@ -86,8 +86,8 @@ export function withRowDrawer(Table) {
       isSelected: PropTypes.bool
     };
 
-    constructor(props, context) {
-      super(props, context);
+    constructor(props) {
+      super(props);
       this.state = {expanded: false};
       privates.set(this, {});
     }

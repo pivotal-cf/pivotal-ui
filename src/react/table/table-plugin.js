@@ -35,9 +35,9 @@ export class TablePlugin extends React.Component {
     this.plugProps = this.plugProps.bind(this);
   }
 
-  plugTag(method, tag, context = {}) {
-    const pluggedTag = this.props[`${method}Tag`] && this.props[`${method}Tag`](context);
-    return this.props.plugTag(method, pluggedTag, context) || tag;
+  plugTag(method, tag, pluginContext = {}) {
+    const pluggedTag = this.props[`${method}Tag`] && this.props[`${method}Tag`](pluginContext);
+    return this.props.plugTag(method, pluggedTag, pluginContext) || tag;
   }
 
   mergeProps(props1 = {}, props2 = {}) {
@@ -49,9 +49,9 @@ export class TablePlugin extends React.Component {
     };
   }
 
-  plugProps(method, props = {}, context = {}) {
-    const pluggedProps = this.props[method] && this.mergeProps(props, this.props[method](props, context));
-    return this.props.plugProps(method, pluggedProps || props, context);
+  plugProps(method, props = {}, pluginContext = {}) {
+    const pluggedProps = this.props[method] && this.mergeProps(props, this.props[method](props, pluginContext));
+    return this.props.plugProps(method, pluggedProps || props, pluginContext);
   }
 
   renderTable(Table, methods, props = this.props) {
