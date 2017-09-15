@@ -5,13 +5,10 @@ import {TablePlugin} from '../table-plugin';
 
 export function withCellRenderer(Table) {
   return class TableWithCellRenderer extends TablePlugin {
-    static defaultProps = {...TablePlugin.defaultProps};
-
     render() {
-      return (<Table {...this.props} {...{
-        td: (props, tdContext) => {
-          const {column: {CellRenderer}, rowDatum} = tdContext;
-          if (!CellRenderer) return this.plugTdProps(props, tdContext);
+      return this.renderTable(Table, {
+        td: (props, {column: {CellRenderer}, rowDatum}) => {
+          if (!CellRenderer) return;
           const cellRendererProps = {};
           if (CellRenderer.propTypes) {
             Object.keys(CellRenderer.propTypes).forEach(key => cellRendererProps[key] = rowDatum[key]);
@@ -19,9 +16,9 @@ export function withCellRenderer(Table) {
             Object.assign(cellRendererProps, rowDatum);
           }
           const children = <CellRenderer {...cellRendererProps}/>;
-          return this.plugTdProps({...props, children}, tdContext);
+          return {children};
         }
-      }}/>);
+      });
     }
   };
 }

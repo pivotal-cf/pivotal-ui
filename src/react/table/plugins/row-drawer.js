@@ -23,8 +23,8 @@ export function withRowDrawer(Table) {
       keyboardNavigation: PropTypes.bool
     };
 
-    constructor(props) {
-      super(props);
+    constructor(props, context) {
+      super(props, context);
       this.state = {};
       privates.set(this, {});
     }
@@ -86,8 +86,8 @@ export function withRowDrawer(Table) {
       isSelected: PropTypes.bool
     };
 
-    constructor(props) {
-      super(props);
+    constructor(props, context) {
+      super(props, context);
       this.state = {expanded: false};
       privates.set(this, {});
     }
@@ -165,27 +165,18 @@ export function withRowDrawer(Table) {
       keyboardNavigation: PropTypes.bool
     };
 
-    static defaultProps = {...TablePlugin.defaultProps};
-
     render() {
       const {rowDrawer, keyboardNavigation, ...props} = this.props;
-      return (<Table {...props} {...{
-        tbodyTag: tbodyTagContext => this.plugTbodyTag(() => rowDrawer && TbodyWithDrawer, tbodyTagContext),
-        trTag: trTagContext => this.plugTrTag(() => rowDrawer && RowWithDrawer, trTagContext),
-        tbody: (props, tbodyContext) => {
-          if (!rowDrawer) return this.plugTbodyProps(props, tbodyContext);
-          return this.plugTbodyProps({...props, keyboardNavigation}, tbodyContext);
-        },
-        tr: (props, trContext) => {
-          if (!rowDrawer) return this.plugTrProps(props, trContext);
-          return this.plugTrProps({
-            ...props,
-            rowDrawer,
-            rowIndex: trContext.rowIndex,
-            keyboardNavigation
-          }, trContext);
+      return this.renderTable(Table, {
+        tbodyTag: () => rowDrawer && TbodyWithDrawer,
+        trTag: () => rowDrawer && RowWithDrawer,
+        tbody: () => rowDrawer && {keyboardNavigation},
+        tr: (props, {rowIndex}) => rowDrawer && {
+          rowDrawer,
+          rowIndex,
+          keyboardNavigation
         }
-      }}/>);
+      }, props);
     }
   };
 }

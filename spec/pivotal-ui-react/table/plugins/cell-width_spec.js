@@ -1,7 +1,7 @@
 import '../../spec_helper';
-import {Table, withFixedWidthColumns} from '../../../../src/react/table';
+import {Table, withCellWidth} from '../../../../src/react/table';
 
-describe('withFixedWidthColumns', () => {
+describe('withCellWidth', () => {
   beforeEach(() => {
     const columns = [{
       attribute: 'attr1', width: '100px'
@@ -14,7 +14,7 @@ describe('withFixedWidthColumns', () => {
       attr1: 'row2-value1', attr2: 'row2-value2'
     }];
 
-    const ComposedTable = withFixedWidthColumns(Table);
+    const ComposedTable = withCellWidth(Table);
     ReactDOM.render(<ComposedTable {...{columns, data}}/>, root);
   });
 

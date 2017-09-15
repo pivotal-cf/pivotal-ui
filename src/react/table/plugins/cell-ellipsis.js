@@ -5,18 +5,15 @@ import {TablePlugin} from '../table-plugin';
 
 export function withCellEllipsis(Table) {
   return class TableWithCellEllipsis extends TablePlugin {
-    static defaultProps = {...TablePlugin.defaultProps};
-
     render() {
-      return (<Table {...this.props} {...{
-        td: (props, tdContext) => {
+      return this.renderTable(Table, {
+        td: (props, {column: {ellipsis}}) => {
           const {children: oldChildren} = props;
-          const {column: {ellipsis}} = tdContext;
-          if (!ellipsis) return this.plugTdProps(props, tdContext);
+          if (!ellipsis) return;
           const children = <span className="type-ellipsis">{oldChildren}</span>;
-          return this.plugTdProps({...props, children}, tdContext);
+          return {children};
         }
-      }}/>);
+      });
     }
   };
 }

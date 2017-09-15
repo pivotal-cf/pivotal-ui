@@ -7,13 +7,12 @@ import {Icon} from '../../iconography';
 import {TablePlugin} from '../table-plugin';
 
 export function withCellTooltip(Table) {
-  function tooltip(method, props, cellContext) {
+  function cellTooltip(props, tooltip, rowDatum, isHeader) {
     const {children: oldChildren} = props;
-    const {column: {tooltip}, rowDatum} = cellContext;
-    if (!tooltip) return this.plugProps(props, cellContext, method);
+    if (!tooltip) return;
 
-    const {text, size, theme, showIcon} = tooltip({isHeader: method === 'th'}, rowDatum) || {};
-    if (!text) return this.plugProps(props, cellContext, method);
+    const {text, size, theme, showIcon} = tooltip({isHeader}, rowDatum) || {};
+    if (!text) return;
 
     const overlay = (<Tooltip {...{size}}>{text}</Tooltip>);
     const children = (
@@ -33,17 +32,15 @@ export function withCellTooltip(Table) {
       </OverlayTrigger>
     );
 
-    return this.plugProps({...props, children}, cellContext, method);
+    return {children};
   }
 
   return class TableWithCellTooltip extends TablePlugin {
-    static defaultProps = {...TablePlugin.defaultProps};
-
     render() {
-      return (<Table {...this.props} {...{
-        th: tooltip.bind(this, 'th'),
-        td: tooltip.bind(this, 'td')
-      }}/>);
+      return this.renderTable(Table, {
+        th: (props, {column: {tooltip}, rowDatum}) => cellTooltip(props, tooltip, rowDatum, true),
+        td: (props, {column: {tooltip}, rowDatum}) => cellTooltip(props, tooltip, rowDatum, false)
+      });
     }
   };
 }

@@ -6,17 +6,13 @@ import {TablePlugin} from '../table-plugin';
 
 export function withFooterRow(Table) {
   return class TableWithFooterRow extends TablePlugin {
-    static propTypes = {
-      footerRow: PropTypes.any
-    };
-
-    static defaultProps = {...TablePlugin.defaultProps};
+    static propTypes = {footerRow: PropTypes.node};
 
     render() {
       const {footerRow, ...props} = this.props;
-      return (<Table {...props} {...{
-        tfoot: (props, tfootContext) => this.plugTfootProps({...props, children: [...props.children, footerRow]}, tfootContext)
-      }}/>);
+      return this.renderTable(Table, {
+        tfoot: props => ({children: [...props.children, footerRow]})
+      }, props);
     }
   };
 }

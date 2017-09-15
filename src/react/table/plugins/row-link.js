@@ -6,32 +6,21 @@ import {TablePlugin} from '../table-plugin';
 
 export function withRowLink(Table) {
   return class TableWithRowLink extends TablePlugin {
-    static propTypes = {
-      rowLink: PropTypes.object
-    };
-
-    static defaultProps = {...TablePlugin.defaultProps};
+    static propTypes = {rowLink: PropTypes.object};
 
     render() {
       const {rowLink: {link, onClick} = {}, ...props} = this.props;
-      return (<Table {...props} {...{
-        trTag: trTagContext => {
-          const {rowDatum} = trTagContext;
-          if (!rowDatum) return this.plugTrTag(() => null, trTagContext);
-          const href = link && link(rowDatum);
-          return this.plugTrTag(() => href ? 'a' : null, trTagContext);
-        },
-        tr: (props, trContext) => {
-          const {rowDatum} = trContext;
-          if (!rowDatum) return this.plugTrProps(props, trContext);
-          const href = link && link(rowDatum);
-          return this.plugTrProps({
-            ...props,
-            href,
-            onClick: href && (e => onClick(e, rowDatum))
-          }, trContext);
+      return this.renderTable(Table, {
+        trTag: ({rowDatum}) => rowDatum && link && link(rowDatum) && 'a',
+        tr: (props, {rowDatum}) => {
+          if (!rowDatum || !link) return;
+
+          const href = link(rowDatum);
+          if (!href) return;
+
+          return {href, onClick: e => onClick(e, rowDatum)};
         }
-      }}/>);
+      }, props);
     }
   };
 }

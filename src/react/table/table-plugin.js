@@ -6,6 +6,7 @@ export class TablePlugin extends React.Component {
   static propTypes = {
     columns: PropTypes.array.isRequired,
     data: PropTypes.array.isRequired,
+    plugTag: PropTypes.func.isRequired,
     tableTag: PropTypes.func,
     theadTag: PropTypes.func,
     tbodyTag: PropTypes.func,
@@ -13,65 +14,33 @@ export class TablePlugin extends React.Component {
     trTag: PropTypes.func,
     thTag: PropTypes.func,
     tdTag: PropTypes.func,
-    table: PropTypes.func.isRequired,
-    thead: PropTypes.func.isRequired,
-    tbody: PropTypes.func.isRequired,
-    tfoot: PropTypes.func.isRequired,
-    tr: PropTypes.func.isRequired,
-    th: PropTypes.func.isRequired,
-    td: PropTypes.func.isRequired
+    plugProps: PropTypes.func.isRequired,
+    table: PropTypes.func,
+    thead: PropTypes.func,
+    tbody: PropTypes.func,
+    tfoot: PropTypes.func,
+    tr: PropTypes.func,
+    th: PropTypes.func,
+    td: PropTypes.func
   };
 
   static defaultProps = {
-    tableTag: () => null,
-    theadTag: () => null,
-    tbodyTag: () => null,
-    tfootTag: () => null,
-    trTag: () => null,
-    thTag: () => null,
-    tdTag: () => null,
-    table: () => ({}),
-    thead: () => ({}),
-    tbody: () => ({}),
-    tfoot: () => ({}),
-    tr: () => ({}),
-    th: () => ({}),
-    td: () => ({})
+    plugTag: (method, tag) => tag,
+    plugProps: (method, props) => props
   };
 
-  plugTag(tagCb, tagContext = {}, method) {
-    return this.props[method](tagContext) || tagCb();
+  constructor(props) {
+    super(props);
+    this.plugTag = this.plugTag.bind(this);
+    this.plugProps = this.plugProps.bind(this);
   }
 
-  plugTableTag(tagCb, tableTagContext) {
-    return this.plugTag(tagCb, tableTagContext, 'tableTag');
+  plugTag(method, tag, context = {}) {
+    const pluggedTag = this.props[`${method}Tag`] && this.props[`${method}Tag`](context);
+    return this.props.plugTag(method, pluggedTag, context) || tag;
   }
 
-  plugTheadTag(tagCb, theadTagContext) {
-    return this.plugTag(tagCb, theadTagContext, 'theadTag');
-  }
-
-  plugTbodyTag(tagCb, tbodyTagContext) {
-    return this.plugTag(tagCb, tbodyTagContext, 'tbodyTag');
-  }
-
-  plugTfootTag(tagCb, tfootTagContext) {
-    return this.plugTag(tagCb, tfootTagContext, 'tfootTag');
-  }
-
-  plugTrTag(tagCb, trTagContext) {
-    return this.plugTag(tagCb, trTagContext, 'trTag');
-  }
-
-  plugThTag(tagCb, thTagContext) {
-    return this.plugTag(tagCb, thTagContext, 'thTag');
-  }
-
-  plugTdTag(tagCb, tdTagContext) {
-    return this.plugTag(tagCb, tdTagContext, 'tdTag');
-  }
-
-  mergeProps(props1, props2) {
+  mergeProps(props1 = {}, props2 = {}) {
     return {
       ...props1,
       ...props2,
@@ -80,36 +49,14 @@ export class TablePlugin extends React.Component {
     };
   }
 
-  plugProps(props = {}, pluginContext = {}, method) {
-    return this.mergeProps(props, this.props[method](props, pluginContext));
+  plugProps(method, props = {}, context = {}) {
+    const pluggedProps = this.props[method] && this.mergeProps(props, this.props[method](props, context));
+    return this.props.plugProps(method, pluggedProps || props, context);
   }
 
-  plugTableProps(props, tableContext) {
-    return this.plugProps(props, tableContext, 'table');
-  }
-
-  plugTheadProps(props, theadContext) {
-    return this.plugProps(props, theadContext, 'thead');
-  }
-
-  plugTbodyProps(props, tbodyContext) {
-    return this.plugProps(props, tbodyContext, 'tbody');
-  }
-
-  plugTfootProps(props, tfootContext) {
-    return this.plugProps(props, tfootContext, 'tfoot');
-  }
-
-  plugTrProps(props, trContext) {
-    return this.plugProps(props, trContext, 'tr');
-  }
-
-  plugThProps(props, thContext) {
-    return this.plugProps(props, thContext, 'th');
-  }
-
-  plugTdProps(props, tdContext) {
-    return this.plugProps(props, tdContext, 'td');
+  renderTable(Table, methods, props = this.props) {
+    const {plugTag, tableTag, theadTag, tbodyTag, tfootTag, trTag, thTag, tdTag, plugProps, table, thead, tbody, tfoot, tr, th, td, ...others} = props;
+    return (<Table {...{...others, ...methods, plugTag: this.plugTag, plugProps: this.plugProps}}/>);
   }
 
   render() {

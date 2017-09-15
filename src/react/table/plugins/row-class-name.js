@@ -6,20 +6,13 @@ import {TablePlugin} from '../table-plugin';
 
 export function withRowClassName(Table) {
   return class TableWithRowClassName extends TablePlugin {
-    static propTypes = {
-      rowClassName: PropTypes.func
-    };
-
-    static defaultProps = {...TablePlugin.defaultProps};
+    static propTypes = {rowClassName: PropTypes.func};
 
     render() {
       const {rowClassName, ...props} = this.props;
-      return (<Table {...props} {...{
-        tr: (props, trContext) => {
-          if (!rowClassName) return this.plugTrProps(props, trContext);
-          return this.plugTrProps(this.mergeProps(props, {className: rowClassName(trContext)}), trContext);
-        }
-      }}/>);
+      return this.renderTable(Table, {
+        tr: (props, trContext) => rowClassName && {className: rowClassName(trContext)}
+      }, props);
     }
   };
 }
