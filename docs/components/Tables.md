@@ -6,11 +6,11 @@ The `Table` component is a robust component that offers a styled table. If the r
 
 Several enhanced Table components are also available:
 * **SortableTable**: rows can be sorted ascending or descending by a chosen column.
-* **FlexTable**: uses `div` tags to compose a table rather than traditional HTML tags
-* **SortableFlexTable**: a SortableTable that is composed of `div` tags
-* **AdvancedTable**: offers many additional features for advanced customization
+* **FlexTable**: uses `div` tags to compose a table rather than traditional HTML tags.
+* **SortableFlexTable**: a SortableTable that is composed of `div` tags.
+* **AdvancedTable**: offers many additional features for advanced customization.
 
-Tables can also be composed with any subset of the features offered by the AdvancedTable.
+Tables can also be composed with any subset of the features offered by the **AdvancedTable**.
 
 ## Examples
 
@@ -210,7 +210,37 @@ Class                   | Description
 
 ## Using Plugins
 
-The base Table component has a limited feature-set. Users can compose Tables with additional features by using plugins. The following sections demonstrate the available set of plugins provided by Pivotal UI.
+The base Table component has a limited feature-set. Users can compose Tables with additional features by using plugins.
+
+Here are the plugins provided by Pivotal UI:
+* withFlex
+* withCellClassName
+* withCellEllipsis
+* withCellOnClick
+* withCellRenderer
+* withCellTooltip
+* withCellWidth
+* withFooterRow
+* withRowClassName
+* withRowDrawer
+* withRowLink
+* withSorting
+
+A composed table can be created by composing one or more of the above plugins:
+
+```
+import {withFlex, withSorting, Table} from 'pivotal-ui/react/table';
+const ComposedTable = withFlex(withSorting(Table));
+ReactDOM.render(<ComposedTable columns={columns} data={data}/>;
+```
+
+Or with `lodash.flow`:
+```
+import flow from 'lodash.flow';
+const ComposedTable = flow(withFlex, withSorting)(Table);
+```
+
+The following examples demonstrate the individual usage of each of the above plugins.
 
 ```jsx
 ::title=Flex
@@ -222,12 +252,12 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 ```
 
 ```jsx
-::title=Cell links
-::description=Each cell in a column of a FlexTable can be an `a` tag. In this example, the first column links to the `tables` styleguide page, and the last column links to the `alerts` page.
+::title=Cell links (requires FlexTable)
+::description=Each cell in a column of a FlexTable can be an `a` tag. In this example, the first column links to the top of this section, and the last column links to the top of this page.
 const FlexTableWithCellLink = withCellLink(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].link = () => 'https://styleguide.pivotal.io/tables';
-columns[2].link = () => 'https://styleguide.pivotal.io/alerts';
+columns[0].link = () => '#using-plugins';
+columns[2].link = () => '#tables';
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
 <FlexTableWithCellLink columns={columns} data={data}/>
 ```
@@ -243,7 +273,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 ```
 
 ```jsx
-::title=Cell ellipsis
+::title=Cell ellipsis (requires FlexTable)
 ::description=Each cell in a column of a FlexTable can be set to trail off with an ellipsis when the contents exceed the available space. In this example, the first column has the `type-ellipsis` class applied.
 const FlexTableWithCellEllipsis = withCellEllipsis(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
@@ -284,7 +314,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 
 ```jsx
 ::title=Cell width
-::description=Each cell in a column can have a fixed width. In this example, the cells in the first column are 100px, and the cells in the second column are 200px. The cells in the final column use the remaining space.
+::description=Each cell in a column can have a fixed width. In this example, the cells in the first column are 100px wide, and the cells in the second column are 200px. The cells in the final column use the remaining space.
 const TableWithCellWidth = withCellWidth(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 columns[0].width = '100px';
@@ -312,11 +342,71 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithRowClassName columns={columns} data={data} rowClassName={({isHeader}) => !isHeader && 'h4'}/>
 ```
 
-### Row drawer
+```jsx
+::title=Row drawer (requires FlexTable)
+::description=When body rows of a FlexTable are clicked, drawer content is revealed.
+const TableWithRowDrawer = withRowDrawer(FlexTable);
+const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
+const data = [1, 2].map(row => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3', drawerContent: `Drawer content for Row ${row}.`}));
+const rowDrawer = i => (
+  <div className="table-drawer">
+    <div className="table-drawer-content">
+      <div className="table-drawer-container phxl">
+        {data[i].drawerContent}
+      </div>
+    </div>
+  </div>
+);
+<TableWithRowDrawer columns={columns} data={data} rowDrawer={rowDrawer}/>
+```
 
-### Row link
+```jsx
+::title=Row links (requires FlexTable)
+::description=An entire row of a FlexTable can be rendered as an `a` tag. In this example, clicking the first body row links to the top of this section.
+const TableWithRowLink = withRowLink(FlexTable);
+const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
+const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
+<TableWithRowLink columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
+```
 
-### Sorting
+```jsx
+::title=Sorting
+::description=A table can be sorted ascending or descending by a given column by clicking on that column's header.
+const TableWithSorting = withSorting(Table);
+const columns = [{
+  attribute: 'title',
+  displayName: 'Title',
+  sortable: false
+}, {
+  attribute: 'instances',
+  sortable: true
+}, {
+  attribute: 'bar',
+  displayName: 'Bar',
+  sortable: true,
+  sortBy: function(value) { return -value; }
+}, {
+  attribute: 'unsortable',
+  sortable: false
+}];
+const data = [{
+  instances: '1',
+  bar: 11,
+  title: 'foo',
+  unsortable: '14'
+}, {
+  instances: '3',
+  bar: 7,
+  title: 'sup',
+  unsortable: '22'
+}, {
+  title: 'yee',
+  instances: '2',
+  bar: 8,
+  unsortable: '1'
+}];
+<TableWithSorting columns={columns} data={data} defaultSort="instances"/>
+```
 
 ## Writing Plugins
 

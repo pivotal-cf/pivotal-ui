@@ -7,15 +7,16 @@ import routes from './src/helpers/content';
 
 const app = Express();
 
-app.use((req, res, next) => {
-  const isDev = process.env.NODE_ENV === 'development';
-  const isHttps = req.headers['x-forwarded-proto'] === 'https';
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    const isHttps = req.headers['x-forwarded-proto'] === 'https';
 
-  if (isDev || isHttps) return next();
+    if (isHttps) return next();
 
-  res.writeHead(301, {location: `https://${req.headers.host}${req.url}`});
-  res.end();
-});
+    res.writeHead(301, {location: `https://${req.headers.host}${req.url}`});
+    res.end();
+  });
+}
 
 app.use("/dist", expressStaticGzip(`${process.cwd()}/dist`));
 
@@ -48,14 +49,14 @@ app.listen(port);
 function renderPage() {
   return ReactDOMServer.renderToString(
     <html>
-      <head>
-        <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
-        <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
-      </head>
-      <body>
-        <div id="root"/>
-        <script src="./dist/bundle.js"/>
-      </body>
+    <head>
+      <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico'/>
+      <link href="./dist/app.css" type="text/css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div id="root"/>
+    <script src="./dist/bundle.js"/>
+    </body>
     </html>
   );
 }
