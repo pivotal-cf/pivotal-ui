@@ -2,13 +2,13 @@
 
 .table {
   background-color: $table-bg;
-  font-size:$table-font-size;
+  font-size: $table-font-size;
   margin-bottom: ($base-unit*2);
   .grid {
-    margin:0;
+    margin: 0;
   }
   p {
-    margin:0;
+    margin: 0;
   }
 
   //Table Row
@@ -24,10 +24,13 @@
       background-color: $table-bg-hover;
     }
   }
+  .tr-drawer:last-child {
+    border-bottom: solid 1px $table-border-color;
+  }
   //Table Cell
   .th {
     font-weight: $table-header-font-weight;
-    border-bottom:solid 1px $table-border-color;
+    border-bottom: solid 1px $table-border-color;
   }
   //General Cell
   .td, .th {
@@ -56,7 +59,6 @@
     }
   }
 
-
   //No cell borders in row
   .tr.tr-no-h-borders {
     .td, .th {
@@ -70,27 +72,26 @@
     }
   }
   //No External borders to a table
-  &.table-no-ext-borders .tr{
-    border-left:none;
-    border-right:none;
+  &.table-no-ext-borders .tr, &.table-no-ext-borders .tr-drawer {
+    border-left: none;
+    border-right: none;
     &:first-child {
-      border-top:none;
+      border-top: none;
     }
     &:last-child {
-      border-bottom:none;
+      border-bottom: none;
     }
   }
-  .table-no-ext-borders.tr {
-    border-left:none;
-    border-right:none;
+  .table-no-ext-borders.tr, .table-no-ext-borders.tr-drawer {
+    border-left: none;
+    border-right: none;
     &:first-child {
-      border-top:none;
+      border-top: none;
     }
     &:last-child {
-      border-bottom:none;
+      border-bottom: none;
     }
   }
-
 
   //No borders on table
   &.table-no-borders {
@@ -101,12 +102,13 @@
     }
   }
 }
+
 //Table scrollable
 .table-scrollable {
   max-height: 164px;
   overflow-y: scroll;
   margin-bottom: ($base-unit*2);
-  border-bottom:solid 1px $table-border-color;
+  border-bottom: solid 1px $table-border-color;
   .table {
     margin-bottom: 0;
 
@@ -118,6 +120,7 @@
     }
   }
 }
+
 // Table cell padding
 .table-td-pal {
   .td, .th {
@@ -130,6 +133,7 @@
     padding: ($base-unit*2);
   }
 }
+
 // Table cell padding
 .table-td-pal {
   tr td, tr th {
@@ -141,4 +145,52 @@
   tr td, tr th {
     padding: ($base-unit*2);
   }
+}
+
+.tr.expandable {
+  padding-left: $whitespace-xl;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.expanded {
+    border-left: 3px solid $accent-2;
+    padding-left: 14px;
+  }
+
+  .icon.expand-icon {
+    height: 20px;
+    width: 20px;
+
+    svg {
+      fill: $dark-5;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+    }
+  }
+}
+
+.table-drawer {
+  background: $dark-11;
+  border: 1px solid $dark-9;
+  border-bottom: 0;
+  padding: $whitespace-xl;
+
+  .table-drawer-content {
+    background: white;
+    overflow-x: auto;
+    padding: $whitespace-xl 0;
+    white-space: nowrap;
+
+    .table-drawer-container {
+      width: 0;
+      min-width: 100%;
+    }
+  }
+}
+
+.tr-selected {
+  background-color: $dark-11;
 }

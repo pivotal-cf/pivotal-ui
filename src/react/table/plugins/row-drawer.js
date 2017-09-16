@@ -146,7 +146,7 @@ export function withRowDrawer(Table) {
         }}/> );
       }
       return (
-        <div>
+        <div className="tr-drawer">
           <div {...props} {...{onClick, className}}>
             {leftColumn}
             {children}
