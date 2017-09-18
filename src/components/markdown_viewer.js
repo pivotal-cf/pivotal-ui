@@ -6,6 +6,7 @@ import reactRenderer from 'remark-react';
 import HeadingRenderer from './renderers/heading_renderer';
 import PreRenderer from './renderers/pre_renderer';
 import TableRenderer from './renderers/table_renderer';
+import 'pivotal-ui/js/prismjs';
 
 export default class MarkdownViewer extends Component {
   static propTypes = {
@@ -13,6 +14,10 @@ export default class MarkdownViewer extends Component {
     file: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired
   };
+
+  componentDidUpdate() {
+    Prism.highlightAll();
+  }
 
   render() {
     const {json, file, name} = this.props;
