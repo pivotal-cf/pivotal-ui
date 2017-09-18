@@ -2,7 +2,7 @@
 
 ## Description
 
-`CopyToClipboardButton` uses the [Iconography](/react_base_iconography.html) component.
+`CopyToClipboardButton` uses the [Iconography](/icons) component.
 You will need to add an svg loader:
 
 <code class="pam">

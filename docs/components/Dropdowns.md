@@ -191,7 +191,7 @@ split            | no       | Boolean                             |             
 splitClassName   | no       | String                              |                | Classname to add to the text (split dropdown only)
 title            | no       | Node                                |                | The button contents
 
-(The extra loaders are for the [Iconography](/react_base_iconography.html) component.)
+(The extra loaders are for the [Iconography](/icons) component.)
 
 ## DropdownItems Props
 

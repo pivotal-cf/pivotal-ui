@@ -31,7 +31,7 @@ This optimization will sometimes change your Svg in undesirable ways. You can tu
  require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../app/svg/${src}.svg`);
 ```
 
-Pivotal UI provides a set of commonly used icons in the [Iconography Component](/react_base_iconography.html)
+Pivotal UI provides a set of commonly used icons in the [Iconography Component](/icons)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
 ## Installation & Usage

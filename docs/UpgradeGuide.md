@@ -5,7 +5,7 @@
 The goals of the 8.0 release are:
 
 - 8 point grid system: Many components have been refactored to fit the grid system described in this [blog post](https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632).
-- Introduce a [Flex driven grid system](/css_utilities_grids.html) and a CSS table based on this system.
+- Introduce a [Flex driven grid system](/grids) and a CSS table based on this system.
 
 ## The Big Changes
 
@@ -162,7 +162,7 @@ Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](h
 
 The buttons all have updated styles, and there are fewer of them.
 
-- `DefaultAltButton` is removed. Use `DefaultButton` instead. You may want to set the `alt` prop to true. If you still want the shadows, use [box shadows](/css_utilities_box-shadows.html)
+- `DefaultAltButton` is removed. Use `DefaultButton` instead. You may want to set the `alt` prop to true. If you still want the shadows, use [box shadows](/box_shadows)
 - `LowlightButton` is removed. It can be approximated with `DefaultButton` with `flat` set to true
 - `HighlightButton` is renamed to `PrimaryButton`
 - `HighlightAltButton` is removed, just use `PrimaryButton`. Marketing sites may want to use `BrandButton`. Web apps are discouraged from using `BrandButton`.

@@ -1,7 +1,7 @@
 # Alerts
 
 ## Description
-Alerts use the [Iconography](/react_base_iconography.html) component when using `withIcon` or `dismissable`. If you use those props, you will need to add an svg loader.
+Alerts use the [Iconography](/icons) component when using `withIcon` or `dismissable`. If you use those props, you will need to add an svg loader.
 
 ## Examples
 
