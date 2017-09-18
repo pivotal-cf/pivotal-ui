@@ -447,7 +447,7 @@ The value should be a callback.
 For Tag callbacks, relevant `context` is passed as an argument.
 The callback should return a new DOM element as a String or a React Component to be used in place of the standard HTML element.
 
-For Prop callbacks, the first argument are the `props` that the element will receive. The second argument is relevant `context`.
+For Prop callbacks, the first argument is the `props` that the element will receive. The second argument is relevant `context`.
 The callback should return any new props that the element should be rendered with. They will generally overwrite any pre-existing props. The `className` and `style` props will be merged with the old values.
 
 ```jsx
@@ -472,7 +472,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <TableWithCellColor columns={columns} data={data}/>;
 ```
 
-
+For additional examples, [review the plugins that Pivotal UI provides](https://github.com/pivotal-cf/pivotal-ui/tree/master/src/react/table/plugins).
 
 ## Installation & Usage
 
