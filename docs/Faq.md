@@ -2,8 +2,7 @@
 
 ## What browsers are supported?
 
-On the desktop, Pivotal UI supports recent versions of Chrome, Firefox, Edge, and Safari as well as IE10+. Pivotal UI does sometimes use flexbox, which does not work on IE9.
-Pivotal UI also supports recent versions of mobile Chrome and Safari.
+On the desktop, Pivotal UI supports recent versions of Chrome, Firefox, Edge, and Safari as well as IE11. Pivotal UI also supports recent versions of mobile Chrome and Safari.
 
 ## How do I customize my components?
 
