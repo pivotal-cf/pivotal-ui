@@ -21,33 +21,25 @@ The copy to clipboard functionality can be applied to a variety of elements.
   <br />
   <CopyToClipboard text="I got copied by a button">
     <DefaultButton {...{
-      flat: true
+      flat: true,
+      alt: true
     }}>Click Me To Copy</DefaultButton>
   </CopyToClipboard>
 </div>
 ```
 
-### Readonly Input and Copy Button
-
-Below is a common example combining a readonly input and a copy button.
-Note that there is custom css on the styleguide to get the positioning right.
-
-```
-import {Input} from 'pivotal-ui/react/inputs';
-import {DefaultButton} from 'pivotal-ui/react/buttons';
-```
-
 ```jsx
-::title=Link copy
-<div className="copy-input">
-  <Input label="shareable link" value="bar.com/1234.jpg" readOnly style={{height: "42px"}}/>
-  <CopyToClipboard text="bar.com/1234.jpg">
-    <DefaultButton {...{
-      flat: true,
-      iconOnly: true,
-      icon: <Icon src="copy"/>
-    }} />
-  </CopyToClipboard>
+::title=Readonly input and copy button
+<div className="copy-input grid">
+  <Input label="Shareable Link" value="bar.com/1234.jpg" readOnly className="col"/>
+  <div className="col">
+    <CopyToClipboard text="bar.com/1234.jpg" className="mtxxxl">
+      <PrimaryButton {...{
+        iconOnly: true,
+        icon: <Icon src="copy"/>
+      }} />
+    </CopyToClipboard>
+  </div>
 </div>
 ```
 
