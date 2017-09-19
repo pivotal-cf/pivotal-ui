@@ -2,21 +2,28 @@
 
 ## Description
 
-`CopyToClipboardButton` uses the [Iconography](/icons) component.
-You will need to add an svg loader:
-
-<code class="pam">
-<img src="/styleguide/download.svg" width="16" height="16"/>
-npm install babel-loader react-svg-loader --save-dev
-</code>
+The copy to clipboard functionality can be applied to a variety of elements.
 
 ## Examples
 
 ```jsx
 ::title=Copy options
 <div>
-  <CopyToClipboard text="I got copied by a button"><button className="btn">Click Me To Copy</button></CopyToClipboard>
-  <CopyToClipboardButton text="I got copied by a good looking button"/>
+  <CopyToClipboard text="I got copied by a button" tooltip="Good news it's copied">Click Me To Copy</CopyToClipboard>
+  <br />
+  <CopyToClipboard text="I got copied by a button">
+    <DefaultButton {...{
+     flat: true,
+     iconOnly: true,
+     icon: <Icon src="copy"/>
+    }}/>
+  </CopyToClipboard>
+  <br />
+  <CopyToClipboard text="I got copied by a button">
+    <DefaultButton {...{
+      flat: true
+    }}>Click Me To Copy</DefaultButton>
+  </CopyToClipboard>
 </div>
 ```
 
@@ -27,13 +34,20 @@ Note that there is custom css on the styleguide to get the positioning right.
 
 ```
 import {Input} from 'pivotal-ui/react/inputs';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
 ```
 
 ```jsx
 ::title=Link copy
 <div className="copy-input">
   <Input label="shareable link" value="bar.com/1234.jpg" readOnly style={{height: "42px"}}/>
-  <CopyToClipboardButton text="bar.com/1234.jpg" />
+  <CopyToClipboard text="bar.com/1234.jpg">
+    <DefaultButton {...{
+      flat: true,
+      iconOnly: true,
+      icon: <Icon src="copy"/>
+    }} />
+  </CopyToClipboard>
 </div>
 ```
 
@@ -42,12 +56,7 @@ import {Input} from 'pivotal-ui/react/inputs';
 #### React
 `npm install pivotal-ui --save`
 
-`import {CopyToClipboard, CopyToClipboardButton} from 'pivotal-ui/react/copy-to-clipboard';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import * as CopyToClipboard from 'pivotal-ui/css/copy-to-clipboard';`
+`import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';`
 
 
 ## Props
@@ -55,5 +64,4 @@ Property | Required | Type     | Default  | Description
 ---------|----------|----------|----------|------------
 text     | yes      | String   |          | Text that is copied when the user clicks
 onClick  | no       | Function | () => () | Click handler
-large    | no       | Boolean  | false    | Make button large
-small    | no       | Boolean  | false    | Make button small
+tooltip  | no       | String   | "Copied" | Text to show in tooltip after click

@@ -2,7 +2,8 @@ import React from 'react';
 import AceEditor from 'react-ace';
 
 import {Icon} from 'pivotal-ui/react/iconography';
-import {CopyToClipboardButton} from 'pivotal-ui/react/copy-to-clipboard';
+import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
 
 export default class HtmlEditor extends React.Component {
   render() {
@@ -14,7 +15,14 @@ export default class HtmlEditor extends React.Component {
           </div>
           <div className="code-editor--actions">
             <Icon src="autorenew"/>
-            <CopyToClipboardButton text={this.props.code} className="code-editor--titlebar-copy"/>
+            <CopyToClipboard text={this.props.code} className="code-editor--titlebar-copy">
+              <DefaultButton {...{
+                flat: true,
+                iconOnly: true,
+                icon: <Icon src="copy"/>,
+                small: true
+              }} />
+            </CopyToClipboard>
           </div>
         </div>
         <AceEditor width="100%"
