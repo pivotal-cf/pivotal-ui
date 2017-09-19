@@ -83,6 +83,12 @@
   position: relative;
   display: inline-block;
 
+  a {
+    svg {
+      fill: currentColor;
+    }
+  }
+
   &.tooltip-light {
     .tooltip-content {
       background-color: $tooltip-light-bg;

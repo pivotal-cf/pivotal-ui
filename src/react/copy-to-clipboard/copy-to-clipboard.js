@@ -28,7 +28,7 @@ export class CopyToClipboard extends React.PureComponent {
   };
 
   render() {
-    const {children, text, onClick, getWindow, tooltip = "Copied", ...others} = this.props;
+    const {children, className, text, onClick, getWindow, tooltip = "Copied", ...others} = this.props;
     const obj = {props: this.props, text: null};
 
     const anchorProps = mergeProps(others, {
@@ -37,7 +37,7 @@ export class CopyToClipboard extends React.PureComponent {
       role: 'button'
     });
 
-    return (<TooltipTrigger {...{tooltip, trigger: "click"}}>
+    return (<TooltipTrigger {...{className, tooltip, trigger: "click"}}>
         <a {...anchorProps}>
           <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
           {children}
