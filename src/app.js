@@ -35,13 +35,16 @@ class App extends React.Component {
     const year = currentDate.getFullYear();
 
     const footer = (<div className="footer whitelabel-bg-color grid mrn mtxxxl">
-      <div className="col type-ellipsis">
-            <span className="legal-text">
-              ©{year} Pivotal Software, Inc. All Rights Reserved.
-            </span>
+        <div className="col type-ellipsis">
+          <p>
+            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc.
+            All Rights Reserved. <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> • <a
+            href="https://pivotal.io/terms-of-use">Terms of Use</a>
+          </p>
+        </div>
+
       </div>
-      <div className="last-login-time col col-fixed mrl">Last login: 9/18/17 2:33 pm</div>
-    </div>);
+    );
 
     return (
       <div id="app" className="grid grid-nogutter">
@@ -54,12 +57,11 @@ class App extends React.Component {
                             file={this.state.content.file}
                             name={this.state.content.name}/>
           </div>
-          {footer}
         </div>
         <div hidden id="toc-sidebar" className="col col-fixed toc-column pln">
           <TocSidebar json={this.state.content.json.children}/>
         </div>
-
+        {footer}
       </div>
     );
   }
