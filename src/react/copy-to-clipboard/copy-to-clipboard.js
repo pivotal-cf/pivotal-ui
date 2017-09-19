@@ -1,16 +1,15 @@
 import React from 'react';
 import {copy} from './clipboard-helper';
-import {Icon} from '../iconography';
 import {mergeProps} from '../helpers';
 import PropTypes from 'prop-types';
 import {TooltipTrigger} from '../tooltip';
-import {DefaultButton} from '../buttons';
 
 export class CopyToClipboard extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func,
     getWindow: PropTypes.func,
+    tooltip: PropTypes.string
   };
 
   static defaultProps = {
@@ -29,7 +28,7 @@ export class CopyToClipboard extends React.PureComponent {
   };
 
   render() {
-    const {children, text, onClick, getWindow, ...others} = this.props;
+    const {children, text, onClick, getWindow, tooltip = "Copied", ...others} = this.props;
     const obj = {props: this.props, text: null};
 
     const anchorProps = mergeProps(others, {
@@ -38,60 +37,11 @@ export class CopyToClipboard extends React.PureComponent {
       role: 'button'
     });
 
-    return (<a {...anchorProps}>
-      <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
-      {children}
-    </a>);
-  }
-}
-
-export class CopyToClipboardButton extends React.PureComponent {
-  static propTypes = {
-    text: PropTypes.string,
-    onClick: PropTypes.func,
-    getWindow: PropTypes.func,
-    small: PropTypes.bool,
-    large: PropTypes.bool
-  };
-
-  static defaultProps = {
-    onClick() {
-    },
-    getWindow: () => window
-  };
-
-  constructor(props, context) {
-    super(props, context);
-    this.state = {display: false};
-  }
-
-  click = e => {
-    if (!this.state.display) this.setState({display: true}, () => {
-      this.setState({display: false});
-    });
-    this.props.onClick(e);
-  };
-
-  render() {
-    const {onClick, small, large, ...props} = this.props;
-    const {display} = this.state;
-
-    const copyProps = mergeProps(props, {
-      className: 'copy-to-clipboard-button',
-      onClick: this.click,
-      getWindow: this.props.getWindow
-    });
-
-    const button = (<DefaultButton {...{
-      flat: true,
-      className: 'clipboard-button',
-      icon: <Icon src="copy"/>,
-      small,
-      large
-    }}/>);
-
-    return (<CopyToClipboard {...copyProps}>
-      <TooltipTrigger tooltip="Copied" trigger="click">{button}</TooltipTrigger>
-    </CopyToClipboard>);
+    return (<TooltipTrigger {...{tooltip, trigger: "click"}}>
+        <a {...anchorProps}>
+          <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
+          {children}
+        </a>
+      </TooltipTrigger>);
   }
 }

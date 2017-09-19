@@ -1,6 +1,6 @@
 import '../spec_helper';
 
-import {CopyToClipboard, CopyToClipboardButton} from '../../../src/react/copy-to-clipboard';
+import {CopyToClipboard} from '../../../src/react/copy-to-clipboard';
 
 describe('CopyToClipboard', () => {
   const text = 'some copy text';
@@ -36,79 +36,22 @@ describe('CopyToClipboard', () => {
       expect('.copy-to-clipboard').toHaveCss({opacity: '0.5'});
     });
 
-    it('click copies text to clipboard and calls provided callback', () => {
-      subject = renderComponent({
-        getWindow,
-        text,
-        onClick,
-        className: 'test-class',
-        id: 'test-id',
-        style: {opacity: '0.5'}
-      });
-
-      $('.copy-to-clipboard').simulate('click');
-
-      expect(document.execCommand).toHaveBeenCalledWith('copy');
-      expect(onClick).toHaveBeenCalled();
-    });
-  });
-
-  describe('CopyToClipboardButton', () => {
-    const renderComponent = props => ReactDOM.render(<CopyToClipboardButton {...props}/>, root);
-
-    beforeEach(() => {
-      subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
-    });
-
-    it('propagates attributes', () => {
-      expect('.copy-to-clipboard').toHaveClass('test-class');
-      expect('.copy-to-clipboard').toHaveAttr('id', 'test-id');
-      expect('.copy-to-clipboard').toHaveCss({opacity: '0.5'});
-    });
-
-    it('renders a default flat button', () => {
-      expect('.copy-to-clipboard .btn').toHaveClass('btn-default-flat');
-    });
-
-    it('renders a copy icon in the button', () => {
-      expect('.copy-to-clipboard .btn svg').toHaveClass('icon-copy');
-    });
-
-    describe('when large prop is true', () => {
-      beforeEach(() => {
-        subject::setProps({large: true});
-      });
-
-      it('renders a large button', () => {
-        expect('.copy-to-clipboard .btn').toHaveClass('btn-lg');
-      });
-    });
-
-    describe('when small prop is true', () => {
-      beforeEach(() => {
-        subject::setProps({small: true});
-      });
-
-      it('renders a small button', () => {
-        expect('.copy-to-clipboard .btn').toHaveClass('btn-sm');
-      });
-    });
-
-    describe('clicking on the button', () => {
-      it('renders a tooltip that says "Copied"', () => {
+    describe('clicking on the element', () => {
+      it('renders a tooltip that says "Copied in"', () => {
         subject = renderComponent({
           getWindow,
           text,
           onClick,
           className: 'test-class',
           id: 'test-id',
-          style: {opacity: '0.5'}
+          style: {opacity: '0.5'},
+          tooltip: 'Copied in'
         });
 
-        $('.clipboard-button').simulate('click');
+        $('.copy-to-clipboard').simulate('click');
 
         expect('.tooltip-container').toHaveClass('tooltip-container-visible');
-        expect('.tooltip-content').toHaveText('Copied');
+        expect('.tooltip-content').toHaveText('Copied in');
       });
 
       it('hides tooltip after 1 seconds', () => {
