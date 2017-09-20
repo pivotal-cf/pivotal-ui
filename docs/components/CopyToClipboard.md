@@ -32,8 +32,8 @@ The copy to clipboard functionality can be applied to a variety of elements.
 ::title=Readonly input and copy button
 <div className="copy-input grid">
   <Input label="Shareable Link" value="bar.com/1234.jpg" readOnly className="col"/>
-  <div className="col">
-    <CopyToClipboard text="bar.com/1234.jpg" className="mtxxxl">
+  <div className="col mtxxxl">
+    <CopyToClipboard text="bar.com/1234.jpg">
       <PrimaryButton {...{
         iconOnly: true,
         icon: <Icon src="copy"/>
