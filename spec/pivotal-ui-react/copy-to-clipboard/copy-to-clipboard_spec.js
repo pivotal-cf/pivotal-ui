@@ -48,7 +48,7 @@ describe('CopyToClipboard', () => {
           tooltip: 'Copied in'
         });
 
-        $('.copy-to-clipboard').simulate('click');
+        $('.copy-to-clipboard .tooltip').simulate('click');
 
         expect('.tooltip-container').toHaveClass('tooltip-container-visible');
         expect('.tooltip-content').toHaveText('Copied in');
