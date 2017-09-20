@@ -28,7 +28,7 @@ export class Table extends TablePlugin {
     const bodyCols = rowDatum => columns.map((column, key) => {
       const keys = column.attribute.split('.');
       let children = rowDatum;
-      keys.forEach(key => children = children[key]);
+      keys.forEach(key => children = (children || {})[key]);
       const tdContext = {column, rowDatum};
       const Td = this.plugTag('td', 'td', tdContext);
       return <Td {...{key, ...this.plugProps('td', {children}, tdContext)}}/>;
