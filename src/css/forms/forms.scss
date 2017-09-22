@@ -212,7 +212,7 @@ select.input-sm {
     &.invalid {
       position: absolute;
       right: $base-unit;
-      top: $base-unit;
+      bottom: $base-unit;
       font-size: 16px;
     }
     &.valid svg {
