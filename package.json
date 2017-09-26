@@ -10,7 +10,6 @@
     "type": "git"
   },
   "name": "pivotal-ui",
-  "private": true,
   "description": "***",
   "version": "9.0.0",
   "devDependencies": {
