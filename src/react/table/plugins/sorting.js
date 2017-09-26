@@ -12,6 +12,12 @@ const SORT_ORDER = {
   none: 2
 };
 
+function find(arr, cb) {
+  for (let i = 0; i < arr.length; i++) {
+    if (cb(arr[i])) return arr[i];
+  }
+}
+
 export function withSorting(Table) {
   return class TableWithSorting extends TablePlugin {
     constructor(props) {
@@ -20,7 +26,7 @@ export function withSorting(Table) {
       const {columns, defaultSort} = props;
 
       this.state = {
-        sortColumn: columns.find(({sortable, attribute}) =>
+        sortColumn: find(columns, ({sortable, attribute}) =>
           defaultSort ? attribute === defaultSort : sortable
         ),
         sortOrder: SORT_ORDER.asc
@@ -29,7 +35,7 @@ export function withSorting(Table) {
 
     componentWillReceiveProps({columns, defaultSort}) {
       if (!columns) return;
-      const sortColumn = columns.find(({sortable, attribute}) =>
+      const sortColumn = find(columns, ({sortable, attribute}) =>
         defaultSort ? attribute === defaultSort : sortable
       );
       this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
