@@ -8,6 +8,8 @@ import PreRenderer from './renderers/pre_renderer';
 import TableRenderer from './renderers/table_renderer';
 import 'pivotal-ui/js/prismjs';
 
+const privates = new WeakMap();
+
 export default class MarkdownViewer extends Component {
   static propTypes = {
     json: PropTypes.object.isRequired,
@@ -15,12 +17,19 @@ export default class MarkdownViewer extends Component {
     name: PropTypes.string.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    privates.set(this, {});
+  }
+
   componentDidUpdate() {
     Prism.highlightAll();
   }
 
   render() {
     const {json, file, name} = this.props;
+    const cache = privates.get(this);
+    if (cache[file]) return cache[file];
     const processor = unified().use(reactRenderer, {
       sanitize: false,
       remarkReactComponents: {
@@ -36,6 +45,9 @@ export default class MarkdownViewer extends Component {
     });
 
     const transformed = processor.runSync(json);
-    return processor.stringify(transformed);
+    const stringified = processor.stringify(transformed);
+    const jsx = React.cloneElement(stringified, {key: file});
+    privates.set(this, {...cache, [file]: jsx});
+    return jsx;
   }
 }

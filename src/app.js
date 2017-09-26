@@ -42,7 +42,6 @@ class App extends React.Component {
             href="https://pivotal.io/terms-of-use">Terms of Use</a>
           </p>
         </div>
-
       </div>
     );
 
@@ -58,9 +57,6 @@ class App extends React.Component {
                             name={this.state.content.name}/>
           </div>
           {footer}
-        </div>
-        <div hidden id="toc-sidebar" className="col col-fixed toc-column pln">
-          <TocSidebar json={this.state.content.json.children}/>
         </div>
       </div>
     );
