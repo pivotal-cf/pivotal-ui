@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   static currentContent(path) {
-    return contentMap[path] ? contentMap[path] : contentMap['/404'];
+    return contentMap[path] || contentMap['404'];
   }
 
   render() {
