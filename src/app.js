@@ -5,7 +5,6 @@ import '../stylesheets/app.scss';
 
 import Sidebar from './components/sidebar';
 import MarkdownViewer from './components/markdown_viewer';
-import TocSidebar from './components/toc_sidebar';
 import contentMap, {attachPackagesToWindow} from './helpers/content';
 import 'pivotal-ui/js/prismjs';
 
