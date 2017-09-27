@@ -39,7 +39,7 @@ end</code></pre>
       <p>Install <code>pui-prismjs</code>. This package provides the code parsing magic.</p>
       <div class="mbl">
         <code class="pam">
-          <img src="/static/download.svg" width="16" height="16" alt="Install Prismjs"/>
+          <img src="static/download.svg" width="16" height="16" alt="Install Prismjs"/>
           npm install pui-prismjs --save
         </code>
       </div>
@@ -58,7 +58,7 @@ end</code></pre>
       <p>Install a PrismJs theme. This makes the code look pretty.</p>
       <div class="mbl">
         <code class="pam">
-          <img src="/static/download.svg" width="16" height="16" alt="Install Prismjs"/>
+          <img src="static/download.svg" width="16" height="16" alt="Install Prismjs"/>
           npm install prismjs-&lt;theme&gt;-theme --save
         </code>
       </div>

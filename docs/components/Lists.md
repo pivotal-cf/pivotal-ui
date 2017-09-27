@@ -16,8 +16,8 @@
 ::title=Breadcrumb
 <div>
     <BreadcrumbList>
-      <ListItem><a href="/">Home</a></ListItem>
-      <ListItem><a href="/react.html">React</a></ListItem>
+      <ListItem><a href="#">Home</a></ListItem>
+      <ListItem><a href="#react">React</a></ListItem>
       <ListItem className="current"><span>Lists</span></ListItem>
     </BreadcrumbList>
 </div>

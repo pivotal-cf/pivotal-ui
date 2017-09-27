@@ -348,7 +348,7 @@ Examples of standard form controls supported in an example form layout.
     <Input leftIcon="add"
            label="Add something here"
            placeholder="Why does Pivotal UI..." />
-    <Input leftIcon={<img src="/static/add_circle.svg" width="16" height="16"/>}
+    <Input leftIcon={<img src="static/add_circle.svg" width="16" height="16"/>}
                   label="This has an custom icon"
                   placeholder="Why does Pivotal UI..." />
 </div>

@@ -16,7 +16,6 @@
     "compression-webpack-plugin": "^0.4.0",
     "concurrently": "^3.1.0",
     "css-loader": "^0.26.1",
-    "express": "^4.14.0",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "file-loader": "^0.9.0",
     "gemini": "^4.17.1",
@@ -57,14 +56,10 @@
     "node": "^6.9",
     "npm": "3.10.x"
   },
-  "scripts": {
-    "watch": "NODE_ENV=development concurrently --kill-others \"webpack --config ./frontend_webpack.config.babel.js --watch\" \"webpack --config ./backend_webpack.config.babel.js --watch\" \"nodemon ./dist/compiled-server.js\""
-  },
   "dependencies": {
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
-    "express-static-gzip": "^0.2.3",
     "jquery": "^3.2.1",
     "lodash.kebabcase": "^4.1.1",
     "pivotal-js-jasmine-matchers": "^0.0.18",

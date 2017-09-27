@@ -1,5 +1,6 @@
 ---
 applications:
-- name: styleguide
-  buildpack: https://github.com/cloudfoundry/buildpack-nodejs.git
-  command: node ./dist/compiled-server.js
+- name: styleguide-master
+  buildpack: staticfile_buildpack
+  path: dist
+  memory: 64MB
