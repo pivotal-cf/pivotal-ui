@@ -59,7 +59,7 @@ export default class Sidebar extends React.PureComponent {
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="getstarted"
                        text="Get Started"
-                       active={['', 'getstarted'].indexOf(this.props.activePath) !== -1}/>
+                       active={['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1}/>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="faq"
                        text="FAQ"
