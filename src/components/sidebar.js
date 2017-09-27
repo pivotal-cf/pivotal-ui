@@ -59,26 +59,26 @@ export default class Sidebar extends React.PureComponent {
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="getstarted"
                        text="Get Started"
-                       active={['/', '/getstarted'].indexOf(this.props.activePath) !== -1}/>
+                       active={['', 'getstarted'].indexOf(this.props.activePath) !== -1}/>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="faq"
                        text="FAQ"
-                       active={'/faq' === this.props.activePath}/>
+                       active={'faq' === this.props.activePath}/>
           <Collapse className={componentLinks.indexOf(this.props.activePath) !== -1 ? 'active' : ''}
                     defaultExpanded={componentLinks.indexOf(this.props.activePath) !== -1}
                     header="Components">{components}</Collapse>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="upgradeguide"
                        text="Upgrade Guide"
-                       active={'/upgradeguide' === this.props.activePath}/>
+                       active={'upgradeguide' === this.props.activePath}/>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="contribute"
                        text="Contribute"
-                       active={'/contribute' === this.props.activePath}/>
+                       active={'contribute' === this.props.activePath}/>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="versions"
                        text="Versions"
-                       active={'/versions' === this.props.activePath}/>
+                       active={'versions' === this.props.activePath}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
         </div>
       </div>
