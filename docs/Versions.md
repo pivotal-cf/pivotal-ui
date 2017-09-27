@@ -6,3 +6,4 @@
 - [Version 5](/static/versions/5/index.html)
 - [Version 6](/static/versions/6/index.html)
 - [Version 7](/static/versions/7/index.html)
+- [Version 8](/static/versions/8/index.html)
