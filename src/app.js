@@ -16,12 +16,23 @@ class App extends React.Component {
 
     const path = window.location.pathname.split('/').pop();
     this.state = {content: App.currentContent(path), path: path};
+    this.updateContent = this.updateContent.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener('popstate', (event) => {
+      this.updatePath(event.currentTarget.location);
+    }, false);
   }
 
   updateContent(href) {
     window.history.pushState({}, '', href);
+    this.updatePath(window.location);
+  }
+
+  updatePath(location) {
     content.scrollTop = 0;
-    const path = window.location.pathname.split('/').pop();
+    const path = location.pathname.split('/').pop();
     this.setState({content: App.currentContent(path), path: path});
   }
 
