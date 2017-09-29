@@ -29,6 +29,7 @@ try {
   require('../pagination');
   require('../panels');
   require('../panes');
+  require('../positioning');
   require('../progress-bars');
   require('../spinners');
   require('../tables');
