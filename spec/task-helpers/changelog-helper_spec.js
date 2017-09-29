@@ -15,7 +15,7 @@ describe('ChangelogHelper', () => {
 
     it('returns the branch name', () => {
       expect(branch).toBe('branch-name');
-    })
+    });
   });
 
   describe('#getStoryIds', () => {
@@ -41,7 +41,7 @@ describe('ChangelogHelper', () => {
 
     it('calls the correct endpoint', async(done) => {
       await ChangelogHelper.getStory('12345');
-      expect(axios.get).toHaveBeenCalledWith(`https://www.pivotaltracker.com/services/v5/projects/1126018/stories/12345`,
+      expect(axios.get).toHaveBeenCalledWith('https://www.pivotaltracker.com/services/v5/projects/1126018/stories/12345',
         {headers: {'X-TrackerToken': '99f0bca6045f9a83715a284a1a2b37cc'}});
       done();
     });
@@ -84,7 +84,7 @@ describe('ChangelogHelper', () => {
 
       it('gets the commits since last tag', async(done) => {
         stories = await ChangelogHelper.getStoriesSinceLastTag();
-        expect(ChildProcess.execSync).toHaveBeenCalledWith('git log `git describe --tags --abbrev=0`..v9 --oneline')
+        expect(ChildProcess.execSync).toHaveBeenCalledWith('git log `git describe --tags --abbrev=0`..v9 --oneline');
         done();
       });
 
@@ -119,7 +119,7 @@ describe('ChangelogHelper', () => {
     });
 
     it('returns a list of bullet points', () => {
-      expect(storyList).toEqual(['* name1 [#123]', '* name2 [#456]'])
+      expect(storyList).toEqual(['* name1 [#123]', '* name2 [#456]']);
     });
   });
 
@@ -133,7 +133,7 @@ describe('ChangelogHelper', () => {
       });
 
       it('returns a bug fix section', () => {
-        expect(summary).toBe('### Bug Fixes\n\n* name1 [#123]\n* name2 [#456]')
+        expect(summary).toBe('### Bug Fixes\n\n* name1 [#123]\n* name2 [#456]');
       });
     });
 
