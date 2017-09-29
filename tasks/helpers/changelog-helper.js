@@ -46,8 +46,8 @@ ${features}
 
   generateStoryList: stories => {
     return stories.map((story) => {
-      return `* ${story.name} [#${story.id}]`
-    })
+      return `* ${story.name} [#${story.id}]`;
+    });
   },
 
   getBranch: () => {
@@ -63,7 +63,7 @@ ${features}
     do {
       match = storyIdRegex.exec(commits);
       if (match) {
-        storyIds.push(match[1])
+        storyIds.push(match[1]);
       }
     } while (match);
     return storyIds;
