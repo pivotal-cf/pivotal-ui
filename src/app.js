@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import '../stylesheets/app.scss';
 
@@ -10,7 +9,7 @@ import 'pivotal-ui/js/prismjs';
 
 attachPackagesToWindow();
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
 
@@ -72,5 +71,3 @@ class App extends React.Component {
     );
   }
 }
-
-ReactDOM.render(<App />, document.getElementById('root'));

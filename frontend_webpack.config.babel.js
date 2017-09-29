@@ -1,11 +1,12 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import {NamedModulesPlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
 export default {
-  entry: './src/app.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -43,6 +44,7 @@ export default {
     ],
   },
   plugins: [
+    new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin()
   ],

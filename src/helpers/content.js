@@ -9,6 +9,7 @@ import * as ButtonGroup from 'pivotal-ui/css/button-group';
 import * as Code from 'pivotal-ui/css/code';
 import * as Ellipsis from 'pivotal-ui/css/ellipsis';
 import * as Links from 'pivotal-ui/css/links';
+import * as Positioning from 'pivotal-ui/css/positioning'
 import * as ProgressBars from 'pivotal-ui/css/progress-bars';
 import * as Typography from 'pivotal-ui/css/typography';
 import * as VerticalAlignment from 'pivotal-ui/css/vertical-alignment';
@@ -87,6 +88,7 @@ import PaginationJson from '../../docs/components/Pagination.md';
 import PanesJson from '../../docs/components/Panes.md';
 import PanelsJson from '../../docs/components/Panels.md';
 import PortalsJson from '../../docs/components/Portals.md';
+import PositioningJson from '../../docs/components/Positioning.md';
 import ProgressBarsJson from '../../docs/components/ProgressBars.md';
 import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
@@ -141,6 +143,7 @@ const routes = {
   panels: {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
   panes: {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
   portals: {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
+  positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: [Positioning]},
   progress_bars: {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBars]},
   select: {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
   svg: {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
