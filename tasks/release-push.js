@@ -3,6 +3,7 @@ import {exec} from 'child_process';
 import promisify from 'es6-promisify';
 import gulp from 'gulp';
 import {infoForUpdatedPackages, publishPackages, publishFakePackages} from './helpers/publish-helper';
+import ChangelogHelper from './helpers/changelog-helper';
 import runSequence from 'run-sequence';
 import glob from 'glob';
 import fs from 'fs';
@@ -48,3 +49,5 @@ gulp.task('release-push-packages', (done) => runSequence(
   'release-push-npm-publish',
   done
 ));
+
+gulp.task('update-changelog', ChangelogHelper.updateChangelog);

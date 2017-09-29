@@ -40,7 +40,7 @@ gulp.task('lint', function() {
 });
 
 gulp.task('jasmine-task-helpers', function() {
-  return gulp.src(['spec/task-helpers/**/*-spec.js'])
+  return gulp.src(['spec/task-helpers/**/*_spec.js'])
     .pipe(plugins.plumber())
     .pipe(plugins.jasmine({includeStackTrace: true}));
 });
