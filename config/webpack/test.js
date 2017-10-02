@@ -2,20 +2,13 @@ import puiAliases from '../../helpers/pui-aliases';
 import NoErrorsPlugin from 'webpack/lib/NoErrorsPlugin';
 
 module.exports = {
-  devtool: 'eval',
-  entry: null,
+  devtool: 'cheap-module-source-map',
   externals: null,
   module: {
-    loaders: [
-      {
-        test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader?sourceMaps=true'
-      }
-    ]
+    loaders: [{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}]
   },
-  output: {filename: 'spec.js' },
-  plugins: [
-    new NoErrorsPlugin()
-  ],
+  output: {filename: 'spec.js'},
+  plugins: [new NoErrorsPlugin()],
   quiet: true,
   resolve: {
     alias: Object.assign({
@@ -26,4 +19,4 @@ module.exports = {
     }, puiAliases)
   },
   watch: true
-}
+};

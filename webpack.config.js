@@ -2,7 +2,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require("glob");
 
 module.exports = {
-  devtool: 'cheap-module-source-map',
   entry: glob.sync("./dist/css/**/*.css"),
   output: {
     path: __dirname + '/dist',

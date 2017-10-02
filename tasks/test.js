@@ -48,7 +48,7 @@ gulp.task('jasmine-task-helpers', function() {
 function reactTestAssets(options = {}) {
   const config = Object.assign(require('../config/webpack.config')('test'), options);
 
-  return gulp.src(['src/react/**/*.js', 'spec/pivotal-ui-react/**/*_spec.js'])
+  return gulp.src(['spec/pivotal-ui-react/**/*_spec.js'])
     .pipe(plumber())
     .pipe(webpack(config));
 }
@@ -56,16 +56,17 @@ function reactTestAssets(options = {}) {
 gulp.task('jasmine-react-ci', function() {
   return reactTestAssets({watch: false})
     .pipe(jasmineBrowser.specRunner({console: true}))
-    .pipe(jasmineBrowser.headless({driver: 'chrome'}));
+    .pipe(jasmineBrowser.headless({driver: 'phantomjs'}));
 });
 
 gulp.task('jasmine-react', function() {
   var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
   return reactTestAssets({plugins: [plugin]})
-    .pipe(jasmineBrowser.specRunner())
+    .pipe(jasmineBrowser.specRunner({
+      sourcemappedStacktrace: true
+    }))
     .pipe(jasmineBrowser.server({
       throwFailures: true,
-      sourcemappedStacktrace: true,
       whenReady: plugin.whenReady
     }));
 });

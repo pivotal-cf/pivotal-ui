@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MockNextTick from './support/mock_next_tick';
@@ -5,7 +6,6 @@ import MockPromises from 'mock-promises';
 import jQuery from 'jquery';
 import MockNow from 'performance-now';
 import MockRaf from 'raf';
-import 'babel-polyfill';
 import './support/bluebird';
 import './support/set_immediate';
 import 'pivotal-js-jasmine-matchers';
@@ -16,15 +16,6 @@ export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass;
 export const findByTag = ReactTestUtils.findRenderedDOMComponentWithTag;
 export const findAllByTag = ReactTestUtils.scryRenderedDOMComponentsWithTag;
 export const clickOn = ReactTestUtils.Simulate.click;
-
-jasmine.getEnv().addReporter({
-  specStarted(result) {
-    jasmine.getEnv().currentSpec = result;
-  },
-  specDone() {
-    jasmine.getEnv().currentSpec = null;
-  }
-});
 
 MockNextTick.install();
 
@@ -55,8 +46,6 @@ global.setProps = function setProps(props, node = root) {
 };
 
 beforeEach(() => {
-  const {id, fullName} = jasmine.getEnv().currentSpec;
-  console.log(`\n[${id}] ${fullName}`);
   $('body').find('#root').remove().end().append('<main id="root"/>');
   jasmine.clock().install();
   MockPromises.install(Promise);
