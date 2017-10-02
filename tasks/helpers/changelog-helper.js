@@ -1,99 +1,78 @@
 import {exec, execSync} from 'child_process';
-import axios from 'axios';
 import {version} from '../../package.json';
 import fs from 'fs';
 
-const puiProjectId = '1126018';
-const token = '99f0bca6045f9a83715a284a1a2b37cc';
-
-const ChangelogHelper = {
-  updateChangelog: async() => {
-    const newChangelogSection = await ChangelogHelper.generateChangelog(version);
-    const currentChangelog = fs.readFileSync('CHANGELOG.md');
-    const newChangeLog = `${newChangelogSection}\n${currentChangelog}`;
-    fs.writeFileSync('CHANGELOG.md', newChangeLog);
-  },
-
-  generateChangelog: async nextVersion => {
-    const stories = await ChangelogHelper.getStoriesSinceLastTag();
-    const bugStories = stories.filter(story => story.story_type === 'bug');
-    const featureStories = stories.filter(story => story.story_type === 'feature');
-    const bugFixes = ChangelogHelper.generateSummary('Bug Fixes', bugStories);
-    const features = ChangelogHelper.generateSummary('Features', featureStories);
-    const formattedDate = ChangelogHelper.getDate();
-
-    return `<a name="${nextVersion}"></a>
-## ${nextVersion} (${formattedDate})
-
-${bugFixes}
-
-${features}
-`;
-  },
-
-  getDate(){
-    const today = new Date();
-    const date = today.getDate();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    return `${year}-${month}-${date}`;
-  },
-
-  generateSummary: (header, storyList) => {
-    const summary = storyList.map(story => `* ${story.name} [#${story.id}]`).join('\n');
-    return summary ? `### ${header}\n\n${summary}` : '';
-  },
-
-  generateStoryList: stories => {
-    return stories.map((story) => {
-      return `* ${story.name} [#${story.id}]`;
-    });
-  },
-
-  getBranch: () => {
-    const stdout = execSync('git rev-parse --abbrev-ref HEAD');
-    return stdout.toString().trim();
-  },
-
-  getStoryIds: commits => {
-    const storyIdRegex = /#([0-9]+)/g;
-    const storyIds = [];
-    let match;
-
-    do {
-      match = storyIdRegex.exec(commits);
-      if (match) {
-        storyIds.push(match[1]);
-      }
-    } while (match);
-    return storyIds;
-  },
-
-  getStory: async storyId => {
-    const endpoint = `https://www.pivotaltracker.com/services/v5/projects/${puiProjectId}/stories/${storyId}`;
-    return await axios.get(endpoint, {headers: {'X-TrackerToken': token}});
-  },
-
-  getStoriesSinceLastTag: async() => {
-    const branch = ChangelogHelper.getBranch();
-    if (branch === 'HEAD') {
-      console.error('Could not determine branch');
-      return;
-    }
-
-    const commits = execSync(`git log \`git describe --tags --abbrev=0\`..${branch} --oneline`);
-
-    const storyIds = Array.from(new Set(ChangelogHelper.getStoryIds(commits)));
-
-    const stories = storyIds.map(async(storyId) => {
-      try {
-        return (await ChangelogHelper.getStory(storyId)).data;
-      } catch (e) {
-        console.error(e);
-      }
-    });
-    return (await Promise.all(stories)).filter(story => story);
-  }
+const trackerIcons = {
+  bug: ':beetle:',
+  chore: ':gear:',
+  feature: ':star:'
 };
 
-export default ChangelogHelper;
+function getStoryNumbers(messages) {
+  const storyNumbers = {};
+  messages.forEach(message => {
+    const re = /#(\d{9,})/gm;
+    let matches;
+    while (matches = re.exec(message)) {
+      storyNumbers[matches[1]] = true;
+    }
+  });
+  return Object.keys(storyNumbers);
+}
+
+function formatStory(storyNumber, stories) {
+  if (!stories[storyNumber]) return `#${storyNumber}`;
+  const icon = trackerIcons[stories[storyNumber].story_type];
+  return `[${icon}#${storyNumber}](https://www.pivotaltracker.com/story/show/${storyNumber})`;
+}
+
+const privates = new WeakMap();
+
+export default class ChangelogHelper {
+  constructor(gitHelper, trackerHelper) {
+    privates.set(this, {gitHelper, trackerHelper});
+  }
+
+  async updateChangelog(firstTag, trackerToken) {
+    const {gitHelper} = privates.get(this);
+    const tags = [version, ...await gitHelper.getTags(firstTag)];
+    const sections = (await Promise.all(tags.map(tag => this.getDiff(tag, trackerToken)))).join('\n');
+    const oldChangelog = await gitHelper.getFile('CHANGELOG.md', await gitHelper.getPreviousTag(firstTag));
+    fs.writeFileSync('CHANGELOG.md', `${sections}\n${oldChangelog}`);
+  }
+
+  async getDiff(tag) {
+    const {gitHelper, trackerHelper} = privates.get(this);
+    const previousTag = await gitHelper.getPreviousTag(tag);
+    const latestCommit = await gitHelper.getLatestCommit(tag);
+    const commits = await gitHelper.getCommits(previousTag, latestCommit);
+    const storyNumbers = getStoryNumbers(Object.values(commits));
+    const stories = await trackerHelper.getStories(storyNumbers);
+    const files = await gitHelper.getFiles(Object.keys(commits));
+    const summary = gitHelper.getSummary(files, commits);
+    const categories = Object.keys(summary);
+    categories.sort();
+    const componentsMd = categories.map(category => {
+      const components = Object.keys(summary[category]);
+      components.sort();
+      const componentsMd = components.map(component => {
+        const commits = summary[category][component];
+        const commitsMd = Object.keys(commits).map(sha => {
+          const message = commits[sha].replace(/#(\d{9,})/,
+            (full, storyNumber) => formatStory(storyNumber, stories));
+          const link = `https://github.com/pivotal-cf/pivotal-ui/commit/${sha}`;
+          return `${message} ([${sha}](${link}))`;
+        });
+        const prefix = `* **${component}**:`;
+        if (commitsMd.length === 1) return `${prefix} ${commitsMd[0]}`;
+        return `${prefix}\n${commitsMd.map(c => `  * ${c}`).join('\n')}`;
+      });
+      return `#### ${category}\n${componentsMd.join('\n')}`;
+    });
+    const headingMd = tag.split('.').pop() === '0' ? '#' : '##';
+    const semver = tag.replace(/^v/, '');
+    const commitDate = tag !== version ? await gitHelper.getCommitDate(tag) : Date.now();
+    const date = new Date(commitDate).toISOString().split('T')[0];
+    return `<a name="${semver}"></a>\n${headingMd} ${semver} (${date})\n${componentsMd.join('\n')}`;
+  }
+};

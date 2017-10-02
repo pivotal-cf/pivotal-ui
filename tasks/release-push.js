@@ -2,8 +2,14 @@ import {log} from 'gulp-util';
 import {exec} from 'child_process';
 import promisify from 'es6-promisify';
 import gulp from 'gulp';
-import {infoForUpdatedPackages, publishPackages, publishFakePackages} from './helpers/publish-helper';
+import {
+  infoForUpdatedPackages,
+  publishPackages,
+  publishFakePackages
+} from './helpers/publish-helper';
 import ChangelogHelper from './helpers/changelog-helper';
+import GitHelper from './helpers/git-helper';
+import TrackerHelper from './helpers/tracker-helper';
 import runSequence from 'run-sequence';
 import glob from 'glob';
 import fs from 'fs';
@@ -27,17 +33,17 @@ gulp.task('release-push-git-verify', async () => {
   }
 });
 
-gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async() => {
+gulp.task('release-push-npm-publish', ['css-build', 'react-build'], async () => {
   const files = glob.sync('dist/{css,react}/*/package.json', {realpath: true})
     .map((filepath) => {
       return {
         contents: fs.readFileSync(filepath),
         path: filepath
       };
-    } );
+    });
   const packageInfos = await infoForUpdatedPackages(files);
 
-  if(argv.dry) {
+  if (argv.dry) {
     await publishFakePackages()(packageInfos);
   } else {
     await publishPackages()(packageInfos);
@@ -50,4 +56,8 @@ gulp.task('release-push-packages', (done) => runSequence(
   done
 ));
 
-gulp.task('update-changelog', ChangelogHelper.updateChangelog);
+gulp.task('update-changelog', async () => {
+  const {trackerToken} = argv;
+  if (!trackerToken) throw new Error('Log into lpass and run update-changelog.sh');
+  await new ChangelogHelper(new GitHelper(), new TrackerHelper(trackerToken)).updateChangelog('v8.3.2');
+});
