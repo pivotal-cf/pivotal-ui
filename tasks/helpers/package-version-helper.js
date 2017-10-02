@@ -4,14 +4,9 @@ import path from 'path';
 import through from 'through2';
 
 import {getNewVersion} from './version-helper';
-import {getAllComponents} from './git-helper';
 
 const exec = promisify(require('child_process').exec);
 const read = promisify(require('vinyl-file').read);
-
-export async function componentsWithChanges() {
-  return await getAllComponents();
-}
 
 function packageNameOf(componentPath) {
   if (componentPath.match(/src\/pivotal-ui\/components\//)) {
