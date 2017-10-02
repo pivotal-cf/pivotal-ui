@@ -1,32 +1,104 @@
+<a name="10.0.0"></a>
+# 10.0.0 (2017-10-02)
+#### CSS
+* **all**: PUI Positioning and Display classes [[:star:#150565600](https://www.pivotaltracker.com/story/show/150565600)] ([5b2aed9e](https://github.com/pivotal-cf/pivotal-ui/commit/5b2aed9e))
+* **positioning**: PUI Positioning and Display classes [[:star:#150565600](https://www.pivotaltracker.com/story/show/150565600)] ([5b2aed9e](https://github.com/pivotal-cf/pivotal-ui/commit/5b2aed9e))
+<a name="9.0.0"></a>
+# 9.0.0 (2017-09-26)
+#### CSS
+* **button-group**: Add classes to scale button groups ([2c13c277](https://github.com/pivotal-cf/pivotal-ui/commit/2c13c277))
+* **buttons**: Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fdc](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fdc))
+* **code**: Fix code syntax highlighting, remove deprecated files [[:star:#150374399](https://www.pivotaltracker.com/story/show/150374399)] ([4ae88ee2](https://github.com/pivotal-cf/pivotal-ui/commit/4ae88ee2))
+* **copy-to-clipboard**: removed CopyToClipBoardButton and augmented CopyToClipBoard to support any use case [Finishes [:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([2f394bc7](https://github.com/pivotal-cf/pivotal-ui/commit/2f394bc7))
+* **dropdowns**: Notifications cleanup [[:star:#150372981](https://www.pivotaltracker.com/story/show/150372981)] ([c700d5d5](https://github.com/pivotal-cf/pivotal-ui/commit/c700d5d5))
+* **flex-grids**: Flex Grid .col-fixed fix [[:star:#150498066](https://www.pivotaltracker.com/story/show/150498066)] ([8f6ae15a](https://github.com/pivotal-cf/pivotal-ui/commit/8f6ae15a))
+* **flyout**: Import Flyout component [[:star:#150234354](https://www.pivotaltracker.com/story/show/150234354)] ([050c5f32](https://github.com/pivotal-cf/pivotal-ui/commit/050c5f32))
+* **links**:
+  * Fix 'a' tag hover state [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([0a4fc3c9](https://github.com/pivotal-cf/pivotal-ui/commit/0a4fc3c9))
+  *  Add new link styles [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([48d8b7c2](https://github.com/pivotal-cf/pivotal-ui/commit/48d8b7c2))
+* **lists**: Draggable List - 8pt and tweaks [[:star:#150272066](https://www.pivotaltracker.com/story/show/150272066)] ([4031fbaa](https://github.com/pivotal-cf/pivotal-ui/commit/4031fbaa))
+* **pagination**: allow pagination to be small, default, or large size [[:star:#150235312](https://www.pivotaltracker.com/story/show/150235312)] ([01a9323a](https://github.com/pivotal-cf/pivotal-ui/commit/01a9323a))
+* **progress-bars**: Progress Bar 8pt tweaks [[:star:#150269335](https://www.pivotaltracker.com/story/show/150269335)] ([cb896a10](https://github.com/pivotal-cf/pivotal-ui/commit/cb896a10))
+* **pui-variables.scss**:
+  *  Add new link styles [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([48d8b7c2](https://github.com/pivotal-cf/pivotal-ui/commit/48d8b7c2))
+  * Draggable List - 8pt and tweaks [[:star:#150272066](https://www.pivotaltracker.com/story/show/150272066)] ([4031fbaa](https://github.com/pivotal-cf/pivotal-ui/commit/4031fbaa))
+  * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
+* **tables**:
+  * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
+  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
+* **tabs**:
+  * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
+  * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052de](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052de))
+* **tooltips**: Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fdc](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fdc))
+#### JS
+* **prismjs**: Fix code syntax highlighting, remove deprecated files [[:star:#150374399](https://www.pivotaltracker.com/story/show/150374399)] ([4ae88ee2](https://github.com/pivotal-cf/pivotal-ui/commit/4ae88ee2))
+#### React
+* **back-to-top**:
+  * enhance BackToTop to work in arbitrary scrollable containers [[:beetle:#150929993](https://www.pivotaltracker.com/story/show/150929993)] ([28b3943e](https://github.com/pivotal-cf/pivotal-ui/commit/28b3943e))
+  * update back-to-top animation [[:beetle:#150929993](https://www.pivotaltracker.com/story/show/150929993)] ([2be1f338](https://github.com/pivotal-cf/pivotal-ui/commit/2be1f338))
+* **copy-to-clipboard**:
+  * Fixed the copy to clipboard failing test [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([82cfc9a9](https://github.com/pivotal-cf/pivotal-ui/commit/82cfc9a9))
+  * Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fdc](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fdc))
+  * removed CopyToClipBoardButton and augmented CopyToClipBoard to support any use case [Finishes [:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([2f394bc7](https://github.com/pivotal-cf/pivotal-ui/commit/2f394bc7))
+  * copy to clipboard: use a pui button for the ctc button, and allow the button to be small or large [[:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([53a7f790](https://github.com/pivotal-cf/pivotal-ui/commit/53a7f790))
+* **flyout**: Import Flyout component [[:star:#150234354](https://www.pivotaltracker.com/story/show/150234354)] ([050c5f32](https://github.com/pivotal-cf/pivotal-ui/commit/050c5f32))
+* **modals**: Always pass through event to `onHide` prop in BaseModal ([f1a80ba7](https://github.com/pivotal-cf/pivotal-ui/commit/f1a80ba7))
+* **notifications**: Notifications cleanup [[:star:#150372981](https://www.pivotaltracker.com/story/show/150372981)] ([c700d5d5](https://github.com/pivotal-cf/pivotal-ui/commit/c700d5d5))
+* **pagination**:
+  * allow pagination to be small, default, or large size [[:star:#150235312](https://www.pivotaltracker.com/story/show/150235312)] ([01a9323a](https://github.com/pivotal-cf/pivotal-ui/commit/01a9323a))
+  * use button group in the pagination component [[:star:#150235079](https://www.pivotaltracker.com/story/show/150235079)] ([7db68876](https://github.com/pivotal-cf/pivotal-ui/commit/7db68876))
+* **portals**: portals: change from componentWillMount to componentDidMount to avoid setState warning ([3f111389](https://github.com/pivotal-cf/pivotal-ui/commit/3f111389))
+* **select**: `onChange` callback in Select includes click event ([488fea2a](https://github.com/pivotal-cf/pivotal-ui/commit/488fea2a))
+* **table**:
+  * polyfill array.find for table sort plugin [[:beetle:#151442075](https://www.pivotaltracker.com/story/show/151442075)] ([aba4d6d1](https://github.com/pivotal-cf/pivotal-ui/commit/aba4d6d1))
+  * when rendering a table cell for which a nested attribute does not exist, render nothing instead of crashing [#151262175] ([a762bed1](https://github.com/pivotal-cf/pivotal-ui/commit/a762bed1))
+  * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
+  * SortableAdvancedTable should have been named SortableFlexTable ([43b8a68a](https://github.com/pivotal-cf/pivotal-ui/commit/43b8a68a))
+  * allow footer row to be anything ([be5bfecd](https://github.com/pivotal-cf/pivotal-ui/commit/be5bfecd))
+  * remove context variable ([5c3eeccf](https://github.com/pivotal-cf/pivotal-ui/commit/5c3eeccf))
+  * table plugin interface enhancements [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([62d4d86b](https://github.com/pivotal-cf/pivotal-ui/commit/62d4d86b))
+  * Support tfoot in new Table [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([ea03ea8b](https://github.com/pivotal-cf/pivotal-ui/commit/ea03ea8b))
+  * table refactor [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([36e6947c](https://github.com/pivotal-cf/pivotal-ui/commit/36e6947c))
+* **tooltip**: ToolTrigger will chain custom onClick behavior onto pre-exisiting trigger=click behavior [[:beetle:#150782918](https://www.pivotaltracker.com/story/show/150782918)] ([5b11ee9f](https://github.com/pivotal-cf/pivotal-ui/commit/5b11ee9f))
+* **wizard**: add Wizard component [[:star:#150234351](https://www.pivotaltracker.com/story/show/150234351)] ([5dfd143e](https://github.com/pivotal-cf/pivotal-ui/commit/5dfd143e))
 <a name="8.3.3"></a>
 ## 8.3.3 (2017-08-22)
-
-
-
-
+#### CSS
+* **lists**: List dividers - create styles ([25250e5b](https://github.com/pivotal-cf/pivotal-ui/commit/25250e5b))
+#### React
+* **lists**: List dividers - create styles ([25250e5b](https://github.com/pivotal-cf/pivotal-ui/commit/25250e5b))
 <a name="8.3.2"></a>
 ## 8.3.2 (2017-08-15)
-
-
-
-
+#### CSS
+* **dropdowns**:
+  * dropdowns: scope custom icon styling to when we are within a form-group [[:beetle:#149025419](https://www.pivotaltracker.com/story/show/149025419)] ([187bde98](https://github.com/pivotal-cf/pivotal-ui/commit/187bde98))
+  * Position icon correctly for Dropdowns rendered without form-group ([47f3bb77](https://github.com/pivotal-cf/pivotal-ui/commit/47f3bb77))
+  * Add `pui-css-forms` as a dependecy to `pui-css-dropdowns` ([0109da46](https://github.com/pivotal-cf/pivotal-ui/commit/0109da46))
+* **tables**:
+  * Add Table padding modifiers ([5aab06f3](https://github.com/pivotal-cf/pivotal-ui/commit/5aab06f3))
+  * Update default Table Horizontal Padding ([a8fb069e](https://github.com/pivotal-cf/pivotal-ui/commit/a8fb069e))
+#### React
+* **flex-grids**: Missing flex-grids dependencies added ([2f849c54](https://github.com/pivotal-cf/pivotal-ui/commit/2f849c54))
+* **iconography**: fix IE11 compatibility issues ([2abd1492](https://github.com/pivotal-cf/pivotal-ui/commit/2abd1492))
+* **inputs**: Form redesign [[:star:#148694073](https://www.pivotaltracker.com/story/show/148694073)] ([8fd85196](https://github.com/pivotal-cf/pivotal-ui/commit/8fd85196))
+* **mixins**: Use native HTML #contains for elements that do not have #contains method e.g. SVGs ([24ea2e5d](https://github.com/pivotal-cf/pivotal-ui/commit/24ea2e5d))
+* **overlay-trigger**: Implement `isSticky` in `OverlayTrigger` ([611609b3](https://github.com/pivotal-cf/pivotal-ui/commit/611609b3))
+* **table**: fix IE11 compatibility issues ([2abd1492](https://github.com/pivotal-cf/pivotal-ui/commit/2abd1492))
 <a name="8.3.1"></a>
 ## 8.3.1 (2017-06-24)
 
 
 ### Bug Fixes
 
-* **Portals:** Portals render correctly even if the source does not exist [#138224093] ([90820be](https://github.com/pivotal-cf/pivotal-ui/commit/90820be)), closes [#138224093](https://github.com/pivotal-cf/pivotal-ui/issues/138224093)
+* **Portals:** Portals render correctly even if the source does not exist ([90820be](https://github.com/pivotal-cf/pivotal-ui/commit/90820be)), closes [#138224093](https://github.com/pivotal-cf/pivotal-ui/issues/138224093)
 * **Svg:** when src prop changes, load and render new svg [#146825139] ([2b30d0d](https://github.com/pivotal-cf/pivotal-ui/commit/2b30d0d))
 
 ### Features
 
-* **Autocomplete:** Preserve original ordering on list when input is blank [#146494361] ([732911c](https://github.com/pivotal-cf/pivotal-ui/commit/732911c9f9d68a340066d9ca46386bdd78bc570b))
-* **Dropdown:**
-    * Dropdown with split text has separate `onSplitClick` and `splitClassName` props [#146890137] ([d8711ee](https://github.com/pivotal-cf/pivotal-ui/commit/d8711ee0aa19e912445302ff4741b53862130b6f))
-    * `onSelect` is triggered by clicking DropdownItem `li` ([e62e3e7](https://github.com/pivotal-cf/pivotal-ui/commit/e62e3e7))
-    * Dropdown accepts a `blockingScrim` prop [#147471363] ([eeddedf](https://github.com/pivotal-cf/pivotal-ui/commit/eeddedf351f75d622b904fc607d1dc64549f291c))
+* **dropdown:** onSelect is triggered by clicking DropdownItem &lt;li&gt; ([e62e3e7](https://github.com/pivotal-cf/pivotal-ui/commit/e62e3e7))
 * **Toolbar:**  Further tweaks to toolbar [#146811529] ([3b2022a](https://github.com/pivotal-cf/pivotal-ui/commit/3b2022a))
+
+
 
 <a name="8.3.0"></a>
 # 8.3.0 (2017-06-13)
@@ -43,6 +115,7 @@
 
 * **Dropdown:** When Dropdowns are open, clicking outside the dropdown ([0c8dadb](https://github.com/pivotal-cf/pivotal-ui/commit/0c8dadb))
 * **tables:** Add column index to table cells ([b532319](https://github.com/pivotal-cf/pivotal-ui/commit/b532319))
+
 
 
 <a name="8.2.0"></a>
