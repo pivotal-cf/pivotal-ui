@@ -187,7 +187,7 @@ describe('BaseModal', () => {
     it('is triggered when close button is clicked', () => {
       result = renderIntoDom({show: true, onHide, animation: false});
       $('.modal-close .btn').click();
-      expect(onHide).toHaveBeenCalledWith(jasmine.anything(), jasmine.anything());
+      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
     });
 
     it('is not triggered when the modal content itself is clicked', () => {

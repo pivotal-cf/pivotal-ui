@@ -10,8 +10,11 @@ export function withFooterRow(Table) {
 
     render() {
       const {footerRow, ...props} = this.props;
+      const children = [...props.children, footerRow]
+        .filter(el => el)
+        .map((el, key) => React.cloneElement(el, {key}));
       return this.renderTable(Table, {
-        tfoot: props => ({children: [...props.children, footerRow]})
+        tfoot: props => ({children})
       }, props);
     }
   };
