@@ -636,7 +636,15 @@ babel-helpers@^6.24.1, babel-helpers@^6.8.0:
     babel-runtime "^6.22.0"
     babel-template "^6.24.1"
 
-babel-loader@^6.2.10, babel-loader@^6.2.5:
+babel-loader@7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-7.0.0.tgz#2e43a66bee1fff4470533d0402c8a4532fafbaf7"
+  dependencies:
+    find-cache-dir "^0.1.1"
+    loader-utils "^1.0.2"
+    mkdirp "^0.5.1"
+
+babel-loader@^6.2.5:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-6.4.1.tgz#0b34112d5b0748a8dcdbf51acf6f9bd42d50b8ca"
   dependencies:
@@ -3412,6 +3420,18 @@ faye-websocket@~0.11.0:
   resolved "https://registry.yarnpkg.com/faye-websocket/-/faye-websocket-0.11.1.tgz#f0efe18c4f56e4f40afc7e06c719fd5ee6188f38"
   dependencies:
     websocket-driver ">=0.5.1"
+
+fbjs@^0.8.16:
+  version "0.8.16"
+  resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
+  dependencies:
+    core-js "^1.0.0"
+    isomorphic-fetch "^2.1.1"
+    loose-envify "^1.0.0"
+    object-assign "^4.1.0"
+    promise "^7.1.1"
+    setimmediate "^1.0.5"
+    ua-parser-js "^0.7.9"
 
 fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.15"
@@ -7556,7 +7576,7 @@ pivotal-js-react-test-helpers@^0.1.0:
   resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.1.0.tgz#0f951e6d00c4fcd9678ac69b29c59af888c25910"
 
 "pivotal-ui@file:pui-dist":
-  version "9.0.0"
+  version "10.0.0"
   dependencies:
     classnames "^2.1.2"
     from "^0.1.3"
@@ -7569,8 +7589,8 @@ pivotal-js-react-test-helpers@^0.1.0:
     pui-react-animation "^1.0.2"
     raf "^3.1.0"
     react-addons-shallow-compare "^15.0.1"
-    react-dom "^15.5.4"
-    react-tether "^0.5.7"
+    react-dom "^16.0.0"
+    react-tether reid47/react-tether#master
     scroll-into-view "^1.3.0"
     through "^2.3.8"
     trie-search "^1.0.1"
@@ -8011,6 +8031,14 @@ prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8:
     fbjs "^0.8.9"
     loose-envify "^1.3.1"
 
+prop-types@^15.6.0:
+  version "15.6.0"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 property-information@^3.0.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/property-information/-/property-information-3.2.0.tgz#fd1483c8fbac61808f5fe359e7693a1f48a58331"
@@ -8314,11 +8342,7 @@ react-deep-force-update@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-2.1.1.tgz#8ea4263cd6455a050b37445b3f08fd839d86e909"
 
-react-dom-server@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/react-dom-server/-/react-dom-server-0.0.5.tgz#75b6c0f5946e08e84db9dda6eca5e48fed25f723"
-
-react-dom@>=14.8.0, react-dom@^15.5.4:
+react-dom@>=14.8.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
@@ -8326,6 +8350,15 @@ react-dom@>=14.8.0, react-dom@^15.5.4:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
+
+react-dom@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.0.0.tgz#9cc3079c3dcd70d4c6e01b84aab2a7e34c303f58"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 react-hot-loader@next:
   version "3.0.0-beta.7"
@@ -8359,14 +8392,14 @@ react-svg-loader@^1.1.1:
     svgo "~0.6.3"
     yargs "~4.8.0"
 
-react-tether@^0.5.7:
-  version "0.5.7"
-  resolved "https://registry.yarnpkg.com/react-tether/-/react-tether-0.5.7.tgz#418ea61041b65b958271478489b71a3572f01422"
+react-tether@reid47/react-tether#master:
+  version "0.6.1"
+  resolved "https://codeload.github.com/reid47/react-tether/tar.gz/6221b9816d634b62f398c0a556d3217699bf26ab"
   dependencies:
     prop-types "^15.5.8"
     tether "^1.3.7"
 
-react@>=0.13.3, react@>=15.3.0, react@^15.4.2:
+react@>=0.13.3, react@>=15.3.0:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
@@ -8375,6 +8408,15 @@ react@>=0.13.3, react@>=15.3.0, react@^15.4.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
     prop-types "^15.5.10"
+
+react@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
+  dependencies:
+    fbjs "^0.8.16"
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.0"
 
 read-all-stream@^3.0.0:
   version "3.1.0"

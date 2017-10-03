@@ -16,7 +16,7 @@ import 'brace/mode/jsx';
 import 'brace/mode/html';
 import 'brace/theme/crimson_editor';
 
-export default class JsCodeArea extends React.PureComponent {
+export default class JsCodeArea extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
