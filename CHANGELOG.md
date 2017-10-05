@@ -1,32 +1,307 @@
+<a name="9.0.1"></a>
+## 9.0.1 (2017-10-05)
+#### CSS
+* **positioning**: PUI Positioning and Display classes [[:star:#150565600](https://www.pivotaltracker.com/story/show/150565600)] ([e8d81fb](https://github.com/pivotal-cf/pivotal-ui/commit/e8d81fb))
+<a name="9.0.0"></a>
+# 9.0.0 (2017-09-26)
+#### CSS
+* **alerts**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **alignment**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **all**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **autocomplete**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **avatars**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **back-to-top**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **backgrounds**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **bootstrap**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **border**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **box-shadows**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **button-group**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * Add classes to scale button groups ([2c13c27](https://github.com/pivotal-cf/pivotal-ui/commit/2c13c27))
+* **buttons**:
+  * Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fd](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fd))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **code**:
+  * Fix code syntax highlighting, remove deprecated files [[:star:#150374399](https://www.pivotaltracker.com/story/show/150374399)] ([4ae88ee](https://github.com/pivotal-cf/pivotal-ui/commit/4ae88ee))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **collapse**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **colors**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **copy-to-clipboard**:
+  * removed CopyToClipBoardButton and augmented CopyToClipBoard to support any use case [Finishes [:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([2f394bc](https://github.com/pivotal-cf/pivotal-ui/commit/2f394bc))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **dividers**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **dropdowns**:
+  * Notifications cleanup [[:star:#150372981](https://www.pivotaltracker.com/story/show/150372981)] ([c700d5d](https://github.com/pivotal-cf/pivotal-ui/commit/c700d5d))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **ellipsis**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **flex-grids**:
+  * Flex Grid .col-fixed fix [[:star:#150498066](https://www.pivotaltracker.com/story/show/150498066)] ([8f6ae15](https://github.com/pivotal-cf/pivotal-ui/commit/8f6ae15))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **flyout**: Import Flyout component [[:star:#150234354](https://www.pivotaltracker.com/story/show/150234354)] ([050c5f3](https://github.com/pivotal-cf/pivotal-ui/commit/050c5f3))
+* **forms**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **google-maps**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **grids**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **hoverable**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **iconography**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **images**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **labels**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **links**:
+  * Fix 'a' tag hover state [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([0a4fc3c](https://github.com/pivotal-cf/pivotal-ui/commit/0a4fc3c))
+  *  Add new link styles [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([48d8b7c](https://github.com/pivotal-cf/pivotal-ui/commit/48d8b7c))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **lists**:
+  * Draggable List - 8pt and tweaks [[:star:#150272066](https://www.pivotaltracker.com/story/show/150272066)] ([4031fba](https://github.com/pivotal-cf/pivotal-ui/commit/4031fba))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **media**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **mixins.scss**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **modals**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **pagination**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * allow pagination to be small, default, or large size [[:star:#150235312](https://www.pivotaltracker.com/story/show/150235312)] ([01a9323](https://github.com/pivotal-cf/pivotal-ui/commit/01a9323))
+* **panels**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **panes**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **progress-bars**:
+  * Progress Bar 8pt tweaks [[:star:#150269335](https://www.pivotaltracker.com/story/show/150269335)] ([cb896a1](https://github.com/pivotal-cf/pivotal-ui/commit/cb896a1))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **pui-variables.scss**:
+  *  Add new link styles [[:star:#150564040](https://www.pivotaltracker.com/story/show/150564040)] ([48d8b7c](https://github.com/pivotal-cf/pivotal-ui/commit/48d8b7c))
+  * Draggable List - 8pt and tweaks [[:star:#150272066](https://www.pivotaltracker.com/story/show/150272066)] ([4031fba](https://github.com/pivotal-cf/pivotal-ui/commit/4031fba))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79))
+* **ribbons**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **select**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **spinners**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **tables**:
+  * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe8586](https://github.com/pivotal-cf/pivotal-ui/commit/bbe8586))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee4657](https://github.com/pivotal-cf/pivotal-ui/commit/0ee4657))
+* **tabs**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79))
+  * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052d](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052d))
+* **tile-layout**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **tooltips**:
+  * Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fd](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fd))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **typography**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **vertical-alignment**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **whitespace**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+#### JS
+* **LICENSE**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **README.md**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **index.js**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **package.json**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **prismjs**: Fix code syntax highlighting, remove deprecated files [[:star:#150374399](https://www.pivotaltracker.com/story/show/150374399)] ([4ae88ee](https://github.com/pivotal-cf/pivotal-ui/commit/4ae88ee))
+#### React
+* **alerts**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **autocomplete**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **back-to-top**:
+  * enhance BackToTop to work in arbitrary scrollable containers [[:beetle:#150929993](https://www.pivotaltracker.com/story/show/150929993)] ([28b3943](https://github.com/pivotal-cf/pivotal-ui/commit/28b3943))
+  * update back-to-top animation [[:beetle:#150929993](https://www.pivotaltracker.com/story/show/150929993)] ([2be1f33](https://github.com/pivotal-cf/pivotal-ui/commit/2be1f33))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **buttons**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **checkbox**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **checkbox-dropdown**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **collapse**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **collapsible**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **copy-to-clipboard**:
+  * Fixed the copy to clipboard failing test [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([82cfc9a](https://github.com/pivotal-cf/pivotal-ui/commit/82cfc9a))
+  * Fixes to where passed in class names are assigned  and coloring of the button svg [[:star:#151224876](https://www.pivotaltracker.com/story/show/151224876)] ([fb1c9fd](https://github.com/pivotal-cf/pivotal-ui/commit/fb1c9fd))
+  * removed CopyToClipBoardButton and augmented CopyToClipBoard to support any use case [Finishes [:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([2f394bc](https://github.com/pivotal-cf/pivotal-ui/commit/2f394bc))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * copy to clipboard: use a pui button for the ctc button, and allow the button to be small or large [[:star:#150236546](https://www.pivotaltracker.com/story/show/150236546)] ([53a7f79](https://github.com/pivotal-cf/pivotal-ui/commit/53a7f79))
+* **dividers**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **draggable-list**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **dropdowns**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **expander**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **flex-grids**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **flyout**: Import Flyout component [[:star:#150234354](https://www.pivotaltracker.com/story/show/150234354)] ([050c5f3](https://github.com/pivotal-cf/pivotal-ui/commit/050c5f3))
+* **grids**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **helpers**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **iconography**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **images**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **inputs**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **labels**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **lists**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **media**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **mixins**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **modals**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * Always pass through event to `onHide` prop in BaseModal ([f1a80ba](https://github.com/pivotal-cf/pivotal-ui/commit/f1a80ba))
+* **notifications**:
+  * Notifications cleanup [[:star:#150372981](https://www.pivotaltracker.com/story/show/150372981)] ([c700d5d](https://github.com/pivotal-cf/pivotal-ui/commit/c700d5d))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **overlay-trigger**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **pagination**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * allow pagination to be small, default, or large size [[:star:#150235312](https://www.pivotaltracker.com/story/show/150235312)] ([01a9323](https://github.com/pivotal-cf/pivotal-ui/commit/01a9323))
+  * use button group in the pagination component [[:star:#150235079](https://www.pivotaltracker.com/story/show/150235079)] ([7db6887](https://github.com/pivotal-cf/pivotal-ui/commit/7db6887))
+* **panels**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **panes**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **portals**:
+  * portals: change from componentWillMount to componentDidMount to avoid setState warning ([3f11138](https://github.com/pivotal-cf/pivotal-ui/commit/3f11138))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **radio**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **ribbons**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **select**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * `onChange` callback in Select includes click event ([488fea2](https://github.com/pivotal-cf/pivotal-ui/commit/488fea2))
+* **stream-list**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **svg**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **table**:
+  * polyfill array.find for table sort plugin [[:beetle:#151442075](https://www.pivotaltracker.com/story/show/151442075)] ([aba4d6d](https://github.com/pivotal-cf/pivotal-ui/commit/aba4d6d))
+  * when rendering a table cell for which a nested attribute does not exist, render nothing instead of crashing [#151262175] ([a762bed](https://github.com/pivotal-cf/pivotal-ui/commit/a762bed))
+  * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe8586](https://github.com/pivotal-cf/pivotal-ui/commit/bbe8586))
+  * SortableAdvancedTable should have been named SortableFlexTable ([43b8a68](https://github.com/pivotal-cf/pivotal-ui/commit/43b8a68))
+  * allow footer row to be anything ([be5bfec](https://github.com/pivotal-cf/pivotal-ui/commit/be5bfec))
+  * remove context variable ([5c3eecc](https://github.com/pivotal-cf/pivotal-ui/commit/5c3eecc))
+  * table plugin interface enhancements [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([62d4d86](https://github.com/pivotal-cf/pivotal-ui/commit/62d4d86))
+  * Support tfoot in new Table [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([ea03ea8](https://github.com/pivotal-cf/pivotal-ui/commit/ea03ea8))
+  * table refactor [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([36e6947](https://github.com/pivotal-cf/pivotal-ui/commit/36e6947))
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **tabs**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **tile-layout**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **toggle**: make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+* **tooltip**:
+  * make PUI one npm package [[:gear:#150896393](https://www.pivotaltracker.com/story/show/150896393)] ([f107f79](https://github.com/pivotal-cf/pivotal-ui/commit/f107f79))
+  * ToolTrigger will chain custom onClick behavior onto pre-exisiting trigger=click behavior [[:beetle:#150782918](https://www.pivotaltracker.com/story/show/150782918)] ([5b11ee9](https://github.com/pivotal-cf/pivotal-ui/commit/5b11ee9))
+* **wizard**: add Wizard component [[:star:#150234351](https://www.pivotaltracker.com/story/show/150234351)] ([5dfd143](https://github.com/pivotal-cf/pivotal-ui/commit/5dfd143))
 <a name="8.3.3"></a>
 ## 8.3.3 (2017-08-22)
-
-
-
-
+#### CSS
+* **lists**: List dividers - create styles ([25250e5](https://github.com/pivotal-cf/pivotal-ui/commit/25250e5))
+#### React
+* **lists**: List dividers - create styles ([25250e5](https://github.com/pivotal-cf/pivotal-ui/commit/25250e5))
 <a name="8.3.2"></a>
 ## 8.3.2 (2017-08-15)
-
-
-
-
+#### CSS
+* **alerts**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **alignment**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **all**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **autocomplete**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **avatars**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **back-to-top**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **backgrounds**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **bootstrap**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **border**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **box-shadows**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **button-group**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **buttons**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **code**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **collapse**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **colors**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **copy-to-clipboard**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **dividers**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **dropdowns**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * dropdowns: scope custom icon styling to when we are within a form-group [[:beetle:#149025419](https://www.pivotaltracker.com/story/show/149025419)] ([187bde9](https://github.com/pivotal-cf/pivotal-ui/commit/187bde9))
+  * Position icon correctly for Dropdowns rendered without form-group ([47f3bb7](https://github.com/pivotal-cf/pivotal-ui/commit/47f3bb7))
+  * Add `pui-css-forms` as a dependecy to `pui-css-dropdowns` ([0109da4](https://github.com/pivotal-cf/pivotal-ui/commit/0109da4))
+* **ellipsis**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **flex-grids**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **forms**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **google-maps**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **grids**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **hoverable**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **iconography**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **images**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **labels**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **links**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **lists**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **media**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **mixins.scss**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **modals**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **pagination**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **panels**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **panes**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **progress-bars**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **pui-variables.scss**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **ribbons**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **select**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **spinners**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tables**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * Add Table padding modifiers ([5aab06f](https://github.com/pivotal-cf/pivotal-ui/commit/5aab06f))
+  * Update default Table Horizontal Padding ([a8fb069](https://github.com/pivotal-cf/pivotal-ui/commit/a8fb069))
+* **tabs**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tile-layout**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tooltips**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **typography**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **vertical-alignment**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **whitespace**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+#### JS
+* **LICENSE**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **README.md**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **index.js**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **package.json**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+#### React
+* **alerts**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **autocomplete**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **back-to-top**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **buttons**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **checkbox**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **checkbox-dropdown**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **collapse**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **collapsible**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **copy-to-clipboard**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **dividers**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **draggable-list**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **dropdowns**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **expander**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **flex-grids**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * Missing flex-grids dependencies added ([2f849c5](https://github.com/pivotal-cf/pivotal-ui/commit/2f849c5))
+* **grids**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **helpers**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **iconography**:
+  * fix IE11 compatibility issues ([2abd149](https://github.com/pivotal-cf/pivotal-ui/commit/2abd149))
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **images**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **inputs**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * Form redesign [[:star:#148694073](https://www.pivotaltracker.com/story/show/148694073)] ([8fd8519](https://github.com/pivotal-cf/pivotal-ui/commit/8fd8519))
+* **labels**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **lists**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **media**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **mixins**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * Use native HTML #contains for elements that do not have #contains method e.g. SVGs ([24ea2e5](https://github.com/pivotal-cf/pivotal-ui/commit/24ea2e5))
+* **modals**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **notifications**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **overlay-trigger**:
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+  * Implement `isSticky` in `OverlayTrigger` ([611609b](https://github.com/pivotal-cf/pivotal-ui/commit/611609b))
+* **pagination**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **panels**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **panes**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **portals**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **radio**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **ribbons**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **select**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **stream-list**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **svg**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **table**:
+  * fix IE11 compatibility issues ([2abd149](https://github.com/pivotal-cf/pivotal-ui/commit/2abd149))
+  * Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tabs**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tile-layout**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **toggle**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
+* **tooltip**: Moved all contents of library/ to the root of the project ([e5a6b3b](https://github.com/pivotal-cf/pivotal-ui/commit/e5a6b3b))
 <a name="8.3.1"></a>
 ## 8.3.1 (2017-06-24)
 
 
 ### Bug Fixes
 
-* **Portals:** Portals render correctly even if the source does not exist [#138224093] ([90820be](https://github.com/pivotal-cf/pivotal-ui/commit/90820be)), closes [#138224093](https://github.com/pivotal-cf/pivotal-ui/issues/138224093)
+* **Portals:** Portals render correctly even if the source does not exist ([90820be](https://github.com/pivotal-cf/pivotal-ui/commit/90820be)), closes [#138224093](https://github.com/pivotal-cf/pivotal-ui/issues/138224093)
 * **Svg:** when src prop changes, load and render new svg [#146825139] ([2b30d0d](https://github.com/pivotal-cf/pivotal-ui/commit/2b30d0d))
 
 ### Features
 
-* **Autocomplete:** Preserve original ordering on list when input is blank [#146494361] ([732911c](https://github.com/pivotal-cf/pivotal-ui/commit/732911c9f9d68a340066d9ca46386bdd78bc570b))
-* **Dropdown:**
-    * Dropdown with split text has separate `onSplitClick` and `splitClassName` props [#146890137] ([d8711ee](https://github.com/pivotal-cf/pivotal-ui/commit/d8711ee0aa19e912445302ff4741b53862130b6f))
-    * `onSelect` is triggered by clicking DropdownItem `li` ([e62e3e7](https://github.com/pivotal-cf/pivotal-ui/commit/e62e3e7))
-    * Dropdown accepts a `blockingScrim` prop [#147471363] ([eeddedf](https://github.com/pivotal-cf/pivotal-ui/commit/eeddedf351f75d622b904fc607d1dc64549f291c))
+* **dropdown:** onSelect is triggered by clicking DropdownItem &lt;li&gt; ([e62e3e7](https://github.com/pivotal-cf/pivotal-ui/commit/e62e3e7))
 * **Toolbar:**  Further tweaks to toolbar [#146811529] ([3b2022a](https://github.com/pivotal-cf/pivotal-ui/commit/3b2022a))
+
+
 
 <a name="8.3.0"></a>
 # 8.3.0 (2017-06-13)
@@ -43,6 +318,7 @@
 
 * **Dropdown:** When Dropdowns are open, clicking outside the dropdown ([0c8dadb](https://github.com/pivotal-cf/pivotal-ui/commit/0c8dadb))
 * **tables:** Add column index to table cells ([b532319](https://github.com/pivotal-cf/pivotal-ui/commit/b532319))
+
 
 
 <a name="8.2.0"></a>
