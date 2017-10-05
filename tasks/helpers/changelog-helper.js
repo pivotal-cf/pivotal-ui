@@ -33,19 +33,19 @@ export default class ChangelogHelper {
     privates.set(this, {gitHelper, trackerHelper});
   }
 
-  async updateChangelog(firstTag, trackerToken) {
+  async updateChangelog(firstTag) {
     const {gitHelper} = privates.get(this);
     const tags = [version, ...await gitHelper.getTags(firstTag)];
-    const sections = (await Promise.all(tags.map(tag => this.getDiff(tag, trackerToken)))).join('\n');
-    const oldChangelog = await gitHelper.getFile('CHANGELOG.md', await gitHelper.getPreviousTag(firstTag));
+    const sections = (await Promise.all(tags.map(tag => this.getDiff(tag)))).join('\n');
+    const oldChangelog = await gitHelper.getFile('CHANGELOG.md', await gitHelper.getPreviousTagSha(firstTag));
     fs.writeFileSync('CHANGELOG.md', `${sections}\n${oldChangelog}`);
   }
 
   async getDiff(tag) {
     const {gitHelper, trackerHelper} = privates.get(this);
-    const previousTag = await gitHelper.getPreviousTag(tag);
+    const previousTagSha = await gitHelper.getPreviousTagSha(tag);
     const latestCommit = await gitHelper.getLatestCommit(tag);
-    const commits = await gitHelper.getCommits(previousTag, latestCommit);
+    const commits = await gitHelper.getCommits(previousTagSha, latestCommit);
     const storyNumbers = getStoryNumbers(Object.values(commits));
     const stories = await trackerHelper.getStories(storyNumbers);
     const files = await gitHelper.getFiles(Object.keys(commits));
