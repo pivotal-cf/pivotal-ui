@@ -15,7 +15,7 @@ export default {
     rules: [
       {
         test: /\.jsx?$/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
       {
@@ -24,22 +24,22 @@ export default {
       },
       {
         test: /\.(eot|ttf|woff)$/,
-        loader: 'url-loader',
+        use: 'url-loader',
       },
       {
         test: /\.md$/,
-        loader: 'json-loader!./src/helpers/markdown_loader.js',
+        use: ['json-loader', './src/helpers/markdown_loader.js']
       },
       {
         test: /\.s?css$/,
-        loader: ExtractTextPlugin.extract({
-          fallbackLoader: 'style-loader',
-          loader: 'css-loader!sass-loader',
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
         })
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
-        loader: 'file-loader!image-webpack-loader'
+        use: ['file-loader', 'image-webpack-loader']
       }
     ],
   },
