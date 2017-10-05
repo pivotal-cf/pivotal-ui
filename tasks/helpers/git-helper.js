@@ -95,7 +95,7 @@ export default class GitHelper {
 
   async getLatestCommit(version) {
     const [major] = tagToSemver(version);
-    const branches = (await this.git('branch')).split('\n');
+    const branches = (await this.git('branch')).split('\n').map(branch => branch.substring(2));
     const branch = `v${major}`;
     try {
       return await this.git(`rev-parse ${version}`);
@@ -104,9 +104,10 @@ export default class GitHelper {
     return this.git(`log ${branches.indexOf(branch) !== -1 ? branch : 'master'} -1 --oneline --format=format:%H`);
   }
 
-  async getPreviousTag(version) {
+  async getPreviousTagSha(version) {
     const [major, minor, patch] = tagToSemver(version);
-    const tags = (await this.git('tag')).split('\n').map(tagToSemver);
+    let tags = (await this.git('tag')).split('\n').map(tagToSemver);
+    tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     if (minor === 0 && patch === 0) return this.getForkPoint('master', `v${major - 1}`);
     let previousTag;
