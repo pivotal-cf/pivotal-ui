@@ -2,12 +2,7 @@ import del from 'del';
 import gulp from 'gulp';
 import mergeStream from 'merge-stream';
 import runSequence from 'run-sequence';
-import {publishPackages, publishFakePackages} from './helpers/publish-helper';
-import path from 'path';
-
 const plugins = require('gulp-load-plugins')();
-const argv = require('yargs').argv;
-
 const buildFolder = 'dist/css';
 
 gulp.task('css-build-src', function() {

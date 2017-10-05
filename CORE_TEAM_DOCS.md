@@ -8,7 +8,6 @@
 ## New member checklist
 
 - Add to GitHub, ADT CLA google group, tracker, Google drive folder, and calendar invites (IPM, retro, standup)
-- Add new member's NPM login to the publish helper in `tasks/helpers/publish-helper.js`
 - Add to ~/.gitauthors file on all team computers
 
 ## Setting up your environment

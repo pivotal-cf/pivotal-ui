@@ -1,11 +1,8 @@
 import del from 'del';
 import gulp from 'gulp';
-import path from 'path';
 import runSequence from 'run-sequence';
-import {publishPackages} from './helpers/publish-helper';
 
 const plugins = require('gulp-load-plugins')();
-const argv = require('yargs').argv;
 
 const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const buildFolder = 'dist/js';
