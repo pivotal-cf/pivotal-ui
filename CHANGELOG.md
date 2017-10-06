@@ -1,3 +1,7 @@
+<a name="9.1.1"></a>
+## 9.1.1 (2017-10-06)
+#### React
+* **iconography**: Fix svg directory [[:beetle:#151624937](https://www.pivotaltracker.com/story/show/151624937)] ([c1d14ae](https://github.com/pivotal-cf/pivotal-ui/commit/c1d14ae))
 <a name="9.1.0"></a>
 # 9.1.0 (2017-10-05)
 #### CSS
