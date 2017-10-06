@@ -2,7 +2,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const glob = require("glob");
 
 module.exports = {
-  entry: glob.sync("./dist/css/**/*.css"),
+  entry: glob.sync("./dist/css/all/index.js"),
   output: {
     path: __dirname + '/dist',
     filename: 'pivotal-ui.js'
