@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import * as Alignment from 'pivotal-ui/css/alignment';
-import * as Bootstrap from 'pivotal-ui/css/bootstrap';
+import * as Colors from 'pivotal-ui/css/colors';
 import * as Border from 'pivotal-ui/css/border';
 import * as BoxShadows from 'pivotal-ui/css/box-shadows';
 import * as ButtonGroup from 'pivotal-ui/css/button-group';
@@ -123,7 +123,7 @@ const routes = {
   buttons: {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
   code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
   collapse: {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
-  colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Bootstrap]},
+  colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Colors]},
   copy_to_clipboard: {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
   dividers: {json: DividersJson, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},
   dropdowns: {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
