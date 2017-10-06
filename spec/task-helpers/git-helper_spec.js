@@ -1,7 +1,7 @@
 import GitHelper from '../../tasks/helpers/git-helper';
 import MockPromises from 'mock-promises';
 
-fdescribe('GitHelper', () => {
+describe('GitHelper', () => {
   let gitHelper;
 
   beforeEach(() => {
