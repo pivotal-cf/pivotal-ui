@@ -3,8 +3,6 @@
 #### CSS
 * **all**: PUI Positioning and Display classes [[:star:#150565600](https://www.pivotaltracker.com/story/show/150565600)] ([e8d81fb](https://github.com/pivotal-cf/pivotal-ui/commit/e8d81fb))
 * **positioning**: PUI Positioning and Display classes [[:star:#150565600](https://www.pivotaltracker.com/story/show/150565600)] ([e8d81fb](https://github.com/pivotal-cf/pivotal-ui/commit/e8d81fb))
-#### React
-* **iconography**: Fix svg directory [[:beetle:#151624937](https://www.pivotaltracker.com/story/show/151624937)] ([c1d14ae](https://github.com/pivotal-cf/pivotal-ui/commit/c1d14ae))
 <a name="9.0.0"></a>
 # 9.0.0 (2017-09-26)
 #### CSS
