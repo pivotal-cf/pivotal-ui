@@ -9,9 +9,9 @@ The copy to clipboard functionality can be applied to a variety of elements.
 ```jsx
 ::title=Copy options
 <div>
-  <CopyToClipboard text="I got copied by a button" tooltip="Good news it's copied">Click Me To Copy</CopyToClipboard>
+  <CopyToClipboard text="I got copied by a link" tooltip="Good news, it's copied!">Click Me To Copy</CopyToClipboard>
   <br />
-  <CopyToClipboard text="I got copied by a button">
+  <CopyToClipboard text="I got copied by an icon button">
     <DefaultButton {...{
      flat: true,
      iconOnly: true,
