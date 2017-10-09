@@ -4,6 +4,7 @@
 * **select**: Fix styling for button within select toggle [[:beetle:#151815619](https://www.pivotaltracker.com/story/show/151815619)] ([b533d01](https://github.com/pivotal-cf/pivotal-ui/commit/b533d01))
 * **tables**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([5acc3d9](https://github.com/pivotal-cf/pivotal-ui/commit/5acc3d9))
 #### React
+* **select**: stop using .includes in select to fix IE11 crash [[:beetle:#151622400](https://www.pivotaltracker.com/story/show/151622400)] ([b7ec865](https://github.com/pivotal-cf/pivotal-ui/commit/b7ec865))
 * **table**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([5acc3d9](https://github.com/pivotal-cf/pivotal-ui/commit/5acc3d9))
 <a name="9.1.1"></a>
 ## 9.1.1 (2017-10-09)
