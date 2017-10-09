@@ -5,6 +5,10 @@ import {TablePlugin} from '../table-plugin';
 
 export function withFlex(Table) {
   return class TableWithFlex extends TablePlugin {
+    componentDidMount() {
+      require('../../../css/flex-grids');
+    }
+
     render() {
       return this.renderTable(Table, {
         tableTag: () => 'div',
