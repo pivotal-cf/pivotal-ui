@@ -18,7 +18,7 @@ Using the React components is the recommended approach over CSS/HTML.
 - Cross-browser and responsive issues are handled.
 
 **However, you'll need to know a few more technologies.
-If you don't know what React, Babel or a transpiler is, follow the links below and then return.**
+If you don't know what React, Babel or a transpiler is, review the links below.**
 
 - [React Overview](http://facebook.github.io/react/)
 - [Babel](https://babeljs.io/)
@@ -69,13 +69,10 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
    This set of tools includes an asset pipeline for including css and svg assets in your JavaScript.
    Usage is somewhat complicated, [React Starter](http://github.com/pivotal-cf/react-starter) is a sample project with everything set up.
 
-1. Install a PUI module for the components you need. No need to install
-   additional CSS packages for React components.
-
-    For example, to create a button:
+1. Install Pivotal UI:
 
     ```
-    npm install --save pui-react-buttons
+    npm install --save pivotal-ui
     ```
 
 1. Write some React!
@@ -83,8 +80,8 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
     Javascript:
     
     ```
-    const React = require('react');
-    const {DefaultButton} = require('pui-react-buttons');
+    import React from 'react';
+    import {DefaultButton} from 'pivotal-ui/react/buttons';
 
     class MyTestPage extends React.Component {
       constructor(props, context) {
@@ -125,8 +122,8 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
 1. Require any css-only components in your javascript
 
     ```
-    require('pui-css-alignment');
-    require('pui-css-whitespace');
+    import 'pivotal-ui/css/alignment';
+    import 'pivotal-ui/css/whitespace';
     ```
 
     These will be included in the built css artifact, in addition to any css internally required by your PUI React Components.
@@ -136,151 +133,3 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
 In development mode, this will inject PUI css directly into your page.
 In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
 If you are using react-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
-
-## Using Pivotal UI on your project (without React)
-
-React is the recommended approach (see reasons above), but some elements are available in HTML/CSS.
-If you just want all of the Pivotal UI css right now, you can download
-<a href=components.css download=components.css>components.css</a>.
-Note that all assets (including fonts) are inlined into the css, creating a large file. This isn't 100% ideal, but is fine for most webistes.
-
-The prefered way to consume Pivotal UI is through NPM, even for Rails
-projects. Using NPM to install PUI will ensure proper dependency management on
-your project.
-
-1. Run `npm init` if you don't have a package.json file already.
-
-1. Install [Dr. Frankenstyle](http://github.com/pivotal-cf/dr-frankenstyle).
-   This tool looks at your dependencies (those added with --save, **NOT**
-   --save-dev), and compiles the CSS required by these packages.
-
-    ```
-   npm install --save-dev dr-frankenstyle
-    ```
-
-1. Install the Pivotal UI CSS modules
-
-    ```
-   npm install --save pui-css-all
-    ```
-
-    If you only want to include a few PUI components in your project, see the
-    instructions below on [customizing your PUI build](#04_customize).
-
-1. Install jQuery and bootstrap.js
-
-    ```
-   npm install --save-dev jquery
-   npm install --save-dev bootstrap
-    ```
-
-    These installs must happen **after** you've installed the PUI module. This
-    ensures you'll get the correct version of bootstrap js.
-
-    **It's important that you install these modules with `--save-dev`,
-    because we don't want Dr. Frankenstyle to pick up any CSS from these
-    packages.**
-
-1. Run Dr. Frankenstyle to compile your CSS to a folder (we use `./build/` but you can choose whatever makes sense for your project)
-
-    ```
-   dr-frankenstyle <path-to-your-asset-build-folder>
-   # writes the compiled css to <path-to-your-asset-build-folder>/components.css
-    ```
-
-1. Add the css and javascript files to your html template. The css file is also available through our CDN, `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-8.3.1.css`
-
-    ```
-   <!doctype html>
-   <html>
-     <head>
-       <title>...</title>
-       <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
-       <script src="<path-to-your-project's-root-folder>/node-modules/jquery/dist/jquery.js"></script>
-       <script src="<path-to-your-project's-root-folder>/node-modules/bootstrap/dist/js/bootstrap.js"></script>
-     </head>
-     <body>
-       <!-- ... -->
-     </body>
-   </html>
-    ```
-
-1. Write some CSS/HTML and enjoy!
-
-    ```
-   <!-- ... -->
-   <body>
-     <div class="container">
-       <h1 class="type-brand-1 em-high">Hello world!</h1>
-     </div>
-   </body>
-   <!-- ... -->
-    ```
-
-1. Upgrade PUI frequently
-
-    ```
-    npm update pui-css-all
-    dr-frankenstyle <path-to-your-asset-build-folder>
-    ```
-
-   **You must rerun Dr. Frankenstyle after you update PUI (or add any
-   additional CSS module).**
-   
-## Customizing your PUI build (without React)
-
-If you don't want all of Pivotal UI, you can install only the modules you will
-need. This will make your resultant CSS smaller! Let's say you're building an
-app that has only typography and buttons.
-
-1. Remove the `pui-css-all` module from your project.
-
-    ```
-   npm uninstall --save pui-css-all
-    ```
-
-1. Add the necessary PUI CSS modules. For this example
-
-    ```
-   npm install --save pui-css-typography
-   npm install --save pui-css-buttons
-    ```
-
-    Use the styleguide to determine which modules you need to install. Each
-    component contains module information at the beginning of its docs:
-
-    ![Example of styleguide installation instructions](https://cloud.githubusercontent.com/assets/824157/8711815/22853a7a-2b0a-11e5-862a-a76488de81e8.png)
-
-1. Rerun Dr. Frankenstyle
-
-    ```
-    dr-frankenstyle <path-to-your-asset-build-folder>
-    ```
-
-1. Every time you install a new PUI CSS package, you will need to rerun
-   Dr. Frankenstyle.
-
-    If you're using gulp or grunt or some other task runner,
-    look at the [Dr. Frankenstyle docs](http://github.com/pivotal-cf/dr-frankenstyle)
-    for how to make this step part of your task workflow.
-    
-## Including SCSS variables and mixins (optional)
-
-If you are building CSS using Sass, you can get pivotal-ui variables and mixins
-from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins)
-node module.
-
-```
-npm install --save pui-css-variables-and-mixins
-```
-
-Import the file and use the variables:
-
-```
-@import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/pui-variables.scss';
-@import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/mixins.scss';
-
-.bg-special {
-  background-color: $brand-1;
-}
-```
