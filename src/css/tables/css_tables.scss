@@ -28,12 +28,12 @@
     border-bottom: solid 1px $table-border-color;
   }
   //Table Cell
-  .th {
+  .th.col {
     font-weight: $table-header-font-weight;
     border-bottom: solid 1px $table-border-color;
   }
   //General Cell
-  .td, .th {
+  .td.col, .th.col {
     border-right: solid 1px $table-border-color;
     padding: $base-unit ($base-unit*2);
     //Vert-middle
