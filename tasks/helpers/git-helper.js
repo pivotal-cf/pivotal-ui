@@ -1,7 +1,7 @@
 import {exec} from 'child_process';
 
 const ignoredCommits = [
-  'f107f799', '50b53e5f', '8da492c6', 'b57a9cd9', 'e5a6b3b6', 'f107f79'
+  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);
@@ -28,7 +28,7 @@ export default class GitHelper {
     (await this.git(`log ${sha1}..${sha2} --oneline`))
       .split('\n')
       .map(l => [l.substr(0, l.indexOf(' ')), l.substr(l.indexOf(' ') + 1)])
-      .filter(([sha]) => ignoredCommits.indexOf(sha) === -1)
+      .filter(([sha]) => !ignoredCommits.find(ignoredSha => sha.indexOf(ignoredSha) === 0))
       .filter(([sha, message]) => !message.match(/v\d+\.\d+\.\d+/))
       .forEach(([sha, message]) => commits[sha] = message);
     return commits;
