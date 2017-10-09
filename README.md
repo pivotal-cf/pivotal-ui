@@ -26,26 +26,26 @@ We assume your project has the following:
 
 1. `cd /path/to/your/web/assets`
 1. `npm init`
-1. `npm install --save pui-react-buttons`
+1. `npm install --save pivotal-ui`
 
 ### Usage
 
 Javascript:
 
 ```
-var React = require('react');
-var DefaultButton = require('pui-react-buttons').DefaultButton;
+import React from 'react';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
 
-var MyTestPage = React.createClass({
- getInitialState: function() {
+class MyTestPage extends React.Component {
+ getInitialState() {
    return {showMessage: false};
- },
+ }
 
- showMessage: function() {
+ showMessage() {
    this.setState({showMessage: true});
- },
+ }
 
- render: function() {
+ render() {
    return (
      <div className="container">
        <DefaultButton onClick={this.showMessage}>Show Message</DefaultButton>
@@ -53,7 +53,7 @@ var MyTestPage = React.createClass({
      </div>
    );
  }
-});
+}
 
 ReactDOM.render(<MyTestPage />, document.getElementById('root'));
 ```
@@ -69,51 +69,10 @@ HTML:
 </html>
 ```
 
-# Using Pivotal UI - CSS Components
-
-React is the recommended approach, but some elements are available in HTML/CSS:
-
-1. `curl http://styleguide.pivotal.io/components.css> <path-to-your-asset-build-folder>/components.css`
-1. Add the css and javascript files to your html template
-
-    ```html
-    <!doctype html>
-    <html>
-    <head>
-        <link rel="stylesheet" href="<path-to-your-asset-build-folder>/components.css">
-        <script src="<path-to-your-project's-root-folder>/node-modules/jquery/dist/jquery.js"></script>
-        <script src="<path-to-your-project's-root-folder>/node-modules/bootstrap/dist/js/bootstrap.js"></script>
-    </head>
-    <body>
-        <div class="container">
-            <h1 class="type-brand-1 em-high">Hello world!</h1>
-        </div>
-    </body>
-    </html>
-    ```
-
-# Using Pivotal UI - SCSS variables and mixins
-
-If you are building CSS using Sass, you can get pivotal-ui variables and mixins
-from the [pui-css-variables-and-mixins](https://www.npmjs.com/package/pui-css-variables-and-mixins)
-node module:
-
-1. `npm install --save pui-css-variables-and-mixins`
-1. Use in your `.scss` files
-
-    ```scss
-    @import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/pui-variables.scss';
-    @import '<path-to-your-projects-node-modules>/pui-css-variables-and-mixins/mixins.scss';
-
-    .bg-special {
-      background-color: $brand-1;
-    }
-    ```
-
 # Contributing
 
 Please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md)
 
 # Copyright Notice
 
-Copyright 2016 Pivotal Software, Inc. All Rights Reserved.
+Copyright 2017 Pivotal Software, Inc. All Rights Reserved.
