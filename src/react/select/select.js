@@ -8,7 +8,7 @@ import Scrim from '../mixins/mixins/scrim_mixin';
 import Transition from '../mixins/mixins/transition_mixin';
 import classnames from 'classnames';
 
-const isBlank = value => [null, undefined].includes(value);
+const isBlank = value => value === null || value === undefined;
 
 export class Select extends mixin(React.Component).with(Scrim, Transition) {
   constructor(props, context) {
