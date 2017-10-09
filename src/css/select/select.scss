@@ -4,7 +4,7 @@
   @extend %dropdown;
   display: inline-block;
 
-  .select-toggle {
+  .btn.select-toggle {
     @extend %dropdown-toggle;
 
     .btn-inner-content {
@@ -42,7 +42,7 @@
       }
     }
 
-    .select-toggle {
+    .btn.select-toggle {
       @extend %dropdown-toggle-open;
     }
   }
