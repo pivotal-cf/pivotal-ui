@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: $font-family-base;
   font-size: $font-size-base;
+  overflow-y: hidden;
 }
 
 #app {
