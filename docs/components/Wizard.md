@@ -18,6 +18,17 @@ const pages = [{
 
 ```
 
+```jsx
+::title=With saving and savingText
+const pages = [{
+  render() { return <span>This is the first page of the wizard. The user can click Next.</span>}
+}, {
+  render() { return <span>This is the last page of the wizard. The Back button is disabled and the Finish button shows a spinner icon.</span>}
+}];
+<Wizard pages={pages} saving={true} savingText="Finishing" style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
+
+```
+
 ## Installation & Usage
 
 #### React
@@ -34,6 +45,8 @@ cancel     | no       | Function |         | Callback to call when the user canc
 cancelText | no       | String   | Cancel  | Text for the Cancel button.
 finish     | no       | Function |         | Callback to call when the user finishes the Wizard.
 finishText | no       | String   | Finish  | Text for the Finish button.
+saving     | no       | Boolean  | false   | When true, renders the Finish button with a spinner icon and disables the Back button.
+savingText | no       | String   | Saving  | Text for the Finish button when `saving` is true.
 
 ### Pages Props
 
