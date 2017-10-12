@@ -332,5 +332,47 @@ describe('Wizard', () => {
         expect(finish).toHaveBeenCalledWith();
       });
     });
+
+    describe('when "saving" is true and savingText is provided', () => {
+      beforeEach(() => {
+        subject::setProps({saving: true, savingText: 'Creating'});
+      });
+
+      it('renders a spinner', () => {
+        expect('.wizard-finish-btn .icon-spinner-sm').toExist();
+      });
+
+      it('changes the button text to savingText', () => {
+        expect('.wizard-finish-btn').toContainText('Creating');
+      });
+
+      it('disables the back button', () => {
+        expect('.wizard-back-btn').toHaveAttr('disabled');
+      });
+    });
+
+    describe('when "saving" is true and savingText is not provided', () => {
+      beforeEach(() => {
+        subject::setProps({saving: true});
+      });
+
+      it('changes the button text to the default saving text', () => {
+        expect('.wizard-finish-btn').toContainText('Saving');
+      });
+    });
+
+    describe('when "saving" is false', () => {
+      it('does not render a spinner', () => {
+        expect('.wizard-finish-btn .icon-spinner-sm').not.toExist();
+      });
+
+      it('does not change the button text', () => {
+        expect('.wizard-finish-btn').toContainText('Finish');
+      });
+
+      it('does not disable the back button', () => {
+        expect('.wizard-back-btn').not.toHaveAttr('disabled');
+      });
+    });
   });
 });

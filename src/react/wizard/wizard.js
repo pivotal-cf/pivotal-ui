@@ -2,6 +2,7 @@
 import React from 'react';
 import types from 'prop-types';
 import {PrimaryButton} from '../buttons';
+import {Icon} from '../iconography';
 import classnames from 'classnames';
 
 function doNothing() {
@@ -13,14 +14,18 @@ export class Wizard extends React.Component {
     cancel: types.func,
     cancelText: types.string,
     finish: types.func,
-    finishText: types.string
+    finishText: types.string,
+    saving: types.bool,
+    savingText: types.string
   };
 
   static defaultProps = {
     pages: [],
     cancelText: 'Cancel',
     finish: doNothing,
-    finishText: 'Finish'
+    finishText: 'Finish',
+    saving: false,
+    savingText: 'Saving'
   };
 
   constructor(props) {
@@ -74,7 +79,7 @@ export class Wizard extends React.Component {
   }
 
   render() {
-    const {cancel, cancelText, className, pages, finishText, style} = this.props;
+    const {cancel, cancelText, className, pages, finishText, style, saving, savingText} = this.props;
     const {currentPage} = this.state;
 
     const page = pages[currentPage];
@@ -94,13 +99,17 @@ export class Wizard extends React.Component {
     );
 
     const backButton = (
-      <PrimaryButton alt className="wizard-back-btn"
+      <PrimaryButton alt className="wizard-back-btn" disabled={saving}
                      onClick={this.onClickBack}>Back</PrimaryButton>
     );
 
+    const icon = saving && <Icon src="spinner-sm"/>;
     const finishButton = (
-      <PrimaryButton className="wizard-finish-btn"
-                     onClick={this.onClickFinish}>{finishText}</PrimaryButton>
+      <PrimaryButton {...{
+        className: "wizard-finish-btn",
+        icon,
+        onClick: this.onClickFinish
+      }}>{saving ? savingText : finishText}</PrimaryButton>
     );
 
     const nextButton = (
