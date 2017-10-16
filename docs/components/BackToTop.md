@@ -13,7 +13,7 @@ You can place the link anywhere in your markup, but best practices are either to
 ## Examples
 
 ```jsx
-::title=Always visible example
+::title=Always visible example (see bottom right corner of your screen)
 <div>
 <BackToTop alwaysVisible scrollableId="content" />
 </div>

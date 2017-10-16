@@ -7,6 +7,7 @@
 ::description=Dividers draw horizontal lines between different content groupings
 <div>
   <Divider />
+  Content
   <Divider size="large" />
 </div>
 ```
@@ -45,4 +46,4 @@
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
 inverse | no | Boolean        | | Specifying this prop inverses the divider
-size    | no | oneOf('large') | | Changes the size of the component
+size    | no | String | | Changes the size of the component. Either 'large' or leave undefined for default size.

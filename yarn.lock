@@ -7176,7 +7176,7 @@ pretty@^1.0.0:
   dependencies:
     js-beautify "~1.5.4"
 
-prismjs@0.0.1, prismjs@^0.0.1:
+prismjs@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-0.0.1.tgz#0fd50f4baf26e5cd33523b65bac2f0bc90f5503f"
 
@@ -7296,12 +7296,6 @@ pui-cursor@^3.0.4:
     lodash.flow "^3.2.1"
     lodash.isobject "^3.0.2"
     warning "^2.1.0"
-
-pui-prismjs@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/pui-prismjs/-/pui-prismjs-0.0.1.tgz#e7375e644c064ed7e4a22b69d4744eac74aabe82"
-  dependencies:
-    prismjs "^0.0.1"
 
 pui-react-animation@^1.0.2:
   version "1.0.2"

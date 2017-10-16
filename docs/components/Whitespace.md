@@ -5,6 +5,8 @@
 Should be used to modify the default spacing between objects (not between nodes of the same object)
 Please use judiciously. You want to be using defaults most of the time, these are exceptions!
 
+Class names are composed of three parts, one from each row in the following table. For example: `ptm` or `mbxxxl`.
+
 Letter                           | Description
 -------------------------------- | ------------------------------------------------------------------
 p, m                             | padding, margin

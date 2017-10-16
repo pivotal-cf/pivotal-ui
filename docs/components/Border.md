@@ -12,16 +12,16 @@ All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements w
     <div class="border">.border</div>
 </div>
 <div>
-    <div class="border-top">.border-top</div>
+    <div class="border-top mvxl">.border-top</div>
 </div>
 <div>
-    <div class="border-right">.border-right</div>
+    <div class="border-right mvxl">.border-right</div>
 </div>
 <div>
-    <div class="border-bottom">.border-bottom</div>
+    <div class="border-bottom mvxl">.border-bottom</div>
 </div>
 <div>
-    <div class="border-left">.border-left</div>
+    <div class="border-left mvxl">.border-left</div>
 </div>
 ```
 

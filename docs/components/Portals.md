@@ -17,10 +17,10 @@ anywhere without knowing about `<body>`.
 ::title=Basic example
 <div>
   <section>
-    <span>Content will be transported from here:</span>
-    <PortalSource name="modal">Transported content</PortalSource>
+    <div>Content will be transported from here:</div>
+    One two <PortalSource name="modal">three </PortalSource> four five
   </section>
-  <section className="mvxxl">Unrelated content</section>
+  <br />
   <section>
     <span>To here:</span>
     <PortalDestination name="modal"/>

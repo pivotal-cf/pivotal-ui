@@ -9,8 +9,8 @@ import {Image} from 'pivotal-ui/react/images';
 ```jsx
 ::title=Basic example
 ::description=A Flag is a special type of media that is vAlign='middle'. The images or other media can be aligned top, middle, or bottom. The default is top aligned. The base button renderer. You won't really interact with this directly.
-const mediaBasicImage = <Image src="http://placehold.it/50x50" alt="A sample media object"/>;
-const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
+const mediaBasicImage = <Image src="https://placehold.it/50x50" alt="A sample media object"/>;
+const mediaBasicLinkedImage = <Image src="https://placehold.it/50x50" href="http://google.com" alt="A sample media object"/>;
 
 <div>
     <Media image={mediaBasicImage}>
@@ -31,7 +31,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 <div class="media">
   <a class="media-left" href="#">
     <div class="image-container" style="width: 100px; height: 50px;">
-      <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64"/>
+      <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/64x64"/>
     </div>
   </a>
   <div class="media-body">
@@ -48,7 +48,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 ::description=You can also nest media objects inside of each other (useful for comment threads or articles lists).
 <div class="media">
   <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
+    <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/64x64">
   </a>
   <div class="media-body">
     <h4 class="media-heading">Media heading</h4>
@@ -57,7 +57,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
     <!-- Nested media object -->
     <div class="media">
       <a class="media-left" href="#" target="_blank">
-        <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
+        <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/64x64">
       </a>
       <div class="media-body">
         <h4 class="media-heading">Nested media heading</h4>
@@ -66,7 +66,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
         <!-- Nested media object -->
         <div class="media">
           <a class="media-left" href="#" target="_blank">
-            <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
+            <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/64x64">
           </a>
           <div class="media-body">
             <h4 class="media-heading">Nested media heading</h4>
@@ -79,7 +79,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
     <!-- Nested media object -->
     <div class="media">
       <a class="media-left" href="#" target="_blank">
-        <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/64x64">
+        <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/64x64">
       </a>
       <div class="media-body">
         <h4 class="media-heading">Nested media heading</h4>
@@ -92,7 +92,7 @@ const mediaBasicLinkedImage = <Image src="http://placehold.it/50x50" href="http:
 
 ```jsx
 ::title=Vertical alignment
-const mediaAlignmentImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
+const mediaAlignmentImage = <Image href="https://www.google.com" src="https://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>
   <Media image={mediaAlignmentImage}>
@@ -133,7 +133,7 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 <div>
 <div class="media media-stackable-xs">
   <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
+    <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/100x100">
   </a>
   <div class="media-body">
     <p>Extra-small stackable</p>
@@ -142,7 +142,7 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 
 <div class="media media-stackable-sm">
   <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
+    <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/100x100">
   </a>
   <div class="media-body">
     <p>Small stackable</p>
@@ -151,7 +151,7 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 
 <div class="media media-stackable-md">
   <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
+    <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/100x100">
   </a>
   <div class="media-body">
     <p>Medium stackable</p>
@@ -160,7 +160,7 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 
 <div class="media media-stackable-lg">
   <a class="media-left" href="#" target="_blank">
-    <img alt="demo placeholder for media" class="media-object" src="http://placehold.it/100x100">
+    <img alt="demo placeholder for media" class="media-object" src="https://placehold.it/100x100">
   </a>
   <div class="media-body">
     <p>Large stackable</p>
@@ -172,7 +172,7 @@ const mediaAlignmentImage = <Image href="http://www.google.com" src="http://plac
 ```jsx
 ::title=Spacing
 ::description=Media spacing can be added to the left and right medias. If no spacing is defined, it defaults to large.
-const mediaSpacingImage = <Image href="http://www.google.com" src="http://placehold.it/50x50" alt="A sample media object"/>;
+const mediaSpacingImage = <Image href="http://www.google.com" src="https://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>
     <Media image={mediaSpacingImage}>

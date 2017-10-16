@@ -1,10 +1,8 @@
 # Collapse
 
 ## Description
-Collapse description goes here.
 
-Collapse components are implementations of the [Accordion][accordion] style. In
-all `Collapse` component variations, the `header` prop describes the text
+In all `Collapse` component variations, the `header` prop describes the text
 of the clickable region to toggle the expand/collapse states. You can pass `defaultExpanded`
 as a prop to the `Collapse` and it will start expanded when the page loads.
 

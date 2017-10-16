@@ -9,7 +9,7 @@
 
 ## Description
 
-TODO: Use the `.grid` class to wrap columns to create a flex grid.
+Flex grids use flexbox to position columns within rows.
 
 ## Examples
 
@@ -135,7 +135,7 @@ TODO: Use the `.grid` class to wrap columns to create a flex grid.
 
 ## Description
 
-Pivotal ui (via bootstrap) includes a responsive, **mobile first** fluid grid system that
+Pivotal UI (via Bootstrap) includes a responsive, **mobile first** fluid grid system that
 appropriately scales up to 24 columns as the device or viewport size increases.
 To work with the system, you need to **treat mobile as your default**
 and build more complex layouts up from there.

@@ -1,7 +1,5 @@
 # Expander
 
-## Import
-
 ## Description
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere

@@ -5,11 +5,7 @@
 
 ## Description
 
-We use custom SVG icons, available at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
-We recommend using the React Iconography component if you are using icons. We do provide all icons as SVGs
-inside of the pivotal-ui node module (inside `node_modules/pivotal-ui/css/iconography/svgs/`).
-If you are not using JavaScript and would like to use a Pivotal UI Icon,
-you can copy these SVGs directly, either with an img tag or as inlined SVG.
+We provide a set of SVG icons, visible at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
 Custom SVGs should be placed in `project_dir/app/svgs`. For example, an SVG located at `project_dir/app/svgs/foo.svg`
 could be used with `<Icon src="foo"/>`.

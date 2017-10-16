@@ -71,6 +71,7 @@ import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 `npm install pivotal-ui --save`
 
 `import {TileLayout, TileLayoutItem} from 'pivotal-ui/react/tile-layout';`
+
 `import {Panels} from 'pivotal-ui/react/panels';`
 
 #### CSS Only
@@ -78,6 +79,7 @@ import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 `npm install pivotal-ui --save`
 
 `import * as TileLayout from 'pivotal-ui/css/tile-layout';`
+
 `import * as Panels from 'pivotal-ui/css/panels';`
 
 ## Props

@@ -2,7 +2,7 @@
 
 ## Description
 
-The Aligner allows you to vertically align children to the top, center, or bottom.
+The `aligner` class allows you to vertically align children to the top, center, or bottom.
 Its height is set by default to 230px.
 
 ```html

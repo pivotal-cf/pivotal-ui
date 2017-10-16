@@ -21,7 +21,7 @@ Any className values passed through are passed to the underlying `.pane`.
 ::title=BasePane example
 ::description=In the event that you need additional configuration applied to a Pane, you can use the `BasePane` component which accepts properties for `className` and `innerClassName`. These values are added to the class name of the `.pane` and the `.container` respectively.
 <BasePane className="bg-dark-2" innerClassName="bg-glow">
-  <h1 color="type-neutral-9">This is a pane (configurable)</h1>
+  <h1 className="type-neutral-9">This is a pane (configurable)</h1>
 </BasePane>
 ```
 
