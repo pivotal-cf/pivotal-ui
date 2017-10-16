@@ -2,12 +2,11 @@
 
 ## Starter Project
 
-We've created two starter projects to help transitioning to Pivotal UI and React.
+We've created a starter project to help transitioning to Pivotal UI and React.
 
-- If you want to quickly try out some Pivotal UI components, try [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project).
-- If you want to skip directly to building a full React application, try [React Starter](https://github.com/pivotal-cf/react-starter).
+Use [PUI Starter](https://github.com/pivotal-cf/pui-starter) to build a full React application using Pivotal UI.
 
-Once you've played around with some examples and feel comfortable integrating into your project, jump to the next step below.
+Once you feel comfortable integrating Pivotal UI into your project, jump to the next step below.
 
 ## Using Pivotal UI on your project (with React)
 
@@ -49,7 +48,7 @@ Ensure that the following is set up on your project:
     If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
 
     Getting Babel working can be complicated. To see a sample project with Babel integrated,
-    look at [React Starter](https://github.com/pivotal-cf/react-starter) or [PUI Starter Project](https://github.com/pivotal-cf/pui-starter-project)
+    look at [PUI Starter](https://github.com/pivotal-cf/pui-starter).
 
  - **React**
  
@@ -67,7 +66,7 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
 
 1. Install [PUI React Tools](http://github.com/pivotal-cf/pui-react-tools).
    This set of tools includes an asset pipeline for including css and svg assets in your JavaScript.
-   Usage is somewhat complicated, [React Starter](http://github.com/pivotal-cf/react-starter) is a sample project with everything set up.
+   Usage is somewhat complicated, [PUI Starter](https://github.com/pivotal-cf/pui-starter) is a sample project with everything set up.
 
 1. Install Pivotal UI:
 
@@ -132,4 +131,4 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
 
 In development mode, this will inject PUI css directly into your page.
 In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
-If you are using react-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
+If you are using pui-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
