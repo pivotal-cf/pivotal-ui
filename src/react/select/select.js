@@ -38,13 +38,12 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
   toggle = () => this.setState({open: !this.state.open});
 
   select = e => {
-    const value = e.target.getAttribute('value');
-    Object.defineProperty(e.target, 'value', {value});
+    const value = e.target.getAttribute('data-value');
 
     this.setState({
       open: false,
       uncontrolledValue: value
-    }, this.props.onChange && this.props.onChange(e));
+    }, this.props.onChange && this.props.onChange(e, value));
   };
 
   scrimClick = () => this.setState({open: false});
@@ -63,7 +62,7 @@ export class Select extends mixin(React.Component).with(Scrim, Transition) {
         className,
         key: value,
         role: 'button',
-        value,
+        'data-value': value,
         onClick: this.select
       }}>{label}</li>);
       return memo;
