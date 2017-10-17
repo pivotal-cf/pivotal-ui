@@ -113,7 +113,7 @@ describe('Select', () => {
 
       it('calls then onChange callback', () => {
         //cannot assert on event object due to phantomJS limitation
-        expect(onChangeSpy).toHaveBeenCalledWith(jasmine.any(Object));
+        expect(onChangeSpy).toHaveBeenCalledWith(jasmine.any(Object), 'one');
       });
 
       it('updates the selected value', () => {
