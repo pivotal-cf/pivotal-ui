@@ -1,7 +1,8 @@
-<a name="10.0.1"></a>
-## 10.0.1 (2017-10-17)
+<a name="10.1.0"></a>
+# 10.1.0 (2017-10-17)
 #### React
 * **modals**: Fixed warning when unmounting animated modals ([3fc867a](https://github.com/pivotal-cf/pivotal-ui/commit/3fc867a))
+* **select**: Use data-value attribute instead of value for an <li/>, when firing onChange call with the event followed by the value instead of mutating the target ([17dae71](https://github.com/pivotal-cf/pivotal-ui/commit/17dae71))
 <a name="10.0.0"></a>
 # 10.0.0 (2017-10-09)
 #### CSS
