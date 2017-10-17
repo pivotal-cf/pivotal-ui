@@ -10,6 +10,7 @@ import './support/bluebird';
 import './support/set_immediate';
 import 'pivotal-js-jasmine-matchers';
 import ReactTestUtils from 'react-dom/test-utils';
+import stringifier from 'stringifier';
 
 export const findByClass = ReactTestUtils.findRenderedDOMComponentWithClass;
 export const findAllByClass = ReactTestUtils.scryRenderedDOMComponentsWithClass;
@@ -20,6 +21,11 @@ export const clickOn = ReactTestUtils.Simulate.click;
 MockNextTick.install();
 
 delete ReactTestUtils.renderIntoDocument;
+
+jasmine.pp = function(obj) {
+  const stringifierInstance = stringifier({maxDepth: 5, indent: '  '});
+  return stringifierInstance(obj);
+};
 
 Object.assign(global, {
   jQuery,

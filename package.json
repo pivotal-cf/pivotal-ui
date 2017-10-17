@@ -100,6 +100,7 @@
     "simple-headless-chrome": "^4.3.10",
     "stream-reduce": "^1.0.3",
     "stream-series": "^0.1.1",
+    "stringifier": "^1.3.0",
     "strong-wait-till-listening": "^1.0.1",
     "style-loader": "^0.18.2",
     "through": "^2.3.8",
