@@ -1,6 +1,7 @@
 import '../spec_helper';
 import {findByClass, findAllByClass, clickOn} from '../spec_helper';
 import {Modal, BaseModal} from '../../../src/react/modals';
+import AnimationMixin from 'pui-react-animation';
 
 let result;
 
@@ -237,6 +238,20 @@ describe('BaseModal', () => {
       document.documentElement.dispatchEvent(evt);
 
       expect(onHide).not.toHaveBeenCalled();
+    });
+
+    describe('when animation is true', () => {
+      beforeEach(() => {
+        spyOn(AnimationMixin, 'componentWillUnmount').and.callThrough();
+      });
+
+      it('resets animation if unmounted before animation finishes', () => {
+        result = renderIntoDom({show: true, onHide, animation: true});
+        ReactDOM.unmountComponentAtNode(root);
+        MockRaf.next();
+
+        expect(AnimationMixin.componentWillUnmount).toHaveBeenCalled();
+      });
     });
   });
 

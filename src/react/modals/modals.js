@@ -76,6 +76,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
   }
 
   componentWillUnmount() {
+    if (super.componentWillUnmount) super.componentWillUnmount();
     const document = this.props.getDocument();
     if (typeof document !== 'object') return;
     document.removeEventListener('keydown', this.onKeyDown);
