@@ -1,3 +1,7 @@
+<a name="9.1.3"></a>
+## 9.1.3 (2017-10-17)
+#### React
+* **modals**: Fixed warning when unmounting animated modals ([1e0fa81](https://github.com/pivotal-cf/pivotal-ui/commit/1e0fa81))
 <a name="9.1.2"></a>
 ## 9.1.2 (2017-10-09)
 #### CSS
