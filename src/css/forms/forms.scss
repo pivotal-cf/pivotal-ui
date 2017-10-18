@@ -27,6 +27,10 @@ select {
   box-shadow: none;
   box-sizing: border-box;
   color: $dark-2;
+
+  &::-ms-expand {
+    display: none;
+  }
 }
 
 select {
