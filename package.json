@@ -89,7 +89,6 @@
     "proxyquire": "^1.5.0",
     "react": "^16.0.0",
     "react-a11y": "pivotal-cf/react-a11y#separator-fix-dist",
-    "react-fa": "^4.0.0",
     "react-svg-loader": "^1.1.1",
     "require-dir": "^0.3.2",
     "rimraf": "^2.4.3",
