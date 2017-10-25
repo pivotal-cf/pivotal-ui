@@ -1,5 +1,5 @@
 @import "../pui-variables";
-@import '../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins';
+@import '../bootstrap/mixins';
 
 .row-gutter-sm {
   margin-left: -$grid-gutter-width-small / 2;

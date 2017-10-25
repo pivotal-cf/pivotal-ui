@@ -1,7 +1,7 @@
 @import "../pui-variables";
 @import '../mixins';
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/modals";
+@import '../bootstrap/mixins';
+@import '../bootstrap/modals';
 
 .modal {
   box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
