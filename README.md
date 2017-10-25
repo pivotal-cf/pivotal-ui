@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/pivotal-ui.png?compact=true)](https://npmjs.org/package/pivotal-ui)
+
 # Welcome to Pivotal UI
 
 [Build pipeline](https://wings.concourse.ci/teams/pivotalui/pipelines/pivotal-ui)
