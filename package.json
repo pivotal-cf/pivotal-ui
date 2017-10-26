@@ -11,7 +11,7 @@
   },
   "name": "pivotal-ui",
   "description": "***",
-  "version": "10.1.0",
+  "version": "10.1.1",
   "devDependencies": {
     "a11y": "^0.3.3",
     "axios": "^0.5.4",
