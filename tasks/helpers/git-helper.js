@@ -30,7 +30,7 @@ export default class GitHelper {
       .map(l => [l.substr(0, l.indexOf(' ')), l.substr(l.indexOf(' ') + 1)])
       .filter(([sha]) => !ignoredCommits.find(ignoredSha => sha.indexOf(ignoredSha) === 0))
       .filter(([sha, message]) => !message.match(/v\d+\.\d+\.\d+/))
-      .forEach(([sha, message]) => commits[sha] = message);
+      .forEach(([sha, message]) => commits[sha] = message.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
     return commits;
   }
 
