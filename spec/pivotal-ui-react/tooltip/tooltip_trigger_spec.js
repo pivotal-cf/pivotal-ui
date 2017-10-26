@@ -128,6 +128,11 @@ describe('TooltipTrigger Component', () => {
       jasmine.clock().tick(1);
       expect(onClick).toHaveBeenCalledWith(jasmine.any(Object));
     });
+
+    it('does not take the display prop into account', () => {
+      renderComponent({tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
   });
 
   describe('trigger is click', () => {
@@ -160,6 +165,26 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-visible');
       jasmine.clock().tick(6000);
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('does not take the display prop into account', () => {
+      renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+  });
+
+  describe('trigger is manual', () => {
+    const trigger = 'manual';
+    const tooltip = 'Some tooltip content';
+
+    it('hides the tooltip when display is false', () => {
+      renderComponent({trigger, tooltip, display: false});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('shows the tooltip when display is true', () => {
+      renderComponent({trigger, tooltip, display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
     });
   });
 

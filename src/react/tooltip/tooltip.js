@@ -41,9 +41,10 @@ export class Tooltip extends React.PureComponent {
 
 export class TooltipTrigger extends React.Component {
   static propTypes = {
+    display: PropTypes.bool,
     tooltip: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
     placement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
-    trigger: PropTypes.oneOf(['hover', 'click']),
+    trigger: PropTypes.oneOf(['manual', 'hover', 'click']),
     clickHideDelay: PropTypes.number,
     onClick: PropTypes.func,
     onEntered: PropTypes.func,
@@ -54,6 +55,7 @@ export class TooltipTrigger extends React.Component {
   };
 
   static defaultProps = {
+    display: false,
     placement: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
@@ -95,9 +97,16 @@ export class TooltipTrigger extends React.Component {
     }
   }
 
+  getVisible() {
+    if (this.props.trigger === 'manual') {
+      return this.props.display;
+    }
+    return this.state.visible;
+  }
+
   render() {
-    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, ...others} = this.props;
-    const {visible} = this.state;
+    const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, display, ...others} = this.props;
+    const visible = this.getVisible();
 
     let placementClass;
     if(placement !== 'top') {
@@ -108,6 +117,9 @@ export class TooltipTrigger extends React.Component {
     switch(trigger) {
       case 'click':
         triggerHandler = {onClick: e => this.clickHandler(e, onClick)};
+        break;
+      case 'manual':
+        triggerHandler = {};
         break;
       default:
         triggerHandler = {
