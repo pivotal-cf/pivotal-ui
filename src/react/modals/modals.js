@@ -12,7 +12,7 @@ const privates = new WeakMap();
 function bodyNotAllowedToScroll(document) {
   if (typeof document !== 'object') return;
   const body = document.getElementsByTagName('body')[0];
-  if(!body.classList.contains('pui-no-scroll')) {
+  if (!body.classList.contains('pui-no-scroll')) {
     body.classList.add('pui-no-scroll');
   }
 }
@@ -40,7 +40,8 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
     acquireFocus: true,
     animation: true,
     keyboard: true,
-    onHide: () => {},
+    onHide: () => {
+    },
     getDocument: () => global.document
   };
 
@@ -59,13 +60,13 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
   }
 
   modalClicked = e => {
-    if(!this.dialog) return;
-    if(this.dialog.contains(e.target)) return;
+    if (!this.dialog) return;
+    if (this.dialog.contains(e.target)) return;
     this.props.onHide(e);
   };
 
   onKeyDown = e => {
-    if(this.props.keyboard && e.keyCode === ESC_KEY) {
+    if (this.props.keyboard && e.keyCode === ESC_KEY) {
       this.props.onHide(e);
     }
   };
@@ -115,22 +116,22 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
 
     privates.set(this, {...privates.get(this), fractionShown});
 
-    if(oldFractionShown < 1 && fractionShown === 1) {
+    if (oldFractionShown < 1 && fractionShown === 1) {
       if (acquireFocus) this.focus();
       onEntered && onEntered();
     }
 
-    if(oldFractionShown > 0 && fractionShown === 0) {
+    if (oldFractionShown > 0 && fractionShown === 0) {
       onExited && onExited();
     }
 
-    if(fractionShown === 0 && !show) return null;
+    if (fractionShown === 0 && !show) return null;
 
     const props = mergeProps(modalProps, {
       className: 'modal fade in',
       role: 'dialog',
       style: {display: 'block'},
-      onClick: this.modalClicked,
+      onMouseDown: this.modalClicked,
       tabIndex: -1
     });
 
@@ -144,15 +145,16 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
     return (
       <div className="modal-wrapper" role="dialog">
         <div className="modal-backdrop fade in" style={{opacity: fractionShown * 0.8}} onClick={onHide}/>
-          <div {...props} ref={ref => this.modal = ref}>
-            <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})} style={dialogStyle} ref={ref => this.dialog = ref}>
-              <div className="modal-content">
-                <div className="modal-header">
-                  <h3 className="modal-title em-high">{title}</h3>
-                  <div className="modal-close">
-                    <button className="btn btn-icon" onClick={onHide}>
-                      <Icon src="close"/>
-                    </button>
+        <div {...props} ref={ref => this.modal = ref}>
+          <div className={classnames('modal-dialog', dialogClassName, {[modalSizeClass]: modalSize})}
+               style={dialogStyle} ref={ref => this.dialog = ref}>
+            <div className="modal-content">
+              <div className="modal-header">
+                <h3 className="modal-title em-high">{title}</h3>
+                <div className="modal-close">
+                  <button className="btn btn-icon" onClick={onHide}>
+                    <Icon src="close"/>
+                  </button>
                 </div>
               </div>
               {children}
