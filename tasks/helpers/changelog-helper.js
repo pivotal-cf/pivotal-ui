@@ -35,7 +35,7 @@ export default class ChangelogHelper {
 
   async updateChangelog(firstTag) {
     const {gitHelper} = privates.get(this);
-    const tags = [version, ...await gitHelper.getTags(firstTag)];
+    const tags = [version, ...await gitHelper.getTags(firstTag, version)];
     const sections = (await Promise.all(tags.map(tag => this.getDiff(tag)))).join('\n');
     const oldChangelog = await gitHelper.getFile('CHANGELOG.md', await gitHelper.getPreviousTagSha(firstTag));
     fs.writeFileSync('CHANGELOG.md', `${sections}\n${oldChangelog}`);
