@@ -202,7 +202,7 @@ describe('BaseModal', () => {
 
     it('is triggered when the backdrop is clicked', () => {
       result = renderIntoDom({show: true, onHide, animation: false});
-      $('.modal').click();
+      $('.modal').simulate('mouseDown');
       expect(onHide).toHaveBeenCalledWith(jasmine.anything());
     });
 
