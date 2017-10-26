@@ -129,15 +129,17 @@ export default class GitHelper {
     return 1000 * out.split('\n').pop();
   }
 
-  async getTags(version) {
-    const [major, minor, patch] = tagToSemver(version);
+  async getTags(firstTag, version) {
+    const [firstTagMajor, firstTagMinor, firstTagPatch] = tagToSemver(firstTag);
+    const [versionMajor] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
     tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     return tags.filter(([major2, minor2, patch2]) => {
-      if (major2 < major) return;
-      if (major2 <= major && minor2 < minor) return;
-      if (major2 <= major && minor2 <= minor && patch2 < patch) return;
+      if (major2 < firstTagMajor) return;
+      if (major2 > versionMajor) return;
+      if (major2 <= firstTagMajor && minor2 < firstTagMinor) return;
+      if (major2 <= firstTagMajor && minor2 <= firstTagMinor && patch2 < firstTagPatch) return;
       return true;
     }).map(([major2, minor2, patch2]) => `v${major2}.${minor2}.${patch2}`);
   }
