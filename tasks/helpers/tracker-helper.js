@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const ignoredStories = ['151262175', '148077489'];
+const ignoredStories = ['151262175', '148077489', '151620080'];
 
 function url(storyNumber) {
   return `https://www.pivotaltracker.com/services/v5/projects/1126018/stories/${storyNumber}`;
