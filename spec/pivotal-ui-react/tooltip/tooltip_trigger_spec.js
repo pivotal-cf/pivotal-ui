@@ -128,6 +128,22 @@ describe('TooltipTrigger Component', () => {
       jasmine.clock().tick(1);
       expect(onClick).toHaveBeenCalledWith(jasmine.any(Object));
     });
+
+    it('does not take the display prop into account', () => {
+      renderComponent({tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    describe('when the display prop changes', () => {
+      beforeEach(() => {
+        renderComponent({tooltip: 'Some tooltip content'});
+        renderComponent({tooltip: 'Some tooltip content', display: true});
+      });
+
+      it('takes the display prop into account', () => {
+        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+      });
+    });
   });
 
   describe('trigger is click', () => {
@@ -160,6 +176,50 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-visible');
       jasmine.clock().tick(6000);
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('does not take the display prop into account', () => {
+      renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    describe('when the display prop changes', () => {
+      beforeEach(() => {
+        renderComponent({trigger: 'click', tooltip: 'Some tooltip content'});
+        renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
+      });
+
+      it('takes the display prop into account', () => {
+        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+      });
+    });
+  });
+
+  describe('trigger is manual', () => {
+    const trigger = 'manual';
+    const tooltip = 'Some tooltip content';
+
+    it('hides the tooltip when display is false', () => {
+      renderComponent({trigger, tooltip, display: false});
+      expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('shows the tooltip when display is true', () => {
+      renderComponent({trigger, tooltip, display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+    });
+
+    describe('when the trigger prop changes', () => {
+      const nextTrigger = 'hover';
+
+      beforeEach(() => {
+        renderComponent({trigger, tooltip, display: true});
+        renderComponent({trigger: nextTrigger, tooltip, display: true});
+      });
+
+      it('takes the trigger prop into account', () => {
+        expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+      });
     });
   });
 
