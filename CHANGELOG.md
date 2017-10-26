@@ -1,3 +1,9 @@
+<a name="10.2.0"></a>
+# 10.2.0 (2017-10-26)
+#### CSS
+* **forms**: Do not show native select dropdown icon on windows [#151620080] ([be579e4](https://github.com/pivotal-cf/pivotal-ui/commit/be579e4))
+#### React
+* **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([ab75a8e](https://github.com/pivotal-cf/pivotal-ui/commit/ab75a8e))
 <a name="10.1.1"></a>
 ## 10.1.1 (2017-10-26)
 #### React
