@@ -129,9 +129,14 @@ describe('TooltipTrigger Component', () => {
       expect(onClick).toHaveBeenCalledWith(jasmine.any(Object));
     });
 
-    it('does not take the display prop into account', () => {
-      renderComponent({tooltip: 'Some tooltip content', display: true});
+    it('hides the tooltip when display is false', () => {
+      renderComponent({tooltip: 'Some tooltip content', display: false});
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('shows the tooltip when display is true', () => {
+      renderComponent({tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
     });
   });
 
@@ -167,9 +172,14 @@ describe('TooltipTrigger Component', () => {
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
     });
 
-    it('does not take the display prop into account', () => {
-      renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
+    it('hides the tooltip when display is false', () => {
+      renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: false});
       expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    });
+
+    it('shows the tooltip when display is true', () => {
+      renderComponent({trigger: 'click', tooltip: 'Some tooltip content', display: true});
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
     });
   });
 

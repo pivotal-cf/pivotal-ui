@@ -55,7 +55,7 @@ export class TooltipTrigger extends React.Component {
   };
 
   static defaultProps = {
-    display: false,
+    display: undefined,
     placement: 'top',
     trigger: 'hover',
     clickHideDelay: 1000,
@@ -98,10 +98,10 @@ export class TooltipTrigger extends React.Component {
   }
 
   getVisible() {
-    if (this.props.trigger === 'manual') {
-      return this.props.display;
+    if (this.props.display === undefined) {
+      return this.state.visible;
     }
-    return this.state.visible;
+    return this.props.display;
   }
 
   render() {
