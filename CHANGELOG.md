@@ -1,3 +1,30 @@
+<a name="11.0.0"></a>
+# 11.0.0 (2017-10-26)
+#### CSS
+* **forms**: Do not show native select dropdown icon on windows [#151620080] ([ee2d6ac](https://github.com/pivotal-cf/pivotal-ui/commit/ee2d6ac))
+* **labels**: removed the labels [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] ([c4243b9](https://github.com/pivotal-cf/pivotal-ui/commit/c4243b9))
+#### React
+* **labels**: removed the labels [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] ([c4243b9](https://github.com/pivotal-cf/pivotal-ui/commit/c4243b9))
+* **modals**:
+  * close modal on mousedown on the .modal [[:beetle:#152286689](https://www.pivotaltracker.com/story/show/152286689)] ([201d947](https://github.com/pivotal-cf/pivotal-ui/commit/201d947))
+  * Fixed warning when unmounting animated modals ([6eef01d](https://github.com/pivotal-cf/pivotal-ui/commit/6eef01d))
+* **select**: Use data-value attribute instead of value for an &lt;li/&gt;, when firing onChange call with the event followed by the value instead of mutating the target ([16b48b9](https://github.com/pivotal-cf/pivotal-ui/commit/16b48b9))
+* **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b92](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b92))
+<a name="10.2.0"></a>
+# 10.2.0 (2017-10-26)
+#### CSS
+* **forms**: Do not show native select dropdown icon on windows [#151620080] ([be579e4](https://github.com/pivotal-cf/pivotal-ui/commit/be579e4))
+#### React
+* **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([ab75a8e](https://github.com/pivotal-cf/pivotal-ui/commit/ab75a8e))
+<a name="10.1.1"></a>
+## 10.1.1 (2017-10-26)
+#### React
+* **modals**: close modal on mousedown on the .modal [[:beetle:#152286689](https://www.pivotaltracker.com/story/show/152286689)] ([aab0cc9](https://github.com/pivotal-cf/pivotal-ui/commit/aab0cc9))
+<a name="10.1.0"></a>
+# 10.1.0 (2017-10-17)
+#### React
+* **modals**: Fixed warning when unmounting animated modals ([3fc867a](https://github.com/pivotal-cf/pivotal-ui/commit/3fc867a))
+* **select**: Use data-value attribute instead of value for an &lt;li/&gt;, when firing onChange call with the event followed by the value instead of mutating the target ([17dae71](https://github.com/pivotal-cf/pivotal-ui/commit/17dae71))
 <a name="10.0.0"></a>
 # 10.0.0 (2017-10-09)
 #### CSS
@@ -10,6 +37,11 @@
 * **select**: stop using .includes in select to fix IE11 crash [[:beetle:#151622400](https://www.pivotaltracker.com/story/show/151622400)] ([0f51153](https://github.com/pivotal-cf/pivotal-ui/commit/0f51153))
 * **svg**: fixed the svgs components paths ([876491f](https://github.com/pivotal-cf/pivotal-ui/commit/876491f))
 * **table**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([7af14f7](https://github.com/pivotal-cf/pivotal-ui/commit/7af14f7))
+<a name="9.2.0"></a>
+# 9.2.0 (2017-10-17)
+#### React
+* **modals**: Fixed warning when unmounting animated modals ([1e0fa81](https://github.com/pivotal-cf/pivotal-ui/commit/1e0fa81))
+* **select**: Use data-value attribute instead of value for an &lt;li/&gt;, when firing onChange call with the event followed by the value instead of mutating the target ([f44a9b3](https://github.com/pivotal-cf/pivotal-ui/commit/f44a9b3))
 <a name="9.1.2"></a>
 ## 9.1.2 (2017-10-09)
 #### CSS

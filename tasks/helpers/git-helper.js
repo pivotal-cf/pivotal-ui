@@ -1,7 +1,7 @@
 import {exec} from 'child_process';
 
 const ignoredCommits = [
-  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a'
+  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a', 'b11c291'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);
@@ -30,7 +30,7 @@ export default class GitHelper {
       .map(l => [l.substr(0, l.indexOf(' ')), l.substr(l.indexOf(' ') + 1)])
       .filter(([sha]) => !ignoredCommits.find(ignoredSha => sha.indexOf(ignoredSha) === 0))
       .filter(([sha, message]) => !message.match(/v\d+\.\d+\.\d+/))
-      .forEach(([sha, message]) => commits[sha] = message);
+      .forEach(([sha, message]) => commits[sha] = message.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
     return commits;
   }
 
@@ -129,15 +129,17 @@ export default class GitHelper {
     return 1000 * out.split('\n').pop();
   }
 
-  async getTags(version) {
-    const [major, minor, patch] = tagToSemver(version);
+  async getTags(firstTag, version) {
+    const [firstTagMajor, firstTagMinor, firstTagPatch] = tagToSemver(firstTag);
+    const [versionMajor] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
     tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     return tags.filter(([major2, minor2, patch2]) => {
-      if (major2 < major) return;
-      if (major2 <= major && minor2 < minor) return;
-      if (major2 <= major && minor2 <= minor && patch2 < patch) return;
+      if (major2 < firstTagMajor) return;
+      if (major2 > versionMajor) return;
+      if (major2 <= firstTagMajor && minor2 < firstTagMinor) return;
+      if (major2 <= firstTagMajor && minor2 <= firstTagMinor && patch2 < firstTagPatch) return;
       return true;
     }).map(([major2, minor2, patch2]) => `v${major2}.${minor2}.${patch2}`);
   }
