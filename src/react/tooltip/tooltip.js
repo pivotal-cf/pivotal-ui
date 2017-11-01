@@ -93,12 +93,10 @@ export class TooltipTrigger extends React.Component {
     const triggerChanged = this.props.trigger !== nextProps.trigger;
     const displayChanged = this.props.display !== nextProps.display;
 
-    if (triggerChanged) {
-      if (nextProps.trigger === 'manual') {
-        this.setState({visible: nextProps.display});
-      } else {
-        this.setState({visible: false});
-      }
+    if (triggerChanged && nextProps.trigger === 'manual') {
+      this.setState({visible: nextProps.display});
+    } else if (triggerChanged) {
+      this.setState({visible: false});
     } else if (displayChanged) {
       this.setState({visible: nextProps.display});
     }
