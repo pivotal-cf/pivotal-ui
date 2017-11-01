@@ -69,7 +69,7 @@ export class TooltipTrigger extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {visible: false};
+    this.state = {visible: props.trigger === 'manual' ? props.display : false};
     this.clickHandler = this.clickHandler.bind(this);
   }
 
@@ -89,6 +89,18 @@ export class TooltipTrigger extends React.Component {
     }, this.props.clickHideDelay);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.trigger !== nextProps.trigger) {
+      if (nextProps.trigger === 'manual') {
+        this.setState({visible: nextProps.display});
+      } else {
+        this.setState({visible: false});
+      }
+    } else if (this.props.display !== nextProps.display) {
+      this.setState({visible: nextProps.display});
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if(prevState.visible && !this.state.visible) {
       this.props.onExited();
@@ -97,16 +109,9 @@ export class TooltipTrigger extends React.Component {
     }
   }
 
-  getVisible() {
-    if (this.props.trigger === 'manual') {
-      return this.props.display;
-    }
-    return this.state.visible;
-  }
-
   render() {
     const {isSticky, placement, tooltip, trigger, className, clickHideDelay, onEntered, onExited, theme, size, onClick, display, ...others} = this.props;
-    const visible = this.getVisible();
+    const {visible} = this.state;
 
     let placementClass;
     if(placement !== 'top') {
