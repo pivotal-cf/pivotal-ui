@@ -1,15 +1,15 @@
 import '../spec_helper';
 import {TextFilter} from '../../../src/react/text-filter';
 
-describe('TextFilter', () => {
-  let data, filter, renderFilteredData;
+fdescribe('TextFilter', () => {
+  let data, filter, renderFilteredData, subject;
 
   beforeEach(() => {
     data = ['apple', 'banana', 'actuator'];
     filter = jasmine.createSpy('filter').and.returnValue(data);
     renderFilteredData = jasmine.createSpy('renderFilteredData')
       .and.returnValue(<ul>{data.map((v, i) => <li key={i}>{v}</li>)}</ul>);
-    ReactDOM.render(<TextFilter {...{
+    subject = ReactDOM.render(<TextFilter {...{
       data,
       filter,
       renderFilteredData
@@ -24,6 +24,10 @@ describe('TextFilter', () => {
   it('renders a text input', () => {
     expect('.text-filter > .grid .col:eq(1) input').toExist();
     expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('value', '');
+  });
+
+  it('gives the text input a default placeholder', () => {
+    expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('placeholder', 'Filter...');
   });
 
   it('renders the count column', () => {
@@ -52,6 +56,16 @@ describe('TextFilter', () => {
     expect('.text-filter > ul li:eq(0)').toHaveText('apple');
     expect('.text-filter > ul li:eq(1)').toHaveText('banana');
     expect('.text-filter > ul li:eq(2)').toHaveText('actuator');
+  });
+
+  describe('when custom placeholder text is given', () => {
+    beforeEach(() => {
+      subject::setProps({filterPlaceholderText: 'Your text here...'});
+    });
+
+    it('gives the text input the custom placeholder', () => {
+      expect('.text-filter > .grid .col:eq(1) input').toHaveAttr('placeholder', 'Your text here...');
+    });
   });
 
   describe('when entering filter text', () => {
@@ -85,6 +99,31 @@ describe('TextFilter', () => {
       expect($('.text-filter > ul li').length).toBe(2);
       expect('.text-filter > ul li:eq(0)').toHaveText('apple');
       expect('.text-filter > ul li:eq(1)').toHaveText('actuator');
+    });
+
+    fdescribe('when there are no results', () => {
+      beforeEach(() => {
+        filter.and.returnValue([])
+        subject::setProps({data: []});
+      });
+
+      describe('and emptyState is given', () => {
+        beforeEach(() => {
+          subject::setProps({
+            data: [],
+            emptyState: (<p id="wompwomp">No results</p>)
+          })
+        });
+        it('renders the emptyState', () => {
+          expect("#wompwomp").toExist();
+        });
+      });
+
+      describe('and no emptyState is given', () => {
+        it('calls the renderFilteredData callback with empty data', () => {
+          expect(renderFilteredData).toHaveBeenCalledWith([]);
+        });
+      });
     });
   });
 });

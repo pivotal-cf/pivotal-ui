@@ -7,14 +7,17 @@ import {Icon} from '../iconography';
 export class TextFilter extends React.Component {
   static propTypes = {
     data: PropTypes.array.isRequired,
+    emptyState: PropTypes.node,
     filter: PropTypes.func.isRequired,
-    renderFilteredData: PropTypes.func.isRequired
+    filterPlaceholderText: PropTypes.string,
+    renderFilteredData: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     data: [],
     filter: data => data,
-    renderFilteredData: () => null
+    renderFilteredData: () => null,
+    filterPlaceholderText: 'Filter...'
   };
 
   constructor(props) {
@@ -24,14 +27,23 @@ export class TextFilter extends React.Component {
     this.onFilterTextChange = this.onFilterTextChange.bind(this);
   }
 
+  componentDidMount() {
+    require('../../css/text-filter');
+  }
+
   onFilterTextChange({target: {value}}) {
     this.setState({filterText: value});
   }
 
   render() {
-    const {data, filter, renderFilteredData, className} = this.props;
+    const {data, filter, renderFilteredData, className, filterPlaceholderText, emptyState} = this.props;
     const {filterText} = this.state;
     const filteredData = filter(data, filterText);
+
+    let renderBlock = renderFilteredData(filteredData);
+    if (filteredData.length === 0 && !!emptyState) {
+      renderBlock = emptyState;
+    }
 
     return (
       <div className="text-filter">
@@ -40,14 +52,14 @@ export class TextFilter extends React.Component {
             <Icon src="filter_list"/>
           </FlexCol>
           <FlexCol className="pan">
-            <input placeholder="Filter..." type="text" value={filterText} onChange={this.onFilterTextChange}/>
+            <input placeholder={filterPlaceholderText} type="text" value={filterText} onChange={this.onFilterTextChange}/>
           </FlexCol>
           <FlexCol className="pan text-filter-counts" fixed alignment="middle">
               <span className="filtered-count">{filteredData.length}
               </span> / <span className="unfiltered-count">{data.length}</span>
           </FlexCol>
         </Grid>
-        {renderFilteredData(filteredData)}
+        {renderBlock}
       </div>
     );
   }
