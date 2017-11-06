@@ -1,0 +1,18 @@
+@import "../pui-variables";
+
+.text-filter {
+  & > .grid:first-child {
+    .icon > svg {
+      fill: $dark-5;
+    }
+
+    input {
+      border: none;
+    }
+
+    .text-filter-counts {
+      color: $dark-5;
+      font-size: 14px;
+    }
+  }
+}
