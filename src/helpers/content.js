@@ -48,6 +48,7 @@ import * as Svg from 'pivotal-ui/react/svg';
 import * as Tabs from 'pivotal-ui/react/tabs';
 import * as TileLayout from 'pivotal-ui/react/tile-layout';
 import * as Toggle from 'pivotal-ui/react/toggle';
+import * as TextFilter from 'pivotal-ui/react/text-filter';
 import * as Tooltip from 'pivotal-ui/react/tooltip';
 import * as Wizard from 'pivotal-ui/react/wizard';
 
@@ -94,6 +95,7 @@ import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
 import TablesJson from '../../docs/components/Tables.md';
 import TabsJson from '../../docs/components/Tabs.md';
+import TextFilterJson from '../../docs/components/TextFilter.md';
 import TileLayoutJson from '../../docs/components/TileLayout.md';
 import TooltipsJson from '../../docs/components/Tooltips.md';
 import TypographyJson from '../../docs/components/Typography.md';
@@ -149,6 +151,7 @@ const routes = {
   svg: {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
   tables: {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
   tabs: {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
+  textfilter: {json: TextFilterJson, file: 'components/TextFilter.md', name: 'TextFilter', category: 'Components', packages: [TextFilter]},
   tile_layout: {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
   tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
   typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: [Typography]},
