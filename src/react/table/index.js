@@ -14,6 +14,7 @@ import {withRowClassName} from './plugins/row-class-name';
 import {withRowDrawer} from './plugins/row-drawer';
 import {withRowLink} from './plugins/row-link';
 import {withSorting} from './plugins/sorting';
+import {withScrollableTbody} from './plugins/scrollable-tbody';
 
 export {Table} from './table';
 export {TablePlugin} from './table-plugin';
@@ -31,6 +32,7 @@ export {withRowClassName} from './plugins/row-class-name';
 export {withRowDrawer} from './plugins/row-drawer';
 export {withRowLink} from './plugins/row-link';
 export {withSorting} from './plugins/sorting';
+export {withScrollableTbody} from './plugins/scrollable-tbody';
 
 export const SortableTable = withSorting(Table);
 export const FlexTable = withFlex(Table);
