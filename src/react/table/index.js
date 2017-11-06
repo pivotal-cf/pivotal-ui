@@ -50,5 +50,6 @@ export const AdvancedTable = flow(
   withRowClassName,
   withRowDrawer,
   withRowLink,
-  withSorting
+  withSorting,
+  withScrollableTbody
 )(Table);

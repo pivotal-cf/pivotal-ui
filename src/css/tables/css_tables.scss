@@ -101,6 +101,10 @@
       border: none;
     }
   }
+
+  .scrollable-body {
+    overflow-y: auto;
+  }
 }
 
 //Table scrollable
