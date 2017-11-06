@@ -1,7 +1,7 @@
 import '../spec_helper';
 import {TextFilter} from '../../../src/react/text-filter';
 
-fdescribe('TextFilter', () => {
+describe('TextFilter', () => {
   let data, filter, renderFilteredData, subject;
 
   beforeEach(() => {
@@ -101,9 +101,9 @@ fdescribe('TextFilter', () => {
       expect('.text-filter > ul li:eq(1)').toHaveText('actuator');
     });
 
-    fdescribe('when there are no results', () => {
+    describe('when there are no results', () => {
       beforeEach(() => {
-        filter.and.returnValue([])
+        filter.and.returnValue([]);
         subject::setProps({data: []});
       });
 
@@ -112,10 +112,10 @@ fdescribe('TextFilter', () => {
           subject::setProps({
             data: [],
             emptyState: (<p id="wompwomp">No results</p>)
-          })
+          });
         });
         it('renders the emptyState', () => {
-          expect("#wompwomp").toExist();
+          expect('#wompwomp').toExist();
         });
       });
 
