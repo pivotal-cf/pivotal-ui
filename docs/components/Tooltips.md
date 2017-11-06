@@ -132,6 +132,7 @@ delayHide    | no       | Number                                     |         |
 delayShow    | no       | Number                                     |         | Number of milliseconds to delay show
 disableScrim | no       | Boolean                                    | false   | Set to true to make tooltips stay open when clicking outside
 display      | no       | Boolean                                    | false   | Whether or not to show the overlay
+isSticky     | no       | Boolean                                    | false   | Whether the tooltip hover is sticky or not
 onEntered    | no       | Function                                   |         | Callback that is called after the overlay is shown
 onExited     | no       | Function                                   |         | Callback that is called after the overlay is hidden
 overlay      | no       | Node                                       |         | An element or text to overlay next to the target
@@ -139,7 +140,6 @@ pin          | no       | Boolean                                    | true    |
 placement    | no       | oneOf('top', 'bottom', 'left', 'right')    | 'right' | Placement of overlay in relation to target
 theme        | no       | oneOf(['light', 'dark'])                   | dark    | Theme of tooltip background and text
 trigger      | no       | oneOf('hover', 'click', 'focus', 'manual') | 'hover' | Action to trigger showing overlay
-isSticky     | no       | Boolean                                    | false   | Whether the tooltip hover is sticky or not
 
 
 # Tooltip Triggers
@@ -185,19 +185,56 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 </div>
 ```
 
+```jsx
+::title=Manual trigger example
+::description=The trigger is manual, so the visibility of the tooltip is controlled by the display prop.
+class ManualTooltipExample extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      displayTooltip: false
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <Checkbox {...{
+          label: 'show/hide tooltip',
+          onChange: () => this.setState({displayTooltip: !this.state.displayTooltip})
+        }}/>
+        <TooltipTrigger {...{
+          trigger: 'manual',
+          display: this.state.displayTooltip,
+          placement: 'right',
+          tooltip: 'Some tooltip',
+          theme: 'light'
+        }}>
+          <DefaultButton>Check the checkbox to display my tooltip</DefaultButton>
+        </TooltipTrigger>
+      </div>
+    );
+  }
+}
+
+<ManualTooltipExample/>
+
+```
+
 ## Props
 
 Property       | Required | Type                                      | Default  | Description
 ---------------|----------|-------------------------------------------|----------|----------------------------------
-tooltip        | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
-placement      | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Placement of tooltip in relation to target
-trigger        | no       | oneOf(['hover', 'click'])                 | hover    | Action to trigger showing tooltip
 clickHideDelay | no       | Number                                    | 1000     | How long (in milliseconds) to wait before hiding after click
+display        | no       | Boolean                                   | false    | if `trigger` is set to `manual` controls whether or not the tooltip is visible
+isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
 onEntered      | no       | Func                                      | () => {} | Callback that is called after the tooltip is shown
 onExited       | no       | Func                                      | () => {} | Callback that is called after the tooltip is hidden
-theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
+placement      | no       | oneOf(['left', 'right', 'bottom', 'top']) | top      | Placement of tooltip in relation to target
 size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto     | Size of the tooltip
-isSticky       | no       | Boolean                                   | false    | Whether the tooltip hover is sticky or not
+theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
+tooltip        | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
+trigger        | no       | oneOf(['hover', 'click', 'manual'])       | hover    | Action to trigger showing tooltip
 
 ## Installation & Usage
 
