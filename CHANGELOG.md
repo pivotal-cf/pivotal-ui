@@ -1,3 +1,17 @@
+<a name="10.3.0"></a>
+# 10.3.0 (2017-11-06)
+#### CSS
+* **tables**: adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([5b4509a](https://github.com/pivotal-cf/pivotal-ui/commit/5b4509a))
+* **text-filter**: added props for placeholder and empty state on the TextFilter ([a7805b3](https://github.com/pivotal-cf/pivotal-ui/commit/a7805b3))
+#### React
+* **table**:
+  * adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([5b4509a](https://github.com/pivotal-cf/pivotal-ui/commit/5b4509a))
+  * Add withScrollableTbody table plugin ([6bf47d2](https://github.com/pivotal-cf/pivotal-ui/commit/6bf47d2))
+* **text-filter**:
+  * added props for placeholder and empty state on the TextFilter ([a7805b3](https://github.com/pivotal-cf/pivotal-ui/commit/a7805b3))
+  * Change prop name in TextFilter to be more explicit ([61aedd6](https://github.com/pivotal-cf/pivotal-ui/commit/61aedd6))
+  * Add TextFilter component ([3da892e](https://github.com/pivotal-cf/pivotal-ui/commit/3da892e))
+* **tooltip**: Allow manual control of TooltipTrigger visibility ([479911f](https://github.com/pivotal-cf/pivotal-ui/commit/479911f))
 <a name="10.2.0"></a>
 # 10.2.0 (2017-10-26)
 #### CSS
