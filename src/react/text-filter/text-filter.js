@@ -8,13 +8,13 @@ export class TextFilter extends React.Component {
   static propTypes = {
     data: PropTypes.array.isRequired,
     filter: PropTypes.func.isRequired,
-    onFilter: PropTypes.func.isRequired
+    renderFilteredData: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     data: [],
     filter: data => data,
-    onFilter: () => null
+    renderFilteredData: () => null
   };
 
   constructor(props) {
@@ -29,7 +29,7 @@ export class TextFilter extends React.Component {
   }
 
   render() {
-    const {data, filter, onFilter, className} = this.props;
+    const {data, filter, renderFilteredData, className} = this.props;
     const {filterText} = this.state;
     const filteredData = filter(data, filterText);
 
@@ -47,7 +47,7 @@ export class TextFilter extends React.Component {
               </span> / <span className="unfiltered-count">{data.length}</span>
           </FlexCol>
         </Grid>
-        {onFilter(filteredData)}
+        {renderFilteredData(filteredData)}
       </div>
     );
   }

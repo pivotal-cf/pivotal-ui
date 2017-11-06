@@ -2,17 +2,17 @@ import '../spec_helper';
 import {TextFilter} from '../../../src/react/text-filter';
 
 describe('TextFilter', () => {
-  let data, filter, onFilter;
+  let data, filter, renderFilteredData;
 
   beforeEach(() => {
     data = ['apple', 'banana', 'actuator'];
     filter = jasmine.createSpy('filter').and.returnValue(data);
-    onFilter = jasmine.createSpy('onFilter')
+    renderFilteredData = jasmine.createSpy('renderFilteredData')
       .and.returnValue(<ul>{data.map((v, i) => <li key={i}>{v}</li>)}</ul>);
     ReactDOM.render(<TextFilter {...{
       data,
       filter,
-      onFilter
+      renderFilteredData
     }}/>, root);
   });
 
@@ -43,8 +43,8 @@ describe('TextFilter', () => {
     expect('.text-filter > .grid .col:eq(2) .filtered-count').toHaveText(data.length);
   });
 
-  it('calls the onFilter callback', () => {
-    expect(onFilter).toHaveBeenCalledWith(data);
+  it('calls the renderFilteredData callback', () => {
+    expect(renderFilteredData).toHaveBeenCalledWith(data);
   });
 
   it('renders the filtered object', () => {
@@ -60,7 +60,7 @@ describe('TextFilter', () => {
     beforeEach(() => {
       filtered = ['apple', 'actuator'];
       filter.and.returnValue(filtered);
-      onFilter.and.returnValue(<ul>{filtered.map((v, i) => <li key={i}>{v}</li>)}</ul>);
+      renderFilteredData.and.returnValue(<ul>{filtered.map((v, i) => <li key={i}>{v}</li>)}</ul>);
       $('input').val('a').simulate('change');
     });
 
@@ -77,8 +77,8 @@ describe('TextFilter', () => {
       expect('.text-filter > .grid .col:eq(2)').toHaveText(`${filtered.length} / ${data.length}`);
     });
 
-    it('calls the onFilter callback', () => {
-      expect(onFilter).toHaveBeenCalledWith(filtered);
+    it('calls the renderFilteredData callback', () => {
+      expect(renderFilteredData).toHaveBeenCalledWith(filtered);
     });
 
     it('renders the filtered object', () => {
