@@ -55,10 +55,6 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
     this.props.show ? bodyNotAllowedToScroll(document) : bodyIsAllowedToScroll(document);
   }
 
-  componentDidMount() {
-    require('../../css/modals');
-  }
-
   modalClicked = e => {
     if (!this.dialog) return;
     if (this.dialog.contains(e.target)) return;
@@ -72,6 +68,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
   };
 
   componentDidMount() {
+    require('../../css/modals');
     const document = this.props.getDocument();
     if (typeof document === 'object') document.addEventListener('keydown', this.onKeyDown);
   }
