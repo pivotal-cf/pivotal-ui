@@ -1,3 +1,7 @@
+<a name="10.3.1"></a>
+## 10.3.1 (2017-11-07)
+#### React
+* **modals**: fixed double declaration of componentDidMount in the baseModal ([80a6f85](https://github.com/pivotal-cf/pivotal-ui/commit/80a6f85))
 <a name="10.3.0"></a>
 # 10.3.0 (2017-11-06)
 #### CSS
