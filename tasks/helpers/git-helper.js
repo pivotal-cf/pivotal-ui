@@ -90,7 +90,7 @@ export default class GitHelper {
   }
 
   getForkPoint(branch1, branch2) {
-    return this.git(`merge-base ${branch1} ${branch2} --fork-point`);
+    return this.git(`merge-base ${branch1} ${branch2}`);
   }
 
   async getLatestCommit(version) {
