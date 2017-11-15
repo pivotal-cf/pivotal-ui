@@ -17,7 +17,7 @@
     "axios": "^0.5.4",
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
-    "babel-loader": "^7.0.0",
+    "babel-loader": "7.1.1",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-object-assign": "^6.1.18",
     "babel-plugin-transform-react-display-name": "^6.4.0",
@@ -122,8 +122,8 @@
     "raf": "^3.1.0",
     "react-addons-shallow-compare": "^15.0.1",
     "react-dom": "^16.0.0",
-    "react-tether": "pivotal-cf/react-tether#upgrade-to-react-16",
     "scroll-into-view": "^1.3.0",
+    "tether": "^1.3.7",
     "through": "^2.3.8",
     "trie-search": "^1.0.1"
   },

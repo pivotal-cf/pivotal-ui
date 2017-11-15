@@ -55,13 +55,13 @@ describe('Modals', () => {
         MockRaf.next();
 
         expect(modalDialog).toHaveCss({'margin-top': '37.5px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0.6});
+        expect(modalBackdrop.style.opacity).toBeCloseTo(0.6, 0.01);
 
         MockNow.tick(delay / 2);
         MockRaf.next();
 
         expect(modalDialog).toHaveCss({'margin-top': '50px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0.8});
+        expect(modalBackdrop.style.opacity).toBeCloseTo(0.8, 0.01);
       });
 
       it('animates the modal out', () => {
@@ -74,13 +74,13 @@ describe('Modals', () => {
         result.close();
 
         expect(modalDialog).toHaveCss({'margin-top': '50px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0.8});
+        expect(modalBackdrop.style.opacity).toBeCloseTo(0.8, 0.01);
 
         MockNow.tick(delay / 2);
         MockRaf.next();
 
         expect(modalDialog).toHaveCss({'margin-top': '12.5px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0.2});
+        expect(modalBackdrop.style.opacity).toBeCloseTo(0.2, 0.01);
 
         MockNow.tick(delay / 2);
         MockRaf.next();
