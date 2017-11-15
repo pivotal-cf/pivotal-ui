@@ -1,3 +1,8 @@
+<a name="10.3.2"></a>
+## 10.3.2 (2017-11-15)
+#### React
+* **overlay-trigger**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
+* **react-tether**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
 <a name="10.3.1"></a>
 ## 10.3.1 (2017-11-07)
 #### React
