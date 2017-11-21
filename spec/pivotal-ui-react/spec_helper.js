@@ -9,6 +9,7 @@ import MockRaf from 'raf';
 import './support/bluebird';
 import './support/set_immediate';
 import 'pivotal-js-jasmine-matchers';
+import 'spy-on-render';
 import ReactTestUtils from 'react-dom/test-utils';
 import stringifier from 'stringifier';
 

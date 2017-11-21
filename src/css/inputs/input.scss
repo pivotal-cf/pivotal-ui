@@ -1,0 +1,148 @@
+@import "../pui-variables";
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+input:not([type]) {
+  display: block;
+  width: 100%;
+  height: ($base-unit*4);
+  padding: 4px $base-unit;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  font-size: 14px;
+  background-color: #fff;
+  border: 1px solid $input-border;
+  border-radius: 2px;
+  -webkit-appearance: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: $dark-2;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+/* Removes awkward default styles on some inputs for iOS */
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+input[type="date"],
+input:not([type]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="date"]:focus,
+input:not([type]):focus {
+  border: 1px solid $input-border-focus;
+  outline: 0;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: inline;
+  margin-right: 2px;
+}
+
+html body {
+  input {
+    &.disabled, &:disabled {
+      background-color: $input-disabled;
+      cursor: not-allowed;
+      color: $dark-5;
+      border-color: $input-border;
+    }
+  }
+}
+
+$form-icon-size-lg: 20px;
+$form-icon-padding-lg: (($base-unit*5) - $form-icon-size-lg) / 2;
+$form-icon-size-sm: 12px;
+$form-icon-padding-sm: (($base-unit*3) - $form-icon-size-sm) / 2;
+input {
+  :not(input[type="radio"], input[type="checkbox"]) {
+    height: $base-unit * 4;
+  }
+
+  &.input-lg {
+    height: $base-unit * 5;
+    font-size: $font-size-large;
+    & ~ .icon {
+      font-size: $form-icon-size-lg;
+      right: $form-icon-padding-lg;
+      bottom: $form-icon-padding-lg;
+    }
+  }
+
+  &.input-sm {
+    padding-top: 0;
+    padding-bottom: 0;
+    height: $base-unit * 3;
+    font-size: $font-size-small;
+    & ~ .icon {
+      font-size: $form-icon-size-sm;
+      right: $form-icon-padding-sm;
+      bottom: $form-icon-padding-sm;
+    }
+  }
+}
+
+input[type="email"].invalid,
+input[type="number"].invalid,
+input[type="search"].invalid,
+input[type="text"].invalid,
+input[type="tel"].invalid,
+input[type="url"].invalid,
+input[type="password"].invalid,
+input[type="date"].invalid,
+input:not([type]).invalid {
+  border: 1px solid $input-border-invalid;
+}
+
+input[type="email"].valid,
+input[type="number"].valid,
+input[type="search"].valid,
+input[type="text"].valid,
+input[type="tel"].valid,
+input[type="url"].valid,
+input[type="password"].valid,
+input[type="date"].valid,
+input:not([type]).valid {
+  border: 1px solid $input-border-valid;
+}
+
+.input-icon-container {
+  position: relative;
+
+  & > .icon {
+    fill: $dark-5;
+    position: absolute;
+    top: 50%;
+    left: 7px;
+    transform: translateY(-50%);
+    font-size: 18px;
+  }
+
+  & > input:first-child {
+    padding-left: 32px;
+  }
+}

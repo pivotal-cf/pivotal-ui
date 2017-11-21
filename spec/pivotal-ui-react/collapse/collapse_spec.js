@@ -16,7 +16,8 @@ describe('BaseCollapse', function() {
 
   it('creates a collapsed panel', function() {
     expect('.panel-title').toHaveText('ima header');
-    expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
+    expect(Collapsible).toHaveBeenRenderedWithProps(
+      jasmine.objectContaining({expanded: false}));
     expect('.panel-body').toHaveText('Child');
   });
 
@@ -26,9 +27,11 @@ describe('BaseCollapse', function() {
     });
 
     it('updates the props of the bsPanel', function() {
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
+      expect(Collapsible).toHaveBeenRenderedWithProps(
+        jasmine.objectContaining({expanded: true}));
       $('.panel-title a').simulate('click');
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: false});
+      expect(Collapsible).toHaveBeenRenderedWithProps(
+        jasmine.objectContaining({expanded: false}));
     });
   });
 
@@ -53,7 +56,8 @@ describe('BaseCollapse', function() {
     });
 
     it('starts out expanded', () => {
-      expect(Collapsible).toHaveBeenRenderedWithProps({expanded: true});
+      expect(Collapsible).toHaveBeenRenderedWithProps(
+        jasmine.objectContaining({expanded: true}));
     });
   });
 });
