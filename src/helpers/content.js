@@ -20,6 +20,7 @@ import * as Autocomplete from 'pivotal-ui/react/autocomplete';
 import * as Top from 'pivotal-ui/react/back-to-top';
 import * as Buttons from 'pivotal-ui/react/buttons';
 import * as Checkbox from 'pivotal-ui/react/checkbox';
+import * as CheckboxDropdown from 'pivotal-ui/react/checkbox-dropdown';
 import * as Collapse from 'pivotal-ui/react/collapse';
 import * as Clipboard from 'pivotal-ui/react/copy-to-clipboard';
 import * as Dividers from 'pivotal-ui/react/dividers';
@@ -67,6 +68,7 @@ import BorderJson from '../../docs/components/Border.md';
 import BoxShadowsJson from '../../docs/components/BoxShadows.md';
 import ButtonGroupJson from '../../docs/components/ButtonGroup.md';
 import ButtonsJson from '../../docs/components/Buttons.md';
+import CheckboxDropdownJson from '../../docs/components/CheckboxDropdowns.md';
 import CodeJson from '../../docs/components/Code.md';
 import CollapseJson from '../../docs/components/Collapse.md';
 import ColorsJson from '../../docs/components/Colors.md';
@@ -123,6 +125,7 @@ const routes = {
   box_shadows: {json: BoxShadowsJson, file: 'components/BoxShadows.md', name: 'Box Shadows', category: 'Components', packages: [BoxShadows]},
   button_group: {json: ButtonGroupJson, file: 'components/ButtonGroup.md', name: 'Button Group', category: 'Components', packages: [ButtonGroup]},
   buttons: {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
+  checkbox_dropdown: {json: CheckboxDropdownJson, file: 'components/CheckboxDropdown.md', name: 'Checkbox Dropdown', category: 'Components', packages: [CheckboxDropdown]},
   code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
   collapse: {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
   colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Colors]},
