@@ -17,14 +17,16 @@
     border-left: solid 1px $table-border-color;
     border-right: solid 1px $table-border-color;
 
-    &:last-child {
-      border-bottom: solid 1px $table-border-color;
-    }
     &.tr-hover:hover {
       background-color: $table-bg-hover;
     }
   }
-  .tr-drawer:last-child {
+
+  .tbody .tr:last-child {
+    border-bottom: solid 1px $table-border-color;
+  }
+
+  .tbody .tr-drawer:last-child {
     border-bottom: solid 1px $table-border-color;
   }
   //Table Cell
@@ -72,7 +74,7 @@
     }
   }
   //No External borders to a table
-  &.table-no-ext-borders .tr, &.table-no-ext-borders .tr-drawer {
+  &.table-no-ext-borders .tbody .tr, &.table-no-ext-borders .tbody .tr-drawer {
     border-left: none;
     border-right: none;
     &:first-child {
@@ -82,14 +84,19 @@
       border-bottom: none;
     }
   }
-  .table-no-ext-borders.tr, .table-no-ext-borders.tr-drawer {
-    border-left: none;
-    border-right: none;
-    &:first-child {
-      border-top: none;
+
+  &.table-no-ext-borders .tbody .tr-drawer {
+    .tr {
+      border-top: solid 1px $table-border-color;
     }
-    &:last-child {
-      border-bottom: none;
+  }
+
+  &.table-no-ext-borders .thead .tr-drawer {
+    border-top: none;
+    border-bottom: none;
+
+    .tr {
+      border: none;
     }
   }
 
