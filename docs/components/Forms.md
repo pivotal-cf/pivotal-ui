@@ -348,7 +348,7 @@ Define a `onSubmitError` handler to map error messages to a specific field. Retu
 `npm install pivotal-ui --save`
 
 ```
-import {Form, FormRow, FormCol, FormUnit} from 'pivotal-ui/react/forms';
+import {Form, FormRow, FormCol} from 'pivotal-ui/react/forms';
 ```
 
 ## CSS Only
@@ -387,7 +387,7 @@ Property | Required | Type | Default | Description
 `labelPosition` | no | oneOf(['after']) | undefined | If `after` and `inline=true` positions the label after the field.
 `retainLabelHeight` | no | boolean | false | For fields without a label, add an empty space above the field to preserve the space where the label would be.
 `optional` | no | boolean | false | If `true`, marks a field as optional and adds `optionalText` to label
-`optionalText` | no | string | "(Optional)" | Text to add to label when field is optional
+`optionalText` | no | string | '(Optional)' | Text to add to label when field is optional
 `tooltip` | no | node | undefined | Content to place on the tooltip
 `tooltipSize` | no | oneOf(['sm', 'md', 'lg']) | 'md' | Size of tooltip
 `tooltipPlacement` | no | oneOf('top', 'bottom', 'left', 'right') | 'top' | Placement of tooltip in relation to icon
