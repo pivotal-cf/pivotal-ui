@@ -666,14 +666,14 @@ describe('Form', () => {
     });
   });
 
-  describe('isModified', () => {
-    let isModified;
+  describe('onModified', () => {
+    let onModified;
 
     beforeEach(() => {
-      isModified = jasmine.createSpy('isModified');
+      onModified = jasmine.createSpy('onModified');
 
       subject = ReactDOM.render(
-        <Form {...{className: 'some-form', afterSubmit, isModified}}>
+        <Form {...{className: 'some-form', afterSubmit, onModified}}>
           <FormRow>
             <FormCol {...{
               name: 'name',
@@ -695,57 +695,57 @@ describe('Form', () => {
         $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
       });
 
-      it('calls the isModified callback with true', () => {
-        expect(isModified).toHaveBeenCalledWith(true);
-        expect(isModified).not.toHaveBeenCalledWith(false);
+      it('calls the onModified callback with true', () => {
+        expect(onModified).toHaveBeenCalledWith(true);
+        expect(onModified).not.toHaveBeenCalledWith(false);
       });
 
       describe('when resetting manually', () => {
         beforeEach(() => {
-          isModified.calls.reset();
+          onModified.calls.reset();
           $('.grid:eq(0) .col:eq(0) input').val('some-name').simulate('change');
         });
 
-        it('calls the isModified callback with false', () => {
-          expect(isModified).toHaveBeenCalledWith(false);
-          expect(isModified).not.toHaveBeenCalledWith(true);
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
         });
       });
 
       describe('when resetting with the reset callback', () => {
         beforeEach(() => {
-          isModified.calls.reset();
+          onModified.calls.reset();
           $('.cancel').click();
         });
 
-        it('calls the isModified callback with false', () => {
-          expect(isModified).toHaveBeenCalledWith(false);
-          expect(isModified).not.toHaveBeenCalledWith(true);
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
         });
       });
 
       describe('when submitting', () => {
         beforeEach(() => {
-          isModified.calls.reset();
+          onModified.calls.reset();
           $('.save').click();
           MockPromises.tick();
         });
 
-        it('calls the isModified callback with false', () => {
-          expect(isModified).toHaveBeenCalledWith(false);
-          expect(isModified).not.toHaveBeenCalledWith(true);
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
         });
       });
 
       describe('when unmounting', () => {
         beforeEach(() => {
-          isModified.calls.reset();
+          onModified.calls.reset();
           ReactDOM.unmountComponentAtNode(root);
         });
 
-        it('calls the isModified callback with false', () => {
-          expect(isModified).toHaveBeenCalledWith(false);
-          expect(isModified).not.toHaveBeenCalledWith(true);
+        it('calls the onModified callback with false', () => {
+          expect(onModified).toHaveBeenCalledWith(false);
+          expect(onModified).not.toHaveBeenCalledWith(true);
         });
       });
     });

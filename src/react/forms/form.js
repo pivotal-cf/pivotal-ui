@@ -10,14 +10,14 @@ const noop = () => {
 
 export class Form extends React.Component {
   static propTypes = {
-    isModified: PropTypes.func.isRequired,
+    onModified: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     onSubmitError: PropTypes.func.isRequired,
     afterSubmit: PropTypes.func.isRequired
   };
 
   static defaultProps = {
-    isModified: noop,
+    onModified: noop,
     onSubmit: noop,
     onSubmitError: () => ({}),
     afterSubmit: noop
@@ -68,7 +68,7 @@ export class Form extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.isModified(false);
+    this.props.onModified(false);
   }
 
   onClick(name) {
@@ -84,7 +84,7 @@ export class Form extends React.Component {
 
   onChange(name, validator) {
     const {initial} = this.state;
-    const {isModified} = this.props;
+    const {onModified} = this.props;
     return (...args) => {
       const value = args.length > 1 ? args[1] : args[0] && args[0].target.value;
       const nextState = {
@@ -101,7 +101,7 @@ export class Form extends React.Component {
         };
       }
       this.setState(nextState);
-      isModified(!deepEqual(initial, nextState.current));
+      onModified(!deepEqual(initial, nextState.current));
     };
   }
 
@@ -137,14 +137,14 @@ export class Form extends React.Component {
 
   async onSubmit(e) {
     e && e.preventDefault();
-    const {onSubmit, onSubmitError, afterSubmit, isModified} = this.props;
+    const {onSubmit, onSubmitError, afterSubmit, onModified} = this.props;
     const {initial, current} = this.state;
     this.setState({saving: true});
     const nextState = {saving: false};
     try {
       const response = await onSubmit({initial, current});
       this.setState({...nextState, current, initial: deepClone(current), errors: {}});
-      await isModified(false);
+      await onModified(false);
       afterSubmit({state: this.state, setState: this.setState, response, reset: this.reset});
     } catch (err) {
       this.setState({...nextState, errors: (onSubmitError && onSubmitError(err)) || {}});
@@ -153,9 +153,9 @@ export class Form extends React.Component {
   }
 
   reset() {
-    const {isModified} = this.props;
+    const {onModified} = this.props;
     const {initial} = this.state;
-    isModified(false);
+    onModified(false);
     this.setState({current: deepClone(initial), errors: {}});
   }
 
