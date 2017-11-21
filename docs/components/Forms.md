@@ -1,117 +1,345 @@
 # Forms
 
-## Subcomponents
-- [Inputs](#inputs)  
-- [Selects](#selects)
-- [Checkboxes](#checkboxes)  
-- [Radios](#radios)  
-- [Toggles](#toggle)
+## Description
 
-## Examples   
+A declarative abstraction that handles layout, state, validation and error handling.
+
+Layout is based on the [Flex Grid](/grids#flex-grids) system.
+
+## Examples
+
+The `Form` component works by building up a series of `FormRow` components, each containing one or more `FormCol`
+components. You can use these to lay out the fields in your form, and to control your form state.
+
+A `Form` will generally look like this:
+
+```
+<Form>
+    <FormRow>
+        <FormCol name="username">
+            <Input type="text"/>
+        </FormCol>
+        {...some more cols...}
+    </FormRow>
+    {...some more rows...}
+</Form>
+```
+
+### Basic Forms
+
+Each `FormCol` should be given a unique `name` prop, which will be how its value is stored in the form state.
+
+We can set an `initialValue` on each field. When the form is reset before submitting,
+all fields will revert to their `initialValue`, if provided.
 
 ```jsx
-::title=Form groups
-<form role="form">
-  <div className="form-group">
-    <Input {...{label: "App Name", id: "exampleInputAppName", placeholder: "Enter App Name", inputClassName: "form-control"}}/>
-  </div>
-  <div className="form-group">
-    <Input {...{label: "Password", id: "exampleInputPassword", placeholder: "Enter Password", inputClassName: "form-control"}}/>
-  </div>
-</form>
-```
-
-```html
-::title=Inline form groups
-::description=Add `.form-inline` to your `.form-group` for left-aligned and inline-block controls.
-<form class="styleguide-form">
-  <div class="form-group form-inline">
-    <label for="exampleInputEmail5">
-     Email
-    </label>
-    <input class="form-control" id="exampleInputEmail5" placeholder="Enter email" type="email">
-  </div>
-  <div class="form-group form-inline">
-    <label for="exampleInputPassword2">
-     Password
-    </label>
-    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
-  </div>
-  <div class="form-group form-inline">
-    <label>
-      <input type="checkbox">
-      Remember me
-    </label>
-  </div>
-  <div class="form-group form-inline">
-    <button class="btn btn-default" type="submit">Sign in</button>
-  </div>
-</form>
-```
-
-```html_example
-::title=Form groups in flex columns
-<div class="styleguide-form">
-    <div class="grid">
-        <div class="col">
-                <div class="form-group has-error">
-                    <label>Instance Name</label>
-                    <input class="form-control" placeholder="Instance Name" type="text"/>
-                    <div class="help-block">Please enter a valid instance name.</div>
-                </div>
+::title=Address Form
+::description=The last `FormRow` contains a `FormCol` that has a children function. We use the `Form`'s `canSubmit` function to control whether or not the "Submit" button is disabled, and we attach the `Form`'s `reset` function to the "Reset" button, to allow it to reset the form's state.
+<Form name="example02">
+    <FormRow>
+        <FormCol label="First Name" name="firstName" initialValue="John">
+            <Input type="text" />
+        </FormCol>
+        <FormCol fixed label="M" optional optionalText="(Opt)" name="middle">
+            <Input type="text" />
+        </FormCol>
+        <FormCol label="Last Name" name="lastName" initialValue="Doe">
+            <Input type="text" />
+        </FormCol>
+    </FormRow>
+    <FormRow>
+        <FormCol label="Street Address" name="streetAddress">
+            <Input type="text" />
+        </FormCol>
+    </FormRow>
+    <FormRow>
+        <FormCol label="City" name="city">
+            <Input type="text" />
+        </FormCol>
+        <FormCol fixed label="State" name="state">
+            <select>
+                <option value="">[choose one]</option>
+                <option value="NY">NY</option>
+                <option value="CA">CA</option>
+            </select>
+        </FormCol>
+        <FormCol fixed label="Zip Code" name="zip">
+            <Input type="text" />
+        </FormCol>
+    </FormRow>
+    <FormRow className="txt-r">
+        <FormCol>{({canSubmit, reset}) =>
+            <div>
+                <PrimaryButton alt onClick={reset}>Reset</PrimaryButton>
+                <PrimaryButton disabled={!canSubmit()}>Submit</PrimaryButton>
             </div>
-            <div class="col">
-                <div class="form-group">
-                    <label>Add to Space</label>
-                    <select class="form-control">
-                        <option>Development</option>
-                        <option>Production</option>
-                        <option>Staging</option>
-                        <option>Dumping-ground</option>
-                    </select>   
-                </div>
-            </div>
-        </div>
-    </div>
+        }</FormCol>
+    </FormRow>
+</Form>
 ```
+#### Optional Fields
+
+When you set `optional={true}` on a `FormCol`, it can affect both the appearance of the field and the behavior
+of the form. The text "(Optional)" is added to the field label, and the field is no longer considered required.
+
+To change the text that is added to the label, set the `optionalText` prop on the `FormCol`. In the example above,
+we have set `optional={true}` and `optionalText="(Opt)"` for the `M` field.
+
+#### Field `id`s & label `for`s
+
+All fields require an `id`. If you do not provide one, a unique `id` will be generated for you. It is used to
+set the `for` attribute on the corresponding `<label>` tag, so that the label is semantically connected to the
+input.
+
+### Inline Forms & Label Position
+
+When you set the `inline` prop on a `FormCol` to `true`, the label gets positioned next to the field instead
+of above it. By default, the label will appear to the left of the field, but you can set `labelPosition="after"`
+to place the label on the right.
 
 ```jsx
-::title=Label top-aligned
-::description=An input with the label top aligned (this is the default layout).
-<form className="styleguide-form" role="form">
-  <div className="form-group">
-    <Input {...{label: "Email address", id: "exampleInputEmail7", placeholder: "Enter email", inputClassName: "form-control"}}/>
-  </div>
-</form>
+::title=Inline Form
+<Form name="inline-example">
+    <FormRow>
+        <FormCol inline label="First Name" name="firstName">
+            <Input type="text" />
+        </FormCol>
+        <FormCol inline={true} label="Last Name" name="lastName" tooltip="This should be a last name" tooltipSize="sm">
+            <Input type="text" />
+        </FormCol>
+    </FormRow>
+    <FormRow>
+        <FormCol inline labelPosition="after" label="I accept the terms and conditions" name="accept">
+            <Input type="checkbox" />
+        </FormCol>
+    </FormRow>
+</Form>
 ```
 
-```html
-::title=Label left-aligned
-::description=An input with the label left aligned
-<form class="styleguide-form grid grid-nogutter" role="form">
-  <div class="form-group col">
-    <label for="exampleInputEmail3">Email address</label>
-  </div>
-  <div class="form-group col col-grow-2">
-    <input aria-required="true" class="form-control" id="exampleInputEmail3" placeholder="Enter email" required="required" type="email">
-  </div>
-</form>
-```
+### Tooltips
+
+The `tooltip` prop on a `FormCol` makes an icon with a tooltip appear next to the label.
+`tooltipSize` can be set to: `sm`, `md` or `lg` in order to control it's size. And it's placement can be controlled
+via the `tooltipPlacement` prop with the following options: `left`, `right`, `bottom`, `top`.
 
 ```jsx
-::title=Size examples
-::description=Input has a `size` attribute that takes three options: small, medium (default), and large.
-<div className="grid">
-  <div className="col col-top form-group">
-    <Input size="large" label="Large" placeholder="Why does Pivotal UI..."/>
-  </div>
-  <div className="col col-top form-group">
-    <Input size="medium" label="Medium" placeholder="Why does Pivotal UI..."/>
-  </div>
-  <div className="col col-top form-group">
-    <Input size="small" label="Small" placeholder="Why does Pivotal UI..."/>
-  </div>
-</div>
+::title=Tooltips
+<Form name="inline-example">
+    <FormRow>
+        <FormCol inline
+                 labelPosition="after"
+                 label="This has a tooltip on the top"
+                 name="accept"
+                 tooltip="This is a tooltip on a FormCol."
+                 tooltipSize="sm">
+            <Input type="checkbox" />
+        </FormCol>
+        <FormCol inline
+                 labelPosition="after"
+                 label="This has a large tooltip on the right"
+                 name="accept"
+                 tooltip="This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol."
+                 tooltipSize="lg"
+                 tooltipPlacement="right">
+            <Input type="checkbox" />
+        </FormCol>
+    </FormRow>
+    <FormRow>
+        <FormCol inline
+                 labelPosition="after"
+                 label="This has a small tooltip on the bottom"
+                 name="accept"
+                 tooltip="This is a tooltip on a FormCol."
+                 tooltipSize="sm"
+                 tooltipPlacement="bottom">
+            <Input type="checkbox" />
+        </FormCol>
+        <FormCol inline
+                 labelPosition="after"
+                 label="This has a small tooltip on the left"
+                 name="accept"
+                 tooltip="This is a tooltip on a FormCol."
+                 tooltipSize="sm"
+                 tooltipPlacement="left">
+            <Input type="checkbox" />
+        </FormCol>
+    </FormRow>
+</Form>
+```
+
+### Row Wrappers
+
+If you define a `wrapper` prop on a `FormRow`, the `FormRow` will be wrapped in whatever JSX node you specify.
+You might use this with the `ExpanderContent` component to toggle the hiding and showing of rows.
+
+```jsx
+::title=Row Wrapper Example
+<Form name="example03">
+    <FormRow>
+        <FormCol name="field1" label="I am an always visible inline label" inline={true}>
+            <input type="text" placeholder="a visible field" />
+        </FormCol>
+    </FormRow>
+    <FormRow wrapper={({showField}) => <ExpanderContent {...{expanded: showField, delay: 200}}/>}>
+        <FormCol label="I am mostly visible" inline={true}>
+            <Input type="text" placeholder="Some hidden field" />
+        </FormCol>
+    </FormRow>
+    <FormRow>
+        <FormCol>{({setState, state: {showField}}) =>
+            <DefaultButton
+                onClick={() => setState({showField: !showField})}>
+                Hide/Show Field
+            </DefaultButton>
+        }</FormCol>
+    </FormRow>
+</Form>
+```
+
+### Client-side Validation
+
+In this next example, we do two kinds of client-side validation.
+
+First, we define a `validator` prop on the first `FormCol` to make sure that the password's length is 8 or
+more characters. `validator` functions take in the current value of the field that they are validating and
+return either an error message (if there is a validation error) or a falsy value (if there is no error).
+
+Next, to construct the "Save Password" button, we look at the current form state and render the button as
+disabled when `state.current.password1` and `state.current.password2` do not match.
+
+```jsx
+::title=Validated Fields Form
+<Form name="example01">
+    <FormRow>
+        <FormCol {...{
+            name: 'password1',
+            label: 'Enter your password',
+            validator: currentValue => currentValue.length < 8 ? 'Password must be 8+ characters' : null
+        }}>
+            <Input type="password" placeholder="Password" />
+        </FormCol>
+        <FormCol retainLabelHeight name="password2" help="Enter a matching password">
+            <Input type="password" placeholder="Re-enter password" />
+        </FormCol>
+    </FormRow>
+    <FormRow className="txt-r">
+        <FormCol >
+            {({canSubmit, state}) => {
+                const passwIsValid = state.current.password1 !== "" && state.current.password1 === state.current.password2;
+                return <DefaultButton alt disabled={!(canSubmit() && passwIsValid)}>Save Password</DefaultButton>
+            }}
+        </FormCol>
+    </FormRow>
+</Form>
+```
+
+### Dynamic FormCol Generation
+
+The children of a FormCol can also be a function that takes in an object with the following form properties and methods.
+This allows for form generation depending on these properties:
+
+Name     | Type | Description
+---------|------|-------
+`canSubmit` | function | Returns true if the all required fields are provided, and if all defined validators are passing.
+`canReset` | function | Returns true if the form's current state is different from the form's initial state
+`reset` | function | Resets the form to its initial state
+`onSubmit` | function | Function that is executed when a button of type `submit` is clicked.
+`saving` | boolean | True if the form is currently executing the `onSubmit` function
+`setState` | function | Sets the state of the `Form`
+`state` | object | State of the `Form`. Current state is `state.current`, and initial state is `state.initial`.
+`onChange` | function | Change handler for the given field. Use this to override the default behavior of the `Form`. By default, a `onChange` handler to each field that controls the entry in the `Form` state corresponding to the field's `name`.
+
+```jsx
+::title=Dynamic Field Generation
+<Form name="example01">
+    <FormRow>
+        <FormCol {...{
+            name: 'color',
+            label: 'Choose a color',
+            initialValue: 'rgba(0,255,0,0.5)'
+        }}>
+            <select>
+                <option value="rgba(0,255,0,0.5)">green</option>
+                <option value="rgba(255,0,0,0.5)">red</option>
+            </select>
+        </FormCol>
+        <FormCol retainLabelHeight>
+            {({state: {current: {color}}}) => <div {...{style: {backgroundColor: color}}}>Styled dynamically from first field</div>}
+        </FormCol>
+    </FormRow>
+</Form>
+```
+### Form submission
+Define an `onSubmit` prop on a `Form` to do something with the state values on submission.
+The `onSubmit` method is passed `{state: {initial, current}}`.
+
+By default, a button within the `Form` that has `type="submit"` will trigger submission.
+
+```jsx
+::title=Form submission
+<Form {...{
+    onSubmit: ({initial, current}) => alert(`You changed your name from ${initial.firstName} ${initial.lastName} to ${current.firstName} ${current.lastName}`)
+}}>
+    <FormRow>
+        <FormCol label="First Name" name="firstName" initialValue="John">
+            <Input type="text" />
+        </FormCol>
+        <FormCol label="Last Name" name="lastName" initialValue="Doe">
+            <Input type="text" />
+        </FormCol>
+        <FormCol retainLabelHeight>
+            {({canSubmit}) => <PrimaryButton type="submit" disabled={!canSubmit()}>Submit</PrimaryButton>}
+        </FormCol>
+    </FormRow>
+</Form>
+```
+
+You can also attach this behavior to another field that takes in the `onSubmit`, as shown below.
+
+```jsx
+::title=Form submission without a submit button
+<Form {...{
+    onSubmit: ({initial, current}) => alert(`You changed your name from ${initial.firstName} ${initial.lastName} to ${current.firstName} ${current.lastName}`)
+}}>
+    <FormRow>
+        <FormCol label="First Name" name="firstName" initialValue="John">
+            <Input type="text" />
+        </FormCol>
+        <FormCol label="Last Name" name="lastName" initialValue="Doe">
+            <Input type="text" />
+        </FormCol>
+        <FormCol retainLabelHeight className="col-middle">
+            {({onSubmit}) => <a onClick={onSubmit} href="#">Click to submit</a>}
+        </FormCol>
+    </FormRow>
+</Form>
+```
+
+### Form error handling
+
+Define a `onSubmitError` handler to map error messages to a specific field. Return an object keyed by the field's `name` to determine where the error is shown.
+
+```jsx
+::title=Form submission
+::description=The error is attached to the first name field.
+<Form {...{
+    onSubmit: ({initial, current}) => {
+        if (current.firstName.startsWith('F')) throw new Error(`First name ${current.firstName} begins with 'F'`)
+    },
+    onSubmitError: error => error.message.indexOf('First name') > -1 ? {firstName: error.message} : null
+}}>
+    <FormRow>
+        <FormCol label="First Name" name="firstName" initialValue="John" help="First names beginning with 'F' will have errors shown here">
+            <Input type="text" />
+        </FormCol>
+        <FormCol label="Last Name" name="lastName" initialValue="Doe">
+            <Input type="text" />
+        </FormCol>
+        <FormCol retainLabelHeight>
+            {({canSubmit}) => <PrimaryButton type="submit" disabled={!canSubmit()}>Submit</PrimaryButton>}
+        </FormCol>
+    </FormRow>
+</Form>
 ```
 
 ## Installation & Usage
@@ -119,13 +347,8 @@
 ## React
 `npm install pivotal-ui --save`
 
-
 ```
-import {Input} from 'pivotal-ui/react/inputs';
-import {Select} from 'pivotal-ui/react/select';
-import {Checkbox} from 'pivotal-ui/react/checkbox';
-import {RadioGroup, Radio} from 'pivotal-ui/react/radio';
-import {Toggle} from 'pivotal-ui/react/toggle';
+import {Form, FormRow, FormCol, FormUnit} from 'pivotal-ui/react/forms';
 ```
 
 ## CSS Only
@@ -133,549 +356,42 @@ import {Toggle} from 'pivotal-ui/react/toggle';
 
 `import * as Forms from 'pivotal-ui/css/forms';`
 
-# Inputs
-
-## Description
-`Input` uses the [Iconography](/icons) component for `search` and `success`.
-If you use those props, you will need to add an svg loader:
-
-```npm install babel-loader react-svg-loader --save-dev```
-
-Most common form control, text-based input fields. Includes support for all HTML5 types: `text`, `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search`, `tel`, and `color`. Inputs will only be fully styled if their type is properly declared.
-
-## Examples
-
-```jsx
-::title=Inputs
- <Input {...{id: "textInput", placeholder: "Text input", label: "Text label"}}/>
-```
-
-### HTML5 Controls
-
-Examples of standard form controls supported in an example form layout.
-
-```html
-::title=Password field
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5PasswordInput">Password Input</label>
-    <input class="form-control" id="html5PasswordInput" placeholder="Password" type="password">
-  </div>
-</form>
-```
-
-```html
-::title=Date
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5DateInput">Date Input</label>
-    <input class="form-control" id="html5DateInput" placeholder="Date" type="date">
-  </div>
-</form>
-```
-
-```html
-::title=Number
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5NumberInput">Number Input</label>
-    <input class="form-control" id="html5NumberInput" placeholder="Number" type="number">
-  </div>
-</form>
-```
-
-```html
-::title=With a min/max and default starting value
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5MinMaxInput">Min/Max Input</label>
-    <input class="form-control" id="html5MinMaxInput" placeholder="Number" type="number" min=0 max=2 value=1>
-  </div>
-</form>
-```
-
-```html
-::title=With a different increment value
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5StepInput">Step Input</label>
-    <input class="form-control" id="html5StepInput" placeholder="Number" type="number" step=5>
-  </div>
-</form>
-```
-
-```html
-::title=Email
-::description=Use this with fields that require email addresses to pop up the correct keyboard on mobile
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5EmailInput">Email Input</label>
-    <input class="form-control" id="html5EmailInput" placeholder="Email" type="email">
-  </div>
-</form>
-```
-
-```html
-::title=URL
-::description=Use this with fields that require urls to pop up the correct keyboard on mobile
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5URLInput">URL Input</label>
-    <input class="form-control" id="html5URLInput" placeholder="URL" type="url">
-  </div>
-</form>
-```
-
-```html
-::title=Telephone
-::description=Use this with fields that require telephone numbers to pop up the dialpad on mobile
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label for="html5PhoneInput">Phone Input</label>
-    <input class="form-control" id="html5PhoneInput" placeholder="Telephone" type="tel">
-  </div>
-</form>
-```
-
-```html
-::title=Read-only inputs
-::description=Add the `readonly` boolean attribute on an input to prevent user input and style the input as disabled.
-<div class="form-group">
- <label for="ReadOnlyInput">ReadOnly</label>
- <input class="form-control" type="text" id="ReadOnlyInput" placeholder="Readonly input here..." readonly>
-</div>
-```
-### Validations
-
-```html
-::title=Basic example
-::description=Error messages should use the classes `.help-block.has-error`.
-<form class="styleguide-form" role="form">
-  <div class="form-group has-error">
-    <label class="control-label" for="inputError">
-      Input with error
-    </label>
-    <input id="inputError" class="form-control" type="text">
-    <span class="help-block">
-      Error help text
-    </span>
-  </div>
-</form>
-
-<form class="styleguide-form" role="form">
-  <div class="form-group has-error">
-    <div class="checkbox">
-      <label class="control-label">
-        <input type="checkbox" value="">
-        Checkbox which needs to be checked
-      </label>
-      <span class="help-block">
-        Error help text
-      </span>
-    </div>
-  </div>
-</form>
-```
-
-```jsx
-::title=Input with custom error message
-::description=Inputs display a custom `errorMessage` when the `displayError` parameter is truthy.
-<Input label="Label!"
-       labelClassName="hello"
-       displayError={true}
-       errorMessage="Try Again, Fool"
-       inputClassName="hey"
-/>
-
-```
-
-### Static Controls
-
-```html
-::title=Horizontal form example
-<form class="styleguide-form" role="form">
-  <div class="row form-group">
-    <label class="col-md-4 control-label">Email</label>
-    <div class="col-sm-10">
-      <p class="form-control-static">email@example.com</p>
-    </div>
-  </div>
-  <div class="row form-group">
-    <label class="col-md-4 control-label" for="inputPassword">Password</label>
-    <div class="col-sm-10">
-      <input class="form-control" id="inputPassword" placeholder="Password" type="password">
-    </div>
-  </div>
-</form>
-```
-
-```html
-::title=Vertical form example
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <label class="control-label">Email</label>
-    <p class="form-control-static">someguy@test.com</p>
-  </div>
-  <div class="form-group">
-    <label class="control-label" for="name">Name</label>
-    <input class="form-control" id="name" placeholder="name">
-  </div>
-</form>
-```
-
-### Inputs with icons
-
-```jsx
-::title=Input with checkmark
-::description=Inputs display a checkmark when the `success` prop is true.
-<Input success
-       label="Great Label for a Great Job!"
-       placeholder="YOU ARE SO COOL" />
-```
-
-```jsx
-::title=Search input
-::description=Inputs have a magnifying glass when the `search` prop is true
-<Input search
-       label="Search For Answers"
-       placeholder="Why does Pivotal UI..." />
-```
-
-```jsx
-::title=Custom icon input
-::description=Inputs have a custom svg icon when `leftIcon` is provided. The custom icon will override the `search` prop if both are provided.
-<div>
-    <Input leftIcon="add"
-           label="Add something here"
-           placeholder="Why does Pivotal UI..." />
-    <Input leftIcon={<img src="static/add_circle.svg" width="16" height="16"/>}
-                  label="This has an custom icon"
-                  placeholder="Why does Pivotal UI..." />
-</div>
-```
-
-### Sizing
-
-```jsx
-::title=Size examples
-::description=Input has a `size` attribute that takes three options: small, medium (default), and large.
-<div className="grid">
-  <div className="col col-top form-group">
-    <Input size="large" label="Large" placeholder="Why does Pivotal UI..."/>
-  </div>
-  <div className="col col-top form-group">
-    <Input size="medium" label="Medium" placeholder="Why does Pivotal UI..."/>
-  </div>
-  <div className="col col-top form-group">
-    <Input size="small" label="Small" placeholder="Why does Pivotal UI..."/>
-  </div>
-</div>
-```
-
-### Input filtering
-
-```jsx
-::title=Filtering search example
-::description=To demonstrate how to use an Input in a more complex example, let's say we want to filter a list based on the user's input. We can accomplish this by creating a stateful component which is composed of the Input and the list to filter.
-class FilteringSearchExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filter: "",
-      items: ['Apple', 'Banana', 'Orange']
-    };
-  }
-
-  render() {
-    const filterRegex = new RegExp(this.state.filter, "i");
-    const listItems = this.state.items
-      .map(item => item.match(filterRegex) && <li key={item}>{item}</li>);
-
-    return (
-      <div>
-        <Input search placeholder="Filter by..." onChange={event => this.setState({ filter: event.target.value })}/>
-        <ul>
-          {listItems}
-        </ul>
-      </div>
-    );
-  }
-}
-
-<div>
-  <FilteringSearchExample />
-</div>
-```
-
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-Input uses the [Iconography](http://styleguide.pivotal.io/react_base_iconography.html) component for `search` and `success`. If you use those props, you will need to add an svg loader:
-
-`npm install babel-loader react-svg-loader --save-dev`
-
-`import {Input} from 'pivotal-ui/react/inputs';`
-
 ## Props
 
-Property       | Required | Type                              | Default  | Description
----------------|----------|-----------------------------------|----------|------------
-autoFocus      | no       | Boolean                           | false    | Focus the inner input element on mount
-displayError   | no       | Boolean                           | false    | Displays the error message when true
-errorMessage   | no       | Node                              |          | Message that gets displayed when displayError is true
-inputClassName | no       | String                            |          | Classname of the inner input element
-id             | no       | String                            |          | The inner label will specify htmlFor=id
-label          | no       | Node                              |          | The content of this label
-labelClassName | no       | String                            |          | Sets the wrapping label classname
-leftIcon       | no       | oneOf(String, Element)            |          | Inputs have a custom svg icon when leftIcon is provided
-placeholder    | no       | String                            |          | Input placeholder
-search         | no       | Boolean                           | false    | Inputs have a magnifying glass when the search prop is true
-size           | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
-success        | no       | Boolean                           | false    | Inputs display a checkmark when the success prop is true
-
-# Selects
-
-## Description
-
-Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
-
-## Examples
-
-```html
-::title=Selects
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <select class="form-control">
-      <option>default option</option>
-      <option>an option</option>
-      <option>another option</option>
-    </select>
-  </div>
-</form>
-```
-
-```html
-::title=Sizing
-::description=Set heights using the form control classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
-<div class="form-group">
-  <select class="form-control input-lg">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <select class="form-control">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <select class="form-control input-sm">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
-```
-
-```jsx
-::title=React select
-<div>
-    <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
-</div>
-```
-
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`npm install babel-loader react-svg-loader --save-dev`
-
-`import {Select} from 'pivotal-ui/react/select';`
-
-## Props
+### Form
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-defaultValue | no  | Any      | | The initial value for the select when the select is uncontrolled
-name         | no  | String   | | The name of the hidden input, useful when used in a form
-onChange     | no  | Function | | Callback that fires when the select is changed, must be provided for controlled inputs
-onEntered    | no  | Function | | Callback that fires after opening the select
-onExited     | no  | Function | | Callback that fires after closing the select
-options      | yes | Array    | | Options for the select, can be string or numbers or an object with label and value (e.g. `['one', 'two', 'three']`, `[1, 2, 3]`, `[{label: 'yes', value: 1}, {label: 'no', value: 0}]`)
-value        | no  | Any      | | The value for the select when it is controlled, must be used with an `onChange` function to update the value of the select
+`onModified` | no | function | () => {} | Called on every state change. Called with `true` when current state is different from initial state. `false` when they are the same.
+`onSubmit` | no | function | () => {} | Called with the state, `{initial, current}`. If this function is async, we will await it.
+`onSubmitError` | no | function | () => {} | Called with any error that `onSubmit` throws. Should return object mapping from field `name` -> String.
+`afterSubmit` | no | function | () => {} | Called with `{state, setState, response, reset}`. `response` is the return value of `onSubmit`.
+`children` | no | node | undefined | Should all be of type `FormRow`. Any children of other types will not be rendered.
 
-# Checkboxes
-
-## Example
-
-```jsx
-::title=Checkbox with label
-::description=A Checkbox component renders a checkbox with a label. It accepts standard checkbox input properties (such as `placeholder`).
-<Checkbox label="Label"/>
-```
-
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Checkbox} from 'pivotal-ui/react/checkbox';`
-
-## Props
+### FormRow
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-displayError   | no | Boolean | false | Displays the error message when true
-errorMessage   | no | Node    |       | Message that gets displayed when displayError is true
-inputClassName | no | String  |       | Classname of the inner input element
-id             | no | String  |       | The inner label will specify htmlFor=id
-label          | no | Node    |       | The content of this label
-labelClassName | no | String  |       | Sets the wrapping label classname
+`wrapper`| no | function | undefined | See [Row Wrappers](#row-wrappers)
+`children` | no | node | undefined | Should all be of type `FormCol`. Any children of other types will not be rendered.
 
-# Radios
-
-## Examples
-
-For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
-
-```jsx
-::title=Basic example
-::description=In this case, the `name` attached to `RadioGroup` will be applied to all of Radio children.
-<RadioGroup name="field_name">
-  <Radio value="firstValue">You could click this radio button</Radio>
-  <Radio value="SecondValue" defaultChecked>This is also a radio button</Radio>
-  <Radio value="ThirdValue" disabled>This is a disabled radio button</Radio>
-</RadioGroup>
-```
-
-```jsx
-::title=onChange
-::description=Additionally, special behaviors can be added to the `onChange` event handler exposed by radio groups. In this example, additional form controls are displayed when the user selects the third radio button. Similar to the `name` property, the `onChange` handlers is passed down to all child components.
-class MyComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {selection: null};
-  }
-
-  render() {
-    return (
-      <form role="form" className="form-horizontal">
-        <div className="form-group">
-          <Row>
-            <Col md={3}>
-              <label>Options</label>
-            </Col>
-            <Col md={21}>
-              <RadioGroup name="stuff" onChange={event => this.setState({selection: event.target.value})}>
-                <Radio value="others">Others</Radio>
-                <Radio value="others1" defaultChecked>More others</Radio>
-                <Radio value="special">Click for more!</Radio>
-              </RadioGroup>
-            </Col>
-          </Row>
-        </div>
-        {this.state.selection === 'special' && (
-          <div className="form-group">
-            <Row>
-              <Col md={3}>
-                <label>Stuff that appears</label>
-              </Col>
-              <Col md={21}>
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-              </Col>
-            </Row>
-          </div>
-        )}
-      </form>
-    );
-  }
-}
-
-<div>
-  <MyComponent />
-</div>
-```
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {RadioGroup, Radio} from 'pivotal-ui/react/radio';`
-
-## Props
-
-RadioGroup
+### FormCol
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-id       | no  | String   | | The id of the element
-name     | yes | String   | | This name is passed to all children, so you don't have to specify name manually each time
-onChange | no  | Function | | Callback that fires each time selection is changed
-
-Radio
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-defaultChecked | no  | Boolean  | false | Whether this element is default checked
-value          | yes | String   |       | Value of the radio element
-onChange       | no  | Function |       | Callback that fires when this element selection is changed
-id             | no  | String   |       | The id of the element
-className      | no  | String   |       | The classname of the element
-style          | no  | Object   |       | Individual styling of the element
-disabled       | no  | Boolean  | false | Whether the radio is disabled
-
-# Toggle
-
-## Examples
-
-```jsx
-::title=Basic example
-::description=The Toggle component takes an `onChange` callback.
-<Toggle onChange={() => console.log('I have been toggled!')}/>
-```
-
-```jsx
-::title=Toggle checked
-::description=Toggles accept a `checked` prop that turns on the switch. Note that you must handle the addition and removal of the `checked` property yourself.
-<Toggle checked onChange={() => console.log('I should handle check changes!')}/>
-```
-
-```jsx
-::title=Toggle size
-::description=Toggle has a `size` attribute that takes three options: small, medium (default), and large.
-<div className="grid">
-  <div className="col col-top form-group">
-    <label className="label-lg">Large</label>
-    <Toggle size="large"/>
-  </div>
-  <div className="col col-top form-group">
-    <label>Medium</label>
-    <Toggle size="medium"/>
-  </div>
-  <div className="col col-top form-group">
-    <label className="label-sm">Small</label>
-    <Toggle size="small"/>
-  </div>
-</div>
-```
-
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Toggle} from 'pivotal-ui/react/toggle';`
-
-## Props
-
-Property | Required | Type                              | Default  | Description
----------|----------|-----------------------------------|----------|------------
-id       | no       | String                            |          | The id of the element
-onChange | no       | Function                          |          | Callback that gets fired when toggle occurs
-size     | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
+`name` | no | string | undefined | The key of field's value in the `Form`'s state.
+`hidden` | no | boolean | false | Whether or not the field is hidden
+`fixed` | no | boolean | false | If true, attaches the `col-fixed` class to this [Flex Grid](/grids#flex-grids) column.
+`inline` | no | boolean | false | If `true` positions the label on the same line as the field.
+`labelFor` | no | string | undefined | Value of the label's `for` attribute. If not provided, defaults to the field's `id`.
+`labelPosition` | no | oneOf(['after']) | undefined | If `after` and `inline=true` positions the label after the field.
+`retainLabelHeight` | no | boolean | false | For fields without a label, add an empty space above the field to preserve the space where the label would be.
+`optional` | no | boolean | false | If `true`, marks a field as optional and adds `optionalText` to label
+`optionalText` | no | string | "(Optional)" | Text to add to label when field is optional
+`tooltip` | no | node | undefined | Content to place on the tooltip
+`tooltipSize` | no | oneOf(['sm', 'md', 'lg']) | 'md' | Size of tooltip
+`tooltipPlacement` | no | oneOf('top', 'bottom', 'left', 'right') | 'top' | Placement of tooltip in relation to icon
+`help` | no | node | undefined | Help block shown underneath the field
+`hideHelpRow` | no | boolean | false | Hides the help/error block underneath the field, so it does not take up any space
+`validator` | no | function | undefined | If given, called with the current value of this field. Return truthy if the value is valid, or falsy otherwise.
+`children` | no | node or function | undefined | Field to wrap with label, or function that evaluates to a field. See [Dynamic FormCol Generation](#dynamic-formcol-generation)

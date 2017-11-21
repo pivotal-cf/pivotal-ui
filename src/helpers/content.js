@@ -28,6 +28,7 @@ import * as DraggableList from 'pivotal-ui/react/draggable-list';
 import * as Dropdowns from 'pivotal-ui/react/dropdowns';
 import * as Expander from 'pivotal-ui/react/expander';
 import * as Flyout from 'pivotal-ui/react/flyout';
+import * as Forms from 'pivotal-ui/react/forms';
 import * as Grids from 'pivotal-ui/react/grids';
 import * as Iconography from 'pivotal-ui/react/iconography';
 import * as Images from 'pivotal-ui/react/images';
@@ -69,6 +70,7 @@ import BoxShadowsJson from '../../docs/components/BoxShadows.md';
 import ButtonGroupJson from '../../docs/components/ButtonGroup.md';
 import ButtonsJson from '../../docs/components/Buttons.md';
 import CheckboxDropdownJson from '../../docs/components/CheckboxDropdowns.md';
+import CheckboxesJson from '../../docs/components/Checkboxes.md';
 import CodeJson from '../../docs/components/Code.md';
 import CollapseJson from '../../docs/components/Collapse.md';
 import ColorsJson from '../../docs/components/Colors.md';
@@ -82,6 +84,7 @@ import FlyoutJson from '../../docs/components/Flyout.md';
 import GridsJson from '../../docs/components/Grids.md';
 import IconsJson from '../../docs/components/Icons.md';
 import ImagesJson from '../../docs/components/Images.md';
+import InputsJson from '../../docs/components/Inputs.md';
 import LinksJson from '../../docs/components/Links.md';
 import ListsJson from '../../docs/components/Lists.md';
 import MediaJson from '../../docs/components/Media.md';
@@ -93,12 +96,14 @@ import PanelsJson from '../../docs/components/Panels.md';
 import PortalsJson from '../../docs/components/Portals.md';
 import PositioningJson from '../../docs/components/Positioning.md';
 import ProgressBarsJson from '../../docs/components/ProgressBars.md';
+import RadiosJson from '../../docs/components/Radios.md';
 import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
 import TablesJson from '../../docs/components/Tables.md';
 import TabsJson from '../../docs/components/Tabs.md';
 import TextFilterJson from '../../docs/components/TextFilter.md';
 import TileLayoutJson from '../../docs/components/TileLayout.md';
+import TogglesJson from '../../docs/components/Toggles.md';
 import TooltipsJson from '../../docs/components/Tooltips.md';
 import TypographyJson from '../../docs/components/Typography.md';
 import VerticalAlignmentJson from '../../docs/components/VerticalAlignment.md';
@@ -126,6 +131,7 @@ const routes = {
   button_group: {json: ButtonGroupJson, file: 'components/ButtonGroup.md', name: 'Button Group', category: 'Components', packages: [ButtonGroup]},
   buttons: {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
   checkbox_dropdown: {json: CheckboxDropdownJson, file: 'components/CheckboxDropdown.md', name: 'Checkbox Dropdown', category: 'Components', packages: [CheckboxDropdown]},
+  checkboxes: {json: CheckboxesJson, file: 'components/Checkboxes.md', name: 'Checkboxes', category: 'Components', packages: [Checkbox]},
   code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
   collapse: {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
   colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Colors]},
@@ -134,11 +140,12 @@ const routes = {
   dropdowns: {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
   ellipsis: {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: [Ellipsis]},
   expander: {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
-  forms: {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Checkbox, Inputs, Radio, Toggle]},
+  forms: {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Forms]},
   flyout: {json: FlyoutJson, file: 'components/Flyout.md', name: 'Flyout', category: 'Components', packages: [Alerts, Buttons, Flyout, Inputs]},
   grids: {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
   icons: {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   images: {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
+  inputs: {json: InputsJson, file: 'components/Inputs.md', name: 'Inputs', category: 'Components', packages: [Inputs]},
   links: {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: [Links]},
   lists: {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
   media: {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
@@ -150,12 +157,14 @@ const routes = {
   portals: {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
   positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: [Positioning]},
   progress_bars: {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBars]},
+  radios: {json: RadiosJson, file: 'components/Radios.md', name: 'Radio', category: 'Components', packages: [Radio]},
   select: {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
   svg: {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
   tables: {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
   tabs: {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
   textfilter: {json: TextFilterJson, file: 'components/TextFilter.md', name: 'TextFilter', category: 'Components', packages: [TextFilter]},
   tile_layout: {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
+  toggle: {json: TogglesJson, file: 'components/Toggles.md', name: 'Toggles', category: 'Components', packages: [Toggle]},
   tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
   typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: [Typography]},
   vertical_alignment: {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: [VerticalAlignment]},

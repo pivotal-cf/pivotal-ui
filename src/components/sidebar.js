@@ -37,7 +37,7 @@ export default class Sidebar extends React.PureComponent {
     const SearchBar = () => <Autocomplete onInitializeItems={onInitializeItems}
                                           placeholder="Search"
                                           className="sidebar--search phxl"
-                                          input={<AutocompleteInput><Input search/></AutocompleteInput>}
+                                          input={<AutocompleteInput><Input icon="search"/></AutocompleteInput>}
                                           onPick={this.handlePick.bind(this)}
                                           showNoSearchResults={true}/>;
 

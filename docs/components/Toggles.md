@@ -1,0 +1,49 @@
+# Toggle
+
+## Examples
+
+```jsx
+::title=Basic example
+::description=The Toggle component takes an `onChange` callback.
+<Toggle onChange={() => console.log('I have been toggled!')}/>
+```
+
+```jsx
+::title=Toggle checked
+::description=Toggles accept a `checked` prop that turns on the switch. Note that you must handle the addition and removal of the `checked` property yourself.
+<Toggle checked onChange={() => console.log('I should handle check changes!')}/>
+```
+
+```jsx
+::title=Toggle size
+::description=Toggle has a `size` attribute that takes three options: small, medium (default), and large.
+<div className="grid">
+  <div className="col col-top form-group">
+    <label className="label-lg">Large</label>
+    <Toggle size="large"/>
+  </div>
+  <div className="col col-top form-group">
+    <label>Medium</label>
+    <Toggle size="medium"/>
+  </div>
+  <div className="col col-top form-group">
+    <label className="label-sm">Small</label>
+    <Toggle size="small"/>
+  </div>
+</div>
+```
+
+## Installation & Usage
+
+#### React
+`npm install pivotal-ui --save`
+
+`import {Toggle} from 'pivotal-ui/react/toggle';`
+
+## Props
+
+Property | Required | Type                              | Default  | Description
+---------|----------|-----------------------------------|----------|------------
+id       | no       | String                            |          | The id of the element
+onChange | no       | Function                          |          | Callback that gets fired when toggle occurs
+size     | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
