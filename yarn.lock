@@ -6842,22 +6842,21 @@ pivotal-js-react-test-helpers@^0.1.0:
   resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.1.0.tgz#0f951e6d00c4fcd9678ac69b29c59af888c25910"
 
 "pivotal-ui@file:pui-dist":
-  version "10.0.0"
+  version "11.0.0"
   dependencies:
     classnames "^2.1.2"
     from "^0.1.3"
     lodash.sortby "^3.1.1"
     lodash.throttle "^3.0.2"
     lodash.uniqueid "^3.0.0"
-    phantomjs-prebuilt "^2.1.14"
     prismjs "0.0.1"
     pui-cursor "^3.0.4"
     pui-react-animation "^1.0.2"
     raf "^3.1.0"
     react-addons-shallow-compare "^15.0.1"
     react-dom "^16.0.0"
-    react-tether pivotal-cf/react-tether#upgrade-to-react-16
     scroll-into-view "^1.3.0"
+    tether "^1.3.7"
     through "^2.3.8"
     trie-search "^1.0.1"
 
@@ -7525,13 +7524,6 @@ react-svg-loader@^1.1.1:
     lodash.isplainobject "~4.0.4"
     svgo "~0.6.3"
     yargs "~4.8.0"
-
-react-tether@pivotal-cf/react-tether#upgrade-to-react-16:
-  version "0.6.0"
-  resolved "https://codeload.github.com/pivotal-cf/react-tether/tar.gz/ad5a502181ab4f166d89ab0a3c7c9bcb282e2c63"
-  dependencies:
-    prop-types "^15.5.8"
-    tether "^1.3.7"
 
 react@>=0.13.3, react@^16.0.0:
   version "16.0.0"
