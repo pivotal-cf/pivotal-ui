@@ -138,7 +138,7 @@ describe('FormCol', () => {
     describe('is set on the element', () => {
       beforeEach(() => {
         element = <input onChange={onChange}/>;
-        ReactDOM.render(<FormCol>
+        ReactDOM.render(<FormCol name="someName">
           {element}
         </FormCol>, root);
       });
@@ -187,7 +187,7 @@ describe('FormCol', () => {
           onChange.calls.reset();
           formUnitOnChange.calls.reset();
           element = <input />;
-          ReactDOM.render(<FormCol onChange={null}>
+          ReactDOM.render(<FormCol onChange={null} name="someName">
             {element}
           </FormCol>, root);
           $('input').val('new-value').simulate('change');
@@ -199,7 +199,7 @@ describe('FormCol', () => {
 
           expect(React.cloneElement).toHaveBeenCalledWith(element, jasmine.objectContaining({
             onChange: jasmine.any(Function),
-            name: undefined,
+            name: 'someName',
             id: 'some-unique-string',
             value: undefined
           }));
@@ -212,7 +212,7 @@ describe('FormCol', () => {
     describe('is set on the element', () => {
       beforeEach(() => {
         element = <input value="my-value"/>;
-        ReactDOM.render(<FormCol>
+        ReactDOM.render(<FormCol name="someName">
           {element}
         </FormCol>, root);
       });

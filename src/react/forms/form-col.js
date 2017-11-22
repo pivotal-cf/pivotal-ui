@@ -59,14 +59,18 @@ export class FormCol extends React.Component {
         id: element.props.id || newId()
       };
       htmlFor = labelFor || props.id;
-      const isCheckbox = element.props.type === 'checkbox';
-      if (isCheckbox) {
-        props.defaultChecked = state.current[name];
-        props.onClick = element.props.onClick || onClick(name);
-      } else {
-        props.value = element.props.value || (state.current && state.current[name]);
-        props.onChange = element.props.onChange || (onChange ? onChange(name, validator) : () => {});
-        validator && (props.onBlur = onBlur({name, validator}));
+
+      if (name) {
+        const isCheckbox = element.props.type === 'checkbox';
+        if (isCheckbox) {
+          props.defaultChecked = state.current[name];
+          props.onClick = element.props.onClick || onClick(name);
+        } else {
+          props.value = element.props.value || (state.current && state.current[name]);
+          props.onChange = element.props.onChange || (onChange ? onChange(name, validator) : () => {
+            });
+          validator && (props.onBlur = onBlur({name, validator}));
+        }
       }
       field = React.cloneElement(element, props);
     }

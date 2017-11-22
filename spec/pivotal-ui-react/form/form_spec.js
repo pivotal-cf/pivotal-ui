@@ -567,6 +567,52 @@ describe('Form', () => {
     });
   });
 
+  describe('with two nameless fields', () => {
+    let onChange;
+
+    beforeEach(() => {
+      onChange = jasmine.createSpy('onChange');
+
+      subject = ReactDOM.render(
+        <Form {...{className: 'some-form', afterSubmit}}>
+          <FormRow>
+            <FormCol>
+              <Input className="field1" onChange={onChange}/>
+            </FormCol>
+            <FormCol>
+              <Input className="field2"/>
+            </FormCol>
+          </FormRow>
+        </Form>, root);
+    });
+
+    it('does not store their values in the state', () => {
+      expect(subject.state.initial).toEqual({});
+    });
+
+    describe('when one field is updated', () => {
+      beforeEach(() => {
+        $('.field1').val('hello').simulate('change');
+      });
+
+      it('does not update the state', () => {
+        expect(subject.state.initial).toEqual({});
+      });
+
+      it('does not update the other', () => {
+        expect($('.field2').val()).toEqual('');
+      });
+
+      it('retains the value in the input', () => {
+        expect($('.field1').val()).toEqual('hello');
+      });
+
+      it('calls the given onChange callback', () => {
+        expect(onChange).toHaveBeenCalled();
+      });
+    });
+  });
+
   describe('with a hidden field', () => {
     beforeEach(() => {
       subject = ReactDOM.render(
