@@ -10,6 +10,7 @@ popd
 rm -rf node_modules
 yarn cache clean
 yarn --no-progress
+./node_modules/.bin/webpack --config ./frontend_webpack.config.babel.js -p
 
 mkdir -p dist
 
