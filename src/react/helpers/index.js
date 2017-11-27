@@ -1,1 +1,1 @@
-export {mergeProps} from './helpers';
+export {mergeProps, find} from './helpers';

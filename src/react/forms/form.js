@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import deepEqual from 'deep-equal';
 import {FormRow} from './form-row';
+import {find} from '../helpers';
 
 const deepClone = o => JSON.parse(JSON.stringify(o));
 const noop = () => {
@@ -121,13 +122,15 @@ export class Form extends React.Component {
     const {children} = this.props;
     const {initial, current, saving, requiredFields} = this.state;
     return !saving
-      && Object.keys(initial).find(key => !deepEqual(initial[key], current[key]))
+      && find(Object.keys(initial), key => !deepEqual(initial[key], current[key]))
       && (checkRequiredFields
         ? checkRequiredFields(this.state.current)
-        : !requiredFields.find(key => !current[key]))
-      && !React.Children.toArray(children)
-        .find(row => React.Children.toArray(row.props.children)
-          .find(({props: {name, validator}}) => validator && validator(this.state.current[name])));
+        : !find(requiredFields, key => !current[key]))
+      && !find(
+        React.Children.toArray(children),
+        row => find(
+          React.Children.toArray(row.props.children),
+          ({props: {name, validator}}) => validator && validator(this.state.current[name])));
   }
 
   canReset() {

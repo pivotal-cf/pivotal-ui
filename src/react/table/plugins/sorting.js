@@ -3,6 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {Icon} from '../../iconography';
 import sortBy from 'lodash.sortby';
+import {find} from '../../helpers';
 
 import {TablePlugin} from '../table-plugin';
 
@@ -11,12 +12,6 @@ const SORT_ORDER = {
   desc: 1,
   none: 2
 };
-
-function find(arr, cb) {
-  for (let i = 0; i < arr.length; i++) {
-    if (cb(arr[i])) return arr[i];
-  }
-}
 
 export function withSorting(Table) {
   return class TableWithSorting extends TablePlugin {

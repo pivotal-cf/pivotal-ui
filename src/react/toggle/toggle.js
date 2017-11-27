@@ -7,6 +7,7 @@ export class Toggle extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string,
     onChange: PropTypes.func,
+    onClick: PropTypes.func,
     size: PropTypes.oneOf(['small', 'medium', 'large'])
   };
 
@@ -14,26 +15,20 @@ export class Toggle extends React.PureComponent {
     size: 'medium'
   };
 
-  componentDidMount() {
-    require('../../css/forms');
-  }
-
   render() {
-    const {onChange, children, id, size, ...others} = this.props;
+    const {onChange, children, id, size, onClick, ...others} = this.props;
     const toggleId = id || uniqueid('toggle');
 
-    const inputProps = mergeProps(others,
-      {
-        className: 'toggle-switch',
-        id: toggleId,
-        type: 'checkbox',
-        onChange: onChange
-      }
-    );
+    const inputProps = mergeProps(others, {
+      className: 'toggle-switch',
+      id: toggleId,
+      type: 'checkbox',
+      onChange
+    });
 
-    return (<div className="form-group">
+    return (<div>
       <input {...inputProps}/>
-      <label htmlFor={toggleId} className={size}>{children}</label>
+      <label {...{htmlFor: toggleId, className: size, onClick}}>{children}</label>
     </div>);
   }
 }
