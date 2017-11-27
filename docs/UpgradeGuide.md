@@ -1,3 +1,31 @@
+# PUI 11.0 Release
+
+## Goals
+
+The goals of the 11.0 release are:
+
+- Introduce new Form component
+
+## The Big Changes
+
+### Removed
+- Label component
+
+### Input, Toggle
+- Moved some functionality (e.g. labels, tooltips, help text) out of these components
+and into the Form component.
+
+### TextFilter
+- Introduced the TextFilter component
+
+## Conversion Guide
+
+### Input, Toggle
+- Use the new Form component for functionality such as field labels, tooltips, and help text.
+
+### Select
+- The `onChange` callback will now receive the new `value` as a second argument, instead of putting it on `event.target.value`.
+
 # PUI 10.0 Release
 
 ## Goals
