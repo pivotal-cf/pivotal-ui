@@ -424,11 +424,11 @@ const data = [{
 
 ```jsx
 ::title=Scrollable table body (requires FlexTable)
-::description=When `scrollable="true"` and `tbodyHeight="<some height>"`, the table body will scroll when that height is exceeded.
+::description=When `scrollable` and `tbodyHeight="<some height>"`, the table body will scroll when that height is exceeded.
 const ScrollableTable = withScrollableTbody(FlexTable);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
-<ScrollableTable scrollable="true" tbodyHeight='200px' columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
+<ScrollableTable scrollable tbodyHeight='200px' columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
 ```
 
 ## Writing Plugins

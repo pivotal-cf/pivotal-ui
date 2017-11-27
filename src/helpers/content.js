@@ -29,7 +29,7 @@ import * as Dropdowns from 'pivotal-ui/react/dropdowns';
 import * as Expander from 'pivotal-ui/react/expander';
 import * as Flyout from 'pivotal-ui/react/flyout';
 import * as Forms from 'pivotal-ui/react/forms';
-import * as Grids from 'pivotal-ui/react/grids';
+import * as Grids from 'pivotal-ui/react/flex-grids';
 import * as Iconography from 'pivotal-ui/react/iconography';
 import * as Images from 'pivotal-ui/react/images';
 import * as Inputs from 'pivotal-ui/react/inputs';

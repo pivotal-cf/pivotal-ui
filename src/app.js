@@ -1,10 +1,8 @@
 import React from 'react';
-
-import '../stylesheets/app.scss';
-
 import Sidebar from './components/sidebar';
 import MarkdownViewer from './components/markdown_viewer';
 import contentMap, {attachPackagesToWindow} from './helpers/content';
+import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
 
 attachPackagesToWindow();
