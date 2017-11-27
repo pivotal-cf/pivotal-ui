@@ -52,8 +52,8 @@ export class FormCol extends React.Component {
       onChange: onChange ? onChange(name, validator) : () => null
     });
 
-    let field, htmlFor;
-    if (element) {
+    let field = element, htmlFor;
+    if (element && React.Children.count(element) === 1) {
       const props = {
         name: element.props.name || name,
         id: element.props.id || newId()

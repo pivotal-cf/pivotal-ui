@@ -134,6 +134,20 @@ describe('FormCol', () => {
     });
   });
 
+  describe('when there are multiple children', () => {
+    beforeEach(() => {
+      ReactDOM.render(<FormCol>
+        <input className="element1"/>
+        <input className="element2"/>
+      </FormCol>, root);
+    });
+
+    it('renders all children', () => {
+      expect('.element1').toExist();
+      expect('.element2').toExist();
+    });
+  });
+
   describe('when onChange', () => {
     describe('is set on the element', () => {
       beforeEach(() => {
