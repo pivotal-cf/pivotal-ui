@@ -34,36 +34,36 @@ This makes them ideal for highly repeated layouts such as lists.
 ::title=Basic example
 ::description=To create a tooltip where the contents are not inlined with the triggering element itself, use the OverlayTrigger component. If the `overlay` property passed into the `OverlayTrigger` will be displayed on hover, this is where the `Tooltip` can be used. This can be useful in situations where you want to have many different elements trigger the same tooltip. Tooltips are placed using the `placement` property on `OverlayTrigger`.
 <div>
-  <div className="form-group">
+  <p>
     Check out this
     <OverlayTrigger placement="left" overlay={<Tooltip>I should be on the left</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the left.</span>
     </OverlayTrigger>
-  </div>
-  <div className="form-group">
+  </p>
+  <p>
     Check out this
     <OverlayTrigger placement="right" overlay={<Tooltip>I should be on the right</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the right.</span>
     </OverlayTrigger>
-  </div>
-  <div className="form-group">
+  </p>
+  <p>
     Check out this
     <OverlayTrigger placement="top" overlay={<Tooltip>I should be on the top</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the top.</span>
     </OverlayTrigger>
-  </div>
-  <div className="form-group">
+  </p>
+  <p>
     Check out this
     <OverlayTrigger placement="bottom" overlay={<Tooltip>I should be on the bottom</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> tooltip on the bottom.</span>
     </OverlayTrigger>
-  </div>
-  <div className="form-group">
+  </p>
+  <p>
     Check out this
     <OverlayTrigger theme="light" overlay={<Tooltip>light tooltip</Tooltip>}>
       <span className="overlay-trigger" tabIndex="0"> light tooltip.</span>
     </OverlayTrigger>
-  </div>
+  </p>
 </div>
 ```
 
@@ -97,27 +97,6 @@ This makes them ideal for highly repeated layouts such as lists.
   </div>
 </div>
 </div>
-```
-
-```html
-::title=Form icon tooltip
-<form>
-  <div class="form-group">
-    <label for="formIconExample">Email address
-      <div class="tooltip tooltip-light tooltip-md">
-        <div class="icon icon-baseline">
-          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48"><path d="M22 34h4V22h-4v12zm2-30C12.95 4 4 12.95 4 24s8.95 20 20 20 20-8.95 20-20S35.05 4 24 4zm0 36c-8.82 0-16-7.18-16-16S15.18 8 24 8s16 7.18 16 16-7.18 16-16 16zm-2-22h4v-4h-4v4z"></path></svg>
-        </div>
-        <div class="tooltip-container">
-          <div class="tooltip-content">
-            Form Icon Tooltip
-          </div>
-        </div>
-      </div>
-    </label>
-    <input type="email" class="form-control" id="formIconExample" placeholder="Enter email">
-  </div>
-</form>
 ```
 
 If `trigger` is set to `manual`, display of the tooltip is entirely determined by the `display` prop,
@@ -176,13 +155,9 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 ```jsx
 ::title=Markup example
 ::description=Since the tooltip property is of type Node, you may add markup to the tooltip, such as links.
-<div>
-  <div className="form-group form-inline">
-    <TooltipTrigger isSticky tooltip={<a href="#">clickable link</a>} theme="light">
-      <button className="btn btn-default">Hover for clickable tooltip</button>
-    </TooltipTrigger>
-  </div>
-</div>
+<TooltipTrigger isSticky tooltip={<a href="#">clickable link</a>} theme="light">
+  <button className="btn btn-default">Hover for clickable tooltip</button>
+</TooltipTrigger>
 ```
 
 ```jsx

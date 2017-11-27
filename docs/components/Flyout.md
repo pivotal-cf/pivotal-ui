@@ -20,22 +20,21 @@ class Page extends React.Component {
     const {created, open} = this.state;
 
     const children = (
-      <form role="form">
-        <div className="form-group">
-          <Input {...{label: "Task Name", placeholder: "Enter Task Name", inputClassName: "form-control"}}/>
-        </div>
-        <div className="grid">
-          <div className="col"/>
-          <div className="col col-fixed">
-            <DefaultButton alt {...{
-              onClick: () => this.setState({open: false})
-            }}>Cancel</DefaultButton>
-            <DefaultButton {...{
-              onClick: () => this.setState({created: new Date(), open: false})
-            }}>Create</DefaultButton>
-          </div>
-        </div>
-      </form>
+      <Form>
+        <FormRow>
+          <FormCol name="name" label="Task Name">
+            <Input placeholder="Enter Task Name"/>
+          </FormCol>
+        </FormRow>
+        <FormRow>
+          <FormCol className="txt-r">
+            <div>
+              <DefaultButton alt onClick={() => this.setState({open: false})}>Cancel</DefaultButton>
+              <DefaultButton onClick={() => this.setState({created: new Date(), open: false})}>Create</DefaultButton>
+            </div>
+          </FormCol>
+        </FormRow>
+      </Form>
     );
 
     return (

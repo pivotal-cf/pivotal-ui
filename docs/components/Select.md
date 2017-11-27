@@ -15,40 +15,42 @@ Selects are excellent to use because they will automatically behave as expected 
 
 ```html
 ::title=Selects
-<form class="styleguide-form" role="form">
-  <div class="form-group">
-    <select class="form-control">
-      <option>default option</option>
-      <option>an option</option>
-      <option>another option</option>
-    </select>
-  </div>
-</form>
+<select class="form-control">
+  <option>default option</option>
+  <option>an option</option>
+  <option>another option</option>
+</select>
 ```
 
-```html
+```jsx
 ::title=Sizing
 ::description=Set heights using the form control classes `.input-lg` and `.input-sm`. Create larger or smaller form controls that match button sizes.
-<div class="form-group">
-  <select class="form-control input-lg">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <select class="form-control">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
-
-<div class="form-group">
-  <select class="form-control input-sm">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-</div>
+<Form>
+  <FormRow>
+    <FormCol name="large-select">
+      <select class="input-lg">
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </FormCol>
+  </FormRow>
+  <FormRow>
+    <FormCol name="medium-select">
+      <select>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </FormCol>
+  </FormRow>
+  <FormRow>
+    <FormCol name="small-select">
+      <select class="input-sm">
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </FormCol>
+  </FormRow>
+</Form>
 ```
 
 ## Installation & Usage
@@ -63,9 +65,7 @@ Selects are excellent to use because they will automatically behave as expected 
 
 ```jsx
 ::title=Basic example
-<div>
-    <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
-</div>
+<Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
 ```
 ## Installation & Usage
 
