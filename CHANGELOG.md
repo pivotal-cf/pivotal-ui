@@ -24,8 +24,8 @@
   * fixed double declaration of componentDidMount in the baseModal ([ad2c8d7](https://github.com/pivotal-cf/pivotal-ui/commit/ad2c8d7))
   * close modal on mousedown on the .modal [[:beetle:#152286689](https://www.pivotaltracker.com/story/show/152286689)] ([201d947](https://github.com/pivotal-cf/pivotal-ui/commit/201d947))
   * Fixed warning when unmounting animated modals ([6eef01d](https://github.com/pivotal-cf/pivotal-ui/commit/6eef01d))
-* **overlay-trigger**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
-* **react-tether**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
+* **overlay-trigger**: Internalized fork of react tether [[:gear:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
+* **react-tether**: Internalized fork of react tether [[:gear:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
 * **select**: Use data-value attribute instead of value for an &lt;li/&gt;, when firing onChange call with the event followed by the value instead of mutating the target ([16b48b9](https://github.com/pivotal-cf/pivotal-ui/commit/16b48b9))
 * **table**:
   * adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([d2e0426](https://github.com/pivotal-cf/pivotal-ui/commit/d2e0426))
@@ -45,8 +45,8 @@
 <a name="10.3.2"></a>
 ## 10.3.2 (2017-11-15)
 #### React
-* **overlay-trigger**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
-* **react-tether**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
+* **overlay-trigger**: Internalized fork of react tether [[:gear:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
+* **react-tether**: Internalized fork of react tether [[:gear:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
 <a name="10.3.1"></a>
 ## 10.3.1 (2017-11-07)
 #### React
