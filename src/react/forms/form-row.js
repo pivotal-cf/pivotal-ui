@@ -13,7 +13,7 @@ export class FormRow extends React.Component {
     reset: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    onClick: PropTypes.func,
+    onChangeCheckbox: PropTypes.func,
     wrapper: PropTypes.func
   };
 
@@ -27,7 +27,7 @@ export class FormRow extends React.Component {
     const filteredChildren = React.Children.toArray(children).filter(child => {
       const childIsFormRow = child.type === FormCol || child.type.prototype instanceof FormCol;
       if (!childIsFormRow) {
-        console.warn(`Child of type "${child.type}" will not be rendered. A FormRow\'s children should be of type FormCol.`);
+        console.warn(`Child of type "${child.type}" will not be rendered. A FormRow's children should be of type FormCol.`);
       }
       return childIsFormRow;
     });

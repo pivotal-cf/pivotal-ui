@@ -54,7 +54,7 @@ export class Form extends React.Component {
       requiredFields
     };
 
-    this.onClick = this.onClick.bind(this);
+    this.onChangeCheckbox = this.onChangeCheckbox.bind(this);
     this.onChange = this.onChange.bind(this);
     this.onBlur = this.onBlur.bind(this);
     this.reset = this.reset.bind(this);
@@ -72,7 +72,7 @@ export class Form extends React.Component {
     this.props.onModified(false);
   }
 
-  onClick(name) {
+  onChangeCheckbox(name) {
     return () => {
       this.setState({
         current: {
@@ -187,7 +187,7 @@ export class Form extends React.Component {
               reset: this.reset,
               onChange: this.onChange,
               onBlur: this.onBlur,
-              onClick: this.onClick
+              onChangeCheckbox: this.onChangeCheckbox
             })
           ))}
         </fieldset>

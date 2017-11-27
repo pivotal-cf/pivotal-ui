@@ -43,15 +43,15 @@ describe('FormCol', () => {
   });
 
   describe('when the element is a checkbox', () => {
-    let state, onClick, innerOnClick, checkbox;
+    let state, onChangeCheckbox, innerOnChange, checkbox;
 
     beforeEach(() => {
       checkbox = <input type="checkbox"/>;
       state = {current: {checkboxName: true}};
-      innerOnClick = () => 'clicked';
-      onClick = jasmine.createSpy('onClick').and.returnValue(innerOnClick);
+      innerOnChange = () => 'changed';
+      onChangeCheckbox = jasmine.createSpy('onChangeCheckbox').and.returnValue(innerOnChange);
 
-      ReactDOM.render(<FormCol name="checkboxName" state={state} onClick={onClick}>
+      ReactDOM.render(<FormCol name="checkboxName" state={state} onChangeCheckbox={onChangeCheckbox}>
         {checkbox}
       </FormCol>, root);
     });
@@ -60,8 +60,8 @@ describe('FormCol', () => {
       expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
         name: 'checkboxName',
         id: 'some-unique-string',
-        defaultChecked: true,
-        onClick: innerOnClick
+        checked: true,
+        onChange: innerOnChange
       });
     });
   });

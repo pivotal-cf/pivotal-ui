@@ -17,7 +17,7 @@ export class FormCol extends React.Component {
     reset: PropTypes.func,
     onChange: PropTypes.func,
     onBlur: PropTypes.func,
-    onClick: PropTypes.func,
+    onChangeCheckbox: PropTypes.func,
     name: PropTypes.string,
     help: PropTypes.node,
     validator: PropTypes.func,
@@ -37,7 +37,7 @@ export class FormCol extends React.Component {
 
   render() {
     const {
-      state, setState, canSubmit, onSubmit, canReset, reset, onChange, onBlur, onClick, fixed,
+      state, setState, canSubmit, onSubmit, canReset, reset, onChange, onBlur, onChangeCheckbox, fixed,
       children, name, help, validator, retainLabelHeight, hidden, labelFor, className, ...rest
     } = this.props;
 
@@ -63,8 +63,8 @@ export class FormCol extends React.Component {
       if (name) {
         const isCheckbox = element.props.type === 'checkbox';
         if (isCheckbox) {
-          props.defaultChecked = state.current[name];
-          props.onClick = element.props.onClick || onClick(name);
+          props.checked = state.current[name];
+          props.onChange = element.props.onChange || onChangeCheckbox(name);
         } else {
           props.value = element.props.value || (state.current && state.current[name]);
           props.onChange = element.props.onChange || (onChange ? onChange(name, validator) : () => {
