@@ -129,7 +129,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
         <FormCol inline
                  labelPosition="after"
                  label="This has a tooltip on the top"
-                 name="accept"
+                 name="accept1"
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm">
             <Input type="checkbox" />
@@ -137,7 +137,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
         <FormCol inline
                  labelPosition="after"
                  label="This has a large tooltip on the right"
-                 name="accept"
+                 name="accept2"
                  tooltip="This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol."
                  tooltipSize="lg"
                  tooltipPlacement="right">
@@ -148,7 +148,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
         <FormCol inline
                  labelPosition="after"
                  label="This has a small tooltip on the bottom"
-                 name="accept"
+                 name="accept3"
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm"
                  tooltipPlacement="bottom">
@@ -157,7 +157,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
         <FormCol inline
                  labelPosition="after"
                  label="This has a small tooltip on the left"
-                 name="accept"
+                 name="accept4"
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm"
                  tooltipPlacement="left">

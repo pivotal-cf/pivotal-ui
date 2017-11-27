@@ -154,23 +154,23 @@ In contrast to OverlayTriggers, the markup always exists in the DOM.
 ```jsx
 ::title=Basic example
 ::description=TooltipTriggers are an easy way to create CSS-driven tooltips with the tooltip content created inline with the triggering element. The content of the tooltip is wrapped in a Tooltip component for ease of styling. Please note that the TooltipTrigger will add a lot of markup to the DOM if you are using it in a highly repeated layout.
-<div>
-  <div className="form-group form-inline">
+<Grid>
+  <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip">
       <button className="btn btn-default">Hover over me</button>
     </TooltipTrigger>
-  </div>
-  <div className="form-group form-inline">
+  </FlexCol>
+  <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip" trigger="click">
       <button className="btn btn-default">Click me</button>
     </TooltipTrigger>
-  </div>
-  <div className="form-group form-inline">
+  </FlexCol>
+  <FlexCol fixed>
     <TooltipTrigger tooltip="Some tooltip" isSticky={true} placement="right">
       <button className="btn btn-default">Hover over me too!</button>
     </TooltipTrigger>
-  </div>
-</div>
+  </FlexCol>
+</Grid>
 ```
 
 ```jsx

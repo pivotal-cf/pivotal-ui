@@ -25,35 +25,24 @@ class MyComponent extends React.Component {
 
   render() {
     return (
-      <form role="form" className="form-horizontal">
-        <div className="form-group">
-          <Row>
-            <Col md={3}>
-              <label>Options</label>
-            </Col>
-            <Col md={21}>
-              <RadioGroup name="stuff" onChange={event => this.setState({selection: event.target.value})}>
-                <Radio value="others">Others</Radio>
-                <Radio value="others1" defaultChecked>More others</Radio>
-                <Radio value="special">Click for more!</Radio>
-              </RadioGroup>
-            </Col>
-          </Row>
-        </div>
+      <Form>
+        <FormRow>
+          <FormCol label="Options" name="stuff">
+            <RadioGroup onChange={event => this.setState({selection: event.target.value})}>
+              <Radio value="others">Others</Radio>
+              <Radio value="others1" defaultChecked>More others</Radio>
+              <Radio value="special">Click for more!</Radio>
+            </RadioGroup>
+          </FormCol>
+        </FormRow>
         {this.state.selection === 'special' && (
-          <div className="form-group">
-            <Row>
-              <Col md={3}>
-                <label>Stuff that appears</label>
-              </Col>
-              <Col md={21}>
-                <label htmlFor="exampleInputEmail1">Email address</label>
-                <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Enter email" />
-              </Col>
-            </Row>
-          </div>
+          <FormRow>
+            <FormCol label="Email address" name="email">
+              <input type="email" id="exampleInputEmail1" placeholder="Enter email" />
+            </FormCol>
+          </FormRow>
         )}
-      </form>
+      </Form>
     );
   }
 }

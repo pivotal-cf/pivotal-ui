@@ -17,20 +17,19 @@
 ```jsx
 ::title=Toggle size
 ::description=Toggle has a `size` attribute that takes three options: small, medium (default), and large.
-<div className="grid">
-  <div className="col col-top form-group">
-    <label className="label-lg">Large</label>
-    <Toggle size="large"/>
-  </div>
-  <div className="col col-top form-group">
-    <label>Medium</label>
-    <Toggle size="medium"/>
-  </div>
-  <div className="col col-top form-group">
-    <label className="label-sm">Small</label>
-    <Toggle size="small"/>
-  </div>
-</div>
+<Form>
+  <FormRow>
+    <FormCol inline labelPosition="after" label="Large">
+      <Toggle size="large"/>
+    </FormCol>
+    <FormCol inline labelPosition="after" label="Medium">
+      <Toggle size="medium"/>
+    </FormCol>
+    <FormCol inline labelPosition="after" label="Small">
+      <Toggle size="small"/>
+    </FormCol>
+  </FormRow>
+</Form>
 ```
 
 ## Installation & Usage
@@ -45,5 +44,6 @@
 Property | Required | Type                              | Default  | Description
 ---------|----------|-----------------------------------|----------|------------
 id       | no       | String                            |          | The id of the element
-onChange | no       | Function                          |          | Callback that gets fired when toggle occurs
+onChange | no       | Function                          |          | Callback that gets fired when Toggle state changes
+onClick  | no       | Function                          |          | Callback that gets fired when Toggle is clicked
 size     | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
