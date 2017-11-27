@@ -1,15 +1,70 @@
 <a name="11.0.0"></a>
-# 11.0.0 (2017-10-26)
+# 11.0.0 (2017-11-27)
 #### CSS
-* **forms**: Do not show native select dropdown icon on windows [#151620080] ([ee2d6ac](https://github.com/pivotal-cf/pivotal-ui/commit/ee2d6ac))
+* **bootstrap**: Bring new Form/FormRow/FormCol & Input into PUI [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([2bc89c8](https://github.com/pivotal-cf/pivotal-ui/commit/2bc89c8))
+* **forms**:
+  * Bring new Form/FormRow/FormCol & Input into PUI [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([2bc89c8](https://github.com/pivotal-cf/pivotal-ui/commit/2bc89c8))
+  * when rendering native selects in firefox, do not show the dropdown icon [[:beetle:#153037431](https://www.pivotaltracker.com/story/show/153037431)] ([7962f6b](https://github.com/pivotal-cf/pivotal-ui/commit/7962f6b))
+  * Do not show native select dropdown icon on windows [#151620080] ([ee2d6ac](https://github.com/pivotal-cf/pivotal-ui/commit/ee2d6ac))
+* **inputs**: Bring new Form/FormRow/FormCol & Input into PUI [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([2bc89c8](https://github.com/pivotal-cf/pivotal-ui/commit/2bc89c8))
 * **labels**: removed the labels [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] ([c4243b9](https://github.com/pivotal-cf/pivotal-ui/commit/c4243b9))
+* **tables**:
+  * fix table-no-ext-border class [[:beetle:#152734775](https://www.pivotaltracker.com/story/show/152734775)] ([2db3b5e](https://github.com/pivotal-cf/pivotal-ui/commit/2db3b5e))
+  * adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([d2e0426](https://github.com/pivotal-cf/pivotal-ui/commit/d2e0426))
+* **text-filter**: added props for placeholder and empty state on the TextFilter ([34614b1](https://github.com/pivotal-cf/pivotal-ui/commit/34614b1))
+* **typography**: Zero out only the top and bottom margin on all .h* classes [[:beetle:#152612612](https://www.pivotaltracker.com/story/show/152612612)] ([cec2166](https://github.com/pivotal-cf/pivotal-ui/commit/cec2166))
 #### React
+* **forms**:
+  * Fix Form behavior when FormCol does not have a name prop [[:star:#153037265](https://www.pivotaltracker.com/story/show/153037265)] ([d76b349](https://github.com/pivotal-cf/pivotal-ui/commit/d76b349))
+  * Rename Form prop isModified -&gt; onModified [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([4e70e4a](https://github.com/pivotal-cf/pivotal-ui/commit/4e70e4a))
+  * Bring new Form/FormRow/FormCol & Input into PUI [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([2bc89c8](https://github.com/pivotal-cf/pivotal-ui/commit/2bc89c8))
+* **inputs**: Bring new Form/FormRow/FormCol & Input into PUI [[:star:#152046755](https://www.pivotaltracker.com/story/show/152046755)] ([2bc89c8](https://github.com/pivotal-cf/pivotal-ui/commit/2bc89c8))
 * **labels**: removed the labels [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] ([c4243b9](https://github.com/pivotal-cf/pivotal-ui/commit/c4243b9))
 * **modals**:
+  * fixed double declaration of componentDidMount in the baseModal ([ad2c8d7](https://github.com/pivotal-cf/pivotal-ui/commit/ad2c8d7))
   * close modal on mousedown on the .modal [[:beetle:#152286689](https://www.pivotaltracker.com/story/show/152286689)] ([201d947](https://github.com/pivotal-cf/pivotal-ui/commit/201d947))
   * Fixed warning when unmounting animated modals ([6eef01d](https://github.com/pivotal-cf/pivotal-ui/commit/6eef01d))
+* **overlay-trigger**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
+* **react-tether**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([005d642](https://github.com/pivotal-cf/pivotal-ui/commit/005d642))
 * **select**: Use data-value attribute instead of value for an &lt;li/&gt;, when firing onChange call with the event followed by the value instead of mutating the target ([16b48b9](https://github.com/pivotal-cf/pivotal-ui/commit/16b48b9))
+* **table**:
+  * adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([d2e0426](https://github.com/pivotal-cf/pivotal-ui/commit/d2e0426))
+  * Add withScrollableTbody table plugin ([cc2fa55](https://github.com/pivotal-cf/pivotal-ui/commit/cc2fa55))
+* **text-filter**:
+  * added props for placeholder and empty state on the TextFilter ([34614b1](https://github.com/pivotal-cf/pivotal-ui/commit/34614b1))
+  * Change prop name in TextFilter to be more explicit ([4f73979](https://github.com/pivotal-cf/pivotal-ui/commit/4f73979))
+  * Add TextFilter component ([b664b17](https://github.com/pivotal-cf/pivotal-ui/commit/b664b17))
+* **tooltip**:
+  * Flatten our nested conditionals ([1e7bdd7](https://github.com/pivotal-cf/pivotal-ui/commit/1e7bdd7))
+  * Extract some variables ([df6fdaf](https://github.com/pivotal-cf/pivotal-ui/commit/df6fdaf))
+  * Allow the most recently changed prop to take precendence ([106feca](https://github.com/pivotal-cf/pivotal-ui/commit/106feca))
+  * Revert "Always allow the 'display' prop to set visibility" ([da5ac7a](https://github.com/pivotal-cf/pivotal-ui/commit/da5ac7a))
+  * Always allow the 'display' prop to set visibility ([2f73870](https://github.com/pivotal-cf/pivotal-ui/commit/2f73870))
+  * Allow manual control of TooltipTrigger visibility ([ab89565](https://github.com/pivotal-cf/pivotal-ui/commit/ab89565))
 * **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b92](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b92))
+<a name="10.3.2"></a>
+## 10.3.2 (2017-11-15)
+#### React
+* **overlay-trigger**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
+* **react-tether**: Internalized fork of react tether [[:star:#152859677](https://www.pivotaltracker.com/story/show/152859677)] and locked down the version of babel-loader@7.1.1 see https://github.com/babel/babel-loader/issues/505 ([ec0f4b1](https://github.com/pivotal-cf/pivotal-ui/commit/ec0f4b1))
+<a name="10.3.1"></a>
+## 10.3.1 (2017-11-07)
+#### React
+* **modals**: fixed double declaration of componentDidMount in the baseModal ([80a6f85](https://github.com/pivotal-cf/pivotal-ui/commit/80a6f85))
+<a name="10.3.0"></a>
+# 10.3.0 (2017-11-06)
+#### CSS
+* **tables**: adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([5b4509a](https://github.com/pivotal-cf/pivotal-ui/commit/5b4509a))
+* **text-filter**: added props for placeholder and empty state on the TextFilter ([a7805b3](https://github.com/pivotal-cf/pivotal-ui/commit/a7805b3))
+#### React
+* **table**:
+  * adjusted the advancedTable to use the withScrollableTbody plugin and imported the css  for the scrollable body ([5b4509a](https://github.com/pivotal-cf/pivotal-ui/commit/5b4509a))
+  * Add withScrollableTbody table plugin ([6bf47d2](https://github.com/pivotal-cf/pivotal-ui/commit/6bf47d2))
+* **text-filter**:
+  * added props for placeholder and empty state on the TextFilter ([a7805b3](https://github.com/pivotal-cf/pivotal-ui/commit/a7805b3))
+  * Change prop name in TextFilter to be more explicit ([61aedd6](https://github.com/pivotal-cf/pivotal-ui/commit/61aedd6))
+  * Add TextFilter component ([3da892e](https://github.com/pivotal-cf/pivotal-ui/commit/3da892e))
+* **tooltip**: Allow manual control of TooltipTrigger visibility ([479911f](https://github.com/pivotal-cf/pivotal-ui/commit/479911f))
 <a name="10.2.0"></a>
 # 10.2.0 (2017-10-26)
 #### CSS
