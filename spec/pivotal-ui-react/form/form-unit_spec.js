@@ -178,6 +178,16 @@ describe('FormUnit', () => {
     });
   });
 
+  describe('optionalText empty string', () => {
+    beforeEach(() => {
+      subject::setProps({label: 'Some label', optional: true, optionalText: ''});
+    });
+
+    it('renders the custom optional text when provided', () => {
+      expect('.form-unit .row-label .post-label').toHaveText('');
+    });
+  });
+
   it('renders the field', () => {
     expect('.form-unit .row-field div span').toContainText('hello');
   });
