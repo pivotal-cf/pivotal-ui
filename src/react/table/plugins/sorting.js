@@ -18,7 +18,7 @@ export function withSorting(Table) {
     constructor(props) {
       super(props);
 
-      const {columns, defaultSort} = props;
+      const {columns = [], defaultSort} = props;
 
       this.state = {
         sortColumn: find(columns, ({sortable, attribute}) =>

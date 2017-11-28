@@ -14,7 +14,20 @@ export class Table extends TablePlugin {
   render() {
     const {className, columns, data} = this.props;
 
-    const headers = columns.map((column, key) => {
+    let dataColumns;
+
+    if (!columns) {
+      const dataKeys = {};
+      data.forEach(row => Object.keys(row).forEach(attr => dataKeys[attr] = true));
+      dataColumns = Object.keys(dataKeys).map(dataKey => ({
+        attribute: dataKey,
+        displayName: dataKey[0].toUpperCase() + dataKey.slice(1)
+      }));
+    }
+
+    const renderedColumns = columns || dataColumns;
+
+    const headers = renderedColumns.map((column, key) => {
       const Th = this.plugTag('th', 'th');
       const children = column.displayName || column.attribute;
       const thContext = {column};
@@ -25,7 +38,7 @@ export class Table extends TablePlugin {
     const headerTrContext = {isHeader: true, rowIndex: -1};
     const headerRow = <HeaderTr {...this.plugProps('tr', {children: headers}, headerTrContext)}/>;
 
-    const bodyCols = rowDatum => columns.map((column, key) => {
+    const bodyCols = rowDatum => renderedColumns.map((column, key) => {
       const keys = column.attribute.split('.');
       let children = rowDatum;
       keys.forEach(key => children = (children || {})[key]);
