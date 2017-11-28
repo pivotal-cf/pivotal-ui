@@ -250,7 +250,7 @@ Name     | Type | Description
 `canReset` | function | Returns true if the form's current state is different from the form's initial state
 `reset` | function | Resets the form to its initial state
 `onSubmit` | function | Function that is executed when a button of type `submit` is clicked.
-`saving` | boolean | True if the form is currently executing the `onSubmit` function
+`submitting` | boolean | True if the form is currently executing the `onSubmit` function
 `setState` | function | Sets the state of the `Form`
 `state` | object | State of the `Form`. Current state is `state.current`, and initial state is `state.initial`.
 `onChange` | function | Change handler for the given field. Use this to override the default behavior of the `Form`. By default, a `onChange` handler to each field that controls the entry in the `Form` state corresponding to the field's `name`.
