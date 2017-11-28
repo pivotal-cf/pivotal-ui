@@ -99,7 +99,7 @@ describe('FormCol', () => {
           state: {
             key: 'value',
             current: {'some-name-set-on-the-col': 'current-value'},
-            saving: true
+            submitting: true
           },
           onChange: () => formOnChange
         };
@@ -118,7 +118,7 @@ describe('FormCol', () => {
       it('calls the children callback', () => {
         expect(childrenSpy).toHaveBeenCalledWith({
           ...formProps,
-          saving: true,
+          submitting: true,
           onChange: formOnChange
         });
       });

@@ -48,13 +48,13 @@ describe('Form', () => {
       expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-name');
     });
 
-    it('renders Buttons with saving=false', () => {
+    it('renders Buttons with submitting=false', () => {
       expect(Buttons).toHaveBeenCalledWith({
         canSubmit: subject.canSubmit,
         canReset: subject.canReset,
         reset: subject.reset,
         onSubmit: subject.onSubmit,
-        saving: false,
+        submitting: false,
         setState: subject.setState,
         state: subject.state,
         onChange: jasmine.any(Function)
@@ -151,13 +151,13 @@ describe('Form', () => {
           expect('.grid:eq(0) .col:eq(1) .cancel').toBeDisabled();
         });
 
-        it('renders Buttons with saving=true', () => {
+        it('renders Buttons with submitting=true', () => {
           expect(Buttons).toHaveBeenCalledWith({
             canSubmit: subject.canSubmit,
             canReset: subject.canReset,
             reset: subject.reset,
             onSubmit: subject.onSubmit,
-            saving: true,
+            submitting: true,
             setState: subject.setState,
             state: subject.state,
             onChange: jasmine.any(Function)
@@ -174,13 +174,13 @@ describe('Form', () => {
             expect('form > fieldset').not.toBeDisabled();
           });
 
-          it('renders Buttons with saving=false', () => {
+          it('renders Buttons with submitting=false', () => {
             expect(Buttons).toHaveBeenCalledWith({
               canSubmit: subject.canSubmit,
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              saving: false,
+              submitting: false,
               setState: subject.setState,
               state: subject.state,
               onChange: jasmine.any(Function)
@@ -226,13 +226,13 @@ describe('Form', () => {
             expect('form > fieldset').not.toBeDisabled();
           });
 
-          it('renders Buttons with saving=false', () => {
+          it('renders Buttons with submitting=false', () => {
             expect(Buttons).toHaveBeenCalledWith({
               canSubmit: subject.canSubmit,
               canReset: subject.canReset,
               reset: subject.reset,
               onSubmit: subject.onSubmit,
-              saving: false,
+              submitting: false,
               setState: subject.setState,
               state: subject.state,
               onChange: jasmine.any(Function)
