@@ -825,4 +825,31 @@ describe('Form', () => {
       expect(console.warn).toHaveBeenCalledWith('Child of type "div" will not be rendered. A Form\'s children should be of type FormRow.');
     });
   });
+
+  describe('resetOnSubmit', () => {
+    beforeEach(() => {
+      ReactDOM.render(
+        <Form {...{className: 'some-form', resetOnSubmit: true}}>
+          <FormRow>
+            <FormCol {...{
+              name: 'name',
+              initialValue: 'some-name'
+            }}>
+              <Input/>
+            </FormCol>
+            <FormCol {...{
+              className: 'col-fixed',
+              children: Buttons
+            }}/>
+          </FormRow>
+        </Form>, root);
+      $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+      $('.grid:eq(0) .col:eq(1) .save').simulate('submit');
+    });
+
+    it('resets the form to its initial state', () => {
+      MockPromises.tick();
+      expect($('.grid:eq(0) .col:eq(0) input').val()).toEqual('some-name');
+    });
+  });
 });

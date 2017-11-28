@@ -14,7 +14,8 @@ export class Form extends React.Component {
     onModified: PropTypes.func.isRequired,
     onSubmit: PropTypes.func.isRequired,
     onSubmitError: PropTypes.func.isRequired,
-    afterSubmit: PropTypes.func.isRequired
+    afterSubmit: PropTypes.func.isRequired,
+    resetOnSubmit: PropTypes.bool
   };
 
   static defaultProps = {
@@ -140,13 +141,18 @@ export class Form extends React.Component {
 
   async onSubmit(e) {
     e && e.preventDefault();
-    const {onSubmit, onSubmitError, afterSubmit, onModified} = this.props;
+    const {onSubmit, onSubmitError, afterSubmit, onModified, resetOnSubmit} = this.props;
     const {initial, current} = this.state;
     this.setState({saving: true});
     const nextState = {saving: false};
     try {
       const response = await onSubmit({initial, current});
-      this.setState({...nextState, current, initial: deepClone(current), errors: {}});
+      this.setState({
+        ...nextState,
+        current: resetOnSubmit ? deepClone(initial) : current,
+        initial: resetOnSubmit ? initial : deepClone(current),
+        errors: {}
+      });
       await onModified(false);
       afterSubmit({state: this.state, setState: this.setState, response, reset: this.reset});
     } catch (err) {
