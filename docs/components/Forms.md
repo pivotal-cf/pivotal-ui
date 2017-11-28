@@ -112,6 +112,12 @@ to place the label on the right.
         <FormCol inline labelPosition="after" label="I accept the terms and conditions" name="accept">
             <Input type="checkbox" />
         </FormCol>
+        <FormCol inline label="Actually read the terms" name="toggle">
+            <Toggle />
+        </FormCol>
+        <FormCol fixed>
+            {({canReset, reset}) => <PrimaryButton alt disabled={!canReset()} onClick={reset}>Reset</PrimaryButton>}
+        </FormCol>
     </FormRow>
 </Form>
 ```
