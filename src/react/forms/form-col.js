@@ -46,7 +46,7 @@ export class FormCol extends React.Component {
       canReset,
       reset,
       onSubmit,
-      saving: state.saving,
+      submitting: state.submitting,
       setState,
       state,
       onChange: onChange ? onChange(name, validator) : () => null

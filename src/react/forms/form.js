@@ -50,7 +50,7 @@ export class Form extends React.Component {
     this.state = {
       initial,
       current,
-      saving: false,
+      submitting: false,
       errors: {},
       requiredFields
     };
@@ -121,8 +121,8 @@ export class Form extends React.Component {
 
   canSubmit({checkRequiredFields} = {}) {
     const {children} = this.props;
-    const {initial, current, saving, requiredFields} = this.state;
-    return !saving
+    const {initial, current, submitting, requiredFields} = this.state;
+    return !submitting
       && find(Object.keys(initial), key => !deepEqual(initial[key], current[key]))
       && (checkRequiredFields
         ? checkRequiredFields(this.state.current)
@@ -135,16 +135,16 @@ export class Form extends React.Component {
   }
 
   canReset() {
-    const {saving, initial, current} = this.state;
-    return !saving && !deepEqual(initial, current);
+    const {submitting, initial, current} = this.state;
+    return !submitting && !deepEqual(initial, current);
   }
 
   async onSubmit(e) {
     e && e.preventDefault();
     const {onSubmit, onSubmitError, afterSubmit, onModified, resetOnSubmit} = this.props;
     const {initial, current} = this.state;
-    this.setState({saving: true});
-    const nextState = {saving: false};
+    this.setState({submitting: true});
+    const nextState = {submitting: false};
     try {
       const response = await onSubmit({initial, current});
       this.setState({
@@ -170,7 +170,7 @@ export class Form extends React.Component {
 
   render() {
     const {className, children} = this.props;
-    const {saving} = this.state;
+    const {submitting} = this.state;
     const filteredChildren = React.Children.toArray(children).filter(child => {
       const childIsFormRow = child.type === FormRow || child.type.prototype instanceof FormRow;
       if (!childIsFormRow) {
@@ -181,7 +181,7 @@ export class Form extends React.Component {
 
     return (
       <form {...{className: classnames('form', className), onSubmit: this.onSubmit}}>
-        <fieldset {...{disabled: saving}}>
+        <fieldset {...{disabled: submitting}}>
           {filteredChildren.map((formRow, key) => (
             React.cloneElement(formRow, {
               key,
