@@ -6,29 +6,28 @@ import {mergeProps} from '../helpers';
 export class Toggle extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string,
-    onChange: PropTypes.func,
-    onClick: PropTypes.func,
-    size: PropTypes.oneOf(['small', 'medium', 'large'])
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    type: PropTypes.oneOf(['checkbox'])
   };
 
   static defaultProps = {
-    size: 'medium'
+    size: 'medium',
+    type: 'checkbox'
   };
 
   render() {
-    const {onChange, children, id, size, onClick, ...others} = this.props;
+    const {children, id, size, ...others} = this.props;
     const toggleId = id || uniqueid('toggle');
 
     const inputProps = mergeProps(others, {
       className: 'toggle-switch',
       id: toggleId,
-      type: 'checkbox',
-      onChange
+      type: 'checkbox'
     });
 
     return (<div>
       <input {...inputProps}/>
-      <label {...{htmlFor: toggleId, className: size, onClick}}>{children}</label>
+      <label {...{htmlFor: toggleId, className: size}}>{children}</label>
     </div>);
   }
 }
