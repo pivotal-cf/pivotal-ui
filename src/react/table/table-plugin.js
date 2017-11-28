@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 export class TablePlugin extends React.Component {
   static propTypes = {
-    columns: PropTypes.array.isRequired,
+    columns: PropTypes.array,
     data: PropTypes.array.isRequired,
     plugTag: PropTypes.func.isRequired,
     tableTag: PropTypes.func,
