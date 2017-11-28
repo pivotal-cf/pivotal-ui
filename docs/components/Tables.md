@@ -15,14 +15,8 @@ Tables can also be composed with any subset of the features offered by the **Adv
 ## Examples
 
 ```jsx
-::title=Basic HTML Table
-const columns = [{
-  attribute: 'title', displayName: 'Title'
-}, {
-  attribute: 'instances'
-}, {
-  attribute: 'bar', displayName: 'Bar'
-}];
+::title=Basic HTML Table with implicit columns
+::description=When no `columns` prop is given, the table will automatically determine the columns and column headers based on the keys of `data`.
 const data = [{
   instances: '1',
   bar: 11,
@@ -36,11 +30,12 @@ const data = [{
   instances: '2',
   bar: 8
 }];
-<Table columns={columns} data={data}/>
+<Table data={data}/>
 ```
 
 ```jsx
-::title=Sortable HTML Table
+::title=Sortable HTML Table with explicit columns
+::description=The `columns` prop defines the properties of each column. This allows for more complex table behavior, such as sorting.
 const columns = [{
   attribute: 'title',
   displayName: 'Title',
@@ -185,7 +180,7 @@ Table
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------
-columns     | yes | Array     | | Metadata about columns
+columns     | no | Array     | | Metadata about columns
 data        | yes | Array     | | The data to display in the table
 footerRow   | no  | Any       | | Anything that evaluates into HTML. Only valid when used with `withFooterRow` plugin.
 rowClassName| no  | Function  | | Function with input `({rowDatum, isHeader, rowIndex})` and outputs a string. Only valid when used with `withRowClassName` plugin.
