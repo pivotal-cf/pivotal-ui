@@ -372,6 +372,7 @@ Property | Required | Type | Default | Description
 `onSubmit` | no | function | () => {} | Called with the state, `{initial, current}`. If this function is async, we will await it.
 `onSubmitError` | no | function | () => {} | Called with any error that `onSubmit` throws. Should return object mapping from field `name` -> String.
 `afterSubmit` | no | function | () => {} | Called with `{state, setState, response, reset}`. `response` is the return value of `onSubmit`.
+`resetOnSubmit` | no | bool |  | If true, resets the form to its initial state after `onSubmit` succeeds.
 `children` | no | node | undefined | Should all be of type `FormRow`. Any children of other types will not be rendered.
 
 ### FormRow
