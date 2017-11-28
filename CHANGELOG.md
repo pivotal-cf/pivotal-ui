@@ -1,3 +1,7 @@
+<a name="11.1.0"></a>
+# 11.1.0 (2017-11-28)
+#### React
+* **table**: table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([de2c463](https://github.com/pivotal-cf/pivotal-ui/commit/de2c463))
 <a name="11.0.0"></a>
 # 11.0.0 (2017-11-28)
 #### CSS
