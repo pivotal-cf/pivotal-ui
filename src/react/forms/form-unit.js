@@ -46,7 +46,7 @@ export class FormUnit extends React.Component {
       <label {...{className: classnames('row-label', labelClassName), key: 'label-row', htmlFor: labelFor}}>
         {label}
         {tooltipIcon}
-        {label && optional && <span className="post-label type-neutral-4">{optionalText || optionalText === '' ? optionalText : '(Optional)'}</span>}
+        {label && optional && <span className="optional-text type-neutral-4">{optionalText || optionalText === '' ? optionalText : '(Optional)'}</span>}
       </label>
     );
 

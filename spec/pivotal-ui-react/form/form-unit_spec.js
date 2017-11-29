@@ -163,8 +163,8 @@ describe('FormUnit', () => {
       subject::setProps({label: 'Some label', optional: true});
     });
 
-    it('renders the post-label text', () => {
-      expect('.form-unit .row-label .post-label').toContainText('(Optional)');
+    it('renders the optional text', () => {
+      expect('.form-unit .row-label .optional-text').toContainText('(Optional)');
     });
   });
 
@@ -174,7 +174,7 @@ describe('FormUnit', () => {
     });
 
     it('renders the custom optional text when provided', () => {
-      expect('.form-unit .row-label .post-label').toHaveText('(Optional - custom text)');
+      expect('.form-unit .row-label .optional-text').toHaveText('(Optional - custom text)');
     });
   });
 
@@ -184,7 +184,7 @@ describe('FormUnit', () => {
     });
 
     it('renders the custom optional text when provided', () => {
-      expect('.form-unit .row-label .post-label').toHaveText('');
+      expect('.form-unit .row-label .optional-text').toHaveText('');
     });
   });
 
