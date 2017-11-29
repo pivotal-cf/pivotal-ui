@@ -14,7 +14,7 @@ describe('FormUnit', () => {
   });
 
   it('does not render a label row when no label is provided', () => {
-    expect('.form-unit .row-label').not.toExist();
+    expect('.form-unit .label-row').not.toExist();
   });
 
   describe('inline', () => {
@@ -34,7 +34,7 @@ describe('FormUnit', () => {
     });
 
     it('does not render the help row', () => {
-      expect('.form-unit .row-help').not.toExist();
+      expect('.form-unit .help-row').not.toExist();
     });
   });
 
@@ -46,7 +46,7 @@ describe('FormUnit', () => {
     });
 
     it('shows a label', () => {
-      expect('.form-unit .row-label').toContainText('Instance Name');
+      expect('.form-unit .label-row').toContainText('Instance Name');
     });
 
     it('shows the label before the field', () => {
@@ -62,7 +62,7 @@ describe('FormUnit', () => {
     });
 
     it('renders an empty label row', () => {
-      expect('.form-unit .row-label').toHaveText('');
+      expect('.form-unit .label-row').toHaveText('');
     });
   });
 
@@ -75,7 +75,7 @@ describe('FormUnit', () => {
     });
 
     it('puts the classname on the label', () => {
-      expect('.form-unit .row-label').toHaveClass('h4');
+      expect('.form-unit .label-row').toHaveClass('h4');
     });
   });
 
@@ -88,7 +88,7 @@ describe('FormUnit', () => {
     });
 
     it('sets the "for" on the label', () => {
-      expect('.form-unit .row-label').toHaveAttr('for', 'instance-name');
+      expect('.form-unit .label-row').toHaveAttr('for', 'instance-name');
     });
   });
 
@@ -114,8 +114,8 @@ describe('FormUnit', () => {
     });
 
     it('shows a tooltip', () => {
-      expect('.form-unit .row-label .tooltip .icon').toExist();
-      expect('.form-unit .row-label .tooltip .tooltip-content').toHaveText('This is a tooltip.');
+      expect('.form-unit .label-row .tooltip .icon').toExist();
+      expect('.form-unit .label-row .tooltip .tooltip-content').toHaveText('This is a tooltip.');
     });
 
     it('renders tooltip with default placement and default size', () => {
@@ -164,7 +164,7 @@ describe('FormUnit', () => {
     });
 
     it('renders the optional text', () => {
-      expect('.form-unit .row-label .optional-text').toContainText('(Optional)');
+      expect('.form-unit .label-row .optional-text').toContainText('(Optional)');
     });
   });
 
@@ -174,7 +174,7 @@ describe('FormUnit', () => {
     });
 
     it('renders the custom optional text when provided', () => {
-      expect('.form-unit .row-label .optional-text').toHaveText('(Optional - custom text)');
+      expect('.form-unit .label-row .optional-text').toHaveText('(Optional - custom text)');
     });
   });
 
@@ -184,12 +184,12 @@ describe('FormUnit', () => {
     });
 
     it('renders the custom optional text when provided', () => {
-      expect('.form-unit .row-label .optional-text').toHaveText('');
+      expect('.form-unit .label-row .optional-text').toHaveText('');
     });
   });
 
   it('renders the field', () => {
-    expect('.form-unit .row-field div span').toContainText('hello');
+    expect('.form-unit .field-row div span').toContainText('hello');
   });
 
   describe('help', () => {
@@ -202,8 +202,8 @@ describe('FormUnit', () => {
     });
 
     it('renders the help block', () => {
-      expect('.form-unit .row-help div pre').toContainText('help');
-      expect('.form-unit .row-help').toHaveClass('type-dark-5');
+      expect('.form-unit .help-row div pre').toContainText('help');
+      expect('.form-unit .help-row').toHaveClass('type-dark-5');
     });
   });
 
@@ -224,8 +224,8 @@ describe('FormUnit', () => {
     });
 
     it('does not render a tooltip', () => {
-      expect('.form-unit .row-label').toContainText('Some label');
-      expect('.form-unit .row-label .tooltip').not.toExist();
+      expect('.form-unit .label-row').toContainText('Some label');
+      expect('.form-unit .label-row .tooltip').not.toExist();
     });
   });
 
@@ -235,7 +235,7 @@ describe('FormUnit', () => {
     });
 
     it('renders an empty div', () => {
-      expect('.form-unit div.row-help').toHaveText('');
+      expect('.form-unit div.help-row').toHaveText('');
     });
   });
 
@@ -249,7 +249,7 @@ describe('FormUnit', () => {
     });
 
     it('removes the type-dark-5 class from the help block', () => {
-      expect('.form-unit .row-help').not.toHaveClass('type-dark-5');
+      expect('.form-unit .help-row').not.toHaveClass('type-dark-5');
     });
   });
 

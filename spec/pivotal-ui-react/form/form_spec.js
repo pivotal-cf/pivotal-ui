@@ -326,7 +326,7 @@ describe('Form', () => {
 
         it('renders the error text', () => {
           expect('.grid:eq(0) .col:eq(0) .form-unit').toHaveClass('has-error');
-          expect('.grid:eq(0) .col:eq(0) .row-help').toHaveText('some-error');
+          expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('some-error');
         });
 
         it('disables the submit button', () => {
@@ -345,7 +345,7 @@ describe('Form', () => {
 
           it('removes the error text', () => {
             expect('.grid:eq(0) .col:eq(0) .form-unit').not.toHaveClass('has-error');
-            expect('.grid:eq(0) .col:eq(0) .row-help').toHaveText('');
+            expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('');
           });
 
           it('enables the submit button', () => {
@@ -365,7 +365,7 @@ describe('Form', () => {
 
         it('does not render error text', () => {
           expect('.grid:eq(0) .col:eq(0) .form-unit').not.toHaveClass('has-error');
-          expect('.grid:eq(0) .col:eq(0) .row-help').toHaveText('');
+          expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('');
         });
       });
     });
@@ -453,7 +453,7 @@ describe('Form', () => {
     });
 
     it('renders an optional text for the input', () => {
-      expect('.grid:eq(0) .col:eq(0) .row-label').toHaveText('Some label(Optional)');
+      expect('.grid:eq(0) .col:eq(0) .label-row').toHaveText('Some label(Optional)');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
