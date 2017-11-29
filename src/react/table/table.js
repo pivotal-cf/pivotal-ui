@@ -20,7 +20,8 @@ export class Table extends TablePlugin {
       dataColumns = Object.keys(data[0]).map(attribute => ({attribute}));
     }
 
-    const renderedColumns = columns || dataColumns || [];
+    const renderedColumns = (columns || dataColumns || [])
+      .map(attribute => typeof attribute === 'string' ? {attribute} : attribute);
 
     const headers = renderedColumns.map((column, key) => {
       const Th = this.plugTag('th', 'th');
