@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import '../../css/inputs';
+import '../../css/forms';
 
 const DOWN_KEY = 40;
 const ENTER_KEY = 13;
