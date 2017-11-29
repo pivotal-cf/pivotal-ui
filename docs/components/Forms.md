@@ -1,5 +1,12 @@
 # Forms
 
+## Subcomponents
+
+- [Form](#form)
+- [Form Unit](#form-unit)
+
+# Form
+
 ## Description
 
 A declarative abstraction that handles layout, state, validation and error handling.
@@ -244,16 +251,16 @@ disabled when `state.current.password1` and `state.current.password2` do not mat
 The children of a FormCol can also be a function that takes in an object with the following form properties and methods.
 This allows for form generation depending on these properties:
 
-Name     | Type | Description
----------|------|-------
-`canSubmit` | function | Returns true if the all required fields are provided, and if all defined validators are passing.
-`canReset` | function | Returns true if the form's current state is different from the form's initial state
-`reset` | function | Resets the form to its initial state
-`onSubmit` | function | Function that is executed when a button of type `submit` is clicked.
-`submitting` | boolean | True if the form is currently executing the `onSubmit` function
-`setState` | function | Sets the state of the `Form`
-`state` | object | State of the `Form`. Current state is `state.current`, and initial state is `state.initial`.
-`onChange` | function | Change handler for the given field. Use this to override the default behavior of the `Form`. By default, a `onChange` handler to each field that controls the entry in the `Form` state corresponding to the field's `name`.
+Name         | Type     | Description
+-------------|----------|------------
+`canSubmit`  | function | Returns true if the all required fields are provided, and if all defined validators are passing.
+`canReset`   | function | Returns true if the form's current state is different from the form's initial state
+`reset`      | function | Resets the form to its initial state
+`onSubmit`   | function | Function that is executed when a button of type `submit` is clicked.
+`submitting` | boolean  | True if the form is currently executing the `onSubmit` function
+`setState`   | function | Sets the state of the `Form`
+`state`      | object   | State of the `Form`. Current state is `state.current`, and initial state is `state.initial`.
+`onChange`   | function | Change handler for the given field. Use this to override the default behavior of the `Form`. By default, a `onChange` handler to each field that controls the entry in the `Form` state corresponding to the field's `name`.
 
 ```jsx
 ::title=Dynamic Field Generation
@@ -366,39 +373,157 @@ import {Form, FormRow, FormCol} from 'pivotal-ui/react/forms';
 
 ### Form
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-`onModified` | no | function | () => {} | Called on every state change. Called with `true` when current state is different from initial state. `false` when they are the same.
-`onSubmit` | no | function | () => {} | Called with the state, `{initial, current}`. If this function is async, we will await it.
-`onSubmitError` | no | function | () => {} | Called with any error that `onSubmit` throws. Should return object mapping from field `name` -> String.
-`afterSubmit` | no | function | () => {} | Called with `{state, setState, response, reset}`. `response` is the return value of `onSubmit`.
-`resetOnSubmit` | no | bool |  | If true, resets the form to its initial state after `onSubmit` succeeds.
-`children` | no | node | undefined | Should all be of type `FormRow`. Any children of other types will not be rendered.
+Property        | Required | Type     | Default   | Description
+----------------|----------|----------|-----------|------------
+`onModified`    | no       | function | () => {}  | Called on every state change. Called with `true` when current state is different from initial state. `false` when they are the same.
+`onSubmit`      | no       | function | () => {}  | Called with the state, `{initial, current}`. If this function is async, we will await it.
+`onSubmitError` | no       | function | () => {}  | Called with any error that `onSubmit` throws. Should return object mapping from field `name` -> String.
+`afterSubmit`   | no       | function | () => {}  | Called with `{state, setState, response, reset}`. `response` is the return value of `onSubmit`.
+`resetOnSubmit` | no       | bool     |           | If true, resets the form to its initial state after `onSubmit` succeeds.
+`children`      | no       | node     | undefined | Should all be of type `FormRow`. Any children of other types will not be rendered.
 
 ### FormRow
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-`wrapper`| no | function | undefined | See [Row Wrappers](#row-wrappers)
-`children` | no | node | undefined | Should all be of type `FormCol`. Any children of other types will not be rendered.
+Property   | Required | Type     | Default   | Description
+-----------|----------|----------|-----------|------------
+`wrapper`  | no       | function | undefined | See [Row Wrappers](#row-wrappers)
+`children` | no       | node     | undefined | Should all be of type `FormCol`. Any children of other types will not be rendered.
 
 ### FormCol
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-`name` | no | string | undefined | The key of field's value in the `Form`'s state.
-`hidden` | no | boolean | false | Whether or not the field is hidden
-`fixed` | no | boolean | false | If true, attaches the `col-fixed` class to this [Flex Grid](/grids#flex-grids) column.
-`inline` | no | boolean | false | If `true` positions the label on the same line as the field.
-`labelFor` | no | string | undefined | Value of the label's `for` attribute. If not provided, defaults to the field's `id`.
-`labelPosition` | no | oneOf(['after']) | undefined | If `after` and `inline=true` positions the label after the field.
-`retainLabelHeight` | no | boolean | false | For fields without a label, add an empty space above the field to preserve the space where the label would be.
-`optional` | no | boolean | false | If `true`, marks a field as optional and adds `optionalText` to label
-`optionalText` | no | string | '(Optional)' | Text to add to label when field is optional
-`tooltip` | no | node | undefined | Content to place on the tooltip
-`tooltipSize` | no | oneOf(['sm', 'md', 'lg']) | 'md' | Size of tooltip
-`tooltipPlacement` | no | oneOf('top', 'bottom', 'left', 'right') | 'top' | Placement of tooltip in relation to icon
-`help` | no | node | undefined | Help block shown underneath the field
-`hideHelpRow` | no | boolean | false | Hides the help/error block underneath the field, so it does not take up any space
-`validator` | no | function | undefined | If given, called with the current value of this field. Return truthy if the value is valid, or falsy otherwise.
-`children` | no | node or function | undefined | Field to wrap with label, or function that evaluates to a field. See [Dynamic FormCol Generation](#dynamic-formcol-generation)
+Property            | Required | Type                                    | Default      | Description
+--------------------|----------|-----------------------------------------|--------------|------------
+`name`              | no       | string                                  | undefined    | The key of field's value in the `Form`'s state.
+`hidden`            | no       | boolean                                 | false        | Whether or not the field is hidden
+`fixed`             | no       | boolean                                 | false        | If true, attaches the `col-fixed` class to this [Flex Grid](/grids#flex-grids) column.
+`inline`            | no       | boolean                                 | false        | If `true` positions the label on the same line as the field.
+`label`             | no       | string                                  | undefined    | Text to use for field label
+`labelFor`          | no       | string                                  | undefined    | Value of the label's `for` attribute. If not provided, defaults to the field's `id`.
+`labelPosition`     | no       | oneOf(['after'])                        | undefined    | If `after` and `inline=true` positions the label after the field.
+`retainLabelHeight` | no       | boolean                                 | false        | For fields without a label, add an empty space above the field to preserve the space where the label would be.
+`optional`          | no       | boolean                                 | false        | If `true`, marks a field as optional and adds `optionalText` to label
+`optionalText`      | no       | string                                  | '(Optional)' | Text to add to label when field is optional
+`tooltip`           | no       | node                                    | undefined    | Content to place on the tooltip
+`tooltipSize`       | no       | oneOf(['sm', 'md', 'lg'])               | 'md'         | Size of tooltip
+`tooltipPlacement`  | no       | oneOf('top', 'bottom', 'left', 'right') | 'top'        | Placement of tooltip in relation to icon
+`postLabel`         | no       | oneOf(node, function)                   |              | Content to place in the top right of a non-inline `FormCol`, or a callback returning that content
+`help`              | no       | node                                    | undefined    | Help block shown underneath the field
+`hideHelpRow`       | no       | boolean                                 | false        | Hides the help/error block underneath the field, so it does not take up any space
+`validator`         | no       | function                                | undefined    | If given, called with the current value of this field. Return truthy if the value is valid, or falsy otherwise.
+`children`          | no       | oneOf(node, function)                   | undefined    | Field to wrap with label, or function that evaluates to a field. See [Dynamic FormCol Generation](#dynamic-formcol-generation)
+
+# Form Unit
+
+## Description
+
+To lay out a single form field without using a whole `Form` component, you can use the `FormUnit`
+component. The `FormUnit` component can decorate a field with a label, a tooltip, an "optional" indicator, and help text.
+
+Note that state management and other `Form` features are not handled by the `FormUnit`.
+
+## Examples
+
+```jsx
+::title=Basic form unit
+<FormUnit {...{
+    label: 'Optional field',
+    labelFor: 'basic-input',
+    optional: true,
+    tooltip: 'This is a basic form unit example',
+    tooltipSize: 'sm',
+    tooltipPlacement: 'right',
+    help: <span>Enter a value in the field above</span>,
+    field: <Input id="basic-input" type="text"/>
+}}/>
+```
+
+```jsx
+::title=Inline form unit
+::description=When `inline` is `true`, the label will be placed on the same line as the field.
+<div>
+    <FormUnit {...{
+        inline: true,
+        label: 'Inline field',
+        labelFor: 'select-input',
+        tooltip: 'This is an inline form unit example',
+        tooltipSize: 'sm',
+        tooltipPlacement: 'top',
+        field: (
+            <select id="select-input">
+                <option>Option 1</option>
+                <option>Option 2</option>
+                <option>Option 3</option>
+            </select>
+        )
+    }}/>
+    <FormUnit {...{
+        inline: true,
+        label: 'An inline checkbox with labelPosition="after"',
+        labelPosition: 'after',
+        labelFor: 'checkbox-input',
+        tooltip: 'This is an inline form unit example',
+        tooltipSize: 'sm',
+        tooltipPlacement: 'top',
+        field: <Input id="checkbox-input" type="checkbox"/>
+    }}/>
+</div>
+```
+
+```jsx
+::title=Form unit with error
+::description=When `hasError` is `true`, the field border and help text become red to indicate an error.
+<FormUnit {...{
+    label: 'Username',
+    labelFor: 'username-input',
+    field: <Input id="username-input" type="text"/>,
+    help: 'Username must be more than 8 characters',
+    hasError: true
+}}/>
+```
+
+```jsx
+::title=Form unit with postLabel
+::description=The `postLabel` can contain any node and will be positioned in the top-right corner of a non-inline form unit.
+<FormUnit {...{
+    label: 'Username',
+    labelFor: 'username-input2',
+    postLabel: <a href="#username-input2" onClick={() => alert('Thanks for clicking me!')}>I am a postLabel!</a>,
+    field: <Input id="username-input2" type="text"/>,
+    help: 'Username must be more than 8 characters'
+}}/>
+```
+
+## Installation & Usage
+
+## React
+`npm install pivotal-ui --save`
+
+```
+import {FormUnit} from 'pivotal-ui/react/forms';
+```
+
+## CSS Only
+`npm install pivotal-ui --save`
+
+`import * as Forms from 'pivotal-ui/css/forms';`
+
+## Props
+
+Property            | Required | Type                                    | Default      | Description
+--------------------|----------|-----------------------------------------|--------------|------------
+`field`             | no       | node                                    |              | Input field to decorate with label
+`className`         | no       | string                                  |              | Class name to attach to top-level `div`
+`inline`            | no       | boolean                                 | false        | If `true` positions the label on the same line as the field.
+`label`             | no       | string                                  |              | Text to use for field label
+`labelClassName`    | no       | string                                  |              | Class name to attach to the inner `label` element
+`labelFor`          | no       | string                                  |              | Value of the label's `for` attribute. If not provided, defaults to the field's `id`.
+`labelPosition`     | no       | oneOf(['after'])                        |              | If `after` and `inline=true` positions the label after the field.
+`retainLabelHeight` | no       | boolean                                 | false        | For fields without a label, add an empty space above the field to preserve the space where the label would be.
+`optional`          | no       | boolean                                 | false        | If `true`, marks a field as optional and adds `optionalText` to label
+`optionalText`      | no       | string                                  | '(Optional)' | Text to add to label when field is optional
+`tooltip`           | no       | node                                    |              | Content to place on the tooltip
+`tooltipSize`       | no       | oneOf(['sm', 'md', 'lg'])               | 'md'         | Size of tooltip
+`tooltipPlacement`  | no       | oneOf('top', 'bottom', 'left', 'right') | 'top'        | Placement of tooltip in relation to icon
+`postLabel`         | no       | oneOf(node, function)                   |              | Content to place in the top right of a non-inline `FormUnit`, or a callback returning that content
+`help`              | no       | node                                    |              | Help block shown underneath the field
+`hideHelpRow`       | no       | boolean                                 | false        | Hides the help/error block underneath the field, so it does not take up any space
