@@ -459,13 +459,14 @@ textarea.valid {
 
   .label-row {
     display: block;
-    line-height: 4 * $base-unit;
+    line-height: 4 * $base-unit - 4;
+    min-height: 4 * $base-unit;
     font-weight: 600;
     font-size: 14px;
   }
 
   .help-row {
-    line-height: 2 * $base-unit;
+    line-height: 2 * $base-unit - 4;
     min-height: 2 * $base-unit;
     font-weight: 400;
     font-size: 12px;
@@ -478,10 +479,6 @@ textarea.valid {
     svg {
       fill: $dark-5;
     }
-  }
-
-  .label-row {
-    min-height: 4 * $base-unit;
   }
 
   &.has-error {
