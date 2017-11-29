@@ -76,11 +76,13 @@ export class FormCol extends React.Component {
     }
 
     return (
-      <FlexCol {...{className: classnames(className, {'col-fixed': fixed}), hidden}}>
+      <FlexCol {...{className: classnames(className, 'form-col', {'col-fixed': fixed}), hidden}}>
         <FormUnit {...{
           retainLabelHeight,
           hasError: state.errors && !!state.errors[name],
           labelFor: htmlFor,
+          state,
+          setState,
           ...rest,
           field,
           help: (state.errors && state.errors[name]) || help

@@ -32,7 +32,7 @@ export class FormRow extends React.Component {
       return childIsFormRow;
     });
 
-    const row = (<Grid>{React.Children.map(filteredChildren, (formCol, key) => {
+    const row = (<Grid className="form-row">{React.Children.map(filteredChildren, (formCol, key) => {
       return React.cloneElement(formCol, {...props, ...formCol.props, state, key});
     })}</Grid>);
 

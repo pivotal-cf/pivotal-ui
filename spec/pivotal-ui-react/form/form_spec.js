@@ -45,7 +45,7 @@ describe('Form', () => {
     });
 
     it('renders an input with a default value', () => {
-      expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-name');
+      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
     });
 
     it('renders Buttons with submitting=false', () => {
@@ -62,62 +62,62 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(1)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(1) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(1) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(1) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(1) .cancel').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
+      expect('.form-row:eq(0) .form-col:eq(1) .save').toHaveAttr('type', 'submit');
+      expect('.form-row:eq(0) .form-col:eq(1) .save').toHaveText('Save');
+      expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(1) .cancel').toHaveText('Cancel');
+      expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
     });
 
     describe('when deleting the name', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', '');
+        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', '');
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(1)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(1) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(1) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
+        expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('.grid:eq(0) .col:eq(1) .cancel').simulate('click');
+          $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-name');
+          expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
         });
       });
     });
 
     describe('when changing the name', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-other-name');
+        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-other-name');
       });
 
       it('renders enabled buttons ', () => {
-        expect('.grid:eq(0) .col:eq(1)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(1) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(1) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1)').toHaveClass('col-fixed');
+        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
       });
 
       describe('when clicking the cancel button', () => {
         beforeEach(() => {
-          $('.grid:eq(0) .col:eq(1) .cancel').simulate('click');
+          $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
         });
 
         it('resets the name', () => {
-          expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-name');
+          expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
         });
       });
 
@@ -135,7 +135,7 @@ describe('Form', () => {
             reject = rej;
           }));
           subject::setProps({onSubmit});
-          $('.grid:eq(0) .col:eq(1) .save').simulate('submit');
+          $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
         });
 
         it('calls onSubmit', () => {
@@ -147,8 +147,8 @@ describe('Form', () => {
         });
 
         it('disables the buttons', () => {
-          expect('.grid:eq(0) .col:eq(1) .save').toBeDisabled();
-          expect('.grid:eq(0) .col:eq(1) .cancel').toBeDisabled();
+          expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
+          expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
         });
 
         it('renders Buttons with submitting=true', () => {
@@ -188,8 +188,8 @@ describe('Form', () => {
           });
 
           it('makes both buttons disabled', () => {
-            expect('.grid:eq(0) .col:eq(1) .save').toBeDisabled();
-            expect('.grid:eq(0) .col:eq(1) .cancel').toBeDisabled();
+            expect('.form-row:eq(0) .form-col:eq(1) .save').toBeDisabled();
+            expect('.form-row:eq(0) .form-col:eq(1) .cancel').toBeDisabled();
           });
 
           it('resets the initial state', () => {
@@ -240,8 +240,8 @@ describe('Form', () => {
           });
 
           it('re-enables both buttons disabled', () => {
-            expect('.grid:eq(0) .col:eq(1) .save').not.toBeDisabled();
-            expect('.grid:eq(0) .col:eq(1) .cancel').not.toBeDisabled();
+            expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
+            expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
           });
 
           it('retains the initial state', () => {
@@ -262,11 +262,11 @@ describe('Form', () => {
 
           describe('when clicking the cancel button', () => {
             beforeEach(() => {
-              $('.grid:eq(0) .col:eq(1) .cancel').simulate('click');
+              $('.form-row:eq(0) .form-col:eq(1) .cancel').simulate('click');
             });
 
             it('resets the name', () => {
-              expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-name');
+              expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-name');
             });
 
             it('clears the errors', () => {
@@ -277,7 +277,7 @@ describe('Form', () => {
           describe('when clicking the save button and the submit action resolves', () => {
             beforeEach(() => {
               onSubmit.and.returnValue(Promise.resolve());
-              $('.grid:eq(0) .col:eq(1) .save').simulate('submit');
+              $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
               MockPromises.tick(1);
             });
 
@@ -316,8 +316,8 @@ describe('Form', () => {
       describe('when the validator returns an error', () => {
         beforeEach(() => {
           validator.and.returnValue('some-error');
-          $('.grid:eq(0) .col:eq(0) input').val('invalid value').simulate('change');
-          $('.grid:eq(0) .col:eq(0) input').simulate('blur');
+          $('.form-row:eq(0) .form-col:eq(0) input').val('invalid value').simulate('change');
+          $('.form-row:eq(0) .form-col:eq(0) input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -325,8 +325,8 @@ describe('Form', () => {
         });
 
         it('renders the error text', () => {
-          expect('.grid:eq(0) .col:eq(0) .form-unit').toHaveClass('has-error');
-          expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('some-error');
+          expect('.form-row:eq(0) .form-col:eq(0) .form-unit').toHaveClass('has-error');
+          expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('some-error');
         });
 
         it('disables the submit button', () => {
@@ -336,7 +336,7 @@ describe('Form', () => {
         describe('when the validation error is corrected', () => {
           beforeEach(() => {
             validator.and.returnValue(undefined);
-            $('.grid:eq(0) .col:eq(0) input').val('valid value').simulate('change');
+            $('.form-row:eq(0) .form-col:eq(0) input').val('valid value').simulate('change');
           });
 
           it('calls the validator', () => {
@@ -344,8 +344,8 @@ describe('Form', () => {
           });
 
           it('removes the error text', () => {
-            expect('.grid:eq(0) .col:eq(0) .form-unit').not.toHaveClass('has-error');
-            expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('');
+            expect('.form-row:eq(0) .form-col:eq(0) .form-unit').not.toHaveClass('has-error');
+            expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('');
           });
 
           it('enables the submit button', () => {
@@ -356,7 +356,7 @@ describe('Form', () => {
 
       describe('when the validator returns nothing', () => {
         beforeEach(() => {
-          $('.grid:eq(0) .col:eq(0) input').simulate('blur');
+          $('.form-row:eq(0) .form-col:eq(0) input').simulate('blur');
         });
 
         it('calls the validator', () => {
@@ -364,8 +364,8 @@ describe('Form', () => {
         });
 
         it('does not render error text', () => {
-          expect('.grid:eq(0) .col:eq(0) .form-unit').not.toHaveClass('has-error');
-          expect('.grid:eq(0) .col:eq(0) .help-row').toHaveText('');
+          expect('.form-row:eq(0) .form-col:eq(0) .form-unit').not.toHaveClass('has-error');
+          expect('.form-row:eq(0) .form-col:eq(0) .help-row').toHaveText('');
         });
       });
     });
@@ -390,43 +390,43 @@ describe('Form', () => {
     });
 
     it('renders inputs without values', () => {
-      expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', undefined);
-      expect('.grid:eq(0) .col:eq(1) input').toHaveAttr('value', undefined);
+      expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', undefined);
+      expect('.form-row:eq(0) .form-col:eq(1) input').toHaveAttr('value', undefined);
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveAttr('type', 'submit');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveText('Save');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toBeDisabled();
     });
 
     describe('when setting the name', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('allows the name to change', () => {
-        expect('.grid:eq(0) .col:eq(0) input').toHaveAttr('value', 'some-other-name');
+        expect('.form-row:eq(0) .form-col:eq(0) input').toHaveAttr('value', 'some-other-name');
       });
 
       it('renders buttons ', () => {
-        expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
+        expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
       });
 
       describe('when setting the password', () => {
         beforeEach(() => {
-          $('.grid:eq(0) .col:eq(1) input').val('some-password').simulate('change');
+          $('.form-row:eq(0) .form-col:eq(1) input').val('some-password').simulate('change');
         });
 
         it('renders enabled buttons ', () => {
-          expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-          expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-          expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+          expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
+          expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
+          expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
         });
       });
     });
@@ -453,37 +453,37 @@ describe('Form', () => {
     });
 
     it('renders an optional text for the input', () => {
-      expect('.grid:eq(0) .col:eq(0) .label-row').toHaveText('Some label(Optional)');
+      expect('.form-row:eq(0) .form-col:eq(0) .label-row').toHaveText('Some label(Optional)');
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(1)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(1) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(1) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(1) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(1) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(1) .cancel').toBeDisabled();
+      expect('.form-row .form-col:eq(1)').toHaveClass('col-fixed');
+      expect('.form-row .form-col:eq(1) .save').toHaveAttr('type', 'submit');
+      expect('.form-row .form-col:eq(1) .save').toHaveText('Save');
+      expect('.form-row .form-col:eq(1) .save').toBeDisabled();
+      expect('.form-row .form-col:eq(1) .cancel').toHaveText('Cancel');
+      expect('.form-row .form-col:eq(1) .cancel').toBeDisabled();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(1) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(1) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(1) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(1) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(1) .cancel').not.toBeDisabled();
       });
     });
   });
@@ -514,55 +514,55 @@ describe('Form', () => {
     });
 
     it('renders disabled buttons in a col-fixed col', () => {
-      expect('.grid:eq(0) .col:eq(2)').toHaveClass('col-fixed');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveAttr('type', 'submit');
-      expect('.grid:eq(0) .col:eq(2) .save').toHaveText('Save');
-      expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-      expect('.grid:eq(0) .col:eq(2) .cancel').toHaveText('Cancel');
-      expect('.grid:eq(0) .col:eq(2) .cancel').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(2)').toHaveClass('col-fixed');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveAttr('type', 'submit');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toHaveText('Save');
+      expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
+      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toHaveText('Cancel');
+      expect('.form-row:eq(0) .form-col:eq(2) .cancel').toBeDisabled();
     });
 
     describe('when changing the optional field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(1) input').val('some-other-password').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(1) input').val('some-other-password').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the optional field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(1) input').val('').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(1) input').val('').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when changing the required field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('renders enabled buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').not.toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .save').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
       });
     });
 
     describe('when deleting the required field', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('').simulate('change');
       });
 
       it('renders buttons in a col-fixed col', () => {
-        expect('.grid:eq(0) .col:eq(2) .save').toBeDisabled();
-        expect('.grid:eq(0) .col:eq(2) .cancel').not.toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
+        expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
       });
     });
   });
@@ -630,7 +630,7 @@ describe('Form', () => {
     });
 
     it('renders the col with the hidden attribute', () => {
-      expect('.grid:eq(0) .col:eq(0)').toHaveAttr('hidden');
+      expect('.form-row:eq(0) .form-col:eq(0)').toHaveAttr('hidden');
     });
   });
 
@@ -738,7 +738,7 @@ describe('Form', () => {
 
     describe('when modifying', () => {
       beforeEach(() => {
-        $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
+        $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
       });
 
       it('calls the onModified callback with true', () => {
@@ -749,7 +749,7 @@ describe('Form', () => {
       describe('when resetting manually', () => {
         beforeEach(() => {
           onModified.calls.reset();
-          $('.grid:eq(0) .col:eq(0) input').val('some-name').simulate('change');
+          $('.form-row:eq(0) .form-col:eq(0) input').val('some-name').simulate('change');
         });
 
         it('calls the onModified callback with false', () => {
@@ -843,13 +843,13 @@ describe('Form', () => {
             }}/>
           </FormRow>
         </Form>, root);
-      $('.grid:eq(0) .col:eq(0) input').val('some-other-name').simulate('change');
-      $('.grid:eq(0) .col:eq(1) .save').simulate('submit');
+      $('.form-row:eq(0) .form-col:eq(0) input').val('some-other-name').simulate('change');
+      $('.form-row:eq(0) .form-col:eq(1) .save').simulate('submit');
     });
 
     it('resets the form to its initial state', () => {
       MockPromises.tick();
-      expect($('.grid:eq(0) .col:eq(0) input').val()).toEqual('some-name');
+      expect($('.form-row:eq(0) .form-col:eq(0) input').val()).toEqual('some-name');
     });
   });
 

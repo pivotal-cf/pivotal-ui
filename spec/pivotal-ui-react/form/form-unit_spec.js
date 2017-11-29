@@ -37,8 +37,8 @@ describe('FormUnit', () => {
     });
 
     it('renders the field and label on a grid next to each other', () => {
-      expect('.form-unit .grid .col:eq(0)').toHaveText('Instance Name');
-      expect('.form-unit .grid .col:eq(1)').toHaveText('hello');
+      expect('.form-unit .grid:eq(0) > .col:eq(0)').toHaveText('Instance Name');
+      expect('.form-unit .grid:eq(0) > .col:eq(1)').toHaveText('hello');
     });
   });
 
@@ -89,7 +89,7 @@ describe('FormUnit', () => {
     });
 
     it('puts the classname on the label', () => {
-      expect('.form-unit .label-row').toHaveClass('h4');
+      expect('.form-unit .label-row label').toHaveClass('h4');
     });
   });
 
@@ -102,7 +102,7 @@ describe('FormUnit', () => {
     });
 
     it('sets the "for" on the label', () => {
-      expect('.form-unit .label-row').toHaveAttr('for', 'instance-name');
+      expect('.form-unit .label-row label').toHaveAttr('for', 'instance-name');
     });
   });
 
@@ -116,6 +116,50 @@ describe('FormUnit', () => {
 
     it('shows the label on the right side', () => {
       expect('.form-unit').toHaveText('helloInstance Name');
+    });
+  });
+
+  describe('postLabel', () => {
+    beforeEach(() => {
+      subject::setProps({
+        postLabel: <span className="more-stuff">another label</span>
+      });
+    });
+
+    it('renders the postLabel', () => {
+      expect('.form-unit .label-row .post-label .more-stuff').toHaveText('another label');
+      expect('.form-unit .label-row .post-label').toHaveClass('col-fixed');
+      expect('.form-unit .label-row .post-label').toHaveClass('col-middle');
+    });
+
+    describe('when inline', () => {
+      beforeEach(() => {
+        subject::setProps({inline: true});
+      });
+
+      it('does not render the postLabel', () => {
+        expect('.form-unit .label-row .post-label').not.toExist();
+      });
+    });
+
+    describe('when the postLabel is a function', () => {
+      let postLabel, setState, state;
+
+      beforeEach(() => {
+        postLabel = jasmine.createSpy('postLabel').and.returnValue(<span className="returned">returned</span>);
+        setState = jasmine.createSpy('setState');
+        state = {key: 'value'};
+
+        subject::setProps({postLabel, setState, state});
+      });
+
+      it('calls the postLabel function', () => {
+        expect(postLabel).toHaveBeenCalledWith({setState, state});
+      });
+
+      it('renders the returned node', () => {
+        expect('.form-unit .label-row .post-label .returned').toHaveText('returned');
+      });
     });
   });
 
