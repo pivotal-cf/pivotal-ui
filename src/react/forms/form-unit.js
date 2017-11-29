@@ -1,5 +1,5 @@
 import React from 'react';
-import types from 'prop-types';
+import PropTypes from 'prop-types';
 import {TooltipTrigger} from '../tooltip';
 import {Icon} from '../iconography';
 import {Grid, FlexCol} from '../flex-grids';
@@ -7,22 +7,25 @@ import classnames from 'classnames';
 
 export class FormUnit extends React.Component {
   static propTypes = {
-    className: types.string,
-    inline: types.bool,
-    label: types.string,
-    labelClassName: types.string,
-    labelFor: types.string,
-    hideHelpRow: types.bool,
-    retainLabelHeight: types.bool,
-    labelPosition: types.oneOf(['after']),
-    optional: types.bool,
-    optionalText: types.string,
-    tooltip: types.node,
-    tooltipSize: types.oneOf(['sm', 'md', 'lg']),
-    tooltipPlacement: types.oneOf(['left', 'right', 'bottom', 'top']),
-    field: types.node,
-    help: types.node,
-    hasError: types.bool
+    className: PropTypes.string,
+    inline: PropTypes.bool,
+    label: PropTypes.string,
+    labelClassName: PropTypes.string,
+    labelFor: PropTypes.string,
+    postLabel: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
+    hideHelpRow: PropTypes.bool,
+    retainLabelHeight: PropTypes.bool,
+    labelPosition: PropTypes.oneOf(['after']),
+    optional: PropTypes.bool,
+    optionalText: PropTypes.string,
+    tooltip: PropTypes.node,
+    tooltipSize: PropTypes.oneOf(['sm', 'md', 'lg']),
+    tooltipPlacement: PropTypes.oneOf(['left', 'right', 'bottom', 'top']),
+    field: PropTypes.node,
+    help: PropTypes.node,
+    hasError: PropTypes.bool,
+    state: PropTypes.object,
+    setState: PropTypes.func
   };
 
   componentDidMount() {
@@ -31,8 +34,9 @@ export class FormUnit extends React.Component {
 
   render() {
     const {
-      className, hideHelpRow, retainLabelHeight, inline, label, labelClassName, labelPosition, optional, optionalText, tooltip,
-      tooltipSize = 'lg', tooltipPlacement = 'top', field, help, hasError, labelFor
+      className, hideHelpRow, retainLabelHeight, inline, label, labelClassName, labelPosition, optional, optionalText,
+      tooltip, tooltipSize = 'lg', tooltipPlacement = 'top', field, help, hasError, labelFor, postLabel, state,
+      setState
     } = this.props;
 
     if (!label && !field && !help) return null;
@@ -42,13 +46,23 @@ export class FormUnit extends React.Component {
         <Icon verticalAlign="baseline" src="info_outline"/>
       </TooltipTrigger>;
 
-    const labelRow = (label || retainLabelHeight) && (
-      <label {...{className: classnames('label-row', labelClassName), key: 'label-row', htmlFor: labelFor}}>
-        {label}
-        {tooltipIcon}
-        {label && optional && <span className="optional-text type-neutral-4">{optionalText || optionalText === '' ? optionalText : '(Optional)'}</span>}
-      </label>
-    );
+    const labelRow = (label || retainLabelHeight || postLabel) && (
+        <Grid {...{key: 'label-row', className: 'label-row', gutter: false}}>
+          <FlexCol>
+            <label {...{className: labelClassName, htmlFor: labelFor}}>
+              {label}
+              {tooltipIcon}
+              {label && optional && <span
+                className="optional-text type-neutral-4">
+                  {optionalText || optionalText === '' ? optionalText : '(Optional)'}
+                </span>}
+            </label>
+          </FlexCol>
+          {!inline && <FlexCol fixed contentAlignment="middle" className="post-label">
+            {typeof postLabel === 'function' ? postLabel({state, setState}) : postLabel}
+          </FlexCol>}
+        </Grid>
+      );
 
     const fieldRow = <div className="field-row" key="field-row">{field}</div>;
     const helpRow = hideHelpRow || <div className={classnames('help-row', {'type-dark-5': !hasError})}>{help}</div>;

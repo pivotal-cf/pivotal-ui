@@ -9,12 +9,14 @@ class TestInput extends React.Component {
 }
 
 describe('FormCol', () => {
-  let element, onChange;
+  let element, onChange, state, setState;
 
   beforeEach(() => {
     spyOn(React, 'cloneElement').and.callThrough();
     spyOn(crypto, 'randomBytes').and.returnValue('some-unique-string');
     onChange = jasmine.createSpy('onChange');
+    setState = jasmine.createSpy('setState');
+    state = {key: 'value'};
   });
 
   describe('simple case', () => {
@@ -291,8 +293,13 @@ describe('FormCol', () => {
   });
 
   describe('when labelFor', () => {
+    let field;
+
     beforeEach(() => {
+      field = <div className="some-field">a field</div>;
+
       spyOnRender(FormUnit).and.callThrough();
+      React.cloneElement.and.returnValue(field);
     });
 
     describe('is given as a prop', () => {
@@ -302,18 +309,24 @@ describe('FormCol', () => {
         subject = ReactDOM.render(<FormCol {...{
           labelFor: 'some-label',
           retainLabelHeight: true,
-          help: 'Some help text'
+          help: 'Some help text',
+          state,
+          setState
         }}>
           {element}
         </FormCol>, root);
       });
 
       it('uses the given the labelFor', () => {
-        expect(FormUnit).toHaveBeenRenderedWithProps(jasmine.objectContaining({
-          labelFor: 'some-label',
+        expect(FormUnit).toHaveBeenRenderedWithProps({
           retainLabelHeight: true,
+          hasError: undefined,
+          labelFor: 'some-label',
+          state,
+          setState,
+          field,
           help: 'Some help text'
-        }));
+        });
       });
     });
 
