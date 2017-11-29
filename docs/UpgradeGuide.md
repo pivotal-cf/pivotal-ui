@@ -9,7 +9,8 @@ The goals of the 11.0 release are:
 ## The Big Changes
 
 ### Removed
-- Label component
+- Label component 
+- `.form-group` class has been removed.
 
 ### Input, Toggle
 - Moved some functionality (e.g. labels, tooltips, help text) out of these components
@@ -18,10 +19,48 @@ and into the Form component.
 ### TextFilter
 - Introduced the TextFilter component
 
+### Forms
+```jsx
+<Form className="example-form">
+  <FormRow className="mbxl">
+    <FormCol {...{
+        name: 'orgName',
+        label: 'Label Layer',
+        help: 'Error or Help text Layer'
+    }}>
+        <Input {...{placeholder: 'I am in the content layer'}}/>
+    </FormCol>
+    <FormCol {...{
+          name: 'other',
+          retainLabelHeight: true
+        }}>
+        <Input {...{placeholder: 'No label or help text, but still lines up!'}}/>
+     </FormCol>   
+  </FormRow>
+  <FormRow>
+  <FormCol {...{
+            name: 'other',
+            label: 'Inline Label',
+            inline: true
+          }}>
+          <Input {...{placeholder: 'The field and the label lines up when inline'}}/>
+       </FormCol>  
+  </FormRow>
+</Form>
+
+```
+#### Form Unit
+
+- it's a layered cake
+  - top is for labels (green)
+  - middle is for content (blue)
+  - the bottom is for messages/help text/ error text (red)
+- the goal is to make it easy to build rhythmic 8pt grid conforming forms
+
 ## Conversion Guide
 
 ### Input, Toggle
-- Use the new Form component for functionality such as field labels, tooltips, and help text.
+- Use the new Form component to obtain functionality such as field labels, tooltips, and help text.
 
 ### Select
 - The `onChange` callback will now receive the new `value` as a second argument, instead of putting it on `event.target.value`.
