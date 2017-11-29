@@ -2,7 +2,7 @@ import '../spec_helper';
 import {Table} from '../../../src/react/table';
 
 describe('Table', () => {
-  let data, table, thead, tbody, tfoot, tr, th, td, subject;
+  let data, columns, table, thead, tbody, tfoot, tr, th, td, subject;
 
   beforeEach(() => {
     table = jasmine.createSpy('table').and.returnValue({className: 'table-class'});
@@ -15,8 +15,6 @@ describe('Table', () => {
   });
 
   describe('with columns', () => {
-    let columns;
-
     beforeEach(() => {
       data = [{
         attr1: 'row1-value1', attr2: 'row1-value2', attr3: {usage: {name: 'name1'}}
@@ -285,6 +283,32 @@ describe('Table', () => {
       expect('table thead tr th:eq(0)').toHaveText('attr1');
       expect('table thead tr th:eq(1)').toHaveText('attr2');
       expect('table thead tr th:eq(2)').toHaveText('attr3');
+    });
+  });
+
+  describe('with simple columns', () => {
+    beforeEach(() => {
+      data = [{
+        attr1: 'row1-value1', attr2: 'row1-value2', attr3: 'row1-value3'
+      }, {
+        attr1: 'row2-value1', attr2: 'row2-value2'
+      }];
+
+      columns = ['attr3', 'attr1'];
+
+      ReactDOM.render(<Table {...{
+        className: 'some-class-name',
+        data, columns, table, thead, tbody, tfoot, tr, th, td
+      }}/>, root);
+    });
+
+    it('renders 2 columns', () => {
+      expect('table thead tr th').toHaveLength(2);
+    });
+
+    it('uses the given strings as the column attributes', () => {
+      expect('table thead tr th:eq(0)').toHaveText('attr3');
+      expect('table thead tr th:eq(1)').toHaveText('attr1');
     });
   });
 });
