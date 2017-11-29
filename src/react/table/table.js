@@ -16,16 +16,11 @@ export class Table extends TablePlugin {
 
     let dataColumns;
 
-    if (!columns) {
-      const dataKeys = {};
-      data.forEach(row => Object.keys(row).forEach(attr => dataKeys[attr] = true));
-      dataColumns = Object.keys(dataKeys).map(dataKey => ({
-        attribute: dataKey,
-        displayName: dataKey[0].toUpperCase() + dataKey.slice(1)
-      }));
+    if (!columns && data.length > 0) {
+      dataColumns = Object.keys(data[0]).map(attribute => ({attribute}));
     }
 
-    const renderedColumns = columns || dataColumns;
+    const renderedColumns = columns || dataColumns || [];
 
     const headers = renderedColumns.map((column, key) => {
       const Th = this.plugTag('th', 'th');

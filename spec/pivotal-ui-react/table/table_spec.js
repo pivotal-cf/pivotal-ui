@@ -282,9 +282,9 @@ describe('Table', () => {
     });
 
     it('renders the data keys as column headers', () => {
-      expect('table thead tr th:eq(0)').toHaveText('Attr1');
-      expect('table thead tr th:eq(1)').toHaveText('Attr2');
-      expect('table thead tr th:eq(2)').toHaveText('Attr3');
+      expect('table thead tr th:eq(0)').toHaveText('attr1');
+      expect('table thead tr th:eq(1)').toHaveText('attr2');
+      expect('table thead tr th:eq(2)').toHaveText('attr3');
     });
   });
 });
