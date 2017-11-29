@@ -169,7 +169,7 @@ export class Form extends React.Component {
   }
 
   render() {
-    const {className, children} = this.props;
+    const {className, children, onSubmit, resetOnSubmit, onModified, onSubmitError, afterSubmit, ...other} = this.props;
     const {submitting} = this.state;
     const filteredChildren = React.Children.toArray(children).filter(child => {
       const childIsFormRow = child.type === FormRow || child.type.prototype instanceof FormRow;
@@ -180,7 +180,7 @@ export class Form extends React.Component {
     });
 
     return (
-      <form {...{className: classnames('form', className), onSubmit: this.onSubmit}}>
+      <form {...{className: classnames('form', className), onSubmit: this.onSubmit, ...other}}>
         <fieldset {...{disabled: submitting}}>
           {filteredChildren.map((formRow, key) => (
             React.cloneElement(formRow, {

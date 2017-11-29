@@ -852,4 +852,17 @@ describe('Form', () => {
       expect($('.grid:eq(0) .col:eq(0) input').val()).toEqual('some-name');
     });
   });
+
+  describe('when passed extra props', () => {
+    beforeEach(() => {
+      ReactDOM.render(
+        <Form {...{className: 'some-form', id: 'some-id', name: 'some-name', method: 'some-method'}} />, root);
+    });
+
+    it('passes them to the form tag', () => {
+      expect('.some-form').toHaveAttr('id', 'some-id');
+      expect('.some-form').toHaveAttr('name', 'some-name');
+      expect('.some-form').toHaveAttr('method', 'some-method');
+    });
+  });
 });
