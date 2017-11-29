@@ -448,23 +448,23 @@ textarea.valid {
   .grid-inline {
     align-items: center;
 
-    & > .col:first-child > .row-label {
+    & > .col:first-child > .label-row {
       margin-right: $base-unit;
     }
 
-    & > .col:last-child > .row-label {
+    & > .col:last-child > .label-row {
       margin-left: $base-unit;
     }
   }
 
-  .row-label {
+  .label-row {
     display: block;
     line-height: 4 * $base-unit;
     font-weight: 600;
     font-size: 14px;
   }
 
-  .row-help {
+  .help-row {
     line-height: 2 * $base-unit;
     min-height: 2 * $base-unit;
     font-weight: 400;
@@ -480,12 +480,12 @@ textarea.valid {
     }
   }
 
-  .row-label {
+  .label-row {
     min-height: 4 * $base-unit;
   }
 
   &.has-error {
-    .row-help {
+    .help-row {
       color: $input-invalid-text;
     }
 

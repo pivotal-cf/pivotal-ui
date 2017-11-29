@@ -43,15 +43,15 @@ export class FormUnit extends React.Component {
       </TooltipTrigger>;
 
     const labelRow = (label || retainLabelHeight) && (
-      <label {...{className: classnames('row-label', labelClassName), key: 'label-row', htmlFor: labelFor}}>
+      <label {...{className: classnames('label-row', labelClassName), key: 'label-row', htmlFor: labelFor}}>
         {label}
         {tooltipIcon}
         {label && optional && <span className="optional-text type-neutral-4">{optionalText || optionalText === '' ? optionalText : '(Optional)'}</span>}
       </label>
     );
 
-    const fieldRow = <div className="row-field" key="field-row">{field}</div>;
-    const helpRow = hideHelpRow || <div className={classnames('row-help', {'type-dark-5': !hasError})}>{help}</div>;
+    const fieldRow = <div className="field-row" key="field-row">{field}</div>;
+    const helpRow = hideHelpRow || <div className={classnames('help-row', {'type-dark-5': !hasError})}>{help}</div>;
 
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
 
