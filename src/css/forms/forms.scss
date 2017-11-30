@@ -458,14 +458,21 @@ textarea.valid {
   }
 
   .label-row {
-    line-height: 4 * $base-unit - 4;
+    display: block;
+    line-height: 4 * $base-unit;
     min-height: 4 * $base-unit;
     font-weight: 600;
     font-size: 14px;
   }
 
+  .field-row {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+  }
+
   .help-row {
-    line-height: 2 * $base-unit - 4;
+    line-height: 2 * $base-unit;
     min-height: 2 * $base-unit;
     font-weight: 400;
     font-size: 12px;

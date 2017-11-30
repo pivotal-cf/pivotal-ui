@@ -64,7 +64,7 @@ export class FormUnit extends React.Component {
         </Grid>
       );
 
-    const fieldRow = <div className="field-row" key="field-row">{field}</div>;
+    const fieldRow = field && <div className="field-row" key="field-row">{field}</div>;
     const helpRow = hideHelpRow || <div className={classnames('help-row', {'type-dark-5': !hasError})}>{help}</div>;
 
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
