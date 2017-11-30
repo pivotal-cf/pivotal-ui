@@ -1,6 +1,7 @@
 import '../spec_helper';
 import {FormCol, FormUnit} from '../../../src/react/forms';
 import crypto from 'crypto';
+import {FlexCol} from '../../../src/react/flex-grids';
 
 class TestInput extends React.Component {
   render() {
@@ -21,9 +22,20 @@ describe('FormCol', () => {
 
   describe('simple case', () => {
     beforeEach(() => {
-      ReactDOM.render(<FormCol>
+      spyOnRender(FlexCol).and.callThrough();
+
+      ReactDOM.render(<FormCol id="some-id" className="some-class">
         <div>hello</div>
       </FormCol>, root);
+    });
+
+    it('renders a FlexCol with the props', () => {
+      expect(FlexCol).toHaveBeenRenderedWithProps({
+        id: 'some-id',
+        className: 'some-class form-col',
+        hidden: undefined,
+        children: jasmine.any(Object)
+      });
     });
 
     it('renders a form unit', () => {

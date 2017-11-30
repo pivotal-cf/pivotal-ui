@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Grid} from '../flex-grids';
 import {FormCol} from './form-col';
 
@@ -22,7 +23,7 @@ export class FormRow extends React.Component {
   }
 
   render() {
-    const {wrapper, state, children, ...props} = this.props;
+    const {wrapper, state, children, className, id, ...props} = this.props;
 
     const filteredChildren = React.Children.toArray(children).filter(child => {
       const childIsFormRow = child.type === FormCol || child.type.prototype instanceof FormCol;
@@ -32,7 +33,7 @@ export class FormRow extends React.Component {
       return childIsFormRow;
     });
 
-    const row = (<Grid className="form-row">{React.Children.map(filteredChildren, (formCol, key) => {
+    const row = (<Grid {...{id, className: classnames(className, 'form-row')}}>{React.Children.map(filteredChildren, (formCol, key) => {
       return React.cloneElement(formCol, {...props, ...formCol.props, state, key});
     })}</Grid>);
 

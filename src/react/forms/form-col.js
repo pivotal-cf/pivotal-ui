@@ -38,7 +38,7 @@ export class FormCol extends React.Component {
   render() {
     const {
       state, setState, canSubmit, onSubmit, canReset, reset, onChange, onBlur, onChangeCheckbox, fixed,
-      children, name, help, validator, retainLabelHeight, hidden, labelFor, className, ...rest
+      children, name, help, validator, retainLabelHeight, hidden, labelFor, className, id, ...rest
     } = this.props;
 
     const element = typeof children !== 'function' ? children : children({
@@ -76,7 +76,7 @@ export class FormCol extends React.Component {
     }
 
     return (
-      <FlexCol {...{className: classnames(className, 'form-col', {'col-fixed': fixed}), hidden}}>
+      <FlexCol {...{className: classnames(className, 'form-col', {'col-fixed': fixed}), id, hidden}}>
         <FormUnit {...{
           retainLabelHeight,
           hasError: state.errors && !!state.errors[name],
