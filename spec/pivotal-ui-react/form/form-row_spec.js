@@ -1,5 +1,6 @@
 import '../spec_helper';
 import {FormRow, FormCol} from '../../../src/react/forms';
+import {Grid} from '../../../src/react/flex-grids';
 
 describe('FormRow', () => {
   let subject, field1, field2;
@@ -90,12 +91,28 @@ describe('FormRow', () => {
       expect('.fake-col').toExist();
     });
 
-    it('does not render the invalid-element',() => {
+    it('does not render the invalid-element', () => {
       expect('.invalid-element').not.toExist();
     });
 
     it('shows a warning', () => {
       expect(console.warn).toHaveBeenCalledWith('Child of type "div" will not be rendered. A FormRow\'s children should be of type FormCol.');
+    });
+  });
+
+  describe('when given a class name and an ID', () => {
+    beforeEach(() => {
+      spyOnRender(Grid).and.callThrough();
+      subject::setProps({className: 'my-form-row', id: 'my-form-row-id'});
+    });
+
+    it('puts the class name and the ID on the inner form row grid', () => {
+      expect(Grid).toHaveBeenRenderedWithProps({
+        className: 'my-form-row form-row',
+        id: 'my-form-row-id',
+        gutter: true,
+        children: jasmine.any(Object)
+      });
     });
   });
 });
