@@ -74,8 +74,9 @@ all fields will revert to their `initialValue`, if provided.
             <Input type="text" />
         </FormCol>
     </FormRow>
-    <FormRow className="txt-r">
-        <FormCol>{({canSubmit, reset}) =>
+    <FormRow>
+        <FormCol/>
+        <FormCol fixed>{({canSubmit, reset}) =>
             <div>
                 <PrimaryButton alt onClick={reset}>Reset</PrimaryButton>
                 <PrimaryButton disabled={!canSubmit()}>Submit</PrimaryButton>
@@ -235,8 +236,9 @@ disabled when `state.current.password1` and `state.current.password2` do not mat
             <Input type="password" placeholder="Re-enter password" />
         </FormCol>
     </FormRow>
-    <FormRow className="txt-r">
-        <FormCol >
+    <FormRow>
+        <FormCol/>
+        <FormCol fixed>
             {({canSubmit, state}) => {
                 const passwIsValid = state.current.password1 !== "" && state.current.password1 === state.current.password2;
                 return <DefaultButton alt disabled={!(canSubmit() && passwIsValid)}>Save Password</DefaultButton>
