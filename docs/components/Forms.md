@@ -279,7 +279,7 @@ Name         | Type     | Description
             </select>
         </FormCol>
         <FormCol retainLabelHeight>
-            {({state: {current: {color}}}) => <div {...{style: {backgroundColor: color}}}>Styled dynamically from first field</div>}
+            {({state: {current: {color}}}) => <div {...{style: {backgroundColor: color, width: "100%", textAlign: "center"}}}>Styled dynamically from first field</div>}
         </FormCol>
     </FormRow>
 </Form>
