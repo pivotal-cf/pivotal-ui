@@ -22,6 +22,11 @@ describe('Modals', () => {
 
       expect(findByClass(result, 'myModal')).toBeDefined();
     });
+
+    it('renders a close button of type button', () => {
+      result.open();
+      expect('.modal-close button.btn.btn-icon').toHaveAttr('type', 'button');
+    });
   });
 
   describe('#close', () => {
