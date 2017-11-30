@@ -17,6 +17,20 @@ describe('FormUnit', () => {
     expect('.form-unit .label-row').not.toExist();
   });
 
+  describe('when no field is provided', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(<FormUnit {...{
+        className: 'my-class',
+        label: 'some label'
+      }} />, root);
+    });
+
+    it('does not render a field row', () => {
+      expect('.form-unit .field-row').not.toExist();
+    });
+  });
+
+
   describe('inline', () => {
     beforeEach(() => {
       subject::setProps({inline: true, label: 'Instance Name'});
