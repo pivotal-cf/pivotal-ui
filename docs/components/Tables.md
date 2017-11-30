@@ -34,6 +34,26 @@ const data = [{
 ```
 
 ```jsx
+::title=Basic HTML Table with simple columns
+::description=When the `columns` prop contains strings, the associated data will be shown in the data in the order provided.
+const data = [{
+  instances: '1',
+  bar: 11,
+  title: 'foo'
+}, {
+  instances: '3',
+  bar: 7,
+  title: 'sup'
+}, {
+  title: 'yee',
+  instances: '2',
+  bar: 8
+}];
+const columns = ['title', 'instances'];
+<Table columns={columns} data={data}/>
+```
+
+```jsx
 ::title=Sortable HTML Table with explicit columns
 ::description=The `columns` prop defines the properties of each column. This allows for more complex table behavior, such as sorting.
 const columns = [{
