@@ -82,6 +82,7 @@ export function withRowDrawer(Table) {
     static propTypes = {
       rowDrawer: PropTypes.func,
       rowIndex: PropTypes.number,
+      rowDatum: PropTypes.object,
       keyboardNavigation: PropTypes.bool,
       isSelected: PropTypes.bool
     };
@@ -114,8 +115,8 @@ export function withRowDrawer(Table) {
       const {isSelected} = this.props;
       if (!isSelected) return;
 
-      const {rowDrawer, rowIndex} = this.props;
-      const drawerContent = rowIndex !== -1 && rowDrawer(rowIndex);
+      const {rowDrawer, rowIndex, rowDatum} = this.props;
+      const drawerContent = rowIndex !== -1 && rowDrawer(rowIndex, rowDatum);
       if (!drawerContent) return;
 
       if (e.keyCode === ROW_KEYS.RIGHT) {
@@ -127,10 +128,10 @@ export function withRowDrawer(Table) {
 
     render() {
       // eslint-disable-next-line no-unused-vars
-      const {children, rowDrawer, rowIndex, keyboardNavigation, isSelected, ...props} = this.props;
+      const {children, rowDrawer, rowIndex, rowDatum, keyboardNavigation, isSelected, ...props} = this.props;
       const {expanded} = this.state;
 
-      const drawerContent = rowIndex !== -1 && rowDrawer(rowIndex);
+      const drawerContent = rowIndex !== -1 && rowDrawer(rowIndex, rowDatum);
       const onClick = () => drawerContent && this.setState({expanded: !expanded});
       const src = expanded ? 'chevron_down' : 'chevron_right';
       const className = classnames(props.className, {expandable: rowIndex !== -1}, {expanded},
@@ -171,9 +172,10 @@ export function withRowDrawer(Table) {
         tbodyTag: () => rowDrawer && TbodyWithDrawer,
         trTag: () => rowDrawer && RowWithDrawer,
         tbody: () => rowDrawer && {keyboardNavigation},
-        tr: (props, {rowIndex}) => rowDrawer && {
+        tr: (props, {rowIndex, rowDatum}) => rowDrawer && {
           rowDrawer,
           rowIndex,
+          rowDatum,
           keyboardNavigation
         }
       }, props);
