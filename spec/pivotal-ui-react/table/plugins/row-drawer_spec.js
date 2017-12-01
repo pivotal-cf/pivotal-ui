@@ -81,7 +81,7 @@ describe('withRowDrawer', () => {
           $('.tbody .tr:eq(0)').simulate('click');
         });
 
-        it('does not exand the row', () => {
+        it('does not expand the row', () => {
           expect('.tbody > div:eq(0) .collapse').not.toHaveClass('in');
         });
 
@@ -202,6 +202,12 @@ describe('withRowDrawer', () => {
         ReactDOM.render(<ComposedTable {...{columns, data, rowDrawer, keyboardNavigation: true}}/>, root);
       });
 
+      it('calls rowDrawer with the correct arguments', () => {
+        expect(rowDrawer).toHaveBeenCalledWith(0, {attr1: 'row1-value1', attr2: 'row1-value2'});
+        expect(rowDrawer).toHaveBeenCalledWith(1, {attr1: 'row2-value1', attr2: 'row2-value2'});
+        expect(rowDrawer).toHaveBeenCalledWith(2, {attr1: 'row3-value1', attr2: 'row3-value2'});
+      });
+
       it('renders an > icon on the first column', () => {
         expect('.thead .tr:eq(0) .th:eq(0) svg').not.toExist();
         expect('.tbody .tr:eq(0) .icon svg').toHaveClass('icon-chevron_right');
@@ -272,11 +278,16 @@ describe('withRowDrawer', () => {
 
           describe('when pressing right (keyCode=39)', () => {
             beforeEach(() => {
+              rowDrawer.calls.reset();
               keyDown(39);
             });
 
             it('expands the first row', () => {
               expect('.tr:eq(1)').toHaveClass('expanded');
+            });
+
+            it('calls the rowDrawer function with the correct arguments', () => {
+              expect(rowDrawer.calls.first().args).toEqual([0, {attr1: 'row1-value1', attr2: 'row1-value2'}]);
             });
 
             describe('when pressing left (keyCode=37)', () => {
