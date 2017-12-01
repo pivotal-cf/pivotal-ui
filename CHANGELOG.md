@@ -1,7 +1,27 @@
 <a name="11.1.0"></a>
-# 11.1.0 (2017-11-28)
+# 11.1.0 (2017-12-01)
+#### CSS
+* **forms**:
+  * Remove display: block from form unit label-row ([1d165d1e](https://github.com/pivotal-cf/pivotal-ui/commit/1d165d1e))
+  * fixed the height issues due to empty content [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([e9a067b6](https://github.com/pivotal-cf/pivotal-ui/commit/e9a067b6))
+  * fixed the alignment issues when row-label and row-help had no text [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([f9cd9e7a](https://github.com/pivotal-cf/pivotal-ui/commit/f9cd9e7a))
+  * Fix form unit class names [[:beetle:#153264393](https://www.pivotaltracker.com/story/show/153264393)] ([e9b5aba3](https://github.com/pivotal-cf/pivotal-ui/commit/e9b5aba3))
+  * Rename FormUnit's optional text CSS class to optional-text (formerly post-label) [[:beetle:#153263142](https://www.pivotaltracker.com/story/show/153263142)] ([29185b6c](https://github.com/pivotal-cf/pivotal-ui/commit/29185b6c))
+* **select**: Selects that have a *blank* value does not align the dropdown icon correctly - 537 [[:beetle:#152290633](https://www.pivotaltracker.com/story/show/152290633)] ([aee8267f](https://github.com/pivotal-cf/pivotal-ui/commit/aee8267f))
 #### React
-* **table**: table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([de2c463](https://github.com/pivotal-cf/pivotal-ui/commit/de2c463))
+* **autocomplete**: imported css for the autocomplete to fix broken L&F [[:beetle:#153237542](https://www.pivotaltracker.com/story/show/153237542)] ([2a58a28e](https://github.com/pivotal-cf/pivotal-ui/commit/2a58a28e))
+* **forms**:
+  * Allow for setting className and id on FormRow/FormCol [[:beetle:#153268151](https://www.pivotaltracker.com/story/show/153268151)] ([6a721566](https://github.com/pivotal-cf/pivotal-ui/commit/6a721566))
+  * Add postLabel prop to FormUnit, add form-row/form-col CSS classes [[:star:#153235458](https://www.pivotaltracker.com/story/show/153235458)] ([81ab6a95](https://github.com/pivotal-cf/pivotal-ui/commit/81ab6a95))
+  * fixed the height issues due to empty content [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([e9a067b6](https://github.com/pivotal-cf/pivotal-ui/commit/e9a067b6))
+  * Pass through extra props to the form tag [[:beetle:#153268151](https://www.pivotaltracker.com/story/show/153268151)] ([a9280d65](https://github.com/pivotal-cf/pivotal-ui/commit/a9280d65))
+  * Fix form unit class names [[:beetle:#153264393](https://www.pivotaltracker.com/story/show/153264393)] ([e9b5aba3](https://github.com/pivotal-cf/pivotal-ui/commit/e9b5aba3))
+  * Rename FormUnit's optional text CSS class to optional-text (formerly post-label) [[:beetle:#153263142](https://www.pivotaltracker.com/story/show/153263142)] ([29185b6c](https://github.com/pivotal-cf/pivotal-ui/commit/29185b6c))
+* **modals**: Add type='button' to modal close button [[:beetle:#153031749](https://www.pivotaltracker.com/story/show/153031749)] ([b2acf7fd](https://github.com/pivotal-cf/pivotal-ui/commit/b2acf7fd))
+* **table**:
+  * allow simple columns prop for tables [[:star:#153264866](https://www.pivotaltracker.com/story/show/153264866)] ([a58c1b84](https://github.com/pivotal-cf/pivotal-ui/commit/a58c1b84))
+  * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([d2542d00](https://github.com/pivotal-cf/pivotal-ui/commit/d2542d00))
+  * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([de2c463e](https://github.com/pivotal-cf/pivotal-ui/commit/de2c463e))
 <a name="11.0.0"></a>
 # 11.0.0 (2017-11-28)
 #### CSS
