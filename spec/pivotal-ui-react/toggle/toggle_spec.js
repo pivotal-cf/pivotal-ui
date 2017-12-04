@@ -83,4 +83,14 @@ describe('Toggle', () => {
       expect(label).toHaveClass('large');
     });
   });
+
+  describe('labelClassName', () => {
+    beforeEach(() => {
+      renderComponent({labelClassName: 'label-class-name'});
+    });
+
+    it('puts the given class name on the inner label', () => {
+      expect('label').toHaveClass('label-class-name');
+    });
+  });
 });
