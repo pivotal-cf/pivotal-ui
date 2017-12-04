@@ -8,13 +8,11 @@ export class Toggle extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium', 'large']),
-    labelClassName: PropTypes.string,
-    type: PropTypes.oneOf(['checkbox'])
+    labelClassName: PropTypes.string
   };
 
   static defaultProps = {
-    size: 'medium',
-    type: 'checkbox'
+    size: 'medium'
   };
 
   render() {
