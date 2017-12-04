@@ -395,11 +395,11 @@ textarea.valid {
   }
 
   &:checked + label.medium:after {
-    margin-left: $toggle-medium-circle-size;
+    margin-left: $toggle-medium-circle-size + 1px;
   }
 
   &:checked + label.large:after {
-    margin-left: $toggle-large-circle-size;
+    margin-left: $toggle-large-circle-size + 1px;
   }
 
   &[disabled] + label {
