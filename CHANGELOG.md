@@ -1,7 +1,8 @@
 <a name="11.1.0"></a>
-# 11.1.0 (2017-12-01)
+# 11.1.0 (2017-12-04)
 #### CSS
 * **forms**:
+  * add back input's left padding ([a9fa42e6](https://github.com/pivotal-cf/pivotal-ui/commit/a9fa42e6))
   * Remove display: block from form unit label-row ([1d165d1e](https://github.com/pivotal-cf/pivotal-ui/commit/1d165d1e))
   * fixed the height issues due to empty content [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([e9a067b6](https://github.com/pivotal-cf/pivotal-ui/commit/e9a067b6))
   * fixed the alignment issues when row-label and row-help had no text [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([f9cd9e7a](https://github.com/pivotal-cf/pivotal-ui/commit/f9cd9e7a))
@@ -19,6 +20,7 @@
   * Rename FormUnit's optional text CSS class to optional-text (formerly post-label) [[:beetle:#153263142](https://www.pivotaltracker.com/story/show/153263142)] ([29185b6c](https://github.com/pivotal-cf/pivotal-ui/commit/29185b6c))
 * **modals**: Add type='button' to modal close button [[:beetle:#153031749](https://www.pivotaltracker.com/story/show/153031749)] ([b2acf7fd](https://github.com/pivotal-cf/pivotal-ui/commit/b2acf7fd))
 * **table**:
+  * Pass rowDatum to the rowDrawer function [[:beetle:#153324179](https://www.pivotaltracker.com/story/show/153324179)] ([33eedc1b](https://github.com/pivotal-cf/pivotal-ui/commit/33eedc1b))
   * allow simple columns prop for tables [[:star:#153264866](https://www.pivotaltracker.com/story/show/153264866)] ([a58c1b84](https://github.com/pivotal-cf/pivotal-ui/commit/a58c1b84))
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([d2542d00](https://github.com/pivotal-cf/pivotal-ui/commit/d2542d00))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([de2c463e](https://github.com/pivotal-cf/pivotal-ui/commit/de2c463e))
