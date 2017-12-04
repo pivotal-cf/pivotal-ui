@@ -319,7 +319,7 @@ textarea.valid {
 
 .toggle-switch {
   position: absolute;
-  visibility: hidden;
+  opacity: 0;
 
   + label {
     position: relative;
@@ -407,6 +407,12 @@ textarea.valid {
     
     // IE8 filter
     filter: alpha(opacity=50);
+  }
+
+  &:focus + label {
+    -webkit-box-shadow: 0 0 0 1px $input-border-focus;
+    -moz-box-shadow: 0 0 0 1px $input-border-focus;
+    box-shadow: 0 0 0 1px $input-border-focus;
   }
 }
 
