@@ -41,9 +41,10 @@
 
 ## Props
 
-Property | Required | Type                              | Default  | Description
----------|----------|-----------------------------------|----------|------------
-id       | no       | String                            |          | The id of the element
-onChange | no       | Function                          |          | Callback that gets fired when Toggle state changes
-onClick  | no       | Function                          |          | Callback that gets fired when Toggle is clicked
-size     | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
+Property       | Required | Type                              | Default  | Description
+---------------|----------|-----------------------------------|----------|------------
+id             | no       | String                            |          | The id of the element
+labelClassName | no       | String                            |          | Class name to put on the inner `label` element
+size           | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
+
+All other props are passed to the inner `input` element.
