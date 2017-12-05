@@ -451,7 +451,7 @@ textarea.valid {
     margin-left: $base-unit / 2;
   }
 
-  > .grid-inline.label-row {
+  > .grid-inline {
     align-items: center;
 
     & > .col:nth-child(2) {
@@ -468,10 +468,8 @@ textarea.valid {
 
   .field-row {
     min-height: 32px;
-
-    > * {
-      vertical-align: middle;
-    }
+    display: flex;
+    align-items: center;
   }
 
   .help-row {
