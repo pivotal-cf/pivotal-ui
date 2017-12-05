@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../css/inputs';
-import '../../css/forms';
 
 const DOWN_KEY = 40;
 const ENTER_KEY = 13;
@@ -24,11 +22,11 @@ export class AutocompleteInput extends React.Component {
     onPicking: PropTypes.func,
     onSearch: PropTypes.func,
     scrollIntoView: PropTypes.func
-  }
+  };
 
   static defaultProps = {
     autoFocus: null
-  }
+  };
 
   static DOWN_KEY = DOWN_KEY;
   static ENTER_KEY = ENTER_KEY;
@@ -36,12 +34,17 @@ export class AutocompleteInput extends React.Component {
   static TAB_KEY = TAB_KEY;
   static UP_KEY = UP_KEY;
 
+  componentDidMount() {
+    require('../../css/inputs');
+    require('../../css/forms');
+  }
+
   change = e => {
     const {value} = e.currentTarget;
     this.props.onSearch(value, suggestedValues => {
       this.props.$autocomplete.merge({hidden: false, highlightedSuggestion: 0, value, suggestedValues}).flush();
     });
-  }
+  };
 
   keyDown = e => {
     const {keyCode} = e;

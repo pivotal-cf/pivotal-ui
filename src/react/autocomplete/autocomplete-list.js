@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import '../../css/autocomplete';
 
 export class AutocompleteList extends React.Component {
   static propTypes = {
@@ -23,6 +22,10 @@ export class AutocompleteList extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.onClick = this.onClick.bind(this);
+  }
+
+  componentDidMount() {
+    require('../../css/autocomplete');
   }
 
   onClick(value, e) {
