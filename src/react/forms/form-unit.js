@@ -46,35 +46,51 @@ export class FormUnit extends React.Component {
         <Icon verticalAlign="baseline" src="info_outline"/>
       </TooltipTrigger>;
 
-    const labelRow = (label || retainLabelHeight || postLabel) && (
-        <Grid {...{key: 'label-row', className: 'label-row', gutter: false}}>
-          <FlexCol>
-            <label {...{className: labelClassName, htmlFor: labelFor}}>
-              {label}
-              {tooltipIcon}
-              {label && optional && <span
-                className="optional-text type-neutral-4">
+    const labelElement = (
+      <label {...{className: labelClassName, htmlFor: labelFor}}>
+        {label}
+        {tooltipIcon}
+        {label && optional && <span
+          className="optional-text type-neutral-4">
                   {optionalText || optionalText === '' ? optionalText : '(Optional)'}
                 </span>}
-            </label>
-          </FlexCol>
-          {!inline && <FlexCol fixed contentAlignment="middle" className="post-label">
-            {typeof postLabel === 'function' ? postLabel({state, setState}) : postLabel}
-          </FlexCol>}
-        </Grid>
+      </label>
+    );
+
+    const labelRow = (label || retainLabelHeight || postLabel) && (
+        inline
+          ? labelElement
+          : (
+          <Grid {...{key: 'label-row', className: 'label-row', gutter: false}}>
+            <FlexCol>{labelElement}</FlexCol>
+            <FlexCol fixed contentAlignment="middle" className="post-label">
+              {typeof postLabel === 'function' ? postLabel({state, setState}) : postLabel}
+            </FlexCol>
+          </Grid>
+        )
       );
 
-    const fieldRow = field && <div className="field-row" key="field-row">{field}</div>;
+    const fieldRow = field && (inline ? field : <div className="field-row" key="field-row">{field}</div>);
     const helpRow = hideHelpRow || <div className={classnames('help-row', {'type-dark-5': !hasError})}>{help}</div>;
 
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
 
+    const content = inline ? (
+      <Grid className="grid-inline">
+        {sections.map((col, key) => <FlexCol {...{
+          key,
+          fixed: key === 0,
+          className: classnames({
+            'label-row': key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
+            'field-row': key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
+          })
+        }}>{col}</FlexCol>)}
+      </Grid>
+    ) : sections;
+
     return (
       <div className={classnames('form-unit', className, {'has-error': hasError})}>
-        {inline ? (<Grid className="grid-inline grid-nogutter">
-          {sections.map((col, key) =>
-            <FlexCol {...{key, className: classnames({'col-fixed': key === 0})}}>{col}</FlexCol>)}
-        </Grid>) : sections}
+        {content}
         {helpRow}
       </div>
     );
