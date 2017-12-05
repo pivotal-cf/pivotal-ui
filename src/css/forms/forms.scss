@@ -451,15 +451,11 @@ textarea.valid {
     margin-left: $base-unit / 2;
   }
 
-  .grid-inline {
+  > .grid-inline {
     align-items: center;
 
-    & > .col:first-child > .label-row {
-      margin-right: $base-unit;
-    }
-
-    & > .col:last-child > .label-row {
-      margin-left: $base-unit;
+    & > .col:nth-child(2) {
+      padding-left: 0;
     }
   }
 
