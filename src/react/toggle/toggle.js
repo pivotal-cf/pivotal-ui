@@ -7,8 +7,7 @@ import {mergeProps} from '../helpers';
 export class Toggle extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
-    labelClassName: PropTypes.string
+    size: PropTypes.oneOf(['small', 'medium', 'large'])
   };
 
   static defaultProps = {
@@ -16,7 +15,7 @@ export class Toggle extends React.PureComponent {
   };
 
   render() {
-    const {children, id, size, labelClassName, ...others} = this.props;
+    const {children, id, size, className, ...others} = this.props;
     const toggleId = id || uniqueid('toggle');
 
     const inputProps = mergeProps(others, {
@@ -27,7 +26,7 @@ export class Toggle extends React.PureComponent {
 
     return (<div>
       <input {...inputProps}/>
-      <label {...{htmlFor: toggleId, className: classnames(size, labelClassName)}}>{children}</label>
+      <label {...{htmlFor: toggleId, className: classnames(size, className)}}>{children}</label>
     </div>);
   }
 }

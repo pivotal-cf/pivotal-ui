@@ -84,9 +84,9 @@ describe('Toggle', () => {
     });
   });
 
-  describe('labelClassName', () => {
+  describe('className', () => {
     beforeEach(() => {
-      renderComponent({labelClassName: 'label-class-name'});
+      renderComponent({className: 'label-class-name'});
     });
 
     it('puts the given class name on the inner label', () => {
