@@ -219,7 +219,7 @@ describe('Form', () => {
             errors = {name: 'invalid'};
             onSubmitError.and.returnValue(errors);
             reject(error);
-            MockPromises.tick(1);
+            MockPromises.tick(2);
           });
 
           it('enables the top-level fieldset', () => {
