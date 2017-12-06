@@ -470,6 +470,10 @@ textarea.valid {
     min-height: 32px;
     display: flex;
     align-items: center;
+
+    > :not(.grid) {
+      min-width: 100%;
+    }
   }
 
   .help-row {
