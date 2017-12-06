@@ -14,6 +14,10 @@ export class Toggle extends React.PureComponent {
     size: 'medium'
   };
 
+  componentDidMount() {
+    require('../../css/forms');
+  }
+
   render() {
     const {children, id, size, className, ...others} = this.props;
     const toggleId = id || uniqueid('toggle');
