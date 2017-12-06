@@ -195,12 +195,12 @@ You might use this with the `ExpanderContent` component to toggle the hiding and
         </FormCol>
     </FormRow>
     <FormRow wrapper={({showField}) => <ExpanderContent {...{expanded: showField, delay: 200}}/>}>
-        <FormCol label="I am mostly visible" inline={true}>
+        <FormCol label="I am sometimes visible" inline={true}>
             <Input type="text" placeholder="Some hidden field" />
         </FormCol>
     </FormRow>
     <FormRow>
-        <FormCol>{({setState, state: {showField}}) =>
+        <FormCol fixed>{({setState, state: {showField}}) =>
             <DefaultButton
                 onClick={() => setState({showField: !showField})}>
                 Hide/Show Field
@@ -302,7 +302,7 @@ By default, a button within the `Form` that has `type="submit"` will trigger sub
         <FormCol label="Last Name" name="lastName" initialValue="Doe">
             <Input type="text" />
         </FormCol>
-        <FormCol retainLabelHeight>
+        <FormCol fixed retainLabelHeight>
             {({canSubmit}) => <PrimaryButton type="submit" disabled={!canSubmit()}>Submit</PrimaryButton>}
         </FormCol>
     </FormRow>
@@ -323,7 +323,7 @@ You can also attach this behavior to another field that takes in the `onSubmit`,
         <FormCol label="Last Name" name="lastName" initialValue="Doe">
             <Input type="text" />
         </FormCol>
-        <FormCol retainLabelHeight className="col-middle">
+        <FormCol fixed retainLabelHeight className="col-middle">
             {({onSubmit}) => <a onClick={onSubmit} href="#">Click to submit</a>}
         </FormCol>
     </FormRow>
@@ -350,7 +350,7 @@ Define a `onSubmitError` handler to map error messages to a specific field. Retu
         <FormCol label="Last Name" name="lastName" initialValue="Doe">
             <Input type="text" />
         </FormCol>
-        <FormCol retainLabelHeight>
+        <FormCol fixed retainLabelHeight>
             {({canSubmit}) => <PrimaryButton type="submit" disabled={!canSubmit()}>Submit</PrimaryButton>}
         </FormCol>
     </FormRow>
