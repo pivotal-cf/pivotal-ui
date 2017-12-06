@@ -9,6 +9,10 @@ const deepClone = o => JSON.parse(JSON.stringify(o));
 const noop = () => {
 };
 
+function isPromise(promise = {}) {
+  return typeof promise.then === 'function';
+}
+
 export class Form extends React.Component {
   static propTypes = {
     onModified: PropTypes.func.isRequired,
@@ -139,25 +143,39 @@ export class Form extends React.Component {
     return !submitting && !deepEqual(initial, current);
   }
 
-  async onSubmit(e) {
+  onSubmit(e) {
     e && e.preventDefault();
     const {onSubmit, onSubmitError, afterSubmit, onModified, resetOnSubmit} = this.props;
     const {initial, current} = this.state;
     this.setState({submitting: true});
     const nextState = {submitting: false};
-    try {
-      const response = await onSubmit({initial, current});
+
+    const onSuccess = response => {
       this.setState({
         ...nextState,
         current: resetOnSubmit ? deepClone(initial) : current,
         initial: resetOnSubmit ? initial : deepClone(current),
         errors: {}
       });
-      await onModified(false);
-      afterSubmit({state: this.state, setState: this.setState, response, reset: this.reset});
-    } catch (err) {
-      this.setState({...nextState, errors: (onSubmitError && onSubmitError(err)) || {}});
-      throw err;
+      const after = () => afterSubmit({state: this.state, setState: this.setState, response, reset: this.reset});
+      const onModifiedPromise = onModified(false);
+      return isPromise(onModifiedPromise) ? onModifiedPromise.then(after) : after();
+    };
+
+    const onError = e => {
+      this.setState({...nextState, errors: (onSubmitError && onSubmitError(e)) || {}});
+    };
+
+    const afterSubmitPromise = onSubmit({initial, current});
+    if (isPromise(afterSubmitPromise)) {
+      return afterSubmitPromise.then(onSuccess).catch(onError);
+    } else {
+      try {
+        return onSuccess(afterSubmitPromise);
+      } catch (e) {
+        onError(e);
+        throw e;
+      }
     }
   }
 
