@@ -471,8 +471,12 @@ textarea.valid {
     display: flex;
     align-items: center;
 
-    > :not(.grid) {
+    > * {
       min-width: 100%;
+    }
+
+    > input[type="checkbox"] {
+      min-width: initial;
     }
   }
 
