@@ -1,17 +1,31 @@
 <a name="11.1.0"></a>
-# 11.1.0 (2017-12-04)
+# 11.1.0 (2017-12-07)
 #### CSS
 * **forms**:
+  * Set min-width: 100% on contents of field-row [[:beetle:#153460941](https://www.pivotaltracker.com/story/show/153460941)] ([51111499](https://github.com/pivotal-cf/pivotal-ui/commit/51111499))
+  * give the immediate children of inline field rows a width of 100% [[:beetle:#153460941](https://www.pivotaltracker.com/story/show/153460941)] ([eaa2c6b0](https://github.com/pivotal-cf/pivotal-ui/commit/eaa2c6b0))
+  * Fix vertical alignment of inline form units in IE [[:beetle:#153417045](https://www.pivotaltracker.com/story/show/153417045)] ([05cb4241](https://github.com/pivotal-cf/pivotal-ui/commit/05cb4241))
+  * Fix inline forms in IE/Edge [[:beetle:#153417045](https://www.pivotaltracker.com/story/show/153417045)] ([09db5c7b](https://github.com/pivotal-cf/pivotal-ui/commit/09db5c7b))
+  * Make Toggles keyboard-focusable [[:beetle:#153334867](https://www.pivotaltracker.com/story/show/153334867)] ([57456f34](https://github.com/pivotal-cf/pivotal-ui/commit/57456f34))
+  * Fix horizontal positioning of toggle circle for medium/large toggles [[:beetle:#153377086](https://www.pivotaltracker.com/story/show/153377086)] ([7d6233d3](https://github.com/pivotal-cf/pivotal-ui/commit/7d6233d3))
   * add back input's left padding ([a9fa42e6](https://github.com/pivotal-cf/pivotal-ui/commit/a9fa42e6))
   * Remove display: block from form unit label-row ([1d165d1e](https://github.com/pivotal-cf/pivotal-ui/commit/1d165d1e))
   * fixed the height issues due to empty content [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([e9a067b6](https://github.com/pivotal-cf/pivotal-ui/commit/e9a067b6))
   * fixed the alignment issues when row-label and row-help had no text [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([f9cd9e7a](https://github.com/pivotal-cf/pivotal-ui/commit/f9cd9e7a))
   * Fix form unit class names [[:beetle:#153264393](https://www.pivotaltracker.com/story/show/153264393)] ([e9b5aba3](https://github.com/pivotal-cf/pivotal-ui/commit/e9b5aba3))
   * Rename FormUnit's optional text CSS class to optional-text (formerly post-label) [[:beetle:#153263142](https://www.pivotaltracker.com/story/show/153263142)] ([29185b6c](https://github.com/pivotal-cf/pivotal-ui/commit/29185b6c))
+* **pui-variables.scss**: Fix size of circle in large Toggle [[:beetle:#153190438](https://www.pivotaltracker.com/story/show/153190438)] ([89b3a740](https://github.com/pivotal-cf/pivotal-ui/commit/89b3a740))
 * **select**: Selects that have a *blank* value does not align the dropdown icon correctly - 537 [[:beetle:#152290633](https://www.pivotaltracker.com/story/show/152290633)] ([aee8267f](https://github.com/pivotal-cf/pivotal-ui/commit/aee8267f))
 #### React
-* **autocomplete**: imported css for the autocomplete to fix broken L&F [[:beetle:#153237542](https://www.pivotaltracker.com/story/show/153237542)] ([2a58a28e](https://github.com/pivotal-cf/pivotal-ui/commit/2a58a28e))
+* **autocomplete**:
+  * Move CSS imports into componentDidMount [[:gear:#153237542](https://www.pivotaltracker.com/story/show/153237542)] ([de699b24](https://github.com/pivotal-cf/pivotal-ui/commit/de699b24))
+  * imported css for the autocomplete to fix broken L&F [[:gear:#153237542](https://www.pivotaltracker.com/story/show/153237542)] ([2a58a28e](https://github.com/pivotal-cf/pivotal-ui/commit/2a58a28e))
 * **forms**:
+  * For checkboxes in forms, allow a checked state to be provided [[:beetle:#153495603](https://www.pivotaltracker.com/story/show/153495603)] ([cb748157](https://github.com/pivotal-cf/pivotal-ui/commit/cb748157))
+  * catch errors that happen during onSubmit [[:beetle:#153488986](https://www.pivotaltracker.com/story/show/153488986)] ([98346b6b](https://github.com/pivotal-cf/pivotal-ui/commit/98346b6b))
+  * Fix vertical alignment of inline form units in IE [[:beetle:#153417045](https://www.pivotaltracker.com/story/show/153417045)] ([05cb4241](https://github.com/pivotal-cf/pivotal-ui/commit/05cb4241))
+  * Rewrite Form's onSubmit method to not use async/await [[:gear:#153461036](https://www.pivotaltracker.com/story/show/153461036)] ([7188b213](https://github.com/pivotal-cf/pivotal-ui/commit/7188b213))
+  * Fix inline forms in IE/Edge [[:beetle:#153417045](https://www.pivotaltracker.com/story/show/153417045)] ([09db5c7b](https://github.com/pivotal-cf/pivotal-ui/commit/09db5c7b))
   * Allow for setting className and id on FormRow/FormCol [[:beetle:#153268151](https://www.pivotaltracker.com/story/show/153268151)] ([6a721566](https://github.com/pivotal-cf/pivotal-ui/commit/6a721566))
   * Add postLabel prop to FormUnit, add form-row/form-col CSS classes [[:star:#153235458](https://www.pivotaltracker.com/story/show/153235458)] ([81ab6a95](https://github.com/pivotal-cf/pivotal-ui/commit/81ab6a95))
   * fixed the height issues due to empty content [[:beetle:#153268701](https://www.pivotaltracker.com/story/show/153268701)] ([e9a067b6](https://github.com/pivotal-cf/pivotal-ui/commit/e9a067b6))
@@ -24,6 +38,7 @@
   * allow simple columns prop for tables [[:star:#153264866](https://www.pivotaltracker.com/story/show/153264866)] ([a58c1b84](https://github.com/pivotal-cf/pivotal-ui/commit/a58c1b84))
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([d2542d00](https://github.com/pivotal-cf/pivotal-ui/commit/d2542d00))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([de2c463e](https://github.com/pivotal-cf/pivotal-ui/commit/de2c463e))
+* **toggle**: include form css from toggle component [[:gear:#153427216](https://www.pivotaltracker.com/story/show/153427216)] ([ae386ce2](https://github.com/pivotal-cf/pivotal-ui/commit/ae386ce2))
 <a name="11.0.0"></a>
 # 11.0.0 (2017-11-28)
 #### CSS
