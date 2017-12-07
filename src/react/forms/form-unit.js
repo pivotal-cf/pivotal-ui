@@ -89,7 +89,7 @@ export class FormUnit extends React.Component {
     ) : sections;
 
     return (
-      <div className={classnames('form-unit', className, {'has-error': hasError})}>
+      <div className={classnames('form-unit', className, {'has-error': hasError, 'inline-form-unit': inline})}>
         {content}
         {helpRow}
       </div>

@@ -492,6 +492,12 @@ textarea.valid {
     }
   }
 
+  &.inline-form-unit {
+    .field-row {
+      height: 32px;
+    }
+  }
+
   &.has-error {
     .help-row {
       color: $input-invalid-text;
