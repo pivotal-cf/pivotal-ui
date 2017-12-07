@@ -1,7 +1,8 @@
 import {exec} from 'child_process';
 
 const ignoredCommits = [
-  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a', 'b11c291', '22faa4a'
+  'f107f79', '50b53e5', '8da492c', 'b57a9cd', 'e5a6b3b', '220c75d', '985780a', 'b11c291', '22faa4a', 'fb8a5ccb',
+  'a7ca8886', 'f51ed4ad', '64d86183'
 ];
 
 const tagToSemver = tag => tag.split('.').map(s => s.replace(/^[^\d]*(\d+)[^\d]*$/, '$1')).map(i => +i);
