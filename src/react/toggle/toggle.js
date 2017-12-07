@@ -7,11 +7,13 @@ import {mergeProps} from '../helpers';
 export class Toggle extends React.PureComponent {
   static propTypes = {
     id: PropTypes.string,
-    size: PropTypes.oneOf(['small', 'medium', 'large'])
+    size: PropTypes.oneOf(['small', 'medium', 'large']),
+    type: PropTypes.oneOf(['checkbox'])
   };
 
   static defaultProps = {
-    size: 'medium'
+    size: 'medium',
+    type: 'checkbox'
   };
 
   componentDidMount() {
