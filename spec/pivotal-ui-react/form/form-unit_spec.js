@@ -40,6 +40,10 @@ describe('FormUnit', () => {
       expect('.form-unit .grid:eq(0) > .col:eq(0)').toHaveText('Instance Name');
       expect('.form-unit .grid:eq(0) > .col:eq(1)').toHaveText('hello');
     });
+
+    it('applies the "inline-form-unit" class to the form unit', () => {
+      expect('.form-unit').toHaveClass('inline-form-unit');
+    });
   });
 
   describe('hideHelpRow', () => {
