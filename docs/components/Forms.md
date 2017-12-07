@@ -495,6 +495,18 @@ Note that state management and other `Form` features are not handled by the `For
 }}/>
 ```
 
+```jsx
+::title=Form unit with composite field
+<FormUnit {...{
+    label: 'Table field',
+    field: <Table data={[
+        {name: 'One', enabled: <input type="checkbox"/>},
+        {name: 'Two', enabled: <input type="checkbox"/>},
+        {name: 'Three', enabled: <input type="checkbox"/>}
+    ]}/>
+}}/>
+```
+
 ## Installation & Usage
 
 ## React
