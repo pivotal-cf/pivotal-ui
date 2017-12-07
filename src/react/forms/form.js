@@ -166,16 +166,16 @@ export class Form extends React.Component {
       this.setState({...nextState, errors: (onSubmitError && onSubmitError(e)) || {}});
     };
 
-    const afterSubmitPromise = onSubmit({initial, current});
-    if (isPromise(afterSubmitPromise)) {
-      return afterSubmitPromise.then(onSuccess).catch(onError);
-    } else {
-      try {
+    try {
+      const afterSubmitPromise = onSubmit({initial, current});
+      if (isPromise(afterSubmitPromise)) {
+        return afterSubmitPromise.then(onSuccess).catch(onError);
+      } else {
         return onSuccess(afterSubmitPromise);
-      } catch (e) {
-        onError(e);
-        throw e;
       }
+    } catch (e) {
+      onError(e);
+      throw e;
     }
   }
 
