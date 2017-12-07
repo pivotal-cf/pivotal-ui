@@ -122,12 +122,13 @@ describe('Form', () => {
       });
 
       describe('when clicking the update button', () => {
-        let error, onSubmitError, onSubmit, resolve, reject;
+        let error, errors, onSubmitError, onSubmit, resolve, reject;
 
         beforeEach(() => {
           Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
           error = new Error('invalid');
-          onSubmitError = jasmine.createSpy('onSubmitError');
+          errors = {name: 'invalid'};
+          onSubmitError = jasmine.createSpy('onSubmitError').and.returnValue(errors);
           subject::setProps({onSubmitError});
           onSubmit = jasmine.createSpy('onSubmit');
           onSubmit.and.callFake(() => new Promise((res, rej) => {
@@ -212,12 +213,7 @@ describe('Form', () => {
         });
 
         describe('when the submit promise rejects', () => {
-          let errors;
-
           beforeEach(() => {
-            Promise.onPossiblyUnhandledRejection(jasmine.createSpy('reject'));
-            errors = {name: 'invalid'};
-            onSubmitError.and.returnValue(errors);
             reject(error);
             MockPromises.tick(2);
           });
@@ -284,6 +280,32 @@ describe('Form', () => {
             it('clears the errors', () => {
               expect(subject.state.errors).toEqual({});
             });
+          });
+        });
+
+        describe('when onSubmit throws an error', () => {
+          let caught;
+
+          beforeEach(() => {
+            onSubmit.and.throwError(error);
+            subject::setProps({onSubmit});
+            try {
+              subject.onSubmit();
+            } catch(e) {
+              caught = e;
+            }
+          });
+
+          it('calls the onSubmitError', () => {
+            expect(onSubmitError).toHaveBeenCalledWith(error);
+          });
+
+          it('sets the errors on the state', () => {
+            expect(subject.state.errors).toBe(errors);
+          });
+
+          it('re-throws the error', () => {
+            expect(caught).toBe(error);
           });
         });
       });
