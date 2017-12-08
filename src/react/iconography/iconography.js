@@ -1,21 +1,8 @@
 import {mergeProps} from '../helpers';
 import PropTypes from 'prop-types';
 import React from 'react';
-import {Svg} from '../svg';
 import classnames from 'classnames';
-
-class SvgIcon extends Svg {
-  svgPathLoader = src => {
-    try {
-      return require(`!!babel-loader?{"presets":["react"]}!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../css/iconography/svgs/${src}.svg`);
-    } catch (e) {
-      try {
-        return require(`!!babel-loader?{"presets":["react"]}!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/${src}.svg`);
-      } catch (e) {
-      }
-    }
-  }
-}
+import Icons from './icons';
 
 export class Icon extends React.Component {
   static propTypes = {
@@ -42,7 +29,7 @@ export class Icon extends React.Component {
     );
 
     return (<div {...props}>
-      <SvgIcon {...{src, className: `icon-${src}`, key: src}}/>
+      {React.cloneElement(Icons[src], {className: `icon-${src}`, key: src})}
     </div>);
   }
 }

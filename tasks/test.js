@@ -53,13 +53,13 @@ function reactTestAssets(options = {}) {
     .pipe(webpack(config));
 }
 
-gulp.task('jasmine-react-ci', function() {
+gulp.task('jasmine-react-ci', ['react-build-svgs'], function() {
   return reactTestAssets({watch: false})
     .pipe(jasmineBrowser.specRunner({console: true}))
     .pipe(jasmineBrowser.headless({driver: 'phantomjs'}));
 });
 
-gulp.task('jasmine-react', function() {
+gulp.task('jasmine-react', ['react-build-svgs'], function() {
   var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
   return reactTestAssets({plugins: [plugin]})
     .pipe(jasmineBrowser.specRunner({

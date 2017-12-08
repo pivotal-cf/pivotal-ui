@@ -206,7 +206,7 @@ describe('UIButton', () => {
   describe('iconPosition', () => {
     describe('is not set', () => {
       it('renders the icon to the left', () => {
-        subject = renderComponent({icon: <Icon src="spinner_icon"/>});
+        subject = renderComponent({icon: <Icon src="spinner-sm"/>});
         const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
         expect(icon.nextSibling.tagName).toEqual('SPAN');
       });
@@ -214,7 +214,7 @@ describe('UIButton', () => {
 
     describe('is set to left', () => {
       it('renders the icon to the left', () => {
-        subject = renderComponent({icon: <Icon src="spinner_icon"/>});
+        subject = renderComponent({icon: <Icon src="spinner-sm"/>});
         const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
         expect(icon.nextSibling.tagName).toEqual('SPAN');
       });
@@ -222,7 +222,7 @@ describe('UIButton', () => {
 
     describe('is set right', () => {
       it('renders the icon to the right', () => {
-        subject = renderComponent({icon: <Icon src="spinner_icon"/>, iconPosition: 'right'});
+        subject = renderComponent({icon: <Icon src="spinner-sm"/>, iconPosition: 'right'});
         const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
         expect(icon.previousSibling.tagName).toEqual('SPAN');
       });

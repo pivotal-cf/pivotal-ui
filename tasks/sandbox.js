@@ -34,7 +34,7 @@ gulp.task('sandbox-copy-html', () =>
       .pipe(gulp.dest(SANDBOX_BUILD_DIR))
 );
 
-gulp.task('sandbox-build-js', () =>
+gulp.task('sandbox-build-js', ['react-build-svgs'], () =>
     gulp.src('sandbox/index.js')
       .pipe(plugins.plumber())
       .pipe(webpack(webpackConfig()))
