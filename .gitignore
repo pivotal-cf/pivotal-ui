@@ -57,3 +57,6 @@ vendor/ruby
 
 ## Sinopia storage
 /.sinopia/storage
+
+## Built files
+src/react/iconography/icons.js
