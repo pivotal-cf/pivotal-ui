@@ -46,7 +46,7 @@ describe('FormUnit', () => {
     });
 
     it('renders the help row in a grid', () => {
-      expect('.form-unit .grid:eq(1) > .col:eq(0) > .help-row').toHaveText('my-help-text');
+      expect('.form-unit .grid:eq(1) > .col:eq(0).help-row').toHaveText('my-help-text');
     });
   });
 
