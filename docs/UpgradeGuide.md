@@ -24,27 +24,27 @@ and into the Form component.
 <Form className="example-form">
   <FormRow className="mbxl">
     <FormCol {...{
-        name: 'orgName',
-        label: 'Label Layer',
-        help: 'Error or Help text Layer'
+      name: 'orgName',
+      label: 'Label Layer',
+      help: 'Error or Help text Layer'
     }}>
-        <Input {...{placeholder: 'I am in the content layer'}}/>
+      <Input {...{placeholder: 'I am in the content layer'}}/>
     </FormCol>
     <FormCol {...{
-          name: 'other',
-          retainLabelHeight: true
-        }}>
-        <Input {...{placeholder: 'No label or help text, but still lines up!'}}/>
-     </FormCol>   
+      name: 'other',
+      retainLabelHeight: true
+    }}>
+      <Input {...{placeholder: 'No label or help text, but still lines up!'}}/>
+    </FormCol>
   </FormRow>
   <FormRow>
-  <FormCol {...{
-            name: 'other',
-            label: 'Inline Label',
-            inline: true
-          }}>
-          <Input {...{placeholder: 'The field and the label lines up when inline'}}/>
-       </FormCol>  
+    <FormCol {...{
+      name: 'other',
+      label: 'Inline Label',
+      inline: true
+    }}>
+      <Input {...{placeholder: 'The field and the label lines up when inline'}}/>
+    </FormCol>
   </FormRow>
 </Form>
 
