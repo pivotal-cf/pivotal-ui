@@ -71,8 +71,9 @@ export class FormUnit extends React.Component {
       );
 
     const fieldRow = field && (inline ? field : <div className="field-row" key="field-row">{field}</div>);
-    const helpRow = hideHelpRow || ( inline ? help :
-      <div className={classnames('help-row', {'type-dark-5': !hasError})} key="help-row">{help}</div>);
+    const helpRowClassName = classnames('help-row', {'type-dark-5': !hasError});
+    const helpRow = hideHelpRow || (inline ? help :
+        <div className={helpRowClassName} key="help-row">{help}</div>);
 
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
 
@@ -88,7 +89,7 @@ export class FormUnit extends React.Component {
           }}>{col}</FlexCol>)}
         </Grid>,
         <Grid key="bottom">
-          <FlexCol className="help-row">
+          <FlexCol className={helpRowClassName}>
             {helpRow}
           </FlexCol>
         </Grid>]
