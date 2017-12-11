@@ -71,27 +71,32 @@ export class FormUnit extends React.Component {
       );
 
     const fieldRow = field && (inline ? field : <div className="field-row" key="field-row">{field}</div>);
-    const helpRow = hideHelpRow || <div className={classnames('help-row', {'type-dark-5': !hasError})}>{help}</div>;
+    const helpRow = hideHelpRow ||
+      <div className={classnames('help-row', {'type-dark-5': !hasError})} key="help-row">{help}</div>;
 
     const sections = labelPosition === 'after' ? [fieldRow, labelRow] : [labelRow, fieldRow];
 
-    const content = inline ? (
-      <Grid className="grid-inline">
-        {sections.map((col, key) => <FlexCol {...{
-          key,
-          fixed: key === 0,
-          className: classnames({
-            'label-row': key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
-            'field-row': key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
-          })
-        }}>{col}</FlexCol>)}
-      </Grid>
-    ) : sections;
+    const content = inline ? ([
+        <Grid className="grid-inline" key="top">
+          {sections.map((col, key) => <FlexCol {...{
+            key,
+            fixed: key === 0,
+            className: classnames({
+              'label-row': key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
+              'field-row': key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
+            })
+          }}>{col}</FlexCol>)}
+        </Grid>,
+        <Grid key="bottom">
+          <FlexCol>
+            {helpRow}
+          </FlexCol>
+        </Grid>]
+    ) : sections.concat(helpRow);
 
     return (
       <div className={classnames('form-unit', className, {'has-error': hasError, 'inline-form-unit': inline})}>
         {content}
-        {helpRow}
       </div>
     );
   }

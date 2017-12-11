@@ -33,7 +33,7 @@ describe('FormUnit', () => {
 
   describe('inline', () => {
     beforeEach(() => {
-      subject::setProps({inline: true, label: 'Instance Name'});
+      subject::setProps({inline: true, label: 'Instance Name', help: 'my-help-text'});
     });
 
     it('renders the field and label on a grid next to each other', () => {
@@ -43,6 +43,10 @@ describe('FormUnit', () => {
 
     it('applies the "inline-form-unit" class to the form unit', () => {
       expect('.form-unit').toHaveClass('inline-form-unit');
+    });
+
+    it('renders the help row in a grid', () => {
+      expect('.form-unit .grid:eq(1) > .col:eq(0) > .help-row').toHaveText('my-help-text');
     });
   });
 
