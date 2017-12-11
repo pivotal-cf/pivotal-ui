@@ -1,7 +1,9 @@
 <a name="11.1.1"></a>
 ## 11.1.1 (2017-12-11)
 #### React
-* **forms**: When form unit is inline, help row lines up with the label and field [[:beetle:#153568314](https://www.pivotaltracker.com/story/show/153568314)] ([b4f4513c](https://github.com/pivotal-cf/pivotal-ui/commit/b4f4513c))
+* **forms**:
+  * Move help-row className when inline [[:beetle:#153568314](https://www.pivotaltracker.com/story/show/153568314)] ([8d24440e](https://github.com/pivotal-cf/pivotal-ui/commit/8d24440e))
+  * When form unit is inline, help row lines up with the label and field [[:beetle:#153568314](https://www.pivotaltracker.com/story/show/153568314)] ([b4f4513c](https://github.com/pivotal-cf/pivotal-ui/commit/b4f4513c))
 <a name="11.1.0"></a>
 # 11.1.0 (2017-12-07)
 #### CSS
