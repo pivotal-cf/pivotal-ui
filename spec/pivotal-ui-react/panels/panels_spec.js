@@ -1,215 +1,214 @@
 import '../spec_helper';
-
-import {Panel, PanelTitle, ShadowPanel} from '../../../src/react/panels';
-
-let subject;
+import {Panel} from '../../../src/react/panels';
+import {FlexCol} from '../../../src/react/flex-grids';
 
 describe('Panel', () => {
-  const renderComponent = props => ReactDOM.render(<Panel {...props}>Sup</Panel>, root);
+  let subject;
 
-  it('creates a panel', () => {
-    subject = renderComponent();
-    const panel = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel');
-    const panelBody = panel.getElementsByClassName('panel-body');
-
-    expect(panelBody).toHaveText('Sup');
-  });
-
-  describe('when a header is provided', () => {
-    describe('when the header is a string', () => {
-      beforeEach(() => {
-        subject = renderComponent({header: 'This is a title'});
-      });
-
-      it('sets the header to the panel', () => {
-        const panelHeader = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-header');
-        const panelTitle = panelHeader.getElementsByClassName('panel-title-alt');
-
-        expect(panelTitle).toHaveText('This is a title');
-      });
-    });
-
-    describe('when the header is a node', () => {
-      beforeEach(() => {
-        subject = renderComponent({header: <div className="custom-panel-class">HEY</div>});
-      });
-
-      it('renders the contents without .panel-title-alt', () => {
-        const panelHeader = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-header');
-        const panelTitle = panelHeader.getElementsByClassName('custom-panel-class');
-
-        expect(panelTitle).toHaveText('HEY');
-        expect(panelHeader.getElementsByClassName('panel-title-alt')).toHaveLength(0);
-      });
-    });
-
-    describe('when the panel header is passed a subtitle', () => {
-      beforeEach(() => {
-        subject = renderComponent({header: 'hey', subtitle: 'man'});
-      });
-
-      it('renders the subtitle', () => {
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-subtitle')).toHaveText('man');
-      });
-    });
-
-    describe('when the panel header is passed actions', () => {
-      beforeEach(() => {
-        subject = renderComponent({
-          header: 'hey',
-          actions: <div>
-            <button key={1}>I'm a button</button>
-            <button key={2}>I'm also a button</button>
-          </div>
-        });
-      });
-
-      it('renders the actions', () => {
-        const panelActions = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-actions');
-        const buttons = panelActions.getElementsByTagName('button');
-        expect(buttons).toHaveLength(2);
-        expect(buttons[0]).toHaveText('I\'m a button');
-        expect(buttons[1]).toHaveText('I\'m also a button');
-      });
-    });
-
-    describe('when the panel header is passed with no actions', () => {
-      beforeEach(() => {
-        subject = renderComponent({header: 'hey'});
-      });
-
-      it('does not render the actions', () => {
-        expect(ReactTestUtils.scryRenderedDOMComponentsWithClass(subject, 'panel-actions')).toHaveLength(0);
-      });
-    });
-  });
-
-  describe('when a footer is provided', () => {
-    beforeEach(() => {
-      subject = renderComponent({footer: 'This is a footer'});
-    });
-
-    it('sets the footer to the panel', () => {
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-footer')).toHaveText('This is a footer');
-    });
-  });
-
-  describe('pass-through attributes', () => {
-    beforeEach(() => {
-      subject = renderComponent({
-        className: 'foo',
-        innerClassName: 'inner-class',
-        id: 'outer-id',
-        style: {opacity: '0.5'}
-      });
-    });
-
-    it('passes className, id, and style to the panel outer div', () => {
-      const panel = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel');
-      expect(panel).toHaveClass('foo');
-      expect(panel).toHaveAttr('id', 'outer-id');
-      expect(panel).toHaveCss({opacity: '0.5'});
-    });
-
-    it('sets innerClassName on the panel-body div', () => {
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-body')).toHaveClass('inner-class');
-    });
-  });
-
-  describe('when padding is provided', () => {
-    beforeEach(() => {
-      subject = renderComponent({padding: 'ptl'});
-    });
-
-    it('sets the padding as a class on the panel-body', () => {
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-body')).toHaveClass('ptl');
-    });
-  });
-
-  describe('when scrollable is set', () => {
-    describe('when it is set to true', () => {
-      beforeEach(() => {
-        subject = renderComponent({scrollable: true});
-      });
-
-      it('adds the class "panel-scrollable"', () => {
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-body')).toHaveClass('panel-scrollable');
-      });
-    });
-
-    describe('when it is set to a number', () => {
-      beforeEach(() => {
-        subject = renderComponent({scrollable: 1337});
-      });
-
-      it('sets the max-height of the panel-body to to the supplied numerical value', () => {
-        expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-scrollable')).toHaveCss({maxHeight: '1337px'});
-      });
-    });
-
-    describe('when header is set', () => {
-      beforeEach(() => {
-        subject = renderComponent({header: 'hey hey hey hey hey', scrollable: true});
-      });
-
-      it('does not scroll the header', () => {
-        const panelScrollable = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-scrollable');
-        expect(panelScrollable.getElementsByClassName('panel-header')).toHaveLength(0);
-      });
-    });
-  });
-
-  describe('when scrollable is not set', () => {
-    beforeEach(() => {
-      subject = renderComponent();
-    });
-
-    it('does not add the class "panel-scrollable"', () => {
-      const panel = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel');
-      expect(panel).not.toHaveClass('panel-scrollable');
-    });
-  });
-});
-
-describe('PanelTitle', () => {
-  const renderComponent = props => ReactDOM.render(<PanelTitle {...props}>Titlist</PanelTitle>, root);
-
-  let clickSpy;
   beforeEach(() => {
-    clickSpy = jasmine.createSpy('click');
-    subject = renderComponent({className: 'extra-class', onClick: clickSpy});
+    subject = ReactDOM.render(<Panel/>, root);
   });
 
-  it('renders as a panel-title-alt', () => {
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-title-alt')).toHaveText('Titlist');
+  it('renders a panel-container', () => {
+    expect('.panel-container').toExist();
   });
 
-  it('passes props through, including classname', () => {
-    expect(clickSpy).not.toHaveBeenCalled();
-    const panelTitle = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel-title-alt');
-    ReactTestUtils.Simulate.click(panelTitle);
-
-    expect(panelTitle).toHaveClass('extra-class');
-    expect(clickSpy).toHaveBeenCalled();
-  });
-});
-
-describe('ShadowPanel', () => {
-  const renderComponent = props => ReactDOM.render(<ShadowPanel {...props}>Sup</ShadowPanel>, root);
-
-  it('creates a panel with the default shadow class', () => {
-    subject = renderComponent();
-    const panel = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel');
-    const panelBody = panel.getElementsByClassName('panel-body');
-
-    expect(panelBody).toHaveText('Sup');
-    expect(panel).toHaveClass('panel-shadow-3');
+  it('does not render a panel title', () => {
+    expect('.panel-container > .panel-title').not.toExist();
   });
 
-  describe('when the shadowLevel property is set', () => {
-    it('creates a shadow panel with the corresponding level', () => {
-      subject = renderComponent({shadowLevel: 2});
-      expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'panel')).toHaveClass('panel-shadow-2');
+  it('renders a panel with the expected classes', () => {
+    expect('.panel-container > .panel').toHaveClass('bg-neutral-11');
+    expect('.panel-container > .panel').toHaveClass('box-shadow-1');
+    expect('.panel-container > .panel').toHaveClass('border-rounded');
+  });
+
+  it('does not render a header', () => {
+    expect('.panel-header').not.toExist();
+  });
+
+  it('does not render a panel-body', () => {
+    expect('.panel-body').not.toExist();
+  });
+
+  it('does not render a footer', () => {
+    expect('.panel-footer').not.toExist();
+  });
+
+  describe('className', () => {
+    beforeEach(() => {
+      subject::setProps({className: 'custom-panel-container-class'});
+    });
+
+    it('renders the panel class name', () => {
+      expect('.panel-container').toHaveClass('custom-panel-container-class');
+    });
+  });
+
+  describe('title', () => {
+    beforeEach(() => {
+      subject::setProps({title: 'some title'});
+    });
+
+    it('renders the title', () => {
+      expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('some title');
+      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('h5');
+      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('em-high');
+      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
+    });
+
+    describe('with titleClassName', () => {
+      beforeEach(() => {
+        subject::setProps({titleClassName: 'custom-title-class'});
+      });
+
+      it('renders the title class name', () => {
+        expect('.panel-container > .panel-title').toHaveClass('custom-title-class');
+      });
+    });
+  });
+
+  describe('titleCols', () => {
+    beforeEach(() => {
+      subject::setProps({titleCols: [
+        <FlexCol>Col 1</FlexCol>,
+        <FlexCol>Col 2</FlexCol>
+      ]});
+    });
+
+    it('renders the title cols', () => {
+      expect('.panel-container > .panel-title > .col').toHaveLength(2);
+      expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('Col 1');
+      expect('.panel-container > .panel-title > .col:eq(1)').toHaveText('Col 2');
+    });
+
+    describe('with a title', () => {
+      beforeEach(() => {
+        subject::setProps({title: 'My Title'});
+      });
+
+      it('renders the title before the title cols', () => {
+        expect('.panel-container > .panel-title > .col').toHaveLength(3);
+        expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('My Title');
+        expect('.panel-container > .panel-title > .col:eq(1)').toHaveText('Col 1');
+        expect('.panel-container > .panel-title > .col:eq(2)').toHaveText('Col 2');
+      });
+    });
+  });
+
+  describe('panelClassName', () => {
+    beforeEach(() => {
+      subject::setProps({panelClassName: 'custom-panel-class'});
+    });
+
+    it('renders the panel class name', () => {
+      expect('.panel').toHaveClass('custom-panel-class');
+    });
+  });
+
+  describe('header', () => {
+    beforeEach(() => {
+      subject::setProps({header: 'some header'});
+    });
+
+    it('renders the header', () => {
+      expect('.panel > .panel-header > .col:eq(0)').toHaveText('some header');
+      expect('.panel > .panel-header > .col:eq(0)').toHaveClass('type-ellipsis');
+      expect('.panel > .panel-header > .col:eq(0)').toHaveClass('em-high');
+    });
+
+    describe('with headerClassName', () => {
+      beforeEach(() => {
+        subject::setProps({headerClassName: 'custom-header-class'});
+      });
+
+      it('renders the header class name', () => {
+        expect('.panel > .panel-header').toHaveClass('custom-header-class');
+      });
+    });
+  });
+
+  describe('headerCols', () => {
+    beforeEach(() => {
+      subject::setProps({headerCols: [
+        <FlexCol>Col 1</FlexCol>,
+        <FlexCol>Col 2</FlexCol>
+      ]});
+    });
+
+    it('renders the header cols', () => {
+      expect('.panel > .panel-header > .col').toHaveLength(2);
+      expect('.panel > .panel-header > .col:eq(0)').toHaveText('Col 1');
+      expect('.panel > .panel-header > .col:eq(1)').toHaveText('Col 2');
+    });
+
+    describe('with a header', () => {
+      beforeEach(() => {
+        subject::setProps({header: 'My Header'});
+      });
+
+      it('renders the header before the header cols', () => {
+        expect('.panel > .panel-header > .col').toHaveLength(3);
+        expect('.panel > .panel-header > .col:eq(0)').toHaveText('My Header');
+        expect('.panel > .panel-header > .col:eq(1)').toHaveText('Col 1');
+        expect('.panel > .panel-header > .col:eq(2)').toHaveText('Col 2');
+      });
+    });
+  });
+
+  describe('children', () => {
+    beforeEach(() => {
+      subject::setProps({children: 'some body'});
+    });
+
+    it('renders the body', () => {
+      expect('.panel > .panel-body').toHaveText('some body');
+    });
+
+    it('does not render a loading bar', () => {
+      expect('.panel > .panel-body > .panel-loading-indicator').not.toExist();
+    });
+
+    describe('with bodyClassName', () => {
+      beforeEach(() => {
+        subject::setProps({bodyClassName: 'custom-body-class'});
+      });
+
+      it('renders the body class name', () => {
+        expect('.panel > .panel-body').toHaveClass('custom-body-class');
+      });
+    });
+
+    describe('when loading', () => {
+      beforeEach(() => {
+        subject::setProps({loading: true});
+      });
+
+      it('renders a loading bar', () => {
+        expect('.panel > .panel-body > .panel-loading-indicator').toExist();
+      });
+    });
+  });
+
+  describe('footer', () => {
+    beforeEach(() => {
+      subject::setProps({footer: 'some title'});
+    });
+
+    it('renders the footer', () => {
+      expect('.panel > .panel-footer').toHaveText('some title');
+      expect('.panel > .panel-footer').toHaveClass('type-ellipsis');
+      expect('.panel > .panel-footer').toHaveClass('h6');
+    });
+
+    describe('with footerClassName', () => {
+      beforeEach(() => {
+        subject::setProps({footerClassName: 'custom-footer-class'});
+      });
+
+      it('renders the footer class name', () => {
+        expect('.panel > .panel-footer').toHaveClass('custom-footer-class');
+      });
     });
   });
 });
