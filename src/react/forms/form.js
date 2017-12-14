@@ -45,7 +45,7 @@ export class Form extends React.Component {
             const {name, optional, initialValue} = formCol.props;
             if (name) {
               optional || requiredFields.push(name);
-              initial[name] = initialValue || '';
+              initial[name] = typeof initialValue === 'undefined' ? '' : initialValue;
             }
           })
       ));

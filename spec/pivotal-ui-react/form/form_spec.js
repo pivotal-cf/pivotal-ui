@@ -291,7 +291,7 @@ describe('Form', () => {
             subject::setProps({onSubmit});
             try {
               subject.onSubmit();
-            } catch(e) {
+            } catch (e) {
               caught = e;
             }
           });
@@ -585,6 +585,41 @@ describe('Form', () => {
       it('renders buttons in a col-fixed col', () => {
         expect('.form-row:eq(0) .form-col:eq(2) .save').toBeDisabled();
         expect('.form-row:eq(0) .form-col:eq(2) .cancel').not.toBeDisabled();
+      });
+    });
+  });
+
+  describe('with two checkbox fields', () => {
+    beforeEach(() => {
+      subject = ReactDOM.render(
+        <Form>
+          <FormRow>
+            <FormCol {...{
+              name: 'check1',
+              initialValue: false
+            }}>
+              <input type="checkbox"/>
+            </FormCol>
+            <FormCol {...{
+              name: 'check2'
+            }}>
+              <input type="checkbox"/>
+            </FormCol>
+          </FormRow>
+        </Form>, root);
+    });
+
+    it('sets the initial state correctly', () => {
+      expect(subject.state.initial).toEqual({
+        check1: false,
+        check2: ''
+      });
+    });
+
+    it('sets the current state correctly', () => {
+      expect(subject.state.current).toEqual({
+        check1: false,
+        check2: ''
       });
     });
   });
