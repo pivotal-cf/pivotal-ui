@@ -1,3 +1,7 @@
+<a name="11.1.2"></a>
+## 11.1.2 (2017-12-15)
+#### React
+* **forms**: allow FormCol initialValue to be false (boolean) [[:beetle:#153687909](https://www.pivotaltracker.com/story/show/153687909)] ([e6920178](https://github.com/pivotal-cf/pivotal-ui/commit/e6920178))
 <a name="11.1.1"></a>
 ## 11.1.1 (2017-12-11)
 #### React
