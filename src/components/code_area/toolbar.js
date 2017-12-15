@@ -1,15 +1,9 @@
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Checkbox} from 'pivotal-ui/react/checkbox';
 
-export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtmlPreview, isReact}) => {
+export default ({title, file, name, toggleEditor, toggleHtmlPreview, isReact}) => {
   const issueUrl = `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=fix(${name})%3A%20description&body=**Steps%20to%20Reproduce**%0A%0A**Expected**%0A${name}%20should%20do%20this%0A%0A**Result**%0A${name}%20do%20not%20do%20this`;;
   const githubUrl = `https://github.com/pivotal-cf/pui-styleguide/edit/master/docs/${file}`;
-
-  const reactExtras = showReact ? 'toolbar--icon__checked' : 'toolbar--icon__unchecked';
-  const reactClasses = `toolbar--icon ${reactExtras}`;
-
-  const htmlExtras = showHtml ? 'toolbar--icon__checked' : 'toolbar--icon__unchecked';
-  const htmlClasses = `toolbar--icon ${htmlExtras}`;
 
   return (
     <div className="toolbar grid">
@@ -26,16 +20,18 @@ export default ({showReact, showHtml, title, file, name, toggleEditor, toggleHtm
           <span className="toolbar--label mlm">Issues</span>
         </a>
         {isReact && <span className="toolbar--item mlxl">
-          <Checkbox label={<span className="toolbar--label mlm">React</span>}
-                    inputClassName={reactClasses}
+          <Checkbox labelClassName="em-high"
                     onClick={toggleEditor}
-                    className="form-inline"/>
+                    className="form-inline">
+            <span className="toolbar--label mlm">React</span>
+          </Checkbox>
         </span>}
         <span className="toolbar--item mlxl">
-          <Checkbox label={<span className="toolbar--label mlm">HTML</span>}
-                    inputClassName={htmlClasses}
+          <Checkbox labelClassName="em-high"
                     onClick={toggleHtmlPreview}
-                    className="form-inline"/>
+                    className="form-inline">
+            <span className="toolbar--label mlm">HTML</span>
+          </Checkbox>
         </span>
       </span>
     </div>

@@ -28,7 +28,7 @@ class MyComponent extends React.Component {
       <Form>
         <FormRow>
           <FormCol label="Options" name="stuff">
-            <RadioGroup onChange={event => this.setState({selection: event.target.value})}>
+            <RadioGroup name="radio-group" onChange={event => this.setState({selection: event.target.value})}>
               <Radio value="others">Others</Radio>
               <Radio value="others1" defaultChecked>More others</Radio>
               <Radio value="special">Click for more!</Radio>
@@ -62,20 +62,26 @@ class MyComponent extends React.Component {
 
 RadioGroup
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-id       | no  | String   | | The id of the element
-name     | yes | String   | | This name is passed to all children, so you don't have to specify name manually each time
-onChange | no  | Function | | Callback that fires each time selection is changed
+Property | Required | Type     | Default | Description
+---------|----------|----------|---------|------------
+id       | no       | String   |         | The id of the element
+name     | yes      | String   |         | This name is passed to all children, so you don't have to specify name manually each time
+onChange | no       | Function |         | Callback that fires each time selection is changed
 
 Radio
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-defaultChecked | no  | Boolean  | false | Whether this element is default checked
-value          | yes | String   |       | Value of the radio element
-onChange       | no  | Function |       | Callback that fires when this element selection is changed
-id             | no  | String   |       | The id of the element
-className      | no  | String   |       | The classname of the element
-style          | no  | Object   |       | Individual styling of the element
-disabled       | no  | Boolean  | false | Whether the radio is disabled
+Property       | Required | Type    | Default | Description
+---------------|----------|---------|---------|------------
+checked        | false    | boolean | | Whether the radio is checked, when controlled
+children       | false    | node    | | Content to place within `label` to the right of the radio
+className      | false    | string  | | Class name to put on outer `div` element
+disabled       | false    | boolean | | Whether the radio is disabled
+defaultChecked | false    | boolean | | Whether the radio is checked, when uncontrolled
+id             | false    | string  | Auto-generated unique ID with prefix "radio" | ID to put on the inner `input[type="radio"]`
+labelClassName | false    | string  | | Class name to put on the radio label
+name           | false    | string  | | Name to set on inner `input[type="radio"]`
+onChange       | false    | func    | | onChange callback to set on inner `input[type="radio"]`
+style          | false    | object  | | Style to put on outer `div` element
+value          | true     | string  | | Value of the `input[type="radio"]`
+
+All other props will be put onto the inner `input[type="radio"]`.

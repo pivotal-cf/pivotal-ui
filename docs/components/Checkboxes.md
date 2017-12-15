@@ -4,8 +4,11 @@
 
 ```jsx
 ::title=Checkbox with label
-::description=A Checkbox component renders a checkbox with a label. It accepts standard checkbox input properties (such as `placeholder`).
-<Checkbox label="Label"/>
+::description=A Checkbox component renders a checkbox with a label.
+<div>
+    <Checkbox>Checkbox one</Checkbox>
+    <Checkbox disabled>Checkbox two (disabled)</Checkbox>
+</div>
 ```
 
 ## Installation & Usage
@@ -17,11 +20,17 @@
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-displayError   | no | Boolean | false | Displays the error message when true
-errorMessage   | no | Node    |       | Message that gets displayed when displayError is true
-inputClassName | no | String  |       | Classname of the inner input element
-id             | no | String  |       | The inner label will specify htmlFor=id
-label          | no | Node    |       | The content of this label
-labelClassName | no | String  |       | Sets the wrapping label classname
+Property       | Required | Type    | Default | Description
+---------------|----------|---------|---------|------------
+checked        | false    | boolean | | Whether the checkbox is checked, when controlled
+children       | false    | node    | | Content to place within `label` to the right of the checkbox
+className      | false    | string  | | Class name to put on outer `div` element
+disabled       | false    | boolean | | Whether the checkbox is disabled
+defaultChecked | false    | boolean | | Whether the checkbox is checked, when uncontrolled
+id             | false    | string  | Auto-generated unique ID with prefix "checkbox" | ID to put on the inner `input[type="checkbox"]`
+labelClassName | false    | string  | | Class name to put on the checkbox label
+name           | false    | string  | | Name to set on inner `input[type="checkbox"]`
+onChange       | false    | func    | | onChange callback to set on inner `input[type="checkbox"]`
+style          | false    | object  | | Style to put on outer `div` element
+
+All other props will be put onto the inner `input[type="checkbox"]`.
