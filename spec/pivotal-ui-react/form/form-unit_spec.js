@@ -60,6 +60,16 @@ describe('FormUnit', () => {
     });
   });
 
+  describe('inline and hideHelpRow', () => {
+    beforeEach(() => {
+      subject::setProps({inline: true, hideHelpRow: true});
+    });
+
+    it('does not render the help row', () => {
+      expect('.form-unit .help-row').not.toExist();
+    });
+  });
+
   describe('label', () => {
     beforeEach(() => {
       subject::setProps({
