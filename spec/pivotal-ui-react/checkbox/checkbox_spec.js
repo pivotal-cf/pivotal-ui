@@ -1,71 +1,88 @@
 import '../spec_helper';
 import {Checkbox} from '../../../src/react/checkbox';
+import {Icon} from '../../../src/react/iconography';
 
-import {findByClass, findAllByClass} from '../spec_helper';
+describe('Checkbox', () => {
+  let subject;
 
-describe('Checkbox', function() {
-  let subject, checkbox;
-
-  const renderComponent = props => ReactDOM.render(<Checkbox {...props}/>, root);
   beforeEach(() => {
-    subject = renderComponent({
-      label: 'labelText',
-      id: 'checkbox-id',
-      className: 'group-class',
-      inputClassName: 'input-class',
-      labelClassName: 'label-class'
-    });
-    checkbox = findByClass(subject, 'checkbox');
+    spyOnRender(Icon);
+    subject = ReactDOM.render(<Checkbox/>, root);
   });
 
-  it('renders an unchecked input type checkbox by default', () => {
-    expect(checkbox.querySelector('input[type="checkbox"]')).not.toBeChecked();
+  it('renders a pui checkbox', () => {
+    expect('.pui-checkbox').toExist();
+  });
+
+  it('renders a hidden checkbox', () => {
+    expect('.pui-checkbox input').toHaveAttr('type', 'checkbox');
   });
 
   it('renders a label', () => {
-    expect(checkbox.querySelector('label')).toHaveText('labelText');
+    expect('.pui-checkbox label').toHaveText('');
   });
 
-  it('passes through id and inputClassName to the input', () => {
-    const input = checkbox.querySelector('input[type="checkbox"]');
-
-    expect(input).toHaveAttr('id', 'checkbox-id');
-    expect(input).toHaveClass('input-class');
+  it('renders an unchecked control', () => {
+    expect('.pui-checkbox input').not.toBeChecked();
   });
 
-  it('associates the label with the checkbox', () => {
-    expect(checkbox.querySelector('label')).toHaveAttr('for', 'checkbox-id');
+  it('renders a check Icon', () => {
+    expect(Icon).toHaveBeenRenderedWithProps({
+      src: 'check',
+      size: 'inherit',
+      style: {},
+      verticalAlign: 'middle'
+    });
   });
 
-  it('passes through classname to the form group (the checkbox parent)', () => {
-    const formGroup = findByClass(subject, 'form-group');
-    expect(formGroup).toHaveClass('group-class');
-    expect(checkbox.parentNode).toEqual(formGroup);
-  });
-
-  it('renders checked if checked is true', () => {
-    $('.input-class').click();
-    expect(findByClass(subject, 'checkbox').querySelector('input[type="checkbox"]')).toBeChecked();
-  });
-
-  it('properly disables when disabled is true', () => {
-    subject = renderComponent({disabled: true});
-    checkbox = findByClass(subject, 'checkbox');
-    expect(checkbox.querySelector('label')).toHaveClass('disabled');
-    expect(checkbox.querySelector('input[type="checkbox"]')).toBeDisabled();
-  });
-
-  describe('errors', () => {
-    it('display error message when display error is true', () => {
-      subject = renderComponent({displayError: true, errorMessage: 'Error!'});
-      expect(findByClass(subject, 'form-group')).toHaveClass('has-error');
-      expect(findByClass(subject, 'help-block')).toContainText('Error!');
+  describe('when checked', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(root);
+      subject = ReactDOM.render(<Checkbox checked onChange={() => null}/>, root);
     });
 
-    it('hide error element when display error is false', () => {
-      subject = renderComponent({displayError: false, errorMessage: 'Error!'});
-      expect(findByClass(subject, 'form-group')).not.toHaveClass('has-error');
-      expect(findAllByClass(subject, 'help-block')).toHaveLength(0);
+    it('renders an checked control', () => {
+      expect('.pui-checkbox input').toBeChecked();
+    });
+  });
+
+  describe('when clicked', () => {
+    beforeEach(() => {
+      $('.pui-checkbox input').click();
+    });
+
+    it('renders an checked control', () => {
+      expect('.pui-checkbox input').toBeChecked();
+    });
+  });
+
+  describe('children', () => {
+    beforeEach(() => {
+      subject::setProps({children: <div className="label-content">hello</div>});
+    });
+
+    it('renders the children inside the label', () => {
+      expect('.pui-checkbox label .label-content').toHaveText('hello');
+    });
+  });
+
+  describe('style', () => {
+    beforeEach(() => {
+      subject::setProps({style: {color: 'green', backgroundColor: 'red'}});
+    });
+
+    it('puts the style on the outer div', () => {
+      expect('.pui-checkbox').toHaveAttr('style', 'color: green; background-color: red;');
+    });
+  });
+
+  describe('labelClassName', () => {
+    beforeEach(() => {
+      subject::setProps({labelClassName: 'some-class'});
+    });
+
+    it('renders a label with the class name', () => {
+      expect('.pui-checkbox label').toHaveClass('some-class');
     });
   });
 });

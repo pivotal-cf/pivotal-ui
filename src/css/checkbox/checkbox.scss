@@ -1,0 +1,83 @@
+@import "../pui-variables";
+
+.pui-checkbox {
+  line-height: 32px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.pui-checkbox-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+
+  &:disabled {
+    cursor: default;
+
+    ~ .pui-checkbox-label {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      > .pui-checkbox-control:hover {
+        border: 1px solid $dark-7;
+      }
+    }
+  }
+
+  &:checked ~ .pui-checkbox-label > .pui-checkbox-control {
+    background: $accent-3;
+    border-color: $accent-3;
+
+    svg {
+      fill: $gray-11 !important;
+    }
+
+    .icon {
+      display: inline-flex;
+    }
+  }
+
+  &:focus ~ .pui-checkbox-label > .pui-checkbox-control {
+    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+  }
+}
+
+.pui-checkbox-label {
+  line-height: 32px;
+  font-size: 14px;
+}
+
+.pui-checkbox-control {
+  background: $gray-11;
+  border: 1px solid $dark-7;
+  border-radius: 2px;
+  height: 12px;
+  width: 12px;
+  display: inline-block;
+  margin-right: 4px;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+
+  &:hover {
+    border: 1px solid $accent-3;
+  }
+
+  .icon {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 12px;
+    width: 12px;
+
+    svg {
+      height: 12px;
+      width: 12px;
+    }
+  }
+}

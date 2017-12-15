@@ -75,15 +75,14 @@ export class CheckboxDropdown extends React.Component {
     const {labels, onChange, ...dropDownProps} = this.props;
     const {options} = this.state;
 
-    const dropdownItems = labels.map((label) => {
+    const dropdownItems = labels.map(label => {
       return (
         <DropdownItem className="checkbox-dropdown-item"
                       key={label} onSelect={e => this.toggleOption(e, label)}>
           <Checkbox className="checkbox-dropdown-item-checkbox man"
                     checked={options[label]}
                     onChange={doNothing}
-                    onClick={e => this.toggleOption(e, label)}
-                    label={label}/>
+                    onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
         </DropdownItem>
       );
     });
@@ -92,8 +91,7 @@ export class CheckboxDropdown extends React.Component {
       className: 'all-checkbox man',
       checked: this.allSelected(),
       onClick: e => this.toggleAll(e),
-      onChange: doNothing,
-      label: 'ALL'
+      onChange: doNothing
     };
 
     const title = <span className="type-ellipsis">{this.getTitle()}</span>;
@@ -102,7 +100,7 @@ export class CheckboxDropdown extends React.Component {
       <DropdownItem className="checkbox-dropdown-item show-all"
                     onSelect={e => this.toggleAll(e)}
                     checked={this.allSelected()}>
-        <Checkbox {...checkBoxAllProps}/>
+        <Checkbox {...checkBoxAllProps}>ALL</Checkbox>
       </DropdownItem>
       {dropdownItems}
     </Dropdown>);

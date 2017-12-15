@@ -1,0 +1,72 @@
+@import "../pui-variables";
+
+.pui-radio {
+  line-height: 32px;
+  position: relative;
+  vertical-align: middle;
+}
+
+.pui-radio-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  height: 0;
+  width: 0;
+
+  &:disabled {
+    cursor: default;
+
+    ~ .pui-radio-label {
+      opacity: 0.5;
+      cursor: not-allowed;
+
+      > .pui-radio-circle:hover {
+        border: 1px solid $dark-7;
+      }
+    }
+  }
+
+  &:checked ~ .pui-radio-label > .pui-radio-circle {
+    border: 1px solid $accent-3;
+
+    &:before {
+      opacity: 1;
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &:focus ~ .pui-radio-label > .pui-radio-circle {
+    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
+  }
+}
+
+.pui-radio-circle {
+  border: 1px solid $dark-7;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  margin-right: 4px;
+  position: relative;
+  vertical-align: middle;
+
+  &:hover {
+    border: 1px solid $accent-3;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background-color: $accent-3;
+    opacity: 0;
+    width: 4px;
+    height: 4px;
+    transition: width ease-out .15s, height ease-out .15s;
+  }
+}

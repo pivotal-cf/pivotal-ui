@@ -3,6 +3,7 @@ import {CheckboxDropdown} from '../../../src/react/checkbox-dropdown';
 
 describe('checkbox dropdown', () => {
   let subject;
+
   beforeEach(() => {
     subject = ReactDOM.render(<CheckboxDropdown labels={['item #1', 'item #2', 'item #3']} />, root);
   });

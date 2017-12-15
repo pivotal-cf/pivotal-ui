@@ -1,51 +1,44 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {mergeProps} from '../helpers';
 import classnames from 'classnames';
 import uniqueId from 'lodash.uniqueid';
 
 export class Radio extends React.Component {
   static propTypes = {
     checked: PropTypes.bool,
-    defaultChecked: PropTypes.bool,
-    name: PropTypes.string,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func,
-    id: PropTypes.string,
     className: PropTypes.string,
-    style: PropTypes.object,
-    disabled: PropTypes.bool
-  };
-
-  componentDidMount() {
-    require('../../css/forms');
-  }
-
-  render() {
-    const {className, style, children, disabled, id = uniqueId('radio'), ...others} = this.props;
-    return (<div {...{className: classnames('radio', className), style}}>
-      <input type="radio" disabled={disabled} aria-disabled={disabled} id={id} {...others}/>
-      {children}
-    </div>);
-  }
-}
-
-export class RadioGroup extends React.Component {
-  static propTypes = {
+    disabled: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
     id: PropTypes.string,
-    name: PropTypes.string.isRequired,
-    onChange: PropTypes.func
+    labelClassName: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    style: PropTypes.object,
+    value: PropTypes.string.isRequired,
   };
 
   componentDidMount() {
     require('../../css/forms');
+    require('../../css/radio');
   }
 
   render() {
-    let {name, children, onChange, ...others} = this.props;
-    children = React.Children.map(children, child => React.cloneElement(child, {name, onChange: onChange}));
-    const props = mergeProps(others, {className: 'radio-group'});
+    const {className, disabled, children, labelClassName, style, id = uniqueId('radio'), ...others} = this.props;
 
-    return <div {...props} >{children}</div>;
+    return (
+      <div {...{className: classnames('pui-radio', className), style}}>
+        <input {...{
+          ...others,
+          className: 'pui-radio-input',
+          type: 'radio',
+          id,
+          disabled,
+          'aria-disabled': disabled
+        }}/>
+        <label {...{className: classnames('pui-radio-label', labelClassName), htmlFor: id}}>
+          <span className="pui-radio-circle"/>
+          {children}
+        </label>
+      </div>);
   }
 }

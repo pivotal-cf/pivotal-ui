@@ -1,37 +1,51 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {Icon} from '../iconography';
+import PropTypes from 'prop-types';
+import uniqueId from 'lodash.uniqueid';
 
-export class Checkbox extends React.PureComponent {
+export class Checkbox extends React.Component {
   static propTypes = {
-    displayError: PropTypes.bool,
-    errorMessage: PropTypes.node,
-    inputClassName: PropTypes.string,
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    defaultChecked: PropTypes.bool,
     id: PropTypes.string,
-    label: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
-    labelClassName: PropTypes.string
+    labelClassName: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    style: PropTypes.object,
+    type: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    type: 'checkbox'
   };
 
   componentDidMount() {
     require('../../css/forms');
+    require('../../css/checkbox');
   }
 
   render() {
-    const {className, displayError, errorMessage, inputClassName, label, labelClassName, ...inputProps} = this.props;
-    const {disabled, id} = inputProps;
-    const componentClasses = classnames('form-group', className, {'has-error': displayError});
-    const labelClasses = classnames('control-label', labelClassName, {disabled});
-    
-    return (<div className={componentClasses}>
-      <div className="checkbox">
-        <label className={labelClasses} htmlFor={id}>
-          <input className={inputClassName} type="checkbox" {...inputProps}/>
-          {label}
+    const {className, disabled, children, labelClassName, style, id = uniqueId('checkbox'), ...others} = this.props;
+
+    return (
+      <div {...{className: classnames('pui-checkbox', className), style}}>
+        <input {...{
+          ...others,
+          className: 'pui-checkbox-input',
+          type: 'checkbox',
+          id,
+          disabled,
+          'aria-disabled': disabled
+        }}/>
+        <label {...{className: classnames('pui-checkbox-label', labelClassName), htmlFor: id}}>
+          <span className="pui-checkbox-control">
+            <Icon src="check"/>
+          </span>
+          {children}
         </label>
-        {displayError && <span className="help-block has-error">
-            {errorMessage}
-          </span>}
-      </div>
-    </div>);
+      </div>);
   }
 }

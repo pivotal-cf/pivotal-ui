@@ -1,120 +1,97 @@
 import '../spec_helper';
-
-import {Radio, RadioGroup} from '../../../src/react/radio';
-import {findByClass, findByTag, findAllByTag} from '../spec_helper';
+import {Radio} from '../../../src/react/radio';
 
 describe('Radio', () => {
-  let result;
-  const renderComponent = props => ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
+  beforeEach(() => {
+    const props = {value: 'I am a button', defaultChecked: true, id: 'some-id'};
+    ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
+  });
 
-  it('renders a radio', () => {
-    result = renderComponent({value: '1'});
-    const radio = findByClass(result, 'radio');
-    const input = radio.getElementsByTagName('input')[0];
+  afterEach(() => {
+    ReactDOM.unmountComponentAtNode(root);
+  });
 
-    expect(input).toHaveValue('1');
-    expect(radio).toHaveText('One!!!');
+  it('renders the radio button', () => {
+    expect('div.pui-radio > input[type="radio"]').toExist();
+    expect('div.pui-radio > input[type="radio"]').toHaveClass('pui-radio-input');
+    expect('div.pui-radio > label').toHaveText('One!!!');
+    expect('div.pui-radio > label').toHaveAttr('for', 'some-id');
+    expect('div.pui-radio > label').toHaveClass('pui-radio-label');
+    expect('div.pui-radio > label > span.pui-radio-circle').toExist();
   });
 
   it('passes through className and style to the radio, and id to the input', () => {
-    result = renderComponent({value: 'bananas', id: 'npr', className: 'radio-class', style: {opacity: '0.5'}});
-    const radio = findByClass(result, 'radio');
-    const input = radio.getElementsByTagName('input')[0];
+    const props = {value: 'bananas', id: 'npr', className: 'radio-class', style: {opacity: '0.5'}};
+    ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
 
-    expect(input).toHaveAttr('id', 'npr');
-    expect(radio).toHaveClass('radio-class');
-    expect(radio).toHaveCss({opacity: '0.5'});
+    expect(':radio').toHaveAttr('id', 'npr');
+    expect(':radio').toHaveClass('pui-radio-input');
+    expect('div.pui-radio').toHaveClass('radio-class');
+    expect('div.pui-radio').toHaveCss({opacity: '0.5'});
   });
 
   describe('when the checked property is passed', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(root);
+    });
+
     it('renders a checked radio', () => {
-      result = renderComponent({
-        value: 'bananas', checked: true, onChange: () => {
-        }
-      });
-
-      const radio = findByClass(result, 'radio');
-      const input = radio.getElementsByTagName('input')[0];
-
-      expect(input.checked).toBe(true);
+      const props = {
+        value: 'bananas',
+        id: 'npr',
+        checked: true,
+        onChange: () => {}
+      };
+      ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
+      expect(':radio').toBeChecked();
     });
   });
 
   describe('when the defaultChecked property is passed', () => {
-    it('renders a checked radio', () => {
-      result = renderComponent({value: 'bananas', defaultChecked: true});
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(root);
+    });
 
-      const input = findByTag(result, 'input');
-      expect(input.checked).toBe(true);
+    it('renders a checked radio', () => {
+      const props = {value: 'bananas', defaultChecked: true};
+      ReactDOM.render(<Radio {...props} />, root);
+      expect(':radio').toBeChecked();
     });
   });
 
   describe('changing the value of the radio button', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(root);
+    });
+
     it('triggers the onChange callback', () => {
       const changeSpy = jasmine.createSpy('change');
-      result = renderComponent({value: 'bananas', onChange: changeSpy});
-      const input = findByTag(result, 'input');
-
-      ReactTestUtils.Simulate.change(input, {'target': {'checked': true}});
-      jasmine.clock().tick(1);
+      const props = {value: 'bananas', onChange: changeSpy};
+      ReactDOM.render(<Radio {...props} />, root);
+      $(':radio').simulate('change');
 
       expect(changeSpy).toHaveBeenCalled();
     });
   });
 
   describe('when disabled property is passed', () => {
+    beforeEach(() => {
+      ReactDOM.unmountComponentAtNode(root);
+    });
+
     it('disables the radio button', () => {
-      result = renderComponent({value: 'bananas', disabled: true});
-      const input = findByTag(result, 'input');
+      const props = {value: 'bananas', disabled: true};
+      ReactDOM.render(<Radio {...props}>Testing</Radio>, root);
 
-      expect(input).toHaveAttr('disabled');
-      expect(input).toHaveAttr('aria-disabled', 'true');
-    });
-  });
-});
-
-
-describe('RadioGroup', () => {
-  let result;
-  const renderComponent = props => ReactDOM.render(<RadioGroup {...props}>
-    <Radio value="one">first</Radio>
-    <Radio value="two">second</Radio>
-    <Radio value="three">third</Radio>
-  </RadioGroup>, root);
-
-  describe('basic RadioGroup', () => {
-    it('renders', () => {
-      result = renderComponent({name: 'radioGroup'});
-      const radioGroup = findByClass(result, 'radio-group');
-      const radioButtons = radioGroup.getElementsByTagName('input');
-
-      expect(radioButtons).toHaveLength(3);
-      expect(radioButtons[0]).toHaveValue('one');
-      expect(radioButtons[1]).toHaveValue('two');
-      expect(radioButtons[2]).toHaveValue('three');
-    });
-
-    describe('when the radio button is changed', () => {
-      it('calls the change callback', () => {
-        let clickedValue = null;
-        const changeSpy = jasmine.createSpy('change').and.callFake(event => clickedValue = event.nativeEvent.target.value);
-        result = renderComponent({onChange: changeSpy, name: 'radioGroup'});
-        const input = findAllByTag(result, 'input')[0];
-
-        ReactTestUtils.Simulate.change(input, {'target': {'checked': true}});
-
-        expect(changeSpy.calls.count()).toEqual(1);
-        expect(clickedValue).toEqual('one');
-      });
+      expect(':radio').toBeDisabled();
+      expect(':radio').toHaveAttr('aria-disabled', 'true');
     });
   });
 
-  it('passes id, style, and className to radio group', () => {
-    result = renderComponent({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234', name: 'radioGroup'});
-    const radioGroup = findByClass(result, 'radio-group');
+  it('passes through labelClassName to the label', () => {
+    const props = {value: 'bananas', labelClassName: 'label-radio-class'};
+    ReactDOM.render(<Radio {...props}>One!!!</Radio>, root);
 
-    expect(radioGroup).toHaveAttr('id', 'clear-channel');
-    expect(radioGroup).toHaveClass('1234');
-    expect(radioGroup).toHaveCss({color: 'rgb(255, 0, 0)'});
+    expect('div.pui-radio > .label-radio-class').toExist();
   });
 });
