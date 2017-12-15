@@ -410,9 +410,7 @@ textarea.valid {
   }
 
   &:focus + label {
-    -webkit-box-shadow: 0 0 0 1px $input-border-focus;
-    -moz-box-shadow: 0 0 0 1px $input-border-focus;
-    box-shadow: 0 0 0 1px $input-border-focus;
+    box-shadow: 0 0 0 2px transparentize($accent-3, 0.8);
   }
 }
 
