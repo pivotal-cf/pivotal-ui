@@ -1,3 +1,7 @@
+<a name="11.1.3"></a>
+## 11.1.3 (2017-12-15)
+#### React
+* **forms**: Restore functionality of hideHelpRow in inline FormUnits [[:beetle:#153690309](https://www.pivotaltracker.com/story/show/153690309)] ([93ea7abf](https://github.com/pivotal-cf/pivotal-ui/commit/93ea7abf))
 <a name="11.1.2"></a>
 ## 11.1.2 (2017-12-15)
 #### React
