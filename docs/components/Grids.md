@@ -7,6 +7,16 @@ Flex grids use flexbox to position columns within rows.
 ## Examples
 
 ```jsx
+::title=Outling the grid
+::description=This should help you visualize the columns. The grey dotted box is the grid and the orange dotted boxes are the columns.
+<Grid className="grid-show mbxl show-outline">
+    <FlexCol fixed {...{style: {width: "150px"}}}/>
+    <FlexCol />
+    <FlexCol className="col-grow-2"/>
+</Grid>
+```
+
+```jsx
 ::title=Gutters
 ::description=You can create a flex grid with and without gutters. To remove gutters, set the `gutter` prop to `false` or use the `.grid-nogutter` class. Here are examples of what each would look like.
 <div>
