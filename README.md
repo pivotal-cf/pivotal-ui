@@ -71,6 +71,10 @@ HTML:
 </html>
 ```
 
+# Maintainers
+
+See [MAINTAINERS.md](MAINTAINERS.md).
+
 # Contributing
 
 Please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivotal-ui/blob/master/CONTRIBUTING.md)
