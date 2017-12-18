@@ -122,3 +122,11 @@ $base-unit: 8px;
   }
 }
 
+.show-outline .grid, .show-outline.grid {
+  outline: 2px dashed darkgray;
+  padding: 4px;
+}
+
+.show-outline .col {
+  outline: 2px dashed darkorange;
+}
