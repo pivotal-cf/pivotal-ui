@@ -1,3 +1,35 @@
+# PUI 12.0 Release
+
+## Goals
+
+The goals of the 12.0 release are:
+
+- Fix Form alignment issues
+- Namespace the CSS of new components with `pui-`
+- Redesign the Checkbox and Radio component
+- Fix the SVG component to be `create-react-app` compatible
+- Enhance the Table component to determine column headers from the data
+
+## The Big Changes
+
+### Table
+- When no `columns` prop is given, the table will automatically determine the columns and column headers based on the keys of `data`.
+- See the [Tables](/tables#examples) example
+
+### Checkbox
+- CSS selectors prefixed with `pui-`, eg. `pui-checkbox`
+- Update the styling
+- Remove props related to forms: `displayError`, `errorMessage` and `label`.
+
+### Radio
+- CSS selectors prefixed with `pui-`, eg. `pui-radio`
+- Update the styling
+
+## Conversion Guide
+
+### Checkbox
+- Use the new [Form](forms) component to obtain functionality such as field labels, tooltips, and help text.
+
 # PUI 11.0 Release
 
 ## Goals
