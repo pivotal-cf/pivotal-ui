@@ -1,3 +1,7 @@
+<a name="12.1.0"></a>
+# 12.1.0 (2017-12-21)
+#### React
+* **wizard**: Update Wizard component with backComponent, finishComponent, and hideFinishButton [[:star:#153856072](https://www.pivotaltracker.com/story/show/153856072)] ([370af8e4](https://github.com/pivotal-cf/pivotal-ui/commit/370af8e4))
 <a name="12.0.0"></a>
 # 12.0.0 (2017-12-20)
 #### CSS
