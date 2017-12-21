@@ -119,6 +119,39 @@ describe('Wizard', () => {
         expect(subject.state.currentPage).toBe(0);
       });
     });
+
+    describe('when "backComponent" is provided', () => {
+      let onClickBack;
+
+      beforeEach(() => {
+        onClickBack = jasmine.createSpy('onClickBack');
+        pages.push({
+          render: jasmine.createSpy('pageThreeRender'),
+          onClickBack,
+          backComponent: <button className="some-back-button"/>
+        });
+        subject::setProps({pages});
+        subject.setState({currentPage: 2});
+      });
+
+      it('renders the back component', () => {
+        expect('.wizard .wizard-footer .col:eq(0) .some-back-button').toExist();
+      });
+
+      it('does not render the back button', () => {
+        expect('.wizard-back-btn').not.toExist();
+      });
+
+      describe('when clicking the back component', () => {
+        beforeEach(() => {
+          $('.wizard .wizard-footer .col:eq(0) .some-back-button').simulate('click');
+        });
+
+        it('does not call the back callback', () => {
+          expect(onClickBack).not.toHaveBeenCalled();
+        });
+      });
+    });
   });
 
   describe('#onClickNext', () => {
@@ -287,6 +320,30 @@ describe('Wizard', () => {
       expect('.wizard-finish-btn.btn-primary').toHaveText('Finish');
     });
 
+    describe('when "hideFinishButton" is true', () => {
+      beforeEach(() => {
+        const lastPage = pages[pages.length - 1];
+        pages[pages.length - 1] = {...lastPage, hideFinishButton: true};
+        subject.forceUpdate();
+      });
+
+      it('does not render a "finish" Button', () => {
+        expect('.wizard-finish-btn').not.toExist();
+      });
+    });
+
+    describe('when "hideBackButton" is true', () => {
+      beforeEach(() => {
+        const lastPage = pages[pages.length - 1];
+        pages[pages.length - 1] = {...lastPage, hideBackButton: true};
+        subject.forceUpdate();
+      });
+
+      it('does not render a "back" Button', () => {
+        expect('.wizard-back-btn').not.toExist();
+      });
+    });
+
     it('does not render a "next" PrimaryButton', () => {
       expect('.wizard-next-btn.btn-primary').not.toExist();
     });
@@ -372,6 +429,31 @@ describe('Wizard', () => {
 
       it('does not disable the back button', () => {
         expect('.wizard-back-btn').not.toHaveAttr('disabled');
+      });
+    });
+
+    describe('when "finishComponent" is provided', () => {
+      beforeEach(() => {
+        pages[pages.length - 1].finishComponent = <button className="some-custom-button"/>;
+        subject.forceUpdate();
+      });
+
+      it('renders the finish component', () => {
+        expect('.wizard .wizard-footer .col:eq(1) .some-custom-button').toExist();
+      });
+
+      it('does not render the finish button', () => {
+        expect('.wizard-finish-btn').not.toExist();
+      });
+
+      describe('when clicking the finish component', () => {
+        beforeEach(() => {
+          $('.wizard .wizard-footer .col:eq(1) .some-custom-button').simulate('click');
+        });
+
+        it('does not call the finish callback', () => {
+          expect(finish).not.toHaveBeenCalled();
+        });
       });
     });
   });
