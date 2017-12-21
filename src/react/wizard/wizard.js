@@ -5,7 +5,7 @@ import {PrimaryButton} from '../buttons';
 import {Icon} from '../iconography';
 import classnames from 'classnames';
 
-function doNothing() {
+function noop() {
 }
 
 export class Wizard extends React.Component {
@@ -22,7 +22,7 @@ export class Wizard extends React.Component {
   static defaultProps = {
     pages: [],
     cancelText: 'Cancel',
-    finish: doNothing,
+    finish: noop,
     finishText: 'Finish',
     saving: false,
     savingText: 'Saving'
@@ -83,7 +83,9 @@ export class Wizard extends React.Component {
     const {currentPage} = this.state;
 
     const page = pages[currentPage];
-    const {hideNextButton, nextText = () => 'Next'} = page;
+    const {
+      hideBackButton, hideNextButton, hideFinishButton, nextText = () => 'Next', backComponent, finishComponent
+    } = page;
 
     const lastPage = currentPage >= pages.length - 1;
     const firstPage = currentPage === 0;
@@ -98,19 +100,19 @@ export class Wizard extends React.Component {
                      onClick={this.onClickCancel}>{cancelText}</PrimaryButton>
     );
 
-    const backButton = (
-      <PrimaryButton alt className="wizard-back-btn" disabled={saving}
-                     onClick={this.onClickBack}>Back</PrimaryButton>
-    );
+    const backButton = backComponent || (
+        <PrimaryButton alt className="wizard-back-btn" disabled={saving}
+                       onClick={this.onClickBack}>Back</PrimaryButton>
+      );
 
     const icon = saving && <Icon src="spinner-sm"/>;
-    const finishButton = (
-      <PrimaryButton {...{
-        className: "wizard-finish-btn",
-        icon,
-        onClick: this.onClickFinish
-      }}>{saving ? savingText : finishText}</PrimaryButton>
-    );
+    const finishButton = finishComponent || (
+        <PrimaryButton {...{
+          className: 'wizard-finish-btn',
+          icon,
+          onClick: this.onClickFinish
+        }}>{saving ? savingText : finishText}</PrimaryButton>
+      );
 
     const nextButton = (
       <PrimaryButton className="wizard-next-btn" disabled={nextDisabled}
@@ -125,11 +127,11 @@ export class Wizard extends React.Component {
         <div className="wizard-footer grid ptxl">
           <div className="col">
             {cancel && cancelButton}
-            {!firstPage && backButton}
+            {!firstPage && !hideBackButton && backButton}
           </div>
           <div className="col col-fixed">
             {!lastPage && !hideNextButton && nextButton}
-            {lastPage && finishButton}
+            {lastPage && !hideFinishButton && finishButton}
           </div>
         </div>
       </div>
