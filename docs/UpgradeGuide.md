@@ -7,7 +7,7 @@ The goals of the 12.0 release are:
 - Fix Form alignment issues
 - Namespace the CSS of new components with `pui-`
 - Redesign the Checkbox and Radio component
-- Fix the SVG component to be `create-react-app` compatible
+- Fix the `Icon` component to be `create-react-app` compatible
 - Enhance the Table component to determine column headers from the data
 
 ## The Big Changes
