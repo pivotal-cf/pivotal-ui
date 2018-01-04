@@ -1,5 +1,7 @@
 <a name="12.1.1"></a>
 ## 12.1.1 (2018-01-04)
+#### CSS
+* **flex-grids**: Make CSS for flex grids less nested [[:beetle:#152292192](https://www.pivotaltracker.com/story/show/152292192)] ([4f16a974](https://github.com/pivotal-cf/pivotal-ui/commit/4f16a974))
 #### React
 * **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([be674aae](https://github.com/pivotal-cf/pivotal-ui/commit/be674aae))
 <a name="12.1.0"></a>
