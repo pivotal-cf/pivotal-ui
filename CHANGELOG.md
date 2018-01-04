@@ -1,3 +1,7 @@
+<a name="12.1.1"></a>
+## 12.1.1 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([be674aae](https://github.com/pivotal-cf/pivotal-ui/commit/be674aae))
 <a name="12.1.0"></a>
 # 12.1.0 (2017-12-21)
 #### React
