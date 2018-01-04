@@ -6,10 +6,6 @@ a {
   text-decoration: none;
   @include transition-pui();
 
-  svg {
-    fill: $link-color;
-  }
-
   transition: all 150ms ease-out;
 }
 
