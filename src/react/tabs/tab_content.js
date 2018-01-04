@@ -27,6 +27,7 @@ export default class TabContent extends React.Component {
         onEntered,
         onExited,
         tabClassName,
+        title,
         ...props
       } = child.props;
 
