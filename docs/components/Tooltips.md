@@ -175,9 +175,8 @@ class ManualTooltipExample extends React.Component {
     return (
       <div>
         <Checkbox {...{
-          label: 'show/hide tooltip',
           onChange: () => this.setState({displayTooltip: !this.state.displayTooltip})
-        }}/>
+        }}>show/hide tooltip</Checkbox>
         <TooltipTrigger {...{
           trigger: 'manual',
           display: this.state.displayTooltip,
