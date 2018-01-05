@@ -118,7 +118,7 @@ to place the label on the right.
     </FormRow>
     <FormRow>
         <FormCol inline labelPosition="after" label="I accept the terms and conditions" name="accept">
-            <Input type="checkbox" />
+            <Checkbox/>
         </FormCol>
         <FormCol inline label="Actually read the terms" name="toggle">
             <Toggle />
@@ -146,7 +146,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
                  name="accept1"
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm">
-            <Input type="checkbox" />
+            <Checkbox/>
         </FormCol>
         <FormCol inline
                  labelPosition="after"
@@ -155,7 +155,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
                  tooltip="This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol. This is a tooltip on a FormCol."
                  tooltipSize="lg"
                  tooltipPlacement="right">
-            <Input type="checkbox" />
+            <Checkbox/>
         </FormCol>
     </FormRow>
     <FormRow>
@@ -166,7 +166,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm"
                  tooltipPlacement="bottom">
-            <Input type="checkbox" />
+            <Checkbox/>
         </FormCol>
         <FormCol inline
                  labelPosition="after"
@@ -175,7 +175,7 @@ via the `tooltipPlacement` prop with the following options: `left`, `right`, `bo
                  tooltip="This is a tooltip on a FormCol."
                  tooltipSize="sm"
                  tooltipPlacement="left">
-            <Input type="checkbox" />
+            <Checkbox/>
         </FormCol>
     </FormRow>
 </Form>
@@ -466,7 +466,7 @@ Note that state management and other `Form` features are not handled by the `For
         tooltip: 'This is an inline form unit example',
         tooltipSize: 'sm',
         tooltipPlacement: 'top',
-        field: <Input id="checkbox-input" type="checkbox"/>
+        field: <Checkbox id="checkbox-input"/>
     }}/>
 </div>
 ```
@@ -500,9 +500,9 @@ Note that state management and other `Form` features are not handled by the `For
 <FormUnit {...{
     label: 'Table field',
     field: <Table data={[
-        {name: 'One', enabled: <input type="checkbox"/>},
-        {name: 'Two', enabled: <input type="checkbox"/>},
-        {name: 'Three', enabled: <input type="checkbox"/>}
+        {name: 'One', enabled: <Checkbox/>},
+        {name: 'Two', enabled: <Checkbox/>},
+        {name: 'Three', enabled: <Checkbox/>}
     ]}/>
 }}/>
 ```
