@@ -1,8 +1,7 @@
 import '../spec_helper';
 import {Notifications, NotificationItem, AlertNotifications} from '../../../src/react/notifications';
 
-
-describe('Notification', () => {
+describe('Notifications', () => {
   const props = {
     className: 'test-class',
     id: 'test-id',

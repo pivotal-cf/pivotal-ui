@@ -1,0 +1,19 @@
+@import "../pui-variables";
+
+.dropdown.dropdown-flat {
+
+  .dropdown-toggle {
+    border: 1px solid transparent;
+    background-color: transparent;
+    text-transform: uppercase;
+    color: $btn-default-color;
+    font-weight: $btn-font-weight;
+    letter-spacing: $btn-letter-spacing;
+  }
+
+  &.dropdown-open {
+    .dropdown-toggle {
+      border: 1px solid transparent;
+    }
+  }
+}

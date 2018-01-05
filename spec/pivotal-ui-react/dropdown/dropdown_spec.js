@@ -27,10 +27,10 @@ describe('Dropdown', () => {
   });
 
   it('correctly styles the dropdown-toggle, and adds a chevron icon', () => {
-    expect('.dropdown-toggle').toHaveText('Dropping');
-    expect('.dropdown-toggle').toHaveClass('test-btn-class');
-    expect('.dropdown-toggle').toHaveAttr('aria-haspopup', 'true');
-    expect('.dropdown-toggle').toHaveAttr('aria-label', 'Nessun Dorma');
+    expect('.dropdown button').toHaveText('Dropping');
+    expect('.dropdown button').toHaveClass('test-btn-class');
+    expect('.dropdown button').toHaveAttr('aria-haspopup', 'true');
+    expect('.dropdown button').toHaveAttr('aria-label', 'Nessun Dorma');
 
     expect('.icon-chevron_down').toExist();
   });

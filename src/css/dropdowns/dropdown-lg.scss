@@ -1,0 +1,43 @@
+@import "../pui-variables";
+
+.dropdown.dropdown-lg {
+  .dropdown-icon-col {
+    height: 40px;
+
+    .dropdown-toggle {
+      width: 40px;
+    }
+  }
+
+  .dropdown-toggle {
+    height: ($base-unit*5);
+    line-height: ($base-unit*5) - 2px;
+    font-size: 16px;
+  }
+
+  a.dropdown-label {
+    height: ($base-unit*5);
+    line-height: ($base-unit*5) - 2px;
+    font-size: 16px;
+  }
+
+  .dropdown-menu {
+    li {
+      padding: $base-unit;
+      line-height: 24px;
+      font-size: 16px;
+    }
+  }
+
+  &.dropdown-split .dropdown-toggle {
+    width: 40px;
+  }
+
+  .icon-toggle {
+    font-size: 20px;
+  }
+
+  &.dropdown-icon-only:not(.dropdown-split) {
+    width: 40px;
+  }
+}

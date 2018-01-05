@@ -1,0 +1,16 @@
+@import "../pui-variables";
+
+.dropdown.dropdown-link {
+  width: initial;
+  white-space: nowrap;
+
+  .dropdown-toggle, .dropdown-icon-col {
+    border: 1px solid transparent;
+    color: $link-color;
+    background-color: transparent;
+  }
+
+  .icon-toggle svg {
+    fill: $link-color;
+  }
+}

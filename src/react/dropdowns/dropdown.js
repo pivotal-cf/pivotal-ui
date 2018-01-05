@@ -5,9 +5,21 @@ import {default as mixin} from '../mixins';
 import Scrim from '../mixins/mixins/scrim_mixin';
 import Transition from '../mixins/mixins/transition_mixin';
 import {Icon} from '../iconography';
+import {Grid, FlexCol} from '../flex-grids';
 
-const defaultToggleNode = (showIcon, icon) => {
-  if (showIcon) return <Icon src={icon} className="icon-toggle"/>;
+const defaultToggleNode = (showIcon, icon, onClick, size, title, className, ariaLabel) => {
+  return (
+    <button {...{
+      type: 'button',
+      className,
+      onClick,
+      'aria-haspopup': true,
+      'aria-label': ariaLabel
+    }}>
+      {title}
+      {showIcon && <Icon src={icon} className="icon-toggle"/>}
+    </button>
+  );
 };
 
 export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
@@ -16,6 +28,8 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     this.state = {
       open: false
     };
+
+    this.click = this.click.bind(this);
   }
 
   static propTypes = {
@@ -88,17 +102,19 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
 
   render() {
     const {
-      blockingScrim, border, buttonAriaLabel, buttonClassName, splitClassName, children, className, closeOnMenuClick, disableScrim, showIcon,
-      flat, link, labelAriaLabel, menuAlign, size, href, icon, onClick, onSplitClick, onEntered, onExited, split, title, toggle,
-      floatMenu, scroll, ...props
+      // eslint-disable-next-line no-unused-vars
+      closeOnMenuClick, onClick, onSplitClick, onEntered, onExited,
+      blockingScrim, border, buttonAriaLabel, buttonClassName, splitClassName, children, className, disableScrim, showIcon,
+      flat, link, labelAriaLabel, menuAlign, size, href, icon, split, title, toggle, floatMenu, scroll, ...props
     } = this.props;
+
     const {open} = this.state;
     const buttonStyleClasses = classnames('dropdown-toggle', buttonClassName);
     const noTitle = typeof title === 'undefined' || title === null || title.length === 0;
 
     const forceIcon = noTitle || split;
     const iconVisible = forceIcon || showIcon;
-    const toggleNode = toggle ? toggle : defaultToggleNode(iconVisible, icon);
+    const toggleNode = toggle ? toggle : defaultToggleNode(iconVisible, icon, this.click, size, !split && title, buttonStyleClasses, buttonAriaLabel);
     const menuVisibility = open ? 'dropdown-open' : 'dropdown-closed';
 
     const dropdownClasses = classnames('dropdown', {
@@ -107,15 +123,15 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       'dropdown-link': link,
       'dropdown-lg': size === 'large',
       'dropdown-sm': size === 'small',
-      'dropdown-icon-only' : !split && noTitle
+      'dropdown-icon-only': !split && noTitle
     }, menuVisibility, className);
 
     const dropdownMenuClasses = classnames('dropdown-menu',
       {
-        'dropdown-border'     : border,
-        'dropdown-menu-right' : menuAlign === 'right',
-        'dropdown-menu-left'  : menuAlign === 'left',
-        'dropdown-menu-float' : split || flat || link || floatMenu || noTitle || menuAlign !== 'none',
+        'dropdown-border': border,
+        'dropdown-menu-right': menuAlign === 'right',
+        'dropdown-menu-left': menuAlign === 'left',
+        'dropdown-menu-float': split || flat || link || floatMenu || noTitle || menuAlign !== 'none',
         'dropdown-menu-scroll': scroll
       }
     );
@@ -126,64 +142,18 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     const splitProps = {href, 'aria-label': labelAriaLabel};
 
     return (<div className={dropdownClasses} {...props}>
-      <button type="button" onClick={this.click} className={buttonStyleClasses} aria-haspopup="true" aria-label={buttonAriaLabel}>
-        {!split && title}
-      </button>
-      {toggleNode}
-      {split && <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}} onClick={this.handleSplitClick}>{title}</a>}
+      {split ? <Grid gutter={false}>
+          <FlexCol>
+            <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}}
+               onClick={this.handleSplitClick}>{title}</a>
+          </FlexCol>
+          <FlexCol fixed className="dropdown-icon-col col-middle">
+            {toggleNode}
+          </FlexCol>
+        </Grid>
+        : toggleNode}
       {(blockingScrim && open && !disableScrim) && <div className="scrim" onClick={this.scrimClick}/>}
       {dropdownOptions}
     </div>);
-  }
-}
-
-export class DropdownItem extends React.Component {
-  static propTypes = {
-    className: PropTypes.string,
-    style: PropTypes.object,
-    href: PropTypes.string,
-    header: PropTypes.bool,
-    divider: PropTypes.bool,
-    disabled: PropTypes.bool,
-    eventKey: PropTypes.string,
-    onSelect: PropTypes.func,
-    onClick: PropTypes.func,
-  };
-
-  componentDidMount() {
-    require('../../css/dropdowns');
-  }
-
-  handleClick = event => {
-    const {href, disabled, onClick, onSelect, eventKey} = this.props;
-    if (disabled) return;
-
-
-    if (!href) {
-      event.preventDefault();
-    }
-
-    if (onSelect) {
-      onSelect(event, eventKey);
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
-
-  render() {
-    const {children, className, eventKey, style, href, header, divider, disabled, onClick, onSelect, ...anchorProps} = this.props;
-
-    if (header) return (<li role="heading" className="dropdown-header">{children}</li>);
-    if (divider) return (<li role="separator" className="divider"/>);
-
-    const anchor = href ? <a {...{href, disabled, ...anchorProps}}>{children}</a> : children;
-    const disabledClass = disabled ? 'disabled' : '';
-    const dropdownItemClass = classnames(className, disabledClass);
-    
-    return (<li {...{style}} className={dropdownItemClass} onClick={this.handleClick}>
-      {anchor}
-    </li>);
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Dropdown, DropdownItem} from '../dropdowns';
 import {Checkbox} from '../checkbox';
+import classnames from 'classnames';
 
 function doNothing() {
 };
@@ -72,7 +73,8 @@ export class CheckboxDropdown extends React.Component {
   }
 
   render() {
-    const {labels, onChange, ...dropDownProps} = this.props;
+    // eslint-disable-next-line no-unused-vars
+    const {labels, onChange, className, ...dropDownProps} = this.props;
     const {options} = this.state;
 
     const dropdownItems = labels.map(label => {
@@ -96,7 +98,7 @@ export class CheckboxDropdown extends React.Component {
 
     const title = <span className="type-ellipsis">{this.getTitle()}</span>;
 
-    return (<Dropdown {...dropDownProps} {...{title}}>
+    return (<Dropdown {...{...dropDownProps, title, className: classnames('checkbox-dropdown', className)}}>
       <DropdownItem className="checkbox-dropdown-item show-all"
                     onSelect={e => this.toggleAll(e)}
                     checked={this.allSelected()}>

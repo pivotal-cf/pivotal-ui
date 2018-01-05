@@ -1,0 +1,41 @@
+@import "../pui-variables";
+
+.dropdown.dropdown-split {
+  > .grid {
+    width: 100%;
+
+    .dropdown-toggle {
+      border: 1px solid $input-border;
+      border-radius: 0 2px 2px 0;
+      width: 32px;
+
+      .icon-toggle {
+        justify-content: center;
+        pointer-events: none;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .dropdown-label {
+    border: 1px solid $input-border;
+    border-radius: 2px 0 0 2px;
+    border-right: none;
+    width: 100%;
+    padding: 0 $base-unit;
+    line-height: ($base-unit*4) - 2px;
+    font-size: 14px;
+    display: inline-block;
+    color: inherit;
+  }
+
+  .dropdown-toggle {
+    border-radius: 0 2px 2px 0;
+  }
+
+  &:not(.dropdown-closed) .dropdown-toggle:focus ~ .dropdown-label,
+  &.dropdown-open .dropdown-label {
+    border: 1px solid $input-border-focus;
+    border-right: none;
+  }
+}
