@@ -4,12 +4,9 @@
 
 ```jsx
 ::title=Basic checkbox dropdown
-
-<div className="form-group">
-  <CheckboxDropdown {...{
-    labels: ['DEBUG', 'WARNING', 'ERROR']
-  }} />
-</div>
+<CheckboxDropdown {...{
+  labels: ['DEBUG', 'WARNING', 'ERROR']
+}} />
 ```
 
 ```jsx
@@ -23,7 +20,7 @@ class Example extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
+      <div>
         <pre>{JSON.stringify(this.state.selected, null, 2)}</pre>
         <CheckboxDropdown {...{
           labels: ['DEBUG', 'WARNING', 'ERROR'],
