@@ -15,8 +15,10 @@ export class RadioGroup extends React.Component {
 
   render() {
     const {name, children, onChange, className, ...others} = this.props;
+    const radioProps = onChange ? {name, onChange} : {name};
+
     const renderedChildren = React.Children.map(children, child =>
-      React.cloneElement(child, {name, onChange: onChange}));
+      React.cloneElement(child, radioProps));
 
     const props = {
       ...others,

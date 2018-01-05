@@ -2,9 +2,11 @@ import '../spec_helper';
 import {Radio, RadioGroup} from '../../../src/react/radio';
 
 describe('RadioGroup', () => {
+  const secondRadioSpy = jasmine.createSpy('secondRadio');
+
   const renderComponent = props => ReactDOM.render(<RadioGroup {...props}>
     <Radio value="one">first</Radio>
-    <Radio value="two">second</Radio>
+    <Radio value="two" onChange={secondRadioSpy}>second</Radio>
     <Radio value="three">third</Radio>
   </RadioGroup>, root);
 
@@ -31,10 +33,25 @@ describe('RadioGroup', () => {
     });
   });
 
-  it('passes id, style, and className to radio group', () => {
-    renderComponent({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234', name: 'radioGroup'});
-    expect('.pui-radio-group').toHaveAttr('id', 'clear-channel');
-    expect('.pui-radio-group').toHaveClass('1234');
-    expect('.pui-radio-group').toHaveCss({color: 'rgb(255, 0, 0)'});
+  describe('other props and no onChange', () => {
+    beforeEach(() => {
+      renderComponent({id: 'clear-channel', style: {color: 'rgb(255, 0, 0)'}, className: '1234', name: 'radioGroup'});
+    });
+
+    it('passes id, style, and className to radio group', () => {
+      expect('.pui-radio-group').toHaveAttr('id', 'clear-channel');
+      expect('.pui-radio-group').toHaveClass('1234');
+      expect('.pui-radio-group').toHaveCss({color: 'rgb(255, 0, 0)'});
+    });
+
+    describe('when changing the second radio', () => {
+      beforeEach(() => {
+        $('.pui-radio-group input[type="radio"]:eq(1)').simulate('change');
+      });
+
+      it('calls the second radio onChange', () => {
+        expect(secondRadioSpy).toHaveBeenCalled();
+      });
+    });
   });
 });
