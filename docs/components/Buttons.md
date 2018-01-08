@@ -90,35 +90,25 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 ::title=Disabled
 ::description=If given the disabled attribute, a button will be functionally disabled, but will look unchanged. If given the disabled class, a button will be functionally disabled, and will also change visually.
 <div>
-    <div>
-        <button className="btn btn-default" disabled type="button" aria-label="button">
-        Disabled Functionally
-        </button>
-    </div>
-    <br/>
-    <div>
-        <button className="btn btn-default disabled" type="button" aria-label="button">
-        Disabled Visually
-        </button>
-    </div>
-    <br/>
-    <div>
-        <button className="btn btn-default-alt disabled" type="button" aria-label="button">
-        Alt Disabled
-        </button>
-    </div>
-    <br/>
-    <div>
-        <button className="btn disabled" type="button" aria-label="button">
-        Flat Disabled
-        </button>
-    </div>
-    <br/>
-    <div>
-        <button className="btn btn-primary disabled" type="button" aria-label="button">
-        Primary Disabled
-        </button>
-    </div>
+  <DefaultButton disabled>
+    Disabled Functionally
+  </DefaultButton>
+
+  <DefaultButton className="disabled">
+    Disabled Visually
+  </DefaultButton>
+
+  <DefaultButton alt className="disabled">
+    Alt Disabled
+  </DefaultButton>
+
+  <DefaultButton flat className="disabled">
+    Flat Disabled
+  </DefaultButton>
+
+  <PrimaryButton className="disabled">
+    Primary Disabled
+  </PrimaryButton>
 </div>
 ```
 
