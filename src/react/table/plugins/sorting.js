@@ -4,17 +4,21 @@ import classnames from 'classnames';
 import {Icon} from '../../iconography';
 import sortBy from 'lodash.sortby';
 import {find} from '../../helpers';
+import PropTypes from 'prop-types';
 
 import {TablePlugin} from '../table-plugin';
 
-const SORT_ORDER = {
-  asc: 0,
-  desc: 1,
-  none: 2
-};
-
 export function withSorting(Table) {
-  return class TableWithSorting extends TablePlugin {
+  class TableWithSorting extends TablePlugin {
+    static sortTypes = ['asc', 'desc', null];
+
+    static defaultProps = {...Table.defaultProps, sortOrder: TableWithSorting.sortTypes};
+
+    static propTypes = {
+      defaultSort: PropTypes.oneOf(TableWithSorting.sortTypes),
+      sortOrder: PropTypes.arrayOf(PropTypes.oneOf(TableWithSorting.sortTypes))
+    };
+
     constructor(props) {
       super(props);
 
@@ -24,7 +28,7 @@ export function withSorting(Table) {
         sortColumn: find(columns, ({sortable, attribute}) =>
           defaultSort ? attribute === defaultSort : sortable
         ),
-        sortOrder: SORT_ORDER.asc
+        sortIndex: 0,
       };
     }
 
@@ -33,56 +37,52 @@ export function withSorting(Table) {
       const sortColumn = find(columns, ({sortable, attribute}) =>
         defaultSort ? attribute === defaultSort : sortable
       );
-      this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
+      this.setState({sortColumn, sortIndex: 0});
     }
 
     updateSort(column) {
-      const {sortColumn} = this.state;
+      const {state: {sortColumn, sortIndex}, props: {sortOrder}} = this;
       const isSortColumn = column === sortColumn;
 
       if (isSortColumn) {
-        const sortOrder = ++this.state.sortOrder % Object.keys(SORT_ORDER).length;
-        return this.setState({sortOrder});
+        return this.setState({sortIndex: (sortIndex + 1) % sortOrder.length});
       }
 
       this.setState({
         sortColumn: column.sortable && column,
-        sortOrder: SORT_ORDER.asc
+        sortIndex: 0
       });
     }
 
     sort() {
-      const {data} = this.props;
-      const {sortColumn, sortOrder} = this.state;
-      if (!sortColumn || sortOrder === SORT_ORDER.none) return data;
+      const {props: {data, sortOrder}, state: {sortColumn, sortIndex}} = this;
+      if (!sortColumn || !sortOrder[sortIndex]) return data;
       const sorted = sortBy(data, datum => {
         const rankFunction = sortColumn.sortBy || (i => i);
         return rankFunction(datum[sortColumn.attribute]);
       });
 
-      if (sortOrder === SORT_ORDER.desc) sorted.reverse();
+      if (sortOrder[sortIndex] === 'desc') sorted.reverse();
 
       return sorted;
     }
 
     render() {
+      const {sortOrder} = this.props;
       return this.renderTable(Table, {
         table: () => ({className: 'table-sortable'}),
         th: (props, {column, column: {sortable}}) => {
           if (!sortable) return props;
 
           const {children: oldChildren} = props;
-          const {sortColumn, sortOrder} = this.state;
+          const {sortColumn, sortIndex} = this.state;
           const isSortColumn = column === sortColumn;
           let className, icon;
 
-          if (isSortColumn) {
-            className = ['sorted-asc', 'sorted-desc', ''][sortOrder];
-            icon = [
-              <Icon key={0} verticalAlign="baseline" src="arrow_drop_up"/>,
-              <Icon key={0} verticalAlign="baseline" src="arrow_drop_down"/>,
-              null
-            ][sortOrder];
+          if (isSortColumn && sortOrder[sortIndex]) {
+            className = `sorted-${sortOrder[sortIndex]}`;
+            if (sortOrder[sortIndex] === 'asc') icon = <Icon verticalAlign="baseline" src="arrow_drop_up"/>;
+            if (sortOrder[sortIndex] === 'desc') icon = <Icon verticalAlign="baseline" src="arrow_drop_down"/>;
           }
 
           const onClick = () => this.updateSort(column);
@@ -101,5 +101,6 @@ export function withSorting(Table) {
         data: this.sort()
       });
     }
-  };
+  }
+  return TableWithSorting;
 }

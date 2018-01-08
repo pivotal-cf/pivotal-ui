@@ -13,9 +13,10 @@ describe('withSorting', () => {
   });
 
   describe('with columns', () => {
+    let columns;
     beforeEach(() => {
-      const columns = [{
-        attribute: 'attr1'
+      columns = [{
+        attribute: 'attr1', sortable: true
       }, {
         attribute: 'attr2', displayName: 'Display2'
       }];
@@ -25,6 +26,86 @@ describe('withSorting', () => {
 
     it('renders', () => {
       expect('.sorting-table').toExist();
+    });
+
+    describe('when there is a asc sort on a column', () => {
+      beforeEach(() => {
+        $('th:eq(0)').simulate('click');
+      });
+
+      it('sorts the data', () => {
+        expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[1].attr1);
+        expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[1].attr2);
+        expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[0].attr1);
+        expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[0].attr2);
+      });
+
+      describe('when the sort is desc sort on a column', () => {
+        beforeEach(() => {
+          $('th:eq(0)').simulate('click');
+        });
+
+        it('sorts the data', () => {
+          expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[0].attr1);
+          expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[0].attr2);
+          expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[1].attr1);
+          expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[1].attr2);
+        });
+      });
+    });
+
+    describe('when there is a sortOrder', () => {
+      beforeEach(() => {
+        ReactDOM.unmountComponentAtNode(root);
+        const props = {columns, data, className: 'sorting-table', sortOrder: ['asc', 'desc']};
+        ReactDOM.render(<ComposedTable {...props}/>, root);
+      });
+
+      it('sorts the data', () => {
+        expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[0].attr1);
+        expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[0].attr2);
+        expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[1].attr1);
+        expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[1].attr2);
+      });
+
+      describe('when the sort order is asc', () => {
+        beforeEach(() => {
+          $('th:eq(0)').simulate('click');
+        });
+
+        it('sorts the data', () => {
+          expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[1].attr1);
+          expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[1].attr2);
+          expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[0].attr1);
+          expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[0].attr2);
+        });
+
+        describe('when the sort order is desc', () => {
+          beforeEach(() => {
+            $('th:eq(0)').simulate('click');
+          });
+
+          it('sorts the data', () => {
+            expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[0].attr1);
+            expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[0].attr2);
+            expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[1].attr1);
+            expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[1].attr2);
+          });
+
+          describe('when the sort order is asc', () => {
+            beforeEach(() => {
+              $('th:eq(0)').simulate('click');
+            });
+
+            it('sorts the data', () => {
+              expect('tbody tr:eq(0) td:eq(0)').toHaveText(data[1].attr1);
+              expect('tbody tr:eq(0) td:eq(1)').toHaveText(data[1].attr2);
+              expect('tbody tr:eq(1) td:eq(0)').toHaveText(data[0].attr1);
+              expect('tbody tr:eq(1) td:eq(1)').toHaveText(data[0].attr2);
+            });
+          });
+        });
+      });
     });
   });
 
