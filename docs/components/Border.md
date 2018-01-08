@@ -106,7 +106,7 @@ All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements w
     Border Rounded
   </div>
 </div>
-</br>
+<br />
 <div class="panel bg-neutral-11 border border-not-rounded">
   <div class="panel-body">
     Border Not Rounded
