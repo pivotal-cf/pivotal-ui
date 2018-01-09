@@ -1,3 +1,7 @@
+<a name="12.2.0"></a>
+# 12.2.0 (2018-01-09)
+#### React
+* **forms**: Add fieldRowClassName and labelRowClassName props to the FormUnit [[:star:#154183497](https://www.pivotaltracker.com/story/show/154183497)] ([f58b55ef](https://github.com/pivotal-cf/pivotal-ui/commit/f58b55ef))
 <a name="12.1.1"></a>
 ## 12.1.1 (2018-01-04)
 #### CSS
@@ -64,6 +68,10 @@
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([c1c27f61](https://github.com/pivotal-cf/pivotal-ui/commit/c1c27f61))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([9537c680](https://github.com/pivotal-cf/pivotal-ui/commit/9537c680))
 * **toggle**: include form css from toggle component [[:gear:#153427216](https://www.pivotaltracker.com/story/show/153427216)] ([abde0a56](https://github.com/pivotal-cf/pivotal-ui/commit/abde0a56))
+<a name="11.1.4"></a>
+## 11.1.4 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([8459dac0](https://github.com/pivotal-cf/pivotal-ui/commit/8459dac0))
 <a name="11.1.3"></a>
 ## 11.1.3 (2017-12-15)
 #### React
@@ -175,6 +183,10 @@
   * Always allow the 'display' prop to set visibility ([2f738702](https://github.com/pivotal-cf/pivotal-ui/commit/2f738702))
   * Allow manual control of TooltipTrigger visibility ([ab89565d](https://github.com/pivotal-cf/pivotal-ui/commit/ab89565d))
 * **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b923](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b923))
+<a name="10.3.3"></a>
+## 10.3.3 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([a746fb84](https://github.com/pivotal-cf/pivotal-ui/commit/a746fb84))
 <a name="10.3.2"></a>
 ## 10.3.2 (2017-11-15)
 #### React
@@ -225,6 +237,10 @@
 * **select**: stop using .includes in select to fix IE11 crash [[:beetle:#151622400](https://www.pivotaltracker.com/story/show/151622400)] ([0f51153c](https://github.com/pivotal-cf/pivotal-ui/commit/0f51153c))
 * **svg**: fixed the svgs components paths ([876491fe](https://github.com/pivotal-cf/pivotal-ui/commit/876491fe))
 * **table**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([7af14f7f](https://github.com/pivotal-cf/pivotal-ui/commit/7af14f7f))
+<a name="9.2.1"></a>
+## 9.2.1 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([2415cf82](https://github.com/pivotal-cf/pivotal-ui/commit/2415cf82))
 <a name="9.2.0"></a>
 # 9.2.0 (2017-10-17)
 #### React
