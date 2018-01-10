@@ -131,7 +131,6 @@
     "trie-search": "^1.0.1"
   },
   "scripts": {
-    "pui-update": "scripts/pui-update.js",
     "test": "gulp ci --fatal"
   }
 }
