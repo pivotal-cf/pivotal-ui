@@ -6842,7 +6842,7 @@ pivotal-js-react-test-helpers@^0.1.0:
   resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.1.0.tgz#0f951e6d00c4fcd9678ac69b29c59af888c25910"
 
 "pivotal-ui@file:pui-dist":
-  version "11.0.0"
+  version "12.0.0"
   dependencies:
     classnames "^2.1.2"
     deep-equal "^1.0.1"
