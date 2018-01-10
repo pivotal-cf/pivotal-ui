@@ -65,7 +65,7 @@
     "unified": "^6.1.4"
   },
   "scripts": {
-    "start": "./node_modules/.bin/webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
+    "start-dev": "./node_modules/.bin/webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
     "test": "gulp jasmine",
     "build": "./build.sh"
   }
