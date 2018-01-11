@@ -1,3 +1,9 @@
+<a name="12.3.0"></a>
+# 12.3.0 (2018-01-11)
+#### CSS
+* **iconography**:
+  * Add trash icon [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([3ac94ed1](https://github.com/pivotal-cf/pivotal-ui/commit/3ac94ed1))
+  * Add link_disconnect and terminal icons [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([6e81cb0f](https://github.com/pivotal-cf/pivotal-ui/commit/6e81cb0f))
 <a name="12.2.0"></a>
 # 12.2.0 (2018-01-09)
 #### React
