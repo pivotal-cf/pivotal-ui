@@ -9,13 +9,17 @@
   * Add link_disconnect and terminal icons [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([38b13e24](https://github.com/pivotal-cf/pivotal-ui/commit/38b13e24))
 * **links**: Links should not force SVG fill color to be blue [[:beetle:#152420796](https://www.pivotaltracker.com/story/show/152420796)] ([79e5bc96](https://github.com/pivotal-cf/pivotal-ui/commit/79e5bc96))
 * **notifications**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
-* **panels**: Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
+* **panels**:
+  * Namespace panels css [[:gear:#154268155](https://www.pivotaltracker.com/story/show/154268155)] ([1358ec94](https://github.com/pivotal-cf/pivotal-ui/commit/1358ec94))
+  * Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
 #### React
 * **checkbox-dropdown**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
 * **dropdowns**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
 * **forms**: Add fieldRowClassName and labelRowClassName props to the FormUnit [[:star:#154183497](https://www.pivotaltracker.com/story/show/154183497)] ([e85afdd6](https://github.com/pivotal-cf/pivotal-ui/commit/e85afdd6))
 * **notifications**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
-* **panels**: Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
+* **panels**:
+  * Namespace panels css [[:gear:#154268155](https://www.pivotaltracker.com/story/show/154268155)] ([1358ec94](https://github.com/pivotal-cf/pivotal-ui/commit/1358ec94))
+  * Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
 * **radio**: RadioGroup should not override child's onChange unless it has an onChange defined [[:beetle:#154038584](https://www.pivotaltracker.com/story/show/154038584)] ([810c40cc](https://github.com/pivotal-cf/pivotal-ui/commit/810c40cc))
 * **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([cb751ce1](https://github.com/pivotal-cf/pivotal-ui/commit/cb751ce1))
 * **tabs**: Pull title prop off TabContent so it does not end up on inner div [[:beetle:#153425866](https://www.pivotaltracker.com/story/show/153425866)] ([30564caa](https://github.com/pivotal-cf/pivotal-ui/commit/30564caa))
