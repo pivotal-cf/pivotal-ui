@@ -10,29 +10,29 @@ describe('Panel', () => {
   });
 
   it('renders a panel-container', () => {
-    expect('.panel-container').toExist();
+    expect('.pui-panel-container').toExist();
   });
 
   it('does not render a panel title', () => {
-    expect('.panel-container > .panel-title').not.toExist();
+    expect('.pui-panel-container > .pui-panel-title').not.toExist();
   });
 
   it('renders a panel with the expected classes', () => {
-    expect('.panel-container > .panel').toHaveClass('bg-neutral-11');
-    expect('.panel-container > .panel').toHaveClass('box-shadow-1');
-    expect('.panel-container > .panel').toHaveClass('border-rounded');
+    expect('.pui-panel-container > .pui-panel').toHaveClass('bg-neutral-11');
+    expect('.pui-panel-container > .pui-panel').toHaveClass('box-shadow-1');
+    expect('.pui-panel-container > .pui-panel').toHaveClass('border-rounded');
   });
 
   it('does not render a header', () => {
-    expect('.panel-header').not.toExist();
+    expect('.pui-panel-header').not.toExist();
   });
 
   it('does not render a panel-body', () => {
-    expect('.panel-body').not.toExist();
+    expect('.pui-panel-body').not.toExist();
   });
 
   it('does not render a footer', () => {
-    expect('.panel-footer').not.toExist();
+    expect('.pui-panel-footer').not.toExist();
   });
 
   describe('className', () => {
@@ -41,7 +41,7 @@ describe('Panel', () => {
     });
 
     it('renders the panel class name', () => {
-      expect('.panel-container').toHaveClass('custom-panel-container-class');
+      expect('.pui-panel-container').toHaveClass('custom-panel-container-class');
     });
   });
 
@@ -51,10 +51,10 @@ describe('Panel', () => {
     });
 
     it('renders the title', () => {
-      expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('some title');
-      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('h5');
-      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('em-high');
-      expect('.panel-container > .panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('some title');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('h5');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('em-high');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveClass('type-ellipsis');
     });
 
     describe('with titleClassName', () => {
@@ -63,7 +63,7 @@ describe('Panel', () => {
       });
 
       it('renders the title class name', () => {
-        expect('.panel-container > .panel-title').toHaveClass('custom-title-class');
+        expect('.pui-panel-container > .pui-panel-title').toHaveClass('custom-title-class');
       });
     });
   });
@@ -77,9 +77,9 @@ describe('Panel', () => {
     });
 
     it('renders the title cols', () => {
-      expect('.panel-container > .panel-title > .col').toHaveLength(2);
-      expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('Col 1');
-      expect('.panel-container > .panel-title > .col:eq(1)').toHaveText('Col 2');
+      expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(2);
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('Col 1');
+      expect('.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 2');
     });
 
     describe('with a title', () => {
@@ -88,10 +88,10 @@ describe('Panel', () => {
       });
 
       it('renders the title before the title cols', () => {
-        expect('.panel-container > .panel-title > .col').toHaveLength(3);
-        expect('.panel-container > .panel-title > .col:eq(0)').toHaveText('My Title');
-        expect('.panel-container > .panel-title > .col:eq(1)').toHaveText('Col 1');
-        expect('.panel-container > .panel-title > .col:eq(2)').toHaveText('Col 2');
+        expect('.pui-panel-container > .pui-panel-title > .col').toHaveLength(3);
+        expect('.pui-panel-container > .pui-panel-title > .col:eq(0)').toHaveText('My Title');
+        expect('.pui-panel-container > .pui-panel-title > .col:eq(1)').toHaveText('Col 1');
+        expect('.pui-panel-container > .pui-panel-title > .col:eq(2)').toHaveText('Col 2');
       });
     });
   });
@@ -102,7 +102,7 @@ describe('Panel', () => {
     });
 
     it('renders the panel class name', () => {
-      expect('.panel').toHaveClass('custom-panel-class');
+      expect('.pui-panel').toHaveClass('custom-panel-class');
     });
   });
 
@@ -112,9 +112,9 @@ describe('Panel', () => {
     });
 
     it('renders the header', () => {
-      expect('.panel > .panel-header > .col:eq(0)').toHaveText('some header');
-      expect('.panel > .panel-header > .col:eq(0)').toHaveClass('type-ellipsis');
-      expect('.panel > .panel-header > .col:eq(0)').toHaveClass('em-high');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveText('some header');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('type-ellipsis');
+      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveClass('em-high');
     });
 
     describe('with headerClassName', () => {
@@ -123,7 +123,7 @@ describe('Panel', () => {
       });
 
       it('renders the header class name', () => {
-        expect('.panel > .panel-header').toHaveClass('custom-header-class');
+        expect('.pui-panel > .pui-panel-header').toHaveClass('custom-header-class');
       });
     });
   });
@@ -137,9 +137,9 @@ describe('Panel', () => {
     });
 
     it('renders the header cols', () => {
-      expect('.panel > .panel-header > .col').toHaveLength(2);
-      expect('.panel > .panel-header > .col:eq(0)').toHaveText('Col 1');
-      expect('.panel > .panel-header > .col:eq(1)').toHaveText('Col 2');
+      expect('.pui-panel > .pui-panel-header > .col').toHaveLength(2);
+      expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveText('Col 1');
+      expect('.pui-panel > .pui-panel-header > .col:eq(1)').toHaveText('Col 2');
     });
 
     describe('with a header', () => {
@@ -148,10 +148,10 @@ describe('Panel', () => {
       });
 
       it('renders the header before the header cols', () => {
-        expect('.panel > .panel-header > .col').toHaveLength(3);
-        expect('.panel > .panel-header > .col:eq(0)').toHaveText('My Header');
-        expect('.panel > .panel-header > .col:eq(1)').toHaveText('Col 1');
-        expect('.panel > .panel-header > .col:eq(2)').toHaveText('Col 2');
+        expect('.pui-panel > .pui-panel-header > .col').toHaveLength(3);
+        expect('.pui-panel > .pui-panel-header > .col:eq(0)').toHaveText('My Header');
+        expect('.pui-panel > .pui-panel-header > .col:eq(1)').toHaveText('Col 1');
+        expect('.pui-panel > .pui-panel-header > .col:eq(2)').toHaveText('Col 2');
       });
     });
   });
@@ -162,11 +162,11 @@ describe('Panel', () => {
     });
 
     it('renders the body', () => {
-      expect('.panel > .panel-body').toHaveText('some body');
+      expect('.pui-panel > .pui-panel-body').toHaveText('some body');
     });
 
     it('does not render a loading bar', () => {
-      expect('.panel > .panel-body > .panel-loading-indicator').not.toExist();
+      expect('.pui-panel > .pui-panel-body > .pui-panel-loading-indicator').not.toExist();
     });
 
     describe('with bodyClassName', () => {
@@ -175,7 +175,7 @@ describe('Panel', () => {
       });
 
       it('renders the body class name', () => {
-        expect('.panel > .panel-body').toHaveClass('custom-body-class');
+        expect('.pui-panel > .pui-panel-body').toHaveClass('custom-body-class');
       });
     });
 
@@ -185,7 +185,7 @@ describe('Panel', () => {
       });
 
       it('renders a loading bar', () => {
-        expect('.panel > .panel-body > .panel-loading-indicator').toExist();
+        expect('.pui-panel > .pui-panel-body > .pui-panel-loading-indicator').toExist();
       });
     });
   });
@@ -196,9 +196,9 @@ describe('Panel', () => {
     });
 
     it('renders the footer', () => {
-      expect('.panel > .panel-footer').toHaveText('some title');
-      expect('.panel > .panel-footer').toHaveClass('type-ellipsis');
-      expect('.panel > .panel-footer').toHaveClass('h6');
+      expect('.pui-panel > .pui-panel-footer').toHaveText('some title');
+      expect('.pui-panel > .pui-panel-footer').toHaveClass('type-ellipsis');
+      expect('.pui-panel > .pui-panel-footer').toHaveClass('h6');
     });
 
     describe('with footerClassName', () => {
@@ -207,7 +207,7 @@ describe('Panel', () => {
       });
 
       it('renders the footer class name', () => {
-        expect('.panel > .panel-footer').toHaveClass('custom-footer-class');
+        expect('.pui-panel > .pui-panel-footer').toHaveClass('custom-footer-class');
       });
     });
   });
