@@ -31,9 +31,9 @@ Distinguish between primary and secondary CTAs in the title/header and footer (e
 ::title=Panel with Actions
 <Panel
     title="Title"
-    titleCols={[<button className="btn btn-default mrl">Go</button>, <button className="btn btn-default-alt">Stop</button>]}
+    titleCols={[<FlexCol fixed><button className="btn btn-default mrl">Go</button></FlexCol>, <FlexCol fixed><button className="btn btn-default-alt">Stop</button></FlexCol>]}
     header="Header"
-    headerCols={[<a href="#">click me</a>]}>
+    headerCols={[<FlexCol fixed><a href="#">click me</a></FlexCol>]}>
   Panel with custom header and actions
 </Panel>
 ```
@@ -60,16 +60,17 @@ Distinguish between primary and secondary CTAs in the title/header and footer (e
 
 ## Props
 
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-title         | no | String                   | | String to render in the title
-titleCols         | no | Array                   | [] | An array of nodes to render on the title row
-titleClassName         | no | String                   | | Class(es) to apply to the title
-panelClassName         | no | String                   | | Class(es) to apply to the content area
-header         | no | String                   | | String to render in the header
-headerCols         | no | Array                   | [] | An array of nodes to render on the header row
-headerClassName         | no | String                   | | Class(es) to apply to the header
-loading         | no | Boolean                   | | If true, will render a pulsing loading bar
-bodyClassName         | no | String                   | | Class(es) to apply to the body
-footer         | no | Node                   | | Node to render in the footer
-footerClassName         | no | String                   | | Class(es) to apply to the footer
+Property         | Required | Type    | Default | Description
+-----------------|----------|---------|---------|------------
+className        | no       | String  |         | Class(es) to apply to the panel container
+title            | no       | String  |         | String to render in the title
+titleCols        | no       | Array   | []      | An array of nodes to render on the title row, each element should be wrapped in a `FlexCol`
+titleClassName   | no       | String  |         | Class(es) to apply to the title
+panelClassName   | no       | String  |         | Class(es) to apply to the area containing the header, body and footer
+header           | no       | String  |         | String to render in the header
+headerCols       | no       | Array   | []      | An array of nodes to render on the header row, each element should be wrapped in a `FlexCol`
+headerClassName  | no       | String  |         | Class(es) to apply to the header
+loading          | no       | Boolean |         | If true, will render a pulsing loading bar
+bodyClassName    | no       | String  |         | Class(es) to apply to the body
+footer           | no       | Node    |         | Node to render in the footer
+footerClassName  | no       | String  |         | Class(es) to apply to the footer
