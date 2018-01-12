@@ -1,4 +1,24 @@
+# PUI 13.0 Release
+
+## Goals
+
+The goals of the 13.0 release are:
+
+- New interface and design of Panels
+- Redesign of Dropdown and CheckboxDropdown
+
 # PUI 12.0 Release
+
+## The Big Changes
+
+### Panels
+
+- Panels have been redesigned to have a title, header and body section. You can insert components in the title and header sections. See the [Panels](/panels#examples) examples
+- Panel css are now prefixed with `pui-`
+
+### Dropdown/CheckboxDropdown
+
+- Icon no longer positioned absolutely
 
 ## Goals
 
