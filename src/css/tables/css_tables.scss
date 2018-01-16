@@ -76,7 +76,11 @@
     }
   }
   //No External borders to a table
-  &.table-no-ext-borders .tbody .tr, &.table-no-ext-borders .tbody .tr-drawer {
+  &.table-no-ext-borders .th.col {
+    border-bottom: solid 2px $table-border-color;
+  }
+  &.table-no-ext-borders .tr,
+  &.table-no-ext-borders .tbody .tr-drawer {
     border-left: none;
     border-right: none;
     &:first-child {
