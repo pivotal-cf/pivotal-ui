@@ -1,3 +1,7 @@
+<a name="13.0.1"></a>
+## 13.0.1 (2018-01-16)
+#### CSS
+* **tables**: Fix missing bottom border on table footer row [#153578787] ([5209ccbe](https://github.com/pivotal-cf/pivotal-ui/commit/5209ccbe))
 <a name="13.0.0"></a>
 # 13.0.0 (2018-01-12)
 #### CSS
@@ -318,7 +322,7 @@
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
 * **tables**:
   * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
-  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
+  * update html table css to make font-size less specific [#150190185] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
 * **tabs**:
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
   * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052de](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052de))
