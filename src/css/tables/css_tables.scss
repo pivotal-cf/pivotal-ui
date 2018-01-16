@@ -22,8 +22,10 @@
     }
   }
 
-  .tbody .tr:last-child {
-    border-bottom: solid 1px $table-border-color;
+  .tbody, .tfoot {
+    .tr:last-child {
+      border-bottom: solid 1px $table-border-color;
+    }
   }
 
   .tbody .tr-drawer:last-child {
