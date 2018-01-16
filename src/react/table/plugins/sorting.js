@@ -28,14 +28,6 @@ export function withSorting(Table) {
       };
     }
 
-    componentWillReceiveProps({columns, defaultSort}) {
-      if (!columns) return;
-      const sortColumn = find(columns, ({sortable, attribute}) =>
-        defaultSort ? attribute === defaultSort : sortable
-      );
-      this.setState({sortColumn, sortOrder: SORT_ORDER.asc});
-    }
-
     updateSort(column) {
       const {sortColumn} = this.state;
       const isSortColumn = column === sortColumn;
