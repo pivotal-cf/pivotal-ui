@@ -1,3 +1,7 @@
+<a name="10.3.4"></a>
+## 10.3.4 (2018-01-16)
+#### CSS
+* **tables**: Fix missing bottom border on table footer row [#153578787] ([c15f4380](https://github.com/pivotal-cf/pivotal-ui/commit/c15f4380))
 <a name="10.3.3"></a>
 ## 10.3.3 (2018-01-04)
 #### React
@@ -52,6 +56,10 @@
 * **select**: stop using .includes in select to fix IE11 crash [[:beetle:#151622400](https://www.pivotaltracker.com/story/show/151622400)] ([0f51153c](https://github.com/pivotal-cf/pivotal-ui/commit/0f51153c))
 * **svg**: fixed the svgs components paths ([876491fe](https://github.com/pivotal-cf/pivotal-ui/commit/876491fe))
 * **table**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([7af14f7f](https://github.com/pivotal-cf/pivotal-ui/commit/7af14f7f))
+<a name="9.2.1"></a>
+## 9.2.1 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([2415cf82](https://github.com/pivotal-cf/pivotal-ui/commit/2415cf82))
 <a name="9.2.0"></a>
 # 9.2.0 (2017-10-17)
 #### React
@@ -97,7 +105,7 @@
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
 * **tables**:
   * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
-  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
+  * update html table css to make font-size less specific [#150190185] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
 * **tabs**:
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
   * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052de](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052de))
