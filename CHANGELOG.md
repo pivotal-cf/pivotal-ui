@@ -1,7 +1,11 @@
 <a name="13.0.1"></a>
 ## 13.0.1 (2018-01-16)
 #### CSS
-* **tables**: Fix missing bottom border on table footer row [#153578787] ([5209ccbe](https://github.com/pivotal-cf/pivotal-ui/commit/5209ccbe))
+* **tables**:
+  * Fix table-no-ext-borders for FlexTables [[:beetle:#154380467](https://www.pivotaltracker.com/story/show/154380467)] ([b5e61e66](https://github.com/pivotal-cf/pivotal-ui/commit/b5e61e66))
+  * Fix missing bottom border on table footer row [#153578787] ([5209ccbe](https://github.com/pivotal-cf/pivotal-ui/commit/5209ccbe))
+#### React
+* **table**: Do not reset the sort state when props are updated [[:beetle:#154374720](https://www.pivotaltracker.com/story/show/154374720)] ([5a412667](https://github.com/pivotal-cf/pivotal-ui/commit/5a412667))
 <a name="13.0.0"></a>
 # 13.0.0 (2018-01-12)
 #### CSS
