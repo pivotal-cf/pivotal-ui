@@ -33,4 +33,19 @@ describe('iconography', function() {
       expect('.icon').toHaveClass('icon-baseline');
     });
   });
+
+  describe('unknown icon', () => {
+    beforeEach(() => {
+      spyOn(console, 'warn');
+      ReactDOM.render(<Icon src="non-existing-icon"/>, root);
+    });
+
+    it('renders a help', () => {
+      expect('.icon .icon-help').toExist();
+    });
+
+    it('logs an error message', () => {
+      expect(console.warn).toHaveBeenCalledWith('Icon "non-existing-icon" is not recognized.');
+    });
+  });
 });
