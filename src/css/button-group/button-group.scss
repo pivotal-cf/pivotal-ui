@@ -1,30 +1,33 @@
 @import "../pui-variables";
 @import "../buttons/buttons";
 
-.btn-group {
+.pui-btn-group {
   display: inline-block;
 
-  > .btn {
+  > .pui-btn {
     float:left;
   }
-  .btn:hover {
+
+  .pui-btn:hover {
     z-index: 2;
   }
-  .btn+ .btn {
+
+  .pui-btn + .pui-btn {
     margin-left: -2px;
   }
-  .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+
+  .pui-btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
     border-radius: 0;
   }
 
-  .btn:first-child {
+  .pui-btn:first-child {
     border-bottom-left-radius: $btn-border-radius;
     border-top-left-radius: $btn-border-radius;
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
 
-  .btn:last-child:not(:first-child),
+  .pui-btn:last-child:not(:first-child),
   .dropdown-toggle:not(:first-child) {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -33,25 +36,27 @@
   }
 }
 
-.btn-group-flat {
+.pui-btn-group-flat {
   display: inline-block;
-  > .btn {
+
+  > .pui-btn {
     padding: 0 $btn-spacing-base;
     float:left;
   }
-  .btn-icon {
+
+  .pui-btn-icon {
     padding: 0 3px;
   }
 }
 
-.btn-group-large {
-  > .btn {
-    @extend .btn-lg;
+.pui-btn-group-large {
+  > .pui-btn {
+    @extend .pui-btn-lg;
   }
 }
 
-.btn-group-small {
-  > .btn {
-    @extend .btn-sm;
+.pui-btn-group-small {
+  > .pui-btn {
+    @extend .pui-btn-sm;
   }
 }

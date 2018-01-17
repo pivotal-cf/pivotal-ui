@@ -1,232 +1,347 @@
 import '../spec_helper';
 import {UIButton} from '../../../src/react/buttons';
-
 import {Icon} from '../../../src/react/iconography';
 
 describe('UIButton', () => {
   let subject;
-  const renderComponent = props => ReactDOM.render(<UIButton {...props}>Click here</UIButton>, root);
+
+  beforeEach(() => {
+    subject = ReactDOM.render(<UIButton>Click here</UIButton>, root);
+  });
 
   it('creates a button', () => {
-    subject = renderComponent();
-    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
-
-    expect(button).toHaveClass('btn');
-    expect(button).toHaveClass('btn-default');
-    expect(button).toHaveText('Click here');
+    expect('button').toHaveClass('pui-btn');
+    expect('button').toHaveClass('pui-btn-default');
+    expect('button').toHaveText('Click here');
   });
 
   describe('when href attribute is set', () => {
-    it('creates a link', () => {
-      subject = renderComponent({href: 'http://example.com'});
-      const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
+    beforeEach(() => {
+      subject::setProps({href: 'http://example.com'});
+    });
 
-      expect(button).toHaveAttr('href', 'http://example.com');
+    it('creates a link', () => {
+      expect('a.pui-btn').toHaveAttr('href', 'http://example.com');
     });
   });
 
   describe('aria-label', () => {
-    describe('when aria-label is specified', () => {
-      it('uses the supplied value', () => {
-        subject = renderComponent({'aria-label': 'my aria label'});
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
-
-        expect(button).toHaveAttr('aria-label', 'my aria label');
-      });
+    it('uses the button text for the aria-label value by default', () => {
+      expect('.pui-btn').toHaveAttr('aria-label', 'Click here');
     });
 
-    describe('when aria-label is NOT specified', () => {
-      it('uses the button text for the aria-label value', () => {
-        subject = renderComponent();
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
-
-        expect(button).toHaveAttr('aria-label', 'Click here');
+    describe('when the button contains icons', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(<UIButton icon={<Icon src="add"/>}>Click<Icon src="more_vert"/>here</UIButton>, root);
       });
 
       it('ignores icons with the button text', () => {
-        subject = ReactDOM.render(<UIButton icon={<Icon src="add"/>}>Click<Icon src="more_vert"/>here</UIButton>, root);
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
+        expect('.pui-btn').toHaveAttr('aria-label', 'Click here');
+      });
+    });
 
-        expect(button).toHaveAttr('aria-label', 'Click here');
+    describe('when aria-label is specified', () => {
+      beforeEach(() => {
+        subject::setProps({'aria-label': 'my aria label'});
+      });
+
+      it('uses the supplied value', () => {
+        expect('.pui-btn').toHaveAttr('aria-label', 'my aria label');
+      });
+    });
+
+    describe('when icon-only', () => {
+      beforeEach(() => {
+        subject::setProps({iconOnly: true});
       });
 
       it('has no aria-label attribute for icon-only buttons', () => {
-        subject = renderComponent({iconOnly: true});
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
+        expect('.pui-btn').not.toHaveAttr('aria-label');
+      });
+    });
 
-        expect(button).not.toHaveAttr('aria-label');
+    describe('when no button content', () => {
+      beforeEach(() => {
+        subject = ReactDOM.render(<UIButton/>, root);
       });
 
-      it('has no aria-label attribute for empty string buttons', () => {
-        subject = ReactDOM.render(<UIButton/>, root);
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
-
-        expect(button).not.toHaveAttr('aria-label');
+      it('has no aria-label attribute', () => {
+        expect('.pui-btn').not.toHaveAttr('aria-label');
       });
     });
   });
 
   describe('type', () => {
-    describe('when type attribute is supplied', () => {
-      it('passes that value to a link', () => {
-        subject = renderComponent({href: 'http://example.com', type: 'text/html'});
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
-
-        expect(button).toHaveAttr('type', 'text/html');
+    describe('for a link', () => {
+      beforeEach(() => {
+        subject::setProps({href: 'http://example.com'});
       });
 
-      it('passes that value to a button', () => {
-        subject = renderComponent({type: 'submit'});
-        const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
-
-        expect(button).toHaveAttr('type', 'submit');
+      it('has no type attribute by default', () => {
+        expect('a.pui-btn').not.toHaveAttr('type');
       });
     });
 
-    describe('when type attribute is not supplied', () => {
-      describe('for a link', () => {
-        it('has no type attribute', () => {
-          subject = renderComponent({href: 'http://example.com'});
-          const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
+    describe('for a button', () => {
+      it('has type button by default', () => {
+        expect('button.pui-btn').toHaveAttr('type', 'button');
+      });
+    });
 
-          expect(button).not.toHaveAttr('type');
+    describe('when type attribute is supplied', () => {
+      describe('for a link', () => {
+        beforeEach(() => {
+          subject::setProps({href: 'http://example.com', type: 'text/html'});
+        });
+
+        it('passes that value to the link', () => {
+          expect('a.pui-btn').toHaveAttr('type', 'text/html');
         });
       });
 
       describe('for a button', () => {
-        it('has type button', () => {
-          subject = renderComponent();
-          const button = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'btn');
+        beforeEach(() => {
+          subject::setProps({type: 'submit'});
+        });
 
-          expect(button).toHaveAttr('type', 'button');
+        it('passes that value to the button', () => {
+          expect('button.pui-btn').toHaveAttr('type', 'submit');
         });
       });
     });
   });
 
-  describe('when kind attribute is set', () => {
-    it('adds the type class to the button', () => {
-      let button;
-      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
-        subject = renderComponent({kind});
-        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+  describe('when kind is default', () => {
+    beforeEach(() => {
+      subject::setProps({kind: 'default'});
+    });
 
-        expect(button.className).toEqual(`btn btn-${kind}`);
-      });
+    it('adds the kind class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-default');
+    });
+  });
+
+  describe('when kind is danger', () => {
+    beforeEach(() => {
+      subject::setProps({kind: 'danger'});
+    });
+
+    it('adds the kind class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-danger');
+    });
+  });
+
+  describe('when kind is brand', () => {
+    beforeEach(() => {
+      subject::setProps({kind: 'brand'});
+    });
+
+    it('adds the kind class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-brand');
+    });
+  });
+
+  describe('when kind is primary', () => {
+    beforeEach(() => {
+      subject::setProps({kind: 'primary'});
+    });
+
+    it('adds the kind class to the button', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-primary');
     });
   });
 
   describe('when large is true', () => {
-    it('adds the large button class', () => {
-      subject = renderComponent({large: true});
-      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({large: true});
+    });
 
-      expect(button).toHaveClass('btn-lg');
+    it('adds the large button class', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-lg');
     });
   });
 
   describe('when full width is true', () => {
-    it('adds the full width class', () => {
-      subject = renderComponent({fullWidth: true});
-      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({fullWidth: true});
+    });
 
-      expect(button).toHaveClass('btn-full');
+    it('adds the large button class', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-full');
     });
   });
 
   describe('when small is true', () => {
-    it('adds the small button class', () => {
-      subject = renderComponent({small: true});
-      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({small: true});
+    });
 
-      expect(button).toHaveClass('btn-sm');
+    it('adds the large button class', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-sm');
     });
   });
 
   describe('when iconOnly is true', () => {
-    it('adds the btn-icon class', () => {
-      subject = renderComponent({iconOnly: true});
-      const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({iconOnly: true});
+    });
 
-      expect(button).toHaveClass('btn-icon');
+    it('adds the large button class', () => {
+      expect('button.pui-btn').toHaveClass('pui-btn-icon');
     });
   });
 
   describe('when alt is true', () => {
-    it('adds the appropriate alt class', () => {
-      let button;
-      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
-        subject = renderComponent({kind, alt: true});
-        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({alt: true});
+    });
 
-        expect(button).toHaveClass(`btn-${kind}-alt`);
+    describe('when kind is default', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'default'});
+      });
+
+      it('adds appropriate alt class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-default-alt');
+      });
+    });
+
+    describe('when kind is danger', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'danger'});
+      });
+
+      it('adds appropriate alt class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-danger-alt');
+      });
+    });
+
+    describe('when kind is brand', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'brand'});
+      });
+
+      it('adds appropriate alt class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-brand-alt');
+      });
+    });
+
+    describe('when kind is primary', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'primary'});
+      });
+
+      it('adds appropriate alt class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-primary-alt');
       });
     });
   });
 
   describe('when flat is true', () => {
-    it('adds the appropriate flat class', () => {
-      let button;
-      ['default', 'danger', 'brand', 'primary'].forEach(kind => {
-        subject = renderComponent({kind, flat: true});
-        button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+    beforeEach(() => {
+      subject::setProps({flat: true});
+    });
 
-        expect(button).toHaveClass(`btn-${kind}-flat`);
+    describe('when kind is default', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'default'});
+      });
+
+      it('adds appropriate flat class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-default-flat');
+      });
+    });
+
+    describe('when kind is danger', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'danger'});
+      });
+
+      it('adds appropriate flat class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-danger-flat');
+      });
+    });
+
+    describe('when kind is brand', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'brand'});
+      });
+
+      it('adds appropriate flat class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-brand-flat');
+      });
+    });
+
+    describe('when kind is primary', () => {
+      beforeEach(() => {
+        subject::setProps({kind: 'primary'});
+      });
+
+      it('adds appropriate flat class to the button', () => {
+        expect('button.pui-btn').toHaveClass('pui-btn-primary-flat');
       });
     });
   });
 
-  it('passes custom classNames through', () => {
-    subject = renderComponent({className: 'custom-class-1 custom-class-2'});
-    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+  describe('when given a className', () => {
+    beforeEach(() => {
+      subject::setProps({className: 'custom-class-1 custom-class-2'});
+    });
 
-    expect(button).toHaveClass('custom-class-1');
-    expect(button).toHaveClass('custom-class-2');
+    it('passes custom classNames through', () => {
+      expect('button').toHaveClass('custom-class-1');
+      expect('button').toHaveClass('custom-class-2');
+    });
   });
 
-  it('passes through the data-attributes', () => {
-    subject = renderComponent({'data-click': 'myFunction', 'data-foo': 'bar'});
-    const button = ReactTestUtils.findRenderedDOMComponentWithTag(subject, 'button');
+  describe('when given data attributes', () => {
+    beforeEach(() => {
+      subject::setProps({'data-click': 'myFunction', 'data-foo': 'bar'});
+    });
 
-    expect(button).toHaveAttr('data-click', 'myFunction');
-    expect(button).toHaveAttr('data-foo', 'bar');
+    it('passes through the data-attributes', () => {
+      expect('button').toHaveAttr('data-click', 'myFunction');
+      expect('button').toHaveAttr('data-foo', 'bar');
+    });
   });
 
   describe('icon property', () => {
+    beforeEach(() => {
+      subject::setProps({icon: <Icon src="add"/>});
+    });
+
     it('renders with an icon child node if one is passed in', () => {
-      subject = renderComponent({
-        icon: <Icon src="add"/>
-      });
-      const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
-      expect(icon.parentNode.tagName).toEqual('SPAN');
-      expect(icon.parentNode.parentNode.tagName).toEqual('BUTTON');
+      expect('button.pui-btn span .icon').toExist();
     });
   });
 
   describe('iconPosition', () => {
-    describe('is not set', () => {
-      it('renders the icon to the left', () => {
-        subject = renderComponent({icon: <Icon src="spinner-sm"/>});
-        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
-        expect(icon.nextSibling.tagName).toEqual('SPAN');
-      });
+    beforeEach(() => {
+      subject::setProps({icon: <Icon src="spinner-sm"/>});
+    });
+
+    it('renders the icon to the left by default', () => {
+      expect($('.icon').next().prop('tagName')).toEqual('SPAN');
     });
 
     describe('is set to left', () => {
+      beforeEach(() => {
+        subject::setProps({iconPosition: 'left'});
+      });
+
       it('renders the icon to the left', () => {
-        subject = renderComponent({icon: <Icon src="spinner-sm"/>});
-        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
-        expect(icon.nextSibling.tagName).toEqual('SPAN');
+        expect($('.icon').next().prop('tagName')).toEqual('SPAN');
       });
     });
 
     describe('is set right', () => {
+      beforeEach(() => {
+        subject::setProps({iconPosition: 'right'});
+      });
+
       it('renders the icon to the right', () => {
-        subject = renderComponent({icon: <Icon src="spinner-sm"/>, iconPosition: 'right'});
-        const icon = ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'icon');
-        expect(icon.previousSibling.tagName).toEqual('SPAN');
+        expect($('.icon').prev().prop('tagName')).toEqual('SPAN');
       });
     });
-
   });
 });

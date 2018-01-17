@@ -32,15 +32,15 @@ export class UIButton extends React.Component {
     const buttonClasses = {
       className: [
         {
-          'btn': true,
-          [`btn-${kind}-alt`]: alt,
-          [`btn-${kind}-flat`]: flat,
-          [`btn-${kind}`]: !alt && !flat,
-          'btn-lg': large,
-          'btn-sm': small,
-          'btn-icon': iconOnly,
-          'btn-icon-right': !!icon && iconPosition === 'right',
-          'btn-full': fullWidth
+          'pui-btn': true,
+          [`pui-btn-${kind}-alt`]: alt,
+          [`pui-btn-${kind}-flat`]: flat,
+          [`pui-btn-${kind}`]: !alt && !flat,
+          'pui-btn-lg': large,
+          'pui-btn-sm': small,
+          'pui-btn-icon': iconOnly,
+          'pui-btn-icon-right': !!icon && iconPosition === 'right',
+          'pui-btn-full': fullWidth
         }
       ]
     };
@@ -58,14 +58,14 @@ export class UIButton extends React.Component {
     }
 
     let buttonContent = (
-      <span className="btn-inner-content">
+      <span className="pui-btn-inner-content">
         {icon}
         {btnChildren}
       </span>);
 
     if (iconPosition === 'right') {
       buttonContent = (
-        <span className="btn-inner-content">
+        <span className="pui-btn-inner-content">
           {btnChildren}
           {icon}
         </span>);

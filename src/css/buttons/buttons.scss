@@ -3,7 +3,7 @@
 /* Buttons
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-.btn {
+.pui-btn {
   display: inline-flex;
   position: relative;
   height: $base-unit*4;
@@ -39,14 +39,14 @@
   }
 
   // Button Content Rules
-  span.btn-inner-content {
+  span.pui-btn-inner-content {
     align-items: center;
     display: inline-flex;
     justify-content: center;
     width: 100%;
   }
 
-  span.btn-inner-content > * + * {
+  span.pui-btn-inner-content > * + * {
     margin-left: 5px !important;
   }
 
@@ -63,11 +63,11 @@
   }
 }
 
-.btn + .btn {
+.pui-btn + .pui-btn {
   margin-left: $base-unit;
 }
 
-.btn.btn-icon {
+.pui-btn.pui-btn-icon {
   padding: 0;
   .icon {
     margin: 5px;
@@ -77,15 +77,15 @@
   }
 }
 
-.btn-full {
+.pui-btn-full {
   width: 100%;
 }
 
-.btn-lg {
+.pui-btn-lg {
   height: $base-unit*5;
   line-height: ($base-unit*5) - ($btn-border-width*2); //40px - 4px borders
   font-size: $font-size-medium;
-  &.btn-icon {
+  &.pui-btn-icon {
     padding: 0;
     .icon {
       margin: $base-unit;
@@ -96,11 +96,11 @@
   }
 }
 
-.btn-sm {
+.pui-btn-sm {
   height: ($base-unit*3);
   line-height: ($base-unit*3) - ($btn-border-width*2); //24px - 4px borders
   font-size: $font-size-extra-small;
-  &.btn-icon {
+  &.pui-btn-icon {
     padding: 0;
     .icon {
       margin: 3px;
@@ -111,7 +111,7 @@
   }
 }
 
-.btn.disabled, .btn[disabled] {
+.pui-btn.disabled, .pui-btn[disabled] {
   opacity: .5;
   cursor: default;
   pointer-events: none;
@@ -119,7 +119,7 @@
 
 //Default Button
 //---------------------------------------
-.btn.btn-default {
+.pui-btn.pui-btn-default {
   background-color: $btn-default-color;
   color: $btn-light;
   border-color: $btn-default-color;
@@ -140,14 +140,14 @@
   }
 }
 
-.btn.btn-default:focus {
+.pui-btn.pui-btn-default:focus {
   background-color: $btn-default-color-focus;
   border-color: $btn-default-color-focus;
   outline: none;
 }
 
-.btn.btn-default:hover,
-.btn.btn-default:focus:hover {
+.pui-btn.pui-btn-default:hover,
+.pui-btn.pui-btn-default:focus:hover {
   background-color: $btn-default-color-hover;
   border-color: $btn-default-color-hover;
   outline: none;
@@ -155,7 +155,7 @@
 
 //Default Alt Button
 //---------------------------------------
-.btn.btn-default-alt {
+.pui-btn.pui-btn-default-alt {
   background-color: transparent;
   color: $btn-default-color;
   border-color: $btn-default-color;
@@ -176,7 +176,7 @@
   }
 }
 
-.btn.btn-default-alt:focus {
+.pui-btn.pui-btn-default-alt:focus {
   background-color: transparent;
   color: $btn-default-color-focus;
   border-color: $btn-default-color-focus;
@@ -186,8 +186,8 @@
   }
 }
 
-.btn.btn-default-alt:hover,
-.btn.btn-default-alt:focus:hover {
+.pui-btn.pui-btn-default-alt:hover,
+.pui-btn.pui-btn-default-alt:focus:hover {
   background-color: transparent;
   color: $btn-default-color-hover;
   border-color: $btn-default-color-hover;
@@ -199,7 +199,7 @@
 
 //Default Alt Button WHITE
 //---------------------------------------
-.btn.btn-default-alt-wh {
+.pui-btn.pui-btn-default-alt-wh {
   background-color: transparent;
   color: $btn-light;
   border-color: $btn-light;
@@ -220,7 +220,7 @@
   }
 }
 
-.btn.btn-default-alt-wh:focus {
+.pui-btn.pui-btn-default-alt-wh:focus {
   background-color: rgba(255, 255, 255, 0.1);
   color: $btn-light;
   border-color: $btn-light;
@@ -230,8 +230,8 @@
   }
 }
 
-.btn.btn-default-alt-wh:hover,
-.btn.btn-default-alt-wh:focus:hover {
+.pui-btn.pui-btn-default-alt-wh:hover,
+.pui-btn.pui-btn-default-alt-wh:focus:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: $btn-light;
   border-color: $btn-light;
@@ -243,7 +243,7 @@
 
 //primary Button
 //---------------------------------------
-.btn.btn-primary {
+.pui-btn.pui-btn-primary {
   background-color: $btn-primary-color;
   color: $btn-light;
   border-color: $btn-primary-color;
@@ -264,21 +264,21 @@
   }
 }
 
-.btn.btn-primary:focus {
+.pui-btn.pui-btn-primary:focus {
   background-color: $btn-primary-color-focus;
   border-color: $btn-primary-color-focus;
   outline: none;
 }
 
-.btn.btn-primary:hover,
-.btn.btn-primary:focus:hover {
+.pui-btn.pui-btn-primary:hover,
+.pui-btn.pui-btn-primary:focus:hover {
   background-color: $btn-primary-color-hover;
   border-color: $btn-primary-color-hover;
   outline: none;
 }
 
 //Flat primary
-.btn-primary-flat {
+.pui-btn-primary-flat {
   color: $btn-primary-color;
   .icon {
     fill: $btn-primary-color;
@@ -307,7 +307,7 @@
 
 //primary Alt Button
 //---------------------------------------
-.btn.btn-primary-alt {
+.pui-btn.pui-btn-primary-alt {
   background-color: transparent;
   color: $btn-primary-color;
   border-color: $btn-primary-color;
@@ -328,7 +328,7 @@
   }
 }
 
-.btn.btn-primary-alt:focus {
+.pui-btn.pui-btn-primary-alt:focus {
   background-color: transparent;
   color: $btn-primary-color-focus;
   border-color: $btn-primary-color-focus;
@@ -338,8 +338,8 @@
   }
 }
 
-.btn.btn-primary-alt:hover,
-.btn.btn-primary-alt:focus:hover {
+.pui-btn.pui-btn-primary-alt:hover,
+.pui-btn.pui-btn-primary-alt:focus:hover {
   background-color: transparent;
   color: $btn-primary-color-hover;
   border-color: $btn-primary-color-hover;
@@ -351,7 +351,7 @@
 
 //brand Button
 //---------------------------------------
-.btn.btn-brand {
+.pui-btn.pui-btn-brand {
   background-color: $btn-brand-color;
   color: $btn-light;
   border-color: $btn-brand-color;
@@ -372,21 +372,21 @@
   }
 }
 
-.btn.btn-brand:focus {
+.pui-btn.pui-btn-brand:focus {
   background-color: $btn-brand-color-focus;
   border-color: $btn-brand-color-focus;
   outline: none;
 }
 
-.btn.btn-brand:hover,
-.btn.btn-brand:focus:hover {
+.pui-btn.pui-btn-brand:hover,
+.pui-btn.pui-btn-brand:focus:hover {
   background-color: $btn-brand-color-hover;
   border-color: $btn-brand-color-hover;
   outline: none;
 }
 
 //Flat brand
-.btn-brand-flat {
+.pui-btn-brand-flat {
   color: $btn-brand-color;
   .icon {
     fill: $btn-brand-color;
@@ -416,7 +416,7 @@
 
 //brand Alt Button
 //---------------------------------------
-.btn.btn-brand-alt {
+.pui-btn.pui-btn-brand-alt {
   background-color: transparent;
   color: $btn-brand-color;
   border-color: $btn-brand-color;
@@ -437,7 +437,7 @@
   }
 }
 
-.btn.btn-brand-alt:focus {
+.pui-btn.pui-btn-brand-alt:focus {
   background-color: transparent;
   color: $btn-brand-color-focus;
   border-color: $btn-brand-color-focus;
@@ -447,8 +447,8 @@
   }
 }
 
-.btn.btn-brand-alt:hover,
-.btn.btn-brand-alt:focus:hover {
+.pui-btn.pui-btn-brand-alt:hover,
+.pui-btn.pui-btn-brand-alt:focus:hover {
   background-color: transparent;
   color: $btn-brand-color-hover;
   border-color: $btn-brand-color-hover;
@@ -460,7 +460,7 @@
 
 //danger Button
 //---------------------------------------
-.btn.btn-danger {
+.pui-btn.pui-btn-danger {
   background-color: $btn-danger-color;
   color: $btn-light;
   border-color: $btn-danger-color;
@@ -481,21 +481,21 @@
   }
 }
 
-.btn.btn-danger:focus {
+.pui-btn.pui-btn-danger:focus {
   background-color: $btn-danger-color-focus;
   border-color: $btn-danger-color-focus;
   outline: none;
 }
 
-.btn.btn-danger:hover,
-.btn.btn-danger:focus:hover {
+.pui-btn.pui-btn-danger:hover,
+.pui-btn.pui-btn-danger:focus:hover {
   background-color: $btn-danger-color-hover;
   border-color: $btn-danger-color-hover;
   outline: none;
 }
 
 //Flat danger
-.btn-danger-flat {
+.pui-btn-danger-flat {
   color: $btn-danger-color;
   .icon {
     fill: $btn-danger-color;
@@ -525,7 +525,7 @@
 
 //danger Alt Button
 //---------------------------------------
-.btn.btn-danger-alt {
+.pui-btn.pui-btn-danger-alt {
   background-color: transparent;
   color: $btn-danger-color;
   border-color: $btn-danger-color;
@@ -546,7 +546,7 @@
   }
 }
 
-.btn.btn-danger-alt:focus {
+.pui-btn.pui-btn-danger-alt:focus {
   background-color: transparent;
   color: $btn-danger-color-focus;
   border-color: $btn-danger-color-focus;
@@ -556,8 +556,8 @@
   }
 }
 
-.btn.btn-danger-alt:hover,
-.btn.btn-danger-alt:focus:hover {
+.pui-btn.pui-btn-danger-alt:hover,
+.pui-btn.pui-btn-danger-alt:focus:hover {
   background-color: transparent;
   color: $btn-danger-color-hover;
   border-color: $btn-danger-color-hover;
