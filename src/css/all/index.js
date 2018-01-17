@@ -6,7 +6,6 @@ try {
   require('../avatars');
   require('../back-to-top');
   require('../backgrounds');
-  require('../bootstrap');
   require('../border');
   require('../box-shadows');
   require('../buttons');

@@ -11,17 +11,11 @@
   justify-content: space-between;
   align-items: flex-start;
 
-  margin-bottom: $line-height-computed;
   border-radius: $alert-border-radius;
 
   a.pui-alert-link {
     color: inherit;
     text-decoration: underline;
-  }
-
-  .icon {
-    font-size: $font-size-h3;
-    line-height: $headings-line-height;
   }
 
   & > div.grid {
@@ -56,52 +50,16 @@
 .pui-alert-dismissable .pui-close {
   top: inherit;
   right: inherit;
-}
 
-.pui-alert-success svg {
-  fill: $alert-success-text;
-}
-
-.pui-alert-info svg {
-  fill: $alert-info-text;
-}
-
-.pui-alert-warning svg {
-  fill: $alert-warning-text;
-}
-
-.pui-alert-danger svg {
-  fill: $alert-danger-text;
-}
-
-.pui-alert-success .pui-alert-link:hover {
-  color: darken($alert-success-text, 10%);
-}
-
-.pui-alert-info .pui-alert-link:hover {
-  color: darken($alert-info-text, 10%);
-}
-
-.pui-alert-warning .pui-alert-link:hover {
-  color: darken($alert-warning-text, 10%);
-}
-
-.pui-alert-danger {
-  @include pui-alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
-}
-
-.pui-alert-error {
-  @extend .pui-alert-danger;
-
-  .pui-alert-link:hover {
-    color: darken($alert-danger-text, 10%);
+  .icon {
+    font-size: $font-size-h3;
+    line-height: $headings-line-height;
   }
 }
 
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
-
 .pui-alert-success {
   @include pui-alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
@@ -116,4 +74,8 @@
 
 .pui-alert-danger {
   @include pui-alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+.pui-alert-error {
+  @extend .pui-alert-danger;
 }
