@@ -5,11 +5,11 @@ import ScrollTop from '../../../src/react/back-to-top/scroll-top';
 describe('BackToTop', () => {
   let scrollTop;
 
-  function triggerScroll() {
+  const triggerScroll = () => {
     const event = document.createEvent('Event');
     event.initEvent('scroll', false, false);
     window.dispatchEvent(event);
-  }
+  };
 
   beforeEach(() => {
     scrollTop = 0;
@@ -31,13 +31,13 @@ describe('BackToTop', () => {
     });
 
     it('passes down the className, id, and style properties', () => {
-      expect('.back-to-top').toHaveClass('foo');
-      expect('.back-to-top').toHaveProp('id', 'bar');
-      expect('.back-to-top').toHaveCss({'font-size': '200px'});
+      expect('.pui-back-to-top').toHaveClass('foo');
+      expect('.pui-back-to-top').toHaveProp('id', 'bar');
+      expect('.pui-back-to-top').toHaveCss({'font-size': '200px'});
     });
 
     it('renders a back to top link that is visible', () => {
-      expect('.back-to-top').toExist();
+      expect('.pui-back-to-top').toExist();
     });
 
     it('renders a arrow upward icon', () => {
@@ -45,33 +45,33 @@ describe('BackToTop', () => {
     });
 
     it('fades in the button', () => {
-      expect('.back-to-top').toHaveCss({opacity: '0'});
+      expect('.pui-back-to-top').toHaveCss({opacity: '0'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.back-to-top').toHaveCss({opacity: '0.5'});
+      expect('.pui-back-to-top').toHaveCss({opacity: '0.5'});
       MockNow.tick(BackToTop.FADE_DURATION / 2);
       MockRaf.next();
-      expect('.back-to-top').toHaveCss({opacity: '1'});
+      expect('.pui-back-to-top').toHaveCss({opacity: '1'});
     });
 
     describe('when the scroll top is less than 400', () => {
-      beforeEach(function () {
+      beforeEach(() => {
         MockNow.tick(BackToTop.FADE_DURATION);
         MockRaf.next();
-        expect('.back-to-top').toHaveCss({opacity: '1'});
+        expect('.pui-back-to-top').toHaveCss({opacity: '1'});
 
         ScrollTop.setScrollTop(0);
         triggerScroll();
       });
 
       it('fades out the button', () => {
-        expect('.back-to-top').toHaveCss({opacity: '1'});
+        expect('.pui-back-to-top').toHaveCss({opacity: '1'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.back-to-top').toHaveCss({opacity: '0.5'});
+        expect('.pui-back-to-top').toHaveCss({opacity: '0.5'});
         MockNow.tick(BackToTop.FADE_DURATION / 2);
         MockRaf.next();
-        expect('.back-to-top').toHaveCss({opacity: '0'});
+        expect('.pui-back-to-top').toHaveCss({opacity: '0'});
       });
     });
 
@@ -81,7 +81,7 @@ describe('BackToTop', () => {
       beforeEach(() => {
         const isFirefox = () => navigator.userAgent.toLowerCase().indexOf('firefox') !== -1;
         element = isFirefox() ? document.documentElement : document.body;
-        $('.back-to-top').simulate('click');
+        $('.pui-back-to-top').simulate('click');
       });
 
       it('animates the body scroll to the top', () => {
@@ -131,7 +131,7 @@ describe('BackToTop', () => {
 
     describe('when the back to top link is clicked', () => {
       beforeEach(() => {
-        $('.back-to-top').simulate('click');
+        $('.pui-back-to-top').simulate('click');
       });
 
       it('calls getScrollTop', () => {
