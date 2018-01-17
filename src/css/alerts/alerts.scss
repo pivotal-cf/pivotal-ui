@@ -1,5 +1,6 @@
 @import '../pui-variables';
 @import '../mixins';
+@import '../common';
 
 .pui-alert {
   border: none;
@@ -52,7 +53,7 @@
   }
 }
 
-.pui-alert-dismissable .close {
+.pui-alert-dismissable .pui-close {
   top: inherit;
   right: inherit;
 }

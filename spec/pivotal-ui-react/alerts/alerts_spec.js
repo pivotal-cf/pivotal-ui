@@ -38,7 +38,7 @@ describe('Alert Component', () => {
 
       it('has a close button', () => {
         expect('.pui-alert button').toHaveLength(1);
-        expect('button:eq(0)').toHaveClass('close');
+        expect('button:eq(0)').toHaveClass('pui-close');
       });
 
       it('has an sr-only close button', () => {
