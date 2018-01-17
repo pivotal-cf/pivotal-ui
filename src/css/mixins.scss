@@ -103,3 +103,16 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
   -ms-user-select: $select; // IE10+
   user-select: $select;
 }
+
+@mixin pui-alert-variant($background, $border, $text-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $text-color;
+
+  hr {
+    border-top-color: darken($border, 5%);
+  }
+  .pui-alert-link {
+    color: darken($text-color, 10%);
+  }
+}

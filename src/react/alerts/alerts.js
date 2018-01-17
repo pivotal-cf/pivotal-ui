@@ -37,7 +37,7 @@ class Alert extends React.PureComponent {
 
     const props = mergeProps(others, {
       role: 'alert',
-      className: classnames('alert', `alert-${bsStyle}`, {'alert-dismissable': dismissable})
+      className: classnames('pui-alert', `pui-alert-${bsStyle}`, {'pui-alert-dismissable': dismissable})
     });
 
     const visible = typeof show === 'undefined' ? this.state.alertVisible : show;

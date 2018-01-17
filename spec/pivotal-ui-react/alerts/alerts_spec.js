@@ -11,15 +11,15 @@ describe('Alert Component', () => {
     });
 
     it('renders', () => {
-      expect('.alert').not.toBeNull();
+      expect('.pui-alert').not.toBeNull();
     });
 
     it('passes down the className, id, and style properties', () => {
       subject::setProps({className: 'foo', id: 'bar', style: {fontSize: '200px'}});
 
-      expect('.alert').toHaveClass('foo');
-      expect('.alert').toHaveAttr('id', 'bar');
-      expect('.alert').toHaveCss({'font-size': '200px'});
+      expect('.pui-alert').toHaveClass('foo');
+      expect('.pui-alert').toHaveAttr('id', 'bar');
+      expect('.pui-alert').toHaveCss({'font-size': '200px'});
     });
 
     it('renders a sr-only alert description', () => {
@@ -33,30 +33,30 @@ describe('Alert Component', () => {
       });
 
       it('adds the alert-dismissable class', () => {
-        expect('.alert').toHaveClass('alert-dismissable');
+        expect('.pui-alert').toHaveClass('pui-alert-dismissable');
       });
 
       it('has a close button', () => {
-        expect('.alert button').toHaveLength(1);
+        expect('.pui-alert button').toHaveLength(1);
         expect('button:eq(0)').toHaveClass('close');
       });
 
       it('has an sr-only close button', () => {
-        expect('.alert button').toHaveLength(1);
-        expect('.alert button:eq(0)').toHaveAttr('aria-label');
+        expect('.pui-alert button').toHaveLength(1);
+        expect('.pui-alert button:eq(0)').toHaveAttr('aria-label');
       });
 
      it('adds the closeLabel to the close button', () => {
         subject::setProps({dismissable: true, closeLabel: 'click to close the alert'});
-        expect('.alert button:eq(0)').toHaveAttr('aria-label');
-        expect($('.alert button:eq(0)').attr('aria-label')).toBe('click to close the alert');
+        expect('.pui-alert button:eq(0)').toHaveAttr('aria-label');
+        expect($('.pui-alert button:eq(0)').attr('aria-label')).toBe('click to close the alert');
       });
 
       it('disappears when close button is clicked', () => {
         subject::setProps({dismissable: true});
         $('.icon-close').simulate('click');
         jasmine.clock().tick(1);
-        expect('.alert').not.toExist();
+        expect('.pui-alert').not.toExist();
       });
 
       describe('when onDismiss is given', () => {
@@ -78,12 +78,12 @@ describe('Alert Component', () => {
           subject::setProps({dismissable: true, show: true});
           $('.icon-close').simulate('click');
           jasmine.clock().tick(1);
-          expect('.alert').toExist();
+          expect('.pui-alert').toExist();
         });
 
         it('hides the alert when show is set to false', () => {
           subject::setProps({dismissable: true, show: false});
-          expect('.alert').not.toExist();
+          expect('.pui-alert').not.toExist();
         });
       });
     });
@@ -100,7 +100,7 @@ describe('Alert Component', () => {
       });
 
       it('renders a success alert', () => {
-        expect('.alert').toHaveClass('alert-success');
+        expect('.pui-alert').toHaveClass('pui-alert-success');
       });
 
       it('renders an icon in the alert', () => {
@@ -121,16 +121,16 @@ describe('Alert Component', () => {
     });
 
     it('renders an info alert', () => {
-      expect('.alert').toHaveClass('alert-info');
+      expect('.pui-alert').toHaveClass('pui-alert-info');
     });
 
     it('renders an icon in the alert', () => {
-      expect('.alert svg').toExist();
-      expect('.alert svg').toHaveClass('icon-info');
+      expect('.pui-alert svg').toExist();
+      expect('.pui-alert svg').toHaveClass('icon-info');
     });
 
     it('has a "info alert" label', () => {
-      expect('.alert .sr-only').toContainText('info');
+      expect('.pui-alert .sr-only').toContainText('info');
     });
   });
 
@@ -142,15 +142,15 @@ describe('Alert Component', () => {
     });
 
     it('renders an warning alert', () => {
-      expect('.alert').toHaveClass('alert-warning');
+      expect('.pui-alert').toHaveClass('pui-alert-warning');
     });
 
     it('renders an icon in the alert', () => {
-      expect('.alert svg').toHaveClass('icon-warning');
+      expect('.pui-alert svg').toHaveClass('icon-warning');
     });
 
     it('has a "warning alert" label', () => {
-      expect('.alert .sr-only').toContainText('warning');
+      expect('.pui-alert .sr-only').toContainText('warning');
     });
   });
 
@@ -162,15 +162,15 @@ describe('Alert Component', () => {
     });
 
     it('renders an error alert', () => {
-      expect('.alert').toHaveClass('alert-danger');
+      expect('.pui-alert').toHaveClass('pui-alert-danger');
     });
 
     it('renders an icon in the alert', () => {
-      expect('.alert svg').toHaveClass('icon-warning');
+      expect('.pui-alert svg').toHaveClass('icon-warning');
     });
 
     it('has a "error alert" label', () => {
-      expect('.alert .sr-only').toContainText('error');
+      expect('.pui-alert .sr-only').toContainText('error');
     });
   });
 });
