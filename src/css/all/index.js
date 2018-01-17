@@ -16,7 +16,6 @@ try {
   require('../dropdowns');
   require('../ellipsis');
   require('../forms');
-  require('../google-maps');
   require('../hoverable');
   require('../iconography');
   require('../images');
