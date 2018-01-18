@@ -19,7 +19,7 @@ describe('Collapsible', () => {
       render() {
         return (
           <div>
-            <button className="collapse-toggle" onClick={this.toggle}>Click to Toggle</button>
+            <button className="pui-collapse-toggle" onClick={this.toggle}>Click to Toggle</button>
             <Collapsible {...this.state} onEntered={onEnteredSpy} onExited={onExitedSpy} delay={delay}>
               <div style={{height: 24}} className="maybe">cat</div>
             </Collapsible>
@@ -40,30 +40,30 @@ describe('Collapsible', () => {
   });
 
   it('renders children hidden by default', () => {
-    expect('.collapse').not.toHaveClass('in');
+    expect('.pui-collapsible').not.toHaveClass('in');
   });
 
   it('shows children if expanded is true', () => {
-    $('.collapse-toggle').simulate('click');
+    $('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
 
-    expect('.collapse').toHaveClass('in');
-    expect('.collapse .maybe').toExist();
+    expect('.pui-collapsible').toHaveClass('in');
+    expect('.pui-collapsible .maybe').toExist();
   });
 
   it('animates while expanding', () => {
-    $('.collapse-toggle').simulate('click');
+    $('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
 
-    expect('.collapse-shield').toHaveCss({marginBottom: '0px'});
+    expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
   });
 
   it('calls onEntered when done opening', () => {
-    $('.collapse-toggle').simulate('click');
+    $('.pui-collapse-toggle').simulate('click');
 
     expect(onEnteredSpy).not.toHaveBeenCalled();
     MockNow.tick(200);
@@ -74,12 +74,12 @@ describe('Collapsible', () => {
   });
 
   it('calls onExited when done closing', () => {
-    $('.collapse-toggle').simulate('click');
+    $('.pui-collapse-toggle').simulate('click');
 
     MockNow.tick(200);
     MockRaf.next();
     MockRaf.next();
-    $('.collapse-toggle').simulate('click');
+    $('.pui-collapse-toggle').simulate('click');
 
     expect(onExitedSpy).not.toHaveBeenCalled();
     onEnteredSpy.calls.reset();
@@ -96,23 +96,23 @@ describe('Collapsible', () => {
     });
 
     it('expands instantly', () => {
-      $('.collapse-toggle').simulate('click');
+      $('.pui-collapse-toggle').simulate('click');
 
-      expect('.collapse-shield').toHaveCss({marginBottom: '0px'});
+      expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
     });
 
     it('calls onEntered when done opening', () => {
-      $('.collapse-toggle').simulate('click');
+      $('.pui-collapse-toggle').simulate('click');
 
       expect(onEnteredSpy).toHaveBeenCalled();
       expect(onExitedSpy).not.toHaveBeenCalled();
     });
 
     it('calls onExited when done closing', () => {
-      $('.collapse-toggle').simulate('click');
+      $('.pui-collapse-toggle').simulate('click');
 
       onEnteredSpy.calls.reset();
-      $('.collapse-toggle').simulate('click');
+      $('.pui-collapse-toggle').simulate('click');
 
       expect(onExitedSpy).toHaveBeenCalled();
       expect(onEnteredSpy).not.toHaveBeenCalled();

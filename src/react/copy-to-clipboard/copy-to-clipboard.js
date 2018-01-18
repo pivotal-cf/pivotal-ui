@@ -28,18 +28,18 @@ export class CopyToClipboard extends React.PureComponent {
   };
 
   render() {
-    const {children, text, onClick, getWindow, tooltip = "Copied", ...others} = this.props;
+    const {children, text, onClick, getWindow, tooltip = 'Copied', ...others} = this.props;
     const obj = {props: this.props, text: null};
 
     const anchorProps = mergeProps(others, {
-      className: 'copy-to-clipboard',
+      className: 'pui-copy-to-clipboard',
       onClick: this.click.bind(undefined, obj),
       role: 'button'
     });
 
     return (
         <a {...anchorProps}>
-          <TooltipTrigger {...{tooltip, trigger: "click"}}>
+          <TooltipTrigger {...{tooltip, trigger: 'click'}}>
             <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
             {children}
           </TooltipTrigger>

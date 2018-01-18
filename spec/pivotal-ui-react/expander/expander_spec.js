@@ -3,7 +3,6 @@ import {Collapsible} from '../../../src/react/collapsible';
 import {ExpanderContent, ExpanderTrigger} from '../../../src/react/expander';
 import {findByClass, findByTag, clickOn} from '../spec_helper';
 
-
 describe('ExpanderContent', () => {
   const renderIntoDom = props => ReactDOM.render(
     <ExpanderContent {...props}>
@@ -14,21 +13,21 @@ describe('ExpanderContent', () => {
   describe('when expanded is unset', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'collapse')).not.toHaveClass('in');
+      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to false', () => {
     it('hides the content', () => {
       const result = renderIntoDom({expanded: false});
-      expect(findByClass(result, 'collapse')).not.toHaveClass('in');
+      expect(findByClass(result, 'pui-collapsible')).not.toHaveClass('in');
     });
   });
 
   describe('when expanded is set to true', () => {
     it('shows the content', () => {
       const result = renderIntoDom({expanded: true});
-      expect(findByClass(result, 'collapse')).toHaveClass('in');
+      expect(findByClass(result, 'pui-collapsible')).toHaveClass('in');
     });
   });
 
@@ -43,7 +42,7 @@ describe('ExpanderContent', () => {
       });
 
       it('hides the content', () => {
-        expect(findByClass(expanderContent, 'collapse')).not.toHaveClass('in');
+        expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
         expect(onExitedSpy).toHaveBeenCalled();
       });
     });
@@ -56,7 +55,7 @@ describe('ExpanderContent', () => {
       });
 
       it('shows the content', () => {
-        expect(findByClass(expanderContent, 'collapse')).toHaveClass('in');
+        expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
         expect(onEnteredSpy).toHaveBeenCalled();
       });
     });
@@ -64,11 +63,11 @@ describe('ExpanderContent', () => {
     it('can be invoked ad nauseum', () => {
       expanderContent = renderIntoDom({expanded: false, delay: 0});
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'collapse')).toHaveClass('in');
+      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'collapse')).not.toHaveClass('in');
+      expect(findByClass(expanderContent, 'pui-collapsible')).not.toHaveClass('in');
       expanderContent.toggle();
-      expect(findByClass(expanderContent, 'collapse')).toHaveClass('in');
+      expect(findByClass(expanderContent, 'pui-collapsible')).toHaveClass('in');
     });
   });
 });

@@ -72,8 +72,8 @@ describe('withRowDrawer', () => {
       });
 
       it('has collapsed rows', () => {
-        expect('.tbody > div:eq(0) .collapse').not.toHaveClass('in');
-        expect('.tbody > div:eq(1) .collapse').not.toHaveClass('in');
+        expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
+        expect('.tbody > div:eq(1) .pui-collapsible').not.toHaveClass('in');
       });
 
       describe('when clicking a row', () => {
@@ -82,7 +82,7 @@ describe('withRowDrawer', () => {
         });
 
         it('does not expand the row', () => {
-          expect('.tbody > div:eq(0) .collapse').not.toHaveClass('in');
+          expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
         });
 
         it('does not change the icon from > to chevron_down', () => {
@@ -221,8 +221,8 @@ describe('withRowDrawer', () => {
       });
 
       it('has collapsed rows', () => {
-        expect('.tbody > div:eq(0) .collapse').not.toHaveClass('in');
-        expect('.tbody > div:eq(1) .collapse').not.toHaveClass('in');
+        expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
+        expect('.tbody > div:eq(1) .pui-collapsible').not.toHaveClass('in');
       });
 
       describe('when clicking a row', () => {
@@ -231,7 +231,7 @@ describe('withRowDrawer', () => {
         });
 
         it('expands the row', () => {
-          expect('.tbody > div:eq(0) .collapse').toHaveClass('in');
+          expect('.tbody > div:eq(0) .pui-collapsible').toHaveClass('in');
         });
 
         it('changes the icon from > to chevron_down', () => {
@@ -245,7 +245,7 @@ describe('withRowDrawer', () => {
           });
 
           it('collapses that row', () => {
-            expect('.tbody > div:eq(0) .collapse').not.toHaveClass('in');
+            expect('.tbody > div:eq(0) .pui-collapsible').not.toHaveClass('in');
           });
 
           it('changes the chevron_down back to >', () => {

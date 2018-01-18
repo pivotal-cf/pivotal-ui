@@ -1,45 +1,130 @@
 @import "../pui-variables";
+@import "../mixins";
 
-.when-collapsed {
-  display: none;
+// Base class
+.pui-collapse {
+  margin-bottom: $line-height-computed;
+  background-color: $panel-bg;
+  border: 1px solid transparent;
+  border-radius: $panel-border-radius;
+  @include box-shadow(0 1px 1px rgba(0, 0, 0, .05));
 }
 
-.when-expanded {
-  display: block;
+// Panel contents
+.pui-collapse-panel-body {
+  padding: $panel-body-padding;
+  @include clearfix;
 }
 
-.when-collapsed-inline {
-  display: none;
-}
+// Optional heading
+.pui-collapse-panel-heading {
+  padding: $panel-heading-padding;
+  border-bottom: 1px solid transparent;
+  @include border-top-radius(($panel-border-radius - 1));
 
-.when-expanded-inline {
-  display: inline;
-}
-
-.collapsed {
-  .when-collapsed {
-    display: block;
-  }
-  .when-expanded {
-    display: none;
-  }
-  .when-collapsed-inline {
-    display: inline;
-  }
-  .when-expanded-inline {
-    display: none;
+  > .dropdown .dropdown-toggle {
+    color: inherit;
   }
 }
 
-.collapse-trigger {
+// Within heading, strip any `h*` tag of its default margins for spacing.
+.pui-collapse-panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: ceil(($font-size-base * 1.125));
+  color: inherit;
+
+  > a,
+  > small,
+  > .small,
+  > small > a,
+  > .small > a {
+    color: inherit;
+  }
+}
+
+// List groups in panels
+//
+// By default, space out list group content from panel headings to account for
+// any kind of custom content between the two.
+
+.pui-collapse {
+  > .list-group,
+  > .pui-collapse-panel > .list-group {
+    margin-bottom: 0;
+
+    .list-group-item {
+      border-width: 1px 0;
+      border-radius: 0;
+    }
+
+    // Add border top radius for first one
+    &:first-child {
+      .list-group-item:first-child {
+        border-top: 0;
+        @include border-top-radius(($panel-border-radius - 1));
+      }
+    }
+
+    // Add border bottom radius for last one
+    &:last-child {
+      .list-group-item:last-child {
+        border-bottom: 0;
+        @include border-bottom-radius(($panel-border-radius - 1));
+      }
+    }
+  }
+  > .pui-collapse-panel-heading + .pui-collapse-panel > .list-group {
+    .list-group-item:first-child {
+      @include border-top-radius(0);
+    }
+  }
+}
+
+// Collapse space between when there's no additional content.
+.pui-collapse-panel-heading + .list-group {
+  .list-group-item:first-child {
+    border-top-width: 0;
+  }
+}
+
+// Collapsable panels (aka, accordion)
+//
+// Wrap a series of panels in `.panel-group` to turn them into an accordion with
+// the help of our collapse JavaScript plugin.
+
+.panel-group {
+  margin-bottom: $line-height-computed;
+
+  // Tighten up margin so it's only between panels
+  .pui-collapse {
+    margin-bottom: 0;
+    border-radius: $panel-border-radius;
+
+    + .pui-collapse {
+      margin-top: 5px;
+    }
+  }
+
+  .pui-collapse-panel-heading {
+    border-bottom: 0;
+
+    + .pui-collapse-panel > .panel-body,
+    + .pui-collapse-panel > .list-group {
+      border-top: 1px solid $panel-inner-border;
+    }
+  }
+}
+
+.pui-collapse-trigger {
   cursor: pointer;
   display: flex;
 
-  .collapse-title {
+  .pui-collapse-title {
     display: inline-block;
   }
 
-  .collapse-icon {
+  .pui-collapse-icon {
     display: flex;
     align-items: center;
     fill: $accordion-icon;
@@ -53,34 +138,39 @@
   }
 }
 
-.panel-heading-accordion {
-  position: relative;
-  margin-bottom: 0;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  padding: $base-unit ($base-unit * 2);
-}
-
-.panel-body-accordion {
+.pui-collapse-divider .pui-collapse-panel-body {
+  border-top: 2px solid $shadow-3;
   margin: 0;
   padding: ($base-unit * 3) ($base-unit * 2);
 }
 
-.panel-body-accordion-divider {
-  @extend .panel-body-accordion;
-  border-top: 2px solid $shadow-3;
-}
-
-// Necessary to get the entire header clickable for BS-React-Collapses
-.panel-title {
+.pui-collapse-panel-title {
   a {
     display: block;
   }
 }
 
-.panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
-  @extend .panel-body-accordion-divider;
+.pui-collapsible {
+  display: none;
+
+  &.in {
+    display: block;
+  }
+}
+
+tr.pui-collapsible.in {
+  display: table-row;
+}
+
+tbody.pui-collapsible.in {
+  display: table-row-group;
+}
+
+.pui-collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  @include transition-property(height, visibility);
+  @include transition-duration(.35s);
+  @include transition-timing-function(ease);
 }

@@ -52,23 +52,3 @@ button.pui-close {
   }
 }
 
-.collapse {
-  display: none;
-
-  &.in      { display: block; }
-  // [converter] extracted tr&.in to tr.collapse.in
-  // [converter] extracted tbody&.in to tbody.collapse.in
-}
-
-tr.collapse.in    { display: table-row; }
-
-tbody.collapse.in { display: table-row-group; }
-
-.collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  @include transition-property(height, visibility);
-  @include transition-duration(.35s);
-  @include transition-timing-function(ease);
-}

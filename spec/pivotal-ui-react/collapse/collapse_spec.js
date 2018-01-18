@@ -2,7 +2,7 @@ import '../spec_helper' ;
 import {BaseCollapse, Collapse, AltCollapse} from '../../../src/react/collapse';
 import {Collapsible} from '../../../src/react/collapsible';
 
-describe('BaseCollapse', function() {
+describe('BaseCollapse', () => {
   let subject;
 
   beforeEach(() => {
@@ -14,34 +14,34 @@ describe('BaseCollapse', function() {
     ), root);
   });
 
-  it('creates a collapsed panel', function() {
-    expect('.panel-title').toHaveText('ima header');
+  it('creates a collapsed panel', () => {
+    expect('.pui-collapse-panel-title').toHaveText('ima header');
     expect(Collapsible).toHaveBeenRenderedWithProps(
       jasmine.objectContaining({expanded: false}));
-    expect('.panel-body').toHaveText('Child');
+    expect('.pui-collapse-panel-body').toHaveText('Child');
   });
 
-  describe('opening and closing', function() {
-    beforeEach(function() {
-      $('.panel-title a').simulate('click');
+  describe('opening and closing', () => {
+    beforeEach(() => {
+      $('.pui-collapse-panel-title a').simulate('click');
     });
 
-    it('updates the props of the bsPanel', function() {
+    it('updates the props of the bsPanel', () => {
       expect(Collapsible).toHaveBeenRenderedWithProps(
         jasmine.objectContaining({expanded: true}));
-      $('.panel-title a').simulate('click');
+      $('.pui-collapse-panel-title a').simulate('click');
       expect(Collapsible).toHaveBeenRenderedWithProps(
         jasmine.objectContaining({expanded: false}));
     });
   });
 
-  describe('when the divider property is set to true', function() {
-    beforeEach(function() {
+  describe('when the divider property is set to true', () => {
+    beforeEach(() => {
       subject::setProps({divider: true});
     });
 
-    it('renders a divider on top of the panel body', function() {
-      expect('.panel').toHaveClass('panel-divider');
+    it('renders a divider on top of the panel body', () => {
+      expect('.pui-collapse').toHaveClass('pui-collapse-divider');
     });
   });
 
@@ -62,8 +62,8 @@ describe('BaseCollapse', function() {
   });
 });
 
-describe('Collapse', function() {
-  beforeEach(function() {
+describe('Collapse', () => {
+  beforeEach(() => {
     ReactDOM.render(
       <Collapse header="ima header" className="test-class" style={{opacity: 0.5}}>
         <h1>Child</h1>
@@ -71,26 +71,26 @@ describe('Collapse', function() {
       root);
   });
 
-  it('passes through className', function() {
-    expect('.panel').toHaveClass('test-class');
+  it('passes through className', () => {
+    expect('.pui-collapse').toHaveClass('test-class');
   });
 
-  it('passes through style', function() {
-    expect('.panel').toHaveAttr('style', /opacity: 0\.5/);
+  it('passes through style', () => {
+    expect('.pui-collapse').toHaveAttr('style', /opacity: 0\.5/);
   });
 
-  it('contains a right-caret as its collapsed icon when closed', function() {
+  it('contains a right-caret as its collapsed icon when closed', () => {
     expect('svg').toHaveClass('icon-arrow_drop_right');
   });
 
-  it('contains a down-caret as its collapsed icon when open', function() {
-    $('.panel-title svg').simulate('click');
+  it('contains a down-caret as its collapsed icon when open', () => {
+    $('.pui-collapse-panel-title svg').simulate('click');
     expect('svg').toHaveClass('icon-arrow_drop_down');
   });
 });
 
-describe('AltCollapse', function() {
-  beforeEach(function() {
+describe('AltCollapse', () => {
+  beforeEach(() => {
     ReactDOM.render(
       <AltCollapse header="ima header">
         <h1>Child</h1>
@@ -98,12 +98,12 @@ describe('AltCollapse', function() {
       , root);
   });
 
-  it('contains a right-caret as its collapsed icon when closed', function() {
+  it('contains a right-caret as its collapsed icon when closed', () => {
     expect('svg').toHaveClass('icon-add_circle');
   });
 
-  it('contains a down-caret as its collapsed icon when open', function() {
-    $('.panel-title svg').simulate('click');
+  it('contains a down-caret as its collapsed icon when open', () => {
+    $('.pui-collapse-panel-title svg').simulate('click');
     expect('svg').toHaveClass('icon-remove_circle');
   });
 });
