@@ -1,5 +1,4 @@
 try {
-  require('../grids');
   require('../flex-grids');
   require('../alerts');
   require('../alignment');
