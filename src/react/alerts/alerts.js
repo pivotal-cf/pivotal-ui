@@ -37,7 +37,13 @@ class Alert extends React.PureComponent {
 
     const props = mergeProps(others, {
       role: 'alert',
-      className: classnames('pui-alert', `pui-alert-${bsStyle}`, {'pui-alert-dismissable': dismissable})
+      className: classnames(
+        'alert',
+        'pui-alert',
+        `alert-${bsStyle}`,
+        `pui-alert-${bsStyle}`,
+        {'alert-dismissable': dismissable},
+        {'pui-alert-dismissable': dismissable})
     });
 
     const visible = typeof show === 'undefined' ? this.state.alertVisible : show;
@@ -53,7 +59,7 @@ class Alert extends React.PureComponent {
     if (dismissable) {
       dismissableColumn = (
         <div className="col col-fixed pan">
-          <button type="button" className="btn pui-close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
+          <button type="button" className="btn close pui-close" aria-label={closeLabel} onClick={this.handleAlertDismiss}><Icon
             src="close"/>
           </button>
         </div>

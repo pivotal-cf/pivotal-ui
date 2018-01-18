@@ -2,7 +2,7 @@
 @import '../mixins';
 @import '../common';
 
-.pui-alert {
+.pui-alert, .alert {
   border: none;
   padding: 8px;
   margin: 0;
@@ -13,7 +13,7 @@
 
   border-radius: $alert-border-radius;
 
-  a.pui-alert-link {
+  a.pui-alert-link, a.alert-link {
     color: inherit;
     text-decoration: underline;
   }
@@ -32,7 +32,7 @@
   }
 
   // Provide class for links that match alerts
-  .pui-alert-link {
+  .pui-alert-link, .alert-link {
     font-weight: $alert-link-font-weight;
   }
 
@@ -47,7 +47,7 @@
   }
 }
 
-.pui-alert-dismissable .pui-close {
+.pui-alert-dismissable .pui-close, .alert-dismissable .close {
   top: inherit;
   right: inherit;
 
@@ -60,22 +60,22 @@
 // Alternate styles
 //
 // Generate contextual modifier classes for colorizing the alert.
-.pui-alert-success {
+.pui-alert-success, .alert-success {
   @include pui-alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
 
-.pui-alert-info {
+.pui-alert-info, .alert-info {
   @include pui-alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 }
 
-.pui-alert-warning {
+.pui-alert-warning, .alert-warning {
   @include pui-alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 }
 
-.pui-alert-danger {
+.pui-alert-danger, .alert-danger {
   @include pui-alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
 
-.pui-alert-error {
+.pui-alert-error, .alert-error {
   @extend .pui-alert-danger;
 }

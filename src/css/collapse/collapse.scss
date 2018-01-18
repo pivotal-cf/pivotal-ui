@@ -2,7 +2,7 @@
 @import "../mixins";
 
 // Base class
-.pui-collapse {
+.pui-collapse, .panel {
   margin-bottom: $line-height-computed;
   background-color: $panel-bg;
   border: 1px solid transparent;
@@ -11,13 +11,13 @@
 }
 
 // Panel contents
-.pui-collapse-panel-body {
+.pui-collapse-panel-body, .panel-body {
   padding: $panel-body-padding;
   @include clearfix;
 }
 
 // Optional heading
-.pui-collapse-panel-heading {
+.pui-collapse-panel-heading, .panel-heading {
   padding: $panel-heading-padding;
   border-bottom: 1px solid transparent;
   @include border-top-radius(($panel-border-radius - 1));
@@ -28,7 +28,7 @@
 }
 
 // Within heading, strip any `h*` tag of its default margins for spacing.
-.pui-collapse-panel-title {
+.pui-collapse-panel-title, .panel-title {
   margin-top: 0;
   margin-bottom: 0;
   font-size: ceil(($font-size-base * 1.125));
@@ -48,9 +48,9 @@
 // By default, space out list group content from panel headings to account for
 // any kind of custom content between the two.
 
-.pui-collapse {
+.pui-collapse, .panel {
   > .list-group,
-  > .pui-collapse-panel > .list-group {
+  > .pui-collapse-panel > .list-group, > .panel-collapse > .list-group {
     margin-bottom: 0;
 
     .list-group-item {
@@ -74,7 +74,8 @@
       }
     }
   }
-  > .pui-collapse-panel-heading + .pui-collapse-panel > .list-group {
+  > .pui-collapse-panel-heading + .pui-collapse-panel > .list-group,
+  > .panel-heading + .panel-collapse > .list-group {
     .list-group-item:first-child {
       @include border-top-radius(0);
     }
@@ -82,7 +83,7 @@
 }
 
 // Collapse space between when there's no additional content.
-.pui-collapse-panel-heading + .list-group {
+.pui-collapse-panel-heading + .list-group, .panel-heading + .list-group {
   .list-group-item:first-child {
     border-top-width: 0;
   }
@@ -97,34 +98,36 @@
   margin-bottom: $line-height-computed;
 
   // Tighten up margin so it's only between panels
-  .pui-collapse {
+  .pui-collapse, .panel {
     margin-bottom: 0;
     border-radius: $panel-border-radius;
 
-    + .pui-collapse {
+    + .pui-collapse, + .panel {
       margin-top: 5px;
     }
   }
 
-  .pui-collapse-panel-heading {
+  .pui-collapse-panel-heading, .panel-heading {
     border-bottom: 0;
 
-    + .pui-collapse-panel > .panel-body,
-    + .pui-collapse-panel > .list-group {
+    + .pui-collapse-panel > .pui-collapse-panel-body,
+    + .pui-collapse-panel > .list-group,
+    + .panel-collapse > .panel-body,
+    + .panel-collapse > .list-group {
       border-top: 1px solid $panel-inner-border;
     }
   }
 }
 
-.pui-collapse-trigger {
+.pui-collapse-trigger, .collapse-trigger {
   cursor: pointer;
   display: flex;
 
-  .pui-collapse-title {
+  .pui-collapse-title, .collapse-title {
     display: inline-block;
   }
 
-  .pui-collapse-icon {
+  .pui-collapse-icon, .collapse-icon {
     display: flex;
     align-items: center;
     fill: $accordion-icon;
@@ -138,19 +141,19 @@
   }
 }
 
-.pui-collapse-divider .pui-collapse-panel-body {
+.pui-collapse-divider .pui-collapse-panel-body, .panel-divider .panel-body {
   border-top: 2px solid $shadow-3;
   margin: 0;
   padding: ($base-unit * 3) ($base-unit * 2);
 }
 
-.pui-collapse-panel-title {
+.pui-collapse-panel-title, .panel-title {
   a {
     display: block;
   }
 }
 
-.pui-collapsible {
+.pui-collapsible, .collapse {
   display: none;
 
   &.in {
@@ -158,15 +161,15 @@
   }
 }
 
-tr.pui-collapsible.in {
+tr.pui-collapsible.in, tr.collapse.in {
   display: table-row;
 }
 
-tbody.pui-collapsible.in {
+tbody.pui-collapsible.in, tbody.collapse.in {
   display: table-row-group;
 }
 
-.pui-collapsing {
+.pui-collapsing, .collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
