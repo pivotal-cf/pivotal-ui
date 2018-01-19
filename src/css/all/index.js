@@ -2,7 +2,6 @@ try {
   require('../flex-grids');
   require('../alerts');
   require('../alignment');
-  require('../avatars');
   require('../back-to-top');
   require('../backgrounds');
   require('../border');
