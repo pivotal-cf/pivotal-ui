@@ -173,6 +173,12 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
   box-shadow: $shadow;
 }
 
+@mixin box-sizing($boxmodel) {
+  -webkit-box-sizing: $boxmodel;
+  -moz-box-sizing: $boxmodel;
+  box-sizing: $boxmodel;
+}
+
 @mixin clearfix() {
   &:before,
   &:after {
@@ -202,4 +208,12 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
 @mixin border-left-radius($radius) {
   border-bottom-left-radius: $radius;
   border-top-left-radius: $radius;
+}
+
+@mixin container-fixed($gutter: $grid-gutter-width) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+  @include clearfix;
 }
