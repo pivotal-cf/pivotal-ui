@@ -10,13 +10,11 @@ export default class TabHeaders extends React.Component {
     handleClick: PropTypes.func,
     isLeft: PropTypes.bool,
     id: PropTypes.string.isRequired,
-    onSelect: PropTypes.func,
-    tabWidth: PropTypes.number
+    onSelect: PropTypes.func
   };
 
   render() {
-    const {childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth} = this.props;
-    const leftTabClasses = `col-xs-${tabWidth} nav-pills nav-stacked`;
+    const {childArray, activeKey, handleClick, isLeft, id, onSelect} = this.props;
 
     const listChildren = childArray.map((child, key) => {
       const {disabled, eventKey, tabClassName, title} = child.props;
@@ -33,7 +31,7 @@ export default class TabHeaders extends React.Component {
       );
     });
 
-    return (<ul role="tablist" className={classnames('nav', {'nav-tabs': !isLeft}, {[leftTabClasses]: isLeft})}>
+    return (<ul role="tablist" className={classnames('nav', {'nav-tabs': !isLeft})}>
       {listChildren}
     </ul>);
   }

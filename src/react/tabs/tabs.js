@@ -163,12 +163,11 @@ export class LeftTabs extends React.PureComponent {
   static propTypes = {
     position: PropTypes.oneOf(['top', 'left']),
     tabWidth: PropTypes.number,
-    paneWidth: PropTypes.number
   };
 
   static defaultProps = {
     position: 'left',
-    tabWidth: 6,
+    tabWidth: 1,
     tabType: 'left'
   };
 
@@ -177,10 +176,7 @@ export class LeftTabs extends React.PureComponent {
   }
 
   render() {
-    let {tabWidth, paneWidth, ...props} = this.props;
-    if (!paneWidth) {
-      paneWidth = 24 - tabWidth;
-    }
-    return <Tabs {...props} tabWidth={tabWidth} paneWidth={paneWidth}/>;
+    let {tabWidth, ...props} = this.props;
+    return <Tabs {...props} tabWidth={tabWidth}/>;
   }
 }
