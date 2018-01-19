@@ -32,12 +32,12 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 
 ```jsx
 ::title=Alert links
-::description=If you want to include a link in your alert, use the class `alert-link`.
+::description=If you want to include a link in your alert, use the class `pui-alert-link`.
 <div>
 <WarningAlert>
 <h5 className="em-high mtn">Important Link</h5>
     <p>
-      It is very important that you <a className="alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
+      It is very important that you <a className="pui-alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
     </p>
 </WarningAlert>
 </div>

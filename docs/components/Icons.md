@@ -15,17 +15,17 @@ example below.
 
 ```jsx
 ::title=SVG example
-::description=An SVG wrapped with `.icon` can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
+::description=Using the `Icon` component with the `src` prop inserts an SVG icon. It can inherit the font size of the element above it, be sized by a type modifier class, or be passed a font size directly.
 <h1>
-  <Icon src="help"/>
+  <Icon src="account_circle"/>
 </h1>
 ```
 
 ```jsx
 ::title=Baseline
-::description=Align SVG to baseline with `.icon-baseline` modifier class.
+::description=Align SVG to baseline with the `verticalAlign` property, which adds the `.icon-baseline` modifier class.
 <h1>
-  Example <Icon src="help" verticalAlign="baseline" />
+  This has an icon <Icon src="chat" verticalAlign="baseline" />
 </h1>
 ```
 

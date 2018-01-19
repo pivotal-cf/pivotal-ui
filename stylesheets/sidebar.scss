@@ -16,18 +16,18 @@ $active-item-border-size: $base-unit / 2;
   bottom: 0;
   left: 0;
 
-  .panel {
+  .pui-collapse {
     border: 0;
 
     &.active {
       background-color: $highlight-background-color;
 
-      .collapse-trigger {
+      .pui-collapse-trigger {
         color: $dark-1;
       }
     }
 
-    .collapse-trigger {
+    .pui-collapse-trigger {
       cursor: pointer;
     }
 
@@ -40,10 +40,8 @@ $active-item-border-size: $base-unit / 2;
     }
   }
 
-  .panel-collapse {
-    .panel-body {
-      padding: 0;
-    }
+  .pui-collapse-panel-body {
+    padding: 0;
   }
 
   .sidebar--search {
@@ -114,7 +112,7 @@ $active-item-border-size: $base-unit / 2;
   }
 
   // TODO: remove me when accordion can be in sidebars
-  .panel-heading {
+  .pui-panel-heading {
     padding: 0;
   }
 }

@@ -7,7 +7,7 @@ Flex grids use flexbox to position columns within rows.
 ## Examples
 
 ```jsx
-::title=Outling the grid
+::title=Outlining the grid
 ::description=This should help you visualize the columns. The grey dotted box is the grid and the orange dotted boxes are the columns.
 <Grid className="grid-show mbxl show-outline">
     <FlexCol fixed {...{style: {width: "150px"}}}/>

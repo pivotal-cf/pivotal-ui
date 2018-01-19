@@ -14,13 +14,11 @@
 
 ```jsx
 ::title=Breadcrumb
-<div>
-    <BreadcrumbList>
-      <ListItem><a href="#">Home</a></ListItem>
-      <ListItem><a href="#react">React</a></ListItem>
-      <ListItem className="current"><span>Lists</span></ListItem>
-    </BreadcrumbList>
-</div>
+<BreadcrumbList>
+  <ListItem><a href="#">Home</a></ListItem>
+  <ListItem><a href="#react">React</a></ListItem>
+  <ListItem className="current"><span>Lists</span></ListItem>
+</BreadcrumbList>
 ```
 
 ```html
@@ -45,33 +43,31 @@
 
 ```jsx
 ::title=Draggable
-<div>
-    <DraggableList className="my-list-class" innerClassName="my-item-class">
-      <DraggableListItem>
-        Get me out of here!
-      </DraggableListItem>
-    
-      <DraggableListItem>
-        LOL
-      </DraggableListItem>
-    
-      <DraggableListItem>
-        Can't stop
-      </DraggableListItem>
-    
-      <DraggableListItem>
-       Get me out of here!
-      </DraggableListItem>
-    
-      <DraggableListItem>
-       LOL
-      </DraggableListItem>
-    
-      <DraggableListItem>
-       Can't stop
-      </DraggableListItem>
-    </DraggableList>
-</div>
+<DraggableList className="my-list-class" innerClassName="my-item-class">
+  <DraggableListItem>
+    Get me out of here!
+  </DraggableListItem>
+
+  <DraggableListItem>
+    LOL
+  </DraggableListItem>
+
+  <DraggableListItem>
+    Can't stop
+  </DraggableListItem>
+
+  <DraggableListItem>
+   Get me out of here!
+  </DraggableListItem>
+
+  <DraggableListItem>
+   LOL
+  </DraggableListItem>
+
+  <DraggableListItem>
+   Can't stop
+  </DraggableListItem>
+</DraggableList>
 ```
 
 # Inline Lists
@@ -80,14 +76,12 @@
 
 ```jsx
 ::title=Inline
-<div>
-    <InlineList>
-      <ListItem>Item 1</ListItem>
-      <ListItem>Item 2</ListItem>
-      <ListItem>Item 3</ListItem>
-    </InlineList>
-</div>
-```    
+<InlineList>
+  <ListItem>Item 1</ListItem>
+  <ListItem>Item 2</ListItem>
+  <ListItem>Item 3</ListItem>
+</InlineList>
+```
 
 # Ordered Lists
 
@@ -95,13 +89,11 @@
 
 ```jsx
 ::title=Ordered
-<div>
-    <OrderedList>
-     <ListItem>Item 1</ListItem>
-     <ListItem>Item 2</ListItem>
-     <ListItem>Item 3</ListItem>
-    </OrderedList>
-</div>
+<OrderedList>
+ <ListItem>Item 1</ListItem>
+ <ListItem>Item 2</ListItem>
+ <ListItem>Item 3</ListItem>
+</OrderedList>
 ```
 
 # Unordered Lists
@@ -110,24 +102,20 @@
 
 ```jsx
 ::title=Unordered
-<div>
-    <UnorderedList>
-      <ListItem>feep</ListItem>
-      <ListItem>fop</ListItem>
-      <ListItem>meep</ListItem>
-    </UnorderedList>
-</div>
+<UnorderedList>
+  <ListItem>feep</ListItem>
+  <ListItem>fop</ListItem>
+  <ListItem>meep</ListItem>
+</UnorderedList>
 ```
 
 ```jsx
 ::title=Unordered unstyled list
-<div>
-    <UnorderedList unstyled>
-      <ListItem>feep</ListItem>
-      <ListItem>fop</ListItem>
-      <ListItem>meep</ListItem>
-    </UnorderedList>
-</div>
+<UnorderedList unstyled>
+  <ListItem>feep</ListItem>
+  <ListItem>fop</ListItem>
+  <ListItem>meep</ListItem>
+</UnorderedList>
 ```
 
 ## Installation & Usage
