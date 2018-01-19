@@ -32,14 +32,6 @@ export function withSorting(Table) {
       };
     }
 
-    componentWillReceiveProps({columns, defaultSort}) {
-      if (!columns) return;
-      const sortColumn = find(columns, ({sortable, attribute}) =>
-        defaultSort ? attribute === defaultSort : sortable
-      );
-      this.setState({sortColumn, sortIndex: 0});
-    }
-
     updateSort(column) {
       const {state: {sortColumn, sortIndex}, props: {sortOrder}} = this;
       const isSortColumn = column === sortColumn;

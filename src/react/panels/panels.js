@@ -31,23 +31,23 @@ export class Panel extends React.Component {
     const {className, title, titleCols, titleClassName, panelClassName, header, headerCols, headerClassName, bodyClassName, loading, children, footer, footerClassName, ...props} = this.props;
 
     return (
-      <div {...{...props, className: classnames('panel-container', className)}}>
-        {(title || titleCols.length > 0) && <Grid className={classnames('panel-title', titleClassName)}>
+      <div {...{...props, className: classnames('pui-panel-container', className)}}>
+        {(title || titleCols.length > 0) && <Grid className={classnames('pui-panel-title', titleClassName)}>
           {title && <FlexCol className="h5 em-high type-ellipsis">{title}</FlexCol>}
           {titleCols.map((el, key) => React.cloneElement(el, {key}))}
         </Grid>}
-        <div {...{className: classnames('panel bg-neutral-11 box-shadow-1 border-rounded', panelClassName)}}>
-          {(header || headerCols.length > 0) && <Grid className={classnames('panel-header', headerClassName)}>
+        <div {...{className: classnames('pui-panel bg-neutral-11 box-shadow-1 border-rounded', panelClassName)}}>
+          {(header || headerCols.length > 0) && <Grid className={classnames('pui-panel-header', headerClassName)}>
             {header && <FlexCol className="type-ellipsis em-high">{header}</FlexCol>}
             {headerCols.map((el, key) => React.cloneElement(el, {key}))}
           </Grid>}
           {children && (
-            <div className={classnames('panel-body', bodyClassName)}>
-              {loading && <div className="panel-loading-indicator"/>}
+            <div className={classnames('pui-panel-body', bodyClassName)}>
+              {loading && <div className="pui-panel-loading-indicator"/>}
               {children}
             </div>
           )}
-          {footer && <div className={classnames('panel-footer type-ellipsis h6', footerClassName)}>{footer}</div>}
+          {footer && <div className={classnames('pui-panel-footer type-ellipsis h6', footerClassName)}>{footer}</div>}
         </div>
       </div>
     );

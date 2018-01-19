@@ -1,40 +1,9 @@
 @import "../pui-variables";
 
-.panel-list {
-  ul {
-    margin: 0;
-
-    .add-item-form {
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-
-      .form-group, .help-block {
-        margin-bottom: 0;
-      }
-    }
-
-    & > li {
-      padding: 15px;
-      height: auto;
-
-      a.remove {
-        cursor: pointer;
-        color: $red-5;
-        float: right;
-      }
-    }
-  }
-}
-
-.sorter {
-  cursor: pointer;
-}
-
-.panel-container {
+.pui-panel-container {
   display: block;
 
-  .panel-title, .panel-header, .panel-footer {
+  .pui-panel-title, .pui-panel-header, .pui-panel-footer {
 
     & > .col {
       padding-left: 0;
@@ -42,18 +11,18 @@
     }
   }
 
-  .panel-title .h5 {
+  .pui-panel-title .h5 {
     line-height: 4 * $base-unit;
   }
 
-  .panel-title {
+  .pui-panel-title {
     display: flex;
     align-items: center;
     padding: 0 $base-unit;
     margin-bottom: 2 * $base-unit;
   }
 
-  .panel-loading-indicator {
+  .pui-panel-loading-indicator {
     position: absolute;
     top: -3px;
     left: 0;
@@ -62,7 +31,7 @@
     background-color: transparent;
     overflow: hidden;
 
-    animation: panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
 
     &::after {
       content: "";
@@ -71,12 +40,12 @@
       width: 40%;
       height: 3px;
       background-color: $blue-3;
-      animation: panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-      -webkit-animation: panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      -webkit-animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
     }
   }
 
-  @keyframes panel-loading-slide {
+  @keyframes pui-panel-loading-slide {
     0% {
       right: 100%;
       width: 100%;
@@ -92,19 +61,20 @@
     }
   }
 
-  .panel-header, .panel-footer {
+  .pui-panel-header, .pui-panel-footer {
     padding: $base-unit;
   }
 
-  .panel-body {
+  .pui-panel-body {
+    padding: $base-unit;
     position: relative;
   }
 
-  .panel-body, .td {
+  .pui-panel-body, .td {
     min-height: 5 * $base-unit;
   }
 
-  .panel-header.grid {
+  .pui-panel-header.grid {
     margin: 0;
   }
 }

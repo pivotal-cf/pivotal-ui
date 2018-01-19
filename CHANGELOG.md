@@ -1,3 +1,49 @@
+<a name="13.0.0"></a>
+# 13.0.0 (2018-01-12)
+#### CSS
+* **buttons**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **dropdowns**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **flex-grids**: Make CSS for flex grids less nested [[:beetle:#152292192](https://www.pivotaltracker.com/story/show/152292192)] ([3b54b087](https://github.com/pivotal-cf/pivotal-ui/commit/3b54b087))
+* **iconography**:
+  * Add trash icon [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([9bd32e53](https://github.com/pivotal-cf/pivotal-ui/commit/9bd32e53))
+  * Add link_disconnect and terminal icons [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([38b13e24](https://github.com/pivotal-cf/pivotal-ui/commit/38b13e24))
+* **links**: Links should not force SVG fill color to be blue [[:beetle:#152420796](https://www.pivotaltracker.com/story/show/152420796)] ([79e5bc96](https://github.com/pivotal-cf/pivotal-ui/commit/79e5bc96))
+* **notifications**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **panels**:
+  * Namespace panels css [[:gear:#154268155](https://www.pivotaltracker.com/story/show/154268155)] ([1358ec94](https://github.com/pivotal-cf/pivotal-ui/commit/1358ec94))
+  * Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
+#### React
+* **checkbox-dropdown**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **dropdowns**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **forms**: Add fieldRowClassName and labelRowClassName props to the FormUnit [[:star:#154183497](https://www.pivotaltracker.com/story/show/154183497)] ([e85afdd6](https://github.com/pivotal-cf/pivotal-ui/commit/e85afdd6))
+* **notifications**: Bring dropdown and checkbox dropdown into PUI [[:gear:#154075625](https://www.pivotaltracker.com/story/show/154075625)] ([2c642590](https://github.com/pivotal-cf/pivotal-ui/commit/2c642590))
+* **panels**:
+  * Namespace panels css [[:gear:#154268155](https://www.pivotaltracker.com/story/show/154268155)] ([1358ec94](https://github.com/pivotal-cf/pivotal-ui/commit/1358ec94))
+  * Move updated Panels from apps manager to pivotal-ui [[:gear:#153615385](https://www.pivotaltracker.com/story/show/153615385)] ([ca9e071d](https://github.com/pivotal-cf/pivotal-ui/commit/ca9e071d))
+* **radio**: RadioGroup should not override child's onChange unless it has an onChange defined [[:beetle:#154038584](https://www.pivotaltracker.com/story/show/154038584)] ([810c40cc](https://github.com/pivotal-cf/pivotal-ui/commit/810c40cc))
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([cb751ce1](https://github.com/pivotal-cf/pivotal-ui/commit/cb751ce1))
+* **tabs**: Pull title prop off TabContent so it does not end up on inner div [[:beetle:#153425866](https://www.pivotaltracker.com/story/show/153425866)] ([30564caa](https://github.com/pivotal-cf/pivotal-ui/commit/30564caa))
+* **wizard**: Update Wizard component with backComponent, finishComponent, and hideFinishButton [[:star:#153856072](https://www.pivotaltracker.com/story/show/153856072)] ([2525046e](https://github.com/pivotal-cf/pivotal-ui/commit/2525046e))
+<a name="12.3.0"></a>
+# 12.3.0 (2018-01-11)
+#### CSS
+* **iconography**:
+  * Add trash icon [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([3ac94ed1](https://github.com/pivotal-cf/pivotal-ui/commit/3ac94ed1))
+  * Add link_disconnect and terminal icons [[:star:#153191221](https://www.pivotaltracker.com/story/show/153191221)] ([6e81cb0f](https://github.com/pivotal-cf/pivotal-ui/commit/6e81cb0f))
+<a name="12.2.0"></a>
+# 12.2.0 (2018-01-09)
+#### React
+* **forms**: Add fieldRowClassName and labelRowClassName props to the FormUnit [[:star:#154183497](https://www.pivotaltracker.com/story/show/154183497)] ([f58b55ef](https://github.com/pivotal-cf/pivotal-ui/commit/f58b55ef))
+<a name="12.1.1"></a>
+## 12.1.1 (2018-01-04)
+#### CSS
+* **flex-grids**: Make CSS for flex grids less nested [[:beetle:#152292192](https://www.pivotaltracker.com/story/show/152292192)] ([4f16a974](https://github.com/pivotal-cf/pivotal-ui/commit/4f16a974))
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([be674aae](https://github.com/pivotal-cf/pivotal-ui/commit/be674aae))
+<a name="12.1.0"></a>
+# 12.1.0 (2017-12-21)
+#### React
+* **wizard**: Update Wizard component with backComponent, finishComponent, and hideFinishButton [[:star:#153856072](https://www.pivotaltracker.com/story/show/153856072)] ([370af8e4](https://github.com/pivotal-cf/pivotal-ui/commit/370af8e4))
 <a name="12.0.0"></a>
 # 12.0.0 (2017-12-20)
 #### CSS
@@ -54,6 +100,10 @@
   * when table columns are implicit, do not set the display name [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([c1c27f61](https://github.com/pivotal-cf/pivotal-ui/commit/c1c27f61))
   * table can determine column headers from just the data [[:star:#153234166](https://www.pivotaltracker.com/story/show/153234166)] ([9537c680](https://github.com/pivotal-cf/pivotal-ui/commit/9537c680))
 * **toggle**: include form css from toggle component [[:gear:#153427216](https://www.pivotaltracker.com/story/show/153427216)] ([abde0a56](https://github.com/pivotal-cf/pivotal-ui/commit/abde0a56))
+<a name="11.1.4"></a>
+## 11.1.4 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([8459dac0](https://github.com/pivotal-cf/pivotal-ui/commit/8459dac0))
 <a name="11.1.3"></a>
 ## 11.1.3 (2017-12-15)
 #### React
@@ -165,6 +215,10 @@
   * Always allow the 'display' prop to set visibility ([2f738702](https://github.com/pivotal-cf/pivotal-ui/commit/2f738702))
   * Allow manual control of TooltipTrigger visibility ([ab89565d](https://github.com/pivotal-cf/pivotal-ui/commit/ab89565d))
 * **wizard**: Add saving and savingText props to Wizard [[:star:#151932325](https://www.pivotaltracker.com/story/show/151932325)] ([66e8b923](https://github.com/pivotal-cf/pivotal-ui/commit/66e8b923))
+<a name="10.3.3"></a>
+## 10.3.3 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([a746fb84](https://github.com/pivotal-cf/pivotal-ui/commit/a746fb84))
 <a name="10.3.2"></a>
 ## 10.3.2 (2017-11-15)
 #### React
@@ -215,6 +269,10 @@
 * **select**: stop using .includes in select to fix IE11 crash [[:beetle:#151622400](https://www.pivotaltracker.com/story/show/151622400)] ([0f51153c](https://github.com/pivotal-cf/pivotal-ui/commit/0f51153c))
 * **svg**: fixed the svgs components paths ([876491fe](https://github.com/pivotal-cf/pivotal-ui/commit/876491fe))
 * **table**: fix flex table cell padding [[:beetle:#151815592](https://www.pivotaltracker.com/story/show/151815592)] ([7af14f7f](https://github.com/pivotal-cf/pivotal-ui/commit/7af14f7f))
+<a name="9.2.1"></a>
+## 9.2.1 (2018-01-04)
+#### React
+* **svg**: Replace require with __non_webpack_require__ to avoid module not found warning [[:beetle:#153725024](https://www.pivotaltracker.com/story/show/153725024)] ([2415cf82](https://github.com/pivotal-cf/pivotal-ui/commit/2415cf82))
 <a name="9.2.0"></a>
 # 9.2.0 (2017-10-17)
 #### React

@@ -283,6 +283,50 @@ describe('FormUnit', () => {
     });
   });
 
+  describe('fieldRowClassName', () => {
+    beforeEach(() => {
+      subject::setProps({fieldRowClassName: 'some-field-row'});
+    });
+
+    describe('not inline', () => {
+      it('gives the class name to the field row', () => {
+        expect('.form-unit .field-row').toHaveClass('some-field-row');
+      });
+    });
+
+    describe('inline', () => {
+      beforeEach(() => {
+        subject::setProps({inline: true});
+      });
+
+      it('gives the class name to the field row', () => {
+        expect('.form-unit .field-row').toHaveClass('some-field-row');
+      });
+    });
+  });
+
+  describe('labelRowClassName', () => {
+    beforeEach(() => {
+      subject::setProps({labelRowClassName: 'some-label-row', label: 'some label'});
+    });
+
+    describe('not inline', () => {
+      it('gives the class name to the label row', () => {
+        expect('.form-unit .label-row').toHaveClass('some-label-row');
+      });
+    });
+
+    describe('inline', () => {
+      beforeEach(() => {
+        subject::setProps({inline: true});
+      });
+
+      it('gives the class name to the label row', () => {
+        expect('.form-unit .label-row').toHaveClass('some-label-row');
+      });
+    });
+  });
+
   it('does not has the has-error class', () => {
     expect('.form-unit').not.toHaveClass('has-error');
   });

@@ -25,7 +25,9 @@ export class FormUnit extends React.Component {
     help: PropTypes.node,
     hasError: PropTypes.bool,
     state: PropTypes.object,
-    setState: PropTypes.func
+    setState: PropTypes.func,
+    fieldRowClassName: PropTypes.string,
+    labelRowClassName: PropTypes.string
   };
 
   componentDidMount() {
@@ -36,7 +38,7 @@ export class FormUnit extends React.Component {
     const {
       className, hideHelpRow, retainLabelHeight, inline, label, labelClassName, labelPosition, optional, optionalText,
       tooltip, tooltipSize = 'lg', tooltipPlacement = 'top', field, help, hasError, labelFor, postLabel, state,
-      setState
+      setState, fieldRowClassName, labelRowClassName
     } = this.props;
 
     if (!label && !field && !help) return null;
@@ -61,7 +63,7 @@ export class FormUnit extends React.Component {
         inline
           ? labelElement
           : (
-          <Grid {...{key: 'label-row', className: 'label-row', gutter: false}}>
+          <Grid {...{key: 'label-row', className: classnames('label-row', labelRowClassName), gutter: false}}>
             <FlexCol>{labelElement}</FlexCol>
             <FlexCol fixed contentAlignment="middle" className="post-label">
               {typeof postLabel === 'function' ? postLabel({state, setState}) : postLabel}
@@ -70,7 +72,9 @@ export class FormUnit extends React.Component {
         )
       );
 
-    const fieldRow = field && (inline ? field : <div className="field-row" key="field-row">{field}</div>);
+    const fieldRow = field && (inline
+        ? field
+        : <div className={classnames('field-row', fieldRowClassName)} key="field-row">{field}</div>);
     const helpRowClassName = classnames('help-row', {'type-dark-5': !hasError});
     const helpRow = inline ? help : <div className={helpRowClassName} key="help-row">{help}</div>;
 
@@ -82,8 +86,8 @@ export class FormUnit extends React.Component {
             key,
             fixed: key === 0,
             className: classnames({
-              'label-row': key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
-              'field-row': key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
+              [classnames('label-row', labelRowClassName)]: key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
+              [classnames('field-row', fieldRowClassName)]: key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
             })
           }}>{col}</FlexCol>)}
         </Grid>]

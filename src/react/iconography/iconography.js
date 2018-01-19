@@ -28,8 +28,16 @@ export class Icon extends React.Component {
       {className: classnames('icon', `icon-${verticalAlign}`, {'spinner': src.indexOf('spinner') === 0})}
     );
 
+    let renderedIcon = Icons[src], iconSrc = src;
+
+    if (!renderedIcon) {
+      renderedIcon = Icons['help'];
+      iconSrc = 'help';
+      console.warn(`Icon "${src}" is not recognized.`)
+    }
+
     return (<div {...props}>
-      {React.cloneElement(Icons[src], {className: `icon-${src}`, key: src})}
+      {React.cloneElement(renderedIcon, {className: `icon-${iconSrc}`, key: iconSrc})}
     </div>);
   }
 }
