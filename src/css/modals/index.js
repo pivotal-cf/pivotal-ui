@@ -1,5 +1,5 @@
 try {
-  require('../bootstrap');
+  require('../common');
   require('../typography');
   require('./modals.css');
 } catch(e) {

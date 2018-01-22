@@ -10,6 +10,7 @@ try {
   require('../code');
   require('../collapse');
   require('../colors');
+  require('../common');
   require('../dividers');
   require('../dropdowns');
   require('../ellipsis');

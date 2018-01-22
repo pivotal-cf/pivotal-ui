@@ -167,7 +167,7 @@ export class LeftTabs extends React.PureComponent {
 
   static defaultProps = {
     position: 'left',
-    tabWidth: 1,
+    tabWidth: 3,
     tabType: 'left'
   };
 

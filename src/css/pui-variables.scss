@@ -1,8 +1,3 @@
-// a flag to toggle asset pipeline / compass integration
-// defaults to true if twbs-font-path function is present (no function => twbs-font-path('') parsed as string == right side)
-// in Sass 3.3 this can be improved with: function-exists(twbs-font-path)
-$bootstrap-sass-asset-helper: (twbs-font-path("") != unquote('twbs-font-path("")')) !default;
-
 $base-unit: 8px;
 
 // Accent colors - teal for now
@@ -235,7 +230,7 @@ $almost_white: #ededed;
 // ------------------------
 
 $type-muted:                  $neutral-9 !important !default;
-$text-muted:                  $type-muted; // unused, keep for bootstrap, use $type-muted instead
+$text-muted:                  $type-muted; // unused, use $type-muted instead
 $type-inverse:                $neutral-8;
 $type-inverse-hover:          $brand-3;
 

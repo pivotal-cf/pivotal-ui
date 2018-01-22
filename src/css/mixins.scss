@@ -50,6 +50,13 @@
   transition: transform $transition;
 }
 
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+  -ms-transform: translate($x, $y); // IE9 only
+  -o-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
 @mixin button-shadow() {
   box-shadow: 0 2px 0 $btn-shadow;
   &:hover,

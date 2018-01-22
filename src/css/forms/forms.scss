@@ -245,9 +245,9 @@ select {
 .radio-inline input[type="radio"],
 .checkbox input[type="checkbox"],
 .checkbox-inline input[type="checkbox"] {
-  position: relative; // override bootstrap
-  margin-left: 0; // override bootstrap
-  margin-top: 0; // override bootstrap
+  position: relative;
+  margin-left: 0;
+  margin-top: 0;
   display: inline-block;
   height: $font-size-small;
   width: $font-size-small;
@@ -256,7 +256,7 @@ select {
 
 .radio-inline,
 .checkbox-inline {
-  padding-left: 0; //override bootstrap
+  padding-left: 0;
 }
 
 .radio-inline + .radio-inline,

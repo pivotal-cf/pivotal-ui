@@ -49,7 +49,7 @@ export class LargeTabs extends mixin(React.Component).with(Animation) {
     if (isLeft) {
       return (
         <Grid className={classnames(largeScreenClasses, 'tab-left', 'clearfix')} {...props}>
-          <FlexCol fixed className={classnames({[`col-grow-${tabWidth}`]: !!tabWidth})}>
+          <FlexCol fixed className={classnames({[`col-${tabWidth}`]: !!tabWidth})}>
           {actionsNode}
           <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect}} />
           </FlexCol>
