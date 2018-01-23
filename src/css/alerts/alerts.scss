@@ -46,14 +46,16 @@
   }
 }
 
-.pui-alert-dismissable .pui-close, .alert-dismissable .close {
-  top: inherit;
-  right: inherit;
-
+.pui-alert, .alert {
   .icon {
     font-size: $font-size-h3;
     line-height: $headings-line-height;
   }
+}
+
+.pui-alert-dismissable .pui-close, .alert-dismissable .close {
+  top: inherit;
+  right: inherit;
 }
 
 // Alternate styles
