@@ -1,9 +1,6 @@
 import '../spec_helper';
-import {Collapsible} from '../../../src/react/collapsible';
 import {Tab, LeftTabs, Tabs} from '../../../src/react/tabs';
 import MediaSize from '../../../src/react/tabs/media-size';
-
-import {findAllByClass, findByClass, findAllByTag, clickOn} from '../spec_helper';
 
 describe('Tabs', () => {
   let subject, onEnterSpy, onExitSpy;
@@ -63,12 +60,10 @@ describe('Tabs', () => {
         });
 
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
-          let tabContent = findAllByClass(subject, 'tab-content');
-          expect(tabContent[0]).not.toHaveClass('in');
-          expect(tabContent[1]).toHaveClass('in');
+          expect('.tab-content:eq(0)').not.toHaveClass('in');
+          expect('.tab-content:eq(1)').toHaveClass('in');
 
-          const firstTab = findAllByTag(subject, 'a')[0];
-          clickOn(firstTab);
+          $('#root a:eq(0)').simulate('click');
 
           expect(onEnterSpy).not.toHaveBeenCalled();
           expect(onExitSpy).not.toHaveBeenCalled();
@@ -79,45 +74,38 @@ describe('Tabs', () => {
           expect(onEnterSpy).toHaveBeenCalledWith(1);
           expect(onExitSpy).toHaveBeenCalledWith(2);
 
-          tabContent = findAllByClass(subject, 'tab-content');
-
-          expect(tabContent[0]).toHaveClass('in');
-          expect(tabContent[1]).not.toHaveClass('in');
+          expect('.tab-content:eq(0)').toHaveClass('in');
+          expect('.tab-content:eq(1)').not.toHaveClass('in');
         });
 
         it('renders an accordion', () => {
-          expect(findByClass(subject, 'panel-group')).toBeTruthy();
-          expect(findAllByClass(subject, 'tab-simple').length).toEqual(0);
+          expect('.panel-group').toExist();
+          expect('.tab-simple').not.toExist();
         });
 
         it('passes small-screen classes', () => {
-          const panelGroup = findByClass(subject, 'panel-group');
-          expect(panelGroup).toHaveClass('small-class');
+          expect('.panel-group').toHaveClass('small-class');
         });
       });
 
       describe('when screen size is greater than breakpoint', () => {
         it('switches tabs on click with animation, and calls onEntered/onExited when animation is done', () => {
-          let tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content2');
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('');
+          expect('.tab-content').toHaveText('Content2');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '1'});
 
-          const clickable = findAllByTag(subject, 'a')[0];
-          expect(clickable).toHaveText('Tab1');
-          clickOn(clickable);
+          expect('#root a:eq(0)').toHaveText('Tab1');
+          $('#root a:eq(0)').simulate('click');
           jasmine.clock().tick(1);
 
           MockNow.tick(Tabs.ANIMATION_TIME / 4);
           MockRaf.next();
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content2');
-          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'});
+          expect('.tab-content').toHaveText('Content2');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '0.5'});
 
           MockNow.tick(Tabs.ANIMATION_TIME / 2);
           MockRaf.next();
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content1');
-          expect(tabContent.getElementsByClassName('tab-pane')[0]).toHaveCss({opacity: '0.5'});
+          expect('.tab-content').toHaveText('Content1');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '0.5'});
           expect(onEnterSpy).not.toHaveBeenCalled();
           expect(onExitSpy).not.toHaveBeenCalled();
 
@@ -125,19 +113,17 @@ describe('Tabs', () => {
           MockRaf.next();
           expect(onEnterSpy).toHaveBeenCalledWith(1);
           expect(onExitSpy).toHaveBeenCalledWith(2);
-          tabContent = findByClass(subject, 'tab-content');
-          expect(tabContent).toHaveText('Content1');
-          expect(tabContent.getElementsByClassName('tab-pane')[0].style.opacity).toEqual('');
+          expect('.tab-content').toHaveText('Content1');
+          expect('.tab-content .tab-pane:eq(0)').toHaveCss({opacity: '1'});
         });
 
         it('renders a tabs', () => {
-          expect(findByClass(subject, 'tab-simple')).toBeTruthy();
-          expect(findAllByClass(subject, 'panel-group').length).toEqual(0);
+          expect('.tab-simple').toExist();
+          expect('.panel-group').not.toExist();
         });
 
         it('passes large-screen classes', () => {
-          const panelGroup = findByClass(subject, 'tab-simple');
-          expect(panelGroup).toHaveClass('large-class');
+          expect('.tab-simple').toHaveClass('large-class');
         });
       });
     });
@@ -158,9 +144,9 @@ describe('Tabs', () => {
         MediaSize.matches.and.returnValue(true);
         triggerResize();
 
-        const clickable = findAllByTag(subject, 'a')[0];
+        const clickable = $('#root a:eq(0)');
         expect(clickable).toHaveText('Tab1');
-        clickOn(clickable);
+        clickable.simulate('click');
 
         expect(onSelectSpy).toHaveBeenCalled();
       });
@@ -169,10 +155,9 @@ describe('Tabs', () => {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
 
-        const clickable = findAllByTag(subject, 'a')[0];
+        const clickable = $('#root a:eq(0)');
         expect(clickable).toHaveText('Tab1');
-        clickOn(clickable);
-        jasmine.clock().tick(1);
+        clickable.simulate('click');
 
         expect(onSelectSpy).toHaveBeenCalled();
       });
@@ -191,22 +176,18 @@ describe('Tabs', () => {
       });
 
       it('renders the actions for large screens', () => {
-        const actionTabs = findByClass(subject, 'tabs-action');
-
-        expect(actionTabs.parentNode).toHaveClass('tab-simple');
-        expect(actionTabs.childNodes[0].className).toEqual('my-actions');
-        expect(actionTabs.childNodes[0]).toHaveText('=)=|=(');
+        expect('.tab-simple > .tabs-action').toExist();
+        expect('.tab-simple > .tabs-action > div:eq(0)').toHaveClass('my-actions');
+        expect('.tab-simple > .tabs-action > div:eq(0)').toHaveText('=)=|=(');
       });
 
       it('renders the actions for small screens', () => {
         MediaSize.matches.and.returnValue(false);
         triggerResize();
 
-        const actionTabs = findByClass(subject, 'tabs-action');
-
-        expect(actionTabs.parentNode).toHaveClass('tab-simple-small-screen');
-        expect(actionTabs.childNodes[0].className).toEqual('my-actions');
-        expect(actionTabs.childNodes[0]).toHaveText('=)=|=(');
+        expect('.tab-simple-small-screen > .tabs-action').toExist();
+        expect('.tab-simple-small-screen > .tabs-action > div:eq(0)').toHaveClass('my-actions');
+        expect('.tab-simple-small-screen > .tabs-action > div:eq(0)').toHaveText('=)=|=(');
       });
     });
 
@@ -220,9 +201,8 @@ describe('Tabs', () => {
       });
 
       it('passes through class and style', () => {
-        const tab = findByClass(subject, 'tab-simple');
-        expect(tab).toHaveClass('test-class');
-        expect(tab).toHaveCss({opacity: '0.5'});
+        expect('.tab-simple').toHaveClass('test-class');
+        expect('.tab-simple').toHaveCss({opacity: '0.5'});
       });
     });
 
@@ -234,8 +214,7 @@ describe('Tabs', () => {
       });
 
       it('attaches it as a class to the tabs', () => {
-        const tab = findByClass(subject, 'tab-simple-alt');
-        expect(tab.childNodes[0]).toHaveClass('nav-tabs');
+        expect('.tab-simple-alt > .nav-tabs').toExist();
       });
     });
 
@@ -245,17 +224,13 @@ describe('Tabs', () => {
       });
 
       it('applies the tabClassName to the clickable tab element', () => {
-        const tab = findAllByTag(subject, 'a')[0];
-
-        expect(tab.parentNode.parentNode).toHaveClass('nav-tabs');
-        expect(tab).toHaveClass('tab-class');
+        expect('.nav-tabs > * > a:eq(0)').toExist();
+        expect('.nav-tabs > * > a:eq(0)').toHaveClass('tab-class');
       });
 
       it('applies the className on the tab to the tab content pane', () => {
-        const tabContent = findByClass(subject, 'tab-content');
-
-        expect(tabContent).toHaveClass('tab-content-class');
-        expect(tabContent).toHaveText('Content1');
+        expect('.tab-content').toHaveClass('tab-content-class');
+        expect('.tab-content').toHaveText('Content1');
       });
     });
 
@@ -265,30 +240,20 @@ describe('Tabs', () => {
       });
 
       it('calls onEntered and onExited immediately', () => {
-        const secondTab = findAllByTag(subject, 'a')[1];
-        clickOn(secondTab);
-        jasmine.clock().tick(1);
+        $('#root a:eq(1)').simulate('click');
 
         expect(onEnterSpy).toHaveBeenCalledWith(2);
         expect(onExitSpy).toHaveBeenCalledWith(1);
       });
 
       it('changes tabs immediately, without animation', () => {
-        let activeTab = findAllByClass(subject, 'active')[0];
-        let tabContent = findByClass(subject, 'tab-content');
+        expect('.active:eq(0)').toHaveText('Tab1');
+        expect('.tab-content').toHaveText('Content1');
 
-        expect(activeTab).toHaveText('Tab1');
-        expect(tabContent).toHaveText('Content1');
+        $('#root a:eq(1)').simulate('click');
 
-        const secondTab = findAllByTag(subject, 'a')[1];
-        clickOn(secondTab);
-        jasmine.clock().tick(1);
-
-        activeTab = findAllByClass(subject, 'active')[0];
-        tabContent = findByClass(subject, 'tab-content');
-
-        expect(activeTab).toHaveText('Tab2');
-        expect(tabContent).toHaveText('Content2');
+        expect('.active:eq(0)').toHaveText('Tab2');
+        expect('.tab-content').toHaveText('Content2');
       });
     });
   });
@@ -305,28 +270,22 @@ describe('Tabs', () => {
       });
 
       it('respects disabled tabs', () => {
-        const disabledTab = findAllByTag(subject, 'a')[2];
-        expect(disabledTab).toHaveClass('disabled');
+        expect('#root a:eq(2)').toHaveClass('disabled');
+        $('#root a:eq(2)').simulate('click');
 
-        clickOn(disabledTab);
-        jasmine.clock().tick(1);
-
-        const activeTab = findByClass(subject, 'in');
-        expect(activeTab).toHaveText('Content1');
+        expect('.in').toHaveText('Content1');
       });
 
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
-          const tabPane = findByClass(subject, 'in');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label');
+          expect('.in').toHaveAttr('aria-labelledby', 'provided-aria-label');
         });
 
         it('generates a default value', () => {
           ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
-          const tabPane = findByClass(subject, 'in');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1');
+          expect('.in').toHaveAttr('aria-labelledby', 'foo-tab-1');
         });
       });
     });
@@ -339,41 +298,37 @@ describe('Tabs', () => {
 
       describe('aria-labelledby', () => {
         it('uses the provided value, if given', () => {
-          const tabPane = findByClass(subject, 'tab-pane');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'provided-aria-label');
+          expect('.tab-pane').toHaveAttr('aria-labelledby', 'provided-aria-label');
         });
 
         it('generates a default value', () => {
           ReactDOM.unmountComponentAtNode(root);
           subject = renderComponent({defaultActiveKey: 2, id: 'foo'});
 
-          const tabPane = findByClass(subject, 'tab-pane');
-          expect(tabPane).toHaveAttr('aria-labelledby', 'foo-tab-1');
+          expect('.tab-pane').toHaveAttr('aria-labelledby', 'foo-tab-1');
         });
       });
 
       it('sets up the correct aria-controls relationship and aria-selected value', () => {
-        const tabPane = findByClass(subject, 'tab-pane');
-        const links = findAllByTag(subject, 'a');
+        const links = $('#root a');
         const activeTabLink = links[0];
 
         expect(activeTabLink.parentNode).toHaveClass('active');
-        expect(activeTabLink).toHaveAttr('aria-controls', tabPane.id);
+        expect(activeTabLink).toHaveAttr('aria-controls', 'foo-pane-0');
         expect(activeTabLink).toHaveAttr('aria-selected', 'true');
 
         const nonActiveTabLink = links[1];
         expect(nonActiveTabLink.parentNode).not.toHaveClass('active');
-        expect(nonActiveTabLink).not.toHaveAttr('aria-controls', tabPane.id);
+        expect(nonActiveTabLink).toHaveAttr('aria-controls', 'foo-pane-1');
         expect(nonActiveTabLink).toHaveAttr('aria-selected', 'false');
       });
 
       it('sets tabIndex on each link', () => {
-        const links = findAllByTag(subject, 'a');
-        links.forEach(link => expect(link).toHaveAttr('tabIndex', '0'));
+        $('#root a').toArray().forEach(link => expect(link).toHaveAttr('tabIndex', '0'));
       });
 
       it('sets aria-expanded to the correct values on the list items', () => {
-        const listItems = findAllByTag(subject, 'li');
+        const listItems = $('#root li');
 
         const activeListItem = listItems[0];
         expect(activeListItem).toHaveClass('active');
@@ -385,74 +340,84 @@ describe('Tabs', () => {
       });
 
       it('respects disabled tabs', () => {
-        const disabledTab = findAllByTag(subject, 'li')[2];
-        expect(disabledTab).toHaveClass('disabled');
+        expect('#root li:eq(2)').toHaveClass('disabled');
 
-        clickOn(disabledTab.getElementsByTagName('a')[0]);
+        $('#root li:eq(2) a:eq(0)').simulate('click');
         jasmine.clock().tick(1);
 
-        const activeTab = findAllByClass(subject, 'active')[0];
-        expect(activeTab).toHaveText('Tab1');
+        expect('.active:eq(0)').toHaveText('Tab1');
       });
     });
   });
 });
 
 describe('LeftTabs', () => {
-  let subject;
+  let subject, onSelect;
 
-  const renderComponent = props => ReactDOM.render(
-    <LeftTabs {...props}>
-      <Tab eventKey={1} title="Tab1">Content1</Tab>
-      <Tab eventKey={2} title="Tab2">Content2</Tab>
-    </LeftTabs>,
-    root
-  );
+  beforeEach(() => {
+    onSelect = jasmine.createSpy('onSelect');
+    spyOnRender(Tabs).and.callThrough();
+
+    subject = ReactDOM.render(
+      <LeftTabs {...{
+        defaultActiveKey: 1,
+        responsiveBreakpoint: 'sm',
+        largeScreenClassName: 'lgclass',
+        smallScreenClassName: 'smclass',
+        onSelect
+      }}>
+        <Tab eventKey={1} title="Tab1">Content1</Tab>
+        <Tab eventKey={2} title="Tab2">Content2</Tab>
+      </LeftTabs>,
+      root
+    );
+  });
 
   it('passes all properties', () => {
-    const onSelectSpy = jasmine.createSpy();
-    subject = renderComponent({
-      defaultActiveKey: 1,
-      responsiveBreakpoint: 'sm',
-      largeScreenClassName: 'lgclass',
-      smallScreenClassName: 'smclass',
-      onSelect: onSelectSpy
-    });
-
     expect(subject.props.defaultActiveKey).toEqual(1);
     expect(subject.props.responsiveBreakpoint).toEqual('sm');
     expect(subject.props.smallScreenClassName).toEqual('smclass');
     expect(subject.props.largeScreenClassName).toEqual('lgclass');
-    expect(subject.props.onSelect).toEqual(onSelectSpy);
+    expect(subject.props.onSelect).toEqual(onSelect);
   });
 
   it('renders tabs stacked', () => {
-    subject = renderComponent();
-    const nav = findByClass(subject, 'nav');
     expect('.grid > .col > .nav').toExist();
   });
 
-  it('renders a Tabs component with tabType="left"', () => {
-    subject = renderComponent();
-    const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
-
-    expect(tabs.props.position).toEqual('left');
-    expect(tabs.props.tabType).toEqual('left');
-  });
-
-  describe('when props are passed for tabWidth', () => {
-    it('uses that values', () => {
-      subject = renderComponent({tabWidth: 4});
-      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
-      expect(tabs.props.tabWidth).toEqual(4);
+  it('renders a Tabs component', () => {
+    expect(Tabs).toHaveBeenRenderedWithProps({
+      position: 'left',
+      tabType: 'left',
+      tabWidth: 3,
+      animation: true,
+      responsiveBreakpoint: 'sm',
+      children: jasmine.any(Object),
+      onSelect,
+      largeScreenClassName: 'lgclass',
+      smallScreenClassName: 'smclass',
+      defaultActiveKey: 1
     });
   });
 
-  describe('when tabWidth is not passed', () => {
-    it('passes a default size to Tabs', () => {
-      subject = renderComponent();
-      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
-      expect(tabs.props.tabWidth).toEqual(1);
+  describe('when props are passed for tabWidth', () => {
+    beforeEach(() => {
+      subject::setProps({tabWidth: 4});
+    });
+
+    it('uses that values', () => {
+      expect(Tabs).toHaveBeenRenderedWithProps({
+        position: 'left',
+        tabType: 'left',
+        tabWidth: 4,
+        animation: true,
+        responsiveBreakpoint: 'sm',
+        children: jasmine.any(Object),
+        onSelect,
+        largeScreenClassName: 'lgclass',
+        smallScreenClassName: 'smclass',
+        defaultActiveKey: 1
+      });
     });
   });
 });
