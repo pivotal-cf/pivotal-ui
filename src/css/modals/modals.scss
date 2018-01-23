@@ -28,8 +28,12 @@
     @include translate(0, -25%);
     @include transition-transform(0.3s ease-out);
   }
-  &.in .modal-dialog { @include translate(0, 0) }
+
+  &.in .modal-dialog {
+    @include translate(0, 0)
+  }
 }
+
 .modal-open .modal {
   overflow-x: hidden;
   overflow-y: auto;
@@ -51,12 +55,16 @@
   position: relative;
   border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
   border: 1px solid $modal-content-border-color;
-  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
   background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: 0;
   background-color: #fff;
   border-radius: 2px;
+  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
+
+  @media (min-width: $screen-sm-min) {
+    @include box-shadow(0 5px 15px rgba(0, 0, 0, .5));
+  }
 }
 
 // Modal background
@@ -68,9 +76,15 @@
   left: 0;
   z-index: $zindex-modal-background;
   background-color: $modal-backdrop-bg;
+
   // Fade for backdrop
-  &.fade { @include opacity(0); }
-  &.in { @include opacity($modal-backdrop-opacity); }
+  &.fade {
+    @include opacity(0);
+  }
+
+  &.in {
+    @include opacity($modal-backdrop-opacity);
+  }
 }
 
 // Modal header
@@ -107,7 +121,7 @@
 // Footer (for actions)
 .modal-footer {
   padding: 0 ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
-  text-align: right; // right align buttons
+  text-align: right;
   border-top: 0;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
