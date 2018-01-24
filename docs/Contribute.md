@@ -1,4 +1,4 @@
-# Contribute to Pivotal-UI
+# Contribute to Pivotal UI
 
 [Github repo](https://github.com/pivotal-cf/pivotal-ui)
 
