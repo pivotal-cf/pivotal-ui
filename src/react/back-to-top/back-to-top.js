@@ -61,7 +61,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
     const {element} = privates.get(this) || {};
     const visible = alwaysVisible || visibleState;
     const props = mergeProps(others, {
-      className: 'back-to-top',
+      className: 'back-to-top pui-back-to-top',
       style: {display: 'inline', opacity: this.animate('opacity', visible ? 1 : 0, BackToTop.FADE_DURATION)}
     });
 

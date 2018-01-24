@@ -1,6 +1,6 @@
 @import "../pui-variables";
 
-.back-to-top {
+.pui-back-to-top, .back-to-top {
   color: $neutral-11;
   text-align: center;
   font-size: $font-size-h3;
@@ -24,6 +24,7 @@
     color: $neutral-11;
   }
 
+  // TODO: rename all occurrences of .icon to .pui-icon
   .icon {
     font-size: 20px;
     stroke: $neutral-11;

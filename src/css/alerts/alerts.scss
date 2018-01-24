@@ -1,23 +1,20 @@
 @import '../pui-variables';
-@import '../bootstrap/mixins';
+@import '../mixins';
 
-.alert {
-  border: none !important;
+.pui-alert, .alert {
+  border: none;
+  padding: 8px;
   margin: 0;
-  padding: 8px !important;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 
-  a.alert-link {
+  border-radius: $alert-border-radius;
+
+  a.pui-alert-link, a.alert-link {
     color: inherit;
     text-decoration: underline;
-  }
-
-  .icon {
-    font-size: $font-size-h3 !important;
-    line-height: $headings-line-height;
   }
 
   & > div.grid {
@@ -25,51 +22,61 @@
     padding: 0;
     width: 100%;
   }
-}
 
-.alert-dismissable .close {
-  top: inherit !important;
-  right: inherit !important;
-}
-
-.alert-success svg {
-  fill: $alert-success-text;
-}
-
-.alert-info svg {
-  fill: $alert-info-text;
-}
-
-.alert-warning svg {
-  fill: $alert-warning-text;
-}
-
-.alert-danger svg {
-  fill: $alert-danger-text;
-}
-
-.alert-success .alert-link:hover {
-  color: darken($alert-success-text, 10%);
-}
-
-.alert-info .alert-link:hover {
-  color: darken($alert-info-text, 10%);
-}
-
-.alert-warning .alert-link:hover {
-  color: darken($alert-warning-text, 10%);
-}
-
-//Bootstrap
-.alert-danger {
-  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
-}
-
-// bootstrap includes alert-danger, but our html expects "alert-error" class
-.alert-error {
-  @extend .alert-danger;
-
-  .alert-link:hover {
-    color: darken($alert-danger-text, 10%);
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    // Specified for the h4 to prevent conflicts of changing $headings-color
+    color: inherit;
   }
+
+  // Provide class for links that match alerts
+  .pui-alert-link, .alert-link {
+    font-weight: $alert-link-font-weight;
+  }
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+
+  > p + p {
+    margin-top: 5px;
+  }
+}
+
+.pui-alert, .alert {
+  .icon {
+    font-size: $font-size-h3;
+    line-height: $headings-line-height;
+  }
+}
+
+.pui-alert-dismissable .pui-close, .alert-dismissable .close {
+  top: inherit;
+  right: inherit;
+}
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+.pui-alert-success, .alert-success {
+  @include pui-alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
+}
+
+.pui-alert-info, .alert-info {
+  @include pui-alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
+}
+
+.pui-alert-warning, .alert-warning {
+  @include pui-alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
+}
+
+.pui-alert-danger, .alert-danger {
+  @include pui-alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
+}
+
+.pui-alert-error, .alert-error {
+  @extend .pui-alert-danger;
 }

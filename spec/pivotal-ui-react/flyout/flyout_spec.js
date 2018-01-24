@@ -70,7 +70,7 @@ describe('Flyout', () => {
   describe('header', () => {
     it('renders a close button', () => {
       expect(['.flyout-header.grid', '>', '.col.col-fixed',
-        '.btn.btn-default-flat.btn-icon',
+        '.pui-btn.pui-btn-default-flat.pui-btn-icon',
         '.icon.icon-middle .icon-close'].join(' ')).toHaveText('');
     });
 

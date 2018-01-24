@@ -1,5 +1,4 @@
 import '../spec_helper';
-import {Collapsible} from '../../../src/react/collapsible';
 import {Tab, LeftTabs, Tabs} from '../../../src/react/tabs';
 import MediaSize from '../../../src/react/tabs/media-size';
 
@@ -428,8 +427,8 @@ describe('LeftTabs', () => {
 
   it('renders tabs stacked', () => {
     subject = renderComponent();
-    const nav = findByClass(subject, 'nav');
-    expect(nav).toHaveClass('nav-stacked');
+    expect('.grid > .col > .nav').toExist();
+    expect('.grid > .col > .nav').toHaveClass('nav-stacked');
   });
 
   it('renders a Tabs component with tabType="left"', () => {
@@ -440,30 +439,19 @@ describe('LeftTabs', () => {
     expect(tabs.props.tabType).toEqual('left');
   });
 
-  describe('when props are passed for tabWidth and paneWidth', () => {
-    it('uses those values', () => {
-      subject = renderComponent({tabWidth: 4, paneWidth: 6});
-      const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
-      expect(tabs.props.tabWidth).toEqual(4);
-      expect(tabs.props.paneWidth).toEqual(6);
-    });
-  });
-
-  describe('when tabWidth is passed and paneWidth is not', () => {
-    it('passes a calculated column size to Tabs', () => {
+  describe('when props are passed for tabWidth', () => {
+    it('uses that values', () => {
       subject = renderComponent({tabWidth: 4});
       const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
       expect(tabs.props.tabWidth).toEqual(4);
-      expect(tabs.props.paneWidth).toEqual(20);
     });
   });
 
-  describe('when neither tabWidth nor paneWidth are passed', () => {
+  describe('when tabWidth is not passed', () => {
     it('passes a default size to Tabs', () => {
       subject = renderComponent();
       const tabs = ReactTestUtils.findRenderedComponentWithType(subject, Tabs);
-      expect(tabs.props.tabWidth).toEqual(6);
-      expect(tabs.props.paneWidth).toEqual(18);
+      expect(tabs.props.tabWidth).toEqual(3);
     });
   });
 });

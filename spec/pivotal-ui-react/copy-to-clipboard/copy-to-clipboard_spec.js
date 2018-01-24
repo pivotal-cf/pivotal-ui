@@ -1,5 +1,4 @@
 import '../spec_helper';
-
 import {CopyToClipboard} from '../../../src/react/copy-to-clipboard';
 
 describe('CopyToClipboard', () => {
@@ -31,9 +30,9 @@ describe('CopyToClipboard', () => {
     it('propagates attributes', () => {
       subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
 
-      expect('.copy-to-clipboard').toHaveClass('test-class');
-      expect('.copy-to-clipboard').toHaveAttr('id', 'test-id');
-      expect('.copy-to-clipboard').toHaveCss({opacity: '0.5'});
+      expect('.pui-copy-to-clipboard').toHaveClass('test-class');
+      expect('.pui-copy-to-clipboard').toHaveAttr('id', 'test-id');
+      expect('.pui-copy-to-clipboard').toHaveCss({opacity: '0.5'});
     });
 
     describe('clicking on the element', () => {
@@ -48,7 +47,7 @@ describe('CopyToClipboard', () => {
           tooltip: 'Copied in'
         });
 
-        $('.copy-to-clipboard .tooltip').simulate('click');
+        $('.pui-copy-to-clipboard .tooltip').simulate('click');
 
         expect('.tooltip-container').toHaveClass('tooltip-container-visible');
         expect('.tooltip-content').toHaveText('Copied in');
@@ -64,7 +63,7 @@ describe('CopyToClipboard', () => {
           style: {opacity: '0.5'}
         });
 
-        $('.copy-to-clipboard').simulate('click');
+        $('.pui-copy-to-clipboard').simulate('click');
         jasmine.clock().tick(2000);
 
         expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
@@ -80,7 +79,7 @@ describe('CopyToClipboard', () => {
           style: {opacity: '0.5'}
         });
 
-        $('.copy-to-clipboard').simulate('click');
+        $('.pui-copy-to-clipboard').simulate('click');
 
         expect(document.execCommand).toHaveBeenCalledWith('copy');
       });
@@ -95,7 +94,7 @@ describe('CopyToClipboard', () => {
           style: {opacity: '0.5'}
         });
 
-        $('.copy-to-clipboard').simulate('click');
+        $('.pui-copy-to-clipboard').simulate('click');
 
         expect(onClick).toHaveBeenCalled();
       });

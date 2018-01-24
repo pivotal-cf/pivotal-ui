@@ -1,5 +1,5 @@
 try {
-  require('../bootstrap');
+  require('../common');
   require('../links');
   require('../iconography');
   require('./back-to-top.css');

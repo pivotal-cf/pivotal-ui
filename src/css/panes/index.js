@@ -1,5 +1,5 @@
 try {
-  require('../bootstrap');
+  require('../common');
   require('./panes.css');
 } catch(e) {
 }

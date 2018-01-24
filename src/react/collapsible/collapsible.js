@@ -58,13 +58,13 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
     }
 
     const props = mergeProps(others, {
-      className: ['collapse', {'in': expanded || isAnimating}],
+      className: ['pui-collapsible', 'collapse', {'in': expanded || isAnimating}],
       style: isAnimating ? {overflow: 'hidden'} : {},
       'aria-hidden': !expanded
     });
 
     return (<div {...props}>
-      <div className="collapse-shield" style={style}>
+      <div className="pui-collapsible-shield collapse-shield" style={style}>
         {children}
       </div>
     </div>);

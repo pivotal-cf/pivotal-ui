@@ -5,6 +5,7 @@ import TabContent from './tab_content';
 import TabHeaders from './tab_headers';
 import classnames from 'classnames';
 import {default as mixin} from '../mixins';
+import {FlexCol, Grid} from '../flex-grids/flex-grids';
 
 export class LargeTabs extends mixin(React.Component).with(Animation) {
   static propTypes = {
@@ -45,8 +46,22 @@ export class LargeTabs extends mixin(React.Component).with(Animation) {
     const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
     const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
     const isLeft = position === 'left';
-    
-    return (<div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
+
+    if (isLeft) {
+      return (
+        <Grid className={classnames(largeScreenClasses, 'tab-left', 'clearfix')} {...props}>
+          <FlexCol fixed className={classnames({[`col-${tabWidth}`]: !!tabWidth})}>
+          {actionsNode}
+          <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect}} />
+          </FlexCol>
+          <FlexCol>
+          <TabContent {...{childArray, activeKey: currentActiveKey, id, isLeft, paneWidth, transitionProgress}}/>
+          </FlexCol>
+        </Grid>
+      );
+    }
+
+    return (<div className={largeScreenClasses} {...props}>
       {actionsNode}
       <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth}} />
       <TabContent {...{childArray, activeKey: currentActiveKey, id, isLeft, paneWidth, transitionProgress}}/>

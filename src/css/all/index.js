@@ -1,23 +1,20 @@
 try {
-  require('../grids');
   require('../flex-grids');
   require('../alerts');
   require('../alignment');
-  require('../avatars');
   require('../back-to-top');
   require('../backgrounds');
-  require('../bootstrap');
   require('../border');
   require('../box-shadows');
   require('../buttons');
   require('../code');
   require('../collapse');
   require('../colors');
+  require('../common');
   require('../dividers');
   require('../dropdowns');
   require('../ellipsis');
   require('../forms');
-  require('../google-maps');
   require('../hoverable');
   require('../iconography');
   require('../images');
