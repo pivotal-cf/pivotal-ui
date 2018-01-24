@@ -188,7 +188,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 
 ```jsx
 ::title=No borders
-::description=No external borders to rows using class .table-no-borders on the table element.
+::description=No borders to rows using class .table-no-borders on the table element.
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
 <Table columns={columns} data={data} className="table-no-borders"/>

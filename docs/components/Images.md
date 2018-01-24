@@ -15,7 +15,7 @@
 
 ```jsx
 ::title=Responsive
-::description=Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element..
+::description=Images can be made responsive-friendly via the addition of the `.img-responsive` class. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales nicely to the parent element.
 <Grid>
   <FlexCol grow={5}>
     <img alt="Responsive image" className="img-responsive" src="static/such-awesome.jpg"/>

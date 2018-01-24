@@ -28,7 +28,7 @@ Distinguish between primary and secondary CTAs in the title/header and footer (e
 ```
 
 ```jsx
-::title=Panel with Actions
+::title=Panel with actions
 <Panel
     title="Title"
     titleCols={[<FlexCol fixed><button className="btn btn-default mrl">Go</button></FlexCol>, <FlexCol fixed><button className="btn btn-default-alt">Stop</button></FlexCol>]}

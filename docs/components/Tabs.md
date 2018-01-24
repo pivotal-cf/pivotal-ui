@@ -35,10 +35,10 @@ When a user would like to access each group of information separately. | When it
 
 ```jsx
 ::title=Left tabs
-<LeftTabs defaultActiveKey={1} tabWidth={3} paneWidth={9}>
+<LeftTabs defaultActiveKey={1}>
   <Tab eventKey={1} title="Tab 1">Wow!</Tab>
   <Tab eventKey={2} title="Tab 2">
-    Neat!
+    <h2>Neat!</h2>
     <span>So much content.</span>
   </Tab>
 </LeftTabs>
@@ -97,5 +97,4 @@ Left
 
 Property   | Required? | Type             | Description                                  | Default
 -----------| ----------|------------------| ---------------------------------------------|------------------------
-`tabWidth` | no        |  `number`        | The number of bs columns for the tabs        | 6
-`paneWidth` | no       | `number`         | The number of bs columns for the tab content | 24 - `tabWidth`
+`tabWidth` | no        |  `number`        | The amount of FlexCol growth for the tabs    | 3
