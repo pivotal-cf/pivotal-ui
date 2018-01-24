@@ -46,6 +46,7 @@ export class LargeTabs extends mixin(React.Component).with(Animation) {
     const largeScreenClasses = classnames([`tab-${tabType}`, largeScreenClassName, className]);
     const actionsNode = actions ? <div className="tabs-action">{actions}</div> : null;
     const isLeft = position === 'left';
+
     if (isLeft) {
       return (
         <Grid className={classnames(largeScreenClasses, 'tab-left', 'clearfix')} {...props}>
@@ -59,7 +60,8 @@ export class LargeTabs extends mixin(React.Component).with(Animation) {
         </Grid>
       );
     }
-    return (<div className={classnames(largeScreenClasses, {'tab-left clearfix': isLeft})} {...props}>
+
+    return (<div className={largeScreenClasses} {...props}>
       {actionsNode}
       <TabHeaders {...{childArray, activeKey, handleClick, isLeft, id, onSelect, tabWidth}} />
       <TabContent {...{childArray, activeKey: currentActiveKey, id, isLeft, paneWidth, transitionProgress}}/>
