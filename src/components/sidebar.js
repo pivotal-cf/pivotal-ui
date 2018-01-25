@@ -1,17 +1,16 @@
 import React from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
-import {Collapse} from 'pivotal-ui/react/collapse';
 import {Iconography, Icon} from 'pivotal-ui/react/iconography';
 import {Input} from 'pivotal-ui/react/inputs';
 import {componentItems} from '../helpers/content';
+import classnames from 'classnames';
 
 const searchItems = componentItems;
 
-const ContentLink = ({onClick, link, text, active}) => {
-  const className = active ? 'sidebar--item-wrapper sidebar--item-wrapper__active' : 'sidebar--item-wrapper';
-
+const ContentLink = ({onClick, link, text, active, className}) => {
   return (
-    <div className={className}>
+    <div className={classnames(className, 'sidebar--item-wrapper',
+      {'sidebar--item-wrapper__active': active})}>
       <a onClick={onClick}
          href={link}
          className="sidebar--item">{text}</a>
@@ -31,8 +30,6 @@ export default class Sidebar extends React.PureComponent {
   }
 
   render() {
-    const componentLinks = componentItems.map(c => c.href);
-
     const onInitializeItems = callback => callback(searchItems.map(item => item.name));
     const SearchBar = () => <Autocomplete onInitializeItems={onInitializeItems}
                                           placeholder="Search"
@@ -43,6 +40,7 @@ export default class Sidebar extends React.PureComponent {
 
     const components = componentItems
       .map((component, i) => <ContentLink key={i}
+                                          className="sidebar-component"
                                           onClick={this.handleClick.bind(this)}
                                           link={component.href}
                                           text={component.name}
@@ -64,9 +62,6 @@ export default class Sidebar extends React.PureComponent {
                        link="faq"
                        text="FAQ"
                        active={'faq' === this.props.activePath}/>
-          <Collapse className={componentLinks.indexOf(this.props.activePath) !== -1 ? 'active' : ''}
-                    defaultExpanded={componentLinks.indexOf(this.props.activePath) !== -1}
-                    header="Components">{components}</Collapse>
           <ContentLink onClick={this.handleClick.bind(this)}
                        link="upgradeguide"
                        text="Upgrade Guide"
@@ -80,6 +75,8 @@ export default class Sidebar extends React.PureComponent {
                        text="Versions"
                        active={'versions' === this.props.activePath}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
+          <ContentLink text="Components" className="sidebar-components"/>
+          {components}
         </div>
       </div>
     );

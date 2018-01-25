@@ -94,6 +94,23 @@ $active-item-border-size: $base-unit / 2;
     }
   }
 
+  &.sidebar-component a {
+    padding-left: 4 * $base-unit;
+  }
+
+  &.sidebar--item-wrapper__active.sidebar-component a {
+    padding-left: 4 * $base-unit - $active-item-border-size;
+  }
+
+  &.sidebar-components a {
+    cursor: initial;
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   .sidebar--item {
     padding-left: $sidebar-item-left-padding;
   }
