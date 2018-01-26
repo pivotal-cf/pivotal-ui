@@ -40,6 +40,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 
 ```jsx
 ::title=Brand button
+::description=This button color is only for marketing purposes. Pivotal products should refrain from using this button.
 <div>
     <BrandButton>Brand</BrandButton>
     <BrandButton alt>Brand Alt</BrandButton>
