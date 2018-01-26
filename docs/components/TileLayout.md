@@ -2,25 +2,21 @@
 
 ## Examples
 
-```
-import {ClickableAltPanel} from 'pivotal-ui/react/panels';
-```
-
 ```jsx
 ::title=Basic example
 <div>
   <TileLayout columns={3}>
     <TileLayoutItem>
-      <ClickableAltPanel>Hey</ClickableAltPanel>
+      <DefaultButton>Hey</DefaultButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>What</ClickableAltPanel>
+      <PrimaryButton>What</PrimaryButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>Hello</ClickableAltPanel>
+      <DangerButton>Hello</DangerButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>What</ClickableAltPanel>
+      <BrandButton>What</BrandButton>
     </TileLayoutItem>
   </TileLayout>
 </div>
@@ -32,16 +28,16 @@ import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 <div>
   <TileLayout columns={{xs: 1, sm: 2, md: 3}}>
     <TileLayoutItem>
-      <ClickableAltPanel>Hey</ClickableAltPanel>
+      <DefaultButton>Hey</DefaultButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>What</ClickableAltPanel>
+      <PrimaryButton>What</PrimaryButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>Hello</ClickableAltPanel>
+      <DangerButton>Hello</DangerButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>What</ClickableAltPanel>
+      <BrandButton>What</BrandButton>
     </TileLayoutItem>
   </TileLayout>
 </div>
@@ -53,13 +49,13 @@ import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 <div>
   <TileLayout noGutter columns={3}>
     <TileLayoutItem>
-      <ClickableAltPanel>Hey</ClickableAltPanel>
+      <DefaultButton>Hey</DefaultButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>What</ClickableAltPanel>
+      <PrimaryButton>What</PrimaryButton>
     </TileLayoutItem>
     <TileLayoutItem>
-      <ClickableAltPanel>Hello</ClickableAltPanel>
+      <DangerButton>Hello</DangerButton>
     </TileLayoutItem>
   </TileLayout>
 </div>
@@ -72,15 +68,11 @@ import {ClickableAltPanel} from 'pivotal-ui/react/panels';
 
 `import {TileLayout, TileLayoutItem} from 'pivotal-ui/react/tile-layout';`
 
-`import {Panels} from 'pivotal-ui/react/panels';`
-
 #### CSS Only
 
 `npm install pivotal-ui --save`
 
 `import * as TileLayout from 'pivotal-ui/css/tile-layout';`
-
-`import * as Panels from 'pivotal-ui/css/panels';`
 
 ## Props
 
