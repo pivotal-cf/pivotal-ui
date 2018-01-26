@@ -139,13 +139,16 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
       <ul aria-label="submenu" onClick={this.menuClick}>{children}</ul>
     </div>);
 
-    const splitProps = {href, 'aria-label': labelAriaLabel};
-
     return (<div className={dropdownClasses} {...props}>
       {split ? <Grid gutter={false}>
           <FlexCol>
-            <a className={classnames('dropdown-label', splitClassName)} {...{...splitProps}}
-               onClick={this.handleSplitClick}>{title}</a>
+            <a {...{
+              className: classnames('dropdown-label', splitClassName),
+              href,
+              'aria-label': labelAriaLabel,
+              onClick: this.handleSplitClick.bind(this),
+              role: onSplitClick && 'button'
+            }}>{title}</a>
           </FlexCol>
           <FlexCol fixed className="dropdown-icon-col col-middle">
             {toggleNode}

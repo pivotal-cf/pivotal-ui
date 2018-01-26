@@ -66,6 +66,10 @@ describe('Dropdown', () => {
       expect('.dropdown-label').toHaveClass('split-class');
     });
 
+    it('does not add role="button" to the anchor tag', () => {
+      expect('a.dropdown-label').toHaveAttr('role', null);
+    });
+
     describe('when there is no href provided', () => {
       let onClickSpy, onSplitClickSpy;
       beforeEach(() => {
@@ -84,6 +88,10 @@ describe('Dropdown', () => {
         $('.dropdown-label').simulate('click');
         expect(onSplitClickSpy.toHaveBeenCalled);
         expect(subject.state.open).toBeFalsy();
+      });
+
+      it('adds role="button" to the anchor tag', () => {
+        expect('a.dropdown-label').toHaveAttr('role', 'button');
       });
     });
   });
