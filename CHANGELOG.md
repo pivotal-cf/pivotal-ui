@@ -1,3 +1,55 @@
+<a name="14.0.0"></a>
+# 14.0.0 (2018-01-26)
+#### CSS
+* **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **all**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **autocomplete**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **avatars**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **back-to-top**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **bootstrap**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **button-group**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **buttons**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **code**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **collapse**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **common**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **copy-to-clipboard**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **dropdowns**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **forms**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **google-maps**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **grids**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **images**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **links**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **media**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **mixins.scss**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **modals**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **panels**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **panes**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **progress-bars**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **pui-variables.scss**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **tables**:
+  * Fix table-no-ext-borders for FlexTables [[:beetle:#154380467](https://www.pivotaltracker.com/story/show/154380467)] ([f16dd4e3](https://github.com/pivotal-cf/pivotal-ui/commit/f16dd4e3))
+  * Fix missing bottom border on table footer row [#153578787] ([901dd522](https://github.com/pivotal-cf/pivotal-ui/commit/901dd522))
+* **tabs**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **typography**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+#### React
+* **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **back-to-top**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **buttons**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **collapse**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **collapsible**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **copy-to-clipboard**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **grids**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **iconography**: When an invalid icon name is provided, default to 'help' icon and console warn [[:beetle:#154292350](https://www.pivotaltracker.com/story/show/154292350)] ([999f633f](https://github.com/pivotal-cf/pivotal-ui/commit/999f633f))
+* **table**: Do not reset the sort state when props are updated [[:beetle:#154374720](https://www.pivotaltracker.com/story/show/154374720)] ([a0affbf0](https://github.com/pivotal-cf/pivotal-ui/commit/a0affbf0))
+* **tabs**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+<a name="13.0.1"></a>
+## 13.0.1 (2018-01-16)
+#### CSS
+* **tables**:
+  * Fix table-no-ext-borders for FlexTables [[:beetle:#154380467](https://www.pivotaltracker.com/story/show/154380467)] ([b5e61e66](https://github.com/pivotal-cf/pivotal-ui/commit/b5e61e66))
+  * Fix missing bottom border on table footer row [#153578787] ([5209ccbe](https://github.com/pivotal-cf/pivotal-ui/commit/5209ccbe))
+#### React
+* **table**: Do not reset the sort state when props are updated [[:beetle:#154374720](https://www.pivotaltracker.com/story/show/154374720)] ([5a412667](https://github.com/pivotal-cf/pivotal-ui/commit/5a412667))
 <a name="13.0.0"></a>
 # 13.0.0 (2018-01-12)
 #### CSS
@@ -318,7 +370,7 @@
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
 * **tables**:
   * css for table drawers [[:star:#151028511](https://www.pivotaltracker.com/story/show/151028511)] ([bbe85867](https://github.com/pivotal-cf/pivotal-ui/commit/bbe85867))
-  * update html table css to make font-size less specific [[:star:#150190185](https://www.pivotaltracker.com/story/show/150190185)] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
+  * update html table css to make font-size less specific [#150190185] ([0ee46574](https://github.com/pivotal-cf/pivotal-ui/commit/0ee46574))
 * **tabs**:
   * update left tabs for 8pt grid [[:star:#150271625](https://www.pivotaltracker.com/story/show/150271625)] ([accdf79c](https://github.com/pivotal-cf/pivotal-ui/commit/accdf79c))
   * update tab action padding for 8pt grid [[:star:#150269434](https://www.pivotaltracker.com/story/show/150269434)] ([bdc052de](https://github.com/pivotal-cf/pivotal-ui/commit/bdc052de))
