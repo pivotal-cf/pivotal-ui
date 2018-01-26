@@ -61,7 +61,7 @@ describe('FormCol', () => {
 
     beforeEach(() => {
       checkbox = <input type="checkbox"/>;
-      state = {current: {checkboxName: true}};
+      state = {current: {}};
       innerOnChange = () => 'changed';
       onChangeCheckbox = jasmine.createSpy('onChangeCheckbox').and.returnValue(innerOnChange);
 
@@ -74,8 +74,24 @@ describe('FormCol', () => {
       expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
         name: 'checkboxName',
         id: 'some-unique-string',
-        checked: true,
+        checked: false,
         onChange: innerOnChange
+      });
+    });
+
+    describe('when the value is true in the state', () => {
+      beforeEach(() => {
+        state = {current: {checkboxName: true}};
+        subject::setProps({state});
+      });
+
+      it('passes in the correct props to the cloned element', () => {
+        expect(React.cloneElement).toHaveBeenCalledWith(checkbox, {
+          name: 'checkboxName',
+          id: 'some-unique-string',
+          checked: true,
+          onChange: innerOnChange
+        });
       });
     });
 
