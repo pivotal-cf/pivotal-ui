@@ -63,7 +63,7 @@ export class FormCol extends React.Component {
       if (name) {
         const isCheckbox = element.props.type === 'checkbox';
         if (isCheckbox) {
-          props.checked = element.props.hasOwnProperty('checked') ? element.props.checked : (state.current && state.current[name]);
+          props.checked = !!(element.props.hasOwnProperty('checked') ? element.props.checked : (state.current && state.current[name]));
           props.onChange = element.props.onChange || onChangeCheckbox(name);
         } else {
           props.value = element.props.hasOwnProperty('value') ? element.props.value : (state.current && state.current[name]);
