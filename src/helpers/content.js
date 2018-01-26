@@ -22,6 +22,7 @@ import * as Buttons from 'pivotal-ui/react/buttons';
 import * as Checkbox from 'pivotal-ui/react/checkbox';
 import * as CheckboxDropdown from 'pivotal-ui/react/checkbox-dropdown';
 import * as Collapse from 'pivotal-ui/react/collapse';
+import * as Collapsible from 'pivotal-ui/react/collapsible';
 import * as Clipboard from 'pivotal-ui/react/copy-to-clipboard';
 import * as Dividers from 'pivotal-ui/react/dividers';
 import * as DraggableList from 'pivotal-ui/react/draggable-list';
@@ -73,6 +74,7 @@ import CheckboxDropdownJson from '../../docs/components/CheckboxDropdowns.md';
 import CheckboxesJson from '../../docs/components/Checkboxes.md';
 import CodeJson from '../../docs/components/Code.md';
 import CollapseJson from '../../docs/components/Collapse.md';
+import CollapsibleJson from '../../docs/components/Collapsible.md';
 import ColorsJson from '../../docs/components/Colors.md';
 import CopyToClipboardJson from '../../docs/components/CopyToClipboard.md';
 import DividersJson from '../../docs/components/Dividers.md';
@@ -134,6 +136,7 @@ const routes = {
   checkboxes: {json: CheckboxesJson, file: 'components/Checkboxes.md', name: 'Checkboxes', category: 'Components', packages: [Checkbox]},
   code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
   collapse: {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
+  collapsible: {json: CollapsibleJson, file: 'components/Collapsible.md', name: 'Collapsible', category: 'Components', packages: [Collapsible]},
   colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Colors]},
   copy_to_clipboard: {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
   dividers: {json: DividersJson, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},

@@ -59,3 +59,5 @@ Property | Required | Type | Default | Description
 expanded  | no | Boolean   | false | Whether to render expanded or not
 onEntered | no | Function  |       | Hook that fires when expand occurs
 onExited  | no | Function  |       | Hook that fires when collapse occurs
+
+All props are also passed to the inner `Collapsible` component.
