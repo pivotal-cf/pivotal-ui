@@ -38,6 +38,7 @@
 * **collapse**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **collapsible**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **copy-to-clipboard**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **forms**: Coerce checked property of checkboxes within Forms to be booleans [[:beetle:#154579887](https://www.pivotaltracker.com/story/show/154579887)] ([f51a2069](https://github.com/pivotal-cf/pivotal-ui/commit/f51a2069))
 * **grids**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **iconography**: When an invalid icon name is provided, default to 'help' icon and console warn [[:beetle:#154292350](https://www.pivotaltracker.com/story/show/154292350)] ([999f633f](https://github.com/pivotal-cf/pivotal-ui/commit/999f633f))
 * **table**: Do not reset the sort state when props are updated [[:beetle:#154374720](https://www.pivotaltracker.com/story/show/154374720)] ([a0affbf0](https://github.com/pivotal-cf/pivotal-ui/commit/a0affbf0))
