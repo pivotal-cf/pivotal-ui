@@ -17,7 +17,6 @@ import {Input} from 'pivotal-ui/react/inputs';
 
 ```jsx
 ::title=Basic example
-::description=**Note**: A modal will be rendered at the end of `body` instead of the DOM node it is given. This makes positioning work regardless of where you render the modal. One side effect is `ReactDOM.findDOMNode`does not actually find the modal DOM node. 
 class MyModal extends React.Component {
   constructor(props) {
     super(props);
