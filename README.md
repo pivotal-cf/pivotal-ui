@@ -6,13 +6,6 @@
 
 Pivotal UI is a collection of React components that are styled for the Pivotal brand. [Visit the live styleguide here.](http://styleguide.pivotal.io)
 
-# Starting with Pivotal UI 
-
-We've created two starter projects to help transitioning to Pivotal UI and React.
-
-- If you want to quickly try out some Pivotal UI components, try [pivotal-cf/pui-starter-project](https://github.com/pivotal-cf/pui-starter-project)
-- If you want to skip directly to building a full React application, try [pivotal-cf/react-starter](https://github.com/pivotal-cf/react-starter)
-
 # Using Pivotal UI - React Components
 
 ### Environment
@@ -81,4 +74,4 @@ Please refer to our [contribution guidelines](https://github.com/pivotal-cf/pivo
 
 # Copyright Notice
 
-Copyright 2017 Pivotal Software, Inc. All Rights Reserved.
+Copyright 2018 Pivotal Software, Inc. All Rights Reserved.
