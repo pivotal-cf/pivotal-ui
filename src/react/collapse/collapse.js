@@ -33,7 +33,7 @@ export class BaseCollapse extends React.PureComponent {
 
   render() {
     const {children, defaultExpanded, divider, header, ...others} = this.props;
-    const props = mergeProps(others, {className: ['panel', {'panel-divider': divider}]});
+    const props = mergeProps(others, {className: ['panel', 'pui-collapse', {'panel-divider': divider}]});
     const {expanded} = this.state;
 
     return (<div {...props}>

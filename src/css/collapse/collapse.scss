@@ -84,3 +84,7 @@
 .panel-divider > .panel-heading + .panel-collapse > .panel-body { // stupidly long selector because, bootstrap
   @extend .panel-body-accordion-divider;
 }
+
+.pui-collapse.panel {
+  box-shadow: none;
+}
