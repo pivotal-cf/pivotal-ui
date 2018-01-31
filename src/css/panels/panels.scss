@@ -61,6 +61,10 @@
     }
   }
 
+  .pui-panel-header {
+    border-bottom: 3px solid $dark-9;
+  }
+
   .pui-panel-header, .pui-panel-footer {
     padding: $base-unit;
   }
