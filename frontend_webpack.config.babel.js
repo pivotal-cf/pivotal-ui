@@ -11,6 +11,12 @@ export default {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
+  resolve: {
+    alias: {
+      'node_modules/pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src'),
+      'pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src')
+    }
+  },
   module: {
     rules: [
       {

@@ -1139,7 +1139,7 @@ babel-register@^6.26.0, babel-register@^6.9.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.15"
 
-babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0, babel-runtime@^6.26.0, babel-runtime@^6.3.19, babel-runtime@^6.6.1, babel-runtime@^6.9.1:
+babel-runtime@^6.11.6, babel-runtime@^6.18.0, babel-runtime@^6.22.0, babel-runtime@^6.26.0, babel-runtime@^6.3.19, babel-runtime@^6.9.1:
   version "6.26.0"
   resolved "https://registry.yarnpkg.com/babel-runtime/-/babel-runtime-6.26.0.tgz#965c7058668e82b55d7bfe04ff2337bc8b5647fe"
   dependencies:
@@ -1650,7 +1650,7 @@ clap@^1.0.9:
   dependencies:
     chalk "^1.1.3"
 
-classnames@^2.1.2:
+classnames@^2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.5.tgz#fb3801d453467649ef3603c7d61a02bd129bde6d"
 
@@ -2608,10 +2608,6 @@ each-async@^1.0.0, each-async@^1.1.1:
     onetime "^1.0.0"
     set-immediate-shim "^1.0.0"
 
-easing-js@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/easing-js/-/easing-js-1.1.2.tgz#42077952bc3cd6e06aa6d336a9bf3c4eeced2594"
-
 ecc-jsbn@~0.1.1:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/ecc-jsbn/-/ecc-jsbn-0.1.1.tgz#0fc73a9ed5f0d53c38193398523ef7e543777505"
@@ -3134,7 +3130,7 @@ faye-websocket@~0.11.0:
   dependencies:
     websocket-driver ">=0.5.1"
 
-fbjs@^0.8.16, fbjs@^0.8.4:
+fbjs@^0.8.16:
   version "0.8.16"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.16.tgz#5e67432f550dc41b572bf55847b8aca64e5337db"
   dependencies:
@@ -3406,7 +3402,7 @@ from2@^2.1.0, from2@^2.3.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
 
-from@^0.1.3, from@~0:
+from@~0:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
 
@@ -4085,12 +4081,6 @@ hasha@~2.2.0:
     is-stream "^1.0.1"
     pinkie-promise "^2.0.0"
 
-hasharray@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/hasharray/-/hasharray-1.1.0.tgz#fe87cf9977baa9d9159b8465a8e2edf58fd0d681"
-  dependencies:
-    jclass "^1.0.1"
-
 hast-to-hyperscript@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/hast-to-hyperscript/-/hast-to-hyperscript-3.0.2.tgz#8468ed08b8382f130e003a38ef735bcf29737336"
@@ -4390,12 +4380,6 @@ imagemin@^5.2.2:
     pify "^2.3.0"
     replace-ext "^1.0.0"
 
-immutability-helper@^2.0.0:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/immutability-helper/-/immutability-helper-2.4.0.tgz#00d421e2957c17f0f0781475f05ffd837e73458d"
-  dependencies:
-    invariant "^2.2.0"
-
 import-lazy@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/import-lazy/-/import-lazy-2.1.0.tgz#05698e3d45c88e8d7e9d92cb0584e77f096f3e43"
@@ -4505,7 +4489,7 @@ interpret@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
 
-invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
+invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -4929,10 +4913,6 @@ jasmine_dom_matchers@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/jasmine_dom_matchers/-/jasmine_dom_matchers-1.4.0.tgz#77770373dc718900bbf47b47db707548d468d012"
 
-jclass@^1.0.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/jclass/-/jclass-1.2.1.tgz#eaafeec0dd6a5bf8b3ea43c04e010c637638768b"
-
 jquery@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.2.1.tgz#5c4d9de652af6cd0a770154a631bba12b015c787"
@@ -5219,40 +5199,9 @@ lodash._baseassign@^3.0.0:
     lodash._basecopy "^3.0.0"
     lodash.keys "^3.0.0"
 
-lodash._basecallback@^3.0.0:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/lodash._basecallback/-/lodash._basecallback-3.3.1.tgz#b7b2bb43dc2160424a21ccf26c57e443772a8e27"
-  dependencies:
-    lodash._baseisequal "^3.0.0"
-    lodash._bindcallback "^3.0.0"
-    lodash.isarray "^3.0.0"
-    lodash.pairs "^3.0.0"
-
-lodash._basecompareascending@^3.0.0:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash._basecompareascending/-/lodash._basecompareascending-3.0.2.tgz#17e24f181eea9ed2b1f989dc800b7619644eac53"
-
 lodash._basecopy@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._basecopy/-/lodash._basecopy-3.0.1.tgz#8da0e6a876cf344c0ad8a54882111dd3c5c7ca36"
-
-lodash._baseeach@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/lodash._baseeach/-/lodash._baseeach-3.0.4.tgz#cf8706572ca144e8d9d75227c990da982f932af3"
-  dependencies:
-    lodash.keys "^3.0.0"
-
-lodash._baseisequal@^3.0.0:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/lodash._baseisequal/-/lodash._baseisequal-3.0.7.tgz#d8025f76339d29342767dcc887ce5cb95a5b51f1"
-  dependencies:
-    lodash.isarray "^3.0.0"
-    lodash.istypedarray "^3.0.0"
-    lodash.keys "^3.0.0"
-
-lodash._basesortby@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/lodash._basesortby/-/lodash._basesortby-3.0.0.tgz#d0a9aad47bb917c0ed90b1e22d0387ea189128cb"
 
 lodash._basetostring@^3.0.0:
   version "3.0.1"
@@ -5337,12 +5286,6 @@ lodash.clonedeep@^4.3.2, lodash.clonedeep@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
 
-lodash.debounce@^3.0.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-3.1.1.tgz#812211c378a94cc29d5aa4e3346cf0bfce3a7df5"
-  dependencies:
-    lodash._getnative "^3.0.0"
-
 lodash.defaults@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash.defaults/-/lodash.defaults-3.1.2.tgz#c7308b18dbf8bc9372d701a73493c61192bd2e2c"
@@ -5356,10 +5299,6 @@ lodash.escape@^3.0.0:
   dependencies:
     lodash._root "^3.0.0"
 
-lodash.flow@^3.2.1:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/lodash.flow/-/lodash.flow-3.5.0.tgz#87bf40292b8cf83e4e8ce1a3ae4209e20071675a"
-
 lodash.isarguments@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash.isarguments/-/lodash.isarguments-3.1.0.tgz#2f573d85c6a24289ff00663b491c1d338ff3458a"
@@ -5372,10 +5311,6 @@ lodash.isequal@^4.0.0, lodash.isequal@^4.1.1:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
 
-lodash.isobject@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/lodash.isobject/-/lodash.isobject-3.0.2.tgz#3c8fb8d5b5bf4bf90ae06e14f2a530a4ed935e1d"
-
 lodash.isplainobject@^4.0.4, lodash.isplainobject@~4.0.4:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -5383,10 +5318,6 @@ lodash.isplainobject@^4.0.4, lodash.isplainobject@~4.0.4:
 lodash.isstring@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/lodash.isstring/-/lodash.isstring-4.0.1.tgz#d527dfb5456eca7cc9bb95d5daeaf88ba54a5451"
-
-lodash.istypedarray@^3.0.0:
-  version "3.0.6"
-  resolved "https://registry.yarnpkg.com/lodash.istypedarray/-/lodash.istypedarray-3.0.6.tgz#c9a477498607501d8e8494d283b87c39281cef62"
 
 lodash.kebabcase@^4.1.1:
   version "4.1.1"
@@ -5420,12 +5351,6 @@ lodash.once@^4.0.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/lodash.once/-/lodash.once-4.1.1.tgz#0dd3971213c7c56df880977d504c88fb471a97ac"
 
-lodash.pairs@^3.0.0:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/lodash.pairs/-/lodash.pairs-3.0.1.tgz#bbe08d5786eeeaa09a15c91ebf0dcb7d2be326a9"
-  dependencies:
-    lodash.keys "^3.0.0"
-
 lodash.rest@^4.0.0:
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/lodash.rest/-/lodash.rest-4.0.5.tgz#954ef75049262038c96d1fc98b28fdaf9f0772aa"
@@ -5437,18 +5362,6 @@ lodash.restparam@^3.0.0:
 lodash.some@^4.2.2:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/lodash.some/-/lodash.some-4.6.0.tgz#1bb9f314ef6b8baded13b549169b2a945eb68e4d"
-
-lodash.sortby@^3.1.1:
-  version "3.1.5"
-  resolved "https://registry.yarnpkg.com/lodash.sortby/-/lodash.sortby-3.1.5.tgz#98403acf75fefb240693831f4bc0d951f94701b8"
-  dependencies:
-    lodash._basecallback "^3.0.0"
-    lodash._basecompareascending "^3.0.0"
-    lodash._baseeach "^3.0.0"
-    lodash._basesortby "^3.0.0"
-    lodash._isiterateecall "^3.0.0"
-    lodash.isarray "^3.0.0"
-    lodash.keys "^3.0.0"
 
 lodash.template@4.2.4:
   version "4.2.4"
@@ -5488,12 +5401,6 @@ lodash.templatesettings@^4.0.0:
   dependencies:
     lodash._reinterpolate "~3.0.0"
 
-lodash.throttle@^3.0.2:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/lodash.throttle/-/lodash.throttle-3.0.4.tgz#bc4f471fb328e4d6fdc6df2b3d3caf113f0f89c9"
-  dependencies:
-    lodash.debounce "^3.0.0"
-
 lodash.tostring@^4.0.0:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/lodash.tostring/-/lodash.tostring-4.1.4.tgz#560c27d1f8eadde03c2cce198fef5c031d8298fb"
@@ -5505,12 +5412,6 @@ lodash.union@~4.6.0:
 lodash.uniq@^4.5.0, lodash.uniq@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
-
-lodash.uniqueid@^3.0.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/lodash.uniqueid/-/lodash.uniqueid-3.2.0.tgz#59416f134103ce253d4b4aa818272be3fbbcbbdb"
-  dependencies:
-    lodash._root "^3.0.0"
 
 lodash.without@~4.4.0:
   version "4.4.0"
@@ -6841,26 +6742,6 @@ pivotal-js-react-test-helpers@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/pivotal-js-react-test-helpers/-/pivotal-js-react-test-helpers-0.1.0.tgz#0f951e6d00c4fcd9678ac69b29c59af888c25910"
 
-"pivotal-ui@file:pui-dist":
-  version "12.0.0"
-  dependencies:
-    classnames "^2.1.2"
-    deep-equal "^1.0.1"
-    from "^0.1.3"
-    lodash.sortby "^3.1.1"
-    lodash.throttle "^3.0.2"
-    lodash.uniqueid "^3.0.0"
-    prismjs "0.0.1"
-    pui-cursor "^3.0.4"
-    pui-react-animation "^1.0.2"
-    raf "^3.1.0"
-    react-addons-shallow-compare "^15.0.1"
-    react-dom "^16.0.0"
-    scroll-into-view "^1.3.0"
-    tether "^1.3.7"
-    through "^2.3.8"
-    trie-search "^1.0.1"
-
 pkg-conf@^1.1.2:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/pkg-conf/-/pkg-conf-1.1.3.tgz#378e56d6fd13e88bfb6f4a25df7a83faabddba5b"
@@ -7176,10 +7057,6 @@ pretty@^1.0.0:
   dependencies:
     js-beautify "~1.5.4"
 
-prismjs@0.0.1:
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-0.0.1.tgz#0fd50f4baf26e5cd33523b65bac2f0bc90f5503f"
-
 private@^0.1.6, private@^0.1.7, private@~0.1.5:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
@@ -7286,26 +7163,6 @@ public-encrypt@^4.0.0:
     create-hash "^1.1.0"
     parse-asn1 "^5.0.0"
     randombytes "^2.0.1"
-
-pui-cursor@^3.0.4:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/pui-cursor/-/pui-cursor-3.0.5.tgz#e80805f27edfc4e7b8c54d2755180cd087729bb5"
-  dependencies:
-    babel-runtime "^6.6.1"
-    immutability-helper "^2.0.0"
-    lodash.flow "^3.2.1"
-    lodash.isobject "^3.0.2"
-    warning "^2.1.0"
-
-pui-react-animation@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/pui-react-animation/-/pui-react-animation-1.0.2.tgz#7ab2d167fa871dbfde72180007df8ab0ae06fa34"
-  dependencies:
-    babel-runtime "^6.23.0"
-    easing-js "^1.1.2"
-    performance-now "^0.2.0"
-    raf "^3.0.0"
-    react ">=0.13.3"
 
 pui-react-tools@^3.0.2:
   version "3.0.2"
@@ -7429,12 +7286,6 @@ qw@~1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/qw/-/qw-1.0.1.tgz#efbfdc740f9ad054304426acb183412cc8b996d4"
 
-raf@^3.0.0, raf@^3.1.0:
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/raf/-/raf-3.4.0.tgz#a28876881b4bc2ca9117d4138163ddb80f781575"
-  dependencies:
-    performance-now "^2.1.0"
-
 randomatic@^1.1.3:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/randomatic/-/randomatic-1.1.7.tgz#c7abe9cc8b87c0baa876b19fde83fd464797e38c"
@@ -7469,13 +7320,6 @@ react-ace@^4.1.1:
     lodash.isequal "^4.1.1"
     opencollective "^1.0.3"
     prop-types "^15.5.8"
-
-react-addons-shallow-compare@^15.0.1:
-  version "15.6.2"
-  resolved "https://registry.yarnpkg.com/react-addons-shallow-compare/-/react-addons-shallow-compare-15.6.2.tgz#198a00b91fc37623db64a28fd17b596ba362702f"
-  dependencies:
-    fbjs "^0.8.4"
-    object-assign "^4.1.0"
 
 react-deep-force-update@^2.0.1:
   version "2.1.1"
@@ -7526,7 +7370,7 @@ react-svg-loader@^1.1.1:
     svgo "~0.6.3"
     yargs "~4.8.0"
 
-react@>=0.13.3, react@^16.0.0:
+react@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.0.0.tgz#ce7df8f1941b036f02b2cca9dbd0cb1f0e855e2d"
   dependencies:
@@ -8098,10 +7942,6 @@ schema-utils@^0.3.0:
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-0.3.0.tgz#f5877222ce3e931edae039f17eb3716e7137f8cf"
   dependencies:
     ajv "^5.0.0"
-
-scroll-into-view@^1.3.0:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/scroll-into-view/-/scroll-into-view-1.9.1.tgz#90c3b338422f9fddaebad90e6954790940dc9c1e"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
@@ -8909,10 +8749,6 @@ ternary-stream@^2.0.1:
     merge-stream "^1.0.0"
     through2 "^2.0.1"
 
-tether@^1.3.7:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/tether/-/tether-1.4.0.tgz#0f9fa171f75bf58485d8149e94799d7ae74d1c1a"
-
 text-extensions@^1.0.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/text-extensions/-/text-extensions-1.6.0.tgz#771561b26022783a45f5b6c2e78ad6e7de9fe322"
@@ -9042,12 +8878,6 @@ tough-cookie@~2.3.3:
 tree-kill@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.1.0.tgz#c963dcf03722892ec59cba569e940b71954d1729"
-
-trie-search@^1.0.1:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/trie-search/-/trie-search-1.0.7.tgz#791320be68a56dde216c62634e96c9f5420805cc"
-  dependencies:
-    hasharray "^1.0.0"
 
 trim-lines@^1.0.0:
   version "1.1.0"
@@ -9545,12 +9375,6 @@ ware@^1.2.0:
   resolved "https://registry.yarnpkg.com/ware/-/ware-1.3.0.tgz#d1b14f39d2e2cb4ab8c4098f756fe4b164e473d4"
   dependencies:
     wrap-fn "^0.1.0"
-
-warning@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/warning/-/warning-2.1.0.tgz#21220d9c63afc77a8c92111e011af705ce0c6901"
-  dependencies:
-    loose-envify "^1.0.0"
 
 watchpack@^1.4.0:
   version "1.4.0"

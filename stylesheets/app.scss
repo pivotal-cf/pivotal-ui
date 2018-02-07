@@ -1,9 +1,9 @@
-@import '../node_modules/pivotal-ui/css/variables-and-mixins/pui-variables';
-@import '../node_modules/pivotal-ui/css/flex-grids/flex-grids.css';
-@import '../node_modules/pivotal-ui/css/colors/colors.css';
-@import '../node_modules/pivotal-ui/css/backgrounds/backgrounds.css';
-@import '../node_modules/pivotal-ui/css/ellipsis/ellipsis.css';
-@import '../node_modules/prismjs/themes/prism.css';
+@import '~pivotal-ui/css/pui-variables';
+@import '~pivotal-ui/css/flex-grids/flex-grids';
+@import '~pivotal-ui/css/colors/colors';
+@import '~pivotal-ui/css/backgrounds/backgrounds';
+@import '~pivotal-ui/css/ellipsis/ellipsis';
+//@import '~prismjs/themes/prism.css';
 @import './sidebar';
 @import './content';
 @import 'code_editor';

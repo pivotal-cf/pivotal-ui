@@ -1,19 +1,53 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import * as Alignment from 'pivotal-ui/css/alignment';
-import * as Colors from 'pivotal-ui/css/colors';
-import * as Border from 'pivotal-ui/css/border';
-import * as BoxShadows from 'pivotal-ui/css/box-shadows';
-import * as ButtonGroup from 'pivotal-ui/css/button-group';
-import * as Code from 'pivotal-ui/css/code';
-import * as Ellipsis from 'pivotal-ui/css/ellipsis';
-import * as Links from 'pivotal-ui/css/links';
-import * as Positioning from 'pivotal-ui/css/positioning'
-import * as ProgressBars from 'pivotal-ui/css/progress-bars';
-import * as Typography from 'pivotal-ui/css/typography';
-import * as VerticalAlignment from 'pivotal-ui/css/vertical-alignment';
-import * as Whitespace from 'pivotal-ui/css/whitespace';
+import 'pivotal-ui/css/alerts/alerts.scss';
+import 'pivotal-ui/css/alignment/alignment.scss';
+import 'pivotal-ui/css/autocomplete/autocomplete.scss';
+import 'pivotal-ui/css/back-to-top/back-to-top.scss';
+import 'pivotal-ui/css/backgrounds/backgrounds.scss';
+import 'pivotal-ui/css/buttons/buttons.scss';
+import 'pivotal-ui/css/button-group/button-group.scss';
+import 'pivotal-ui/css/border/border.scss';
+import 'pivotal-ui/css/box-shadows/box-shadows.scss';
+import 'pivotal-ui/css/checkbox/checkbox.scss';
+import 'pivotal-ui/css/code/code.scss';
+import 'pivotal-ui/css/collapse/collapse.scss';
+import 'pivotal-ui/css/colors/colors.scss';
+import 'pivotal-ui/css/common/common.scss';
+import 'pivotal-ui/css/copy-to-clipboard/copy-to-clipboard.scss';
+import 'pivotal-ui/css/dividers/dividers.scss';
+import 'pivotal-ui/css/dropdowns/dropdowns.scss';
+import 'pivotal-ui/css/ellipsis/ellipsis.scss';
+import 'pivotal-ui/css/flex-grids/flex-grids.scss';
+import 'pivotal-ui/css/flyout/flyout.scss';
+import 'pivotal-ui/css/forms/forms.scss';
+import 'pivotal-ui/css/hoverable/hoverable.scss';
+import 'pivotal-ui/css/iconography/iconography.scss';
+import 'pivotal-ui/css/images/images.scss';
+import 'pivotal-ui/css/inputs/input.scss';
+import 'pivotal-ui/css/links/links.scss';
+import 'pivotal-ui/css/lists/lists.scss';
+import 'pivotal-ui/css/media/media.scss';
+import 'pivotal-ui/css/modals/modals.scss';
+import 'pivotal-ui/css/notifications/notifications.scss';
+import 'pivotal-ui/css/pagination/pagination.scss';
+import 'pivotal-ui/css/panels/panels.scss';
+import 'pivotal-ui/css/panes/panes.scss';
+import 'pivotal-ui/css/positioning/positioning.scss';
+import 'pivotal-ui/css/progress-bars/progress-bars.scss';
+import 'pivotal-ui/css/radio/radio.scss';
+import 'pivotal-ui/css/ribbons/ribbons.scss';
+import 'pivotal-ui/css/select/select.scss';
+import 'pivotal-ui/css/spinners/spinners.scss';
+import 'pivotal-ui/css/tables/tables.scss';
+import 'pivotal-ui/css/tabs/tabs.scss';
+import 'pivotal-ui/css/text-filter/text_filter.scss';
+import 'pivotal-ui/css/tile-layout/tile-layout.scss';
+import 'pivotal-ui/css/tooltips/tooltips.scss';
+import 'pivotal-ui/css/typography/typography.scss';
+import 'pivotal-ui/css/vertical-alignment/vertical-alignment.scss';
+import 'pivotal-ui/css/whitespace/whitespace.scss';
 
 import * as Alerts from 'pivotal-ui/react/alerts';
 import * as Autocomplete from 'pivotal-ui/react/autocomplete';
@@ -125,23 +159,23 @@ const routes = {
   404: {json: NotFound, file: '404.md', name: '404 Not Found', category: 'Ignored', packages: []},
 
   alerts: {json: AlertsJson, file: 'components/Alerts.md', name: 'Alerts', category: 'Components', packages: [Alerts]},
-  alignment: {json: AlignmentJson, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: [Alignment]},
+  alignment: {json: AlignmentJson, file: 'components/Alignment.md', name: 'Alignment', category: 'Components', packages: []},
   autocomplete: {json: AutocompleteJson, file: 'components/Autocomplete.md', name: 'Autocomplete', category: 'Components', packages: [Autocomplete]},
   backtotop: {json: BackToTopJson, file: 'components/Backtotop.md', name: 'Back To Top', category: 'Components', packages: [Top]},
-  border: {json: BorderJson, file: 'components/Border.md', name: 'Border', category: 'Components', packages: [Border]},
-  box_shadows: {json: BoxShadowsJson, file: 'components/BoxShadows.md', name: 'Box Shadows', category: 'Components', packages: [BoxShadows]},
-  button_group: {json: ButtonGroupJson, file: 'components/ButtonGroup.md', name: 'Button Group', category: 'Components', packages: [ButtonGroup]},
+  border: {json: BorderJson, file: 'components/Border.md', name: 'Border', category: 'Components', packages: []},
+  box_shadows: {json: BoxShadowsJson, file: 'components/BoxShadows.md', name: 'Box Shadows', category: 'Components', packages: []},
+  button_group: {json: ButtonGroupJson, file: 'components/ButtonGroup.md', name: 'Button Group', category: 'Components', packages: []},
   buttons: {json: ButtonsJson, file: 'components/Buttons.md', name: 'Buttons', category: 'Components', packages: [Buttons]},
   checkbox_dropdown: {json: CheckboxDropdownJson, file: 'components/CheckboxDropdown.md', name: 'Checkbox Dropdown', category: 'Components', packages: [CheckboxDropdown]},
   checkboxes: {json: CheckboxesJson, file: 'components/Checkboxes.md', name: 'Checkboxes', category: 'Components', packages: [Checkbox]},
-  code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: [Code]},
+  code: {json: CodeJson, file: 'components/Code.md', name: 'Code', category: 'Components', packages: []},
   collapse: {json: CollapseJson, file: 'components/Collapse.md', name: 'Collapse', category: 'Components', packages: [Collapse]},
   collapsible: {json: CollapsibleJson, file: 'components/Collapsible.md', name: 'Collapsible', category: 'Components', packages: [Collapsible]},
-  colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: [Colors]},
+  colors: {json: ColorsJson, file: 'components/Colors.md', name: 'Colors', category: 'Components', packages: []},
   copy_to_clipboard: {json: CopyToClipboardJson, file: 'components/CopyToClipboard.md', name: 'CopyToClipboard', category: 'Components', packages: [Clipboard]},
   dividers: {json: DividersJson, file: 'components/Dividers.md', name: 'Dividers', category: 'Components', packages: [Dividers]},
   dropdowns: {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
-  ellipsis: {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: [Ellipsis]},
+  ellipsis: {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: []},
   expander: {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
   forms: {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Forms]},
   flyout: {json: FlyoutJson, file: 'components/Flyout.md', name: 'Flyout', category: 'Components', packages: [Alerts, Buttons, Flyout, Inputs]},
@@ -149,7 +183,7 @@ const routes = {
   icons: {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   images: {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   inputs: {json: InputsJson, file: 'components/Inputs.md', name: 'Inputs', category: 'Components', packages: [Inputs]},
-  links: {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: [Links]},
+  links: {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: []},
   lists: {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
   media: {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
   modals: {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
@@ -158,8 +192,8 @@ const routes = {
   panels: {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
   panes: {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
   portals: {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
-  positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: [Positioning]},
-  progress_bars: {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBars]},
+  positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: []},
+  progress_bars: {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: []},
   radios: {json: RadiosJson, file: 'components/Radios.md', name: 'Radio', category: 'Components', packages: [Radio]},
   select: {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
   svg: {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
@@ -169,9 +203,9 @@ const routes = {
   tile_layout: {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
   toggle: {json: TogglesJson, file: 'components/Toggles.md', name: 'Toggles', category: 'Components', packages: [Toggle]},
   tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
-  typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: [Typography]},
-  vertical_alignment: {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: [VerticalAlignment]},
-  whitespace: {json: WhitespaceJson, file: 'components/Whitespace.md', name: 'Whitespace', category: 'Components', packages: [Whitespace]},
+  typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: []},
+  vertical_alignment: {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: []},
+  whitespace: {json: WhitespaceJson, file: 'components/Whitespace.md', name: 'Whitespace', category: 'Components', packages: []},
   wizard: {json: WizardJson, file: 'components/Wizard.md', name: 'Wizard', category: 'Components', packages: [Wizard]}
 };
 
