@@ -14,7 +14,9 @@ export default {
   resolve: {
     alias: {
       'node_modules/pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src'),
-      'pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src')
+      'pivotal-ui': path.resolve(__dirname, '../pivotal-ui/src'),
+      './images/gray-cloud.png': path.resolve(__dirname, '../pivotal-ui/src/css/backgrounds/images/gray-cloud.png'),
+      './images/aboutus-hero.jpg': path.resolve(__dirname, '../pivotal-ui/src/css/backgrounds/images/aboutus-hero.jpg')
     }
   },
   module: {
