@@ -1,12 +1,14 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
-import {NamedModulesPlugin} from 'webpack';
+import {NamedModulesPlugin, DefinePlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
 export default {
-  entry: './src/index.js',
+  entry: prod
+    ? './src/index.js'
+    : ['react-hot-loader/patch', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -52,6 +54,11 @@ export default {
     ],
   },
   plugins: [
+    new DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(prod ? 'production' : 'development')
+      }
+    }),
     new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin()
