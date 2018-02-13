@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const {Jasmine} = require('pui-react-tools');
 const runSequence = require('run-sequence');
 
+import devWebpack from '../frontend_webpack.config.babel';
+
 Jasmine.install({
   browserSpecRunnerOptions: {sourcemappedStacktrace: true, profile: false},
   headlessSpecRunnerOptions: {},
@@ -10,13 +12,8 @@ Jasmine.install({
   webpack: {
     test: () => {
       return {
-        entry: {spec: './spec/index.js'},
-        module: {
-          rules: [
-            {test: /\.jsx?$/, exclude: /node_modules/, use: ['babel-loader']},
-          ]
-        },
-        output: {filename: '[name].js', chunkFilename: '[id].js'}
+        ...devWebpack,
+        entry: './spec/index.js'
       }
     }
   }
