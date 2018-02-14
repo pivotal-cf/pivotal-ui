@@ -59,6 +59,7 @@
     "jquery": "^3.2.1",
     "lodash.kebabcase": "^4.1.1",
     "pivotal-js-jasmine-matchers": "^0.0.18",
+    "prismjs": "^1.11.0",
     "remark-parse": "^3.0.1",
     "remark-react": "^4.0.0",
     "require-dir": "^0.3.1",
