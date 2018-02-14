@@ -1,3 +1,11 @@
+<a name="13.0.2"></a>
+## 13.0.2 (2018-02-14)
+#### CSS
+* **collapse**: Remove box-shadow from Collapse [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([43787fa6](https://github.com/pivotal-cf/pivotal-ui/commit/43787fa6))
+* **panels**: restore the bottom border to the panel header area [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([6be8be17](https://github.com/pivotal-cf/pivotal-ui/commit/6be8be17))
+#### React
+* **collapse**: Remove box-shadow from Collapse [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([43787fa6](https://github.com/pivotal-cf/pivotal-ui/commit/43787fa6))
+* **forms**: Coerce checked property of checkboxes within Forms to be booleans [[:beetle:#154579887](https://www.pivotaltracker.com/story/show/154579887)] ([6d65f210](https://github.com/pivotal-cf/pivotal-ui/commit/6d65f210))
 <a name="13.0.1"></a>
 ## 13.0.1 (2018-01-16)
 #### CSS
