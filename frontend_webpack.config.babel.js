@@ -27,6 +27,9 @@ const prodConfig = {
 
 const devConfig = {
   entry: ['react-hot-loader/patch', './src/index.js'],
+  devServer: {
+    clientLogLevel: 'error'
+  },
   plugins: [
     new DefinePlugin({
       'process.env': {
