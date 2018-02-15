@@ -1,104 +1,75 @@
 import '../spec_helper';
-
 import {CopyToClipboard} from '../../../src/react/copy-to-clipboard';
+import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
 
 describe('CopyToClipboard', () => {
-  const text = 'some copy text';
-  let onClick, getWindow, window, document, range, selection, subject;
+  let text, onClick, subject;
 
   beforeEach(() => {
+    text = 'some copy text';
     onClick = jasmine.createSpy('onClick');
 
-    range = jasmine.createSpyObj('range', ['selectNode']);
-    selection = jasmine.createSpyObj('selection', ['removeAllRanges', 'addRange']);
-    window = jasmine.createSpyObj('window', ['getSelection']);
-    getWindow = jasmine.createSpy('getWindow').and.returnValue(window);
-    document = jasmine.createSpyObj('document', ['createRange', 'execCommand']);
+    spyOn(ClipboardHelper, 'copy');
 
-    document.createRange.and.returnValue(range);
-    window.document = document;
-    window.getSelection.and.returnValue(selection);
+    subject = ReactDOM.render(<CopyToClipboard {...{
+      text,
+      onClick
+    }}/>, root);
   });
 
-  describe('CopyToClipboard (basic)', () => {
-    const renderComponent = props => ReactDOM.render(<CopyToClipboard {...props}/>, root);
+  it('renders an anchor', () => {
+    expect('a.pui-copy-to-clipboard').toExist();
+    expect('a.pui-copy-to-clipboard').toHaveAttr('role', 'button');
+  });
 
-    it('renders the text', () => {
-      subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
-      expect('.sr-only').toHaveText(text);
+  it('renders a hidden tooltip with default text', () => {
+    expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
+    expect('.tooltip-content').toHaveText('Copied');
+  });
+
+  describe('when given tooltip text', () => {
+    beforeEach(() => {
+      subject::setProps({tooltip: 'Copied successfully!'});
     });
 
-    it('propagates attributes', () => {
-      subject = renderComponent({text, onClick, className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
+    it('uses the custom tooltip text', () => {
+      expect('.tooltip-content').toHaveText('Copied successfully!');
+    });
+  });
 
-      expect('.copy-to-clipboard').toHaveClass('test-class');
-      expect('.copy-to-clipboard').toHaveAttr('id', 'test-id');
-      expect('.copy-to-clipboard').toHaveCss({opacity: '0.5'});
+  describe('when given additional props', () => {
+    beforeEach(() => {
+      subject::setProps({className: 'test-class', id: 'test-id', style: {opacity: '0.5'}});
     });
 
-    describe('clicking on the element', () => {
-      it('renders a tooltip that says "Copied in"', () => {
-        subject = renderComponent({
-          getWindow,
-          text,
-          onClick,
-          className: 'test-class',
-          id: 'test-id',
-          style: {opacity: '0.5'},
-          tooltip: 'Copied in'
-        });
+    it('passes the props to the anchor', () => {
+      expect('a.pui-copy-to-clipboard').toHaveClass('test-class');
+      expect('a.pui-copy-to-clipboard').toHaveAttr('id', 'test-id');
+      expect('a.pui-copy-to-clipboard').toHaveCss({opacity: '0.5'});
+    });
+  });
 
-        $('.copy-to-clipboard .tooltip').simulate('click');
+  describe('clicking on the element', () => {
+    beforeEach(() => {
+      $('.pui-copy-to-clipboard .tooltip').click();
+      $('.pui-copy-to-clipboard').click();
+    });
 
-        expect('.tooltip-container').toHaveClass('tooltip-container-visible');
-        expect('.tooltip-content').toHaveText('Copied in');
-      });
+    it('makes tooltip visible', () => {
+      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+    });
 
-      it('hides tooltip after 1 seconds', () => {
-        subject = renderComponent({
-          getWindow,
-          text,
-          onClick,
-          className: 'test-class',
-          id: 'test-id',
-          style: {opacity: '0.5'}
-        });
+    it('hides tooltip after 1 seconds', () => {
+      jasmine.clock().tick(2000);
+      expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
+    });
 
-        $('.copy-to-clipboard').simulate('click');
-        jasmine.clock().tick(2000);
+    it('copies the text to the clipboard', () => {
+      expect(ClipboardHelper.copy).toHaveBeenCalledWith(document, text);
+    });
 
-        expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
-      });
-
-      it('copies the text to the clipboard', () => {
-        subject = renderComponent({
-          getWindow,
-          text,
-          onClick,
-          className: 'test-class',
-          id: 'test-id',
-          style: {opacity: '0.5'}
-        });
-
-        $('.copy-to-clipboard').simulate('click');
-
-        expect(document.execCommand).toHaveBeenCalledWith('copy');
-      });
-
-      it('calls the provided callback', () => {
-        subject = renderComponent({
-          getWindow,
-          text,
-          onClick,
-          className: 'test-class',
-          id: 'test-id',
-          style: {opacity: '0.5'}
-        });
-
-        $('.copy-to-clipboard').simulate('click');
-
-        expect(onClick).toHaveBeenCalled();
-      });
+    it('calls the provided callback', () => {
+      expect(onClick).toHaveBeenCalled();
     });
   });
 });

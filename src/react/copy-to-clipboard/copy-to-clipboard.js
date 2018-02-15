@@ -8,42 +8,33 @@ export class CopyToClipboard extends React.PureComponent {
   static propTypes = {
     text: PropTypes.string.isRequired,
     onClick: PropTypes.func,
-    getWindow: PropTypes.func,
     tooltip: PropTypes.string
-  };
-
-  static defaultProps = {
-    getWindow: () => window,
   };
 
   componentDidMount() {
     require('../../css/copy-to-clipboard');
   }
 
-  click = ({props, text}, e) => {
-    const window = this.props.getWindow();
-    copy(window, window.document, text);
-    const {onClick} = props;
+  click = ({onClick, text}, e) => {
+    copy(document, text);
     if (onClick) onClick(e);
   };
 
   render() {
-    const {children, text, onClick, getWindow, tooltip = "Copied", ...others} = this.props;
-    const obj = {props: this.props, text: null};
+    const {children, text, onClick, tooltip = 'Copied', ...others} = this.props;
 
     const anchorProps = mergeProps(others, {
-      className: 'copy-to-clipboard',
-      onClick: this.click.bind(undefined, obj),
+      className: 'copy-to-clipboard pui-copy-to-clipboard',
+      onClick: this.click.bind(null, this.props),
       role: 'button'
     });
 
     return (
-        <a {...anchorProps}>
-          <TooltipTrigger {...{tooltip, trigger: "click"}}>
-            <span className="sr-only" ref={ref => obj.text = ref}>{text}</span>
-            {children}
-          </TooltipTrigger>
-        </a>
-      );
+      <a {...anchorProps}>
+        <TooltipTrigger {...{tooltip, trigger: 'click'}}>
+          {children}
+        </TooltipTrigger>
+      </a>
+    );
   }
 }

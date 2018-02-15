@@ -1,18 +1,16 @@
-const select = (window, document, element) => {
-  window.getSelection().removeAllRanges();
-  const range = document.createRange();
-  range.selectNode(element);
-  window.getSelection().addRange(range);
-};
+const copy = (document, text) => {
+  const textarea = document.createElement('textarea');
+  textarea.className = 'sr-only';
+  textarea.value = text;
+  document.body.appendChild(textarea);
 
-const copy = (window, document, element) => {
-  select(window, document, element);
   try {
+    textarea.select();
     document.execCommand('copy');
   } catch (e) {
   } finally {
-    window.getSelection().removeAllRanges();
+    document.body.removeChild(textarea);
   }
 };
 
-export default {select, copy};
+export default {copy};
