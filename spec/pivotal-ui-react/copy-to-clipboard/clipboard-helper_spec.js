@@ -1,52 +1,48 @@
 import '../spec_helper' ;
-import ClipboardHelper from '../../../src/react/copy-to-clipboard/clipboard-helper';
+import {copy} from '../../../src/react/copy-to-clipboard/clipboard-helper';
 
 describe('ClipboardHelper', () => {
-  let subject;
-
-  beforeEach(() => {
-    subject = ClipboardHelper;
-  });
+  let document, copyText, textarea;
 
   describe('copy', () => {
-    const element = 'mock element';
-    let window, document, range, selection;
     beforeEach(() => {
-      range = jasmine.createSpyObj('range', ['selectNode']);
-      selection = jasmine.createSpyObj('selection', ['removeAllRanges', 'addRange']);
-      window = jasmine.createSpyObj('window', ['getSelection']);
-      window.getSelection.and.returnValue(selection);
-      document = jasmine.createSpyObj('document', ['createRange', 'execCommand']);
-      document.createRange.and.returnValue(range);
+      document = jasmine.createSpyObj('document', [
+        'execCommand',
+        'createElement'
+      ]);
+
+      document.body = jasmine.createSpyObj('body', [
+        'appendChild',
+        'removeChild'
+      ]);
+
+      textarea = jasmine.createSpyObj('textarea', ['select']);
+      document.createElement.and.returnValue(textarea);
+
+      copyText = 'Text to be copied';
+      copy(document, copyText);
     });
 
-    it('does some useful things', () => {
-      subject.copy(window, document, element);
-      expect(selection.removeAllRanges).toHaveBeenCalled();
-      expect(selection.addRange).toHaveBeenCalledWith(range);
-      expect(range.selectNode).toHaveBeenCalledWith(element);
+    it('creates a textarea and appends it to the body', () => {
+      expect(document.createElement).toHaveBeenCalledWith('textarea');
+      expect(document.body.appendChild).toHaveBeenCalledWith(textarea);
+    });
+
+    it('sets the correct value and className on the textarea', () => {
+      expect(textarea.value).toBe(copyText);
+      expect(textarea.className).toBe('sr-only');
+    });
+
+    it('selects the textarea content', () => {
+      expect(textarea.select).toHaveBeenCalled();
+    });
+
+    it('executes a copy command', () => {
       expect(document.execCommand).toHaveBeenCalledWith('copy');
-      expect(selection.removeAllRanges.calls.count()).toBe(2);
-    });
-  });
-
-  describe('select', () => {
-    const element = 'mock element';
-    let window, document, range, selection;
-    beforeEach(() => {
-      range = jasmine.createSpyObj('range', ['selectNode']);
-      selection = jasmine.createSpyObj('selection', ['removeAllRanges', 'addRange']);
-      window = jasmine.createSpyObj('window', ['getSelection']);
-      window.getSelection.and.returnValue(selection);
-      document = jasmine.createSpyObj('document', ['createRange']);
-      document.createRange.and.returnValue(range);
     });
 
-    it('does some useful things', () => {
-      subject.select(window, document, element);
-      expect(selection.removeAllRanges).toHaveBeenCalled();
-      expect(selection.addRange).toHaveBeenCalledWith(range);
-      expect(range.selectNode).toHaveBeenCalledWith(element);
+    it('removes the textarea from the body', () => {
+      expect(document.body.removeChild).toHaveBeenCalledWith(textarea);
     });
   });
 });
