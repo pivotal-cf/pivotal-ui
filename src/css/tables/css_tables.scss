@@ -118,6 +118,20 @@
   .scrollable-body {
     overflow-y: auto;
   }
+
+  &:not(.table-no-borders):not(.table-no-ext-borders) {
+    .scrollable-body {
+      border-bottom: solid 1px $table-border-color;
+
+      .tr:last-child {
+        border-bottom: none;
+
+        .td {
+          border-bottom: none;
+        }
+      }
+    }
+  }
 }
 
 //Table scrollable
