@@ -23,6 +23,7 @@
     "gutil": "^1.6.4",
     "html-entities": "^1.2.0",
     "html-loader": "^0.4.4",
+    "html-webpack-plugin": "^2.30.1",
     "image-webpack-loader": "^3.2.0",
     "json-loader": "^0.5.4",
     "mock-promises": "^0.8.2",
@@ -68,6 +69,7 @@
   "scripts": {
     "start": "cp public/* dist/ && cp -R static dist/ && webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
     "build": "webpack --config ./frontend_webpack.config.babel.js -p && cp public/* dist/ && cp -R static dist/",
+    "build-dev": "webpack --config ./frontend_webpack.config.babel.js && cp public/* dist/ && cp -R static dist/",
     "test": "gulp spec-app"
   }
 }

@@ -1,14 +1,47 @@
 import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
 import {NamedModulesPlugin, DefinePlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
+const htmlPlugin = new HtmlWebpackPlugin({template: 'index.html'});
+
+const prodConfig = {
+  entry: './src/index.js',
+  plugins: [
+    new DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new NamedModulesPlugin(),
+    new ExtractTextPlugin('app.css'),
+    new CompressionPlugin(),
+    htmlPlugin
+  ],
+  devtool: false
+};
+
+const devConfig = {
+  entry: ['react-hot-loader/patch', './src/index.js'],
+  plugins: [
+    new DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('development')
+      }
+    }),
+    new NamedModulesPlugin(),
+    new CompressionPlugin(),
+    htmlPlugin
+  ],
+  devtool: 'inline-source-map'
+};
+
 export default {
-  entry: prod
-    ? './src/index.js'
-    : ['react-hot-loader/patch', './src/index.js'],
+  ...(prod ? prodConfig : devConfig),
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
@@ -42,10 +75,12 @@ export default {
       },
       {
         test: /\.s?css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        use: prod
+          ? ExtractTextPlugin.extract({
+            fallback: 'style-loader',
+            use: ['css-loader', 'sass-loader']
+          })
+          : ['style-loader', 'css-loader', 'sass-loader']
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
@@ -53,18 +88,7 @@ export default {
       }
     ],
   },
-  plugins: [
-    new DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify(prod ? 'production' : 'development')
-      }
-    }),
-    new NamedModulesPlugin(),
-    new ExtractTextPlugin('app.css'),
-    new CompressionPlugin()
-  ],
   node: {
     fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
-  },
-  devtool: prod ? false : 'inline-source-map'
+  }
 };
