@@ -1,5 +1,5 @@
 <a name="14.0.0"></a>
-# 14.0.0 (2018-01-26)
+# 14.0.0 (2018-02-15)
 #### CSS
 * **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **all**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
@@ -10,7 +10,9 @@
 * **button-group**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **buttons**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **code**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
-* **collapse**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **collapse**:
+  * Remove box-shadow from Collapse [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([477a1913](https://github.com/pivotal-cf/pivotal-ui/commit/477a1913))
+  * Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **common**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **copy-to-clipboard**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **dropdowns**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
@@ -22,7 +24,9 @@
 * **media**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **mixins.scss**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **modals**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
-* **panels**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **panels**:
+  * restore the bottom border to the panel header area [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([29bb291c](https://github.com/pivotal-cf/pivotal-ui/commit/29bb291c))
+  * Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **panes**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **progress-bars**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **pui-variables.scss**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
@@ -44,6 +48,14 @@
 * **iconography**: When an invalid icon name is provided, default to 'help' icon and console warn [[:beetle:#154292350](https://www.pivotaltracker.com/story/show/154292350)] ([999f633f](https://github.com/pivotal-cf/pivotal-ui/commit/999f633f))
 * **table**: Do not reset the sort state when props are updated [[:beetle:#154374720](https://www.pivotaltracker.com/story/show/154374720)] ([a0affbf0](https://github.com/pivotal-cf/pivotal-ui/commit/a0affbf0))
 * **tabs**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+<a name="13.0.2"></a>
+## 13.0.2 (2018-02-14)
+#### CSS
+* **collapse**: Remove box-shadow from Collapse [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([43787fa6](https://github.com/pivotal-cf/pivotal-ui/commit/43787fa6))
+* **panels**: restore the bottom border to the panel header area [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([6be8be17](https://github.com/pivotal-cf/pivotal-ui/commit/6be8be17))
+#### React
+* **collapse**: Remove box-shadow from Collapse [[:beetle:#154785774](https://www.pivotaltracker.com/story/show/154785774)] ([43787fa6](https://github.com/pivotal-cf/pivotal-ui/commit/43787fa6))
+* **forms**: Coerce checked property of checkboxes within Forms to be booleans [[:beetle:#154579887](https://www.pivotaltracker.com/story/show/154579887)] ([6d65f210](https://github.com/pivotal-cf/pivotal-ui/commit/6d65f210))
 <a name="13.0.1"></a>
 ## 13.0.1 (2018-01-16)
 #### CSS
