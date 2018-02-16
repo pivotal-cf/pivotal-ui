@@ -70,7 +70,7 @@ gulp.task('react-build-svgs', async() => {
     jsxs.push(`  '${name}': (${(await promise).toString()})`);
   }
   const iconsPath = `${srcFolder}/iconography/icons.js`;
-  const icons = `import React from 'react';\n\nexport default {\n${jsxs.join(',\n')}\n}`;
+  const icons = `/*eslint quotes: 0*/\nimport React from 'react';\n\nexport default {\n${jsxs.join(',\n')}\n};`;
   await writeFile(iconsPath, icons);
 });
 
