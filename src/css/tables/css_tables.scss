@@ -113,6 +113,12 @@
     .tr .th {
       border: none;
     }
+
+    .tbody, .tfoot {
+      .tr:last-child {
+        border-bottom: none;
+      }
+    }
   }
 
   .scrollable-body {
