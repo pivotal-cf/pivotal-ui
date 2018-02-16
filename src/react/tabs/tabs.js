@@ -61,17 +61,14 @@ export class Tabs extends mixin(React.Component).with(Animation) {
 
   componentDidMount() {
     require('../../css/tabs');
+    window.addEventListener('resize', this.checkScreenSize);
+    this.checkScreenSize();
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.defaultActiveKey !== this.props.defaultActiveKey) {
       this.setActiveKey(nextProps.defaultActiveKey);
     }
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.checkScreenSize);
-    this.checkScreenSize();
   }
 
   componentWillUnmount() {
