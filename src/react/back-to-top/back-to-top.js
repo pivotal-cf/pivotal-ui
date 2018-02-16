@@ -38,7 +38,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
     window.addEventListener('scroll', this.updateScroll);
     const {scrollableId} = this.props;
     const element = getElement(scrollableId);
-    privates.set(this, {element})
+    privates.set(this, {element});
   }
 
   componentWillUnmount() {

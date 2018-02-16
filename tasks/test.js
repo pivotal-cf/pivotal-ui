@@ -16,7 +16,7 @@ gulp.task('ci', callback => runSequence(
 gulp.task('lint', function() {
   const {FIX: fix = true} = process.env;
   return gulp.src([
-    'src/pivotal-ui-react/**/*.js',
+    'src/react/**/*.js',
     'tasks/**/*.js',
     'spec/pivotal-ui-react/**/*.js',
     'spec/task-helpers/**/*.js',

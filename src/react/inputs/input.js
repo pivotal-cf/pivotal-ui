@@ -1,8 +1,13 @@
 import React from 'react';
 import {Icon} from '../iconography';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 export class Input extends React.Component {
+  static propTypes = {
+    size: PropTypes.string,
+    icon: PropTypes.string
+  };
   componentDidMount() {
     require('../../css/inputs');
   }

@@ -15,7 +15,7 @@ export default class TabHeaders extends React.Component {
 
   render() {
     const {childArray, activeKey, handleClick, isLeft, id, onSelect} = this.props;
-    const leftTabClasses = `nav-pills nav-stacked`;
+    const leftTabClasses = 'nav-pills nav-stacked';
 
     const listChildren = childArray.map((child, key) => {
       const {disabled, eventKey, tabClassName, title} = child.props;

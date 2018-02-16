@@ -31,9 +31,9 @@ export class Icon extends React.Component {
     let renderedIcon = Icons[src], iconSrc = src;
 
     if (!renderedIcon) {
-      renderedIcon = Icons['help'];
+      renderedIcon = Icons.help;
       iconSrc = 'help';
-      console.warn(`Icon "${src}" is not recognized.`)
+      console.warn(`Icon "${src}" is not recognized.`);
     }
 
     return (<div {...props}>

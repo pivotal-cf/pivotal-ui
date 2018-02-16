@@ -34,9 +34,9 @@ export class Notifications extends React.PureComponent {
       </div>
     );
 
-    return <Dropdown flat showIcon={false} title={dropdownTitle} {...props}>
+    return (<Dropdown flat showIcon={false} title={dropdownTitle} {...props}>
       {children || defaultChild('add', 'no notifications')}
-    </Dropdown>;
+    </Dropdown>);
   }
 }
 
@@ -58,9 +58,9 @@ export class AlertNotifications extends React.PureComponent {
     );
     const props = mergeProps(others, {className: 'dropdown-notifications dropdown-icon-only'});
 
-    return <Dropdown flat showIcon={false} title={dropdownTitle} {...props}>
+    return (<Dropdown flat showIcon={false} title={dropdownTitle} {...props}>
       {children || defaultChild('notifications', 'no alerts')}
-    </Dropdown>;
+    </Dropdown>);
   }
 }
 

@@ -25,6 +25,7 @@
 //    "guard-for-in": 2,
     "no-caller": 2,
     "no-div-regex": 2,
+    "no-dupe-class-members": 2,
     "no-else-return": 0,
     "no-eq-null": 2,
     "no-eval": 2,
