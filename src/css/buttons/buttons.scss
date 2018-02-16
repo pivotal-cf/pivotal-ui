@@ -44,6 +44,7 @@
     display: inline-flex;
     justify-content: center;
     width: 100%;
+    position:relative;
   }
 
   span.pui-btn-inner-content > * + *, span.btn-inner-content > * + * {
