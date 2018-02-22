@@ -1,5 +1,5 @@
 <a name="14.0.0"></a>
-# 14.0.0 (2018-02-16)
+# 14.0.0 (2018-02-22)
 #### CSS
 * **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 * **all**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
@@ -44,6 +44,7 @@
   * Fix table-no-ext-borders for FlexTables [[:beetle:#154380467](https://www.pivotaltracker.com/story/show/154380467)] ([f16dd4e3](https://github.com/pivotal-cf/pivotal-ui/commit/f16dd4e3))
   * Fix missing bottom border on table footer row [#153578787] ([901dd522](https://github.com/pivotal-cf/pivotal-ui/commit/901dd522))
 * **tabs**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
+* **tooltips**: Fix: Clickable tooltip in the styleguide doesn't click [[:beetle:#151660489](https://www.pivotaltracker.com/story/show/151660489)] ([8b8d028e](https://github.com/pivotal-cf/pivotal-ui/commit/8b8d028e))
 * **typography**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
 #### React
 * **alerts**: Remove bootstrap [[:star:#151422387](https://www.pivotaltracker.com/story/show/151422387)] (#548) ([923a54b8](https://github.com/pivotal-cf/pivotal-ui/commit/923a54b8))
