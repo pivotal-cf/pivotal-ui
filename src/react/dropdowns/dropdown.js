@@ -37,21 +37,17 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     border: PropTypes.bool,
     buttonAriaLabel: PropTypes.string,
     buttonClassName: PropTypes.string,
-    splitClassName: PropTypes.string,
     closeOnMenuClick: PropTypes.bool,
     disableScrim: PropTypes.bool,
     flat: PropTypes.bool,
     floatMenu: PropTypes.bool,
-    href: PropTypes.string,
     icon: PropTypes.string,
+    itemClassName: PropTypes.string,
     link: PropTypes.bool,
-    labelAriaLabel: PropTypes.string,
     menuAlign: PropTypes.oneOf(['none', 'left', 'right']),
     onClick: PropTypes.func,
-    onSplitClick: PropTypes.func,
     onEntered: PropTypes.func,
     onExited: PropTypes.func,
-    onSelect: PropTypes.func,
     title: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
     toggle: PropTypes.node,
     scroll: PropTypes.bool,
@@ -81,18 +77,6 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
     this.props.onClick && this.props.onClick(event);
   };
 
-  handleSplitClick = event => {
-    const {href, disabled, onSelect, onSplitClick} = this.props;
-    if (disabled) return;
-
-    if (!href) {
-      event.preventDefault();
-      onSplitClick && onSplitClick(event);
-    }
-
-    onSelect && onSelect(event);
-  };
-
   scrimClick = () => this.setState({open: false});
 
   menuClick = () => {
@@ -103,9 +87,9 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
   render() {
     const {
       // eslint-disable-next-line no-unused-vars
-      closeOnMenuClick, onClick, onSplitClick, onEntered, onExited,
-      blockingScrim, border, buttonAriaLabel, buttonClassName, splitClassName, children, className, disableScrim, showIcon,
-      flat, link, labelAriaLabel, menuAlign, size, href, icon, split, title, toggle, floatMenu, scroll, ...props
+      closeOnMenuClick, onClick, onEntered, onExited,
+      blockingScrim, border, buttonAriaLabel, buttonClassName, children, className, disableScrim, showIcon,
+      flat, link, menuAlign, size, icon, split, title, toggle, floatMenu, scroll, itemClassName, ...props
     } = this.props;
 
     const {open} = this.state;
@@ -135,21 +119,17 @@ export class Dropdown extends mixin(React.Component).with(Scrim, Transition) {
         'dropdown-menu-scroll': scroll
       }
     );
-    const dropdownOptions = (<div className={dropdownMenuClasses}>
-      <ul aria-label="submenu" onClick={this.menuClick}>{children}</ul>
-    </div>);
+    const dropdownOptions = (
+      <div className={dropdownMenuClasses}>
+        <ul aria-label="submenu" onClick={this.menuClick}>
+          {React.Children.map(children, child => child ? <li className={itemClassName}>{child}</li> : null)}
+        </ul>
+      </div>
+    );
 
     return (<div className={dropdownClasses} {...props}>
       {split ? <Grid gutter={false}>
-          <FlexCol>
-            <a {...{
-              className: classnames('dropdown-label', splitClassName),
-              href,
-              'aria-label': labelAriaLabel,
-              onClick: this.handleSplitClick.bind(this),
-              role: onSplitClick && 'button'
-            }}>{title}</a>
-          </FlexCol>
+          <FlexCol className="dropdown-label">{title}</FlexCol>
           <FlexCol fixed className="dropdown-icon-col col-middle">
             {toggleNode}
           </FlexCol>

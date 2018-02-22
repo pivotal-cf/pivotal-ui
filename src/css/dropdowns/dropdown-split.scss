@@ -17,16 +17,18 @@
     }
   }
 
-  .dropdown-label {
+  .dropdown-label.col {
     border: 1px solid $input-border;
     border-radius: 2px 0 0 2px;
     border-right: none;
     width: 100%;
-    padding: 0 $base-unit;
+    padding: 0 0 0 $base-unit;
     line-height: ($base-unit*4) - 2px;
-    font-size: 14px;
     display: inline-block;
-    color: inherit;
+
+    a {
+      color: inherit;
+    }
   }
 
   .dropdown-toggle {

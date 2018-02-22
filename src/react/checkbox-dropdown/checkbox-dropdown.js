@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Dropdown, DropdownItem} from '../dropdowns';
+import {Dropdown} from '../dropdowns';
 import {Checkbox} from '../checkbox';
 import classnames from 'classnames';
 
@@ -79,13 +79,11 @@ export class CheckboxDropdown extends React.Component {
 
     const dropdownItems = labels.map(label => {
       return (
-        <DropdownItem className="checkbox-dropdown-item"
-                      key={label} onSelect={e => this.toggleOption(e, label)}>
-          <Checkbox className="checkbox-dropdown-item-checkbox man"
-                    checked={options[label]}
-                    onChange={doNothing}
-                    onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
-        </DropdownItem>
+        <Checkbox className="checkbox-dropdown-item-checkbox man"
+                  key={label}
+                  checked={options[label]}
+                  onChange={doNothing}
+                  onClick={e => this.toggleOption(e, label)}>{label}</Checkbox>
       );
     });
 
@@ -99,11 +97,11 @@ export class CheckboxDropdown extends React.Component {
     const title = <span className="type-ellipsis">{this.getTitle()}</span>;
 
     return (<Dropdown {...{...dropDownProps, title, className: classnames('checkbox-dropdown', className)}}>
-      <DropdownItem className="checkbox-dropdown-item show-all"
-                    onSelect={e => this.toggleAll(e)}
-                    checked={this.allSelected()}>
+      <span className="checkbox-dropdown-item-checkbox show-all"
+          onSelect={e => this.toggleAll(e)}
+          checked={this.allSelected()}>
         <Checkbox {...checkBoxAllProps}>ALL</Checkbox>
-      </DropdownItem>
+      </span>
       {dropdownItems}
     </Dropdown>);
   }

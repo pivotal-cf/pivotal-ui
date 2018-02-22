@@ -1,5 +1,5 @@
 import '../spec_helper';
-import {Dropdown, DropdownItem} from '../../../src/react/dropdowns';
+import {Dropdown} from '../../../src/react/dropdowns';
 
 describe('Dropdown', () => {
   let subject;
@@ -14,9 +14,8 @@ describe('Dropdown', () => {
       buttonAriaLabel: 'Nessun Dorma'
     };
 
-    const itemProps = {href: 'test'};
     subject = ReactDOM.render(<Dropdown {...props}>
-      <DropdownItem {...itemProps}>Item #1</DropdownItem>
+      <a {...{href: 'test'}}>Item #1</a>
     </Dropdown>, root);
   });
 
@@ -36,63 +35,23 @@ describe('Dropdown', () => {
   });
 
   describe('split dropdown', () => {
-    let onSelectSpy;
+    let onClickSpy;
+
     beforeEach(() => {
-      onSelectSpy = jasmine.createSpy('on select');
-      subject::setProps({
-        labelAriaLabel: 'Nessun Dorma',
-        href: 'default',
-        split: true,
-        onSelect: onSelectSpy,
-        splitClassName: 'split-class'
-      });
+      onClickSpy = jasmine.createSpy('on click');
+      subject::setProps({split: true, onClick: onClickSpy, title: <div className="split-title"/>});
     });
 
-    it('renders the dropdown label as an anchor with the provided href', () => {
-      expect('.dropdown-label').toHaveAttr('href', 'default');
-      expect('a.dropdown-label').toExist();
+    it('opens the dropdown when the dropdown button is clicked', () => {
+      $('.dropdown-toggle').simulate('click');
+      expect(onClickSpy.toHaveBeenCalled);
+      expect(subject.state.open).toBeTruthy();
     });
 
-    it('sets the labelAriaLabel as the dropdown label aria-label', () => {
-      expect('.dropdown-label').toHaveAttr('aria-label', 'Nessun Dorma');
-    });
-
-    it('calls the onSelect callback on selecting the default option', () => {
-      $('.dropdown-label').simulate('click');
-      expect(onSelectSpy).toHaveBeenCalled();
-    });
-
-    it('correctly styles the dropdown-label', () => {
-      expect('.dropdown-label').toHaveClass('split-class');
-    });
-
-    it('does not add role="button" to the anchor tag', () => {
-      expect('a.dropdown-label').toHaveAttr('role', null);
-    });
-
-    describe('when there is no href provided', () => {
-      let onClickSpy, onSplitClickSpy;
-      beforeEach(() => {
-        onClickSpy = jasmine.createSpy('on click');
-        onSplitClickSpy = jasmine.createSpy('on split click');
-        subject::setProps({href: null, onClick: onClickSpy, onSplitClick: onSplitClickSpy});
-      });
-
-      it('opens the dropdown when the dropdown button is clicked', () => {
-        $('.dropdown-toggle').simulate('click');
-        expect(onClickSpy.toHaveBeenCalled);
-        expect(subject.state.open).toBeTruthy();
-      });
-
-      it('does not open the dropdown when the split text is clicked', () => {
-        $('.dropdown-label').simulate('click');
-        expect(onSplitClickSpy.toHaveBeenCalled);
-        expect(subject.state.open).toBeFalsy();
-      });
-
-      it('adds role="button" to the anchor tag', () => {
-        expect('a.dropdown-label').toHaveAttr('role', 'button');
-      });
+    it('does not open the dropdown when the split text is clicked', () => {
+      $('.split-title').simulate('click');
+      expect(onClickSpy).not.toHaveBeenCalled();
+      expect(subject.state.open).toBeFalsy();
     });
   });
 
@@ -316,9 +275,11 @@ describe('Dropdown', () => {
     });
 
     describe('when split is true', () => {
-      it('puts the title in the dropdown label', () => {
+      it('puts the title in a grid alongside the dropdown toggle', () => {
         subject::setProps({split: true, title: 'Dropping'});
-        expect('.dropdown-label').toHaveText('Dropping');
+        expect('.dropdown .grid .col:eq(0)').toHaveText('Dropping');
+        expect('.dropdown .grid .col:eq(1) .dropdown-toggle').toExist();
+        expect('.dropdown .grid .col:eq(1) .dropdown-toggle').not.toHaveText('Dropping');
       });
     });
   });
@@ -392,6 +353,43 @@ describe('Dropdown', () => {
     it('renders the associated svg', () => {
       subject::setProps({icon: 'more_vert'});
       expect('.icon-more_vert').toExist();
+    });
+  });
+
+  describe('when given children', () => {
+    beforeEach(() => {
+      subject::setProps({
+        children: [
+          <a key="1" href="/link1">Link 1</a>,
+          false,
+          <a key="2" href="/link2">Link 2</a>
+        ]
+      });
+    });
+
+    it('wraps each child in an li tag', () => {
+      expect('.dropdown li').toHaveLength(2);
+      expect('.dropdown li:eq(0) a').toHaveAttr('href', '/link1');
+      expect('.dropdown li:eq(1) a').toHaveAttr('href', '/link2');
+    });
+  });
+
+  describe('when given an item class name', () => {
+    beforeEach(() => {
+      subject::setProps({
+        itemClassName: 'custom-li-class',
+        children: [
+          <a key="1" href="/link1">Link 1</a>,
+          false,
+          <a key="2" href="/link2">Link 2</a>
+        ]
+      });
+    });
+
+    it('applies the class name to each li', () => {
+      expect('.dropdown li').toHaveLength(2);
+      expect('.dropdown li:eq(0)').toHaveClass('custom-li-class');
+      expect('.dropdown li:eq(1)').toHaveClass('custom-li-class');
     });
   });
 });

@@ -1,16 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from '../iconography';
-import {Dropdown, DropdownItem} from '../dropdowns';
+import {Dropdown} from '../dropdowns';
 import classnames from 'classnames';
 import {mergeProps} from '../helpers';
 
-const defaultChild = (icon, message) => <li role="presentation">
-  <div className="dropdown-notifications-none">
+const defaultChild = (icon, message) =>
+  <div className="dropdown-notifications-none" role="presentation">
     <Icon src={icon}/>
     <p className="type-neutral-4 em-alt mbn">{message}</p>
-  </div>
-</li>;
+  </div>;
 
 export class Notifications extends React.PureComponent {
   static propTypes = {
@@ -71,6 +70,6 @@ export class NotificationItem extends React.PureComponent {
 
   render() {
     const {href, children, ...props} = this.props;
-    return <DropdownItem href={href} {...props}>{children}</DropdownItem>;
+    return <a href={href} {...props}>{children}</a>;
   }
 }

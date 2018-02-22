@@ -52,11 +52,11 @@ describe('Notifications', () => {
 
     describe('NotificationItem', function() {
       it('passes through className to the li ', function() {
-        expect('#root li:first').toHaveClass(itemProps.className);
+        expect('#root li:first a').toHaveClass(itemProps.className);
       });
 
       it('passes through style to the li', function() {
-        expect('#root li:first').toHaveCss(itemProps.style);
+        expect('#root li:first a').toHaveCss(itemProps.style);
       });
 
       it('passes through id to the anchor', function() {
