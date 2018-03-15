@@ -163,8 +163,8 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       ...triggerHandlers
     });
 
-    const classes = classnames('tooltip', {
-        'tooltip-light': theme === 'light'
+    const classes = classnames('pui-tooltip', {
+        'pui-tooltip-light': theme === 'light'
       }
     );
 
@@ -172,7 +172,7 @@ export class OverlayTrigger extends mixin(React.Component).with(Scrim) {
       attachment: TETHER_PLACEMENTS[placement],
       constraints: pin ? [{to: 'window', attachment: 'together', pin: true}] : [],
       className: classes,
-      classes: {'target-attached': 'tooltip'},
+      classes: {'target-attached': 'pui-tooltip'},
       ...props
     };
 

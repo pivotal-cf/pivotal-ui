@@ -42,22 +42,22 @@ describe('OverlayTrigger', () => {
 
   it('positions according to placement if pin is false, defaulting to right-side placement', () => {
     subject = renderComponent({overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-right');
 
     subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-left');
 
     subject = renderComponent({placement: 'left', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-left');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-left');
 
     subject = renderComponent({placement: 'top', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-top');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-top');
 
     subject = renderComponent({placement: 'bottom', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-bottom');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-bottom');
 
     subject = renderComponent({placement: 'right', overlay: tooltip, display: true, pin: false});
-    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('tooltip-right');
+    expect(ReactTestUtils.findRenderedDOMComponentWithClass(subject, 'launcher')).toHaveClass('pui-tooltip-right');
   });
 
   describe('callbacks', () => {
@@ -445,12 +445,12 @@ describe('OverlayTrigger', () => {
   describe('theme', () => {
     it('adds an appropriate class if theme === light', () => {
       subject = renderIntoDom({theme: 'light', overlay: tooltip, display: true});
-      expect($('.tooltip-light .tooltip-text')).toExist();
+      expect($('.pui-tooltip-light .tooltip-text')).toExist();
     });
 
     it('does not add a class if theme =/= light', () => {
       subject = renderIntoDom({theme: 'dark', overlay: tooltip, display: true});
-      expect($('.tooltip-light')).not.toExist();
+      expect($('.pui-tooltip-light')).not.toExist();
     });
   });
 });

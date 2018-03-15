@@ -190,8 +190,8 @@ describe('FormUnit', () => {
     });
 
     it('shows a tooltip', () => {
-      expect('.form-unit .label-row .tooltip .icon').toExist();
-      expect('.form-unit .label-row .tooltip .tooltip-content').toHaveText('This is a tooltip.');
+      expect('.form-unit .label-row .pui-tooltip .icon').toExist();
+      expect('.form-unit .label-row .pui-tooltip .pui-tooltip-content').toHaveText('This is a tooltip.');
     });
 
     it('renders tooltip with default placement and default size', () => {
@@ -345,7 +345,7 @@ describe('FormUnit', () => {
 
     it('does not render a tooltip', () => {
       expect('.form-unit .label-row').toContainText('Some label');
-      expect('.form-unit .label-row .tooltip').not.toExist();
+      expect('.form-unit .label-row .pui-tooltip').not.toExist();
     });
   });
 

@@ -44,7 +44,7 @@ export class FormUnit extends React.Component {
     if (!label && !field && !help) return null;
 
     const tooltipIcon = tooltip &&
-      <TooltipTrigger {...{tooltip, className: 'tooltip-light', size: tooltipSize, placement: tooltipPlacement}}>
+      <TooltipTrigger {...{tooltip, className: 'pui-tooltip-light', size: tooltipSize, placement: tooltipPlacement}}>
         <Icon verticalAlign="baseline" src="info_outline"/>
       </TooltipTrigger>;
 
