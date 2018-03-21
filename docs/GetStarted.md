@@ -132,3 +132,9 @@ Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to s
 In development mode, this will inject PUI css directly into your page.
 In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
 If you are using pui-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
+
+## Using Pivotal UI CSS only
+
+Our compiled css is available at `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-<VERSION>.css`.
+
+For example, styles for `14.0.0` is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-14.0.0.css
