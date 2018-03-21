@@ -27,10 +27,6 @@ body {
 @include font-helper('sourcesanspro-semibold-webfont', 600, normal);
 @include font-helper('sourcesanspro-bold-webfont', 700, normal);
 
-* {
-  -webkit-font-smoothing: antialiased;
-}
-
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $headings-font-family;
