@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {BrandButton, DefaultButton} from '../buttons';
+import {Icon} from '../iconography';
 
 class PaginationButton extends React.PureComponent {
   static propTypes = {
@@ -19,13 +21,15 @@ class PaginationButton extends React.PureComponent {
     onSelect && onSelect(e, {eventKey});
   };
 
+
   render() {
-    const {content, active} = this.props;
-    return (<button onClick={this.click} className={classnames('btn', {
-      'btn-default-alt': !active, 'btn-default': active
-    })}>
+    // eslint-disable-next-line no-unused-vars
+    const {content, active, eventKey, ...props} = this.props;
+    const ButtonType = active ? BrandButton : DefaultButton;
+
+    return (<ButtonType {...{onClick: this.click, flat: true, className: classnames({'active': active}), ...props}}>
       {content}
-    </button>);
+    </ButtonType>);
   }
 }
 
@@ -35,9 +39,7 @@ export class Pagination extends React.PureComponent {
     next: PropTypes.bool,
     prev: PropTypes.bool,
     activePage: PropTypes.number,
-    onSelect: PropTypes.func,
-    small: PropTypes.bool,
-    large: PropTypes.bool
+    onSelect: PropTypes.func
   };
 
   static defaultProps = {
@@ -45,7 +47,8 @@ export class Pagination extends React.PureComponent {
     next: true,
     prev: true,
     onSelect: () => {
-    }
+    },
+    activePage: 1
   };
 
   componentDidMount() {
@@ -53,29 +56,101 @@ export class Pagination extends React.PureComponent {
   }
 
   render() {
-    const {items, next, prev, activePage, onSelect, small, large, ...props} = this.props;
-    const paginationButtons = [];
-    for (let i = 0; i < items; i++) {
-      const isActive = (i + 1 === activePage);
-      paginationButtons.push(<PaginationButton
-        key={i}
-        content={i + 1}
-        active={isActive}
-        onSelect={onSelect}
-        eventKey={i + 1}
-        {...props}/>);
+    const {items, next, prev, activePage, onSelect, className, ...props} = this.props;
+
+    const elements = [];
+
+    if (items < 6) {
+      for (let i = 0; i < items; i++) {
+        elements.push(<PaginationButton {...{
+          key: i,
+          content: i + 1,
+          active: i + 1 === activePage,
+          onSelect,
+          eventKey: i + 1,
+          ...props
+        }}/>);
+      }
+    } else {
+      if (activePage <= 3) {
+        for (let i = 0; i < 4; i++) {
+          elements.push(<PaginationButton {...{
+            key: i,
+            content: i + 1,
+            active: i + 1 === activePage,
+            onSelect,
+            eventKey: i + 1,
+            ...props
+          }}/>);
+        }
+      } else {
+        elements.push(<PaginationButton {...{
+          key: 0,
+          content: 1,
+          active: activePage === 1,
+          onSelect,
+          eventKey: 1,
+          ...props
+        }}/>);
+        elements.push(<span key="ellipsis1">&hellip;</span>);
+      }
+
+      if (activePage > 3 && activePage < items - 2) {
+        for (let i = activePage - 2; i < activePage + 1; i++) {
+          elements.push(<PaginationButton {...{
+            key: i,
+            content: i + 1,
+            active: i + 1 === activePage,
+            onSelect,
+            eventKey: i + 1,
+            ...props
+          }}/>);
+        }
+      }
+
+      if (activePage >= items - 2) {
+        for (let i = items - 4; i < items; i++) {
+          elements.push(<PaginationButton {...{
+            key: i,
+            content: i + 1,
+            active: i + 1 === activePage,
+            onSelect,
+            eventKey: i + 1,
+            ...props
+          }}/>);
+        }
+      } else {
+        elements.push(<span key="ellipsis2">&hellip;</span>);
+        elements.push(<PaginationButton {...{
+          key: items - 1,
+          content: items,
+          active: items === activePage,
+          onSelect,
+          eventKey: items,
+          ...props
+        }}/>);
+      }
     }
 
+    const prevButton = (<PaginationButton {...{
+      disabled: activePage === 1,
+      onSelect,
+      eventKey: 'prev',
+      content: <Icon src="chevron_left"/>,
+      iconOnly: true
+    }}/>);
 
-    const prevButton = <PaginationButton onSelect={onSelect} eventKey="prev" content="&lsaquo;"/>;
-    const nextButton = <PaginationButton onSelect={onSelect} eventKey="next" content="&rsaquo;"/>;
+    const nextButton = (<PaginationButton {...{
+      disabled: activePage === items,
+      onSelect,
+      eventKey: 'next',
+      content: <Icon src="chevron_right"/>,
+      iconOnly: true
+    }}/>);
 
-    return (<div className={classnames('pagination', 'btn-group', {
-      'btn-group-small': small,
-      'btn-group-large': large
-    })} role="group">
+    return (<div className={classnames('pagination', className)} role="group">
       {prev ? prevButton : null}
-      {paginationButtons}
+      {elements}
       {next ? nextButton : null}
     </div>);
   }

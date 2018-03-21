@@ -1,9 +1,16 @@
 @import "../pui-variables";
 
 .pagination {
-  font-size: 0;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  .active {
+    color: $brand-8;
+    text-decoration: underline;
+  }
+
+  .pui-btn {
+    padding: 0 $base-unit;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
