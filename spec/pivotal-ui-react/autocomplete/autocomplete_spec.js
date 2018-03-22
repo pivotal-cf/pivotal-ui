@@ -1,9 +1,10 @@
-import {PropTypes} from 'prop-types';
+import PropTypes from 'prop-types';
 
 import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy;
+
   beforeEach(() => {
     const Cursor = require('pui-cursor');
     Cursor.async = false;
@@ -21,10 +22,9 @@ describe('Autocomplete', () => {
       <Autocomplete {...{
         onInitializeItems,
         onPick: pickSpy
-      } } />, root);
+      }} />, root);
     MockNextTick.next();
     MockPromises.tick();
-
   });
 
   it('passes through custom props', () => {
@@ -41,7 +41,7 @@ describe('Autocomplete', () => {
         input: (<CustomInput/>),
         disabled: true,
         placeholder: 'Best autocomplete ever...'
-      } }>
+      }}>
         <CustomList/>
       </Autocomplete>, root);
 
@@ -60,7 +60,7 @@ describe('Autocomplete', () => {
   describe('when nothing is entered into input and the list is shown with a list of objects', () => {
     beforeEach(() => {
       ReactDOM.unmountComponentAtNode(root);
-      subject = ReactDOM.render(<Autocomplete {...{ onInitializeItems} } />, root);
+      subject = ReactDOM.render(<Autocomplete {...{onInitializeItems}} />, root);
 
       MockNextTick.next();
       MockPromises.tick();
@@ -79,8 +79,6 @@ describe('Autocomplete', () => {
   });
 
   describe('when the user starts to type into the input', () => {
-    let input;
-
     beforeEach(() => {
       pickSpy.calls.reset();
       MockNextTick.next();
@@ -281,15 +279,13 @@ describe('Autocomplete', () => {
   });
 
   describe('when custom trieOptions are provided', () => {
-    let input;
-
     beforeEach(() => {
       ReactDOM.unmountComponentAtNode(root);
       subject = ReactDOM.render(
         <Autocomplete {...{
           onInitializeItems,
-          trieOptions: {splitOnRegEx: /\./},
-        } } />, root);
+          trieOptions: {splitOnRegEx: /\./}
+        }} />, root);
       MockNextTick.next();
       MockPromises.tick();
       $('.autocomplete input').val('wat').simulate('change');
@@ -313,7 +309,7 @@ describe('Autocomplete', () => {
       subject = ReactDOM.render(<Autocomplete {...props}/>, root);
       MockNextTick.next();
       MockPromises.tick();
-      
+
       $('.autocomplete input').simulate('change');
 
       expect('.autocomplete-list').toHaveText('dacb');
@@ -325,19 +321,26 @@ describe('Autocomplete', () => {
   });
 
   describe('when an asynchronous onInitializeItems is provided', () => {
-    it('still populates the list properly', () => {
+    let promise;
+
+    beforeEach(() => {
       ReactDOM.unmountComponentAtNode(root);
       let cb;
       const props = {onInitializeItems: callback => cb = callback};
       subject = ReactDOM.render(<Autocomplete {...props}/>, root);
-
-      cb(['a', 'b', 'c', 'd']);
-
+      promise = cb(['a', 'b', 'c', 'd']);
       MockNextTick.next();
       MockPromises.tick();
+    });
 
+    it('still populates the list properly', () => {
       $('.autocomplete input').simulate('change');
       expect('.autocomplete-list').toHaveText('abcd');
+    });
+
+    it('returns the trie', () => {
+      promise.then(actual => expect(actual).toBeUndefined());
+      MockPromises.tick();
     });
   });
 
@@ -362,7 +365,7 @@ describe('Autocomplete', () => {
 
       $('.autocomplete input').val('zo').simulate('change');
 
-      cb([ {value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}]);
+      cb([{value: 'a'}, {value: 'b'}, {value: 'c'}, {value: 'd'}]);
     });
 
     it('uses that search callback', () => {

@@ -33,12 +33,6 @@ const trieFromSearchableItems = (searchableItems, trieOptions) => {
 };
 
 export class Autocomplete extends mixin(React.Component).with(Scrim) {
-  constructor(props, context) {
-    super(props, context);
-    const value = this.props.value || '';
-    this.state = {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
-  }
-
   static propTypes = {
     className: PropTypes.string,
     disabled: PropTypes.bool,
@@ -55,7 +49,7 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     trieOptions: PropTypes.object,
     value: PropTypes.string,
     showNoSearchResults: PropTypes.bool
-  }
+  };
 
   static defaultProps = {
     maxItems: 50,
@@ -63,6 +57,12 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     input: <AutocompleteInput/>,
     placeholder: 'Search',
     showNoSearchResults: false
+  };
+
+  constructor(props, context) {
+    super(props, context);
+    const value = this.props.value || '';
+    this.state = {hidden: true, highlightedSuggestion: 0, suggestedValues: [], trie: null, value};
   }
 
   componentWillReceiveProps({value}) {
@@ -75,7 +75,7 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
     super.componentDidMount();
     require('../../css/autocomplete');
     this.props.onInitializeItems((searchableItems = []) => {
-      trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
+      return trieFromSearchableItems(searchableItems, this.props.trieOptions).then(trie => {
         this.setState({searchableItems, trie});
       });
     });
@@ -83,13 +83,13 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
 
   searchItemsInOrder = () => {
     const {searchableItems} = this.state;
-    if (searchableItems.every(item => typeof item === 'string')) return searchableItems.map(value => {return {value};});
+    if (searchableItems.every(item => typeof item === 'string')) return searchableItems.map(value => ({value}));
 
     return searchableItems.map(item => {
       const key = Object.keys(item)[0];
       return {_key_: key, value: item[key]};
     });
-  }
+  };
 
   onSearch = (value, callback) => {
     if (this.props.onSearch) return this.props.onSearch(value, callback);
@@ -103,33 +103,35 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
       result = this.props.onFilter(result);
     }
     callback(result.slice(0, maxItems));
-  }
+  };
+
+  updateList = (defaultValue = null) => {
+    const value = defaultValue === null ? this.state.value : defaultValue;
+    this.onSearch(value, (suggestedValues) => {
+      this.setState({suggestedValues: suggestedValues});
+    });
+  };
 
   showList = (defaultValue = null) => {
     const value = defaultValue === null ? this.state.value : defaultValue;
     this.onSearch(value, (suggestedValues) => {
       this.setState({hidden: false, suggestedValues: suggestedValues});
     });
-  }
+  };
 
   onPick = value => {
     this.props.onPick && this.props.onPick(value);
     this.hideList();
-  }
+  };
 
   scrollIntoViewFn = () => {
     if (!this.autocomplete) return;
     Array.from(this.autocomplete.querySelectorAll('.highlighted'))
       .map(el => scrollIntoView(el, {validTarget: target => target !== window}));
-  }
-
-  hideList = () => {
-    this.setState({hidden: true});
   };
 
-  scrimClick = () => {
-    this.hideList();
-  };
+  hideList = () => this.setState({hidden: true});
+  scrimClick = () => this.hideList();
 
   render() {
     const $autocomplete = new Cursor(this.state, state => this.setState(state));
@@ -144,9 +146,13 @@ export class Autocomplete extends mixin(React.Component).with(Scrim) {
       {$autocomplete, onPick, scrollIntoView: scrollIntoViewFn, onSearch, disabled, onFocus, onClick, placeholder}
     );
 
-    return (<div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
-      {clonedInput}
-      <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults}}>{children}</AutocompleteList>
-    </div>);
+    return (
+      <div className={classnames('autocomplete', className)} ref={ref => this.autocomplete = ref} {...props}>
+        {clonedInput}
+        <AutocompleteList {...{$autocomplete, onPick, maxItems, selectedSuggestion, showNoSearchResults}}>
+          {children}
+        </AutocompleteList>
+      </div>
+    );
   }
 }
