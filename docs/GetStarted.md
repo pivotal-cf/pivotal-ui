@@ -72,7 +72,7 @@ import {Jasmine} from 'pui-react-tools';
 
 Jasmine.install({
   webpack: {
-    test: function () {
+    test: () => {
       return {
         devtool: 'cheap-module-source-map',
         module: {
