@@ -1,140 +1,167 @@
 # Getting Started with Pivotal UI
 
-## Starter Project
+To get started using Pivotal UI with Create React App (CRA), follow these steps:
 
-We've created a starter project to help transitioning to Pivotal UI and React.
+1. Install the latest version of Node LTS. [See here for instructions.](https://docs.npmjs.com/getting-started/installing-node)
 
-Use [PUI Starter](https://github.com/pivotal-cf/pui-starter) to build a full React application using Pivotal UI.
+2. Create a new CRA project with this command:
+```
+npx create-react-app some-directory
+```
 
-Once you feel comfortable integrating Pivotal UI into your project, jump to the next step below.
+At this point, you'll be able to start up the default CRA app locally:
+```
+cd some-directory
+yarn start
+```
 
-## Using Pivotal UI on your project (with React)
+For more information on Create React App, see the [CRA readme](https://github.com/facebook/create-react-app).
 
-Using the React components is the recommended approach over CSS/HTML.
+3. Install the `pivotal-ui` node module:
 
-- Reusable, maintainable code that is more consistent.
-- Variables for color provide meaning and context ("marketing-header1" vs "teal-23")
-- Cross-browser and responsive issues are handled.
+```
+yarn add pivotal-ui
+```
 
-**However, you'll need to know a few more technologies.
-If you don't know what React, Babel or a transpiler is, review the links below.**
+4. Open `src/App.js` and replace the contents with:
 
-- [React Overview](http://facebook.github.io/react/)
-- [Babel](https://babeljs.io/)
+```
+import React, { Component } from 'react';
+import {DefaultButton} from 'pivotal-ui/react/buttons';
 
-Ensure that the following is set up on your project:
-
- - **node**
-
-    ```
-    brew install node
-    ```
- - **node package manager**
-
-    npm will be installed as part of node
-
- - **Webpack or Browserify** - Our React modules follow the CommonJS module
-    pattern. Use [Webpack](http://webpack.github.io/) (recommended) or
-    [Browserify](http://browserify.org/) to compile your javascript for use
-    in the browser.
-
-    We use [Gulp](http://gulpjs.com/) and [Webpack Stream](https://github.com/shama/webpack-stream).
-
- - **A JSX transpiler** - It's easiest to write React code with [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html).
-    You will need a transpiler to convert your JSX code into plain javascript
-    for use in the browser.
-
-    We recommend [Babel](https://babeljs.io/).
-    If you are using Webpack, you will also want [Babel Loader](https://github.com/babel/babel-loader)
-
-    Getting Babel working can be complicated. To see a sample project with Babel integrated,
-    look at [PUI Starter](https://github.com/pivotal-cf/pui-starter).
-
- - **React**
- 
-    ```
-    npm install react react-dom --save-dev
-    ```
-
-
-Need help? Pair with an engineer on the Apps Manager/Pivotal UI team on how to set up Pivotal UI for use in your project.
-
-### Install
-
-1. Create a package.json file that will include the PUI modules you'll be using
-    `npm init`
-
-1. Install [PUI React Tools](http://github.com/pivotal-cf/pui-react-tools).
-   This set of tools includes an asset pipeline for including css and svg assets in your JavaScript.
-   Usage is somewhat complicated, [PUI Starter](https://github.com/pivotal-cf/pui-starter) is a sample project with everything set up.
-
-1. Install Pivotal UI:
-
-    ```
-    npm install --save pivotal-ui
-    ```
-
-1. Write some React!
-
-    Javascript:
-    
-    ```
-    import React from 'react';
-    import {DefaultButton} from 'pivotal-ui/react/buttons';
-
-    class MyTestPage extends React.Component {
-      constructor(props, context) {
-        super(props, context);
-        this.state = {showMessage: false};
-      }
-
-      showMessage() {
-        this.setState({showMessage: true});
-      }
-
-      render() {
-        return (
-          <div className="container">
-            <DefaultButton onClick={this.showMessage.bind(this)}>Show Message</DefaultButton>
-            { this.state.showMessage ? <h1>Hello world!</h1> : null }
-          </div>
-        );
-      }
-    }
-
-    ReactDOM.render(<MyTestPage />, document.getElementById('root'));
-    ```
-    
-    HTML:
-
-    ```
-     <!-- ... -->
-     <body>
-       <div id="root"></div>
-
-       <!-- Script tag should be below all DOM elements -->
-       <script src="<path-to-your-project's-compiled-javascript-file>"></script>
-     </body>
-     <!-- ... -->
-    ```
-    
-1. Require any css-only components in your javascript
-
-    ```
-    import 'pivotal-ui/css/alignment';
-    import 'pivotal-ui/css/whitespace';
-    ```
-
-    These will be included in the built css artifact, in addition to any css internally required by your PUI React Components.
-
-1. Use the asset pipeline from pui-react-tools.
-
-In development mode, this will inject PUI css directly into your page.
-In production mode, it will create a file called `components.css` as well as any fonts or images required by the css.
-If you are using pui-starter, you will need to add `components.css` to your `scripts` key in `application.json`.
+export default class App extends Component {
+  render() {
+    return <DefaultButton>Click Me</DefaultButton>;
+  }
+}
+```
 
 ## Using Pivotal UI CSS only
 
 Our compiled css is available at `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-<VERSION>.css`.
 
 For example, styles for `14.0.0` is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-14.0.0.css
+
+## Unit testing with Jasmine
+
+- Install pui-react-tools, `yarn add --dev pui-react-tools`
+
+- Install gulp@next (Make sure its version is ^4.0.0), `yarn add --dev gulp@next`
+
+- Install babel-core, `yarn add --dev babel-core`
+
+- Install puppeteer, `yarn add --dev puppeteer`
+
+- Install jquery, `yarn add --dev jquery`
+
+- Install spy-on-render, `yarn add --dev spy-on-render`
+
+- Install jasmine_dom_matchers, `yarn add --dev jasmine_dom_matchers`
+
+- Create a `.babelrc` file in your project root
+```
+{
+  "presets": [["es2015", {"loose": true}], "react"]
+}
+```
+
+- Create gulpfile.babel.js to install the jasmine task with a webpack config
+
+```
+import {Jasmine} from 'pui-react-tools';
+
+Jasmine.install({
+  webpack: {
+    test: function () {
+      return {
+        devtool: 'cheap-module-source-map',
+        module: {
+          rules: [
+            {test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader', query: {presets: ['react']}},
+            {test: /css$/, loader: 'css-loader'},
+            {test: /svg$/, loader: 'file-loader'}
+          ]
+        },
+        output: {filename: '[name].js'},
+        watch: true
+      }
+    }
+  },
+  appGlobs: ['src/*.test.js'],
+  headlessServerOptions: {
+    includeStackTrace: true,
+    random: false,
+    isVerbose: false,
+    port: 8888,
+    driver: 'chrome'
+  },
+  headlessSpecRunnerOptions: {profile: true},
+});
+```
+
+- Create a `spec_helper.js` that imports necessary dependencies and sets up tests
+```
+import $ from 'jquery';
+import 'jasmine_dom_matchers';
+import ReactDOM from 'react-dom';
+import 'spy-on-render';
+
+Object.assign(global, {
+  $,
+  jQuery: $,
+  ReactDOM
+});
+
+beforeEach(() => {
+  $('body').find('#root').remove().end().append('<main id="root"/>');
+});
+
+afterEach(() => {
+  ReactDOM.unmountComponentAtNode(root);
+});
+```
+
+- Import `spec_helper.js` in your test file. Render into root and assert against jquery selectors.
+
+```
+import React from 'react';
+import App from './App';
+import 'path/to/spec_helper';
+
+describe('app', () => {
+  beforeEach(() => {
+    spyOnRender(App).and.callThrough();
+    ReactDOM.render(<App/>, root);
+  });
+
+  it('renders without crashing', () => {
+    expect('.App').toExist();
+    expect(App).toHaveBeenRenderedWithProps({});
+  });
+});
+```
+
+- Run `gulp jasmine` and go to localhost:8888
+
+## Linting
+
+- Install pui-react-tools, `yarn add --dev pui-react-tools`
+
+- Install gulp@next (Make sure its version is ^4.0.0), `yarn add --dev gulp@next`
+
+- Create a `.babelrc` file in your project root
+```
+{
+  "presets": [["es2015", {"loose": true}], "react"]
+}
+```
+
+- Create gulpfile.babel.js to install the link task
+
+```
+import {Jasmine} from 'pui-react-tools';
+Lint.install({globs: ['src/**/*.js']});
+```
+
+- Create an .eslintrc file, see the [pivotal-ui example](https://github.com/pivotal-cf/pivotal-ui/blob/master/.eslintrc)
+
