@@ -166,3 +166,6 @@ Lint.install({globs: ['src/**/*.js']});
 
 - Create an .eslintrc file, see the [pivotal-ui example](https://github.com/pivotal-cf/pivotal-ui/blob/master/.eslintrc)
 
+## Sass
+
+Please refer to the [create-react-app docs](https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#adding-a-css-preprocessor-sass-less-etc)
