@@ -48,7 +48,7 @@ For example, styles for `14.0.0` is available at http://d2bsvk2etkq8vr.cloudfron
 
 - Install gulp@next (Make sure its version is ^4.0.0), `yarn add --dev gulp@next`
 
-- Install babel-core, `yarn add --dev babel-core`
+- Install babel-core and babel-polyfill, `yarn add --dev babel-core babel-polyfill`
 
 - Install puppeteer, `yarn add --dev puppeteer`
 
@@ -69,6 +69,7 @@ For example, styles for `14.0.0` is available at http://d2bsvk2etkq8vr.cloudfron
 
 ```
 import {Jasmine} from 'pui-react-tools';
+import 'babel-polyfill';
 
 Jasmine.install({
   webpack: {
