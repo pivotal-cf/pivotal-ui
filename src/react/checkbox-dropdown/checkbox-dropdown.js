@@ -8,22 +8,6 @@ function doNothing() {
 };
 
 export class CheckboxDropdown extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    const {labels} = this.props;
-    const options = labels.reduce((result, item) => {
-      result[item] = true;
-      return result;
-    }, {});
-    this.state = {open: false, options};
-  }
-
-  componentDidMount() {
-    const {onChange} = this.props;
-    const {options} = this.state;
-    onChange(options);
-  }
-
   static propTypes = {
     buttonAriaLabel: PropTypes.string,
     buttonClassName: PropTypes.string,
@@ -39,6 +23,24 @@ export class CheckboxDropdown extends React.Component {
     onChange: doNothing,
     size: 'normal'
   };
+
+  constructor(props, context) {
+    super(props, context);
+    const {labels} = this.props;
+    const options = labels.reduce((result, item) => {
+      result[item] = true;
+      return result;
+    }, {});
+    this.state = {open: false, options};
+  }
+
+  componentDidMount() {
+    require('../../css/checkbox-dropdown');
+
+    const {onChange} = this.props;
+    const {options} = this.state;
+    onChange(options);
+  }
 
   getTitle() {
     if (this.allSelected()) return 'ALL';
@@ -80,6 +82,7 @@ export class CheckboxDropdown extends React.Component {
     const dropdownItems = labels.map(label => {
       return (
         <Checkbox className="checkbox-dropdown-item-checkbox man"
+                  labelClassName="pui-checkbox-dropdown-item-label"
                   key={label}
                   checked={options[label]}
                   onChange={doNothing}
@@ -89,6 +92,7 @@ export class CheckboxDropdown extends React.Component {
 
     const checkBoxAllProps = {
       className: 'all-checkbox man',
+      labelClassName: 'pui-checkbox-dropdown-item-label',
       checked: this.allSelected(),
       onClick: e => this.toggleAll(e),
       onChange: doNothing
@@ -96,10 +100,15 @@ export class CheckboxDropdown extends React.Component {
 
     const title = <span className="type-ellipsis">{this.getTitle()}</span>;
 
-    return (<Dropdown {...{...dropDownProps, title, className: classnames('checkbox-dropdown', className)}}>
+    return (<Dropdown {...{
+      ...dropDownProps,
+      title,
+      closeOnMenuClick: false,
+      className: classnames('checkbox-dropdown', className)
+    }}>
       <span className="checkbox-dropdown-item-checkbox show-all"
-          onSelect={e => this.toggleAll(e)}
-          checked={this.allSelected()}>
+            onSelect={e => this.toggleAll(e)}
+            checked={this.allSelected()}>
         <Checkbox {...checkBoxAllProps}>ALL</Checkbox>
       </span>
       {dropdownItems}

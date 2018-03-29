@@ -20,6 +20,13 @@ describe('checkbox dropdown', () => {
       expect($('.checkbox-dropdown-item-checkbox:eq(3)')).toHaveText('item #3');
     });
 
+    it('renders the items with labels and labelClassNames', () => {
+      expect($('.pui-checkbox-label:eq(0)')).toHaveClass('pui-checkbox-dropdown-item-label');
+      expect($('.pui-checkbox-label:eq(1)')).toHaveClass('pui-checkbox-dropdown-item-label');
+      expect($('.pui-checkbox-label:eq(2)')).toHaveClass('pui-checkbox-dropdown-item-label');
+      expect($('.pui-checkbox-label:eq(3)')).toHaveClass('pui-checkbox-dropdown-item-label');
+    });
+
     it('has the text "ALL"', () => {
       expect($('.dropdown > button')).toHaveText('ALL');
     });
@@ -208,6 +215,24 @@ describe('checkbox dropdown', () => {
 
     it('calls the onChange callback', () => {
       expect(testableFn).toHaveBeenCalledWith({
+        'item #1': true,
+        'item #2': false,
+        'item #3': true
+      });
+    });
+  });
+
+  describe('when clicking on a label', () => {
+    let onChange;
+
+    beforeEach(() => {
+      onChange = jasmine.createSpy('onChange');
+      subject::setProps({onChange});
+      $('.pui-checkbox-label:eq(2)').click();
+    });
+
+    it('calls the onChange callback', () => {
+      expect(onChange).toHaveBeenCalledWith({
         'item #1': true,
         'item #2': false,
         'item #3': true
