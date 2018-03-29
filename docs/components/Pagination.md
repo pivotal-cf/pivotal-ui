@@ -25,29 +25,23 @@ Use when the dataset is in some way ordered. |
 class PaginationAdvanced extends React.Component {
   constructor(props) {
     super(props);
+    this.handleSelect = this.handleSelect.bind(this);
     this.state = {activePage: 1};
   }
 
   handleSelect(event, selectedEvent) {
-    const eventKey = selectedEvent.eventKey;
-    const activePage = this.state.activePage;
-
-    if(eventKey === 'next') {
-      return this.setState({activePage: activePage + 1});
-    }
-
-    if(eventKey === 'prev') {
-      return this.setState({activePage: activePage - 1});
-    }
-
-    this.setState({activePage: selectedEvent.eventKey});
+    const newActivePage = selectedEvent.newActivePage;
+    this.setState({activePage: newActivePage});
   }
 
   render() {
     return (
-      <Pagination items={7}
-                  activePage={this.state.activePage}
-                  onSelect={this.handleSelect.bind(this)} />
+      <div>
+        <Pagination items={7}
+                    activePage={this.state.activePage}
+                    onSelect={this.handleSelect} />
+        <div className="maxl">Current Page: {this.state.activePage}</div>
+      </div>
     );
   }
 }
@@ -74,7 +68,5 @@ Property   | Required | Type     | Default | Description
 items      | no       | Number   | 1       | The number of page links displayed
 next       | no       | Boolean  | true    | Option to display a 'next page' button
 prev       | no       | Boolean  | true    | Option to display a 'previous page' button
-activePage | no       | Number   |         | Option to make a link styled as 'active'
-onSelect   | no       | Function |         | Callback that is called on click of a link
-small      | no       | Boolean  | false   | Make the buttons small
-large      | no       | Boolean  | false   | Make the buttons large
+activePage | no       | Number   |         | The selected page number (starts at 1)
+onSelect   | no       | Function |         | Callback that is called when a page number or next/previous button is clicked. It receives an object containing `newActivePage`.
