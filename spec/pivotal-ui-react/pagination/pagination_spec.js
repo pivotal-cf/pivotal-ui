@@ -78,19 +78,19 @@ describe('Pagination', () => {
       it('calls on .pui-btn click', () => {
         $('.pagination .pui-btn:eq(4)').simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 4, newActivePage: 4});
       });
 
       it('calls on prev click', () => {
         $('.pagination .pui-btn:eq(0)').simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev'});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'prev', newActivePage: 1});
       });
 
       it('calls on next click', () => {
         $('.pagination .pui-btn:eq(6)').simulate('click');
 
-        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next'});
+        expect(onSelect).toHaveBeenCalledWith(jasmine.any(Object), {eventKey: 'next', newActivePage: 3});
       });
     });
   });

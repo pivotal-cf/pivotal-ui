@@ -9,7 +9,8 @@ class PaginationButton extends React.PureComponent {
     content: PropTypes.node,
     active: PropTypes.bool,
     onSelect: PropTypes.func,
-    eventKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    eventKey: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    activePage: PropTypes.number
   };
 
   componentDidMount() {
@@ -17,14 +18,18 @@ class PaginationButton extends React.PureComponent {
   }
 
   click = e => {
-    const {eventKey, onSelect} = this.props;
-    onSelect && onSelect(e, {eventKey});
+    const {eventKey, onSelect, activePage} = this.props;
+    let newActivePage;
+    if (eventKey === 'next') newActivePage = activePage + 1;
+    else if (eventKey === 'prev') newActivePage = activePage - 1;
+    else newActivePage = eventKey;
+    onSelect && onSelect(e, {eventKey, newActivePage});
   };
 
 
   render() {
     // eslint-disable-next-line no-unused-vars
-    const {content, active, eventKey, ...props} = this.props;
+    const {content, active, eventKey, activePage, ...props} = this.props;
     const ButtonType = active ? BrandButton : DefaultButton;
 
     return (<ButtonType {...{onClick: this.click, flat: true, className: classnames({'active': active}), ...props}}>
@@ -68,6 +73,7 @@ export class Pagination extends React.PureComponent {
           active: i + 1 === activePage,
           onSelect,
           eventKey: i + 1,
+          activePage,
           ...props
         }}/>);
       }
@@ -80,6 +86,7 @@ export class Pagination extends React.PureComponent {
             active: i + 1 === activePage,
             onSelect,
             eventKey: i + 1,
+            activePage,
             ...props
           }}/>);
         }
@@ -90,6 +97,7 @@ export class Pagination extends React.PureComponent {
           active: activePage === 1,
           onSelect,
           eventKey: 1,
+          activePage,
           ...props
         }}/>);
         elements.push(<span key="ellipsis1">&hellip;</span>);
@@ -103,6 +111,7 @@ export class Pagination extends React.PureComponent {
             active: i + 1 === activePage,
             onSelect,
             eventKey: i + 1,
+            activePage,
             ...props
           }}/>);
         }
@@ -116,6 +125,7 @@ export class Pagination extends React.PureComponent {
             active: i + 1 === activePage,
             onSelect,
             eventKey: i + 1,
+            activePage,
             ...props
           }}/>);
         }
@@ -127,6 +137,7 @@ export class Pagination extends React.PureComponent {
           active: items === activePage,
           onSelect,
           eventKey: items,
+          activePage,
           ...props
         }}/>);
       }
@@ -137,7 +148,8 @@ export class Pagination extends React.PureComponent {
       onSelect,
       eventKey: 'prev',
       content: <Icon src="chevron_left"/>,
-      iconOnly: true
+      iconOnly: true,
+      activePage
     }}/>);
 
     const nextButton = (<PaginationButton {...{
@@ -145,7 +157,8 @@ export class Pagination extends React.PureComponent {
       onSelect,
       eventKey: 'next',
       content: <Icon src="chevron_right"/>,
-      iconOnly: true
+      iconOnly: true,
+      activePage
     }}/>);
 
     return (<div className={classnames('pagination', className)} role="group">
