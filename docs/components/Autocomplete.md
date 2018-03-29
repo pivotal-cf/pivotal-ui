@@ -21,6 +21,47 @@ const AutocompleteExample = () => <Autocomplete onInitializeItems={onInitializeI
 </div>
 ```
 
+```jsx
+::title=Adding more options to autocomplete
+::description=By saving the `onInitializeItems` callback, we can call it whenever we need to give the autocomplete new data. We then use the `updateList()` method to update the list.
+
+const onPick = item => alert('You selected ' + item.value);
+
+const privates = new WeakMap();
+
+class AutocompleteExample extends React.Component {
+  getNewData(evt) {
+    this.autocomplete.showList();
+
+    const done = privates.get(this);
+    const vals = ['a', 'b', 'c', 'd', 'e'];
+    const rand = () => Math.floor(Math.random() * 5);
+    const newItems = [vals[rand()], vals[rand()]];
+    done(newItems);
+    this.autocomplete.updateList();
+  }
+
+  render() {
+    return <div>
+      <PrimaryButton className="mbxl" onClick={this.getNewData.bind(this)}>randomize options</PrimaryButton>
+
+      <Autocomplete {...{
+        onInitializeItems: done => {
+          privates.set(this, done);
+          done(['foo', 'food', 'bar']);
+        },
+        onPick,
+        ref: el => this.autocomplete = el
+      }}/>
+    </div>;
+  }
+}
+
+<div>
+    <AutocompleteExample/>
+</div>
+```
+
 #### onInitializeItems
 The callback passed to this function should return the values to initially populate the list of items.
 
