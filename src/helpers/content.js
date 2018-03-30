@@ -11,6 +11,7 @@ import 'pivotal-ui/css/button-group/button-group.scss';
 import 'pivotal-ui/css/border/border.scss';
 import 'pivotal-ui/css/box-shadows/box-shadows.scss';
 import 'pivotal-ui/css/checkbox/checkbox.scss';
+import 'pivotal-ui/css/checkbox-dropdown/checkbox-dropdown.scss';
 import 'pivotal-ui/css/code/code.scss';
 import 'pivotal-ui/css/collapse/collapse.scss';
 import 'pivotal-ui/css/colors/colors.scss';
