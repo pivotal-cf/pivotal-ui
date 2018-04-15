@@ -23,8 +23,8 @@ describe('CopyToClipboard', () => {
   });
 
   it('renders a hidden tooltip with default text', () => {
-    expect('.tooltip-container').toHaveClass('tooltip-container-hidden');
-    expect('.tooltip-content').toHaveText('Copied');
+    expect('.pui-tooltip-container').toHaveClass('pui-tooltip-container-hidden');
+    expect('.pui-tooltip-content').toHaveText('Copied');
   });
 
   describe('when given tooltip text', () => {
@@ -33,7 +33,7 @@ describe('CopyToClipboard', () => {
     });
 
     it('uses the custom tooltip text', () => {
-      expect('.tooltip-content').toHaveText('Copied successfully!');
+      expect('.pui-tooltip-content').toHaveText('Copied successfully!');
     });
   });
 
@@ -51,17 +51,17 @@ describe('CopyToClipboard', () => {
 
   describe('clicking on the element', () => {
     beforeEach(() => {
-      $('.pui-copy-to-clipboard .tooltip').click();
+      $('.pui-copy-to-clipboard .pui-tooltip').click();
       $('.pui-copy-to-clipboard').click();
     });
 
     it('makes tooltip visible', () => {
-      expect('.tooltip-container').toHaveClass('tooltip-container-visible');
+      expect('.pui-tooltip-container').toHaveClass('pui-tooltip-container-visible');
     });
 
     it('hides tooltip after 1 seconds', () => {
       jasmine.clock().tick(2000);
-      expect('.tooltip-container').not.toHaveClass('tooltip-container-visible');
+      expect('.pui-tooltip-container').not.toHaveClass('pui-tooltip-container-visible');
     });
 
     it('copies the text to the clipboard', () => {

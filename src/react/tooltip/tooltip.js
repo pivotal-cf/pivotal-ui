@@ -26,14 +26,14 @@ export class Tooltip extends React.PureComponent {
   render() {
     let {isSticky, visible, size, className, children, ...others} = this.props;
 
-    const newClasses = classnames('tooltip-container', visible ? 'tooltip-container-visible' : 'tooltip-container-hidden',
-                                  size === 'auto' ? null : `tooltip-${size}`,
-                                  isSticky? 'tooltip-hoverable': null,
+    const newClasses = classnames('pui-tooltip-container', visible ? 'pui-tooltip-container-visible' : 'pui-tooltip-container-hidden',
+                                  size === 'auto' ? null : `pui-tooltip-${size}`,
+                                  isSticky? 'pui-tooltip-hoverable': null,
                                   className);
 
     return (
       <div className={newClasses} {...others}>
-        <div className="tooltip-content">{children}</div>
+        <div className="pui-tooltip-content">{children}</div>
       </div>
     );
   }
@@ -116,7 +116,7 @@ export class TooltipTrigger extends React.Component {
 
     let placementClass;
     if(placement !== 'top') {
-      placementClass = `tooltip-${placement}`;
+      placementClass = `pui-tooltip-${placement}`;
     }
 
     let triggerHandler;
@@ -136,8 +136,8 @@ export class TooltipTrigger extends React.Component {
         break;
     }
 
-    const newClasses = classnames('tooltip', className, placementClass,
-      theme === 'light' ? 'tooltip-light' : null);
+    const newClasses = classnames('pui-tooltip', className, placementClass,
+      theme === 'light' ? 'pui-tooltip-light' : null);
     const newProps = Object.assign({className: newClasses}, triggerHandler, others);
 
     return (

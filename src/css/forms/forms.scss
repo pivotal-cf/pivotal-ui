@@ -404,7 +404,7 @@ textarea.valid {
 
   &[disabled] + label {
     opacity: .5;
-    
+
     // IE8 filter
     filter: alpha(opacity=50);
   }
@@ -485,7 +485,7 @@ textarea.valid {
     font-size: 12px;
   }
 
-  .label-row .tooltip .icon {
+  .label-row .pui-tooltip .icon {
     font-size: 2 * $base-unit;
     margin-left: $base-unit / 2;
 

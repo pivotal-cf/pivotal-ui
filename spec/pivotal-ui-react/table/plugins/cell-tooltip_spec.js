@@ -35,7 +35,7 @@ describe('withCellTooltip', () => {
   });
 
   it('does not render a tooltip', () => {
-    expect('.tooltip').not.toExist();
+    expect('.pui-tooltip').not.toExist();
   });
 
   it('renders an Icon for the first header', () => {
@@ -60,7 +60,7 @@ describe('withCellTooltip', () => {
     });
 
     it('renders a tooltip', () => {
-      expect('.tooltip').toHaveText('is header? true');
+      expect('.pui-tooltip').toHaveText('is header? true');
     });
   });
 
@@ -74,7 +74,7 @@ describe('withCellTooltip', () => {
     });
 
     it('renders a tooltip', () => {
-      expect('.tooltip').toHaveText('is header? false');
+      expect('.pui-tooltip').toHaveText('is header? false');
     });
   });
 });
