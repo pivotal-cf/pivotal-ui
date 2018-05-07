@@ -76,6 +76,7 @@ import * as Notifications from 'pivotal-ui/react/notifications';
 import * as Pagination from 'pivotal-ui/react/pagination';
 import * as Panels from 'pivotal-ui/react/panels';
 import * as Panes from 'pivotal-ui/react/panes';
+import * as ProgressBar from 'pivotal-ui/react/progress-bar';
 import * as Portals from 'pivotal-ui/react/portals';
 import * as Radio from 'pivotal-ui/react/radio';
 import * as Table from 'pivotal-ui/react/table';
@@ -132,7 +133,7 @@ import PanesJson from '../../docs/components/Panes.md';
 import PanelsJson from '../../docs/components/Panels.md';
 import PortalsJson from '../../docs/components/Portals.md';
 import PositioningJson from '../../docs/components/Positioning.md';
-import ProgressBarsJson from '../../docs/components/ProgressBars.md';
+import ProgressBarJson from '../../docs/components/ProgressBar.md';
 import RadiosJson from '../../docs/components/Radios.md';
 import SelectJson from '../../docs/components/Select.md';
 import SvgJson from '../../docs/components/Svg.md';
@@ -194,7 +195,7 @@ const routes = {
   panes: {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
   portals: {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
   positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: []},
-  progress_bars: {json: ProgressBarsJson, file: 'components/ProgressBars.md', name: 'Progress Bars', category: 'Components', packages: []},
+  progress_bars: {json: ProgressBarJson, file: 'components/ProgressBar.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBar]},
   radios: {json: RadiosJson, file: 'components/Radios.md', name: 'Radio', category: 'Components', packages: [Radio]},
   select: {json: SelectJson, file: 'components/Select.md', name: 'Select', category: 'Components', packages: [Select]},
   svg: {json: SvgJson, file: 'components/Svg.md', name: 'Svg', category: 'Components', packages: [Svg]},
