@@ -13,7 +13,7 @@ export class ProgressBar extends React.Component {
   };
 
   componentDidMount() {
-    require('../../css/progress-bars');
+    require('../../css/progress-bar');
   }
 
   render() {

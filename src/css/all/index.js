@@ -27,7 +27,7 @@ try {
   require('../panels');
   require('../panes');
   require('../positioning');
-  require('../progress-bars');
+  require('../progress-bar');
   require('../spinners');
   require('../tables');
   require('../tabs');
