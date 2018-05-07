@@ -35,6 +35,10 @@ describe('Checkbox', () => {
     });
   });
 
+  it('does not render an indeterminate checkbox', () => {
+    expect(subject.el.indeterminate).toBeFalsy();
+  });
+
   describe('when checked', () => {
     beforeEach(() => {
       ReactDOM.unmountComponentAtNode(root);
@@ -53,6 +57,16 @@ describe('Checkbox', () => {
 
     it('renders an checked control', () => {
       expect('.pui-checkbox input').toBeChecked();
+    });
+
+    describe('when clicked again', () => {
+      beforeEach(() => {
+        $('.pui-checkbox input').click();
+      });
+
+      it('renders an unchecked control', () => {
+        expect('.pui-checkbox input').not.toBeChecked();
+      });
     });
   });
 
@@ -83,6 +97,35 @@ describe('Checkbox', () => {
 
     it('renders a label with the class name', () => {
       expect('.pui-checkbox label').toHaveClass('some-class');
+    });
+  });
+
+  describe('indeterminate', () => {
+    beforeEach(() => {
+      subject::setProps({indeterminate: true});
+    });
+
+    it('renders a remove Icon', () => {
+      expect(Icon).toHaveBeenRenderedWithProps({
+        src: 'remove',
+        size: 'inherit',
+        style: {},
+        verticalAlign: 'middle'
+      });
+    });
+
+    it('renders an indeterminate checkbox', () => {
+      expect(subject.el.indeterminate).toBeTruthy();
+    });
+
+    describe('when clicked', () => {
+      beforeEach(() => {
+        $('.pui-checkbox input').click();
+      });
+
+      it('renders an checked control', () => {
+        expect('.pui-checkbox input').toBeChecked();
+      });
     });
   });
 });

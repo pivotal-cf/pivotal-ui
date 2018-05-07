@@ -15,20 +15,29 @@ export class Checkbox extends React.Component {
     name: PropTypes.string,
     onChange: PropTypes.func,
     style: PropTypes.object,
-    type: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    indeterminate: PropTypes.bool
   };
 
   static defaultProps = {
-    type: 'checkbox'
+    type: 'checkbox',
+    indeterminate: false
   };
 
   componentDidMount() {
+    this.el.indeterminate = this.props.indeterminate;
     require('../../css/forms');
     require('../../css/checkbox');
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.indeterminate !== this.props.indeterminate) {
+      this.el.indeterminate = this.props.indeterminate;
+    }
+  }
+
   render() {
-    const {className, disabled, children, labelClassName, style, id = uniqueId('checkbox'), ...others} = this.props;
+    const {indeterminate, className, disabled, children, labelClassName, style, id = uniqueId('checkbox'), ...others} = this.props;
 
     return (
       <div {...{className: classnames('pui-checkbox', className), style}}>
@@ -38,11 +47,12 @@ export class Checkbox extends React.Component {
           type: 'checkbox',
           id,
           disabled,
+          ref: el => this.el = el,
           'aria-disabled': disabled
         }}/>
         <label {...{className: classnames('pui-checkbox-label', labelClassName), htmlFor: id}}>
           <span className="pui-checkbox-control">
-            <Icon src="check"/>
+            <Icon src={indeterminate ? 'remove' : 'check'}/>
           </span>
           {children}
         </label>

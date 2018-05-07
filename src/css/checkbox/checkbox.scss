@@ -27,6 +27,19 @@
     }
   }
 
+  &:indeterminate ~ .pui-checkbox-label > .pui-checkbox-control {
+    background: $accent-3;
+    border-color: $accent-3;
+
+    svg {
+      fill: $gray-11 !important;
+    }
+
+    .icon {
+      display: inline-flex;
+    }
+  }
+
   &:checked ~ .pui-checkbox-label > .pui-checkbox-control {
     background: $accent-3;
     border-color: $accent-3;
