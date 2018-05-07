@@ -48,6 +48,8 @@ class Page extends React.Component {
         <Flyout {...{
           open,
           header: <h3>Create Task</h3>,
+          headerClassName: 'header-class',
+          bodyClassName: 'body-class',
           children,
           close: () => this.setState({open: false})
         }}/>
@@ -67,10 +69,12 @@ class Page extends React.Component {
 
 ## Props
 
-Property   | Required | Type     | Default | Description
------------|----------|----------|---------|------------
-open       | false    | Boolean  | false   | Whether or not the flyout is visible
-width      | false    | String   | 480px   | Width of flyout content
-header     | false    | Any      |         | Contents of the flyout header
-children   | false    | Any      |         | Contents of the flyout body
-close      | false    | Function |         | Callback called when close button is clicked
+Property        | Required | Type     | Default | Description
+----------------|----------|----------|---------|------------
+bodyClassName   | false    | String   |         | Class(es) to apply to the body
+children        | false    | Any      |         | Contents of the flyout body
+close           | false    | Function |         | Callback called when close button is clicked
+header          | false    | Any      |         | Contents of the flyout header
+headerClassName | false    | String   |         | Class(es) to apply to the header
+open            | false    | Boolean  | false   | Whether or not the flyout is visible
+width           | false    | String   | 480px   | Width of flyout content
