@@ -1,6 +1,6 @@
 @import "../pui-variables";
 
-.progress {
+.progress, .pui-progress {
   background-color: $navy-9;
 
   overflow: hidden;
@@ -8,7 +8,7 @@
   min-height: $base-unit;
 }
 
-.progress-bar {
+.progress-bar, .pui-progress-bar {
   -webkit-transition: width .6s ease;
   transition: width .6s ease;
 
@@ -23,12 +23,12 @@
   }
 }
 
-.progress-bar[aria-valuenow="1"],
-.progress-bar[aria-valuenow="2"] {
+.progress-bar[aria-valuenow="1"], .pui-progress-bar[aria-valuenow="1"],
+.progress-bar[aria-valuenow="2"], .pui-progress-bar[aria-valuenow="2"] {
   min-width: 3%;
 }
 
-.progress-bar[aria-valuenow="0"] {
+.progress-bar[aria-valuenow="0"], .pui-progress-bar[aria-valuenow="0"] {
   color: $text-color;
   min-width: 3%;
   background: transparent;
