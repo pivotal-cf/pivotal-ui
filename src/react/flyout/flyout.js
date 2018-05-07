@@ -11,6 +11,8 @@ export class Flyout extends React.Component {
     width: PropTypes.string,
     children: PropTypes.any,
     header: PropTypes.any,
+    headerClassName: PropTypes.string,
+    bodyClassName: PropTypes.string,
     iconSrc: PropTypes.string
   };
 
@@ -29,7 +31,7 @@ export class Flyout extends React.Component {
   }
 
   render() {
-    const {children, open, close, header, width, iconSrc} = this.props;
+    const {children, open, close, header, width, headerClassName, bodyClassName, iconSrc} = this.props;
 
     let right;
     if (width) {
@@ -43,7 +45,7 @@ export class Flyout extends React.Component {
         'flyout-open': open
       })}>
         <div className="flyout-content" style={{width, right}}>
-          <div className="flyout-header grid">
+          <div className={classnames('flyout-header grid', headerClassName)}>
             <div className="col col-fixed">
               <DefaultButton {...{
                 className: 'flyout-close',
@@ -58,7 +60,7 @@ export class Flyout extends React.Component {
               {header}
             </div>
           </div>
-          <div className="flyout-body">
+          <div className={classnames('flyout-body', bodyClassName)}>
             {children}
           </div>
         </div>

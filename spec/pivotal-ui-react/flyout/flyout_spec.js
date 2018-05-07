@@ -21,6 +21,16 @@ describe('Flyout', () => {
     expect('.flyout').not.toHaveClass('flyout-open');
   });
 
+  describe('bodyClassName', () => {
+    beforeEach(() => {
+      subject::setProps({bodyClassName: 'some-class-name'});
+    });
+
+    it('sets the given className on the body', () => {
+      expect('.flyout-body').toHaveClass('some-class-name');
+    });
+  });
+
   it('renders the children', () => {
     expect('.flyout .flyout-body').toHaveText('some-flyout-body');
   });
@@ -68,6 +78,16 @@ describe('Flyout', () => {
   });
 
   describe('header', () => {
+    describe('with a headerClassName prop', () => {
+      beforeEach(() => {
+        subject::setProps({headerClassName: 'pan'});
+      });
+
+      it('sets the given className on the header', () => {
+        expect('.flyout-header').toHaveClass('pan');
+      });
+    });
+
     it('renders a close button', () => {
       expect('.flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-close').toHaveText('');
     });
