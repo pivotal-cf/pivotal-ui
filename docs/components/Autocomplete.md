@@ -142,6 +142,6 @@ onInitializeItems   | no | Function | done => done([])  | returns the values to 
 onPick              | no | Function |                   | callback when something is picked from the list
 onSearch            | no | Function |                   | To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.
 placeholder         | no | String   | 'search'          | placeholder text for the input
-showNoSearchResults | no | Boolean  | false             | If true, will display 'No search results' when no results are matched
+showNoSearchResults | no | Boolean  | false             | If true, will display 'No search results' when no results are matched. Valid only if no list child is passed. Eg. If you want to provide a custom search results list component, this flag will be ignored.
 trieOptions         | no | Object   |                   | Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
 value               | no | String   |                   | used when the input is a controlled input
