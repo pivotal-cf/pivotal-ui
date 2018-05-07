@@ -48,7 +48,7 @@ export default class App extends React.Component {
             All Rights Reserved. <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> • <a
             href="https://pivotal.io/terms-of-use">Terms of Use</a>
             <div id="teconsent"></div>
-            <script async="async" src='consent.trustarc.com/notice?domain=pivotal.com&c=teconsent&js=nj&text=true&pcookie crossorigin=""'></script>
+            <script async="async" src="//consent.trustarc.com/notice?domain=pivotal.com&c=teconsent&js=nj&text=true&pcookie&v=<%= Time.now.to_i %>" crossorigin=""></script>
           </p>
         </div>
       </div>
