@@ -25,6 +25,7 @@ export class Panel extends React.Component {
 
   componentDidMount() {
     require('../../css/panels');
+    require('../../css/box-shadows');
   }
 
   render() {
