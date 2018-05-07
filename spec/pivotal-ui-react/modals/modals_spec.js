@@ -182,7 +182,6 @@ describe('BaseModal', () => {
     });
   });
 
-
   describe('onHide', () => {
     let onHide;
 
@@ -286,13 +285,21 @@ describe('BaseModal', () => {
     });
   });
 
-
   describe('sizing', () => {
-    it('can set the size', () => {
-      expect(findByClass(renderIntoDom({show: true, size: 'sm'}), 'modal-dialog')).toHaveClass('modal-sm');
-      expect(findByClass(renderIntoDom({show: true, size: 'small'}), 'modal-dialog')).toHaveClass('modal-sm');
-      expect(findByClass(renderIntoDom({show: true, size: 'lg'}), 'modal-dialog')).toHaveClass('modal-lg');
-      expect(findByClass(renderIntoDom({show: true, size: 'large'}), 'modal-dialog')).toHaveClass('modal-lg');
+    describe('when size is a pre-defined value', () => {
+      it('can set the size', () => {
+        expect(findByClass(renderIntoDom({show: true, size: 'sm'}), 'modal-dialog')).toHaveClass('modal-sm');
+        expect(findByClass(renderIntoDom({show: true, size: 'small'}), 'modal-dialog')).toHaveClass('modal-sm');
+        expect(findByClass(renderIntoDom({show: true, size: 'lg'}), 'modal-dialog')).toHaveClass('modal-lg');
+        expect(findByClass(renderIntoDom({show: true, size: 'large'}), 'modal-dialog')).toHaveClass('modal-lg');
+        expect(findByClass(renderIntoDom({show: true, size: 'something'}), 'modal-dialog')).not.toHaveClass('modal-something');
+      });
+    });
+
+    describe('when size is a percentage', () => {
+      it('can set the size', () => {
+        expect(findByClass(renderIntoDom({show: true, size: '80%'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px; width: 80%;');
+      });
     });
   });
 
