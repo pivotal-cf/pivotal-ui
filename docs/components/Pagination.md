@@ -6,6 +6,8 @@ Pagination is a method for allowing a user to view a subset of sorted data into 
 The Pagination component provides a styled list of links used to navigate through a paginated list.  By default,
 the component includes a 'previous page' button, a 'next page' button, and one link.
 
+The pagination component will display a maximum of five pages. When more than five are provided, the component will shrink with ellipses to show the first, last, active, and pages adjacent to the active page.
+
 ## Do's and Don'ts
 Do's         | Don'ts
 -------------|----------
