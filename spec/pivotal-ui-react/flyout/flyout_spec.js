@@ -69,9 +69,7 @@ describe('Flyout', () => {
 
   describe('header', () => {
     it('renders a close button', () => {
-      expect(['.flyout-header.grid', '>', '.col.col-fixed',
-        '.pui-btn.pui-btn-default-flat.pui-btn-icon',
-        '.icon.icon-middle .icon-close'].join(' ')).toHaveText('');
+      expect('.flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-close').toHaveText('');
     });
 
     describe('when clicking the close button', () => {
@@ -86,6 +84,18 @@ describe('Flyout', () => {
 
     it('renders a header', () => {
       expect('.flyout-header .col:eq(1)').toHaveText('some-flyout-header');
+    });
+
+    describe('when an icon src is provided', () => {
+      let iconSrc;
+      beforeEach(() => {
+        iconSrc = 'arrow_back';
+        subject::setProps({iconSrc});
+      });
+
+      it('renders that icon instead of the close icon', () => {
+        expect(`.flyout-header.grid > .col.col-fixed .pui-btn.pui-btn-default-flat.pui-btn-icon .icon.icon-middle .icon-${iconSrc}`).toHaveText('');
+      });
     });
   });
 

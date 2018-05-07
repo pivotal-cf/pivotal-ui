@@ -10,12 +10,14 @@ export class Flyout extends React.Component {
     close: PropTypes.func.isRequired,
     width: PropTypes.string,
     children: PropTypes.any,
-    header: PropTypes.any
+    header: PropTypes.any,
+    iconSrc: PropTypes.string
   };
 
   static defaultProps = {
     close: () => {
-    }
+    },
+    iconSrc: 'close'
   };
 
   componentDidMount() {
@@ -27,7 +29,7 @@ export class Flyout extends React.Component {
   }
 
   render() {
-    const {children, open, close, header, width} = this.props;
+    const {children, open, close, header, width, iconSrc} = this.props;
 
     let right;
     if (width) {
@@ -49,7 +51,7 @@ export class Flyout extends React.Component {
                 flat: true,
                 onClick: () => close()
               }}>
-                <Icon {...{src: 'close'}}/>
+                <Icon {...{src: iconSrc}}/>
               </DefaultButton>
             </div>
             <div className="col">
