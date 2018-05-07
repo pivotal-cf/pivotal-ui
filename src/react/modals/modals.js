@@ -101,7 +101,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
       getDocument: __ignore2,
       ...modalProps
     } = this.props;
-    this.props.show ? bodyNotAllowedToScroll() : bodyIsAllowedToScroll();
+    this.props.show ? bodyNotAllowedToScroll(document) : bodyIsAllowedToScroll(document);
 
     const animationTime = animation ? BaseModal.ANIMATION_TIME : 0;
     const fractionDestination = show ? 1 : 0;

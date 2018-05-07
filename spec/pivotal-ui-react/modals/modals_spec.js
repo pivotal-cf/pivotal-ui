@@ -170,6 +170,10 @@ describe('BaseModal', () => {
       expect(modal).toHaveClass(['fade', 'in']);
       expect(modal).toHaveCss({display: 'block'});
     });
+
+    it('prevents the body from scrolling', () => {
+      expect($('body')).toHaveClass('pui-no-scroll');
+    });
   });
 
   describe('when show is false', () => {
@@ -179,6 +183,10 @@ describe('BaseModal', () => {
 
     it('hides the modal', () => {
       expect(findAllByClass(result, 'myModal')).toHaveLength(0);
+    });
+
+    it('allows the body to scroll', () => {
+      expect($('body')).not.toHaveClass('pui-no-scroll');
     });
   });
 
