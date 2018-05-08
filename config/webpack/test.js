@@ -5,7 +5,13 @@ module.exports = {
   devtool: 'cheap-module-source-map',
   externals: null,
   module: {
-    loaders: [{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'}]
+    loaders: [{
+      test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'
+    }, {
+      test: /\.(eot|ttf|woff)$/, loader: 'url-loader',
+    }, {
+      test: /\.s?css$/, loader: 'css-loader!sass-loader',
+    }]
   },
   output: {filename: 'spec.js'},
   plugins: [new NoErrorsPlugin()],
