@@ -72,5 +72,5 @@ onEntered       | no       | Function |          | Callback that fires after the
 onExited        | no       | Function |          | Callback that fires after the modal has finished animating out
 onHide          | no       | Function | () => () | Callback that fires as soon as the modal begins closing
 show            | no       | Boolean  |          | Whether the modal should be opened or closed
-size            | no       | String, oneOf(['sm', 'small', 'large', 'lg']) or percentages, eg. '44%'   | | Size variations
+size            | no       | String, oneOf(['sm', 'small', 'large', 'lg']) or a valid css width value, eg. '44%', '900px', '800pt'| | Size variations
 title           | no       | Node     |          | Title of the modal, shown at the top of the modal
