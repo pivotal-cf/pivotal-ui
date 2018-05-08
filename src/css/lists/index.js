@@ -1,5 +1,6 @@
+require('../typography');
 try {
-  require('../typography');
   require('./lists.css');
-} catch(e) {
+} catch (e) {
+  require('./lists.scss');
 }

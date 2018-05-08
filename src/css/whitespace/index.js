@@ -1,4 +1,5 @@
 try {
   require('./whitespace.css');
-} catch(e) {
+} catch (e) {
+  require('./whitespace.scss');
 }

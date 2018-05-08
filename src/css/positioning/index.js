@@ -1,4 +1,5 @@
 try {
   require('./positioning.css');
-} catch(e) {
+} catch (e) {
+  require('./positioning.scss');
 }

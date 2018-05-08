@@ -1,5 +1,6 @@
+require('../common');
 try {
-  require('../common');
   require('./panels.css');
-} catch(e) {
+} catch (e) {
+  require('./panels.scss');
 }

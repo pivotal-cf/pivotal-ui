@@ -1,5 +1,6 @@
+require('../iconography');
 try {
-  require('../iconography');
   require('./code.css');
-} catch(e) {
+} catch (e) {
+  require('./code.scss');
 }

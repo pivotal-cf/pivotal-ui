@@ -1,8 +1,9 @@
+require('../common');
+require('../dividers');
+require('../iconography');
+require('../panels');
 try {
-  require('../common');
-  require('../dividers');
-  require('../iconography');
-  require('../panels');
   require('./collapse.css');
-} catch(e) {
+} catch (e) {
+  require('./collapse.scss');
 }

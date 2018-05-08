@@ -1,4 +1,5 @@
 try {
   require('./checkbox-dropdown.css');
-} catch(e) {
+} catch (e) {
+  require('./checkbox-dropdown.scss');
 }

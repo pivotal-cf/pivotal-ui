@@ -4,7 +4,6 @@
 // Code (inline and block)
 // --------------------------------------------------
 
-
 // Inline and block code styles
 code,
 kbd,
@@ -29,7 +28,7 @@ kbd {
   color: $kbd-color;
   background-color: $kbd-bg;
   border-radius: $border-radius-small;
-  box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
 
   kbd {
     padding: 0;
@@ -100,7 +99,7 @@ pre.pre-scrollable {
     margin-bottom: 0;
     padding: 0;
 
-    li{
+    li {
       border-radius: 6px;
       width: 12px;
       height: 12px;

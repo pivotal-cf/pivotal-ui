@@ -1,5 +1,6 @@
+require('../common');
 try {
-  require('../common');
   require('./typography.css');
-} catch(e) {
+} catch (e) {
+  require('./typography.scss');
 }

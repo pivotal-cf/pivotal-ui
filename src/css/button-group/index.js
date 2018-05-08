@@ -1,6 +1,7 @@
+require('../common');
+require('../buttons');
 try {
-  require('../common');
-  require('../buttons');
-  require('./button-group.css');
-} catch(e) {
+  require('./button-group.css')
+} catch (e) {
+  require('./button-group.scss');
 }

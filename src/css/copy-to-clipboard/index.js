@@ -1,4 +1,5 @@
 try {
   require('./copy-to-clipboard.css');
-} catch(e) {
+} catch (e) {
+  require('./copy-to-clipboard.scss');
 }

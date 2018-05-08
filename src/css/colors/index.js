@@ -1,4 +1,5 @@
 try {
   require('./colors.css');
-} catch(e) {
+} catch (e) {
+  require('./colors.scss');
 }

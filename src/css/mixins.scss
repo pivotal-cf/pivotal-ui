@@ -1,17 +1,17 @@
 /* Transition mixins */
 
-@mixin transition-pui($type:all, $speed:300ms, $ease: ease-out){
+@mixin transition-pui($type:all, $speed:300ms, $ease: ease-out) {
   -webkit-transition: $type $speed $ease;
   -moz-transition: $type $speed $ease;
   transition: $type $speed $ease;
-  @if($type == all) {
+  @if ($type == all) {
     -webkit-transition-property: background-color, color, opacity;
     -moz-transition-property: background-color, color, opacity;
     transition-property: background-color, color, opacity;
   }
 }
 
-@mixin no-transition(){
+@mixin no-transition() {
   -webkit-transition-property: none;
   -moz-transition-property: none;
   transition-property: none;
@@ -70,16 +70,16 @@
     box-shadow: 0 2px 0 $btn-shadow;
   }
   &:active,
-  &.active{
-   box-shadow: none;
+  &.active {
+    box-shadow: none;
   }
 }
 
 //Used for translucent borders
 @mixin background-clip-fix() {
-  -moz-background-clip: padding;     /* Firefox 3.6 */
-  -webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
-  background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+  -moz-background-clip: padding; /* Firefox 3.6 */
+  -webkit-background-clip: padding; /* Safari 4? Chrome 6? */
+  background-clip: padding-box; /* Firefox 4, Safari 5, Opera 10, IE 9 */
 }
 
 @mixin no-select {
@@ -220,7 +220,7 @@ $tShirtSizes: (n, s, m, l, xl, xxl, xxxl, xxxxl);
 @mixin container-fixed($gutter: $grid-gutter-width) {
   margin-right: auto;
   margin-left: auto;
-  padding-left:  ($gutter / 2);
+  padding-left: ($gutter / 2);
   padding-right: ($gutter / 2);
   @include clearfix;
 }

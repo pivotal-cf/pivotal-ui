@@ -1,4 +1,5 @@
 try {
   require('./tables.css');
-} catch(e) {
+} catch (e) {
+  require('./tables.scss');
 }

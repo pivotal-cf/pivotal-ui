@@ -15,11 +15,7 @@
   }
 }
 
-$breakpoints: (xs, 0),
-  (sm, $screen-sm-min),
-  (md, $screen-md-min),
-  (lg, $screen-lg-min),
-  (xl, $screen-xl-min);
+$breakpoints: (xs, 0), (sm, $screen-sm-min), (md, $screen-md-min), (lg, $screen-lg-min), (xl, $screen-xl-min);
 
 @each $breakpoint-name, $breakpoint-variable in $breakpoints {
   @media only screen and (min-width: $breakpoint-variable) {

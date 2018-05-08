@@ -1,7 +1,8 @@
+require('../common');
+require('../links');
+require('../iconography');
 try {
-  require('../common');
-  require('../links');
-  require('../iconography');
   require('./back-to-top.css');
-} catch(e) {
+} catch (e) {
+  require('./back-to-top.scss');
 }

@@ -1,4 +1,5 @@
 try {
   require('./vertical-alignment.css');
-} catch(e) {
+} catch (e) {
+  require('./vertical-alignment.scss');
 }

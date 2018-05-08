@@ -1,4 +1,5 @@
 try {
   require('./ellipsis.css');
-} catch(e) {
+} catch (e) {
+  require('./ellipsis.scss');
 }

@@ -1,4 +1,5 @@
 try {
   require('./flyout.css');
-} catch(e) {
+} catch (e) {
+  require('./flyout.scss');
 }

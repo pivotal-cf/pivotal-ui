@@ -1,4 +1,5 @@
 try {
   require('./ribbons.css');
-} catch(e) {
+} catch (e) {
+  require('./ribbons.scss');
 }

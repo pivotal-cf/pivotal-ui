@@ -1,5 +1,6 @@
+require('../dropdowns');
 try {
-  require('../dropdowns');
   require('./notifications.css');
-} catch(e) {
+} catch (e) {
+  require('./notifications.scss');
 }

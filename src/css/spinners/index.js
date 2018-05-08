@@ -1,5 +1,6 @@
+require('../iconography');
 try {
-  require('../iconography');
   require('./spinners.css');
-} catch(e) {
+} catch (e) {
+  require('./spinners.scss');
 }

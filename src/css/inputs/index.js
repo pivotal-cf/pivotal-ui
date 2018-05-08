@@ -1,4 +1,5 @@
 try {
   require('./input.css');
-} catch(e) {
+} catch (e) {
+  require('./input.scss');
 }

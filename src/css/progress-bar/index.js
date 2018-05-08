@@ -1,4 +1,5 @@
 try {
   require('./progress-bar.css');
-} catch(e) {
+} catch (e) {
+  require('./progress-bar.scss');
 }

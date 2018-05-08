@@ -1,4 +1,5 @@
 try {
   require('./dividers.css');
-} catch(e) {
+} catch (e) {
+  require('./dividers.scss');
 }

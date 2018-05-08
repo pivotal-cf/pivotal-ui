@@ -1,4 +1,5 @@
 try {
   require('./iconography.css');
-} catch(e) {
+} catch (e) {
+  require('./iconography.scss');
 }

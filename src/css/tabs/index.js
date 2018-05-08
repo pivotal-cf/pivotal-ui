@@ -1,5 +1,6 @@
+require('../common');
 try {
-  require('../common');
   require('./tabs.css');
-} catch(e) {
+} catch (e) {
+  require('./tabs.scss');
 }

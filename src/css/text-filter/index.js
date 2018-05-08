@@ -1,4 +1,5 @@
 try {
   require('./text_filter.css');
-} catch(e) {
+} catch (e) {
+  require('./text_filter.scss');
 }

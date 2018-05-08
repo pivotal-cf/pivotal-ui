@@ -1,4 +1,5 @@
 try {
   require('./common.css');
-} catch(e) {
+} catch (e) {
+  require('./common.scss');
 }

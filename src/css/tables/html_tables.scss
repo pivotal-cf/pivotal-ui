@@ -5,7 +5,7 @@
 }
 
 table.table {
-  width:100%;
+  width: 100%;
   background-color: $table-bg;
   margin-bottom: ($base-unit*2);
   //HTML table reset
@@ -32,7 +32,7 @@ table.table {
   th {
     font-weight: $table-header-font-weight;
     //Borders stack on HTML Tables so this needs to be 2px
-    border-bottom:solid 2px $table-border-color;
+    border-bottom: solid 2px $table-border-color;
   }
   //General Cell
   td, th {
@@ -44,7 +44,7 @@ table.table {
     }
   }
   p {
-    margin:0;
+    margin: 0;
   }
   //HTML Hover on Tables
   &.tr-hover {
@@ -75,24 +75,24 @@ table.table {
     }
   }
   //No External borders to a table
-  &.table-no-ext-borders tr{
-    border-left:none;
-    border-right:none;
+  &.table-no-ext-borders tr {
+    border-left: none;
+    border-right: none;
     &:first-child {
-      border-top:none;
+      border-top: none;
     }
     &:last-child {
-      border-bottom:none;
+      border-bottom: none;
     }
   }
   tr.table-no-ext-borders {
-    border-left:none;
-    border-right:none;
+    border-left: none;
+    border-right: none;
     &:first-child {
-      border-top:none;
+      border-top: none;
     }
     &:last-child {
-      border-bottom:none;
+      border-bottom: none;
     }
   }
   //No borders on table
@@ -104,6 +104,7 @@ table.table {
     }
   }
 }
+
 //Table Scrollable
 .table-scrollable {
   //defined in the CSS Tables

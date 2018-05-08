@@ -20,7 +20,7 @@
   -webkit-overflow-scrolling: touch;
 
   // Prevent Chrome on Windows from adding a focus outline. For details, see
-  // https://github.com/twbs/bootstrap/pull/10951.
+  // github.com/twbs/bootstrap/pull/10951.
   outline: 0;
 
   // When fading in the modal, animate it to slide down
@@ -130,9 +130,10 @@
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
+  // account for input[type="submit"] which gets the bottom margin like all other inputs
   .btn + .btn {
     margin-left: $base-unit;
-    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+    margin-bottom: 0;
   }
 
   // but override that for button groups

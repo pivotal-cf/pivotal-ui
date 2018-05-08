@@ -1,4 +1,5 @@
 try {
   require('./checkbox.css');
-} catch(e) {
+} catch (e) {
+  require('./checkbox.scss');
 }

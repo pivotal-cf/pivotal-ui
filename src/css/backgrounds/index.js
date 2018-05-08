@@ -1,4 +1,5 @@
 try {
   require('./backgrounds.css');
-} catch(e) {
+} catch (e) {
+  require('./backgrounds.scss');
 }

@@ -1,4 +1,5 @@
 try {
   require('./hoverable.css');
-} catch(e) {
+} catch (e) {
+  require('./hoverable.scss');
 }

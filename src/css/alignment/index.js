@@ -1,4 +1,5 @@
 try {
   require('./alignment.css');
-} catch(e) {
+} catch (e) {
+  require('./alignment.scss');
 }

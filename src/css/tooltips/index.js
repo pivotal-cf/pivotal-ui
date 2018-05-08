@@ -1,4 +1,5 @@
 try {
   require('./tooltips.css');
-} catch(e) {
+} catch (e) {
+  require('./tooltips.scss');
 }

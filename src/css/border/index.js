@@ -1,4 +1,5 @@
 try {
   require('./border.css');
-} catch(e) {
+} catch (e) {
+  require('./border.scss');
 }

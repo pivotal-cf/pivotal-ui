@@ -1,4 +1,5 @@
 try {
   require('./pagination.css');
-} catch(e) {
+} catch (e) {
+  require('./pagination.scss');
 }

@@ -44,7 +44,7 @@
     display: inline-flex;
     justify-content: center;
     width: 100%;
-    position:relative;
+    position: relative;
   }
 
   span.pui-btn-inner-content > * + *, span.btn-inner-content > * + * {
@@ -112,7 +112,7 @@
   }
 }
 
-.pui-btn.disabled, .pui-btn[disabled], .btn.disabled, .btn[disabled]  {
+.pui-btn.disabled, .pui-btn[disabled], .btn.disabled, .btn[disabled] {
   opacity: .5;
   cursor: default;
   pointer-events: none;
@@ -280,7 +280,7 @@
 .pui-btn.pui-btn-primary:hover,
 .pui-btn.pui-btn-primary:focus:hover,
 .btn.btn-primary:hover,
-.btn.btn-primary:focus:hover{
+.btn.btn-primary:focus:hover {
   background-color: $btn-primary-color-hover;
   border-color: $btn-primary-color-hover;
   outline: none;
@@ -463,7 +463,7 @@
 .pui-btn.pui-btn-brand-alt:hover,
 .pui-btn.pui-btn-brand-alt:focus:hover,
 .btn.btn-brand-alt:hover,
-.btn.btn-brand-alt:focus:hover{
+.btn.btn-brand-alt:focus:hover {
   background-color: transparent;
   color: $btn-brand-color-hover;
   border-color: $btn-brand-color-hover;
@@ -514,7 +514,7 @@
 
 //Flat danger
 .pui-btn-danger-flat,
-.btn-danger-flat{
+.btn-danger-flat {
   color: $btn-danger-color;
   .icon {
     fill: $btn-danger-color;

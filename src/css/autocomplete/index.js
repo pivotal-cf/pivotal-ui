@@ -1,6 +1,7 @@
+require('../common');
+require('../forms');
 try {
-  require('../common');
-  require('../forms');
   require('./autocomplete.css');
-} catch(e) {
+} catch (e) {
+  require('./autocomplete.scss');
 }

@@ -1,5 +1,6 @@
+require('../common');
 try {
-  require('../common');
   require('./images.css');
-} catch(e) {
+} catch (e) {
+  require('./images.scss');
 }

@@ -1,4 +1,5 @@
 try {
   require('./radio.css');
-} catch(e) {
+} catch (e) {
+  require('./radio.scss');
 }

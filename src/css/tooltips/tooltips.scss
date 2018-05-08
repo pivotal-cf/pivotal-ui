@@ -26,10 +26,10 @@
   &.tooltip-hoverable {
     &:after {
       position: absolute;
-      width:calc(100% + 16px);
-      height:calc(100% + 16px);
-      top:50%;
-      left:50%;
+      width: calc(100% + 16px);
+      height: calc(100% + 16px);
+      top: 50%;
+      left: 50%;
       transform: translateX(-50%) translateY(-50%);
     }
   }
@@ -250,11 +250,11 @@
   &:hover, &:focus {
     color: lighten($link-color, 6%);
     cursor: pointer;
-    outline:none;
+    outline: none;
     text-decoration: none;
   }
 
-  &:active, &.active{
+  &:active, &.active {
     color: darken($link-color, 6%);
   }
 }
