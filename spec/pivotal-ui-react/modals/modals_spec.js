@@ -305,8 +305,20 @@ describe('BaseModal', () => {
     });
 
     describe('when size is a percentage', () => {
-      it('can set the size', () => {
+      it('sets the size', () => {
         expect(findByClass(renderIntoDom({show: true, size: '80%'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px; width: 80%;');
+      });
+    });
+
+    describe('when size is a pixel value', () => {
+      it('sets the size', () => {
+        expect(findByClass(renderIntoDom({show: true, size: '65px'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px; width: 65px;');
+      });
+    });
+
+    describe('when size is some string', () => {
+      it('does not set the size', () => {
+        expect(findByClass(renderIntoDom({show: true, size: '10bananas'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px;');
       });
     });
   });

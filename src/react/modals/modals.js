@@ -139,9 +139,7 @@ export class BaseModal extends mixin(React.PureComponent).with(Animation) {
     const modalSize = {small: 'sm', sm: 'sm', large: 'lg', lg: 'lg'}[size];
     const modalSizeClass = `modal-${modalSize}`;
 
-    if (size && size.match(/^\d+%$/)) {
-      dialogStyle.width = size;
-    }
+    if (size && !modalSize) dialogStyle.width = size;
 
     return (
       <div className="modal-wrapper" role="dialog">
