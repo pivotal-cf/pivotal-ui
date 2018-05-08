@@ -44,11 +44,12 @@ export default class App extends React.Component {
     const footer = (<div className="footer whitelabel-bg-color grid mrn mtxxxl">
         <div className="col type-ellipsis">
           <p>
-            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc.
-            All Rights Reserved. <a href='https://pivotal.io/privacy-policy'>Privacy Policy</a> • <a
-            href="https://pivotal.io/terms-of-use">Terms of Use</a>
-            <span id="teconsent"></span>
-            <script async="async" src="//consent.trustarc.com/notice?domain=pivotal.com&c=teconsent&js=nj&text=true&pcookie" crossorigin=""></script>
+            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
+            <span className="pln">
+              <span className="policy-link"><a href='https://pivotal.io/privacy-policy'>Privacy Policy</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
+              <span className="policy-link" id="teconsent"/>
+            </span>
           </p>
         </div>
       </div>

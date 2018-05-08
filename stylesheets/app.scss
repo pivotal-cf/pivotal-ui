@@ -124,3 +124,15 @@ h2.h2 {
 
   }
 }
+
+#content .policy-link {
+  &:not(:empty):before {
+    content: "•";
+    margin: 0 8px;
+  }
+
+  &:first-child:before {
+    content: "";
+    margin-right: 0;
+  }
+}
