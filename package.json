@@ -77,7 +77,7 @@
     "merge-stream": "^0.1.7",
     "mock-promises": "^0.6.0",
     "node-event-emitter": "0.0.1",
-    "node-sass": "^3.13.1",
+    "node-sass": "^4.0.0",
     "npm": "3.5.0",
     "object-assign": "^4.0.1",
     "phantomjs-prebuilt": "^2.1.14",

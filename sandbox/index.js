@@ -1,11 +1,16 @@
-const React = require('react');
-const ReactDom = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Sandbox from './sandbox';
+import 'pivotal-ui/css/common/common.scss';
+import 'pivotal-ui/css/typography/typography.scss';
 
-let Sandbox = () => <h1>Create pivotal-ui/sandbox/sandbox.js</h1>;
-try {
-  Sandbox = require('./sandbox');
-} catch (e) {
-  console.log('The sandbox could not be loaded', e);
+const root = document.getElementById('root');
+
+ReactDOM.render(<Sandbox/>, root);
+
+if (module.hot) {
+  module.hot.accept('./sandbox', () => {
+    const NextSandbox = require('./sandbox').default;
+    ReactDOM.render(<NextSandbox/>, root);
+  })
 }
-
-ReactDom.render(<Sandbox />, document.getElementById('root'));
