@@ -1,119 +1,72 @@
 @import "../pui-variables";
 @import '../mixins';
 
-// Kill the scroll on the body
-.modal-open {
-  overflow: hidden;
-}
-
-// Container that the modal scrolls within
-.modal {
-  box-shadow: $box-shadow-key-3, $box-shadow-amb-3;
-  display: none;
-  overflow: hidden;
+.pui-modal-backdrop {
   position: fixed;
+  background: transparentize($modal-backdrop-bg, 0.2);
   top: 0;
-  right: 0;
-  bottom: 0;
   left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
   z-index: $zindex-modal;
-  -webkit-overflow-scrolling: touch;
-
-  // Prevent Chrome on Windows from adding a focus outline. For details, see
-  // github.com/twbs/bootstrap/pull/10951.
-  outline: 0;
-
-  // When fading in the modal, animate it to slide down
-  &.fade .modal-dialog {
-    @include translate(0, -25%);
-    @include transition-transform(0.3s ease-out);
-  }
-
-  &.in .modal-dialog {
-    @include translate(0, 0)
-  }
-}
-
-.modal-open .modal {
-  overflow-x: hidden;
+  transform: translateZ(0);
+  will-change: opacity;
   overflow-y: auto;
+
+  &.pui-modal-show {
+    opacity: 1;
+  }
 }
 
-// Shell div to position the modal with bottom padding
-.modal-dialog {
-  position: relative;
+.pui-modal-dialog {
+  background: #fff;
   width: $modal-md;
-  margin: 30px auto;
+  margin: ($base-unit * 6) auto;
+  position: relative;
+  border-radius: 2px;
+  border: 1px solid $modal-content-border-color;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  transform: translateY(-$base-unit * 10);
+  will-change: transform;
 
-  &.modal-lg {
+  @media (min-width: $screen-sm-min) {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+
+  &.pui-modal-show {
+    transform: translateY(0);
+  }
+
+  &.pui-modal-lg {
     width: $modal-lg;
   }
 
-  &.modal-sm {
+  &.pui-modal-sm {
     width: $modal-sm;
   }
 }
 
-// Actual modal
-.modal-content {
-  position: relative;
-  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
-  border: 1px solid $modal-content-border-color;
-  background-clip: padding-box;
-  // Remove focus outline from opened modal
-  outline: 0;
-  background-color: #fff;
-  border-radius: 2px;
-  @include box-shadow(0 3px 9px rgba(0, 0, 0, .5));
-
-  @media (min-width: $screen-sm-min) {
-    @include box-shadow(0 5px 15px rgba(0, 0, 0, .5));
-  }
+.pui-modal-close-btn {
+  position: absolute;
+  right: $base-unit * 2;
+  top: $base-unit * 2;
 }
 
-// Modal background
-.modal-backdrop {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: $zindex-modal-background;
-  background-color: $modal-backdrop-bg;
-
-  // Fade for backdrop
-  &.fade {
-    @include opacity(0);
-  }
-
-  &.in {
-    @include opacity($modal-backdrop-opacity);
-  }
-}
-
-// Modal header
-// Top section of the modal w/ title and dismiss
-.modal-header {
+.pui-modal-header {
   min-height: ($modal-title-padding + $modal-title-line-height);
   border-bottom: 0;
-  padding: ($base-unit * 2) ($base-unit * 3) 0 ($base-unit * 3);
+  padding: ($base-unit * 3) ($base-unit * 3) 0 ($base-unit * 3);
 }
 
-// Close icon
-.modal-header .close {
-  margin-top: -2px;
-}
-
-// Title text within header
-.modal-title {
+.pui-modal-title {
   margin: inherit;
   line-height: inherit;
 }
 
-// Modal body
-// Where all modal content resides (sibling of .modal-header and .modal-footer)
-.modal-body {
-  position: relative;
+.pui-modal-body {
   padding: $base-unit ($base-unit * 3) $base-unit ($base-unit * 3);
 
   p {
@@ -122,46 +75,18 @@
   }
 }
 
-// Footer (for actions)
-.modal-footer {
+.pui-modal-footer {
   padding: 0 ($base-unit * 3) ($base-unit * 3) ($base-unit * 3);
   text-align: right;
   border-top: 0;
   @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
-  // Properly space out buttons
-  // account for input[type="submit"] which gets the bottom margin like all other inputs
-  .btn + .btn {
+  .pui-btn + .pui-btn {
     margin-left: $base-unit;
     margin-bottom: 0;
   }
 
-  // but override that for button groups
-  .btn-group .btn + .btn {
+  .pui-btn-group .pui-btn + .pui-btn {
     margin-left: -1px;
   }
-
-  // and override it for block buttons as well
-  .btn-block + .btn-block {
-    margin-left: 0;
-  }
-}
-
-// Measure scrollbar width for padding body during modal show/hide
-.modal-scrollbar-measure {
-  position: absolute;
-  top: -9999px;
-  width: 50px;
-  height: 50px;
-  overflow: scroll;
-}
-
-.modal-close {
-  position: absolute;
-  top: ($base-unit * 2);
-  right: ($base-unit * 2.5);
-}
-
-.pui-no-scroll {
-  overflow: hidden;
 }

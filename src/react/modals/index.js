@@ -1,1 +1,1 @@
-export {BaseModal, Modal, ModalBody, ModalFooter} from './modals';
+export {BaseModal, ModalBody, ModalFooter} from './modals';

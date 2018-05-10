@@ -1,4 +1,4 @@
-import '../spec_helper'; 
+import '../spec_helper';
 import {mergeProps} from '../../../src/react/helpers';
 
 describe('mergeProps', () => {

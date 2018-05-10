@@ -1,333 +1,316 @@
 import '../spec_helper';
-import {findByClass, findAllByClass, clickOn} from '../spec_helper';
-import {Modal, BaseModal} from '../../../src/react/modals';
-import AnimationMixin from 'pui-react-animation';
+import {BaseModal, ModalBody, ModalFooter} from '../../../src/react/modals';
+import DomHelpers from '../../../src/react/helpers/dom-helpers';
 
-let result;
-
-describe('Modals', () => {
-  const renderComponent = props => ReactDOM.render(<Modal {...props}>Hi</Modal>, root);
+describe('BaseModal', () => {
+  let subject;
 
   beforeEach(() => {
-    result = renderComponent({className: 'myModal', animation: false});
+    spyOn(DomHelpers, 'disableBodyScrolling').and.callThrough();
+    spyOn(DomHelpers, 'enableBodyScrolling').and.callThrough();
+    spyOn(DomHelpers, 'findTabbableElements').and.callThrough();
+    spyOn(document.body, 'appendChild').and.callThrough();
+    spyOn(document.body, 'removeChild').and.callThrough();
+
+    subject = ReactDOM.render(
+      <BaseModal>
+        <span id="non-focusable"/>
+        <input/>
+        <a href="#">a link</a>
+      </BaseModal>,
+      root
+    );
   });
 
-  it('is closed by default', () => {
-    expect(findAllByClass(result, 'myModal')).toHaveLength(0);
+  it('creates a modal root div and appends it to the body node', () => {
+    expect(document.body.appendChild).toHaveBeenCalledWith(subject.modalRoot);
   });
 
-  describe('#open', () => {
-    it('opens the modal', () => {
-      result.open();
-
-      expect(findByClass(result, 'myModal')).toBeDefined();
+  it('renders a hidden backdrop', () => {
+    expect('.pui-modal-backdrop').not.toHaveClass('pui-modal-show');
+    expect('.pui-modal-backdrop').toHaveCss({
+      visibility: 'hidden', transition: 'opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
     });
-
-    it('renders a close button of type button', () => {
-      result.open();
-      expect('.modal-close button.btn.btn-icon').toHaveAttr('type', 'button');
-    });
+    expect('.pui-modal-backdrop').toHaveAttr('aria-hidden', 'true');
   });
 
-  describe('#close', () => {
+  it('renders a hidden dialog', () => {
+    expect('.pui-modal-dialog').not.toHaveClass('pui-modal-show');
+    expect('.pui-modal-dialog').toHaveCss({transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'});
+  });
+
+  it('renders a close button', () => {
+    expect('.pui-modal-dialog .pui-modal-close-btn').toHaveAttr('aria-label', 'Close');
+  });
+
+  it('does not render the children', () => {
+    expect('.pui-modal-dialog #non-focusable').not.toExist();
+    expect('.pui-modal-dialog input').not.toExist();
+    expect('.pui-modal-dialog a').not.toExist();
+  });
+
+  describe('when the modal becomes visible', () => {
+    let onHide, oldActiveElement;
+
     beforeEach(() => {
-      result.open();
+      oldActiveElement = document.body;
+      document.body.style.paddingRight = '24px';
+      document.body.style.overflow = 'scroll';
+      onHide = jasmine.createSpy('onHide');
+      subject::setProps({show: true, onHide});
     });
 
-    it('closes the modal', () => {
-      result.close();
+    it('renders a modal', () => {
+      expect('.pui-modal-backdrop').toHaveCss({visibility: 'visible'});
+      expect('.pui-modal-backdrop').toHaveClass('pui-modal-show');
+    });
 
-      expect(findAllByClass(result, 'myModal')).toHaveLength(0);
+    it('renders the dialog', () => {
+      expect('.pui-modal-dialog').toHaveClass('pui-modal-show');
+      expect('.pui-modal-dialog').toHaveAttr('role', 'dialog');
+    });
+
+    it('renders the children', () => {
+      expect('.pui-modal-dialog #non-focusable').toExist();
+      expect('.pui-modal-dialog input').toExist();
+      expect('.pui-modal-dialog a').toExist();
+    });
+
+    it('focuses the first focusable child', () => {
+      expect('.pui-modal-dialog input').toBeFocused();
+    });
+
+    it('disables scrolling on the document body', () => {
+      expect(DomHelpers.disableBodyScrolling).toHaveBeenCalledWith(document);
+      expect(subject.savedPadding).toBe('24px');
+      expect(subject.savedOverflow).toBe('scroll');
+    });
+
+    describe('when the x icon is clicked', () => {
+      beforeEach(() => {
+        onHide.calls.reset();
+        $('.pui-modal-close-btn').simulate('click');
+      });
+
+      it('calls the onHide prop', () => {
+        expect(onHide).toHaveBeenCalledWith();
+      });
+    });
+
+    describe('when esc is pressed', () => {
+      beforeEach(() => {
+        onHide.calls.reset();
+        const evt = document.createEvent('HTMLEvents');
+        evt.initEvent('keydown', true, true);
+        evt.keyCode = BaseModal.ESC_KEY;
+        document.documentElement.dispatchEvent(evt);
+      });
+
+      it('calls the onHide prop', () => {
+        expect(onHide).toHaveBeenCalledWith();
+      });
+    });
+
+    describe('when the backdrop is clicked', () => {
+      beforeEach(() => {
+        onHide.calls.reset();
+        $('.pui-modal-backdrop').simulate('click');
+      });
+
+      it('calls the onHide prop', () => {
+        expect(onHide).toHaveBeenCalledWith();
+      });
+    });
+
+    describe('when the dialog is clicked', () => {
+      beforeEach(() => {
+        onHide.calls.reset();
+        $('.pui-modal-dialog').simulate('click');
+      });
+
+      it('does not call onHide', () => {
+        expect(onHide).not.toHaveBeenCalled();
+      });
+    });
+
+    describe('when tab is pressed', () => {
+      let tabEvent;
+
+      describe('tab without shift, when focused on last tabbable element', () => {
+        beforeEach(() => {
+          $('.pui-modal-dialog .pui-modal-close-btn').focus();
+          tabEvent = new KeyboardEvent('keydown', {keyCode: BaseModal.TAB_KEY, bubbles: true});
+          document.activeElement.dispatchEvent(tabEvent);
+        });
+
+        it('finds the tabbable elements within the modal', () => {
+          expect(DomHelpers.findTabbableElements).toHaveBeenCalledWith(subject.modalRoot);
+        });
+
+        it('redirects focus to the first tabbable element within the modal', () => {
+          expect('.pui-modal-dialog input').toBeFocused();
+        });
+      });
+
+      describe('tab with shift, when focused on first tabbable element', () => {
+        beforeEach(() => {
+          $('.pui-modal-dialog input').focus();
+          tabEvent = new KeyboardEvent('keydown', {keyCode: BaseModal.TAB_KEY, shiftKey: true, bubbles: true});
+          document.activeElement.dispatchEvent(tabEvent);
+        });
+
+        it('finds the tabbable elements within the modal', () => {
+          expect(DomHelpers.findTabbableElements).toHaveBeenCalledWith(subject.modalRoot);
+        });
+
+        it('redirects focus to the last tabbable element within the modal', () => {
+          expect('.pui-modal-dialog .pui-modal-close-btn').toBeFocused();
+        });
+      });
+    });
+
+    describe('when show becomes false', () => {
+      beforeEach(() => {
+        subject::setProps({show: false, getActiveElement: () => oldActiveElement});
+        jasmine.clock().tick(BaseModal.defaultProps.animationDuration);
+      });
+
+      it('re-enables scrolling on the document body', () => {
+        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({
+          paddingRight: '24px', overflow: 'scroll', document
+        });
+      });
+
+      it('sets focus back to previously-focused element', () => {
+        expect(document.activeElement).toBe(oldActiveElement);
+      });
     });
   });
 
-  describe('animations', () => {
-    describe('with animations true', () => {
-      const delay = BaseModal.ANIMATION_TIME;
-      beforeEach(() => {
-        result = renderComponent({animation: true});
-        result.open();
-      });
-
-      it('animates the modal in (with easeOutQuad)', () => {
-        const modalDialog = findByClass(result, 'modal-dialog');
-        const modalBackdrop = findByClass(result, 'modal-backdrop');
-
-        expect(modalDialog).toHaveCss({'margin-top': '0px'});
-        expect(modalBackdrop).toHaveCss({opacity: 0});
-
-        MockNow.tick(delay / 2);
-        MockRaf.next();
-
-        expect(modalDialog).toHaveCss({'margin-top': '37.5px'});
-        expect(modalBackdrop.style.opacity).toBeCloseTo(0.6, 0.01);
-
-        MockNow.tick(delay / 2);
-        MockRaf.next();
-
-        expect(modalDialog).toHaveCss({'margin-top': '50px'});
-        expect(modalBackdrop.style.opacity).toBeCloseTo(0.8, 0.01);
-      });
-
-      it('animates the modal out', () => {
-        MockNow.tick(delay);
-        MockRaf.next();
-
-        const modalDialog = findByClass(result, 'modal-dialog');
-        const modalBackdrop = findByClass(result, 'modal-backdrop');
-
-        result.close();
-
-        expect(modalDialog).toHaveCss({'margin-top': '50px'});
-        expect(modalBackdrop.style.opacity).toBeCloseTo(0.8, 0.01);
-
-        MockNow.tick(delay / 2);
-        MockRaf.next();
-
-        expect(modalDialog).toHaveCss({'margin-top': '12.5px'});
-        expect(modalBackdrop.style.opacity).toBeCloseTo(0.2, 0.01);
-
-        MockNow.tick(delay / 2);
-        MockRaf.next();
-
-        expect(findAllByClass(result, 'modal-dialog')).toHaveLength(0);
-        expect(findAllByClass(result, 'modal-backdrop')).toHaveLength(0);
-      });
+  describe('when disableAnimation is true', () => {
+    beforeEach(() => {
+      subject::setProps({disableAnimation: true});
     });
 
-    describe('with animations false', () => {
-      it('does not animate if animation is false', () => {
-        result = renderComponent({animation: false});
-        result.open();
+    it('does not give a transition to the backdrop', () => {
+      expect('.pui-modal-backdrop').not.toHaveCss('transition');
+    });
 
-        expect('.modal-dialog').toHaveCss({'margin-top': '50px'});
-        expect('.modal-backdrop').toHaveAttr('style', 'opacity: 0.8;');
-
-        result.close();
-
-        expect('.modal-dialog').not.toExist();
-        expect('.modal-backdrop').not.toExist();
-      });
+    it('does not give a transition to the dialog', () => {
+      expect('.pui-modal-dialog').not.toHaveCss('transition');
     });
   });
 
-  describe('onEntered/onExited', () => {
-    describe('with animation', () => {
-      let delay, onEnterSpy, onExitSpy;
+  describe('when given a title', () => {
+    beforeEach(() => {
+      subject::setProps({title: 'This is a modal', show: true});
+    });
+
+    it('renders the title in a heading tag', () => {
+      expect('.pui-modal-dialog .pui-modal-header h3.pui-modal-title').toHaveText('This is a modal');
+      expect('.pui-modal-dialog .pui-modal-header h3.pui-modal-title').toHaveClass('em-high');
+    });
+
+    it('sets the aria-labelledby attribute on the dialog to be the ID of the title', () => {
+      const titleId = $('.pui-modal-dialog .pui-modal-header h3.pui-modal-title').attr('id');
+      expect('.pui-modal-dialog').toHaveAttr('aria-labelledby', titleId);
+    });
+  });
+
+  describe('when given a className', () => {
+    beforeEach(() => {
+      subject::setProps({className: 'custom-modal-class'});
+    });
+
+    it('applies the className to the modal backdrop', () => {
+      expect('.pui-modal-backdrop').toHaveClass('custom-modal-class');
+    });
+  });
+
+  describe('when given a dialogClassName', () => {
+    beforeEach(() => {
+      subject::setProps({dialogClassName: 'custom-dialog-class'});
+    });
+
+    it('applies it as a className to the modal dialog', () => {
+      expect('.pui-modal-dialog').toHaveClass('custom-dialog-class');
+    });
+  });
+
+  describe('when given a size', () => {
+    describe('when size = "sm"', () => {
       beforeEach(() => {
-        delay = BaseModal.ANIMATION_TIME;
-        onEnterSpy = jasmine.createSpy('onEnter');
-        onExitSpy = jasmine.createSpy('onExit');
-        result = renderComponent({animation: true, onExited: onExitSpy, onEntered: onEnterSpy});
-        result.open();
-        MockNow.tick(delay);
-        MockRaf.next();
+        subject::setProps({size: 'sm'});
       });
 
-      it('calls on entered when the shown animations are complete', () => {
-        expect(onEnterSpy).toHaveBeenCalled();
-        expect(onExitSpy).not.toHaveBeenCalled();
+      it('adds the corresponding className to the dialog', () => {
+        expect('.pui-modal-dialog').toHaveClass('pui-modal-sm');
+      });
+    });
+
+    describe('when size = "small"', () => {
+      beforeEach(() => {
+        subject::setProps({size: 'small'});
       });
 
-      it('calls on exited when the closing animations are complete', () => {
-        onEnterSpy.calls.reset();
+      it('adds the corresponding className to the dialog', () => {
+        expect('.pui-modal-dialog').toHaveClass('pui-modal-sm');
+      });
+    });
 
-        result.close();
-        MockNow.tick(delay);
-        MockRaf.next();
+    describe('when size = "lg"', () => {
+      beforeEach(() => {
+        subject::setProps({size: 'lg'});
+      });
 
-        expect(onEnterSpy).not.toHaveBeenCalled();
-        expect(onExitSpy).toHaveBeenCalled();
+      it('adds the corresponding className to the dialog', () => {
+        expect('.pui-modal-dialog').toHaveClass('pui-modal-lg');
+      });
+    });
+
+    describe('when size = "large"', () => {
+      beforeEach(() => {
+        subject::setProps({size: 'large'});
+      });
+
+      it('adds the corresponding className to the dialog', () => {
+        expect('.pui-modal-dialog').toHaveClass('pui-modal-lg');
+      });
+    });
+
+    describe('when size is a custom width', () => {
+      beforeEach(() => {
+        subject::setProps({size: '240px'});
+      });
+
+      it('does not add a className to the dialog', () => {
+        expect('.pui-modal-dialog').not.toHaveClass('pui-modal-sm');
+        expect('.pui-modal-dialog').not.toHaveClass('pui-modal-lg');
+      });
+
+      it('sets the style on the dialog', () => {
+        expect('.pui-modal-dialog').toHaveCss({width: '240px'});
       });
     });
   });
 });
 
-describe('BaseModal', () => {
-  const renderIntoDom = props => ReactDOM.render(<BaseModal {...props}/>, root);
-
-  it('supports dialog className', () => {
-    result = renderIntoDom({className: 'myModal', show: true});
-    expect(findByClass(result, 'modal')).toHaveClass('myModal');
+describe('ModalBody', () => {
+  beforeEach(() => {
+    ReactDOM.render(<ModalBody className="custom-modal-body-class"/>, root);
   });
 
-  describe('when show is true', () => {
-    beforeEach(() => {
-      result = renderIntoDom({show: true, className: 'myModal', title: 'hey mr modal'});
-    });
+  it('renders a div with the correct classes', () => {
+    expect('div.pui-modal-body').toHaveClass('custom-modal-body-class');
+  });
+});
 
-    it('shows the modal', () => {
-      expect(findByClass(result, 'myModal')).toBeDefined();
-    });
-
-    it('shows the title', () => {
-      expect(findByClass(result, 'modal-title')).toHaveText('hey mr modal');
-    });
-
-    it('renders the modal in a dialog with a scrim', () => {
-      expect(findByClass(result, 'modal-backdrop')).toHaveClass(['fade', 'in']);
-      const modal = findByClass(result, 'modal');
-      expect(modal).toHaveClass(['fade', 'in']);
-      expect(modal).toHaveCss({display: 'block'});
-    });
-
-    it('prevents the body from scrolling', () => {
-      expect($('body')).toHaveClass('pui-no-scroll');
-    });
+describe('ModalFooter', () => {
+  beforeEach(() => {
+    ReactDOM.render(<ModalFooter className="custom-modal-footer-class"/>, root);
   });
 
-  describe('when show is false', () => {
-    beforeEach(() => {
-      result = renderIntoDom({show: false, className: 'myModal'});
-    });
-
-    it('hides the modal', () => {
-      expect(findAllByClass(result, 'myModal')).toHaveLength(0);
-    });
-
-    it('allows the body to scroll', () => {
-      expect($('body')).not.toHaveClass('pui-no-scroll');
-    });
-  });
-
-  describe('onHide', () => {
-    let onHide;
-
-    beforeEach(() => {
-      onHide = jasmine.createSpy('onHide');
-    });
-
-    it('is triggered when close button is clicked', () => {
-      result = renderIntoDom({show: true, onHide, animation: false});
-      $('.modal-close .btn').click();
-      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
-    });
-
-    it('is not triggered when the modal content itself is clicked', () => {
-      result = renderIntoDom({show: true, onHide, animation: false});
-      $('.modal-dialog').click();
-      expect(onHide).not.toHaveBeenCalled();
-
-      $('.modal-content').click();
-      expect(onHide).not.toHaveBeenCalled();
-    });
-
-    it('is triggered when the backdrop is clicked', () => {
-      result = renderIntoDom({show: true, onHide, animation: false});
-      $('.modal').simulate('mouseDown');
-      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
-    });
-
-    it('is triggered on esc key down', () => {
-      result = renderIntoDom({show: true, onHide, animation: false});
-
-      const evt = document.createEvent('HTMLEvents');
-      evt.initEvent('keydown', true, true);
-      evt.keyCode = BaseModal.ESC_KEY;
-      document.documentElement.dispatchEvent(evt);
-
-      expect(onHide).toHaveBeenCalledWith(jasmine.anything());
-    });
-
-    it('is not triggered on esc key down if keyboard is false', () => {
-      result = renderIntoDom({show: true, onHide, animation: false, keyboard: false});
-
-      const evt = document.createEvent('HTMLEvents');
-      evt.initEvent('keydown', true, true);
-      evt.keyCode = BaseModal.ESC_KEY;
-      document.documentElement.dispatchEvent(evt);
-
-      expect(onHide).not.toHaveBeenCalled();
-    });
-
-    it('cleans up keydown listeners', () => {
-      result = renderIntoDom({show: true, onHide, animation: false});
-      ReactDOM.unmountComponentAtNode(root);
-
-      const evt = document.createEvent('HTMLEvents');
-      evt.initEvent('keydown', true, true);
-      evt.keyCode = BaseModal.ESC_KEY;
-      document.documentElement.dispatchEvent(evt);
-
-      expect(onHide).not.toHaveBeenCalled();
-    });
-
-    describe('when animation is true', () => {
-      beforeEach(() => {
-        spyOn(AnimationMixin, 'componentWillUnmount').and.callThrough();
-      });
-
-      it('resets animation if unmounted before animation finishes', () => {
-        result = renderIntoDom({show: true, onHide, animation: true});
-        ReactDOM.unmountComponentAtNode(root);
-        MockRaf.next();
-
-        expect(AnimationMixin.componentWillUnmount).toHaveBeenCalled();
-      });
-    });
-  });
-
-  describe('acquireFocus', () => {
-    beforeEach(() => {
-      $('body').append('<input type="text" tabIndex="-1" class="i-was-here-first">');
-      $('.i-was-here-first').focus();
-      expect('.i-was-here-first').toBeFocused();
-    });
-
-    afterEach(() => {
-      $('.i-was-here-first').remove();
-    });
-
-    it('steals focus on open when acquireFocus is true', () => {
-      renderIntoDom({show: true, animation: false, acquireFocus: true});
-      jasmine.clock().tick(1);
-      expect('.modal').toBeFocused();
-      expect('.i-was-here-first').not.toBeFocused();
-    });
-
-    it('does not steal focus on open when acquireFocus is false', () => {
-      renderIntoDom({show: true, animation: false, acquireFocus: false});
-      jasmine.clock().tick(1);
-      expect('.modal').not.toBeFocused();
-      expect('.i-was-here-first').toBeFocused();
-    });
-  });
-
-  describe('sizing', () => {
-    describe('when size is a pre-defined value', () => {
-      it('can set the size', () => {
-        expect(findByClass(renderIntoDom({show: true, size: 'sm'}), 'modal-dialog')).toHaveClass('modal-sm');
-        expect(findByClass(renderIntoDom({show: true, size: 'small'}), 'modal-dialog')).toHaveClass('modal-sm');
-        expect(findByClass(renderIntoDom({show: true, size: 'lg'}), 'modal-dialog')).toHaveClass('modal-lg');
-        expect(findByClass(renderIntoDom({show: true, size: 'large'}), 'modal-dialog')).toHaveClass('modal-lg');
-        expect(findByClass(renderIntoDom({show: true, size: 'something'}), 'modal-dialog')).not.toHaveClass('modal-something');
-      });
-    });
-
-    describe('when size is a percentage', () => {
-      it('sets the size', () => {
-        expect(findByClass(renderIntoDom({show: true, size: '80%'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px; width: 80%;');
-      });
-    });
-
-    describe('when size is a pixel value', () => {
-      it('sets the size', () => {
-        expect(findByClass(renderIntoDom({show: true, size: '65px'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px; width: 65px;');
-      });
-    });
-
-    describe('when size is some string', () => {
-      it('does not set the size', () => {
-        expect(findByClass(renderIntoDom({show: true, size: '10bananas'}), 'modal-dialog')).toHaveAttr('style', 'margin-top: 0px;');
-      });
-    });
-  });
-
-  describe('when there is no document', () => {
-    it('does not throw an exception when rendered', () => {
-      expect(() => {
-        renderIntoDom(<BaseModal show id="mr-modal" title="hey mr modal" getDocument={() => {}}/>, root);
-      }).not.toThrow();
-    });
+  it('renders a div with the correct classes', () => {
+    expect('div.pui-modal-footer').toHaveClass('custom-modal-footer-class');
   });
 });
