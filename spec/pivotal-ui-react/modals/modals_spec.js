@@ -100,10 +100,8 @@ describe('BaseModal', () => {
     describe('when esc is pressed', () => {
       beforeEach(() => {
         onHide.calls.reset();
-        const evt = document.createEvent('HTMLEvents');
-        evt.initEvent('keydown', true, true);
-        evt.keyCode = BaseModal.ESC_KEY;
-        document.documentElement.dispatchEvent(evt);
+        const escEvent = new KeyboardEvent('keydown', {keyCode: BaseModal.ESC_KEY, bubbles: true});
+        document.documentElement.dispatchEvent(escEvent);
       });
 
       it('calls the onHide prop', () => {

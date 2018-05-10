@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
-
 import {Autocomplete, AutocompleteInput} from '../../../src/react/autocomplete';
+
+const simulateKeyDown = (selector, keyCode) => {
+  $(selector)[0].dispatchEvent(new KeyboardEvent('keydown', {keyCode, bubbles: true}));
+};
 
 describe('Autocomplete', () => {
   let subject, onInitializeItems, pickSpy;
@@ -102,7 +105,7 @@ describe('Autocomplete', () => {
 
     describe('when the enter key is pressed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
       });
 
       it('hides the list', () => {
@@ -116,7 +119,7 @@ describe('Autocomplete', () => {
 
     describe('when the tab key is pressed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.TAB_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.TAB_KEY);
       });
 
       it('hides the list', () => {
@@ -130,7 +133,7 @@ describe('Autocomplete', () => {
 
     describe('when the escape key is pressed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ESC_KEY);
       });
 
       it('hides the list', () => {
@@ -140,7 +143,7 @@ describe('Autocomplete', () => {
 
     describe('when the up key is pressed at the beginning of the list', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.UP_KEY);
       });
 
       it('unhighlights any autocomplete suggestions', () => {
@@ -149,7 +152,7 @@ describe('Autocomplete', () => {
 
       describe('when the down key is then pressed', () => {
         beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
+          simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
@@ -160,7 +163,7 @@ describe('Autocomplete', () => {
 
     describe('when the down key is pressed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
       });
 
       it('adds highlighted class to the next autocomplete item', () => {
@@ -170,7 +173,7 @@ describe('Autocomplete', () => {
 
       describe('when the up key is then pressed', () => {
         beforeEach(() => {
-          $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.UP_KEY});
+          simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.UP_KEY);
         });
 
         it('adds highlighted class to the first autocomplete item', () => {
@@ -182,8 +185,8 @@ describe('Autocomplete', () => {
 
     describe('when the down key is pressed while the list is closed', () => {
       beforeEach(() => {
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ESC_KEY});
-        $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.DOWN_KEY});
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ESC_KEY);
+        simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.DOWN_KEY);
       });
 
       it('opens the list', () => {
@@ -212,7 +215,7 @@ describe('Autocomplete', () => {
       MockPromises.tick();
 
       $('.autocomplete input').val('does not exist').simulate('change');
-      $('.autocomplete input').simulate('keyDown', {keyCode: AutocompleteInput.ENTER_KEY});
+      simulateKeyDown('.autocomplete input:eq(0)', AutocompleteInput.ENTER_KEY);
     });
 
     it('calls autocomplete callback with the value of the input', () => {

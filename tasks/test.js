@@ -19,8 +19,7 @@ gulp.task('lint', function() {
     'src/react/**/*.js',
     'tasks/**/*.js',
     'spec/pivotal-ui-react/**/*.js',
-    'spec/task-helpers/**/*.js',
-    'phantomjs/*.js'
+    'spec/task-helpers/**/*.js'
   ], {base: '.'})
     .pipe(plumber())
     .pipe(eslint({fix}))
@@ -56,7 +55,7 @@ function reactTestAssets(options = {}) {
 gulp.task('jasmine-react-ci', ['react-build-svgs'], function() {
   return reactTestAssets({watch: false})
     .pipe(jasmineBrowser.specRunner({console: true}))
-    .pipe(jasmineBrowser.headless({driver: 'phantomjs'}));
+    .pipe(jasmineBrowser.headless({driver: 'chrome'}));
 });
 
 gulp.task('jasmine-react', ['react-build-svgs'], function() {

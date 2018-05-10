@@ -1,70 +1,63 @@
 import '../spec_helper';
 import {DraggableList, DraggableListItem} from '../../../src/react/draggable-list';
-
 import move from '../../../src/react/draggable-list/move_helper';
 
-describe('DraggableList', function() {
-  const renderComponent = props => ReactDOM.render(
-    <DraggableList {...props}>
-      <DraggableListItem>Foo</DraggableListItem>
-      <DraggableListItem>Bar</DraggableListItem>
-      <DraggableListItem>Gaz</DraggableListItem>
-    </DraggableList>,
-    root
-  );
+describe('DraggableList', () => {
+  let subject;
 
-  it('renders', () => {
-    const result = renderComponent();
-    const component = ReactTestUtils.findRenderedDOMComponentWithTag(result, 'ul');
-    expect(component.className).toEqual('list-draggable');
+  beforeEach(() => {
+    subject = ReactDOM.render(
+      <DraggableList>
+        <DraggableListItem>Foo</DraggableListItem>
+        <DraggableListItem>Bar</DraggableListItem>
+        <DraggableListItem>Gaz</DraggableListItem>
+      </DraggableList>,
+      root
+    );
   });
 
-  it('passes through innerClassName to item content', () => {
-    const result = renderComponent({innerClassName: 'inner-test-class'});
-    const contentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(result, 'draggable-item-content')[0];
-    expect(contentItem).toHaveClass('inner-test-class');
+  it('renders', () => {
+    expect('#root ul').toHaveClass('list-draggable');
+  });
+
+  describe('when given an innerClassName', () => {
+    beforeEach(() => {
+      subject::setProps({innerClassName: 'inner-test-class'});
+    });
+
+    it('passes through innerClassName to item content', () => {
+      expect('.draggable-item-content:eq(0)').toHaveClass('inner-test-class');
+    });
   });
 
   describe('dragging an item', () => {
-    let dataTransferStub = {
-      setData: () => {
-      }
-    };
-    let dragEndSpy;
-    let setDataSpy;
-
-    let renderedComponent;
-    let draggableList;
-    let draggableContentItem;
-    let draggableGrip;
+    let dataTransferStub, dragEndSpy, setDataSpy;
 
     beforeEach(() => {
+      dataTransferStub = {};
       setDataSpy = jasmine.createSpy('setData');
       dataTransferStub.setData = setDataSpy;
-
       dragEndSpy = jasmine.createSpy('dragEnd');
-      renderedComponent = renderComponent({onDragEnd: dragEndSpy});
-      draggableList = ReactTestUtils.findRenderedDOMComponentWithTag(renderedComponent, 'ul');
 
-      expect(draggableList).not.toHaveClass('dragging');
+      subject::setProps({onDragEnd: dragEndSpy});
+    });
 
-      draggableGrip = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[1];
-      draggableContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-item-content')[1];
+    it('does not apply dragging class to ul by default', () => {
+      expect('#root ul').not.toHaveClass('dragging');
     });
 
     describe('dragStart', () => {
       beforeEach(() => {
-        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
       });
 
       it('adds the dragging class', () => {
-        expect(draggableList).toHaveClass('dragging');
+        expect('#root ul').toHaveClass('dragging');
       });
 
       it('adds the aria-grabbed attribute', () => {
-        expect(draggableGrip.hasAttribute('aria-grabbed')).toBe(true);
-        expect(draggableGrip.getAttribute('aria-grabbed')).toEqual('true');
+        expect('.draggable-grip:eq(1)').toHaveAttr('aria-grabbed', 'true');
       });
 
       it('calls setData with text/plain so firefox considers the drag to be valid', () => {
@@ -74,33 +67,26 @@ describe('DraggableList', function() {
 
     describe('dragEnter', () => {
       beforeEach(() => {
-        const dragOverContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[0];
-
-        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
-
-        ReactTestUtils.Simulate.dragEnter(dragOverContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-grip:eq(0)').simulateNative('dragEnter', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
       });
 
       it('reorders the list', () => {
-        const itemText = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-child')
-          .map(i => i.textContent);
-        expect(itemText).toEqual(['Bar', 'Foo', 'Gaz']);
+        expect('.draggable-child:eq(0)').toHaveText('Bar');
+        expect('.draggable-child:eq(1)').toHaveText('Foo');
+        expect('.draggable-child:eq(2)').toHaveText('Gaz');
       });
     });
 
     describe('dragEnd', () => {
       beforeEach(() => {
-        const dragOverContentItem = ReactTestUtils.scryRenderedDOMComponentsWithClass(renderedComponent, 'draggable-grip')[0];
-
-        ReactTestUtils.Simulate.dragStart(draggableContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-item-content:eq(1)').simulateNative('dragStart', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
-
-        ReactTestUtils.Simulate.dragEnter(dragOverContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-grip:eq(0)').simulateNative('dragEnter', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
-
-        ReactTestUtils.Simulate.dragEnd(dragOverContentItem, {dataTransfer: dataTransferStub});
+        $('.draggable-grip:eq(0)').simulateNative('dragEnd', {dataTransfer: dataTransferStub});
         jasmine.clock().tick(1);
       });
 
@@ -110,7 +96,7 @@ describe('DraggableList', function() {
       });
 
       it('removes the grabbed class', () => {
-        expect(draggableList).not.toHaveClass('dragging');
+        expect('#root ul').not.toHaveClass('dragging');
       });
     });
   });

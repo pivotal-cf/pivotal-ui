@@ -11,7 +11,7 @@ export class DraggableList extends React.Component {
   static propTypes = {
     onDragEnd: PropTypes.func,
     innerClassName: PropTypes.string
-  }
+  };
 
   constructor(props, context) {
     super(props, context);
@@ -26,7 +26,7 @@ export class DraggableList extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if(nextProps.children) {
+    if (nextProps.children) {
       this.setState({
         itemIndices: childrenIndices(nextProps.children),
         draggingId: null
@@ -39,34 +39,34 @@ export class DraggableList extends React.Component {
     try {
       dataTransfer.dropEffect = 'move';
       dataTransfer.setData('text/plain', '');
-    } catch(err) {
+    } catch (err) {
       dataTransfer.setData('text', '');
     }
     setTimeout(() => this.setState({draggingId}), 0);
-  }
+  };
 
   dragEnd = () => {
     this.setState({draggingId: null});
     this.props.onDragEnd && this.props.onDragEnd(this.state.itemIndices);
-  }
+  };
 
   dragEnter = e => {
     const {draggingId, itemIndices} = this.state;
     const endDraggingId = Number(e.currentTarget.getAttribute('data-dragging-id'));
-    if(draggingId === null || Number.isNaN(endDraggingId)) return;
+    if (draggingId === null || Number.isNaN(endDraggingId)) return;
 
     const startIndex = itemIndices.indexOf(draggingId);
     const endIndex = itemIndices.indexOf(endDraggingId);
 
     move(itemIndices, startIndex, endIndex);
     this.setState({itemIndices});
-  }
+  };
 
   render() {
     const items = [];
     let grabbed;
     const {children, innerClassName, onDragEnd, ...others} = this.props;
-    React.Children.forEach(children, function(child, draggingId) {
+    React.Children.forEach(children, function (child, draggingId) {
       grabbed = this.state.draggingId === draggingId;
       items.push(React.cloneElement(child, {
         grabbed,
