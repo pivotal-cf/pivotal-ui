@@ -15,7 +15,7 @@ import {DefaultButton} from 'pivotal-ui/react/buttons';
 import {Input} from 'pivotal-ui/react/inputs';
 ```
 
-```jsx
+```jsx-only
 ::title=Basic example
 class MyModal extends React.Component {
   constructor(props) {

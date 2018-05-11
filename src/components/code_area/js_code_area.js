@@ -23,7 +23,8 @@ export default class JsCodeArea extends React.Component {
     code: PropTypes.string.isRequired,
     file: PropTypes.string,
     name: PropTypes.string,
-    noToolbar: PropTypes.bool
+    noToolbar: PropTypes.bool,
+    noHtml: PropTypes.bool
   };
 
   constructor(props) {
@@ -59,15 +60,20 @@ export default class JsCodeArea extends React.Component {
   }
 
   static getRenderedReact(code) {
-    const tempElem = React.createElement('div', {}, eval(code));
-    const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem);
-    const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '');
+    try {
+      const tempElem = React.createElement('div', {}, eval(code));
+      const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem);
+      const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '');
 
-    return pretty(strippedCode);
+      return pretty(strippedCode);
+    } catch (err) {
+      console.error(err);
+      return '<!--Failed to render React into HTML. See console for details.-->';
+    }
   }
 
   render() {
-    const {file, name, title, description, noToolbar} = this.props;
+    const {file, name, title, description, noToolbar, noHtml} = this.props;
     const {code, remark} = this.state;
 
     let livePreview, transpiledCode;
@@ -75,7 +81,6 @@ export default class JsCodeArea extends React.Component {
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
       livePreview = eval(transpiledCode);
-      ReactDOMServer.renderToStaticMarkup(livePreview);
     } catch (e) {
       console.log(e);
       livePreview = <pre>{e.toString()}</pre>;
@@ -93,7 +98,8 @@ export default class JsCodeArea extends React.Component {
                    name={name}
                    toggleEditor={this.toggleEditor.bind(this)}
                    toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
-                   isReact={true}/>
+                   isReact={true}
+                   noHtml={noHtml}/>
           <div className="code-area-description">
             {remark.processSync(description).contents}
           </div>
