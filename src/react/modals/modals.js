@@ -127,6 +127,8 @@ export class BaseModal extends PureComponent {
   }
 
   render() {
+    if (typeof global.document === 'undefined') return null;
+
     const {
       disableAnimation, show, animationDuration, animationEasing, className, dialogClassName, title,
       size, children
