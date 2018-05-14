@@ -34,12 +34,13 @@ describe('JsCodeArea', () => {
     beforeEach(() => {
       ReactDOM.render(<JsCodeArea {...{
         description,
-        code: '<Anything />'
+        code: '<div><span></div>'
       }}/>, root);
     });
 
     it('renders an error message', () => {
-      expect('.code-editor--live-preview pre').toContainText('ReferenceError: Anything is not defined');
+      expect('.code-editor--live-preview pre').toContainText('SyntaxError');
+      expect('.code-editor--live-preview pre').toContainText('JSX closing tag');
     });
   });
 
@@ -47,12 +48,12 @@ describe('JsCodeArea', () => {
     beforeEach(() => {
       ReactDOM.render(<JsCodeArea {...{
         description,
-        code: '<div>{x}</div>'
+        code: 'throw "JS Error"'
       }}/>, root)
     });
 
     it('renders an error message', () => {
-      expect('.code-editor--live-preview pre').toContainText('ReferenceError: x is not defined');
+      expect('.code-editor--live-preview pre').toContainText('JS Error');
     });
   });
 
