@@ -40,6 +40,7 @@ const devConfig = {
     new CompressionPlugin(),
     htmlPlugin
   ],
+  watch: true,
   devtool: 'inline-source-map'
 };
 
