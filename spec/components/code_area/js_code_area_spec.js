@@ -30,28 +30,29 @@ describe('JsCodeArea', () => {
     });
   });
 
-  describe('rendering valid JSX with invalid JavaScript', () => {
+  describe('rendering invalid JSX', () => {
     beforeEach(() => {
-      code = `
-      class BadComponent extends React.Component {
-        render() {
-          throw Error('render error')
-        }
-      }
-      <BadComponent/>
-      `
-      spyOn(console, 'log');
+      ReactDOM.render(<JsCodeArea {...{
+        description,
+        code: '<Anything />'
+      }}/>, root);
     });
 
-    it('does not throw an error on render', () => {
-      expect(() => {
-        ReactDOM.render(<JsCodeArea {...{description, code}}/>, root);
-      }).not.toThrow();
+    it('renders an error message', () => {
+      expect('.code-editor--live-preview pre').toContainText('ReferenceError: Anything is not defined');
+    });
+  });
+
+  describe('rendering invalid javascript', () => {
+    beforeEach(() => {
+      ReactDOM.render(<JsCodeArea {...{
+        description,
+        code: '<div>{x}</div>'
+      }}/>, root)
     });
 
-    it('renders the error message for the user', () => {
-      ReactDOM.render(<JsCodeArea {...{description, code}}/>, root);
-      expect('.code-editor--live-preview pre').toContainText('render error');
+    it('renders an error message', () => {
+      expect('.code-editor--live-preview pre').toContainText('ReferenceError: x is not defined');
     });
   });
 

@@ -11,6 +11,7 @@ import reactRenderer from 'remark-react';
 import ReactEditor from './react_editor';
 import HtmlEditor from './html_editor';
 import Toolbar from './toolbar';
+import ErrorBoundary from '../error_boundary';
 
 import 'brace/mode/jsx';
 import 'brace/mode/html';
@@ -81,9 +82,7 @@ export default class JsCodeArea extends React.Component {
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
       livePreview = eval(transpiledCode);
-      ReactDOMServer.renderToStaticMarkup(livePreview);
     } catch (e) {
-      console.log(e);
       livePreview = <pre>{e.toString()}</pre>;
     }
 
@@ -114,7 +113,7 @@ export default class JsCodeArea extends React.Component {
         {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
         {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
         <div className="code-editor--live-preview">
-          {livePreview}
+          <ErrorBoundary>{livePreview}</ErrorBoundary>
         </div>
       </div>
     );
