@@ -50,9 +50,8 @@ making any changes. See the section on **Testing** for more details.
 
 ## Testing
 
-1. Install [phantomjs](http://phantomjs.org/)
-1. Run tests in terminal: `./node_modules/.bin/gulp ci`
-1. Run tests in browser: `./node_modules/.bin/gulp jasmine-react` and navigate to [http://localhost:8888](http://localhost:8888)
+1. Run tests in terminal: `./node_modules/.bin/gulp spec-app`
+1. Run tests in browser: `./node_modules/.bin/gulp jasmine` and navigate to [http://localhost:8888](http://localhost:8888)
 
 #### Visual-diff regression testing
 
