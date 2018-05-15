@@ -32,13 +32,13 @@ gulp.task('sandbox', (callback) => runSequence(
   callback
 ));
 
-gulp.task('start', ['sandbox', 'jasmine-react']);
+gulp.task('start', gulp.series('sandbox', 'spec-server'));
 
-gulp.task('build', [
+gulp.task('build', gulp.series(
   'build-license',
   'build-readme',
   'build-package',
   'css-build',
   'react-build',
   'js-build'
-]);
+));

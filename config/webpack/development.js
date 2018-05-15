@@ -1,4 +1,3 @@
-import puiAliases from '../../helpers/pui-aliases';
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -27,10 +26,4 @@ module.exports = {
       }
     ]
   },
-  resolve: {
-    alias: {
-      bootstrap: `${__dirname}/../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js`,
-      ...puiAliases
-    }
-  }
 };

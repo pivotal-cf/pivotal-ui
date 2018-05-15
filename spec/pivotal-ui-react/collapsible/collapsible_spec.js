@@ -58,6 +58,7 @@ describe('Collapsible', () => {
 
     MockNow.tick(200);
     MockRaf.next();
+    MockRaf.next();
 
     expect('.pui-collapsible-shield').toHaveCss({marginBottom: '0px'});
   });

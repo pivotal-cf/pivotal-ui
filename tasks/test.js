@@ -1,17 +1,6 @@
 import gulp from 'gulp';
-import runSequence from 'run-sequence';
-import webpack from 'webpack-stream';
-import {merge} from 'event-stream';
-
 const plugins = require('gulp-load-plugins')();
-const {plumber, eslint, if: gulpIf, util: {log, colors}, jasmineBrowser, jasmine} = plugins;
-
-gulp.task('ci', callback => runSequence(
-  'lint',
-  'jasmine-task-helpers',
-  'jasmine-react-ci',
-  callback
-));
+const {plumber, eslint, if: gulpIf, util: {log, colors}, jasmine} = plugins;
 
 gulp.task('lint', function() {
   const {FIX: fix = true} = process.env;
@@ -44,28 +33,8 @@ gulp.task('jasmine-task-helpers', function() {
     .pipe(jasmine({includeStackTrace: true}));
 });
 
-function reactTestAssets(options = {}) {
-  const config = Object.assign(require('../config/webpack.config')('test'), options);
-
-  return gulp.src(['spec/pivotal-ui-react/**/*_spec.js'])
-    .pipe(plumber())
-    .pipe(webpack(config));
-}
-
-gulp.task('jasmine-react-ci', ['react-build-svgs'], function() {
-  return reactTestAssets({watch: false})
-    .pipe(jasmineBrowser.specRunner({console: true}))
-    .pipe(jasmineBrowser.headless({driver: 'chrome'}));
-});
-
-gulp.task('jasmine-react', ['react-build-svgs'], function() {
-  var plugin = new (require('gulp-jasmine-browser/webpack/jasmine-plugin'))();
-  return reactTestAssets({plugins: [plugin]})
-    .pipe(jasmineBrowser.specRunner({
-      sourcemappedStacktrace: true
-    }))
-    .pipe(jasmineBrowser.server({
-      throwFailures: true,
-      whenReady: plugin.whenReady
-    }));
-});
+gulp.task('ci', gulp.series(
+  'lint',
+  'jasmine-task-helpers',
+  'spec-app'
+));
