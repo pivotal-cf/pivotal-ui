@@ -170,7 +170,7 @@ select {
     bottom: $form-icon-padding;
     font-size: $form-icon-size;
     svg {
-      fill:$dark-5;
+      fill: $dark-5;
     }
     &.valid,
     &.invalid {
@@ -284,7 +284,7 @@ select {
     line-height: ($base-unit*4);
   }
   .help-block {
-    right:0;
+    right: 0;
   }
 }
 
@@ -314,12 +314,12 @@ textarea.valid {
   }
 }
 
-  // Input Icons
-  //-------------------------------------
-  .form-group-left-icon, .form-group.form-group-left-icon {
-    input {
-      padding-left: 32px;
-    }
+// Input Icons
+//-------------------------------------
+.form-group-left-icon, .form-group.form-group-left-icon {
+  input {
+    padding-left: 32px;
+  }
 
   .input-icon {
     position: absolute;
