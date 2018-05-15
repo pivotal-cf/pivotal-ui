@@ -36,5 +36,6 @@ gulp.task('jasmine-task-helpers', function() {
 gulp.task('ci', gulp.series(
   'lint',
   'jasmine-task-helpers',
+  'react-build-svgs',
   'spec-app'
 ));

@@ -17,10 +17,10 @@ Jasmine.install({
   webpack: {test: () => testWebpack}
 });
 
-require('./tasks/test');
 require('./tasks/css-components');
 require('./tasks/react-components');
 require('./tasks/js-components');
+require('./tasks/test');
 require('./tasks/dev');
 require('./tasks/release');
 
