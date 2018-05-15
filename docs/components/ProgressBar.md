@@ -27,7 +27,7 @@
 
 ## Props
 
-Property       | Required | Type    | Default | Description
----------------|----------|---------|---------|------------
-barClassName   | false    | String  | | Class(es) to apply
-value          | false    | Number  | | Percentage to display
+Property        | Required   | Type      | Default   | Description
+--------------- | ---------- | --------- | --------- | ------------
+barClassName    | false      | String    |           | Class(es) to apply
+value           | false      | Number    |           | Percentage to display
