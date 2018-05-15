@@ -17,7 +17,7 @@ export class Toggle extends React.PureComponent {
   };
 
   componentDidMount() {
-    require('../../css/forms');
+    require('../../css/toggle');
   }
 
   render() {
@@ -25,7 +25,7 @@ export class Toggle extends React.PureComponent {
     const toggleId = id || uniqueid('toggle');
 
     const inputProps = mergeProps(others, {
-      className: 'toggle-switch',
+      className: 'toggle-switch pui-toggle-switch',
       id: toggleId,
       type: 'checkbox'
     });
