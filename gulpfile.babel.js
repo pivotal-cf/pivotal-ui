@@ -12,7 +12,7 @@ Jasmine.install({
     port: 8888,
     driver: 'chrome'
   },
-  appGlobs: ['./spec/pivotal-ui-react/index.js'],
+  appGlobs: ['./spec/pivotal-ui-react/**/*_spec.js'],
   headlessSpecRunnerOptions: {profile: true},
   webpack: {test: () => testWebpack}
 });
