@@ -52,7 +52,6 @@
     "gulp-header": "^1.2.2",
     "gulp-if": "^2.0.2",
     "gulp-jasmine": "^2.4.2",
-    "gulp-jasmine-browser": "^3.0.0",
     "gulp-load-plugins": "^0.8.1",
     "gulp-open": "^0.3.2",
     "gulp-plumber": "^0.6.6",
