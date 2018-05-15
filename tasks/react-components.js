@@ -1,11 +1,10 @@
 import del from 'del';
 import gulp from 'gulp';
-import runSequence from 'run-sequence';
 import svgToJs from 'svg-to-jsx';
 import fs from 'fs';
 
 const plugins = require('gulp-load-plugins')();
-const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
+const COPYRIGHT = '/*(c) Copyright 2018 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const srcFolder = 'src/react';
 const buildFolder = 'dist/react';
 
@@ -23,15 +22,6 @@ function readFile(path) {
     fs.readFile(path, (err, data) => {
       if (err) return rej(err);
       res(data);
-    });
-  });
-}
-
-function mkdir(path) {
-  return new Promise((res, rej) => {
-    fs.mkdir(path, err => {
-      if (err) return rej(err);
-      res();
     });
   });
 }
@@ -76,4 +66,4 @@ gulp.task('react-build-svgs', async() => {
 
 gulp.task('react-clean', callback => del([buildFolder], callback));
 
-gulp.task('react-build', callback => runSequence('react-clean', 'react-build-svgs', 'react-build-src', callback));
+gulp.task('react-build', gulp.series('react-clean', 'react-build-svgs', 'react-build-src'));

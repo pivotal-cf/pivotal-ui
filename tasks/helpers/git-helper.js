@@ -108,12 +108,12 @@ export default class GitHelper {
   async getPreviousTagSha(version) {
     const [major, minor, patch] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
-    tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
+    tags = tags.filter(([major, minor, patch]) => !(isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     if (minor === 0 && patch === 0) return this.getForkPoint('master', `v${major - 1}`);
     let previousTag;
     if (patch === 0) {
-      previousTag = tags.find(([tagMajor, tagMinor, tagPatch]) => tagMajor === major && tagMinor < minor);
+      previousTag = tags.find(([tagMajor, tagMinor]) => tagMajor === major && tagMinor < minor);
     } else {
       previousTag = tags.find(([tagMajor, tagMinor, tagPatch]) => tagMajor === major && tagMinor === minor && tagPatch < patch);
     }
@@ -134,7 +134,7 @@ export default class GitHelper {
     const [firstTagMajor, firstTagMinor, firstTagPatch] = tagToSemver(firstTag);
     const [versionMajor] = tagToSemver(version);
     let tags = (await this.git('tag')).split('\n').map(tagToSemver);
-    tags = tags.filter(([major, minor, patch]) => !( isNaN(major) || isNaN(minor) || isNaN(patch)));
+    tags = tags.filter(([major, minor, patch]) => !(isNaN(major) || isNaN(minor) || isNaN(patch)));
     tags.sort(sortSemversReverse);
     return tags.filter(([major2, minor2, patch2]) => {
       if (major2 < firstTagMajor) return;

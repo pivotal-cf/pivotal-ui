@@ -6,10 +6,10 @@ import classnames from 'classnames';
 import {mergeProps} from '../helpers';
 
 const defaultChild = (icon, message) =>
-  <div className="dropdown-notifications-none" role="presentation">
+  (<div className="dropdown-notifications-none" role="presentation">
     <Icon src={icon}/>
     <p className="type-neutral-4 em-alt mbn">{message}</p>
-  </div>;
+  </div>);
 
 export class Notifications extends React.PureComponent {
   static propTypes = {

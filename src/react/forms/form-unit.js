@@ -82,14 +82,14 @@ export class FormUnit extends React.Component {
 
     const content = inline ? ([
         <Grid className="grid-inline" key="top">
-          {sections.map((col, key) => <FlexCol {...{
+          {sections.map((col, key) => (<FlexCol {...{
             key,
             fixed: key === 0,
             className: classnames({
               [classnames('label-row', labelRowClassName)]: key === 0 && labelPosition !== 'after' || key === 1 && labelPosition === 'after',
               [classnames('field-row', fieldRowClassName)]: key === 0 && labelPosition === 'after' || key === 1 && labelPosition !== 'after'
             })
-          }}>{col}</FlexCol>)}
+          }}>{col}</FlexCol>))}
         </Grid>]
     ) : sections;
 

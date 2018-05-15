@@ -1,10 +1,8 @@
 import del from 'del';
 import gulp from 'gulp';
-import runSequence from 'run-sequence';
-
 const plugins = require('gulp-load-plugins')();
 
-const COPYRIGHT = '/*(c) Copyright 2015 Pivotal Software, Inc. All Rights Reserved.*/\n';
+const COPYRIGHT = '/*(c) Copyright 2018 Pivotal Software, Inc. All Rights Reserved.*/\n';
 const buildFolder = 'dist/js';
 
 gulp.task('js-build-src', function() {
@@ -17,4 +15,4 @@ gulp.task('js-build-src', function() {
 
 gulp.task('js-clean', callback => del([buildFolder], callback));
 
-gulp.task('js-build', callback => runSequence('js-clean', 'js-build-src', callback));
+gulp.task('js-build', gulp.series('js-clean', 'js-build-src'));
