@@ -55,7 +55,4 @@ spec/css/regressionRunner.js
 .rvmrc
 vendor/ruby
 
-## Sinopia storage
-/.sinopia/storage
-
 src/react/iconography/icons.js
