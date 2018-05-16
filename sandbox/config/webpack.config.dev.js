@@ -158,7 +158,6 @@ module.exports = {
                   importLoaders: 1,
                 },
               },
-              require.resolve('sass-loader'),
               {
                 loader: require.resolve('postcss-loader'),
                 options: {
@@ -175,10 +174,11 @@ module.exports = {
                         'not ie < 9', // React doesn't support IE8 anyway
                       ],
                       flexbox: 'no-2009',
-                    }),
+                    })
                   ],
                 },
               },
+              require.resolve('sass-loader')
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
