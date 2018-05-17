@@ -29,14 +29,14 @@ describe('BaseModal', () => {
   it('renders a hidden backdrop', () => {
     expect('.pui-modal-backdrop').not.toHaveClass('pui-modal-show');
     expect('.pui-modal-backdrop').toHaveCss({
-      visibility: 'hidden', transition: 'opacity 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
+      visibility: 'hidden', transition: 'opacity 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'
     });
     expect('.pui-modal-backdrop').toHaveAttr('aria-hidden', 'true');
   });
 
   it('renders a hidden dialog', () => {
     expect('.pui-modal-dialog').not.toHaveClass('pui-modal-show');
-    expect('.pui-modal-dialog').toHaveCss({transition: 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'});
+    expect('.pui-modal-dialog').toHaveCss({transition: 'transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s'});
   });
 
   it('renders a close button', () => {

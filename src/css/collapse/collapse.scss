@@ -167,12 +167,3 @@ tr.pui-collapsible.in, tr.collapse.in {
 tbody.pui-collapsible.in, tbody.collapse.in {
   display: table-row-group;
 }
-
-.pui-collapsing, .collapsing {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  @include transition-property(height, visibility);
-  @include transition-duration(.35s);
-  @include transition-timing-function(ease);
-}

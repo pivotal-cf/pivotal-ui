@@ -1,6 +1,6 @@
 /* Transition mixins */
 
-@mixin transition-pui($type:all, $speed:300ms, $ease: ease-out) {
+@mixin transition-pui($type:all, $speed:200ms, $ease: ease-out) {
   -webkit-transition: $type $speed $ease;
   -moz-transition: $type $speed $ease;
   transition: $type $speed $ease;

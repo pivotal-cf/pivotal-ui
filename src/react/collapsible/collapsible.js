@@ -26,7 +26,7 @@ class CollapsibleComponent extends mixin(React.Component).with(Animation) {
   };
 
   static defaultProps = {
-    delay: 400
+    delay: 200
   };
 
   componentDidMount() {

@@ -23,7 +23,7 @@ export class BaseModal extends PureComponent {
   };
 
   static defaultProps = {
-    animationDuration: 300,
+    animationDuration: 200,
     animationEasing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
     getActiveElement: () => global.document.activeElement
   };

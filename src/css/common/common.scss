@@ -126,7 +126,7 @@ button.pui-close, button.close {
 
 .fade {
   opacity: 0;
-  @include transition(opacity .15s linear);
+  @include transition(opacity .2s linear);
   &.in {
     opacity: 1;
   }

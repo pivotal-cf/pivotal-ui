@@ -23,7 +23,7 @@ export class BackToTop extends mixin(React.PureComponent).with(Animation) {
     scrollableId: PropTypes.string
   };
 
-  static FADE_DURATION = 300;
+  static FADE_DURATION = 200;
   static VISIBILITY_HEIGHT = 400;
   static SCROLL_DURATION = 200;
 
