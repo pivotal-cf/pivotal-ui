@@ -6,6 +6,7 @@ import {withCellEllipsis} from './plugins/cell-ellipsis';
 import {withCellLink} from './plugins/cell-link';
 import {withCellOnClick} from './plugins/cell-on-click';
 import {withCellRenderer} from './plugins/cell-renderer';
+import {withRenderTdChildren} from './plugins/render-td-children';
 import {withCellTooltip} from './plugins/cell-tooltip';
 import {withCellWidth} from './plugins/cell-width';
 import {withFlex} from './plugins/flex';
@@ -24,6 +25,7 @@ export {withCellEllipsis} from './plugins/cell-ellipsis';
 export {withCellLink} from './plugins/cell-link';
 export {withCellOnClick} from './plugins/cell-on-click';
 export {withCellRenderer} from './plugins/cell-renderer';
+export {withRenderTdChildren} from './plugins/render-td-children';
 export {withCellTooltip} from './plugins/cell-tooltip';
 export {withCellWidth} from './plugins/cell-width';
 export {withFlex} from './plugins/flex';
@@ -44,6 +46,7 @@ export const AdvancedTable = flow(
   withCellEllipsis,
   withCellOnClick,
   withCellRenderer,
+  withRenderTdChildren,
   withCellTooltip,
   withCellWidth,
   withFooterRow,
