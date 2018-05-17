@@ -217,7 +217,8 @@ link        | no  | Function  |       | The link destination. Only valid when us
 className   | no  | String or Function| | The class(es) to apply to a column. If this is a function, the inputs are `(rowDatum, isHeader)`. Only valid when used with `withCellClassName` plugin.
 ellipsis    | no  | Boolean   | false | Ellipsify overflow text. Only valid when used with `withCellEllipsis` plugin.
 onClick     | no  | Function  |       | The function to execute when the cell is clicked. The inputs to this function are `(event, rowDatum)`. Only valid when used with `withCellOnClick` plugin.
-CellRenderer| no  | Function  |       | Custom render function. Only valid when used with `withCellRenderer` plugin.
+CellRenderer| no  | React component  |       | Component to use to render cell children. Rendered with `{...rowDatum}` as props. Only valid when used with `withCellRenderer` plugin.
+renderTdChildren | no  | Function  |       | Function which will be called to render custom cell children. Called with `rowDatum` as its argument. Only valid when used with `withRenderTdChildren` plugin.
 tooltip     | no  | Function  |       | Function whose inputs are `({isHeader}, rowDatum)` and should output an object containing `{text, size, theme, showIcon}`. `text` and `size` are used in the [Tooltip](/tooltips#tooltips) Component. `theme` is a prop of the [OverlayTrigger](/tooltips#overlay-triggers) Component. `showIcon` determines if the info icon is shown. Only valid when used with `withCellTooltip` plugin.
 width       | no  | String    |       | Can be any valid CSS `width` input. Only valid when used with `withCellWidth` plugin.
 sortable    | no  | Boolean   |       | Determines whether a column is sortable. Only valid when used with `withSorting` plugin.
@@ -246,6 +247,7 @@ Here are the plugins provided by Pivotal UI:
 * withCellEllipsis
 * withCellOnClick
 * withCellRenderer
+* withRenderTdChildren
 * withCellTooltip
 * withCellWidth
 * withFooterRow
@@ -323,12 +325,28 @@ const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${
 
 ```jsx
 ::title=Cell renderer
-::description=Each cell in a column can provide a custom render function. In this example, the first column has a custom cell renderer that reverses its text and applies a `strong` tag.
+::description=Each cell in a column can provide a custom component to render its children. In this example, the first column has a custom cell renderer component that reverses its text and applies a `strong` tag. To simply return some custom children for a cell, rather than use a whole custom component, consider using `withRenderTdChildren` instead of `withCellRenderer`. If an inline function is passed as a `CellRenderer`, it will unmount and remount the children of a cell whenever the table is given new props, rather than simply rerendering the children.
+class CustomCellRenderer extends React.Component {
+  render() {
+    const {header1} = this.props;
+    return <strong>{header1.split('').reverse().join('')}</strong>;
+  }
+}
 const TableWithCellRenderer = withCellRenderer(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].CellRenderer = ({header1}) => <strong>{header1.split('').reverse().join('')}</strong>;
+columns[0].CellRenderer = CustomCellRenderer;
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
 <TableWithCellRenderer columns={columns} data={data}/>
+```
+
+```jsx
+::title=Custom renderTdChildren function
+::description=Each cell in a column can provide a custom render function. In this example, the first column has a custom child render function that capitalizes its text.
+const TableWithRenderTdChildren = withRenderTdChildren(Table);
+const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
+columns[0].renderTdChildren = rowDatum => <p>{JSON.stringify(rowDatum).toUpperCase()}</p>;
+const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
+<TableWithRenderTdChildren columns={columns} data={data}/>
 ```
 
 ```jsx
