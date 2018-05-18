@@ -25,8 +25,9 @@ export default class Sidebar extends React.PureComponent {
   }
 
   handlePick(event) {
-    const link = searchItems.find(i => i.name == event.value).href;
-    this.props.updateContent(link);
+    const searchItem = searchItems.find(i => i.name == event.value);
+    if (!searchItem) return;
+    this.props.updateContent(searchItem.href);
   }
 
   render() {
