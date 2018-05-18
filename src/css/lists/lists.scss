@@ -115,28 +115,6 @@ ul, ol {
   }
 }
 
-.list-stream-new-items-btn-wrapper {
-  overflow: hidden;
-}
-
-.list-stream-new-items-btn {
-  font-weight: $font-weight-em-high;
-  background-color: $neutral-10;
-  color: $navy-3;
-  width: 100%;
-  height: $base-unit * 5.5;
-  padding: 0;
-  border-radius: 0;
-  border-top: 1px solid #ddd;
-  box-shadow: 0 -1px $shadow-4;
-  justify-content: center;
-
-  &:hover {
-    background-color: darken($neutral-10, 20%);
-    color: $navy-3;
-  }
-}
-
 .list-draggable {
   @include user-select(none);
   padding-left: 0;
