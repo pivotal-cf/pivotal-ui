@@ -5,8 +5,6 @@
 - [Breadcrumb Lists](#breadcrumb-lists)
 - [Draggable Lists](#draggable-lists)
 - [Inline Lists](#inline-lists)
-- [Ordered Lists](#ordered-lists)
-- [Unordered Lists](#unordered-lists)
 
 # Breadcrumb Lists
 
@@ -83,47 +81,12 @@
 </InlineList>
 ```
 
-# Ordered Lists
-
-## Examples
-
-```jsx
-::title=Ordered
-<OrderedList>
- <ListItem>Item 1</ListItem>
- <ListItem>Item 2</ListItem>
- <ListItem>Item 3</ListItem>
-</OrderedList>
-```
-
-# Unordered Lists
-
-## Example
-
-```jsx
-::title=Unordered
-<UnorderedList>
-  <ListItem>feep</ListItem>
-  <ListItem>fop</ListItem>
-  <ListItem>meep</ListItem>
-</UnorderedList>
-```
-
-```jsx
-::title=Unordered unstyled list
-<UnorderedList unstyled>
-  <ListItem>feep</ListItem>
-  <ListItem>fop</ListItem>
-  <ListItem>meep</ListItem>
-</UnorderedList>
-```
-
 ## Installation & Usage
 
 #### React
 `npm install pivotal-ui --save`
 
-`import {BreadcrumbList, InlineList, ListItem, OrderedList, UnorderedList} from 'pivotal-ui/react/lists';`
+`import {BreadcrumbList, InlineList, ListItem} from 'pivotal-ui/react/lists';`
 
 #### CSS Only
 `npm install pivotal-ui --save`
