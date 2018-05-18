@@ -42,7 +42,6 @@ import 'pivotal-ui/css/spinners/spinners.scss';
 import 'pivotal-ui/css/tables/tables.scss';
 import 'pivotal-ui/css/tabs/tabs.scss';
 import 'pivotal-ui/css/text-filter/text_filter.scss';
-import 'pivotal-ui/css/tile-layout/tile-layout.scss';
 import 'pivotal-ui/css/tooltips/tooltips.scss';
 import 'pivotal-ui/css/typography/typography.scss';
 import 'pivotal-ui/css/vertical-alignment/vertical-alignment.scss';
@@ -82,7 +81,6 @@ import * as Select from 'pivotal-ui/react/select';
 import * as StreamList from 'pivotal-ui/react/stream-list';
 import * as Svg from 'pivotal-ui/react/svg';
 import * as Tabs from 'pivotal-ui/react/tabs';
-import * as TileLayout from 'pivotal-ui/react/tile-layout';
 import * as Toggle from 'pivotal-ui/react/toggle';
 import * as TextFilter from 'pivotal-ui/react/text-filter';
 import * as Tooltip from 'pivotal-ui/react/tooltip';
@@ -136,7 +134,6 @@ import SvgJson from '../../docs/components/Svg.md';
 import TablesJson from '../../docs/components/Tables.md';
 import TabsJson from '../../docs/components/Tabs.md';
 import TextFilterJson from '../../docs/components/TextFilter.md';
-import TileLayoutJson from '../../docs/components/TileLayout.md';
 import TogglesJson from '../../docs/components/Toggles.md';
 import TooltipsJson from '../../docs/components/Tooltips.md';
 import TypographyJson from '../../docs/components/Typography.md';
@@ -197,7 +194,6 @@ const routes = {
   tables: {json: TablesJson, file: 'components/Tables.md', name: 'Tables', category: 'Components', packages: [Table]},
   tabs: {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
   textfilter: {json: TextFilterJson, file: 'components/TextFilter.md', name: 'TextFilter', category: 'Components', packages: [TextFilter]},
-  tile_layout: {json: TileLayoutJson, file: 'components/TileLayout.md', name: 'Tile Layout', category: 'Components', packages: [TileLayout, Trigger]},
   toggle: {json: TogglesJson, file: 'components/Toggles.md', name: 'Toggles', category: 'Components', packages: [Toggle]},
   tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
   typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: []},
