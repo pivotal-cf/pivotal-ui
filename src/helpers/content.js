@@ -37,7 +37,6 @@ import 'pivotal-ui/css/panels/panels.scss';
 import 'pivotal-ui/css/positioning/positioning.scss';
 import 'pivotal-ui/css/progress-bar/progress-bar.scss';
 import 'pivotal-ui/css/radio/radio.scss';
-import 'pivotal-ui/css/ribbons/ribbons.scss';
 import 'pivotal-ui/css/select/select.scss';
 import 'pivotal-ui/css/spinners/spinners.scss';
 import 'pivotal-ui/css/tables/tables.scss';
