@@ -33,7 +33,6 @@ https://styleguide.pivotal.io/modals
 https://styleguide.pivotal.io/notifications
 https://styleguide.pivotal.io/pagination
 https://styleguide.pivotal.io/panels
-https://styleguide.pivotal.io/panes
 https://styleguide.pivotal.io/portals
 https://styleguide.pivotal.io/progress_bars
 https://styleguide.pivotal.io/select

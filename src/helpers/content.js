@@ -34,7 +34,6 @@ import 'pivotal-ui/css/modals/modals.scss';
 import 'pivotal-ui/css/notifications/notifications.scss';
 import 'pivotal-ui/css/pagination/pagination.scss';
 import 'pivotal-ui/css/panels/panels.scss';
-import 'pivotal-ui/css/panes/panes.scss';
 import 'pivotal-ui/css/positioning/positioning.scss';
 import 'pivotal-ui/css/progress-bar/progress-bar.scss';
 import 'pivotal-ui/css/radio/radio.scss';
@@ -75,7 +74,6 @@ import * as Modals from 'pivotal-ui/react/modals';
 import * as Notifications from 'pivotal-ui/react/notifications';
 import * as Pagination from 'pivotal-ui/react/pagination';
 import * as Panels from 'pivotal-ui/react/panels';
-import * as Panes from 'pivotal-ui/react/panes';
 import * as ProgressBar from 'pivotal-ui/react/progress-bar';
 import * as Portals from 'pivotal-ui/react/portals';
 import * as Radio from 'pivotal-ui/react/radio';
@@ -129,7 +127,6 @@ import MediaJson from '../../docs/components/Media.md';
 import ModalsJson from '../../docs/components/Modals.md';
 import NotificationsJson from '../../docs/components/Notifications.md';
 import PaginationJson from '../../docs/components/Pagination.md';
-import PanesJson from '../../docs/components/Panes.md';
 import PanelsJson from '../../docs/components/Panels.md';
 import PortalsJson from '../../docs/components/Portals.md';
 import PositioningJson from '../../docs/components/Positioning.md';
@@ -192,7 +189,6 @@ const routes = {
   notifications: {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
   pagination: {json: PaginationJson, file: 'components/Pagination.md', name: 'Pagination', category: 'Components', packages: [Pagination]},
   panels: {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
-  panes: {json: PanesJson, file: 'components/Panes.md', name: 'Panes', category: 'Components', packages: [Panes]},
   portals: {json: PortalsJson, file: 'components/Portals.md', name: 'Portals', category: 'Components', packages: [Portals]},
   positioning: {json: PositioningJson, file: 'components/Positioning.md', name: 'Positioning', category: 'Components', packages: []},
   progress_bars: {json: ProgressBarJson, file: 'components/ProgressBar.md', name: 'Progress Bars', category: 'Components', packages: [ProgressBar]},
