@@ -179,8 +179,8 @@ const routes = {
   dropdowns: {json: DropdownsJson, file: 'components/Dropdowns.md', name: 'Dropdowns', category: 'Components', packages: [Dropdowns]},
   ellipsis: {json: EllipsisJson, file: 'components/Ellipsis.md', name: 'Ellipsis', category: 'Components', packages: []},
   expander: {json: ExpanderJson, file: 'components/Expander.md', name: 'Expander', category: 'Components', packages: [Expander]},
-  forms: {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Forms]},
   flyout: {json: FlyoutJson, file: 'components/Flyout.md', name: 'Flyout', category: 'Components', packages: [Alerts, Buttons, Flyout, Inputs]},
+  forms: {json: FormsJson, file: 'components/Forms.md', name: 'Forms', category: 'Components', packages: [Forms]},
   grids: {json: GridsJson, file: 'components/Grids.md', name: 'Grids', category: 'Components', packages: [Grids]},
   icons: {json: IconsJson, file: 'components/Icons.md', name: 'Icons', category: 'Components', packages: [Iconography]},
   images: {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
@@ -224,6 +224,7 @@ const routeKeyToObject = k => {
 };
 
 export const componentItems = Object.keys(routes)
+  .sort()
   .map(routeKeyToObject)
   .filter(i => i.category === 'Components');
 
