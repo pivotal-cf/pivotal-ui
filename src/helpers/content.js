@@ -78,7 +78,6 @@ import * as Radio from 'pivotal-ui/react/radio';
 import * as Table from 'pivotal-ui/react/table';
 import * as Trigger from 'pivotal-ui/react/overlay-trigger';
 import * as Select from 'pivotal-ui/react/select';
-import * as StreamList from 'pivotal-ui/react/stream-list';
 import * as Svg from 'pivotal-ui/react/svg';
 import * as Tabs from 'pivotal-ui/react/tabs';
 import * as Toggle from 'pivotal-ui/react/toggle';
@@ -179,7 +178,7 @@ const routes = {
   images: {json: ImagesJson, file: 'components/Images.md', name: 'Images', category: 'Components', packages: [Images]},
   inputs: {json: InputsJson, file: 'components/Inputs.md', name: 'Inputs', category: 'Components', packages: [Inputs]},
   links: {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: []},
-  lists: {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList, StreamList]},
+  lists: {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList]},
   media: {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
   modals: {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
   notifications: {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
