@@ -46,13 +46,9 @@ export class Dialog extends React.PureComponent {
 
   setBodyScrolling = canScroll => {
     if (canScroll) {
-      return DomHelpers.enableBodyScrolling({
-        paddingRight: this.savedPadding, overflow: this.savedOverflow, document: global.document
-      });
+      return DomHelpers.enableBodyScrolling({overflow: this.savedOverflow, document: global.document});
     }
-    const {paddingRight, overflow} = DomHelpers.disableBodyScrolling(global.document);
-    this.savedPadding = paddingRight;
-    this.savedOverflow = overflow;
+    this.savedOverflow = DomHelpers.disableBodyScrolling(global.document);
   };
 
   onBackdropClick = ({target}) => (target === this.backdrop) && this.props.hideOnBackdropClick && this.hide();

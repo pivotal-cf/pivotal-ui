@@ -30,26 +30,14 @@ const DomHelpers = {
   disableBodyScrolling: document => {
     if (!document) return {};
 
-    scrollbarWidth = DomHelpers.getScrollbarWidth(document);
-    const paddingRight = document.body.style.paddingRight;
     const overflow = document.body.style.overflow;
-
-    const computedPaddingRight = window.getComputedStyle(
-      document.body,
-      null
-    ).getPropertyValue('padding-right') || 0;
-
-    const newPaddingRight = (parseFloat(scrollbarWidth) || 0) + (parseFloat(computedPaddingRight) || 0);
-    document.body.style.paddingRight = `${newPaddingRight}px`;
     document.body.style.overflow = 'hidden';
-
-    return {paddingRight, overflow};
+    return overflow;
   },
 
-  enableBodyScrolling: ({paddingRight, overflow, document}) => {
+  enableBodyScrolling: ({overflow, document}) => {
     if (!document) return;
 
-    document.body.style.paddingRight = paddingRight;
     document.body.style.overflow = overflow;
   }
 };

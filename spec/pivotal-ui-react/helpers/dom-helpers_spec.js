@@ -79,7 +79,7 @@ describe('DomHelpers', () => {
   });
 
   describe('disableBodyScrolling', () => {
-    let document, overflow, paddingRight, savedProperties;
+    let document, overflow, savedProperties;
 
     describe('when the document is undefined', () => {
       beforeEach(() => {
@@ -93,34 +93,16 @@ describe('DomHelpers', () => {
     });
 
     describe('when there is a document', () => {
-      let computedStyle;
-
       beforeEach(() => {
-        spyOn(DomHelpers, 'getScrollbarWidth').and.returnValue('16px');
-        computedStyle = jasmine.createSpyObj('computedStyle', ['getPropertyValue']);
-        computedStyle.getPropertyValue.and.returnValue('8px');
-        spyOn(window, 'getComputedStyle').and.returnValue(computedStyle);
-
-        document = {body: {style: {paddingRight: '24px', overflow: 'scroll'}}};
-        ({overflow, paddingRight} = DomHelpers.disableBodyScrolling(document));
+        document = {body: {style: {overflow: 'scroll'}}};
+        overflow = DomHelpers.disableBodyScrolling(document);
       });
 
-      it('gets the scrollbar width', () => {
-        expect(DomHelpers.getScrollbarWidth).toHaveBeenCalledWith(document);
-      });
-
-      it('gets the computed right padding of the body', () => {
-        expect(window.getComputedStyle).toHaveBeenCalledWith(document.body, null);
-        expect(computedStyle.getPropertyValue).toHaveBeenCalledWith('padding-right');
-      });
-
-      it('updates the body right padding and overflow', () => {
-        expect(document.body.style.paddingRight).toBe('24px');
+      it('updates the body overflow', () => {
         expect(document.body.style.overflow).toBe('hidden');
       });
 
-      it('returns the original right padding and overflow from the body', () => {
-        expect(paddingRight).toBe('24px');
+      it('returns the original overflow from the body', () => {
         expect(overflow).toBe('scroll');
       });
     });
@@ -141,17 +123,15 @@ describe('DomHelpers', () => {
     });
 
     describe('when there is a document', () => {
-      let paddingRight, overflow;
+      let overflow;
 
       beforeEach(() => {
-        paddingRight = '16px';
         overflow = 'scroll';
-        document = {body: {style: {paddingRight: '32px', overflow: 'hidden'}}};
-        returnValue = DomHelpers.enableBodyScrolling({paddingRight, overflow, document});
+        document = {body: {style: {overflow: 'hidden'}}};
+        returnValue = DomHelpers.enableBodyScrolling({overflow, document});
       });
 
-      it('restores the saved body right padding and overflow', () => {
-        expect(document.body.style.paddingRight).toBe('16px');
+      it('restores the saved body overflow', () => {
         expect(document.body.style.overflow).toBe('scroll');
       });
 

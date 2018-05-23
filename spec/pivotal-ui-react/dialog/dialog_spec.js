@@ -60,7 +60,6 @@ describe('Dialog', () => {
       spyOn(global.document, 'addEventListener').and.callThrough();
       spyOn(global.document, 'removeEventListener').and.callThrough();
       subject.closingTimeout = -1;
-      document.body.style.paddingRight = '24px';
       document.body.style.overflow = 'scroll';
       $('#some-button').focus();
       subject::setProps({show: true});
@@ -100,7 +99,6 @@ describe('Dialog', () => {
 
     it('disables scrolling on the document body', () => {
       expect(DomHelpers.disableBodyScrolling).toHaveBeenCalledWith(document);
-      expect(subject.savedPadding).toBe('24px');
       expect(subject.savedOverflow).toBe('scroll');
     });
 
@@ -292,9 +290,7 @@ describe('Dialog', () => {
       });
 
       it('re-enables scrolling on the document body', () => {
-        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({
-          paddingRight: '24px', overflow: 'scroll', document
-        });
+        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({overflow: 'scroll', document});
       });
     });
 
@@ -312,9 +308,7 @@ describe('Dialog', () => {
       });
 
       it('re-enables scrolling on the document body', () => {
-        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({
-          paddingRight: '24px', overflow: 'scroll', document
-        });
+        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({overflow: 'scroll', document});
       });
     });
 
@@ -324,9 +318,7 @@ describe('Dialog', () => {
       });
 
       it('re-enables scrolling on the document body', () => {
-        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({
-          paddingRight: '24px', overflow: 'scroll', document
-        });
+        expect(DomHelpers.enableBodyScrolling).toHaveBeenCalledWith({overflow: 'scroll', document});
       });
     });
   });
