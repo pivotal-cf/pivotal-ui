@@ -3,68 +3,58 @@ import PropTypes from 'prop-types';
 import {DefaultButton} from '../buttons';
 import {Icon} from '../iconography';
 import classnames from 'classnames';
+import {Dialog} from '../dialog';
+import {Grid, FlexCol} from '../flex-grids';
 
-export class Flyout extends React.Component {
+export class Flyout extends React.PureComponent {
   static propTypes = {
-    open: PropTypes.bool,
-    close: PropTypes.func.isRequired,
-    width: PropTypes.string,
+    animationDuration: PropTypes.number,
+    animationEasing: PropTypes.string,
+    bodyClassName: PropTypes.string,
     children: PropTypes.any,
+    className: PropTypes.string,
+    dialogClassName: PropTypes.string,
+    buttonAriaLabel: PropTypes.string,
     header: PropTypes.any,
     headerClassName: PropTypes.string,
-    bodyClassName: PropTypes.string,
-    iconSrc: PropTypes.string
+    iconSrc: PropTypes.string,
+    onHide: PropTypes.func.isRequired,
+    show: PropTypes.bool,
+    width: PropTypes.string
   };
 
   static defaultProps = {
-    close: () => {
-    },
-    iconSrc: 'close'
+    iconSrc: 'close',
+    buttonAriaLabel: 'Close'
   };
 
   componentDidMount() {
     require('../../css/flyout');
   }
 
-  componentWillUnmount() {
-    this.props.close();
-  }
-
   render() {
-    const {children, open, close, header, width, headerClassName, bodyClassName, iconSrc} = this.props;
+    const {dialogClassName, buttonAriaLabel, header, onHide, children, headerClassName, bodyClassName, iconSrc, ...props} = this.props;
 
-    let right;
-    if (width) {
-      const value = parseFloat(width);
-      const unit = width.substr(('' + value).length);
-      right = `${-0.8 * value}${unit}`;
-    }
+    const mergedDialogClassNames = classnames(dialogClassName, 'pui-flyout-dialog');
+    const dialogProps = {...props, hideOnBackdropClick: false, hideOnEscKeyDown: false, dialogClassName: mergedDialogClassNames, onHide};
 
     return (
-      <div className={classnames('flyout', {
-        'flyout-open': open
-      })}>
-        <div className="flyout-content" style={{width, right}}>
-          <div className={classnames('flyout-header grid', headerClassName)}>
-            <div className="col col-fixed">
-              <DefaultButton {...{
-                className: 'flyout-close',
-                iconOnly: true,
-                flat: true,
-                onClick: () => close()
-              }}>
-                <Icon {...{src: iconSrc}}/>
-              </DefaultButton>
-            </div>
-            <div className="col">
-              {header}
-            </div>
-          </div>
-          <div className={classnames('flyout-body', bodyClassName)}>
-            {children}
-          </div>
-        </div>
-      </div>
+      <Dialog {...dialogProps}>
+        <Grid className={classnames('pui-flyout-header', headerClassName)}>
+          <FlexCol fixed>
+            <DefaultButton {...{
+              className: 'pui-flyout-icon-btn',
+              iconOnly: true,
+              flat: true,
+              'aria-label': buttonAriaLabel,
+              onClick: onHide,
+              icon: <Icon {...{src: iconSrc}}/>
+            }}/>
+          </FlexCol>
+          <FlexCol>{header}</FlexCol>
+        </Grid>
+        <div className={classnames('pui-flyout-body', bodyClassName)}>{children}</div>
+      </Dialog>
     );
   }
 }

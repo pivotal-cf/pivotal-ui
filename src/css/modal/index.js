@@ -1,7 +1,7 @@
 require('../common');
 require('../typography');
 try {
-  require('./modals.css');
+  require('./modal.css');
 } catch (e) {
-  require('./modals.scss');
+  require('./modal.scss');
 }

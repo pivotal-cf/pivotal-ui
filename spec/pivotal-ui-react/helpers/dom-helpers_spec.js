@@ -12,6 +12,10 @@ describe('DomHelpers', () => {
     it('queries for tabbable elements', () => {
       expect(el.querySelectorAll).toHaveBeenCalledWith('[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])');
     });
+
+    it('returns a falsy value when given a falsy value', () => {
+      expect(DomHelpers.findTabbableElements(null)).toBeFalsy();
+    });
   });
 
   describe('getScrollbarWidth', () => {

@@ -1,55 +1,56 @@
 @import "../pui-variables";
+@import '../mixins';
 
-.flyout {
-  $flyout-default-width: 480px;
-  $transition-duration: 0.2s;
-  $transition-timing-function: ease-out;
+.pui-dialog-backdrop {
+  position: fixed;
+  background: transparentize($modal-backdrop-bg, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: $zindex-modal;
+  transform: translateZ(0);
+  will-change: opacity;
+  overflow-y: auto;
 
-  background-color: rgba(36, 54, 65, 0.8);
+  &.pui-dialog-show {
+    opacity: 1;
+  }
+}
+
+.pui-flyout-dialog {
+  background: #fff;
+  width: $screen-xs;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 900;
-  visibility: hidden;
-  transition: opacity $transition-duration, visibility $transition-duration;
-  transition-timing-function: $transition-timing-function;
-  overflow: hidden;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  transform: translateX(0.8 * $screen-xs);
+  will-change: transform;
 
-  .flyout-content {
-    background-color: white;
-    z-index: 950;
-    width: $flyout-default-width;
-    top: 0;
-    right: -0.8 * $flyout-default-width;
-    bottom: 0;
-    position: absolute;
-    transition: right $transition-duration;
-    transition-timing-function: $transition-timing-function;
+  @media (min-width: $screen-sm-min) {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
 
-    .flyout-header {
-      padding: ($base-unit * 2) 0 ($base-unit * 2) 0;
-      margin: 0;
-      border-bottom: 3px solid $neutral-8;
+  &.pui-dialog-show {
+    transform: translateY(0);
+  }
 
-      .col {
-        align-self: center;
-      }
-    }
+  .pui-flyout-header {
+    padding: ($base-unit * 2) 0 ($base-unit * 2) 0;
+    margin: 0;
+    border-bottom: 3px solid $neutral-8;
 
-    .flyout-body {
-      padding: $base-unit * 2;
+    .col {
+      align-self: center;
     }
   }
 
-  &.flyout-open {
-    opacity: 1;
-    visibility: visible;
-
-    .flyout-content {
-      right: 0 !important;
-    }
+  .pui-flyout-body {
+    padding: $base-unit * 2;
   }
 }

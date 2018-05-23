@@ -55,8 +55,10 @@ describe('GitHelper', () => {
         await gitHelper.getLatestCommit('10.0.0');
         done();
       });
+
       it('returns the commit of that tag', () => {
         MockPromises.tick(100);
+
         expect(gitHelper.git).toHaveBeenCalledWith('rev-parse 10.0.0');
         expect(gitHelper.git).not.toHaveBeenCalledWith('log master -1 --oneline --format=format:%H');
       });

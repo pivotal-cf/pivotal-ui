@@ -1,11 +1,17 @@
 let scrollbarWidth;
 
 const DomHelpers = {
-  findTabbableElements: el => el.querySelectorAll(
+  documentExists: () => typeof global.document !== 'undefined',
+  getActiveElement: () => global.document.activeElement,
+  setTimeout: (handler, timeout) => global.setTimeout(handler, timeout),
+  clearTimeout: handler => global.clearTimeout(handler),
+
+  findTabbableElements: el => el && el.querySelectorAll(
     '[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), [tabindex]:not([tabindex="-1"])'
   ),
 
   getScrollbarWidth: document => {
+    if (scrollbarWidth) return scrollbarWidth;
     if (!document) return 0;
 
     const scrollDiv = document.createElement('div');
@@ -24,8 +30,7 @@ const DomHelpers = {
   disableBodyScrolling: document => {
     if (!document) return {};
 
-    scrollbarWidth = scrollbarWidth || DomHelpers.getScrollbarWidth(document);
-
+    scrollbarWidth = DomHelpers.getScrollbarWidth(document);
     const paddingRight = document.body.style.paddingRight;
     const overflow = document.body.style.overflow;
 

@@ -1,7 +1,7 @@
 @import "../pui-variables";
 @import '../mixins';
 
-.pui-modal-backdrop {
+.pui-dialog-backdrop {
   position: fixed;
   background: transparentize($modal-backdrop-bg, 0.2);
   top: 0;
@@ -16,12 +16,12 @@
   will-change: opacity;
   overflow-y: auto;
 
-  &.pui-modal-show {
+  &.pui-dialog-show {
     opacity: 1;
   }
 }
 
-.pui-modal-dialog {
+.pui-dialog {
   background: #fff;
   width: $modal-md;
   margin: ($base-unit * 6) auto;
@@ -36,7 +36,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
   }
 
-  &.pui-modal-show {
+  &.pui-dialog-show {
     transform: translateY(0);
   }
 

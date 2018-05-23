@@ -14,7 +14,8 @@
     "jasmine": true
   },
   "plugins": [
-    "react"
+    "react",
+    "jasmine"
   ],
   "rules": {
     "block-scoped-var": 2,
@@ -28,6 +29,7 @@
     "eol-last": 0,
 //    "guard-for-in": 2,
     "no-caller": 2,
+    "no-console": [2, {"allow": ["warn", "error"]}],
     "no-div-regex": 2,
     "no-dupe-class-members": 2,
     "no-else-return": 0,
@@ -72,6 +74,7 @@
     "react/jsx-no-undef": 2,
     "semi": 2,
     "jsx-quotes": [2, "prefer-double"],
+    "jasmine/no-focused-tests": 2,
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
     "react/prop-types": [2, {ignore: ['children', 'className', 'id', 'style']}],
