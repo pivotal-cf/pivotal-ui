@@ -12,7 +12,6 @@ body {
   margin: 0;
   font-family: $font-family-base;
   font-size: $font-size-base;
-  overflow-y: hidden;
 }
 
 #app {
@@ -42,6 +41,10 @@ body {
     max-height: 100vh;
     overflow-y: scroll;
     width: 200px;
+  }
+
+  & > .col:first-child {
+    width: 208px;
   }
 }
 

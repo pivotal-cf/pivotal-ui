@@ -2,6 +2,7 @@ import React from 'react';
 import Sidebar from './components/sidebar';
 import MarkdownViewer from './components/markdown_viewer';
 import contentMap, {attachPackagesToWindow} from './helpers/content';
+import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
 
@@ -28,7 +29,7 @@ export default class App extends React.Component {
   }
 
   updatePath(location) {
-    content.scrollTop = 0;
+    document.body.scrollTop = 0;
     const path = location.pathname.split('/').pop();
     this.setState({content: App.currentContent(path), path: path});
   }
@@ -56,19 +57,19 @@ export default class App extends React.Component {
     );
 
     return (
-      <div id="app" className="grid grid-nogutter">
-        <div className="col col-fixed">
+      <Grid id="app" gutter={false}>
+        <FlexCol fixed>
           <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
-        </div>
-        <div id="content" className="col content">
+        </FlexCol>
+        <FlexCol id="content" className="content">
           <div id="wrapper">
             <MarkdownViewer json={this.state.content.json}
                             file={this.state.content.file}
                             name={this.state.content.name}/>
           </div>
           {footer}
-        </div>
-      </div>
+        </FlexCol>
+      </Grid>
     );
   }
 }

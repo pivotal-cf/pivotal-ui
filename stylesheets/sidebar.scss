@@ -5,8 +5,7 @@ $sidebar-item-left-padding: $base-unit * 2;
 $active-item-border-size: $base-unit / 2;
 
 .sidebar {
-  background-color: $navy-11;
-  width: 208px;
+  background: $navy-11;
   color: $gray-3;
   overflow-y: auto;
   overflow-x: hidden;
@@ -14,7 +13,7 @@ $active-item-border-size: $base-unit / 2;
   position: fixed;
   top: 0;
   bottom: 0;
-  left: 0;
+  width: 208px;
 
   .pui-collapse {
     border: 0;

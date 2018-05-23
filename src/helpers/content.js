@@ -30,7 +30,7 @@ import 'pivotal-ui/css/inputs/input.scss';
 import 'pivotal-ui/css/links/links.scss';
 import 'pivotal-ui/css/lists/lists.scss';
 import 'pivotal-ui/css/media/media.scss';
-import 'pivotal-ui/css/modals/modals.scss';
+import 'pivotal-ui/css/modal/modal.scss';
 import 'pivotal-ui/css/notifications/notifications.scss';
 import 'pivotal-ui/css/pagination/pagination.scss';
 import 'pivotal-ui/css/panels/panels.scss';
@@ -68,7 +68,7 @@ import * as Images from 'pivotal-ui/react/images';
 import * as Inputs from 'pivotal-ui/react/inputs';
 import * as Lists from 'pivotal-ui/react/lists';
 import * as Media from 'pivotal-ui/react/media';
-import * as Modals from 'pivotal-ui/react/modals';
+import * as Modal from 'pivotal-ui/react/modal';
 import * as Notifications from 'pivotal-ui/react/notifications';
 import * as Pagination from 'pivotal-ui/react/pagination';
 import * as Panels from 'pivotal-ui/react/panels';
@@ -120,7 +120,7 @@ import InputsJson from '../../docs/components/Inputs.md';
 import LinksJson from '../../docs/components/Links.md';
 import ListsJson from '../../docs/components/Lists.md';
 import MediaJson from '../../docs/components/Media.md';
-import ModalsJson from '../../docs/components/Modals.md';
+import ModalJson from '../../docs/components/Modal.md';
 import NotificationsJson from '../../docs/components/Notifications.md';
 import PaginationJson from '../../docs/components/Pagination.md';
 import PanelsJson from '../../docs/components/Panels.md';
@@ -180,7 +180,7 @@ const routes = {
   links: {json: LinksJson, file: 'components/Links.md', name: 'Links', category: 'Components', packages: []},
   lists: {json: ListsJson, file: 'components/Lists.md', name: 'Lists', category: 'Components', packages: [Lists, DraggableList]},
   media: {json: MediaJson, file: 'components/Media.md', name: 'Media', category: 'Components', packages: [Media]},
-  modals: {json: ModalsJson, file: 'components/Modals.md', name: 'Modals', category: 'Components', packages: [Modals]},
+  modal: {json: ModalJson, file: 'components/Modal.md', name: 'Modal', category: 'Components', packages: [Modal]},
   notifications: {json: NotificationsJson, file: 'components/Notifications.md', name: 'Notifications', category: 'Components', packages: [Notifications]},
   pagination: {json: PaginationJson, file: 'components/Pagination.md', name: 'Pagination', category: 'Components', packages: [Pagination]},
   panels: {json: PanelsJson, file: 'components/Panels.md', name: 'Panels', category: 'Components', packages: [Panels]},
@@ -194,7 +194,7 @@ const routes = {
   tabs: {json: TabsJson, file: 'components/Tabs.md', name: 'Tabs', category: 'Components', packages: [Tabs]},
   textfilter: {json: TextFilterJson, file: 'components/TextFilter.md', name: 'TextFilter', category: 'Components', packages: [TextFilter]},
   toggle: {json: TogglesJson, file: 'components/Toggles.md', name: 'Toggles', category: 'Components', packages: [Toggle]},
-  tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip]},
+  tooltips: {json: TooltipsJson, file: 'components/Tooltips.md', name: 'Tooltips', category: 'Components', packages: [Tooltip, Trigger]},
   typography: {json: TypographyJson, file: 'components/Typography.md', name: 'Typography', category: 'Components', packages: []},
   vertical_alignment: {json: VerticalAlignmentJson, file: 'components/VerticalAlignment.md', name: 'Vertical Align', category: 'Components', packages: []},
   whitespace: {json: WhitespaceJson, file: 'components/Whitespace.md', name: 'Whitespace', category: 'Components', packages: []},

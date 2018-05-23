@@ -2,9 +2,9 @@
 
 ## Description
 The flyout appears from the right side of the window and overlays all other content until it is closed. Its
-visibility is controlled with the `open` property. It can take a custom `width`. The contents of the header
-and the body are set with the `header` and `children` properties, respectively. The behavior of the close
-button is defined through the `close` callback.
+visibility is controlled with the `show` property. It can take a custom `width`. The contents of the header
+and the body are set with the `header` and `children` properties, respectively. The behavior of the icon
+button is defined through the `onHide` callback.
 
 ## Examples
 
@@ -17,7 +17,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const {created, open} = this.state;
+    const {created, show, disableAnimation} = this.state;
 
     const children = (
       <Form>
@@ -29,8 +29,8 @@ class Page extends React.Component {
         <FormRow>
           <FormCol className="txt-r">
             <div>
-              <DefaultButton alt onClick={() => this.setState({open: false})}>Cancel</DefaultButton>
-              <DefaultButton onClick={() => this.setState({created: new Date(), open: false})}>Create</DefaultButton>
+              <DefaultButton alt onClick={() => this.setState({show: false})}>Cancel</DefaultButton>
+              <DefaultButton onClick={() => this.setState({created: new Date(), show: false})}>Create</DefaultButton>
             </div>
           </FormCol>
         </FormRow>
@@ -39,19 +39,28 @@ class Page extends React.Component {
 
     return (
       <div>
-        <DefaultButton {...{onClick: () => this.setState({open: true})}}>
-          Open Flyout
-        </DefaultButton>
-
+        <Form>
+          <FormRow>
+            <FormCol fixed hideHelpRow={true}>
+              <DefaultButton onClick={() => this.setState({show: true})}>
+                Open Flyout
+              </DefaultButton>
+            </FormCol>
+            <FormCol inline labelPosition="after" label="Disable Animation" hideHelpRow={true}>
+              <Toggle size="medium" onChange={() => this.setState({disableAnimation: !this.state.disableAnimation})}/>
+            </FormCol>
+          </FormRow>
+        </Form>
         {created && <p className="mtl">Last task created: {created.toLocaleString()}</p>}
 
         <Flyout {...{
-          open,
+          animationDuration: this.state.disableAnimation ? 0 : undefined,
+          show,
           header: <h3>Create Task</h3>,
           headerClassName: 'header-class',
           bodyClassName: 'body-class',
           children,
-          close: () => this.setState({open: false})
+          onHide: () => this.setState({show: false})
         }}/>
       </div>
     );
@@ -69,12 +78,16 @@ class Page extends React.Component {
 
 ## Props
 
-Property        | Required | Type     | Default | Description
-----------------|----------|----------|---------|------------
-bodyClassName   | false    | String   |         | Class(es) to apply to the body
-children        | false    | Any      |         | Contents of the flyout body
-close           | false    | Function |         | Callback called when close button is clicked
-header          | false    | Any      |         | Contents of the flyout header
-headerClassName | false    | String   |         | Class(es) to apply to the header
-open            | false    | Boolean  | false   | Whether or not the flyout is visible
-width           | false    | String   | 480px   | Width of flyout content
+| Property           | Required    | Type        | Default                               | Description                                                            |
+| ------------------ | ----------- | ----------- | ------------------------------------- | ------------                                                           |
+| animationDuration  | no          | Number      | 200                                   | Animation duration in milliseconds (Set to <= 0 to disable animations) |
+| animationEasing    | no          | String      | cubic-bezier(0.25, 0.46, 0.45, 0.94)  | Animation easing function                                              |
+| bodyClassName      | no          | String      |                                       | Class(es) to apply to the body                                         |
+| children           | no          | Any         |                                       | Contents of the flyout body                                            |
+| dialogClassName    | no          | String      |                                       | Class(es) to apply to the modal dialog                                 |
+| header             | no          | Any         |                                       | Contents of the flyout header                                          |
+| headerClassName    | no          | String      |                                       | Class(es) to apply to the header                                       |
+| iconSrc            | no          | String      | 'close'                               | Icon to use for the close button                                       |
+| onHide             | yes         | Function    |                                       | Callback that fires as soon as the modal begins closing                |
+| show               | no          | Boolean     | false                                 | Whether or not the flyout is visible                                   |
+| width              | no          | String      | 480px                                 | Width of flyout content                                                |
