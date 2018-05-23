@@ -6,6 +6,8 @@ visibility is controlled with the `show` property. It can take a custom `width`.
 and the body are set with the `header` and `children` properties, respectively. The behavior of the icon
 button is defined through the `onHide` callback.
 
+The flyout will overlay its first parent that has position `relative`.
+
 ## Examples
 
 ```jsx
