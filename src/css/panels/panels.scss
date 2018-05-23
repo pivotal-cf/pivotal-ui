@@ -31,7 +31,7 @@
     background-color: transparent;
     overflow: hidden;
 
-    animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
 
     &::after {
       content: "";
@@ -39,9 +39,9 @@
       right: 100%;
       width: 40%;
       height: 3px;
-      background-color: $blue-3;
-      animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
-      -webkit-animation: pui-panel-loading-slide 1.5s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      background-color: $dark-7;
+      animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
+      -webkit-animation: pui-panel-loading-slide 3s infinite cubic-bezier(0.45, 0.05, 0.55, 0.95);
     }
   }
 
