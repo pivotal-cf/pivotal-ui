@@ -12,7 +12,6 @@ export class Flyout extends React.PureComponent {
     animationEasing: PropTypes.string,
     bodyClassName: PropTypes.string,
     children: PropTypes.any,
-    className: PropTypes.string,
     dialogClassName: PropTypes.string,
     buttonAriaLabel: PropTypes.string,
     header: PropTypes.any,
@@ -36,7 +35,7 @@ export class Flyout extends React.PureComponent {
     const {dialogClassName, buttonAriaLabel, header, onHide, children, headerClassName, bodyClassName, iconSrc, ...props} = this.props;
 
     const mergedDialogClassNames = classnames(dialogClassName, 'pui-flyout-dialog');
-    const dialogProps = {...props, hideOnBackdropClick: false, hideOnEscKeyDown: false, dialogClassName: mergedDialogClassNames, onHide};
+    const dialogProps = {...props, hideOnBackdropClick: false, hideOnEscKeyDown: false, dialogClassName: mergedDialogClassNames, onHide, className: 'pui-flyout-dialog-backdrop'};
 
     return (
       <Dialog {...dialogProps}>

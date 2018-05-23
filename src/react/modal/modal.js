@@ -12,7 +12,6 @@ export class Modal extends PureComponent {
     animationEasing: PropTypes.string,
     bodyClassName: PropTypes.string,
     children: PropTypes.any,
-    className: PropTypes.string,
     dialogClassName: PropTypes.string,
     footer: PropTypes.node,
     footerClassName: PropTypes.string,
@@ -39,9 +38,9 @@ export class Modal extends PureComponent {
     const {title, size, children, onHide, dialogClassName, footer, bodyClassName, footerClassName, ...props} = this.props;
 
     const sizeClass = Modal.sizeClasses[size];
-    const mergedDialogClassNames = classnames(dialogClassName, sizeClass);
+    const mergedDialogClassNames = classnames('pui-modal-dialog', dialogClassName, sizeClass);
     const width = sizeClass ? null : size;
-    const dialogProps = {...props, hideOnBackdropClick: true, hideOnEscKeyDown: true, dialogClassName: mergedDialogClassNames, onHide, ariaLabelledBy: this.titleId};
+    const dialogProps = {...props, hideOnBackdropClick: true, hideOnEscKeyDown: true, dialogClassName: mergedDialogClassNames, onHide, ariaLabelledBy: this.titleId, className: 'pui-modal-dialog-backdrop'};
     width && (dialogProps.width = width);
 
     return (

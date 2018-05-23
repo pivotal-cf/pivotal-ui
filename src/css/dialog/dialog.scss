@@ -1,0 +1,34 @@
+@import "../pui-variables";
+
+.pui-dialog-backdrop {
+  background: transparentize($modal-backdrop-bg, 0.2);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: $zindex-modal;
+  transform: translateZ(0);
+  will-change: opacity;
+  overflow-y: auto;
+
+  &.pui-dialog-show {
+    opacity: 1;
+  }
+}
+
+.pui-dialog {
+  background: #fff;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  will-change: transform;
+
+  @media (min-width: $screen-sm-min) {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+  }
+
+  &.pui-dialog-show {
+    transform: translate(0, 0);
+  }
+}

@@ -1,44 +1,17 @@
 @import "../pui-variables";
 @import '../mixins';
 
-.pui-dialog-backdrop {
+.pui-modal-dialog-backdrop {
   position: fixed;
-  background: transparentize($modal-backdrop-bg, 0.2);
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  z-index: $zindex-modal;
-  transform: translateZ(0);
-  will-change: opacity;
-  overflow-y: auto;
-
-  &.pui-dialog-show {
-    opacity: 1;
-  }
 }
 
-.pui-dialog {
-  background: #fff;
+.pui-modal-dialog {
   width: $modal-md;
   margin: ($base-unit * 6) auto;
   position: relative;
   border-radius: 2px;
   border: 1px solid $modal-content-border-color;
-  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
   transform: translateY(-$base-unit * 10);
-  will-change: transform;
-
-  @media (min-width: $screen-sm-min) {
-    box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
-  }
-
-  &.pui-dialog-show {
-    transform: translateY(0);
-  }
 
   &.pui-modal-lg {
     width: $modal-lg;

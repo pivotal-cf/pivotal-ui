@@ -78,6 +78,7 @@ export class Dialog extends React.PureComponent {
   };
 
   componentDidMount() {
+    require('../../css/dialog');
     if (!this.props.show) return;
     global.document.addEventListener('keydown', this.onKeyDown);
     this.lastFocusedElement = DomHelpers.getActiveElement();
