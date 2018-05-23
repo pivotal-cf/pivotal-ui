@@ -1,2 +1,0 @@
-Sitemap: https://styleguide.pivotal.io/sitemap.txt
-Disallow: /static/versions
