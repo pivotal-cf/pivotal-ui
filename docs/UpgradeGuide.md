@@ -14,6 +14,8 @@ The goals of the 16.0 release are:
 
 Previously progress bars was solely a CSS implementation. See the [ProgressBars](/progress_bars) page for details on new React component.
 
+* ProgressBar css moved from `pivotal-ui/css/progress-bars` to `pivotal-ui/css/progress-bar`
+
 ### Modal
 
 We rewrote the `Modal` component (formerly `BaseModal`) from the ground-up to be more usable and accessible.
@@ -32,6 +34,8 @@ We rewrote the `Modal` component (formerly `BaseModal`) from the ground-up to be
 
 #### Breaking Changes
 
+* Modal component moved from `pivotal-ui/react/modals` to `pivotal-ui/react/modal`
+* Modal css moved from `pivotal-ui/css/modals` to `pivotal-ui/css/modal`
 * Renamed `BaseModal` component to `Modal`.
 * The `ModalBody` and `ModalFooter` components have been removed. Now, to specify a modal body, just use the `children` prop on the `Modal`. To specify a modal footer, use the `footer` prop.
 * Some minor prop changes:
