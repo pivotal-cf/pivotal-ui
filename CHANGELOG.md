@@ -1,5 +1,5 @@
 <a name="16.0.0"></a>
-# 16.0.0 (2018-05-23)
+# 16.0.0 (2018-05-24)
 #### CSS
 * **all**:
   * Delete the 'all' css [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([1ff9d2c2](https://github.com/pivotal-cf/pivotal-ui/commit/1ff9d2c2))
