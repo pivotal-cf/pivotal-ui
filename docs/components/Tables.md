@@ -344,7 +344,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 ::description=Each cell in a column can provide a custom render function. In this example, the first column has a custom child render function that capitalizes its text.
 const TableWithRenderTdChildren = withRenderTdChildren(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].renderTdChildren = rowDatum => <p>{JSON.stringify(rowDatum).toUpperCase()}</p>;
+columns[0].renderTdChildren = rowDatum => rowDatum.header1.toUpperCase();
 const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: 'Cell 3'}));
 <TableWithRenderTdChildren columns={columns} data={data}/>
 ```
