@@ -1,7 +1,91 @@
+<a name="16.0.0"></a>
+# 16.0.0 (2018-05-23)
+#### CSS
+* **all**:
+  * Delete the 'all' css [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([1ff9d2c2](https://github.com/pivotal-cf/pivotal-ui/commit/1ff9d2c2))
+  * Rename 'progess-bars' -&gt; 'progress-bar' ([cbaa1275](https://github.com/pivotal-cf/pivotal-ui/commit/cbaa1275))
+* **checkbox**: Add indeterminate state to checkbox [[:gear:#157372012](https://www.pivotaltracker.com/story/show/157372012)] ([aa7e0819](https://github.com/pivotal-cf/pivotal-ui/commit/aa7e0819))
+* **checkbox-dropdown**: Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([9bb71941](https://github.com/pivotal-cf/pivotal-ui/commit/9bb71941))
+* **collapse**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **common**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **dialog**: Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+* **flyout**:
+  * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+  * Allow users to provide an icon to the flyout header ([321955a2](https://github.com/pivotal-cf/pivotal-ui/commit/321955a2))
+* **forms**:
+  * Do not apply form css to tags outside of a form [[:beetle:#154782851](https://www.pivotaltracker.com/story/show/154782851)] ([51087299](https://github.com/pivotal-cf/pivotal-ui/commit/51087299))
+  * Format form.scss ([1f0b4b3a](https://github.com/pivotal-cf/pivotal-ui/commit/1f0b4b3a))
+  * Revert "Do not apply form css to tags outside of a form [[:beetle:#154782851](https://www.pivotaltracker.com/story/show/154782851)]" ([3e7cd1f8](https://github.com/pivotal-cf/pivotal-ui/commit/3e7cd1f8))
+  * Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
+* **links**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **lists**: delete stream-list [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([aa0222de](https://github.com/pivotal-cf/pivotal-ui/commit/aa0222de))
+* **mixins.scss**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **modal**:
+  * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+* **modals**:
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+  * Rewrite Modal to improve keyboard navigation and animation performance [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([ea939561](https://github.com/pivotal-cf/pivotal-ui/commit/ea939561))
+  * Apply modal size css classes [[:beetle:#157378266](https://www.pivotaltracker.com/story/show/157378266)] ([fce27525](https://github.com/pivotal-cf/pivotal-ui/commit/fce27525))
+* **panels**: Change panel loading bar speed and color [[:beetle:#155007308](https://www.pivotaltracker.com/story/show/155007308)] ([e19ff0ce](https://github.com/pivotal-cf/pivotal-ui/commit/e19ff0ce))
+* **panes**: Remove bootstrap .container css, set proportional padding all around the Pane [[:beetle:#156441349](https://www.pivotaltracker.com/story/show/156441349)] ([079f1308](https://github.com/pivotal-cf/pivotal-ui/commit/079f1308))
+* **progress-bar**: Rename 'progess-bars' -&gt; 'progress-bar' ([cbaa1275](https://github.com/pivotal-cf/pivotal-ui/commit/cbaa1275))
+* **progress-bars**:
+  * Rename 'progess-bars' -&gt; 'progress-bar' ([cbaa1275](https://github.com/pivotal-cf/pivotal-ui/commit/cbaa1275))
+  * New ProgressBar component ([7a17c257](https://github.com/pivotal-cf/pivotal-ui/commit/7a17c257))
+* **pui-variables.scss**:
+  * Remove undocumented ribbon component [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([f3ccfa92](https://github.com/pivotal-cf/pivotal-ui/commit/f3ccfa92))
+  * Rewrite Modal to improve keyboard navigation and animation performance [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([ea939561](https://github.com/pivotal-cf/pivotal-ui/commit/ea939561))
+* **radio**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **ribbons**: Remove undocumented ribbon component [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([f3ccfa92](https://github.com/pivotal-cf/pivotal-ui/commit/f3ccfa92))
+* **tabs**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **toggle**: Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
+#### React
+* **back-to-top**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **checkbox**: Add indeterminate state to checkbox [[:gear:#157372012](https://www.pivotaltracker.com/story/show/157372012)] ([aa7e0819](https://github.com/pivotal-cf/pivotal-ui/commit/aa7e0819))
+* **checkbox-dropdown**: Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([9bb71941](https://github.com/pivotal-cf/pivotal-ui/commit/9bb71941))
+* **collapsible**: Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+* **dialog**:
+  * Do not change padding when preventing scroll on body for Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([8b22619d](https://github.com/pivotal-cf/pivotal-ui/commit/8b22619d))
+  * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+* **draggable-list**: Use Puppeteer (headless Chrome) for CI tests instead of PhantomJS [[:gear:#154482629](https://www.pivotaltracker.com/story/show/154482629)] ([099b6019](https://github.com/pivotal-cf/pivotal-ui/commit/099b6019))
+* **flyout**:
+  * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+  * Enhance Flyout to allow header and body class names [[:gear:#156961700](https://www.pivotaltracker.com/story/show/156961700)] ([24472d38](https://github.com/pivotal-cf/pivotal-ui/commit/24472d38))
+  * Allow users to provide an icon to the flyout header ([321955a2](https://github.com/pivotal-cf/pivotal-ui/commit/321955a2))
+* **forms**: Use pui-react-tools 4, upgrade to webpack 4, gulp 4. Remove deprecated sandbox and tasks [[:gear:#157608144](https://www.pivotaltracker.com/story/show/157608144)] ([73ee8f0d](https://github.com/pivotal-cf/pivotal-ui/commit/73ee8f0d))
+* **helpers**:
+  * Do not change padding when preventing scroll on body for Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([8b22619d](https://github.com/pivotal-cf/pivotal-ui/commit/8b22619d))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+  * Rewrite Modal to improve keyboard navigation and animation performance [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([ea939561](https://github.com/pivotal-cf/pivotal-ui/commit/ea939561))
+* **modal**:
+  * Separate common flyout/modal css into dialog css [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([7daaa937](https://github.com/pivotal-cf/pivotal-ui/commit/7daaa937))
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+* **modals**:
+  * Extract shared Flyout and Modal functionality into Dialog component [[:star:#157670001](https://www.pivotaltracker.com/story/show/157670001)] ([ca7bbc27](https://github.com/pivotal-cf/pivotal-ui/commit/ca7bbc27))
+  * Default to 200ms for all transitions and animations [[:star:#157670024](https://www.pivotaltracker.com/story/show/157670024)] ([ec6871af](https://github.com/pivotal-cf/pivotal-ui/commit/ec6871af))
+  * Modals return null when there is no document [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([225765a7](https://github.com/pivotal-cf/pivotal-ui/commit/225765a7))
+  * Rewrite Modal to improve keyboard navigation and animation performance [[:beetle:#154675375](https://www.pivotaltracker.com/story/show/154675375)] ([ea939561](https://github.com/pivotal-cf/pivotal-ui/commit/ea939561))
+  * allow arbitrary width units for modals [[:beetle:#157300279](https://www.pivotaltracker.com/story/show/157300279)] ([e7d376be](https://github.com/pivotal-cf/pivotal-ui/commit/e7d376be))
+  * Block user from scrolling background when modal is open [[:beetle:#154675247](https://www.pivotaltracker.com/story/show/154675247)] ([728c647f](https://github.com/pivotal-cf/pivotal-ui/commit/728c647f))
+  * Allow BaseModal size to be a percentage [[:beetle:#157300279](https://www.pivotaltracker.com/story/show/157300279)] ([d3d5ce52](https://github.com/pivotal-cf/pivotal-ui/commit/d3d5ce52))
+* **notifications**: Use pui-react-tools 4, upgrade to webpack 4, gulp 4. Remove deprecated sandbox and tasks [[:gear:#157608144](https://www.pivotaltracker.com/story/show/157608144)] ([73ee8f0d](https://github.com/pivotal-cf/pivotal-ui/commit/73ee8f0d))
+* **panels**: Panels require box shadow css [[:beetle:#157327224](https://www.pivotaltracker.com/story/show/157327224)] ([d64f9546](https://github.com/pivotal-cf/pivotal-ui/commit/d64f9546))
+* **progress-bar**:
+  * Rename 'progess-bars' -&gt; 'progress-bar' ([cbaa1275](https://github.com/pivotal-cf/pivotal-ui/commit/cbaa1275))
+  * New ProgressBar component ([7a17c257](https://github.com/pivotal-cf/pivotal-ui/commit/7a17c257))
+* **ribbons**: Remove undocumented ribbon component [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([f3ccfa92](https://github.com/pivotal-cf/pivotal-ui/commit/f3ccfa92))
+* **stream-list**: delete stream-list [[:gear:#157669788](https://www.pivotaltracker.com/story/show/157669788)] ([aa0222de](https://github.com/pivotal-cf/pivotal-ui/commit/aa0222de))
+* **table**: Add withRenderTdChildren table plugin [[:beetle:#157580060](https://www.pivotaltracker.com/story/show/157580060)] ([4893562c](https://github.com/pivotal-cf/pivotal-ui/commit/4893562c))
+* **toggle**: Move toggle css from form.scss into its own file [[:beetle:#157613435](https://www.pivotaltracker.com/story/show/157613435)] ([14e244e8](https://github.com/pivotal-cf/pivotal-ui/commit/14e244e8))
 <a name="15.0.0"></a>
 # 15.0.0 (2018-03-29)
 #### CSS
 * **buttons**: Fix IE: Button contents shift when pressed [[:beetle:#155240754](https://www.pivotaltracker.com/story/show/155240754)] ([5cf8c06a](https://github.com/pivotal-cf/pivotal-ui/commit/5cf8c06a))
+* **checkbox-dropdown**: Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([d9a78898](https://github.com/pivotal-cf/pivotal-ui/commit/d9a78898))
 * **dropdowns**:
   * Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
   * Fix Notifications example on IE [[:beetle:#155240782](https://www.pivotaltracker.com/story/show/155240782)] ([4037c89e](https://github.com/pivotal-cf/pivotal-ui/commit/4037c89e))
@@ -15,7 +99,9 @@
 * **typography**: Stop disabling subpixel antialiasing! [[:beetle:#155689262](https://www.pivotaltracker.com/story/show/155689262)] ([b1ec1b1f](https://github.com/pivotal-cf/pivotal-ui/commit/b1ec1b1f))
 #### React
 * **autocomplete**: update app autocomplete to return the trie-building promise when initializing items, also add an updateList method to be able to update the list of search results without showing the list [[:star:#156202601](https://www.pivotaltracker.com/story/show/156202601)] ([b66c61e4](https://github.com/pivotal-cf/pivotal-ui/commit/b66c61e4))
-* **checkbox-dropdown**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
+* **checkbox-dropdown**:
+  * Make CheckboxDropdown work with new Dropdown [[:gear:#156384281](https://www.pivotaltracker.com/story/show/156384281)] ([d9a78898](https://github.com/pivotal-cf/pivotal-ui/commit/d9a78898))
+  * Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
 * **copy-to-clipboard**: Make CopyToClipboard work for text with newlines [[:beetle:#154782444](https://www.pivotaltracker.com/story/show/154782444)] (#555) ([c290ab63](https://github.com/pivotal-cf/pivotal-ui/commit/c290ab63))
 * **dropdowns**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
 * **notifications**: Update Dropdown and remove DropdownItem [[:star:#155451478](https://www.pivotaltracker.com/story/show/155451478)] ([047f6953](https://github.com/pivotal-cf/pivotal-ui/commit/047f6953))
