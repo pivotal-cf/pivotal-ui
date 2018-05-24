@@ -3,5 +3,4 @@ require('../typography');
 try {
   require('./modal.css');
 } catch (e) {
-  require('./modal.scss');
 }

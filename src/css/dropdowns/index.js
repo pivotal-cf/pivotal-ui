@@ -6,5 +6,4 @@ require('../links');
 try {
   require('./dropdowns.css');
 } catch (e) {
-  require('./dropdowns.scss');
 }

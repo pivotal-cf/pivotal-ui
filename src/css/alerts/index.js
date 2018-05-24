@@ -4,5 +4,4 @@ require('../typography');
 try {
   require('./alerts.css');
 } catch (e) {
-  require('./alerts.scss');
 }

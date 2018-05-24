@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sandbox from './sandbox';
+import 'pivotal-ui/css/alerts/alerts.scss';
 import 'pivotal-ui/css/common/common.scss';
 import 'pivotal-ui/css/typography/typography.scss';
 

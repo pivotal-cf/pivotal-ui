@@ -5,5 +5,4 @@ require('../panels');
 try {
   require('./collapse.css');
 } catch (e) {
-  require('./collapse.scss');
 }
