@@ -28,7 +28,10 @@ const prodConfig = {
 const devConfig = {
   entry: ['react-hot-loader/patch', './src/index.js'],
   devServer: {
-    clientLogLevel: 'error'
+    clientLogLevel: 'error',
+    stats: {
+      warningsFilter: /Module not found: Error: Can't resolve .*.css/
+    }
   },
   plugins: [
     new DefinePlugin({
