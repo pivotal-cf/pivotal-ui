@@ -178,19 +178,19 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="https://place
     <Media image={mediaSpacingImage}>
       default image spacing media
     </Media>
-    
+
     <Media image={mediaSpacingImage} mediaSpacing="small">
       small image spacing media
     </Media>
-    
+
     <Media image={mediaSpacingImage} mediaSpacing="medium">
       medium image spacing media
     </Media>
-    
+
     <Media image={mediaSpacingImage} mediaSpacing="large">
       large image spacing media
     </Media>
-    
+
     <Media image={mediaSpacingImage} mediaSpacing="xlarge">
       xlarge image spacing media
     </Media>
@@ -206,7 +206,7 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="https://place
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Media from 'pivotal-ui/css/media';`
+`import 'pivotal-ui/css/media';`
 
 ## Props
 

@@ -369,7 +369,7 @@ import {Form, FormRow, FormCol} from 'pivotal-ui/react/forms';
 ## CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Forms from 'pivotal-ui/css/forms';`
+`import 'pivotal-ui/css/forms';`
 
 ## Props
 
@@ -521,7 +521,7 @@ import {FormUnit} from 'pivotal-ui/react/forms';
 ## CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Forms from 'pivotal-ui/css/forms';`
+`import 'pivotal-ui/css/forms';`
 
 ## Props
 

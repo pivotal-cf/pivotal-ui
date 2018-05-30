@@ -30,7 +30,7 @@ import {Icon} from 'pivotal-ui/react/iconography';
     <Notifications size="h1">
       <NotificationItem>Stuff</NotificationItem>
     </Notifications>
-    
+
     <Notifications size="h2">
       <NotificationItem key={1}>Stuff</NotificationItem>
       <NotificationItem key={2}>Stuff</NotificationItem>
@@ -38,11 +38,11 @@ import {Icon} from 'pivotal-ui/react/iconography';
       <NotificationItem key={4}>Stuff</NotificationItem>
       <NotificationItem key={5}>Stuff</NotificationItem>
     </Notifications>
-    
+
     <AlertNotifications size="h3">
       <NotificationItem>Stuff</NotificationItem>
     </AlertNotifications>
-    
+
     <Notifications size="h4">
      <NotificationItem key={1}>Stuff</NotificationItem>
      <NotificationItem key={2}>Stuff</NotificationItem>
@@ -50,7 +50,7 @@ import {Icon} from 'pivotal-ui/react/iconography';
      <NotificationItem key={4}>Stuff</NotificationItem>
      <NotificationItem key={5}>Stuff</NotificationItem>
     </Notifications>
-    
+
     <AlertNotifications size="h5">
       <NotificationItem>Stuff</NotificationItem>
     </AlertNotifications>
@@ -93,7 +93,7 @@ the notification button.
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Notifications from 'pivotal-ui/css/notifications';`
+`import 'pivotal-ui/css/notifications';`
 
 ## Props
 

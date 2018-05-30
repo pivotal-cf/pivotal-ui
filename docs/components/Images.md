@@ -137,7 +137,7 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Images from 'pivotal-ui/css/images';`
+`import 'pivotal-ui/css/images';`
 
 ## Props
 

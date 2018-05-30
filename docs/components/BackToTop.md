@@ -31,7 +31,7 @@ You can place the link anywhere in your markup, but best practices are either to
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as BackToTop from 'pivotal-ui/css/back-to-top';`
+`import 'pivotal-ui/css/back-to-top';`
 
 
 ## Props

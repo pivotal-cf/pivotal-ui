@@ -29,4 +29,4 @@ Box-shadows are used to to describe the visual hierarchy of objects. Key light s
 
 `npm install pivotal-ui --save`
 
-`import * as BoxShadows from 'pivotal-ui/css/box-shadows';`
+`import 'pivotal-ui/css/box-shadows';`

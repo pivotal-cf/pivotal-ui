@@ -223,4 +223,4 @@ import {OverlayTrigger} from 'pivotal-ui/react/overlay-trigger';
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Tooltip from 'pivotal-ui/css/tooltip';`
+`import 'pivotal-ui/css/tooltip';`

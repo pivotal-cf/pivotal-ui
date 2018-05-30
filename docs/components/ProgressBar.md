@@ -22,7 +22,7 @@
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as ProgressBar from 'pivotal-ui/css/progress-bar';`
+`import 'pivotal-ui/css/progress-bar';`
 
 
 ## Props

@@ -38,7 +38,7 @@ anywhere without knowing about `<body>`.
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Portals from 'pivotal-ui/css/portals';`
+`import 'pivotal-ui/css/portals';`
 
 ## Props
 

@@ -44,4 +44,4 @@
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Alignment from 'pivotal-ui/css/alignment';`
+`import 'pivotal-ui/css/alignment';`

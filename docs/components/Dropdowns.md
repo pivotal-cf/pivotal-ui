@@ -141,7 +141,7 @@
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Dropdowns from 'pivotal-ui/css/dropdowns';`
+`import 'pivotal-ui/css/dropdowns';`
 
 ## Dropdown Props
 

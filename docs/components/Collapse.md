@@ -74,7 +74,7 @@ This is a basic collapse with no additional styles.
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Collapse from 'pivotal-ui/css/collapse';`
+`import 'pivotal-ui/css/collapse';`
 
 ## Props
 

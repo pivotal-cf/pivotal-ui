@@ -75,7 +75,7 @@ example below.
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Iconography from 'pivotal-ui/css/iconography';`
+`import 'pivotal-ui/css/iconography';`
 
 ## Props
 

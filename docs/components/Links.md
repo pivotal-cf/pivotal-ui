@@ -42,4 +42,4 @@ Class                           | Description
 
 `npm install pivotal-ui --save`
 
-`import * as Links from 'pivotal-ui/css/links';`
+`import 'pivotal-ui/css/links';`

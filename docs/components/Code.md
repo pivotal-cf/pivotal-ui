@@ -119,4 +119,4 @@ end</code></pre>
 
 `npm install pivotal-ui --save`
 
-`import * as Code from 'pivotal-ui/css/code';`
+`import 'pivotal-ui/css/code';`

@@ -142,7 +142,7 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Buttons from 'pivotal-ui/css/buttons';`
+`import 'pivotal-ui/css/buttons';`
 
 
 ## Props

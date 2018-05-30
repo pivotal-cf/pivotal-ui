@@ -87,7 +87,7 @@ const callback = () => alert('Dismissed!');
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Alerts from 'pivotal-ui/css/alerts';`
+`import 'pivotal-ui/css/alerts';`
 
 ## Props
 

@@ -30,7 +30,7 @@ class MoreInfo extends React.Component {
         </ExpanderContent>
         <button className="btn btn-primary" onClick={() => this.setState({expanded: !this.state.expanded})}>
           Toggle Content
-        </button> 
+        </button>
       </main>
     )
   }
@@ -50,7 +50,7 @@ class MoreInfo extends React.Component {
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Expander from 'pivotal-ui/css/expander';`
+`import 'pivotal-ui/css/expander';`
 
 ## Props
 

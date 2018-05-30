@@ -1,13 +1,13 @@
 # Tabs
 
 ## Description
-Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page. 
+Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page.
 
 They’re like tabbed dividers in a filing cabinet – by clicking a tab, users can easily locate a view of related content. Tabs should be used for alternating between views within the same context, not to navigate to different areas.
 
 Using Tab components in React consists of a parent element for the desired Tab type (for example,
 `Tabs` or `LeftTabs`). Each `Tab` is a child of this parent element and has a `tab` property for the
-string value a Tab should display. 
+string value a Tab should display.
 
 Additionally, each `Tab` must define an `eventKey` property for uniquely identifying this tab to its parent component.
 
@@ -63,7 +63,7 @@ When a user would like to access each group of information separately. | When it
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Tabs from 'pivotal-ui/css/tabs';`
+`import 'pivotal-ui/css/tabs';`
 
 ## Props
 

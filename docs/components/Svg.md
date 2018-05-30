@@ -46,7 +46,7 @@ For a full list of available icons, go to [http://pivotalicons.cfapps.io](http:/
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Svg from 'pivotal-ui/css/svg';`
+`import 'pivotal-ui/css/svg';`
 
 ## Props
 

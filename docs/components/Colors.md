@@ -421,6 +421,6 @@ Prepend any color variable with `type-` to apply that color to the text.
 
 `npm install pivotal-ui --save`
 
-`import * as Colors from 'pivotal-ui/css/colors';`
+`import 'pivotal-ui/css/colors';`
 
-`import * as VariablesAndMixins from 'pivotal-ui/css/variables-and-mixins';`
+`import 'pivotal-ui/css/variables-and-mixins';`

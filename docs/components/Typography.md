@@ -370,4 +370,4 @@ It can be used with the following modifiers to achieve a variety of effects.
 
 `npm install pivotal-ui --save`
 
-`import * as Typography from 'pivotal-ui/css/typography';`
+`import 'pivotal-ui/css/typography';`

@@ -21,7 +21,7 @@
     <Divider inverse />
     Me too
   </div>
-  
+
   <div className="type-dark-11">
     Here's some stuff above the divider
     <Divider inverse size="large" />
@@ -39,7 +39,7 @@
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Dividers from 'pivotal-ui/css/dividers';`
+`import 'pivotal-ui/css/dividers';`
 
 ## Props
 

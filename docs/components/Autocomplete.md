@@ -125,7 +125,7 @@ const onSearch = (value, callback) => {
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Autocomplete from 'pivotal-ui/css/autocomplete';`
+`import 'pivotal-ui/css/autocomplete';`
 
 ## Props
 

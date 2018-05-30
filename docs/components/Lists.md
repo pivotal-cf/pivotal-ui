@@ -91,7 +91,7 @@
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Lists from 'pivotal-ui/css/lists';`
+`import 'pivotal-ui/css/lists';`
 
 ## Props
 

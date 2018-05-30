@@ -56,7 +56,7 @@ Distinguish between primary and secondary CTAs in the title/header and footer (e
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Panels from 'pivotal-ui/css/panels';`
+`import 'pivotal-ui/css/panels';`
 
 ## Props
 

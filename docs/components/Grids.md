@@ -149,7 +149,7 @@ Flex grids use flexbox to position columns within rows.
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Grids from 'pivotal-ui/css/flex-grids';`
+`import 'pivotal-ui/css/flex-grids';`
 
 ## Props
 

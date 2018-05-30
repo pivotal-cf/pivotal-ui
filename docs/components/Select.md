@@ -57,7 +57,7 @@ Selects are excellent to use because they will automatically behave as expected 
 
 `npm install pivotal-ui --save`
 
-`import * as Select from 'pivotal-ui/css/select';`
+`import 'pivotal-ui/css/select';`
 
 # React Selects
 

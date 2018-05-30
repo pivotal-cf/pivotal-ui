@@ -118,4 +118,4 @@ All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements w
 
 `npm install pivotal-ui --save`
 
-`import * as Border from 'pivotal-ui/css/border';`
+`import 'pivotal-ui/css/border';`

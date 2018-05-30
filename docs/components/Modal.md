@@ -55,7 +55,7 @@ class MyModal extends React.Component {
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Modal from 'pivotal-ui/css/modal';`
+`import 'pivotal-ui/css/modal';`
 
 ## Props
 

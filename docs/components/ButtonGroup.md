@@ -39,4 +39,4 @@ Button groups wrap a series of buttons.
 
 `npm install pivotal-ui --save`
 
-`import * as ButtonGroup from 'pivotal-ui/css/button-group';`
+`import 'pivotal-ui/css/button-group';`

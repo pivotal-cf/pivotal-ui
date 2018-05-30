@@ -19,4 +19,4 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
 #### CSS Only
 `npm install pivotal-ui --save`
 
-`import * as Ellipsis from 'pivotal-ui/css/ellipsis';`
+`import 'pivotal-ui/css/ellipsis';`
