@@ -15,7 +15,7 @@ Selects are excellent to use because they will automatically behave as expected 
 
 ```html
 ::title=Selects
-<select class="form-control">
+<select>
   <option>default option</option>
   <option>an option</option>
   <option>another option</option>
@@ -28,7 +28,7 @@ Selects are excellent to use because they will automatically behave as expected 
 <Form>
   <FormRow>
     <FormCol name="large-select">
-      <select class="input-lg">
+      <select className="input-lg">
         <option>Option 1</option>
         <option>Option 2</option>
       </select>
@@ -44,7 +44,7 @@ Selects are excellent to use because they will automatically behave as expected 
   </FormRow>
   <FormRow>
     <FormCol name="small-select">
-      <select class="input-sm">
+      <select className="input-sm">
         <option>Option 1</option>
         <option>Option 2</option>
       </select>
