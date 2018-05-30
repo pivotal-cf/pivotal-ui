@@ -39,10 +39,12 @@ export default class App extends React.Component {
   }
 
   render() {
+    const {path, content: {json, file, name}} = this.state;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
-    const footer = (<div className="footer whitelabel-bg-color grid mrn mtxxxl">
+    const footer = (
+      <div className="footer whitelabel-bg-color grid mrn mtxxxl">
         <div className="col type-ellipsis">
           <p>
             © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
@@ -59,13 +61,11 @@ export default class App extends React.Component {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
+          <Sidebar updateContent={this.updateContent} activePath={path}/>
         </FlexCol>
         <FlexCol id="content" className="content">
           <div id="wrapper">
-            <MarkdownViewer json={this.state.content.json}
-                            file={this.state.content.file}
-                            name={this.state.content.name}/>
+            <MarkdownViewer {...{json, file, name}}/>
           </div>
           {footer}
         </FlexCol>
