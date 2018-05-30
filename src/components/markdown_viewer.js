@@ -23,6 +23,7 @@ export default class MarkdownViewer extends Component {
   }
 
   componentDidUpdate() {
+    // eslint-disable-next-line no-undef
     Prism.highlightAll();
   }
 

@@ -1,11 +1,17 @@
 import React from 'react';
 import AceEditor from 'react-ace';
-
+import PropTypes from 'prop-types';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
 export default class HtmlEditor extends React.Component {
+  static propTypes = {
+    changeHandler: PropTypes.func,
+    code: PropTypes.string,
+    readOnly: PropTypes.bool
+  };
+
   render() {
     return (
       <div className="code-editor--html-preview mbxl">

@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 import AceEditorWrapper from './ace_editor_wrapper';
 
 export default class ReactEditor extends React.Component {
+  static propTypes = {
+    changeHandler: PropTypes.func,
+    code: PropTypes.string
+  };
+
   render() {
     const {code, changeHandler} = this.props;
 

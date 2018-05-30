@@ -3,11 +3,8 @@
   "env": {
     "es6": true,
     "node": true,
-    "jasmine": true
-  },
-  "ecmaFeatures": {
-    "modules": true,
-    "jsx": true
+    "jasmine": true,
+    "browser": true
   },
   "plugins": [
     "react"
@@ -22,7 +19,6 @@
     "dot-notation": 2,
     "eqeqeq": 2,
     "eol-last": 0,
-//    "guard-for-in": 2,
     "no-caller": 2,
     "no-div-regex": 2,
     "no-else-return": 0,
@@ -54,24 +50,25 @@
     "no-self-compare": 2,
     "no-sequences": 0,
     "no-shadow": 0,
-//    "no-undef": 2,
+    "no-undef": 2,
     "no-underscore-dangle": 0,
     "no-unused-expressions": 0,
-//    "no-unused-vars": 2,
+    "no-unused-vars": 2,
     "no-void": 2,
     "no-warning-comments": 2,
     "no-with": 2,
     "quotes": [2, "single"],
     "radix": 2,
+    "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/jsx-no-undef": 2,
-    "semi": 2,
     "jsx-quotes": [2, "prefer-double"],
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
-    "react/prop-types": [2, {ignore: ['children', 'className', 'id', 'style']}],
+    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"]}],
     "react/self-closing-comp": 2,
     "react/jsx-wrap-multilines": 2,
+    "semi": 2,
     "strict": 0,
     "vars-on-top": 0,
     "wrap-iife": [2, "inside"],

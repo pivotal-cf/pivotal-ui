@@ -43,9 +43,9 @@ export default class JsCodeArea extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.state.code != nextState.code ||
-      this.state.showReact != nextState.showReact ||
-      this.state.showHtmlPreview != nextState.showHtmlPreview;
+    return this.state.code !== nextState.code ||
+      this.state.showReact !== nextState.showReact ||
+      this.state.showHtmlPreview !== nextState.showHtmlPreview;
   }
 
   changeHandler(value) {
@@ -62,6 +62,7 @@ export default class JsCodeArea extends React.Component {
 
   static getRenderedReact(code) {
     try {
+    // eslint-disable-next-line no-eval
       const tempElem = React.createElement('div', {}, eval(code));
       const renderedCode = ReactDOMServer.renderToStaticMarkup(tempElem);
       const strippedCode = renderedCode.replace(/^<div>/, '').replace(/<\/div>$/, '');
@@ -81,6 +82,7 @@ export default class JsCodeArea extends React.Component {
 
     try {
       transpiledCode = Babel.transform(code, {presets: ['es2015', 'react']}).code;
+      // eslint-disable-next-line no-eval
       livePreview = eval(transpiledCode);
     } catch (e) {
       livePreview = <pre>{e.toString()}</pre>;

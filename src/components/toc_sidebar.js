@@ -13,7 +13,7 @@ export default class TocSidebar extends Component {
 
     isHeading = [2, 4].indexOf(depth) !== -1 && type === 'heading';
     isJsx = lang === 'jsx' && value && !!value.match('::title=');
-    isHtml = lang == 'html' && value && !!value.match('::title=');
+    isHtml = lang === 'html' && value && !!value.match('::title=');
 
     return isHeading || isJsx || isHtml;
   };
@@ -22,7 +22,7 @@ export default class TocSidebar extends Component {
     let value, {children, depth = 4, lang} = jsonEntry;
 
     if (lang === 'jsx' || lang === 'html') {
-      value = jsonEntry.value.match(/::title=(.*)\n/)[1]
+      value = jsonEntry.value.match(/::title=(.*)\n/)[1];
     } else {
       value = children[0].value;
     }

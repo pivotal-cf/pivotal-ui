@@ -28,7 +28,7 @@
     "mock-promises": "^0.8.2",
     "module": "^1.2.5",
     "net": "^1.0.2",
-    "node-sass": "^4.5.3",
+    "node-sass": "4.7.2",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
     "pivotal-js-react-test-helpers": "^0.1.0",
@@ -58,6 +58,7 @@
     "lodash.kebabcase": "^4.1.1",
     "pivotal-js-jasmine-matchers": "^0.0.18",
     "prismjs": "^1.11.0",
+    "prop-types": "^15.6.1",
     "react-ace": "6.1.1",
     "remark-parse": "^3.0.1",
     "remark-react": "^4.0.0",
@@ -67,6 +68,7 @@
     "start": "cp public/* dist/ && cp -R static dist/ && webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
     "build": "webpack --config ./frontend_webpack.config.babel.js -p && cp public/* dist/ && cp -R static dist/",
     "build-dev": "webpack --config ./frontend_webpack.config.babel.js && cp public/* dist/ && cp -R static dist/",
-    "test": "gulp spec-app"
+    "test": "gulp spec-app",
+    "lint": "eslint src --fix"
   }
 }
