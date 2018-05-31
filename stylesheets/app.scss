@@ -14,40 +14,6 @@ body {
   font-size: $font-size-base;
 }
 
-#app {
-  .toc {
-    background: #f5f5f5;
-    border-bottom: 1px solid #ccc;
-    line-height: 24px;
-
-    a {
-      color: $dark-6;
-      display: block;
-      padding: 8px 0 8px 16px;
-
-      &:hover {
-        background: $dark-9;
-        color: $dark-3;
-      }
-    }
-
-    .heading-4 {
-      padding-left: 32px;
-    }
-  }
-
-  .toc-column {
-    border-left: 1px solid #ccc;
-    max-height: 100vh;
-    overflow-y: scroll;
-    width: 200px;
-  }
-
-  & > .col:first-child {
-    width: 208px;
-  }
-}
-
 .grid-show {
   margin-bottom: $grid-gutter-width;
   text-align: center;

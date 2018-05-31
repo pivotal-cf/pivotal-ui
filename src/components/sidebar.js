@@ -5,6 +5,7 @@ import {Input} from 'pivotal-ui/react/inputs';
 import routes from '../routes';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import {version} from '../../../pivotal-ui/package.json';
 
 const components = Object.values(routes).filter(({category}) => category === 'component');
 const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
@@ -81,10 +82,13 @@ export default class Sidebar extends React.PureComponent {
     ));
 
     return (
-      <div className="sidebar">
+      <nav className="sidebar">
         <div className="sidebar--header">
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
-          <div className="sidebar--title plxl">Pivotal UI</div>
+          <div className="sidebar--title plxl">
+            <h1 className="em-high h2">Pivotal UI</h1>
+            <div className="h4">v{version}</div>
+          </div>
         </div>
         <SearchBar/>
         <div className="sidebar--items">
@@ -124,7 +128,7 @@ export default class Sidebar extends React.PureComponent {
           <ContentLink text="Modifiers" className="sidebar-components"/>
           {modifierLinks}
         </div>
-      </div>
+      </nav>
     );
   }
 }
