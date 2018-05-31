@@ -4,6 +4,7 @@ import {Checkbox} from 'pivotal-ui/react/checkbox';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 
 const Toolbar = ({title, file, name, toggleEditor, toggleHtmlPreview, isReact, noHtml}) => {
+  // TODO: file and name are no longer passed in here
   const issueUrl = `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=fix(${name})%3A%20description&body=**Steps%20to%20Reproduce**%0A%0A**Expected**%0A${name}%20should%20do%20this%0A%0A**Result**%0A${name}%20do%20not%20do%20this`;
   const githubUrl = `https://github.com/pivotal-cf/pui-styleguide/edit/master/docs/${file}`;
 

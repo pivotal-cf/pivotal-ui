@@ -39,6 +39,10 @@
     "react-dom": "^16.3.2",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-svg-loader": "^1.1.1",
+    "remark-frontmatter": "^1.2.0",
+    "remark-parse": "^5.0.0",
+    "remark-parse-yaml": "^0.0.1",
+    "remark-react": "^4.0.3",
     "sass-loader": "^4.1.1",
     "selenium-standalone": "^5.11.1",
     "style-loader": "^0.13.1",
@@ -60,8 +64,6 @@
     "prismjs": "^1.11.0",
     "prop-types": "^15.6.1",
     "react-ace": "6.1.1",
-    "remark-parse": "^3.0.1",
-    "remark-react": "^4.0.0",
     "unified": "^6.1.4"
   },
   "scripts": {

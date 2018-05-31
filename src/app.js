@@ -1,13 +1,9 @@
 import React from 'react';
 import Sidebar from './components/sidebar';
-import MarkdownViewer from './components/markdown_viewer';
-import contentMap, {attachPackagesToWindow} from './helpers/content';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
 import {routes} from './routes';
-
-attachPackagesToWindow();
 
 export default class App extends React.Component {
   constructor(props) {
@@ -62,7 +58,7 @@ export default class App extends React.Component {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar updateContent={this.updateContent} activePath={path}/>
+          {/* <Sidebar updateContent={this.updateContent} activePath={path}/> */}
         </FlexCol>
         <FlexCol id="content" className="content">
           <div id="wrapper">
