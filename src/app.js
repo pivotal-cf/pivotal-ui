@@ -3,7 +3,7 @@ import Sidebar from './components/sidebar';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
-import {routes} from './routes';
+import routes from './routes';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -58,7 +58,7 @@ export default class App extends React.Component {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          {/* <Sidebar updateContent={this.updateContent} activePath={path}/> */}
+          <Sidebar updateContent={this.updateContent} activePath={path}/>
         </FlexCol>
         <FlexCol id="content" className="content">
           <div id="wrapper">

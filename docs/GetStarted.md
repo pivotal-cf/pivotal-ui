@@ -1,4 +1,6 @@
-# Getting Started with Pivotal UI
+---
+title: Getting Started with Pivotal UI
+---
 
 To get started using Pivotal UI with Create React App (CRA), follow these steps:
 

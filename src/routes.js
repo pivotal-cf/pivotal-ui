@@ -67,8 +67,9 @@ const modifiers = {
 };
 
 const routes = Object.entries({...pages, ...components, ...modifiers}).reduce((memo, [route, file]) => {
-  const PageComponent = markdownFileToComponent(file);
-  return {...memo, [route]: {PageComponent}}
+  const {pageMetadata, PageComponent} = markdownFileToComponent(file);
+  const category = components[route] ? 'component' : modifiers[route] ? 'modifier' : 'page';
+  return {...memo, [route]: {category, href: route, pageMetadata, PageComponent}}
 }, {});
 
-export {pages, components, modifiers, routes};
+export default routes;

@@ -8,10 +8,15 @@ import Page from '../components/page';
 
 const markdownFileToComponent = file => {
   const json = require(`../../docs/${file}`);
+
   const pageMetadata = json.children[0]
     && json.children[0].type === 'yaml'
     && json.children[0].data
     && json.children[0].data.parsedValue;
+
+  if (!pageMetadata) {
+    throw new Error(`Failed to find or parse YAML metadata for ${file}`);
+  }
 
   const processor = unified().use(reactRenderer, {
     sanitize: false,
@@ -30,7 +35,10 @@ const markdownFileToComponent = file => {
   const transformed = processor.runSync(json);
   const markdownContent = processor.stringify(transformed);
 
-  return () => <Page {...{pageMetadata, markdownContent}}/>;
+  return {
+    pageMetadata,
+    PageComponent: () => <Page {...{pageMetadata, markdownContent}}/>
+  };
 };
 
 export default markdownFileToComponent;

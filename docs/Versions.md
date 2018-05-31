@@ -1,4 +1,6 @@
-# Visit Other Versions of Pivotal UI
+---
+title: Visit Other Versions of Pivotal UI
+---
 
 - [Version 9](/static/versions/9)
 - [Version 10](/static/versions/10)

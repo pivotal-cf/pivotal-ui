@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Checkbox} from 'pivotal-ui/react/checkbox';

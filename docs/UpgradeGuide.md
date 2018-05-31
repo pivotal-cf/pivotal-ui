@@ -1,3 +1,7 @@
+---
+title: Upgrade Guide
+---
+
 # PUI 16.0 Release
 
 ## Goals
@@ -276,7 +280,7 @@ The goals of the 11.0 release are:
 ## The Big Changes
 
 ### Removed
-- Label component 
+- Label component
 - `.form-group` class has been removed.
 
 ### Input, Toggle

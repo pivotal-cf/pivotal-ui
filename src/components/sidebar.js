@@ -2,11 +2,12 @@ import React from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Input} from 'pivotal-ui/react/inputs';
-import {componentItems} from '../helpers/content';
+import routes from '../routes';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 
-const searchItems = componentItems;
+const components = Object.values(routes).filter(({category}) => category === 'component');
+const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
 
 const ContentLink = ({onClick, link, text, active, className}) => {
   return (
@@ -33,33 +34,36 @@ export default class Sidebar extends React.PureComponent {
     updateContent: PropTypes.func.isRequired
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    this.props.updateContent(event.target.href);
+  handleClick = evt => {
+    evt.preventDefault();
+    this.props.updateContent(evt.target.href);
   }
 
-  handlePick(event) {
-    const searchItem = searchItems.find(i => i.name === event.value);
+  handlePick = evt => {
+    const searchItem = searchItems.find(i => i.name === evt.value);
     if (!searchItem) return;
     this.props.updateContent(searchItem.href);
   }
 
   render() {
     const onInitializeItems = callback => callback(searchItems.map(item => item.name));
-    const SearchBar = () => (<Autocomplete onInitializeItems={onInitializeItems}
-                                          placeholder="Search"
-                                          className="sidebar--search phxl mbxl"
-                                          input={<AutocompleteInput><Input icon="search"/></AutocompleteInput>}
-                                          onPick={this.handlePick.bind(this)}
-                                          showNoSearchResults={true}/>);
+    // const SearchBar = () => (<Autocomplete onInitializeItems={onInitializeItems}
+    //                                       placeholder="Search"
+    //                                       className="sidebar--search phxl mbxl"
+    //                                       input={<AutocompleteInput><Input icon="search"/></AutocompleteInput>}
+    //                                       onPick={this.handlePick}
+    //                                       showNoSearchResults={true}/>);
 
-    const components = componentItems
-      .map((component, i) => (<ContentLink key={i}
-                                          className="sidebar-component"
-                                          onClick={this.handleClick.bind(this)}
-                                          link={component.href}
-                                          text={component.name}
-                                          active={component.href === this.props.activePath}/>));
+    const componentLinks = components.map((component, i) => (
+      <ContentLink {...{
+        key: i,
+        className: 'sidebar-component',
+        onClick: this.handleClick,
+        link: component.href,
+        text: component.pageMetadata.title,
+        active: component.href === this.props.activePath
+      }}/>
+    ));
 
     return (
       <div className="sidebar">
@@ -67,31 +71,41 @@ export default class Sidebar extends React.PureComponent {
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
           <div className="sidebar--title plxl">Pivotal UI</div>
         </div>
-        <SearchBar/>
+        {/* <SearchBar/> */}
         <div className="sidebar--items">
-          <ContentLink onClick={this.handleClick.bind(this)}
-                       link="getstarted"
-                       text="Get Started"
-                       active={['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1}/>
-          <ContentLink onClick={this.handleClick.bind(this)}
-                       link="faq"
-                       text="FAQ"
-                       active={this.props.activePath === 'faq'}/>
-          <ContentLink onClick={this.handleClick.bind(this)}
-                       link="upgradeguide"
-                       text="Upgrade Guide"
-                       active={this.props.activePath === 'upgradeguide'}/>
-          <ContentLink onClick={this.handleClick.bind(this)}
-                       link="contribute"
-                       text="Contribute"
-                       active={this.props.activePath === 'contribute'}/>
-          <ContentLink onClick={this.handleClick.bind(this)}
-                       link="versions"
-                       text="Versions"
-                       active={this.props.activePath === 'versions'}/>
+          <ContentLink {...{
+            onClick: this.handleClick,
+            link: "getstarted",
+            text:"Get Started",
+            active: ['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1
+          }}/>
+          <ContentLink {...{
+            onClick: this.handleClick,
+            link: "faq",
+            text:"FAQ",
+            active: this.props.activePath === 'faq'
+          }}/>
+          <ContentLink {...{
+            onClick: this.handleClick,
+            link: "upgradeguide",
+            text:"Upgrade Guide",
+            active: this.props.activePath === 'upgradeguide'
+          }}/>
+          <ContentLink {...{
+            onClick: this.handleClick,
+            link: "contribute",
+            text:"Contribute",
+            active: this.props.activePath === 'contribute'
+          }}/>
+          <ContentLink {...{
+            onClick: this.handleClick,
+            link: "versions",
+            text:"Versions",
+            active: this.props.activePath === 'versions'
+          }}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
           <ContentLink text="Components" className="sidebar-components"/>
-          {components}
+          {componentLinks}
         </div>
       </div>
     );
