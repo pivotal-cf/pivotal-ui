@@ -29,6 +29,7 @@ export default class MarkdownViewer extends Component {
 
   render() {
     const {json, file, name} = this.props;
+    if (!json) console.log({file, name, json})
     const cache = privates.get(this);
     if (cache[file]) return cache[file];
     const processor = unified().use(reactRenderer, {

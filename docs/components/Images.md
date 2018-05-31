@@ -1,4 +1,10 @@
-# Images
+---
+title: Images
+cssPath: pivotal-ui/css/images
+reactPath: pivotal-ui/react/images
+reactComponents:
+  - Image
+---
 
 ## Examples
 

@@ -1,4 +1,7 @@
-# Alignment
+---
+title: Alignment
+cssPath: pivotal-ui/css/alignment
+---
 
 ## Description
 

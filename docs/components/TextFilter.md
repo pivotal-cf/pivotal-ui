@@ -1,4 +1,10 @@
-# TextFilter
+---
+title: Text Filter
+cssPath: pivotal-ui/css/text-filter
+reactPath: pivotal-ui/react/text-filter
+reactComponents:
+  - TextFilter
+---
 
 ## Description
 

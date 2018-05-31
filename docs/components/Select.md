@@ -1,4 +1,10 @@
-# Select
+---
+title: Select
+cssPath: pivotal-ui/css/select
+reactPath: pivotal-ui/react/select
+reactComponents:
+  - Select
+---
 
 ## Subcomponents
 

@@ -1,4 +1,10 @@
-# Dropdowns
+---
+title: Dropdowns
+cssPath: pivotal-ui/css/dropdowns
+reactPath: pivotal-ui/react/dropdowns
+reactComponents:
+  - Dropdown
+---
 
 ## Examples
 

@@ -1,4 +1,7 @@
-# Vertical alignment
+---
+title: Vertical Alignment
+cssPath: pivotal-ui/css/vertical-alignment
+---
 
 ## Description
 

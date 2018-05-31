@@ -1,4 +1,10 @@
-# Inputs
+---
+title: Inputs
+cssPath: pivotal-ui/css/inputs
+reactPath: pivotal-ui/react/inputs
+reactComponents:
+  - Input
+---
 
 ## Description
 

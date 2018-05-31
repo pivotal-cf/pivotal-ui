@@ -1,4 +1,7 @@
-# Colors
+---
+title: Colors
+cssPath: pivotal-ui/css/colors
+---
 
 ## Description
 

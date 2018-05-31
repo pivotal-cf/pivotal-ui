@@ -1,4 +1,11 @@
-# Tooltips
+---
+title: Tooltips
+cssPath: pivotal-ui/css/tooltip
+reactPath: pivotal-ui/react/tooltip
+reactComponents:
+  - Tooltip
+  - TooltipTrigger
+---
 
 ## Subcomponents
 

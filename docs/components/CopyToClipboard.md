@@ -1,4 +1,10 @@
-# Copy to clipboard
+---
+title: Copy to Clipboard
+cssPath: pivotal-ui/css/copy-to-clipboard
+reactPath: pivotal-ui/react/copy-to-clipboard
+reactComponents:
+  - CopyToClipboard
+---
 
 ## Description
 

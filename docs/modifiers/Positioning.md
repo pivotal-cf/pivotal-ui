@@ -1,4 +1,7 @@
-# Positioning
+---
+title: Positioning
+cssPath: pivotal-ui/css/positioning
+---
 
 ## Description
 

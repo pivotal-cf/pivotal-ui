@@ -1,4 +1,10 @@
-# Dividers
+---
+title: Dividers
+cssPath: pivotal-ui/css/dividers
+reactPath: pivotal-ui/react/dividers
+reactComponents:
+  - Divider
+---
 
 ## Examples
 

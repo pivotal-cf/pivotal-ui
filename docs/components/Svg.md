@@ -1,4 +1,10 @@
-# Svg
+---
+title: SVG
+cssPath: pivotal-ui/css/svg
+reactPath: pivotal-ui/react/svg
+reactComponents:
+  - Svg
+---
 
 ***This component is limited to projects that use Webpack.***
 ***It requires the webpack loaders babel-loader and react-svg-loader.***

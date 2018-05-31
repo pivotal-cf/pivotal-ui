@@ -1,4 +1,12 @@
-# Lists
+---
+title: Lists
+cssPath: pivotal-ui/css/lists
+reactPath: pivotal-ui/react/lists
+reactComponents:
+  - BreadcrumbList
+  - InlineList
+  - ListItem
+---
 
 ## Subcomponents
 

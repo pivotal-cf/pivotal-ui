@@ -1,4 +1,10 @@
-# Back to top
+---
+title: Back to Top
+cssPath: pivotal-ui/css/back-to-top
+reactPath: pivotal-ui/react/back-to-top
+reactComponents:
+  - BackToTop
+---
 
 ## Description
 

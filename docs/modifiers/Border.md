@@ -1,4 +1,7 @@
-# Border
+---
+title: Border
+cssPath: pivotal-ui/css/border
+---
 
 ## Description
 

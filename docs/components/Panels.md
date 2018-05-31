@@ -1,4 +1,10 @@
-# Panels
+---
+title: Panels
+cssPath: pivotal-ui/css/panels
+reactPath: pivotal-ui/react/panels
+reactComponents:
+  - Panel
+---
 
 ## Description
 

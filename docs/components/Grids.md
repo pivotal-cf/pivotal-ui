@@ -1,4 +1,11 @@
-# Grids
+---
+title: Grids
+cssPath: pivotal-ui/css/flex-grids
+reactPath: pivotal-ui/react/flex-grids
+reactComponents:
+  - Grid
+  - FlexCol
+---
 
 ## Description
 

@@ -1,4 +1,7 @@
-# Whitespace
+---
+title: Whitespace
+cssPath: pivotal-ui/css/whitespace
+---
 
 ## Description
 

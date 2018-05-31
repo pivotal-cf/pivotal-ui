@@ -1,4 +1,10 @@
-# Collapsible
+---
+title: Collapsible
+cssPath: pivotal-ui/css/collapsible
+reactPath: pivotal-ui/react/collapsible
+reactComponents:
+  - Collapsible
+---
 
 ## Description
 

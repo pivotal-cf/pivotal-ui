@@ -1,4 +1,7 @@
-# Typography
+---
+title: Typography
+cssPath: pivotal-ui/css/typography
+---
 
 ## Description
 

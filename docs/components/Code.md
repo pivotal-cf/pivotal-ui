@@ -1,4 +1,7 @@
-# Code
+---
+title: Code
+cssPath: pivotal-ui/css/code
+---
 
 ## Examples
 

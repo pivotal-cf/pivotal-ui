@@ -5,6 +5,7 @@ import contentMap, {attachPackagesToWindow} from './helpers/content';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
+import {routes} from './routes';
 
 attachPackagesToWindow();
 
@@ -13,7 +14,7 @@ export default class App extends React.Component {
     super(props);
 
     const path = window.location.pathname.split('/').pop();
-    this.state = {content: App.currentContent(path), path: path};
+    this.state = {content: App.currentContent(path), path};
     this.updateContent = this.updateContent.bind(this);
   }
 
@@ -31,15 +32,15 @@ export default class App extends React.Component {
   updatePath(location) {
     document.body.scrollTop = 0;
     const path = location.pathname.split('/').pop();
-    this.setState({content: App.currentContent(path), path: path});
+    this.setState({content: App.currentContent(path), path});
   }
 
   static currentContent(path) {
-    return contentMap[path] || contentMap['404'];
+    return routes[path] || routes['404'];
   }
 
   render() {
-    const {path, content: {json, file, name}} = this.state;
+    const {path, content: {PageComponent}} = this.state;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
@@ -65,7 +66,7 @@ export default class App extends React.Component {
         </FlexCol>
         <FlexCol id="content" className="content">
           <div id="wrapper">
-            <MarkdownViewer {...{json, file, name}}/>
+            <PageComponent/>
           </div>
           {footer}
         </FlexCol>

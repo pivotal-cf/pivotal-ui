@@ -1,4 +1,10 @@
-# Toggle
+---
+title: Toggles
+cssPath: pivotal-ui/css/toggle
+reactPath: pivotal-ui/react/toggle
+reactComponents:
+  - Toggle
+---
 
 ## Examples
 

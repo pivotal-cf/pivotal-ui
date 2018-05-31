@@ -1,4 +1,7 @@
-# Button group
+---
+title: Button Group
+cssPath: pivotal-ui/css/button-group
+---
 
 ## Description
 

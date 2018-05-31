@@ -1,4 +1,11 @@
-# Portals
+---
+title: Portals
+cssPath: pivotal-ui/css/portals
+reactPath: pivotal-ui/react/portals
+reactComponents:
+  - PortalSource
+  - PortalDestination
+---
 
 ## Description
 

@@ -1,4 +1,11 @@
-# Radios
+---
+title: Radios
+cssPath: pivotal-ui/css/radio
+reactPath: pivotal-ui/react/radio
+reactComponents:
+  - Radio
+  - RadioGroup
+---
 
 ## Examples
 

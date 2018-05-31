@@ -1,4 +1,10 @@
-# Flyout
+---
+title: Flyout
+cssPath: pivotal-ui/css/flyout
+reactPath: pivotal-ui/react/flyout
+reactComponents:
+  - Flyout
+---
 
 ## Description
 The flyout appears from the right side of the window and overlays all other content until it is closed. Its

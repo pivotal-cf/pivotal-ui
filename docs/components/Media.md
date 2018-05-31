@@ -1,4 +1,11 @@
-# Media
+---
+title: Media
+cssPath: pivotal-ui/css/media
+reactPath: pivotal-ui/react/media
+reactComponents:
+  - Media
+  - Flag
+---
 
 ## Examples
 

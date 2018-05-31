@@ -1,4 +1,7 @@
-# Box shadows
+---
+title: Box Shadows
+cssPath: pivotal-ui/css/box-shadows
+---
 
 ## Description
 

@@ -1,4 +1,10 @@
-# Checkboxes
+---
+title: Checkbox
+cssPath: pivotal-ui/css/checkbox
+reactPath: pivotal-ui/react/checkbox
+reactComponents:
+  - Checkbox
+---
 
 ## Example
 

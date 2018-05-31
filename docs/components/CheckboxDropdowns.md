@@ -1,4 +1,10 @@
-# CheckboxDropdowns
+---
+title: Checkbox Dropdowns
+cssPath: pivotal-ui/css/checkbox-dropdown
+reactPath: pivotal-ui/react/checkbox-dropdown
+reactComponents:
+  - CheckboxDropdown
+---
 
 ## Examples
 

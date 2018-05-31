@@ -1,4 +1,12 @@
-# Tabs
+---
+title: Tabs
+cssPath: pivotal-ui/css/tabs
+reactPath: pivotal-ui/react/tabs
+reactComponents:
+  - Tab
+  - Tabs
+  - LeftTabs
+---
 
 ## Description
 Tabs are a navigation element used in web design that allow users to easily access different areas of a site or different parts of an individual page.

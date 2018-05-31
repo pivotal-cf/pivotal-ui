@@ -1,4 +1,10 @@
-# Modal
+---
+title: Modal
+cssPath: pivotal-ui/css/modal
+reactPath: pivotal-ui/react/modal
+reactComponents:
+  - Modal
+---
 
 ## Description
 

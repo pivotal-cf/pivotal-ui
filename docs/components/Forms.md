@@ -1,4 +1,13 @@
-# Forms
+---
+title: Forms
+cssPath: pivotal-ui/css/forms
+reactPath: pivotal-ui/react/forms
+reactComponents:
+  - Form
+  - FormRow
+  - FormCol
+  - FormUnit
+---
 
 ## Subcomponents
 

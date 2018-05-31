@@ -1,4 +1,10 @@
-# Progress bars
+---
+title: Progress Bars
+cssPath: pivotal-ui/css/progress-bar
+reactPath: pivotal-ui/react/progress-bar
+reactComponents:
+  - ProgressBar
+---
 
 ## Examples
 

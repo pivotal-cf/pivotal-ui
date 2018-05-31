@@ -1,4 +1,10 @@
-# Icons
+---
+title: Icons
+cssPath: pivotal-ui/css/iconography
+reactPath: pivotal-ui/react/iconography
+reactComponents:
+  - Icon
+---
 
 ***This component is limited to projects that use Webpack.***
 ***It requires the webpack loaders babel-loader and react-svg-loader.***

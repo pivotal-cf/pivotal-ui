@@ -1,4 +1,10 @@
-# Expander
+---
+title: Expander
+cssPath: pivotal-ui/css/expander
+reactPath: pivotal-ui/react/expander
+reactComponents:
+  - ExpanderContent
+---
 
 ## Description
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a

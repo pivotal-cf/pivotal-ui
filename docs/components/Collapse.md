@@ -1,4 +1,12 @@
-# Collapse
+---
+title: Collapse
+cssPath: pivotal-ui/css/collapse
+reactPath: pivotal-ui/react/collapse
+reactComponents:
+  - BaseCollapse
+  - AltCollapse
+  - Collapse
+---
 
 ## Description
 

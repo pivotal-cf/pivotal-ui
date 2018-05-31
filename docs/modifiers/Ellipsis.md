@@ -1,4 +1,7 @@
-# Ellipsis
+---
+title: Ellipsis
+cssPath: pivotal-ui/css/ellipsis
+---
 
 ## Description
 The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine it with `.col-md-*` classes to get the width you want.

@@ -1,4 +1,30 @@
-# Tables
+---
+title: Table
+cssPath: pivotal-ui/css/table
+reactPath: pivotal-ui/react/table
+reactComponents:
+  - Table
+  - AdvancedTable
+  - SortableTable
+  - FlexTable
+  - SortableFlexTable
+  - TablePlugin
+  - withFlex
+  - withCellLink
+  - withCellClassName
+  - withCellEllipsis
+  - withCellOnClick
+  - withCellRenderer
+  - withRenderTdChildren
+  - withCellTooltip
+  - withCellWidth
+  - withFooterRow
+  - withRowClassName
+  - withRowDrawer
+  - withRowLink
+  - withSorting
+  - withScrollableTbody
+---
 
 ## Description
 
@@ -318,7 +344,7 @@ const data = [1, 2].map(() => ({header1: 'CellCellCellCellCellCellCellCellCellCe
 ::description=Each cell in a column can be provided an onClick handler. In this example, the first column has the will show an alert with  contextual information for the row when clicked.
 const TableWithCellOnClick = withCellOnClick(Table);
 const columns = [1, 2, 3].map(n => ({attribute: `header${n}`, displayName: `Header ${n}`}));
-columns[0].onClick = (e, context) => alert(JSON.stringify(context, null, 2)); 
+columns[0].onClick = (e, context) => alert(JSON.stringify(context, null, 2));
 const data = [1, 2].map(row => ({header1: `Row ${row}, Cell 1`, header2: `Row ${row}, Cell 2`, header3: `Row ${row}, Cell 3`}));
 <TableWithCellOnClick columns={columns} data={data}/>
 ```

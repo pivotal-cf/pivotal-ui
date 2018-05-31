@@ -1,4 +1,7 @@
-# Links
+---
+title: Links
+cssPath: pivotal-ui/css/links
+---
 
 ## Description
 

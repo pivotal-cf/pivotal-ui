@@ -1,4 +1,12 @@
-# Notifications
+---
+title: Notifications
+cssPath: pivotal-ui/css/notifications
+reactPath: pivotal-ui/react/notifications
+reactComponents:
+  - Notifications
+  - AlertNotifications
+  - NotificationItem
+---
 
 ## Examples
 
