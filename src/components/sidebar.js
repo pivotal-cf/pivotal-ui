@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 
 const components = Object.values(routes).filter(({category}) => category === 'component');
 const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
+const searchItems = Object.values(routes).map(({pageMetadata}) => pageMetadata.title);
 
 const ContentLink = ({onClick, link, text, active, className}) => {
   return (
@@ -40,19 +41,22 @@ export default class Sidebar extends React.PureComponent {
   }
 
   handlePick = evt => {
-    const searchItem = searchItems.find(i => i.name === evt.value);
+    const searchItem = searchItems.find(i => i === evt.value);
     if (!searchItem) return;
     this.props.updateContent(searchItem.href);
   }
 
   render() {
-    const onInitializeItems = callback => callback(searchItems.map(item => item.name));
-    // const SearchBar = () => (<Autocomplete onInitializeItems={onInitializeItems}
-    //                                       placeholder="Search"
-    //                                       className="sidebar--search phxl mbxl"
-    //                                       input={<AutocompleteInput><Input icon="search"/></AutocompleteInput>}
-    //                                       onPick={this.handlePick}
-    //                                       showNoSearchResults={true}/>);
+    const SearchBar = () => (
+      <Autocomplete {...{
+        onInitializeItems: callback => callback(searchItems),
+        placeholder: 'Search',
+        className: 'sidebar--search phxl mbxl',
+        input: <AutocompleteInput><Input icon="search"/></AutocompleteInput>,
+        onPick: this.handlePick,
+        showNoSearchResults: true
+      }}/>
+    );
 
     const componentLinks = components.map((component, i) => (
       <ContentLink {...{
@@ -65,47 +69,60 @@ export default class Sidebar extends React.PureComponent {
       }}/>
     ));
 
+    const modifierLinks = modifiers.map((modifier, i) => (
+      <ContentLink {...{
+        key: i,
+        className: 'sidebar-component',
+        onClick: this.handleClick,
+        link: modifier.href,
+        text: modifier.pageMetadata.title,
+        active: modifier.href === this.props.activePath
+      }}/>
+    ));
+
     return (
       <div className="sidebar">
         <div className="sidebar--header">
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
           <div className="sidebar--title plxl">Pivotal UI</div>
         </div>
-        {/* <SearchBar/> */}
+        <SearchBar/>
         <div className="sidebar--items">
           <ContentLink {...{
             onClick: this.handleClick,
-            link: "getstarted",
-            text:"Get Started",
+            link: 'getstarted',
+            text:'Get Started',
             active: ['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: "faq",
-            text:"FAQ",
+            link: 'faq',
+            text:'FAQ',
             active: this.props.activePath === 'faq'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: "upgradeguide",
-            text:"Upgrade Guide",
+            link: 'upgradeguide',
+            text:'Upgrade Guide',
             active: this.props.activePath === 'upgradeguide'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: "contribute",
-            text:"Contribute",
+            link: 'contribute',
+            text:'Contribute',
             active: this.props.activePath === 'contribute'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: "versions",
-            text:"Versions",
+            link: 'versions',
+            text:'Versions',
             active: this.props.activePath === 'versions'
           }}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
           <ContentLink text="Components" className="sidebar-components"/>
           {componentLinks}
+          <ContentLink text="Modifiers" className="sidebar-components"/>
+          {modifierLinks}
         </div>
       </div>
     );

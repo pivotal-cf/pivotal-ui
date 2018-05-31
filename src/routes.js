@@ -25,7 +25,6 @@ const components = {
   copy_to_clipboard: 'components/CopyToClipboard.md',
   dividers: 'components/Dividers.md',
   dropdowns: 'components/Dropdowns.md',
-  ellipsis: 'components/Ellipsis.md',
   expander: 'components/Expander.md',
   flyout: 'components/Flyout.md',
   forms: 'components/Forms.md',
@@ -69,7 +68,7 @@ const modifiers = {
 const routes = Object.entries({...pages, ...components, ...modifiers}).reduce((memo, [route, file]) => {
   const {pageMetadata, PageComponent} = markdownFileToComponent(file);
   const category = components[route] ? 'component' : modifiers[route] ? 'modifier' : 'page';
-  return {...memo, [route]: {category, href: route, pageMetadata, PageComponent}}
+  return {...memo, [route]: {category, href: route, pageMetadata, PageComponent}};
 }, {});
 
 export default routes;

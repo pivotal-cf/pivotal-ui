@@ -1,6 +1,5 @@
 ---
 title: SVG
-cssPath: pivotal-ui/css/svg
 reactPath: pivotal-ui/react/svg
 reactComponents:
   - Svg

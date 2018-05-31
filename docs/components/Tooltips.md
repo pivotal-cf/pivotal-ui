@@ -1,6 +1,6 @@
 ---
 title: Tooltips
-cssPath: pivotal-ui/css/tooltip
+cssPath: pivotal-ui/css/tooltips
 reactPath: pivotal-ui/react/tooltip
 reactComponents:
   - Tooltip

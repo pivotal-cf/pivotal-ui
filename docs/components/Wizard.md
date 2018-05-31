@@ -1,6 +1,5 @@
 ---
 title: Wizard
-cssPath: pivotal-ui/css/wizard
 reactPath: pivotal-ui/react/wizard
 reactComponents:
   - Wizard

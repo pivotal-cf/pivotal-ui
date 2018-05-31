@@ -9,6 +9,13 @@ export default class Page extends React.PureComponent {
 
   render() {
     const {markdownContent, pageMetadata} = this.props;
-    return markdownContent;
+    const {title} = pageMetadata;
+
+    return (
+      <div>
+        <h1>{title}</h1>
+        {markdownContent}
+      </div>
+    );
   }
 }

@@ -1,6 +1,5 @@
 ---
 title: Expander
-cssPath: pivotal-ui/css/expander
 reactPath: pivotal-ui/react/expander
 reactComponents:
   - ExpanderContent

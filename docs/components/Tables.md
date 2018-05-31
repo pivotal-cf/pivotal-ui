@@ -1,6 +1,6 @@
 ---
 title: Table
-cssPath: pivotal-ui/css/table
+cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
 reactComponents:
   - Table
