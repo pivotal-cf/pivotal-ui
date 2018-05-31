@@ -122,7 +122,7 @@ export default class Sidebar extends React.PureComponent {
             text:'Versions',
             active: this.props.activePath === 'versions'
           }}/>
-          <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui">Github</a>
+          <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui" target="_blank">GitHub Repo</a>
           <ContentLink text="Components" className="sidebar-components"/>
           {componentLinks}
           <ContentLink text="Modifiers" className="sidebar-components"/>
