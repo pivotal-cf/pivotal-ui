@@ -1,9 +1,10 @@
 #app .content {
   background: $neutral-11;
 
-  min-height: 100vh;
+  height: 100vh;
   padding: 32px;
   position: relative;
+  overflow: auto;
 
   h3, h4, h5, h6 {
     margin: 0;

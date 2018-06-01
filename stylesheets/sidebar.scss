@@ -1,12 +1,12 @@
 @import '~pivotal-ui/css/pui-variables';
 
-$highlight-background-color: $navy-9;
+$highlight-background-color: $gray-11;
 $sidebar-item-left-padding: $base-unit * 2;
 $active-item-border-size: $base-unit / 2;
 
 .sidebar {
-  background: $navy-11;
-  color: $gray-3;
+  background: $navy-2;
+  color: $gray-9;
   overflow-y: auto;
   overflow-x: hidden;
   padding-bottom: 40px;
@@ -61,7 +61,7 @@ $active-item-border-size: $base-unit / 2;
 
   .sidebar--icon {
     padding: $base-unit;
-    background-color: $brand-7;
+    background-color: $brand-8;
     border-radius: 2px;
     height: $base-unit * 6;
     width: $base-unit * 6;
@@ -74,7 +74,7 @@ $active-item-border-size: $base-unit / 2;
 
   .sidebar--title {
     display: inline;
-    color: $navy-1;
+    color: $gray-9;
     font-size: $font-size-large;
     align-self: center;
   }
@@ -83,7 +83,7 @@ $active-item-border-size: $base-unit / 2;
 .sidebar--item-wrapper {
   &.sidebar--item-wrapper__active {
     background-color: $highlight-background-color;
-    border-left: $active-item-border-size solid $btn-brand-color;
+    border-left: $active-item-border-size solid $brand-8;
 
     .sidebar--item {
       color: $dark-1;
@@ -114,14 +114,14 @@ $active-item-border-size: $base-unit / 2;
 }
 
 .sidebar--item {
-  color: $gray-3;
+  color: $gray-9;
   padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
   display: block;
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: $gray-3;
+    color: $gray-9;
     text-decoration: underline;
   }
 

@@ -59,25 +59,25 @@ export default class Sidebar extends React.PureComponent {
       }}/>
     );
 
-    const componentLinks = components.map((component, i) => (
+    const componentLinks = components.map(({href, pageMetadata}) => (
       <ContentLink {...{
-        key: i,
+        key: href,
         className: 'sidebar-component',
         onClick: this.handleClick,
-        link: component.href,
-        text: component.pageMetadata.title,
-        active: component.href === this.props.activePath
+        link: href,
+        text: pageMetadata.title,
+        active: href === this.props.activePath
       }}/>
     ));
 
-    const modifierLinks = modifiers.map((modifier, i) => (
+    const modifierLinks = modifiers.map(({href, pageMetadata}) => (
       <ContentLink {...{
-        key: i,
+        key: href,
         className: 'sidebar-component',
         onClick: this.handleClick,
-        link: modifier.href,
-        text: modifier.pageMetadata.title,
-        active: modifier.href === this.props.activePath
+        link: href,
+        text: pageMetadata.title,
+        active: href === this.props.activePath
       }}/>
     ));
 
@@ -123,9 +123,9 @@ export default class Sidebar extends React.PureComponent {
             active: this.props.activePath === 'versions'
           }}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui" target="_blank">GitHub Repo</a>
-          <ContentLink text="Components" className="sidebar-components"/>
+          <div className="sidebar-components em-high pvl plxl prl">Components</div>
           {componentLinks}
-          <ContentLink text="Modifiers" className="sidebar-components"/>
+          <div className="sidebar-components em-high pvl plxl prl">Modifiers</div>
           {modifierLinks}
         </div>
       </nav>

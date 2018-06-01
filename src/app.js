@@ -101,7 +101,7 @@ export default class App extends React.Component {
 
     const footer = (
       <div className="footer whitelabel-bg-color grid mrn mtxxxl">
-        <div className="col type-ellipsis">
+        <div className="col">
           <p>
             © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">

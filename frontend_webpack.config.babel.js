@@ -44,7 +44,7 @@ const devConfig = {
     htmlPlugin
   ],
   watch: true,
-  devtool: 'inline-source-map'
+  devtool: false
 };
 
 export default {

@@ -47,7 +47,7 @@ const components = {
   tables: 'components/Tables.md',
   tabs: 'components/Tabs.md',
   text_filter: 'components/TextFilter.md',
-  toggle: 'components/Toggles.md',
+  toggle: 'components/Toggle.md',
   tooltips: 'components/Tooltips.md',
   wizard: 'components/Wizard.md'
 };

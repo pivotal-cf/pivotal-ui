@@ -1,5 +1,5 @@
 ---
-title: Toggles
+title: Toggle
 cssPath: pivotal-ui/css/toggle
 reactPath: pivotal-ui/react/toggle
 reactComponents:
