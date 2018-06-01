@@ -119,7 +119,7 @@ export default class App extends React.Component {
         <FlexCol fixed>
           <Sidebar updateContent={this.updateContent} activePath={path}/>
         </FlexCol>
-        <FlexCol id="content" className="content">
+        <FlexCol id="content" className="content phxxxl pvxl">
           <div id="wrapper">
             <PageComponent/>
           </div>

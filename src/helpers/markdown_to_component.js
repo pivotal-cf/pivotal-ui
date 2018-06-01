@@ -37,7 +37,7 @@ const markdownFileToComponent = file => {
 
   return {
     pageMetadata,
-    PageComponent: () => <Page {...{pageMetadata, markdownContent}}/>
+    PageComponent: () => <Page {...{file, pageMetadata, markdownContent}}/>
   };
 };
 
