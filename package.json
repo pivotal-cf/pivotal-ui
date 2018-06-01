@@ -63,9 +63,10 @@
     "unified": "^6.1.4"
   },
   "scripts": {
-    "start": "cp public/* dist/ && cp -R static dist/ && webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
-    "build": "webpack --mode production --config ./frontend_webpack.config.babel.js -p && cp public/* dist/ && cp -R static dist/",
-    "build-dev": "webpack --mode development --config ./frontend_webpack.config.babel.js && cp public/* dist/ && cp -R static dist/",
+    "copy-files": "cp public/* dist/ && cp -R static dist/",
+    "start": "npm run copy-files && webpack-dev-server --config webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
+    "build": "webpack --config webpack.config.babel.js -p && npm run copy-files",
+    "build-dev": "webpack --config webpack.config.babel.js && npm run copy-files",
     "test": "gulp spec-app",
     "lint": "eslint src --fix"
   }

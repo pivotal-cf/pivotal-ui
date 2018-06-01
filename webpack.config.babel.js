@@ -2,21 +2,16 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {NamedModulesPlugin, DefinePlugin} from 'webpack';
+import {NamedModulesPlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
 const htmlPlugin = new HtmlWebpackPlugin({template: 'index.html'});
 
 const prodConfig = {
+  mode: 'production',
   entry: './src/index.js',
   plugins: [
-    new DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin(),
     htmlPlugin
@@ -25,6 +20,7 @@ const prodConfig = {
 };
 
 const devConfig = {
+  mode: 'development',
   entry: ['react-hot-loader/patch', './src/index.js'],
   devServer: {
     clientLogLevel: 'error',
@@ -33,15 +29,8 @@ const devConfig = {
     }
   },
   plugins: [
-    new DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    }),
-    new NamedModulesPlugin(),
     htmlPlugin
   ],
-  watch: true,
   devtool: false
 };
 
