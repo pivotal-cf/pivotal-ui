@@ -13,9 +13,15 @@ export default class Page extends React.PureComponent {
     pageMetadata: PropTypes.object
   };
 
+  componentDidMount() {
+    if (typeof document === 'undefined') return;
+    const {pageMetadata: {title}} = this.props;
+    const defaultTitle = 'Pivotal UI Styleguide';
+    document.title = title ? `${title} | ${defaultTitle}` : defaultTitle;
+  }
+
   render() {
-    const {file, markdownContent, pageMetadata} = this.props;
-    const {title} = pageMetadata;
+    const {file, markdownContent, pageMetadata: {title}} = this.props;
 
     return (
       <div className="styleguide-page">
