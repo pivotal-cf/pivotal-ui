@@ -40,7 +40,6 @@ const devConfig = {
       }
     }),
     new NamedModulesPlugin(),
-    new CompressionPlugin(),
     htmlPlugin
   ],
   watch: true,
