@@ -12,7 +12,7 @@ export default class Page extends React.PureComponent {
     const {title} = pageMetadata;
 
     return (
-      <div>
+      <div className="styleguide-page">
         <h1>{title}</h1>
         {markdownContent}
       </div>

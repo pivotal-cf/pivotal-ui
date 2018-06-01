@@ -2,7 +2,6 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
 import {NamedModulesPlugin, DefinePlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
@@ -66,10 +65,6 @@ export default {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        use: 'json-loader'
       },
       {
         test: /\.(eot|ttf|woff)$/,
