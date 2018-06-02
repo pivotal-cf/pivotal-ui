@@ -12,13 +12,17 @@ const components = Object.values(routes).filter(({category}) => category === 'co
 const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
 const searchItems = Object.values(routes).map(({pageMetadata}) => pageMetadata.title);
 
-const ContentLink = ({onClick, link, text, active, className}) => {
+const ContentLink = ({onClick, link, text, active, className, target, iconSrc}) => {
   return (
     <div className={classnames(className, 'sidebar--item-wrapper',
       {'sidebar--item-wrapper__active': active})}>
       <a onClick={onClick}
          href={link}
-         className="sidebar--item">{text}</a>
+         target={target}
+         className="sidebar--item">
+         {text}
+         {iconSrc && <Icon verticalAlign="baseline" className="mll" src={iconSrc}/>}
+      </a>
     </div>
   );
 };
@@ -123,7 +127,12 @@ export default class Sidebar extends React.PureComponent {
             text:'Versions',
             active: this.props.activePath === 'versions'
           }}/>
-          <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui" target="_blank">GitHub Repo</a>
+          <ContentLink {...{
+            link: 'https://github.com/pivotal-cf/pivotal-ui',
+            target: '_blank',
+            text:'GitHub',
+            iconSrc: 'open_in_new'
+          }}/>
           <Divider inverse className="mvl"/>
           <div className="sidebar-components em-high h4 pvl plxl prl">Components</div>
           {componentLinks}

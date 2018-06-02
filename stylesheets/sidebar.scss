@@ -96,8 +96,7 @@ $active-item-border-size: $base-unit / 2;
     text-decoration: underline;
   }
 
-  // TODO: remove me when accordion can be in sidebars
-  .pui-panel-heading {
-    padding: 0;
+  svg {
+    fill: $gray-9;
   }
 }
