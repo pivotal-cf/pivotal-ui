@@ -54,18 +54,14 @@ export default class App extends React.Component {
     const year = currentDate.getFullYear();
 
     const footer = (
-      <Grid className="footer mrn mtxxxl">
-        <FlexCol>
-          <footer>
-            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
-            <span className="pln">
-              <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
-              <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
-              <span className="policy-link" id="teconsent"/>
-            </span>
-          </footer>
-        </FlexCol>
-      </Grid>
+      <footer className="paxxxl">
+        © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
+        <span className="pln">
+          <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
+          <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
+          <span className="policy-link" id="teconsent"/>
+        </span>
+      </footer>
     );
 
     return (
