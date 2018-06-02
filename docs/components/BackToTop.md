@@ -25,21 +25,6 @@ You can place the link anywhere in your markup, but best practices are either to
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {BackToTop} from 'pivotal-ui/react/back-to-top';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/back-to-top';`
-
-
 ## Props
 
 Property       | Required | Type   | Default | Description

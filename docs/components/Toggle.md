@@ -38,13 +38,6 @@ reactComponents:
 </Form>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Toggle} from 'pivotal-ui/react/toggle';`
-
 ## Props
 
 Property       | Required | Type                              | Default  | Description

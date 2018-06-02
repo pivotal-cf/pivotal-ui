@@ -61,12 +61,6 @@ const renderData = filteredData => {
 }} />
 ```
 
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import {TextFilter} from 'pivotal-ui/react/text-filter';`
-
 ## Props
 
 Property | Required | Type | Default | Description

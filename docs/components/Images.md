@@ -133,18 +133,6 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 </Grid>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Image} from 'pivotal-ui/react/images';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/images';`
-
 ## Props
 
 Property | Required | Type | Default | Description

@@ -46,18 +46,6 @@ class CollapsibleExample extends React.Component {
 <CollapsibleExample/>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Collapsible} from 'pivotal-ui/react/collapsible';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/collapse';`
-
 ## Props
 
 Property  | Required | Type     | Default | Description

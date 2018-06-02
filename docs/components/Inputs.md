@@ -42,17 +42,6 @@ Inputs will only be fully styled if their type is properly declared.
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-Input uses the [Iconography](/iconography) component for icons. If specified, you will need to add an svg loader:
-
-`npm install babel-loader react-svg-loader --save-dev`
-
-`import {Input} from 'pivotal-ui/react/inputs';`
-
 ## Props
 
 Property       | Required | Type                              | Default  | Description

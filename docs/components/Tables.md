@@ -555,13 +555,3 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 ```
 
 For additional examples, [review the plugins that Pivotal UI provides](https://github.com/pivotal-cf/pivotal-ui/tree/master/src/react/table/plugins).
-
-## Installation & Usage
-
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-```
-import {Table, SortableTable, FlexTable, SortableFlexTable, AdvancedTable} from 'pivotal-ui/react/table';
-```

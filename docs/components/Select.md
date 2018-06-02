@@ -73,13 +73,6 @@ Selects are excellent to use because they will automatically behave as expected 
 ::title=Basic example
 <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
 ```
-## Installation & Usage
-
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {Select} from 'pivotal-ui/react/select';`
 
 ## Props
 

@@ -89,18 +89,6 @@ reactComponents:
 </InlineList>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {BreadcrumbList, InlineList, ListItem} from 'pivotal-ui/react/lists';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/lists';`
-
 ## Props
 
 Property | Required | Type | Default | Description

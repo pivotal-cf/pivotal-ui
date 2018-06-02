@@ -117,9 +117,3 @@ end</code></pre>
 </div>
 
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/code';`

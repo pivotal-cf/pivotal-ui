@@ -70,20 +70,6 @@ This is a basic collapse with no additional styles.
 </Collapse>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {BaseCollapse, AltCollapse, Collapse} from 'pivotal-ui/react/collapse';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/collapse';`
-
 ## Props
 
 Property | Required | Type | Default | Description

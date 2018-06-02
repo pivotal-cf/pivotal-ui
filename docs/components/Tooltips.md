@@ -216,18 +216,3 @@ size           | no       | oneOf(['auto', 'sm', 'md', 'lg'])         | auto    
 theme          | no       | oneOf(['light', 'dark'])                  | dark     | Theme of tooltip background and text
 tooltip        | yes      | Node                                      |          | Tooltip content - will be wrapped in a Tooltip component
 trigger        | no       | oneOf(['hover', 'click', 'manual'])       | hover    | Action to trigger showing tooltip
-
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-```
-import {Tooltip, TooltipTrigger} from 'pivotal-ui/react/tooltip';
-import {OverlayTrigger} from 'pivotal-ui/react/overlay-trigger';
-```
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/tooltip';`

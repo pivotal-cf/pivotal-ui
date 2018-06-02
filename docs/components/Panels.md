@@ -52,18 +52,6 @@ Distinguish between primary and secondary CTAs in the title/header and footer (e
 </Panel>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Panel} from 'pivotal-ui/react/panels';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/panels';`
-
 ## Props
 
 Property         | Required | Type    | Default | Description

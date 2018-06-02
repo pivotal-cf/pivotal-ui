@@ -58,12 +58,6 @@ class MyComponent extends React.Component {
   <MyComponent />
 </div>
 ```
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {RadioGroup, Radio} from 'pivotal-ui/react/radio';`
 
 ## Props
 

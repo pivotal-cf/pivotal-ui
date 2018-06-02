@@ -46,13 +46,6 @@ const pages = [{
 <Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}}/>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Wizard} from 'pivotal-ui/react/wizard';`
-
 ## Props
 
 Property   | Required | Type     | Default | Description

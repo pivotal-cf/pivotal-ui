@@ -57,18 +57,6 @@ class PaginationAdvanced extends React.Component {
 <PaginationAdvanced/>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Pagination} from 'pivotal-ui/react/pagination';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/pagination';`
-
 ## Props
 
 Property   | Required | Type     | Default | Description

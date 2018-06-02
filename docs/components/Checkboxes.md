@@ -17,13 +17,6 @@ reactComponents:
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Checkbox} from 'pivotal-ui/react/checkbox';`
-
 ## Props
 
 Property       | Required | Type    | Default | Description

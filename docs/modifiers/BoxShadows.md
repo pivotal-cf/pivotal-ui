@@ -27,9 +27,3 @@ Box-shadows are used to to describe the visual hierarchy of objects. Key light s
   <div class="maxl paxl box-shadow-3" style="width: 33%;"><code>.box-shadow-3</code></div>
 </div>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/box-shadows';`

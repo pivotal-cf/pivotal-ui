@@ -45,17 +45,6 @@ class MoreInfo extends React.Component {
     <MoreInfo />
 </div>
 ```
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {ExpanderContent} from 'pivotal-ui/react/expander';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/expander';`
 
 ## Props
 

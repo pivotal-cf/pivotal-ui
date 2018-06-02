@@ -146,18 +146,6 @@ Flex grids use flexbox to position columns within rows.
 </Grid>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/flex-grids';`
-
 ## Props
 
 ### Grid properties

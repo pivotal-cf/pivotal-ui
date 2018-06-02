@@ -49,14 +49,6 @@ The copy to clipboard functionality can be applied to a variety of elements.
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';`
-
-
 ## Props
 Property | Required | Type     | Default  | Description
 ---------|----------|----------|----------|------------

@@ -135,20 +135,6 @@ reactComponents:
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {Dropdown} from 'pivotal-ui/react/dropdowns';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/dropdowns';`
-
 ## Dropdown Props
 
 Property         | Required | Type                                | Default        | Description

@@ -39,20 +39,6 @@ This optimization will sometimes change your Svg in undesirable ways. You can tu
 Pivotal UI provides a set of commonly used icons in the [Iconography Component](/icons)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {Svg} from 'pivotal-ui/react/svg';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/svg';`
-
 ## Props
 
 Property | Required | Type | Default | Description

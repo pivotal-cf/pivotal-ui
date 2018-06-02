@@ -139,21 +139,6 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {DefaultButton, PrimaryButton, DangerButton, BrandButton} from 'pivotal-ui/react/buttons';`
-
-`import {Icon} from 'pivotal-ui/react/iconography';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/buttons';`
-
-
 ## Props
 
 Property     | Required | Type    | Default | Description

@@ -40,9 +40,3 @@ Class                           | Description
 <p> Here's a <a class="underline-gray" href="http://bit.ly/1wO7Nhv">underline gray</a> </p>
 <p> Here's a <a class="underline-gray-hover" href="http://bit.ly/1wO7Nhv">underline gray on hover</a> </p>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/links';`

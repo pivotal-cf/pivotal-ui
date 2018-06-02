@@ -203,17 +203,6 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="https://place
     </Media>
 </div>
 ```
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Media, Flag} from 'pivotal-ui/react/media';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/media';`
 
 ## Props
 

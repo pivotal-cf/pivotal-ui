@@ -366,20 +366,6 @@ Define a `onSubmitError` handler to map error messages to a specific field. Retu
 </Form>
 ```
 
-## Installation & Usage
-
-## React
-`npm install pivotal-ui --save`
-
-```
-import {Form, FormRow, FormCol} from 'pivotal-ui/react/forms';
-```
-
-## CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/forms';`
-
 ## Props
 
 ### Form
@@ -517,20 +503,6 @@ Note that state management and other `Form` features are not handled by the `For
     ]}/>
 }}/>
 ```
-
-## Installation & Usage
-
-## React
-`npm install pivotal-ui --save`
-
-```
-import {FormUnit} from 'pivotal-ui/react/forms';
-```
-
-## CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/forms';`
 
 ## Props
 

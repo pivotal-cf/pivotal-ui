@@ -37,9 +37,3 @@ Button groups wrap a series of buttons.
   <button type="button" class="pui-btn pui-btn-default">Right</button>
 </div>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/button-group';`

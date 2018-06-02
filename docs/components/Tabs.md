@@ -61,18 +61,6 @@ When a user would like to access each group of information separately. | When it
 </Tabs>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Tabs, Tab, LeftTabs} from 'pivotal-ui/react/tabs';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/tabs';`
-
 ## Props
 
 Tabs

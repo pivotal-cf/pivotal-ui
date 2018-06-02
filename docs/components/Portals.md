@@ -34,18 +34,6 @@ anywhere without knowing about `<body>`.
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {PortalSource, PortalDestination} from 'pivotal-ui/react/portals';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/portals';`
-
 ## Props
 
 PortalSource/PortalDestination

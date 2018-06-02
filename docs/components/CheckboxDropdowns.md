@@ -40,15 +40,6 @@ class Example extends React.Component {
 <Example />
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {CheckboxDropdown} from 'pivotal-ui/react/checkbox-dropdown';`
-
 ## Props
 
 Property         | Required | Type                                | Default        | Description

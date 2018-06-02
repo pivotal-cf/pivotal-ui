@@ -69,20 +69,6 @@ example below.
 </div>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {Icon} from 'pivotal-ui/react/iconography';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/iconography';`
-
 ## Props
 
 Icon

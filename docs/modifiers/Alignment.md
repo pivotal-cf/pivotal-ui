@@ -41,10 +41,3 @@ cssPath: pivotal-ui/css/alignment
   </tbody>
 </table>
 ```
-
-## Installation & Usage
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/alignment';`

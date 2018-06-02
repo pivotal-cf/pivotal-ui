@@ -16,10 +16,3 @@ The type `.type-ellipsis` adds ellipsis to text when there is too much. Combine 
     </p>
 </div>
 ```
-
-## Installation & Usage
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/ellipsis';`

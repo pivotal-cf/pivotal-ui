@@ -19,18 +19,6 @@ reactComponents:
 </div>
 ```
 
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import {ProgressBar} from 'pivotal-ui/react/progress-bar'`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/progress-bar';`
-
-
 ## Props
 
 Property        | Required   | Type      | Default   | Description

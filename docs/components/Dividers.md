@@ -35,17 +35,6 @@ reactComponents:
   </div>
 </div>
 ```
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Divider} from 'pivotal-ui/react/dividers';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/dividers';`
 
 ## Props
 

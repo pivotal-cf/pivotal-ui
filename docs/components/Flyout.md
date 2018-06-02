@@ -77,13 +77,6 @@ class Page extends React.Component {
 <Page/>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Flyout} from 'pivotal-ui/react/flyout';`
-
 ## Props
 
 | Property           | Required    | Type        | Default                               | Description                                                            |

@@ -121,18 +121,6 @@ const onSearch = (value, callback) => {
 };
 ```
 
-## Installation & Usage
-
-#### React
-`npm install pivotal-ui --save`
-
-`import {Autocomplete} from 'pivotal-ui/react/autocomplete';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/autocomplete';`
-
 ## Props
 
 Property            | Required | Type | Default | Description

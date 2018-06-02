@@ -417,13 +417,3 @@ Prepend any color variable with `type-` to apply that color to the text.
 </div>
 </div>
 ```
-
-## Installation & Usage
-
-#### CSS Only
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/colors';`
-
-`import 'pivotal-ui/css/variables-and-mixins';`

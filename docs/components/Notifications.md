@@ -10,11 +10,6 @@ reactComponents:
 
 ## Examples
 
-```
-import {Flag} from 'pivotal-ui/react/media';
-import {Icon} from 'pivotal-ui/react/iconography';
-```
-
 ```jsx
 ::title=No Notifications
 <Notifications />
@@ -87,21 +82,6 @@ import {Icon} from 'pivotal-ui/react/iconography';
 If you want to customize the notification dropdown, you can use `className` to
 add a modifier class to the `btn-group`. `id` and `style` will be applied to
 the notification button.
-
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {Notifications, AlertNotifications, NotificationItem} from 'pivotal-ui/react/notifications';`
-
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/notifications';`
 
 ## Props
 

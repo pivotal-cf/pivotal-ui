@@ -44,9 +44,3 @@ Its height is set by default to 230px.
   <a class="aligner-item" href="http://bitly.com/ZTHUDU">Centered content</a>
 </div>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/vertical-alignment';`

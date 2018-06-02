@@ -23,9 +23,3 @@ n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px
 <p>A normal paragraph</p>
 <p class="pal">A paragraph with large padding</p>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/whitespace';`
