@@ -37,6 +37,13 @@ export default class ImportPreview extends React.PureComponent {
 
     return (
       <div className="styleguide-import-preview mtxl">
+        <FormUnit {...{
+          inline: true,
+          label: 'Use ES6 import syntax',
+          labelPosition: 'after',
+          labelFor: 'imports-toggle',
+          field: <Toggle id="imports-toggle" checked={useImportSyntax} onChange={this.onToggleChange}/>
+        }}/>
         {reactPath && (
           <Fragment>
             <Grid>
@@ -52,13 +59,6 @@ export default class ImportPreview extends React.PureComponent {
             <pre><code className="styleguide-import-preview-code">{cssImport}</code></pre>
           </Fragment>
         )}
-        <FormUnit {...{
-          inline: true,
-          label: 'Use ES6 import syntax',
-          labelPosition: 'after',
-          labelFor: 'imports-toggle',
-          field: <Toggle id="imports-toggle" checked={useImportSyntax} onChange={this.onToggleChange}/>
-        }}/>
       </div>
     );
   }
