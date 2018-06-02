@@ -1,9 +1,21 @@
-.styleguide-page-header {
-  a {
-    color: $text-color;
+.styleguide-page {
+  .styleguide-page-header {
+    a {
+      color: $text-color;
 
-    svg {
-      fill: $gray-4;
+      svg {
+        fill: $gray-4;
+      }
     }
+  }
+
+  .styleguide-page-tabs {
+    > .tab-content {
+      background: transparent;
+    }
+  }
+
+  .styleguide-import-preview-code {
+    word-break: normal;
   }
 }

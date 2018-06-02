@@ -39,7 +39,6 @@ const components = {
   pagination: 'components/Pagination.md',
   panels: 'components/Panels.md',
   portals: 'components/Portals.md',
-  positioning: 'components/Positioning.md',
   progress_bars: 'components/ProgressBar.md',
   radios: 'components/Radios.md',
   select: 'components/Select.md',

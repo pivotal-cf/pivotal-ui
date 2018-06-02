@@ -52,7 +52,7 @@ export default class Sidebar extends React.PureComponent {
       <Autocomplete {...{
         onInitializeItems: callback => callback(searchItems),
         placeholder: 'Search',
-        className: 'sidebar--search phxl mbxl',
+        className: 'sidebar--search ptl phxl mbxl',
         input: <AutocompleteInput><Input icon="search"/></AutocompleteInput>,
         onPick: this.handlePick,
         showNoSearchResults: true
@@ -123,9 +123,9 @@ export default class Sidebar extends React.PureComponent {
             active: this.props.activePath === 'versions'
           }}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui" target="_blank">GitHub Repo</a>
-          <div className="sidebar-components em-high pvl plxl prl">Components</div>
+          <div className="sidebar-components em-high mtl pvl plxl prl">Components</div>
           {componentLinks}
-          <div className="sidebar-components em-high pvl plxl prl">Modifiers</div>
+          <div className="sidebar-components em-high mtl pvl plxl prl">Modifiers</div>
           {modifierLinks}
         </div>
       </nav>

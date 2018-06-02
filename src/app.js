@@ -54,18 +54,18 @@ export default class App extends React.Component {
     const year = currentDate.getFullYear();
 
     const footer = (
-      <div className="footer whitelabel-bg-color grid mrn mtxxxl">
-        <div className="col">
-          <p>
+      <Grid className="footer mrn mtxxxl">
+        <FlexCol>
+          <footer>
             © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">
               <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
               <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
               <span className="policy-link" id="teconsent"/>
             </span>
-          </p>
-        </div>
-      </div>
+          </footer>
+        </FlexCol>
+      </Grid>
     );
 
     return (
@@ -73,10 +73,8 @@ export default class App extends React.Component {
         <FlexCol fixed>
           <Sidebar updateContent={this.updateContent} activePath={path}/>
         </FlexCol>
-        <FlexCol id="content" className="content phxxxl pvxl">
-          <div id="wrapper">
-            <PageComponent/>
-          </div>
+        <FlexCol id="content" className="content">
+          <div id="wrapper"><PageComponent/></div>
           {footer}
         </FlexCol>
       </Grid>
