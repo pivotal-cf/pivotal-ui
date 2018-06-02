@@ -82,7 +82,7 @@ export default class Sidebar extends React.PureComponent {
     ));
 
     return (
-      <nav className="sidebar">
+      <nav className="sidebar bg-dark-2">
         <div className="sidebar--header">
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
           <div className="sidebar--title plxl">

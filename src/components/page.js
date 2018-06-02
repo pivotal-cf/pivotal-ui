@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import {Tabs, Tab} from 'pivotal-ui/react/tabs';
 import {Icon} from 'pivotal-ui/react/iconography';
 
-const formatEditUrl = file => `https://github.com/pivotal-cf/pui-styleguide/edit/master/docs/${file}`;
-const formatIssueUrl = title => `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=${title}%3A%20<issue description>`;
+const urlBase = 'https://github.com/pivotal-cf';
+const formatEditUrl = file => `${urlBase}/pui-styleguide/edit/master/docs/${file}`;
+const formatIssueUrl = title => `${urlBase}/pivotal-ui/issues/new?title=${title}%3A%20<issue description>`;
 
 export default class Page extends React.PureComponent {
   static propTypes = {
@@ -21,7 +22,8 @@ export default class Page extends React.PureComponent {
   }
 
   render() {
-    const {file, markdownContent, pageMetadata: {title}} = this.props;
+    const {file, category, markdownContent, pageMetadata: {title}} = this.props;
+    const showIssueLink = category === 'component' || category === 'modifier';
 
     return (
       <div className="styleguide-page">
@@ -30,10 +32,10 @@ export default class Page extends React.PureComponent {
             <Icon verticalAlign="baseline" src="mode_edit"/>
             <span className="toolbar--label mlm">Edit this page</span>
           </a>
-          <a className="type-underline-hover mlxl" href={formatIssueUrl(title)} target="_blank">
+          {showIssueLink && <a className="type-underline-hover mlxl" href={formatIssueUrl(title)} target="_blank">
             <Icon verticalAlign="baseline" src="github"/>
             <span className="toolbar--label mlm">Report an issue</span>
-          </a>
+          </a>}
           <h1 className="mvxl">{title}</h1>
         </div>
         {markdownContent}

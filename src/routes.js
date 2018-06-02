@@ -66,8 +66,8 @@ const modifiers = {
 };
 
 const routes = Object.entries({...pages, ...components, ...modifiers}).reduce((memo, [route, file]) => {
-  const {pageMetadata, PageComponent} = markdownFileToComponent(file);
   const category = components[route] ? 'component' : modifiers[route] ? 'modifier' : 'page';
+  const {pageMetadata, PageComponent} = markdownFileToComponent(file, category);
   return {...memo, [route]: {file, category, href: route, pageMetadata, PageComponent}};
 }, {});
 

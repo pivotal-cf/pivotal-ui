@@ -6,7 +6,7 @@ import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
 import Page from '../components/page';
 
-const markdownFileToComponent = file => {
+const markdownFileToComponent = (file, category) => {
   const json = require(`../../docs/${file}`);
 
   const pageMetadata = json.children[0]
@@ -37,7 +37,7 @@ const markdownFileToComponent = file => {
 
   return {
     pageMetadata,
-    PageComponent: () => <Page {...{file, pageMetadata, markdownContent}}/>
+    PageComponent: () => <Page {...{file, category, pageMetadata, markdownContent}}/>
   };
 };
 
