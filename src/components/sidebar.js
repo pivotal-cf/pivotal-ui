@@ -2,6 +2,7 @@ import React from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Input} from 'pivotal-ui/react/inputs';
+import {Divider} from 'pivotal-ui/react/dividers';
 import routes from '../routes';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -123,9 +124,11 @@ export default class Sidebar extends React.PureComponent {
             active: this.props.activePath === 'versions'
           }}/>
           <a className="sidebar--item" href="https://github.com/pivotal-cf/pivotal-ui" target="_blank">GitHub Repo</a>
-          <div className="sidebar-components em-high mtl pvl plxl prl">Components</div>
+          <Divider inverse className="mvl"/>
+          <div className="sidebar-components em-high h4 pvl plxl prl">Components</div>
           {componentLinks}
-          <div className="sidebar-components em-high mtl pvl plxl prl">Modifiers</div>
+          <Divider inverse className="mvl"/>
+          <div className="sidebar-components em-high h4 pvl plxl prl">Modifiers</div>
           {modifierLinks}
         </div>
       </nav>

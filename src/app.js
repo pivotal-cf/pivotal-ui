@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './components/sidebar';
+import routes from './routes';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
-import routes from './routes';
 
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
