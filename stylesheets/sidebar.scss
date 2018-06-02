@@ -12,34 +12,6 @@ $active-item-border-size: $base-unit / 2;
   width: 240px;
   height: 100%;
 
-  .pui-collapse {
-    border: 0;
-
-    &.active {
-      background-color: $highlight-background-color;
-
-      .pui-collapse-trigger {
-        color: $dark-1;
-      }
-    }
-
-    .pui-collapse-trigger {
-      cursor: pointer;
-    }
-
-    .sidebar--item-wrapper__active .sidebar--item {
-      padding-left: 2 * $sidebar-item-left-padding - $active-item-border-size;
-    }
-
-    .sidebar--item {
-      padding-left: 2 * $sidebar-item-left-padding;
-    }
-  }
-
-  .pui-collapse-panel-body {
-    padding: 0;
-  }
-
   .sidebar--search {
     .autocomplete-list {
       border: 1px solid $input-border-focus;
