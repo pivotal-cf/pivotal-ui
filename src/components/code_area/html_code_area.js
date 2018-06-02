@@ -56,6 +56,7 @@ export default class HtmlCodeArea extends React.PureComponent {
           </div>
           {this.state.showEditor && (
             <Editor {...{
+              mode: 'html',
               code,
               readOnly: false,
               changeHandler: this.changeHandler
