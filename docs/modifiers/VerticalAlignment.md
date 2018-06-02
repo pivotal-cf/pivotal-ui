@@ -8,16 +8,6 @@ cssPath: pivotal-ui/css/vertical-alignment
 The `aligner` class allows you to vertically align children to the top, center, or bottom.
 Its height is set by default to 230px.
 
-```html
-::noToolbar
-<div class="alert alert-warning">
-  <p class="em-high">
-    This component is not supported in IE10 and below.
-    While the content will appear, it will not be vertically aligned.
-  </p>
-</div>
-```
-
 ## Examples
 
 ```html
