@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Tabs, Tab} from 'pivotal-ui/react/tabs';
 import {Icon} from 'pivotal-ui/react/iconography';
+import {repository} from '../../package.json';
 
-const urlBase = 'https://github.com/pivotal-cf';
-const formatEditUrl = file => `${urlBase}/pui-styleguide/edit/master/docs/${file}`;
-const formatIssueUrl = title => `${urlBase}/pivotal-ui/issues/new?title=${title}%3A%20<issue description>`;
+const styleguideRepo = repository || 'https://github.com/pivotal-cf/pui-styleguide';
+const formatEditUrl = file => `${styleguideRepo}/edit/master/docs/${file}`;
+const formatIssueUrl = title => `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=${title}%3A%20<issue description>`;
 
 export default class Page extends React.PureComponent {
   static propTypes = {
