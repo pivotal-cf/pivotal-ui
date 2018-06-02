@@ -6,7 +6,7 @@ import reactRenderer from 'remark-react';
 import PropTypes from 'prop-types';
 
 import Toolbar from './toolbar';
-import HtmlEditor from './html_editor';
+import Editor from './ace_editor_wrapper';
 import 'brace/mode/html';
 
 export default class HtmlCodeArea extends React.PureComponent {
@@ -28,7 +28,7 @@ export default class HtmlCodeArea extends React.PureComponent {
     };
   }
 
-  changeHandler(value) {
+  changeHandler = value => {
     this.setState({code: AllHtmlEntities.decode(value)});
   }
 
@@ -50,12 +50,17 @@ export default class HtmlCodeArea extends React.PureComponent {
                    title={title}
                    file={file}
                    name={name}
-                   toggleHtmlPreview={this.toggleEditor.bind(this)}/>
+                   toggleHtml={this.toggleEditor.bind(this)}/>
           <div className="code-area-description">
             {remark.processSync(description).contents}
           </div>
-          {this.state.showEditor &&
-          <HtmlEditor code={code} readOnly={false} changeHandler={this.changeHandler.bind(this)}/> }
+          {this.state.showEditor && (
+            <Editor {...{
+              code,
+              readOnly: false,
+              changeHandler: this.changeHandler
+            }}/>
+          )}
         </div>
       );
     }

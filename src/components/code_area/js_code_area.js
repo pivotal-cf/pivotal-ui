@@ -7,9 +7,7 @@ import PropTypes from 'prop-types';
 import unified from 'unified';
 import parse from 'remark-parse';
 import reactRenderer from 'remark-react';
-
-import ReactEditor from './react_editor';
-import HtmlEditor from './html_editor';
+import Editor from './ace_editor_wrapper';
 import Toolbar from './toolbar';
 import ErrorBoundary from '../error_boundary';
 
@@ -48,15 +46,15 @@ export default class JsCodeArea extends React.Component {
       this.state.showHtmlPreview !== nextState.showHtmlPreview;
   }
 
-  changeHandler(value) {
+  changeHandler = value => {
     this.setState({code: AllHtmlEntities.decode(value)});
   }
 
-  toggleEditor() {
+  toggleReact = () => {
     this.setState({showReact: !this.state.showReact});
   }
 
-  toggleHtmlPreview() {
+  toggleHtml = () => {
     this.setState({showHtmlPreview: !this.state.showHtmlPreview});
   }
 
@@ -98,8 +96,8 @@ export default class JsCodeArea extends React.Component {
                    title={title}
                    file={file}
                    name={name}
-                   toggleEditor={this.toggleEditor.bind(this)}
-                   toggleHtmlPreview={this.toggleHtmlPreview.bind(this)}
+                   toggleReact={this.toggleReact}
+                   toggleHtml={this.toggleHtml}
                    isReact={true}
                    noHtml={noHtml}/>
           <div className="code-area-description">
@@ -112,11 +110,23 @@ export default class JsCodeArea extends React.Component {
     return (
       <div className="code-editor">
         {content}
-        {this.state.showReact && <ReactEditor code={code} changeHandler={this.changeHandler.bind(this)}/>}
-        {this.state.showHtmlPreview && <HtmlEditor code={JsCodeArea.getRenderedReact(transpiledCode)} readOnly={true}/>}
         <div className="code-editor--live-preview">
           <ErrorBoundary>{livePreview}</ErrorBoundary>
         </div>
+        {this.state.showReact && (
+          <Editor {...{
+            mode: 'jsx',
+            code,
+            changeHandler: this.changeHandler
+          }}/>
+        )}
+        {this.state.showHtmlPreview && (
+          <Editor {...{
+            mode: 'html',
+            code: JsCodeArea.getRenderedReact(transpiledCode),
+            readOnly: true
+          }}/>
+        )}
       </div>
     );
   }
