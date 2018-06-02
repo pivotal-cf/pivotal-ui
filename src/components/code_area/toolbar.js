@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
-import {Checkbox} from 'pivotal-ui/react/checkbox';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 
 const Toolbar = ({title, showReact, showHtml, toggleReact, toggleHtml, isReact, noHtml}) => {
@@ -43,6 +42,8 @@ const Toolbar = ({title, showReact, showHtml, toggleReact, toggleHtml, isReact, 
 
 Toolbar.propTypes = {
   title: PropTypes.node,
+  showReact: PropTypes.bool,
+  showHtml: PropTypes.bool,
   toggleReact: PropTypes.func,
   toggleHtml: PropTypes.func,
   isReact: PropTypes.bool,

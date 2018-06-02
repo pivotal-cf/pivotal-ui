@@ -20,8 +20,6 @@ export default class JsCodeArea extends React.Component {
     title: PropTypes.string,
     description: PropTypes.string,
     code: PropTypes.string.isRequired,
-    file: PropTypes.string,
-    name: PropTypes.string,
     noToolbar: PropTypes.bool,
     noHtml: PropTypes.bool
   };
@@ -73,7 +71,7 @@ export default class JsCodeArea extends React.Component {
   }
 
   render() {
-    const {file, name, title, description, noToolbar, noHtml} = this.props;
+    const {title, description, noToolbar, noHtml} = this.props;
     const {code, remark} = this.state;
 
     let livePreview, transpiledCode;
@@ -94,8 +92,6 @@ export default class JsCodeArea extends React.Component {
           <Toolbar showReact={this.state.showReact}
                    showHtml={this.state.showHtmlPreview}
                    title={title}
-                   file={file}
-                   name={name}
                    toggleReact={this.toggleReact}
                    toggleHtml={this.toggleHtml}
                    isReact={true}

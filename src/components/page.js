@@ -11,6 +11,7 @@ const formatIssueUrl = title => `https://github.com/pivotal-cf/pivotal-ui/issues
 
 export default class Page extends React.PureComponent {
   static propTypes = {
+    category: PropTypes.string,
     file: PropTypes.string.isRequired,
     markdownContent: PropTypes.node.isRequired,
     pageMetadata: PropTypes.object

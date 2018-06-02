@@ -28,11 +28,13 @@ const ContentLink = ({onClick, link, text, active, className, target, iconSrc}) 
 };
 
 ContentLink.propTypes = {
-  onClick: PropTypes.func,
-  link: PropTypes.string,
-  text: PropTypes.string,
   active: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  iconSrc: PropTypes.string,
+  link: PropTypes.string,
+  onClick: PropTypes.func,
+  target: PropTypes.string,
+  text: PropTypes.string
 };
 
 export default class Sidebar extends React.PureComponent {

@@ -5,9 +5,9 @@ import parseFrontmatter from 'remark-parse-yaml';
 
 export default function(source) {
   const processor = unified()
-  .use(parse)
-  .use(frontmatter)
-  .use(parseFrontmatter);
+    .use(parse)
+    .use(frontmatter)
+    .use(parseFrontmatter);
 
   return processor.run(processor.parse(source));
 };

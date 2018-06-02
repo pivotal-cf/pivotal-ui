@@ -20,6 +20,7 @@
     "eqeqeq": 2,
     "eol-last": 0,
     "no-caller": 2,
+    "no-console": [2, {"allow": ["warn", "error"]}],
     "no-div-regex": 2,
     "no-else-return": 0,
     "no-eq-null": 2,

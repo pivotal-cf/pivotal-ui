@@ -6,9 +6,7 @@ import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
 import Page from '../components/page';
 
-const markdownFileToComponent = (file, category) => {
-  const json = require(`../../docs/${file}`);
-
+const markdownFileToComponent = (file, json, category) => {
   const pageMetadata = json.children[0]
     && json.children[0].type === 'yaml'
     && json.children[0].data
@@ -27,7 +25,7 @@ const markdownFileToComponent = (file, category) => {
       h4: HeadingRenderer(4),
       h5: HeadingRenderer(5),
       h6: HeadingRenderer(6),
-      pre: PreRenderer(file, name),
+      pre: PreRenderer,
       table: TableRenderer
     }
   });

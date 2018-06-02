@@ -8,13 +8,13 @@ const formatReactImport = (reactPath, reactComponents, useImportSyntax) => {
   if (!reactPath) return;
   if (useImportSyntax) return `import {${reactComponents.join(', ')}} from '${reactPath}';`;
   return `const {${reactComponents.join(', ')}} = require('${reactPath}');`;
-}
+};
 
 const formatCssImport = (cssPath, useImportSyntax) => {
   if (!cssPath) return;
   if (useImportSyntax) return `import '${cssPath}';`;
   return `require('${cssPath}');`;
-}
+};
 
 export default class ImportPreview extends React.PureComponent {
   static propTypes = {
@@ -41,9 +41,7 @@ export default class ImportPreview extends React.PureComponent {
           <Fragment>
             <Grid>
               <FlexCol className="em-high">React component{multipleComponents ? 's' : ''}:</FlexCol>
-              <FlexCol fixed>
-
-              </FlexCol>
+              <FlexCol fixed />
             </Grid>
             <pre><code className="styleguide-import-preview-code">{reactImport}</code></pre>
           </Fragment>

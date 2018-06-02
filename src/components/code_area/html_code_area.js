@@ -14,8 +14,6 @@ export default class HtmlCodeArea extends React.PureComponent {
     title: PropTypes.string,
     description: PropTypes.string,
     code: PropTypes.string.isRequired,
-    file: PropTypes.string,
-    name: PropTypes.string,
     noToolbar: PropTypes.bool
   };
 
@@ -38,7 +36,7 @@ export default class HtmlCodeArea extends React.PureComponent {
 
   render() {
     const {code, remark} = this.state;
-    const {title, file, name, description, noToolbar} = this.props;
+    const {title, description, noToolbar} = this.props;
 
     let content;
 
@@ -48,8 +46,6 @@ export default class HtmlCodeArea extends React.PureComponent {
           <Toolbar showReact={false}
                    showHtml={this.state.showEditor}
                    title={title}
-                   file={file}
-                   name={name}
                    toggleHtml={this.toggleEditor.bind(this)}/>
           <div className="code-area-description">
             {remark.processSync(description).contents}

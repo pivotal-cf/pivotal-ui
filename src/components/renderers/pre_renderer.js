@@ -4,7 +4,7 @@ import JsCodeArea from '../code_area/js_code_area';
 
 const customRenderLanguages = ['language-js', 'language-jsx', 'language-html', 'language-jsx-only'];
 
-export default (file, name) => class extends Component {
+export default class extends Component {
   render() {
     const {className = '', children} = this.props.children[0].props;
     const matches = className.match(/language-jsx-only|language-js|language-jsx|language-html/) || [];
@@ -40,7 +40,7 @@ export default (file, name) => class extends Component {
 
       const code = lines.join('\n');
 
-      props = {title, description, code, file, name, noToolbar};
+      props = {title, description, code, noToolbar};
     }
 
     switch (lang) {

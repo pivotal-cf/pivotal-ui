@@ -18,11 +18,15 @@ Object.values(routes).forEach(({pageMetadata: {reactPath}}) => {
   Object.entries(exported).forEach(([key, value]) => window[key] = value);
 });
 
+const pathFromLocation = location => {
+  return location.pathname.split('/').pop();
+};
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const path = window.location.pathname.split('/').pop();
+    const path = pathFromLocation(window.location);
     this.state = {content: App.currentContent(path), path};
     this.updateContent = this.updateContent.bind(this);
   }
@@ -40,7 +44,7 @@ export default class App extends React.Component {
 
   updatePath(location) {
     document.body.scrollTop = 0;
-    const path = location.pathname.split('/').pop();
+    const path = pathFromLocation(location);
     this.setState({content: App.currentContent(path), path});
   }
 
