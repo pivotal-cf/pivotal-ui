@@ -84,20 +84,6 @@ const callback = () => alert('Dismissed!');
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
 
-## Installation & Usage
-
-#### React
-`npm install babel-loader react-svg-loader --save-dev`
-
-`npm install pivotal-ui --save`
-
-`import {SuccessAlert, InfoAlert, WarningAlert, ErrorAlert} from 'pivotal-ui/react/alerts';`
-
-#### CSS Only
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/alerts';`
-
 ## Props
 
 Property | Required | Type | Default | Description
