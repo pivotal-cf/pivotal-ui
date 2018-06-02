@@ -54,14 +54,6 @@ export default class HtmlCodeArea extends React.PureComponent {
           <div className="code-area-description">
             {remark.processSync(description).contents}
           </div>
-          {this.state.showEditor && (
-            <Editor {...{
-              mode: 'html',
-              code,
-              readOnly: false,
-              changeHandler: this.changeHandler
-            }}/>
-          )}
         </div>
       );
     }
@@ -70,6 +62,14 @@ export default class HtmlCodeArea extends React.PureComponent {
       <div className="code-editor">
         {content}
         <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}} />
+        {this.state.showEditor && (
+          <Editor {...{
+            mode: 'html',
+            code,
+            readOnly: false,
+            changeHandler: this.changeHandler
+          }}/>
+        )}
       </div>
     );
   }
