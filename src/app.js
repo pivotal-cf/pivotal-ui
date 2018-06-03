@@ -1,21 +1,29 @@
-import React, {PureComponent} from 'react';
+import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
-import './global_pui';
 import 'pivotal-ui/js/prismjs';
 import '../stylesheets/app.scss';
 import {getRouteContent} from './routes';
+import Router from './router';
 
-const initialRoute = window.location.pathname;
-const initialRouteContent = getRouteContent(initialRoute);
+export default class App extends Component {
+  state = {
+    route: window.location.pathname,
+    routeContent: getRouteContent(window.location.pathname)
+  };
 
-export default class App extends PureComponent {
-  state = {route: initialRoute, routeContent: initialRouteContent};
+  componentDidMount() {
+    Router.onRouteChange((route, routeContent) => {
+      this.setState({route, routeContent});
+    });
+  }
+
+  componentWillUnmount() {
+    Router.destroy();
+  }
 
   render() {
-    const {navigate} = this.props;
     const {route, routeContent: {PageComponent}} = this.state;
-
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
@@ -33,10 +41,10 @@ export default class App extends PureComponent {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar {...{navigate, route}}/>
+          <Sidebar {...{route}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <PageComponent {...{navigate}}/>
+          <PageComponent/>
           {footer}
         </FlexCol>
       </Grid>

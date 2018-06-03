@@ -2,22 +2,27 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
 import App from './app';
-import Router from './router';
+import routes from './routes';
 
-let renderedApp;
-const root = document.getElementById('root');
+const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
+cssRequireContext.keys().map(cssRequireContext);
 
-const {navigate} = Router.init((route, routeContent) => {
-  renderedApp.setState({route, routeContent});
+window.React = React;
+window.ReactDOM = ReactDOM;
+Object.values(routes).forEach(({pageMetadata}) => {
+  if (!pageMetadata || !pageMetadata.reactPath) return;
+  const componentPath = pageMetadata.reactPath.split('/').pop();
+  const exported = require(`pivotal-ui/react/${componentPath}`);
+  Object.entries(exported).forEach(([key, value]) => window[key] = value);
 });
 
-renderedApp = ReactDOM.render(<App {...{navigate}}/>, root);
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
     module.hot.accept('./app', () => {
       const NextApp = require('./app');
-      renderedApp = ReactDOM.render(<AppContainer><NextApp {...{navigate}}/></AppContainer>, root);
+      ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
     });
   }
 }

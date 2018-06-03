@@ -14,7 +14,6 @@ export default class Page extends React.PureComponent {
     category: PropTypes.string,
     file: PropTypes.string.isRequired,
     markdownContent: PropTypes.node.isRequired,
-    navigate: PropTypes.func.isRequired,
     pageMetadata: PropTypes.object,
     route: PropTypes.string
   };
@@ -27,7 +26,7 @@ export default class Page extends React.PureComponent {
   }
 
   render() {
-    const {route, file, category, markdownContent, pageMetadata, navigate} = this.props;
+    const {route, file, category, markdownContent, pageMetadata} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
     const isComponentPage = category !== 'pages';
 
@@ -49,16 +48,16 @@ export default class Page extends React.PureComponent {
             <nav className="tab-simple">
               <ul className="nav nav-tabs">
                 <li className="">
-                  <Anchor href={route} navigate={navigate}>Description</Anchor>
+                  <Anchor href={route}>Description</Anchor>
                 </li>
                 <li className="">
-                  <Anchor href={route + '/examples'} navigate={navigate}>Examples</Anchor>
+                  <Anchor href={route + '/examples'}>Examples</Anchor>
                 </li>
                 {reactPath && <li className="">
-                  <Anchor href={route + '/props'} navigate={navigate}>Props</Anchor>
+                  <Anchor href={route + '/props'}>Props</Anchor>
                 </li>}
                 <li className="">
-                  <Anchor href={route + '/guidelines'} navigate={navigate}>Guidelines</Anchor>
+                  <Anchor href={route + '/guidelines'}>Guidelines</Anchor>
                 </li>
               </ul>
             </nav>

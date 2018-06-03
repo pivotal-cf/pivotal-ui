@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
@@ -20,20 +20,19 @@ const components = routeData.sort(byPageTitle).filter(({category}) => category =
 const modifiers = routeData.sort(byPageTitle).filter(({category}) => category === 'modifiers');
 const searchItems = routeData.map(({pageMetadata}) => pageMetadata && pageMetadata.title);
 
-export default class Sidebar extends React.PureComponent {
+export default class Sidebar extends PureComponent {
   static propTypes = {
-    route: PropTypes.string,
-    navigate: PropTypes.func.isRequired
+    route: PropTypes.string
   }
 
   handlePick = evt => {
     const searchItem = searchItems.find(i => i === evt.value);
     if (!searchItem) return;
-    this.props.navigate(searchItem.href);
+    // this.props.navigate(searchItem.href);
   }
 
   render() {
-    const {navigate, route} = this.props;
+    const {route} = this.props;
 
     const SearchBar = () => (
       <Autocomplete {...{
@@ -49,7 +48,6 @@ export default class Sidebar extends React.PureComponent {
     const componentLinks = components.map(({href, pageMetadata}) => (
       <Anchor {...{
         key: href,
-        navigate,
         className: classnames('sidebar-link', {active: route === href}),
         href
       }}>{pageMetadata.title}</Anchor>
@@ -58,7 +56,6 @@ export default class Sidebar extends React.PureComponent {
     const modifierLinks = modifiers.map(({href, pageMetadata}) => (
       <Anchor {...{
         key: href,
-        navigate,
         className: classnames('sidebar-link', {active: route === href}),
         href
       }}>{pageMetadata.title}</Anchor>
@@ -75,29 +72,24 @@ export default class Sidebar extends React.PureComponent {
         </div>
         <SearchBar/>
         <Anchor {...{
-          navigate,
           href: '/getstarted',
           className: classnames('sidebar-link', {
             active: ['/', '/getstarted'].indexOf(route) !== -1
           })
         }}>Get Started</Anchor>
         <Anchor {...{
-          navigate,
           href: '/faq',
           className: classnames('sidebar-link', {active: route === '/faq'})
         }}>FAQ</Anchor>
         <Anchor {...{
-          navigate,
           href: '/upgradeguide',
           className: classnames('sidebar-link', {active: route === '/upgradeguide'})
         }}>Upgrade Guide</Anchor>
         <Anchor {...{
-          navigate,
           href: '/contribute',
           className: classnames('sidebar-link', {active: route === '/contribute'})
         }}>Contribute</Anchor>
         <Anchor {...{
-          navigate,
           href: '/versions',
           className: classnames('sidebar-link', {active: route === '/versions'})
         }}>Versions</Anchor>

@@ -1,18 +1,32 @@
 import routes, {getRouteContent} from './routes';
 
+let handlers;
+
 const Router = {
-  init(onRouteChange) {
-    const navigate = newRoute => {
-      document.getElementById('content').scrollTop = 0;
-      window.history.pushState({}, '', newRoute);
-      onRouteChange(newRoute, getRouteContent(newRoute));
-    };
+  init() {
+    handlers = [];
+    window.addEventListener('popstate', Router.onPopState, false);
+  },
 
-    window.addEventListener('popstate', evt => {
-      navigate(evt.currentTarget.location.pathname);
-    }, false);
+  onRouteChange(callback) {
+    if (!handlers) Router.init();
+    handlers.push(callback);
+  },
 
-    return {navigate};
+  onPopState(evt) {
+    Router.navigate(evt.currentTarget.location.pathname, true);
+  },
+
+  destroy() {
+    handlers = undefined;
+    window.removeEventListener('popstate', Router.onPopState);
+  },
+
+  navigate(newRoute, skipPushState) {
+    const newRouteContent = getRouteContent(newRoute);
+    document.getElementById('content').scrollTop = 0;
+    skipPushState || window.history.pushState({}, '', newRoute);
+    handlers.forEach(handler => handler(newRoute, newRouteContent));
   }
 };
 
