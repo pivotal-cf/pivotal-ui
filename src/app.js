@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
-import Sidebar from './sidebar';
+import Sidebar from './components/sidebar';
 import 'pivotal-ui/js/prismjs';
-import '../../stylesheets/app.scss';
-import {getRouteContent} from '../routes';
-import Router from '../helpers/router';
+import '../stylesheets/app.scss';
+import {getRouteContent} from './routes';
+import Router from './helpers/router';
 
 export default class App extends Component {
   state = {

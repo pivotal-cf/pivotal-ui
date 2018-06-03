@@ -9,7 +9,7 @@ import Page from '../components/page';
 const sectionTitleToHref = (title, componentPath) => {
   const sectionPath = title.toLowerCase().replace(/[^a-z]/g, '');
   return `${componentPath}/${sectionPath}`;
-}
+};
 
 const markdownFileToComponent = ({directory, fileName, json, category}) => {
   const componentPath = '/' + fileName.toLowerCase().replace(/\.md$/, '').split('/').pop();
@@ -58,9 +58,9 @@ const markdownFileToComponent = ({directory, fileName, json, category}) => {
     category,
     href: componentPath,
     pageMetadata,
-    PageComponent: props => <Page {...{
+    PageComponent: props => (<Page {...{
       ...props, file, category, pageMetadata, pageSections
-    }}/>
+    }}/>)
   };
 };
 

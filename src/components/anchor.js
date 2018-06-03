@@ -4,11 +4,12 @@ import Router from '../helpers/router';
 
 export default class Anchor extends PureComponent {
   static propTypes = {
-    href: PropTypes.string.isRequired
+    href: PropTypes.string.isRequired,
+    target: PropTypes.string
   };
 
   onClick = evt => {
-    const {href, navigate} = this.props;
+    const {href} = this.props;
     if (href && href.charAt(0) !== '/') return;
     evt.preventDefault();
     Router.navigate(href);

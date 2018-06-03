@@ -2,7 +2,7 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import {NamedModulesPlugin} from 'webpack';
+import {NamedModulesPlugin, HotModuleReplacementPlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
@@ -23,13 +23,18 @@ const devConfig = {
   mode: 'development',
   entry: ['react-hot-loader/patch', './src/index.js'],
   devServer: {
+    hot: true,
+    historyApiFallback: true,
     clientLogLevel: 'error',
+    contentBase: path.resolve(__dirname, 'dist'),
     stats: {
       warningsFilter: /Module not found: Error: Can't resolve .*.css/
     }
   },
   plugins: [
-    htmlPlugin
+    htmlPlugin,
+    new NamedModulesPlugin(),
+    new HotModuleReplacementPlugin()
   ],
   devtool: false
 };

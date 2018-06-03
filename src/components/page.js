@@ -38,11 +38,9 @@ export default class Page extends React.PureComponent {
       );
     });
 
-    console.log({pageSections})
     const {SectionComponent} = pageSections.find(({href}) => href === route) || {};
     const content = SectionComponent ? <SectionComponent/> : null;
 
-    console.log({content})
     return (
       <div className="styleguide-page">
         <header className="styleguide-page-header pvxl phxxxl">

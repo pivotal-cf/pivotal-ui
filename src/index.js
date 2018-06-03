@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import App from './components/app';
+import App from './app';
 import routes from './routes';
 
 window.React = React;
@@ -20,8 +20,10 @@ Object.values(routes).forEach(({pageMetadata}) => {
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 if (process.env.NODE_ENV === 'development') {
-  module.hot && module.hot.accept('./components/app', () => {
-    const NextApp = require('./components/app');
-    ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
-  });
+  if (module.hot) {
+    module.hot.accept('./app', () => {
+      const NextApp = require('./app');
+      ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
+    });
+  }
 }

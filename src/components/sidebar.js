@@ -13,7 +13,7 @@ const byPageTitle = (a, b) => {
   const aTitle = (a.pageMetadata.title || '').toLowerCase();
   const bTitle = (b.pageMetadata.title || '').toLowerCase();
   return (aTitle < bTitle) ? -1 : (aTitle > bTitle) ? 1 : 0;
-}
+};
 
 const routeData = Object.values(routes);
 const components = routeData.sort(byPageTitle).filter(({category}) => category === 'components');

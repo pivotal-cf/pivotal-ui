@@ -20,7 +20,7 @@ requireModifiers.keys().forEach(collectRouteData('modifiers', 'modifiers/', requ
 
 export const getRouteContent = (route = '') => {
   const routeParts = route.split('/').filter(Boolean);
-  return routes['/' + routeParts[0]] || routes['/404']
+  return routes['/' + routeParts[0]] || routes['/404'];
 };
 
 export default routes;
