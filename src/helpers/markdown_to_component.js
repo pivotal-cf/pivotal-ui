@@ -6,15 +6,11 @@ import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
 import Page from '../components/page';
 
-const markdownFileToComponent = (file, json, category) => {
+const markdownFileToComponent = ({route, file, json, category}) => {
   const pageMetadata = json.children[0]
     && json.children[0].type === 'yaml'
     && json.children[0].data
     && json.children[0].data.parsedValue;
-
-  if (!pageMetadata) {
-    throw new Error(`Failed to find or parse YAML metadata for ${file}`);
-  }
 
   const processor = unified().use(reactRenderer, {
     sanitize: false,
@@ -35,7 +31,7 @@ const markdownFileToComponent = (file, json, category) => {
 
   return {
     pageMetadata,
-    PageComponent: () => <Page {...{file, category, pageMetadata, markdownContent}}/>
+    PageComponent: () => <Page {...{route, file, category, pageMetadata, markdownContent}}/>
   };
 };
 

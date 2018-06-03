@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Tabs, Tab} from 'pivotal-ui/react/tabs';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
 import {repository} from '../../package.json';
@@ -14,7 +13,8 @@ export default class Page extends React.PureComponent {
     category: PropTypes.string,
     file: PropTypes.string.isRequired,
     markdownContent: PropTypes.node.isRequired,
-    pageMetadata: PropTypes.object
+    pageMetadata: PropTypes.object,
+    route: PropTypes.string
   };
 
   componentDidMount() {
@@ -25,7 +25,7 @@ export default class Page extends React.PureComponent {
   }
 
   render() {
-    const {file, category, markdownContent, pageMetadata} = this.props;
+    const {route, file, category, markdownContent, pageMetadata} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
     const isComponentPage = category === 'component' || category === 'modifier';
 
@@ -44,21 +44,22 @@ export default class Page extends React.PureComponent {
         </header>
         <main className="phxl">
           {!isComponentPage ? markdownContent : (
-            <Tabs className="styleguide-page-tabs" defaultActiveKey={1} animation={false}>
-              <Tab eventKey={1} title="Description">
-                <h2>Usage</h2>
-                <ImportPreview {...{cssPath, reactPath, reactComponents}}/>
-              </Tab>
-              <Tab eventKey={2} title="Examples">
-                {markdownContent}
-              </Tab>
-              {reactPath && <Tab eventKey={3} title="Props">
-                props...
-              </Tab>}
-              <Tab eventKey={4} title="Guidelines">
-                guidelines...
-              </Tab>
-            </Tabs>
+            <nav className="tab-simple">
+              <ul className="nav nav-tabs">
+                <li className="">
+                  <a href={route}>Description</a>
+                </li>
+                <li className="">
+                  <a href={route + '/examples'}>Examples</a>
+                </li>
+                {reactPath && <li className="">
+                  <a href={route + '/props'}>Props</a>
+                </li>}
+                <li className="">
+                  <a href={route + '/guidelines'}>Guidelines</a>
+                </li>
+              </ul>
+            </nav>
           )}
         </main>
       </div>

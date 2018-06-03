@@ -1,32 +1,29 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sidebar from './components/sidebar';
-import routes from './routes';
+import {routes} from './router';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import '../stylesheets/app.scss';
 import 'pivotal-ui/js/prismjs';
 
+console.log(routes);
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
 
 window.React = React;
 window.ReactDOM = ReactDOM;
-Object.values(routes).forEach(({pageMetadata: {reactPath}}) => {
-  if (!reactPath) return;
-  const componentPath = reactPath.split('/').pop();
+Object.values(routes).forEach(({pageMetadata}) => {
+  if (!pageMetadata || !pageMetadata.reactPath) return;
+  const componentPath = pageMetadata.reactPath.split('/').pop();
   const exported = require(`pivotal-ui/react/${componentPath}`);
   Object.entries(exported).forEach(([key, value]) => window[key] = value);
 });
-
-const pathFromLocation = location => {
-  return location.pathname.split('/').pop();
-};
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
 
-    const path = pathFromLocation(window.location);
+    const path = window.location.pathname;
     this.state = {content: App.currentContent(path), path};
     this.updateContent = this.updateContent.bind(this);
   }
@@ -44,7 +41,7 @@ export default class App extends React.Component {
 
   updatePath(location) {
     document.body.scrollTop = 0;
-    const path = pathFromLocation(location);
+    const path = location.pathname;
     this.setState({content: App.currentContent(path), path});
   }
 

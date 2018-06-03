@@ -48,14 +48,14 @@ export default class ImportPreview extends React.PureComponent {
           <Fragment>
             <Grid>
               <FlexCol className="em-high">React component{multipleComponents ? 's' : ''}:</FlexCol>
-              <FlexCol fixed />
+              <FlexCol fixed/>
             </Grid>
             <pre><code className="styleguide-import-preview-code">{reactImport}</code></pre>
           </Fragment>
         )}
         {cssPath && (
           <Fragment>
-            <div className="em-high mtxl">CSS only:</div>
+            <div className="em-high">CSS only:</div>
             <pre><code className="styleguide-import-preview-code">{cssImport}</code></pre>
           </Fragment>
         )}

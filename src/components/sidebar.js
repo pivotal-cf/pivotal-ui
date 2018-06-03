@@ -1,16 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Input} from 'pivotal-ui/react/inputs';
 import {Divider} from 'pivotal-ui/react/dividers';
-import routes from '../routes';
-import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import {version} from '../../../pivotal-ui/package.json';
+import {routes} from '../router';
+import {version as puiVersion} from 'pivotal-ui/../package.json';
 
 const components = Object.values(routes).filter(({category}) => category === 'component');
 const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
-const searchItems = Object.values(routes).map(({pageMetadata}) => pageMetadata.title);
+const searchItems = Object.values(routes).map(({pageMetadata}) => pageMetadata && pageMetadata.title);
 
 const ContentLink = ({onClick, link, text, active, className, target, iconSrc}) => {
   return (
@@ -94,45 +94,45 @@ export default class Sidebar extends React.PureComponent {
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
           <div className="sidebar--title plxl">
             <h1 className="em-high h2">Pivotal UI</h1>
-            <div className="h4">v{version}</div>
+            <div className="h4">v{puiVersion}</div>
           </div>
         </div>
         <SearchBar/>
         <div className="sidebar--items">
           <ContentLink {...{
             onClick: this.handleClick,
-            link: 'getstarted',
-            text:'Get Started',
+            link: '/getstarted',
+            text: 'Get Started',
             active: ['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: 'faq',
-            text:'FAQ',
+            link: '/faq',
+            text: 'FAQ',
             active: this.props.activePath === 'faq'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: 'upgradeguide',
-            text:'Upgrade Guide',
+            link: '/upgradeguide',
+            text: 'Upgrade Guide',
             active: this.props.activePath === 'upgradeguide'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: 'contribute',
-            text:'Contribute',
+            link: '/contribute',
+            text: 'Contribute',
             active: this.props.activePath === 'contribute'
           }}/>
           <ContentLink {...{
             onClick: this.handleClick,
-            link: 'versions',
-            text:'Versions',
+            link: '/versions',
+            text: 'Versions',
             active: this.props.activePath === 'versions'
           }}/>
           <ContentLink {...{
             link: 'https://github.com/pivotal-cf/pivotal-ui',
             target: '_blank',
-            text:'GitHub',
+            text: 'GitHub',
             iconSrc: 'open_in_new'
           }}/>
           <Divider inverse className="mvl"/>

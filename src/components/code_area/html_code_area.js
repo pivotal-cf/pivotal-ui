@@ -57,7 +57,7 @@ export default class HtmlCodeArea extends React.PureComponent {
     return (
       <div className="code-editor">
         {content}
-        <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}} />
+        <div className="code-editor--live-preview" dangerouslySetInnerHTML={{__html: code}}/>
         {this.state.showEditor && (
           <Editor {...{
             mode: 'html',
