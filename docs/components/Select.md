@@ -6,16 +6,12 @@ reactComponents:
   - Select
 ---
 
+Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
+
 ## Subcomponents
 
 - [HTML Selects](#html-selects)
 - [React Selects](#react-selects)
-
-# HTML Selects
-
-## Description
-
-Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 
 ## Examples
 
@@ -58,12 +54,6 @@ Selects are excellent to use because they will automatically behave as expected 
   </FormRow>
 </Form>
 ```
-
-## Installation & Usage
-
-`npm install pivotal-ui --save`
-
-`import 'pivotal-ui/css/select';`
 
 # React Selects
 

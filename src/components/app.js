@@ -44,7 +44,7 @@ export default class App extends Component {
           <Sidebar {...{route}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <PageComponent/>
+          <PageComponent {...{route}}/>
           {footer}
         </FlexCol>
       </Grid>

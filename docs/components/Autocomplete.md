@@ -6,7 +6,6 @@ reactComponents:
   - Autocomplete
 ---
 
-## Description
 Autocomplete provides the user the ability to search for known entities with the task of retrieval or navigation. For more exploratory search and complex information seeking tasks consider a multi-step workflow or filtering options.
 
 ## Do's and Don'ts

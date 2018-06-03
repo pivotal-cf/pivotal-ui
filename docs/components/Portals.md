@@ -6,8 +6,6 @@ reactComponents:
   - PortalDestination
 ---
 
-## Description
-
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like
 modals, tooltips, and dropdowns, when you want to define the content near the trigger, but have
 it display at the bottom of the page (generally to solve z-index and overflow incompatibilities).

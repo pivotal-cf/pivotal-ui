@@ -5,8 +5,7 @@ reactComponents:
   - Wizard
 ---
 
-## Description
-The Wizard component allows the user to navigate through a series of Wizard pages. Each page has a render function which returns the JSX required to show the page. Various callbacks can be provided as props to customize the Wizard's behavior.
+The `Wizard` component allows the user to navigate through a series of Wizard pages. Each page has a render function which returns the JSX required to show the page. Various callbacks can be provided as props to customize the Wizard's behavior.
 
 ## Examples
 

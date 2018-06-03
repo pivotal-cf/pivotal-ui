@@ -7,8 +7,6 @@ reactComponents:
   - FlexCol
 ---
 
-## Description
-
 Flex grids use flexbox to position columns within rows.
 
 ## Examples

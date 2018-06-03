@@ -6,11 +6,31 @@ import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
 import Page from '../components/page';
 
-const markdownFileToComponent = ({route, file, json, category}) => {
-  const pageMetadata = json.children[0]
-    && json.children[0].type === 'yaml'
-    && json.children[0].data
-    && json.children[0].data.parsedValue;
+const sectionTitleToHref = (title, componentPath) => {
+  const sectionPath = title.toLowerCase().replace(/[^a-z]/g, '');
+  return `${componentPath}/${sectionPath}`;
+}
+
+const markdownFileToComponent = ({directory, fileName, json, category}) => {
+  const componentPath = '/' + fileName.toLowerCase().replace(/\.md$/, '').split('/').pop();
+  const file = directory + fileName.replace(/^\.\//, '');
+
+  let pageMetadata;
+  const pageSections = [{title: 'Overview', href: componentPath, rawContent: []}];
+
+  json.children.forEach(child => {
+    if (!pageMetadata && child.type === 'yaml') {
+      pageMetadata = child.data.parsedValue;
+      return;
+    }
+
+    if (child.type === 'heading' && child.depth === 2) {
+      pageSections.push({title: child.children[0].value, rawContent: []});
+      return;
+    }
+
+    pageSections[pageSections.length - 1].rawContent.push(child);
+  });
 
   const processor = unified().use(reactRenderer, {
     sanitize: false,
@@ -26,13 +46,20 @@ const markdownFileToComponent = ({route, file, json, category}) => {
     }
   });
 
-  const transformed = processor.runSync(json);
-  const markdownContent = processor.stringify(transformed);
+  pageSections.forEach(section => {
+    const {rawContent, href, title} = section;
+    const toProcess = {type: 'root', children: rawContent};
+    section.href = href || sectionTitleToHref(title, componentPath);
+    section.SectionComponent = () => processor.stringify(processor.runSync(toProcess));
+  });
 
   return {
+    file,
+    category,
+    href: componentPath,
     pageMetadata,
     PageComponent: props => <Page {...{
-      ...props, route, file, category, pageMetadata, markdownContent
+      ...props, file, category, pageMetadata, pageSections
     }}/>
   };
 };

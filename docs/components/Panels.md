@@ -6,8 +6,6 @@ reactComponents:
   - Panel
 ---
 
-## Description
-
 Using Panels, you can organize information collections into logical groups, aggregate your content and show it to be context specific. They include box title, header, footer, and can be combined with any background. See it in action [here](https://pui-pivots.cfapps.io/).
 
 Do        | Don't

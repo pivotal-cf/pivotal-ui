@@ -26,8 +26,6 @@ reactComponents:
   - withScrollableTbody
 ---
 
-## Description
-
 The `Table` component is a robust component that offers a styled table. If the rows change, the content on the page will update.
 
 Several enhanced Table components are also available:

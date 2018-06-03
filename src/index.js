@@ -4,11 +4,12 @@ import {AppContainer} from 'react-hot-loader';
 import App from './components/app';
 import routes from './routes';
 
+window.React = React;
+window.ReactDOM = ReactDOM;
+
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
 
-window.React = React;
-window.ReactDOM = ReactDOM;
 Object.values(routes).forEach(({pageMetadata}) => {
   if (!pageMetadata || !pageMetadata.reactPath) return;
   const componentPath = pageMetadata.reactPath.split('/').pop();
@@ -19,10 +20,8 @@ Object.values(routes).forEach(({pageMetadata}) => {
 ReactDOM.render(<App/>, document.getElementById('root'));
 
 if (process.env.NODE_ENV === 'development') {
-  if (module.hot) {
-    module.hot.accept('./components/app', () => {
-      const NextApp = require('./components/app');
-      ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
-    });
-  }
+  module.hot && module.hot.accept('./components/app', () => {
+    const NextApp = require('./components/app');
+    ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
+  });
 }

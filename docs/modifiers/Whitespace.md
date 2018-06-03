@@ -3,8 +3,6 @@ title: Whitespace
 cssPath: pivotal-ui/css/whitespace
 ---
 
-## Description
-
 Should be used to modify the default spacing between objects (not between nodes of the same object)
 Please use judiciously. You want to be using defaults most of the time, these are exceptions!
 

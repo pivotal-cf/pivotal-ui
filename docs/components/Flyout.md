@@ -6,7 +6,6 @@ reactComponents:
   - Flyout
 ---
 
-## Description
 The flyout appears from the right side of the window and overlays all other content until it is closed. Its
 visibility is controlled with the `show` property. It can take a custom `width`. The contents of the header
 and the body are set with the `header` and `children` properties, respectively. The behavior of the icon

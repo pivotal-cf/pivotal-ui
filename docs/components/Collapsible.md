@@ -5,8 +5,6 @@ reactComponents:
   - Collapsible
 ---
 
-## Description
-
 The `Collapsible` component can be used to hide and show elements. By default,
 it animates the expanding and collapsing of its content, but this can be configured
 through props.

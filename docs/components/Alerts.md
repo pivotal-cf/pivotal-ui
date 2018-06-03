@@ -9,7 +9,6 @@ reactComponents:
   - ErrorAlert
 ---
 
-## Description
 Alerts use the [Iconography](/icons) component when using `withIcon` or `dismissable`. If you use those props, you will need to add an svg loader.
 
 ## Examples

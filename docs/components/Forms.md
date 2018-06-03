@@ -9,18 +9,14 @@ reactComponents:
   - FormUnit
 ---
 
+A declarative abstraction that handles layout, state, validation and error handling.
+
+Layout is based on the [Flex Grid](/grids#flex-grids) system.
+
 ## Subcomponents
 
 - [Form](#form)
 - [Form Unit](#form-unit)
-
-# Form
-
-## Description
-
-A declarative abstraction that handles layout, state, validation and error handling.
-
-Layout is based on the [Flex Grid](/grids#flex-grids) system.
 
 ## Examples
 

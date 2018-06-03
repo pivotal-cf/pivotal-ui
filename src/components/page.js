@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
-import {repository} from '../config';
+import Config from '../config';
 import Anchor from './anchor';
 
-const styleguideRepo = repository || 'https://github.com/pivotal-cf/pui-styleguide';
-const formatEditUrl = file => `${styleguideRepo}/edit/master/docs/${file}`;
-const formatIssueUrl = title => `https://github.com/pivotal-cf/pivotal-ui/issues/new?title=${title}%3A%20<issue description>`;
+const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
+const formatIssueUrl = title => `${Config.get('puiRepository')}/issues/new?title=${title}%3A%20<issue description>`;
 
 export default class Page extends React.PureComponent {
   static propTypes = {
     category: PropTypes.string,
     file: PropTypes.string.isRequired,
-    markdownContent: PropTypes.node.isRequired,
     pageMetadata: PropTypes.object,
+    pageSections: PropTypes.array.isRequired,
     route: PropTypes.string
   };
 
@@ -26,10 +26,23 @@ export default class Page extends React.PureComponent {
   }
 
   render() {
-    const {route, file, category, markdownContent, pageMetadata} = this.props;
+    const {route, file, category, pageSections, pageMetadata} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
     const isComponentPage = category !== 'pages';
 
+    const tabLinks = pageSections.map(({title, href}) => {
+      return (
+        <li key={href} className={classnames({active: href === route})}>
+          <Anchor href={href}>{title}</Anchor>
+        </li>
+      );
+    });
+
+    console.log({pageSections})
+    const {SectionComponent} = pageSections.find(({href}) => href === route) || {};
+    const content = SectionComponent ? <SectionComponent/> : null;
+
+    console.log({content})
     return (
       <div className="styleguide-page">
         <header className="styleguide-page-header pvxl phxxxl">
@@ -44,23 +57,15 @@ export default class Page extends React.PureComponent {
           <h1 className="mtxl em-high">{title}</h1>
         </header>
         <main className="phxl">
-          {!isComponentPage ? markdownContent : (
-            <nav className="tab-simple">
-              <ul className="nav nav-tabs">
-                <li className="">
-                  <Anchor href={route}>Description</Anchor>
-                </li>
-                <li className="">
-                  <Anchor href={route + '/examples'}>Examples</Anchor>
-                </li>
-                {reactPath && <li className="">
-                  <Anchor href={route + '/props'}>Props</Anchor>
-                </li>}
-                <li className="">
-                  <Anchor href={route + '/guidelines'}>Guidelines</Anchor>
-                </li>
-              </ul>
-            </nav>
+          {!isComponentPage ? null : (
+            <Fragment>
+              <nav className="tab-simple">
+                <ul className="nav nav-tabs">
+                  {tabLinks}
+                </ul>
+              </nav>
+              {content}
+            </Fragment>
           )}
         </main>
       </div>

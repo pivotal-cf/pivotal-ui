@@ -6,11 +6,6 @@ reactComponents:
   - Icon
 ---
 
-***This component is limited to projects that use Webpack.***
-***It requires the webpack loaders babel-loader and react-svg-loader.***
-
-## Description
-
 We provide a set of SVG icons, visible at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
 When styling the SVGs, remember to use the `fill` or `stroke` attributes instead of `color`.

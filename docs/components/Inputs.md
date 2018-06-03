@@ -6,8 +6,6 @@ reactComponents:
   - Input
 ---
 
-## Description
-
 Most common form control, text-based input fields. Includes support for all HTML5 types: `text`, `password`, `datetime`, `datetime-local`, `date`, `month`, `time`, `week`, `number`, `email`, `url`, `search`, `tel`, and `color`.
 
 Inputs will only be fully styled if their type is properly declared.

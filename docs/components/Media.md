@@ -9,10 +9,6 @@ reactComponents:
 
 ## Examples
 
-```
-import {Image} from 'pivotal-ui/react/images';
-```
-
 ```jsx
 ::title=Basic example
 ::description=A Flag is a special type of media that is vAlign='middle'. The images or other media can be aligned top, middle, or bottom. The default is top aligned. The base button renderer. You won't really interact with this directly.

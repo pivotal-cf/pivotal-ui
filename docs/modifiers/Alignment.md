@@ -3,8 +3,6 @@ title: Alignment
 cssPath: pivotal-ui/css/alignment
 ---
 
-## Description
-
 ## Examples
 
 ```jsx

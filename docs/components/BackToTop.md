@@ -6,10 +6,6 @@ reactComponents:
   - BackToTop
 ---
 
-## Description
-
-(The extra loaders are for the [Iconography](/icons) component.)
-
 You can use this component to scroll to the top of a page.
 
 The button will be fixed to the bottom right hand corner of the page.

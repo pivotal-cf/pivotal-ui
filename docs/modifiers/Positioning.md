@@ -3,8 +3,6 @@ title: Positioning
 cssPath: pivotal-ui/css/positioning
 ---
 
-## Description
-
 The `Positioning` component provides CSS rules for the following attributes:
 * display
 * float

@@ -2,7 +2,7 @@
   "name": "pivotal-ui-styleguide",
   "license": "ISC",
   "version": "0.0.0",
-  "description": "Styleguide for Pivotal UI",
+  "description": "Pivotal UI Styleguide",
   "repository": "https://github.com/reid47/pui-styleguide",
   "main": "dist/bundle.js",
   "devDependencies": {

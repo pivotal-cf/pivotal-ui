@@ -6,8 +6,6 @@ reactComponents:
   - CopyToClipboard
 ---
 
-## Description
-
 The copy to clipboard functionality can be applied to a variety of elements.
 
 ## Examples

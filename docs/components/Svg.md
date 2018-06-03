@@ -5,10 +5,6 @@ reactComponents:
   - Svg
 ---
 
-***This component is limited to projects that use Webpack.***
-***It requires the webpack loaders babel-loader and react-svg-loader.***
-***If you are using pui-react-tools, this also requires version 2 or higher.***
-
 ## Examples
 
 This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.

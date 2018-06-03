@@ -6,8 +6,6 @@ reactComponents:
   - TextFilter
 ---
 
-## Description
-
 The `TextFilter` component provides a filter text input and allows you to filter
 and render a list of data based on the entered filter text.
 

@@ -3,8 +3,6 @@ title: Colors
 cssPath: pivotal-ui/css/colors
 ---
 
-## Description
-
 Our color pallet is composed of several different colors. At any given point it captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.
