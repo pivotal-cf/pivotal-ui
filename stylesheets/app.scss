@@ -5,7 +5,6 @@
 @import '~pivotal-ui/css/ellipsis/ellipsis';
 @import '~prismjs/themes/prism.css';
 @import './sidebar';
-@import './content';
 @import './page';
 @import 'code_editor';
 
@@ -28,12 +27,9 @@ body {
   }
 }
 
-// alignment component
 .aligner {
   border: solid 1px $table-border-color;
 }
-
-// color chip component
 
 .color-chip-row {
   display: flex;
@@ -83,16 +79,20 @@ h2.h2 {
 .example-form {
   .label-row {
     outline: 1px solid green;
-
   }
+
   .field-row {
     outline: 1px solid cadetblue;
-
   }
+
   .help-row {
     outline: 1px solid darkred;
-
   }
+}
+
+#content {
+  height: 100vh;
+  overflow: auto;
 }
 
 #content .policy-link {

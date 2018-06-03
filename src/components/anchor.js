@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
-import Router from '../router';
+import Router from '../helpers/router';
 
 export default class Anchor extends PureComponent {
   static propTypes = {

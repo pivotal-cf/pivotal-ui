@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {AppContainer} from 'react-hot-loader';
-import App from './app';
+import App from './components/app';
 import routes from './routes';
 
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
@@ -20,8 +20,8 @@ ReactDOM.render(<App/>, document.getElementById('root'));
 
 if (process.env.NODE_ENV === 'development') {
   if (module.hot) {
-    module.hot.accept('./app', () => {
-      const NextApp = require('./app');
+    module.hot.accept('./components/app', () => {
+      const NextApp = require('./components/app');
       ReactDOM.render(<AppContainer><NextApp/></AppContainer>, document.getElementById('root'));
     });
   }
