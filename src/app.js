@@ -3,8 +3,19 @@ import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
 import 'pivotal-ui/js/prismjs';
 import '../stylesheets/app.scss';
-import {getRouteContent} from './routes';
+import routes, {getRouteContent} from './routes';
 import Router from './helpers/router';
+import Page from './components/page';
+
+const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
+cssRequireContext.keys().map(cssRequireContext);
+
+Object.values(routes).forEach(({pageMetadata}) => {
+  if (!pageMetadata || !pageMetadata.reactPath) return;
+  const componentPath = pageMetadata.reactPath.split('/').pop();
+  const exported = require(`pivotal-ui/react/${componentPath}`);
+  Object.entries(exported).forEach(([key, value]) => window[key] = value);
+});
 
 export default class App extends Component {
   state = {
@@ -23,7 +34,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {route, routeContent: {PageComponent}} = this.state;
+    const {route, routeContent} = this.state;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
@@ -44,7 +55,7 @@ export default class App extends Component {
           <Sidebar {...{route}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <PageComponent {...{route}}/>
+          <Page {...{route, ...routeContent}}/>
           {footer}
         </FlexCol>
       </Grid>

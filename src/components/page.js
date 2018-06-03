@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Icon} from 'pivotal-ui/react/iconography';
@@ -9,7 +9,7 @@ import Anchor from './anchor';
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
 const formatIssueUrl = title => `${Config.get('puiRepository')}/issues/new?title=${title}%3A%20<issue description>`;
 
-export default class Page extends React.PureComponent {
+export default class Page extends PureComponent {
   static propTypes = {
     category: PropTypes.string,
     file: PropTypes.string.isRequired,

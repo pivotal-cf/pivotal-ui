@@ -4,7 +4,6 @@ import reactRenderer from 'remark-react';
 import HeadingRenderer from '../components/renderers/heading_renderer';
 import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
-import Page from '../components/page';
 
 const sectionTitleToHref = (title, componentPath) => {
   const sectionPath = title.toLowerCase().replace(/[^a-z]/g, '');
@@ -58,9 +57,7 @@ const markdownFileToComponent = ({directory, fileName, json, category}) => {
     category,
     href: componentPath,
     pageMetadata,
-    PageComponent: props => (<Page {...{
-      ...props, file, category, pageMetadata, pageSections
-    }}/>)
+    pageSections
   };
 };
 
