@@ -1,6 +1,5 @@
 @import '~pivotal-ui/css/pui-variables';
 
-$highlight-background-color: $gray-11;
 $sidebar-item-left-padding: $base-unit * 2;
 $active-item-border-size: $base-unit / 2;
 
@@ -26,7 +25,7 @@ $active-item-border-size: $base-unit / 2;
   }
 }
 
-.sidebar--header {
+.sidebar-header {
   padding: $base-unit * 2;
   display: flex;
 
@@ -51,40 +50,7 @@ $active-item-border-size: $base-unit / 2;
   }
 }
 
-.sidebar--item-wrapper {
-  &.sidebar--item-wrapper__active {
-    background-color: $highlight-background-color;
-    border-left: $active-item-border-size solid $brand-8;
-
-    .sidebar--item {
-      color: $dark-1;
-      padding-left: $sidebar-item-left-padding - $active-item-border-size;
-    }
-  }
-
-  &.sidebar-component a {
-    padding-left: 4 * $base-unit;
-  }
-
-  &.sidebar--item-wrapper__active.sidebar-component a {
-    padding-left: 4 * $base-unit - $active-item-border-size;
-  }
-
-  &.sidebar-components a {
-    cursor: initial;
-    font-size: 18px;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  .sidebar--item {
-    padding-left: $sidebar-item-left-padding;
-  }
-}
-
-.sidebar--item {
+.sidebar-link {
   color: $gray-9;
   padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
   display: block;
@@ -94,6 +60,13 @@ $active-item-border-size: $base-unit / 2;
   &:hover {
     color: $gray-9;
     text-decoration: underline;
+  }
+
+  &.active {
+    color: $dark-1;
+    background-color: $gray-11;
+    border-left: $active-item-border-size solid $brand-8;
+    padding-left: $sidebar-item-left-padding - $active-item-border-size;
   }
 
   svg {

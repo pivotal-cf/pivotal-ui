@@ -4,7 +4,6 @@ import unified from 'unified';
 import parse from 'remark-parse';
 import reactRenderer from 'remark-react';
 import PropTypes from 'prop-types';
-
 import Toolbar from './toolbar';
 import Editor from './ace_editor_wrapper';
 import 'brace/mode/html';

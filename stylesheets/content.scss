@@ -1,15 +1,10 @@
 #app .content {
   background: $neutral-11;
-
   height: 100vh;
   position: relative;
   overflow: auto;
 
   h3, h4, h5, h6 {
     margin: 0;
-  }
-
-  #wrapper {
-    max-width: 960px;
   }
 }

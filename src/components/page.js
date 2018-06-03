@@ -2,7 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
-import {repository} from '../../package.json';
+import {repository} from '../config';
+import Anchor from './anchor';
 
 const styleguideRepo = repository || 'https://github.com/pivotal-cf/pui-styleguide';
 const formatEditUrl = file => `${styleguideRepo}/edit/master/docs/${file}`;
@@ -13,6 +14,7 @@ export default class Page extends React.PureComponent {
     category: PropTypes.string,
     file: PropTypes.string.isRequired,
     markdownContent: PropTypes.node.isRequired,
+    navigate: PropTypes.func.isRequired,
     pageMetadata: PropTypes.object,
     route: PropTypes.string
   };
@@ -25,9 +27,9 @@ export default class Page extends React.PureComponent {
   }
 
   render() {
-    const {route, file, category, markdownContent, pageMetadata} = this.props;
+    const {route, file, category, markdownContent, pageMetadata, navigate} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
-    const isComponentPage = category === 'component' || category === 'modifier';
+    const isComponentPage = category !== 'pages';
 
     return (
       <div className="styleguide-page">
@@ -47,16 +49,16 @@ export default class Page extends React.PureComponent {
             <nav className="tab-simple">
               <ul className="nav nav-tabs">
                 <li className="">
-                  <a href={route}>Description</a>
+                  <Anchor href={route} navigate={navigate}>Description</Anchor>
                 </li>
                 <li className="">
-                  <a href={route + '/examples'}>Examples</a>
+                  <Anchor href={route + '/examples'} navigate={navigate}>Examples</Anchor>
                 </li>
                 {reactPath && <li className="">
-                  <a href={route + '/props'}>Props</a>
+                  <Anchor href={route + '/props'} navigate={navigate}>Props</Anchor>
                 </li>}
                 <li className="">
-                  <a href={route + '/guidelines'}>Guidelines</a>
+                  <Anchor href={route + '/guidelines'} navigate={navigate}>Guidelines</Anchor>
                 </li>
               </ul>
             </nav>

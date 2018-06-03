@@ -31,7 +31,9 @@ const markdownFileToComponent = ({route, file, json, category}) => {
 
   return {
     pageMetadata,
-    PageComponent: () => <Page {...{route, file, category, pageMetadata, markdownContent}}/>
+    PageComponent: props => <Page {...{
+      ...props, route, file, category, pageMetadata, markdownContent
+    }}/>
   };
 };
 

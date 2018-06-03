@@ -5,56 +5,36 @@ import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Icon} from 'pivotal-ui/react/iconography';
 import {Input} from 'pivotal-ui/react/inputs';
 import {Divider} from 'pivotal-ui/react/dividers';
-import {routes} from '../router';
-import {version as puiVersion} from 'pivotal-ui/../package.json';
+import routes from '../routes';
+import Config from '../config';
+import Anchor from './anchor';
 
-const components = Object.values(routes).filter(({category}) => category === 'component');
-const modifiers = Object.values(routes).filter(({category}) => category === 'modifier');
-const searchItems = Object.values(routes).map(({pageMetadata}) => pageMetadata && pageMetadata.title);
+const byPageTitle = (a, b) => {
+  const aTitle = (a.pageMetadata.title || '').toLowerCase();
+  const bTitle = (b.pageMetadata.title || '').toLowerCase();
+  return (aTitle < bTitle) ? -1 : (aTitle > bTitle) ? 1 : 0;
+}
 
-const ContentLink = ({onClick, link, text, active, className, target, iconSrc}) => {
-  return (
-    <div className={classnames(className, 'sidebar--item-wrapper',
-      {'sidebar--item-wrapper__active': active})}>
-      <a onClick={onClick}
-         href={link}
-         target={target}
-         className="sidebar--item">
-         {text}
-         {iconSrc && <Icon verticalAlign="baseline" className="mll" src={iconSrc}/>}
-      </a>
-    </div>
-  );
-};
-
-ContentLink.propTypes = {
-  active: PropTypes.bool,
-  className: PropTypes.string,
-  iconSrc: PropTypes.string,
-  link: PropTypes.string,
-  onClick: PropTypes.func,
-  target: PropTypes.string,
-  text: PropTypes.string
-};
+const routeData = Object.values(routes);
+const components = routeData.sort(byPageTitle).filter(({category}) => category === 'components');
+const modifiers = routeData.sort(byPageTitle).filter(({category}) => category === 'modifiers');
+const searchItems = routeData.map(({pageMetadata}) => pageMetadata && pageMetadata.title);
 
 export default class Sidebar extends React.PureComponent {
   static propTypes = {
-    activePath: PropTypes.string,
-    updateContent: PropTypes.func.isRequired
-  }
-
-  handleClick = evt => {
-    evt.preventDefault();
-    this.props.updateContent(evt.target.href);
+    route: PropTypes.string,
+    navigate: PropTypes.func.isRequired
   }
 
   handlePick = evt => {
     const searchItem = searchItems.find(i => i === evt.value);
     if (!searchItem) return;
-    this.props.updateContent(searchItem.href);
+    this.props.navigate(searchItem.href);
   }
 
   render() {
+    const {navigate, route} = this.props;
+
     const SearchBar = () => (
       <Autocomplete {...{
         onInitializeItems: callback => callback(searchItems),
@@ -67,81 +47,71 @@ export default class Sidebar extends React.PureComponent {
     );
 
     const componentLinks = components.map(({href, pageMetadata}) => (
-      <ContentLink {...{
+      <Anchor {...{
         key: href,
-        className: 'sidebar-component',
-        onClick: this.handleClick,
-        link: href,
-        text: pageMetadata.title,
-        active: href === this.props.activePath
-      }}/>
+        navigate,
+        className: classnames('sidebar-link', {active: route === href}),
+        href
+      }}>{pageMetadata.title}</Anchor>
     ));
 
     const modifierLinks = modifiers.map(({href, pageMetadata}) => (
-      <ContentLink {...{
+      <Anchor {...{
         key: href,
-        className: 'sidebar-component',
-        onClick: this.handleClick,
-        link: href,
-        text: pageMetadata.title,
-        active: href === this.props.activePath
-      }}/>
+        navigate,
+        className: classnames('sidebar-link', {active: route === href}),
+        href
+      }}>{pageMetadata.title}</Anchor>
     ));
 
     return (
       <nav className="sidebar bg-dark-2">
-        <div className="sidebar--header">
+        <div className="sidebar-header">
           <Icon className="sidebar--icon" src="pivotal_ui_white"/>
           <div className="sidebar--title plxl">
             <h1 className="em-high h2">Pivotal UI</h1>
-            <div className="h4">v{puiVersion}</div>
+            <div className="h4">v{Config.get('puiVersion')}</div>
           </div>
         </div>
         <SearchBar/>
-        <div className="sidebar--items">
-          <ContentLink {...{
-            onClick: this.handleClick,
-            link: '/getstarted',
-            text: 'Get Started',
-            active: ['', 'getstarted', 'index.html'].indexOf(this.props.activePath) !== -1
-          }}/>
-          <ContentLink {...{
-            onClick: this.handleClick,
-            link: '/faq',
-            text: 'FAQ',
-            active: this.props.activePath === 'faq'
-          }}/>
-          <ContentLink {...{
-            onClick: this.handleClick,
-            link: '/upgradeguide',
-            text: 'Upgrade Guide',
-            active: this.props.activePath === 'upgradeguide'
-          }}/>
-          <ContentLink {...{
-            onClick: this.handleClick,
-            link: '/contribute',
-            text: 'Contribute',
-            active: this.props.activePath === 'contribute'
-          }}/>
-          <ContentLink {...{
-            onClick: this.handleClick,
-            link: '/versions',
-            text: 'Versions',
-            active: this.props.activePath === 'versions'
-          }}/>
-          <ContentLink {...{
-            link: 'https://github.com/pivotal-cf/pivotal-ui',
-            target: '_blank',
-            text: 'GitHub',
-            iconSrc: 'open_in_new'
-          }}/>
-          <Divider inverse className="mvl"/>
-          <div className="sidebar-components em-high h4 pvl plxl prl">Components</div>
-          {componentLinks}
-          <Divider inverse className="mvl"/>
-          <div className="sidebar-components em-high h4 pvl plxl prl">Modifiers</div>
-          {modifierLinks}
-        </div>
+        <Anchor {...{
+          navigate,
+          href: '/getstarted',
+          className: classnames('sidebar-link', {
+            active: ['/', '/getstarted'].indexOf(route) !== -1
+          })
+        }}>Get Started</Anchor>
+        <Anchor {...{
+          navigate,
+          href: '/faq',
+          className: classnames('sidebar-link', {active: route === '/faq'})
+        }}>FAQ</Anchor>
+        <Anchor {...{
+          navigate,
+          href: '/upgradeguide',
+          className: classnames('sidebar-link', {active: route === '/upgradeguide'})
+        }}>Upgrade Guide</Anchor>
+        <Anchor {...{
+          navigate,
+          href: '/contribute',
+          className: classnames('sidebar-link', {active: route === '/contribute'})
+        }}>Contribute</Anchor>
+        <Anchor {...{
+          navigate,
+          href: '/versions',
+          className: classnames('sidebar-link', {active: route === '/versions'})
+        }}>Versions</Anchor>
+        <Anchor {...{
+          href: 'https://github.com/pivotal-cf/pivotal-ui',
+          target: '_blank',
+          className: 'sidebar-link'
+        }}>GitHub</Anchor>
+        <Divider inverse className="mvl"/>
+        <div className="em-high h4 pvl plxl prl">Components</div>
+        {componentLinks}
+        <Divider inverse className="mvl"/>
+        <div className="em-high h4 pvl plxl prl">Modifiers</div>
+        {modifierLinks}
       </nav>
     );
   }
