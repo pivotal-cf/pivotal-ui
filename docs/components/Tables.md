@@ -4,26 +4,10 @@ cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
 reactComponents:
   - Table
-  - AdvancedTable
-  - SortableTable
   - FlexTable
+  - SortableTable
   - SortableFlexTable
-  - TablePlugin
-  - withFlex
-  - withCellLink
-  - withCellClassName
-  - withCellEllipsis
-  - withCellOnClick
-  - withCellRenderer
-  - withRenderTdChildren
-  - withCellTooltip
-  - withCellWidth
-  - withFooterRow
-  - withRowClassName
-  - withRowDrawer
-  - withRowLink
-  - withSorting
-  - withScrollableTbody
+  - AdvancedTable
 ---
 
 The `Table` component is a robust component that offers a styled table. If the rows change, the content on the page will update.
