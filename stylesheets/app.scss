@@ -4,8 +4,8 @@
 @import '~pivotal-ui/css/backgrounds/backgrounds';
 @import '~pivotal-ui/css/ellipsis/ellipsis';
 @import '~prismjs/themes/prism.css';
-@import './sidebar';
-@import './page';
+@import 'sidebar';
+@import 'page';
 @import 'code_editor';
 
 body {

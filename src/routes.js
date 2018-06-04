@@ -19,8 +19,8 @@ const requireModifiers = require.context('../docs/modifiers', false, /\.md$/);
 requireModifiers.keys().forEach(collectRouteData('modifiers', 'modifiers/', requireModifiers));
 
 export const getRouteContent = (route = '') => {
-  const routeParts = route.split('/').filter(Boolean);
-  return routes['/' + routeParts[0]] || routes['/404'];
+  const firstRoutePart = route.split('/').filter(Boolean)[0] || '';
+  return routes['/' + firstRoutePart] || routes['/404'];
 };
 
 export default routes;

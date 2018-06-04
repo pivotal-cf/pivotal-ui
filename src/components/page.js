@@ -42,8 +42,8 @@ export default class Page extends PureComponent {
     const content = SectionComponent ? <SectionComponent/> : null;
 
     return (
-      <div className="styleguide-page">
-        <header className="styleguide-page-header pvxl phxxxl">
+      <div className="styleguide-page bg-neutral-9">
+        <header className="styleguide-page-header bg-neutral-11 pvxl phxxxl">
           <a className="type-underline-hover" href={formatEditUrl(file)} target="_blank">
             <Icon verticalAlign="baseline" src="mode_edit"/>
             <span className="toolbar--label mlm">Edit this page</span>
@@ -54,15 +54,17 @@ export default class Page extends PureComponent {
           </a>}
           <h1 className="mtxl em-high">{title}</h1>
         </header>
-        <main className="phxl">
+        <main>
           {!isComponentPage ? null : (
             <Fragment>
-              <nav className="tab-simple">
-                <ul className="nav nav-tabs">
+              <nav className="tab-simple phxl bg-neutral-11">
+                <ul className="styleguide-tabs nav nav-tabs">
                   {tabLinks}
                 </ul>
               </nav>
-              {content}
+              <div className="styleguide-tab-content pvxl phxxxl">
+                {content}
+              </div>
             </Fragment>
           )}
         </main>

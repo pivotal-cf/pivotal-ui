@@ -1,23 +1,27 @@
 .styleguide-page {
   max-width: 960px;
 
-  .styleguide-page-header {
-    a {
-      color: $text-color;
-
-      svg {
-        fill: $gray-4;
-      }
-    }
-  }
-
-  .styleguide-page-tabs {
-    > .tab-content {
-      background: transparent;
-    }
-  }
-
   .styleguide-import-preview-code {
     word-break: normal;
+  }
+}
+
+.styleguide-page-header {
+  a {
+    color: $text-color;
+
+    svg {
+      fill: $gray-4;
+    }
+  }
+}
+
+.styleguide-tabs {
+  border-bottom: none !important;
+}
+
+.styleguide-tab-content {
+  > .tab-content {
+    background: transparent;
   }
 }

@@ -26,7 +26,7 @@ const devConfig = {
     hot: true,
     historyApiFallback: true,
     publicPath: '/',
-    // clientLogLevel: 'error',
+    clientLogLevel: 'error',
     contentBase: path.resolve(__dirname, 'dist'),
     stats: {
       warningsFilter: /Module not found: Error: Can't resolve .*.css/

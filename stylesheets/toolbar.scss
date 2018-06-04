@@ -1,51 +1,5 @@
-.toolbar a {
-  color: $text-color;
-}
-
-.toolbar--icon {
-  svg {
-    fill: $gray-4;
-  }
-}
-
-input[type="checkbox"].toolbar--icon {
-  margin-right: 0;
-}
-
-.toolbar--icon__checked {
-  background-color: $teal-10;
-  border: 0;
-
-  svg {
-    fill: white;
-  }
-}
-
-.toolbar--icon__unchecked {
-  background-color: white;
-  border: 1px solid black;
-
-  svg {
-    fill: white;
-  }
-}
-
-.toolbar--item {
-  cursor: pointer;
-  .form-group {
-    label {
-      line-height: inherit;
-    }
-  }
-}
-
-.toolbar--label {
-  display: inline;
-  font-size: 14px;
-}
-
-.type-underline-hover {
-  &:hover {
-    text-decoration: underline;
+.toolbar-button {
+  &:focus {
+    outline: auto !important;
   }
 }
