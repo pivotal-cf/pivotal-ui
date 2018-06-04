@@ -9,6 +9,10 @@ import routes from '../routes';
 import Config from '../config';
 import Anchor from './anchor';
 
+const routeMatchesHref = (route, href) => {
+  return `/${route.split('/').filter(Boolean)[0]}` === href;
+}
+
 const byPageTitle = (a, b) => {
   const aTitle = (a.pageMetadata.title || '').toLowerCase();
   const bTitle = (b.pageMetadata.title || '').toLowerCase();
@@ -48,7 +52,7 @@ export default class Sidebar extends PureComponent {
     const componentLinks = components.map(({href, pageMetadata}) => (
       <Anchor {...{
         key: href,
-        className: classnames('sidebar-link', {active: route === href}),
+        className: classnames('sidebar-link', {active: routeMatchesHref(route, href)}),
         href
       }}>{pageMetadata.title}</Anchor>
     ));
@@ -56,7 +60,7 @@ export default class Sidebar extends PureComponent {
     const modifierLinks = modifiers.map(({href, pageMetadata}) => (
       <Anchor {...{
         key: href,
-        className: classnames('sidebar-link', {active: route === href}),
+        className: classnames('sidebar-link', {active: routeMatchesHref(route, href)}),
         href
       }}>{pageMetadata.title}</Anchor>
     ));
