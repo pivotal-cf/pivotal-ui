@@ -1,6 +1,4 @@
 .styleguide-page {
-  max-width: 960px;
-
   .styleguide-import-preview-code {
     word-break: normal;
   }
@@ -14,6 +12,10 @@
       fill: $gray-4;
     }
   }
+}
+
+.styleguide-page-main {
+  max-width: 960px;
 }
 
 .styleguide-tabs {

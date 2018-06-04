@@ -54,18 +54,16 @@ export default class Page extends PureComponent {
           </a>}
           <h1 className="mtxl em-high">{title}</h1>
         </header>
-        <main>
+        <nav className="tab-simple phxl bg-neutral-11">
+          <ul className="styleguide-tabs nav nav-tabs">
+            {tabLinks}
+          </ul>
+        </nav>
+        <main className="styleguide-page-main">
           {!isComponentPage ? null : (
-            <Fragment>
-              <nav className="tab-simple phxl bg-neutral-11">
-                <ul className="styleguide-tabs nav nav-tabs">
-                  {tabLinks}
-                </ul>
-              </nav>
-              <div className="styleguide-tab-content pvxl phxxxl">
-                {content}
-              </div>
-            </Fragment>
+            <div className="styleguide-tab-content pvxl phxxxl">
+              {content}
+            </div>
           )}
         </main>
       </div>
