@@ -22,24 +22,24 @@ class MyModal extends React.Component {
   render() {
     return (
       <div>
-        <Form>
+        <Form className="mbn">
           <FormRow>
-            <FormCol fixed>
+            <FormCol fixed hideHelpRow>
               <DefaultButton onClick={() => this.setState({show: true})}>
                 Open Modal
               </DefaultButton>
             </FormCol>
-            <FormCol inline labelPosition="after" label="Disable Animation">
+            <FormCol inline hideHelpRow labelPosition="after" label="Disable Animation">
               <Toggle size="medium" onChange={() => this.setState({disableAnimation: !this.state.disableAnimation})}/>
             </FormCol>
           </FormRow>
         </Form>
         <Modal animationDuration={this.state.disableAnimation ? 0 : undefined}
-                   title='What a Header!'
-                   size="30%"
-                   show={this.state.show}
-                   onHide={() => this.setState({show: false})}
-                   footer={<DefaultButton onClick={() => this.setState({show: false})}>Close</DefaultButton>}>
+                title='What a Header!'
+                size="30%"
+                show={this.state.show}
+                onHide={() => this.setState({show: false})}
+                footer={<DefaultButton onClick={() => this.setState({show: false})}>Close</DefaultButton>}>
           <p>Text in a body</p><Input autoFocus placeholder="Tell me your darkest secrets"/>
         </Modal>
       </div>
