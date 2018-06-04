@@ -37,7 +37,7 @@ export default class PreRenderer extends PureComponent {
         lines.splice(0, 1);
       }
 
-      const code = lines.join('\n');
+      const code = lines.join('\n').trim();
 
       props = {lang, title, description, code, noToolbar};
     }
