@@ -10,12 +10,12 @@ import Page from './components/page';
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
 
-Object.values(routes).forEach(({pageMetadata}) => {
-  if (!pageMetadata || !pageMetadata.reactPath) return;
-  const componentPath = pageMetadata.reactPath.split('/').pop();
-  const exported = require(`pivotal-ui/react/${componentPath}`);
-  Object.entries(exported).forEach(([key, value]) => window[key] = value);
-});
+// Object.values(routes).forEach(({pageMetadata}) => {
+//   if (!pageMetadata || !pageMetadata.reactPath) return;
+//   const componentPath = pageMetadata.reactPath.split('/').pop();
+//   const exported = require(`pivotal-ui/react/${componentPath}`);
+//   Object.entries(exported).forEach(([key, value]) => window[key] = value);
+// });
 
 export default class App extends Component {
   state = {

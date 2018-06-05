@@ -7,7 +7,9 @@ reactComponents:
   - Flag
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -200,7 +202,7 @@ const mediaSpacingImage = <Image href="http://www.google.com" src="https://place
 </div>
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

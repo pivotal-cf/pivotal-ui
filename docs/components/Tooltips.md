@@ -7,7 +7,7 @@ reactComponents:
   - TooltipTrigger
 ---
 
-## Subcomponents
+# Overview
 
 - [Tooltips](#tooltips)
 - [Overlay Triggers](#overlay-triggers)

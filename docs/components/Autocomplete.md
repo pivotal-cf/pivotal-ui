@@ -3,18 +3,30 @@ title: Autocomplete
 cssPath: pivotal-ui/css/autocomplete
 reactPath: pivotal-ui/react/autocomplete
 reactComponents:
-  - Autocomplete
+  Autocomplete:
+    className: '`className` to add to autocomplete'
+    disabled: whether the input is disabled
+    input: overrides the input for autocomplete
+    maxItems: the maximum number of items in the autocomplete list
+    onClick: '`onClick` to add to the input'
+    onFilter: lets you apply an additional filter to the autocomplete list
+    onFocus: onFocus` to add to the input
+    onInitializeItems: returns the values to initially populate the autocomplete list
+    onPick: callback when something is picked from the list
+    onSearch: To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.
+    placeholder: placeholder text for the input
+    showNoSearchResults: If true, will display 'No search results' when no results are matched. Valid only if no list child is passed. Eg. If you want to provide a custom search results list component, this flag will be ignored.
+    trieOptions: >
+      Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
+    value: used when the input is a controlled input
 ---
+
+# Overview
 
 Autocomplete provides the user the ability to search for known entities with the task of retrieval or navigation. For more exploratory search and complex information seeking tasks consider a multi-step workflow or filtering options.
 
-## Do's and Don'ts
-Do's         | Don'ts
--------------|----------
-Use Autocomplete to facilitate accurate and efficient data entry | Use Autocomplete when the user needs to explore a dataset
-Use Autocomplete to select from a finite list of names, objects or symbols |
+# Examples
 
-## Examples
 ```jsx
 ::title=Basic example
 const onPick = item => alert('You selected ' + item.value);
@@ -115,21 +127,9 @@ const onSearch = (value, callback) => {
 };
 ```
 
-## Props
+# Guidelines
 
-Property            | Required | Type | Default | Description
---------------------|----------|------|---------|------------
-className           | no | String   |                   | `className` to add to autocomplete
-disabled            | no | Boolean  |                   | whether the input is disabled
-input               | no | Object   | autocompleteinput | overrides the input for autocomplete
-maxItems            | no | Number   | 50                | the maximum number of items in the autocomplete list
-onClick             | no | Function |                   | `onClick` to add to the input
-onFilter            | no | Function |                   | lets you apply an additional filter to the autocomplete list
-onFocus             | no | Function |                   | `onFocus` to add to the input
-onInitializeItems   | no | Function | done => done([])  | returns the values to initially populate the autocomplete list
-onPick              | no | Function |                   | callback when something is picked from the list
-onSearch            | no | Function |                   | To override the default search algorithm, pass your custom function to the autocomplete as the prop onSearch.
-placeholder         | no | String   | 'search'          | placeholder text for the input
-showNoSearchResults | no | Boolean  | false             | If true, will display 'No search results' when no results are matched. Valid only if no list child is passed. Eg. If you want to provide a custom search results list component, this flag will be ignored.
-trieOptions         | no | Object   |                   | Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
-value               | no | String   |                   | used when the input is a controlled input
+Do's         | Don'ts
+-------------|----------
+Use Autocomplete to facilitate accurate and efficient data entry | Use Autocomplete when the user needs to explore a dataset
+Use Autocomplete to select from a finite list of names, objects or symbols |

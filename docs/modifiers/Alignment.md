@@ -3,7 +3,9 @@ title: Alignment
 cssPath: pivotal-ui/css/alignment
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Horizontal alignment example

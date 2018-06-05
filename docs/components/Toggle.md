@@ -6,7 +6,9 @@ reactComponents:
   - Toggle
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -38,7 +40,7 @@ reactComponents:
 </Form>
 ```
 
-## Props
+# Props
 
 Property       | Required | Type                              | Default  | Description
 ---------------|----------|-----------------------------------|----------|------------

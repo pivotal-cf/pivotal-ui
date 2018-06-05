@@ -3,9 +3,11 @@ title: Button Group
 cssPath: pivotal-ui/css/button-group
 ---
 
+# Overview
+
 Button groups wrap a series of buttons.
 
-## Examples
+# Examples
 
 ```html
 ::title=Basic example

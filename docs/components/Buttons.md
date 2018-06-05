@@ -3,18 +3,32 @@ title: Buttons
 cssPath: pivotal-ui/css/buttons
 reactPath: pivotal-ui/react/buttons
 reactComponents:
-  - DefaultButton
-  - PrimaryButton
-  - DangerButton
-  - BrandButton
+  DefaultButton:
+    alt: Whether to render as 'alternate' button
+    flat: Whether to render as a 'flat' button
+    href: If specified, button clicks will redirect to this href
+    icon: Name of icon to render inside button
+    iconOnly: If specified, will render as an icon button
+    iconPosition: If specified, places the icon to the left or the right of the text and or children
+    kind: (undocumented)
+    large: Whether to render the button large
+    small: Whether to render the button small
+    fullWidth: Whether to render the button full width
+  PrimaryButton:
+    _extends: DefaultButton
+  DangerButton:
+    _extends: DefaultButton
+  BrandButton:
+    _extends: DefaultButton
 ---
+
+# Overview
 
 Use buttons as triggers for actions that are used in forms, toolbars, and as stand-alone action triggers. Try to avoid the usage of buttons for navigation. The main difference between actions and navigation is that **Actions** are operations performed on objects, while **Navigation** refers to elements on the screen or view that take you to another context in the application. For **Navigation** consider simply using links.
 
-
 The aria-label attribute will be populated with the button text, unless an aria-label value is explicitly supplied. Buttons side-by-side will be separated by a margin of `$base-unit`.
 
-## Examples
+# Examples
 
 ### Color and Treatment
 There are 3 main button color schemes: Default, Primary, Danger. There is also Brand, but this should only be used for marketing. For each color scheme there is the default style, an alt style (with inverted colors and a transparent background) and a flat style (alt with transparent borders). To use the alt style, set the `alt` prop, to use the flat style, use the `flat` prop.
@@ -69,7 +83,6 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
   </DefaultButton>
 </div>
 ```
-
 
 ```jsx
 ::title=Sizing
@@ -137,16 +150,3 @@ There are 3 main button color schemes: Default, Primary, Danger. There is also B
 </div>
 
 ```
-
-## Props
-
-Property     | Required | Type    | Default | Description
--------------|----------|---------|---------|------------
-alt          | no       | Boolean | false   | Whether to render as 'alternate' button
-flat         | no       | Boolean | false   | Whether to render as a 'flat' button
-href         | no       | String  |         | If specified, button clicks will redirect to this href
-iconOnly     | no       | Boolean | false   | If specified, will render as an icon button
-iconPosition | no       | String  |         | If specified, places the icon to the left or the right of the text and or children
-large        | no       | Boolean | false   | Whether to render the button large
-small        | no       | Boolean | false   | Whether to render the button small
-fullWidth    | no       | Boolean | false   | Whether to render the button full width

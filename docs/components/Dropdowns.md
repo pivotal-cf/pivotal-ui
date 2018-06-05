@@ -3,10 +3,12 @@ title: Dropdowns
 cssPath: pivotal-ui/css/dropdowns
 reactPath: pivotal-ui/react/dropdowns
 reactComponents:
-  - Dropdown
+  Dropdown: {}
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Basic dropdown
@@ -135,7 +137,7 @@ reactComponents:
 </div>
 ```
 
-## Dropdown Props
+# Dropdown Props
 
 Property         | Required | Type                                | Default        | Description
 -----------------|----------|-------------------------------------|----------------|------------

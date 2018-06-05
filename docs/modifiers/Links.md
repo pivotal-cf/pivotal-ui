@@ -3,6 +3,8 @@ title: Links
 cssPath: pivotal-ui/css/links
 ---
 
+# Overview
+
 The following classes allow you to control the underline color and the hover state. By default,
 links are not underlined.
 
@@ -16,7 +18,7 @@ Class                           | Description
 `underline-gray`                | Utilizes background image to define a gray underline
 `underline-gray-hover`          | Utilizes background image to define a gray underline when the state is hover
 
-## Examples
+# Examples
 
 ```html
 ::title=Link examples

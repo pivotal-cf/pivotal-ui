@@ -6,13 +6,15 @@ reactComponents:
   - Icon
 ---
 
+# Overview
+
 We provide a set of SVG icons, visible at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
 When styling the SVGs, remember to use the `fill` or `stroke` attributes instead of `color`.
 Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
 example below.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=SVG example
@@ -64,7 +66,7 @@ example below.
 </div>
 ```
 
-## Props
+# Props
 
 Icon
 

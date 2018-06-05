@@ -3,15 +3,37 @@ title: Alerts
 cssPath: pivotal-ui/css/alerts
 reactPath: pivotal-ui/react/alerts
 reactComponents:
-  - SuccessAlert
-  - InfoAlert
-  - WarningAlert
-  - ErrorAlert
+  SuccessAlert:
+    closeLabel: Screen reader label attached to close button
+    dismissable: If true, render a close button
+    onDismiss:  Callback that is called when the user clicks the close button
+    show: If set, overrides the close button. True shows the alert, false hides the alert.
+    withIcon: If true, render alert with an icon
+  InfoAlert:
+    closeLabel: Screen reader label attached to close button
+    dismissable: If true, render a close button
+    onDismiss:  Callback that is called when the user clicks the close button
+    show: If set, overrides the close button. True shows the alert, false hides the alert.
+    withIcon: If true, render alert with an icon
+  WarningAlert:
+    closeLabel: Screen reader label attached to close button
+    dismissable: If true, render a close button
+    onDismiss:  Callback that is called when the user clicks the close button
+    show: If set, overrides the close button. True shows the alert, false hides the alert.
+    withIcon: If true, render alert with an icon
+  ErrorAlert:
+    closeLabel: Screen reader label attached to close button
+    dismissable: If true, render a close button
+    onDismiss:  Callback that is called when the user clicks the close button
+    show: If set, overrides the close button. True shows the alert, false hides the alert.
+    withIcon: If true, render alert with an icon
 ---
+
+# Overview
 
 Alerts use the [Iconography](/icons) component when using `withIcon` or `dismissable`. If you use those props, you will need to add an svg loader.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -83,6 +105,7 @@ const callback = () => alert('Dismissed!');
 <WarningAlert dismissable withIcon>warning</WarningAlert>
 ```
 
+<!--
 ## Props
 
 Property | Required | Type | Default | Description
@@ -92,3 +115,4 @@ dismissable | no | Boolean  | false         | If true, render a close button
 onDismiss   | no | Function |               | Callback that is called when the user clicks the close button
 show        | no | Boolean  |               | If set, overrides the close button. True shows the alert, false hides the alert.
 withIcon    | no | Boolean  | false         | If true, render alert with an icon
+-->

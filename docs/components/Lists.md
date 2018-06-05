@@ -8,11 +8,7 @@ reactComponents:
   - ListItem
 ---
 
-## Subcomponents
-
-- [Breadcrumb Lists](#breadcrumb-lists)
-- [Draggable Lists](#draggable-lists)
-- [Inline Lists](#inline-lists)
+# Overview
 
 # Breadcrumb Lists
 

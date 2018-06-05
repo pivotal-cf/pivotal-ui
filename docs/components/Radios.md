@@ -7,9 +7,9 @@ reactComponents:
   - RadioGroup
 ---
 
-## Examples
+# Overview
 
-For the example, you also need to install [Grids](#grid_react) and require `Col` from it.
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -54,12 +54,10 @@ class MyComponent extends React.Component {
   }
 }
 
-<div>
-  <MyComponent />
-</div>
+<MyComponent />
 ```
 
-## Props
+# Props
 
 RadioGroup
 

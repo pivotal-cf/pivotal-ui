@@ -3,7 +3,9 @@ title: Code
 cssPath: pivotal-ui/css/code
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```html
 ::title=Basic unstyled
@@ -115,5 +117,4 @@ class Bop
   end
 end</code></pre>
 </div>
-
 ```

@@ -5,7 +5,9 @@ reactComponents:
   - Svg
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.
 The example below will render the file `app/svgs/search.svg`.
@@ -35,7 +37,7 @@ This optimization will sometimes change your Svg in undesirable ways. You can tu
 Pivotal UI provides a set of commonly used icons in the [Iconography Component](/icons)
 For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

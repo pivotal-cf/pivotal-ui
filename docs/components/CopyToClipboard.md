@@ -3,12 +3,14 @@ title: Copy to Clipboard
 cssPath: pivotal-ui/css/copy-to-clipboard
 reactPath: pivotal-ui/react/copy-to-clipboard
 reactComponents:
-  - CopyToClipboard
+  CopyToClipboard: {}
 ---
+
+# Overview
 
 The copy to clipboard functionality can be applied to a variety of elements.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Copy options
@@ -47,7 +49,8 @@ The copy to clipboard functionality can be applied to a variety of elements.
 </div>
 ```
 
-## Props
+# Props
+
 Property | Required | Type     | Default  | Description
 ---------|----------|----------|----------|------------
 text     | yes      | String   |          | Text that is copied when the user clicks

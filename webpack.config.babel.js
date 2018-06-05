@@ -15,8 +15,7 @@ const prodConfig = {
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin(),
     htmlPlugin
-  ],
-  devtool: false
+  ]
 };
 
 const devConfig = {
@@ -61,10 +60,21 @@ export default {
         test: /\.jsx?$/,
         use: 'babel-loader',
         exclude: /node_modules/,
+        // use: {
+        //   loader: 'babel-loader',
+        //   options: {
+        //     babelrc: false,
+        //     presets: ['es2015', 'react', 'stage-0'],
+        //     plugins: [
+        //       require.resolve('babel-plugin-add-module-exports'),
+        //       require.resolve('babel-plugin-react-component-metadata')
+        //     ]
+        //   }
+        // }
       },
       {
         test: /\.(eot|ttf|woff)$/,
-        use: 'url-loader',
+        use: 'url-loader'
       },
       {
         test: /\.md$/,
@@ -86,6 +96,6 @@ export default {
     ],
   },
   node: {
-    fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
+    fs: 'empty' // so that babel doesn't blow up with weird error messages occasionally
   }
 };

@@ -6,10 +6,12 @@ reactComponents:
   - TextFilter
 ---
 
+# Overview
+
 The `TextFilter` component provides a filter text input and allows you to filter
 and render a list of data based on the entered filter text.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Filter out data that does not contain the filter text
@@ -59,7 +61,7 @@ const renderData = filteredData => {
 }} />
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

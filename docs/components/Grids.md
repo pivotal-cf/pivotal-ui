@@ -7,14 +7,16 @@ reactComponents:
   - FlexCol
 ---
 
+# Overview
+
 Flex grids use flexbox to position columns within rows.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Outlining the grid
 ::description=This should help you visualize the columns. The grey dotted box is the grid and the orange dotted boxes are the columns.
-<Grid className="grid-show mbxl show-outline">
+<Grid className="grid-show show-outline">
     <FlexCol fixed {...{style: {width: "150px"}}}/>
     <FlexCol />
     <FlexCol className="col-grow-2"/>
@@ -95,7 +97,7 @@ Flex grids use flexbox to position columns within rows.
 ```jsx
 ::title=Fixing column sizing
 ::description=You can fix the width of a column by using the `fixed` prop or the `.col-fixed` class.
-<Grid className="grid-show mbxl">
+<Grid className="grid-show">
     <FlexCol fixed {...{style: {width: "150px"}}}/>
     <FlexCol />
     <FlexCol />
@@ -127,7 +129,7 @@ Flex grids use flexbox to position columns within rows.
 ```jsx
 ::title=Alignment
 ::description=Aligning columns relative to the grid:
-<Grid className="grid-show mbxl" {...{style: {height: "200px"}}}>
+<Grid className="grid-show" {...{style: {height: "200px"}}}>
     <FlexCol {...{alignment: 'top'}}/>
     <FlexCol {...{alignment: 'middle'}}/>
     <FlexCol {...{alignment: 'bottom'}}/>
@@ -144,7 +146,7 @@ Flex grids use flexbox to position columns within rows.
 </Grid>
 ```
 
-## Props
+# Props
 
 ### Grid properties
 

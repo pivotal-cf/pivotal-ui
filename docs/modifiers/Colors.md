@@ -3,7 +3,9 @@ title: Colors
 cssPath: pivotal-ui/css/colors
 ---
 
-Our color pallet is composed of several different colors. At any given point it captures the current
+# Overview
+
+Our color palette is composed of several different colors. At any given point it captures the current
 evolution of our design and likely includes old and new colors. Whenever possible, evolve the old
 colors rather than adding new ones.
 
@@ -13,10 +15,7 @@ They should never be used directly when building components, because it makes it
 $tabs-active-bg-color: $gray-2;
 ```
 
-If you do want to use variables and mixins, see [Installation & Usage](#installation-usage).
-
-
-## Examples
+# Examples
 
 Prepend any color variable with `bg-` to apply that color to the background.
 

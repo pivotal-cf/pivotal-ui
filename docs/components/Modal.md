@@ -6,10 +6,12 @@ reactComponents:
   - Modal
 ---
 
+# Overview
+
 The `Modal` component provides a way to put content in a pop-up dialog that must be closed before interacting with
 the main content again.
 
-## Examples
+# Examples
 
 ```jsx-only
 ::title=Basic example with custom size and duration

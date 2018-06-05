@@ -3,9 +3,11 @@ title: Box Shadows
 cssPath: pivotal-ui/css/box-shadows
 ---
 
+# Overview
+
 Box-shadows are used to to describe the visual hierarchy of objects. Key light shadows are directional, ambient light shadows come from all sides, and shadow combines them both.
 
-## Examples
+# Examples
 
 ```html
 ::title=Basic example

@@ -2,14 +2,16 @@
 title: Collapsible
 reactPath: pivotal-ui/react/collapsible
 reactComponents:
-  - Collapsible
+  Collapsible: {}
 ---
+
+# Overview
 
 The `Collapsible` component can be used to hide and show elements. By default,
 it animates the expanding and collapsing of its content, but this can be configured
 through props.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -44,7 +46,7 @@ class CollapsibleExample extends React.Component {
 <CollapsibleExample/>
 ```
 
-## Props
+# Props
 
 Property  | Required | Type     | Default | Description
 ----------|----------|----------|---------|------------

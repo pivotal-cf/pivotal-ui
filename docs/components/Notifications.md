@@ -8,7 +8,9 @@ reactComponents:
   - NotificationItem
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=No Notifications
@@ -83,7 +85,7 @@ If you want to customize the notification dropdown, you can use `className` to
 add a modifier class to the `btn-group`. `id` and `style` will be applied to
 the notification button.
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

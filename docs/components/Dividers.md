@@ -3,10 +3,12 @@ title: Dividers
 cssPath: pivotal-ui/css/dividers
 reactPath: pivotal-ui/react/dividers
 reactComponents:
-  - Divider
+  Divider: {}
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Large divider example
@@ -36,7 +38,7 @@ reactComponents:
 </div>
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

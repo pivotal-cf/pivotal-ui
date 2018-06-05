@@ -6,7 +6,9 @@ reactComponents:
   - Image
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -133,7 +135,7 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
 </Grid>
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

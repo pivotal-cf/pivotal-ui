@@ -3,10 +3,12 @@ title: Typography
 cssPath: pivotal-ui/css/typography
 ---
 
+# Overview
+
 Source Sans Pro is our font family.
 It can be used with the following modifiers to achieve a variety of effects.
 
-## Examples
+# Examples
 
 ```html
 ::title=Size

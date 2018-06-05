@@ -3,10 +3,21 @@ title: Collapse
 cssPath: pivotal-ui/css/collapse
 reactPath: pivotal-ui/react/collapse
 reactComponents:
-  - BaseCollapse
-  - AltCollapse
-  - Collapse
+  BaseCollapse:
+    divider: Specifying this property adds a divider between the clickable region and the expanded content region
+    header: The text of the clickable region to toggle the expand/collapse states
+    defaultExpanded: Setting this to true will make the component start expanded when the page loads
+  AltCollapse:
+    divider: Specifying this property adds a divider between the clickable region and the expanded content region
+    header: The text of the clickable region to toggle the expand/collapse states
+    defaultExpanded: Setting this to true will make the component start expanded when the page loads
+  Collapse:
+    divider: Specifying this property adds a divider between the clickable region and the expanded content region
+    header: The text of the clickable region to toggle the expand/collapse states
+    defaultExpanded: Setting this to true will make the component start expanded when the page loads
 ---
+
+# Overview
 
 In all `Collapse` component variations, the `header` prop describes the text
 of the clickable region to toggle the expand/collapse states. You can pass `defaultExpanded`
@@ -14,7 +25,7 @@ as a prop to the `Collapse` and it will start expanded when the page loads.
 
 This is a basic collapse with no additional styles.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -67,11 +78,3 @@ This is a basic collapse with no additional styles.
   <p>Content!</p>
 </Collapse>
 ```
-
-## Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-divider         | no  | Boolean |       | Specifying this property adds a divider between the clickable region and the expanded content region
-header          | yes | Node    |       | The text of the clickable region to toggle the expand/collapse states
-defaultExpanded | no  | Boolean | false | Setting this to true will make the component start expanded when the page loads

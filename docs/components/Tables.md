@@ -10,6 +10,8 @@ reactComponents:
   - AdvancedTable
 ---
 
+# Overview
+
 The `Table` component is a robust component that offers a styled table. If the rows change, the content on the page will update.
 
 Several enhanced Table components are also available:
@@ -20,7 +22,7 @@ Several enhanced Table components are also available:
 
 Tables can also be composed with any subset of the features offered by the **AdvancedTable**.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic HTML Table with implicit columns
@@ -202,7 +204,7 @@ const data = [1, 2].map(() => ({header1: 'Cell 1', header2: 'Cell 2', header3: '
 <Table columns={columns} data={data} className="table-no-borders"/>
 ```
 
-## Props
+# Props
 
 Table
 
@@ -245,7 +247,7 @@ Class                   | Description
 `.table-td-pal`         | Applied to table cell to add 8px vertical padding
 `.table-td-paxl`        | Applied to table cell to add 16px vertical padding
 
-## Using Plugins
+# Using Plugins
 
 The base Table component has a limited feature-set. Users can compose Tables with additional features by using plugins.
 
@@ -472,7 +474,7 @@ const data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(row => ({header1: `Row ${row}, 
 <ScrollableTable scrollable tbodyHeight='200px' columns={columns} data={data} rowLink={{link: ({header1}) => header1 === 'Row 1, Cell 1' && '#using-plugins'}}/>
 ```
 
-## Writing Plugins
+# Writing Plugins
 
 The Table component renders the following DOM elements: `table`, `thead`, `tbody`, `tfoot`, `tr`, `th`, `td`.
 

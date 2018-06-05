@@ -9,16 +9,13 @@ reactComponents:
   - FormUnit
 ---
 
+# Overview
+
 A declarative abstraction that handles layout, state, validation and error handling.
 
 Layout is based on the [Flex Grid](/grids#flex-grids) system.
 
-## Subcomponents
-
-- [Form](#form)
-- [Form Unit](#form-unit)
-
-## Examples
+# Examples
 
 The `Form` component works by building up a series of `FormRow` components, each containing one or more `FormCol`
 components. You can use these to lay out the fields in your form, and to control your form state.
@@ -362,7 +359,7 @@ Define a `onSubmitError` handler to map error messages to a specific field. Retu
 </Form>
 ```
 
-## Props
+# Props
 
 ### Form
 

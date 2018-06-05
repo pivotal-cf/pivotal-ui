@@ -3,10 +3,12 @@ title: Vertical Alignment
 cssPath: pivotal-ui/css/vertical-alignment
 ---
 
+# Overview
+
 The `aligner` class allows you to vertically align children to the top, center, or bottom.
 Its height is set by default to 230px.
 
-## Examples
+# Examples
 
 ```html
 ::title=Default example

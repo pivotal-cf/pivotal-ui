@@ -6,6 +6,8 @@ reactComponents:
   - Select
 ---
 
+# Overview
+
 Selects are excellent to use because they will automatically behave as expected cross browser on different devices. Prefer them over a custom dropdown whenever possible.
 
 ## Subcomponents
@@ -13,7 +15,7 @@ Selects are excellent to use because they will automatically behave as expected 
 - [HTML Selects](#html-selects)
 - [React Selects](#react-selects)
 
-## Examples
+# Examples
 
 ```html
 ::title=Selects
@@ -64,7 +66,7 @@ Selects are excellent to use because they will automatically behave as expected 
 <Select name='even-numbers' defaultValue='zero' options={['zero', 'two', 'four', 'six', 'eight']}/>
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

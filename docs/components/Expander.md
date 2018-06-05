@@ -2,8 +2,10 @@
 title: Expander
 reactPath: pivotal-ui/react/expander
 reactComponents:
-  - ExpanderContent
+  ExpanderContent: {}
 ---
+
+# Overview
 
 Expanders are collapsible content areas. Unlike their accordion counterparts, Expanders do not require a
 parent collapse and child content structure. This means you can trigger the expanding and collapsing content from somewhere
@@ -11,7 +13,7 @@ else within the DOM.
 
 The Expander component accepts an "onEntered" and an "onExited" callback that triggers after animation is complete.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -40,12 +42,10 @@ class MoreInfo extends React.Component {
   }
 }
 
-<div>
-    <MoreInfo />
-</div>
+<MoreInfo />
 ```
 
-## Props
+# Props
 
 Property | Required | Type | Default | Description
 ---------|----------|------|---------|------------

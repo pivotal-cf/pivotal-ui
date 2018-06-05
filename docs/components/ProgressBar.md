@@ -6,7 +6,9 @@ reactComponents:
   - ProgressBar
 ---
 
-## Examples
+# Overview
+
+# Examples
 
 ```jsx
 <div>
@@ -19,7 +21,7 @@ reactComponents:
 </div>
 ```
 
-## Props
+# Props
 
 Property        | Required   | Type      | Default   | Description
 --------------- | ---------- | --------- | --------- | ------------

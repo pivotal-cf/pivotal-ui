@@ -3,9 +3,11 @@ title: Border
 cssPath: pivotal-ui/css/border
 ---
 
+# Overview
+
 All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements with border or `.border-*` are set to `width: 1px solid $input-color;` by default.
 
-## Examples
+# Examples
 
 ```html
 ::title=Default border

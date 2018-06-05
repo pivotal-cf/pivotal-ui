@@ -6,6 +6,8 @@ reactComponents:
   - PortalDestination
 ---
 
+# Overview
+
 The `Portal` components render DOM nodes elsewhere on the page. This is useful for things like
 modals, tooltips, and dropdowns, when you want to define the content near the trigger, but have
 it display at the bottom of the page (generally to solve z-index and overflow incompatibilities).
@@ -15,7 +17,7 @@ the modal content (e.g. a `<button>`) does not have access to `<body>` directly.
 If a `PortalDestination` is put at the bottom of `<body>`, a `PortalSource` can then be used
 anywhere without knowing about `<body>`.
 
-## Examples
+# Examples
 
 ```jsx
 ::title=Basic example
@@ -32,7 +34,7 @@ anywhere without knowing about `<body>`.
 </div>
 ```
 
-## Props
+# Props
 
 PortalSource/PortalDestination
 
