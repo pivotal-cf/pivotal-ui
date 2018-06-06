@@ -39,7 +39,8 @@ describe('Flyout', () => {
       children: jasmine.any(Object),
       hideOnBackdropClick: false,
       hideOnEscKeyDown: false,
-      width: '100px'
+      width: '100px',
+      updateParentZIndex: true
     });
   });
 
