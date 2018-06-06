@@ -55,6 +55,30 @@ describe('Dialog', () => {
     expect('.pui-dialog a').not.toExist();
   });
 
+  it('does not update the parent z-index', () => {
+    expect('#root').toHaveAttr('style', null);
+  });
+
+  describe('when updateParentZIndex is true and modal becomes visible', () => {
+    beforeEach(() => {
+      subject::setProps({updateParentZIndex: true, animationDuration: 0, show: true});
+    });
+
+    it('updates the parent z-index', () => {
+      expect('#root').toHaveAttr('style', 'z-index: 1000;');
+    });
+
+    describe('when the modal is closed', () => {
+      beforeEach(() => {
+        subject::setProps({show: false});
+      });
+
+      it('updates the parent z-index', () => {
+        expect('#root').toHaveAttr('style', 'z-index: -1000;');
+      });
+    });
+  });
+
   describe('when the modal becomes visible', () => {
     beforeEach(() => {
       spyOn(global.document, 'addEventListener').and.callThrough();
@@ -63,6 +87,10 @@ describe('Dialog', () => {
       document.body.style.overflow = 'scroll';
       $('#some-button').focus();
       subject::setProps({show: true});
+    });
+
+    it('does not update the parent z-index', () => {
+      expect('#root').toHaveAttr('style', null);
     });
 
     it('sets a keydown event listener', () => {

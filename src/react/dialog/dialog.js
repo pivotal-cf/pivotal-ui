@@ -16,7 +16,8 @@ export class Dialog extends React.PureComponent {
     onHide: PropTypes.func.isRequired,
     show: PropTypes.bool,
     title: PropTypes.node,
-    width: PropTypes.string
+    width: PropTypes.string,
+    updateParentZIndex: PropTypes.bool
   };
 
   static defaultProps = {
@@ -31,8 +32,13 @@ export class Dialog extends React.PureComponent {
 
   hide = () => this.props.onHide();
 
+  setParentZIndex = zIndex => {
+    if (!this.props.updateParentZIndex || !this.el.parentNode) return;
+    this.el.parentNode.style.zIndex = `${zIndex}`;
+  };
+
   closeDialog = () => {
-    this.setState({visible: false});
+    this.setState({visible: false}, () => this.setParentZIndex(-1000));
     this.setBodyScrolling(true);
   };
 
@@ -41,6 +47,7 @@ export class Dialog extends React.PureComponent {
     this.setState({visible: true}, () => {
       const tabbableEls = DomHelpers.findTabbableElements(this.dialog) || [];
       tabbableEls[0] && tabbableEls[0].focus();
+      this.setParentZIndex(1000);
     });
   };
 
@@ -75,6 +82,7 @@ export class Dialog extends React.PureComponent {
 
   componentDidMount() {
     require('../../css/dialog');
+    this.setParentZIndex(-1000);
     if (!this.props.show) return;
     global.document.addEventListener('keydown', this.onKeyDown);
     this.lastFocusedElement = DomHelpers.getActiveElement();
@@ -120,21 +128,27 @@ export class Dialog extends React.PureComponent {
     }
 
     return (
-      <div {...{
-        className: classnames('pui-dialog-backdrop', {'pui-dialog-show': show}, className),
-        style: backdropStyle,
-        onClick: this.onBackdropClick,
-        'aria-hidden': !show,
-        ref: el => this.backdrop = el
-      }}>
+      <div className={classnames('pui-dialog-container', {
+        'pui-dialog-visible': visible
+      })} ref={el => this.el = el}>
         <div {...{
-          role: 'dialog',
-          'aria-labelledby': ariaLabelledBy,
-          ref: el => this.dialog = el,
-          className: classnames('pui-dialog', {'pui-dialog-show': show}, dialogClassName),
-          style: dialogStyle
+          className: classnames('pui-dialog-backdrop', {
+            'pui-dialog-show': show
+          }, className),
+          style: backdropStyle,
+          onClick: this.onBackdropClick,
+          'aria-hidden': !show,
+          ref: el => this.backdrop = el
         }}>
-          {visible && children}
+          <div {...{
+            role: 'dialog',
+            'aria-labelledby': ariaLabelledBy,
+            ref: el => this.dialog = el,
+            className: classnames('pui-dialog', {'pui-dialog-show': show}, dialogClassName),
+            style: dialogStyle
+          }}>
+            {visible && children}
+          </div>
         </div>
       </div>
     );

@@ -1,5 +1,11 @@
 @import "../pui-variables";
 
+.pui-flyout-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .pui-flyout-dialog-backdrop {
   position: absolute;
 }
@@ -24,5 +30,7 @@
 
   .pui-flyout-body {
     padding: $base-unit * 2;
+    overflow: auto;
+    max-height: calc(100% - 70px);
   }
 }
