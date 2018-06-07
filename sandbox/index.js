@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Sandbox from './sandbox';
-import 'pivotal-ui/css/alerts/alerts.scss';
-import 'pivotal-ui/css/common/common.scss';
-import 'pivotal-ui/css/typography/typography.scss';
+
+const req = require.context('pivotal-ui/css', true, /\.scss$/);
+req.keys().forEach(req);
 
 const root = document.getElementById('root');
 
