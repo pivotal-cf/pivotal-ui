@@ -3,8 +3,8 @@
   "license": "ISC",
   "version": "0.0.0",
   "description": "",
-  "repository": "https://github.com/pivotal-cf/pivotal-ui",
-  "main": "server.js",
+  "repository": "https://github.com/pivotal-cf/pui-styleguide",
+  "main": "dist/bundle.js",
   "devDependencies": {
     "babel-core": "^6.22.1",
     "babel-loader": "7.0.0",
@@ -15,6 +15,8 @@
     "compression-webpack-plugin": "^0.4.0",
     "concurrently": "^3.1.0",
     "css-loader": "^0.26.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^2.0.0-beta.5",
     "file-loader": "^0.9.0",
     "graceful-fs": "^4.1.11",
@@ -58,6 +60,7 @@
     "lodash.kebabcase": "^4.1.1",
     "pivotal-js-jasmine-matchers": "^0.0.18",
     "prismjs": "^1.11.0",
+    "prop-types": "^15.6.1",
     "react-ace": "6.1.1",
     "remark-parse": "^3.0.1",
     "remark-react": "^4.0.0",
@@ -67,6 +70,7 @@
     "start": "cp public/* dist/ && cp -R static dist/ && webpack-dev-server --config frontend_webpack.config.babel.js --watch --hot --content-base dist --history-api-fallback",
     "build": "webpack --config ./frontend_webpack.config.babel.js -p && cp public/* dist/ && cp -R static dist/",
     "build-dev": "webpack --config ./frontend_webpack.config.babel.js && cp public/* dist/ && cp -R static dist/",
-    "test": "gulp spec-app"
+    "test": "gulp spec-app",
+    "lint": "eslint src --fix"
   }
 }

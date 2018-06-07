@@ -18,6 +18,6 @@ export default class EditorWrapper extends React.Component {
                  onChange={this.props.changeHandler}
                  editorProps={{$blockScrolling: Infinity}}
                  setOptions={{showGutter: true, showLineNumbers: true}}/>
-    )
+    );
   }
 }

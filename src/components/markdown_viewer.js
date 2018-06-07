@@ -23,7 +23,7 @@ export default class MarkdownViewer extends Component {
   }
 
   componentDidUpdate() {
-    Prism.highlightAll();
+    Prism.highlightAll(); // eslint-disable-line no-undef
   }
 
   render() {

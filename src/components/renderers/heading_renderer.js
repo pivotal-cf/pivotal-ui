@@ -8,9 +8,9 @@ export default level => class extends Component {
     const {children: [text], className} = this.props;
     const id = kebabCase(text.toLowerCase());
 
-    return <Type {...this.props} {...{
+    return (<Type {...this.props} {...{
       id,
       className: classnames(className, Type)
-    }}/>;
+    }}/>);
   }
-}
+};

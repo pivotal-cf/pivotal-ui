@@ -47,7 +47,7 @@ export default class App extends React.Component {
           <p>
             © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
             <span className="pln">
-              <span className="policy-link"><a href='https://pivotal.io/privacy-policy'>Privacy Policy</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
               <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
               <span className="policy-link" id="teconsent"/>
             </span>

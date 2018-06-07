@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AceEditor from 'react-ace';
-
 import {Icon} from 'pivotal-ui/react/iconography';
 import {CopyToClipboard} from 'pivotal-ui/react/copy-to-clipboard';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
 export default class HtmlEditor extends React.Component {
+  static propTypes = {
+    code: PropTypes.string,
+    readOnly: PropTypes.bool,
+    changeHandler: PropTypes.func
+  };
+
   render() {
     return (
       <div className="code-editor--html-preview mbxl">
@@ -21,7 +27,7 @@ export default class HtmlEditor extends React.Component {
                 iconOnly: true,
                 icon: <Icon src="copy"/>,
                 small: true
-              }} />
+              }}/>
             </CopyToClipboard>
           </div>
         </div>
