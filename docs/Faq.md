@@ -29,7 +29,7 @@ TLDR; Use modifier classes only for simple overrides. For anything more complica
 
 ```jsx
 ::title=Panel with modifier classes
-<Panel title="Panel with modifier classes" className="paxxl bg-brand-11" innerClassName="type-neutral-11 bg-brand-10">
+<Panel title="Panel with modifier classes" className="paxxl bg-brand-11" bodyClassName="type-neutral-11 bg-brand-10">
   <p>Panel contents</p>
 </Panel>
 ```
