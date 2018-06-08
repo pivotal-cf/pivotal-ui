@@ -759,12 +759,6 @@ babel-plugin-check-es2015-constants@^6.22.0:
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-react-component-metadata@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-react-component-metadata/-/babel-plugin-react-component-metadata-0.0.2.tgz#562e59059d2236dedde3f1e682a34d166ae2ff2e"
-  dependencies:
-    babel-types "^6.26.0"
-
 babel-plugin-react-svg@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-react-svg/-/babel-plugin-react-svg-2.1.0.tgz#169eeba1a20fa2dee3a71ff38eedd63d08e69487"

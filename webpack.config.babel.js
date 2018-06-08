@@ -59,18 +59,7 @@ export default {
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
-        exclude: /node_modules/,
-        // use: {
-        //   loader: 'babel-loader',
-        //   options: {
-        //     babelrc: false,
-        //     presets: ['es2015', 'react', 'stage-0'],
-        //     plugins: [
-        //       require.resolve('babel-plugin-add-module-exports'),
-        //       require.resolve('babel-plugin-react-component-metadata')
-        //     ]
-        //   }
-        // }
+        exclude: /node_modules/
       },
       {
         test: /\.(eot|ttf|woff)$/,

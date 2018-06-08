@@ -11,7 +11,7 @@
   ],
   "rules": {
     "block-scoped-var": 2,
-    "camelcase": 2,
+    "camelcase": 0,
     "complexity": 2,
     "consistent-return": 0,
     "curly": 0,

@@ -2,8 +2,6 @@
 
 This app is the styleguide/documentation for [Pivotal UI](https://github.com/pivotal-cf/pivotal-ui).
 
-See it live at [styleguide.pivotal.io](https://styleguide.pivotal.io).
-
 ### Running Locally
 
 1. `yarn install`
