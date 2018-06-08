@@ -3,7 +3,10 @@ title: Inputs
 cssPath: pivotal-ui/css/inputs
 reactPath: pivotal-ui/react/inputs
 reactComponents:
-  - Input
+  Input:
+    icon: See [Icons](/icons) for valid icon names
+    size: Size variations
+    ...rest: All other props are passed to the internal `<input>` tag.
 ---
 
 # Overview
@@ -41,12 +44,3 @@ Inputs will only be fully styled if their type is properly declared.
     <Input placeholder="Success" icon="check" className="mtxxl" />
 </div>
 ```
-
-# Props
-
-Property       | Required | Type                              | Default  | Description
----------------|----------|-----------------------------------|----------|------------
-icon           | no       | String                            |          | See [Icons](/icons) for valid icon names
-size           | no       | oneOf('small', 'medium', 'large') | 'medium' | Size variations
-
-All other props are passed to the internal `<input>` tag.

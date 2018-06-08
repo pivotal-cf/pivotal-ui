@@ -2,8 +2,10 @@
 title: Portals
 reactPath: pivotal-ui/react/portals
 reactComponents:
-  - PortalSource
-  - PortalDestination
+  PortalSource:
+    name: Use same name to connect sources and destinations
+  PortalDestination:
+    name: Use same name to connect sources and destinations
 ---
 
 # Overview
@@ -33,11 +35,3 @@ anywhere without knowing about `<body>`.
   </section>
 </div>
 ```
-
-# Props
-
-PortalSource/PortalDestination
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-name | yes | String | | Use same name to connect sources and destinations

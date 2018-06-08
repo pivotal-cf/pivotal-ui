@@ -2,7 +2,16 @@
 title: Expander
 reactPath: pivotal-ui/react/expander
 reactComponents:
-  ExpanderContent: {}
+  ExpanderContent:
+    delay: Duration (in milliseconds) of expand/collapse animation
+    disableAnimation: If true, disables animation on expand/collapse
+    expanded: Whether the component is expanded
+    onEntered: Callback called when animation begins
+    onExited: Callback called when animation ends
+    boundingClientRect: (undocumented)
+    container: (undocumented)
+    containerReady: (undocumented)
+    transitionProgress: (undocumented)
 ---
 
 # Overview
@@ -44,13 +53,3 @@ class MoreInfo extends React.Component {
 
 <MoreInfo />
 ```
-
-# Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-expanded  | no | Boolean   | false | Whether to render expanded or not
-onEntered | no | Function  |       | Hook that fires when expand occurs
-onExited  | no | Function  |       | Hook that fires when collapse occurs
-
-All props are also passed to the inner `Collapsible` component.

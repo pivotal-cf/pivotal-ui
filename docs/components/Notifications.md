@@ -3,9 +3,13 @@ title: Notifications
 cssPath: pivotal-ui/css/notifications
 reactPath: pivotal-ui/react/notifications
 reactComponents:
-  - Notifications
-  - AlertNotifications
-  - NotificationItem
+  Notifications:
+    size: Size of the notification
+  AlertNotifications:
+    size: Size of the notification
+  NotificationItem:
+    href: href to navigate to when item is clicked
+    ...props: All other props are passed to the inner `a` tag
 ---
 
 # Overview
@@ -84,9 +88,3 @@ reactComponents:
 If you want to customize the notification dropdown, you can use `className` to
 add a modifier class to the `btn-group`. `id` and `style` will be applied to
 the notification button.
-
-# Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-size | no | oneOf('h1', 'h2', 'h3', 'h4', 'h5', 'h6') | | Size of the notification

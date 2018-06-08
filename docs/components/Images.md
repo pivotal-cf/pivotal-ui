@@ -3,7 +3,11 @@ title: Images
 cssPath: pivotal-ui/css/images
 reactPath: pivotal-ui/react/images
 reactComponents:
-  - Image
+  Image:
+    responsive: Whether this image should resize responsively
+    href: If set, image becomes a link
+    alt: Alt text
+    src: Image src
 ---
 
 # Overview
@@ -134,12 +138,3 @@ the height to width ratio as an inline padding bottom style on the `.svg-respons
   </FlexCol>
 </Grid>
 ```
-
-# Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-responsive | no  | Boolean | false | Whether this image should resize responsively
-href       | no  | String  |       | If set, image becomes a link
-alt        | no  | String  |       | Alt text
-src        | yes | String  |       | Image src

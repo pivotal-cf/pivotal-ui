@@ -3,7 +3,19 @@ title: Panels
 cssPath: pivotal-ui/css/panels
 reactPath: pivotal-ui/react/panels
 reactComponents:
-  - Panel
+  Panel:
+    className: Class(es) to apply to the panel container
+    title: String to render in the title
+    titleCols: An array of nodes to render on the title row, each element should be wrapped in a `FlexCol`
+    titleClassName: Class(es) to apply to the title
+    panelClassName: Class(es) to apply to the area containing the header, body and footer
+    header: String to render in the header
+    headerCols: An array of nodes to render on the header row, each element should be wrapped in a `FlexCol`
+    headerClassName: Class(es) to apply to the header
+    loading: If true, will render a pulsing loading bar
+    bodyClassName: Class(es) to apply to the body
+    footer: Node to render in the footer
+    footerClassName: Class(es) to apply to the footer
 ---
 
 # Overview
@@ -53,20 +65,3 @@ Do        | Don't
 Use a panel to logically group content that has the following form: header, body, and/or footer, and/or title. | Use a panel as a generic wrapping element. Instead, avail yourself of the various background color modifiers we have.
 Use multiple panels or list-group inside to group a collection of related content objects. | Overload the panel header with too many calls to action.
 Distinguish between primary and secondary CTAs in the title/header and footer (e.g., primary vs secondary buttons). | Use a panel when screen real estate is valuable, instead consider a table layout or grouped-list.
-
-# Props
-
-Property         | Required | Type    | Default | Description
------------------|----------|---------|---------|------------
-className        | no       | String  |         | Class(es) to apply to the panel container
-title            | no       | String  |         | String to render in the title
-titleCols        | no       | Array   | []      | An array of nodes to render on the title row, each element should be wrapped in a `FlexCol`
-titleClassName   | no       | String  |         | Class(es) to apply to the title
-panelClassName   | no       | String  |         | Class(es) to apply to the area containing the header, body and footer
-header           | no       | String  |         | String to render in the header
-headerCols       | no       | Array   | []      | An array of nodes to render on the header row, each element should be wrapped in a `FlexCol`
-headerClassName  | no       | String  |         | Class(es) to apply to the header
-loading          | no       | Boolean |         | If true, will render a pulsing loading bar
-bodyClassName    | no       | String  |         | Class(es) to apply to the body
-footer           | no       | Node    |         | Node to render in the footer
-footerClassName  | no       | String  |         | Class(es) to apply to the footer

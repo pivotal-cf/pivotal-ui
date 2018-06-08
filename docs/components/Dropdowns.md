@@ -3,7 +3,28 @@ title: Dropdowns
 cssPath: pivotal-ui/css/dropdowns
 reactPath: pivotal-ui/react/dropdowns
 reactComponents:
-  Dropdown: {}
+  Dropdown:
+    blockingScrim: If true, blocks mouse events outside of the dropdown. Clicking outside of the dropdown will still close the dropdown.
+    border: (undocumented)
+    buttonAriaLabel: aria-label for the button
+    buttonClassName: Classname to add to the button
+    closeOnMenuClick: If false, do not close the menu when clicking in the dropdown menu
+    disableScrim: If true, do not close the menu when clicking outside the dropdown
+    flat: If true, dropdown toggle has no borders and is transparent
+    floatMenu: If true, float the dropdown menu. This only applies to the basic dropdown
+    icon: Name of the svg to use for the toggle icon
+    itemClassName: Classname to add to each child `li`
+    link: If true, color the dropdown toggle like a link
+    menuAlign: Sets the alignment of the menu with the button
+    onClick: Callback that fires after clicking the button
+    onEntered: Callback that fires after opening the dropdown
+    onExited: Callback that fires after closing the dropdown
+    scroll: Enables scrolling in the dropdown menu when enabled
+    showIcon: If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
+    size: Sets the size
+    split: If true, separates the button text from the toggle
+    title: The button contents
+    toggle: a node to render instead of the button that opens the dropdown
 ---
 
 # Overview
@@ -136,29 +157,3 @@ reactComponents:
   </Dropdown>
 </div>
 ```
-
-# Dropdown Props
-
-Property         | Required | Type                                | Default        | Description
------------------|----------|-------------------------------------|----------------|------------
-blockingScrim    | no       | Boolean                             | false          | If true, blocks mouse events outside of the dropdown. Clicking outside of the dropdown will still close the dropdown.
-buttonAriaLabel  | no       | String                              |                | aria-label for the button
-buttonClassName  | no       | String                              |                | Classname to add to the button
-closeOnMenuClick | no       | Boolean                             | true           | If false, do not close the menu when clicking in the dropdown menu
-disableScrim     | no       | Boolean                             | false          | If true, do not close the menu when clicking outside the dropdown
-flat             | no       | Boolean                             |                | If true, dropdown toggle has no borders and is transparent
-floatMenu        | no       | Boolean                             | false          | If true, float the dropdown menu. This only applies to the basic dropdown
-icon             | no       | String                              | 'chevron_down' | Name of the svg to use for the toggle icon
-itemClassName    | no       | String                              |                | Classname to add to each child `li`
-link             | no       | Boolean                             |                | If true, color the dropdown toggle like a link
-menuAlign        | no       | oneOf(['none', 'left', 'right'])    | 'none'         | Sets the alignment of the menu with the button
-onClick          | no       | Function                            |                | Callback that fires after clicking the button
-onEntered        | no       | Function                            |                | Callback that fires after opening the dropdown
-onExited         | no       | Function                            |                | Callback that fires after closing the dropdown
-scroll           | no       | Boolean                             | false          | Enables scrolling in the dropdown menu when enabled
-showIcon         | no       | Boolean                             | true           | If false, do not render an icon in the dropdown toggle. Icon can not be hidden if split or leaving out title.
-size             | no       | oneOf(['normal', 'large', 'small']) | 'normal'       | Sets the size
-split            | no       | Boolean                             |                | If true, separates the button text from the toggle
-title            | no       | Node                                |                | The button contents
-
-(The extra loaders are for the [Iconography](/icons) component.)

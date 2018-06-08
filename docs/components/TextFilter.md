@@ -3,7 +3,12 @@ title: Text Filter
 cssPath: pivotal-ui/css/text-filter
 reactPath: pivotal-ui/react/text-filter
 reactComponents:
-  - TextFilter
+  TextFilter:
+    data: array of the data to filter.
+    emptyState: jsx to render when there is no results due to filtering. If not provided `renderFilteredData` will be called with empty data.
+    filter: filter function takes in the data and the current filter text, applies transformations, and returns the filtered data.
+    filterPlaceholderText: Text to show where user input is accepted
+    renderFilteredData: callback to render the result of filtering on the data.
 ---
 
 # Overview
@@ -60,13 +65,3 @@ const renderData = filteredData => {
     renderFilteredData: renderData
 }} />
 ```
-
-# Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-data     | true    | array | [] | array of the data to filter.
-emptyState | false | node  |  | jsx to render when there is no results due to filtering. If not provided `renderFilteredData` will be called with empty data.
-filter   | true    | function| (data, filterText) => data | filter function takes in the data and the current filter text, applies transformations, and returns the filtered data.
-filterPlaceholderText | false | string | 'Filter...' | Text to show where user input is accepted
-renderFilteredData | true | function | () => null | callback to render the result of filtering on the data.

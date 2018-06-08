@@ -3,7 +3,10 @@ title: Copy to Clipboard
 cssPath: pivotal-ui/css/copy-to-clipboard
 reactPath: pivotal-ui/react/copy-to-clipboard
 reactComponents:
-  CopyToClipboard: {}
+  CopyToClipboard:
+    text: Text that is copied when the user clicks
+    onClick: Click handler
+    tooltip: Text to show in tooltip after click
 ---
 
 # Overview
@@ -48,11 +51,3 @@ The copy to clipboard functionality can be applied to a variety of elements.
   </div>
 </div>
 ```
-
-# Props
-
-Property | Required | Type     | Default  | Description
----------|----------|----------|----------|------------
-text     | yes      | String   |          | Text that is copied when the user clicks
-onClick  | no       | Function | () => () | Click handler
-tooltip  | no       | String   | "Copied" | Text to show in tooltip after click

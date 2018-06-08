@@ -15,6 +15,7 @@ reactComponents:
     name: Name to set on inner `input[type="checkbox"]`
     onChange: onChange callback to set on inner `input[type="checkbox"]`
     style: Style to put on outer `div` element
+    type: (undocumented)
     ...rest: All other props will be put onto the inner `input[type="checkbox"]`.
 ---
 

@@ -2,7 +2,16 @@
 title: Collapsible
 reactPath: pivotal-ui/react/collapsible
 reactComponents:
-  Collapsible: {}
+  Collapsible:
+    delay: Duration (in milliseconds) of expand/collapse animation
+    disableAnimation: If true, disables animation on expand/collapse
+    expanded: Whether the component is expanded
+    onEntered: Callback called when animation begins
+    onExited: Callback called when animation ends
+    boundingClientRect: (undocumented)
+    container: (undocumented)
+    containerReady: (undocumented)
+    transitionProgress: (undocumented)
 ---
 
 # Overview
@@ -45,12 +54,3 @@ class CollapsibleExample extends React.Component {
 
 <CollapsibleExample/>
 ```
-
-# Props
-
-Property  | Required | Type     | Default | Description
-----------|----------|----------|---------|------------
-delay     | no       | Number   | 400     | Duration (in milliseconds) of expand/collapse animation
-expanded  | no       | Boolean  |         | Whether the component is expanded
-onEntered | no       | Function |         | Callback called when animation begins
-onExited  | no       | Function |         | Callback called when animation ends

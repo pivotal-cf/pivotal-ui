@@ -3,9 +3,32 @@ title: Tabs
 cssPath: pivotal-ui/css/tabs
 reactPath: pivotal-ui/react/tabs
 reactComponents:
-  - Tab
-  - Tabs
-  - LeftTabs
+  Tab:
+    aria-labelledby: Overwrite the default aria-labelledby for the tab for more specific accessibility information
+    className: ClassName to add to the tab content
+    disabled: If true, disable the tab
+    eventKey: data representing the tab, to be used with defaultActiveKey or onSelect
+    onEntered: A function that gets called with the eventKey on entering a tab once animations have finished
+    onExited: A function that gets called with the eventKey on exiting a tab once animations have finished
+    title: Text or an element rendered in the tab link
+    tabClassName: className to add to the tab link
+  Tabs:
+    actions: An element or text that will display in the upper right
+    animation: Whether to animate when moving between tabs, defaults to true
+    defaultActiveKey: The tab which will start out open. This should equal one of your tab's event keys
+    largeScreenClassName: Will be applied to large screen tabs only
+    onSelect: Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
+    responsiveBreakpoint: The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
+    smallScreenClassName: Will be applied to small screen tabs only
+    tabType: Use 'left' to have the tabs stacked to the left
+    activeKey: (undocumented)
+    position: (undocumented)
+    id: (undocumented)
+    paneWidth: (undocumented)
+    tabWidth: (undocumented)
+  LeftTabs:
+    _extends: Tabs
+    tabWidth: The amount of FlexCol growth for the tabs
 ---
 
 # Overview
@@ -62,37 +85,3 @@ Do's         | Don'ts
 Use tabs to group content, connect related information, and as a tool to save space. | Don’t use tabs when it’s more meaningful for the user to see related content grouped together
 Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need. | When content is sequential it may make more sense to have content grouped and scrollable
 When a user would like to access each group of information separately. | When it makes more sense to have users scan the page then hide content
-
-# Props
-
-Tabs
-
-Property             | Required | Type                          | Default  | Description
----------------------|----------|-------------------------------|----------|------------
-actions              | no       | Node                          |          | An element or text that will display in the upper right
-animation            | no       | Boolean                       | false    | Whether to animate when moving between tabs, defaults to true
-defaultActiveKey     | no       | Any                           |          | The tab which will start out open. This should equal one of your tab's event keys
-largeScreenClassName | no       | String                        |          | Will be applied to large screen tabs only
-onSelect             | no       | Function                      |          | Will override default behavior when clicking on a tab. If you want to retain the default behavior as well as add new functionality, change default active key in the function you provide
-responsiveBreakpoint | no       | oneOf('xs', 'sm', 'md', 'lg') |          | The size at which the small-screen tabs (accordion-style) should switch to large-screen tabs (folder-style)
-smallScreenClassName | no       | String                        |          | Will be applied to small screen tabs only
-tabType              | no       | oneOf('simple', 'left')       | 'simple' | Use 'left' to have the tabs stacked to the left
-
-Tab
-
-Property        | Required | Type     | Default | Description
-----------------|----------|----------|---------|------------
-aria-labelledby | no       | String   |         | Overwrite the default aria-labelledby for the tab for more specific accessibility information
-className       | no       | String   |         | ClassName to add to the tab content
-disabled        | no       | Boolean  | false   | If true, disable the tab
-eventKey        | no       | Any      |         | data representing the tab, to be used with defaultActiveKey or onSelect
-onEntered       | no       | Function |         | A function that gets called with the eventKey on entering a tab once animations have finished
-onExited        | no       | Function |         | A function that gets called with the eventKey on exiting a tab once animations have finished
-title           | yes      | Node     |         | Text or an element rendered in the tab link
-tabClassName    | no       | String   |         | className to add to the tab link
-
-Left
-
-Property   | Required? | Type             | Description                                  | Default
------------| ----------|------------------| ---------------------------------------------|------------------------
-`tabWidth` | no        |  `number`        | The amount of FlexCol growth for the tabs    | 3

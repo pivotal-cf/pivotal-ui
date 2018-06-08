@@ -3,7 +3,9 @@ title: Progress Bars
 cssPath: pivotal-ui/css/progress-bar
 reactPath: pivotal-ui/react/progress-bar
 reactComponents:
-  - ProgressBar
+  ProgressBar:
+    barClassName: Class(es) to apply
+    value: Percentage to display
 ---
 
 # Overview
@@ -20,10 +22,3 @@ reactComponents:
   </Grid>
 </div>
 ```
-
-# Props
-
-Property        | Required   | Type      | Default   | Description
---------------- | ---------- | --------- | --------- | ------------
-barClassName    | false      | String    |           | Class(es) to apply
-value           | false      | Number    |           | Percentage to display

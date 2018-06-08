@@ -3,16 +3,21 @@ title: Lists
 cssPath: pivotal-ui/css/lists
 reactPath: pivotal-ui/react/lists
 reactComponents:
-  - BreadcrumbList
-  - InlineList
-  - ListItem
+  BreadcrumbList:
+    className: Classname of the list
+    unstyled: Whether to style the list
+    divider: Whether to include a divider between items
+  InlineList:
+    className: Classname of the list
+    unstyled: Whether to style the list
+    divider: Whether to include a divider between items
+  ListItem:
+    ...props: All props passed directly to `li` tag.
 ---
 
 # Overview
 
-# Breadcrumb Lists
-
-## Example
+# Examples
 
 ```jsx
 ::title=Breadcrumb
@@ -39,43 +44,6 @@ reactComponents:
 </ul>
 ```
 
-# Draggable Lists
-
-## Example
-
-```jsx
-::title=Draggable
-<DraggableList className="my-list-class" innerClassName="my-item-class">
-  <DraggableListItem>
-    Get me out of here!
-  </DraggableListItem>
-
-  <DraggableListItem>
-    LOL
-  </DraggableListItem>
-
-  <DraggableListItem>
-    Can't stop
-  </DraggableListItem>
-
-  <DraggableListItem>
-   Get me out of here!
-  </DraggableListItem>
-
-  <DraggableListItem>
-   LOL
-  </DraggableListItem>
-
-  <DraggableListItem>
-   Can't stop
-  </DraggableListItem>
-</DraggableList>
-```
-
-# Inline Lists
-
-## Example
-
 ```jsx
 ::title=Inline
 <InlineList>
@@ -84,11 +52,3 @@ reactComponents:
   <ListItem>Item 3</ListItem>
 </InlineList>
 ```
-
-## Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-className | no | String  |       | Classname of the list
-unstyled  | no | Boolean | false | Whether to style the list
-divider   | no | Boolean | false | Whether to include a divider between items

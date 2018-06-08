@@ -3,8 +3,17 @@ title: Media
 cssPath: pivotal-ui/css/media
 reactPath: pivotal-ui/react/media
 reactComponents:
-  - Media
-  - Flag
+  Media:
+    image: The image displayed
+    innerClassName: The classname of the inner element
+    mediaSpacing: Amount of whitespace between media and body
+    stackSize: At what breakpoint should the media object stack
+    vAlign: Vertical alignment of the body (used for large images with small content next to it, usually centered)
+    placement: Horizontal placement of the media
+    className: The classname of the element
+  Flag:
+    _extends: Media
+    vAlign: (undocumented)
 ---
 
 # Overview
@@ -180,36 +189,24 @@ const mediaAlignmentImage = <Image href="https://www.google.com" src="https://pl
 const mediaSpacingImage = <Image href="http://www.google.com" src="https://placehold.it/50x50" alt="A sample media object"/>;
 
 <div>
-    <Media image={mediaSpacingImage}>
-      default image spacing media
-    </Media>
+  <Media image={mediaSpacingImage}>
+    default image spacing media
+  </Media>
 
-    <Media image={mediaSpacingImage} mediaSpacing="small">
-      small image spacing media
-    </Media>
+  <Media image={mediaSpacingImage} mediaSpacing="small">
+    small image spacing media
+  </Media>
 
-    <Media image={mediaSpacingImage} mediaSpacing="medium">
-      medium image spacing media
-    </Media>
+  <Media image={mediaSpacingImage} mediaSpacing="medium">
+    medium image spacing media
+  </Media>
 
-    <Media image={mediaSpacingImage} mediaSpacing="large">
-      large image spacing media
-    </Media>
+  <Media image={mediaSpacingImage} mediaSpacing="large">
+    large image spacing media
+  </Media>
 
-    <Media image={mediaSpacingImage} mediaSpacing="xlarge">
-      xlarge image spacing media
-    </Media>
+  <Media image={mediaSpacingImage} mediaSpacing="xlarge">
+    xlarge image spacing media
+  </Media>
 </div>
 ```
-
-# Props
-
-Property | Required | Type | Default | Description
----------|----------|------|---------|------------
-image          | yes | Node                                        |        | The image displayed
-innerClassName | no  | String                                      |        | The classname of the inner element
-mediaSpacing   | no  | oneOf('small', 'medium', 'large', 'xlarge') |        | Amount of whitespace between media and body
-stackSize      | no  | oneOf('xsmall', 'small', 'medium', 'large') |        | At what breakpoint should the media object stack
-vAlign         | no  | oneOf('middle', 'bottom')                   |        | Vertical alignment of the body (used for large images with small content next to it, usually centered)
-placement      | no  | oneOf('left', 'right')                      | 'left' | Horizontal placement of the media
-className      | no  | String                                      |        | The classname of the element
