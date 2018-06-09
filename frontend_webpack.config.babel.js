@@ -2,46 +2,39 @@ import path from 'path';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
-import {NamedModulesPlugin, DefinePlugin} from 'webpack';
+import {NamedModulesPlugin, HotModuleReplacementPlugin} from 'webpack';
 
 const prod = process.argv.indexOf('-p') !== -1;
 
 const htmlPlugin = new HtmlWebpackPlugin({template: 'index.html'});
 
 const prodConfig = {
+  mode: 'production',
   entry: './src/index.js',
   plugins: [
-    new DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
     new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin(),
     htmlPlugin
-  ],
-  devtool: false
+  ]
 };
 
 const devConfig = {
+  mode: 'development',
   entry: ['react-hot-loader/patch', './src/index.js'],
   devServer: {
-    clientLogLevel: 'error'
+    hot: true,
+    historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'dist'),
+    stats: {
+      warningsFilter: /Module not found: Error: Can't resolve .*.css/
+    }
   },
   plugins: [
-    new DefinePlugin({
-      'process.env': {
-        'NODE_ENV': JSON.stringify('development')
-      }
-    }),
-    new NamedModulesPlugin(),
-    new CompressionPlugin(),
-    htmlPlugin
+    htmlPlugin,
+    new HotModuleReplacementPlugin()
   ],
-  watch: true,
-  devtool: 'inline-source-map'
+  devtool: 'cheap-module-eval-source-map'
 };
 
 export default {
@@ -63,15 +56,11 @@ export default {
       {
         test: /\.jsx?$/,
         use: 'babel-loader',
-        exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        use: 'json-loader'
+        exclude: /node_modules/
       },
       {
         test: /\.(eot|ttf|woff)$/,
-        use: 'url-loader',
+        use: 'url-loader'
       },
       {
         test: /\.md$/,
@@ -93,6 +82,6 @@ export default {
     ],
   },
   node: {
-    fs: 'empty', // so that babel doesn't blow up with weird error messages occasionally
+    fs: 'empty' // so that babel doesn't blow up with weird error messages occasionally
   }
 };

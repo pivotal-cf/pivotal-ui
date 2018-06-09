@@ -13,8 +13,7 @@ export default class App extends React.Component {
     super(props);
 
     const path = window.location.pathname.split('/').pop();
-    this.state = {content: App.currentContent(path), path: path};
-    this.updateContent = this.updateContent.bind(this);
+    this.state = {content: App.currentContent(path), path};
   }
 
   componentDidMount() {
@@ -23,15 +22,15 @@ export default class App extends React.Component {
     }, false);
   }
 
-  updateContent(href) {
+  updateContent = href => {
     window.history.pushState({}, '', href);
     this.updatePath(window.location);
-  }
+  };
 
   updatePath(location) {
     document.body.scrollTop = 0;
     const path = location.pathname.split('/').pop();
-    this.setState({content: App.currentContent(path), path: path});
+    this.setState({content: App.currentContent(path), path});
   }
 
   static currentContent(path) {
@@ -59,7 +58,7 @@ export default class App extends React.Component {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar updateContent={this.updateContent.bind(this)} activePath={this.state.path}/>
+          <Sidebar updateContent={this.updateContent} activePath={this.state.path}/>
         </FlexCol>
         <FlexCol id="content" className="content">
           <div id="wrapper">
