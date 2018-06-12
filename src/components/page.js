@@ -1,7 +1,6 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {Panel} from 'pivotal-ui/react/panels';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
 import PropTable from './prop_table';
@@ -9,7 +8,7 @@ import Config from '../config';
 import Anchor from './anchor';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
-const formatIssueUrl = title => `${Config.get('puiRepository')}/issues/new`;
+const issueUrl = `${Config.get('puiRepository')}/issues/new`;
 
 export default class Page extends PureComponent {
   static propTypes = {
@@ -59,7 +58,7 @@ export default class Page extends PureComponent {
             <Icon verticalAlign="baseline" src="mode_edit"/>
             <span className="toolbar--label mlm">Edit this page</span>
           </a>
-          <a className="type-underline-hover type-sm mlxl" href={formatIssueUrl(title)} target="_blank">
+          <a className="type-underline-hover type-sm mlxl" href={issueUrl} target="_blank">
             <Icon verticalAlign="baseline" src="github"/>
             <span className="toolbar--label mlm">Report an issue</span>
           </a>

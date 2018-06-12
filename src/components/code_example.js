@@ -28,7 +28,7 @@ const getRenderedReact = jsCode => {
     console.error(err);
     return '<!--Failed to render React into HTML. See console for details.-->';
   }
-}
+};
 
 export default class CodeExample extends PureComponent {
   static propTypes = {

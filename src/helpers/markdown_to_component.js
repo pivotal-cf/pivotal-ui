@@ -18,22 +18,23 @@ const processor = unified().use(reactRenderer, {
   }
 });
 
-const sectionTitleToRoute = (title, componentPath) => {
-  const sectionPath = title.toLowerCase().replace(/[ ]+/g, '_').replace(/[^a-z0-9_.]/g, '');
-  if (sectionPath === 'overview') return componentPath;
-  return `${componentPath}/${sectionPath}`;
+const toUri = str => '/' + str.toLowerCase().replace(/[ ]+/g, '-').replace(/[^a-z0-9_.\-]/g, '');
+
+const sectionTitleToRoute = (title, pageRoute, sectionIndex) => {
+  if (sectionIndex === 0) return pageRoute;
+  return `${pageRoute}${toUri(title)}`;
 };
 
 const markdownFileToComponent = ({fileName, json}) => {
   const file = fileName.replace(/^\.\//, '');
-  const componentPath = '/' + fileName.toLowerCase().replace(/\.md$/, '').split('/').pop();
-
-  let pageMetadata;
+  const pageMetadata = {};
   const pageSections = [];
+  const pageComponents = {};
+  let pageRoute;
 
   json.children.forEach(child => {
-    if (!pageMetadata && child.type === 'yaml') {
-      pageMetadata = child.data.parsedValue;
+    if (child.type === 'yaml') {
+      Object.assign(pageMetadata, child.data.parsedValue || {});
       return;
     }
 
@@ -42,21 +43,21 @@ const markdownFileToComponent = ({fileName, json}) => {
       return;
     }
 
-    // TODO
-    if (!pageSections.length) pageSections.push({title: 'Overview?', rawContent: []});
+    if (!pageSections.length) pageSections.push({title: 'Untitled', rawContent: []});
     pageSections[pageSections.length - 1].rawContent.push(child);
   });
 
+  pageRoute = toUri(pageMetadata.route || pageMetadata.title);
+
   if (pageMetadata.reactPath) pageSections.push({title: 'Props'});
 
-  pageSections.forEach(section => {
-    const {rawContent, route, title} = section;
+  pageSections.forEach((section, i) => {
+    const {rawContent, title} = section;
     const toProcess = {type: 'root', children: rawContent};
-    section.route = route || sectionTitleToRoute(title, componentPath);
+    section.route = sectionTitleToRoute(title, pageRoute, i);
     section.SectionComponent = () => processor.stringify(processor.runSync(toProcess));
   });
 
-  const pageComponents = {};
   if (pageMetadata && pageMetadata.reactPath) {
     const componentPath = pageMetadata.reactPath.split('/').pop();
     const exported = require(`pivotal-ui/react/${componentPath}`);
@@ -67,7 +68,7 @@ const markdownFileToComponent = ({fileName, json}) => {
 
   return {
     file,
-    route: componentPath,
+    route: pageRoute,
     pageMetadata,
     pageSections,
     pageComponents

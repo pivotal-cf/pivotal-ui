@@ -8,7 +8,7 @@ const routes = requirePages.keys().reduce((memo, fileName) => {
   return {...memo, [routeData.route]: routeData};
 }, {});
 
-routes['/'] = {...routes['/getstarted']};
+routes['/'] = {...routes['/get-started']};
 
 export const getRouteContent = (route = '') => {
   const firstRoutePart = route.split('/').filter(Boolean)[0] || '';

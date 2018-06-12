@@ -1,6 +1,7 @@
 ---
 title: Getting Started with Pivotal UI
 menu: default
+route: get-started
 ---
 
 # Installation

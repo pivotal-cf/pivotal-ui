@@ -1,6 +1,7 @@
 ---
 title: Contribute to Pivotal UI
 menu: default
+route: contribute
 ---
 
 [Github repo](https://github.com/pivotal-cf/pivotal-ui)

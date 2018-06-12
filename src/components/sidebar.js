@@ -11,7 +11,7 @@ import Anchor from './anchor';
 
 const routeMatchesCurrentRoute = (currentRoute, route) => {
   return `/${currentRoute.split('/').filter(Boolean)[0]}` === route;
-}
+};
 
 const byPageTitle = (a, b) => {
   const aTitle = (a.pageMetadata.title || '').toLowerCase();
@@ -19,9 +19,9 @@ const byPageTitle = (a, b) => {
   return (aTitle < bTitle) ? -1 : (aTitle > bTitle) ? 1 : 0;
 };
 
-const routeData = Object.values(routes);
-const components = routeData.sort(byPageTitle).filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'components');
-const modifiers = routeData.sort(byPageTitle).filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'modifiers');
+const routeData = Object.values(routes).sort(byPageTitle);
+const components = routeData.filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'components');
+const modifiers = routeData.filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'modifiers');
 const searchItems = routeData.map(({pageMetadata}) => pageMetadata && pageMetadata.title);
 
 export default class Sidebar extends PureComponent {
@@ -76,26 +76,26 @@ export default class Sidebar extends PureComponent {
         </div>
         <SearchBar/>
         <Anchor {...{
-          href: '/getstarted',
+          href: '/get-started',
           className: classnames('sidebar-link', {
-            active: ['/', '/getstarted'].indexOf(currentRoute) !== -1
+            active: routeMatchesCurrentRoute(currentRoute, '/') || routeMatchesCurrentRoute(currentRoute, '/get-started')
           })
         }}>Get Started</Anchor>
         <Anchor {...{
           href: '/faq',
-          className: classnames('sidebar-link', {active: currentRoute === '/faq'})
+          className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, '/faq')})
         }}>FAQ</Anchor>
         <Anchor {...{
-          href: '/upgradeguide',
-          className: classnames('sidebar-link', {active: currentRoute === '/upgradeguide'})
+          href: '/upgrade-guide',
+          className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, '/upgrade-guide')})
         }}>Upgrade Guide</Anchor>
         <Anchor {...{
           href: '/contribute',
-          className: classnames('sidebar-link', {active: currentRoute === '/contribute'})
+          className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, '/contribute')})
         }}>Contribute</Anchor>
         <Anchor {...{
           href: '/versions',
-          className: classnames('sidebar-link', {active: currentRoute === '/versions'})
+          className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, '/versions')})
         }}>Versions</Anchor>
         <Anchor {...{
           href: 'https://github.com/pivotal-cf/pivotal-ui',

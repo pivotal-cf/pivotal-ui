@@ -1,6 +1,7 @@
 ---
 title: Visit Other Versions of Pivotal UI
 menu: default
+route: versions
 ---
 
 - [Version 9](/static/versions/9)
