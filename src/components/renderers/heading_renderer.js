@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 import classnames from 'classnames';
 
-const kebabCase = text => text
-  .replace(/([a-z])([A-Z])/g, '$1-$2')
-  .replace(/\s+/g, '-')
-  .toLowerCase();
+const kebabCase = text => text.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
 
 export default level => class extends Component {
   render() {
