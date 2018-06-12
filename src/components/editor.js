@@ -3,6 +3,7 @@ import AceEditor from 'react-ace';
 import PropTypes from 'prop-types';
 import 'brace/mode/jsx';
 import 'brace/mode/html';
+import 'brace/theme/clouds';
 
 export default class Editor extends PureComponent {
   static propTypes = {
@@ -21,6 +22,7 @@ export default class Editor extends PureComponent {
           width: '100%',
           height: '200px',
           mode,
+          theme: 'clouds',
           value: code,
           readOnly,
           onChange: changeHandler,
