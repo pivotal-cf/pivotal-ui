@@ -48,7 +48,7 @@ export default class App extends Component {
           <Sidebar {...{currentRoute}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <Page {...{currentRoute, key: currentRoute, ...routeContent}}/>
+          <Page {...{currentRoute, ...routeContent}}/>
           {footer}
         </FlexCol>
       </Grid>
