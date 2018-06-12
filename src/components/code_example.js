@@ -70,7 +70,7 @@ export default class CodeExample extends PureComponent {
       <Panel {...{
         className: 'code-example pvxl',
         title,
-        titleCols: noToolbar ? null : [
+        titleCols: noToolbar ? [] : [
           title ? null : <FlexCol/>,
           hasReact && <FlexCol fixed>
             <DefaultButton small flat {...{

@@ -9,6 +9,7 @@ import '../stylesheets/app.scss';
 
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
+window.Icons = require('pivotal-ui/react/iconography/icons');
 
 export default class App extends Component {
   state = {

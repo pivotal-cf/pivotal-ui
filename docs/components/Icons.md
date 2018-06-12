@@ -18,6 +18,30 @@ When styling the SVGs, remember to use the `fill` or `stroke` attributes instead
 Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
 example below.
 
+```jsx
+::noToolbar
+<React.Fragment>
+<TextFilter {...{
+  className: 'mhl',
+  filterPlaceholderText: 'Search icons...',
+  data: Object.keys(Icons),
+  filter: (iconNames, filterText) => iconNames.filter(iconName => iconName.indexOf(filterText) > -1),
+  renderFilteredData: iconNames => (
+    <Grid>
+      {iconNames.map(iconName => {
+        return (
+          <FlexCol key={iconName} className="txt-c mvxxl" col={6} breakpoint="md">
+            <Icon src={iconName} style={{fontSize: '72px'}}/>
+            <pre className="pre-unstyled">{iconName}</pre>
+          </FlexCol>
+        );
+      })}
+    </Grid>
+  )
+}}/>
+</React.Fragment>
+```
+
 # Examples
 
 ```jsx
