@@ -133,7 +133,7 @@ trigger      | no       | oneOf('hover', 'click', 'focus', 'manual') | 'hover' |
 
 ## Description
 
-TooltipTriggers are simpler to use, and their associated Tooltips are shown and hidden using css `visibility` rules.
+TooltipTriggers are simpler to use, and their associated Tooltips are shown and hidden using CSS `visibility` rules.
 In contrast to OverlayTriggers, the markup always exists in the DOM.
 
 ## Examples

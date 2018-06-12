@@ -17,9 +17,9 @@ The goals of the 16.0 release are:
 
 ### ProgressBar
 
-Previously progress bars was solely a CSS implementation. See the [ProgressBars](/progress_bars) page for details on new React component.
+Previously progress bars was solely a CSS implementation. See the [ProgressBars](/progress-bars) page for details on new React component.
 
-* ProgressBar css moved from `pivotal-ui/css/progress-bars` to `pivotal-ui/css/progress-bar`
+* ProgressBar CSS moved from `pivotal-ui/css/progress-bars` to `pivotal-ui/css/progress-bar`
 
 ### Modal
 
@@ -40,7 +40,7 @@ We rewrote the `Modal` component (formerly `BaseModal`) from the ground-up to be
 #### Breaking Changes
 
 * Modal component moved from `pivotal-ui/react/modals` to `pivotal-ui/react/modal`
-* Modal css moved from `pivotal-ui/css/modals` to `pivotal-ui/css/modal`
+* Modal CSS moved from `pivotal-ui/css/modals` to `pivotal-ui/css/modal`
 * Renamed `BaseModal` component to `Modal`.
 * The `ModalBody` and `ModalFooter` components have been removed. Now, to specify a modal body, just use the `children` prop on the `Modal`. To specify a modal footer, use the `footer` prop.
 * Some minor prop changes:
@@ -375,7 +375,7 @@ The goals of the 9.0 release are:
 ## The Big Changes
 
 ### Packaging
-- All react and css components are now in the `pivotal-ui` package
+- All react and CSS components are now in the `pivotal-ui` package
 
 ### Deprecated
 - The CopyToClipboardButton component has been deprecated
@@ -398,7 +398,7 @@ The goals of the 9.0 release are:
 - Added component that allows a modal to slide in from the right side of the page
 
 ### Links
-- Added new underline css classes
+- Added new underline CSS classes
 
 ### Notifications
 - CSS refactor
@@ -634,7 +634,7 @@ If you need to color your icons, you need to copy the content of the SVG and put
 
 ### CSS Alerts
 
-Alerts look the same, but the css has changed from float to flexbox. If you have a multi-line alert, you may need to add an extra div directly inside of your alert wrapping your old contents.
+Alerts look the same, but the CSS has changed from float to flexbox. If you have a multi-line alert, you may need to add an extra div directly inside of your alert wrapping your old contents.
 Also, the close button is no longer float: right, so it needs to be at the end of your alert html.
 
 ### General
