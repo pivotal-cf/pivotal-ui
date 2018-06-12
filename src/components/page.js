@@ -22,6 +22,7 @@ export default class Page extends PureComponent {
   render() {
     const {currentRoute, file, pageComponents, pageSections, pageMetadata} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
+    const singlePageSection = pageSections.length === 1;
 
     const tabLinks = pageSections.map(({title, route}) => {
       return (
@@ -32,7 +33,10 @@ export default class Page extends PureComponent {
     });
 
     let content;
-    if (currentRoute.endsWith('/props')) {
+    if (singlePageSection) {
+      const {SectionComponent} = pageSections[0];
+      content = SectionComponent ? <SectionComponent/> : null;
+    } else if (currentRoute.endsWith('/props')) {
       content = Object.keys(reactComponents).map(componentName => (
         <PropTable {...{
           key: componentName,
@@ -64,11 +68,11 @@ export default class Page extends PureComponent {
           </a>
           <h1 className="mtxxl em-high">{title}</h1>
         </header>
-        <nav className="tab-simple phxl bg-neutral-11">
+        {singlePageSection ? null : <nav className="tab-simple phxl bg-neutral-11">
           <ul className="styleguide-tabs nav nav-tabs">
             {tabLinks}
           </ul>
-        </nav>
+        </nav>}
         <main className="styleguide-page-main">
           <div className="styleguide-tab-content pvxl phxxxl">
             {content}

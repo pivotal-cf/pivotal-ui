@@ -71,6 +71,7 @@ export default class CodeExample extends PureComponent {
         className: 'code-example pvxl',
         title,
         titleCols: noToolbar ? null : [
+          title ? null : <FlexCol/>,
           hasReact && <FlexCol fixed>
             <DefaultButton small flat {...{
               className: 'phs toolbar-button',
