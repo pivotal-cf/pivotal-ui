@@ -3,7 +3,7 @@
   "license": "ISC",
   "version": "0.0.0",
   "description": "Pivotal UI Styleguide",
-  "repository": "https://github.com/reid47/pui-styleguide",
+  "repository": "https://github.com/pivotal-cf/pui-styleguide",
   "main": "dist/bundle.js",
   "devDependencies": {
     "babel-core": "^6.26.3",
