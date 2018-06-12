@@ -1,5 +1,6 @@
 ---
 title: Notifications
+menu: components
 cssPath: pivotal-ui/css/notifications
 reactPath: pivotal-ui/react/notifications
 reactComponents:

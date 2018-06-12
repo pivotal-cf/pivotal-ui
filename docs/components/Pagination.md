@@ -1,5 +1,6 @@
 ---
 title: Pagination
+menu: components
 cssPath: pivotal-ui/css/pagination
 reactPath: pivotal-ui/react/pagination
 reactComponents:

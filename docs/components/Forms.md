@@ -1,5 +1,6 @@
 ---
 title: Forms
+menu: components
 cssPath: pivotal-ui/css/forms
 reactPath: pivotal-ui/react/forms
 reactComponents:

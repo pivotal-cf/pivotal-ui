@@ -1,5 +1,6 @@
 ---
 title: Inputs
+menu: components
 cssPath: pivotal-ui/css/inputs
 reactPath: pivotal-ui/react/inputs
 reactComponents:

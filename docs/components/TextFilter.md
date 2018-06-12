@@ -1,5 +1,6 @@
 ---
 title: Text Filter
+menu: components
 cssPath: pivotal-ui/css/text-filter
 reactPath: pivotal-ui/react/text-filter
 reactComponents:

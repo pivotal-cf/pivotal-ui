@@ -1,5 +1,6 @@
 ---
 title: Border
+menu: modifiers
 cssPath: pivotal-ui/css/border
 ---
 

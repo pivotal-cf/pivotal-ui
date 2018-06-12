@@ -1,5 +1,6 @@
 ---
 title: Autocomplete
+menu: components
 cssPath: pivotal-ui/css/autocomplete
 reactPath: pivotal-ui/react/autocomplete
 reactComponents:

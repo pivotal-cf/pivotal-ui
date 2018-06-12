@@ -1,5 +1,6 @@
 ---
 title: Modal
+menu: components
 cssPath: pivotal-ui/css/modal
 reactPath: pivotal-ui/react/modal
 reactComponents:

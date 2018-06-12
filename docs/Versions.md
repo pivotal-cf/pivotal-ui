@@ -1,5 +1,6 @@
 ---
 title: Visit Other Versions of Pivotal UI
+menu: default
 ---
 
 - [Version 9](/static/versions/9)

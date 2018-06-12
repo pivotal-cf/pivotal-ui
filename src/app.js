@@ -1,31 +1,24 @@
 import React, {Component} from 'react';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import Sidebar from './components/sidebar';
-import 'pivotal-ui/js/prismjs';
-import '../stylesheets/app.scss';
-import routes, {getRouteContent} from './routes';
+import {getRouteContent} from './routes';
 import Router from './helpers/router';
 import Page from './components/page';
+import 'pivotal-ui/js/prismjs';
+import '../stylesheets/app.scss';
 
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
 
-// Object.values(routes).forEach(({pageMetadata}) => {
-//   if (!pageMetadata || !pageMetadata.reactPath) return;
-//   const componentPath = pageMetadata.reactPath.split('/').pop();
-//   const exported = require(`pivotal-ui/react/${componentPath}`);
-//   Object.entries(exported).forEach(([key, value]) => window[key] = value);
-// });
-
 export default class App extends Component {
   state = {
-    route: window.location.pathname,
+    currentRoute: window.location.pathname,
     routeContent: getRouteContent(window.location.pathname)
   };
 
   componentDidMount() {
-    Router.onRouteChange((route, routeContent) => {
-      this.setState({route, routeContent});
+    Router.onRouteChange((currentRoute, routeContent) => {
+      this.setState({currentRoute, routeContent});
     });
   }
 
@@ -34,7 +27,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {route, routeContent} = this.state;
+    const {currentRoute, routeContent} = this.state;
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
@@ -52,10 +45,10 @@ export default class App extends Component {
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
-          <Sidebar {...{route}}/>
+          <Sidebar {...{currentRoute}}/>
         </FlexCol>
         <FlexCol id="content" className="content">
-          <Page {...{route, ...routeContent}}/>
+          <Page {...{currentRoute, key: currentRoute, ...routeContent}}/>
           {footer}
         </FlexCol>
       </Grid>

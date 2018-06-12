@@ -1,5 +1,6 @@
 ---
 title: Links
+menu: modifiers
 cssPath: pivotal-ui/css/links
 ---
 

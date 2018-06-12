@@ -1,5 +1,6 @@
 ---
 title: FAQ
+menu: default
 ---
 
 ## What browsers are supported?

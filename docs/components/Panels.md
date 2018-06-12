@@ -1,5 +1,6 @@
 ---
 title: Panels
+menu: components
 cssPath: pivotal-ui/css/panels
 reactPath: pivotal-ui/react/panels
 reactComponents:

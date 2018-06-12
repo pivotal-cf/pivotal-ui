@@ -1,5 +1,6 @@
 ---
 title: Box Shadows
+menu: modifiers
 cssPath: pivotal-ui/css/box-shadows
 ---
 

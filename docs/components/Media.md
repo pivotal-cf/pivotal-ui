@@ -1,5 +1,6 @@
 ---
 title: Media
+menu: components
 cssPath: pivotal-ui/css/media
 reactPath: pivotal-ui/react/media
 reactComponents:

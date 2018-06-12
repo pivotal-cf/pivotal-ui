@@ -1,5 +1,6 @@
 ---
 title: Toggle
+menu: components
 cssPath: pivotal-ui/css/toggle
 reactPath: pivotal-ui/react/toggle
 reactComponents:

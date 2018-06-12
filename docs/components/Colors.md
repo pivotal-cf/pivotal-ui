@@ -1,5 +1,6 @@
 ---
 title: Colors
+menu: modifiers
 cssPath: pivotal-ui/css/colors
 ---
 

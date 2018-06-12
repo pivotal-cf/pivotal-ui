@@ -1,5 +1,6 @@
 ---
 title: Collapse
+menu: components
 cssPath: pivotal-ui/css/collapse
 reactPath: pivotal-ui/react/collapse
 reactComponents:

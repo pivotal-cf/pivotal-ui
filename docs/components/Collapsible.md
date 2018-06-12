@@ -1,5 +1,6 @@
 ---
 title: Collapsible
+menu: components
 reactPath: pivotal-ui/react/collapsible
 reactComponents:
   Collapsible:

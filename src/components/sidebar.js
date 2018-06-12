@@ -9,8 +9,8 @@ import routes from '../routes';
 import Config from '../config';
 import Anchor from './anchor';
 
-const routeMatchesHref = (route, href) => {
-  return `/${route.split('/').filter(Boolean)[0]}` === href;
+const routeMatchesCurrentRoute = (currentRoute, route) => {
+  return `/${currentRoute.split('/').filter(Boolean)[0]}` === route;
 }
 
 const byPageTitle = (a, b) => {
@@ -20,13 +20,13 @@ const byPageTitle = (a, b) => {
 };
 
 const routeData = Object.values(routes);
-const components = routeData.sort(byPageTitle).filter(({category}) => category === 'components');
-const modifiers = routeData.sort(byPageTitle).filter(({category}) => category === 'modifiers');
+const components = routeData.sort(byPageTitle).filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'components');
+const modifiers = routeData.sort(byPageTitle).filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'modifiers');
 const searchItems = routeData.map(({pageMetadata}) => pageMetadata && pageMetadata.title);
 
 export default class Sidebar extends PureComponent {
   static propTypes = {
-    route: PropTypes.string
+    currentRoute: PropTypes.string
   }
 
   handlePick = evt => {
@@ -36,7 +36,7 @@ export default class Sidebar extends PureComponent {
   }
 
   render() {
-    const {route} = this.props;
+    const {currentRoute} = this.props;
 
     const SearchBar = () => (
       <Autocomplete {...{
@@ -49,19 +49,19 @@ export default class Sidebar extends PureComponent {
       }}/>
     );
 
-    const componentLinks = components.map(({href, pageMetadata}) => (
+    const componentLinks = components.map(({route, pageMetadata}) => (
       <Anchor {...{
-        key: href,
-        className: classnames('sidebar-link', {active: routeMatchesHref(route, href)}),
-        href
+        key: route,
+        className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, route)}),
+        href: route
       }}>{pageMetadata.title}</Anchor>
     ));
 
-    const modifierLinks = modifiers.map(({href, pageMetadata}) => (
+    const modifierLinks = modifiers.map(({route, pageMetadata}) => (
       <Anchor {...{
-        key: href,
-        className: classnames('sidebar-link', {active: routeMatchesHref(route, href)}),
-        href
+        key: route,
+        className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, route)}),
+        href: route
       }}>{pageMetadata.title}</Anchor>
     ));
 
@@ -78,24 +78,24 @@ export default class Sidebar extends PureComponent {
         <Anchor {...{
           href: '/getstarted',
           className: classnames('sidebar-link', {
-            active: ['/', '/getstarted'].indexOf(route) !== -1
+            active: ['/', '/getstarted'].indexOf(currentRoute) !== -1
           })
         }}>Get Started</Anchor>
         <Anchor {...{
           href: '/faq',
-          className: classnames('sidebar-link', {active: route === '/faq'})
+          className: classnames('sidebar-link', {active: currentRoute === '/faq'})
         }}>FAQ</Anchor>
         <Anchor {...{
           href: '/upgradeguide',
-          className: classnames('sidebar-link', {active: route === '/upgradeguide'})
+          className: classnames('sidebar-link', {active: currentRoute === '/upgradeguide'})
         }}>Upgrade Guide</Anchor>
         <Anchor {...{
           href: '/contribute',
-          className: classnames('sidebar-link', {active: route === '/contribute'})
+          className: classnames('sidebar-link', {active: currentRoute === '/contribute'})
         }}>Contribute</Anchor>
         <Anchor {...{
           href: '/versions',
-          className: classnames('sidebar-link', {active: route === '/versions'})
+          className: classnames('sidebar-link', {active: currentRoute === '/versions'})
         }}>Versions</Anchor>
         <Anchor {...{
           href: 'https://github.com/pivotal-cf/pivotal-ui',

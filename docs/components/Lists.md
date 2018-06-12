@@ -1,5 +1,6 @@
 ---
 title: Lists
+menu: components
 cssPath: pivotal-ui/css/lists
 reactPath: pivotal-ui/react/lists
 reactComponents:

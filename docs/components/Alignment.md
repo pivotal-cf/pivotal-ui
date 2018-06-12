@@ -1,5 +1,6 @@
 ---
 title: Alignment
+menu: modifiers
 cssPath: pivotal-ui/css/alignment
 ---
 

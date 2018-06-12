@@ -1,5 +1,6 @@
 ---
 title: Dropdowns
+menu: components
 cssPath: pivotal-ui/css/dropdowns
 reactPath: pivotal-ui/react/dropdowns
 reactComponents:

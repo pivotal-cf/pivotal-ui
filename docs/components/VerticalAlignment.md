@@ -1,5 +1,6 @@
 ---
 title: Vertical Alignment
+menu: modifiers
 cssPath: pivotal-ui/css/vertical-alignment
 ---
 

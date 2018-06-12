@@ -1,5 +1,6 @@
 ---
 title: Dividers
+menu: components
 cssPath: pivotal-ui/css/dividers
 reactPath: pivotal-ui/react/dividers
 reactComponents:

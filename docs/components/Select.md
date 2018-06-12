@@ -1,5 +1,6 @@
 ---
 title: Select
+menu: components
 cssPath: pivotal-ui/css/select
 reactPath: pivotal-ui/react/select
 reactComponents:

@@ -1,5 +1,6 @@
 ---
 title: Tabs
+menu: components
 cssPath: pivotal-ui/css/tabs
 reactPath: pivotal-ui/react/tabs
 reactComponents:

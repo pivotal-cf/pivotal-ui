@@ -1,5 +1,6 @@
 ---
 title: Expander
+menu: components
 reactPath: pivotal-ui/react/expander
 reactComponents:
   ExpanderContent:

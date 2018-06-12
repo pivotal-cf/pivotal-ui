@@ -1,5 +1,6 @@
 ---
 title: Buttons
+menu: components
 cssPath: pivotal-ui/css/buttons
 reactPath: pivotal-ui/react/buttons
 reactComponents:

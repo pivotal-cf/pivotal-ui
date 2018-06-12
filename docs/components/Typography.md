@@ -1,5 +1,6 @@
 ---
 title: Typography
+menu: modifiers
 cssPath: pivotal-ui/css/typography
 ---
 

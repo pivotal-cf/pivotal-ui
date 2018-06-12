@@ -1,5 +1,6 @@
 ---
 title: Whitespace
+menu: modifiers
 cssPath: pivotal-ui/css/whitespace
 ---
 

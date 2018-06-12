@@ -1,5 +1,6 @@
 ---
 title: Flyout
+menu: components
 cssPath: pivotal-ui/css/flyout
 reactPath: pivotal-ui/react/flyout
 reactComponents:

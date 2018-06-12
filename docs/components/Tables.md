@@ -1,13 +1,14 @@
 ---
 title: Table
+menu: components
 cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
 reactComponents:
-  - Table
-  - FlexTable
-  - SortableTable
-  - SortableFlexTable
-  - AdvancedTable
+  Table: {}
+  FlexTable: {}
+  SortableTable: {}
+  SortableFlexTable: {}
+  AdvancedTable: {}
 ---
 
 # Overview

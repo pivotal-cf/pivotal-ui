@@ -18,15 +18,15 @@ const processor = unified().use(reactRenderer, {
   }
 });
 
-const sectionTitleToHref = (title, componentPath) => {
+const sectionTitleToRoute = (title, componentPath) => {
   const sectionPath = title.toLowerCase().replace(/[^a-z]/g, '');
   if (sectionPath === 'overview') return componentPath;
   return `${componentPath}/${sectionPath}`;
 };
 
-const markdownFileToComponent = ({directory, fileName, json, category}) => {
+const markdownFileToComponent = ({fileName, json}) => {
+  const file = fileName.replace(/^\.\//, '');
   const componentPath = '/' + fileName.toLowerCase().replace(/\.md$/, '').split('/').pop();
-  const file = directory + fileName.replace(/^\.\//, '');
 
   let pageMetadata;
   const pageSections = [];
@@ -47,12 +47,12 @@ const markdownFileToComponent = ({directory, fileName, json, category}) => {
     pageSections[pageSections.length - 1].rawContent.push(child);
   });
 
-  if (category === 'components') pageSections.push({title: 'Props'});
+  if (pageMetadata.reactPath) pageSections.push({title: 'Props'});
 
   pageSections.forEach(section => {
-    const {rawContent, href, title} = section;
+    const {rawContent, route, title} = section;
     const toProcess = {type: 'root', children: rawContent};
-    section.href = href || sectionTitleToHref(title, componentPath);
+    section.route = route || sectionTitleToRoute(title, componentPath);
     section.SectionComponent = () => processor.stringify(processor.runSync(toProcess));
   });
 
@@ -67,8 +67,7 @@ const markdownFileToComponent = ({directory, fileName, json, category}) => {
 
   return {
     file,
-    category,
-    href: componentPath,
+    route: componentPath,
     pageMetadata,
     pageSections,
     pageComponents

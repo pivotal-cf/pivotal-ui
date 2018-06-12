@@ -1,10 +1,11 @@
 ---
 title: Tooltips
+menu: components
 cssPath: pivotal-ui/css/tooltips
 reactPath: pivotal-ui/react/tooltip
 reactComponents:
-  - Tooltip
-  - TooltipTrigger
+  Tooltip: {}
+  TooltipTrigger: {}
 ---
 
 # Overview

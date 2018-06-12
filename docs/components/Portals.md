@@ -1,5 +1,6 @@
 ---
 title: Portals
+menu: components
 reactPath: pivotal-ui/react/portals
 reactComponents:
   PortalSource:

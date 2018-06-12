@@ -1,5 +1,6 @@
 ---
 title: Ellipsis
+menu: modifiers
 cssPath: pivotal-ui/css/ellipsis
 ---
 

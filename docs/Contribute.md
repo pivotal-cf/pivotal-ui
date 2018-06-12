@@ -1,5 +1,6 @@
 ---
 title: Contribute to Pivotal UI
+menu: default
 ---
 
 [Github repo](https://github.com/pivotal-cf/pivotal-ui)

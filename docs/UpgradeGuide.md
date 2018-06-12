@@ -1,5 +1,6 @@
 ---
 title: Upgrade Guide
+menu: default
 ---
 
 # PUI 16.0 Release

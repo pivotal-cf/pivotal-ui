@@ -1,5 +1,6 @@
 ---
 title: Positioning
+menu: modifiers
 cssPath: pivotal-ui/css/positioning
 ---
 

@@ -1,6 +1,7 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {Panel} from 'pivotal-ui/react/panels';
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
 import PropTable from './prop_table';
@@ -8,33 +9,31 @@ import Config from '../config';
 import Anchor from './anchor';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
-const formatIssueUrl = title => `${Config.get('puiRepository')}/issues/new?title=${title}%3A%20<issue description>`;
+const formatIssueUrl = title => `${Config.get('puiRepository')}/issues/new`;
 
 export default class Page extends PureComponent {
   static propTypes = {
-    category: PropTypes.string,
     file: PropTypes.string.isRequired,
     pageComponents: PropTypes.object.isRequired,
     pageMetadata: PropTypes.object,
     pageSections: PropTypes.array.isRequired,
-    route: PropTypes.string
+    currentRoute: PropTypes.string
   };
 
   render() {
-    const {route, file, category, pageComponents, pageSections, pageMetadata} = this.props;
+    const {currentRoute, file, pageComponents, pageSections, pageMetadata} = this.props;
     const {title, reactPath, reactComponents, cssPath} = pageMetadata;
-    const isComponentPage = category !== 'pages';
 
-    const tabLinks = pageSections.map(({title, href}) => {
+    const tabLinks = pageSections.map(({title, route}) => {
       return (
-        <li key={href} className={classnames({active: href === route})}>
-          <Anchor href={href}>{title}</Anchor>
+        <li key={route} className={classnames({active: route === currentRoute})}>
+          <Anchor href={route}>{title}</Anchor>
         </li>
       );
     });
 
     let content;
-    if (route.endsWith('/props')) {
+    if (currentRoute.endsWith('/props')) {
       content = Object.keys(reactComponents).map(componentName => (
         <PropTable {...{
           key: componentName,
@@ -44,8 +43,13 @@ export default class Page extends PureComponent {
         }}/>
       ));
     } else {
-      const {SectionComponent} = pageSections.find(({href}) => href === route) || {};
-      content = SectionComponent ? <SectionComponent/> : null;
+      const {SectionComponent, title: sectionTitle} = pageSections.find(({route}) => route === currentRoute) || {};
+      content = (
+        <Fragment>
+          {SectionComponent ? <SectionComponent/> : null}
+          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, reactComponents}}/>}
+        </Fragment>
+      );
     }
 
     return (
@@ -55,11 +59,11 @@ export default class Page extends PureComponent {
             <Icon verticalAlign="baseline" src="mode_edit"/>
             <span className="toolbar--label mlm">Edit this page</span>
           </a>
-          {isComponentPage && <a className="type-underline-hover type-sm mlxl" href={formatIssueUrl(title)} target="_blank">
+          <a className="type-underline-hover type-sm mlxl" href={formatIssueUrl(title)} target="_blank">
             <Icon verticalAlign="baseline" src="github"/>
             <span className="toolbar--label mlm">Report an issue</span>
-          </a>}
-          <h1 className="mtxl em-high">{title}</h1>
+          </a>
+          <h1 className="mtxxl em-high">{title}</h1>
         </header>
         <nav className="tab-simple phxl bg-neutral-11">
           <ul className="styleguide-tabs nav nav-tabs">
@@ -67,11 +71,9 @@ export default class Page extends PureComponent {
           </ul>
         </nav>
         <main className="styleguide-page-main">
-          {!isComponentPage ? null : (
-            <div className="styleguide-tab-content pvxl phxxxl">
-              {content}
-            </div>
-          )}
+          <div className="styleguide-tab-content pvxl phxxxl">
+            {content}
+          </div>
         </main>
       </div>
     );

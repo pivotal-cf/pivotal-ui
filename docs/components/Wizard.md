@@ -1,8 +1,16 @@
 ---
 title: Wizard
+menu: components
 reactPath: pivotal-ui/react/wizard
 reactComponents:
-  - Wizard
+  Wizard:
+    pages: An array of Wizard Pages.
+    cancel: Callback to call when the user cancels the Wizard.
+    cancelText: Text for the Cancel button.
+    finish: Callback to call when the user finishes the Wizard.
+    finishText: Text for the Finish button.
+    saving: When true, renders the Finish button with a spinner icon and disables the Back button.
+    savingText: Text for the Finish button when `saving` is true.
 ---
 
 # Overview
@@ -46,18 +54,6 @@ const pages = [{
 }];
 <Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}}/>
 ```
-
-# Props
-
-Property   | Required | Type     | Default | Description
------------|----------|----------|---------|------------
-pages      | yes      | Array    | []      | An array of Wizard Pages.
-cancel     | no       | Function |         | Callback to call when the user cancels the Wizard.
-cancelText | no       | String   | Cancel  | Text for the Cancel button.
-finish     | no       | Function |         | Callback to call when the user finishes the Wizard.
-finishText | no       | String   | Finish  | Text for the Finish button.
-saving     | no       | Boolean  | false   | When true, renders the Finish button with a spinner icon and disables the Back button.
-savingText | no       | String   | Saving  | Text for the Finish button when `saving` is true.
 
 ### Pages Props
 

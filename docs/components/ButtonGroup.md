@@ -1,5 +1,6 @@
 ---
 title: Button Group
+menu: components
 cssPath: pivotal-ui/css/button-group
 ---
 

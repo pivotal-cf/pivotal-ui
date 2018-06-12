@@ -1,5 +1,6 @@
 ---
 title: Code
+menu: components
 cssPath: pivotal-ui/css/code
 ---
 

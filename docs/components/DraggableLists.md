@@ -1,5 +1,6 @@
 ---
 title: Draggable List
+menu: components
 reactPath: pivotal-ui/react/draggable-list
 reactComponents:
   DraggableList: {}

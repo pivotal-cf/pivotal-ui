@@ -1,5 +1,6 @@
 ---
 title: Images
+menu: components
 cssPath: pivotal-ui/css/images
 reactPath: pivotal-ui/react/images
 reactComponents:

@@ -1,5 +1,6 @@
 ---
 title: Radios
+menu: components
 cssPath: pivotal-ui/css/radio
 reactPath: pivotal-ui/react/radio
 reactComponents:

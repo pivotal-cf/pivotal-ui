@@ -1,5 +1,6 @@
 ---
 title: Back to Top
+menu: components
 cssPath: pivotal-ui/css/back-to-top
 reactPath: pivotal-ui/react/back-to-top
 reactComponents:

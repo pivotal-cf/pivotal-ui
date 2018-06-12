@@ -1,5 +1,6 @@
 ---
 title: Checkbox Dropdowns
+menu: components
 cssPath: pivotal-ui/css/checkbox-dropdown
 reactPath: pivotal-ui/react/checkbox-dropdown
 reactComponents:

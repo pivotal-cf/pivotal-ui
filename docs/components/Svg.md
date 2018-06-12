@@ -1,5 +1,6 @@
 ---
 title: SVG
+menu: components
 reactPath: pivotal-ui/react/svg
 reactComponents:
   Svg:

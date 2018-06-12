@@ -1,5 +1,6 @@
 ---
 title: Checkbox
+menu: components
 cssPath: pivotal-ui/css/checkbox
 reactPath: pivotal-ui/react/checkbox
 reactComponents:

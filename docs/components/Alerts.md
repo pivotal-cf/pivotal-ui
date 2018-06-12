@@ -1,5 +1,6 @@
 ---
 title: Alerts
+menu: components
 cssPath: pivotal-ui/css/alerts
 reactPath: pivotal-ui/react/alerts
 reactComponents:
@@ -38,39 +39,35 @@ Alerts use the [Iconography](/icons) component when using `withIcon` or `dismiss
 ```jsx
 ::title=Basic example
 <div>
-<SuccessAlert>Everything is wonderful</SuccessAlert>
-<InfoAlert>Here's some information for you</InfoAlert>
-<WarningAlert>There is no parking on the dancefloor</WarningAlert>
-<ErrorAlert>Something has gone horribly awry</ErrorAlert>
+  <SuccessAlert>Everything is wonderful</SuccessAlert>
+  <InfoAlert>Here's some information for you</InfoAlert>
+  <WarningAlert>There is no parking on the dancefloor</WarningAlert>
+  <ErrorAlert>Something has gone horribly awry</ErrorAlert>
 </div>
 ```
 
 ```jsx
 ::title=Complex example
 ::description=Alerts are also used to bring important notes to a user's attention. If the content of your alert is a little more complicated, we would recommend using headings coupled with the content.
-<div>
 <InfoAlert>
-<h5 className="em-high mtn">You should know...</h5>
-    <p>There are some things you should note. Just in case you didn't figure it out already.</p>
-    <ul>
-      <li>thing 1</li>
-      <li>thing 2</li>
-    </ul>
+  <h5 className="em-high mtn">You should know...</h5>
+  <p>There are some things you should note. Just in case you didn't figure it out already.</p>
+  <ul>
+    <li>thing 1</li>
+    <li>thing 2</li>
+  </ul>
 </InfoAlert>
-</div>
 ```
 
 ```jsx
 ::title=Alert links
 ::description=If you want to include a link in your alert, use the class `pui-alert-link`.
-<div>
 <WarningAlert>
-<h5 className="em-high mtn">Important Link</h5>
-    <p>
-      It is very important that you <a className="pui-alert-link" href="http://bit.ly/1vkXaYb" aria-label="demo link to a funny gif">click here</a>
-    </p>
+  <h5 className="em-high mtn">Important Link</h5>
+  <p>
+    It is very important that you <a className="pui-alert-link" href="http://www.example.com/">click here</a>
+  </p>
 </WarningAlert>
-</div>
 ```
 
 ```jsx
@@ -90,13 +87,10 @@ const callback = () => alert('Dismissed!');
 ::title=Alerts with icons example
 ::description=If you want an icon to be displayed, set the `withIcon` property.
 <div>
-<SuccessAlert withIcon>success</SuccessAlert>
-
-<InfoAlert withIcon>info</InfoAlert>
-
-<WarningAlert withIcon>warning</WarningAlert>
-
-<ErrorAlert withIcon>error</ErrorAlert>
+  <SuccessAlert withIcon>success</SuccessAlert>
+  <InfoAlert withIcon>info</InfoAlert>
+  <WarningAlert withIcon>warning</WarningAlert>
+  <ErrorAlert withIcon>error</ErrorAlert>
 </div>
 ```
 
