@@ -18,12 +18,10 @@ reactComponents:
 ```jsx
 ::title=Basic example
 ::description=Images in React can be responsive and/or wrapped in a link.
-<div>
-    <Image src="http://placehold.it/1000x100"
-           responsive={true}
-           href="http://google.com"
-           alt="A beautiful placeholder"/>
-</div>
+<Image src="http://placehold.it/1000x100"
+       responsive={true}
+       href="http://google.com"
+       alt="A beautiful placeholder"/>
 ```
 
 ```jsx

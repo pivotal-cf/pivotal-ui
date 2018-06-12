@@ -10,24 +10,14 @@ reactComponents:
     onDismiss:  Callback that is called when the user clicks the close button
     show: If set, overrides the close button. True shows the alert, false hides the alert.
     withIcon: If true, render alert with an icon
+    alertIcon: (undocumented)
+    bsStyle: (undocumented)
   InfoAlert:
-    closeLabel: Screen reader label attached to close button
-    dismissable: If true, render a close button
-    onDismiss:  Callback that is called when the user clicks the close button
-    show: If set, overrides the close button. True shows the alert, false hides the alert.
-    withIcon: If true, render alert with an icon
+    _extends: SuccessAlert
   WarningAlert:
-    closeLabel: Screen reader label attached to close button
-    dismissable: If true, render a close button
-    onDismiss:  Callback that is called when the user clicks the close button
-    show: If set, overrides the close button. True shows the alert, false hides the alert.
-    withIcon: If true, render alert with an icon
+    _extends: SuccessAlert
   ErrorAlert:
-    closeLabel: Screen reader label attached to close button
-    dismissable: If true, render a close button
-    onDismiss:  Callback that is called when the user clicks the close button
-    show: If set, overrides the close button. True shows the alert, false hides the alert.
-    withIcon: If true, render alert with an icon
+    _extends: SuccessAlert
 ---
 
 # Overview

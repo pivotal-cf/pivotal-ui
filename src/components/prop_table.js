@@ -1,12 +1,13 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {Panel} from 'pivotal-ui/react/panels';
-import {Table} from 'pivotal-ui/react/table';
+import {Table, withRenderTdChildren} from 'pivotal-ui/react/table';
+const EnhancedTable = withRenderTdChildren(Table);
 
 const propToString = propVal => {
   if (propVal === undefined) return '';
   if (Array.isArray(propVal)) return '[' + propVal.map(propToString).join(', ') + ']';
-  if (typeof propVal === 'object') return JSON.stringify(propVal);
+  if (typeof propVal === 'object' || typeof propVal === 'string') return JSON.stringify(propVal);
   return propVal.toString();
 };
 
@@ -32,13 +33,13 @@ export default class PropTable extends PureComponent {
     }
 
     const columns = [{
-      attribute: 'name', displayName: 'Name'
+      attribute: 'name', displayName: 'Name', renderTdChildren: ({name}) => <pre className="pre-unstyled type-sm">{name}</pre>
     }, {
       attribute: 'type', displayName: 'Type'
     }, {
       attribute: 'isRequired', displayName: 'Required?'
     }, {
-      attribute: 'defaultValue', displayName: 'Default',
+      attribute: 'defaultValue', displayName: 'Default', renderTdChildren: ({defaultValue}) => <pre className="pre-unstyled type-sm">{defaultValue}</pre>
     }, {
       attribute: 'description', displayName: 'Description'
     }];
@@ -62,7 +63,7 @@ export default class PropTable extends PureComponent {
 
     return (
       <Panel {...{title: componentName, bodyClassName: 'pan'}}>
-        <Table {...{className: 'table-no-ext-borders', columns, data}}/>
+        <EnhancedTable {...{className: 'table-no-ext-borders', columns, data}}/>
       </Panel>
     );
   }
