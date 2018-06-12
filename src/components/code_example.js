@@ -60,7 +60,7 @@ export default class CodeExample extends PureComponent {
         // eslint-disable-next-line no-eval
         livePreview = eval(transpiledCode);
       } catch (e) {
-        livePreview = <pre>{e.toString()}</pre>;
+        livePreview = <pre className="caught-error">{e.toString()}</pre>;
       }
     } else {
       livePreview = <div dangerouslySetInnerHTML={{__html: code}}/>;

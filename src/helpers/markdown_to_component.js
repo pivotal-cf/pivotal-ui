@@ -19,7 +19,7 @@ const processor = unified().use(reactRenderer, {
 });
 
 const sectionTitleToRoute = (title, componentPath) => {
-  const sectionPath = title.toLowerCase().replace(/[^a-z]/g, '');
+  const sectionPath = title.toLowerCase().replace(/[ ]+/g, '_').replace(/[^a-z0-9_.]/g, '');
   if (sectionPath === 'overview') return componentPath;
   return `${componentPath}/${sectionPath}`;
 };

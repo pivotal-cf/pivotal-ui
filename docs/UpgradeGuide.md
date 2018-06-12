@@ -3,7 +3,7 @@ title: Upgrade Guide
 menu: default
 ---
 
-# PUI 16.0 Release
+# 16.0
 
 ## Goals
 
@@ -99,7 +99,7 @@ We rewrote the `Flyout` component from the ground-up to be more usable and acces
 * All animations/transitions in PUI now default to 200ms (0.2s). Previously, most things used 200ms, but some used 150ms or 300ms.
 * Removed deprecated and unused `tab-highlight` and `tabs-images` CSS classes.
 
-# PUI 15.0 Release
+# 15.0
 
 ## Goals
 
@@ -148,7 +148,7 @@ before calling `updateList` to update the list.
 We removed CSS in PUI that was disabling subpixel antialising (see [here](http://usabilitypost.com/2011/02/08/please-stop-disabling-subpixel-rendering/) for more information).
 The effect of this is that fonts appear crisper, brighter, and more vibrant.
 
-# PUI 14.0 Release
+# 14.0
 
 ## Goals
 
@@ -218,7 +218,7 @@ The following components were deprecated several releases ago, and are no longer
 - Google Maps component (`pivotal-ui/css/google-maps`)
 - Avatars component (`pivotal-ui/css/avatars`)
 
-# PUI 13.0 Release
+# 13.0
 
 ## Goals
 
@@ -238,7 +238,7 @@ The goals of the 13.0 release are:
 
 - Icon no longer positioned absolutely
 
-# PUI 12.0 Release
+# 12.0
 
 ## Goals
 
@@ -270,7 +270,7 @@ The goals of the 12.0 release are:
 ### Checkbox
 - Use the new [Form](forms) component to obtain functionality such as field labels, tooltips, and help text.
 
-# PUI 11.0 Release
+# 11.0
 
 ## Goals
 
@@ -337,7 +337,7 @@ and into the Form component.
 ### Select
 - The `onChange` callback will now receive the new `value` as a second argument, instead of putting it on `event.target.value`.
 
-# PUI 10.0 Release
+# 10.0
 
 ## Goals
 
@@ -362,7 +362,7 @@ The goals of the 10.0 release are:
 - Run `npm i react@^16.0.0` or `yarn upgrade react@^16.0.0` to install React 16. Other changes
 may be required.
 
-# PUI 9.0 Release
+# 9.0
 
 ## Goals
 
@@ -440,7 +440,7 @@ The goals of the 9.0 release are:
 - Use `SortableTable` if sorting behavior is required.
 - Use `AdvancedTable` if advanced `FlexTable` features are needed
 
-# PUI 8.0 Release
+# 8.0
 
 ## Goals
 
@@ -578,7 +578,7 @@ The .svgicon, .svg-baseline and .svg-middle classes have been replaced by the .i
 Data, key-value, striped, and light table styles have been removed. Variable sized scrollable tables have been removed. Scrollable tables are now all one size.
 
 
-# PUI 7.0 Release
+# 7.0
 
 ## Goals
 
@@ -642,7 +642,7 @@ Also, the close button is no longer float: right, so it needs to be at the end o
 There are more breaking changes than usual in this release, it is possible we missed something. Please file issues on github or ask questions on the pivotal-ui slack channel.
 
 
-# PUI 6.0 Release
+# 6.0
 
 ## Goals
 
@@ -668,14 +668,14 @@ Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](h
 - `Svg`
 
 
-# PUI 5.0 Release
+# 5.0
 
 - The 5.0 release is a bump from React 14 to React 15.
 - If you have no warning messages in React 14, the React 15 upgrade should be simple.
 - All of the newest features in Pivotal UI are in the 4.0 release.
 
 
-# PUI 4.0 Release
+# 4.0
 
 ## Goals
 

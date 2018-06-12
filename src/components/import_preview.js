@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import {Panel} from 'pivotal-ui/react/panels';
 
-export default class ImportPreview extends React.PureComponent {
+export default class ImportPreview extends PureComponent {
   static propTypes = {
     cssPath: PropTypes.string,
     reactPath: PropTypes.string,

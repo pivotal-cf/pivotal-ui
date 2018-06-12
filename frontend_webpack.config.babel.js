@@ -12,6 +12,7 @@ const prodConfig = {
   mode: 'production',
   entry: './src/index.js',
   plugins: [
+    new NamedModulesPlugin(),
     new ExtractTextPlugin('app.css'),
     new CompressionPlugin(),
     htmlPlugin
@@ -33,10 +34,9 @@ const devConfig = {
   },
   plugins: [
     htmlPlugin,
-    new NamedModulesPlugin(),
     new HotModuleReplacementPlugin()
   ],
-  devtool: false
+  devtool: 'cheap-module-eval-source-map'
 };
 
 export default {

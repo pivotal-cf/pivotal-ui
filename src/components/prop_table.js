@@ -33,11 +33,11 @@ export default class PropTable extends PureComponent {
     }
 
     const columns = [{
-      attribute: 'name', displayName: 'Name', renderTdChildren: ({name}) => <pre className="pre-unstyled type-sm">{name}</pre>
+      attribute: 'prop', displayName: 'Prop', renderTdChildren: ({prop}) => <pre className="pre-unstyled type-sm">{prop}</pre>
     }, {
       attribute: 'type', displayName: 'Type'
     }, {
-      attribute: 'isRequired', displayName: 'Required?'
+      attribute: 'isRequired', displayName: 'Required'
     }, {
       attribute: 'defaultValue', displayName: 'Default', renderTdChildren: ({defaultValue}) => <pre className="pre-unstyled type-sm">{defaultValue}</pre>
     }, {
@@ -58,7 +58,7 @@ export default class PropTable extends PureComponent {
       }
 
       if (description === '(undocumented)') return;
-      return {name: prop, type, isRequired, defaultValue, description};
+      return {prop, type, isRequired, defaultValue, description};
     }).filter(Boolean);
 
     return (
