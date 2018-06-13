@@ -17,7 +17,7 @@ export default class Editor extends PureComponent {
     const {code, mode, readOnly, changeHandler} = this.props;
 
     return (
-      <div className="mtl ptl border-top">
+      <div className="pal border-top">
         <AceEditor {...{
           width: '100%',
           height: '200px',

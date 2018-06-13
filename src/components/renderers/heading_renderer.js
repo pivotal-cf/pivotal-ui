@@ -12,7 +12,7 @@ export default level => class extends Component {
     return (
       <Type {...this.props} {...{
         id,
-        className: classnames(className, Type)
+        className: classnames('md-heading em-high mvxl', className)
       }}/>
     );
   }

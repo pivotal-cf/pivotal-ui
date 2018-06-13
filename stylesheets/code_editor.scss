@@ -1,5 +1,3 @@
-@import "./toolbar";
-
 .code-editor--edit {
   align-content: stretch;
 }
@@ -58,4 +56,10 @@
 
 .code-editor {
   margin-bottom: 48px;
+}
+
+.toolbar-button {
+  &:focus {
+    outline: auto !important;
+  }
 }

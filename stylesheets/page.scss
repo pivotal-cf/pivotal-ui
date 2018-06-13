@@ -2,6 +2,14 @@
   .styleguide-import-preview-code {
     word-break: normal;
   }
+
+  .md-image {
+    width: 100%;
+  }
+
+  .md-heading:first-child {
+    margin-top: 0 !important;
+  }
 }
 
 .styleguide-page-header {

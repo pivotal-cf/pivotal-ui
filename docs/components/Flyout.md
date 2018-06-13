@@ -61,7 +61,7 @@ class Page extends React.Component {
 
     return (
       <div>
-        <Form>
+        <Form className="man">
           <FormRow>
             <FormCol fixed hideHelpRow={true}>
               <DefaultButton onClick={() => this.setState({show: true})}>

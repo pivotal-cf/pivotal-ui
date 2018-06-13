@@ -13,13 +13,21 @@ const routeMatchesCurrentRoute = (currentRoute, route) => {
   return `/${currentRoute.split('/').filter(Boolean)[0]}` === route;
 };
 
-const byPageTitle = (a, b) => {
+const toAnchor = currentRoute => ({route, pageMetadata}) => (
+  <Anchor {...{
+    key: route,
+    className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, route)}),
+    href: route
+  }}>{pageMetadata.title}</Anchor>
+);
+
+const routeData = Object.values(routes).sort((a, b) => {
   const aTitle = (a.pageMetadata.title || '').toLowerCase();
   const bTitle = (b.pageMetadata.title || '').toLowerCase();
   return (aTitle < bTitle) ? -1 : (aTitle > bTitle) ? 1 : 0;
-};
+});
 
-const routeData = Object.values(routes).sort(byPageTitle);
+const concepts = routeData.filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'concepts');
 const components = routeData.filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'components');
 const modifiers = routeData.filter(({pageMetadata}) => pageMetadata && pageMetadata.menu === 'modifiers');
 const searchItems = routeData.map(({pageMetadata}) => pageMetadata && pageMetadata.title);
@@ -48,22 +56,6 @@ export default class Sidebar extends PureComponent {
         showNoSearchResults: true
       }}/>
     );
-
-    const componentLinks = components.map(({route, pageMetadata}) => (
-      <Anchor {...{
-        key: route,
-        className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, route)}),
-        href: route
-      }}>{pageMetadata.title}</Anchor>
-    ));
-
-    const modifierLinks = modifiers.map(({route, pageMetadata}) => (
-      <Anchor {...{
-        key: route,
-        className: classnames('sidebar-link', {active: routeMatchesCurrentRoute(currentRoute, route)}),
-        href: route
-      }}>{pageMetadata.title}</Anchor>
-    ));
 
     return (
       <nav className="sidebar bg-dark-2">
@@ -101,13 +93,16 @@ export default class Sidebar extends PureComponent {
           href: 'https://github.com/pivotal-cf/pivotal-ui',
           target: '_blank',
           className: 'sidebar-link'
-        }}>GitHub</Anchor>
+        }}>GitHub<Icon src="open_in_new" verticalAlign="baseline" className="mlm"/></Anchor>
+        <Divider inverse className="mvl"/>
+        <div className="em-high h4 pvl plxl prl">Concepts</div>
+        {concepts.map(toAnchor(currentRoute))}
         <Divider inverse className="mvl"/>
         <div className="em-high h4 pvl plxl prl">Components</div>
-        {componentLinks}
+        {components.map(toAnchor(currentRoute))}
         <Divider inverse className="mvl"/>
         <div className="em-high h4 pvl plxl prl">Modifiers</div>
-        {modifierLinks}
+        {modifiers.map(toAnchor(currentRoute))}
       </nav>
     );
   }

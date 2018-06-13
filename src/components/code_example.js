@@ -4,7 +4,7 @@ import * as Babel from 'babel-standalone';
 import {AllHtmlEntities} from 'html-entities';
 import PropTypes from 'prop-types';
 import {Panel} from 'pivotal-ui/react/panels';
-import {FlexCol} from 'pivotal-ui/react/flex-grids';
+import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 import {Icon} from 'pivotal-ui/react/iconography';
 import unified from 'unified';
@@ -66,13 +66,18 @@ export default class CodeExample extends PureComponent {
       livePreview = <div dangerouslySetInnerHTML={{__html: code}}/>;
     }
 
+    if (noToolbar) {
+      return <div className="code-example-rendered"><ErrorBoundary>{livePreview}</ErrorBoundary></div>;
+    }
+
     return (
-      <Panel {...{
-        className: 'code-example pvxl',
-        title,
-        titleCols: noToolbar ? [] : [
-          title ? null : <FlexCol/>,
-          hasReact && <FlexCol fixed>
+      <div {...{
+        className: 'code-example border mbxxxl',
+        // headerCols: [description && <FlexCol>{remark.processSync(description).contents}</FlexCol>].filter(Boolean)
+      }}>
+        <Grid gutter={false} className="border-bottom pal">
+          <FlexCol className="em-high">{title}</FlexCol>
+          {hasReact && <FlexCol fixed>
             <DefaultButton small flat {...{
               className: 'phs toolbar-button',
               icon: <Icon src="react"/>,
@@ -80,8 +85,8 @@ export default class CodeExample extends PureComponent {
             }}>
               {showReact ? 'hide' : 'show'} React
             </DefaultButton>
-          </FlexCol>,
-          hasHtml && <FlexCol fixed>
+          </FlexCol>}
+          {hasHtml && <FlexCol fixed>
             <DefaultButton small flat {...{
               className: 'mll phs toolbar-button',
               icon: <Icon src="html5"/>,
@@ -89,12 +94,9 @@ export default class CodeExample extends PureComponent {
             }}>
               {showHtml ? 'hide' : 'show'} HTML
             </DefaultButton>
-          </FlexCol>
-        ].filter(Boolean)
-      }}>
-        <div className="code-example-rendered">
-          <ErrorBoundary>{livePreview}</ErrorBoundary>
-        </div>
+          </FlexCol>}
+        </Grid>
+        <div className="code-example-rendered pal"><ErrorBoundary>{livePreview}</ErrorBoundary></div>
         {showReact && (
           <Editor {...{
             mode: 'jsx',
@@ -110,7 +112,7 @@ export default class CodeExample extends PureComponent {
             changeHandler: hasReact ? null : this.changeHandler
           }}/>
         )}
-      </Panel>
+      </div>
     );
   }
 }

@@ -1,8 +1,10 @@
 ---
-title: Visit Other Versions of Pivotal UI
+title: View Older Versions of Pivotal UI
 menu: default
 route: versions
 ---
+
+Archived past versions of Pivotal UI:
 
 - [Version 9](/static/versions/9)
 - [Version 10](/static/versions/10)

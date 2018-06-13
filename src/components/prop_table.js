@@ -1,6 +1,5 @@
-import React, {PureComponent} from 'react';
+import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Panel} from 'pivotal-ui/react/panels';
 import {Table, withRenderTdChildren} from 'pivotal-ui/react/table';
 const EnhancedTable = withRenderTdChildren(Table);
 
@@ -62,9 +61,10 @@ export default class PropTable extends PureComponent {
     }).filter(Boolean);
 
     return (
-      <Panel {...{title: componentName, bodyClassName: 'pan'}}>
-        <EnhancedTable {...{className: 'table-no-ext-borders', columns, data}}/>
-      </Panel>
+      <Fragment>
+        <h2 className="em-high mbxl">{componentName} props</h2>
+        <EnhancedTable {...{columns, data}}/>
+      </Fragment>
     );
   }
 }

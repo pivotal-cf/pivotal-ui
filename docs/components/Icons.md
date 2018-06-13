@@ -5,22 +5,21 @@ cssPath: pivotal-ui/css/iconography
 reactPath: pivotal-ui/react/iconography
 reactComponents:
   Icon:
-    src: The name if the icon
+    src: The name of the icon
     style: Styles to apply
     verticalAlign: Vertical alignment
 ---
 
 # Overview
 
-We provide a set of SVG icons, visible at [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
-
 When styling the SVGs, remember to use the `fill` or `stroke` attributes instead of `color`.
 Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
 example below.
 
+# Search Icons
+
 ```jsx
 ::noToolbar
-<React.Fragment>
 <TextFilter {...{
   className: 'mhl',
   filterPlaceholderText: 'Search icons...',
@@ -31,15 +30,14 @@ example below.
       {iconNames.map(iconName => {
         return (
           <FlexCol key={iconName} className="txt-c mvxxl" col={6} breakpoint="md">
-            <Icon src={iconName} style={{fontSize: '72px'}}/>
-            <pre className="pre-unstyled">{iconName}</pre>
+            <Icon src={iconName} style={{fontSize: '48px'}}/>
+            <pre className="pre-unstyled mtl">{iconName}</pre>
           </FlexCol>
         );
       })}
     </Grid>
   )
 }}/>
-</React.Fragment>
 ```
 
 # Examples

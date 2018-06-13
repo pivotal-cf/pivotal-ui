@@ -3,6 +3,8 @@ import reactRenderer from 'remark-react';
 import HeadingRenderer from '../components/renderers/heading_renderer';
 import PreRenderer from '../components/renderers/pre_renderer';
 import TableRenderer from '../components/renderers/table_renderer';
+import ImageRenderer from '../components/renderers/image_renderer';
+import Anchor from '../components/anchor';
 
 const processor = unified().use(reactRenderer, {
   sanitize: false,
@@ -14,7 +16,9 @@ const processor = unified().use(reactRenderer, {
     h5: HeadingRenderer(5),
     h6: HeadingRenderer(6),
     pre: PreRenderer,
-    table: TableRenderer
+    table: TableRenderer,
+    img: ImageRenderer,
+    a: Anchor
   }
 });
 
