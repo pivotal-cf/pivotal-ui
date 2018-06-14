@@ -10,7 +10,9 @@ menu: default
 The goals of the 16.0 release are:
 
 - Introduce new `ProgressBar` component
+
 - Rewrite `Modal` and `Flyout` components to be more accessible and configurable
+
 - `Checkbox` now has an indeterminate state
 
 ## Big Changes
@@ -40,22 +42,40 @@ We rewrote the `Modal` component (formerly `BaseModal`) from the ground-up to be
 #### Breaking Changes
 
 * Modal component moved from `pivotal-ui/react/modals` to `pivotal-ui/react/modal`
+
 * Modal CSS moved from `pivotal-ui/css/modals` to `pivotal-ui/css/modal`
+
 * Renamed `BaseModal` component to `Modal`.
-* The `ModalBody` and `ModalFooter` components have been removed. Now, to specify a modal body, just use the `children` prop on the `Modal`. To specify a modal footer, use the `footer` prop.
+
+* The `ModalBody` and `ModalFooter` components have been removed. Now, to specify a modal body, just use the `children` prop on
+the `Modal`. To specify a modal footer, use the `footer` prop.
+
 * Some minor prop changes:
+
   - The `size` prop, when given a value of `small`/`sm`, now gives the modal a width of `300px`, as originally intended. This value used to be the same as the default width (`744px`).
+
   - The old `animation` prop, which allowed disabling animation and which defaulted to `true`, has been removed. Now, use `animationDuration={0}` to disable animation.
+
   - The old `keyboard` prop, which allowed disabling pressing escape to close the modal, has been removed. Pressing escape now always closes the modal.
+
   - The old `acquireFocus` prop, which allowed disabling moving focus inside the modal when it opens, has been removed. Focus is now always moved inside the modal when it opens, and cycles between elements of the modal until the modal is closed.
+
   - The old `onEntered` and `onExited` props, which allowed providing callbacks that are called when the modal starts opening and finishes closing, have been removed.
+
 * New CSS class names for each part of the modal:
+
   - `pui-modal-dialog-backdrop` is the background element that takes up the full screen when the modal is open
+
   - `pui-modal-dialog` is the wrapper element for the visible part of the modal (the box that appears in the center of the window)
+
   - `pui-modal-header` is the element within the dialog that wraps the title
+
   - `pui-modal-title` is the `h3` tag within the header that contains the title
+
   - `pui-modal-close-btn` is the close button within the dialog
+
   - `pui-modal-body` is the class name that wraps the `children` given to the modal
+
   - `pui-modal-footer` is the class name that wraps the `footer` given to the modal
 
 ### Flyout
@@ -77,13 +97,21 @@ We rewrote the `Flyout` component from the ground-up to be more usable and acces
 #### Breaking Changes
 
 * Some minor prop changes:
+
   - The old `open` prop is now called `show`, to be more consistent with the `Modal`.
+
   - The old `close` prop is now called `onHide`, to be more consistent with the `Modal`.
+
 * New CSS class names for each part of the modal:
+
   - `pui-flyout-dialog-backdrop` is the background element that takes up the full container width/height when the flyout is open
+
   - `pui-flyout-dialog` is the wrapper element for the visible part of the flyout (the box that appears on the right side of the window)
+
   - `pui-flyout-header` is the element within the dialog that wraps the header and icon button
+
   - `pui-flyout-icon-btn` is the icon button within the flyout header
+
   - `pui-flyout-body` is the class name that wraps the `children` given to the flyout
 
 ### Table
@@ -97,6 +125,7 @@ We rewrote the `Flyout` component from the ground-up to be more usable and acces
 ### Misc
 
 * All animations/transitions in PUI now default to 200ms (0.2s). Previously, most things used 200ms, but some used 150ms or 300ms.
+
 * Removed deprecated and unused `tab-highlight` and `tabs-images` CSS classes.
 
 # 15.0

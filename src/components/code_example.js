@@ -3,7 +3,6 @@ import ReactDOMServer from 'react-dom/server';
 import * as Babel from 'babel-standalone';
 import {AllHtmlEntities} from 'html-entities';
 import PropTypes from 'prop-types';
-import {Panel} from 'pivotal-ui/react/panels';
 import {Grid, FlexCol} from 'pivotal-ui/react/flex-grids';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 import {Icon} from 'pivotal-ui/react/iconography';
@@ -70,32 +69,34 @@ export default class CodeExample extends PureComponent {
       return <div className="code-example-rendered"><ErrorBoundary>{livePreview}</ErrorBoundary></div>;
     }
 
+    const renderedDescription = description && remark.processSync(description).contents;
+
     return (
-      <div {...{
-        className: 'code-example border mbxxxl',
-        // headerCols: [description && <FlexCol>{remark.processSync(description).contents}</FlexCol>].filter(Boolean)
-      }}>
-        <Grid gutter={false} className="border-bottom pal">
-          <FlexCol className="em-high">{title}</FlexCol>
-          {hasReact && <FlexCol fixed>
-            <DefaultButton small flat {...{
-              className: 'phs toolbar-button',
-              icon: <Icon src="react"/>,
-              onClick: this.toggleReact
-            }}>
-              {showReact ? 'hide' : 'show'} React
-            </DefaultButton>
-          </FlexCol>}
-          {hasHtml && <FlexCol fixed>
-            <DefaultButton small flat {...{
-              className: 'mll phs toolbar-button',
-              icon: <Icon src="html5"/>,
-              onClick: this.toggleHtml
-            }}>
-              {showHtml ? 'hide' : 'show'} HTML
-            </DefaultButton>
-          </FlexCol>}
-        </Grid>
+      <div {...{className: 'code-example border mbxxxl'}}>
+        <div className="code-example-title pal border-bottom bg-neutral-10">
+          <Grid gutter={false}>
+            <FlexCol className="em-high">{title}</FlexCol>
+            {hasReact && <FlexCol fixed>
+              <DefaultButton small flat {...{
+                className: 'phs toolbar-button',
+                icon: <Icon src="react"/>,
+                onClick: this.toggleReact
+              }}>
+                {showReact ? 'hide' : 'show'} React
+              </DefaultButton>
+            </FlexCol>}
+            {hasHtml && <FlexCol fixed>
+              <DefaultButton small flat {...{
+                className: 'mll phs toolbar-button',
+                icon: <Icon src="html5"/>,
+                onClick: this.toggleHtml
+              }}>
+                {showHtml ? 'hide' : 'show'} HTML
+              </DefaultButton>
+            </FlexCol>}
+          </Grid>
+          {renderedDescription}
+        </div>
         <div className="code-example-rendered pal"><ErrorBoundary>{livePreview}</ErrorBoundary></div>
         {showReact && (
           <Editor {...{

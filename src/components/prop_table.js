@@ -63,7 +63,7 @@ export default class PropTable extends PureComponent {
     return (
       <Fragment>
         <h2 className="em-high mbxl">{componentName} props</h2>
-        <EnhancedTable {...{columns, data}}/>
+        <EnhancedTable {...{className: 'prop-table', columns, data}}/>
       </Fragment>
     );
   }

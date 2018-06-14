@@ -1,6 +1,6 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Panel} from 'pivotal-ui/react/panels';
+import classnames from 'classnames';
 
 export default class ImportPreview extends PureComponent {
   static propTypes = {
@@ -25,20 +25,16 @@ export default class ImportPreview extends PureComponent {
     return (
       <Fragment>
         {reactPath && (
-          <Panel {...{
-            title: `Import React component${multipleComponents ? 's' : ''}:`,
-            className: 'styleguide-import-preview mtxl'
-          }}>
-            <pre className="pre-unstyled"><code className="styleguide-import-preview-code">{reactImport}</code></pre>
-          </Panel>
+          <div {...{className: 'border styleguide-import-preview'}}>
+            <div className="border-bottom em-high pal bg-neutral-10">{`Import React component${multipleComponents ? 's' : ''}`}</div>
+            <pre className="pre-unstyled pal"><code className="styleguide-import-preview-code">{reactImport}</code></pre>
+          </div>
         )}
         {cssPath && (
-          <Panel {...{
-            title: `Import CSS${reactPath ? ' only' : ''}:`,
-            className: 'styleguide-import-preview mtxl'
-          }}>
-            <pre className="pre-unstyled"><code className="styleguide-import-preview-code">{cssImport}</code></pre>
-          </Panel>
+          <div {...{className: classnames('border styleguide-import-preview', {'mtxxl': reactPath})}}>
+            <div className="border-bottom em-high pal bg-neutral-10">{`Import CSS${reactPath ? ' only' : ''}`}</div>
+            <pre className="pre-unstyled pal"><code className="styleguide-import-preview-code">{cssImport}</code></pre>
+          </div>
         )}
       </Fragment>
     );

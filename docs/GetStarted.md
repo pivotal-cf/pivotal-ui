@@ -78,9 +78,11 @@ See the documentation of individual components for how to import each one.
 
 ## With a link tag
 
-For projects that are not using Webpack, our compiled CSS is made available at `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-<VERSION>.css`.
+For projects that are not using Webpack, our compiled CSS is made available via a CDN:
 
-For example, CSS for `14.0.0` is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-14.0.0.css
+`http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-<VERSION>.css`
+
+For example, CSS for `16.0.0` is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-16.0.0.css
 
 These files can be included with a `<link>` tag in an HTML file like this:
 

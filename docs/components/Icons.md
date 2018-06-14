@@ -16,7 +16,7 @@ When styling the SVGs, remember to use the `fill` or `stroke` attributes instead
 Wrapping the SVG or img tag in the `.icon` class will allow you to size and align the icon easily as presented in the
 example below.
 
-# Search Icons
+# Icon List
 
 ```jsx
 ::noToolbar
@@ -24,6 +24,7 @@ example below.
   className: 'mhl',
   filterPlaceholderText: 'Search icons...',
   data: Object.keys(Icons),
+  emptyState: <div className="txt-c">No matching icons</div>,
   filter: (iconNames, filterText) => iconNames.filter(iconName => iconName.indexOf(filterText) > -1),
   renderFilteredData: iconNames => (
     <Grid>

@@ -3,7 +3,7 @@ title: 8-Point Grid
 menu: concepts
 ---
 
-Pivotal UI uses an 8-point grid system for sizing, spacing, and laying out components relative to one another. Any padding, margin, button height, etc. is always a **multiple of 8 pixels**. This makes it easy to compose Pivotal UI components together neatly and consistently. For a deeper dive into how Pivotal arrived at the 8-point grid, [read this article](https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632).
+Pivotal UI uses an 8-point grid system for sizing, spacing, and laying out components relative to one another. This means that any padding, margin, button height, etc. is always a **multiple of 8 pixels**. This makes it easy to compose Pivotal UI components together neatly and consistently. For a deeper dive into how Pivotal arrived at the 8-point grid, [read this article](https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632).
 
 ![consistent spacing with a grid vs. inconsistent spacing without a grid](https://cdn-images-1.medium.com/max/2000/1*Kcx60oAWZioon-V_RR-IQA.png)
 
