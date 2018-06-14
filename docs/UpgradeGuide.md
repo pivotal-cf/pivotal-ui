@@ -3,7 +3,7 @@ title: Upgrade Guide
 menu: default
 ---
 
-# 16.0
+# v16
 
 ## Goals
 
@@ -128,7 +128,7 @@ We rewrote the `Flyout` component from the ground-up to be more usable and acces
 
 * Removed deprecated and unused `tab-highlight` and `tabs-images` CSS classes.
 
-# 15.0
+# v15
 
 ## Goals
 
@@ -177,7 +177,7 @@ before calling `updateList` to update the list.
 We removed CSS in PUI that was disabling subpixel antialising (see [here](http://usabilitypost.com/2011/02/08/please-stop-disabling-subpixel-rendering/) for more information).
 The effect of this is that fonts appear crisper, brighter, and more vibrant.
 
-# 14.0
+# v14
 
 ## Goals
 
@@ -247,7 +247,7 @@ The following components were deprecated several releases ago, and are no longer
 - Google Maps component (`pivotal-ui/css/google-maps`)
 - Avatars component (`pivotal-ui/css/avatars`)
 
-# 13.0
+# v13
 
 ## Goals
 
@@ -267,7 +267,7 @@ The goals of the 13.0 release are:
 
 - Icon no longer positioned absolutely
 
-# 12.0
+# v12
 
 ## Goals
 
@@ -299,7 +299,7 @@ The goals of the 12.0 release are:
 ### Checkbox
 - Use the new [Form](forms) component to obtain functionality such as field labels, tooltips, and help text.
 
-# 11.0
+# v11
 
 ## Goals
 
@@ -366,7 +366,7 @@ and into the Form component.
 ### Select
 - The `onChange` callback will now receive the new `value` as a second argument, instead of putting it on `event.target.value`.
 
-# 10.0
+# v10
 
 ## Goals
 
@@ -391,7 +391,7 @@ The goals of the 10.0 release are:
 - Run `npm i react@^16.0.0` or `yarn upgrade react@^16.0.0` to install React 16. Other changes
 may be required.
 
-# 9.0
+# v9
 
 ## Goals
 
@@ -469,7 +469,7 @@ The goals of the 9.0 release are:
 - Use `SortableTable` if sorting behavior is required.
 - Use `AdvancedTable` if advanced `FlexTable` features are needed
 
-# 8.0
+# v8
 
 ## Goals
 
@@ -607,7 +607,7 @@ The .svgicon, .svg-baseline and .svg-middle classes have been replaced by the .i
 Data, key-value, striped, and light table styles have been removed. Variable sized scrollable tables have been removed. Scrollable tables are now all one size.
 
 
-# 7.0
+# v7
 
 ## Goals
 
@@ -671,7 +671,7 @@ Also, the close button is no longer float: right, so it needs to be at the end o
 There are more breaking changes than usual in this release, it is possible we missed something. Please file issues on github or ask questions on the pivotal-ui slack channel.
 
 
-# 6.0
+# v6
 
 ## Goals
 
@@ -697,14 +697,14 @@ Full list: [https://github.com/pivotal-cf/pivotal-ui/blob/master/CHANGELOG.md](h
 - `Svg`
 
 
-# 5.0
+# v5
 
 - The 5.0 release is a bump from React 14 to React 15.
 - If you have no warning messages in React 14, the React 15 upgrade should be simple.
 - All of the newest features in Pivotal UI are in the 4.0 release.
 
 
-# 4.0
+# v4
 
 ## Goals
 

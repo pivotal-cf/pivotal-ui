@@ -7,7 +7,7 @@ reactComponents:
   Input:
     icon: See [Icons](/icons) for valid icon names
     size: Size variations
-    ...rest: All other props are passed to the internal `<input>` tag.
+    ...props: All other props are passed to the internal `<input>` tag.
 ---
 
 # Overview

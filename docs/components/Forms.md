@@ -81,7 +81,7 @@ reactComponents:
 
 A declarative abstraction that handles layout, state, validation and error handling.
 
-Layout is based on the [Flex Grid](/grids#flex-grids) system.
+Layout is based on the [Flex Grid](/grids) system.
 
 # Examples
 
