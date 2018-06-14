@@ -1,5 +1,5 @@
 ---
-title: View Older Versions of Pivotal UI
+title: Older Versions of Pivotal UI
 menu: default
 route: versions
 ---

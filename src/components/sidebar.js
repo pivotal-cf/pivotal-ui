@@ -10,7 +10,7 @@ import Config from '../config';
 import Anchor from './anchor';
 
 const routeMatchesCurrentRoute = (currentRoute, route) => {
-  return `/${currentRoute.split('/').filter(Boolean)[0]}` === route;
+  return `/${currentRoute.split('/').filter(Boolean)[0] || ''}` === route;
 };
 
 const toAnchor = currentRoute => ({route, pageMetadata}) => (
@@ -60,7 +60,7 @@ export default class Sidebar extends PureComponent {
     return (
       <nav className="sidebar bg-dark-2">
         <div className="sidebar-header">
-          <Icon className="sidebar--icon" src="pivotal_ui_white"/>
+          <Anchor href="/"><Icon className="sidebar--icon" src="pivotal_ui_white"/></Anchor>
           <div className="sidebar--title plxl">
             <h1 className="em-high h2">Pivotal UI</h1>
             <div className="h4">v{Config.get('puiVersion')}</div>

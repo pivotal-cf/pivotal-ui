@@ -11,6 +11,10 @@ $active-item-border-size: $base-unit / 2;
   width: 240px;
   height: 100%;
 
+  a {
+    align-self: center;
+  }
+
   .sidebar--search {
     .autocomplete-list {
       border: 1px solid $input-border-focus;

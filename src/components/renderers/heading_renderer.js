@@ -1,16 +1,19 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import classnames from 'classnames';
 
-const kebabCase = text => text.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase();
+const kebabCase = text => text
+  .replace(/[^A-Za-z0-9 ]/g, '')
+  .replace(/([a-z])([A-Z])/g, '$1-$2')
+  .replace(/\s+/g, '-').toLowerCase();
 
-export default level => class extends Component {
+export default level => class extends PureComponent {
   render() {
-    const Type = `h${level}`;
+    const Heading = `h${level}`;
     const {children: [text], className} = this.props;
     const id = kebabCase(text.toLowerCase());
 
     return (
-      <Type {...this.props} {...{
+      <Heading {...this.props} {...{
         id,
         className: classnames('md-heading em-high mvxl', className)
       }}/>
