@@ -1,7 +1,8 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Table, withRenderTdChildren} from 'pivotal-ui/react/table';
-const EnhancedTable = withRenderTdChildren(Table);
+import classnames from 'classnames';
+import {Table, withRenderTdChildren, withRowClassName} from 'pivotal-ui/react/table';
+const EnhancedTable = withRowClassName(withRenderTdChildren(Table));
 
 const propToString = propVal => {
   if (propVal === undefined) return '';
@@ -63,7 +64,12 @@ export default class PropTable extends PureComponent {
     return (
       <Fragment>
         <h2 className="em-high mbxl">{componentName} props</h2>
-        <EnhancedTable {...{className: 'prop-table', columns, data}}/>
+        <EnhancedTable {...{
+          className: 'prop-table',
+          rowClassName: ({isHeader}) => classnames('tr-no-h-borders', {'bg-neutral-10': isHeader}),
+          columns,
+          data
+        }}/>
       </Fragment>
     );
   }

@@ -1,5 +1,5 @@
 ---
-title: Contribute to Pivotal UI
+title: Contributing to Pivotal UI
 menu: default
 route: contribute
 ---

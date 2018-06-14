@@ -3,9 +3,9 @@ title: Modifier Classes
 menu: concepts
 ---
 
-Pivotal UI provides several CSS "modifier" classes. Modifiers are tiny CSS classes that each do **one thing**. They are sometimes called utility classes or atomic classes by other front-end libraries. Modifiers help avoid writing repetitive CSS and make it easy to incorporate Pivotal UI's colors, typography, etc.
+Pivotal UI provides several CSS "modifier" classes. Modifiers are tiny CSS classes that each has **one** job. They are sometimes called utility classes or atomic classes by other front-end libraries. Modifiers help avoid writing repetitive CSS and make it easy to incorporate Pivotal UI's colors, typography, and other common patterns.
 
-It is very often possible to achieve a desired effect just by composing modifier classes, without writing any new CSS. This approach is preferred whenever it is feasible, since it decreases the amount of CSS to maintain in a team's codebase and makes styling more consistent across codebases.
+It is very often possible to achieve a desired effect just by composing modifier classes, without writing any new CSS. Prefer this approach whenever it is feasible, since it decreases the amount of CSS to maintain in your team's codebase and makes styling more consistent across codebases.
 
 ## Anatomy of a modifier
 
@@ -19,7 +19,7 @@ The CSS for a modifier class looks like this:
 
 The `underline` class does exactly one thing: gives any text with this class an underline. On its own, this is not very impressive. The real power of modifiers becomes clear when composing multiple modifiers together.
 
-## Using modifiers
+## Composing modifiers
 
 To demonstrate how modifier classes can be composed, consider this unstyled content that displays the current year:
 
@@ -30,7 +30,7 @@ To demonstrate how modifier classes can be composed, consider this unstyled cont
 </div>
 ```
 
-Now, let's add a bunch of modifier classes to the outer `div` and inner `span` elements:
+Now, let's add a bunch of modifier classes to the outer `div` and inner `span` elements to center the text and add some style:
 
 ```jsx
 ::title=With several modifiers

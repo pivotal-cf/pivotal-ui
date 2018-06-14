@@ -14,19 +14,6 @@ $active-item-border-size: $base-unit / 2;
   a {
     align-self: center;
   }
-
-  .sidebar--search {
-    .autocomplete-list {
-      border: 1px solid $input-border-focus;
-      left: 16px;
-      width: 88%;
-      top: 37px;
-
-      .autocomplete-item {
-        font-size: 14px;
-      }
-    }
-  }
 }
 
 .sidebar-header {

@@ -47,7 +47,7 @@ const markdownFileToComponent = ({fileName, json}) => {
       return;
     }
 
-    if (!pageSections.length) pageSections.push({title: 'Untitled', rawContent: []});
+    if (!pageSections.length) pageSections.push({rawContent: []});
     pageSections[pageSections.length - 1].rawContent.push(child);
   });
 

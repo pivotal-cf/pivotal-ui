@@ -20,6 +20,7 @@ reactComponents:
     trieOptions: >
       Options for the default TrieSearch algorithm (e.g. `ignoreCase`: a boolean is set to true by default, `splitOnRegEx`: a RegEx)
     value: used when the input is a controlled input
+  AutocompleteInput: {}
 ---
 
 # Overview

@@ -8,11 +8,17 @@ const routes = requirePages.keys().reduce((memo, fileName) => {
   return {...memo, [routeData.route]: routeData};
 }, {});
 
-routes['/'] = {...routes['/get-started']};
+routes['/'] = {...routes['/get-started'], route: '/'};
 
 export const getRouteContent = (route = '') => {
   const firstRoutePart = route.split('/').filter(Boolean)[0] || '';
   return routes['/' + firstRoutePart] || routes['/404'];
 };
+
+export const routeData = Object.values(routes).sort((a, b) => {
+  const aTitle = (a.pageMetadata.title || '').toLowerCase();
+  const bTitle = (b.pageMetadata.title || '').toLowerCase();
+  return (aTitle < bTitle) ? -1 : (aTitle > bTitle) ? 1 : 0;
+});
 
 export default routes;
