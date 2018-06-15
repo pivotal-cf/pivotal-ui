@@ -21,8 +21,6 @@ routeData.forEach(({route, pageMetadata, pageSections}) => {
   });
 });
 
-console.log(searchItems)
-
 export default class SearchBar extends PureComponent {
   onPick = picked => {
     picked && picked.route && Router.navigate(picked.route);

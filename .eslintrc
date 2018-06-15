@@ -68,7 +68,7 @@
     "jsx-quotes": [2, "prefer-double"],
     "react/no-did-mount-set-state": 0,
     "react/no-did-update-set-state": 2,
-    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"]}],
+    "react/prop-types": [2, {"ignore": ["children", "className", "id", "style"], "skipUndeclared": true}],
     "react/self-closing-comp": 2,
     "react/jsx-wrap-multilines": 2,
     "semi": 2,

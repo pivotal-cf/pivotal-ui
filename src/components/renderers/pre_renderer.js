@@ -42,16 +42,16 @@ export default class PreRenderer extends PureComponent {
 
       if (!nonInteractive) return <CodeExample {...{lang, title, description, code, noToolbar}}/>;
 
-      return <pre {...{
+      return (<pre {...{
         ...this.props,
         children: <code>{lines.join('\n').trim()}</code>,
         className: classnames('md-pre border border-not-rounded', className)
-      }}/>;
+      }}/>);
     }
 
-    return <pre {...{
+    return (<pre {...{
       ...this.props,
       className: classnames('md-pre border border-not-rounded', className)
-    }}/>;
+    }}/>);
   }
 };
