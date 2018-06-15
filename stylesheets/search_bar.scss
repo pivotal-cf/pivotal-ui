@@ -17,7 +17,8 @@
 
     .autocomplete-list {
       border: none;
-      border-radius: $base-unit / 2;
+      border-radius: $base-unit / 4;
+      max-height: 240px;
     }
 
     .autocomplete-item, .autocomplete-item-no-results {
@@ -25,6 +26,10 @@
       min-width: 100%;
       color: $dark-2;
       opacity: 1;
+
+      &:hover {
+        background: $dark-11;
+      }
     }
   }
 }

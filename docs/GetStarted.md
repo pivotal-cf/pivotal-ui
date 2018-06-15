@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-menu: default
+menu: info
 route: get-started
 ---
 

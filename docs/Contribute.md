@@ -1,6 +1,6 @@
 ---
 title: Contributing to Pivotal UI
-menu: default
+menu: info
 route: contribute
 ---
 

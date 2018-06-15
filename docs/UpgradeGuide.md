@@ -1,6 +1,6 @@
 ---
 title: Upgrade Guide
-menu: default
+menu: info
 ---
 
 # v16

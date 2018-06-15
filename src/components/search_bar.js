@@ -36,15 +36,26 @@ export default class SearchBar extends PureComponent {
 
     searchItems.forEach(({title, subtitle, category, route}) => {
       if (titleMatches.length + subtitleMatches.length > 50) return;
+      const matchLength = searchText.length;
 
-      if (title && title.toLowerCase().indexOf(searchText) > -1) {
-        titleMatches.push({route, value: <SearchResult {...{title, subtitle, category}}/>});
-        return;
+      if (title) {
+        const matchIndex = title.toLowerCase().indexOf(searchText);
+        if (matchIndex > -1) {
+          titleMatches.push({route, value: <SearchResult {...{
+            title, subtitle, category, matchIndex, matchLength, matched: 'title'
+          }}/>});
+          return;
+        }
       }
 
-      if (subtitle && subtitle.toLowerCase().indexOf(searchText) > -1) {
-        subtitleMatches.push({route, value: <SearchResult {...{title, subtitle, category}}/>});
-        return;
+      if (subtitle) {
+        const matchIndex = subtitle.toLowerCase().indexOf(searchText);
+        if (matchIndex > -1) {
+          subtitleMatches.push({route, value: <SearchResult {...{
+            title, subtitle, category, matchIndex, matchLength, matched: 'subtitle'
+          }}/>});
+          return;
+        }
       }
     });
 

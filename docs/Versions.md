@@ -1,6 +1,6 @@
 ---
 title: Older Versions of Pivotal UI
-menu: default
+menu: info
 route: versions
 ---
 
