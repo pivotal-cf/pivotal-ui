@@ -1,23 +1,24 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import classnames from 'classnames';
 
-export default class TableRenderer extends Component {
+export default class TableRenderer extends PureComponent {
   render() {
     const {className, ...props} = this.props;
-    let {children} = this.props;
-
-    children = children.filter(child => child !== '\n');
+    const thead = this.props.children.find(child => child.type === 'thead');
+    const tbody = this.props.children.find(child => child.type === 'tbody');
 
     return (
-      <table {...props} {...{
-        className: classnames(
-          className,
-          'table',
-          'markdown-table',
-          {'props-table': children[0].props.children[0].props.children[0].props.children[0] === 'Property'}
-        )
-      }}>
-        {children}
+      <table {...props} {...{className: classnames(className, 'table', 'markdown-table')}}>
+        <thead>
+          {React.Children.map(thead.props.children, child => {
+            return React.cloneElement(child, {className: 'tr-no-h-borders bg-neutral-10'});
+          })}
+        </thead>
+        <tbody>
+          {React.Children.map(tbody.props.children, child => {
+            return React.cloneElement(child, {className: 'tr-no-h-borders'});
+          })}
+        </tbody>
       </table>
     );
   }

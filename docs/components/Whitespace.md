@@ -17,7 +17,7 @@ p, m                             | padding, margin
 a, t, r, b, l, h, v              | all, top, right, bottom, left, horizontal, vertical
 n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px), extra large(16px), extra extra large (24px), extra extra extra large (32px)
 
-# Example
+# Examples
 
 ```html
 ::title=Padding modification example
