@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import {Jasmine} from 'pui-react-tools';
-import devWebpack from './webpack.config.babel';
+import devWebpack from './frontend_webpack.config.babel';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
