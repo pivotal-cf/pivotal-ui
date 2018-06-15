@@ -31,7 +31,7 @@ export default class ImportPreview extends PureComponent {
           </div>
         )}
         {cssPath && (
-          <div {...{className: classnames('border styleguide-import-preview', {'mtxxl': reactPath})}}>
+          <div {...{className: classnames('border styleguide-import-preview', {'mtxxxl': reactPath})}}>
             <div className="border-bottom em-high pal bg-neutral-10">{`Import CSS${reactPath ? ' only' : ''}`}</div>
             <pre className="pre-unstyled man md-pre language-js"><code className="styleguide-import-preview-code">{cssImport}</code></pre>
           </div>
