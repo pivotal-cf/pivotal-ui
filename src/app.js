@@ -4,7 +4,6 @@ import Sidebar from './components/sidebar';
 import {getRouteContent} from './routes';
 import Router from './helpers/router';
 import Page from './components/page';
-import 'pivotal-ui/js/prismjs';
 import '../stylesheets/app.scss';
 
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);

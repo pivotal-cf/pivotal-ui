@@ -1,6 +1,10 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-coy.css'
+import 'prismjs/components/prism-bash.min.js'
+
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
 import PropTable from './prop_table';
@@ -18,6 +22,11 @@ export default class Page extends PureComponent {
     pageSections: PropTypes.array.isRequired,
     currentRoute: PropTypes.string
   };
+
+  componentDidUpdate() {
+    console.log('update')
+    Prism.highlightAll();
+  }
 
   render() {
     const {currentRoute, file, pageComponents, pageSections, pageMetadata} = this.props;

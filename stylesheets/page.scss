@@ -11,6 +11,21 @@
     margin-top: 0 !important;
   }
 
+  .md-pre {
+    background: transparent;
+
+    &:before, &:after {
+      display: none;
+    }
+
+    code {
+      box-shadow: none;
+      border: none;
+      padding: $base-unit;
+      background: transparent;
+    }
+  }
+
   .styleguide-page-header {
     a {
       color: $text-color;

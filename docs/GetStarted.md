@@ -11,12 +11,10 @@ To use Pivotal UI in a Node.js project, first install the latest version of Node
 Then, install the `pivotal-ui` Node module:
 
 ```bash
+# if using yarn:
 yarn add pivotal-ui
-```
 
-Or, if using NPM instead of Yarn:
-
-```bash
+# if using npm:
 npm install --save pivotal-ui
 ```
 
@@ -27,12 +25,14 @@ To get started using Pivotal UI with Create React App (CRA), follow these steps:
 1. Install the latest version of Node LTS. [See here for instructions.](https://docs.npmjs.com/getting-started/installing-node)
 
 2. Create a new CRA project with this command:
-```
+
+```bash
 npx create-react-app some-directory
 ```
 
 At this point, you'll be able to start up the default CRA app locally:
-```
+
+```bash
 cd some-directory
 yarn start
 ```
@@ -41,13 +41,14 @@ For more information on Create React App, see the [CRA readme](https://github.co
 
 3. Install the `pivotal-ui` node module:
 
-```
+```bash
 yarn add pivotal-ui
 ```
 
 4. Open `src/App.js` and replace the contents with:
 
-```
+```js
+::nonInteractive
 import React, {Component} from 'react';
 import {DefaultButton} from 'pivotal-ui/react/buttons';
 
@@ -70,7 +71,8 @@ For non-React projects, Pivotal UI's styles can be included in two different way
 
 For projects that are using Webpack and the [css-loader](https://github.com/webpack-contrib/css-loader), the CSS for each component can be imported directly into JavaScript files like this:
 
-```
+```js
+::nonInteractive
 import 'pivotal-ui/css/alerts';
 ```
 
@@ -82,12 +84,13 @@ For projects that are not using Webpack, our compiled CSS is made available via 
 
 `http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-<VERSION>.css`
 
-For example, CSS for `16.0.0` is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-16.0.0.css
+For example, CSS for version 16.0.0 is available at http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-16.0.0.css
 
 These files can be included with a `<link>` tag in an HTML file like this:
 
-```
-<link rel="stylesheet" href="http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-14.0.0.css">
+```html
+::nonInteractive
+<link rel="stylesheet" href="http://d2bsvk2etkq8vr.cloudfront.net/pui-css/pui-components-16.0.0.css">
 ```
 
 # Unit testing with Jasmine
@@ -107,7 +110,9 @@ These files can be included with a `<link>` tag in an HTML file like this:
 - Install jasmine_dom_matchers, `yarn add --dev jasmine_dom_matchers`
 
 - Create a `.babelrc` file in your project root
-```
+
+```js
+::nonInteractive
 {
   "presets": [["es2015", {"loose": true}], "react"]
 }
@@ -115,7 +120,9 @@ These files can be included with a `<link>` tag in an HTML file like this:
 
 - Create gulpfile.babel.js to install the jasmine task with a webpack config
 
-```
+```js
+::nonInteractive
+
 import {Jasmine} from 'pui-react-tools';
 import 'babel-polyfill';
 
@@ -149,7 +156,10 @@ Jasmine.install({
 ```
 
 - Create a `spec_helper.js` that imports necessary dependencies and sets up tests
-```
+
+```js
+::nonInteractive
+
 import $ from 'jquery';
 import 'jasmine_dom_matchers';
 import ReactDOM from 'react-dom';
@@ -172,7 +182,9 @@ afterEach(() => {
 
 - Import `spec_helper.js` in your test file. Render into root and assert against jquery selectors.
 
-```
+```js
+::nonInteractive
+
 import React from 'react';
 import App from './App';
 import 'path/to/spec_helper';
@@ -199,7 +211,9 @@ describe('app', () => {
 - Install gulp@next (Make sure its version is ^4.0.0), `yarn add --dev gulp@next`
 
 - Create a `.babelrc` file in your project root
-```
+
+```js
+::nonInteractive
 {
   "presets": [["es2015", {"loose": true}], "react"]
 }
@@ -207,7 +221,9 @@ describe('app', () => {
 
 - Create gulpfile.babel.js to install the link task
 
-```
+```js
+::nonInteractive
+
 import {Jasmine} from 'pui-react-tools';
 Lint.install({globs: ['src/**/*.js']});
 ```

@@ -11,7 +11,7 @@ It is very often possible to achieve a desired effect just by composing modifier
 
 The CSS for a modifier class looks like this:
 
-```
+```css
 .underline {
   text-decoration: underline;
 }

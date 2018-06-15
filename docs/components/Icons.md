@@ -25,7 +25,7 @@ example below.
   filterPlaceholderText: 'Search icons...',
   data: Object.keys(Icons),
   emptyState: <div className="txt-c">No matching icons</div>,
-  filter: (iconNames, filterText) => iconNames.filter(iconName => iconName.indexOf(filterText) > -1),
+  filter: (iconNames, filterText) => iconNames.filter(iconName => iconName.indexOf(filterText.toLowerCase()) > -1),
   renderFilteredData: iconNames => (
     <Grid>
       {iconNames.map(iconName => {
