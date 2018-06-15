@@ -4,7 +4,7 @@ menu: default
 route: versions
 ---
 
-Archived past versions of Pivotal UI:
+View archived styleguides for past versions of Pivotal UI:
 
 - [Version 9](/static/versions/9/)
 - [Version 10](/static/versions/10/)

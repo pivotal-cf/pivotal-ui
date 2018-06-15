@@ -3,7 +3,7 @@ title: Modifier Classes
 menu: concepts
 ---
 
-Pivotal UI provides several CSS "modifier" classes. Modifiers are tiny CSS classes that each has **one** job. They are sometimes called utility classes or atomic classes by other front-end libraries. Modifiers help avoid writing repetitive CSS and make it easy to incorporate Pivotal UI's colors, typography, and other common patterns.
+Pivotal UI provides several CSS "modifier" classes. A modifier is a tiny CSS class that has **one** job (e.g., it sets a single CSS property). They are sometimes called utility classes or atomic classes by other front-end libraries. Modifiers help avoid writing repetitive CSS and make it easy to incorporate Pivotal UI's colors, typography, and other common patterns.
 
 It is very often possible to achieve a desired effect just by composing modifier classes, without writing any new CSS. Prefer this approach whenever it is feasible, since it decreases the amount of CSS to maintain in your team's codebase and makes styling more consistent across codebases.
 

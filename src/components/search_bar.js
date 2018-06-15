@@ -1,10 +1,9 @@
-import React, {PureComponent, Fragment} from 'react';
-import PropTypes from 'prop-types';
+import React, {PureComponent} from 'react';
 import {Autocomplete, AutocompleteInput} from 'pivotal-ui/react/autocomplete';
 import {Input} from 'pivotal-ui/react/inputs';
-import classnames from 'classnames';
 import {routeData} from '../routes';
 import Router from '../helpers/router';
+import SearchResult from './search_result';
 
 const searchItems = [];
 
@@ -24,17 +23,10 @@ routeData.forEach(({route, pageMetadata, pageSections}) => {
 
 console.log(searchItems)
 
-const SearchResult = ({title, subtitle, category}) => {
-  return <div>
-    <span>{category}</span>
-    <span>{title}</span>
-    <span>{subtitle}</span>
-  </div>;
-}
-
 export default class SearchBar extends PureComponent {
   onPick = picked => {
     picked && picked.route && Router.navigate(picked.route);
+    this.el && this.el.setState({value: ''});
   };
 
   onSearch = (input, callback) => {
@@ -63,6 +55,7 @@ export default class SearchBar extends PureComponent {
     return (
       <div className="styleguide-search-bar ptl phxl mbxl">
         <Autocomplete {...{
+          ref: el => this.el = el,
           onInitializeItems: callback => callback(searchItems),
           placeholder: 'Search',
           input: <AutocompleteInput><Input icon="search" className="search-input"/></AutocompleteInput>,

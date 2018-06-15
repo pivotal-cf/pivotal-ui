@@ -1,15 +1,15 @@
 import React, {PureComponent, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import Prism from 'prismjs';
-import 'prismjs/themes/prism-coy.css'
-import 'prismjs/components/prism-bash.min.js'
-
 import {Icon} from 'pivotal-ui/react/iconography';
 import ImportPreview from './import_preview';
 import PropTable from './prop_table';
 import Config from '../config';
 import Anchor from './anchor';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-coy.css';
+import 'prismjs/components/prism-bash.min.js';
+import 'prismjs/components/prism-jsx.min.js';
 
 const formatEditUrl = file => `${Config.get('repository')}/edit/master/docs/${file}`;
 const issueUrl = `${Config.get('puiRepository')}/issues/new`;
@@ -24,7 +24,6 @@ export default class Page extends PureComponent {
   };
 
   componentDidUpdate() {
-    console.log('update')
     Prism.highlightAll();
   }
 

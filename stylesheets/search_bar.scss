@@ -15,9 +15,14 @@
       margin-top: $base-unit;
     }
 
+    .autocomplete-list {
+      border: none;
+      border-radius: $base-unit / 2;
+    }
+
     .autocomplete-item, .autocomplete-item-no-results {
       font-size: 14px;
-      width: 100%;
+      min-width: 100%;
       color: $dark-2;
       opacity: 1;
     }

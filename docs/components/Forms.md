@@ -90,7 +90,8 @@ components. You can use these to lay out the fields in your form, and to control
 
 A `Form` will generally look like this:
 
-```
+```jsx
+::nonInteractive
 <Form>
     <FormRow>
         <FormCol name="username">

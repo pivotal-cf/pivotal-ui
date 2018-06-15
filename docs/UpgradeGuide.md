@@ -200,7 +200,8 @@ This component was based on Bootstrap Grids, and has been removed. Use our Flex 
 
 Deprecated Bootstrap-based Grid:
 
-```
+```jsx
+::nonInteractive
 <Row>
   <Col md={8}>...</Col>
   <Col md={16}>...</Col>
@@ -209,7 +210,8 @@ Deprecated Bootstrap-based Grid:
 
 FlexGrid:
 
-```
+```jsx
+::nonInteractive
 <Grid>
   <FlexCol>...</FlexCol>
   <FlexCol grow={2}>...</FlexCol>
@@ -220,7 +222,8 @@ FlexGrid:
 
 Deprecated Bootstrap-based Grid:
 
-```
+```html
+::nonInteractive
 <div class="row">
   <div class="col-md-8">...</div>
   <div class="col-md-16">...</div>
@@ -229,7 +232,8 @@ Deprecated Bootstrap-based Grid:
 
 FlexGrid:
 
-```
+```html
+::nonInteractive
 <div class="grid">
   <div class="col">...</div>
   <div class="col col-grow-2">...</div>
@@ -321,6 +325,7 @@ and into the Form component.
 - Introduced the TextFilter component
 
 ### Forms
+
 ```jsx
 <Form className="example-form">
   <FormRow className="mbxl">
@@ -348,8 +353,8 @@ and into the Form component.
     </FormCol>
   </FormRow>
 </Form>
-
 ```
+
 #### Form Unit
 
 - it's a layered cake

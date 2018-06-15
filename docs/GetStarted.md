@@ -1,5 +1,5 @@
 ---
-title: Getting Started with Pivotal UI
+title: Getting Started
 menu: default
 route: get-started
 ---
