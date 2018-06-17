@@ -6,7 +6,7 @@ cssPath: pivotal-ui/css/alignment
 
 # Overview
 
-Alignment modifier classes are used control horizontal and vertical alignment of an element's contents.
+Use alignment modifier classes to control the horizontal and vertical alignment of an element's contents.
 
 ## Classes
 

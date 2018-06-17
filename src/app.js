@@ -9,6 +9,15 @@ import '../stylesheets/app.scss';
 const cssRequireContext = require.context('pivotal-ui/css/', true, /\.scss/);
 cssRequireContext.keys().map(cssRequireContext);
 window.Icons = require('pivotal-ui/react/iconography/icons');
+window.colorPalette = {
+  neutral: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  dark: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  brand: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+  accent: [1, 2, 3, 4, 5, 6],
+  error: [1, 2, 3, 4, 5, 6],
+  warn: [1, 2, 3, 4, 5, 6],
+  success: [1, 2, 3, 4, 5, 6]
+};
 
 export default class App extends Component {
   state = {

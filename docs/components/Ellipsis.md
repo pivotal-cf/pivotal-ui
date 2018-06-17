@@ -6,7 +6,7 @@ cssPath: pivotal-ui/css/ellipsis
 
 # Overview
 
-The `type-ellipsis` modifier causes text within an element to be truncated with ellipses ("...") when it is too long to fit.
+Use the `type-ellipsis` modifier to cause text within an element to be truncated with ellipses ("...") when it is too long to be displayed fully.
 
 ## Classes
 

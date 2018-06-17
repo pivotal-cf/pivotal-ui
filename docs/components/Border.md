@@ -6,7 +6,7 @@ cssPath: pivotal-ui/css/border
 
 # Overview
 
-These modifiers control borders around elements. Whenever possible, use these instead of defining custom borders in CSS.
+Use border modifiers to control borders around an element. Whenever possible, use these instead of defining custom borders in CSS.
 
 ## Classes
 

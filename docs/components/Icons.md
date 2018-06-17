@@ -24,10 +24,14 @@ example below.
   className: 'mhl',
   filterPlaceholderText: 'Search icons...',
   data: Object.keys(Icons),
-  emptyState: <div className="txt-c">No matching icons</div>,
+  emptyState: (
+    <Grid className="border mtxl txt-c">
+      <FlexCol className="paxl">No matching icons</FlexCol>
+    </Grid>
+  ),
   filter: (iconNames, filterText) => iconNames.filter(iconName => iconName.indexOf(filterText.toLowerCase()) > -1),
   renderFilteredData: iconNames => (
-    <Grid>
+    <Grid className="border mtxl">
       {iconNames.map(iconName => {
         return (
           <FlexCol key={iconName} className="txt-c mvxxl" col={6} breakpoint="md">
