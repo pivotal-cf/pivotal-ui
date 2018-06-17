@@ -78,7 +78,7 @@ export default class CodeExample extends PureComponent {
             <FlexCol className="em-high">{title}</FlexCol>
             {hasReact && <FlexCol fixed>
               <DefaultButton small flat {...{
-                className: 'phs toolbar-button',
+                className: 'phs code-example-button',
                 icon: <Icon src="react"/>,
                 onClick: this.toggleReact
               }}>
@@ -87,7 +87,7 @@ export default class CodeExample extends PureComponent {
             </FlexCol>}
             {hasHtml && <FlexCol fixed>
               <DefaultButton small flat {...{
-                className: 'mll phs toolbar-button',
+                className: 'mll phs code-example-button',
                 icon: <Icon src="html5"/>,
                 onClick: this.toggleHtml
               }}>

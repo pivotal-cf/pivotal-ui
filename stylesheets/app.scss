@@ -1,10 +1,7 @@
 @import '~pivotal-ui/css/pui-variables';
-@import '~pivotal-ui/css/flex-grids/flex-grids';
-@import '~pivotal-ui/css/colors/colors';
-@import '~pivotal-ui/css/ellipsis/ellipsis';
 @import 'sidebar';
 @import 'page';
-@import 'code_editor';
+@import 'code_example';
 @import 'search_bar';
 @import 'search_result';
 
@@ -25,10 +22,6 @@ body {
     padding: 10px 0;
     outline: 1px solid $neutral-5;
   }
-}
-
-.aligner {
-  border: solid 1px $table-border-color;
 }
 
 h1.h1 {
@@ -63,16 +56,16 @@ h2.h2 {
 #content {
   height: 100vh;
   overflow: auto;
-}
 
-#content .policy-link {
-  &:not(:empty):before {
-    content: "•";
-    margin: 0 8px;
-  }
+  .policy-link {
+    &:not(:empty):before {
+      content: "•";
+      margin: 0 8px;
+    }
 
-  &:first-child:before {
-    content: "";
-    margin-right: 0;
+    &:first-child:before {
+      content: "";
+      margin-right: 0;
+    }
   }
 }

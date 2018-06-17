@@ -20,7 +20,7 @@ $active-item-border-size: $base-unit / 2;
   padding: $base-unit * 2;
   display: flex;
 
-  .sidebar--icon {
+  .sidebar-icon {
     padding: $base-unit;
     background-color: $brand-8;
     border-radius: 2px;
@@ -33,7 +33,7 @@ $active-item-border-size: $base-unit / 2;
     }
   }
 
-  .sidebar--title {
+  .sidebar-title {
     display: inline;
     color: $gray-9;
     font-size: $font-size-large;
