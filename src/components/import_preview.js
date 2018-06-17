@@ -18,7 +18,7 @@ export default class ImportPreview extends PureComponent {
     if (!cssPath && !reactPath) return null;
 
     const componentNames = Object.keys(reactComponents);
-    const reactImport = reactPath && `import { ${componentNames.join(', ')} } from '${reactPath}';`;
+    const reactImport = reactPath && `import {${componentNames.join(', ')}} from '${reactPath}';`;
     const cssImport = cssPath && `import '${cssPath}';`;
     const multipleComponents = componentNames.length > 1;
 
