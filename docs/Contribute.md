@@ -10,7 +10,7 @@ We encourage and appreciate all contributions, large and small, from the Pivotal
 
 All of Pivotal UI's components and styles live in the [Pivotal UI GitHub repo](https://github.com/pivotal-cf/pivotal-ui). If you have a feature request, or if you want to report a bug in one of our components, [file an issue](https://github.com/pivotal-cf/pivotal-ui/issues/new).
 
-If you would like to submit a pull request, it is probably a good idea to reach out to the maintainers first to help us understand the change you'd like to make. This will make the process much easier for all involved.
+If you would like to submit a pull request, it's a good idea to reach out to the maintainers as early as possible to help us understand the change you'd like to make. This will make the process much easier for all involved.
 
 If your team has built a component that you feel would be a good fit for Pivotal UI (i.e. it could be useful to several Pivotal teams), let the maintainers know so we can figure out the best way to help.
 

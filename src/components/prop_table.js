@@ -51,12 +51,6 @@ export default class PropTable extends PureComponent {
       const defaultValue = propToString(defaultProps[prop]);
       const description = propDescriptions[prop] || '';
 
-      if (process.env.NODE_ENV !== 'production') {
-        if (!description) {
-          console.warn(`No description given for prop '${prop}' on ${componentName} component.`);
-        }
-      }
-
       if (description === '(undocumented)') return;
       return {prop, type, isRequired, defaultValue, description};
     }).filter(Boolean);

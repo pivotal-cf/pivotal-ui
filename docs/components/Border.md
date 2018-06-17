@@ -6,114 +6,80 @@ cssPath: pivotal-ui/css/border
 
 # Overview
 
-All textual `<a>`, `<input>`, `<p>`, `<span>`, `<div>`, and `<table>` elements with border or `.border-*` are set to `width: 1px solid $input-color;` by default.
+These modifiers control borders around elements. Whenever possible, use these instead of defining custom borders in CSS.
+
+## Classes
+
+Modifier | Purpose
+---------|--------
+`border` | Add borders on all sides
+`border-top` | Add a border on the top
+`border-right` | Add a border on the right
+`border-bottom` | Add a border on the bottom
+`border-left` | Add a border on the left
+`border-none` | Remove borders from all sides
+`border-top-0` | Remove border from the top
+`border-right-0` | Remove border from the right
+`border-bottom-0` | Remove border from the bottom
+`border-left-0` | Remove border from the left
+`border-rounded` | Make borders rounded
+`border-not-rounded` | Make borders not rounded
 
 # Examples
 
 ```html
-::title=Default border
-<div>
-    <div class="border">.border</div>
-</div>
-<div>
-    <div class="border-top mvxl">.border-top</div>
-</div>
-<div>
-    <div class="border-right mvxl">.border-right</div>
-</div>
-<div>
-    <div class="border-bottom mvxl">.border-bottom</div>
-</div>
-<div>
-    <div class="border-left mvxl">.border-left</div>
-</div>
+::title=Adding borders
+<div class="mvxl paxl border"><code>border</code></div>
+<div class="mvxl paxl border-top"><code>border-top</code></div>
+<div class="mvxl paxl border-right"><code>border-right</code></div>
+<div class="mvxl paxl border-bottom"><code>border-bottom</code></div>
+<div class="mvxl paxl border-left"><code>border-left</code></div>
 ```
 
 ```html
-::title=Table border
-<div>
-    <table class="border">
-      <thead>
-      <tr>
-        <td>one</td>
-        <td>two</td>
-        <td>three</td>
-        <td>four</td>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td class="border-bottom">.border-bottom</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td class="border">.border</td>
-        <td></td>
-
-      </tr>
-      <tr>
-        <td class="border-right">.border-right</td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td class="border-top">.border-top</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="border-left">.border-left</td>
-        <td></td>
-        <td></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+::title=Adding borders in tables
+<table class="border">
+  <tbody>
+    <tr>
+      <td class="paxl border-bottom"><code>border-bottom</code></td>
+      <td class="paxl"></td>
+      <td class="paxl"></td>
+    </tr>
+    <tr>
+      <td class="paxl"></td>
+      <td class="paxl"></td>
+      <td class="paxl border"><code>border</code></td>
+    </tr>
+    <tr>
+      <td class="paxl border-right"><code>border-right</code></td>
+      <td class="paxl"></td>
+      <td class="paxl"></td>
+    </tr>
+    <tr>
+      <td class="paxl"></td>
+      <td class="paxl"></td>
+      <td class="paxl border-top"><code>border-top</code></td>
+    </tr>
+    <tr>
+      <td class="paxl"></td>
+      <td class="paxl border-left"><code>border-left</code></td>
+      <td class="paxl"></td>
+    </tr>
+  </tbody>
+</table>
 ```
 
 ```html
-::title=Border none
-::description=Borders can also be controlled with the use of `border-*-0` to remove specific borders or `border-none` to remove them all.
-<div>
-    <div class="border mvxl border-none">.border-none</div>
-</div>
-
-<div>
-    <div class="border mvxl border-top-0">.border-top-0</div>
-</div>
-
-<div>
-    <div class="border mvxl border-right-0">.border-right-0</div>
-</div>
-
-<div>
-    <div class="border mvxl border-bottom-0">.border-bottom-0</div>
-</div>
-
-<div>
-    <div class="border mvxl border-left-0">.border-left-0</div>
-</div>
+::title=Removing borders
+<div class="mvxl paxl border border-none"><code>border-none</code></div>
+<div class="mvxl paxl border border-top-0"><code>border-top-0</code></div>
+<div class="mvxl paxl border border-right-0"><code>border-right-0</code></div>
+<div class="mvxl paxl border border-bottom-0"><code>border-bottom-0</code></div>
+<div class="mtxl paxl border border-left-0"><code>border-left-0</code></div>
 ```
 
 ```html
 ::title=Rounded borders
-::description=Borders can also be rounded with `border-rounded`, or all radii effect removed with `border-not-rounded`.
-<div class="panel bg-neutral-11 border border-rounded">
-  <div class="panel-body">
-    Border Rounded
-  </div>
-</div>
-<br />
-<div class="panel bg-neutral-11 border border-not-rounded">
-  <div class="panel-body">
-    Border Not Rounded
-  </div>
-</div>
+<div class="mvxl paxl border border-rounded"><code>border-rounded</code></div>
+<div class="mvxl paxl border border-not-rounded"><code>border-not-rounded</code></div>
 ```

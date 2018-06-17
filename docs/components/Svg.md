@@ -9,19 +9,22 @@ componentProps:
 
 # Overview
 
-# Examples
+The `Svg` component makes it easier to transform SVG files into React components so they can be rendered just like any other component. It uses Webpack's [`react-svg-loader`](https://www.npmjs.com/package/react-svg-loader) and [`babel-loader`](https://www.npmjs.com/package/babel-loader) to do this transformation, so you must have these installed to use this component.
 
-This is very difficult to run in the styleguide itself, so there is not a working example here, but it does work.
-The example below will render the file `app/svgs/search.svg`.
+By default, `Svg` looks for SVG files located in the `app/svgs` folder at the root of your project
+(defined here as the location of your `package.json`). For example, the following will render the file `app/svgs/my-logo.svg`:
 
+```jsx
+::nonInteractive
+<Svg src="my-logo" width="20" height="20" />
 ```
-<Svg src="search" width="20" height="20" />
-```
 
-By default, the `Svg` component will look in the `app/svgs` folder at the root of your project
-(defined here as the location of your package.json). If you have SVG files in other folders, you can subclass the `Svg` component as follows:
+## Changing SVG file location
 
-```
+If you have SVG files in other folders, you can extend the `Svg` component and override the `svgPathLoader` method, as follows:
+
+```js
+::nonInteractive
 class MySvg extends Svg {
   svgPathLoader(src) {
     return require(`!!babel-loader!react-svg-loader!./path/to/svgs/${src}.svg`);
@@ -29,12 +32,14 @@ class MySvg extends Svg {
 }
 ```
 
-The path is relative to the file where you subclass the Svg component. Note that `react-svg-loader` will internally optimize your SVGs using [svgo](https://github.com/svg/svgo).
+The path is relative to the file where you extend the `Svg` component.
+
+## Disabling optimizations
+
+Note that `react-svg-loader` will internally optimize your SVGs using [svgo](https://github.com/svg/svgo).
 This optimization will sometimes change your SVG in undesirable ways. You can turn off parts of the optimization with loader params. For example, the `Svg` component itself uses:
 
-```
+```js
+::nonInteractive
  require(`!!babel-loader!react-svg-loader?{"svgo":{"plugins":[{"removeUnknownsAndDefaults":false},{"cleanupNumericValues":false},{"removeUselessStrokeAndFill":false}]}}!../../../../app/svgs/${src}.svg`);
 ```
-
-Pivotal UI provides a set of commonly used icons in the [Iconography Component](/icons)
-For a full list of available icons, go to [http://pivotalicons.cfapps.io](http://pivotalicons.cfapps.io).
