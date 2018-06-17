@@ -3,7 +3,7 @@ title: Buttons
 menu: components
 cssPath: pivotal-ui/css/buttons
 reactPath: pivotal-ui/react/buttons
-reactComponents:
+componentProps:
   DefaultButton:
     alt: Whether to render as 'alternate' button
     flat: Whether to render as a 'flat' button

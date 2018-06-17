@@ -3,7 +3,7 @@ title: Panels
 menu: components
 cssPath: pivotal-ui/css/panels
 reactPath: pivotal-ui/react/panels
-reactComponents:
+componentProps:
   Panel:
     className: Class(es) to apply to the panel container
     title: String to render in the title

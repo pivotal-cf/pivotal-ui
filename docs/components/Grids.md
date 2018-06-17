@@ -3,7 +3,7 @@ title: Grids
 menu: components
 cssPath: pivotal-ui/css/flex-grids
 reactPath: pivotal-ui/react/flex-grids
-reactComponents:
+componentProps:
   Grid:
     gutter: When true, adds spacing between `FlexCol`s
   FlexCol:

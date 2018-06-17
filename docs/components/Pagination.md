@@ -3,7 +3,7 @@ title: Pagination
 menu: components
 cssPath: pivotal-ui/css/pagination
 reactPath: pivotal-ui/react/pagination
-reactComponents:
+componentProps:
   Pagination:
     items: The number of page links displayed
     next: Option to display a 'next page' button

@@ -3,7 +3,7 @@ title: Autocomplete
 menu: components
 cssPath: pivotal-ui/css/autocomplete
 reactPath: pivotal-ui/react/autocomplete
-reactComponents:
+componentProps:
   Autocomplete:
     className: '`className` to add to autocomplete'
     disabled: whether the input is disabled

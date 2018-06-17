@@ -3,7 +3,7 @@ title: Inputs
 menu: components
 cssPath: pivotal-ui/css/inputs
 reactPath: pivotal-ui/react/inputs
-reactComponents:
+componentProps:
   Input:
     icon: See [Icons](/icons) for valid icon names
     size: Size variations

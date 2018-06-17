@@ -3,7 +3,7 @@ title: Radios
 menu: components
 cssPath: pivotal-ui/css/radio
 reactPath: pivotal-ui/react/radio
-reactComponents:
+componentProps:
   Radio:
     checked: Whether the radio is checked, when controlled
     children: Content to place within `label` to the right of the radio

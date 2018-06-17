@@ -29,7 +29,7 @@ export default class Page extends PureComponent {
 
   render() {
     const {currentRoute, file, pageComponents, pageSections, pageMetadata} = this.props;
-    const {title, reactPath, reactComponents, cssPath} = pageMetadata;
+    const {title, reactPath, componentProps, cssPath} = pageMetadata;
     const singlePageSection = pageSections.length === 1;
 
     const tabLinks = pageSections.map(({title, route}) => {
@@ -45,12 +45,12 @@ export default class Page extends PureComponent {
       const {SectionComponent} = pageSections[0];
       content = SectionComponent ? <SectionComponent/> : null;
     } else if (currentRoute.endsWith('/props')) {
-      content = Object.keys(reactComponents).map(componentName => (
+      content = Object.keys(componentProps).map(componentName => (
         <PropTable {...{
           key: componentName,
           componentName,
           component: pageComponents[componentName],
-          pagePropDescriptions: reactComponents
+          pagePropDescriptions: componentProps
         }}/>
       ));
     } else {
@@ -58,7 +58,7 @@ export default class Page extends PureComponent {
       content = (
         <Fragment>
           {SectionComponent ? <SectionComponent/> : null}
-          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, reactComponents}}/>}
+          {sectionTitle === 'Overview' && <ImportPreview {...{reactPath, cssPath, componentProps}}/>}
         </Fragment>
       );
     }

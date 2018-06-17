@@ -2,7 +2,7 @@
 title: Wizard
 menu: components
 reactPath: pivotal-ui/react/wizard
-reactComponents:
+componentProps:
   Wizard:
     pages: An array of Wizard Pages.
     cancel: Callback to call when the user cancels the Wizard.

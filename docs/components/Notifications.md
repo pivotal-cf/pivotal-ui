@@ -3,7 +3,7 @@ title: Notifications
 menu: components
 cssPath: pivotal-ui/css/notifications
 reactPath: pivotal-ui/react/notifications
-reactComponents:
+componentProps:
   Notifications:
     size: Size of the notification
   AlertNotifications:

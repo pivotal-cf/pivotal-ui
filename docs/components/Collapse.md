@@ -3,7 +3,7 @@ title: Collapse
 menu: components
 cssPath: pivotal-ui/css/collapse
 reactPath: pivotal-ui/react/collapse
-reactComponents:
+componentProps:
   BaseCollapse:
     divider: Specifying this property adds a divider between the clickable region and the expanded content region
     header: The text of the clickable region to toggle the expand/collapse states

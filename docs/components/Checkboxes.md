@@ -3,7 +3,7 @@ title: Checkbox
 menu: components
 cssPath: pivotal-ui/css/checkbox
 reactPath: pivotal-ui/react/checkbox
-reactComponents:
+componentProps:
   Checkbox:
     checked: Whether the checkbox is checked, when controlled
     children: Content to place within `label` to the right of the checkbox

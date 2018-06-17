@@ -2,7 +2,7 @@
 title: SVG
 menu: components
 reactPath: pivotal-ui/react/svg
-reactComponents:
+componentProps:
   Svg:
     src: Name of the SVG (excluding the `.svg` extension)
 ---

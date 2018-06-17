@@ -3,7 +3,7 @@ title: Tooltips
 menu: components
 cssPath: pivotal-ui/css/tooltips
 reactPath: pivotal-ui/react/tooltip
-reactComponents:
+componentProps:
   Tooltip: {}
   TooltipTrigger: {}
 ---

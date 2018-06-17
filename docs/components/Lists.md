@@ -3,7 +3,7 @@ title: Lists
 menu: components
 cssPath: pivotal-ui/css/lists
 reactPath: pivotal-ui/react/lists
-reactComponents:
+componentProps:
   BreadcrumbList:
     className: Classname of the list
     unstyled: Whether to style the list

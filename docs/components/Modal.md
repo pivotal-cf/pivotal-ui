@@ -3,7 +3,7 @@ title: Modal
 menu: components
 cssPath: pivotal-ui/css/modal
 reactPath: pivotal-ui/react/modal
-reactComponents:
+componentProps:
   Modal:
     animationDuration: Animation duration in milliseconds (Set to <= 0 to disable animations) |
     animationEasing: Animation easing function

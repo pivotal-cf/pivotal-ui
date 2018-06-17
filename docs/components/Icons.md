@@ -3,7 +3,7 @@ title: Icons
 menu: components
 cssPath: pivotal-ui/css/iconography
 reactPath: pivotal-ui/react/iconography
-reactComponents:
+componentProps:
   Icon:
     src: The name of the icon
     style: Styles to apply

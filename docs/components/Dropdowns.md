@@ -3,7 +3,7 @@ title: Dropdowns
 menu: components
 cssPath: pivotal-ui/css/dropdowns
 reactPath: pivotal-ui/react/dropdowns
-reactComponents:
+componentProps:
   Dropdown:
     blockingScrim: If true, blocks mouse events outside of the dropdown. Clicking outside of the dropdown will still close the dropdown.
     border: (undocumented)

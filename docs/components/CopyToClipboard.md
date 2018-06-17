@@ -3,7 +3,7 @@ title: Copy to Clipboard
 menu: components
 cssPath: pivotal-ui/css/copy-to-clipboard
 reactPath: pivotal-ui/react/copy-to-clipboard
-reactComponents:
+componentProps:
   CopyToClipboard:
     text: Text that is copied when the user clicks
     onClick: Click handler

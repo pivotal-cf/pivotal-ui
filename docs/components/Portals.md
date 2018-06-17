@@ -2,7 +2,7 @@
 title: Portals
 menu: components
 reactPath: pivotal-ui/react/portals
-reactComponents:
+componentProps:
   PortalSource:
     name: Use same name to connect sources and destinations
   PortalDestination:

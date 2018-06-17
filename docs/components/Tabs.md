@@ -3,7 +3,7 @@ title: Tabs
 menu: components
 cssPath: pivotal-ui/css/tabs
 reactPath: pivotal-ui/react/tabs
-reactComponents:
+componentProps:
   Tab:
     aria-labelledby: Overwrite the default aria-labelledby for the tab for more specific accessibility information
     className: ClassName to add to the tab content

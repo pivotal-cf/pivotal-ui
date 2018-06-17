@@ -3,7 +3,7 @@ title: Flyout
 menu: components
 cssPath: pivotal-ui/css/flyout
 reactPath: pivotal-ui/react/flyout
-reactComponents:
+componentProps:
   Flyout:
     animationDuration: Animation duration in milliseconds (Set to <= 0 to disable animations)
     animationEasing: Animation easing function

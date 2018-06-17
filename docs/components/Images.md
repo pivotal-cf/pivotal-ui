@@ -3,7 +3,7 @@ title: Images
 menu: components
 cssPath: pivotal-ui/css/images
 reactPath: pivotal-ui/react/images
-reactComponents:
+componentProps:
   Image:
     responsive: Whether this image should resize responsively
     href: If set, image becomes a link

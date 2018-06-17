@@ -3,7 +3,7 @@ title: Checkbox Dropdowns
 menu: components
 cssPath: pivotal-ui/css/checkbox-dropdown
 reactPath: pivotal-ui/react/checkbox-dropdown
-reactComponents:
+componentProps:
   CheckboxDropdown:
     buttonAriaLabel: aria-label for the button
     buttonClassName: Classname to add to the button

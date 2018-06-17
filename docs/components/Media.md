@@ -3,7 +3,7 @@ title: Media
 menu: components
 cssPath: pivotal-ui/css/media
 reactPath: pivotal-ui/react/media
-reactComponents:
+componentProps:
   Media:
     image: The image displayed
     innerClassName: The classname of the inner element

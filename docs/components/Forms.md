@@ -3,7 +3,7 @@ title: Forms
 menu: components
 cssPath: pivotal-ui/css/forms
 reactPath: pivotal-ui/react/forms
-reactComponents:
+componentProps:
   Form:
     onModified: Called on every state change. Called with `true` when current state is different from initial state. `false` when they are the same.
     onSubmit: Called with the state, `{initial, current}`. If this function is async, we will await it.

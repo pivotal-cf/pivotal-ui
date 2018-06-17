@@ -6,18 +6,18 @@ export default class ImportPreview extends PureComponent {
   static propTypes = {
     cssPath: PropTypes.string,
     reactPath: PropTypes.string,
-    reactComponents: PropTypes.object
+    componentProps: PropTypes.object
   };
 
   static defaultProps = {
-    reactComponents: {}
+    componentProps: {}
   };
 
   render() {
-    const {cssPath, reactPath, reactComponents} = this.props;
+    const {cssPath, reactPath, componentProps} = this.props;
     if (!cssPath && !reactPath) return null;
 
-    const componentNames = Object.keys(reactComponents);
+    const componentNames = Object.keys(componentProps);
     const reactImport = reactPath && `import {${componentNames.join(', ')}} from '${reactPath}';`;
     const cssImport = cssPath && `import '${cssPath}';`;
     const multipleComponents = componentNames.length > 1;

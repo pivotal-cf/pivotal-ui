@@ -2,7 +2,7 @@
 title: Collapsible
 menu: components
 reactPath: pivotal-ui/react/collapsible
-reactComponents:
+componentProps:
   Collapsible:
     delay: Duration (in milliseconds) of expand/collapse animation
     disableAnimation: If true, disables animation on expand/collapse

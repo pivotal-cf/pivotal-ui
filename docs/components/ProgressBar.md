@@ -3,7 +3,7 @@ title: Progress Bars
 menu: components
 cssPath: pivotal-ui/css/progress-bar
 reactPath: pivotal-ui/react/progress-bar
-reactComponents:
+componentProps:
   ProgressBar:
     barClassName: Class(es) to apply
     value: Percentage to display

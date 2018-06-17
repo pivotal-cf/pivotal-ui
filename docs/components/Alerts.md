@@ -3,7 +3,7 @@ title: Alerts
 menu: components
 cssPath: pivotal-ui/css/alerts
 reactPath: pivotal-ui/react/alerts
-reactComponents:
+componentProps:
   SuccessAlert:
     closeLabel: Screen reader label attached to close button
     dismissable: If true, render a close button

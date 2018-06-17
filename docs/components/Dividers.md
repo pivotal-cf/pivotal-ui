@@ -3,7 +3,7 @@ title: Dividers
 menu: components
 cssPath: pivotal-ui/css/dividers
 reactPath: pivotal-ui/react/dividers
-reactComponents:
+componentProps:
   Divider:
     inverse: Inverts the colors of the divider
     size: Changes the size of the component. Either 'large' or leave undefined for default size.

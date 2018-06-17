@@ -3,7 +3,7 @@ title: Toggle
 menu: components
 cssPath: pivotal-ui/css/toggle
 reactPath: pivotal-ui/react/toggle
-reactComponents:
+componentProps:
   Toggle:
     id: The id of the element
     className: Class name to put on the inner `label` element

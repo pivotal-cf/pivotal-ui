@@ -3,7 +3,7 @@ title: Select
 menu: components
 cssPath: pivotal-ui/css/select
 reactPath: pivotal-ui/react/select
-reactComponents:
+componentProps:
   Select:
     defaultValue: The initial value for the select when the select is uncontrolled
     name: The name of the hidden input, useful when used in a form

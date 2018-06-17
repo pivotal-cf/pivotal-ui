@@ -3,7 +3,7 @@ title: Text Filter
 menu: components
 cssPath: pivotal-ui/css/text-filter
 reactPath: pivotal-ui/react/text-filter
-reactComponents:
+componentProps:
   TextFilter:
     data: array of the data to filter.
     emptyState: jsx to render when there is no results due to filtering. If not provided `renderFilteredData` will be called with empty data.

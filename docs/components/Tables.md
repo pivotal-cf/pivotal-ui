@@ -3,7 +3,7 @@ title: Table
 menu: components
 cssPath: pivotal-ui/css/tables
 reactPath: pivotal-ui/react/table
-reactComponents:
+componentProps:
   Table:
     columns: Metadata about columns
     data: The data to display in the table
