@@ -6,7 +6,7 @@ cssPath: pivotal-ui/css/box-shadows
 
 # Overview
 
-Box shadows are used to to describe the visual hierarchy of objects.
+These modifiers add box shadows to elements. Box shadows are used to to describe the visual hierarchy of objects.
 
 `box-shadow-key-*` modifiers add directional shadows (heavier on the bottom than the top). `box-shadow-amb-*` modifiers add shadows that are even on all sides, emulating ambient light. `box-shadow-*` modifiers combine them both.
 
