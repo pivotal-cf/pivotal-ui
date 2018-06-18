@@ -6,10 +6,22 @@ cssPath: pivotal-ui/css/positioning
 
 # Overview
 
-The `Positioning` component provides CSS rules for the following attributes:
-* display
-* float
-* position
+Use the positioning modifiers to control the CSS `display`, `float`, and `position` properties.
+
+## Classes
+
+Modifier | Purpose
+---------|--------
+`display-block` | Sets `display: block` on element
+`display-flex` | Sets `display: flex` on element
+`display-inline` | Sets `display: inline` on element
+`display-inline-block` | Sets `display: inline-block` on element
+`display-none` | Sets `display: none` on element
+`float-left` | Floats content to the left
+`float-right` | Floats content to the right
+`position-absolute` | Sets `position: absolute` on element
+`position-fixed` | Sets `position: fixed` on element
+`position-relative` | Sets `position: relative` on element
 
 # Examples
 
@@ -59,15 +71,17 @@ The `Positioning` component provides CSS rules for the following attributes:
 
 ```html
 ::title=Position Fixed
-::description=This example places a green box in the bottom-right corner of this page.
-<div class="position-fixed"
-     style="background-color: green;
-            opacity: .85;
-            padding: 20px;
-            color: white;
-            right: 0;
-            bottom: 0;">
-   I am fixed!
+<div>
+    This example places a green box in the bottom-right corner of this page.
+    <div class="position-fixed"
+        style="background-color: green;
+                opacity: .85;
+                padding: 20px;
+                color: white;
+                right: 0;
+                bottom: 0;">
+    I am fixed!
+    </div>
 </div>
 ```
 

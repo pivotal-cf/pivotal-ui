@@ -6,16 +6,40 @@ cssPath: pivotal-ui/css/whitespace
 
 # Overview
 
-Should be used to modify the default spacing between objects (not between nodes of the same object)
-Please use judiciously. You want to be using defaults most of the time, these are exceptions!
+Use the whitespace modifiers to control the spacing around elements (margin) and within elements (padding).
 
-Class names are composed of three parts, one from each row in the following table. For example: `ptm` or `mbxxxl`.
+## Classes
 
-Letter                           | Description
--------------------------------- | ------------------------------------------------------------------
-p, m                             | padding, margin
-a, t, r, b, l, h, v              | all, top, right, bottom, left, horizontal, vertical
-n, s, m, l, xl, xxl, xxxl        | none(0px), small(2px), medium(4px), large(8px), extra large(16px), extra extra large (24px), extra extra extra large (32px)
+Whitespace class names are composed of three parts, following this format: `{spacing-type}{direction}{size}`. The tables below list the possible values for each part. Some examples:
+
+- `mtxl`: margin-top-extra-large (add a 32-pixel margin on top)
+- `pan`: padding-all-none (remove padding on all sides)
+- `mvs`: margin-vertical-small (add 2-pixel margins on the top and bottom)
+
+Spacing type | Description
+-------------|------------
+`p` | Padding (spacing within an element's borders)
+`m` | Margin (spacing outside of an element's borders)
+
+Direction | Description
+----------|------------
+`a` | All sides
+`t` | Top only
+`r` | Right side only
+`b` | Bottom only
+`l` | Left side only
+`h` | Left and right sides (horizontal)
+`v` | Top and bottom (vertical)
+
+Size | Description
+-----|------------
+`n`    | None (0px)
+`s`    | Small (2px)
+`m`    | Medium (4px)
+`l`    | Large (8px)
+`xl`   | Extra large (16px)
+`xxl`  | Extra extra large (24px)
+`xxxl` | Extra extra extra large (32px)
 
 # Examples
 
