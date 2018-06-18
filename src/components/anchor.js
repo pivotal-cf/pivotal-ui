@@ -10,7 +10,7 @@ export default class Anchor extends PureComponent {
 
   onClick = evt => {
     const {href} = this.props;
-    if (href && (href.charAt(0) !== '/' || href.startsWith('/static'))) return;
+    if (href.charAt(0) !== '/' || href.startsWith('/static')) return;
     evt.preventDefault();
     Router.navigate(href);
   }

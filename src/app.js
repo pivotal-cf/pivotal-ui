@@ -40,17 +40,6 @@ export default class App extends Component {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
 
-    const footer = (
-      <footer className="pvxl phxxxl">
-        © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
-        <span className="pln">
-          <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
-          <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
-          <span className="policy-link" id="teconsent"/>
-        </span>
-      </footer>
-    );
-
     return (
       <Grid id="app" gutter={false}>
         <FlexCol fixed>
@@ -58,7 +47,14 @@ export default class App extends Component {
         </FlexCol>
         <FlexCol id="content" className="content">
           <Page {...{currentRoute, ...routeContent}}/>
-          {footer}
+          <footer className="pvxl phxxxl">
+            © {year} <a href="https://pivotal.io">Pivotal Software</a>, Inc. All Rights Reserved.
+            <span className="pln">
+              <span className="policy-link"><a href="https://pivotal.io/privacy-policy">Privacy Policy</a></span>
+              <span className="policy-link"><a href="https://pivotal.io/terms-of-use">Terms of Use</a></span>
+              <span className="policy-link" id="teconsent"/>
+            </span>
+          </footer>
         </FlexCol>
       </Grid>
     );

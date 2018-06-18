@@ -1,194 +1,108 @@
 import '../../spec_helper';
+import PreRenderer from '../../../src/components/renderers/pre_renderer';
+import CodeExample from '../../../src/components/code_example';
 
 describe('PreRenderer', () => {
-  let file, name, JsCodeArea, PreRenderer, code, contents, title, description;
+  let code, subject;
 
   beforeEach(() => {
-    code = ['const a = 1;', 'const b = 2;'].join('\n');
-    file = 'some-file';
-    name = 'some-name';
-    JsCodeArea = require('../../../src/components/code_area/js_code_area');
-    spyOnRender(JsCodeArea);
-    PreRenderer = require('../../../src/components/renderers/pre_renderer')(file, name);
+    code = ['echo "hello";', 'echo "world";'].join('\n');
+    spyOnRender(CodeExample);
+    subject = ReactDOM.render(<PreRenderer {...{
+      children: [
+        <span className="language-bash" children={[code]}/>
+      ]
+    }}/>, root);
   });
 
-  describe('with className "language-js"', () => {
-
-    describe('without title or description', () => {
-      beforeEach(() => {
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-js" children={[code]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
-      });
-
-      it('renders JsCodeArea', () => {
-        expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          code,
-          file,
-          name
-        });
-      });
-    });
-
-    describe('with title', () => {
-      beforeEach(() => {
-        title = 'some-title';
-        contents = [
-          `::title=${title}`,
-          code
-        ].join('\n');
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-js" children={[contents]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
-      });
-
-      it('renders JsCodeArea', () => {
-        expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          title,
-          code,
-          file,
-          name
-        });
-      });
-    });
-
-    describe('with description', () => {
-      beforeEach(() => {
-        description = 'some-description';
-        contents = [
-          `::description=${description}`,
-          code
-        ].join('\n');
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-js" children={[contents]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
-      });
-
-      it('renders JsCodeArea', () => {
-        expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          title: '',
-          description,
-          code,
-          file,
-          name
-        });
-      });
-    });
-
-    describe('with title and description', () => {
-      beforeEach(() => {
-        title = 'some title';
-        description = 'some-description';
-        contents = [
-          `::title=${title}`,
-          `::description=${description}`,
-          code
-        ].join('\n');
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-js" children={[contents]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
-      });
-
-      it('renders JsCodeArea', () => {
-        expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          title,
-          description,
-          code,
-          file,
-          name
-        });
-      });
-    });
-
-    describe('without a toolbar', () => {
-      beforeEach(() => {
-        contents = [
-          `::noToolbar`,
-          code
-        ].join('\n');
-
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-js" children={[contents]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
-      });
-
-      it('renders JsCodeArea', () => {
-        expect(JsCodeArea).toHaveBeenRenderedWithProps({
-          code,
-          file,
-          name,
-          noToolbar: true
-        });
-      })
-    });
-
+  it('renders a pre tag', () => {
+    expect('pre.md-pre').toHaveClass(['border', 'border-not-rounded', 'language-bash']);
+    expect('pre.md-pre').toHaveText(code);
   });
 
-  describe('with className "language-html"', () => {
-    let HtmlCodeArea;
-
+  describe('when the language is JavaScript', () => {
     beforeEach(() => {
-      HtmlCodeArea = require('../../../src/components/code_area/html_code_area');
-      spyOnRender(HtmlCodeArea);
+      code = ['const x = "hello";', 'const y = "world";'].join('\n');
+      subject::setProps({children: [
+        <span className="language-js" children={[code]}/>
+      ]});
     });
 
-    describe('without title or description', () => {
+    it('renders a code example', () => {
+      expect(CodeExample).toHaveBeenRenderedWithProps({
+        code,
+        description: '',
+        lang: 'language-js',
+        noToolbar: false,
+        title: ''
+      });
+    });
+
+    describe('when a ::title is given', () => {
       beforeEach(() => {
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-html" children={[code]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
+        subject::setProps({children: [
+          <span className="language-js" children={[`::title=My example\n${code}`]}/>
+        ]});
       });
 
-      it('renders HtmlCodeArea', () => {
-        expect(HtmlCodeArea).toHaveBeenRenderedWithProps({
+      it('renders a code example', () => {
+        expect(CodeExample).toHaveBeenRenderedWithProps({
           code,
-          file,
-          name
+          description: '',
+          lang: 'language-js',
+          noToolbar: false,
+          title: 'My example'
         });
       });
     });
 
-    describe('without a toolbar', () => {
+    describe('when a ::description is given', () => {
       beforeEach(() => {
-        contents = [
-          `::noToolbar`,
-          code
-        ].join('\n');
-
-        ReactDOM.render((
-          <PreRenderer>
-            <span className="language-html" children={[contents]}/>
-            <span>Some other span</span>
-          </PreRenderer>
-        ), root);
+        subject::setProps({children: [
+          <span className="language-js" children={[`::description=My description\n${code}`]}/>
+        ]});
       });
 
-      it('renders HtmlCodeArea', () => {
-        expect(HtmlCodeArea).toHaveBeenRenderedWithProps({
+      it('renders a code example', () => {
+        expect(CodeExample).toHaveBeenRenderedWithProps({
           code,
-          file,
-          name,
-          noToolbar: true
+          description: 'My description',
+          lang: 'language-js',
+          noToolbar: false,
+          title: ''
         });
-      })
+      });
+    });
+
+    describe('when ::noToolbar is given', () => {
+      beforeEach(() => {
+        subject::setProps({children: [
+          <span className="language-js" children={[`::noToolbar\n${code}`]}/>
+        ]});
+      });
+
+      it('renders a code example', () => {
+        expect(CodeExample).toHaveBeenRenderedWithProps({
+          code,
+          description: '',
+          lang: 'language-js',
+          noToolbar: true,
+          title: ''
+        });
+      });
+    });
+
+    describe('when ::nonInteractive is given', () => {
+      beforeEach(() => {
+        subject::setProps({children: [
+          <span className="language-js" children={[`::nonInteractive\n${code}`]}/>
+        ]});
+      });
+
+      it('renders a pre tag', () => {
+        expect('pre.md-pre').toHaveClass(['border', 'border-not-rounded', 'language-js']);
+        expect('pre.md-pre code').toHaveText(code);
+      });
     });
   });
 });

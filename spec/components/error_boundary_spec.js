@@ -7,16 +7,12 @@ describe('ErrorBoundary', () => {
   beforeEach(() => {
     error = new Error('some error');
     info = {ComponentStack: 'here'};
-    subject = ReactDOM.render(<ErrorBoundary>
-      <div className="hello">hello</div>
-    </ErrorBoundary>, root);
+    subject = ReactDOM.render(<ErrorBoundary><div className="hello">hello</div></ErrorBoundary>, root);
   });
 
   describe('when an error was caught', () => {
     beforeEach(() => {
-      subject.setState({
-        hasError: true, error, info
-      });
+      subject.setState({hasError: true, error, info});
     });
 
     it('renders an error pre tag', () => {

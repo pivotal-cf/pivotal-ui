@@ -67,6 +67,7 @@
     "build": "webpack --config ./frontend_webpack.config.babel.js -p && npm run copy-files",
     "build-dev": "webpack --config ./frontend_webpack.config.babel.js && npm run copy-files",
     "test": "gulp spec-app",
+    "test-server": "gulp jasmine",
     "lint": "eslint src --fix"
   }
 }

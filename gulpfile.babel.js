@@ -14,12 +14,9 @@ Jasmine.install({
   },
   appGlobs: ['./spec/index.js'],
   headlessSpecRunnerOptions: {profile: true},
-  webpack: {
-    test: () => {
-      return {
-        ...devWebpack,
-        entry: './spec/index.js'
-      }
-    }
-  }
+  webpack: {test: () => ({
+    ...devWebpack,
+    entry: './spec/index.js',
+    watch: true
+  })}
 });

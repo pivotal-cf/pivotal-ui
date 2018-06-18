@@ -22,20 +22,17 @@ export default class ImportPreview extends PureComponent {
     const cssImport = cssPath && `import '${cssPath}';`;
     const multipleComponents = componentNames.length > 1;
 
+    const preview = (label, code, className) => (
+      <div {...{className: classnames('border styleguide-import-preview', className)}}>
+        <div className="border-bottom em-high pal bg-neutral-10">{label}</div>
+        <pre className="pre-unstyled man md-pre language-js"><code className="styleguide-import-preview-code">{code}</code></pre>
+      </div>
+    );
+
     return (
       <Fragment>
-        {reactPath && (
-          <div {...{className: 'border styleguide-import-preview'}}>
-            <div className="border-bottom em-high pal bg-neutral-10">{`Import React component${multipleComponents ? 's' : ''}`}</div>
-            <pre className="pre-unstyled man md-pre language-js"><code className="styleguide-import-preview-code">{reactImport}</code></pre>
-          </div>
-        )}
-        {cssPath && (
-          <div {...{className: classnames('border styleguide-import-preview', {'mtxxxl': reactPath})}}>
-            <div className="border-bottom em-high pal bg-neutral-10">{`Import CSS${reactPath ? ' only' : ''}`}</div>
-            <pre className="pre-unstyled man md-pre language-js"><code className="styleguide-import-preview-code">{cssImport}</code></pre>
-          </div>
-        )}
+        {reactPath && preview(`Import React component${multipleComponents ? 's' : ''}`, reactImport)}
+        {cssPath && preview(`Import CSS${reactPath ? ' only' : ''}`, cssImport, {'mtxxxl': reactPath})}
       </Fragment>
     );
   }
