@@ -27,7 +27,7 @@ describe('Anchor', () => {
 
   describe('when clicked', () => {
     beforeEach(() => {
-      $('a.test-anchor').simulate('click', {preventDefault});
+      $('a.test-anchor').simulateNative('click', {preventDefault});
     });
 
     it('prevents default on click event', () => {
