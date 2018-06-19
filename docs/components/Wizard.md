@@ -21,8 +21,8 @@ const pages = [{
 }, {
   render() { return <span>This is the third and final page of the wizard. The user can click Back or Finish</span>}
 }];
-<Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 
+<Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 ```
 
 ```jsx
@@ -32,8 +32,8 @@ const pages = [{
 }, {
   render() { return <span>This is the last page of the wizard. The Back button is disabled and the Finish button shows a spinner icon.</span>}
 }];
-<Wizard pages={pages} saving={true} savingText="Finishing" style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 
+<Wizard pages={pages} saving={true} savingText="Finishing" style={{border: '1px solid #ccc', padding: '8px'}} finish={() => alert('All done!')}/>
 ```
 
 ```jsx
@@ -45,6 +45,7 @@ const pages = [{
   backComponent: <a>Custom back component</a>,
   finishComponent: <a>Custom finish component</a>
 }];
+
 <Wizard pages={pages} style={{border: '1px solid #ccc', padding: '8px'}}/>
 ```
 

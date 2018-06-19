@@ -10,15 +10,15 @@ $active-item-border-size: $base-unit / 2;
   padding-bottom: 40px;
   width: 240px;
   height: 100%;
-
-  a {
-    align-self: center;
-  }
 }
 
 .sidebar-header {
   padding: $base-unit * 2;
   display: flex;
+
+  a {
+    align-self: center;
+  }
 
   .sidebar-icon {
     padding: $base-unit;
@@ -42,6 +42,7 @@ $active-item-border-size: $base-unit / 2;
 }
 
 .sidebar-link {
+  align-self: center;
   color: $gray-9;
   padding: $base-unit $base-unit $base-unit $sidebar-item-left-padding;
   display: block;

@@ -25,15 +25,13 @@ Additionally, each `Tab` must define an `eventKey` property for uniquely identif
 
 ```jsx
 ::title=Tabs
-<div>
-    <Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
-      <Tab eventKey={1} title="Tab 1">Wow!</Tab>
-      <Tab eventKey={2} title="Tab 2">
-        <h2>Neat!</h2>
-        <span>So much content.</span>
-      </Tab>
-    </Tabs>
-</div>
+<Tabs defaultActiveKey={1} actions={<a>Action!</a>}>
+  <Tab eventKey={1} title="Tab 1">Wow!</Tab>
+  <Tab eventKey={2} title="Tab 2">
+    <h2>Neat!</h2>
+    <span>So much content.</span>
+  </Tab>
+</Tabs>
 ```
 
 ```jsx
@@ -63,7 +61,6 @@ Do's         | Don'ts
 Use tabs to group content, connect related information, and as a tool to save space. | Don’t use tabs when it’s more meaningful for the user to see related content grouped together
 Information needs to be highly scannable and simple to navigate helps aid users in locating specific information they need. | When content is sequential it may make more sense to have content grouped and scrollable
 When a user would like to access each group of information separately. | When it makes more sense to have users scan the page then hide content
-
 
 # Props
 
